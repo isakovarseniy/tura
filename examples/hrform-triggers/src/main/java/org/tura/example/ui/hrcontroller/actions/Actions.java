@@ -18,7 +18,8 @@
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
  * under the License.
- */package org.tura.example.ui.hrcontroller.actions;
+ */
+package org.tura.example.ui.hrcontroller.actions;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -126,6 +127,23 @@ public class Actions implements EventAccessor {
 	@Override
 	public void setEvent(ActionEvent event) {
 		this.event = event;
+
+	}
+
+	@SuppressWarnings("rawtypes")
+	public boolean empDetailsEnable() {
+		try {
+			DataControl dc = (DataControl) elResolver
+					.getValue("#{beanFactoryHrManagerHRController.employee}");
+
+			dc.getCurrentObject();
+			if (dc.getScroller().size() != 0)
+				return true;
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+		return false;
 
 	}
 

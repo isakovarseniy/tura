@@ -745,6 +745,9 @@
       <operations uid="22776eec-c35a-4788-90be-0b746e1c9182" name="rallbackChanges">
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
+      <operations uid="159febef-7159-4516-85fe-1bedba34f81c" name="empDetailsEnable">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0"/>
+      </operations>
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="dac28942-e33b-415d-8818-7f4fe0b49db9" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType"/>
     <types xsi:type="tura.domain:Type" uid="1fb89120-1544-4563-a949-33a8d12ab064" name="Department2Entity">
@@ -2829,11 +2832,22 @@
         <children xsi:type="tura.domain:LayerHolder" nickname="emplInfo" order="1" uid="9f4fda7f-de98-41ad-85de-027aacc547ff" columns="3">
           <children xsi:type="tura.domain:OutputText" order="4" uid="aea90e5a-e883-456e-952a-8bab3f1b1dc4" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_97c41a52-78c3-422f-ae56-c81eb04a899c">
             <style/>
-            <enabled/>
+            <enabled value="Packages.HR package.HR package::Action executor.empDetailsEnable()">
+              <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+              <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
+              <expression objRef="c4654ad8-156f-4706-bda2-791ed81fcdea" order="2" expressionType="TypeImpl"/>
+              <expression objRef="159febef-7159-4516-85fe-1bedba34f81c" order="3" expressionType="OperationImpl"/>
+            </enabled>
             <required/>
           </children>
           <children xsi:type="tura.domain:OutputText" order="3" uid="239b4114-6644-4b98-8d6e-a7b1ea5c6b9f" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_d3f4f447-e522-4da6-82d4-70c4add09a66">
             <style/>
+            <enabled value="Packages.HR package.HR package::Action executor.empDetailsEnable()">
+              <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+              <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
+              <expression objRef="c4654ad8-156f-4706-bda2-791ed81fcdea" order="2" expressionType="TypeImpl"/>
+              <expression objRef="159febef-7159-4516-85fe-1bedba34f81c" order="3" expressionType="OperationImpl"/>
+            </enabled>
           </children>
           <children xsi:type="tura.domain:Label" uid="5b8505c7-3b3f-4db0-a3c7-6f012fe40590" label="Salary">
             <multiLangLabel value="Messages.HR Controller.EMPLOYEES_TAB_SALARY">
@@ -2856,7 +2870,14 @@
               <expression objRef="c890adee-737d-40f3-bdad-f681bdea48dc" order="2" expressionType="MessageImpl"/>
             </multiLangLabel>
           </children>
-          <children xsi:type="tura.domain:Date" order="5" uid="33325a94-6f8a-4110-bbbd-a3afce3d7c9c" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_bdf0412e-246e-4d81-8109-ffa32f0a2ab3" format="MM/dd/yyyy"/>
+          <children xsi:type="tura.domain:Date" order="5" uid="33325a94-6f8a-4110-bbbd-a3afce3d7c9c" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_bdf0412e-246e-4d81-8109-ffa32f0a2ab3" format="MM/dd/yyyy">
+            <enabled value="Packages.HR package.HR package::Action executor.empDetailsEnable()">
+              <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+              <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
+              <expression objRef="c4654ad8-156f-4706-bda2-791ed81fcdea" order="2" expressionType="TypeImpl"/>
+              <expression objRef="159febef-7159-4516-85fe-1bedba34f81c" order="3" expressionType="OperationImpl"/>
+            </enabled>
+          </children>
         </children>
       </children>
       <children xsi:type="tura.domain:LayerHolder" order="1" uid="fffe0acc-5bf9-40dd-bd58-8c4bba5ad2b9" columns="2">
