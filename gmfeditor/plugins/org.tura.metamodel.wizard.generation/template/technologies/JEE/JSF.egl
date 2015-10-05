@@ -200,4 +200,16 @@ operation domain::CanvasFrame  mkUIDBinding(){
 operation domain::ViewPort  mkUIDBinding(){
 %]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
 }
+
+@template
+operation domain::Trigger  scriptTrigger( beanName:String){
+   %]#{scriptGenerator[%=beanName%].scriptBuilder('[%=self.mkuid()%]')}[%
+}
+
+@template
+operation domain::Trigger  javaTrigger( beanName:String){
+   %]#{actionExecutor[%=beanName%].setSource('[%=self.mkuid()%]').eventListener}[%
+}
+
+
 %]

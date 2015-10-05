@@ -35,6 +35,10 @@ public class ActionExecutor  implements java.io.Serializable {
 	private ELResolver elResolver;
     
     private java.util.HashMap<String,Object> hash = new  java.util.HashMap<String,Object>();
+    
+    public String src;
+    
+    
 [%
      var map = new Native('java.util.HashMap'); 
 
@@ -104,12 +108,17 @@ public class ActionExecutor  implements java.io.Serializable {
 %]
    }
    
+    public Object setSource(String src) {
+        this.src=src;
+        return this;
+    }
+   
+   
     @SuppressWarnings("unchecked")
     public void eventListener(ActionEvent event) {
         try {
-        	String id = (String) event.getComponent().getAttributes()
-					.get("actionExecutor");
-            Object[] array = (Object[]) hash.get(id);
+
+            Object[] array = (Object[]) hash.get(src);
 
             Method method =
                 array[2].getClass()

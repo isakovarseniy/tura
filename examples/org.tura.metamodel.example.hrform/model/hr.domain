@@ -2839,6 +2839,7 @@
               <expression objRef="159febef-7159-4516-85fe-1bedba34f81c" order="3" expressionType="OperationImpl"/>
             </enabled>
             <required/>
+            <readOnly/>
           </children>
           <children xsi:type="tura.domain:OutputText" order="3" uid="239b4114-6644-4b98-8d6e-a7b1ea5c6b9f" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_d3f4f447-e522-4da6-82d4-70c4add09a66">
             <style/>
@@ -2848,6 +2849,8 @@
               <expression objRef="c4654ad8-156f-4706-bda2-791ed81fcdea" order="2" expressionType="TypeImpl"/>
               <expression objRef="159febef-7159-4516-85fe-1bedba34f81c" order="3" expressionType="OperationImpl"/>
             </enabled>
+            <required/>
+            <readOnly/>
           </children>
           <children xsi:type="tura.domain:Label" uid="5b8505c7-3b3f-4db0-a3c7-6f012fe40590" label="Salary">
             <multiLangLabel value="Messages.HR Controller.EMPLOYEES_TAB_SALARY">

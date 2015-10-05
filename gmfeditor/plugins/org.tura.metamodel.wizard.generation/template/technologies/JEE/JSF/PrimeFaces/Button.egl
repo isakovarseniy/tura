@@ -30,27 +30,20 @@ operation domain::Button draw(hash) {
              type.mappingType2JavaScript(recipe,ingredient);
            }
            if (trigger.findClassifier('UIGeneration','JSF','trigger.onclick') and type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper) ){
-             %] onclick="#{scriptGenerator[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].scriptBuilder('[%=trigger.mkuid()%]')}"[%
+             %] onclick="[%=trigger.scriptTrigger(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name))%]"[%
            }else{      
               if (trigger.findClassifier('UIGeneration','JSF','trigger.oncomplete') and type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper)){
-                %] oncomplete="#{scriptGenerator[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].scriptBuilder('[%=trigger.mkuid()%]')}"[%
+                %] oncomplete="[%=trigger.scriptTrigger(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name))%]"[%
               }
               else{
                 if (type <> null and type.~mapper.isDefined() and "Type2Java".equals(type.~mapper) ){
-           %] actionListener="#{actionExecutor[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].eventListener}"[%
+           %] actionListener="[%=trigger.javaTrigger(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name))%]"[%
               }
             }      
          }
       }
 %] [%=icon%]    [%=self.refreshArias()%] >
 [%
-       for ( trigger in  self.triggers){
-          if (not trigger.findClassifier('UIGeneration','JSF','trigger.onclick') and not trigger.findClassifier('UIGeneration','JSF','trigger.oncomplete')){%]
-				<f:attribute name="actionExecutor" value="[%=trigger.mkuid()%]" />        
-[%
-          }
-       }
-
         for (param in self.findAllClassifiers('UIGeneration','JSF','parameter')){%]
              [%=param.details%]        
         [%
