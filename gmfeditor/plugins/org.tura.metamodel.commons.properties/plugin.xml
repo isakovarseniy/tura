@@ -721,7 +721,7 @@
           <propertyTab
              category="domain"
              id="property.tab.domain.canvas.uielement.enabled"
-             label="Enabled"/>
+             label="Disabled"/>
 
           <propertyTab
              category="domain"

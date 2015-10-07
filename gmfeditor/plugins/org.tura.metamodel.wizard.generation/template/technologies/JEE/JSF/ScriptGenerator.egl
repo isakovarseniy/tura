@@ -5,7 +5,7 @@ operation   scriptGenerator(hash) {
      var ingredient = hash.get("ingredient");
      var component = hash.get("component");
      var form = hash.get("form");
-     var actionElements = hash.get("actionElements");
+     var scriptTriggers = hash.get("scriptTriggers");
      var  javaPath =  hash.get("javaPath");
      var uipackage = hash.get("uipackage");
  %]
@@ -25,21 +25,17 @@ public class ScriptGenerator{
 [%
      var map = new Native('java.util.HashMap'); 
 
-     for ( action in actionElements){
-       for( trigger in  action.triggers ){
+     for( trigger in  scriptTriggers ){
          if (trigger.typeRef <> null ){
              var type = trigger.typeRef;
              type.mappingType2JavaScript(recipe,ingredient);
          }
-      }
      }
 %]
 
      public ScriptGenerator(){
 [%      
-     for ( action in actionElements){
-      for( trigger in  action.triggers ){
-     
+      for( trigger in  scriptTriggers ){
        if (trigger.methodRef <> null  and  trigger.typeRef.~url.isDefined()){  
 %]
       hash.put("[%=trigger.mkuid()%]",new Object[]{
@@ -59,7 +55,6 @@ public class ScriptGenerator{
       );
 [%     
       }
-     } 
     }      
 %]
    }

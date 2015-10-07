@@ -5,10 +5,13 @@ operation  viewgeneration(hash) {
       var webapp = hash.get("webapp");
       var util = new Native('org.tura.metamodel.commons.Util');
       var allPorts = new Native('java.util.ArrayList'); 
-      var actionElements = new Native('java.util.ArrayList'); 
+      var actionTriggers = new Native('java.util.ArrayList'); 
+      var scriptTriggers = new Native('java.util.ArrayList'); 
+      
       var uipackage = hash.get("uipackage");
 
-      hash.put("actionElements",actionElements);
+      hash.put("actionTriggers",actionTriggers);
+      hash.put("scriptTriggers",scriptTriggers);
       
       if (form.view = null or form.view.view = null)
          return;   
@@ -112,10 +115,8 @@ operation domain::Uielement  readOnlyConverter(hash){
 
 @template
 operation domain::Uielement  enabled(hash){
-     if (self.enabled <> null and self.enabled.value <> null){
-         var value = buildParameterizedExpression(self.enabled);
-            
-     %]enabled="[%=value%]"[%}
+      var value = constructExpression(self.enabled,self,'trigger.disabled',hash);
+     %]disabled="[%=value%]"[%
 }
 
 @template
@@ -202,13 +203,59 @@ operation domain::ViewPort  mkUIDBinding(){
 }
 
 @template
-operation domain::Trigger  scriptTrigger( beanName:String){
+operation domain::Trigger  scriptTrigger( beanName:String,hash){
+   hash.get("scriptTriggers").add(self);
    %]#{scriptGenerator[%=beanName%].scriptBuilder('[%=self.mkuid()%]')}[%
 }
 
 @template
-operation domain::Trigger  javaTrigger( beanName:String){
+operation domain::Trigger  javaTrigger( beanName:String, hash){
+   hash.get("actionTriggers").add(self);
    %]#{actionExecutor[%=beanName%].setSource('[%=self.mkuid()%]').eventListener}[%
+}
+
+@template
+operation domain::Trigger  javaCall( beanName:String, hash){
+   hash.get("actionTriggers").add(self);
+   %]#{actionExecutor[%=beanName%].setSource('[%=self.mkuid()%]').action}[%
+}
+
+
+operation constructExpression( context : domain::Context, triggers: domain::ActioinTriggers, classifier : String , hash) {
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var recipe = hash.get("recipe");
+   var ingredient = hash.get("ingredient");
+
+   var trigger = triggers.findClassifiedTrigger("UIGeneration",  "JSF", classifier);
+   if ( trigger <> null ){
+        var type = trigger.typeRef;
+        if (type <> null ){
+           type.mappingType2Java(recipe,ingredient);
+           type.mappingType2JavaScript(recipe,ingredient);
+        }else
+          return "";
+        if (type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper)){
+           return trigger.scriptTrigger(util.getBeanFactoryName(),hash );
+           
+        }
+        if (type.~mapper.isDefined() and "Type2Java".equals(type.~mapper)){
+           return trigger.javaCall(util.getBeanFactoryName(),hash);
+        }   
+   }else{
+     if (context <> null and context.value <> null){
+         return  buildParameterizedExpression(context);
+      }
+   }  
+   return "";
+}
+
+operation domain::ActioinTriggers findClassifiedTrigger( artifactLib:String, artifact: String, classifier : String) {
+       for (trigger in self.triggers){
+          if (trigger.findClassifier(artifactLib,artifact,classifier)){
+             return trigger;
+          }
+       }
+       return null;
 }
 
 

@@ -5,7 +5,7 @@ operation   actionExecutor(hash) {
      var ingredient = hash.get("ingredient");
      var component = hash.get("component");
      var form = hash.get("form");
-     var actionElements = hash.get("actionElements");
+     var actionTriggers = hash.get("actionTriggers");
      var  javaPath =  hash.get("javaPath");  
      var uipackage = hash.get("uipackage");
      
@@ -43,19 +43,17 @@ public class ActionExecutor  implements java.io.Serializable {
      var map = new Native('java.util.HashMap'); 
 
      var counter = 0;
-     for ( action in actionElements){
-       for( trigger in  action.triggers ){
+     for( trigger in  actionTriggers ){
          if (trigger.typeRef <> null ){
-             var type = trigger.typeRef;
-             type.mappingType2Java(recipe,ingredient);
-          if (type.~fullName.isDefined() and map.get(type.~fullName) = null) {
+           var type = trigger.typeRef;
+           type.mappingType2Java(recipe,ingredient);
+           if (type.~fullName.isDefined() and map.get(type.~fullName) = null) {
                  type.~counter = counter;
                  counter = counter+1;
                  map.put(type.~fullName,type);
             }     
          }
-       }
-     }   
+     }
      
      for ( type in map.values()){
 %]
@@ -67,8 +65,7 @@ public class ActionExecutor  implements java.io.Serializable {
 	@javax.annotation.PostConstruct
 	public void init() {
 [%      
-     for ( action in actionElements){
-        for( trigger in  action.triggers ){
+        for( trigger in  actionTriggers ){
          if (trigger.typeRef <> null and trigger.typeRef.~fullName.isDefined()){
 %]
       hash.put("[%=trigger.mkuid()%]",new Object[]{
@@ -104,13 +101,39 @@ public class ActionExecutor  implements java.io.Serializable {
        }
      } 
       
-     }      
 %]
    }
    
     public Object setSource(String src) {
         this.src=src;
         return this;
+    }
+   
+   
+   @SuppressWarnings("unchecked")
+    public Object getAction() {
+        try {
+
+            Object[] array = (Object[]) hash.get(src);
+
+            Method method =
+                array[2].getClass()
+                        .getMethod((String) (array[3]), (Class[]) array[0]);
+            @SuppressWarnings("rawtypes")
+            ArrayList objects = new ArrayList();
+            for (Object exp : (Object[]) array[1]) {
+                Object obj = exp;
+                String expression = (String) exp;
+                if ("#{".equals(expression.substring(0, 2))) {
+                    obj = elResolver.getValue(expression);
+                }
+                objects.add(obj);
+            }
+            return method.invoke(array[2], objects.toArray());
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.INFO, e.getMessage(),e);
+        }
+        return null;
     }
    
    

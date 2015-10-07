@@ -138,12 +138,12 @@ public class Actions implements EventAccessor {
 
 			dc.getCurrentObject();
 			if (dc.getScroller().size() != 0)
-				return true;
+				return false;
 
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
-		return false;
+		return true;
 
 	}
 

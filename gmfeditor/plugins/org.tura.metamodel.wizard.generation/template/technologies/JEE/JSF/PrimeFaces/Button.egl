@@ -8,8 +8,6 @@ operation domain::Button draw(hash) {
      var form = hash.get("form");
      var uipackage = hash.get("uipackage");
      
-     hash.get("actionElements").add(self);
-     
      var title =  " value=\"" + buildParameterizedExpression(self.multiLangLabel) + "\" ";  
      var icon = " icon=\""+util.apostropheRemover(buildParameterizedExpression(self.icon))+"\" ";
  
@@ -18,29 +16,27 @@ operation domain::Button draw(hash) {
      if (self.findClassifier('UIGeneration','JSF','immediate')){
         immediate = "immediate=\"true\"";
      }
-     
-     
 
  %]
 <p:commandButton  [%=immediate%]  [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%][%  
+       var expression = constructExpression(null,self,'trigger.onclick',hash);
+       if (expression <> ""){
+       %]onclick="[%=expression%]"[%
+       }
+       expression = constructExpression(null,self,'trigger.oncomplete',hash);
+       if (expression <> ""){
+       %]oncomplete="[%=expression%]"[%
+       }
        for ( trigger in  self.triggers){
+          if (trigger.classifiers.size() <> 0 )
+            continue;
           var type = trigger.typeRef;
           if (type <> null ){
              type.mappingType2Java(recipe,ingredient);
-             type.mappingType2JavaScript(recipe,ingredient);
            }
-           if (trigger.findClassifier('UIGeneration','JSF','trigger.onclick') and type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper) ){
-             %] onclick="[%=trigger.scriptTrigger(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name))%]"[%
-           }else{      
-              if (trigger.findClassifier('UIGeneration','JSF','trigger.oncomplete') and type <> null  and type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper)){
-                %] oncomplete="[%=trigger.scriptTrigger(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name))%]"[%
-              }
-              else{
-                if (type <> null and type.~mapper.isDefined() and "Type2Java".equals(type.~mapper) ){
-           %] actionListener="[%=trigger.javaTrigger(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name))%]"[%
-              }
-            }      
-         }
+          if (type <> null and type.~mapper.isDefined() and "Type2Java".equals(type.~mapper) ){
+           %] actionListener="[%=trigger.javaTrigger(util.getBeanFactoryName(),hash)%]"[%
+          }
       }
 %] [%=icon%]    [%=self.refreshArias()%] >
 [%
