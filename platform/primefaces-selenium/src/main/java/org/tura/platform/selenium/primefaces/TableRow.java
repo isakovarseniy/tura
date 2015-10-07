@@ -62,4 +62,10 @@ public class TableRow implements Row {
 		helper.waitForJQueryAndPrimeFaces();
 
 	}
+
+	@Override
+	public void doubleClick() {
+		// TODO Auto-generated method stub
+		
+	}
 }

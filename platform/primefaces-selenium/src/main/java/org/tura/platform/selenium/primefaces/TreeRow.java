@@ -24,6 +24,7 @@ package org.tura.platform.selenium.primefaces;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.tura.platform.selenium.Row;
 
 public class TreeRow implements Row {
@@ -48,6 +49,16 @@ public class TreeRow implements Row {
 		helper.waitForJQueryAndPrimeFaces();
 		
 	}
+	
+	@Override
+	public void doubleClick() {
+		Actions act = new Actions(driver);
+		act.doubleClick(getCell(0).findElement(By.cssSelector("span[class*='ui-treenode-label']")));
+		act.perform();
+		Helper helper = new Helper(driver);
+		helper.waitForJQueryAndPrimeFaces();
+		
+	}	
 
 	public void open(){
 		getCell(0).findElement(By.cssSelector("span[class*='ui-tree-toggler']")).click();

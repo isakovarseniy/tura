@@ -28,5 +28,6 @@ public interface Row {
 	public WebElement getCell(int index);
 	public void click();
 	public boolean isSelected();
+	public void doubleClick();
 	
 }
