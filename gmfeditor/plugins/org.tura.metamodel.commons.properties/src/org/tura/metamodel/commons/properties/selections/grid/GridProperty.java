@@ -23,6 +23,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyComposite;
@@ -145,15 +146,17 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 	public void refresh() {
 		try {
 			super.refresh();
-			tableViewer.setInput(ds);
-			if (ds.isRenewed()){
-				ds.reset();
-				if (ds.getRows().size() != 0)
-			        tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(0)),true);
+			Control control = tableViewer.getControl(); 
+			if (control != null && !control.isDisposed()) {
+				tableViewer.setInput(ds);
+				if (ds.isRenewed()){
+					ds.reset();
+					if (ds.getRows().size() != 0)
+				        tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(0)),true);
+				}
+				((TabbedPropertyComposite) (getPropertySheetPage().getControl()))
+						.getTabComposite().layout(true, true);
 			}
-			((TabbedPropertyComposite) (getPropertySheetPage().getControl()))
-					.getTabComposite().layout(true, true);
-
 		} catch (org.eclipse.swt.SWTException e) {
 		}
 	}

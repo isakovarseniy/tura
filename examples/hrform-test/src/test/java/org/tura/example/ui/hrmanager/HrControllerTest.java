@@ -38,7 +38,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.CityDetailsPageObject;
@@ -658,7 +657,6 @@ public class HrControllerTest {
 		inputText.setValue("State 3");
 		inputText.setValue(Keys.RETURN);
 
-		
 		new SeleniumActionExecutor(driver,
 				HRControllerPageObject.getLocationTreeSearchCriteria()) {
 			public void action(WebDriver driver) {
@@ -676,8 +674,7 @@ public class HrControllerTest {
 				By.cssSelector("input")), driver);
 		inputText.setValue("City 3");
 		inputText.setValue(Keys.RETURN);
-		
-		
+
 		new SeleniumActionExecutor(driver,
 				HRControllerPageObject.getLocationTreeSearchCriteria()) {
 			public void action(WebDriver driver) {
@@ -695,9 +692,80 @@ public class HrControllerTest {
 				By.cssSelector("input")), driver);
 		inputText.setValue("Street 3");
 		inputText.setValue(Keys.RETURN);
-		
-				
-		
+
+		new SeleniumActionExecutor(driver,
+				DepartmentsDetailsPageObject.getDepartmentTableSearchCriteria()) {
+			public void action(WebDriver driver) {
+				DepartmentsDetailsPageObject departmentsDetailsPage = new DepartmentsDetailsPageObject(
+						driver);
+				departmentsDetailsPage.getAddDepartment().click();
+			}
+		}.run();
+
+		DepartmentsDetailsPageObject departmentsDetailsPage = new DepartmentsDetailsPageObject(
+				driver);
+		Table deptTable = (Table) departmentsDetailsPage.getDepartmentTable();
+
+		deptTable.getRow(0).getCell(0).click();
+		inputText = new InputTextPrimeFaces(deptTable.getRow(0).getCell(0)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue("Dept 1");
+		inputText.setValue(Keys.RETURN);
+
+		deptTable.getRow(0).getCell(1).click();
+		inputText = new InputTextPrimeFaces(deptTable.getRow(0).getCell(1)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue("Dept 1 desk");
+		inputText.setValue(Keys.RETURN);
+
+		new SeleniumActionExecutor(driver,
+				EmployeesPageObject.getEmployeeTableSearchCriteria()) {
+			public void action(WebDriver driver) {
+				EmployeesPageObject employeesPage = new EmployeesPageObject(
+						driver);
+				employeesPage.getAddEmployee().click();
+			}
+		}.run();
+
+		EmployeesPageObject employeesPage = new EmployeesPageObject(driver);
+
+		Table empTable = (Table) employeesPage.getEmployeeTable();
+
+		empTable.getRow(0).getCell(0).click();
+		inputText = new InputTextPrimeFaces(empTable.getRow(0).getCell(0)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue("FName 1");
+		inputText.setValue(Keys.RETURN);
+
+		empTable.getRow(0).getCell(1).click();
+		inputText = new InputTextPrimeFaces(empTable.getRow(0).getCell(1)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue("LName 1");
+		inputText.setValue(Keys.RETURN);
+
+		new SeleniumActionExecutor(driver,
+				EmployeesPageObject.getVehicleTableSearchCriteria()) {
+			public void action(WebDriver driver) {
+				EmployeesPageObject employeesPage = new EmployeesPageObject(
+						driver);
+				employeesPage.getAddVehicle().click();
+			}
+		}.run();
+
+		Table vehicleTable = (Table) employeesPage.getVehicleTable();
+
+		vehicleTable.getRow(0).getCell(0).click();
+		inputText = new InputTextPrimeFaces(vehicleTable.getRow(0).getCell(0)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue("Honda");
+		inputText.setValue(Keys.RETURN);
+
+		vehicleTable.getRow(0).getCell(1).click();
+		inputText = new InputTextPrimeFaces(vehicleTable.getRow(0).getCell(1)
+				.findElement(By.cssSelector("input")), driver);
+		inputText.setValue("1234-567");
+		inputText.setValue(Keys.RETURN);
+
 		System.out.println("");
 	}
 }

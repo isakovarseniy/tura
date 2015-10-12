@@ -95,7 +95,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     [%}%]
 		org.tura.platform.datacontrol.DataControlFactory.buildConnection(this);
       }catch(Exception e){
-         	logger.fine(e.getMessage());
+         	logger.info(e.getMessage());
       }
 	}	
 

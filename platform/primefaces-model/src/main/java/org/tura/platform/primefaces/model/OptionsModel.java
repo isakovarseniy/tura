@@ -70,7 +70,7 @@ public class OptionsModel {
 				}
 			}
 		} catch (Exception e) {
-			logger.fine(e.getMessage());
+			logger.info(e.getMessage());
 		}
 		return this;
 	}
@@ -97,7 +97,7 @@ public class OptionsModel {
 			}
 
 		} catch (Exception e) {
-			logger.fine(e.getMessage());
+			logger.info(e.getMessage());
 		}
 
 		return options;

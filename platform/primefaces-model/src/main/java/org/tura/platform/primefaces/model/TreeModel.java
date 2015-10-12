@@ -263,7 +263,7 @@ public class TreeModel {
 					selectedNode.setSelected(true);
 					setSelectedNode(selectedNode);
 				} catch (Exception e) {
-					logger.fine(e.getMessage());
+					logger.info(e.getMessage());
 				}
 			}
 			if (event instanceof RowRemovedEvent
@@ -320,7 +320,7 @@ public class TreeModel {
 					}
 
 				} catch (Exception e) {
-					logger.fine(e.getMessage());
+					logger.info(e.getMessage());
 				}
 
 			}

@@ -59,7 +59,7 @@ public class BeanFactory  implements IBeanFactory, java.io.Serializable {
 			if (trigger != null)
 				trigger.execute(this);
 		} catch (TuraException e) {
-			logger.fine(e.getMessage());
+			logger.info(e.getMessage());
 		}	   
     }
 
@@ -112,7 +112,7 @@ public class BeanFactory  implements IBeanFactory, java.io.Serializable {
                [%=typeName(relation.master, component, form)%] master =  [%=methodName(relation.master)%]();
                return ( [%=typeName(relation.detail, component, form)%] )master.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]();
 		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
-			   logger.fine(e.getMessage());
+			   logger.info(e.getMessage());
 			   return null;
 		     }
          [%}%]
@@ -125,7 +125,7 @@ public class BeanFactory  implements IBeanFactory, java.io.Serializable {
                }
                return [%=propertyName(relation.detail)%];
 		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
-   			   logger.fine(e.getMessage());
+   			   logger.info(e.getMessage());
 			   return null;
 		     }
          [%}%]

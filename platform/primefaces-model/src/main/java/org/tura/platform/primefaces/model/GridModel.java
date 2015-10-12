@@ -74,7 +74,7 @@ public class GridModel {
 				dc.setCurrentPosition(array[0]);
 			}
 		} catch (TuraException e) {
-			logger.fine(e.getMessage());
+			logger.info(e.getMessage());
 		}
 	}
 

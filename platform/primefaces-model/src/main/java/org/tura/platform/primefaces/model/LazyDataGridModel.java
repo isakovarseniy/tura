@@ -99,7 +99,7 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 				datasource.add(new Object[] { i, k, scroler.get(i) });
 
 		} catch (Exception e) {
-			logger.fine(e.getMessage());
+			logger.info(e.getMessage());
 		}finally{
 			datacontrol.setPreQueryTrigger(trigger.getTrigger());
 		}
