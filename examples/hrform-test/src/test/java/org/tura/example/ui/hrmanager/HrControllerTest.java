@@ -31,6 +31,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
@@ -596,7 +597,7 @@ public class HrControllerTest {
 		assertEquals("Ford", row.getCell(0).getText());
 
 	}
-
+    @Ignore
 	@Test
 	public void t011_addCompany() {
 		// Go to the Google Suggest home page

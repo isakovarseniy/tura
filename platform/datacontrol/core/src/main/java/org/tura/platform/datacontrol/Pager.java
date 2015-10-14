@@ -28,6 +28,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
+import java.util.UUID;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.josql.QueryExecutionException;
@@ -39,6 +40,7 @@ import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.data.PagerData;
 import org.tura.platform.datacontrol.data.PoolData;
 import org.tura.platform.datacontrol.data.ShiftControlData;
 import org.tura.platform.datacontrol.pool.Pool;
@@ -57,9 +59,18 @@ public class Pager<T> extends Pool {
 	private LazyList<T> entities = new LazyList<>();
 	private DataControl<T> datacontrol;
 	private boolean direction;
-	private HashMap<String, ShiftControl> shifterHash = new HashMap<>();
-	private ShiftControl shifter;
+	private String id = UUID.randomUUID().toString();
 
+	//	private HashMap<String, ShiftControl> shifterHash = new HashMap<>();
+//	private ShiftControl shifter;
+
+	
+	public PagerData getPagerData(){
+		if (datacontrol.getCommandStack().getData(id) == null)
+			datacontrol.getCommandStack().addData(id, new PagerData());
+		return (PagerData) datacontrol.getCommandStack().getData(id);
+	}
+	
 	public Pager(DataControl<T> datacontrol) {
 		this.datacontrol = datacontrol;
 		loadStep = PlatformConfig.LOADSTEP;
@@ -67,12 +78,12 @@ public class Pager<T> extends Pool {
 
 	public void cleanShifter() throws TuraException {
 		try {
-			for (ShiftControl sh : shifterHash.values()) {
+			for (ShiftControl sh : getPagerData().getShifterHash().values()) {
 				cleanPool(sh.getId());
 				datacontrol.getCommandStack().removeData(sh.getId());
 			}
-			shifterHash = new HashMap<>();
-			shifter = null;
+			getPagerData().setShifterHash(new HashMap<String, ShiftControl>());
+			getPagerData().setShifter(null);
 		} catch (QueryParseException | QueryExecutionException e) {
 			throw new TuraException(e);
 		}
@@ -85,15 +96,15 @@ public class Pager<T> extends Pool {
 	}
 
 	public int listSize() {
-		if (shifter == null)
+		if (getPagerData().getShifter() == null)
 			return -1;
-		return (int) shifter.getPersistedRowNumber();
+		return (int) getPagerData().getShifter().getPersistedRowNumber();
 	}
 
 	public long actualListSize() {
-		if (shifter == null)
+		if (getPagerData().getShifter() == null)
 			return -1;
-		return shifter.getActualRowNumber();
+		return getPagerData().getShifter().getActualRowNumber();
 	}
 
 	protected boolean prepareQuery() throws TuraException {
@@ -260,7 +271,7 @@ public class Pager<T> extends Pool {
 
 				entities = (LazyList<T>) datacontrol.getSearchCommand()
 						.execute();
-				shifter.setActualRowNumber(entities.getActualRowNumber());
+				getPagerData().getShifter().setActualRowNumber(entities.getActualRowNumber());
 				
 
 			}catch(Exception e){
@@ -374,10 +385,10 @@ public class Pager<T> extends Pool {
 
 	@Override
 	public ShiftControl getShifter() throws TuraException {
-		if (shifter == null) {
+		if (getPagerData().getShifter() == null) {
 			createShifter();
 		}
-		return shifter;
+		return getPagerData().getShifter();
 	}
 
 	private void createShifter() throws TuraException {
@@ -402,9 +413,9 @@ public class Pager<T> extends Pool {
 					}
 				}
 			}
-			shifter = shifterHash.get(key);
+			ShiftControl shifter = getPagerData().getShifterHash().get(key);
 			if (shifter == null) {
-				shifter = new ShiftControl(shifterHash, key){
+				shifter = new ShiftControl(getPagerData().getShifterHash(), key){
 
 					@Override
 					public ShiftControlData getShiftControlData() {
@@ -414,6 +425,8 @@ public class Pager<T> extends Pool {
 					}
 					
 				};
+				shifter.setActualRowNumber(entities.getActualRowNumber());
+				getPagerData().setShifter(shifter);
 			}
 		} catch (Exception e) {
 			throw new TuraException(e);

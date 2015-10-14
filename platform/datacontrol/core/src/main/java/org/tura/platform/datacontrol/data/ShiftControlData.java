@@ -57,9 +57,6 @@ public class ShiftControlData {
 		this.actualRowNumber = d.getActualRowNumber();
 		this.shifterArray.addAll(d.getShifterArray());
 		this.lastUpdate = d.getLastUpdate();
-		
-		for (String key : shifterHash.keySet())
-			this.shifterHash.put(key, shifterHash.get(key));
 	}
 	
 	public HashMap<String, ShiftControl> getShifterHash() {

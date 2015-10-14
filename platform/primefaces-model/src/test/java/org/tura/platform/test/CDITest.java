@@ -496,6 +496,36 @@ public class CDITest {
 		}
 	}
 
+	
+	@Test
+	public void a11_removeTree() {
+		try {
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			CompanyDC companyDC = bf.getCompany();
+			TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
+			companyDC.getCurrentObject();
+			
+			boolean isSet = treeLocation
+					.setCurrentPosition(new TreePath[] { new TreePath(null, 0),new TreePath("country2state", 0) });
+			assertEquals(isSet, true);
+			
+			treeLocation.removeObject();
+			
+			companyDC.getCommandStack().rallbackCommand();
+			companyDC.getCurrentObject();
+			int i = companyDC.getScroller().size();
+
+			if (i == 0)
+				fail("Scroler size cannot be 0");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+		
+	}	
+	
 	class RemoveObjectTracer implements EventListener {
 
 		@Override
