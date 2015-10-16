@@ -257,6 +257,14 @@ public class Pager<T> extends Pool {
 	@SuppressWarnings({ "unchecked" })
 	private T queryDS(int sindex, int index) throws TuraException {
 
+		if (index < 0)
+			return null;
+		
+		if (entities.getActualRowNumber() != -1 && index >= entities.getActualRowNumber() )
+			return null;
+		
+		sindex = indexCorrection(sindex,index,entities.getActualRowNumber());
+		
 		if (!isFrameShiftPossible(sindex, entities.getActualRowNumber()))
 			return null;
 		calculateShift(sindex);
@@ -304,6 +312,34 @@ public class Pager<T> extends Pool {
 		return false;
 	}
 
+	public int indexCorrection(int sindex, int index, long  maxrow){
+	
+		if (direction &&  sindex  <=  index &&  sindex + getLoadStep()> index ) {
+			return sindex;
+		}
+
+		
+		if (!direction &&  sindex  >=  index &&  sindex - getLoadStep() < index ) {
+			return sindex;
+		}
+		
+		if (direction){
+			int s = index-getLoadStep();
+			if (s+getLoadStep() >= maxrow)
+			   return (int) (s - (maxrow - s - getLoadStep()) -1);
+			return s;
+		}
+		
+		if (!direction){
+			int s = index+1;
+			if (s - getLoadStep() < 0)
+			  return s + (s - getLoadStep());
+			return index+1;
+		}
+		
+		return -1;
+	}
+	
 	private void calculateShift(int sindex) {
 		if (entities.size() == -1) {
 			startIndex = 0;
@@ -315,7 +351,7 @@ public class Pager<T> extends Pool {
 			startIndex = sindex + getLoadStep();
 			endIndex = startIndex + getLoadStep();
 		} else {
-			endIndex = startIndex;
+			endIndex = sindex;
 			startIndex = sindex - getLoadStep();
 		}
 

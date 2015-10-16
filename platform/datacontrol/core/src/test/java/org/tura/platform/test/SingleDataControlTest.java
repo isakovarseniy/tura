@@ -26,6 +26,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -39,6 +42,7 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.command.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.PreQueryTrigger;
+import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.hr.init.DepartmentsInit;
@@ -59,10 +63,10 @@ public class SingleDataControlTest {
 	public static void beforeClass() {
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
-		// ConsoleHandler handler = new ConsoleHandler();
-		// handler.setFormatter(new LogFormatter());
-		// logger.addHandler(handler);
-		// logger.setLevel(Level.INFO);
+//		ConsoleHandler handler = new ConsoleHandler();
+//		handler.setFormatter(new LogFormatter());
+//		logger.addHandler(handler);
+//		logger.setLevel(Level.INFO);
 
 		factory = new FactoryDC("SingleDataControl");
 		em = factory.getEntityManager();
@@ -392,14 +396,75 @@ public class SingleDataControlTest {
 				DepartmentsDAO row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
 				dc.nextObject();
-			} while (dc.hasNext());			
+			} while (dc.hasNext());
 
-			DepartmentsDAO row =  dc.getCurrentObject();
+			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(270L));
 			dc.removeObject();
-			row =  dc.getCurrentObject();
+			row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(260L));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+
+	@Test
+	public void t10_seek() {
+		try {
+			factory.initCommandStack();
+			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
+			DepartmentsDAO o = dc.getCurrentObject();
+
 			
+			List<Object[]> options = new ArrayList<>();
+			try {
+				List<?> scroler = dc.getScroller();
+
+				Iterator<?> itr = scroler.iterator();
+				while (itr.hasNext()) {
+					Object obj = itr.next();
+					Object objLabel = Reflection.call(obj, "getObjId");
+					Object objValue = Reflection.call(obj, "getDepartmentName");
+					options.add(new Object[] { objLabel, objValue });
+				}
+				boolean isSet = dc.setCurrentPosition(0);
+				assertEquals(true, isSet);
+
+				assertEquals(o.getObjId(), dc.getCurrentObject().getObjId());
+				
+				
+				isSet = dc.setCurrentPosition(26);
+				assertEquals(true, isSet);
+				assertEquals((long)270, (long)(dc.getCurrentObject().getObjId()));
+				
+				isSet = dc.setCurrentPosition(-3);
+				assertEquals(false, isSet);
+				
+				isSet = dc.setCurrentPosition(40);
+				assertEquals(false, isSet);
+				
+				
+				isSet = dc.setCurrentPosition(25);
+				assertEquals(true, isSet);
+				assertEquals((long)260, (long)(dc.getCurrentObject().getObjId()));
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				fail(e.getMessage());
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
