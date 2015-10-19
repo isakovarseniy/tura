@@ -314,7 +314,7 @@ public class TreeModel {
 						setSelectedNode(parent.getChildren().get(lastIndex));
 					}
 
-					if (parent.getChildren().size() == 0) {
+					if (parent.getChildren().size() == 0 && !(parent.getData() instanceof Root)) {
 						new DefaultTreeNode(new Fake(), parent);
 						parent.setExpanded(false);
 					}

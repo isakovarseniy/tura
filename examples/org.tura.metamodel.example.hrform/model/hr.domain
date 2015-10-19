@@ -2632,6 +2632,7 @@
             </children>
             <children xsi:type="tura.domain:Button" order="2" uid="150d42d7-bfb4-416e-b9d1-116640bcef5b" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Remove">
               <style constant="true" value="width:30px;height:30px"/>
+              <classifiers uid="be0309e7-2bfc-4350-83a0-b28fb1c99038" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Delete Location"/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="22be5074-5d5e-4f52-916b-e802b8825b06" fakeMethod="Remove row" uid="a45dbf31-3834-428a-8c39-cc8449112b16">
                 <parameters uid="e65d58f3-d310-4cae-94e0-89019accede1" refObj="76475fdc-384e-4bef-afd5-a1b0a14a4162">
                   <value uid="d49dda0b-2cdb-433f-9b9e-4e6a537bc717" value="Tree data controls.TreeCountry.Country">

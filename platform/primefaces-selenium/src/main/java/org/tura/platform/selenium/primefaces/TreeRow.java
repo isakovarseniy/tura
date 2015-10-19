@@ -72,7 +72,8 @@ public class TreeRow implements Row {
 
 	@Override
 	public boolean isSelected() {
-		// TODO Auto-generated method stub
+		if ("true".equals( element.getAttribute("aria-selected")))
+				return true;
 		return false;
 	}
 	

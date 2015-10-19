@@ -185,6 +185,27 @@ public class HrControllerTest {
 		}
 	}
 
+	
+	@Test
+	public void t002_removeTreeNode (){
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+		
+		hrControllerPage.getDeleteLocation().click();
+		
+		try{
+		Tree tree = hrControllerPage.getLocationTree();
+		tree.getRow("0");
+		fail("Tree should not to exists");
+		}catch(Exception e){
+			
+		}
+	}
+	
+	
 	@Test
 	public void t003_langSwitch() {
 		// Go to the Google Suggest home page
