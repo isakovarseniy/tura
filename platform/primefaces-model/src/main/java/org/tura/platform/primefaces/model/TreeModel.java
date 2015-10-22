@@ -92,6 +92,11 @@ public class TreeModel {
 	}
 
 	public void setSelectedNode(TreeNode selectedNode) throws Exception {
+		
+	}
+	
+	
+	public void setSelected(TreeNode selectedNode) throws Exception {
 
 		cleanSelection(getRoot());
 		if (selectedNode == null)
@@ -133,7 +138,7 @@ public class TreeModel {
 		org.primefaces.component.tree.Tree object = (org.primefaces.component.tree.Tree) event
 				.getSource();
 		TreeNode expnode = object.getRowNode();
-		setSelectedNode(expnode);
+		setSelected(expnode);
 
 		Object[] data = (Object[]) expnode.getData();
 		Object obj = data[1];
@@ -190,7 +195,7 @@ public class TreeModel {
 		org.primefaces.component.tree.Tree object = (org.primefaces.component.tree.Tree) event
 				.getSource();
 		TreeNode expnode = object.getRowNode();
-		setSelectedNode(expnode);
+		setSelected(expnode);
 	}
 
 	public void onNodeUnselect(NodeUnselectEvent event) {
@@ -261,7 +266,7 @@ public class TreeModel {
 					TreePath[] p = getPath(selectedNode);
 					event.getSource().setCurrentPosition(p);
 					selectedNode.setSelected(true);
-					setSelectedNode(selectedNode);
+					setSelected(selectedNode);
 				} catch (Exception e) {
 					logger.info(e.getMessage());
 				}
@@ -303,7 +308,7 @@ public class TreeModel {
 					if (parent.getChildren().size() == 0) {
 						p = Arrays.copyOf(p, p.length - 1);
 						parent.setSelected(true);
-						setSelectedNode(parent);
+						setSelected(parent);
 					} else {
 						int lastIndex = p[p.length - 1].getKey();
 						if (lastIndex == parent.getChildren().size()) {
@@ -311,7 +316,7 @@ public class TreeModel {
 							p[p.length - 1].setKey( lastIndex );
 						}
 						parent.getChildren().get(lastIndex).setSelected(true);
-						setSelectedNode(parent.getChildren().get(lastIndex));
+						setSelected(parent.getChildren().get(lastIndex));
 					}
 
 					if (parent.getChildren().size() == 0 && !(parent.getData() instanceof Root)) {

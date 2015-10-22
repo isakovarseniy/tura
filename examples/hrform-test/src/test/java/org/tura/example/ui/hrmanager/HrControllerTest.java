@@ -31,7 +31,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
@@ -185,27 +184,25 @@ public class HrControllerTest {
 		}
 	}
 
-	
 	@Test
-	public void t002_removeTreeNode (){
+	public void t002_removeTreeNode() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
-		
+
 		hrControllerPage.getDeleteLocation().click();
-		
-		try{
-		Tree tree = hrControllerPage.getLocationTree();
-		tree.getRow("0");
-		fail("Tree should not to exists");
-		}catch(Exception e){
-			
+
+		try {
+			Tree tree = hrControllerPage.getLocationTree();
+			tree.getRow("0");
+			fail("Tree should not to exists");
+		} catch (Exception e) {
+
 		}
 	}
-	
-	
+
 	@Test
 	public void t003_langSwitch() {
 		// Go to the Google Suggest home page
@@ -618,7 +615,7 @@ public class HrControllerTest {
 		assertEquals("Ford", row.getCell(0).getText());
 
 	}
-    @Ignore
+
 	@Test
 	public void t011_addCompany() {
 		// Go to the Google Suggest home page
@@ -788,6 +785,134 @@ public class HrControllerTest {
 		inputText.setValue("1234-567");
 		inputText.setValue(Keys.RETURN);
 
-		System.out.println("");
+		MainHolderPageObject mainHolderPageObject = new MainHolderPageObject(
+				driver);
+
+		mainHolderPageObject.getFiles().click();
+		FilesPageObject filesPageObject = new FilesPageObject(driver);
+		filesPageObject.getAddContent().click();
+
+		tree = (Tree) filesPageObject.getContentTable();
+		tr = (TreeRow) tree.getRow("0");
+		tr.doubleClick();
+
+		inputText = new InputTextPrimeFaces(tr.getCell(1).findElement(
+				By.cssSelector("input")), driver);
+		inputText.setValue("Dir5");
+		inputText.setValue(Keys.RETURN);
+
+		hrControllerPage.getSaveButton().click();
+
+		quitDriver();
+		createDriver();
+
+		// Check insert
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		hrControllerPage = new HRControllerPageObject(driver);
+
+		t = hrControllerPage.getCompanies();
+		t.getRow(2).click();
+		WebElement el = t.getRow(2).getCell(0);
+		assertEquals("Company 3", el.getText());
+
+		tree = hrControllerPage.getLocationTree();
+		tr = (TreeRow) tree.getRow("0");
+		tr.open();
+
+		el = tr.getCell(1);
+		assertEquals("Country 3", el.getText());
+
+		CountryDetailsPageObject countryDetails = new CountryDetailsPageObject(
+				driver);
+		String value = countryDetails.getCompanyDetails().getValue();
+		assertEquals("Country 3", value);
+
+		new SeleniumActionExecutor(driver,
+				MainHolderPageObject.getDetailsSearchCriteria()) {
+			public void action(WebDriver driver) {
+				HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+						driver);
+				Tree tree = hrControllerPage.getLocationTree();
+				TreeRow tr = (TreeRow) tree.getRow("0_0");
+				tr.open();
+				tr.click();
+			}
+		}.run();
+
+		tree = hrControllerPage.getLocationTree();
+		tr = (TreeRow) tree.getRow("0_0");
+
+		el = tr.getCell(1);
+		assertEquals("State 3", el.getText());
+		StateDetailsPageObject stateDetails = new StateDetailsPageObject(driver);
+		assertEquals("State 3", stateDetails.getStateDeteails().getValue());
+
+		new SeleniumActionExecutor(driver,
+				MainHolderPageObject.getDetailsSearchCriteria()) {
+			public void action(WebDriver driver) {
+				HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+						driver);
+				Tree tree = hrControllerPage.getLocationTree();
+				TreeRow tr = (TreeRow) tree.getRow("0_0_0");
+				tr.open();
+				tr.click();
+			}
+		}.run();
+
+		tree = hrControllerPage.getLocationTree();
+		tr = (TreeRow) tree.getRow("0_0_0");
+
+		el = tr.getCell(1);
+		assertEquals("City 3", el.getText());
+		CityDetailsPageObject cityDetails = new CityDetailsPageObject(driver);
+		assertEquals("City 3", cityDetails.getCityDetails().getValue());
+
+		new SeleniumActionExecutor(driver,
+				MainHolderPageObject.getDetailsSearchCriteria()) {
+			public void action(WebDriver driver) {
+				HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+						driver);
+				Tree tree = hrControllerPage.getLocationTree();
+				TreeRow tr = (TreeRow) tree.getRow("0_0_0_0");
+				tr.open();
+				tr.click();
+			}
+		}.run();
+
+		tree = hrControllerPage.getLocationTree();
+		tr = (TreeRow) tree.getRow("0_0_0_0");
+
+		el = tr.getCell(1);
+		assertEquals("Street 3", el.getText());
+
+		DepartmentsDetailsPageObject departmentsDetails = new DepartmentsDetailsPageObject(
+				driver);
+		TableRow row = (TableRow) departmentsDetails.getDepartmentTable()
+				.getRow(0);
+		assertEquals("Dept 1", row.getCell(0).getText());
+
+		EmployeesPageObject employees = new EmployeesPageObject(driver);
+		row = (TableRow) employees.getEmployeeTable().getRow(0);
+		assertEquals("FName 1", row.getCell(0).getText());
+
+		row = (TableRow) employees.getVehicleTable().getRow(0);
+		assertEquals("Honda", row.getCell(0).getText());
+
+		mainHolderPageObject = new MainHolderPageObject(driver);
+		mainHolderPageObject.getFiles().click();
+
+		filesPageObject = new FilesPageObject(driver);
+
+		tree = filesPageObject.getContentTable();
+		tr = (TreeRow) tree.getRow("0");
+
+		assertEquals("Dir5", tr.getCell(0).getText());
+
+		
+		hrControllerPage.getDelCompany().click();
+		hrControllerPage.getSaveButton().click();
+
+		
 	}
 }
