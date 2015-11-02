@@ -49,8 +49,12 @@ import canvas.diagram.edit.parts.LabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder2EditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.LayerHolderEditPart;
+import canvas.diagram.edit.parts.MessageElement2EditPart;
+import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
+import canvas.diagram.edit.parts.Password2EditPart;
+import canvas.diagram.edit.parts.PasswordEditPart;
 import canvas.diagram.edit.parts.Table2EditPart;
 import canvas.diagram.edit.parts.TableEditPart;
 import canvas.diagram.edit.parts.Tree2EditPart;
@@ -101,6 +105,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Password_1603032 = getElementType("org.tura.metamodel.diagram.canvas.Password_1603032"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType OutputText_1603006 = getElementType("org.tura.metamodel.diagram.canvas.OutputText_1603006"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -122,6 +131,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType InputText_1603012 = getElementType("org.tura.metamodel.diagram.canvas.InputText_1603012"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Password_1603033 = getElementType("org.tura.metamodel.diagram.canvas.Password_1603033"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -173,6 +187,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType MessageElement_1603034 = getElementType("org.tura.metamodel.diagram.canvas.MessageElement_1603034"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType Button_1603017 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603017"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -186,6 +205,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Label_1603013 = getElementType("org.tura.metamodel.diagram.canvas.Label_1603013"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType MessageElement_1603035 = getElementType("org.tura.metamodel.diagram.canvas.MessageElement_1603035"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -238,6 +262,9 @@ public class DomainElementTypes {
 			elements.put(InputText_1603004,
 					DomainPackage.eINSTANCE.getInputText());
 
+			elements.put(Password_1603032,
+					DomainPackage.eINSTANCE.getPassword());
+
 			elements.put(OutputText_1603006,
 					DomainPackage.eINSTANCE.getOutputText());
 
@@ -252,6 +279,9 @@ public class DomainElementTypes {
 
 			elements.put(InputText_1603012,
 					DomainPackage.eINSTANCE.getInputText());
+
+			elements.put(Password_1603033,
+					DomainPackage.eINSTANCE.getPassword());
 
 			elements.put(OutputText_1603014,
 					DomainPackage.eINSTANCE.getOutputText());
@@ -282,6 +312,9 @@ public class DomainElementTypes {
 
 			elements.put(Label_1603005, DomainPackage.eINSTANCE.getLabel());
 
+			elements.put(MessageElement_1603034,
+					DomainPackage.eINSTANCE.getMessageElement());
+
 			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
 
 			elements.put(CheckBox_1603015,
@@ -290,6 +323,9 @@ public class DomainElementTypes {
 			elements.put(Image_1603030, DomainPackage.eINSTANCE.getImage());
 
 			elements.put(Label_1603013, DomainPackage.eINSTANCE.getLabel());
+
+			elements.put(MessageElement_1603035,
+					DomainPackage.eINSTANCE.getMessageElement());
 
 			elements.put(Button_1603023, DomainPackage.eINSTANCE.getButton());
 		}
@@ -312,12 +348,14 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(CanvasView_1601000);
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1602003);
 			KNOWN_ELEMENT_TYPES.add(InputText_1603004);
+			KNOWN_ELEMENT_TYPES.add(Password_1603032);
 			KNOWN_ELEMENT_TYPES.add(OutputText_1603006);
 			KNOWN_ELEMENT_TYPES.add(DropDownSelection_1603002);
 			KNOWN_ELEMENT_TYPES.add(Date_1603029);
 			KNOWN_ELEMENT_TYPES.add(Table_1603008);
 			KNOWN_ELEMENT_TYPES.add(Column_1603024);
 			KNOWN_ELEMENT_TYPES.add(InputText_1603012);
+			KNOWN_ELEMENT_TYPES.add(Password_1603033);
 			KNOWN_ELEMENT_TYPES.add(OutputText_1603014);
 			KNOWN_ELEMENT_TYPES.add(DropDownSelection_1603010);
 			KNOWN_ELEMENT_TYPES.add(Date_1603031);
@@ -330,10 +368,12 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603007);
 			KNOWN_ELEMENT_TYPES.add(Image_1603028);
 			KNOWN_ELEMENT_TYPES.add(Label_1603005);
+			KNOWN_ELEMENT_TYPES.add(MessageElement_1603034);
 			KNOWN_ELEMENT_TYPES.add(Button_1603017);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603015);
 			KNOWN_ELEMENT_TYPES.add(Image_1603030);
 			KNOWN_ELEMENT_TYPES.add(Label_1603013);
+			KNOWN_ELEMENT_TYPES.add(MessageElement_1603035);
 			KNOWN_ELEMENT_TYPES.add(Button_1603023);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -350,6 +390,8 @@ public class DomainElementTypes {
 			return LayerHolder_1602003;
 		case InputTextEditPart.VISUAL_ID:
 			return InputText_1603004;
+		case PasswordEditPart.VISUAL_ID:
+			return Password_1603032;
 		case OutputTextEditPart.VISUAL_ID:
 			return OutputText_1603006;
 		case DropDownSelectionEditPart.VISUAL_ID:
@@ -362,6 +404,8 @@ public class DomainElementTypes {
 			return Column_1603024;
 		case InputText2EditPart.VISUAL_ID:
 			return InputText_1603012;
+		case Password2EditPart.VISUAL_ID:
+			return Password_1603033;
 		case OutputText2EditPart.VISUAL_ID:
 			return OutputText_1603014;
 		case DropDownSelection2EditPart.VISUAL_ID:
@@ -386,6 +430,8 @@ public class DomainElementTypes {
 			return Image_1603028;
 		case LabelEditPart.VISUAL_ID:
 			return Label_1603005;
+		case MessageElementEditPart.VISUAL_ID:
+			return MessageElement_1603034;
 		case ButtonEditPart.VISUAL_ID:
 			return Button_1603017;
 		case CheckBox2EditPart.VISUAL_ID:
@@ -394,6 +440,8 @@ public class DomainElementTypes {
 			return Image_1603030;
 		case Label2EditPart.VISUAL_ID:
 			return Label_1603013;
+		case MessageElement2EditPart.VISUAL_ID:
+			return MessageElement_1603035;
 		case Button2EditPart.VISUAL_ID:
 			return Button_1603023;
 		}

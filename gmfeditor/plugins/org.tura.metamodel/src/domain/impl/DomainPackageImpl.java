@@ -109,6 +109,7 @@ import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.Message;
+import domain.MessageElement;
 import domain.MessageLibrary;
 import domain.Messages;
 import domain.MethodPointer;
@@ -134,6 +135,7 @@ import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
 import domain.Parameter;
+import domain.Password;
 import domain.PlatformLayers;
 import domain.PopupCanvas;
 import domain.Primitive;
@@ -1109,7 +1111,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass passwordEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass labelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass messageElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6166,6 +6182,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPassword() {
+		return passwordEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLabel() {
 		return labelEClass;
 	}
@@ -6177,6 +6202,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 */
 	public EAttribute getLabel_Label() {
 		return (EAttribute)labelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMessageElement() {
+		return messageElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageElement_Label() {
+		return (EAttribute)messageElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -8256,8 +8299,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		inputTextEClass = createEClass(INPUT_TEXT);
 
+		passwordEClass = createEClass(PASSWORD);
+
 		labelEClass = createEClass(LABEL);
 		createEAttribute(labelEClass, LABEL__LABEL);
+
+		messageElementEClass = createEClass(MESSAGE_ELEMENT);
+		createEAttribute(messageElementEClass, MESSAGE_ELEMENT__LABEL);
 
 		outputTextEClass = createEClass(OUTPUT_TEXT);
 
@@ -8576,8 +8624,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		layerHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		inputTextEClass.getESuperTypes().add(this.getInputElement());
 		inputTextEClass.getESuperTypes().add(this.getFormatable());
+		passwordEClass.getESuperTypes().add(this.getInputElement());
+		passwordEClass.getESuperTypes().add(this.getFormatable());
 		labelEClass.getESuperTypes().add(this.getUielement());
 		labelEClass.getESuperTypes().add(this.getMultiLangLabel());
+		messageElementEClass.getESuperTypes().add(this.getUielement());
+		messageElementEClass.getESuperTypes().add(this.getMultiLangLabel());
 		outputTextEClass.getESuperTypes().add(this.getInputElement());
 		outputTextEClass.getESuperTypes().add(this.getFormatable());
 		checkBoxEClass.getESuperTypes().add(this.getInputElement());
@@ -9267,8 +9319,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		initEClass(inputTextEClass, InputText.class, "InputText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(passwordEClass, Password.class, "Password", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLabel_Label(), ecorePackage.getEString(), "label", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(messageElementEClass, MessageElement.class, "MessageElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMessageElement_Label(), ecorePackage.getEString(), "label", null, 0, 1, MessageElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outputTextEClass, OutputText.class, "OutputText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -10137,7 +10194,25 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "tool.small.path", "icons/inputtext.png"
 		   });	
 		addAnnotation
+		  (passwordEClass, 
+		   source, 
+		   new String[] {
+			 "figure", "org.tura.metamodel.commons.figures.InputTextFigure",
+			 "label.placement", "none",
+			 "tool.small.bundle", "org.tura.metamodel.commons",
+			 "tool.small.path", "icons/inputtext.png"
+		   });	
+		addAnnotation
 		  (labelEClass, 
+		   source, 
+		   new String[] {
+			 "label", "label",
+			 "tool.small.bundle", "org.tura.metamodel.commons",
+			 "label.icon", "false",
+			 "tool.small.path", "icons/label.png"
+		   });	
+		addAnnotation
+		  (messageElementEClass, 
 		   source, 
 		   new String[] {
 			 "label", "label",

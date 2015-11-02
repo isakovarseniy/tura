@@ -1042,13 +1042,26 @@ class LayerHolder extends Uielement , ChildrenHolder, HTMLLayerHolder{
 
 @gmf.node(figure="org.tura.metamodel.commons.figures.InputTextFigure",label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/inputtext.png")
 class InputText extends InputElement ,Formatable{
-   
+
 }
+
+@gmf.node(figure="org.tura.metamodel.commons.figures.InputTextFigure",label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/inputtext.png")
+class Password extends InputElement ,Formatable{
+
+}
+
+
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",label.icon="false",tool.small.path="icons/label.png")
 class Label extends Uielement ,MultiLangLabel{
   attr EString label;
 }
+
+@gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",label.icon="false",tool.small.path="icons/label.png")
+class MessageElement extends Uielement ,MultiLangLabel{
+  attr EString label;
+}
+
 
 @gmf.node(figure="org.tura.metamodel.commons.figures.OutputTextFigure",label.placement="none",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/outputtext.png")
 class OutputText extends InputElement ,Formatable{

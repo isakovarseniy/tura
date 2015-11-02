@@ -44,7 +44,9 @@ import canvas.diagram.edit.parts.ImageEditPart;
 import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.LabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
+import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
+import canvas.diagram.edit.parts.PasswordEditPart;
 import canvas.diagram.edit.parts.TableEditPart;
 import canvas.diagram.edit.parts.Tree2EditPart;
 import canvas.diagram.part.DomainDiagramUpdater;
@@ -108,6 +110,7 @@ public class LayerHolderLayerHolderChildrenCompartment2CanonicalEditPolicy
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case InputTextEditPart.VISUAL_ID:
+		case PasswordEditPart.VISUAL_ID:
 		case OutputTextEditPart.VISUAL_ID:
 		case DropDownSelectionEditPart.VISUAL_ID:
 		case DateEditPart.VISUAL_ID:
@@ -117,6 +120,7 @@ public class LayerHolderLayerHolderChildrenCompartment2CanonicalEditPolicy
 		case CheckBoxEditPart.VISUAL_ID:
 		case ImageEditPart.VISUAL_ID:
 		case LabelEditPart.VISUAL_ID:
+		case MessageElementEditPart.VISUAL_ID:
 		case ButtonEditPart.VISUAL_ID:
 			return true;
 		}

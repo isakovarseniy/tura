@@ -15,7 +15,9 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/DropDownSelection.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/LayerHolder.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/InputText.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Password.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Label.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/MessageElement.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/OutputText.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Table.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Tree.egl";

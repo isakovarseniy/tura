@@ -111,11 +111,33 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="MessageElement"
+          description="Create new MessageElement">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/label.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="OutputText"
           description="Create new OutputText">
         <smallIcon
             xsi:type="gmftool:BundleImage"
             path="icons/outputtext.png"
+            bundle="org.tura.metamodel.commons"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Password"
+          description="Create new Password">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/inputtext.png"
             bundle="org.tura.metamodel.commons"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>

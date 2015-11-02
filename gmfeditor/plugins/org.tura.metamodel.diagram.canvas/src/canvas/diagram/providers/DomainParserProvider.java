@@ -34,6 +34,8 @@ import canvas.diagram.edit.parts.ColumnLabel2EditPart;
 import canvas.diagram.edit.parts.ColumnLabelEditPart;
 import canvas.diagram.edit.parts.LabelLabel2EditPart;
 import canvas.diagram.edit.parts.LabelLabelEditPart;
+import canvas.diagram.edit.parts.MessageElementLabel2EditPart;
+import canvas.diagram.edit.parts.MessageElementLabelEditPart;
 import canvas.diagram.edit.parts.TableLabel2EditPart;
 import canvas.diagram.edit.parts.TableLabelEditPart;
 import canvas.diagram.edit.parts.TreeLabel2EditPart;
@@ -177,6 +179,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser messageElementLabel_1605013Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMessageElementLabel_1605013Parser() {
+		if (messageElementLabel_1605013Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMessageElement_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			messageElementLabel_1605013Parser = parser;
+		}
+		return messageElementLabel_1605013Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser buttonLabel_1605006Parser;
 
 	/**
@@ -208,6 +228,24 @@ public class DomainParserProvider extends AbstractProvider implements
 			labelLabel_1605002Parser = parser;
 		}
 		return labelLabel_1605002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser messageElementLabel_1605014Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMessageElementLabel_1605014Parser() {
+		if (messageElementLabel_1605014Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMessageElement_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			messageElementLabel_1605014Parser = parser;
+		}
+		return messageElementLabel_1605014Parser;
 	}
 
 	/**
@@ -247,10 +285,14 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getTreeLabel_1605005Parser();
 		case LabelLabelEditPart.VISUAL_ID:
 			return getLabelLabel_1605001Parser();
+		case MessageElementLabelEditPart.VISUAL_ID:
+			return getMessageElementLabel_1605013Parser();
 		case ButtonLabelEditPart.VISUAL_ID:
 			return getButtonLabel_1605006Parser();
 		case LabelLabel2EditPart.VISUAL_ID:
 			return getLabelLabel_1605002Parser();
+		case MessageElementLabel2EditPart.VISUAL_ID:
+			return getMessageElementLabel_1605014Parser();
 		case ButtonLabel2EditPart.VISUAL_ID:
 			return getButtonLabel_1605009Parser();
 		}

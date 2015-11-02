@@ -890,7 +890,17 @@ public class RecipesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.RECIPES__ANY,
+				 DomainFactory.eINSTANCE.createPassword()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.RECIPES__ANY,
 				 DomainFactory.eINSTANCE.createLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.RECIPES__ANY,
+				 DomainFactory.eINSTANCE.createMessageElement()));
 
 		newChildDescriptors.add
 			(createChildParameter

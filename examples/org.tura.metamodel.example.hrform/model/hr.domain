@@ -366,6 +366,42 @@
     </types>
     <types xsi:type="tura.domain:Type" uid="ba908788-92df-4e2c-91d5-ce98b3c3e41e" name="Selenium"/>
     <types xsi:type="tura.domain:Type" uid="8074d457-e61b-424c-b02d-1bcc3356031a" name="Selenium for Primefaces"/>
+    <types xsi:type="tura.domain:Type" uid="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" name="Non Persisted CRAD Service">
+      <operations uid="7ef44e4a-d181-47f7-8667-7ca155fc87c6" name="create">
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="99d84fcb-dbc0-4db9-a169-e8eccb21a89a" name="objectClass"/>
+        <returnValue packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
+      </operations>
+      <operations uid="ce55fa96-ae66-4081-8751-083ba1617367" name="find">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="9ec6d2e0-4002-11e4-916c-0800200c9a66" fakePackageName="Base package" fakeTypeName="Search criterias" uid="dcffc00a-c860-430a-9721-23f0ec653df4" name="search"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="d6ed6038-eb22-447c-b93a-e5c6cf41e389" name="startIndex" order="1"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="fc5c69e3-76f7-44f0-85ea-36f4bb3c3089" name="endIndex" order="2"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="bbe69150-426b-4489-97ea-59932d4d149a" name="className" order="3"/>
+        <returnValue packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2b2e1b10-400a-11e4-916c-0800200c9a66"/>
+      </operations>
+      <operations uid="04b2ec6e-f447-4bfc-a41d-4997a1cc9615" name="insert">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="a527155b-8b57-4c66-bf31-1f23be871663" name="obj"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="15a4ecd3-452b-4d6b-8c9d-c3b59c28db58" name="update">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="824c2221-d82f-4114-bdd3-a4abf3cfb816" name="obj"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="0a977fa4-6eaf-4b9a-b72e-024c28c1187e" name="remove">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="1f220bf0-7cf0-4c18-a731-856585f00e60" name="obj"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="880454fd-5da9-4894-99d1-b3658d74409e" name="Authentication manager">
+      <operations uid="baa9677f-d0e0-4238-b2b5-a7ac843ba9de" name="login">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="1d41de4e-0dfe-45bd-b7be-473ff2bd8ea3" name="logout">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="50351bfd-3d30-4bbc-b07a-2eabf6148dee" name="isLoginError">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0"/>
+      </operations>
+    </types>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="e8faa4f9-a654-40f5-bdf5-454f90f2af19">
     <types xsi:type="tura.domain:Type" uid="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" name="Company Type">
@@ -789,6 +825,15 @@
       </extension>
     </types>
     <types xsi:type="tura.domain:Type" uid="ab216003-0555-4f74-9882-b4caa57816e8" name="List of departments2entity"/>
+    <types xsi:type="tura.domain:TypeReference" uid="9df1484e-72ce-4185-9c37-4034555ddfda" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType"/>
+    <types xsi:type="tura.domain:Type" uid="04d63d66-f224-42a6-aabc-ed057fb924be" name="User type">
+      <classifiers uid="5d8816bf-e185-402f-a954-d7ecf34eae68" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="353a42ff-46e2-45cd-93dd-97dbb02d3c11" name="user name"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="c14b143a-a587-4e86-afe1-7a6aedfd9eb6" name="password"/>
+      <extension uid="b95ebead-349a-467f-b09e-92245418a307" source="04d63d66-f224-42a6-aabc-ed057fb924be" target="9df1484e-72ce-4185-9c37-4034555ddfda">
+        <classifiers uid="28b33e6e-e116-428e-a733-9ea5438cfbf3" hint="2fe9fdd8-3fec-4a11-9ed5-a79c64373895"/>
+      </extension>
+    </types>
   </tura.domain:TypeDefinition>
   <tura.domain:Mappers uid="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d" parent="0d86886f-6d6e-49e1-a123-d063d2d9bd22">
     <mappers xsi:type="tura.domain:JavaMapper" uid="f77c09eb-aef3-4ebd-bb99-eb19ab9c40d6" serviceLayer="true" uiLayer="true" packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" mappedToPackageName="java.lang" mappedToClassName="String"/>
@@ -858,6 +903,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="f28fb0fd-54b7-43a6-9dd8-c69124d53606" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="fd9e9a81-b0a7-4100-82d3-54d495a52393" fakePackageName="HR package" fakeTypeName="Department2Entyty query service" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="Department2EntityService" artifactId="hr-services-ejb" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="591dcaf7-6f43-47aa-9130-a3e32806e973" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="ab216003-0555-4f74-9882-b4caa57816e8" fakePackageName="HR package" fakeTypeName="List of departments2entity" mappedToPackageName="java.util" mappedToClassName="List&lt;org.elsoft.platform.hr.objects.Department2EntityDAO>"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="0029084a-04fb-48e0-989a-0115d90c5aed" serviceLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" fakePackageName="Base package" fakeTypeName="Object ID generator" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="ObjectsID" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="0765b5d5-489b-46de-9a8b-3f2fb2c03567" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="04d63d66-f224-42a6-aabc-ed057fb924be" fakePackageName="HR package" fakeTypeName="User type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="UserDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415" deployment="f611d83d-edd3-42df-a8bd-78ba7e88b7d9">
@@ -1716,6 +1762,67 @@
       </defaultSearch>
       <defaultOrderBy/>
     </controls>
+    <controls uid="87c26cfe-fe6b-4aa6-915f-1c01179d242f" name="User">
+      <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" methodRef="7ef44e4a-d181-47f7-8667-7ca155fc87c6" fakeMethod="create" uid="522aa8ec-f835-4a74-bb27-23771f5b1ba0">
+        <parameters uid="a13f4ae2-5977-46d3-887f-0bf738deca12" refObj="99d84fcb-dbc0-4db9-a169-e8eccb21a89a">
+          <value uid="f93d9f2b-6952-49fb-abcc-565de9f850e8" constant="true" value="org.elsoft.platform.hr.objects.UserDAO"/>
+        </parameters>
+      </create>
+      <insert packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" methodRef="04b2ec6e-f447-4bfc-a41d-4997a1cc9615" fakeMethod="insert" uid="cbacc9cb-9b8c-462b-9e61-c17d28196309">
+        <parameters uid="95cfaa0b-f924-47f3-9961-4ffc4eab3db7" refObj="a527155b-8b57-4c66-bf31-1f23be871663">
+          <value uid="595b4592-c577-4a5d-86ec-4bb3674f3a48" value="Data controls.User.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="87c26cfe-fe6b-4aa6-915f-1c01179d242f" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </insert>
+      <update packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" methodRef="15a4ecd3-452b-4d6b-8c9d-c3b59c28db58" fakeMethod="update" uid="1a8ff1c9-4497-4290-af17-041c267f0ff5">
+        <parameters uid="a4a2dfb1-08e5-4797-bc72-d2ae50cf4b27" refObj="824c2221-d82f-4114-bdd3-a4abf3cfb816">
+          <value uid="88b9ca59-1913-46dc-873f-ee28429b9010" value="Data controls.User.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="87c26cfe-fe6b-4aa6-915f-1c01179d242f" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </update>
+      <remove packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" methodRef="0a977fa4-6eaf-4b9a-b72e-024c28c1187e" fakeMethod="remove" uid="5fe234b4-a9c4-4620-8a75-26ee2db76684">
+        <parameters uid="3eda0778-4696-42b1-813f-47d28c8e6bbd" refObj="1f220bf0-7cf0-4c18-a731-856585f00e60">
+          <value uid="8a1113d7-adea-44f2-b12f-4fb4e9aeb09c" value="Data controls.User.currentObject">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="87c26cfe-fe6b-4aa6-915f-1c01179d242f" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeMethod"/>
+          </value>
+        </parameters>
+      </remove>
+      <search packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" methodRef="ce55fa96-ae66-4081-8751-083ba1617367" fakeMethod="find" uid="0fa37f02-c46e-4b60-9442-b7f0834e1d1d">
+        <parameters uid="548690c5-fb80-443e-999a-1a050cd0b2ee" refObj="dcffc00a-c860-430a-9721-23f0ec653df4">
+          <value uid="4aba03b6-3bb1-48ce-8293-4f0370c52b90" value="Data controls.User.query">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="87c26cfe-fe6b-4aa6-915f-1c01179d242f" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="98a81cf9-2dd0-432b-ad2f-d88f69de1ff2" refObj="d6ed6038-eb22-447c-b93a-e5c6cf41e389">
+          <value uid="1f70c0e4-6194-41f7-8f3a-cf248359cb82" value="Data controls.User.start Index">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="87c26cfe-fe6b-4aa6-915f-1c01179d242f" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="c11df72e-5963-42e2-be3f-080e2cce4212" refObj="fc5c69e3-76f7-44f0-85ea-36f4bb3c3089">
+          <value uid="4fc861f7-c568-42c9-b2d2-d1fe4d54c6c4" value="Data controls.User.end Index">
+            <expression expressionType="DataControlHolder"/>
+            <expression objRef="87c26cfe-fe6b-4aa6-915f-1c01179d242f" order="1" expressionType="DataControlImpl"/>
+            <expression order="2" expressionType="DataControlFakeAttribute"/>
+          </value>
+        </parameters>
+        <parameters uid="b3880cb1-7955-4ad1-a1b9-16332cd290f4" refObj="bbe69150-426b-4489-97ea-59932d4d149a">
+          <value uid="f3fa8e0b-2aa7-448a-8754-a5ee9cab0058" constant="true" value="org.elsoft.platform.hr.objects.UserDAO"/>
+        </parameters>
+      </search>
+      <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0" fakePackageName="Primitive package" fakeTypeName="Boolean" uid="8a83f8bf-809e-436b-8675-8daa01e2be1d" name="loginError"/>
+    </controls>
     <relations uid="972f0d1f-f8cf-40b6-aaf9-e2381520c106" master="d45e9605-3706-493c-8422-3f7b8b6ea2ed" detail="cd1cab1c-1781-4867-85b8-84d9f465f989">
       <links uid="6d31041c-362e-4dd3-ad97-0288b77d1659" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
     </relations>
@@ -1787,6 +1894,7 @@
         <options uid="6d9068b8-e721-46b5-beb1-fbca1b3f7935" value="JEE/Services/EJB-WS"/>
         <options uid="3309af92-cc56-4e33-8068-81f23b432831" value="JEE/Services/UNIVERSAL-JPA/nonJTA"/>
         <options uid="735ed629-5923-4c43-bc52-5621f4ba32dd" value="JEE/Services/UNIVERSAL-JPA/JTA"/>
+        <options uid="909ca457-f59f-4923-8acb-5101566dd99d" value="JEE/Services/NON-PERSISTED"/>
       </specifiers>
     </artifacts>
     <artifacts uid="91baf89f-60ba-4074-a47a-0c8d5f6b2877" name="View" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/view/mainView.egl">
@@ -1830,6 +1938,7 @@
       <hints uid="78a78e86-e357-45e7-b1a3-25ec3b78e4ca" name="readOnlyConverter"/>
       <hints uid="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" name="encoding" applyedClass=""/>
       <hints uid="a51a6638-5eb9-427a-9e2e-c9c9466c8922" name="trigger.disabled"/>
+      <hints uid="1abd9c23-89fe-4c4b-93d2-77fc64912479" name="trigger.rendered"/>
     </artifacts>
     <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
@@ -2048,6 +2157,24 @@
           <mappers uid="0a64fa52-fae4-4d17-a3ce-c36690333529" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="57cd7e45-c758-4dbf-b811-4e9ae6d3d299" name="web.xml">
             <specifiers specifierRef="0f1e90f8-fd8c-4489-9244-b202bd15971d" valueRef="a09e5397-dbdf-41d8-9d1b-0326446ba6eb"/>
           </mappers>
+          <mappers uid="f888ec2e-8965-422f-9561-60b33c09e91c" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Non persisted service producer">
+            <specifiers specifierRef="3ee3d178-4bab-46e0-928e-508089f4dc2c" valueRef="6b0e89e5-8628-49a6-98bf-b125b206dd4d"/>
+            <specifiers specifierRef="741c9449-5abe-40f7-8dc9-fd15fb1c9680" valueRef="909ca457-f59f-4923-8acb-5101566dd99d"/>
+            <queries uid="3c26b63e-de13-4ed2-a5ec-43490cd08129" name="Query Non persisted service" queryRef="b925f051-ca27-4d9f-9445-e87d7f79ce84">
+              <variables queryParamRef="7425c708-e132-4008-90a1-4e3af0c44101" value="Non Persisted CRAD Service"/>
+              <variables queryParamRef="d39ee714-0496-40bc-8145-d6e653476abe" value="Base package"/>
+            </queries>
+            <queries uid="324caf6e-b955-4cbb-926d-2e10a9dbb4c0" name="Query package NA" queryRef="273cc7dd-85f8-430f-ac43-cad73dc0e847">
+              <variables queryParamRef="bbb2310c-3490-4d0a-91a7-5315a09d67ce" value="NA"/>
+              <variables queryParamRef="0ae9eee3-bcdb-4370-be2c-27620c06825a" value="NA"/>
+              <variables queryParamRef="3ac24526-fd51-402c-bb22-b3f5c1c17578" value="NA"/>
+              <variables queryParamRef="6d17ac61-9fff-4ec6-b018-2cbd66412adf" value="NA"/>
+            </queries>
+            <queries uid="66b3f1f4-643c-4730-991f-f88f1338047d" name="Query form" queryRef="13c455aa-256a-4cdc-bb7d-c7f5ef62ae02">
+              <variables queryParamRef="84abb27c-ea7f-4007-808c-28a7fc24e932" value="HR application"/>
+              <variables queryParamRef="e9513e0c-62c7-4e9d-b249-866d23d84e89" value="Hr manager"/>
+            </queries>
+          </mappers>
         </components>
         <components xsi:type="tura.domain:JavaComponent" columns="3" uid="d2fc347a-981b-465e-8599-cdcf896216d1" name="Forms interface" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform-interface" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
           <mappers uid="240aab7b-e90f-4fb3-98fc-a1d12e7a73e3" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="cedb4abf-f19e-4eb2-af12-804869422780" name="Data control interface">
@@ -2231,6 +2358,12 @@
       <multiLangLabel/>
       <classifiers uid="378286b2-27eb-4ef9-a664-f546d6aca32c" hint="b21dc9b3-20fd-42ff-bb82-79acc378d3e5" details="popupCompany"/>
     </canvases>
+    <canvases xsi:type="tura.domain:Window" uid="eb01294e-b0b8-4f56-b7e9-1a8b3306de47" name="Login page">
+      <style constant="true" value="width: 500px; margin: 200px auto 0 auto;"/>
+      <viewElement xsi:type="tura.domain:ViewArea" uid="e55ba665-d658-4abe-98d1-4714096078c1" name="Login" canvasView="3a370838-8397-4c98-beb5-904cda72e667">
+        <style/>
+      </viewElement>
+    </canvases>
     <viewInheritances uid="2dc1ab34-ee89-4f95-83f9-b457a11baab4" source="df0ec442-fd69-454f-8ece-9d1ea34c074e" target="c77769b5-0b24-4a83-b9ab-8e3635c3d913"/>
     <viewInheritances uid="d7bc97d7-057a-44ed-bc73-4f4764e73ec9" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="0b549b2b-507c-473a-b3df-3d02444ed823"/>
     <viewInheritances uid="b18f47fc-4187-4ef0-928f-aa3477ddc10d" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="2779bc17-3f90-480d-a562-049bd91bb53c"/>
@@ -2267,6 +2400,9 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="c6a6361f-f794-4609-b775-6184b6d91c12" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="Department2EntityDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="73cf55ea-7b2b-49f4-ba4e-55685542088a" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="ba908788-92df-4e2c-91d5-ce98b3c3e41e" fakePackageName="Base package" fakeTypeName="Selenium" mappedToPackageName="org.openqa.selenium" mappedToClassName="WebDriver" artifactId="selenium-java" groupId="org.seleniumhq.selenium" version="2.47.1" libraryName=""/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="155647ef-3210-44f7-a04a-4d22466ec11f" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8074d457-e61b-424c-b02d-1bcc3356031a" fakePackageName="Base package" fakeTypeName="Selenium for Primefaces" mappedToPackageName="org.tura.platform.selenium.primefaces" mappedToClassName="ButtonPrimeFaces" artifactId="primefaces-selenium" groupId="org.tura.platform" version="2.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="8ea2403a-43ce-406f-97c4-5ae724efa70b" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" mappedToPackageName="org.tura.platform.commons.jpa" mappedToClassName="NotPersistedObjectService" artifactId="commons-jpa" groupId="org.tura.platform"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="1412aaf1-326a-4cb2-88df-919d5d1eee8b" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="04d63d66-f224-42a6-aabc-ed057fb924be" fakePackageName="HR package" fakeTypeName="User type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="UserDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="d9b1f377-f3f2-4259-babc-c8b694680978" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager" version="" libraryName=""/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">
@@ -2429,6 +2565,26 @@
       <messages uid="845c3816-162b-4156-90e5-fbe794c2d1a6" name="CANCEL_BUTTON">
         <translatioins uid="29cc2366-0307-4af9-892b-b25dd4051b4e" translation="Cancel" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
         <translatioins uid="1f854997-2e36-4186-b7ac-6f22d2208ca1" translation="Отменить" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
+      </messages>
+      <messages uid="b8002975-a77a-486b-86b1-db28377027a4" name="USER_NAME">
+        <translatioins uid="0d9137f7-efe4-475f-80bd-4d92dbe503b2" translation="User name:" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="80bd3d02-ab12-47cc-9c66-523934835bbf" translation="Имя пользователя:" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
+      </messages>
+      <messages uid="b6a1ffad-2fb3-4910-843b-87f81d2fddb0" name="PASSWORD">
+        <translatioins uid="3b34abcd-30e7-4210-bdee-5cbd924a8433" translation="Password:" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="d91863e1-9e9b-4190-8297-4c0f7bc8ff5f" translation="Пароль" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
+      </messages>
+      <messages uid="d0cadbaf-8ff9-4db7-8ff8-6202e5a0763d" name="SIGN_IN">
+        <translatioins uid="25c2815f-8f89-4a91-9f80-ede44e0a002f" translation="Sign In" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="502726ec-3f79-4a39-9aba-abd2059206ca" translation="Регистрация" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
+      </messages>
+      <messages uid="6571b462-d020-4b2d-aada-7e58e8c4fc64" name="LOGIN_HEADER">
+        <translatioins uid="6aef6ce7-29c1-4875-98a4-38edcb50bde3" translation="Tura demo" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="4707d842-9e57-49c9-b707-83b3e2fb89e7" translation="Тура демо" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
+      </messages>
+      <messages uid="47ad11e3-b2d7-460e-b2e9-d3e65e4d3370" name="LOGIN_ERROR">
+        <translatioins uid="3ee815cd-2377-4c33-bba9-07bc1c076c01" translation="User name or password is wrong" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="ca7021ce-7ac8-4504-a777-a0a439042658" translation="Ошибка в имени пользователа или пароле" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
     </messageLibraries>
     <messageLibraries uid="0cc922a6-a203-490f-a02e-15d8d1ad5e16" name="Tree 2 tree">
@@ -3064,6 +3220,7 @@
       <styles uid="23841287-145a-4d4b-87a6-9689c5c16059" name="cancel-button"/>
       <styles uid="716f1cac-7c61-40f0-9c73-90ed00f568aa" name="canada-flag-button"/>
       <styles uid="a3f24db7-b563-4a36-b4a4-a18d48ba110a" name="russia-flag-button"/>
+      <styles uid="b556f394-bcb3-4f55-85f2-4b3c0ffd9457" name="center"/>
     </libraries>
   </tura.domain:Styles>
   <tura.domain:Recipes uid="ea1699b1-79f1-4e4d-9342-3ba1cf05a54d" parent="643f117b-2ee8-49cd-b1ff-6123bc465259">
@@ -4341,6 +4498,81 @@
       </children>
       <children xsi:type="tura.domain:CheckBox" nickname="chkBox" order="1" uid="5900430f-ad24-444f-85df-ee4605e84df6" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="799e091e-dc77-40ab-bc47-3d61a8b0bbec"/>
       <children xsi:type="tura.domain:Image" order="2" uid="01e7d1d6-b9c7-4b54-84b1-92d0915f53f7" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="9f5df11c-7d23-4661-86a3-267c9b3fd5c9"/>
+    </baseCanvas>
+  </tura.domain:CanvasView>
+  <tura.domain:CanvasView uid="3a370838-8397-4c98-beb5-904cda72e667" parent="e55ba665-d658-4abe-98d1-4714096078c1">
+    <baseCanvas uid="a7fd21fb-947d-4508-874a-c53f05583ba8">
+      <style value=""/>
+      <children xsi:type="tura.domain:LayerHolder" uid="c898a459-f858-4973-876d-2b400bd45f62">
+        <style/>
+        <styleClass uid="8445f5e2-b59e-4223-a930-d126894c5988" value="Application styles.HR styles.HR Controller styles.center">
+          <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+          <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+          <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+          <expression objRef="b556f394-bcb3-4f55-85f2-4b3c0ffd9457" order="3" expressionType="StyleSetImpl"/>
+          <classifier uid="c13aae6c-0a75-41c3-8299-3edb6f67a10a"/>
+        </styleClass>
+        <children xsi:type="tura.domain:Label" uid="a2059b6a-d703-4ee0-96f5-d72519fa8396" label="Tura demo">
+          <style constant="true" value="font:25px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
+          <multiLangLabel value="Messages.HR Controller.LOGIN_HEADER">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="6571b462-d020-4b2d-aada-7e58e8c4fc64" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+      </children>
+      <children xsi:type="tura.domain:LayerHolder" nickname="Login Page" order="1" uid="bd3e208c-2939-43df-80e6-b18a01db3f98" columns="2">
+        <style constant="true" value="margin-top: 5px;"/>
+        <children xsi:type="tura.domain:Label" uid="8479f125-aff2-4974-8f1b-748a8b5b39b1" label="User Name:">
+          <style constant="true" value="font:18px arial, sans-serif;color: #0033CC;"/>
+          <multiLangLabel value="Messages.HR Controller.USER_NAME">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="b8002975-a77a-486b-86b1-db28377027a4" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:InputText" order="1" uid="0edf522f-a0f5-4a3c-9ce1-6f610063f089" sourcePointer="87c26cfe-fe6b-4aa6-915f-1c01179d242f" valuePointer="353a42ff-46e2-45cd-93dd-97dbb02d3c11" sourceCast="04d63d66-f224-42a6-aabc-ed057fb924be" sourceCastDataControl="87c26cfe-fe6b-4aa6-915f-1c01179d242f">
+          <style/>
+          <enabled/>
+        </children>
+        <children xsi:type="tura.domain:Label" order="2" uid="091f2ffa-da32-4352-9aa1-1d86b3d514ab" label="Password:">
+          <style constant="true" value="font:18px arial, sans-serif;color: #0033CC;"/>
+          <multiLangLabel value="Messages.HR Controller.PASSWORD">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="b6a1ffad-2fb3-4910-843b-87f81d2fddb0" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:Label" order="5" uid="4b6c8885-f8a1-448b-8521-93ba0c07dd56" label="Error message">
+          <style constant="true" value="font:12px arial, sans-serif;color: #F82E06;"/>
+          <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" methodRef="50351bfd-3d30-4bbc-b07a-2eabf6148dee" fakeMethod="isLoginError" uid="60ee2858-4b25-4e68-811f-346bd193c40d">
+            <classifiers uid="796dd8d5-2457-41ef-ab6d-a53c5e65173b" hint="1abd9c23-89fe-4c4b-93d2-77fc64912479"/>
+          </triggers>
+          <multiLangLabel value="Messages.HR Controller.LOGIN_ERROR">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="47ad11e3-b2d7-460e-b2e9-d3e65e4d3370" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:Button" order="7" uid="46173954-6415-4e2d-bab3-0d307b301f2e" onEventRefreshArea="bd3e208c-2939-43df-80e6-b18a01db3f98" label="Sign in">
+          <style constant="true" value="margin-top: 5px;font:15px arial, sans-serif"/>
+          <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" methodRef="baa9677f-d0e0-4238-b2b5-a7ac843ba9de" fakeMethod="login" uid="af911555-4966-4dc8-867f-f357650aedc3"/>
+          <enabled/>
+          <multiLangLabel value="Messages.HR Controller.SIGN_IN">
+            <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+            <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+            <expression objRef="d0cadbaf-8ff9-4db7-8ff8-6202e5a0763d" order="2" expressionType="MessageImpl"/>
+          </multiLangLabel>
+        </children>
+        <children xsi:type="tura.domain:Password" order="3" uid="5dcaf7d1-e8a5-4b16-a53b-190872877b1f" sourcePointer="87c26cfe-fe6b-4aa6-915f-1c01179d242f" valuePointer="c14b143a-a587-4e86-afe1-7a6aedfd9eb6" sourceCast="04d63d66-f224-42a6-aabc-ed057fb924be" sourceCastDataControl="87c26cfe-fe6b-4aa6-915f-1c01179d242f"/>
+        <children xsi:type="tura.domain:Label" order="4" uid="43f05761-3e3c-44a5-861b-b0323bb3f2d8">
+          <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" methodRef="50351bfd-3d30-4bbc-b07a-2eabf6148dee" fakeMethod="isLoginError" uid="19167d59-3527-480a-b18d-fa2cd8bb3e84">
+            <classifiers uid="be377a7f-8f59-4dfc-8d11-e68ed3a6c011" hint="1abd9c23-89fe-4c4b-93d2-77fc64912479"/>
+          </triggers>
+          <multiLangLabel/>
+        </children>
+        <children xsi:type="tura.domain:Label" order="6" uid="1e01a1c4-7fef-469a-9cec-733e852454a2"/>
+      </children>
     </baseCanvas>
   </tura.domain:CanvasView>
 </xmi:XMI>

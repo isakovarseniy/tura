@@ -209,7 +209,17 @@ public class LayerHolderItemProvider extends UielementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 DomainFactory.eINSTANCE.createPassword()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 DomainFactory.eINSTANCE.createLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 DomainFactory.eINSTANCE.createMessageElement()));
 
 		newChildDescriptors.add
 			(createChildParameter

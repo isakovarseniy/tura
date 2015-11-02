@@ -107,6 +107,7 @@ import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.Message;
+import domain.MessageElement;
 import domain.MessageLibrary;
 import domain.Messages;
 import domain.MethodPointer;
@@ -130,6 +131,7 @@ import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
 import domain.Parameter;
+import domain.Password;
 import domain.PopupCanvas;
 import domain.Primitive;
 import domain.Property;
@@ -1156,6 +1158,21 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DomainPackage.PASSWORD: {
+				Password password = (Password)theEObject;
+				T result = casePassword(password);
+				if (result == null) result = caseInputElement(password);
+				if (result == null) result = caseFormatable(password);
+				if (result == null) result = caseSourcesPointer(password);
+				if (result == null) result = caseUielement(password);
+				if (result == null) result = caseStyleElement(password);
+				if (result == null) result = caseNickNamed(password);
+				if (result == null) result = caseCategorized(password);
+				if (result == null) result = caseOrderable(password);
+				if (result == null) result = caseActioinTriggers(password);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DomainPackage.LABEL: {
 				Label label = (Label)theEObject;
 				T result = caseLabel(label);
@@ -1166,6 +1183,19 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(label);
 				if (result == null) result = caseOrderable(label);
 				if (result == null) result = caseActioinTriggers(label);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.MESSAGE_ELEMENT: {
+				MessageElement messageElement = (MessageElement)theEObject;
+				T result = caseMessageElement(messageElement);
+				if (result == null) result = caseUielement(messageElement);
+				if (result == null) result = caseMultiLangLabel(messageElement);
+				if (result == null) result = caseStyleElement(messageElement);
+				if (result == null) result = caseNickNamed(messageElement);
+				if (result == null) result = caseCategorized(messageElement);
+				if (result == null) result = caseOrderable(messageElement);
+				if (result == null) result = caseActioinTriggers(messageElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3490,6 +3520,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Password</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Password</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePassword(Password object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3501,6 +3546,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLabel(Label object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Message Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Message Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMessageElement(MessageElement object) {
 		return null;
 	}
 

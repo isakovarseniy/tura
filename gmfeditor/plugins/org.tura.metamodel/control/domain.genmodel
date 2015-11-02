@@ -657,8 +657,12 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//LayerHolder"/>
     <genClasses ecoreClass="domain.ecore#//InputText"/>
+    <genClasses ecoreClass="domain.ecore#//Password"/>
     <genClasses ecoreClass="domain.ecore#//Label">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Label/label"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//MessageElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MessageElement/label"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//OutputText"/>
     <genClasses ecoreClass="domain.ecore#//CheckBox"/>

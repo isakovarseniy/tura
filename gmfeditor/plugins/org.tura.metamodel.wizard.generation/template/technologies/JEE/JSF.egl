@@ -50,7 +50,7 @@ operation  viewgeneration(hash) {
 
 @template
 operation domain::Uielement  uiElementAttributes(hash){
-%][%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] [%=self.required(hash)%] [%if (hash.get("readonly") <> null){%] readonly="[%=hash.get("readonly")%]"[%}else{%][%=self.readonly(hash)%][%}%]
+%][%=self.styleAttributes(hash)%]  [%=self.rendered(hash)%]  [%=self.enabled(hash)%] [%=self.required(hash)%] [%if (hash.get("readonly") <> null){%] readonly="[%=hash.get("readonly")%]"[%}else{%][%=self.readonly(hash)%][%}%]
 [%}
 
 
@@ -62,7 +62,7 @@ operation domain::StyleElement  styleAttributes(hash){
         var value = util.apostropheRemover( buildParameterizedExpression(self.style));
      %]style="[%=value%]"[%}
 
-     if (self.styleClass <> null  and self.styleClass.size() <> 0 ){%]styleClass="[%
+     if (self.styleClass <> null  and self.styleClass.size() <> 0 ){%] styleClass="[%
       var first = 0;
       for (class in self.styleClass ){ 
         if (class.classifier = null or( class.classifier <> null   and class.classifier.hint = null )){
@@ -118,6 +118,16 @@ operation domain::Uielement  enabled(hash){
       var value = constructExpression(self.enabled,self,'trigger.disabled',hash);
      %]disabled="[%=value%]"[%
 }
+
+
+@template
+operation domain::Uielement  rendered(hash){
+      var value = constructExpression(self.enabled,self,'trigger.rendered',hash);
+      if (value <> null and value <> ""){
+     %]rendered="[%=value%]"[%
+     }
+}
+
 
 @template
 operation domain::Uielement  required(hash){

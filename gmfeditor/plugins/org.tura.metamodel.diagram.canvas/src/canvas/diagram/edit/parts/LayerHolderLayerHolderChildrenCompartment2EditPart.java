@@ -160,6 +160,9 @@ public class LayerHolderLayerHolderChildrenCompartment2EditPart extends
 			if (type == DomainElementTypes.InputText_1603004) {
 				return this;
 			}
+			if (type == DomainElementTypes.Password_1603032) {
+				return this;
+			}
 			if (type == DomainElementTypes.OutputText_1603006) {
 				return this;
 			}
@@ -185,6 +188,9 @@ public class LayerHolderLayerHolderChildrenCompartment2EditPart extends
 				return this;
 			}
 			if (type == DomainElementTypes.Label_1603005) {
+				return this;
+			}
+			if (type == DomainElementTypes.MessageElement_1603034) {
 				return this;
 			}
 			if (type == DomainElementTypes.Button_1603017) {

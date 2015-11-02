@@ -3028,6 +3028,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.Password} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PasswordItemProvider passwordItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.Password}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPasswordAdapter() {
+		if (passwordItemProvider == null) {
+			passwordItemProvider = new PasswordItemProvider(this);
+		}
+
+		return passwordItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.Label} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3048,6 +3071,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		}
 
 		return labelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.MessageElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MessageElementItemProvider messageElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.MessageElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMessageElementAdapter() {
+		if (messageElementItemProvider == null) {
+			messageElementItemProvider = new MessageElementItemProvider(this);
+		}
+
+		return messageElementItemProvider;
 	}
 
 	/**
@@ -4289,7 +4335,9 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (optionSelectionItemProvider != null) optionSelectionItemProvider.dispose();
 		if (layerHolderItemProvider != null) layerHolderItemProvider.dispose();
 		if (inputTextItemProvider != null) inputTextItemProvider.dispose();
+		if (passwordItemProvider != null) passwordItemProvider.dispose();
 		if (labelItemProvider != null) labelItemProvider.dispose();
+		if (messageElementItemProvider != null) messageElementItemProvider.dispose();
 		if (outputTextItemProvider != null) outputTextItemProvider.dispose();
 		if (checkBoxItemProvider != null) checkBoxItemProvider.dispose();
 		if (dropDownSelectionItemProvider != null) dropDownSelectionItemProvider.dispose();

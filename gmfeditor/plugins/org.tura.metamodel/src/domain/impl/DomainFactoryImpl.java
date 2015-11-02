@@ -109,6 +109,7 @@ import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.Message;
+import domain.MessageElement;
 import domain.MessageLibrary;
 import domain.Messages;
 import domain.MethodPointer;
@@ -134,6 +135,7 @@ import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
 import domain.Parameter;
+import domain.Password;
 import domain.PlatformLayers;
 import domain.PopupCanvas;
 import domain.Primitive;
@@ -374,7 +376,9 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.OPTION_SELECTION: return createOptionSelection();
 			case DomainPackage.LAYER_HOLDER: return createLayerHolder();
 			case DomainPackage.INPUT_TEXT: return createInputText();
+			case DomainPackage.PASSWORD: return createPassword();
 			case DomainPackage.LABEL: return createLabel();
+			case DomainPackage.MESSAGE_ELEMENT: return createMessageElement();
 			case DomainPackage.OUTPUT_TEXT: return createOutputText();
 			case DomainPackage.CHECK_BOX: return createCheckBox();
 			case DomainPackage.DROP_DOWN_SELECTION: return createDropDownSelection();
@@ -1751,9 +1755,29 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Password createPassword() {
+		PasswordImpl password = new PasswordImpl();
+		return password;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Label createLabel() {
 		LabelImpl label = new LabelImpl();
 		return label;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MessageElement createMessageElement() {
+		MessageElementImpl messageElement = new MessageElementImpl();
+		return messageElement;
 	}
 
 	/**

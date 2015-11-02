@@ -353,32 +353,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String OutputText10CreationTool_title;
+	public static String MessageElement10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputText10CreationTool_desc;
+	public static String MessageElement10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Table11CreationTool_title;
+	public static String OutputText11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Table11CreationTool_desc;
+	public static String OutputText11CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree12CreationTool_title;
+	public static String Password12CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Tree12CreationTool_desc;
+	public static String Password12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Table13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Table13CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree14CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Tree14CreationTool_desc;
 
 	/**
 	 * @generated

@@ -36,7 +36,9 @@ import canvas.diagram.edit.parts.Image2EditPart;
 import canvas.diagram.edit.parts.InputText2EditPart;
 import canvas.diagram.edit.parts.Label2EditPart;
 import canvas.diagram.edit.parts.LayerHolder2EditPart;
+import canvas.diagram.edit.parts.MessageElement2EditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
+import canvas.diagram.edit.parts.Password2EditPart;
 import canvas.diagram.edit.parts.Table2EditPart;
 import canvas.diagram.edit.parts.TreeEditPart;
 import canvas.diagram.part.DomainVisualIDRegistry;
@@ -90,6 +92,13 @@ public class Column2ItemSemanticEditPolicy extends
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case InputText2EditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case Password2EditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true
@@ -153,6 +162,13 @@ public class Column2ItemSemanticEditPolicy extends
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
 					case Label2EditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case MessageElement2EditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

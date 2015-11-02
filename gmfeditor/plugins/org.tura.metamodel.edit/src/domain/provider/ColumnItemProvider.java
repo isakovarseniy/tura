@@ -293,7 +293,17 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.COLUMN__ELEMENT,
+				 DomainFactory.eINSTANCE.createPassword()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.COLUMN__ELEMENT,
 				 DomainFactory.eINSTANCE.createLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.COLUMN__ELEMENT,
+				 DomainFactory.eINSTANCE.createMessageElement()));
 
 		newChildDescriptors.add
 			(createChildParameter

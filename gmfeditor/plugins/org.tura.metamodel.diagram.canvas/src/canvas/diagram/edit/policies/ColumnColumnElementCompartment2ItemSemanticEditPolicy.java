@@ -26,7 +26,9 @@ import canvas.diagram.edit.commands.Image2CreateCommand;
 import canvas.diagram.edit.commands.InputText2CreateCommand;
 import canvas.diagram.edit.commands.Label2CreateCommand;
 import canvas.diagram.edit.commands.LayerHolder2CreateCommand;
+import canvas.diagram.edit.commands.MessageElement2CreateCommand;
 import canvas.diagram.edit.commands.OutputText2CreateCommand;
+import canvas.diagram.edit.commands.Password2CreateCommand;
 import canvas.diagram.edit.commands.Table2CreateCommand;
 import canvas.diagram.edit.commands.TreeCreateCommand;
 import canvas.diagram.providers.DomainElementTypes;
@@ -50,6 +52,9 @@ public class ColumnColumnElementCompartment2ItemSemanticEditPolicy extends
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (DomainElementTypes.InputText_1603012 == req.getElementType()) {
 			return getGEFWrapper(new InputText2CreateCommand(req));
+		}
+		if (DomainElementTypes.Password_1603033 == req.getElementType()) {
+			return getGEFWrapper(new Password2CreateCommand(req));
 		}
 		if (DomainElementTypes.OutputText_1603014 == req.getElementType()) {
 			return getGEFWrapper(new OutputText2CreateCommand(req));
@@ -78,6 +83,9 @@ public class ColumnColumnElementCompartment2ItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.Label_1603013 == req.getElementType()) {
 			return getGEFWrapper(new Label2CreateCommand(req));
+		}
+		if (DomainElementTypes.MessageElement_1603035 == req.getElementType()) {
+			return getGEFWrapper(new MessageElement2CreateCommand(req));
 		}
 		if (DomainElementTypes.Button_1603023 == req.getElementType()) {
 			return getGEFWrapper(new Button2CreateCommand(req));

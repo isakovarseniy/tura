@@ -46,6 +46,9 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case InputTextEditPart.VISUAL_ID:
 				return new InputTextEditPart(view);
 
+			case PasswordEditPart.VISUAL_ID:
+				return new PasswordEditPart(view);
+
 			case OutputTextEditPart.VISUAL_ID:
 				return new OutputTextEditPart(view);
 
@@ -69,6 +72,9 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case InputText2EditPart.VISUAL_ID:
 				return new InputText2EditPart(view);
+
+			case Password2EditPart.VISUAL_ID:
+				return new Password2EditPart(view);
 
 			case OutputText2EditPart.VISUAL_ID:
 				return new OutputText2EditPart(view);
@@ -121,6 +127,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case LabelLabelEditPart.VISUAL_ID:
 				return new LabelLabelEditPart(view);
 
+			case MessageElementEditPart.VISUAL_ID:
+				return new MessageElementEditPart(view);
+
+			case MessageElementLabelEditPart.VISUAL_ID:
+				return new MessageElementLabelEditPart(view);
+
 			case ButtonEditPart.VISUAL_ID:
 				return new ButtonEditPart(view);
 
@@ -138,6 +150,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case LabelLabel2EditPart.VISUAL_ID:
 				return new LabelLabel2EditPart(view);
+
+			case MessageElement2EditPart.VISUAL_ID:
+				return new MessageElement2EditPart(view);
+
+			case MessageElementLabel2EditPart.VISUAL_ID:
+				return new MessageElementLabel2EditPart(view);
 
 			case Button2EditPart.VISUAL_ID:
 				return new Button2EditPart(view);

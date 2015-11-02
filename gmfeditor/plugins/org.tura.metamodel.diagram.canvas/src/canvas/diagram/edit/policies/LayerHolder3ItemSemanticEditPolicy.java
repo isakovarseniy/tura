@@ -36,7 +36,9 @@ import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.LabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment3EditPart;
+import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
+import canvas.diagram.edit.parts.PasswordEditPart;
 import canvas.diagram.edit.parts.TableEditPart;
 import canvas.diagram.edit.parts.Tree2EditPart;
 import canvas.diagram.part.DomainVisualIDRegistry;
@@ -90,6 +92,13 @@ public class LayerHolder3ItemSemanticEditPolicy extends
 					Node cnode = (Node) cit.next();
 					switch (DomainVisualIDRegistry.getVisualID(cnode)) {
 					case InputTextEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case PasswordEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true
@@ -153,6 +162,13 @@ public class LayerHolder3ItemSemanticEditPolicy extends
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
 					case LabelEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case MessageElementEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

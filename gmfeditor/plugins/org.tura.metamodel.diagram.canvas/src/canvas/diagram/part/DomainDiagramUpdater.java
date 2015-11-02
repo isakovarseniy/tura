@@ -48,8 +48,12 @@ import canvas.diagram.edit.parts.LayerHolderEditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment2EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment3EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartmentEditPart;
+import canvas.diagram.edit.parts.MessageElement2EditPart;
+import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
+import canvas.diagram.edit.parts.Password2EditPart;
+import canvas.diagram.edit.parts.PasswordEditPart;
 import canvas.diagram.edit.parts.Table2EditPart;
 import canvas.diagram.edit.parts.TableEditPart;
 import canvas.diagram.edit.parts.TableTableColsCompartment2EditPart;
@@ -151,6 +155,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == PasswordEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == OutputTextEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -184,6 +192,10 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 			if (visualID == LabelEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == MessageElementEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -242,6 +254,9 @@ public class DomainDiagramUpdater {
 			if (visualID == InputText2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
+			if (visualID == Password2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
 			if (visualID == OutputText2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -267,6 +282,9 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Label2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == MessageElement2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Button2EditPart.VISUAL_ID) {
@@ -349,6 +367,9 @@ public class DomainDiagramUpdater {
 			if (visualID == InputText2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
+			if (visualID == Password2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
 			if (visualID == OutputText2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
@@ -374,6 +395,9 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Label2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == MessageElement2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == Button2EditPart.VISUAL_ID) {
@@ -403,6 +427,10 @@ public class DomainDiagramUpdater {
 			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == InputTextEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PasswordEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -439,6 +467,10 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 			if (visualID == LabelEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == MessageElementEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -499,6 +531,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == PasswordEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == OutputTextEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -535,6 +571,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == MessageElementEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == ButtonEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -554,6 +594,8 @@ public class DomainDiagramUpdater {
 			return getLayerHolder_1602003ContainedLinks(view);
 		case InputTextEditPart.VISUAL_ID:
 			return getInputText_1603004ContainedLinks(view);
+		case PasswordEditPart.VISUAL_ID:
+			return getPassword_1603032ContainedLinks(view);
 		case OutputTextEditPart.VISUAL_ID:
 			return getOutputText_1603006ContainedLinks(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
@@ -566,6 +608,8 @@ public class DomainDiagramUpdater {
 			return getColumn_1603024ContainedLinks(view);
 		case InputText2EditPart.VISUAL_ID:
 			return getInputText_1603012ContainedLinks(view);
+		case Password2EditPart.VISUAL_ID:
+			return getPassword_1603033ContainedLinks(view);
 		case OutputText2EditPart.VISUAL_ID:
 			return getOutputText_1603014ContainedLinks(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
@@ -590,6 +634,8 @@ public class DomainDiagramUpdater {
 			return getImage_1603028ContainedLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005ContainedLinks(view);
+		case MessageElementEditPart.VISUAL_ID:
+			return getMessageElement_1603034ContainedLinks(view);
 		case ButtonEditPart.VISUAL_ID:
 			return getButton_1603017ContainedLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
@@ -598,6 +644,8 @@ public class DomainDiagramUpdater {
 			return getImage_1603030ContainedLinks(view);
 		case Label2EditPart.VISUAL_ID:
 			return getLabel_1603013ContainedLinks(view);
+		case MessageElement2EditPart.VISUAL_ID:
+			return getMessageElement_1603035ContainedLinks(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023ContainedLinks(view);
 		}
@@ -613,6 +661,8 @@ public class DomainDiagramUpdater {
 			return getLayerHolder_1602003IncomingLinks(view);
 		case InputTextEditPart.VISUAL_ID:
 			return getInputText_1603004IncomingLinks(view);
+		case PasswordEditPart.VISUAL_ID:
+			return getPassword_1603032IncomingLinks(view);
 		case OutputTextEditPart.VISUAL_ID:
 			return getOutputText_1603006IncomingLinks(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
@@ -625,6 +675,8 @@ public class DomainDiagramUpdater {
 			return getColumn_1603024IncomingLinks(view);
 		case InputText2EditPart.VISUAL_ID:
 			return getInputText_1603012IncomingLinks(view);
+		case Password2EditPart.VISUAL_ID:
+			return getPassword_1603033IncomingLinks(view);
 		case OutputText2EditPart.VISUAL_ID:
 			return getOutputText_1603014IncomingLinks(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
@@ -649,6 +701,8 @@ public class DomainDiagramUpdater {
 			return getImage_1603028IncomingLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005IncomingLinks(view);
+		case MessageElementEditPart.VISUAL_ID:
+			return getMessageElement_1603034IncomingLinks(view);
 		case ButtonEditPart.VISUAL_ID:
 			return getButton_1603017IncomingLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
@@ -657,6 +711,8 @@ public class DomainDiagramUpdater {
 			return getImage_1603030IncomingLinks(view);
 		case Label2EditPart.VISUAL_ID:
 			return getLabel_1603013IncomingLinks(view);
+		case MessageElement2EditPart.VISUAL_ID:
+			return getMessageElement_1603035IncomingLinks(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023IncomingLinks(view);
 		}
@@ -672,6 +728,8 @@ public class DomainDiagramUpdater {
 			return getLayerHolder_1602003OutgoingLinks(view);
 		case InputTextEditPart.VISUAL_ID:
 			return getInputText_1603004OutgoingLinks(view);
+		case PasswordEditPart.VISUAL_ID:
+			return getPassword_1603032OutgoingLinks(view);
 		case OutputTextEditPart.VISUAL_ID:
 			return getOutputText_1603006OutgoingLinks(view);
 		case DropDownSelectionEditPart.VISUAL_ID:
@@ -684,6 +742,8 @@ public class DomainDiagramUpdater {
 			return getColumn_1603024OutgoingLinks(view);
 		case InputText2EditPart.VISUAL_ID:
 			return getInputText_1603012OutgoingLinks(view);
+		case Password2EditPart.VISUAL_ID:
+			return getPassword_1603033OutgoingLinks(view);
 		case OutputText2EditPart.VISUAL_ID:
 			return getOutputText_1603014OutgoingLinks(view);
 		case DropDownSelection2EditPart.VISUAL_ID:
@@ -708,6 +768,8 @@ public class DomainDiagramUpdater {
 			return getImage_1603028OutgoingLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005OutgoingLinks(view);
+		case MessageElementEditPart.VISUAL_ID:
+			return getMessageElement_1603034OutgoingLinks(view);
 		case ButtonEditPart.VISUAL_ID:
 			return getButton_1603017OutgoingLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
@@ -716,6 +778,8 @@ public class DomainDiagramUpdater {
 			return getImage_1603030OutgoingLinks(view);
 		case Label2EditPart.VISUAL_ID:
 			return getLabel_1603013OutgoingLinks(view);
+		case MessageElement2EditPart.VISUAL_ID:
+			return getMessageElement_1603035OutgoingLinks(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023OutgoingLinks(view);
 		}
@@ -742,6 +806,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getInputText_1603004ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getPassword_1603032ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -790,6 +862,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getInputText_1603012ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getPassword_1603033ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -893,6 +973,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMessageElement_1603034ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getButton_1603017ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -925,6 +1013,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMessageElement_1603035ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getButton_1603023ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -942,6 +1038,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getInputText_1603004IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getPassword_1603032IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -990,6 +1094,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getInputText_1603012IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getPassword_1603033IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -1093,6 +1205,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMessageElement_1603034IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getButton_1603017IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -1125,6 +1245,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMessageElement_1603035IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getButton_1603023IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -1142,6 +1270,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getInputText_1603004OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getPassword_1603032OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -1190,6 +1326,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getInputText_1603012OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getPassword_1603033OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -1293,6 +1437,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMessageElement_1603034OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getButton_1603017OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -1318,6 +1470,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getLabel_1603013OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getMessageElement_1603035OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

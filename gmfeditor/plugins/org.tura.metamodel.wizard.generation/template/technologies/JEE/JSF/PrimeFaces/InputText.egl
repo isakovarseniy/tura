@@ -40,6 +40,7 @@ operation domain::InputText noContext(hash,value) {
 
 @template
 operation domain::InputText rw(hash,value) { 
+
 %]
 <p:inputText   [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]>
    [%=self.validator(hash)%]

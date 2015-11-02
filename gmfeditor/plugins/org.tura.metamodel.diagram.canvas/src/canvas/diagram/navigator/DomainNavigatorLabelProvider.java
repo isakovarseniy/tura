@@ -58,8 +58,14 @@ import canvas.diagram.edit.parts.LabelLabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder2EditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.LayerHolderEditPart;
+import canvas.diagram.edit.parts.MessageElement2EditPart;
+import canvas.diagram.edit.parts.MessageElementEditPart;
+import canvas.diagram.edit.parts.MessageElementLabel2EditPart;
+import canvas.diagram.edit.parts.MessageElementLabelEditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
+import canvas.diagram.edit.parts.Password2EditPart;
+import canvas.diagram.edit.parts.PasswordEditPart;
 import canvas.diagram.edit.parts.Table2EditPart;
 import canvas.diagram.edit.parts.TableEditPart;
 import canvas.diagram.edit.parts.TableLabel2EditPart;
@@ -79,6 +85,7 @@ import domain.DropDownSelection;
 import domain.InputText;
 import domain.LayerHolder;
 import domain.OutputText;
+import domain.Password;
 
 /**
  * @generated
@@ -225,6 +232,18 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case Date2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Date", DomainElementTypes.Date_1603031); //$NON-NLS-1$
+		case PasswordEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Password", DomainElementTypes.Password_1603032); //$NON-NLS-1$
+		case Password2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Password", DomainElementTypes.Password_1603033); //$NON-NLS-1$
+		case MessageElementEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?MessageElement", DomainElementTypes.MessageElement_1603034); //$NON-NLS-1$
+		case MessageElement2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?MessageElement", DomainElementTypes.MessageElement_1603035); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -337,6 +356,14 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getImage_1603030Text(view);
 		case Date2EditPart.VISUAL_ID:
 			return getDate_1603031Text(view);
+		case PasswordEditPart.VISUAL_ID:
+			return getPassword_1603032Text(view);
+		case Password2EditPart.VISUAL_ID:
+			return getPassword_1603033Text(view);
+		case MessageElementEditPart.VISUAL_ID:
+			return getMessageElement_1603034Text(view);
+		case MessageElement2EditPart.VISUAL_ID:
+			return getMessageElement_1603035Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -753,6 +780,74 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1603031); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getPassword_1603032Text(View view) {
+		Password domainModelElement = (Password) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getNickname();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1603032); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getPassword_1603033Text(View view) {
+		Password domainModelElement = (Password) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getNickname();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1603033); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getMessageElement_1603034Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.MessageElement_1603034,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(MessageElementLabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605013); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getMessageElement_1603035Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.MessageElement_1603035,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(MessageElementLabel2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605014); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

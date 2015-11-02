@@ -158,6 +158,9 @@ public class ColumnColumnElementCompartmentEditPart extends
 			if (type == DomainElementTypes.InputText_1603012) {
 				return this;
 			}
+			if (type == DomainElementTypes.Password_1603033) {
+				return this;
+			}
 			if (type == DomainElementTypes.OutputText_1603014) {
 				return this;
 			}
@@ -183,6 +186,9 @@ public class ColumnColumnElementCompartmentEditPart extends
 				return this;
 			}
 			if (type == DomainElementTypes.Label_1603013) {
+				return this;
+			}
+			if (type == DomainElementTypes.MessageElement_1603035) {
 				return this;
 			}
 			if (type == DomainElementTypes.Button_1603023) {

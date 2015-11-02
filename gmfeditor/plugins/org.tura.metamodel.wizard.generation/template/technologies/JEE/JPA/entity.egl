@@ -22,13 +22,13 @@ public class [%=type.~class%] extends TuraObject implements java.io.Serializable
     [%if (field.typeRef.~fullName = "java.util.Date"  or field.typeRef.~fullName = "java.sql.Timestamp")%]
 	@javax.persistence.Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	@javax.persistence.Column(name = "[%=util.mergeAndCapitalize(field.name).toUpperCase()%]")
-	private [%= field.typeRef.~fullName%]  [%=field.name%];
+	private [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%];
 	
-	public void set[%=util.mergeAndCapitalize(field.name)%](  [%= field.typeRef.~fullName%]  [%=field.name%]){
-		this.[%=field.name%] = [%=field.name%];
+	public void set[%=util.mergeAndCapitalize(field.name)%](  [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%]){
+		this.[%=util.mergeAndUnCapitalize(field.name)%] = [%=util.mergeAndUnCapitalize(field.name)%];
 	}
 	public [%= field.typeRef.~fullName%] get[%=util.mergeAndCapitalize(field.name)%](){
-		return [%=field.name%];
+		return [%=util.mergeAndUnCapitalize(field.name)%];
 	}
 [%}%]
 

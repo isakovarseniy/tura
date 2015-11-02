@@ -1186,6 +1186,15 @@ public interface DomainFactory extends EFactory {
 	InputText createInputText();
 
 	/**
+	 * Returns a new object of class '<em>Password</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Password</em>'.
+	 * @generated
+	 */
+	Password createPassword();
+
+	/**
 	 * Returns a new object of class '<em>Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1193,6 +1202,15 @@ public interface DomainFactory extends EFactory {
 	 * @generated
 	 */
 	Label createLabel();
+
+	/**
+	 * Returns a new object of class '<em>Message Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Message Element</em>'.
+	 * @generated
+	 */
+	MessageElement createMessageElement();
 
 	/**
 	 * Returns a new object of class '<em>Output Text</em>'.

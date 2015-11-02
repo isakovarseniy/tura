@@ -107,6 +107,7 @@ import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.Message;
+import domain.MessageElement;
 import domain.MessageLibrary;
 import domain.Messages;
 import domain.MethodPointer;
@@ -130,6 +131,7 @@ import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
 import domain.Parameter;
+import domain.Password;
 import domain.PopupCanvas;
 import domain.Primitive;
 import domain.Property;
@@ -764,8 +766,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createInputTextAdapter();
 			}
 			@Override
+			public Adapter casePassword(Password object) {
+				return createPasswordAdapter();
+			}
+			@Override
 			public Adapter caseLabel(Label object) {
 				return createLabelAdapter();
+			}
+			@Override
+			public Adapter caseMessageElement(MessageElement object) {
+				return createMessageElementAdapter();
 			}
 			@Override
 			public Adapter caseOutputText(OutputText object) {
@@ -2756,6 +2766,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link domain.Password <em>Password</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.Password
+	 * @generated
+	 */
+	public Adapter createPasswordAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link domain.Label <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2766,6 +2790,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.MessageElement <em>Message Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.MessageElement
+	 * @generated
+	 */
+	public Adapter createMessageElementAdapter() {
 		return null;
 	}
 

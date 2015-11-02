@@ -853,7 +853,17 @@ public class EnterpriseInfrastructureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
+				 DomainFactory.eINSTANCE.createPassword()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
 				 DomainFactory.eINSTANCE.createLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
+				 DomainFactory.eINSTANCE.createMessageElement()));
 
 		newChildDescriptors.add
 			(createChildParameter

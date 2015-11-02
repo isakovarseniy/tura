@@ -19,6 +19,8 @@ import javax.inject.Inject;
 public class BeanFactory  implements IBeanFactory, java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 
+    private int section;
+
 	@Inject
 	private transient Logger logger;
 	
@@ -52,8 +54,10 @@ public class BeanFactory  implements IBeanFactory, java.io.Serializable {
 	   }
 	}
 	%]	
- 	@javax.annotation.PostConstruct
 	public void init() {
+    	if (section > 0)
+    		return;
+    	section++;
 		try {
 			org.tura.platform.datacontrol.command.FactoryInitializeTrigger trigger = factoryInitializeTrigger.get();
 			if (trigger != null)
@@ -92,6 +96,7 @@ public class BeanFactory  implements IBeanFactory, java.io.Serializable {
      for (control in controls){
        if (control.~masterControl = true){%]
           public    [%=typeName(control, component, form)%]  [%=methodName(control)%](){
+          init();
                if ([%=propertyName(control)%] == null)
                   [%=propertyName(control)%] = [%=propertyName(control)%]producer.get();
                return [%=propertyName(control)%];
@@ -107,6 +112,7 @@ public class BeanFactory  implements IBeanFactory, java.io.Serializable {
          for ( relation in relations ){
          if (relation.isTree = false){%]
           public    [%=typeName(relation.detail, component, form)%]  [%=methodName(relation.detail)%](){
+          init();
        [%if (relation.detail.~dependObject =  null ){ %] 
           try {
                [%=typeName(relation.master, component, form)%] master =  [%=methodName(relation.master)%]();

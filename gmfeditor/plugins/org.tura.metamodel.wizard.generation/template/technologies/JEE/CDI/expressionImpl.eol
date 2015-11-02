@@ -32,8 +32,9 @@ operation TypeElementImpl(expression:String, contextValue , paramId: Integer , a
 }
 
 operation AttributeImpl(expression:String, contextValue , paramId: Integer , array ) : String {
+   var util = new Native('org.tura.metamodel.commons.Util');
    var attr =  contextValue.expression.get(paramId).objRef;
-   return expression.replaceAll("<holder>", attr.name+".<holder>");
+   return expression.replaceAll("<holder>", util.mergeAndUnCapitalize(attr.name)  +".<holder>");
 }
 
 operation TypesImpl(expression:String, contextValue , paramId: Integer , array ) : String {

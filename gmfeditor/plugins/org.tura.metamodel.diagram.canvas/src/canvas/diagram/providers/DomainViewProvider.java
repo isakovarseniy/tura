@@ -82,8 +82,14 @@ import canvas.diagram.edit.parts.LayerHolderEditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment2EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment3EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartmentEditPart;
+import canvas.diagram.edit.parts.MessageElement2EditPart;
+import canvas.diagram.edit.parts.MessageElementEditPart;
+import canvas.diagram.edit.parts.MessageElementLabel2EditPart;
+import canvas.diagram.edit.parts.MessageElementLabelEditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
+import canvas.diagram.edit.parts.Password2EditPart;
+import canvas.diagram.edit.parts.PasswordEditPart;
 import canvas.diagram.edit.parts.Table2EditPart;
 import canvas.diagram.edit.parts.TableEditPart;
 import canvas.diagram.edit.parts.TableLabel2EditPart;
@@ -190,6 +196,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				switch (visualID) {
 				case LayerHolderEditPart.VISUAL_ID:
 				case InputTextEditPart.VISUAL_ID:
+				case PasswordEditPart.VISUAL_ID:
 				case OutputTextEditPart.VISUAL_ID:
 				case DropDownSelectionEditPart.VISUAL_ID:
 				case DateEditPart.VISUAL_ID:
@@ -199,8 +206,10 @@ public class DomainViewProvider extends AbstractProvider implements
 				case CheckBoxEditPart.VISUAL_ID:
 				case ImageEditPart.VISUAL_ID:
 				case LabelEditPart.VISUAL_ID:
+				case MessageElementEditPart.VISUAL_ID:
 				case ButtonEditPart.VISUAL_ID:
 				case InputText2EditPart.VISUAL_ID:
+				case Password2EditPart.VISUAL_ID:
 				case OutputText2EditPart.VISUAL_ID:
 				case DropDownSelection2EditPart.VISUAL_ID:
 				case Date2EditPart.VISUAL_ID:
@@ -212,6 +221,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				case CheckBox2EditPart.VISUAL_ID:
 				case Image2EditPart.VISUAL_ID:
 				case Label2EditPart.VISUAL_ID:
+				case MessageElement2EditPart.VISUAL_ID:
 				case Button2EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
@@ -227,12 +237,14 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		return LayerHolderEditPart.VISUAL_ID == visualID
 				|| InputTextEditPart.VISUAL_ID == visualID
+				|| PasswordEditPart.VISUAL_ID == visualID
 				|| OutputTextEditPart.VISUAL_ID == visualID
 				|| DropDownSelectionEditPart.VISUAL_ID == visualID
 				|| DateEditPart.VISUAL_ID == visualID
 				|| TableEditPart.VISUAL_ID == visualID
 				|| ColumnEditPart.VISUAL_ID == visualID
 				|| InputText2EditPart.VISUAL_ID == visualID
+				|| Password2EditPart.VISUAL_ID == visualID
 				|| OutputText2EditPart.VISUAL_ID == visualID
 				|| DropDownSelection2EditPart.VISUAL_ID == visualID
 				|| Date2EditPart.VISUAL_ID == visualID
@@ -245,10 +257,12 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| CheckBoxEditPart.VISUAL_ID == visualID
 				|| ImageEditPart.VISUAL_ID == visualID
 				|| LabelEditPart.VISUAL_ID == visualID
+				|| MessageElementEditPart.VISUAL_ID == visualID
 				|| ButtonEditPart.VISUAL_ID == visualID
 				|| CheckBox2EditPart.VISUAL_ID == visualID
 				|| Image2EditPart.VISUAL_ID == visualID
 				|| Label2EditPart.VISUAL_ID == visualID
+				|| MessageElement2EditPart.VISUAL_ID == visualID
 				|| Button2EditPart.VISUAL_ID == visualID;
 	}
 
@@ -312,6 +326,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case InputTextEditPart.VISUAL_ID:
 			return createInputText_1603004(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case PasswordEditPart.VISUAL_ID:
+			return createPassword_1603032(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case OutputTextEditPart.VISUAL_ID:
 			return createOutputText_1603006(domainElement, containerView,
 					index, persisted, preferencesHint);
@@ -329,6 +346,9 @@ public class DomainViewProvider extends AbstractProvider implements
 					persisted, preferencesHint);
 		case InputText2EditPart.VISUAL_ID:
 			return createInputText_1603012(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case Password2EditPart.VISUAL_ID:
+			return createPassword_1603033(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case OutputText2EditPart.VISUAL_ID:
 			return createOutputText_1603014(domainElement, containerView,
@@ -366,6 +386,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case LabelEditPart.VISUAL_ID:
 			return createLabel_1603005(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case MessageElementEditPart.VISUAL_ID:
+			return createMessageElement_1603034(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case ButtonEditPart.VISUAL_ID:
 			return createButton_1603017(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -378,6 +401,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case Label2EditPart.VISUAL_ID:
 			return createLabel_1603013(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case MessageElement2EditPart.VISUAL_ID:
+			return createMessageElement_1603035(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case Button2EditPart.VISUAL_ID:
 			return createButton_1603023(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -461,6 +487,48 @@ public class DomainViewProvider extends AbstractProvider implements
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry
 				.getType(InputTextEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createPassword_1603032(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry.getType(PasswordEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -730,6 +798,49 @@ public class DomainViewProvider extends AbstractProvider implements
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(DomainVisualIDRegistry
 				.getType(InputText2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createPassword_1603033(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(Password2EditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -1316,6 +1427,52 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	public Node createMessageElement_1603034(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(MessageElementEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label1605013 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(MessageElementLabelEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
 	public Node createButton_1603017(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -1480,6 +1637,52 @@ public class DomainViewProvider extends AbstractProvider implements
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label1605002 = createLabel(node,
 				DomainVisualIDRegistry.getType(LabelLabel2EditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createMessageElement_1603035(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(MessageElement2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label1605014 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(MessageElementLabel2EditPart.VISUAL_ID));
 		return node;
 	}
 

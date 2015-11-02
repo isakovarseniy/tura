@@ -96,7 +96,42 @@ operation  domain::InputText accessor(id,methodName)  {
 }
 
 @template
+operation  domain::Password accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("input[id$=\''+id+'\']")';     
+
+   %]
+     public org.tura.platform.selenium.InputText get[%=util.mergeAndCapitalize(methodName)%](){
+       return new org.tura.platform.selenium.primefaces.InputTextPrimeFaces( webDriver.findElement([%=s%]),webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }      
+     
+     [%   
+}
+
+
+
+
+@template
 operation  domain::Label accessor(id,methodName)  {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
+     
+   %]
+     public org.tura.platform.selenium.Label get[%=util.mergeAndCapitalize(methodName)%](){
+         return new org.tura.platform.selenium.primefaces.LabelPrimeFaces(webDriver.findElement( [%=s%]),webDriver);
+     }
+      public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }        
+     [%   
+}
+
+
+@template
+operation  domain::MessageElement accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
      
