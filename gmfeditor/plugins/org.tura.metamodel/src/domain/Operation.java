@@ -16,8 +16,6 @@ package domain;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Operation</b></em>'.
@@ -38,7 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='255,239,222'"
  * @generated
  */
-public interface Operation extends EObject {
+public interface Operation extends Secured {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

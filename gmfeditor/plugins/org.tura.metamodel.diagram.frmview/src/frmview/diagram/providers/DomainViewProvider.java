@@ -174,8 +174,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				switch (visualID) {
 				case PopupCanvasEditPart.VISUAL_ID:
 				case CanvasEditPart.VISUAL_ID:
-				case TabPageEditPart.VISUAL_ID:
 				case WindowEditPart.VISUAL_ID:
+				case TabPageEditPart.VISUAL_ID:
 				case TabCanvasEditPart.VISUAL_ID:
 				case ViewPortEditPart.VISUAL_ID:
 				case ViewPortTriggerEditPart.VISUAL_ID:
@@ -194,8 +194,8 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		return PopupCanvasEditPart.VISUAL_ID == visualID
 				|| CanvasEditPart.VISUAL_ID == visualID
-				|| TabPageEditPart.VISUAL_ID == visualID
 				|| WindowEditPart.VISUAL_ID == visualID
+				|| TabPageEditPart.VISUAL_ID == visualID
 				|| TabCanvasEditPart.VISUAL_ID == visualID
 				|| ViewPortEditPart.VISUAL_ID == visualID
 				|| ViewPortTriggerEditPart.VISUAL_ID == visualID
@@ -262,11 +262,11 @@ public class DomainViewProvider extends AbstractProvider implements
 		case CanvasEditPart.VISUAL_ID:
 			return createCanvas_1302003(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case TabPageEditPart.VISUAL_ID:
-			return createTabPage_1302002(domainElement, containerView, index,
-					persisted, preferencesHint);
 		case WindowEditPart.VISUAL_ID:
 			return createWindow_1302007(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case TabPageEditPart.VISUAL_ID:
+			return createTabPage_1302002(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case TabCanvasEditPart.VISUAL_ID:
 			return createTabCanvas_1302008(domainElement, containerView, index,

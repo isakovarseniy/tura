@@ -82,6 +82,7 @@ import domain.FormVariable;
 import domain.FormView;
 import domain.Formatable;
 import domain.GenerationHint;
+import domain.GrantAccess;
 import domain.Group;
 import domain.HTMLLayerHolder;
 import domain.Hub;
@@ -148,6 +149,7 @@ import domain.Roles;
 import domain.Root;
 import domain.Router;
 import domain.SearchTrigger;
+import domain.Secured;
 import domain.Selection;
 import domain.Server;
 import domain.ServerClaster;
@@ -268,6 +270,14 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseClassifier(Classifier object) {
 				return createClassifierAdapter();
+			}
+			@Override
+			public Adapter caseSecured(Secured object) {
+				return createSecuredAdapter();
+			}
+			@Override
+			public Adapter caseGrantAccess(GrantAccess object) {
+				return createGrantAccessAdapter();
 			}
 			@Override
 			public Adapter caseDomainArtifacts(DomainArtifacts object) {
@@ -1026,6 +1036,34 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createClassifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.Secured <em>Secured</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.Secured
+	 * @generated
+	 */
+	public Adapter createSecuredAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.GrantAccess <em>Grant Access</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.GrantAccess
+	 * @generated
+	 */
+	public Adapter createGrantAccessAdapter() {
 		return null;
 	}
 

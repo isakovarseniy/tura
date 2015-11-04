@@ -244,6 +244,16 @@ public class StylesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.STYLES__ANY,
+				 DomainFactory.eINSTANCE.createSecured()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLES__ANY,
+				 DomainFactory.eINSTANCE.createGrantAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLES__ANY,
 				 DomainFactory.eINSTANCE.createDomainArtifacts()));
 
 		newChildDescriptors.add

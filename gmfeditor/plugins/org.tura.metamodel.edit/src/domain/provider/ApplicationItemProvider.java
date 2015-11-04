@@ -286,6 +286,16 @@ public class ApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createSecured()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createGrantAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createDomainArtifacts()));
 
 		newChildDescriptors.add

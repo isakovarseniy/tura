@@ -176,6 +176,52 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.Secured} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SecuredItemProvider securedItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.Secured}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSecuredAdapter() {
+		if (securedItemProvider == null) {
+			securedItemProvider = new SecuredItemProvider(this);
+		}
+
+		return securedItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.GrantAccess} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GrantAccessItemProvider grantAccessItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.GrantAccess}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGrantAccessAdapter() {
+		if (grantAccessItemProvider == null) {
+			grantAccessItemProvider = new GrantAccessItemProvider(this);
+		}
+
+		return grantAccessItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.DomainArtifacts} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4211,6 +4257,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (htmlLayerHolderItemProvider != null) htmlLayerHolderItemProvider.dispose();
 		if (categorizedItemProvider != null) categorizedItemProvider.dispose();
 		if (classifierItemProvider != null) classifierItemProvider.dispose();
+		if (securedItemProvider != null) securedItemProvider.dispose();
+		if (grantAccessItemProvider != null) grantAccessItemProvider.dispose();
 		if (domainArtifactsItemProvider != null) domainArtifactsItemProvider.dispose();
 		if (domainTypesItemProvider != null) domainTypesItemProvider.dispose();
 		if (domainApplicationsItemProvider != null) domainApplicationsItemProvider.dispose();

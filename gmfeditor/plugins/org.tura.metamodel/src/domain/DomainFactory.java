@@ -70,6 +70,24 @@ public interface DomainFactory extends EFactory {
 	Classifier createClassifier();
 
 	/**
+	 * Returns a new object of class '<em>Secured</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Secured</em>'.
+	 * @generated
+	 */
+	Secured createSecured();
+
+	/**
+	 * Returns a new object of class '<em>Grant Access</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Grant Access</em>'.
+	 * @generated
+	 */
+	GrantAccess createGrantAccess();
+
+	/**
 	 * Returns a new object of class '<em>Artifacts</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

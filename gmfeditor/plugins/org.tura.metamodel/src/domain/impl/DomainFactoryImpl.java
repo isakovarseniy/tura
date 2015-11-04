@@ -84,6 +84,7 @@ import domain.FormVariable;
 import domain.FormView;
 import domain.Formatable;
 import domain.GenerationHint;
+import domain.GrantAccess;
 import domain.Group;
 import domain.HTMLLayerHolder;
 import domain.Hub;
@@ -153,6 +154,7 @@ import domain.Roles;
 import domain.Root;
 import domain.Router;
 import domain.SearchTrigger;
+import domain.Secured;
 import domain.Selection;
 import domain.Server;
 import domain.ServerClaster;
@@ -252,6 +254,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.HTML_LAYER_HOLDER: return createHTMLLayerHolder();
 			case DomainPackage.CATEGORIZED: return createCategorized();
 			case DomainPackage.CLASSIFIER: return createClassifier();
+			case DomainPackage.SECURED: return createSecured();
+			case DomainPackage.GRANT_ACCESS: return createGrantAccess();
 			case DomainPackage.DOMAIN_ARTIFACTS: return createDomainArtifacts();
 			case DomainPackage.DOMAIN_TYPES: return createDomainTypes();
 			case DomainPackage.DOMAIN_APPLICATIONS: return createDomainApplications();
@@ -508,6 +512,26 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public Classifier createClassifier() {
 		ClassifierImpl classifier = new ClassifierImpl();
 		return classifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Secured createSecured() {
+		SecuredImpl secured = new SecuredImpl();
+		return secured;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GrantAccess createGrantAccess() {
+		GrantAccessImpl grantAccess = new GrantAccessImpl();
+		return grantAccess;
 	}
 
 	/**

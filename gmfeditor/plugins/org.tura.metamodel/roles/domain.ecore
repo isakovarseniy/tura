@@ -29,6 +29,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="hint" eType="#//GenerationHint"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="details" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Secured">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grants" upperBound="-1"
+        eType="#//GrantAccess" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GrantAccess">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applicationRef" eType="#//DomainApplication"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roleRef" eType="#//Role"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainArtifacts" eSuperTypes="#//HTMLLayerHolder">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
@@ -1006,7 +1016,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Type"
         eOpposite="#//Type/attributes"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation">
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//Secured">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
@@ -1214,7 +1224,7 @@
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel #//Categorized">
+  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel #//Categorized #//Secured">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>

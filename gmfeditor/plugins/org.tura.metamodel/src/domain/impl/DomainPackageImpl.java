@@ -84,6 +84,7 @@ import domain.FormVariable;
 import domain.FormView;
 import domain.Formatable;
 import domain.GenerationHint;
+import domain.GrantAccess;
 import domain.Group;
 import domain.HTMLLayerHolder;
 import domain.Hub;
@@ -153,6 +154,7 @@ import domain.Roles;
 import domain.Root;
 import domain.Router;
 import domain.SearchTrigger;
+import domain.Secured;
 import domain.Selection;
 import domain.Server;
 import domain.ServerClaster;
@@ -237,6 +239,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EClass classifierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass securedEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass grantAccessEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1648,6 +1664,60 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 */
 	public EAttribute getClassifier_Details() {
 		return (EAttribute)classifierEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSecured() {
+		return securedEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSecured_Grants() {
+		return (EReference)securedEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGrantAccess() {
+		return grantAccessEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGrantAccess_Uid() {
+		return (EAttribute)grantAccessEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGrantAccess_ApplicationRef() {
+		return (EReference)grantAccessEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGrantAccess_RoleRef() {
+		return (EReference)grantAccessEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -7672,6 +7742,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEReference(classifierEClass, CLASSIFIER__HINT);
 		createEAttribute(classifierEClass, CLASSIFIER__DETAILS);
 
+		securedEClass = createEClass(SECURED);
+		createEReference(securedEClass, SECURED__GRANTS);
+
+		grantAccessEClass = createEClass(GRANT_ACCESS);
+		createEAttribute(grantAccessEClass, GRANT_ACCESS__UID);
+		createEReference(grantAccessEClass, GRANT_ACCESS__APPLICATION_REF);
+		createEReference(grantAccessEClass, GRANT_ACCESS__ROLE_REF);
+
 		domainArtifactsEClass = createEClass(DOMAIN_ARTIFACTS);
 		createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__UID);
 		createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__NAME);
@@ -8570,6 +8648,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		typeExtensionEClass.getESuperTypes().add(this.getCategorized());
 		attributeEClass.getESuperTypes().add(this.getTypePointer());
 		attributeEClass.getESuperTypes().add(this.getCategorized());
+		operationEClass.getESuperTypes().add(this.getSecured());
 		parameterEClass.getESuperTypes().add(this.getTypePointer());
 		returnValueEClass.getESuperTypes().add(this.getTypePointer());
 		enumaratorEClass.getESuperTypes().add(this.getTypeElement());
@@ -8592,6 +8671,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		windowEClass.getESuperTypes().add(this.getViewPortHolder());
 		windowEClass.getESuperTypes().add(this.getMultiLangLabel());
 		windowEClass.getESuperTypes().add(this.getCategorized());
+		windowEClass.getESuperTypes().add(this.getSecured());
 		tabCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
 		tabCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
 		tabCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
@@ -8691,6 +8771,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getClassifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClassifier_Hint(), this.getGenerationHint(), null, "hint", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClassifier_Details(), ecorePackage.getEString(), "details", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(securedEClass, Secured.class, "Secured", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSecured_Grants(), this.getGrantAccess(), null, "grants", null, 0, -1, Secured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(grantAccessEClass, GrantAccess.class, "GrantAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGrantAccess_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, GrantAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGrantAccess_ApplicationRef(), this.getDomainApplication(), null, "applicationRef", null, 0, 1, GrantAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGrantAccess_RoleRef(), this.getRole(), null, "roleRef", null, 0, 1, GrantAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(domainArtifactsEClass, DomainArtifacts.class, "DomainArtifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDomainArtifacts_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

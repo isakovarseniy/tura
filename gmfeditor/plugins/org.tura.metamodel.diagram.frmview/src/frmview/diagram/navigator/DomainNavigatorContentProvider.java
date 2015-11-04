@@ -279,11 +279,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(TabPageEditPart.VISUAL_ID));
+					DomainVisualIDRegistry.getType(WindowEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(WindowEditPart.VISUAL_ID));
+					DomainVisualIDRegistry.getType(TabPageEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
@@ -521,11 +521,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(TabPageEditPart.VISUAL_ID));
+					DomainVisualIDRegistry.getType(WindowEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(WindowEditPart.VISUAL_ID));
+					DomainVisualIDRegistry.getType(TabPageEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),

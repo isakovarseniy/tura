@@ -31,6 +31,19 @@ class Classifier{
     attr EString details;
 }
 
+class Secured{
+	val GrantAccess[*] grants;
+	
+}
+
+class GrantAccess {
+    id attr EString uid;
+	ref DomainApplication applicationRef;
+	ref Role roleRef;
+}
+
+
+
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class DomainArtifacts extends HTMLLayerHolder{
     id attr EString uid;
@@ -705,7 +718,7 @@ class Attribute extends  TypePointer, Categorized{
 
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
-class Operation{
+class Operation extends Secured{
     id attr EString uid;
    attr EString name;
    ref Type#operations parent;
@@ -845,8 +858,6 @@ class DefaultCavas{
 
 class ViewElement extends StyleElement {
 
-   
-
 }
 
 
@@ -860,7 +871,7 @@ class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,Cat
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,Categorized {
+class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,Categorized ,Secured{
 }
 
 enum Orientation{

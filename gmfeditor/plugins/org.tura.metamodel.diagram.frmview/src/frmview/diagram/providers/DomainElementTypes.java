@@ -161,9 +161,9 @@ public class DomainElementTypes {
 
 			elements.put(Canvas_1302003, DomainPackage.eINSTANCE.getCanvas());
 
-			elements.put(TabPage_1302002, DomainPackage.eINSTANCE.getTabPage());
-
 			elements.put(Window_1302007, DomainPackage.eINSTANCE.getWindow());
+
+			elements.put(TabPage_1302002, DomainPackage.eINSTANCE.getTabPage());
 
 			elements.put(TabCanvas_1302008,
 					DomainPackage.eINSTANCE.getTabCanvas());
@@ -202,8 +202,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Views_1301000);
 			KNOWN_ELEMENT_TYPES.add(PopupCanvas_1302009);
 			KNOWN_ELEMENT_TYPES.add(Canvas_1302003);
-			KNOWN_ELEMENT_TYPES.add(TabPage_1302002);
 			KNOWN_ELEMENT_TYPES.add(Window_1302007);
+			KNOWN_ELEMENT_TYPES.add(TabPage_1302002);
 			KNOWN_ELEMENT_TYPES.add(TabCanvas_1302008);
 			KNOWN_ELEMENT_TYPES.add(ViewPort_1303004);
 			KNOWN_ELEMENT_TYPES.add(ViewPortTrigger_1303002);
@@ -225,10 +225,10 @@ public class DomainElementTypes {
 			return PopupCanvas_1302009;
 		case CanvasEditPart.VISUAL_ID:
 			return Canvas_1302003;
-		case TabPageEditPart.VISUAL_ID:
-			return TabPage_1302002;
 		case WindowEditPart.VISUAL_ID:
 			return Window_1302007;
+		case TabPageEditPart.VISUAL_ID:
+			return TabPage_1302002;
 		case TabCanvasEditPart.VISUAL_ID:
 			return TabCanvas_1302008;
 		case ViewPortEditPart.VISUAL_ID:

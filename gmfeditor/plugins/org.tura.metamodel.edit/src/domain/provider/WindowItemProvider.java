@@ -102,6 +102,7 @@ public class WindowItemProvider extends CanvasFrameItemProvider {
 			childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT);
 			childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
 			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(DomainPackage.Literals.SECURED__GRANTS);
 		}
 		return childrenFeatures;
 	}
@@ -163,6 +164,7 @@ public class WindowItemProvider extends CanvasFrameItemProvider {
 			case DomainPackage.WINDOW__VIEW_ELEMENT:
 			case DomainPackage.WINDOW__MULTI_LANG_LABEL:
 			case DomainPackage.WINDOW__CLASSIFIERS:
+			case DomainPackage.WINDOW__GRANTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -204,6 +206,11 @@ public class WindowItemProvider extends CanvasFrameItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
 				 DomainFactory.eINSTANCE.createClassifier()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.SECURED__GRANTS,
+				 DomainFactory.eINSTANCE.createGrantAccess()));
 	}
 
 	/**

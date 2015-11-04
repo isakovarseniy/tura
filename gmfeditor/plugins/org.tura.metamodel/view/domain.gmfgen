@@ -117,29 +117,7 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
-    <topLevelNodes visualID="1302002" editPartClassName="TabPageEditPart" itemSemanticEditPolicyClassName="TabPageItemSemanticEditPolicy" canonicalEditPolicyClassName="TabPageCanonicalEditPolicy" compartments="//@diagram/@compartments.3" graphicalNodeEditPolicyClassName="TabPageGraphicalNodeEditPolicy" createCommandClassName="TabPageCreateCommand">
-      <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="TabPageEditHelper"/>
-      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="TabPageFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TabPageFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTabPageLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fTabPageViewElementCompartmentFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TabPageFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTabPageLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTabPageLabelFigure.setText(&quot;TabPage&quot;);&#xA;&#xA;fFigureTabPageLabelFigure.setFont(FFIGURETABPAGELABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureTabPageLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureTabPageLabelFigure);&#xA;&#xA;&#xA;&#xA;fTabPageViewElementCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fTabPageViewElementCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fTabPageViewElementCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTabPageLabelFigure() {&#xA;&#x9;&#x9;return fFigureTabPageLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getTabPageViewElementCompartmentFigure() {&#xA;&#x9;&#x9;return fTabPageViewElementCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 192, 192, 192);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURETABPAGELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true" fixedBackground="true"/>
-      </viewmap>
-      <behaviour xsi:type="gmfgen:OpenDiagramBehaviour"/>
-      <modelFacet>
-        <metaClass href="domain.genmodel#//domain/TabPage"/>
-        <containmentMetaFeature href="domain.genmodel#//domain/Views/canvases"/>
-        <childMetaFeature href="domain.genmodel#//domain/Views/canvases"/>
-      </modelFacet>
-      <labels visualID="1305002" editPartClassName="TabPageNameEditPart" itemSemanticEditPolicyClassName="TabPageNameItemSemanticEditPolicy" elementIcon="true">
-        <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureTabPageLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes xsi:type="gmfgen:StyleAttributes" fixedFont="true"/>
-        </viewmap>
-        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="domain.genmodel#//domain/CanvasFrame/name"/>
-        </modelFacet>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes visualID="1302007" editPartClassName="WindowEditPart" itemSemanticEditPolicyClassName="WindowItemSemanticEditPolicy" canonicalEditPolicyClassName="WindowCanonicalEditPolicy" compartments="//@diagram/@compartments.4" graphicalNodeEditPolicyClassName="WindowGraphicalNodeEditPolicy" createCommandClassName="WindowCreateCommand">
+    <topLevelNodes visualID="1302007" editPartClassName="WindowEditPart" itemSemanticEditPolicyClassName="WindowItemSemanticEditPolicy" canonicalEditPolicyClassName="WindowCanonicalEditPolicy" compartments="//@diagram/@compartments.3" graphicalNodeEditPolicyClassName="WindowGraphicalNodeEditPolicy" createCommandClassName="WindowCreateCommand">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="WindowEditHelper"/>
       <viewmap xsi:type="gmfgen:InnerClassViewmap" className="WindowFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WindowFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureWindowLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fWindowViewElementCompartmentFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WindowFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureWindowLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureWindowLabelFigure.setText(&quot;Window&quot;);&#xA;&#xA;fFigureWindowLabelFigure.setFont(FFIGUREWINDOWLABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureWindowLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureWindowLabelFigure);&#xA;&#xA;&#xA;&#xA;fWindowViewElementCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fWindowViewElementCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fWindowViewElementCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureWindowLabelFigure() {&#xA;&#x9;&#x9;return fFigureWindowLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getWindowViewElementCompartmentFigure() {&#xA;&#x9;&#x9;return fWindowViewElementCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 192, 192, 192);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREWINDOWLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
@@ -154,6 +132,28 @@
       <labels visualID="1305010" editPartClassName="WindowNameEditPart" itemSemanticEditPolicyClassName="WindowNameItemSemanticEditPolicy" elementIcon="true">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureWindowLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes xsi:type="gmfgen:StyleAttributes" fixedFont="true"/>
+        </viewmap>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="domain.genmodel#//domain/CanvasFrame/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes visualID="1302002" editPartClassName="TabPageEditPart" itemSemanticEditPolicyClassName="TabPageItemSemanticEditPolicy" canonicalEditPolicyClassName="TabPageCanonicalEditPolicy" compartments="//@diagram/@compartments.4" graphicalNodeEditPolicyClassName="TabPageGraphicalNodeEditPolicy" createCommandClassName="TabPageCreateCommand">
+      <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="TabPageEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="TabPageFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TabPageFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTabPageLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fTabPageViewElementCompartmentFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TabPageFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTabPageLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTabPageLabelFigure.setText(&quot;TabPage&quot;);&#xA;&#xA;fFigureTabPageLabelFigure.setFont(FFIGURETABPAGELABELFIGURE_FONT);&#xA;&#xA;&#xA;fFigureTabPageLabelFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureTabPageLabelFigure);&#xA;&#xA;&#xA;&#xA;fTabPageViewElementCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fTabPageViewElementCompartmentFigure.setOutline(false);&#xA;&#xA;this.add(fTabPageViewElementCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTabPageLabelFigure() {&#xA;&#x9;&#x9;return fFigureTabPageLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getTabPageViewElementCompartmentFigure() {&#xA;&#x9;&#x9;return fTabPageViewElementCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 192, 192, 192);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURETABPAGELABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true" fixedBackground="true"/>
+      </viewmap>
+      <behaviour xsi:type="gmfgen:OpenDiagramBehaviour"/>
+      <modelFacet>
+        <metaClass href="domain.genmodel#//domain/TabPage"/>
+        <containmentMetaFeature href="domain.genmodel#//domain/Views/canvases"/>
+        <childMetaFeature href="domain.genmodel#//domain/Views/canvases"/>
+      </modelFacet>
+      <labels visualID="1305002" editPartClassName="TabPageNameEditPart" itemSemanticEditPolicyClassName="TabPageNameItemSemanticEditPolicy" elementIcon="true">
+        <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureTabPageLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes xsi:type="gmfgen:StyleAttributes" fixedFont="true"/>
         </viewmap>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
@@ -222,24 +222,24 @@
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getCanvasViewElementCompartmentFigure" figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
-    <compartments visualID="1307003" editPartClassName="TabPageTabPageViewElementCompartmentEditPart" itemSemanticEditPolicyClassName="TabPageTabPageViewElementCompartmentItemSemanticEditPolicy" canonicalEditPolicyClassName="TabPageTabPageViewElementCompartmentCanonicalEditPolicy" childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2" title="TabPageViewElementCompartment" needsTitle="false" node="//@diagram/@topLevelNodes.2" listLayout="false">
-      <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getTabPageViewElementCompartmentFigure" figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments visualID="1307008" editPartClassName="WindowWindowViewElementCompartmentEditPart" itemSemanticEditPolicyClassName="WindowWindowViewElementCompartmentItemSemanticEditPolicy" canonicalEditPolicyClassName="WindowWindowViewElementCompartmentCanonicalEditPolicy" childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2" title="WindowViewElementCompartment" needsTitle="false" node="//@diagram/@topLevelNodes.3" listLayout="false">
+    <compartments visualID="1307008" editPartClassName="WindowWindowViewElementCompartmentEditPart" itemSemanticEditPolicyClassName="WindowWindowViewElementCompartmentItemSemanticEditPolicy" canonicalEditPolicyClassName="WindowWindowViewElementCompartmentCanonicalEditPolicy" childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2" title="WindowViewElementCompartment" needsTitle="false" node="//@diagram/@topLevelNodes.2" listLayout="false">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getWindowViewElementCompartmentFigure" figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments visualID="1307003" editPartClassName="TabPageTabPageViewElementCompartmentEditPart" itemSemanticEditPolicyClassName="TabPageTabPageViewElementCompartmentItemSemanticEditPolicy" canonicalEditPolicyClassName="TabPageTabPageViewElementCompartmentCanonicalEditPolicy" childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2" title="TabPageViewElementCompartment" needsTitle="false" node="//@diagram/@topLevelNodes.3" listLayout="false">
+      <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getTabPageViewElementCompartmentFigure" figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <palette>
       <groups title="Objects" collapse="true">
         <entries xsi:type="gmfgen:ToolEntry" title="Canvas" description="Create new Canvas" genNodes="//@diagram/@topLevelNodes.1"/>
         <entries xsi:type="gmfgen:ToolEntry" title="PopupCanvas" description="Create new PopupCanvas" genNodes="//@diagram/@topLevelNodes.0"/>
         <entries xsi:type="gmfgen:ToolEntry" title="TabCanvas" description="Create new TabCanvas" genNodes="//@diagram/@topLevelNodes.4"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="TabPage" description="Create new TabPage" genNodes="//@diagram/@topLevelNodes.2"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="TabPage" description="Create new TabPage" genNodes="//@diagram/@topLevelNodes.3"/>
         <entries xsi:type="gmfgen:ToolEntry" title="ViewArea" description="Create new ViewArea" genNodes="//@diagram/@childNodes.2"/>
         <entries xsi:type="gmfgen:ToolEntry" title="ViewPort" description="Create new ViewPort" genNodes="//@diagram/@childNodes.0"/>
         <entries xsi:type="gmfgen:ToolEntry" title="ViewPortTrigger" description="Create new ViewPortTrigger" genNodes="//@diagram/@childNodes.1"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="Window" description="Create new Window" genNodes="//@diagram/@topLevelNodes.3"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Window" description="Create new Window" genNodes="//@diagram/@topLevelNodes.2"/>
       </groups>
       <groups title="Connections" collapse="true">
         <entries xsi:type="gmfgen:ToolEntry" title="TabPagesInheritance" description="Create new TabPagesInheritance" genLinks="//@diagram/@links.1"/>
@@ -289,8 +289,8 @@
     <childReferences parent="//@diagram/@links.0" child="//@diagram/@childNodes.0" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences parent="//@diagram/@childNodes.0" child="//@diagram/@links.0" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences parent="//@diagram" child="//@diagram/@links.1" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
-    <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.2" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
-    <childReferences parent="//@diagram/@topLevelNodes.2" child="//@diagram/@links.1" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.3" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@topLevelNodes.3" child="//@diagram/@links.1" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences parent="//@diagram/@links.1" child="//@diagram/@topLevelNodes.4" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences parent="//@diagram/@topLevelNodes.4" child="//@diagram/@links.1" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
   </navigator>

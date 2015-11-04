@@ -199,10 +199,10 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getPopupCanvasName_1305014Parser();
 		case CanvasNameEditPart.VISUAL_ID:
 			return getCanvasName_1305003Parser();
-		case TabPageNameEditPart.VISUAL_ID:
-			return getTabPageName_1305002Parser();
 		case WindowNameEditPart.VISUAL_ID:
 			return getWindowName_1305010Parser();
+		case TabPageNameEditPart.VISUAL_ID:
+			return getTabPageName_1305002Parser();
 		case TabCanvasNameEditPart.VISUAL_ID:
 			return getTabCanvasName_1305011Parser();
 		case ViewPortNameEditPart.VISUAL_ID:

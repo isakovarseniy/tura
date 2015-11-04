@@ -244,6 +244,16 @@ public class CanvasViewItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CANVAS_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createSecured()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CANVAS_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createGrantAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CANVAS_VIEW__ANY,
 				 DomainFactory.eINSTANCE.createDomainArtifacts()));
 
 		newChildDescriptors.add

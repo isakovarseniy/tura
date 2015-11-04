@@ -228,6 +228,16 @@ public class EnterpriseInfrastructureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
+				 DomainFactory.eINSTANCE.createSecured()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
+				 DomainFactory.eINSTANCE.createGrantAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
 				 DomainFactory.eINSTANCE.createDomainArtifacts()));
 
 		newChildDescriptors.add

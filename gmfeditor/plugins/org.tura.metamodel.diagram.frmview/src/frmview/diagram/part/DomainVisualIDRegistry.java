@@ -166,13 +166,13 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return CanvasEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getTabPage().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TabPageEditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getWindow().isSuperTypeOf(
 					domainElement.eClass())) {
 				return WindowEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getTabPage().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TabPageEditPart.VISUAL_ID;
 			}
 			if (DomainPackage.eINSTANCE.getTabCanvas().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -205,7 +205,7 @@ public class DomainVisualIDRegistry {
 				return ViewAreaEditPart.VISUAL_ID;
 			}
 			break;
-		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
+		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ViewPortEditPart.VISUAL_ID;
@@ -215,7 +215,7 @@ public class DomainVisualIDRegistry {
 				return ViewAreaEditPart.VISUAL_ID;
 			}
 			break;
-		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
+		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ViewPortEditPart.VISUAL_ID;
@@ -258,10 +258,10 @@ public class DomainVisualIDRegistry {
 			if (CanvasEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (TabPageEditPart.VISUAL_ID == nodeVisualID) {
+			if (WindowEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (WindowEditPart.VISUAL_ID == nodeVisualID) {
+			if (TabPageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (TabCanvasEditPart.VISUAL_ID == nodeVisualID) {
@@ -284,19 +284,19 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case TabPageEditPart.VISUAL_ID:
-			if (TabPageNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case WindowEditPart.VISUAL_ID:
 			if (WindowNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (WindowWindowViewElementCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case TabPageEditPart.VISUAL_ID:
+			if (TabPageNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -344,7 +344,7 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
+		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 			if (ViewPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -352,7 +352,7 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
+		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 			if (ViewPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -413,8 +413,8 @@ public class DomainVisualIDRegistry {
 		case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
 		case ViewPortViewPortViewPortTriggerCompartmentEditPart.VISUAL_ID:
 		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
-		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
+		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

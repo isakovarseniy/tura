@@ -85,10 +85,10 @@ public class DomainDiagramUpdater {
 			return getViewPortViewPortViewPortTriggerCompartment_1307009SemanticChildren(view);
 		case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
 			return getCanvasCanvasViewElementCompartment_1307004SemanticChildren(view);
-		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
-			return getTabPageTabPageViewElementCompartment_1307003SemanticChildren(view);
 		case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 			return getWindowWindowViewElementCompartment_1307008SemanticChildren(view);
+		case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
+			return getTabPageTabPageViewElementCompartment_1307003SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -116,11 +116,11 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == TabPageEditPart.VISUAL_ID) {
+			if (visualID == WindowEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == WindowEditPart.VISUAL_ID) {
+			if (visualID == TabPageEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -292,10 +292,10 @@ public class DomainDiagramUpdater {
 			return getPopupCanvas_1302009ContainedLinks(view);
 		case CanvasEditPart.VISUAL_ID:
 			return getCanvas_1302003ContainedLinks(view);
-		case TabPageEditPart.VISUAL_ID:
-			return getTabPage_1302002ContainedLinks(view);
 		case WindowEditPart.VISUAL_ID:
 			return getWindow_1302007ContainedLinks(view);
+		case TabPageEditPart.VISUAL_ID:
+			return getTabPage_1302002ContainedLinks(view);
 		case TabCanvasEditPart.VISUAL_ID:
 			return getTabCanvas_1302008ContainedLinks(view);
 		case ViewPortEditPart.VISUAL_ID:
@@ -321,10 +321,10 @@ public class DomainDiagramUpdater {
 			return getPopupCanvas_1302009IncomingLinks(view);
 		case CanvasEditPart.VISUAL_ID:
 			return getCanvas_1302003IncomingLinks(view);
-		case TabPageEditPart.VISUAL_ID:
-			return getTabPage_1302002IncomingLinks(view);
 		case WindowEditPart.VISUAL_ID:
 			return getWindow_1302007IncomingLinks(view);
+		case TabPageEditPart.VISUAL_ID:
+			return getTabPage_1302002IncomingLinks(view);
 		case TabCanvasEditPart.VISUAL_ID:
 			return getTabCanvas_1302008IncomingLinks(view);
 		case ViewPortEditPart.VISUAL_ID:
@@ -350,10 +350,10 @@ public class DomainDiagramUpdater {
 			return getPopupCanvas_1302009OutgoingLinks(view);
 		case CanvasEditPart.VISUAL_ID:
 			return getCanvas_1302003OutgoingLinks(view);
-		case TabPageEditPart.VISUAL_ID:
-			return getTabPage_1302002OutgoingLinks(view);
 		case WindowEditPart.VISUAL_ID:
 			return getWindow_1302007OutgoingLinks(view);
+		case TabPageEditPart.VISUAL_ID:
+			return getTabPage_1302002OutgoingLinks(view);
 		case TabCanvasEditPart.VISUAL_ID:
 			return getTabCanvas_1302008OutgoingLinks(view);
 		case ViewPortEditPart.VISUAL_ID:

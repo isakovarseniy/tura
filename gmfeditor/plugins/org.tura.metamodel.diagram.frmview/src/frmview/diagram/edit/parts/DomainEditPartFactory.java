@@ -52,17 +52,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case CanvasNameEditPart.VISUAL_ID:
 				return new CanvasNameEditPart(view);
 
-			case TabPageEditPart.VISUAL_ID:
-				return new TabPageEditPart(view);
-
-			case TabPageNameEditPart.VISUAL_ID:
-				return new TabPageNameEditPart(view);
-
 			case WindowEditPart.VISUAL_ID:
 				return new WindowEditPart(view);
 
 			case WindowNameEditPart.VISUAL_ID:
 				return new WindowNameEditPart(view);
+
+			case TabPageEditPart.VISUAL_ID:
+				return new TabPageEditPart(view);
+
+			case TabPageNameEditPart.VISUAL_ID:
+				return new TabPageNameEditPart(view);
 
 			case TabCanvasEditPart.VISUAL_ID:
 				return new TabCanvasEditPart(view);
@@ -99,11 +99,11 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case CanvasCanvasViewElementCompartmentEditPart.VISUAL_ID:
 				return new CanvasCanvasViewElementCompartmentEditPart(view);
 
-			case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
-				return new TabPageTabPageViewElementCompartmentEditPart(view);
-
 			case WindowWindowViewElementCompartmentEditPart.VISUAL_ID:
 				return new WindowWindowViewElementCompartmentEditPart(view);
+
+			case TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID:
+				return new TabPageTabPageViewElementCompartmentEditPart(view);
 
 			case ViewInheritanceEditPart.VISUAL_ID:
 				return new ViewInheritanceEditPart(view);

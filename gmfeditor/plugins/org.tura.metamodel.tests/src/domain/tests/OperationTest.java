@@ -14,12 +14,9 @@
  */
 package domain.tests;
 
+import junit.textui.TestRunner;
 import domain.DomainFactory;
 import domain.Operation;
-
-import junit.framework.TestCase;
-
-import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,16 +24,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperationTest extends TestCase
+public class OperationTest extends SecuredTest
 {
-
-  /**
-	 * The fixture for this Operation test case.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  protected Operation fixture = null;
 
   /**
 	 * <!-- begin-user-doc -->
@@ -60,25 +49,15 @@ public class OperationTest extends TestCase
 	}
 
   /**
-	 * Sets the fixture for this Operation test case.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  protected void setFixture(Operation fixture)
-  {
-		this.fixture = fixture;
-	}
-
-  /**
 	 * Returns the fixture for this Operation test case.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected Operation getFixture()
+  @Override
+		protected Operation getFixture()
   {
-		return fixture;
+		return (Operation)fixture;
 	}
 
   /**

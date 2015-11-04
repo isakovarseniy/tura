@@ -14,12 +14,9 @@
  */
 package domain.tests;
 
+import junit.textui.TestRunner;
 import domain.DomainFactory;
 import domain.MessageLibrary;
-
-import junit.framework.TestCase;
-
-import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->

@@ -265,6 +265,16 @@ public class RecipesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.RECIPES__ANY,
+				 DomainFactory.eINSTANCE.createSecured()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.RECIPES__ANY,
+				 DomainFactory.eINSTANCE.createGrantAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.RECIPES__ANY,
 				 DomainFactory.eINSTANCE.createDomainArtifacts()));
 
 		newChildDescriptors.add

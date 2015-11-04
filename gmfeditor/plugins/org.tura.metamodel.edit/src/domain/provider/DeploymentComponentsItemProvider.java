@@ -228,6 +228,16 @@ public class DeploymentComponentsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
+				 DomainFactory.eINSTANCE.createSecured()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
+				 DomainFactory.eINSTANCE.createGrantAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
 				 DomainFactory.eINSTANCE.createDomainArtifacts()));
 
 		newChildDescriptors.add

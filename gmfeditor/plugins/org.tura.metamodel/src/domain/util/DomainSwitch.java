@@ -82,6 +82,7 @@ import domain.FormVariable;
 import domain.FormView;
 import domain.Formatable;
 import domain.GenerationHint;
+import domain.GrantAccess;
 import domain.Group;
 import domain.HTMLLayerHolder;
 import domain.Hub;
@@ -148,6 +149,7 @@ import domain.Roles;
 import domain.Root;
 import domain.Router;
 import domain.SearchTrigger;
+import domain.Secured;
 import domain.Selection;
 import domain.Server;
 import domain.ServerClaster;
@@ -273,6 +275,18 @@ public class DomainSwitch<T> extends Switch<T> {
 			case DomainPackage.CLASSIFIER: {
 				Classifier classifier = (Classifier)theEObject;
 				T result = caseClassifier(classifier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.SECURED: {
+				Secured secured = (Secured)theEObject;
+				T result = caseSecured(secured);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.GRANT_ACCESS: {
+				GrantAccess grantAccess = (GrantAccess)theEObject;
+				T result = caseGrantAccess(grantAccess);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -760,6 +774,7 @@ public class DomainSwitch<T> extends Switch<T> {
 			case DomainPackage.OPERATION: {
 				Operation operation = (Operation)theEObject;
 				T result = caseOperation(operation);
+				if (result == null) result = caseSecured(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -912,6 +927,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseViewPortHolder(window);
 				if (result == null) result = caseMultiLangLabel(window);
 				if (result == null) result = caseCategorized(window);
+				if (result == null) result = caseSecured(window);
 				if (result == null) result = caseStyleElement(window);
 				if (result == null) result = caseHTMLLayerHolder(window);
 				if (result == null) result = defaultCase(theEObject);
@@ -1656,6 +1672,36 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseClassifier(Classifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Secured</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Secured</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecured(Secured object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Grant Access</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Grant Access</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGrantAccess(GrantAccess object) {
 		return null;
 	}
 

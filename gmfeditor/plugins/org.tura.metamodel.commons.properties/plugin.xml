@@ -30,6 +30,12 @@
              id="property.tab.domain.operation"
              label="Operation"/>
  
+             <propertyTab
+             category="domain"
+             id="property.tab.domain.operation.security"
+             label="Security"/>
+ 
+ 
            <propertyTab
              afterTab="property.tab.domain.operation"
              category="domain"
@@ -50,6 +56,14 @@
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.diagram.typedefinition">
+
+
+          <propertySection
+               tab="property.tab.domain.operation.security"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.RolesPropertySelection"
+               id="org.tura.metamodel.typedefinition.operation.security">
+              <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
+           </propertySection>   
 
 
           <propertySection
@@ -586,6 +600,11 @@
              id="property.tab.domain.frmview.classifier"
              label="Hintsl"/>
 
+             <propertyTab
+             category="domain"
+             id="property.tab.domain.frmview.security"
+             label="Security"/>
+
       </propertyTabs>
      </extension>  
 
@@ -608,7 +627,12 @@
               
             </propertySection>        
 
-
+          <propertySection
+               tab="property.tab.domain.frmview.security"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.RolesPropertySelection"
+               id="org.tura.metamodel.frmview.window.security">
+              <input type="frmview.diagram.edit.parts.WindowEditPart"/>
+           </propertySection>   
 
              <propertySection
                tab="org.tura.metamodel.diagram.frmview.styleset"

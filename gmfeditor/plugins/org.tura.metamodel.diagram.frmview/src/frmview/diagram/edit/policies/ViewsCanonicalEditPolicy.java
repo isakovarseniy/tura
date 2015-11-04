@@ -120,8 +120,8 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 		switch (visualID) {
 		case PopupCanvasEditPart.VISUAL_ID:
 		case CanvasEditPart.VISUAL_ID:
-		case TabPageEditPart.VISUAL_ID:
 		case WindowEditPart.VISUAL_ID:
+		case TabPageEditPart.VISUAL_ID:
 		case TabCanvasEditPart.VISUAL_ID:
 			return true;
 		}
@@ -310,18 +310,18 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case TabPageEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(DomainDiagramUpdater
-						.getTabPage_1302002ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
 		case WindowEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getWindow_1302007ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TabPageEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getTabPage_1302002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

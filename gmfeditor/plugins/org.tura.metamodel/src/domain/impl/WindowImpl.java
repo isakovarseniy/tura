@@ -18,8 +18,10 @@ import domain.Categorized;
 import domain.Classifier;
 import domain.Context;
 import domain.DomainPackage;
+import domain.GrantAccess;
 import domain.HTMLLayerHolder;
 import domain.MultiLangLabel;
+import domain.Secured;
 import domain.ViewElement;
 import domain.ViewPortHolder;
 import domain.Window;
@@ -50,6 +52,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.WindowImpl#getViewElement <em>View Element</em>}</li>
  *   <li>{@link domain.impl.WindowImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.WindowImpl#getClassifiers <em>Classifiers</em>}</li>
+ *   <li>{@link domain.impl.WindowImpl#getGrants <em>Grants</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,6 +108,16 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 	 * @ordered
 	 */
 	protected EList<Classifier> classifiers;
+
+	/**
+	 * The cached value of the '{@link #getGrants() <em>Grants</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGrants()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GrantAccess> grants;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,6 +231,18 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<GrantAccess> getGrants() {
+		if (grants == null) {
+			grants = new EObjectContainmentEList<GrantAccess>(GrantAccess.class, this, DomainPackage.WINDOW__GRANTS);
+		}
+		return grants;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -227,6 +252,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				return basicSetMultiLangLabel(null, msgs);
 			case DomainPackage.WINDOW__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
+			case DomainPackage.WINDOW__GRANTS:
+				return ((InternalEList<?>)getGrants()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -247,6 +274,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				return getMultiLangLabel();
 			case DomainPackage.WINDOW__CLASSIFIERS:
 				return getClassifiers();
+			case DomainPackage.WINDOW__GRANTS:
+				return getGrants();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -274,6 +303,10 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				getClassifiers().clear();
 				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
 				return;
+			case DomainPackage.WINDOW__GRANTS:
+				getGrants().clear();
+				getGrants().addAll((Collection<? extends GrantAccess>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -298,6 +331,9 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 			case DomainPackage.WINDOW__CLASSIFIERS:
 				getClassifiers().clear();
 				return;
+			case DomainPackage.WINDOW__GRANTS:
+				getGrants().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -318,6 +354,8 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				return multiLangLabel != null;
 			case DomainPackage.WINDOW__CLASSIFIERS:
 				return classifiers != null && !classifiers.isEmpty();
+			case DomainPackage.WINDOW__GRANTS:
+				return grants != null && !grants.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -353,6 +391,12 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 				default: return -1;
 			}
 		}
+		if (baseClass == Secured.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.WINDOW__GRANTS: return DomainPackage.SECURED__GRANTS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -384,6 +428,12 @@ public class WindowImpl extends CanvasFrameImpl implements Window {
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.WINDOW__CLASSIFIERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == Secured.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.SECURED__GRANTS: return DomainPackage.WINDOW__GRANTS;
 				default: return -1;
 			}
 		}

@@ -244,6 +244,16 @@ public class TypesRepositoryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
+				 DomainFactory.eINSTANCE.createSecured()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
+				 DomainFactory.eINSTANCE.createGrantAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
 				 DomainFactory.eINSTANCE.createDomainArtifacts()));
 
 		newChildDescriptors.add
