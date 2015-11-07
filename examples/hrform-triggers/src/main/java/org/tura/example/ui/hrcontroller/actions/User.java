@@ -21,10 +21,13 @@
  */
 package org.tura.example.ui.hrcontroller.actions;
 
+import java.io.Serializable;
 
-public class User {
 
-    private String username;
+public class User implements Serializable {
+
+	private static final long serialVersionUID = -8183667081704624108L;
+	private String username;
 
     public User(String username) {
         this.username = username;

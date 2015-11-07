@@ -1941,7 +1941,7 @@
       <hints uid="a51a6638-5eb9-427a-9e2e-c9c9466c8922" name="trigger.disabled"/>
       <hints uid="1abd9c23-89fe-4c4b-93d2-77fc64912479" name="trigger.rendered"/>
       <hints uid="57a9de12-a73f-4dcf-9185-2235fd4fd2dc" name="login.page"/>
-      <hints uid="11d32d1f-f9f1-4742-b5da-d66618c364f8" name="logout.page"/>
+      <hints uid="11d32d1f-f9f1-4742-b5da-d66618c364f8" name="error.page"/>
     </artifacts>
     <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
@@ -2010,10 +2010,17 @@
       </specifiers>
     </artifacts>
     <artifacts uid="57cd7e45-c758-4dbf-b811-4e9ae6d3d299" name="web.xml" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/mainWeb-xml.egl">
+      <modelQuery uid="b302b42b-2e15-414c-9c02-6052833c2483" name="Query application" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication)">
+        <parameters uid="dc5be3a6-c7d6-4855-9b29-3df3d608b6bb" name="Application"/>
+      </modelQuery>
       <specifiers uid="0f1e90f8-fd8c-4489-9244-b202bd15971d" name="View implementation">
         <options uid="a09e5397-dbdf-41d8-9d1b-0326446ba6eb" value="JEE/JSF/PrimeFaces"/>
         <options uid="b812dfc0-8772-439a-a6ac-a6e1b3eccb59" value="JEE/JSF/RichFaces"/>
         <options uid="c6b84d62-7d15-4e86-95e4-4aeab58ae092" value="JEE/JSF/ICEFaces"/>
+      </specifiers>
+      <specifiers uid="1638b186-6831-4adb-950f-3a3e4ded6afd" name="Deployment environment">
+        <options uid="8c4ddc46-4ded-41e0-acf6-a9f423b8669b" value="JEE/AppServer/GlassFish.v4"/>
+        <options uid="793811d0-365d-4eee-85cc-04c708b91dce" value="JEE/AppServer/GlassFish.v3"/>
       </specifiers>
     </artifacts>
     <artifacts uid="cedb4abf-f19e-4eb2-af12-804869422780" name="Data Control interface" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/datacontrol/mainDataControlInterface.egl">
@@ -2159,6 +2166,10 @@
           </mappers>
           <mappers uid="0a64fa52-fae4-4d17-a3ce-c36690333529" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="57cd7e45-c758-4dbf-b811-4e9ae6d3d299" name="web.xml">
             <specifiers specifierRef="0f1e90f8-fd8c-4489-9244-b202bd15971d" valueRef="a09e5397-dbdf-41d8-9d1b-0326446ba6eb"/>
+            <specifiers specifierRef="1638b186-6831-4adb-950f-3a3e4ded6afd" valueRef="8c4ddc46-4ded-41e0-acf6-a9f423b8669b"/>
+            <queries uid="8bb60a70-8826-4989-b13c-ddc77b48e1c5" name="Query roles" queryRef="b302b42b-2e15-414c-9c02-6052833c2483">
+              <variables queryParamRef="dc5be3a6-c7d6-4855-9b29-3df3d608b6bb" value="HR application"/>
+            </queries>
           </mappers>
           <mappers uid="f888ec2e-8965-422f-9561-60b33c09e91c" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Non persisted service producer">
             <specifiers specifierRef="3ee3d178-4bab-46e0-928e-508089f4dc2c" valueRef="6b0e89e5-8628-49a6-98bf-b125b206dd4d"/>
@@ -2369,6 +2380,7 @@
       </viewElement>
       <multiLangLabel/>
       <classifiers uid="2e470614-6dc6-41e8-8334-f91796a02bea" hint="57a9de12-a73f-4dcf-9185-2235fd4fd2dc"/>
+      <classifiers uid="8d5e1ede-c44f-4c10-99b1-969973fc9d85" hint="11d32d1f-f9f1-4742-b5da-d66618c364f8"/>
     </canvases>
     <viewInheritances uid="2dc1ab34-ee89-4f95-83f9-b457a11baab4" source="df0ec442-fd69-454f-8ece-9d1ea34c074e" target="c77769b5-0b24-4a83-b9ab-8e3635c3d913"/>
     <viewInheritances uid="d7bc97d7-057a-44ed-bc73-4f4764e73ec9" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="0b549b2b-507c-473a-b3df-3d02444ed823"/>

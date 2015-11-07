@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.faces.application.FacesMessage;
+import javax.annotation.PostConstruct;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -36,10 +36,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.elsoft.platform.hr.objects.UserDAO;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IBeanFactory;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IUserArtifitialFields;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.primefaces.lib.EventAccessor;
-import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IUserArtifitialFields;
 
 /**
  * <p>
@@ -74,13 +74,13 @@ public class LoginManager implements EventAccessor {
 																// back again
 
 	private static final String SESSION_USER_VARIABLE_NAME = "user";
-	private String loginErrorMessage;
 
 	private String forwardUrl;
 
-	public LoginManager() {
-		this.forwardUrl = extractRequestedUrlBeforeLogin();
-	}
+    @PostConstruct
+    public void init() {
+        this.forwardUrl = extractRequestedUrlBeforeLogin();
+    }
 
 	private String extractRequestedUrlBeforeLogin() {
 		ExternalContext externalContext = externalContext();
@@ -89,9 +89,8 @@ public class LoginManager implements EventAccessor {
 		if (requestedUrl == null) {
 			return externalContext.getRequestContextPath() + HOME_PAGE;
 		}
-		String queryString = (String) externalContext.getRequestMap().get(
-				RequestDispatcher.FORWARD_QUERY_STRING);
-		return requestedUrl + (queryString == null ? "" : "?" + queryString);
+		
+		return requestedUrl;
 	}
 
 	private ExternalContext externalContext() {
@@ -135,7 +134,7 @@ public class LoginManager implements EventAccessor {
 			request.login(username, password);
 			externalContext.getSessionMap().put(SESSION_USER_VARIABLE_NAME,
 					new User(username));
-			externalContext.redirect(forwardUrl);
+			externalContext.redirect("/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
 		} catch (ServletException e) {
 			/*
 			 * The ServletException is thrown if the configured login mechanism

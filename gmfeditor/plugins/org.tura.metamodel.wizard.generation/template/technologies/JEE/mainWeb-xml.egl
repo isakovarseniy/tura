@@ -8,6 +8,19 @@ ${percent}${end}
 
  [%
  
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var app = util.runQuery(model_mapper,"Query application",model_mapper);
+      var roles = app.application.applicationRole.roles.roles;
+      var win = new Native('java.util.ArrayList');
+      
+      for (  pkg in app.application.applicationUILayer.applicationUIPackages ){
+          for  ( frm in pkg.uipackage.forms){
+            for (form in frm){
+              win.addAll(form.view.view.canvases->select(q|q.isKindOf(domain::Window))->collect(r|r));
+            }
+          }
+      }
+
       var hash = new Native('java.util.HashMap');
  
       hash.put("recipe",recipe);
@@ -15,6 +28,8 @@ ${percent}${end}
       hash.put("component",component);
       hash.put("model_mapper",model_mapper);
       hash.put("configuration",configuration);
+      hash.put("roles",roles);
+      hash.put("windows",win);
  
       web_xml(hash);  
  
