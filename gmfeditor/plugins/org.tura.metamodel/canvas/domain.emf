@@ -480,7 +480,7 @@ class Recipes{
   val Infrastructure[*] infrastructures;
   ref ApplicationRecipe#recipes parent;
   val DeploymentSequence deployment;
-  
+  val ConfigExtension[*] configExtension;
   //faking epsilon converter
   val EObject any;
 }
@@ -561,6 +561,14 @@ class Recipe extends UsingMappers{
   ref DeploymentSequence#recipe deployment;
 }
 
+@gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
+class ConfigExtension {
+    id attr EString uid;
+    ref Configuration source;
+    ref Configuration target;
+}
+
+
 @gmf.node(label="name",border.color="0,0,0",color="255,222,32")
 class Ingredient extends UsingMappers ,HTMLLayerHolder{
   id attr EString uid;
@@ -605,9 +613,6 @@ class Configuration{
    ref Infrastructure#recipeConfig infrastructure;
    @gmf.compartment(layout="list")
    val Property[*] properties; 
-  @gmf.link(style="dot", width="2" ,target.decoration="closedarrow")
-   ref Configuration#parent configExtension;
-   ref Configuration#configExtension parent;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")

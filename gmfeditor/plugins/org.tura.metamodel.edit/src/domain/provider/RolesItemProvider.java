@@ -541,6 +541,11 @@ public class RolesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ROLES__ANY,
+				 DomainFactory.eINSTANCE.createConfigExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ROLES__ANY,
 				 DomainFactory.eINSTANCE.createIngredient()));
 
 		newChildDescriptors.add

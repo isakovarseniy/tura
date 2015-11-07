@@ -43,6 +43,7 @@ import domain.ChildrenHolder;
 import domain.Classifier;
 import domain.Column;
 import domain.Component;
+import domain.ConfigExtension;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
@@ -498,6 +499,10 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRecipe(Recipe object) {
 				return createRecipeAdapter();
+			}
+			@Override
+			public Adapter caseConfigExtension(ConfigExtension object) {
+				return createConfigExtensionAdapter();
 			}
 			@Override
 			public Adapter caseIngredient(Ingredient object) {
@@ -1834,6 +1839,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRecipeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.ConfigExtension <em>Config Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.ConfigExtension
+	 * @generated
+	 */
+	public Adapter createConfigExtensionAdapter() {
 		return null;
 	}
 

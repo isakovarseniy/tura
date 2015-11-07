@@ -525,6 +525,11 @@ public class DomainItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DOMAIN__ANY,
+				 DomainFactory.eINSTANCE.createConfigExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DOMAIN__ANY,
 				 DomainFactory.eINSTANCE.createIngredient()));
 
 		newChildDescriptors.add

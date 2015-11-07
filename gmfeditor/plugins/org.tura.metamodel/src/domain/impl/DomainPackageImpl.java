@@ -44,6 +44,7 @@ import domain.Classifier;
 import domain.Column;
 import domain.Comparator;
 import domain.Component;
+import domain.ConfigExtension;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
@@ -638,6 +639,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EClass recipeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass configExtensionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3768,8 +3776,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRecipes_Any() {
+	public EReference getRecipes_ConfigExtension() {
 		return (EReference)recipesEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRecipes_Any() {
+		return (EReference)recipesEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -4020,6 +4037,42 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getConfigExtension() {
+		return configExtensionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigExtension_Uid() {
+		return (EAttribute)configExtensionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConfigExtension_Source() {
+		return (EReference)configExtensionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConfigExtension_Target() {
+		return (EReference)configExtensionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIngredient() {
 		return ingredientEClass;
 	}
@@ -4256,24 +4309,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 */
 	public EReference getConfiguration_Properties() {
 		return (EReference)configurationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConfiguration_ConfigExtension() {
-		return (EReference)configurationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConfiguration_Parent() {
-		return (EReference)configurationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -8025,6 +8060,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEReference(recipesEClass, RECIPES__INFRASTRUCTURES);
 		createEReference(recipesEClass, RECIPES__PARENT);
 		createEReference(recipesEClass, RECIPES__DEPLOYMENT);
+		createEReference(recipesEClass, RECIPES__CONFIG_EXTENSION);
 		createEReference(recipesEClass, RECIPES__ANY);
 
 		deploymentSequenceEClass = createEClass(DEPLOYMENT_SEQUENCE);
@@ -8060,6 +8096,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEReference(recipeEClass, RECIPE__INFRASTRUCTURES);
 		createEReference(recipeEClass, RECIPE__DEPLOYMENT);
 
+		configExtensionEClass = createEClass(CONFIG_EXTENSION);
+		createEAttribute(configExtensionEClass, CONFIG_EXTENSION__UID);
+		createEReference(configExtensionEClass, CONFIG_EXTENSION__SOURCE);
+		createEReference(configExtensionEClass, CONFIG_EXTENSION__TARGET);
+
 		ingredientEClass = createEClass(INGREDIENT);
 		createEAttribute(ingredientEClass, INGREDIENT__UID);
 		createEAttribute(ingredientEClass, INGREDIENT__NAME);
@@ -8091,8 +8132,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(configurationEClass, CONFIGURATION__NAME);
 		createEReference(configurationEClass, CONFIGURATION__INFRASTRUCTURE);
 		createEReference(configurationEClass, CONFIGURATION__PROPERTIES);
-		createEReference(configurationEClass, CONFIGURATION__CONFIG_EXTENSION);
-		createEReference(configurationEClass, CONFIGURATION__PARENT);
 
 		modelMapperEClass = createEClass(MODEL_MAPPER);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__NAME);
@@ -9055,6 +9094,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getRecipes_Infrastructures(), this.getInfrastructure(), null, "infrastructures", null, 0, -1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRecipes_Parent(), this.getApplicationRecipe(), this.getApplicationRecipe_Recipes(), "parent", null, 0, 1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRecipes_Deployment(), this.getDeploymentSequence(), null, "deployment", null, 0, 1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRecipes_ConfigExtension(), this.getConfigExtension(), null, "configExtension", null, 0, -1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRecipes_Any(), ecorePackage.getEObject(), null, "any", null, 0, 1, Recipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentSequenceEClass, DeploymentSequence.class, "DeploymentSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -9090,6 +9130,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getRecipe_Infrastructures(), this.getInfrastructure(), this.getInfrastructure_Recipe(), "infrastructures", null, 0, -1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRecipe_Deployment(), this.getDeploymentSequence(), null, "deployment", null, 0, 1, Recipe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(configExtensionEClass, ConfigExtension.class, "ConfigExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConfigExtension_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigExtension_Source(), this.getConfiguration(), null, "source", null, 0, 1, ConfigExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigExtension_Target(), this.getConfiguration(), null, "target", null, 0, 1, ConfigExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(ingredientEClass, Ingredient.class, "Ingredient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIngredient_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIngredient_Name(), ecorePackage.getEString(), "name", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9121,8 +9166,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getConfiguration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Infrastructure(), this.getInfrastructure(), this.getInfrastructure_RecipeConfig(), "infrastructure", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Properties(), this.getProperty(), null, "properties", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfiguration_ConfigExtension(), this.getConfiguration(), this.getConfiguration_Parent(), "configExtension", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfiguration_Parent(), this.getConfiguration(), this.getConfiguration_ConfigExtension(), "parent", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelMapperEClass, ModelMapper.class, "ModelMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelMapper_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10993,19 +11036,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "style", "dash"
 		   });	
 		addAnnotation
+		  (configExtensionEClass, 
+		   source, 
+		   new String[] {
+			 "source", "source",
+			 "target", "target",
+			 "style", "dot",
+			 "width", "2",
+			 "target.decoration", "closedarrow"
+		   });	
+		addAnnotation
 		  (getInfrastructure_RecipeConfig(), 
 		   source, 
 		   new String[] {
 			 "target.decoration", "arrow",
 			 "style", "dash"
-		   });	
-		addAnnotation
-		  (getConfiguration_ConfigExtension(), 
-		   source, 
-		   new String[] {
-			 "style", "dot",
-			 "width", "2",
-			 "target.decoration", "closedarrow"
 		   });	
 		addAnnotation
 		  (typeExtensionEClass, 

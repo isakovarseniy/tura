@@ -668,6 +668,8 @@
         eOpposite="#//ApplicationRecipe/recipes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" eType="#//DeploymentSequence"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configExtension" upperBound="-1"
+        eType="#//ConfigExtension" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
@@ -779,6 +781,19 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigExtension">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="style" value="dot"/>
+      <details key="width" value="2"/>
+      <details key="target.decoration" value="closedarrow"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Configuration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Configuration"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ingredient" eSuperTypes="#//UsingMappers #//HTMLLayerHolder">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
@@ -855,16 +870,6 @@
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configExtension" eType="#//Configuration"
-        eOpposite="#//Configuration/parent">
-      <eAnnotations source="gmf.link">
-        <details key="style" value="dot"/>
-        <details key="width" value="2"/>
-        <details key="target.decoration" value="closedarrow"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Configuration"
-        eOpposite="#//Configuration/configExtension"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelMapper" eSuperTypes="#//ArtifactRef">
     <eAnnotations source="gmf.node">

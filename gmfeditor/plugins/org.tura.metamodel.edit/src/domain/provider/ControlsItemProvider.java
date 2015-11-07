@@ -555,6 +555,11 @@ public class ControlsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CONTROLS__ANY,
+				 DomainFactory.eINSTANCE.createConfigExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CONTROLS__ANY,
 				 DomainFactory.eINSTANCE.createIngredient()));
 
 		newChildDescriptors.add

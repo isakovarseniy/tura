@@ -518,6 +518,11 @@ public class DeploymentComponentsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
+				 DomainFactory.eINSTANCE.createConfigExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
 				 DomainFactory.eINSTANCE.createIngredient()));
 
 		newChildDescriptors.add

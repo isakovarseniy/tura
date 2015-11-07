@@ -534,6 +534,11 @@ public class UIPackageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.UI_PACKAGE__ANY,
+				 DomainFactory.eINSTANCE.createConfigExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.UI_PACKAGE__ANY,
 				 DomainFactory.eINSTANCE.createIngredient()));
 
 		newChildDescriptors.add

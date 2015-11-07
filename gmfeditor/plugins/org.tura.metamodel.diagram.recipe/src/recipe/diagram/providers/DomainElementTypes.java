@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -29,7 +17,7 @@ import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypes;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
-import domain.DomainPackage;
+import recipe.diagram.edit.parts.ConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
@@ -44,6 +32,7 @@ import recipe.diagram.edit.parts.RecipeEditPart;
 import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.part.DomainDiagramEditorPlugin;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -113,6 +102,10 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Property_303005 = getElementType("org.tura.metamodel.diagram.recipe.Property_303005"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType ConfigExtension_304014 = getElementType("org.tura.metamodel.diagram.recipe.ConfigExtension_304014"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -190,6 +183,9 @@ public class DomainElementTypes {
 
 			elements.put(Property_303005, DomainPackage.eINSTANCE.getProperty());
 
+			elements.put(ConfigExtension_304014,
+					DomainPackage.eINSTANCE.getConfigExtension());
+
 			elements.put(RecipeInfrastructures_304004,
 					DomainPackage.eINSTANCE.getRecipe_Infrastructures());
 
@@ -225,6 +221,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ModelMapper_303003);
 			KNOWN_ELEMENT_TYPES.add(Query_303004);
 			KNOWN_ELEMENT_TYPES.add(Property_303005);
+			KNOWN_ELEMENT_TYPES.add(ConfigExtension_304014);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_304004);
 			KNOWN_ELEMENT_TYPES.add(RecipeDeployment_304013);
 			KNOWN_ELEMENT_TYPES.add(InfrastructureRecipeConfig_304006);
@@ -257,6 +254,8 @@ public class DomainElementTypes {
 			return Query_303004;
 		case PropertyEditPart.VISUAL_ID:
 			return Property_303005;
+		case ConfigExtensionEditPart.VISUAL_ID:
+			return ConfigExtension_304014;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return RecipeInfrastructures_304004;
 		case RecipeDeploymentEditPart.VISUAL_ID:

@@ -141,6 +141,7 @@ public class RecipesItemProvider
 			childrenFeatures.add(DomainPackage.Literals.RECIPES__CONFIGURATIONS);
 			childrenFeatures.add(DomainPackage.Literals.RECIPES__INFRASTRUCTURES);
 			childrenFeatures.add(DomainPackage.Literals.RECIPES__DEPLOYMENT);
+			childrenFeatures.add(DomainPackage.Literals.RECIPES__CONFIG_EXTENSION);
 			childrenFeatures.add(DomainPackage.Literals.RECIPES__ANY);
 		}
 		return childrenFeatures;
@@ -204,6 +205,7 @@ public class RecipesItemProvider
 			case DomainPackage.RECIPES__CONFIGURATIONS:
 			case DomainPackage.RECIPES__INFRASTRUCTURES:
 			case DomainPackage.RECIPES__DEPLOYMENT:
+			case DomainPackage.RECIPES__CONFIG_EXTENSION:
 			case DomainPackage.RECIPES__ANY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -241,6 +243,11 @@ public class RecipesItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.RECIPES__DEPLOYMENT,
 				 DomainFactory.eINSTANCE.createDeploymentSequence()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.RECIPES__CONFIG_EXTENSION,
+				 DomainFactory.eINSTANCE.createConfigExtension()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -551,6 +558,11 @@ public class RecipesItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.RECIPES__ANY,
 				 DomainFactory.eINSTANCE.createRecipe()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.RECIPES__ANY,
+				 DomainFactory.eINSTANCE.createConfigExtension()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1144,7 +1156,8 @@ public class RecipesItemProvider
 			childFeature == DomainPackage.Literals.RECIPES__ANY ||
 			childFeature == DomainPackage.Literals.RECIPES__CONFIGURATIONS ||
 			childFeature == DomainPackage.Literals.RECIPES__INFRASTRUCTURES ||
-			childFeature == DomainPackage.Literals.RECIPES__DEPLOYMENT;
+			childFeature == DomainPackage.Literals.RECIPES__DEPLOYMENT ||
+			childFeature == DomainPackage.Literals.RECIPES__CONFIG_EXTENSION;
 
 		if (qualify) {
 			return getString

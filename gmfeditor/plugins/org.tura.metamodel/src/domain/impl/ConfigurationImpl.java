@@ -46,8 +46,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getInfrastructure <em>Infrastructure</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getProperties <em>Properties</em>}</li>
- *   <li>{@link domain.impl.ConfigurationImpl#getConfigExtension <em>Config Extension</em>}</li>
- *   <li>{@link domain.impl.ConfigurationImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,26 +111,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * @ordered
 	 */
 	protected EList<Property> properties;
-
-	/**
-	 * The cached value of the '{@link #getConfigExtension() <em>Config Extension</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConfigExtension()
-	 * @generated
-	 * @ordered
-	 */
-	protected Configuration configExtension;
-
-	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParent()
-	 * @generated
-	 * @ordered
-	 */
-	protected Configuration parent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,126 +250,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Configuration getConfigExtension() {
-		if (configExtension != null && configExtension.eIsProxy()) {
-			InternalEObject oldConfigExtension = (InternalEObject)configExtension;
-			configExtension = (Configuration)eResolveProxy(oldConfigExtension);
-			if (configExtension != oldConfigExtension) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, oldConfigExtension, configExtension));
-			}
-		}
-		return configExtension;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Configuration basicGetConfigExtension() {
-		return configExtension;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetConfigExtension(Configuration newConfigExtension, NotificationChain msgs) {
-		Configuration oldConfigExtension = configExtension;
-		configExtension = newConfigExtension;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, oldConfigExtension, newConfigExtension);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setConfigExtension(Configuration newConfigExtension) {
-		if (newConfigExtension != configExtension) {
-			NotificationChain msgs = null;
-			if (configExtension != null)
-				msgs = ((InternalEObject)configExtension).eInverseRemove(this, DomainPackage.CONFIGURATION__PARENT, Configuration.class, msgs);
-			if (newConfigExtension != null)
-				msgs = ((InternalEObject)newConfigExtension).eInverseAdd(this, DomainPackage.CONFIGURATION__PARENT, Configuration.class, msgs);
-			msgs = basicSetConfigExtension(newConfigExtension, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, newConfigExtension, newConfigExtension));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Configuration getParent() {
-		if (parent != null && parent.eIsProxy()) {
-			InternalEObject oldParent = (InternalEObject)parent;
-			parent = (Configuration)eResolveProxy(oldParent);
-			if (parent != oldParent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.CONFIGURATION__PARENT, oldParent, parent));
-			}
-		}
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Configuration basicGetParent() {
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParent(Configuration newParent, NotificationChain msgs) {
-		Configuration oldParent = parent;
-		parent = newParent;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__PARENT, oldParent, newParent);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(Configuration newParent) {
-		if (newParent != parent) {
-			NotificationChain msgs = null;
-			if (parent != null)
-				msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, Configuration.class, msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, Configuration.class, msgs);
-			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.CONFIGURATION__PARENT, newParent, newParent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -399,14 +257,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				if (infrastructure != null)
 					msgs = ((InternalEObject)infrastructure).eInverseRemove(this, DomainPackage.INFRASTRUCTURE__RECIPE_CONFIG, Infrastructure.class, msgs);
 				return basicSetInfrastructure((Infrastructure)otherEnd, msgs);
-			case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
-				if (configExtension != null)
-					msgs = ((InternalEObject)configExtension).eInverseRemove(this, DomainPackage.CONFIGURATION__PARENT, Configuration.class, msgs);
-				return basicSetConfigExtension((Configuration)otherEnd, msgs);
-			case DomainPackage.CONFIGURATION__PARENT:
-				if (parent != null)
-					msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.CONFIGURATION__CONFIG_EXTENSION, Configuration.class, msgs);
-				return basicSetParent((Configuration)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -423,10 +273,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return basicSetInfrastructure(null, msgs);
 			case DomainPackage.CONFIGURATION__PROPERTIES:
 				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-			case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
-				return basicSetConfigExtension(null, msgs);
-			case DomainPackage.CONFIGURATION__PARENT:
-				return basicSetParent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -448,12 +294,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return basicGetInfrastructure();
 			case DomainPackage.CONFIGURATION__PROPERTIES:
 				return getProperties();
-			case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
-				if (resolve) return getConfigExtension();
-				return basicGetConfigExtension();
-			case DomainPackage.CONFIGURATION__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -480,12 +320,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
-			case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
-				setConfigExtension((Configuration)newValue);
-				return;
-			case DomainPackage.CONFIGURATION__PARENT:
-				setParent((Configuration)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -510,12 +344,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			case DomainPackage.CONFIGURATION__PROPERTIES:
 				getProperties().clear();
 				return;
-			case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
-				setConfigExtension((Configuration)null);
-				return;
-			case DomainPackage.CONFIGURATION__PARENT:
-				setParent((Configuration)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -536,10 +364,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return infrastructure != null;
 			case DomainPackage.CONFIGURATION__PROPERTIES:
 				return properties != null && !properties.isEmpty();
-			case DomainPackage.CONFIGURATION__CONFIG_EXTENSION:
-				return configExtension != null;
-			case DomainPackage.CONFIGURATION__PARENT:
-				return parent != null;
 		}
 		return super.eIsSet(featureID);
 	}

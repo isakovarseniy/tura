@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -37,12 +25,12 @@ import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
 
-import domain.HTMLLayerHolder;
 import recipe.diagram.edit.policies.JavaComponentJavaComponentMappersCompartmentCanonicalEditPolicy;
 import recipe.diagram.edit.policies.JavaComponentJavaComponentMappersCompartmentItemSemanticEditPolicy;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.part.Messages;
 import recipe.diagram.providers.DomainElementTypes;
+import domain.HTMLLayerHolder;
 
 /**
  * @generated

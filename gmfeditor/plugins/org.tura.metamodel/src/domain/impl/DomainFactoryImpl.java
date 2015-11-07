@@ -44,6 +44,7 @@ import domain.Classifier;
 import domain.Column;
 import domain.Comparator;
 import domain.Component;
+import domain.ConfigExtension;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
@@ -311,6 +312,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.DEPLOYMENT_STAR_STEP: return createDeploymentStarStep();
 			case DomainPackage.USING_MAPPERS: return createUsingMappers();
 			case DomainPackage.RECIPE: return createRecipe();
+			case DomainPackage.CONFIG_EXTENSION: return createConfigExtension();
 			case DomainPackage.INGREDIENT: return createIngredient();
 			case DomainPackage.COMPONENT: return createComponent();
 			case DomainPackage.JAVA_COMPONENT: return createJavaComponent();
@@ -1082,6 +1084,16 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public Recipe createRecipe() {
 		RecipeImpl recipe = new RecipeImpl();
 		return recipe;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConfigExtension createConfigExtension() {
+		ConfigExtensionImpl configExtension = new ConfigExtensionImpl();
+		return configExtension;
 	}
 
 	/**

@@ -1487,6 +1487,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.ConfigExtension} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfigExtensionItemProvider configExtensionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.ConfigExtension}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfigExtensionAdapter() {
+		if (configExtensionItemProvider == null) {
+			configExtensionItemProvider = new ConfigExtensionItemProvider(this);
+		}
+
+		return configExtensionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.Ingredient} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4314,6 +4337,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (deploymentStarStepItemProvider != null) deploymentStarStepItemProvider.dispose();
 		if (usingMappersItemProvider != null) usingMappersItemProvider.dispose();
 		if (recipeItemProvider != null) recipeItemProvider.dispose();
+		if (configExtensionItemProvider != null) configExtensionItemProvider.dispose();
 		if (ingredientItemProvider != null) ingredientItemProvider.dispose();
 		if (componentItemProvider != null) componentItemProvider.dispose();
 		if (javaComponentItemProvider != null) javaComponentItemProvider.dispose();

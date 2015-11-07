@@ -541,6 +541,11 @@ public class MessagesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MESSAGES__ANY,
+				 DomainFactory.eINSTANCE.createConfigExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MESSAGES__ANY,
 				 DomainFactory.eINSTANCE.createIngredient()));
 
 		newChildDescriptors.add

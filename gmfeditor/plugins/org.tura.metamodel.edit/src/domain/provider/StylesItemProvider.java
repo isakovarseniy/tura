@@ -534,6 +534,11 @@ public class StylesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.STYLES__ANY,
+				 DomainFactory.eINSTANCE.createConfigExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLES__ANY,
 				 DomainFactory.eINSTANCE.createIngredient()));
 
 		newChildDescriptors.add

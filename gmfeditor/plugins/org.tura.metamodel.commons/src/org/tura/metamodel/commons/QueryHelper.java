@@ -119,6 +119,72 @@ public class QueryHelper {
 		}
 	}
 
+	
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public domain.Configuration getConfigExtensionUp(domain.Configuration config) throws Exception {
+
+		if (getConfigExtensionGard(config))
+			throw new Exception("Configuration cannot be sources for more then 1 configuration tree");		
+		
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		OCLExpression<EClassifier> query = helper
+				.createQuery("domain::ConfigExtension.allInstances()->select(r|r.source.uid ='"
+						+ config.getUid() + "')");
+
+		Collection<domain.ConfigExtension> map = (Collection<domain.ConfigExtension>) ocl.evaluate(config, query);
+		if ((map != null )&& (map.size() != 0 ))
+			return map.iterator().next().getTarget();
+		else
+			return null;
+	}	
+	
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public domain.Configuration getConfigExtensionDown(domain.Configuration config) throws Exception {
+
+		if (getConfigExtensionGard(config))
+			return null;
+		
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		OCLExpression<EClassifier> query = helper
+				.createQuery("domain::ConfigExtension.allInstances()->select(r|r.target.uid ='"
+						+ config.getUid() + "')");
+
+		Collection<domain.ConfigExtension> map = (Collection<domain.ConfigExtension>) ocl.evaluate(config, query);
+		if ((map != null )&& (map.size() != 0 ))
+			return map.iterator().next().getSource();
+		else
+			return null;
+	}		
+	
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public boolean getConfigExtensionGard(domain.Configuration config) throws Exception {
+
+		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+		OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+		helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+		OCLExpression<EClassifier> query = helper
+				.createQuery("domain::ConfigExtension.allInstances()->select(r|r.source.uid ='"
+						+ config.getUid() + "')");
+
+		Collection<domain.ConfigExtension> map = (Collection<domain.ConfigExtension>) ocl.evaluate(config, query);
+		if ((map != null )&& (map.size() >  1 ))
+			return true;
+		else
+			return false;
+	}		
+	
+	
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<?> getControlsList(DiagramImpl root) throws Exception {
 

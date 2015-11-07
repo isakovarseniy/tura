@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -40,6 +28,7 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
+import recipe.diagram.edit.parts.ConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
@@ -292,6 +281,10 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					DomainVisualIDRegistry
+							.getType(ConfigExtensionEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
 							.getType(RecipeInfrastructuresEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
@@ -347,6 +340,9 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			DomainNavigatorGroup incominglinks = new DomainNavigatorGroup(
 					Messages.NavigatorGroupName_Configuration_302002_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			DomainNavigatorGroup outgoinglinks = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_Configuration_302002_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
@@ -356,6 +352,16 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry.getType(PropertyEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ConfigExtensionEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ConfigExtensionEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(sv),
 					DomainVisualIDRegistry
@@ -364,6 +370,9 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					incominglinks, true));
 			if (!incominglinks.isEmpty()) {
 				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
 			}
 			return result.toArray();
 		}
@@ -537,6 +546,35 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(sv),
 					DomainVisualIDRegistry.getType(RecipeEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case ConfigExtensionEditPart.VISUAL_ID: {
+			LinkedList<DomainAbstractNavigatorItem> result = new LinkedList<DomainAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			DomainNavigatorGroup target = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_ConfigExtension_304014_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			DomainNavigatorGroup source = new DomainNavigatorGroup(
+					Messages.NavigatorGroupName_ConfigExtension_304014_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ConfigurationEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(ConfigurationEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {

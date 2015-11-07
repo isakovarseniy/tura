@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -28,18 +16,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
-import domain.Component;
-import domain.Configuration;
-import domain.DeploymentSequence;
-import domain.DomainPackage;
-import domain.Infrastructure;
-import domain.Ingredient;
-import domain.JavaComponent;
-import domain.ModelMapper;
-import domain.Property;
-import domain.Query;
-import domain.Recipe;
-import domain.Recipes;
+import recipe.diagram.edit.parts.ConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
@@ -59,6 +36,19 @@ import recipe.diagram.edit.parts.RecipeInfrastructuresEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
 import recipe.diagram.providers.DomainElementTypes;
+import domain.Component;
+import domain.ConfigExtension;
+import domain.Configuration;
+import domain.DeploymentSequence;
+import domain.DomainPackage;
+import domain.Infrastructure;
+import domain.Ingredient;
+import domain.JavaComponent;
+import domain.ModelMapper;
+import domain.Property;
+import domain.Query;
+import domain.Recipe;
+import domain.Recipes;
 
 /**
  * @generated
@@ -303,6 +293,8 @@ public class DomainDiagramUpdater {
 			return getQuery_303004ContainedLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303005ContainedLinks(view);
+		case ConfigExtensionEditPart.VISUAL_ID:
+			return getConfigExtension_304014ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -330,6 +322,8 @@ public class DomainDiagramUpdater {
 			return getQuery_303004IncomingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303005IncomingLinks(view);
+		case ConfigExtensionEditPart.VISUAL_ID:
+			return getConfigExtension_304014IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -357,6 +351,8 @@ public class DomainDiagramUpdater {
 			return getQuery_303004OutgoingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303005OutgoingLinks(view);
+		case ConfigExtensionEditPart.VISUAL_ID:
+			return getConfigExtension_304014OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -366,7 +362,10 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getRecipes_301000ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		Recipes modelElement = (Recipes) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_ConfigExtension_304014(modelElement));
+		return result;
 	}
 
 	/**
@@ -451,6 +450,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getConfigExtension_304014ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getRecipe_302001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -465,6 +472,8 @@ public class DomainDiagramUpdater {
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_ConfigExtension_304014(
+				modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_Infrastructure_RecipeConfig_304006(
 				modelElement, crossReferences));
 		return result;
@@ -542,6 +551,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getConfigExtension_304014IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getRecipe_302001OutgoingLinks(
 			View view) {
 		Recipe modelElement = (Recipe) view.getElement();
@@ -556,7 +573,10 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getConfiguration_302002OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Configuration modelElement = (Configuration) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_ConfigExtension_304014(modelElement));
+		return result;
 	}
 
 	/**
@@ -621,6 +641,68 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getConfigExtension_304014OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_ConfigExtension_304014(
+			Recipes container) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getConfigExtension().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof ConfigExtension) {
+				continue;
+			}
+			ConfigExtension link = (ConfigExtension) linkObject;
+			if (ConfigExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Configuration dst = link.getTarget();
+			Configuration src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.ConfigExtension_304014,
+					ConfigExtensionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_ConfigExtension_304014(
+			Configuration target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
+					.getConfigExtension_Target()
+					|| false == setting.getEObject() instanceof ConfigExtension) {
+				continue;
+			}
+			ConfigExtension link = (ConfigExtension) setting.getEObject();
+			if (ConfigExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Configuration src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, target, link,
+					DomainElementTypes.ConfigExtension_304014,
+					ConfigExtensionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	private static Collection<DomainLinkDescriptor> getIncomingFeatureModelFacetLinks_Recipe_Infrastructures_304004(
 			Infrastructure target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
@@ -676,6 +758,48 @@ public class DomainDiagramUpdater {
 						DomainElementTypes.InfrastructureRecipeConfig_304006,
 						InfrastructureRecipeConfigEditPart.VISUAL_ID));
 			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_ConfigExtension_304014(
+			Configuration source) {
+		Recipes container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof Recipes) {
+				container = (Recipes) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getConfigExtension().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof ConfigExtension) {
+				continue;
+			}
+			ConfigExtension link = (ConfigExtension) linkObject;
+			if (ConfigExtensionEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Configuration dst = link.getTarget();
+			Configuration src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.ConfigExtension_304014,
+					ConfigExtensionEditPart.VISUAL_ID));
 		}
 		return result;
 	}

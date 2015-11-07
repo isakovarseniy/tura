@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Recipes#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link domain.Recipes#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Recipes#getDeployment <em>Deployment</em>}</li>
+ *   <li>{@link domain.Recipes#getConfigExtension <em>Config Extension</em>}</li>
  *   <li>{@link domain.Recipes#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
@@ -180,6 +181,22 @@ public interface Recipes extends EObject {
 	 * @generated
 	 */
 	void setDeployment(DeploymentSequence value);
+
+	/**
+	 * Returns the value of the '<em><b>Config Extension</b></em>' containment reference list.
+	 * The list contents are of type {@link domain.ConfigExtension}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Config Extension</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Extension</em>' containment reference list.
+	 * @see domain.DomainPackage#getRecipes_ConfigExtension()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ConfigExtension> getConfigExtension();
 
 	/**
 	 * Returns the value of the '<em><b>Any</b></em>' containment reference.

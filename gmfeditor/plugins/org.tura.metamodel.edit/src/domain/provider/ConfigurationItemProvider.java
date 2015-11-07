@@ -78,8 +78,6 @@ public class ConfigurationItemProvider
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addInfrastructurePropertyDescriptor(object);
-			addConfigExtensionPropertyDescriptor(object);
-			addParentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -142,50 +140,6 @@ public class ConfigurationItemProvider
 				 getString("_UI_Configuration_infrastructure_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Configuration_infrastructure_feature", "_UI_Configuration_type"),
 				 DomainPackage.Literals.CONFIGURATION__INFRASTRUCTURE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Config Extension feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConfigExtensionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Configuration_configExtension_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Configuration_configExtension_feature", "_UI_Configuration_type"),
-				 DomainPackage.Literals.CONFIGURATION__CONFIG_EXTENSION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Parent feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Configuration_parent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Configuration_parent_feature", "_UI_Configuration_type"),
-				 DomainPackage.Literals.CONFIGURATION__PARENT,
 				 true,
 				 false,
 				 true,

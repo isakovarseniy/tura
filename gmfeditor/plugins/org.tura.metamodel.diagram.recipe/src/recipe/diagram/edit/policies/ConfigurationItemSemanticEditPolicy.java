@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -28,12 +16,16 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import recipe.diagram.edit.commands.ConfigExtensionCreateCommand;
+import recipe.diagram.edit.commands.ConfigExtensionReorientCommand;
 import recipe.diagram.edit.commands.InfrastructureRecipeConfigCreateCommand;
 import recipe.diagram.edit.commands.InfrastructureRecipeConfigReorientCommand;
+import recipe.diagram.edit.parts.ConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import recipe.diagram.edit.parts.PropertyEditPart;
@@ -63,12 +55,29 @@ public class ConfigurationItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
+			if (DomainVisualIDRegistry.getVisualID(incomingLink) == ConfigExtensionEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
 			if (DomainVisualIDRegistry.getVisualID(incomingLink) == InfrastructureRecipeConfigEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						incomingLink.getSource().getElement(), null,
 						incomingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
+		}
+		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
+			Edge outgoingLink = (Edge) it.next();
+			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == ConfigExtensionEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
 		}
@@ -127,6 +136,10 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
+		if (DomainElementTypes.ConfigExtension_304014 == req.getElementType()) {
+			return getGEFWrapper(new ConfigExtensionCreateCommand(req,
+					req.getSource(), req.getTarget()));
+		}
 		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
 				.getElementType()) {
 			return null;
@@ -139,12 +152,31 @@ public class ConfigurationItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
+		if (DomainElementTypes.ConfigExtension_304014 == req.getElementType()) {
+			return getGEFWrapper(new ConfigExtensionCreateCommand(req,
+					req.getSource(), req.getTarget()));
+		}
 		if (DomainElementTypes.InfrastructureRecipeConfig_304006 == req
 				.getElementType()) {
 			return getGEFWrapper(new InfrastructureRecipeConfigCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		return null;
+	}
+
+	/**
+	 * Returns command to reorient EClass based link. New link target or source
+	 * should be the domain model element associated with this node.
+	 * 
+	 * @generated
+	 */
+	protected Command getReorientRelationshipCommand(
+			ReorientRelationshipRequest req) {
+		switch (getVisualID(req)) {
+		case ConfigExtensionEditPart.VISUAL_ID:
+			return getGEFWrapper(new ConfigExtensionReorientCommand(req));
+		}
+		return super.getReorientRelationshipCommand(req);
 	}
 
 	/**

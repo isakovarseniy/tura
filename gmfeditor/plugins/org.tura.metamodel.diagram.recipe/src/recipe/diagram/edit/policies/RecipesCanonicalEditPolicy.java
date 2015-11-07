@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -46,7 +34,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
-import domain.DomainPackage;
+import recipe.diagram.edit.parts.ConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
@@ -61,6 +49,7 @@ import recipe.diagram.part.DomainDiagramUpdater;
 import recipe.diagram.part.DomainLinkDescriptor;
 import recipe.diagram.part.DomainNodeDescriptor;
 import recipe.diagram.part.DomainVisualIDRegistry;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -378,6 +367,14 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getProperty_303005ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ConfigExtensionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getConfigExtension_304014ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

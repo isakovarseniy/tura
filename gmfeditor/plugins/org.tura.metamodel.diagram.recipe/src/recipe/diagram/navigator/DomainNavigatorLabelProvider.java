@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -33,7 +21,7 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
-import domain.Recipes;
+import recipe.diagram.edit.parts.ConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
@@ -60,6 +48,8 @@ import recipe.diagram.part.DomainDiagramEditorPlugin;
 import recipe.diagram.part.DomainVisualIDRegistry;
 import recipe.diagram.providers.DomainElementTypes;
 import recipe.diagram.providers.DomainParserProvider;
+import domain.ConfigExtension;
+import domain.Recipes;
 
 /**
  * @generated
@@ -167,6 +157,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case RecipeDeploymentEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?deployment", DomainElementTypes.RecipeDeployment_304013); //$NON-NLS-1$
+		case ConfigExtensionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?ConfigExtension", DomainElementTypes.ConfigExtension_304014); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -253,6 +246,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getInfrastructureRecipeConfig_304006Text(view);
 		case RecipeDeploymentEditPart.VISUAL_ID:
 			return getRecipeDeployment_304013Text(view);
+		case ConfigExtensionEditPart.VISUAL_ID:
+			return getConfigExtension_304014Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -502,6 +497,21 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 306009); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getConfigExtension_304014Text(View view) {
+		ConfigExtension domainModelElement = (ConfigExtension) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 304014); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

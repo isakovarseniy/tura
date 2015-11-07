@@ -222,6 +222,23 @@
     </ownedChild>
   </nodes>
   <links>
+    <domainMetaElement
+        href="domain.ecore#//ConfigExtension"/>
+    <containmentFeature
+        href="domain.ecore#//Recipes/configExtension"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="domain.gmftool#//@palette/@tools.1/@tools.0"/>
+    <diagramLink
+        href="domain.gmfgraph#ConfigExtension"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//ConfigExtension/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//ConfigExtension/target"/>
+  </links>
+  <links>
     <labelMappings
         xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
@@ -230,7 +247,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.2"/>
     <diagramLink
         href="domain.gmfgraph#RecipeInfrastructures"/>
     <linkMetaFeature
@@ -246,7 +263,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.0"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
     <diagramLink
         href="domain.gmfgraph#RecipeDeployment"/>
     <linkMetaFeature
@@ -262,7 +279,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.2"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.3"/>
     <diagramLink
         href="domain.gmfgraph#InfrastructureRecipeConfig"/>
     <linkMetaFeature

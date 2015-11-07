@@ -15,6 +15,7 @@
 package domain.impl;
 
 import domain.ApplicationRecipe;
+import domain.ConfigExtension;
 import domain.Configuration;
 import domain.DeploymentSequence;
 import domain.DomainPackage;
@@ -52,6 +53,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.RecipesImpl#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getDeployment <em>Deployment</em>}</li>
+ *   <li>{@link domain.impl.RecipesImpl#getConfigExtension <em>Config Extension</em>}</li>
  *   <li>{@link domain.impl.RecipesImpl#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
@@ -128,6 +130,16 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * @ordered
 	 */
 	protected DeploymentSequence deployment;
+
+	/**
+	 * The cached value of the '{@link #getConfigExtension() <em>Config Extension</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigExtension()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConfigExtension> configExtension;
 
 	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
@@ -354,6 +366,18 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ConfigExtension> getConfigExtension() {
+		if (configExtension == null) {
+			configExtension = new EObjectContainmentEList<ConfigExtension>(ConfigExtension.class, this, DomainPackage.RECIPES__CONFIG_EXTENSION);
+		}
+		return configExtension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EObject getAny() {
 		return any;
 	}
@@ -430,6 +454,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 				return basicSetParent(null, msgs);
 			case DomainPackage.RECIPES__DEPLOYMENT:
 				return basicSetDeployment(null, msgs);
+			case DomainPackage.RECIPES__CONFIG_EXTENSION:
+				return ((InternalEList<?>)getConfigExtension()).basicRemove(otherEnd, msgs);
 			case DomainPackage.RECIPES__ANY:
 				return basicSetAny(null, msgs);
 		}
@@ -457,6 +483,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 				return basicGetParent();
 			case DomainPackage.RECIPES__DEPLOYMENT:
 				return getDeployment();
+			case DomainPackage.RECIPES__CONFIG_EXTENSION:
+				return getConfigExtension();
 			case DomainPackage.RECIPES__ANY:
 				return getAny();
 		}
@@ -492,6 +520,10 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 			case DomainPackage.RECIPES__DEPLOYMENT:
 				setDeployment((DeploymentSequence)newValue);
 				return;
+			case DomainPackage.RECIPES__CONFIG_EXTENSION:
+				getConfigExtension().clear();
+				getConfigExtension().addAll((Collection<? extends ConfigExtension>)newValue);
+				return;
 			case DomainPackage.RECIPES__ANY:
 				setAny((EObject)newValue);
 				return;
@@ -525,6 +557,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 			case DomainPackage.RECIPES__DEPLOYMENT:
 				setDeployment((DeploymentSequence)null);
 				return;
+			case DomainPackage.RECIPES__CONFIG_EXTENSION:
+				getConfigExtension().clear();
+				return;
 			case DomainPackage.RECIPES__ANY:
 				setAny((EObject)null);
 				return;
@@ -552,6 +587,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 				return parent != null;
 			case DomainPackage.RECIPES__DEPLOYMENT:
 				return deployment != null;
+			case DomainPackage.RECIPES__CONFIG_EXTENSION:
+				return configExtension != null && !configExtension.isEmpty();
 			case DomainPackage.RECIPES__ANY:
 				return any != null;
 		}

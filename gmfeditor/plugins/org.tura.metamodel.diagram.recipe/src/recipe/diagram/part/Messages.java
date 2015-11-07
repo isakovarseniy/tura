@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -358,32 +346,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Deployment1CreationTool_title;
+	public static String ConfigExtension1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Deployment1CreationTool_desc;
+	public static String ConfigExtension1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructures2CreationTool_title;
+	public static String Deployment2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructures2CreationTool_desc;
+	public static String Deployment2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeConfig3CreationTool_title;
+	public static String Infrastructures3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RecipeConfig3CreationTool_desc;
+	public static String Infrastructures3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeConfig4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipeConfig4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -433,6 +431,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Configuration_302002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Infrastructure_302003_incominglinks;
 
 	/**
@@ -474,6 +477,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_RecipeDeployment_304013_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConfigExtension_304014_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConfigExtension_304014_source;
 
 	/**
 	 * @generated

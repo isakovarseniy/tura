@@ -102,4 +102,7 @@
         visualID="6009"
         queryText="true"/>
   </linkTraces>
+  <linkTraces
+      visualID="4014"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://tura.org/2013/v1/domain' and _eClass_.name = 'ConfigExtension')"/>
 </trace:TraceModel>

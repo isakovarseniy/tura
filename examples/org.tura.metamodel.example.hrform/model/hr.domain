@@ -2082,7 +2082,7 @@
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
-    <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3" deployment="de56ff3a-4261-47dc-9ee7-0f61390fee4e">
+    <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3 78563d4f-0569-4ac4-9e43-650c3a9cb0e3" deployment="de56ff3a-4261-47dc-9ee7-0f61390fee4e">
       <ingredients uid="b27a7b7b-ba51-48d1-8f56-af453722dcd3" name="Form ingredient" layer="UILayer">
         <components xsi:type="tura.domain:JavaComponent" columns="2" uid="44a5e8a3-a54c-4792-903c-a984627f6218" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
           <mappers uid="5c3c0b94-aa71-4da9-923f-3460706b5394" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Process all datacontrol in ui package">
@@ -2257,7 +2257,7 @@
         </components>
       </ingredients>
     </recipe>
-    <configurations uid="a2357108-13c5-455e-824c-78102bd6bfe1" infrastructure="81bafabb-45d9-48af-9283-6ffc90afbda3">
+    <configurations uid="a2357108-13c5-455e-824c-78102bd6bfe1">
       <properties uid="663bc48f-0d46-4ba8-b7ce-136e538060da" confVarRef="a52e5078-3017-43a0-b571-f58150f8ffd2" value="hr"/>
       <properties uid="62746f6c-496e-407d-be8b-0af2d94b1a52" confVarRef="cd17301e-820b-4c33-b955-9cc0a938fe81" value="5432"/>
       <properties uid="c7c66d66-5cb6-45e6-836c-5bbee4928230" confVarRef="58ebee50-6a39-4ce0-b6f4-aab51c5bf239" value="arseniy"/>
@@ -2266,7 +2266,6 @@
       <properties uid="60a9dab1-d560-4d14-8003-407b470f1b3f" confVarRef="618186f9-7c62-47cf-82f7-3b295a85ca9f" value="postgres"/>
       <properties uid="304abca1-4cf9-4e0f-a4a5-a7f1a935bdb1" confVarRef="2e8c1ce3-aade-4c15-a7cd-ea9f5de5bd8e" value="jdbc:postgresql://localhost:5432/postgres"/>
       <properties uid="3f8cbc65-8b23-4394-a991-c114ea6ba94c" confVarRef="6ef3c0da-e95b-40a7-8b52-bd0c185543c1" value="org.postgresql.Driver"/>
-      <properties uid="ab46b3e9-58e2-436e-bdca-5b73687038f2" confVarRef="3165ef35-24f6-44f9-9ad1-1c89771ff777" value="http://localhost:8080/hrresources-2.0"/>
       <properties uid="4c78ffdb-397b-4c93-8674-b869fb91f970" confVarRef="8761066c-1ea5-4ee3-9085-c60b248dc534" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
       <properties uid="c7be5cd1-3d0a-4c57-a637-5ffb078d2b80" confVarRef="04f1aaa1-2500-4a3e-84e7-3c0f328fce17" value="/Users/arseniy/glassfish4"/>
       <properties uid="d97de117-00e1-4291-b455-7a25adf76d40" confVarRef="c1306333-7f7f-4da9-8b6e-f828d46cab5f" value="domain1"/>
@@ -2274,7 +2273,14 @@
       <properties uid="739a8e89-55f4-4dec-8ae5-45b959dff04f" confVarRef="333ee7eb-2bb2-44d1-aae1-9025a4566164" value="2.47.1"/>
       <properties uid="5c9ce1c4-6a72-44bc-9baf-d4db13e3aeff" confVarRef="58458ed2-82b2-44ec-be48-54161aff63e3" value="HRObjects"/>
     </configurations>
-    <infrastructures uid="81bafabb-45d9-48af-9283-6ffc90afbda3" recipe="6cb40735-2e80-4221-9ab5-31d646aff979" name="Development" recipeConfig="a2357108-13c5-455e-824c-78102bd6bfe1"/>
+    <configurations uid="b7da74ec-ce5f-485c-84b0-eeea4aff2080" infrastructure="81bafabb-45d9-48af-9283-6ffc90afbda3">
+      <properties uid="eb1aa086-f53e-496e-9274-f648fbbb06ea" confVarRef="3165ef35-24f6-44f9-9ad1-1c89771ff777" value="http://localhost:8080/hrresources-2.0"/>
+    </configurations>
+    <configurations uid="0c15dd70-1aac-4e24-a758-cfdc111adb02" infrastructure="78563d4f-0569-4ac4-9e43-650c3a9cb0e3">
+      <properties uid="e9a8733c-e392-4a13-9626-36e93832895a" confVarRef="3165ef35-24f6-44f9-9ad1-1c89771ff777" value="https://localhost:8181/hrresources-2.0"/>
+    </configurations>
+    <infrastructures uid="81bafabb-45d9-48af-9283-6ffc90afbda3" recipe="6cb40735-2e80-4221-9ab5-31d646aff979" name="Development" recipeConfig="b7da74ec-ce5f-485c-84b0-eeea4aff2080"/>
+    <infrastructures uid="78563d4f-0569-4ac4-9e43-650c3a9cb0e3" recipe="6cb40735-2e80-4221-9ab5-31d646aff979" name="Development with https" recipeConfig="0c15dd70-1aac-4e24-a758-cfdc111adb02"/>
     <deployment uid="de56ff3a-4261-47dc-9ee7-0f61390fee4e" name="Deployment">
       <deploymentComponents uid="8086123c-aa38-4e52-a151-4041c23f52f3">
         <deplymentStep uid="3e349778-ce74-4deb-a7ea-d8ba8d92d16a" name="Form ingredient:UI component:Application build runner" mapper="c936a1de-0c00-4eff-939f-a0778cecdd8d" deploymentComponentLink="cffa53b7-fbb6-4cb9-ba02-e63038b6b461"/>
@@ -2284,6 +2290,8 @@
         <startSeq uid="a1b9ca74-2f3c-41dd-bdd8-cc1ee2293621" firstStep="b2f28822-c29a-4813-a8b5-6ecffc8d10b7"/>
       </deploymentComponents>
     </deployment>
+    <configExtension uid="ec65d191-9161-437b-bd8a-01522f5a80bc" source="b7da74ec-ce5f-485c-84b0-eeea4aff2080" target="a2357108-13c5-455e-824c-78102bd6bfe1"/>
+    <configExtension uid="67830d23-ac1d-49bd-9e58-39c9977aa979" source="0c15dd70-1aac-4e24-a758-cfdc111adb02" target="a2357108-13c5-455e-824c-78102bd6bfe1"/>
   </tura.domain:Recipes>
   <tura.domain:Views uid="2ddd76f4-bbd2-4337-8cae-45d77d9170ab" parent="22583c7e-b599-447f-a6e1-08123b25a1a5">
     <canvases xsi:type="tura.domain:Window" uid="7d1cb326-89e4-4280-9b72-567945d73b6f" name="HR Controller">

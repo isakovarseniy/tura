@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -22,8 +10,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
-import domain.DomainPackage;
-import domain.Recipes;
+import recipe.diagram.edit.parts.ConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
@@ -54,6 +41,8 @@ import recipe.diagram.edit.parts.RecipeInfrastructuresExternalLabelEditPart;
 import recipe.diagram.edit.parts.RecipeNameEditPart;
 import recipe.diagram.edit.parts.RecipeRecipeIngredientsCompartmentEditPart;
 import recipe.diagram.edit.parts.RecipesEditPart;
+import domain.DomainPackage;
+import domain.Recipes;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -361,6 +350,10 @@ public class DomainVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
+		}
+		if (DomainPackage.eINSTANCE.getConfigExtension().isSuperTypeOf(
+				domainElement.eClass())) {
+			return ConfigExtensionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

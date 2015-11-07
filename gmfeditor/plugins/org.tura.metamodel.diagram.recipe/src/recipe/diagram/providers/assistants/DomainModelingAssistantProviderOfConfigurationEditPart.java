@@ -1,21 +1,10 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
 package recipe.diagram.providers.assistants;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -46,6 +35,75 @@ public class DomainModelingAssistantProviderOfConfigurationEditPart extends
 	 * @generated
 	 */
 	@Override
+	public List<IElementType> getRelTypesOnSource(IAdaptable source) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
+		return doGetRelTypesOnSource((ConfigurationEditPart) sourceEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> doGetRelTypesOnSource(ConfigurationEditPart source) {
+		List<IElementType> types = new ArrayList<IElementType>(1);
+		types.add(DomainElementTypes.ConfigExtension_304014);
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	@Override
+	public List<IElementType> getRelTypesOnSourceAndTarget(IAdaptable source,
+			IAdaptable target) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
+		return doGetRelTypesOnSourceAndTarget(
+				(ConfigurationEditPart) sourceEditPart, targetEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> doGetRelTypesOnSourceAndTarget(
+			ConfigurationEditPart source, IGraphicalEditPart targetEditPart) {
+		List<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof ConfigurationEditPart) {
+			types.add(DomainElementTypes.ConfigExtension_304014);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	@Override
+	public List<IElementType> getTypesForTarget(IAdaptable source,
+			IElementType relationshipType) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
+		return doGetTypesForTarget((ConfigurationEditPart) sourceEditPart,
+				relationshipType);
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> doGetTypesForTarget(ConfigurationEditPart source,
+			IElementType relationshipType) {
+		List<IElementType> types = new ArrayList<IElementType>();
+		if (relationshipType == DomainElementTypes.ConfigExtension_304014) {
+			types.add(DomainElementTypes.Configuration_302002);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	@Override
 	public List<IElementType> getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
@@ -56,7 +114,8 @@ public class DomainModelingAssistantProviderOfConfigurationEditPart extends
 	 * @generated
 	 */
 	public List<IElementType> doGetRelTypesOnTarget(ConfigurationEditPart target) {
-		List<IElementType> types = new ArrayList<IElementType>(1);
+		List<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(DomainElementTypes.ConfigExtension_304014);
 		types.add(DomainElementTypes.InfrastructureRecipeConfig_304006);
 		return types;
 	}
@@ -79,7 +138,9 @@ public class DomainModelingAssistantProviderOfConfigurationEditPart extends
 	public List<IElementType> doGetTypesForSource(ConfigurationEditPart target,
 			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == DomainElementTypes.InfrastructureRecipeConfig_304006) {
+		if (relationshipType == DomainElementTypes.ConfigExtension_304014) {
+			types.add(DomainElementTypes.Configuration_302002);
+		} else if (relationshipType == DomainElementTypes.InfrastructureRecipeConfig_304006) {
 			types.add(DomainElementTypes.Infrastructure_302003);
 		}
 		return types;

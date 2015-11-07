@@ -1,16 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
-
 /*
  * 
  */
@@ -68,9 +55,10 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
-		paletteContainer.add(createDeployment1CreationTool());
-		paletteContainer.add(createInfrastructures2CreationTool());
-		paletteContainer.add(createRecipeConfig3CreationTool());
+		paletteContainer.add(createConfigExtension1CreationTool());
+		paletteContainer.add(createDeployment2CreationTool());
+		paletteContainer.add(createInfrastructures3CreationTool());
+		paletteContainer.add(createRecipeConfig4CreationTool());
 		return paletteContainer;
 	}
 
@@ -217,13 +205,29 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createDeployment1CreationTool() {
+	private ToolEntry createConfigExtension1CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
-				Messages.Deployment1CreationTool_title,
-				Messages.Deployment1CreationTool_desc,
+				Messages.ConfigExtension1CreationTool_title,
+				Messages.ConfigExtension1CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.ConfigExtension_304014));
+		entry.setId("createConfigExtension1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.ConfigExtension_304014));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createDeployment2CreationTool() {
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.Deployment2CreationTool_title,
+				Messages.Deployment2CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.RecipeDeployment_304013));
-		entry.setId("createDeployment1CreationTool"); //$NON-NLS-1$
+		entry.setId("createDeployment2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.RecipeDeployment_304013));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -233,13 +237,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createInfrastructures2CreationTool() {
+	private ToolEntry createInfrastructures3CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
-				Messages.Infrastructures2CreationTool_title,
-				Messages.Infrastructures2CreationTool_desc,
+				Messages.Infrastructures3CreationTool_title,
+				Messages.Infrastructures3CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.RecipeInfrastructures_304004));
-		entry.setId("createInfrastructures2CreationTool"); //$NON-NLS-1$
+		entry.setId("createInfrastructures3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.RecipeInfrastructures_304004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -249,13 +253,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRecipeConfig3CreationTool() {
+	private ToolEntry createRecipeConfig4CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
-				Messages.RecipeConfig3CreationTool_title,
-				Messages.RecipeConfig3CreationTool_desc,
+				Messages.RecipeConfig4CreationTool_title,
+				Messages.RecipeConfig4CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.InfrastructureRecipeConfig_304006));
-		entry.setId("createRecipeConfig3CreationTool"); //$NON-NLS-1$
+		entry.setId("createRecipeConfig4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.InfrastructureRecipeConfig_304006));
 		entry.setLargeIcon(entry.getSmallIcon());

@@ -518,6 +518,11 @@ public class EnterpriseInfrastructureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
+				 DomainFactory.eINSTANCE.createConfigExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
 				 DomainFactory.eINSTANCE.createIngredient()));
 
 		newChildDescriptors.add

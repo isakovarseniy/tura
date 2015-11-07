@@ -32,6 +32,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
+import org.tura.metamodel.commons.QueryHelper;
 
 import domain.ConfigVariable;
 import domain.DomainPackage;
@@ -42,58 +43,64 @@ public class ConfigVarDialog {
 	public List<?> runDialog(domain.Configuration config) {
 
 		Set<ConfigVariable> set = propertiesList(config);
-		ListSelectionDialog dlg = new ListSelectionDialog( Display.getCurrent().getActiveShell(),
-				set,
-				new ArrayContentProvider(),
+		ListSelectionDialog dlg = new ListSelectionDialog(Display.getCurrent()
+				.getActiveShell(), set, new ArrayContentProvider(),
 				new ConfigVarLabelProvider(), "Select configuration variables:");
 		dlg.setTitle("Variables Selection");
 		List<Object> result = new ArrayList<>();
-		if (dlg.open() == Window.OK){
-			result  = Arrays.asList(dlg.getResult()); 
+		if (dlg.open() == Window.OK) {
+			result = Arrays.asList(dlg.getResult());
 		}
-		
+
 		return result;
 	}
 
-	public Set<ConfigVariable> propertiesList(domain.Configuration config){
-		
-		ArrayList<domain.Property> available = new ArrayList<domain.Property>();
-		if (config == null)
-			return configVar;
-		available.addAll(config.getProperties());
+	public Set<ConfigVariable> propertiesList(domain.Configuration config) {
+		try {
+			ArrayList<domain.Property> available = new ArrayList<domain.Property>();
+			QueryHelper helper = new QueryHelper();
 
-		// go up
-		domain.Configuration cnf = config;
-		while (cnf.getConfigExtension() != null) {
-			available.addAll(cnf.getConfigExtension().getProperties());
-			cnf = cnf.getConfigExtension();
-		}
+			if (config == null)
+				return configVar;
+			available.addAll(config.getProperties());
 
-		// go down
-		cnf = config;
-		while (cnf.getParent() != null) {
-			available.addAll(cnf.getParent().getProperties());
-			cnf = cnf.getParent();
-		}
+			// go up
+			domain.Configuration cnf = config;
+			while (helper.getConfigExtensionUp(cnf) != null) {
+				cnf = helper.getConfigExtensionUp(cnf);
+				available.addAll(cnf.getProperties());
 
-		// get recipe
-		if (cnf.getInfrastructure() != null) {
-			domain.Recipe recipe = cnf.getInfrastructure().getRecipe();
-			for (Iterator<domain.Ingredient>  itr = recipe.getIngredients().iterator(); itr.hasNext();){
-				domain.Ingredient ingridient = itr.next();
-				searchConfigParameters(ingridient.getComponents());
 			}
-			
-			for (Iterator<domain.Property> itr = available.iterator(); itr.hasNext();){
-				configVar.remove(itr.next().getConfVarRef());
+
+			// go down
+			cnf = config;
+			while (helper.getConfigExtensionDown(cnf) != null) {
+				cnf = helper.getConfigExtensionDown(cnf);
+				available.addAll(cnf.getProperties());
 			}
+
+			// get recipe
+			if (cnf.getInfrastructure() != null) {
+				domain.Recipe recipe = cnf.getInfrastructure().getRecipe();
+				for (Iterator<domain.Ingredient> itr = recipe.getIngredients()
+						.iterator(); itr.hasNext();) {
+					domain.Ingredient ingridient = itr.next();
+					searchConfigParameters(ingridient.getComponents());
+				}
+
+				for (Iterator<domain.Property> itr = available.iterator(); itr
+						.hasNext();) {
+					configVar.remove(itr.next().getConfVarRef());
+				}
+			}
+		} catch (Exception e) {
+
 		}
-		
 
 		return configVar;
-		
+
 	}
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void searchConfigParameters(List<domain.Component> components) {
 
@@ -136,12 +143,12 @@ public class ConfigVarDialog {
 		}
 
 	}
-	
+
 	class ConfigVarLabelProvider extends LabelProvider {
 		public String getText(Object element) {
 			return element == null ? "" : ((domain.ConfigVariable) element).getName();//$NON-NLS-1$
 		}
 
 	}
-	
+
 }

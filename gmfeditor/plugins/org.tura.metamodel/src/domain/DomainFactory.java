@@ -583,6 +583,15 @@ public interface DomainFactory extends EFactory {
 	Recipe createRecipe();
 
 	/**
+	 * Returns a new object of class '<em>Config Extension</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Config Extension</em>'.
+	 * @generated
+	 */
+	ConfigExtension createConfigExtension();
+
+	/**
 	 * Returns a new object of class '<em>Ingredient</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

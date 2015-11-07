@@ -73,7 +73,9 @@
       check  {
 	   var configVar := new Native('org.tura.metamodel.wizard.recipe.configuration.ConfigVarDialog');
 	   var properties = configVar.propertiesList(self.recipeConfig);
-	   if (properties.size() = 0  )
+	      return true;
+	   
+	   if (properties.size() == 0  )
 	      return true;
 	   else
 	      return false;    
@@ -89,8 +91,8 @@ context domain::Configuration{
 
  constraint ConfigurationConnection {
 
-      check :  self.infrastructure.isDefined()
-      message : 'Configuration is  disconected from infrastructure'
+      check :   self.eContainer().configExtension->select(r|r.source.uid=self.uid).size()<= 1
+      message : 'Configuration cannot be sources for more then 1 configuration tree'
 
   }
 

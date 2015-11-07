@@ -43,6 +43,7 @@ import domain.ChildrenHolder;
 import domain.Classifier;
 import domain.Column;
 import domain.Component;
+import domain.ConfigExtension;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
@@ -640,6 +641,12 @@ public class DomainSwitch<T> extends Switch<T> {
 				Recipe recipe = (Recipe)theEObject;
 				T result = caseRecipe(recipe);
 				if (result == null) result = caseUsingMappers(recipe);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.CONFIG_EXTENSION: {
+				ConfigExtension configExtension = (ConfigExtension)theEObject;
+				T result = caseConfigExtension(configExtension);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2527,6 +2534,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRecipe(Recipe object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Config Extension</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Config Extension</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfigExtension(ConfigExtension object) {
 		return null;
 	}
 
