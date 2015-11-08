@@ -30,7 +30,6 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
@@ -67,31 +66,30 @@ public class LoginManager implements EventAccessor {
 	@Inject
 	ELResolver elResolver;
 
-	private static final String HOME_PAGE = "/";
-	private static final String PAGE_AFTER_LOGOUT = HOME_PAGE; // Another good
-																// option is the
-																// login page
-																// back again
-
 	private static final String SESSION_USER_VARIABLE_NAME = "user";
+	private static final String PAGE_AFTER_LOGOUT = "/"; // Another good
+	                                                                                           // option is the
+                                                                                               // login page
+	                                                                                          // back again	
+	private static final String HOME_PAGE = "/";
 
 	private String forwardUrl;
 
-    @PostConstruct
-    public void init() {
-        this.forwardUrl = extractRequestedUrlBeforeLogin();
-    }
+	
+	@PostConstruct
+	public void init() {
+		this.forwardUrl = extractRequestedUrlBeforeLogin();
+	}
 
 	private String extractRequestedUrlBeforeLogin() {
 		ExternalContext externalContext = externalContext();
-		String requestedUrl = (String) externalContext.getRequestMap().get(
-				RequestDispatcher.FORWARD_REQUEST_URI);
+		String requestedUrl = (String) externalContext.getRequestHeaderMap().get("referer");
 		if (requestedUrl == null) {
 			return externalContext.getRequestContextPath() + HOME_PAGE;
 		}
-		
+
 		return requestedUrl;
-	}
+	}	
 
 	private ExternalContext externalContext() {
 		return facesContext().getExternalContext();
@@ -134,7 +132,7 @@ public class LoginManager implements EventAccessor {
 			request.login(username, password);
 			externalContext.getSessionMap().put(SESSION_USER_VARIABLE_NAME,
 					new User(username));
-			externalContext.redirect("/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+			externalContext.redirect(forwardUrl);
 		} catch (ServletException e) {
 			/*
 			 * The ServletException is thrown if the configured login mechanism
@@ -149,10 +147,6 @@ public class LoginManager implements EventAccessor {
 			} catch (Exception e1) {
 				logger.log(Level.INFO, e1.getMessage(), e1);
 			}
-
-			// loginErrorMessage = e.getLocalizedMessage();
-			// facesContext()
-			// .addMessage(null, new FacesMessage(loginErrorMessage));
 		}
 	}
 
