@@ -3250,6 +3250,11 @@
                   <element xmi:type="tura.domain:Button" href="hr.domain#df481ec2-53e2-40d2-b2ce-fbbb92314208"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ybf7oFKZEeW_vNz99vEq1Q" x="-5" y="-6"/>
                 </children>
+                <children xmi:type="notation:Shape" xmi:id="_dmEIwIYpEeWuDKJMj-p_kg" type="1603017" fontName=".Helvetica Neue DeskInterface">
+                  <children xmi:type="notation:DecorationNode" xmi:id="_dmEv0IYpEeWuDKJMj-p_kg" type="1605006"/>
+                  <element xmi:type="tura.domain:Button" href="hr.domain#340b55bc-d760-4e71-9ee0-0cfc166c0859"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dmEIwYYpEeWuDKJMj-p_kg" x="223" y="22"/>
+                </children>
               </children>
               <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_kKvrcVKcEeW_vNz99vEq1Q"/>
               <element xmi:type="tura.domain:LayerHolder" href="hr.domain#f2fa5e68-d796-472a-9eb3-f20eacf7e6c5"/>
@@ -6446,6 +6451,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_voUDsnxZEeWDy-cQWILbiw" fontName=".Helvetica Neue DeskInterface"/>
           <element xmi:type="tura.domain:StyleSet" href="hr.domain#b556f394-bcb3-4f55-85f2-4b3c0ffd9457"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_voUDs3xZEeWDy-cQWILbiw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Vq_voIYpEeWuDKJMj-p_kg" type="1503001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_VrA9wIYpEeWuDKJMj-p_kg" type="1505001"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_Vq_voYYpEeWuDKJMj-p_kg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Vq_vooYpEeWuDKJMj-p_kg" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:StyleSet" href="hr.domain#990db715-652a-4626-a231-a330fc3ff761"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Vq_vo4YpEeWuDKJMj-p_kg"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_MjOZkufKEeSE6b0w8ph-3w"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_MjOZk-fKEeSE6b0w8ph-3w"/>

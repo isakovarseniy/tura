@@ -2910,7 +2910,7 @@
             <expression objRef="f994c763-7bfb-4952-b00f-b730b5d67043" order="2" expressionType="MessageImpl"/>
           </multiLangLabel>
         </children>
-        <children xsi:type="tura.domain:LayerHolder" nickname="" order="1" uid="f2fa5e68-d796-472a-9eb3-f20eacf7e6c5" columns="2">
+        <children xsi:type="tura.domain:LayerHolder" nickname="" order="1" uid="f2fa5e68-d796-472a-9eb3-f20eacf7e6c5" columns="3">
           <style constant="true" value="float:right;"/>
           <children xsi:type="tura.domain:Button" nickname="engLang" uid="ed151a05-5f94-4ab8-827b-96de40759880" onEventRefreshArea="c5f8ac47-356e-4c17-84db-fcf0a5037ca7 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" label="Canada">
             <style constant="true" value="width:16px;height:11px"/>
@@ -2939,6 +2939,16 @@
               <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
               <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
               <expression objRef="a3f24db7-b563-4a36-b4a4-a18d48ba110a" order="3" expressionType="StyleSetImpl"/>
+            </icon>
+          </children>
+          <children xsi:type="tura.domain:Button" order="2" uid="340b55bc-d760-4e71-9ee0-0cfc166c0859" label="Logout">
+            <style constant="true" value="width:16px;height:11px"/>
+            <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" methodRef="1d41de4e-0dfe-45bd-b7be-473ff2bd8ea3" fakeMethod="logout" uid="f9dbe825-06e7-46ab-90de-3331ea2178fb"/>
+            <icon value="Application styles.HR styles.HR Controller styles.logout-button">
+              <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+              <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+              <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+              <expression objRef="990db715-652a-4626-a231-a330fc3ff761" order="3" expressionType="StyleSetImpl"/>
             </icon>
           </children>
         </children>
@@ -3248,6 +3258,7 @@
       <styles uid="716f1cac-7c61-40f0-9c73-90ed00f568aa" name="canada-flag-button"/>
       <styles uid="a3f24db7-b563-4a36-b4a4-a18d48ba110a" name="russia-flag-button"/>
       <styles uid="b556f394-bcb3-4f55-85f2-4b3c0ffd9457" name="center"/>
+      <styles uid="990db715-652a-4626-a231-a330fc3ff761" name="logout-button"/>
     </libraries>
   </tura.domain:Styles>
   <tura.domain:Recipes uid="ea1699b1-79f1-4e4d-9342-3ba1cf05a54d" parent="643f117b-2ee8-49cd-b1ff-6123bc465259">
