@@ -18,7 +18,7 @@ operation domain::Role mappingRole2Role( recipe:Recipe, ingredient :Ingredient) 
            }
     }
      if (self.~url = null ){
-         util.traceIfDebug ("StyleLibrary2CSS","Unable to find StyleLibrary2CSS mapper for style library  \"" + self.name +"\" on layer \"" + ingredient.layer +"\"");
+         util.traceIfDebug ("StyleLibrary2CSS","Unable to findRole2Role mapper for role  \"" + self.name +"\" on layer \"" + ingredient.layer +"\"");
      }
     
     

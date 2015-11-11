@@ -54,7 +54,10 @@ operation GroupImpl(expression:String, contextValue , paramId: Integer , array )
 }
 
 operation RoleImpl(expression:String, contextValue , paramId: Integer , array ) : String {
-   return expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var role = contextValue.expression.get(paramId).objRef;
+   role.mappingRole2Role(util.getRecipe(),util.getIngredient());
+   return expression.replaceAll("<holder>", role.~localRoleName  +".<holder>");
 }
 
 operation MessageLibraryImpl(expression:String, contextValue , paramId: Integer , array ) : String {

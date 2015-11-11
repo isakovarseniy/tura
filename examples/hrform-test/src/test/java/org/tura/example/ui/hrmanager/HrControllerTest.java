@@ -46,6 +46,7 @@ import org.tura.example.ui.hrmanager.hrcontroller.pageobject.DepartmentsDetailsP
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.EmployeesPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.FilesPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.HRControllerPageObject;
+import org.tura.example.ui.hrmanager.hrcontroller.pageobject.LoginPagePageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.MainHolderPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.PopUpCpmpanyDetailsPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.StateDetailsPageObject;
@@ -64,6 +65,9 @@ public class HrControllerTest {
 
 	static WebDriver driver;
 	static ChromeDriverService service;
+	static private String USERNAME="qwerty";
+	static private String PASSWORD="qwerty";
+	
 
 	@BeforeClass
 	public static void beforeClass() {
@@ -97,9 +101,19 @@ public class HrControllerTest {
 		driver.quit();
 	}
 
+	private void login(){
+		LoginPagePageObject loginPage = new LoginPagePageObject(driver);
+		loginPage.getUser().setValue(USERNAME);
+		loginPage.getPassword().setValue(PASSWORD);
+		loginPage.getSignin().click();
+	}
+	
+	
 	@Test
 	public void t000_init() {
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -125,6 +139,7 @@ public class HrControllerTest {
 		try {
 			// Go to the Google Suggest home page
 			driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+			login();
 
 			HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 					driver);
@@ -161,6 +176,7 @@ public class HrControllerTest {
 		try {
 			// Go to the Google Suggest home page
 			driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+			login();
 
 			HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 					driver);
@@ -188,6 +204,7 @@ public class HrControllerTest {
 	public void t002_removeTreeNode() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -207,6 +224,7 @@ public class HrControllerTest {
 	public void t003_langSwitch() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -235,6 +253,7 @@ public class HrControllerTest {
 	public void t004_parallelModification() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -294,6 +313,7 @@ public class HrControllerTest {
 	public void t005_parallelModification() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -340,6 +360,7 @@ public class HrControllerTest {
 	public void t006_commitUpdate() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -362,6 +383,8 @@ public class HrControllerTest {
 		createDriver();
 
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
+
 		hrControllerPage = new HRControllerPageObject(driver);
 
 		t = hrControllerPage.getCompanies();
@@ -378,6 +401,7 @@ public class HrControllerTest {
 	public void t007_checkSelectionWithRallback() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -411,6 +435,7 @@ public class HrControllerTest {
 	public void t008_checkSelectionWithRemove() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -444,6 +469,7 @@ public class HrControllerTest {
 	public void t009_removeRow() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -468,6 +494,7 @@ public class HrControllerTest {
 
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -620,6 +647,7 @@ public class HrControllerTest {
 	public void t011_addCompany() {
 		// Go to the Google Suggest home page
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
 				driver);
@@ -808,6 +836,7 @@ public class HrControllerTest {
 
 		// Check insert
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
 
 		hrControllerPage = new HRControllerPageObject(driver);
 

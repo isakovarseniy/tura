@@ -34,6 +34,8 @@ ${percent}${end}
          
          
          util.setBeanFactoryName(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
+         util.setRecipe(recipe);
+         util.setIngredient(ingredient);
          
          form.datacontrols.formControl.processRootElement(recipe,ingredient);
          var controls =  form.datacontrols.formControl.controls;

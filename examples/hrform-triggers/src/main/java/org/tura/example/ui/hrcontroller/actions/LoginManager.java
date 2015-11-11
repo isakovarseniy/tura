@@ -213,7 +213,7 @@ public class LoginManager implements EventAccessor {
 	public boolean isUserInRole(String role) {
 		FacesContext context = facesContext();
 		ExternalContext externalContext = context.getExternalContext();
-		return externalContext.isUserInRole(role);
+		return externalContext.isUserInRole(role.replaceAll("'",""));
 	}
 
 	@Override

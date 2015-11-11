@@ -401,6 +401,10 @@
       <operations uid="50351bfd-3d30-4bbc-b07a-2eabf6148dee" name="isLoginError">
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0"/>
       </operations>
+      <operations uid="0f156094-7380-4d64-937e-55ad395afc35" name="isUserInRole">
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="e1cd6c51-bf48-4e5d-87ba-d2dafbc0fd8f" name="role"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0"/>
+      </operations>
     </types>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="e8faa4f9-a654-40f5-bdf5-454f90f2af19">
@@ -2878,6 +2882,15 @@
           <style constant="true" value="width:30px;height:30px"/>
           <classifiers uid="07c09c50-4178-4b15-9774-1e91c5bcc211" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Save Button"/>
           <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="bf119b85-c597-4642-8522-b51b95e9c7b8" fakeMethod="saveApplication" uid="e70804b0-feb5-44e1-b89b-515e1a171767"/>
+          <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" methodRef="0f156094-7380-4d64-937e-55ad395afc35" fakeMethod="isUserInRole" uid="2c000118-4668-464b-ad54-190420963ed4">
+            <parameters uid="28f33ee7-31f0-4e0e-b858-d26618737527" refObj="e1cd6c51-bf48-4e5d-87ba-d2dafbc0fd8f">
+              <value uid="f99a26d4-07da-4626-9c37-16ff45873d93" value="Roles.admin">
+                <expression objRef="e2bd4f52-5745-4997-afe5-0afd62ed20f7" expressionType="RolesImpl"/>
+                <expression objRef="45d0609c-66c2-4dd1-845c-f3763940096a" order="1" expressionType="RoleImpl"/>
+              </value>
+            </parameters>
+            <classifiers uid="f05716d1-196c-46b4-8237-a47f7f84455a" hint="1abd9c23-89fe-4c4b-93d2-77fc64912479"/>
+          </triggers>
           <enabled/>
           <multiLangLabel/>
           <icon value="Application styles.HR styles.HR Controller styles.save-button">
@@ -4567,7 +4580,7 @@
             <expression objRef="b8002975-a77a-486b-86b1-db28377027a4" order="2" expressionType="MessageImpl"/>
           </multiLangLabel>
         </children>
-        <children xsi:type="tura.domain:InputText" order="1" uid="0edf522f-a0f5-4a3c-9ce1-6f610063f089" sourcePointer="87c26cfe-fe6b-4aa6-915f-1c01179d242f" valuePointer="353a42ff-46e2-45cd-93dd-97dbb02d3c11" sourceCast="04d63d66-f224-42a6-aabc-ed057fb924be" sourceCastDataControl="87c26cfe-fe6b-4aa6-915f-1c01179d242f">
+        <children xsi:type="tura.domain:InputText" nickname="user" order="1" uid="0edf522f-a0f5-4a3c-9ce1-6f610063f089" sourcePointer="87c26cfe-fe6b-4aa6-915f-1c01179d242f" valuePointer="353a42ff-46e2-45cd-93dd-97dbb02d3c11" sourceCast="04d63d66-f224-42a6-aabc-ed057fb924be" sourceCastDataControl="87c26cfe-fe6b-4aa6-915f-1c01179d242f">
           <style/>
           <enabled/>
         </children>
@@ -4590,7 +4603,7 @@
             <expression objRef="47ad11e3-b2d7-460e-b2e9-d3e65e4d3370" order="2" expressionType="MessageImpl"/>
           </multiLangLabel>
         </children>
-        <children xsi:type="tura.domain:Button" order="7" uid="46173954-6415-4e2d-bab3-0d307b301f2e" onEventRefreshArea="bd3e208c-2939-43df-80e6-b18a01db3f98" label="Sign in">
+        <children xsi:type="tura.domain:Button" nickname="signin" order="7" uid="46173954-6415-4e2d-bab3-0d307b301f2e" onEventRefreshArea="bd3e208c-2939-43df-80e6-b18a01db3f98" label="Sign in">
           <style constant="true" value="margin-top: 5px;font:15px arial, sans-serif"/>
           <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" methodRef="baa9677f-d0e0-4238-b2b5-a7ac843ba9de" fakeMethod="login" uid="af911555-4966-4dc8-867f-f357650aedc3"/>
           <enabled/>
@@ -4600,7 +4613,7 @@
             <expression objRef="d0cadbaf-8ff9-4db7-8ff8-6202e5a0763d" order="2" expressionType="MessageImpl"/>
           </multiLangLabel>
         </children>
-        <children xsi:type="tura.domain:Password" order="3" uid="5dcaf7d1-e8a5-4b16-a53b-190872877b1f" sourcePointer="87c26cfe-fe6b-4aa6-915f-1c01179d242f" valuePointer="c14b143a-a587-4e86-afe1-7a6aedfd9eb6" sourceCast="04d63d66-f224-42a6-aabc-ed057fb924be" sourceCastDataControl="87c26cfe-fe6b-4aa6-915f-1c01179d242f"/>
+        <children xsi:type="tura.domain:Password" nickname="password" order="3" uid="5dcaf7d1-e8a5-4b16-a53b-190872877b1f" sourcePointer="87c26cfe-fe6b-4aa6-915f-1c01179d242f" valuePointer="c14b143a-a587-4e86-afe1-7a6aedfd9eb6" sourceCast="04d63d66-f224-42a6-aabc-ed057fb924be" sourceCastDataControl="87c26cfe-fe6b-4aa6-915f-1c01179d242f"/>
         <children xsi:type="tura.domain:Label" order="4" uid="43f05761-3e3c-44a5-861b-b0323bb3f2d8">
           <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" methodRef="50351bfd-3d30-4bbc-b07a-2eabf6148dee" fakeMethod="isLoginError" uid="19167d59-3527-480a-b18d-fa2cd8bb3e84">
             <classifiers uid="be377a7f-8f59-4dfc-8d11-e68ed3a6c011" hint="1abd9c23-89fe-4c4b-93d2-77fc64912479"/>
