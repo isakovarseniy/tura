@@ -909,6 +909,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDefaultCavas(popupCanvas);
 				if (result == null) result = caseMultiLangLabel(popupCanvas);
 				if (result == null) result = caseCategorized(popupCanvas);
+				if (result == null) result = caseActioinTriggers(popupCanvas);
 				if (result == null) result = caseStyleElement(popupCanvas);
 				if (result == null) result = caseHTMLLayerHolder(popupCanvas);
 				if (result == null) result = defaultCase(theEObject);

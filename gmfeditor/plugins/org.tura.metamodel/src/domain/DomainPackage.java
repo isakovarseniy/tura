@@ -6165,13 +6165,22 @@ public interface DomainPackage extends EPackage {
 	int POPUP_CANVAS__CLASSIFIERS = CANVAS_FRAME_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP_CANVAS__TRIGGERS = CANVAS_FRAME_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Modal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POPUP_CANVAS__MODAL = CANVAS_FRAME_FEATURE_COUNT + 5;
+	int POPUP_CANVAS__MODAL = CANVAS_FRAME_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Popup Canvas</em>' class.
@@ -6180,7 +6189,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POPUP_CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 6;
+	int POPUP_CANVAS_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.CanvasImpl <em>Canvas</em>}' class.

@@ -867,7 +867,7 @@ class ViewElement extends StyleElement {
 
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,Categorized {
+class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,Categorized, ActioinTriggers {
    attr boolean modal;
 }
 

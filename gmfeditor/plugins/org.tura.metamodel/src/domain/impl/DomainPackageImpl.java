@@ -8701,6 +8701,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		popupCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
 		popupCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
 		popupCanvasEClass.getESuperTypes().add(this.getCategorized());
+		popupCanvasEClass.getESuperTypes().add(this.getActioinTriggers());
 		canvasEClass.getESuperTypes().add(this.getCanvasFrame());
 		canvasEClass.getESuperTypes().add(this.getViewPortHolder());
 		canvasEClass.getESuperTypes().add(this.getDefaultCavas());

@@ -24,8 +24,8 @@ operation domain::Categorized findAllClassifiers( artifactLib:String, artifact: 
       var list = new Native('java.util.ArrayList');
  
       for (hint in self.getClassifiers()){
-           if (hint.getHint()= null )
-                 return false;
+           if (hint.getHint() == null )
+                 continue;
            
            if (classifier.equals(hint.getHint.getName())){
                if ( artifact.equals(  hint.getHint.eContainer().getName)){

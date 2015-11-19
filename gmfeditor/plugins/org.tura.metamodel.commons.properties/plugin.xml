@@ -605,6 +605,12 @@
              id="property.tab.domain.frmview.security"
              label="Security"/>
 
+             <propertyTab
+             category="domain"
+             id="property.tab.domain.frmview.canvas.triggers"
+             label="Triggers"/>
+
+
       </propertyTabs>
      </extension>  
 
@@ -612,6 +618,83 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.frmview">
+
+           <propertySection
+               tab="property.tab.domain.frmview.canvas.triggers"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActionTriggerCategorizedPropertySelection"
+               id="property.tab.domain.frmview.canvas.actiontriggers">
+
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+              
+
+            </propertySection>  
+
+
+
+           <propertySection
+               tab="property.tab.domain.frmview.canvas.triggers"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersTriggerContextParameterPropertySelection"
+               id="property.tab.domain.frmview.canvas.actiontriggers">
+
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+
+
+            </propertySection>  
+
+
+
+           <propertySection
+               tab="property.tab.domain.frmview.canvas.triggers"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersMethodNamePropertySection"
+               id="property.tab.domain.frmview.canvas.actiontriggers">
+
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+
+
+            </propertySection>  
+            
+
+           <propertySection
+               tab="property.tab.domain.frmview.canvas.triggers"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersTypeNamePropertySection"
+               id="property.tab.domain.frmview.canvas.actiontriggers">
+
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+
+            </propertySection>  
+
+
+
+
+
+           <propertySection
+               tab="property.tab.domain.frmview.canvas.triggers"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersPackageNamePropertySection"
+               id="property.tab.domain.frmview.canvas.actiontriggers">
+
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+
+
+            </propertySection>      
+            
+           <propertySection
+               tab="property.tab.domain.frmview.canvas.triggers"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersPropertySelectioin"
+               id="property.tab.domain.frmview.canvas.actiontriggers">
+
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+
+            </propertySection>        
+
+
+          <propertySection
+               tab="property.tab.domain.canvas.uielement.classifier"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
+               id="property.tab.domain.canvas.uielement.classifier">
+ 
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+              
+            </propertySection>        
 
 
           <propertySection

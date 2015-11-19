@@ -30,7 +30,7 @@ operation  web_xml(hash) {
 
   <session-config>
     <session-timeout>
-      30
+      [%=configuration.get("Session timeout")%]
     </session-timeout>
   </session-config>
 
@@ -114,8 +114,15 @@ operation  web_xml(hash) {
     var error = false ;
     var loginWin = null;
     var errorWin = null;
+    var exceptionHandler = new Native('java.util.HashMap');
     
     for (window in windows){
+    
+        var list = window.findAllClassifiers("UIGeneration",  "JSF", "exception.handler");
+       
+        if (list.size <> 0  )
+           exceptionHandler.put(window, list);
+       
         if (window.findClassifier("UIGeneration",  "JSF", "login.page") and login == false  ){
           login = true;
           loginWin = window;
@@ -150,6 +157,21 @@ operation  web_xml(hash) {
 
 [%
     }
+   for(window in exceptionHandler.keySet()){
+       var list = exceptionHandler.get(window);
+        for(hint in  list){
+          var form =  window.eContainer().parent.eContainer();
+          var pkg = form.eContainer().parent;        
+        %]
+ <error-page>
+     <exception-type>[%=hint.details%]</exception-type>
+     <location>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(window.name)+".xhtml"%]</location>
+ </error-page>   
+ [%     
+        } 
+   
+   } 
+    
   }
  %]
  

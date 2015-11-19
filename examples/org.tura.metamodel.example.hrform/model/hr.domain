@@ -360,6 +360,12 @@
         <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="76fe6802-305f-4973-a750-b102d9559fc2" uid="0bdb72cf-f251-44ec-99ec-9fb2817d1a24" name="data control"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
+      <operations uid="d5765529-25e0-40ba-bea9-b9c33a8fb506" name="stopCount">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+      <operations uid="61f7ff5a-1c86-4856-b81c-0ed7226653a4" name="doTimer">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
     </types>
     <types xsi:type="tura.domain:Type" uid="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" name="Object ID generator">
       <classifiers uid="e12d16d1-063a-4a5f-91da-0666c863da11" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
@@ -1946,11 +1952,14 @@
       <hints uid="1abd9c23-89fe-4c4b-93d2-77fc64912479" name="trigger.rendered"/>
       <hints uid="57a9de12-a73f-4dcf-9185-2235fd4fd2dc" name="login.page"/>
       <hints uid="11d32d1f-f9f1-4742-b5da-d66618c364f8" name="error.page"/>
+      <hints uid="b64730f5-e159-4660-9bf8-c129197c1385" name="exception.handler"/>
     </artifacts>
     <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
       <hints uid="b21dc9b3-20fd-42ff-bb82-79acc378d3e5" name="widget.var"/>
       <hints uid="a5271015-ac7e-4ab7-a90b-9826e3f2c660" name="panel.columns.class"/>
+      <hints uid="495dbb0b-06b5-4d77-96c7-520a7ad64b8f" name="popup.onshow"/>
+      <hints uid="24437d4d-b45d-4293-8e7d-7cd1502dd9e5" name="popup.onhide"/>
     </artifacts>
     <artifacts uid="46114178-7c60-4f25-bf31-4aa27a1b96af" name="Build MVC application" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/mainMVCApplicationBuilder.egl">
       <modelQuery uid="188555d2-e437-4b17-ae85-a4f4597ad013" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
@@ -2014,6 +2023,7 @@
       </specifiers>
     </artifacts>
     <artifacts uid="57cd7e45-c758-4dbf-b811-4e9ae6d3d299" name="web.xml" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/mainWeb-xml.egl">
+      <configVariables uid="78797a84-61cd-434d-91ed-ee20d1f8afa6" name="Session timeout"/>
       <modelQuery uid="b302b42b-2e15-414c-9c02-6052833c2483" name="Query application" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication)">
         <parameters uid="dc5be3a6-c7d6-4855-9b29-3df3d608b6bb" name="Application"/>
       </modelQuery>
@@ -2276,6 +2286,7 @@
       <properties uid="0d5e9fcf-7669-4838-9b0a-bc873254cdad" confVarRef="33fb6445-8890-4837-8905-d939a9338ff5" value="4848"/>
       <properties uid="739a8e89-55f4-4dec-8ae5-45b959dff04f" confVarRef="333ee7eb-2bb2-44d1-aae1-9025a4566164" value="2.47.1"/>
       <properties uid="5c9ce1c4-6a72-44bc-9baf-d4db13e3aeff" confVarRef="58458ed2-82b2-44ec-be48-54161aff63e3" value="HRObjects"/>
+      <properties uid="0fd8b419-40f1-428a-8e15-22641dd28209" confVarRef="78797a84-61cd-434d-91ed-ee20d1f8afa6" value="5"/>
     </configurations>
     <configurations uid="b7da74ec-ce5f-485c-84b0-eeea4aff2080" infrastructure="81bafabb-45d9-48af-9283-6ffc90afbda3">
       <properties uid="eb1aa086-f53e-496e-9274-f648fbbb06ea" confVarRef="3165ef35-24f6-44f9-9ad1-1c89771ff777" value="http://localhost:8080/hrresources-2.0"/>
@@ -2384,6 +2395,12 @@
       </viewElement>
       <multiLangLabel/>
       <classifiers uid="378286b2-27eb-4ef9-a664-f546d6aca32c" hint="b21dc9b3-20fd-42ff-bb82-79acc378d3e5" details="popupCompany"/>
+      <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="d5765529-25e0-40ba-bea9-b9c33a8fb506" fakeMethod="stopCount" uid="56f6688f-fc8f-4217-8b70-47d41bd45a39">
+        <classifiers uid="d020cdfc-9521-496e-8b4a-b2fa61d8a21a" hint="24437d4d-b45d-4293-8e7d-7cd1502dd9e5"/>
+      </triggers>
+      <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="61f7ff5a-1c86-4856-b81c-0ed7226653a4" fakeMethod="doTimer" uid="94ede0fa-9615-4132-a87a-d7ab58ab11a4">
+        <classifiers uid="74d02eae-423e-4250-948f-607b73ef2136" hint="495dbb0b-06b5-4d77-96c7-520a7ad64b8f"/>
+      </triggers>
     </canvases>
     <canvases xsi:type="tura.domain:Window" uid="eb01294e-b0b8-4f56-b7e9-1a8b3306de47" name="Login page">
       <style constant="true" value="width: 500px; margin: 200px auto 0 auto;"/>
@@ -2391,8 +2408,12 @@
         <style/>
       </viewElement>
       <multiLangLabel/>
-      <classifiers uid="2e470614-6dc6-41e8-8334-f91796a02bea" hint="57a9de12-a73f-4dcf-9185-2235fd4fd2dc"/>
+      <classifiers uid="2e470614-6dc6-41e8-8334-f91796a02bea" hint="57a9de12-a73f-4dcf-9185-2235fd4fd2dc" details=""/>
       <classifiers uid="8d5e1ede-c44f-4c10-99b1-969973fc9d85" hint="11d32d1f-f9f1-4742-b5da-d66618c364f8"/>
+    </canvases>
+    <canvases xsi:type="tura.domain:Window" uid="f2bcc436-bdc6-4956-be8a-86bdf14a5e8a" name="SessionExpired">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="7d96ceb6-da5d-4913-8b23-113acf69be62" name="SessionExpired" canvasView="3e91274d-3ba1-4d14-b906-ab12f728c3b7"/>
+      <classifiers uid="5cf4f0b7-bcb0-4234-9cd4-90cfb2178636" hint="b64730f5-e159-4660-9bf8-c129197c1385" details="javax.faces.application.ViewExpiredException"/>
     </canvases>
     <viewInheritances uid="2dc1ab34-ee89-4f95-83f9-b457a11baab4" source="df0ec442-fd69-454f-8ece-9d1ea34c074e" target="c77769b5-0b24-4a83-b9ab-8e3635c3d913"/>
     <viewInheritances uid="d7bc97d7-057a-44ed-bc73-4f4764e73ec9" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="0b549b2b-507c-473a-b3df-3d02444ed823"/>
@@ -2616,6 +2637,10 @@
       <messages uid="47ad11e3-b2d7-460e-b2e9-d3e65e4d3370" name="LOGIN_ERROR">
         <translatioins uid="3ee815cd-2377-4c33-bba9-07bc1c076c01" translation="User name or password is wrong" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
         <translatioins uid="ca7021ce-7ac8-4504-a777-a0a439042658" translation="Ошибка в имени пользователа или пароле" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
+      </messages>
+      <messages uid="b6167354-49c2-4a68-ad37-e538c00a87a9" name="SESSION_EXPIRED">
+        <translatioins uid="2fe5b9d0-6f66-4223-a5f3-86e307eab74e" translation="Session expired" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="8484781c-a6ac-4c84-85fe-0a75f6912111" translation="Время вышло" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
     </messageLibraries>
     <messageLibraries uid="0cc922a6-a203-490f-a02e-15d8d1ad5e16" name="Tree 2 tree">
@@ -4621,6 +4646,18 @@
           <multiLangLabel/>
         </children>
         <children xsi:type="tura.domain:Label" order="6" uid="1e01a1c4-7fef-469a-9cec-733e852454a2"/>
+      </children>
+    </baseCanvas>
+  </tura.domain:CanvasView>
+  <tura.domain:CanvasView uid="3e91274d-3ba1-4d14-b906-ab12f728c3b7" parent="7d96ceb6-da5d-4913-8b23-113acf69be62">
+    <baseCanvas uid="ba152d5a-8379-48e3-bcd7-66fc3d352916">
+      <children xsi:type="tura.domain:Label" uid="e7a61b45-570d-4713-9b0d-4a72d4f832ee" label="Session expired">
+        <style constant="true" value="font:35px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
+        <multiLangLabel value="Messages.HR Controller.SESSION_EXPIRED">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="b6167354-49c2-4a68-ad37-e538c00a87a9" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
       </children>
     </baseCanvas>
   </tura.domain:CanvasView>

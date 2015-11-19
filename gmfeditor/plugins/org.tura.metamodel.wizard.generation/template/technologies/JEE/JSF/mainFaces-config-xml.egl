@@ -26,6 +26,9 @@ ${percent}${end}
 	
     <application>
     <resource-handler>org.tura.platform.primefaces.resourcehandler.OmniResourceHandlerWrapper</resource-handler>
+    <factory>
+       <exception-handler-factory>org.omnifaces.exceptionhandler.FullAjaxExceptionHandlerFactory</exception-handler-factory>
+    </factory>    
     
 [%
        for ( library in appMsg.messageLibraries){
