@@ -1110,6 +1110,10 @@
       <view uid="f38c4521-f131-49de-9830-7baff026950f" name="View" view="e07bccbc-9fc4-4814-9624-38db64ffcf76"/>
       <datacontrols uid="bdf00c56-8100-4230-953b-0be8e9190f24" name="Data control" formControl="275253ca-c6ab-42b4-833e-9aae82cb149d"/>
     </forms>
+    <forms uid="e1b07c5e-f790-4ce7-9e21-95b0ff0e6b27" name="ErrorHandling">
+      <view uid="0a971850-6e3e-4cb9-acd4-d29fd22951f7" name="View" view="3c89d906-7e04-4e80-b700-1b0215166c5a"/>
+      <datacontrols uid="bd05dbd1-ffb4-4555-92d6-79453d4074ec" name="Data control"/>
+    </forms>
   </tura.domain:UIPackage>
   <tura.domain:Controls uid="5541fdd1-fedb-45ba-ab74-966e737af3a6" parent="60346910-0b2a-4fed-b397-25731ca3a1df">
     <root uid="5aea4714-7635-43bd-a361-b2ae8711af5b">
@@ -2410,10 +2414,6 @@
       <multiLangLabel/>
       <classifiers uid="2e470614-6dc6-41e8-8334-f91796a02bea" hint="57a9de12-a73f-4dcf-9185-2235fd4fd2dc" details=""/>
       <classifiers uid="8d5e1ede-c44f-4c10-99b1-969973fc9d85" hint="11d32d1f-f9f1-4742-b5da-d66618c364f8"/>
-    </canvases>
-    <canvases xsi:type="tura.domain:Window" uid="f2bcc436-bdc6-4956-be8a-86bdf14a5e8a" name="SessionExpired">
-      <viewElement xsi:type="tura.domain:ViewArea" uid="7d96ceb6-da5d-4913-8b23-113acf69be62" name="SessionExpired" canvasView="3e91274d-3ba1-4d14-b906-ab12f728c3b7"/>
-      <classifiers uid="5cf4f0b7-bcb0-4234-9cd4-90cfb2178636" hint="b64730f5-e159-4660-9bf8-c129197c1385" details="javax.faces.application.ViewExpiredException"/>
     </canvases>
     <viewInheritances uid="2dc1ab34-ee89-4f95-83f9-b457a11baab4" source="df0ec442-fd69-454f-8ece-9d1ea34c074e" target="c77769b5-0b24-4a83-b9ab-8e3635c3d913"/>
     <viewInheritances uid="d7bc97d7-057a-44ed-bc73-4f4764e73ec9" source="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" target="0b549b2b-507c-473a-b3df-3d02444ed823"/>
@@ -4649,9 +4649,16 @@
       </children>
     </baseCanvas>
   </tura.domain:CanvasView>
-  <tura.domain:CanvasView uid="3e91274d-3ba1-4d14-b906-ab12f728c3b7" parent="7d96ceb6-da5d-4913-8b23-113acf69be62">
-    <baseCanvas uid="ba152d5a-8379-48e3-bcd7-66fc3d352916">
-      <children xsi:type="tura.domain:Label" uid="e7a61b45-570d-4713-9b0d-4a72d4f832ee" label="Session expired">
+  <tura.domain:CanvasView uid="3e91274d-3ba1-4d14-b906-ab12f728c3b7"/>
+  <tura.domain:Views uid="3c89d906-7e04-4e80-b700-1b0215166c5a" parent="0a971850-6e3e-4cb9-acd4-d29fd22951f7">
+    <canvases xsi:type="tura.domain:Window" uid="9fee9a1d-6c00-479a-a034-eb7e36237e3f" name="SessionExpired">
+      <viewElement xsi:type="tura.domain:ViewArea" uid="83b75361-7aa3-4580-a944-48940e4e25fe" name="SessionExpiredHandler" canvasView="6384fb27-6a39-4d9d-ad0e-902b021976c6"/>
+      <classifiers uid="ea4394e7-61f2-487b-9e60-8e3566008de3" hint="b64730f5-e159-4660-9bf8-c129197c1385" details="javax.faces.application.ViewExpiredException"/>
+    </canvases>
+  </tura.domain:Views>
+  <tura.domain:CanvasView uid="6384fb27-6a39-4d9d-ad0e-902b021976c6" parent="83b75361-7aa3-4580-a944-48940e4e25fe">
+    <baseCanvas uid="040ab67e-7080-4caa-b476-7fa39f94f57a">
+      <children xsi:type="tura.domain:Label" uid="baac790c-b45b-4232-acae-3a19d087dfee" label="Session Expired Exception">
         <style constant="true" value="font:35px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
         <multiLangLabel value="Messages.HR Controller.SESSION_EXPIRED">
           <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>

@@ -37,6 +37,8 @@ ${percent}${end}
          util.setRecipe(recipe);
          util.setIngredient(ingredient);
          
+         if (form.datacontrols == null or form.datacontrols.formControl == null)
+            continue;
          form.datacontrols.formControl.processRootElement(recipe,ingredient);
          var controls =  form.datacontrols.formControl.controls;
          
