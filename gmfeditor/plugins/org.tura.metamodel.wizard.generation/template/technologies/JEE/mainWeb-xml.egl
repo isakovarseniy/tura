@@ -3,6 +3,7 @@
 <#assign end = "]" >
 ${start}${percent} 
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${View_implementation}/web-xml.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/${Deployment_environment}/server-control-files.egl";
 ${percent}${end}
 
 
@@ -31,6 +32,7 @@ ${percent}${end}
       hash.put("roles",roles);
       hash.put("windows",win);
  
-      web_xml(hash);  
- 
+      web_xml(hash);
+      web_xml_serverspecific(hash);  
+      
 %]

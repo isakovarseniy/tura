@@ -129,11 +129,11 @@ operation ExtendedType(expression:String, contextValue , paramId: Integer , arra
 }
 
 operation  RolesImpl(expression:String, contextValue , paramId: Integer, array ) : String {
-    return "'<holder>'";
+    return "<holder>";
 }
 
 operation  ApplicationStyleImpl(expression:String, contextValue , paramId: Integer, array ) : String {
-    return "'<holder>'";
+    return "<holder>";
 }
 
 operation  StylesPackageImpl(expression:String, contextValue , paramId: Integer, array ) : String {
