@@ -1042,6 +1042,24 @@ public interface DomainFactory extends EFactory {
 	CanvasView createCanvasView();
 
 	/**
+	 * Returns a new object of class '<em>Link To Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link To Message</em>'.
+	 * @generated
+	 */
+	LinkToMessage createLinkToMessage();
+
+	/**
+	 * Returns a new object of class '<em>Link To Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link To Label</em>'.
+	 * @generated
+	 */
+	LinkToLabel createLinkToLabel();
+
+	/**
 	 * Returns a new object of class '<em>Children Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

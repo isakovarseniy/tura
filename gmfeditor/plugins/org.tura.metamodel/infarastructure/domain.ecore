@@ -1342,8 +1342,38 @@
         eOpposite="#//ViewArea/canvasView"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseCanvas" eType="#//LayerHolder"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkToLabels" upperBound="-1"
+        eType="#//LinkToLabel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkToMessages" upperBound="-1"
+        eType="#//LinkToMessage" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkToMessage">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="style" value="dot"/>
+      <details key="width" value="2"/>
+      <details key="target.decoration" value="closedarrow"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//InputElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//MessageElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkToLabel">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="style" value="dot"/>
+      <details key="width" value="2"/>
+      <details key="target.decoration" value="closedarrow"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//InputElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Label"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChildrenHolder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"

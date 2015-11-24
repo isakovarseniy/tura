@@ -192,6 +192,13 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case LayerHolderLayerHolderChildrenCompartment3EditPart.VISUAL_ID:
 				return new LayerHolderLayerHolderChildrenCompartment3EditPart(
 						view);
+
+			case LinkToMessageEditPart.VISUAL_ID:
+				return new LinkToMessageEditPart(view);
+
+			case LinkToLabelEditPart.VISUAL_ID:
+				return new LinkToLabelEditPart(view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

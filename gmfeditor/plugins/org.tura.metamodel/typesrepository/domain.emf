@@ -946,10 +946,30 @@ class CanvasView{
    ref ViewArea#canvasView parent;
    val LayerHolder  baseCanvas; 
    
+   val LinkToLabel[*] linkToLabels;
+   val LinkToMessage[*] linkToMessages;
+   
   //faking epsilon converter
   val EObject any;
    
 }
+
+
+@gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
+class LinkToMessage {
+    id attr EString uid;
+    ref InputElement source;
+    ref MessageElement target;
+}
+
+
+@gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
+class LinkToLabel {
+    id attr EString uid;
+    ref InputElement source;
+    ref Label target;
+}
+
 
 class ChildrenHolder{
    @gmf.compartment

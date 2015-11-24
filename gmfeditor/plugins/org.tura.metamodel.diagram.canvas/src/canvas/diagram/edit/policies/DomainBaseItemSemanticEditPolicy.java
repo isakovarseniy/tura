@@ -47,8 +47,15 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
+import canvas.diagram.part.DomainDiagramEditorPlugin;
 import canvas.diagram.part.DomainVisualIDRegistry;
 import canvas.diagram.providers.DomainElementTypes;
+import domain.CanvasView;
+import domain.InputElement;
+import domain.Label;
+import domain.LinkToLabel;
+import domain.LinkToMessage;
+import domain.MessageElement;
 
 /**
  * @generated
@@ -305,6 +312,66 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				continue;
 			}
 			cmd.add(new DeleteCommand(getEditingDomain(), nextView));
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public static LinkConstraints getLinkConstraints() {
+		LinkConstraints cached = DomainDiagramEditorPlugin.getInstance()
+				.getLinkConstraints();
+		if (cached == null) {
+			DomainDiagramEditorPlugin.getInstance().setLinkConstraints(
+					cached = new LinkConstraints());
+		}
+		return cached;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static class LinkConstraints {
+
+		/**
+		 * @generated
+		 */
+		LinkConstraints() {
+			// use static method #getLinkConstraints() to access instance
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateLinkToMessage_1604001(CanvasView container,
+				InputElement source, MessageElement target) {
+			return canExistLinkToMessage_1604001(container, null, source,
+					target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateLinkToLabel_1604002(CanvasView container,
+				InputElement source, Label target) {
+			return canExistLinkToLabel_1604002(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistLinkToMessage_1604001(CanvasView container,
+				LinkToMessage linkInstance, InputElement source,
+				MessageElement target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistLinkToLabel_1604002(CanvasView container,
+				LinkToLabel linkInstance, InputElement source, Label target) {
+			return true;
 		}
 	}
 

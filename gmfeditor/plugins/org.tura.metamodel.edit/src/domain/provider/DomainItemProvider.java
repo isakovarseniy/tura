@@ -785,6 +785,16 @@ public class DomainItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DOMAIN__ANY,
+				 DomainFactory.eINSTANCE.createLinkToMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DOMAIN__ANY,
+				 DomainFactory.eINSTANCE.createLinkToLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DOMAIN__ANY,
 				 DomainFactory.eINSTANCE.createChildrenHolder()));
 
 		newChildDescriptors.add

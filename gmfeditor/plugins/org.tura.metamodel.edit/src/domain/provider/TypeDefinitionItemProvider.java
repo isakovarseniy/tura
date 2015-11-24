@@ -814,6 +814,16 @@ public class TypeDefinitionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createLinkToMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createLinkToLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
 				 DomainFactory.eINSTANCE.createChildrenHolder()));
 
 		newChildDescriptors.add

@@ -105,6 +105,8 @@ import domain.Language;
 import domain.LanguageRef;
 import domain.LayerHolder;
 import domain.Link;
+import domain.LinkToLabel;
+import domain.LinkToMessage;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -703,6 +705,14 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCanvasView(CanvasView object) {
 				return createCanvasViewAdapter();
+			}
+			@Override
+			public Adapter caseLinkToMessage(LinkToMessage object) {
+				return createLinkToMessageAdapter();
+			}
+			@Override
+			public Adapter caseLinkToLabel(LinkToLabel object) {
+				return createLinkToLabelAdapter();
 			}
 			@Override
 			public Adapter caseChildrenHolder(ChildrenHolder object) {
@@ -2553,6 +2563,34 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCanvasViewAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.LinkToMessage <em>Link To Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.LinkToMessage
+	 * @generated
+	 */
+	public Adapter createLinkToMessageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.LinkToLabel <em>Link To Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.LinkToLabel
+	 * @generated
+	 */
+	public Adapter createLinkToLabelAdapter() {
 		return null;
 	}
 

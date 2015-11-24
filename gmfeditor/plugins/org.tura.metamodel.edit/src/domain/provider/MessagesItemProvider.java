@@ -801,6 +801,16 @@ public class MessagesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MESSAGES__ANY,
+				 DomainFactory.eINSTANCE.createLinkToMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MESSAGES__ANY,
+				 DomainFactory.eINSTANCE.createLinkToLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MESSAGES__ANY,
 				 DomainFactory.eINSTANCE.createChildrenHolder()));
 
 		newChildDescriptors.add

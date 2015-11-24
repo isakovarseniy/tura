@@ -107,6 +107,8 @@ import domain.Language;
 import domain.LanguageRef;
 import domain.LayerHolder;
 import domain.Link;
+import domain.LinkToLabel;
+import domain.LinkToMessage;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -363,6 +365,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.TAB_PAGES_INHERITANCE: return createTabPagesInheritance();
 			case DomainPackage.FORM_DATA_CONTROLS: return createFormDataControls();
 			case DomainPackage.CANVAS_VIEW: return createCanvasView();
+			case DomainPackage.LINK_TO_MESSAGE: return createLinkToMessage();
+			case DomainPackage.LINK_TO_LABEL: return createLinkToLabel();
 			case DomainPackage.CHILDREN_HOLDER: return createChildrenHolder();
 			case DomainPackage.CONTEXT_PARAMETER: return createContextParameter();
 			case DomainPackage.CONTEXT_VALUE: return createContextValue();
@@ -1594,6 +1598,26 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public CanvasView createCanvasView() {
 		CanvasViewImpl canvasView = new CanvasViewImpl();
 		return canvasView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LinkToMessage createLinkToMessage() {
+		LinkToMessageImpl linkToMessage = new LinkToMessageImpl();
+		return linkToMessage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LinkToLabel createLinkToLabel() {
+		LinkToLabelImpl linkToLabel = new LinkToLabelImpl();
+		return linkToLabel;
 	}
 
 	/**

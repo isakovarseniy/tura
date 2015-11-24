@@ -794,6 +794,16 @@ public class ArtifactsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ARTIFACTS__ANY,
+				 DomainFactory.eINSTANCE.createLinkToMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ARTIFACTS__ANY,
+				 DomainFactory.eINSTANCE.createLinkToLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ARTIFACTS__ANY,
 				 DomainFactory.eINSTANCE.createChildrenHolder()));
 
 		newChildDescriptors.add

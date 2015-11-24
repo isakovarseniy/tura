@@ -58,6 +58,8 @@ import canvas.diagram.edit.parts.LabelLabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder2EditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.LayerHolderEditPart;
+import canvas.diagram.edit.parts.LinkToLabelEditPart;
+import canvas.diagram.edit.parts.LinkToMessageEditPart;
 import canvas.diagram.edit.parts.MessageElement2EditPart;
 import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.MessageElementLabel2EditPart;
@@ -84,6 +86,8 @@ import domain.Date;
 import domain.DropDownSelection;
 import domain.InputText;
 import domain.LayerHolder;
+import domain.LinkToLabel;
+import domain.LinkToMessage;
 import domain.OutputText;
 import domain.Password;
 
@@ -244,6 +248,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case MessageElement2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?MessageElement", DomainElementTypes.MessageElement_1603035); //$NON-NLS-1$
+		case LinkToMessageEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?LinkToMessage", DomainElementTypes.LinkToMessage_1604001); //$NON-NLS-1$
+		case LinkToLabelEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?LinkToLabel", DomainElementTypes.LinkToLabel_1604002); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -364,6 +374,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getMessageElement_1603034Text(view);
 		case MessageElement2EditPart.VISUAL_ID:
 			return getMessageElement_1603035Text(view);
+		case LinkToMessageEditPart.VISUAL_ID:
+			return getLinkToMessage_1604001Text(view);
+		case LinkToLabelEditPart.VISUAL_ID:
+			return getLinkToLabel_1604002Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -848,6 +862,34 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 1605014); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getLinkToMessage_1604001Text(View view) {
+		LinkToMessage domainModelElement = (LinkToMessage) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1604001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getLinkToLabel_1604002Text(View view) {
+		LinkToLabel domainModelElement = (LinkToLabel) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1604002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

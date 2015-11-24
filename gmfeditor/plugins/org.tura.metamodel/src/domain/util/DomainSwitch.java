@@ -105,6 +105,8 @@ import domain.Language;
 import domain.LanguageRef;
 import domain.LayerHolder;
 import domain.Link;
+import domain.LinkToLabel;
+import domain.LinkToMessage;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -1013,6 +1015,18 @@ public class DomainSwitch<T> extends Switch<T> {
 			case DomainPackage.CANVAS_VIEW: {
 				CanvasView canvasView = (CanvasView)theEObject;
 				T result = caseCanvasView(canvasView);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.LINK_TO_MESSAGE: {
+				LinkToMessage linkToMessage = (LinkToMessage)theEObject;
+				T result = caseLinkToMessage(linkToMessage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.LINK_TO_LABEL: {
+				LinkToLabel linkToLabel = (LinkToLabel)theEObject;
+				T result = caseLinkToLabel(linkToLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3300,6 +3314,36 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCanvasView(CanvasView object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Link To Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Link To Message</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLinkToMessage(LinkToMessage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Link To Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Link To Label</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLinkToLabel(LinkToLabel object) {
 		return null;
 	}
 

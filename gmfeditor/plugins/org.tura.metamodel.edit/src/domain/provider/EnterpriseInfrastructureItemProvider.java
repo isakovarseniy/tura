@@ -778,6 +778,16 @@ public class EnterpriseInfrastructureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
+				 DomainFactory.eINSTANCE.createLinkToMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
+				 DomainFactory.eINSTANCE.createLinkToLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENTERPRISE_INFRASTRUCTURE__ANY,
 				 DomainFactory.eINSTANCE.createChildrenHolder()));
 
 		newChildDescriptors.add

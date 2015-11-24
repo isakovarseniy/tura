@@ -794,6 +794,16 @@ public class UIPackageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.UI_PACKAGE__ANY,
+				 DomainFactory.eINSTANCE.createLinkToMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.UI_PACKAGE__ANY,
+				 DomainFactory.eINSTANCE.createLinkToLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.UI_PACKAGE__ANY,
 				 DomainFactory.eINSTANCE.createChildrenHolder()));
 
 		newChildDescriptors.add

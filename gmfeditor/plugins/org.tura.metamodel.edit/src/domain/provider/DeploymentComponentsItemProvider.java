@@ -778,6 +778,16 @@ public class DeploymentComponentsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
+				 DomainFactory.eINSTANCE.createLinkToMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
+				 DomainFactory.eINSTANCE.createLinkToLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
 				 DomainFactory.eINSTANCE.createChildrenHolder()));
 
 		newChildDescriptors.add

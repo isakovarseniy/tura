@@ -15,11 +15,16 @@
  */
 package canvas.diagram.part;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Map;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
@@ -48,6 +53,8 @@ import canvas.diagram.edit.parts.LayerHolderEditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment2EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment3EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartmentEditPart;
+import canvas.diagram.edit.parts.LinkToLabelEditPart;
+import canvas.diagram.edit.parts.LinkToMessageEditPart;
 import canvas.diagram.edit.parts.MessageElement2EditPart;
 import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
@@ -62,9 +69,23 @@ import canvas.diagram.edit.parts.Tree2EditPart;
 import canvas.diagram.edit.parts.TreeEditPart;
 import canvas.diagram.edit.parts.TreeTreeColsCompartment2EditPart;
 import canvas.diagram.edit.parts.TreeTreeColsCompartmentEditPart;
+import canvas.diagram.providers.DomainElementTypes;
 import domain.CanvasView;
+import domain.CheckBox;
 import domain.Column;
+import domain.Date;
+import domain.DomainPackage;
+import domain.DropDownSelection;
+import domain.Image;
+import domain.InputElement;
+import domain.InputText;
+import domain.Label;
 import domain.LayerHolder;
+import domain.LinkToLabel;
+import domain.LinkToMessage;
+import domain.MessageElement;
+import domain.OutputText;
+import domain.Password;
 import domain.Table;
 import domain.Tree;
 import domain.Uielement;
@@ -648,6 +669,10 @@ public class DomainDiagramUpdater {
 			return getMessageElement_1603035ContainedLinks(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023ContainedLinks(view);
+		case LinkToMessageEditPart.VISUAL_ID:
+			return getLinkToMessage_1604001ContainedLinks(view);
+		case LinkToLabelEditPart.VISUAL_ID:
+			return getLinkToLabel_1604002ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -715,6 +740,10 @@ public class DomainDiagramUpdater {
 			return getMessageElement_1603035IncomingLinks(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023IncomingLinks(view);
+		case LinkToMessageEditPart.VISUAL_ID:
+			return getLinkToMessage_1604001IncomingLinks(view);
+		case LinkToLabelEditPart.VISUAL_ID:
+			return getLinkToLabel_1604002IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -782,6 +811,10 @@ public class DomainDiagramUpdater {
 			return getMessageElement_1603035OutgoingLinks(view);
 		case Button2EditPart.VISUAL_ID:
 			return getButton_1603023OutgoingLinks(view);
+		case LinkToMessageEditPart.VISUAL_ID:
+			return getLinkToMessage_1604001OutgoingLinks(view);
+		case LinkToLabelEditPart.VISUAL_ID:
+			return getLinkToLabel_1604002OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -791,7 +824,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getCanvasView_1601000ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		CanvasView modelElement = (CanvasView) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1029,6 +1066,22 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getLinkToMessage_1604001ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getLinkToLabel_1604002ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getLayerHolder_1602003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -1199,7 +1252,13 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getLabel_1603005IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		Label modelElement = (Label) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_LinkToLabel_1604002(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -1207,7 +1266,13 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getMessageElement_1603034IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		MessageElement modelElement = (MessageElement) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_LinkToMessage_1604001(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -1239,7 +1304,13 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getLabel_1603013IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		Label modelElement = (Label) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_LinkToLabel_1604002(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -1247,13 +1318,35 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getMessageElement_1603035IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		MessageElement modelElement = (MessageElement) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_LinkToMessage_1604001(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getButton_1603023IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getLinkToMessage_1604001IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getLinkToLabel_1604002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -1271,7 +1364,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getInputText_1603004OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		InputText modelElement = (InputText) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1279,7 +1376,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getPassword_1603032OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Password modelElement = (Password) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1287,7 +1388,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getOutputText_1603006OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		OutputText modelElement = (OutputText) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1295,7 +1400,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getDropDownSelection_1603002OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		DropDownSelection modelElement = (DropDownSelection) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1303,7 +1412,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getDate_1603029OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Date modelElement = (Date) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1327,7 +1440,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getInputText_1603012OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		InputText modelElement = (InputText) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1335,7 +1452,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getPassword_1603033OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Password modelElement = (Password) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1343,7 +1464,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getOutputText_1603014OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		OutputText modelElement = (OutputText) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1351,7 +1476,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getDropDownSelection_1603010OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		DropDownSelection modelElement = (DropDownSelection) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1359,7 +1488,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getDate_1603031OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Date modelElement = (Date) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1415,7 +1548,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getCheckBox_1603007OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		CheckBox modelElement = (CheckBox) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1423,7 +1560,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getImage_1603028OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Image modelElement = (Image) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1455,7 +1596,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getCheckBox_1603015OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		CheckBox modelElement = (CheckBox) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1463,7 +1608,11 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getImage_1603030OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Image modelElement = (Image) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1488,6 +1637,214 @@ public class DomainDiagramUpdater {
 	public static List<DomainLinkDescriptor> getButton_1603023OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getLinkToMessage_1604001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getLinkToLabel_1604002OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_LinkToMessage_1604001(
+			CanvasView container) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getLinkToMessages().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof LinkToMessage) {
+				continue;
+			}
+			LinkToMessage link = (LinkToMessage) linkObject;
+			if (LinkToMessageEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			MessageElement dst = link.getTarget();
+			InputElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.LinkToMessage_1604001,
+					LinkToMessageEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_LinkToLabel_1604002(
+			CanvasView container) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getLinkToLabels().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof LinkToLabel) {
+				continue;
+			}
+			LinkToLabel link = (LinkToLabel) linkObject;
+			if (LinkToLabelEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Label dst = link.getTarget();
+			InputElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.LinkToLabel_1604002,
+					LinkToLabelEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_LinkToMessage_1604001(
+			MessageElement target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
+					.getLinkToMessage_Target()
+					|| false == setting.getEObject() instanceof LinkToMessage) {
+				continue;
+			}
+			LinkToMessage link = (LinkToMessage) setting.getEObject();
+			if (LinkToMessageEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			InputElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, target, link,
+					DomainElementTypes.LinkToMessage_1604001,
+					LinkToMessageEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_LinkToLabel_1604002(
+			Label target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
+					.getLinkToLabel_Target()
+					|| false == setting.getEObject() instanceof LinkToLabel) {
+				continue;
+			}
+			LinkToLabel link = (LinkToLabel) setting.getEObject();
+			if (LinkToLabelEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			InputElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, target, link,
+					DomainElementTypes.LinkToLabel_1604002,
+					LinkToLabelEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_LinkToMessage_1604001(
+			InputElement source) {
+		CanvasView container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof CanvasView) {
+				container = (CanvasView) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getLinkToMessages().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof LinkToMessage) {
+				continue;
+			}
+			LinkToMessage link = (LinkToMessage) linkObject;
+			if (LinkToMessageEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			MessageElement dst = link.getTarget();
+			InputElement src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.LinkToMessage_1604001,
+					LinkToMessageEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_LinkToLabel_1604002(
+			InputElement source) {
+		CanvasView container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof CanvasView) {
+				container = (CanvasView) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getLinkToLabels().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof LinkToLabel) {
+				continue;
+			}
+			LinkToLabel link = (LinkToLabel) linkObject;
+			if (LinkToLabelEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Label dst = link.getTarget();
+			InputElement src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.LinkToLabel_1604002,
+					LinkToLabelEditPart.VISUAL_ID));
+		}
+		return result;
 	}
 
 	/**

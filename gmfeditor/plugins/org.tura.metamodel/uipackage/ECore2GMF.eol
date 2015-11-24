@@ -328,5 +328,15 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewInheritance');
 delete tool;
 
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='LinkToMessage');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='LinkToMessage');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='LinkToLabel');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='LinkToLabel');
+delete tool;
+
 var tool = GmfTool!ToolGroup.all.selectOne(r|r.title='Connections');
 delete tool;

@@ -836,6 +836,16 @@ public class ApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createLinkToMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createLinkToLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createChildrenHolder()));
 
 		newChildDescriptors.add

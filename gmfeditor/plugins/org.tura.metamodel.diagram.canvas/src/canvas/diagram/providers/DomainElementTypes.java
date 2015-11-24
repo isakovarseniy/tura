@@ -49,6 +49,8 @@ import canvas.diagram.edit.parts.LabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder2EditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.LayerHolderEditPart;
+import canvas.diagram.edit.parts.LinkToLabelEditPart;
+import canvas.diagram.edit.parts.LinkToMessageEditPart;
 import canvas.diagram.edit.parts.MessageElement2EditPart;
 import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
@@ -218,6 +220,16 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType LinkToMessage_1604001 = getElementType("org.tura.metamodel.diagram.canvas.LinkToMessage_1604001"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LinkToLabel_1604002 = getElementType("org.tura.metamodel.diagram.canvas.LinkToLabel_1604002"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
@@ -328,6 +340,12 @@ public class DomainElementTypes {
 					DomainPackage.eINSTANCE.getMessageElement());
 
 			elements.put(Button_1603023, DomainPackage.eINSTANCE.getButton());
+
+			elements.put(LinkToMessage_1604001,
+					DomainPackage.eINSTANCE.getLinkToMessage());
+
+			elements.put(LinkToLabel_1604002,
+					DomainPackage.eINSTANCE.getLinkToLabel());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -375,6 +393,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Label_1603013);
 			KNOWN_ELEMENT_TYPES.add(MessageElement_1603035);
 			KNOWN_ELEMENT_TYPES.add(Button_1603023);
+			KNOWN_ELEMENT_TYPES.add(LinkToMessage_1604001);
+			KNOWN_ELEMENT_TYPES.add(LinkToLabel_1604002);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -444,6 +464,10 @@ public class DomainElementTypes {
 			return MessageElement_1603035;
 		case Button2EditPart.VISUAL_ID:
 			return Button_1603023;
+		case LinkToMessageEditPart.VISUAL_ID:
+			return LinkToMessage_1604001;
+		case LinkToLabelEditPart.VISUAL_ID:
+			return LinkToLabel_1604002;
 		}
 		return null;
 	}

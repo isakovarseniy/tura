@@ -14,6 +14,7 @@
  */
 package domain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -27,6 +28,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.CanvasView#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.CanvasView#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.CanvasView#getBaseCanvas <em>Base Canvas</em>}</li>
+ *   <li>{@link domain.CanvasView#getLinkToLabels <em>Link To Labels</em>}</li>
+ *   <li>{@link domain.CanvasView#getLinkToMessages <em>Link To Messages</em>}</li>
  *   <li>{@link domain.CanvasView#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
@@ -115,6 +118,38 @@ public interface CanvasView extends EObject {
 	 * @generated
 	 */
 	void setBaseCanvas(LayerHolder value);
+
+	/**
+	 * Returns the value of the '<em><b>Link To Labels</b></em>' containment reference list.
+	 * The list contents are of type {@link domain.LinkToLabel}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Link To Labels</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Link To Labels</em>' containment reference list.
+	 * @see domain.DomainPackage#getCanvasView_LinkToLabels()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<LinkToLabel> getLinkToLabels();
+
+	/**
+	 * Returns the value of the '<em><b>Link To Messages</b></em>' containment reference list.
+	 * The list contents are of type {@link domain.LinkToMessage}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Link To Messages</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Link To Messages</em>' containment reference list.
+	 * @see domain.DomainPackage#getCanvasView_LinkToMessages()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<LinkToMessage> getLinkToMessages();
 
 	/**
 	 * Returns the value of the '<em><b>Any</b></em>' containment reference.

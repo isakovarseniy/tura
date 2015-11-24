@@ -107,6 +107,8 @@ import domain.Language;
 import domain.LanguageRef;
 import domain.LayerHolder;
 import domain.Link;
+import domain.LinkToLabel;
+import domain.LinkToMessage;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -996,6 +998,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EClass canvasViewEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkToMessageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkToLabelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5792,8 +5808,98 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCanvasView_Any() {
+	public EReference getCanvasView_LinkToLabels() {
 		return (EReference)canvasViewEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCanvasView_LinkToMessages() {
+		return (EReference)canvasViewEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCanvasView_Any() {
+		return (EReference)canvasViewEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLinkToMessage() {
+		return linkToMessageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLinkToMessage_Uid() {
+		return (EAttribute)linkToMessageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLinkToMessage_Source() {
+		return (EReference)linkToMessageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLinkToMessage_Target() {
+		return (EReference)linkToMessageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLinkToLabel() {
+		return linkToLabelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLinkToLabel_Uid() {
+		return (EAttribute)linkToLabelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLinkToLabel_Source() {
+		return (EReference)linkToLabelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLinkToLabel_Target() {
+		return (EReference)linkToLabelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -8341,7 +8447,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(canvasViewEClass, CANVAS_VIEW__UID);
 		createEReference(canvasViewEClass, CANVAS_VIEW__PARENT);
 		createEReference(canvasViewEClass, CANVAS_VIEW__BASE_CANVAS);
+		createEReference(canvasViewEClass, CANVAS_VIEW__LINK_TO_LABELS);
+		createEReference(canvasViewEClass, CANVAS_VIEW__LINK_TO_MESSAGES);
 		createEReference(canvasViewEClass, CANVAS_VIEW__ANY);
+
+		linkToMessageEClass = createEClass(LINK_TO_MESSAGE);
+		createEAttribute(linkToMessageEClass, LINK_TO_MESSAGE__UID);
+		createEReference(linkToMessageEClass, LINK_TO_MESSAGE__SOURCE);
+		createEReference(linkToMessageEClass, LINK_TO_MESSAGE__TARGET);
+
+		linkToLabelEClass = createEClass(LINK_TO_LABEL);
+		createEAttribute(linkToLabelEClass, LINK_TO_LABEL__UID);
+		createEReference(linkToLabelEClass, LINK_TO_LABEL__SOURCE);
+		createEReference(linkToLabelEClass, LINK_TO_LABEL__TARGET);
 
 		childrenHolderEClass = createEClass(CHILDREN_HOLDER);
 		createEReference(childrenHolderEClass, CHILDREN_HOLDER__CHILDREN);
@@ -9376,7 +9494,19 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getCanvasView_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCanvasView_Parent(), this.getViewArea(), this.getViewArea_CanvasView(), "parent", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCanvasView_BaseCanvas(), this.getLayerHolder(), null, "baseCanvas", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCanvasView_LinkToLabels(), this.getLinkToLabel(), null, "linkToLabels", null, 0, -1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCanvasView_LinkToMessages(), this.getLinkToMessage(), null, "linkToMessages", null, 0, -1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCanvasView_Any(), ecorePackage.getEObject(), null, "any", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(linkToMessageEClass, LinkToMessage.class, "LinkToMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLinkToMessage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, LinkToMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLinkToMessage_Source(), this.getInputElement(), null, "source", null, 0, 1, LinkToMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLinkToMessage_Target(), this.getMessageElement(), null, "target", null, 0, 1, LinkToMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(linkToLabelEClass, LinkToLabel.class, "LinkToLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLinkToLabel_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, LinkToLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLinkToLabel_Source(), this.getInputElement(), null, "source", null, 0, 1, LinkToLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLinkToLabel_Target(), this.getLabel(), null, "target", null, 0, 1, LinkToLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(childrenHolderEClass, ChildrenHolder.class, "ChildrenHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChildrenHolder_Children(), this.getUielement(), null, "children", null, 0, -1, ChildrenHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -11084,6 +11214,26 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "color", "238,16,16",
 			 "width", "2",
 			 "target.decoration", "arrow"
+		   });	
+		addAnnotation
+		  (linkToMessageEClass, 
+		   source, 
+		   new String[] {
+			 "source", "source",
+			 "target", "target",
+			 "style", "dot",
+			 "width", "2",
+			 "target.decoration", "closedarrow"
+		   });	
+		addAnnotation
+		  (linkToLabelEClass, 
+		   source, 
+		   new String[] {
+			 "source", "source",
+			 "target", "target",
+			 "style", "dot",
+			 "width", "2",
+			 "target.decoration", "closedarrow"
 		   });	
 		addAnnotation
 		  (relationEClass, 

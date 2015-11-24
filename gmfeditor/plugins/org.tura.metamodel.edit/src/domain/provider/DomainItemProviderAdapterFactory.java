@@ -2660,6 +2660,52 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.LinkToMessage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinkToMessageItemProvider linkToMessageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.LinkToMessage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinkToMessageAdapter() {
+		if (linkToMessageItemProvider == null) {
+			linkToMessageItemProvider = new LinkToMessageItemProvider(this);
+		}
+
+		return linkToMessageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.LinkToLabel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinkToLabelItemProvider linkToLabelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.LinkToLabel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinkToLabelAdapter() {
+		if (linkToLabelItemProvider == null) {
+			linkToLabelItemProvider = new LinkToLabelItemProvider(this);
+		}
+
+		return linkToLabelItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.ChildrenHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4388,6 +4434,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (tabPagesInheritanceItemProvider != null) tabPagesInheritanceItemProvider.dispose();
 		if (formDataControlsItemProvider != null) formDataControlsItemProvider.dispose();
 		if (canvasViewItemProvider != null) canvasViewItemProvider.dispose();
+		if (linkToMessageItemProvider != null) linkToMessageItemProvider.dispose();
+		if (linkToLabelItemProvider != null) linkToLabelItemProvider.dispose();
 		if (childrenHolderItemProvider != null) childrenHolderItemProvider.dispose();
 		if (contextParameterItemProvider != null) contextParameterItemProvider.dispose();
 		if (contextValueItemProvider != null) contextValueItemProvider.dispose();

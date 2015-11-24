@@ -3541,7 +3541,7 @@
       </children>
       <children xsi:type="tura.domain:LayerHolder" order="1" uid="e150c1df-b019-4ec8-8434-b51f5828ca36">
         <style/>
-        <children xsi:type="tura.domain:LayerHolder" order="1" uid="1c473106-c6ce-47aa-95c4-9699ccc7a1dc" columns="2">
+        <children xsi:type="tura.domain:LayerHolder" order="1" uid="1c473106-c6ce-47aa-95c4-9699ccc7a1dc" columns="3">
           <style/>
           <children xsi:type="tura.domain:Label" uid="553ac141-9292-4bcb-92a6-4e2cadb9a5f6" label="Company name">
             <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_COMPANY_NAME_COLUMN">
@@ -3553,16 +3553,18 @@
           <children xsi:type="tura.domain:InputText" order="1" uid="a343ffab-51c0-448b-aff9-a1711681e32f" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="Comp_7982905f-4f83-472f-8551-80e30e34934c">
             <style constant="true" value="margin:0px 0px 0px 20px;"/>
           </children>
-          <children xsi:type="tura.domain:Label" order="2" uid="1962aa8e-76c0-4026-af09-3a7153635564" label="Description">
+          <children xsi:type="tura.domain:Label" order="3" uid="1962aa8e-76c0-4026-af09-3a7153635564" label="Description">
             <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_DESCRIPTION_COLUMN">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
               <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
               <expression objRef="152b0762-39a4-4995-ba49-efb5a3c75f07" order="2" expressionType="MessageImpl"/>
             </multiLangLabel>
           </children>
-          <children xsi:type="tura.domain:InputText" nickname="Desk" order="3" uid="83a48362-b526-4c40-8830-1409325b4726" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325">
+          <children xsi:type="tura.domain:InputText" nickname="Desk" order="4" uid="83a48362-b526-4c40-8830-1409325b4726" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325">
             <style constant="true" value="margin:0px 0px 0px 20px;"/>
           </children>
+          <children xsi:type="tura.domain:MessageElement" order="2" uid="04f18521-e6ee-4bf5-b368-46be7e67892e"/>
+          <children xsi:type="tura.domain:MessageElement" order="5" uid="7f2833a3-2392-4b4a-b8cd-20b56f2dea71"/>
         </children>
         <children xsi:type="tura.domain:LayerHolder" order="2" uid="4f132520-3cea-41fd-a086-1415e583e9b9" columns="2">
           <style/>
@@ -3614,6 +3616,10 @@
         </children>
       </children>
     </baseCanvas>
+    <linkToLabels uid="baf8e0e0-00ff-4400-a7d4-cb187797f96b" source="a343ffab-51c0-448b-aff9-a1711681e32f" target="553ac141-9292-4bcb-92a6-4e2cadb9a5f6"/>
+    <linkToLabels uid="bbd06ca3-1adc-4344-87fe-c46214f337ca" source="83a48362-b526-4c40-8830-1409325b4726" target="1962aa8e-76c0-4026-af09-3a7153635564"/>
+    <linkToMessages uid="07db52b7-5247-4278-8c96-8998b27216d3" source="a343ffab-51c0-448b-aff9-a1711681e32f" target="04f18521-e6ee-4bf5-b368-46be7e67892e"/>
+    <linkToMessages uid="891cef8d-51a8-4a92-a43a-28d84afea4c9" source="83a48362-b526-4c40-8830-1409325b4726" target="7f2833a3-2392-4b4a-b8cd-20b56f2dea71"/>
   </tura.domain:CanvasView>
   <tura.domain:Controls uid="9bab1cbe-e4c8-49df-9e9b-85c50d2dbe62" parent="42af1957-84a2-463d-9f1a-6a92bfe27914">
     <controls uid="178d5648-ef4e-4712-aa09-431da395aeef" name="Company" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369">

@@ -18,11 +18,13 @@ package canvas.diagram.part;
 
 import java.util.ArrayList;
 
+import java.util.Collections;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.tooling.runtime.part.DefaultLinkToolEntry;
 import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
 
 import canvas.diagram.providers.DomainElementTypes;
@@ -37,6 +39,7 @@ public class DomainPaletteFactory {
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createObjects1Group());
+		paletteRoot.add(createConnections2Group());
 	}
 
 	/**
@@ -61,6 +64,19 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createPassword12CreationTool());
 		paletteContainer.add(createTable13CreationTool());
 		paletteContainer.add(createTree14CreationTool());
+		return paletteContainer;
+	}
+
+	/**
+	 * Creates "Connections" palette tool group
+	 * @generated
+	 */
+	private PaletteContainer createConnections2Group() {
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.Connections2Group_title);
+		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
+		paletteContainer.add(createLinkToLabel1CreationTool());
+		paletteContainer.add(createLinkToMessage2CreationTool());
 		return paletteContainer;
 	}
 
@@ -299,6 +315,38 @@ public class DomainPaletteFactory {
 		entry.setId("createTree14CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainDiagramEditorPlugin
 				.findImageDescriptor("/org.tura.metamodel.commons/icons/tree.png")); //$NON-NLS-1$
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createLinkToLabel1CreationTool() {
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.LinkToLabel1CreationTool_title,
+				Messages.LinkToLabel1CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.LinkToLabel_1604002));
+		entry.setId("createLinkToLabel1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.LinkToLabel_1604002));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createLinkToMessage2CreationTool() {
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.LinkToMessage2CreationTool_title,
+				Messages.LinkToMessage2CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.LinkToMessage_1604001));
+		entry.setId("createLinkToMessage2CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.LinkToMessage_1604001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

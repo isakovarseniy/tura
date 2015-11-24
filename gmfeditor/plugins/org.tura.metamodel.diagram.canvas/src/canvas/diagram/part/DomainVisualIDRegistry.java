@@ -53,6 +53,8 @@ import canvas.diagram.edit.parts.LayerHolderEditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment2EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment3EditPart;
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartmentEditPart;
+import canvas.diagram.edit.parts.LinkToLabelEditPart;
+import canvas.diagram.edit.parts.LinkToMessageEditPart;
 import canvas.diagram.edit.parts.MessageElement2EditPart;
 import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.MessageElementLabel2EditPart;
@@ -843,6 +845,14 @@ public class DomainVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
+		}
+		if (DomainPackage.eINSTANCE.getLinkToMessage().isSuperTypeOf(
+				domainElement.eClass())) {
+			return LinkToMessageEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getLinkToLabel().isSuperTypeOf(
+				domainElement.eClass())) {
+			return LinkToLabelEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

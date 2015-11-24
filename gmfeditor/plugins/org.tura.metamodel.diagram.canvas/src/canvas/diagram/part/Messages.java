@@ -263,6 +263,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String Connections2Group_title;
+
+	/**
+	 * @generated
+	 */
 	public static String Button1CreationTool_title;
 
 	/**
@@ -403,6 +408,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String LinkToLabel1CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String LinkToLabel1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String LinkToMessage2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String LinkToMessage2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String LayerHolderLayerHolderChildrenCompartmentEditPart_title;
 
 	/**
@@ -449,6 +474,121 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CanvasView_1601000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DropDownSelection_1603002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InputText_1603004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Label_1603005_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OutputText_1603006_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CheckBox_1603007_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DropDownSelection_1603010_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InputText_1603012_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Label_1603013_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OutputText_1603014_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CheckBox_1603015_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Image_1603028_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Date_1603029_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Image_1603030_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Date_1603031_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Password_1603032_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Password_1603033_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_MessageElement_1603034_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_MessageElement_1603035_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_LinkToMessage_1604001_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_LinkToMessage_1604001_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_LinkToLabel_1604002_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_LinkToLabel_1604002_source;
 
 	/**
 	 * @generated

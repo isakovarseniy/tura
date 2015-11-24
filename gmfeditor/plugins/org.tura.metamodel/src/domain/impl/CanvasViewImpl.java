@@ -17,17 +17,23 @@ package domain.impl;
 import domain.CanvasView;
 import domain.DomainPackage;
 import domain.LayerHolder;
+import domain.LinkToLabel;
+import domain.LinkToMessage;
 import domain.ViewArea;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +45,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.CanvasViewImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.CanvasViewImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.CanvasViewImpl#getBaseCanvas <em>Base Canvas</em>}</li>
+ *   <li>{@link domain.impl.CanvasViewImpl#getLinkToLabels <em>Link To Labels</em>}</li>
+ *   <li>{@link domain.impl.CanvasViewImpl#getLinkToMessages <em>Link To Messages</em>}</li>
  *   <li>{@link domain.impl.CanvasViewImpl#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
@@ -85,6 +93,26 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView {
 	 * @ordered
 	 */
 	protected LayerHolder baseCanvas;
+
+	/**
+	 * The cached value of the '{@link #getLinkToLabels() <em>Link To Labels</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinkToLabels()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LinkToLabel> linkToLabels;
+
+	/**
+	 * The cached value of the '{@link #getLinkToMessages() <em>Link To Messages</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinkToMessages()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LinkToMessage> linkToMessages;
 
 	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
@@ -244,6 +272,30 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<LinkToLabel> getLinkToLabels() {
+		if (linkToLabels == null) {
+			linkToLabels = new EObjectContainmentEList<LinkToLabel>(LinkToLabel.class, this, DomainPackage.CANVAS_VIEW__LINK_TO_LABELS);
+		}
+		return linkToLabels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<LinkToMessage> getLinkToMessages() {
+		if (linkToMessages == null) {
+			linkToMessages = new EObjectContainmentEList<LinkToMessage>(LinkToMessage.class, this, DomainPackage.CANVAS_VIEW__LINK_TO_MESSAGES);
+		}
+		return linkToMessages;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EObject getAny() {
 		return any;
 	}
@@ -310,6 +362,10 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView {
 				return basicSetParent(null, msgs);
 			case DomainPackage.CANVAS_VIEW__BASE_CANVAS:
 				return basicSetBaseCanvas(null, msgs);
+			case DomainPackage.CANVAS_VIEW__LINK_TO_LABELS:
+				return ((InternalEList<?>)getLinkToLabels()).basicRemove(otherEnd, msgs);
+			case DomainPackage.CANVAS_VIEW__LINK_TO_MESSAGES:
+				return ((InternalEList<?>)getLinkToMessages()).basicRemove(otherEnd, msgs);
 			case DomainPackage.CANVAS_VIEW__ANY:
 				return basicSetAny(null, msgs);
 		}
@@ -331,6 +387,10 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView {
 				return basicGetParent();
 			case DomainPackage.CANVAS_VIEW__BASE_CANVAS:
 				return getBaseCanvas();
+			case DomainPackage.CANVAS_VIEW__LINK_TO_LABELS:
+				return getLinkToLabels();
+			case DomainPackage.CANVAS_VIEW__LINK_TO_MESSAGES:
+				return getLinkToMessages();
 			case DomainPackage.CANVAS_VIEW__ANY:
 				return getAny();
 		}
@@ -342,6 +402,7 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -353,6 +414,14 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView {
 				return;
 			case DomainPackage.CANVAS_VIEW__BASE_CANVAS:
 				setBaseCanvas((LayerHolder)newValue);
+				return;
+			case DomainPackage.CANVAS_VIEW__LINK_TO_LABELS:
+				getLinkToLabels().clear();
+				getLinkToLabels().addAll((Collection<? extends LinkToLabel>)newValue);
+				return;
+			case DomainPackage.CANVAS_VIEW__LINK_TO_MESSAGES:
+				getLinkToMessages().clear();
+				getLinkToMessages().addAll((Collection<? extends LinkToMessage>)newValue);
 				return;
 			case DomainPackage.CANVAS_VIEW__ANY:
 				setAny((EObject)newValue);
@@ -378,6 +447,12 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView {
 			case DomainPackage.CANVAS_VIEW__BASE_CANVAS:
 				setBaseCanvas((LayerHolder)null);
 				return;
+			case DomainPackage.CANVAS_VIEW__LINK_TO_LABELS:
+				getLinkToLabels().clear();
+				return;
+			case DomainPackage.CANVAS_VIEW__LINK_TO_MESSAGES:
+				getLinkToMessages().clear();
+				return;
 			case DomainPackage.CANVAS_VIEW__ANY:
 				setAny((EObject)null);
 				return;
@@ -399,6 +474,10 @@ public class CanvasViewImpl extends EObjectImpl implements CanvasView {
 				return parent != null;
 			case DomainPackage.CANVAS_VIEW__BASE_CANVAS:
 				return baseCanvas != null;
+			case DomainPackage.CANVAS_VIEW__LINK_TO_LABELS:
+				return linkToLabels != null && !linkToLabels.isEmpty();
+			case DomainPackage.CANVAS_VIEW__LINK_TO_MESSAGES:
+				return linkToMessages != null && !linkToMessages.isEmpty();
 			case DomainPackage.CANVAS_VIEW__ANY:
 				return any != null;
 		}

@@ -138,6 +138,8 @@ public class CanvasViewItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.CANVAS_VIEW__BASE_CANVAS);
+			childrenFeatures.add(DomainPackage.Literals.CANVAS_VIEW__LINK_TO_LABELS);
+			childrenFeatures.add(DomainPackage.Literals.CANVAS_VIEW__LINK_TO_MESSAGES);
 			childrenFeatures.add(DomainPackage.Literals.CANVAS_VIEW__ANY);
 		}
 		return childrenFeatures;
@@ -198,6 +200,8 @@ public class CanvasViewItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.CANVAS_VIEW__BASE_CANVAS:
+			case DomainPackage.CANVAS_VIEW__LINK_TO_LABELS:
+			case DomainPackage.CANVAS_VIEW__LINK_TO_MESSAGES:
 			case DomainPackage.CANVAS_VIEW__ANY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -220,6 +224,16 @@ public class CanvasViewItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.CANVAS_VIEW__BASE_CANVAS,
 				 DomainFactory.eINSTANCE.createLayerHolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CANVAS_VIEW__LINK_TO_LABELS,
+				 DomainFactory.eINSTANCE.createLinkToLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CANVAS_VIEW__LINK_TO_MESSAGES,
+				 DomainFactory.eINSTANCE.createLinkToMessage()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -794,6 +808,16 @@ public class CanvasViewItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CANVAS_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createLinkToMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CANVAS_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createLinkToLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CANVAS_VIEW__ANY,
 				 DomainFactory.eINSTANCE.createChildrenHolder()));
 
 		newChildDescriptors.add
@@ -1125,7 +1149,9 @@ public class CanvasViewItemProvider
 
 		boolean qualify =
 			childFeature == DomainPackage.Literals.CANVAS_VIEW__BASE_CANVAS ||
-			childFeature == DomainPackage.Literals.CANVAS_VIEW__ANY;
+			childFeature == DomainPackage.Literals.CANVAS_VIEW__ANY ||
+			childFeature == DomainPackage.Literals.CANVAS_VIEW__LINK_TO_LABELS ||
+			childFeature == DomainPackage.Literals.CANVAS_VIEW__LINK_TO_MESSAGES;
 
 		if (qualify) {
 			return getString
