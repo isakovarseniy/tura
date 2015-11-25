@@ -2,9 +2,45 @@
 operation domain::Label draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","Label start: "+self.uid);     
+
+     if (hash.get("context") == null ){
+      %] [%=self.noContext(hash)%] [%           
+      }
+     else{
+          if (hash.get("context").equals("table") ){
+               %] [%=self.tableContext(hash)%] [%           
+           }  
+          if (hash.get("context").equals("tree") ){
+               %] [%=self.treeContext(hash)%] [%           
+          }     
+     }
+
+     util.traceIfDebug("UI element","Label start: "+self.uid);     
+}
+
+@template
+operation domain::Label treeContext(hash) { 
 %]
 	<p:outputLabel  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildParameterizedExpression(self.multiLangLabel)%]" />
 [%
-     util.traceIfDebug("UI element","Label start: "+self.uid);     
+}
+
+@template
+operation domain::Label tableContext(hash) { 
+%]
+	<p:outputLabel  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildParameterizedExpression(self.multiLangLabel)%]" />
+[%   
+}
+
+@template
+operation domain::Label noContext(hash) { 
+   var link = domain::LinkToLabel->allInstances()->select(r|r.target.uid=self.uid)->first();
+   var forRef = "";
+   if ( link <> null and  link.source <> null){
+      forRef="for=\""+link.source.mkuid()+"\"";
+   }
+%]
+	<p:outputLabel [%=forRef%]  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildParameterizedExpression(self.multiLangLabel)%]" />
+[%   
 }
 %]
