@@ -110,10 +110,9 @@ public class ActionExecutor  implements java.io.Serializable {
     }
    
    
-   @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     public Object getAction() {
         try {
-
             Object[] array = (Object[]) hash.get(src);
 
             Method method =
@@ -121,20 +120,27 @@ public class ActionExecutor  implements java.io.Serializable {
                         .getMethod((String) (array[3]), (Class[]) array[0]);
             @SuppressWarnings("rawtypes")
             ArrayList objects = new ArrayList();
+            int i=0;
             for (Object exp : (Object[]) array[1]) {
-                Object obj = exp;
+                Object obj = null;
                 String expression = (String) exp;
                 if ("#{".equals(expression.substring(0, 2))) {
                     obj = elResolver.getValue(expression);
+                }else{
+                	Class<?> clazz = ((Class[]) array[0])[i];
+					 java.lang.reflect.Constructor<?> cnt =  clazz.getDeclaredConstructor(String.class);
+					obj = cnt.newInstance(expression);
                 }
+                i++;
                 objects.add(obj);
             }
             return method.invoke(array[2], objects.toArray());
         } catch (Exception e) {
-            logger.log(java.util.logging.Level.INFO, e.getMessage(),e);
+            logger.log(Level.INFO, e.getMessage(), e);
         }
         return null;
     }
+
    
    
     @SuppressWarnings("unchecked")
