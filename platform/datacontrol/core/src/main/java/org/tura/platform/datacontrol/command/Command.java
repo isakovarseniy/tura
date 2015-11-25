@@ -21,6 +21,7 @@
  */
 package org.tura.platform.datacontrol.command;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +110,7 @@ public abstract class Command {
 
 				String exp = parameter.getExpression();
 				Object val = parameter.getValue();
-				// Class<?> clazz = parameter.getClazz();
+				Class<?> clazz = parameter.getClazz();
 				if ((exp != null && !exp.equals(""))
 						&& (val != null && !val.equals(""))) {
 					new TuraException("Wrong combination of method's parameter");
@@ -127,7 +128,9 @@ public abstract class Command {
 					parameter.setObj(o);
 				}
 				if (val != null && !val.equals("")) {
-					parameter.setObj(val);
+					Constructor<?> cnt =  clazz.getDeclaredConstructor(String.class);
+					Object o = cnt.newInstance(val);
+					parameter.setObj(o);
 				}
 
 				CallParameter param = new CallParameter();
