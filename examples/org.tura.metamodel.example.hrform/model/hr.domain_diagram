@@ -4558,19 +4558,12 @@
           <element xmi:type="tura.domain:Operation" href="hr.domain#87fe4340-1eb2-43b5-bd32-6edb41dc0cd2"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RU_h8Ma5EeSnJ8y6ll4zFA"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_94F9gIjNEeW7GuHwZ08XPA" type="103002">
-          <children xmi:type="notation:DecorationNode" xmi:id="_94GkkIjNEeW7GuHwZ08XPA" type="105005"/>
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_94F9gYjNEeW7GuHwZ08XPA"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_94F9gojNEeW7GuHwZ08XPA" fontName=".Helvetica Neue DeskInterface"/>
-          <element xmi:type="tura.domain:Operation" href="hr.domain#d5765529-25e0-40ba-bea9-b9c33a8fb506"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_94F9g4jNEeW7GuHwZ08XPA"/>
-        </children>
-        <children xmi:type="notation:Node" xmi:id="_CxNokIjOEeW7GuHwZ08XPA" type="103002">
-          <children xmi:type="notation:DecorationNode" xmi:id="_CxNolIjOEeW7GuHwZ08XPA" type="105005"/>
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_CxNokYjOEeW7GuHwZ08XPA"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_CxNokojOEeW7GuHwZ08XPA" fontName=".Helvetica Neue DeskInterface"/>
-          <element xmi:type="tura.domain:Operation" href="hr.domain#61f7ff5a-1c86-4856-b81c-0ed7226653a4"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CxNok4jOEeW7GuHwZ08XPA"/>
+        <children xmi:type="notation:Node" xmi:id="_3J1vwJPkEeWOVch1GX_76g" type="103002">
+          <children xmi:type="notation:DecorationNode" xmi:id="_3J2W0JPkEeWOVch1GX_76g" type="105005"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_3J1vwZPkEeWOVch1GX_76g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_3J1vwpPkEeWOVch1GX_76g" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:Operation" href="hr.domain#86aec816-bc4d-4f9a-a22e-2178f1db358a"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3J1vw5PkEeWOVch1GX_76g"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_qOhXJrliEeSdIclQOnPVEA"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_qOhXJ7liEeSdIclQOnPVEA"/>

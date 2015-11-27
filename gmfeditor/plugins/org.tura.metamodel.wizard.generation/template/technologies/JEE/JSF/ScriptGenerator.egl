@@ -70,16 +70,24 @@ public class ScriptGenerator{
                 if (i != 0) {
                     result = result + ",";
                 }
+                i++;
                 Object obj = element;
                 String expression = (String) element;
                 if ("#{".equals(expression.substring(0, 2))) {
-                    obj = elResolver.getValue(expression);
+                    obj = "'" + (elResolver.getValue(expression)).toString() +
+                        "'";
+                } else {
+                    if ("##".equals(expression.substring(0, 2))) {
+                        obj = expression.substring(2);
+                    } else {
+                        obj = "'" + expression + "'";
+                    }
                 }
-                result = result + "'"+obj.toString()+"'";
+                result = result + obj;
             }
             result = result + ")";
         } catch (Exception e) {
-            logger.log(java.util.logging.Level.INFO, e.getMessage(),e);
+            logger.log(java.util.logging.Level.INFO, e.getMessage(), e);
         }
         return result;
     }

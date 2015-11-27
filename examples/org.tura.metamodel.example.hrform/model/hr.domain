@@ -360,10 +360,9 @@
         <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="76fe6802-305f-4973-a750-b102d9559fc2" uid="0bdb72cf-f251-44ec-99ec-9fb2817d1a24" name="data control"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
-      <operations uid="d5765529-25e0-40ba-bea9-b9c33a8fb506" name="stopCount">
-        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
-      </operations>
-      <operations uid="61f7ff5a-1c86-4856-b81c-0ed7226653a4" name="doTimer">
+      <operations uid="86aec816-bc4d-4f9a-a22e-2178f1db358a" name="hidepopupOnSuccess">
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="f41ea430-d655-45e8-9998-d0b765581596" name="popupCanvasVar"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="733689b9-6c6c-4bb0-a3fe-bcb60d9bd6ef" name="jsfargs" order="1"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
     </types>
@@ -2399,10 +2398,10 @@
       </viewElement>
       <multiLangLabel/>
       <classifiers uid="378286b2-27eb-4ef9-a664-f546d6aca32c" hint="b21dc9b3-20fd-42ff-bb82-79acc378d3e5" details="popupCompany"/>
-      <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="d5765529-25e0-40ba-bea9-b9c33a8fb506" fakeMethod="stopCount" uid="56f6688f-fc8f-4217-8b70-47d41bd45a39">
+      <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" fakeMethod="stopCount" uid="56f6688f-fc8f-4217-8b70-47d41bd45a39">
         <classifiers uid="d020cdfc-9521-496e-8b4a-b2fa61d8a21a" hint="24437d4d-b45d-4293-8e7d-7cd1502dd9e5"/>
       </triggers>
-      <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="61f7ff5a-1c86-4856-b81c-0ed7226653a4" fakeMethod="doTimer" uid="94ede0fa-9615-4132-a87a-d7ab58ab11a4">
+      <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" fakeMethod="doTimer" uid="94ede0fa-9615-4132-a87a-d7ab58ab11a4">
         <classifiers uid="74d02eae-423e-4250-948f-607b73ef2136" hint="495dbb0b-06b5-4d77-96c7-520a7ad64b8f"/>
       </triggers>
     </canvases>
@@ -3552,6 +3551,7 @@
           </children>
           <children xsi:type="tura.domain:InputText" order="1" uid="a343ffab-51c0-448b-aff9-a1711681e32f" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="Comp_7982905f-4f83-472f-8551-80e30e34934c">
             <style constant="true" value="margin:0px 0px 0px 20px;"/>
+            <required constant="true" value="true"/>
           </children>
           <children xsi:type="tura.domain:Label" order="3" uid="1962aa8e-76c0-4026-af09-3a7153635564" label="Description">
             <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE_DESCRIPTION_COLUMN">
@@ -3562,18 +3562,22 @@
           </children>
           <children xsi:type="tura.domain:InputText" nickname="Desk" order="4" uid="83a48362-b526-4c40-8830-1409325b4726" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="a3f007de-ce4a-4510-bc86-52f20eee5325">
             <style constant="true" value="margin:0px 0px 0px 20px;"/>
+            <required constant="true" value="true"/>
           </children>
           <children xsi:type="tura.domain:MessageElement" order="2" uid="04f18521-e6ee-4bf5-b368-46be7e67892e"/>
           <children xsi:type="tura.domain:MessageElement" order="5" uid="7f2833a3-2392-4b4a-b8cd-20b56f2dea71"/>
         </children>
         <children xsi:type="tura.domain:LayerHolder" order="2" uid="4f132520-3cea-41fd-a086-1415e583e9b9" columns="2">
           <style/>
-          <children xsi:type="tura.domain:Button" nickname="ok" uid="80f38c36-1479-42e3-8640-b78c8efd111f" onEventRefreshArea="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 bee23d39-6e59-450f-b696-94cf4c907c86 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="ok">
+          <children xsi:type="tura.domain:Button" nickname="ok" uid="80f38c36-1479-42e3-8640-b78c8efd111f" onEventRefreshArea="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 bee23d39-6e59-450f-b696-94cf4c907c86 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5 3e4d834d-18ff-49eb-8009-86affb9fff51" label="ok">
             <style/>
             <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="9ac332a1-5d9c-4bf5-adb2-88b085ca85a0" fakeMethod="applyChanges" uid="409a1229-128d-43ca-8363-c1f55f052858"/>
-            <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="2e403bcd-3e46-4e16-afea-e01cdeb7e247" fakeMethod="hidepopup" uid="cb96be69-8c7a-4c82-aa91-7a32a4f9d316">
-              <parameters uid="2ffb541f-c25c-4b89-aeba-e6264fe7a2aa" refObj="1fb4b6f8-f78c-4f15-af74-fcc94f18be31">
-                <value uid="25e61861-ca71-4184-8cc0-568fe914c898" constant="true" value="popupCompany"/>
+            <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="86aec816-bc4d-4f9a-a22e-2178f1db358a" fakeMethod="hidepopupOnSuccess" uid="cb96be69-8c7a-4c82-aa91-7a32a4f9d316">
+              <parameters uid="91ce7447-04f3-4f4a-901f-db673d8df65a" refObj="f41ea430-d655-45e8-9998-d0b765581596">
+                <value uid="6f3feac1-f985-4192-89c4-012ffeab847b" constant="true" value="popupCompany"/>
+              </parameters>
+              <parameters uid="8312e7d8-04dd-4680-8dd4-a1d2f8a5a6b1" refObj="733689b9-6c6c-4bb0-a3fe-bcb60d9bd6ef">
+                <value uid="e002ab7d-2b36-4ea3-a505-e22482fe4707" constant="true" value="##args"/>
               </parameters>
               <classifiers uid="6bf71470-7491-4153-b394-04f5f5fc3123" hint="97b65510-1aaf-43b1-b505-99eb0c3dfdf0"/>
             </triggers>

@@ -75,6 +75,7 @@ public class ActioinTriggersPackageNamePropertySection extends PackageNameProper
 		public void handleEvent(Event event) {
 			if (event instanceof ActionTriggerSelectionEvent) {
 				model = ((ActionTriggerSelectionEvent) event).getTrigger();
+				values = null;
 				property.refresh();
 			}
 		}

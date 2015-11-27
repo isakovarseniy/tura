@@ -76,6 +76,8 @@ public class ActioinTriggersTypeNamePropertySection extends TypeRefTypeNamePrope
 		public void handleEvent(Event event) {
 			if (event instanceof ActionTriggerSelectionEvent) {
 				model = ((ActionTriggerSelectionEvent) event).getTrigger();
+				values = null;
+				combo.select(-1);
 				((ActioinTriggersTypeNamePropertySection)property).setFirstTime();
 				property.refresh();
 			}

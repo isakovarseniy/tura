@@ -62,9 +62,10 @@ public class ActioinTriggersTriggerContextParameterPropertySelection extends Tri
 		public void handleEvent(Event event) {
 			if (event instanceof ActionTriggerSelectionEvent) {
 				model = ((ActionTriggerSelectionEvent) event).getTrigger();
-				property.refresh();
-				((ActioinTriggersTriggerContextParameterPropertySelection)property).ds.cleanList();
+				ds.cleanList();
+				ds.getRows();
 				((ActioinTriggersTriggerContextParameterPropertySelection)property).setFirstTime();
+				property.refresh();
 				
 			}
 		}
