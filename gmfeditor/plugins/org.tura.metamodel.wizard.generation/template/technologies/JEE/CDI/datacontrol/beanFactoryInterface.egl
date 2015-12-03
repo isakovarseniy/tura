@@ -1,10 +1,23 @@
 [%
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/idGenerator.egl";
+
      var util = new Native('org.tura.metamodel.commons.Util');
+     var query =  new Native('org.tura.metamodel.commons.QueryHelper');
+     var nicnamed = query.collectRefreshedAeas(form.getView().getView());
+     
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
 
 public interface IBeanFactory   {
+	
+   [%
+       for (nic in nicnamed){%]
+       
+      public String  [%=util.mergeAndUnCapitalize( nic.getNickname()).toUpperCase()%] = "[%=nic.mkuid()%]";
+    [%
+       }
+   %]
 	
 	[%
 	var root = form.datacontrols.formControl.root;

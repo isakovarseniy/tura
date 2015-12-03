@@ -8,7 +8,6 @@ operation   actionExecutor(hash) {
      var actionTriggers = hash.get("actionTriggers");
      var  javaPath =  hash.get("javaPath");  
      var uipackage = hash.get("uipackage");
-     
  %]
 
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].action;
@@ -136,7 +135,7 @@ public class ActionExecutor  implements java.io.Serializable {
             }
             return method.invoke(array[2], objects.toArray());
         } catch (Exception e) {
-            logger.log(Level.INFO, e.getMessage(), e);
+            logger.log(java.util.logging.Level.INFO, e.getMessage(), e);
         }
         return null;
     }

@@ -793,6 +793,9 @@
       <operations uid="159febef-7159-4516-85fe-1bedba34f81c" name="empDetailsEnable">
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0"/>
       </operations>
+      <operations uid="8e728153-bfd7-4105-be4b-f2879715d89a" name="createCompanyPopup">
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
     </types>
     <types xsi:type="tura.domain:TypeReference" uid="dac28942-e33b-415d-8818-7f4fe0b49db9" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType"/>
     <types xsi:type="tura.domain:Type" uid="1fb89120-1544-4563-a949-33a8d12ab064" name="Department2Entity">
@@ -2745,7 +2748,7 @@
           <children xsi:type="tura.domain:LayerHolder" order="1" uid="f0ad97d0-f821-4159-8276-2c3cd955cf38">
             <style/>
             <styleClass/>
-            <children xsi:type="tura.domain:Button" nickname="addCompany" uid="0233c086-c837-4de8-8900-8b4bb37ced89" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Add">
+            <children xsi:type="tura.domain:Button" nickname="addCompany" order="1" uid="0233c086-c837-4de8-8900-8b4bb37ced89" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Add">
               <style constant="true" value="width:30px;height:30px"/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="111886f3-7b14-4394-9454-3e2df8cd55e7" fakeMethod="Create row" uid="5d05a734-26b5-4263-81f7-0629e8cfad8a">
                 <parameters uid="b7420da8-37a6-4103-b7c7-93fb097538c7" refObj="96c4a5f8-171b-412b-98b8-23f37e1c5d68">
@@ -2764,7 +2767,7 @@
                 <expression objRef="e92845fc-7570-455f-9580-623183bccc0f" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" nickname="delCompany" order="1" uid="71ffc838-d31e-458b-a18c-3cd49a7efdff" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Remove">
+            <children xsi:type="tura.domain:Button" nickname="delCompany" order="2" uid="71ffc838-d31e-458b-a18c-3cd49a7efdff" onEventRefreshArea="bee23d39-6e59-450f-b696-94cf4c907c86 ce2aedb4-2308-40d7-b9aa-c9819da6e0f4 92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Remove">
               <style constant="true" value="width:30px;height:30px"/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="97a1a7c3-5e08-48b1-82d0-8a35fa5a13e9" fakePackageName="Base package" fakeTypeName="System library" methodRef="22be5074-5d5e-4f52-916b-e802b8825b06" fakeMethod="Remove row" uid="d68509f9-9a9d-4a9d-9097-4ae4fbdf2e3d">
                 <parameters uid="ffbb75b4-8e59-4477-96db-7f07c6bf7d9c" refObj="76475fdc-384e-4bef-afd5-a1b0a14a4162">
@@ -2783,7 +2786,7 @@
                 <expression objRef="a1d3f2ac-caea-4f0b-a523-59edc4fd19b5" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" order="2" uid="3f03fa7e-3db9-4d75-a973-d107235686f1" label="JS Test">
+            <children xsi:type="tura.domain:Button" order="3" uid="3f03fa7e-3db9-4d75-a973-d107235686f1" label="JS Test">
               <style constant="true" value="width:30px;height:30px"/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="90a31bb6-4c1e-4106-8d8c-616dc9888a78" fakeMethod="Test JS" uid="0cef1837-0695-4aab-9944-6df75c51f911">
                 <parameters uid="a4cb660e-da3d-4c7e-9d99-24bacaa1c393" refObj="b4b4777c-89d5-4a65-a5a8-6946f31a8803">
@@ -2800,6 +2803,22 @@
                 <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
                 <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
                 <expression objRef="68e4335c-0280-4d3e-ae6e-56a924e02077" order="3" expressionType="StyleSetImpl"/>
+              </icon>
+            </children>
+            <children xsi:type="tura.domain:Button" uid="a5f90e65-8465-4af8-8ac9-94fba49921ee" label="Create">
+              <style constant="true" value="width:30px;height:30px"/>
+              <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="8e728153-bfd7-4105-be4b-f2879715d89a" fakeMethod="createCompanyPopup" uid="0e8714eb-f6ca-400b-9c9d-70cd118019fb"/>
+              <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="d537b7d3-64b3-4260-9b69-0762bd897aff" fakeMethod="showpopup" uid="35a82de7-4b23-4d43-832c-9e34003ac2b1">
+                <parameters uid="66811a53-c7b8-4e6d-94e2-0f6b2b7c5f73" refObj="22a33e94-d1ef-4dd2-8932-5ada440b5107">
+                  <value uid="3f00841b-2010-41b3-a340-f582e8963759" constant="true" value="popupCompany"/>
+                </parameters>
+                <classifiers uid="f30f736e-afeb-4aee-aa30-3b6c5d4f2eac" hint="97b65510-1aaf-43b1-b505-99eb0c3dfdf0"/>
+              </triggers>
+              <icon value="Application styles.HR styles.HR Controller styles.create-row-button">
+                <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
+                <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
+                <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
+                <expression objRef="e8787cc5-478b-4074-bc94-50b94301e4cd" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
           </children>
@@ -3296,6 +3315,7 @@
       <styles uid="a3f24db7-b563-4a36-b4a4-a18d48ba110a" name="russia-flag-button"/>
       <styles uid="b556f394-bcb3-4f55-85f2-4b3c0ffd9457" name="center"/>
       <styles uid="990db715-652a-4626-a231-a330fc3ff761" name="logout-button"/>
+      <styles uid="e8787cc5-478b-4074-bc94-50b94301e4cd" name="create-row-button"/>
     </libraries>
   </tura.domain:Styles>
   <tura.domain:Recipes uid="ea1699b1-79f1-4e4d-9342-3ba1cf05a54d" parent="643f117b-2ee8-49cd-b1ff-6123bc465259">
@@ -3593,7 +3613,8 @@
               <expression objRef="994a474f-8f56-4999-bff1-f09ac116f07c" order="3" expressionType="StyleSetImpl"/>
             </icon>
           </children>
-          <children xsi:type="tura.domain:Button" nickname="cancel" order="1" uid="20e5f690-a78c-4a85-8baf-bb6a51bfa642" label="Cancel">
+          <children xsi:type="tura.domain:Button" nickname="cancel" order="1" uid="20e5f690-a78c-4a85-8baf-bb6a51bfa642" onEventRefreshArea="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Cancel">
+            <classifiers uid="0eaa7118-3dde-4b1f-8dad-633534675c80" hint="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7"/>
             <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="22776eec-c35a-4788-90be-0b746e1c9182" fakeMethod="rallbackChanges" uid="aa82c7a2-3212-459e-8ebc-c3aca50f5b7a"/>
             <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="2e403bcd-3e46-4e16-afea-e01cdeb7e247" fakeMethod="hidepopup" uid="c1ea48e2-bd50-4f6e-8c61-3f49f128cff2">
               <parameters uid="17a26bcc-b3a7-4b80-be48-d89b0a7b5bcc" refObj="1fb4b6f8-f78c-4f15-af74-fcc94f18be31">

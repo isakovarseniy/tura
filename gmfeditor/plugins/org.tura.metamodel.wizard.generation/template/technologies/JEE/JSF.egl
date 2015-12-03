@@ -145,10 +145,6 @@ operation domain::Uielement  readonly(hash){
      %]readonly="[%=value%]"[%}
 }
 
-@template
-operation domain::Uielement  mkuid(){
-%]tura[%=self.uid.replaceAll("\\-","_")%][%
-}
 
 @template
 operation domain::Uielement  draw(hash){
@@ -176,26 +172,6 @@ operation domain::Uielement  draw(hash){
      
 }
 
-@template
-operation domain::ViewPort  mkuid(){
-%]tura[%=self.uid.replaceAll("\\-","_")%][%
-}
-
-@template
-operation domain::CanvasFrame mkuid(){
-%]tura[%=self.uid.replaceAll("\\-","_")%][%
-}
-
-@template
-operation domain::ViewArea mkuid(){
-%]tura[%=self.uid.replaceAll("\\-","_")%][%
-}
-
-
-@template
-operation domain::ActionTrigger mkuid(){
-%]tura[%=self.uid.replaceAll("\\-","_")%][%
-}
 
 @template
 operation domain::Uielement  mkUIDBinding(){

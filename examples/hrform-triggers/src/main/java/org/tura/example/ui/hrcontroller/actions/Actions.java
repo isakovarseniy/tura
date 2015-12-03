@@ -21,13 +21,19 @@
  */
 package org.tura.example.ui.hrcontroller.actions;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.faces.component.EditableValueHolder;
+import javax.faces.component.UIComponent;
+import javax.faces.component.visit.VisitContext;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.elsoft.platform.hr.objects.CompanyDAO;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IBeanFactory;
 import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.CommandStack;
@@ -37,7 +43,9 @@ import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.persistence.TuraObject;
+import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
 import org.tura.platform.primefaces.lib.EventAccessor;
+import org.tura.platform.primefaces.model.ViewModel;
 
 public class Actions implements EventAccessor {
 	private ActionEvent event;
@@ -71,6 +79,31 @@ public class Actions implements EventAccessor {
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void createCompanyPopup() {
+		try {
+
+			DataControl dc = (DataControl) elResolver
+					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
+
+			dc.getCommandStack().savePoint();
+
+			IBeanFactory bf = (IBeanFactory) elResolver
+					.getValue("#{beanFactoryHrManagerHRController}");
+
+			CompanyDAO cmp = (CompanyDAO) bf.getCompany().createObject();
+
+
+			bf.setCmpId(cmp.getObjId());
+			dc.forceRefresh();
+
+
+		} catch (Exception e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
+
 	}
 
 	public void saveApplication() {
@@ -108,7 +141,6 @@ public class Actions implements EventAccessor {
 	}
 
 	public void applyChanges() {
-
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -118,6 +150,20 @@ public class Actions implements EventAccessor {
 			DataControl dc = (DataControl) elResolver
 					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
 			dc.getCommandStack().rallbackSavePoint();
+
+			UIComponent target =  ViewModel.findComponent(IBeanFactory.POPUPCOMPAMYDETAILS);
+			
+			EditableValueHoldersVisitCallback visitCallback = new EditableValueHoldersVisitCallback();
+			target.visitTree(VisitContext.createVisitContext(FacesContext.getCurrentInstance()), visitCallback);
+			 
+			// iterate over found sub-components and reset their values
+			List<EditableValueHolder> editableValueHolders = visitCallback.getEditableValueHolders();
+			for (EditableValueHolder editableValueHolder : editableValueHolders) {
+			    editableValueHolder.resetValue();
+			}			
+			
+			
+			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -146,5 +192,4 @@ public class Actions implements EventAccessor {
 		return true;
 
 	}
-
 }

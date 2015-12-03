@@ -870,6 +870,49 @@ public class QueryHelper {
 		}
 		return null;
 	}
+	
+	public List<domain.NickNamed> collectRefreshedAeas(domain.Views views) throws Exception {
+		try {
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper.createQuery(
+					"domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '" + views.getUid()
+							+ "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::ViewArea))");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl.evaluate(views, query);
+
+			query = helper.createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid = '"
+					+ views.getUid()
+					+ "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::NickNamed) and q.oclAsType(domain::NickNamed).nickname <> null and  q.oclAsType(domain::NickNamed).nickname <> '')");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.NickNamed> map1 = (Collection<domain.NickNamed>) ocl.evaluate(views, query);
+
+			ArrayList<domain.NickNamed> nickNamed = new ArrayList<domain.NickNamed>();
+
+			if (map.size() != 0) {
+				for (Iterator<domain.ViewArea> itr = map.iterator(); itr.hasNext();) {
+					domain.ViewArea viewarea = itr.next();
+					if (viewarea.getCanvasView() != null)
+						findNick(nickNamed, viewarea.getCanvasView().getBaseCanvas(), null);
+				}
+			}
+			nickNamed.addAll(map1);
+
+			return nickNamed;
+
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return null;
+		}
+		
+		
+	}
 
 	public Object[] findRefreshedAeas(domain.Uielement obj) throws Exception {
 
@@ -932,8 +975,12 @@ public class QueryHelper {
 
 	private void findNick(List<domain.NickNamed> list, domain.LayerHolder holder, domain.Uielement exception) {
 
-		if (holder.getNickname() != null && !holder.getUid().equals(exception.getUid()))
-			list.add(holder);
+		if (holder.getNickname() != null && !"".equals(holder.getNickname())){
+			if(exception != null && exception.getUid() != holder.getUid())
+			   list.add(holder);
+			if (exception == null )
+			    list.add(holder);
+		}
 
 		for (Iterator<domain.Uielement> itr = holder.getChildren().iterator(); itr.hasNext();) {
 
@@ -943,8 +990,12 @@ public class QueryHelper {
 				continue;
 			}
 
-			if (el.getNickname() != null && !el.getUid().equals(exception.getUid()))
-				list.add(el);
+			if (el.getNickname() != null &&  !"".equals(el.getNickname())){
+				if(exception != null && exception.getUid() != el.getUid())
+				   list.add(el);
+				if (exception == null )
+				   list.add(el);
+			}
 		}
 	}
 
