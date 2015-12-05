@@ -944,4 +944,56 @@ public class HrControllerTest {
 
 		
 	}
+	
+	@Test
+	public void t012_Validations() {
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+
+		hrControllerPage.getCreatCompany().click();
+		
+		new SeleniumActionExecutor(driver,
+				PopUpCpmpanyDetailsPageObject.getPopupCompamyDetailsSearchCriteria()) {
+			public void action(WebDriver driver) {
+				PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
+						driver);
+				popUp.getOk().click();
+			}
+		}.run();
+
+		PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
+				driver);
+		
+		String value = popUp.getMsg1().getValue();
+		assertEquals(0, value.indexOf("Company name"));
+		
+		Table t = hrControllerPage.getCompanies();
+
+		WebElement el = t.getRow(0).getCell(0);
+		assertEquals("Company A", el.getText());
+		
+		popUp.getDesk().setValue("891");
+		popUp.getCmpName().setValue("12345");
+
+		new SeleniumActionExecutor(driver,
+				HRControllerPageObject.getCompaniesSearchCriteria()) {
+			public void action(WebDriver driver) {
+				PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
+						driver);
+				popUp.getOk().click();
+			}
+		}.run();
+		
+		t = hrControllerPage.getCompanies();
+
+		el = t.getRow(0).getCell(0);
+		assertEquals("12345", el.getText());
+		
+	}
+	
+	
 }

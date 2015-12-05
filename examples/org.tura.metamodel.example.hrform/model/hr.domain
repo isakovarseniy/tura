@@ -2805,7 +2805,7 @@
                 <expression objRef="68e4335c-0280-4d3e-ae6e-56a924e02077" order="3" expressionType="StyleSetImpl"/>
               </icon>
             </children>
-            <children xsi:type="tura.domain:Button" uid="a5f90e65-8465-4af8-8ac9-94fba49921ee" label="Create">
+            <children xsi:type="tura.domain:Button" nickname="creatCompany" uid="a5f90e65-8465-4af8-8ac9-94fba49921ee" label="Create">
               <style constant="true" value="width:30px;height:30px"/>
               <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="8e728153-bfd7-4105-be4b-f2879715d89a" fakeMethod="createCompanyPopup" uid="0e8714eb-f6ca-400b-9c9d-70cd118019fb"/>
               <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="d537b7d3-64b3-4260-9b69-0762bd897aff" fakeMethod="showpopup" uid="35a82de7-4b23-4d43-832c-9e34003ac2b1">
@@ -3569,7 +3569,7 @@
               <expression objRef="e1e774e4-d7f9-4b12-8021-67b17f803772" order="2" expressionType="MessageImpl"/>
             </multiLangLabel>
           </children>
-          <children xsi:type="tura.domain:InputText" order="1" uid="a343ffab-51c0-448b-aff9-a1711681e32f" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="Comp_7982905f-4f83-472f-8551-80e30e34934c">
+          <children xsi:type="tura.domain:InputText" nickname="CmpName" order="1" uid="a343ffab-51c0-448b-aff9-a1711681e32f" sourcePointer="659ef9c4-06fb-48cb-a385-4424988c7872" valuePointer="Comp_7982905f-4f83-472f-8551-80e30e34934c">
             <style constant="true" value="margin:0px 0px 0px 20px;"/>
             <required constant="true" value="true"/>
           </children>
@@ -3584,8 +3584,8 @@
             <style constant="true" value="margin:0px 0px 0px 20px;"/>
             <required constant="true" value="true"/>
           </children>
-          <children xsi:type="tura.domain:MessageElement" order="2" uid="04f18521-e6ee-4bf5-b368-46be7e67892e"/>
-          <children xsi:type="tura.domain:MessageElement" order="5" uid="7f2833a3-2392-4b4a-b8cd-20b56f2dea71"/>
+          <children xsi:type="tura.domain:MessageElement" nickname="msg1" order="2" uid="04f18521-e6ee-4bf5-b368-46be7e67892e"/>
+          <children xsi:type="tura.domain:MessageElement" nickname="msg2" order="5" uid="7f2833a3-2392-4b4a-b8cd-20b56f2dea71"/>
         </children>
         <children xsi:type="tura.domain:LayerHolder" order="2" uid="4f132520-3cea-41fd-a086-1415e583e9b9" columns="2">
           <style/>

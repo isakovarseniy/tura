@@ -98,7 +98,7 @@ public class MasterDetailDataControlPoolTest {
 	        Pager<?> pager = getPager(dce);
 	        
 	        PoolElement e = new PoolElement(newrow, dce.getObjectKey(newrow), dce.getBaseClass(), PoolCommand.C.name(), "1");
-	        pager.addCommandt(e);
+	        pager.addCommand(e);
 	        
 			EmployeesDAO rowe = dce.getCurrentObject();
 

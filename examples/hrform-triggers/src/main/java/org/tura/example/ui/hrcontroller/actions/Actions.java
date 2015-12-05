@@ -42,6 +42,7 @@ import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.persistence.TuraObject;
 import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
 import org.tura.platform.primefaces.lib.EventAccessor;
@@ -89,15 +90,14 @@ public class Actions implements EventAccessor {
 					.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
 
 			dc.getCommandStack().savePoint();
+			dc.islolate();
 
 			IBeanFactory bf = (IBeanFactory) elResolver
 					.getValue("#{beanFactoryHrManagerHRController}");
-
-			CompanyDAO cmp = (CompanyDAO) bf.getCompany().createObject();
-
+			
+			CompanyDAO cmp = (CompanyDAO) dc.createObject();
 
 			bf.setCmpId(cmp.getObjId());
-			dc.forceRefresh();
 
 
 		} catch (Exception e) {
@@ -123,7 +123,6 @@ public class Actions implements EventAccessor {
 	}
 
 	public void createRow(IDataControl datacontrol) {
-
 	}
 
 	public void createChildRow(IDataControl datacontrol) {
@@ -140,7 +139,15 @@ public class Actions implements EventAccessor {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void applyChanges() {
+		DataControl dc = (DataControl) elResolver
+				.getValue("#{beanFactoryHrManagerHRController.popupCompanyDCProvider}");
+		try {
+			dc.flush();
+		} catch (TuraException e) {
+			logger.log(Level.INFO, e.getMessage(), e);
+		}
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -161,9 +168,6 @@ public class Actions implements EventAccessor {
 			for (EditableValueHolder editableValueHolder : editableValueHolders) {
 			    editableValueHolder.resetValue();
 			}			
-			
-			
-			
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}

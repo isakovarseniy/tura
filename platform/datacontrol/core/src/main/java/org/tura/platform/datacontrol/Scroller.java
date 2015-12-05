@@ -44,7 +44,11 @@ public class Scroller<T>  extends AbstractList<T> {
 
 	@Override
 	public int size() {
-		return (int)pager.actualListSize();
+		try {
+			return (int)pager.actualListSize();
+		} catch (TuraException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	protected Pager<T>  getPager(){

@@ -152,16 +152,9 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 			return false;
 
 		if (pager.listSize() == -1)
-			getCurrentObject();
+			pager.queryDS(0, pager.getLoadStep());
 
-		int position;
-		try {
-			position = (int) pager.getShifter()
-					.getObject(currentPosition, true);
-		} catch (Exception e) {
-			throw new TuraException(e);
-		}
-		if (position + 1 < pager.listSize())
+		if (currentPosition + 1 < pager.actualListSize())
 			return true;
 		else
 			return false;
@@ -173,16 +166,9 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 			return;
 
 		if (pager.listSize() == -1)
-			getCurrentObject();
+			pager.queryDS(0, pager.getLoadStep());
 
-		int position;
-		try {
-			position = (int) pager.getShifter()
-					.getObject(currentPosition, true);
-		} catch (Exception e) {
-			throw new TuraException(e);
-		}
-		if (position + 1 < pager.listSize()) {
+		if (currentPosition + 1 < pager.actualListSize()) {
 			currentPosition++;
 			pager.setScrollDirection(SCROLL_DOWN);
 			T newRecord = pager.getObject(currentPosition);
@@ -326,7 +312,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 			return false;
 
 		if (pager.listSize() == -1)
-			getCurrentObject();
+			pager.queryDS(0, pager.getLoadStep());
 
 		int position;
 		try {
@@ -416,7 +402,21 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		Cloner cloner = new Cloner();
 		Object o = cloner.deepClone(pooledObj);
 		
-		pager.addCommandt(  c.createdCommand(o, getObjectKey(obj), getBaseClass(), getShifter().getId()));
+		pager.addCommand(  c.createdCommand(o, getObjectKey(obj), getBaseClass(), getShifter().getId()));
+	}
+	
+	
+	public void islolate( ){
+		pager.isolate();
+	}
+	
+	public boolean isIsolated(){
+		return pager.isIsolateed();
+	}
+	
+	
+	public void flush() throws TuraException{
+		pager.flush();
 	}
 	
 }

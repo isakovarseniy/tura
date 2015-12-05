@@ -106,7 +106,7 @@ public class SingleDataControlPoolTest {
 
 			PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow),
 					dc.getBaseClass(), PoolCommand.C.name(), "1");
-			pager.addCommandt(e);
+			pager.addCommand(e);
 
 			row = dc.getCurrentObject();
 
@@ -133,7 +133,7 @@ public class SingleDataControlPoolTest {
 
 			PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow),
 					dc.getBaseClass(), PoolCommand.R.name(), "1");
-			pager.addCommandt(e);
+			pager.addCommand(e);
 
 			row = dc.getCurrentObject();
 
@@ -190,13 +190,13 @@ public class SingleDataControlPoolTest {
 
 			PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow),
 					dc.getBaseClass(), PoolCommand.C.name(), "1");
-			pager.addCommandt(e);
+			pager.addCommand(e);
 
 			newrow.setDepartmentName("test dep");
 
 			e = new PoolElement(newrow, dc.getObjectKey(newrow),
 					dc.getBaseClass(), PoolCommand.U.name(), "1");
-			pager.addCommandt(e);
+			pager.addCommand(e);
 
 			row = dc.getCurrentObject();
 
@@ -440,6 +440,49 @@ public class SingleDataControlPoolTest {
 
 	}
 
+	
+	@Test
+	public void t10_isolationDataCalontrol() {
+		try {
+			factory.initCommandStack();
+			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+
+			DepartmentsDAO row = dc.getCurrentObject();
+
+			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
+			dc2.getElResolver().setValue("Ndepartments", dc2);
+
+			dc2.getCurrentObject();
+
+			dc2.islolate();
+			DepartmentsDAO   obj = dc2.createObject();
+			obj.setDepartmentName("test department");
+			obj.setDescription("test description");
+			
+			dc.forceRefresh();
+			DepartmentsDAO row1 = dc.getCurrentObject();
+			
+			assertEquals(row.getObjId(), row1.getObjId());
+
+			dc2.flush();
+			dc.forceRefresh();
+			row1 = dc.getCurrentObject();
+			assertEquals(obj.getObjId(), row1.getObjId());
+			
+			dc.nextObject();
+			row1 = dc.getCurrentObject();
+			assertEquals(row.getObjId(), row1.getObjId());
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
+	
+	
 	private void createQuery(DataControl<?> control, String entity)
 			throws QueryException, NoSuchMethodException, SecurityException,
 			IllegalAccessException, IllegalArgumentException,

@@ -55,7 +55,7 @@ public abstract class Pool {
 
 	protected abstract SelectQuery getSelectQuery();
 
-	public void addCommandt(PoolElement element) throws TuraException {
+	public void addCommand(PoolElement element) throws TuraException {
 		element.setCreateDate(getPoolData().getNextId());
 		getPoolData().getPoolElement().add(element);
 	}

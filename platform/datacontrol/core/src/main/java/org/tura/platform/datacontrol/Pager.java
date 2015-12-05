@@ -44,6 +44,7 @@ import org.tura.platform.datacontrol.data.PagerData;
 import org.tura.platform.datacontrol.data.PoolData;
 import org.tura.platform.datacontrol.data.ShiftControlData;
 import org.tura.platform.datacontrol.pool.Pool;
+import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.exp.Operator;
@@ -95,16 +96,16 @@ public class Pager<T> extends Pool {
 		createShifter();
 	}
 
-	public int listSize() {
-		if (getPagerData().getShifter() == null)
+	public int listSize() throws TuraException {
+		if (getShifter() == null)
 			return -1;
-		return (int) getPagerData().getShifter().getPersistedRowNumber();
+		return (int) getShifter().getPersistedRowNumber();
 	}
 
-	public long actualListSize() {
-		if (getPagerData().getShifter() == null)
+	public long actualListSize() throws TuraException {
+		if (getShifter() == null)
 			return -1;
-		return getPagerData().getShifter().getActualRowNumber();
+		return getShifter().getActualRowNumber();
 	}
 
 	protected boolean prepareQuery() throws TuraException {
@@ -255,7 +256,7 @@ public class Pager<T> extends Pool {
 	}
 
 	@SuppressWarnings({ "unchecked" })
-	private T queryDS(int sindex, int index) throws TuraException {
+	public T queryDS(int sindex, int index) throws TuraException {
 
 		if (index < 0)
 			return null;
@@ -279,7 +280,7 @@ public class Pager<T> extends Pool {
 
 				entities = (LazyList<T>) datacontrol.getSearchCommand()
 						.execute();
-				getPagerData().getShifter().setActualRowNumber(entities.getActualRowNumber());
+				getShifter().setActualRowNumber(entities.getActualRowNumber());
 				
 
 			}catch(Exception e){
@@ -490,6 +491,30 @@ public class Pager<T> extends Pool {
 	@Override
 	protected DataControl<?> getDatacontrol() throws TuraException {
 		return datacontrol;
+	}
+	
+	protected void isolate(){
+		getPagerData().setIsolated(true);
+	}
+
+	protected boolean isIsolateed(){
+		return getPagerData().isIsolated();
+	}
+	
+	protected void flush() throws TuraException {
+		
+		for (PoolElement element : getPagerData().getIsolatedCommandList()){
+			super.addCommand(element);
+		}
+		getPagerData().setIsolated(false);
+		getPagerData().setIsolatedCommandList(new Stack<PoolElement>());
+	}
+	
+	public void addCommand(PoolElement element) throws TuraException {
+		if (isIsolateed()){
+			getPagerData().getIsolatedCommandList().push(element);
+		}else
+			super.addCommand(element);
 	}
 
 }
