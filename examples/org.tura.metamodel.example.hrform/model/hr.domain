@@ -1945,7 +1945,6 @@
       </specifiers>
     </artifacts>
     <artifacts uid="8d7cc659-7ce7-4299-94b0-9a0fc5248177" name="JSF">
-      <hints uid="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7" name="immediate"/>
       <hints uid="0a80d7c7-cf37-46c2-8804-665afda89f73" name="parameter"/>
       <hints uid="d8ff5239-74cb-46e9-a93b-eb95a50b6728" name="trigger.onclick"/>
       <hints uid="97b65510-1aaf-43b1-b505-99eb0c3dfdf0" name="trigger.oncomplete"/>
@@ -1964,8 +1963,6 @@
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
       <hints uid="b21dc9b3-20fd-42ff-bb82-79acc378d3e5" name="widget.var"/>
       <hints uid="a5271015-ac7e-4ab7-a90b-9826e3f2c660" name="panel.columns.class"/>
-      <hints uid="495dbb0b-06b5-4d77-96c7-520a7ad64b8f" name="popup.onshow"/>
-      <hints uid="24437d4d-b45d-4293-8e7d-7cd1502dd9e5" name="popup.onhide"/>
     </artifacts>
     <artifacts uid="46114178-7c60-4f25-bf31-4aa27a1b96af" name="Build MVC application" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/mainMVCApplicationBuilder.egl">
       <modelQuery uid="188555d2-e437-4b17-ae85-a4f4597ad013" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
@@ -2320,10 +2317,10 @@
       <viewElement xsi:type="tura.domain:ViewArea" uid="e018aa58-2660-4bba-a75d-1674147458e7" name="Company department" canvasView="86803f23-9d44-4ebc-81e9-9a63b4a770ac">
         <style/>
       </viewElement>
-      <viewElement xsi:type="tura.domain:ViewPort" nickname="details" uid="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" name="Details">
+      <viewElement xsi:type="tura.domain:ViewPort" nickname="details" order="1" uid="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" name="Details">
         <style/>
       </viewElement>
-      <viewElement xsi:type="tura.domain:ViewPort" uid="99d625cc-2adb-406c-8764-013a88c4df41" name="PopupPort">
+      <viewElement xsi:type="tura.domain:ViewPort" order="2" uid="99d625cc-2adb-406c-8764-013a88c4df41" name="PopupPort">
         <style/>
       </viewElement>
       <multiLangLabel value="Messages.HR Controller.MAIN_WINDOW_LABEL">
@@ -2387,7 +2384,7 @@
       <viewElement xsi:type="tura.domain:ViewArea" uid="b3b4dd7d-23bd-42a7-bce4-30bf17c73cb1" name="Departments" canvasView="22bbeeeb-0324-4275-87f4-7785074f76a6">
         <style/>
       </viewElement>
-      <viewElement xsi:type="tura.domain:ViewPort" uid="df0ec442-fd69-454f-8ece-9d1ea34c074e" name="Frame for emploee details">
+      <viewElement xsi:type="tura.domain:ViewPort" order="1" uid="df0ec442-fd69-454f-8ece-9d1ea34c074e" name="Frame for emploee details">
         <style/>
         <styleClass/>
       </viewElement>
@@ -2401,12 +2398,6 @@
       </viewElement>
       <multiLangLabel/>
       <classifiers uid="378286b2-27eb-4ef9-a664-f546d6aca32c" hint="b21dc9b3-20fd-42ff-bb82-79acc378d3e5" details="popupCompany"/>
-      <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" fakeMethod="stopCount" uid="56f6688f-fc8f-4217-8b70-47d41bd45a39">
-        <classifiers uid="d020cdfc-9521-496e-8b4a-b2fa61d8a21a" hint="24437d4d-b45d-4293-8e7d-7cd1502dd9e5"/>
-      </triggers>
-      <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" fakeMethod="doTimer" uid="94ede0fa-9615-4132-a87a-d7ab58ab11a4">
-        <classifiers uid="74d02eae-423e-4250-948f-607b73ef2136" hint="495dbb0b-06b5-4d77-96c7-520a7ad64b8f"/>
-      </triggers>
     </canvases>
     <canvases xsi:type="tura.domain:Window" uid="eb01294e-b0b8-4f56-b7e9-1a8b3306de47" name="Login page">
       <style constant="true" value="width: 500px; margin: 200px auto 0 auto;"/>
@@ -3614,7 +3605,6 @@
             </icon>
           </children>
           <children xsi:type="tura.domain:Button" nickname="cancel" order="1" uid="20e5f690-a78c-4a85-8baf-bb6a51bfa642" onEventRefreshArea="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" label="Cancel">
-            <classifiers uid="0eaa7118-3dde-4b1f-8dad-633534675c80" hint="a249c5f0-5bc1-4c3c-a8d7-3b49156211c7"/>
             <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="22776eec-c35a-4788-90be-0b746e1c9182" fakeMethod="rallbackChanges" uid="aa82c7a2-3212-459e-8ebc-c3aca50f5b7a"/>
             <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="971e11a5-49d4-402d-9ae4-4233c366a542" fakePackageName="Base package" fakeTypeName="Client system library" methodRef="2e403bcd-3e46-4e16-afea-e01cdeb7e247" fakeMethod="hidepopup" uid="c1ea48e2-bd50-4f6e-8c61-3f49f128cff2">
               <parameters uid="17a26bcc-b3a7-4b80-be48-d89b0a7b5bcc" refObj="1fb4b6f8-f78c-4f15-af74-fcc94f18be31">

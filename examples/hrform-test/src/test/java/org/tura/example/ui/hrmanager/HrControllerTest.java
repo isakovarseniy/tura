@@ -993,7 +993,61 @@ public class HrControllerTest {
 		el = t.getRow(0).getCell(0);
 		assertEquals("12345", el.getText());
 		
+		Tree tree = hrControllerPage.getLocationTree();
+		TreeRow tr = (TreeRow) tree.getRow("0");
+		
+		el = tr.getCell(1);
+		assertEquals("", el.getText());
+		
 	}
 	
+
+	@Test
+	public void t013_Validations() {
+		// Go to the Google Suggest home page
+		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
+		login();
+
+		HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+				driver);
+
+		hrControllerPage.getCreatCompany().click();
+		
+		new SeleniumActionExecutor(driver,
+				PopUpCpmpanyDetailsPageObject.getPopupCompamyDetailsSearchCriteria()) {
+			public void action(WebDriver driver) {
+				PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
+						driver);
+				popUp.getOk().click();
+			}
+		}.run();
+
+		new SeleniumActionExecutor(driver,
+				PopUpCpmpanyDetailsPageObject.getPopupCompamyDetailsSearchCriteria()) {
+			public void action(WebDriver driver) {
+				PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
+						driver);
+				popUp.getCancel().click();
+			}
+		}.run();
+
+		
+		new SeleniumActionExecutor(driver,
+				HRControllerPageObject.getLocationTreeSearchCriteria()) {
+			public void action(WebDriver driver) {
+				HRControllerPageObject hrControllerPage = new HRControllerPageObject(
+						driver);
+				Table t = hrControllerPage.getCompanies();
+				t.getRow(1).click();
+			}
+		}.run();
+
+		Tree tree = hrControllerPage.getLocationTree();
+		TreeRow tr = (TreeRow) tree.getRow("0");
+		
+		WebElement el = tr.getCell(1);
+		assertEquals("", el.getText());
+		
+	}
 	
 }
