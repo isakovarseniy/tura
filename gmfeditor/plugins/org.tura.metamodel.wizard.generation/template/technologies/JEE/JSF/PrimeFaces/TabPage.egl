@@ -20,7 +20,7 @@ operation domain::TabPage generateBody(hash){
 %]
 <p:tab [%=title%] [%=self.mkUIDBinding()%]  [%=self.styleAttributes(hash)%]>
 [%
-                for (element in self.viewElement){
+                for (element in self.viewElement.sortBy(q|q.order)){
 %]                
                     [%=element.draw(hash)%]
 [%

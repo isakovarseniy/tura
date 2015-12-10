@@ -31,7 +31,7 @@ operation  domain::PopupCanvas draw(hash) {
 
 @template
 operation domain::PopupCanvas generateBody(hash){
-                for (element in self.viewElement){
+                for (element in self.viewElement.sortBy(q|q.order)){
 %]                
                     [%=element.draw(hash)%]
 [%

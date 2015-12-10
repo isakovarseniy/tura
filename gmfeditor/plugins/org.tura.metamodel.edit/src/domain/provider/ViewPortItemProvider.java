@@ -60,7 +60,7 @@ public class ViewPortItemProvider extends ViewElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNicknamePropertyDescriptor(object);
+			addOrderPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
@@ -68,23 +68,23 @@ public class ViewPortItemProvider extends ViewElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Nickname feature.
+	 * This adds a property descriptor for the Order feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNicknamePropertyDescriptor(Object object) {
+	protected void addOrderPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NickNamed_nickname_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NickNamed_nickname_feature", "_UI_NickNamed_type"),
-				 DomainPackage.Literals.NICK_NAMED__NICKNAME,
+				 getString("_UI_Orderable_order_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Orderable_order_feature", "_UI_Orderable_type"),
+				 DomainPackage.Literals.ORDERABLE__ORDER,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -201,7 +201,7 @@ public class ViewPortItemProvider extends ViewElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ViewPort.class)) {
-			case DomainPackage.VIEW_PORT__NICKNAME:
+			case DomainPackage.VIEW_PORT__ORDER:
 			case DomainPackage.VIEW_PORT__UID:
 			case DomainPackage.VIEW_PORT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

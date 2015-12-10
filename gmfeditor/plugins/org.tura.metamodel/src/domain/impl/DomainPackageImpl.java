@@ -8814,6 +8814,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		canvasFrameEClass.getESuperTypes().add(this.getStyleElement());
 		viewPortHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		viewElementEClass.getESuperTypes().add(this.getStyleElement());
+		viewElementEClass.getESuperTypes().add(this.getCategorized());
+		viewElementEClass.getESuperTypes().add(this.getNickNamed());
 		popupCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
 		popupCanvasEClass.getESuperTypes().add(this.getViewPortHolder());
 		popupCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
@@ -8840,8 +8842,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		tabPageEClass.getESuperTypes().add(this.getCategorized());
 		tabPageEClass.getESuperTypes().add(this.getOrderable());
 		viewPortEClass.getESuperTypes().add(this.getViewElement());
-		viewPortEClass.getESuperTypes().add(this.getNickNamed());
+		viewPortEClass.getESuperTypes().add(this.getOrderable());
 		viewAreaEClass.getESuperTypes().add(this.getViewElement());
+		viewAreaEClass.getESuperTypes().add(this.getOrderable());
 		viewPortTriggerEClass.getESuperTypes().add(this.getTrigger());
 		contextEClass.getESuperTypes().add(this.getContextValue());
 		contextEClass.getESuperTypes().add(this.getContextParameters());

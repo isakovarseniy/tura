@@ -6065,13 +6065,31 @@ public interface DomainPackage extends EPackage {
 	int VIEW_ELEMENT__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
 
 	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ELEMENT__CLASSIFIERS = STYLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ELEMENT__NICKNAME = STYLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>View Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_ELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 0;
+	int VIEW_ELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.PopupCanvasImpl <em>Popup Canvas</em>}' class.
@@ -6611,13 +6629,31 @@ public interface DomainPackage extends EPackage {
 	int VIEW_PORT__STYLE_CLASS = VIEW_ELEMENT__STYLE_CLASS;
 
 	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_PORT__CLASSIFIERS = VIEW_ELEMENT__CLASSIFIERS;
+
+	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_PORT__NICKNAME = VIEW_ELEMENT_FEATURE_COUNT + 0;
+	int VIEW_PORT__NICKNAME = VIEW_ELEMENT__NICKNAME;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_PORT__ORDER = VIEW_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6684,13 +6720,40 @@ public interface DomainPackage extends EPackage {
 	int VIEW_AREA__STYLE_CLASS = VIEW_ELEMENT__STYLE_CLASS;
 
 	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_AREA__CLASSIFIERS = VIEW_ELEMENT__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_AREA__NICKNAME = VIEW_ELEMENT__NICKNAME;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_AREA__ORDER = VIEW_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_AREA__UID = VIEW_ELEMENT_FEATURE_COUNT + 0;
+	int VIEW_AREA__UID = VIEW_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6699,7 +6762,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_AREA__NAME = VIEW_ELEMENT_FEATURE_COUNT + 1;
+	int VIEW_AREA__NAME = VIEW_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Canvas View</b></em>' reference.
@@ -6708,7 +6771,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_AREA__CANVAS_VIEW = VIEW_ELEMENT_FEATURE_COUNT + 2;
+	int VIEW_AREA__CANVAS_VIEW = VIEW_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>View Area</em>' class.
@@ -6717,7 +6780,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_AREA_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 3;
+	int VIEW_AREA_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.TriggerImpl <em>Trigger</em>}' class.

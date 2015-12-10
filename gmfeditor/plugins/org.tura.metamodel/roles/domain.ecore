@@ -1213,7 +1213,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DefaultCavas">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCanvas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//StyleElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//StyleElement #//Categorized #//NickNamed"/>
   <eClassifiers xsi:type="ecore:EClass" name="PopupCanvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel #//Categorized #//ActioinTriggers">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
@@ -1257,7 +1257,7 @@
       <details key="color" value="192,192,192"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewPort" eSuperTypes="#//ViewElement #//NickNamed">
+  <eClassifiers xsi:type="ecore:EClass" name="ViewPort" eSuperTypes="#//ViewElement #//Orderable">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
@@ -1273,7 +1273,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewArea" eSuperTypes="#//ViewElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ViewArea" eSuperTypes="#//ViewElement #//Orderable">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>

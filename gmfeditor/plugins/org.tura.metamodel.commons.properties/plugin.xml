@@ -598,7 +598,7 @@
           <propertyTab
              category="domain"
              id="property.tab.domain.frmview.classifier"
-             label="Hintsl"/>
+             label="Hints"/>
 
              <propertyTab
              category="domain"
@@ -609,6 +609,11 @@
              category="domain"
              id="property.tab.domain.frmview.canvas.triggers"
              label="Triggers"/>
+
+             <propertyTab
+             category="domain"
+             id="property.tab.domain.frmview.frmview.classifier"
+             label="Hint"/>
 
 
       </propertyTabs>
@@ -732,6 +737,18 @@
               <input type="frmview.diagram.edit.parts.ViewPortEditPart"/>
               
            </propertySection>    
+
+
+          <propertySection
+               tab="property.tab.domain.frmview.frmview.classifier"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
+               id="org.tura.metamodel.diagram.frmview.classifier">
+
+              <input type="frmview.diagram.edit.parts.ViewAreaEditPart"/>
+              <input type="frmview.diagram.edit.parts.ViewPortEditPart"/>
+              
+            </propertySection>    
+
 
              <propertySection
                tab="org.tura.metamodel.diagram.frmview.styleset"

@@ -27,7 +27,7 @@ operation  domain::Canvas draw(hash) {
 
 @template
 operation domain::Canvas generateBody(hash){
-                for (element in self.viewElement){
+                for (element in self.viewElement.sortBy(q|q.order)){
 %]                
                     [%=element.draw(hash)%]
 [%

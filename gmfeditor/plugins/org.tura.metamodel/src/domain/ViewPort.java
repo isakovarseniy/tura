@@ -33,7 +33,7 @@ package domain;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"
  * @generated
  */
-public interface ViewPort extends ViewElement, NickNamed {
+public interface ViewPort extends ViewElement, Orderable {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -900,6 +900,8 @@ public class DomainSwitch<T> extends Switch<T> {
 				ViewElement viewElement = (ViewElement)theEObject;
 				T result = caseViewElement(viewElement);
 				if (result == null) result = caseStyleElement(viewElement);
+				if (result == null) result = caseCategorized(viewElement);
+				if (result == null) result = caseNickNamed(viewElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -971,8 +973,10 @@ public class DomainSwitch<T> extends Switch<T> {
 				ViewPort viewPort = (ViewPort)theEObject;
 				T result = caseViewPort(viewPort);
 				if (result == null) result = caseViewElement(viewPort);
-				if (result == null) result = caseNickNamed(viewPort);
+				if (result == null) result = caseOrderable(viewPort);
 				if (result == null) result = caseStyleElement(viewPort);
+				if (result == null) result = caseCategorized(viewPort);
+				if (result == null) result = caseNickNamed(viewPort);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -980,7 +984,10 @@ public class DomainSwitch<T> extends Switch<T> {
 				ViewArea viewArea = (ViewArea)theEObject;
 				T result = caseViewArea(viewArea);
 				if (result == null) result = caseViewElement(viewArea);
+				if (result == null) result = caseOrderable(viewArea);
 				if (result == null) result = caseStyleElement(viewArea);
+				if (result == null) result = caseCategorized(viewArea);
+				if (result == null) result = caseNickNamed(viewArea);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

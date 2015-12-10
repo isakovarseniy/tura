@@ -49,7 +49,7 @@ operation domain::Window generateBody(hash){
 					<h:form id="window">
                          <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
 [%
-                for (element in self.viewElement){
+                for (element in self.viewElement.sortBy(q|q.order)){
 %]                
                     [%=element.draw(hash)%]
 [%

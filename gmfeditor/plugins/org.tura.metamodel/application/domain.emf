@@ -861,7 +861,7 @@ class DefaultCavas{
    attr boolean defaultCanvas;
 }
 
-class ViewElement extends StyleElement {
+class ViewElement extends StyleElement, Categorized,NickNamed {
 
 }
 
@@ -896,7 +896,7 @@ class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,Categorized,Orde
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class ViewPort extends ViewElement,NickNamed{
+class ViewPort extends ViewElement,Orderable{
     id attr EString uid;
    attr EString name;
   @gmf.compartment(layout="list")
@@ -904,7 +904,7 @@ class ViewPort extends ViewElement,NickNamed{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class ViewArea extends ViewElement{
+class ViewArea extends ViewElement,Orderable{
     id attr EString uid;
    attr EString name;
    ref CanvasView#parent canvasView;

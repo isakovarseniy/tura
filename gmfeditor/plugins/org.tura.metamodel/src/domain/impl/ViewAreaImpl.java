@@ -16,6 +16,7 @@ package domain.impl;
 
 import domain.CanvasView;
 import domain.DomainPackage;
+import domain.Orderable;
 import domain.ViewArea;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.ViewAreaImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.impl.ViewAreaImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.ViewAreaImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ViewAreaImpl#getCanvasView <em>Canvas View</em>}</li>
@@ -42,6 +44,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
+	/**
+	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ORDER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected int order = ORDER_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -109,6 +131,27 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	@Override
 	protected EClass eStaticClass() {
 		return DomainPackage.Literals.VIEW_AREA;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getOrder() {
+		return order;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrder(int newOrder) {
+		int oldOrder = order;
+		order = newOrder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.VIEW_AREA__ORDER, oldOrder, order));
 	}
 
 	/**
@@ -251,6 +294,8 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DomainPackage.VIEW_AREA__ORDER:
+				return getOrder();
 			case DomainPackage.VIEW_AREA__UID:
 				return getUid();
 			case DomainPackage.VIEW_AREA__NAME:
@@ -270,6 +315,9 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DomainPackage.VIEW_AREA__ORDER:
+				setOrder((Integer)newValue);
+				return;
 			case DomainPackage.VIEW_AREA__UID:
 				setUid((String)newValue);
 				return;
@@ -291,6 +339,9 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DomainPackage.VIEW_AREA__ORDER:
+				setOrder(ORDER_EDEFAULT);
+				return;
 			case DomainPackage.VIEW_AREA__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -312,6 +363,8 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DomainPackage.VIEW_AREA__ORDER:
+				return order != ORDER_EDEFAULT;
 			case DomainPackage.VIEW_AREA__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.VIEW_AREA__NAME:
@@ -328,11 +381,45 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Orderable.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.VIEW_AREA__ORDER: return DomainPackage.ORDERABLE__ORDER;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Orderable.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.ORDERABLE__ORDER: return DomainPackage.VIEW_AREA__ORDER;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (uid: ");
+		result.append(" (order: ");
+		result.append(order);
+		result.append(", uid: ");
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);
