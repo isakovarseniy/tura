@@ -46,17 +46,25 @@ operation domain::Window generateBody(hash){
 
 				<h:body>
 				
-					<h:form id="window">
-                         <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
+                   <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
+					<h:form>
 [%
                 for (element in self.viewElement.sortBy(q|q.order)){
+                  var isForm = element.findClassifier('UIGeneration','JSF','separate.form');
+                  if (isForm){
+                  %]
+                  </h:form>
+                  <h:form>
+                  [%
+                  }
+                  
 %]                
                     [%=element.draw(hash)%]
 [%
                 }  
 %]					
+					      </h:form>
                          </p:panelGrid>
-					</h:form>
 				</h:body>
 [%      
      var scriptTriggers = hash.get("scriptTriggers");

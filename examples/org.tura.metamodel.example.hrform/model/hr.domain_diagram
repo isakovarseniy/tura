@@ -5138,6 +5138,13 @@
           <element xmi:type="tura.domain:GenerationHint" href="hr.domain#b64730f5-e159-4660-9bf8-c129197c1385"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rIpzE4wTEeWGiPf_yTBscA"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_5S6u4J7WEeWGW6bqofhPOg" type="703006">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5S8kEJ7WEeWGW6bqofhPOg" type="705007"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_5S6u4Z7WEeWGW6bqofhPOg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_5S6u4p7WEeWGW6bqofhPOg" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:GenerationHint" href="hr.domain#0473475f-11cf-4b5f-83ce-f1eb713469e4"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5S6u457WEeWGW6bqofhPOg"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_MFPny7fgEeSgNOvTzdQqew"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_MFPnzLfgEeSgNOvTzdQqew"/>
       </children>

@@ -1958,6 +1958,7 @@
       <hints uid="57a9de12-a73f-4dcf-9185-2235fd4fd2dc" name="login.page"/>
       <hints uid="11d32d1f-f9f1-4742-b5da-d66618c364f8" name="error.page"/>
       <hints uid="b64730f5-e159-4660-9bf8-c129197c1385" name="exception.handler"/>
+      <hints uid="0473475f-11cf-4b5f-83ce-f1eb713469e4" name="separate.form"/>
     </artifacts>
     <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
@@ -2322,6 +2323,7 @@
       </viewElement>
       <viewElement xsi:type="tura.domain:ViewPort" order="2" uid="99d625cc-2adb-406c-8764-013a88c4df41" name="PopupPort">
         <style/>
+        <classifiers uid="134463a3-4996-4e1a-88c4-6231f918d5c7" hint="0473475f-11cf-4b5f-83ce-f1eb713469e4"/>
       </viewElement>
       <multiLangLabel value="Messages.HR Controller.MAIN_WINDOW_LABEL">
         <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
