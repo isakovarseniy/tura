@@ -2684,6 +2684,8 @@
             <style constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
             <classifiers uid="bbe77e69-5dc3-4413-9f07-7043568f59e2" hint="21d9dc34-d2cb-4b87-ab39-94afefd6765c" details="&quot;5,10&quot;"/>
             <enabled/>
+            <refreshAreas area="bee23d39-6e59-450f-b696-94cf4c907c86" group="2"/>
+            <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
             <multiLangLabel value="Messages.HR Controller.COMPANIES_TABLE">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
               <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -2729,6 +2731,7 @@
                   <classifiers uid="070f90b2-ffb1-4a52-8631-5f5ae5578855" hint="97b65510-1aaf-43b1-b505-99eb0c3dfdf0"/>
                 </triggers>
                 <enabled/>
+                <refreshAreas area="3e4d834d-18ff-49eb-8009-86affb9fff51" group="2"/>
                 <icon value="Application styles.HR styles.HR Controller styles.popup-details-button">
                   <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
                   <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
@@ -2752,6 +2755,9 @@
                 </parameters>
               </triggers>
               <enabled/>
+              <refreshAreas area="bee23d39-6e59-450f-b696-94cf4c907c86" group="2"/>
+              <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
+              <refreshAreas area="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" group="2"/>
               <multiLangLabel/>
               <icon value="Application styles.HR styles.HR Controller styles.add-row-button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -2771,6 +2777,9 @@
                 </parameters>
               </triggers>
               <enabled/>
+              <refreshAreas area="bee23d39-6e59-450f-b696-94cf4c907c86" group="2"/>
+              <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
+              <refreshAreas area="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" group="2"/>
               <multiLangLabel/>
               <icon value="Application styles.HR styles.HR Controller styles.remove-row-button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -2820,6 +2829,7 @@
           <style/>
           <children xsi:type="tura.domain:Tree" nickname="LocationTree" uid="bee23d39-6e59-450f-b696-94cf4c907c86" onEventRefreshArea="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" sourcePointer="cd1cab1c-1781-4867-85b8-84d9f465f989" label="Location">
             <style constant="true" value="padding: 5px 5px 5px 5px;font: 15px arial, sans-serif;"/>
+            <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
             <multiLangLabel value="Messages.HR Controller.LOCATIONS_TREE">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
               <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -2845,6 +2855,8 @@
                 </parameters>
               </triggers>
               <enabled/>
+              <refreshAreas area="bee23d39-6e59-450f-b696-94cf4c907c86" group="2"/>
+              <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
               <multiLangLabel/>
               <icon value="Application styles.HR styles.HR Controller styles.add-row-button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -2865,6 +2877,8 @@
                   </value>
                 </parameters>
               </triggers>
+              <refreshAreas area="bee23d39-6e59-450f-b696-94cf4c907c86" group="2"/>
+              <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
               <multiLangLabel/>
               <icon value="Application styles.HR styles.HR Controller styles.remove-row-button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -2885,6 +2899,8 @@
                   </value>
                 </parameters>
               </triggers>
+              <refreshAreas area="bee23d39-6e59-450f-b696-94cf4c907c86" group="2"/>
+              <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
               <multiLangLabel/>
               <icon value="Application styles.HR styles.HR Controller styles.add-child-row-button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -2940,6 +2956,9 @@
           <style constant="true" value="width:30px;height:30px"/>
           <classifiers uid="3e155ada-a896-48b8-a371-2140506b3611" hint="af128f8b-b49a-4c04-b336-6d96bfe8b4e8" details="Rollback Button"/>
           <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="f199d2af-fd03-45f9-b34f-3cff9b9b4e56" fakeMethod="rallbackApplication" uid="da074ad4-f531-4d77-8a79-f6efa058189a"/>
+          <refreshAreas area="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" group="2"/>
+          <refreshAreas area="bee23d39-6e59-450f-b696-94cf4c907c86" group="2"/>
+          <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
           <multiLangLabel/>
           <icon value="Application styles.HR styles.HR Controller styles.rallback-button">
             <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -2968,6 +2987,8 @@
                 <value uid="f8a387be-93bf-407c-b89a-4973f38b29e3" constant="true" value="en"/>
               </parameters>
             </triggers>
+            <refreshAreas area="c5f8ac47-356e-4c17-84db-fcf0a5037ca7" group="2"/>
+            <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
             <multiLangLabel value=""/>
             <icon value="Application styles.HR styles.HR Controller styles.canada-flag-button">
               <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -2983,6 +3004,8 @@
                 <value uid="1568af07-5576-4190-b181-5ab0cba2e81d" constant="true" value="ru"/>
               </parameters>
             </triggers>
+            <refreshAreas area="c5f8ac47-356e-4c17-84db-fcf0a5037ca7" group="2"/>
+            <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
             <icon value="Application styles.HR styles.HR Controller styles.russia-flag-button">
               <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
               <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
@@ -3012,6 +3035,8 @@
         <children xsi:type="tura.domain:LayerHolder" uid="d3042c35-6844-4ae1-b547-67e27906cb92" columns="2">
           <children xsi:type="tura.domain:Table" nickname="Employee Table" uid="ef04d378-387f-4d8b-9d9c-631f54604252" onEventRefreshArea="9f4fda7f-de98-41ad-85de-027aacc547ff 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" columns="3" label="Employes" rowNumber="5">
             <style/>
+            <refreshAreas area="9f4fda7f-de98-41ad-85de-027aacc547ff" group="2"/>
+            <refreshAreas area="50f32416-d7ec-41a5-8d7e-405950accbfb" group="2"/>
             <multiLangLabel value="Messages.HR Controller.EMP_TABLE">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
               <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -3061,6 +3086,9 @@
                   </value>
                 </parameters>
               </triggers>
+              <refreshAreas area="ef04d378-387f-4d8b-9d9c-631f54604252" group="2"/>
+              <refreshAreas area="9f4fda7f-de98-41ad-85de-027aacc547ff" group="2"/>
+              <refreshAreas area="50f32416-d7ec-41a5-8d7e-405950accbfb" group="2"/>
               <multiLangLabel/>
               <icon value="Application styles.HR styles.HR Controller styles.add-row-button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -3080,6 +3108,9 @@
                   </value>
                 </parameters>
               </triggers>
+              <refreshAreas area="ef04d378-387f-4d8b-9d9c-631f54604252" group="2"/>
+              <refreshAreas area="9f4fda7f-de98-41ad-85de-027aacc547ff" group="2"/>
+              <refreshAreas area="50f32416-d7ec-41a5-8d7e-405950accbfb" group="2"/>
               <multiLangLabel/>
               <icon value="Application styles.HR styles.HR Controller styles.remove-row-button">
                 <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -3180,6 +3211,7 @@
               </parameters>
             </triggers>
             <enabled/>
+            <refreshAreas area="a623d141-e215-4d11-96f0-c4f0ed1df6db" group="2"/>
             <multiLangLabel/>
             <icon value="Application styles.HR styles.HR Controller styles.add-row-button">
               <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -3199,6 +3231,7 @@
                 </value>
               </parameters>
             </triggers>
+            <refreshAreas area="a623d141-e215-4d11-96f0-c4f0ed1df6db" group="2"/>
             <multiLangLabel/>
             <icon value="Application styles.HR styles.HR Controller styles.remove-row-button">
               <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -3241,6 +3274,7 @@
                 </value>
               </parameters>
             </triggers>
+            <refreshAreas area="f4a4f9dd-de14-42f5-b3bf-1b844653672f" group="2"/>
             <multiLangLabel/>
             <icon value="Application styles.HR styles.HR Controller styles.add-row-button">
               <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -3261,6 +3295,7 @@
                 </value>
               </parameters>
             </triggers>
+            <refreshAreas area="f4a4f9dd-de14-42f5-b3bf-1b844653672f" group="2"/>
             <icon value="Application styles.HR styles.HR Controller styles.add-child-row-button">
               <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
               <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
@@ -3280,6 +3315,7 @@
                 </value>
               </parameters>
             </triggers>
+            <refreshAreas area="f4a4f9dd-de14-42f5-b3bf-1b844653672f" group="2"/>
             <multiLangLabel/>
             <icon value="Application styles.HR styles.HR Controller styles.remove-row-button">
               <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -3461,6 +3497,8 @@
       <children xsi:type="tura.domain:Table" nickname="Department Table" uid="4764435e-ca02-4771-a456-6454cada2e94" onEventRefreshArea="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce 50f32416-d7ec-41a5-8d7e-405950accbfb" sourcePointer="0feddc04-1241-40fa-a9f3-35089d2cf4c5" columns="3" label="Department" rowNumber="5">
         <style/>
         <enabled/>
+        <refreshAreas area="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce" group="2"/>
+        <refreshAreas area="50f32416-d7ec-41a5-8d7e-405950accbfb" group="2"/>
         <multiLangLabel value="Messages.HR Controller.DEPARTMENT_TABLE">
           <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
           <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -3510,6 +3548,8 @@
               </value>
             </parameters>
           </triggers>
+          <refreshAreas area="4764435e-ca02-4771-a456-6454cada2e94" group="2"/>
+          <refreshAreas area="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce" group="2"/>
           <multiLangLabel/>
           <icon value="Application styles.HR styles.HR Controller styles.add-row-button">
             <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -3529,6 +3569,8 @@
               </value>
             </parameters>
           </triggers>
+          <refreshAreas area="4764435e-ca02-4771-a456-6454cada2e94" group="2"/>
+          <refreshAreas area="4211cd6a-7dcd-46df-b7b2-9d49c374e0ce" group="2"/>
           <multiLangLabel/>
           <icon value="Application styles.HR styles.HR Controller styles.remove-row-button">
             <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -3594,6 +3636,10 @@
               </parameters>
               <classifiers uid="6bf71470-7491-4153-b394-04f5f5fc3123" hint="97b65510-1aaf-43b1-b505-99eb0c3dfdf0"/>
             </triggers>
+            <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
+            <refreshAreas area="bee23d39-6e59-450f-b696-94cf4c907c86" group="2"/>
+            <refreshAreas area="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" group="2"/>
+            <refreshAreas area="3e4d834d-18ff-49eb-8009-86affb9fff51" group="2"/>
             <multiLangLabel value="Messages.HR Controller.OK_BUTTON">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
               <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -3614,6 +3660,7 @@
               </parameters>
               <classifiers uid="5ea26ee5-dd43-4828-bee2-ff8d9de8cfe7" hint="97b65510-1aaf-43b1-b505-99eb0c3dfdf0"/>
             </triggers>
+            <refreshAreas area="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" group="2"/>
             <multiLangLabel value="Messages.HR Controller.CANCEL_BUTTON">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
               <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
@@ -4300,6 +4347,7 @@
         <style/>
         <children xsi:type="tura.domain:Tree" order="1" uid="ad6e95c8-f28d-4e3f-8cc2-aeb0605f4321" onEventRefreshArea="5a983cdf-6679-42f2-b259-11e9803af1cd" sourcePointer="178d5648-ef4e-4712-aa09-431da395aeef" label="First tree">
           <style constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
+          <refreshAreas area="5a983cdf-6679-42f2-b259-11e9803af1cd" group="2"/>
           <multiLangLabel/>
           <cols uid="24c27211-25e1-4e82-91d7-c001fb42c45f" label="Name">
             <element xsi:type="tura.domain:InputText" uid="59d86031-84d7-4292-97d1-19af48297901" valuePointer="2aba5c47-190b-4c81-a505-c269615a8661">
@@ -4560,6 +4608,7 @@
         <style constant="true" value="padding: 5px 5px 5px 5px;font: 15px arial, sans-serif;"/>
         <children xsi:type="tura.domain:DropDownSelection" nickname="department drop down" order="2" uid="c8eaca34-38aa-4063-830a-62efe68740a7" onEventRefreshArea="8d87a02f-a042-4a10-ae3d-9897ff67583d" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="ccb5469a-4dca-46ca-95ae-4519400f2afc" optionPointer="066f4691-289b-499a-acb8-6f171d02236c" optionCast="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369" optionCastDataControl="066f4691-289b-499a-acb8-6f171d02236c" initialOptionValue="-1">
           <style constant="true" value="width:150px"/>
+          <refreshAreas area="8d87a02f-a042-4a10-ae3d-9897ff67583d" group="2"/>
           <selection displayOptionPointer="Dep_7982905f-4f83-472f-8551-80e30e34934c" valueOptionPointer="32e932b5-e86f-43a3-96c1-8b919c740eb6"/>
           <initialOptionMessage value="Messages.Misc.INITIAL_SELECTION_MESSAGE">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
@@ -4655,6 +4704,7 @@
           <style constant="true" value="margin-top: 5px;font:15px arial, sans-serif"/>
           <triggers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" methodRef="baa9677f-d0e0-4238-b2b5-a7ac843ba9de" fakeMethod="login" uid="af911555-4966-4dc8-867f-f357650aedc3"/>
           <enabled/>
+          <refreshAreas area="bd3e208c-2939-43df-80e6-b18a01db3f98" group="2"/>
           <multiLangLabel value="Messages.HR Controller.SIGN_IN">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
