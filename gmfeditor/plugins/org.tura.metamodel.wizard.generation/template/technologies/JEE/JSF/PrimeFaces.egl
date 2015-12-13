@@ -38,15 +38,34 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 
 @template
 operation   domain::Uielement  refreshArias() {
-    if (self.onEventRefreshArea.size() =0 ) return;
-   %]update="[%
-    var first = 0;
-    for ( nicarea in self.onEventRefreshArea ){
-       if ( first = 1){
-         %],[% 
-       }
-       %]#{viewmodel.getClientId([%=nicarea.mkuid()%])}[%  
-       first=1;
+   var update = self.refreshAreas->select(r|r.group > 1);
+   var process = self.refreshAreas->select(r|r.group == 1)->sortBy(q|q.group);
+
+
+    if (update.size() ==  0 ) return;
+    else{
+     %]update="[%
+      var first = 0;
+      for ( ref in update ){
+         if ( first = 1){
+           %],[% 
+         }
+         %]#{viewmodel.getClientId([%=ref.area.mkuid()%])}[%  
+         first=1;
+      }
+    }%]"[%
+    
+    if (process.size() ==  0 ) return;
+    else{
+     %] process="[%
+      var first = 0;
+      for ( ref in process ){
+         if ( first = 1){
+           %],[% 
+         }
+         %]#{viewmodel.getClientId([%=ref.area.mkuid()%])}[%  
+         first=1;
+      }
     }%]"[%
 }
 %]

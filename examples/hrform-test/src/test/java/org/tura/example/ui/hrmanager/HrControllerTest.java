@@ -65,9 +65,8 @@ public class HrControllerTest {
 
 	static WebDriver driver;
 	static ChromeDriverService service;
-	static private String USERNAME="qwerty";
-	static private String PASSWORD="qwerty";
-	
+	static private String USERNAME = "qwerty";
+	static private String PASSWORD = "qwerty";
 
 	@BeforeClass
 	public static void beforeClass() {
@@ -101,14 +100,13 @@ public class HrControllerTest {
 		driver.quit();
 	}
 
-	private void login(){
+	private void login() {
 		LoginPagePageObject loginPage = new LoginPagePageObject(driver);
 		loginPage.getUser().setValue(USERNAME);
 		loginPage.getPassword().setValue(PASSWORD);
 		loginPage.getSignin().click();
 	}
-	
-	
+
 	@Test
 	public void t000_init() {
 		driver.get("http://localhost:8080/hrform-1.0/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2");
@@ -938,13 +936,11 @@ public class HrControllerTest {
 
 		assertEquals("Dir5", tr.getCell(0).getText());
 
-		
 		hrControllerPage.getDelCompany().click();
 		hrControllerPage.getSaveButton().click();
 
-		
 	}
-	
+
 	@Test
 	public void t012_Validations() {
 		// Go to the Google Suggest home page
@@ -955,9 +951,10 @@ public class HrControllerTest {
 				driver);
 
 		hrControllerPage.getCreatCompany().click();
-		
+
 		new SeleniumActionExecutor(driver,
-				PopUpCpmpanyDetailsPageObject.getPopupCompamyDetailsSearchCriteria()) {
+				PopUpCpmpanyDetailsPageObject
+						.getPopupCompamyDetailsSearchCriteria()) {
 			public void action(WebDriver driver) {
 				PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
 						driver);
@@ -967,15 +964,15 @@ public class HrControllerTest {
 
 		PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
 				driver);
-		
+
 		String value = popUp.getMsg1().getValue();
 		assertEquals(0, value.indexOf("Company name"));
-		
+
 		Table t = hrControllerPage.getCompanies();
 
 		WebElement el = t.getRow(0).getCell(0);
 		assertEquals("Company A", el.getText());
-		
+
 		popUp.getDesk().setValue("891");
 		popUp.getCmpName().setValue("12345");
 
@@ -987,20 +984,19 @@ public class HrControllerTest {
 				popUp.getOk().click();
 			}
 		}.run();
-		
+
 		t = hrControllerPage.getCompanies();
 
 		el = t.getRow(0).getCell(0);
 		assertEquals("12345", el.getText());
-		
+
 		Tree tree = hrControllerPage.getLocationTree();
 		TreeRow tr = (TreeRow) tree.getRow("0");
-		
+
 		el = tr.getCell(1);
 		assertEquals("", el.getText());
-		
+
 	}
-	
 
 	@Test
 	public void t013_Validations() {
@@ -1012,9 +1008,10 @@ public class HrControllerTest {
 				driver);
 
 		hrControllerPage.getCreatCompany().click();
-		
+
 		new SeleniumActionExecutor(driver,
-				PopUpCpmpanyDetailsPageObject.getPopupCompamyDetailsSearchCriteria()) {
+				PopUpCpmpanyDetailsPageObject
+						.getPopupCompamyDetailsSearchCriteria()) {
 			public void action(WebDriver driver) {
 				PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
 						driver);
@@ -1022,8 +1019,18 @@ public class HrControllerTest {
 			}
 		}.run();
 
+		PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
+				driver);
+
+		String msg = popUp.getMsg1().getValue();
+		assertEquals(msg.contains("Company name:"),true);
+		assertEquals(popUp.getMsg1().isError(),true);
+
+		
+		
 		new SeleniumActionExecutor(driver,
-				PopUpCpmpanyDetailsPageObject.getPopupCompamyDetailsSearchCriteria()) {
+				PopUpCpmpanyDetailsPageObject
+						.getPopupCompamyDetailsSearchCriteria()) {
 			public void action(WebDriver driver) {
 				PopUpCpmpanyDetailsPageObject popUp = new PopUpCpmpanyDetailsPageObject(
 						driver);
@@ -1031,7 +1038,6 @@ public class HrControllerTest {
 			}
 		}.run();
 
-		
 		new SeleniumActionExecutor(driver,
 				HRControllerPageObject.getLocationTreeSearchCriteria()) {
 			public void action(WebDriver driver) {
@@ -1044,10 +1050,18 @@ public class HrControllerTest {
 
 		Tree tree = hrControllerPage.getLocationTree();
 		TreeRow tr = (TreeRow) tree.getRow("0");
-		
+
 		WebElement el = tr.getCell(1);
-		assertEquals("", el.getText());
-		
+		assertEquals("Country 2", el.getText());
+
+		hrControllerPage.getCreatCompany().click();
+
+		popUp = new PopUpCpmpanyDetailsPageObject(driver);
+
+		msg = popUp.getMsg1().getValue();
+		assertEquals("", msg);
+		assertEquals(popUp.getMsg1().isError(),false);
+
 	}
-	
+
 }

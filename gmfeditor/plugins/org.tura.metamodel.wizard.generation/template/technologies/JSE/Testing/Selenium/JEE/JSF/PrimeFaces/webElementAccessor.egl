@@ -136,8 +136,8 @@ operation  domain::MessageElement accessor(id,methodName)  {
      var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
      
    %]
-     public org.tura.platform.selenium.Label get[%=util.mergeAndCapitalize(methodName)%](){
-         return new org.tura.platform.selenium.primefaces.LabelPrimeFaces(webDriver.findElement( [%=s%]),webDriver);
+     public org.tura.platform.selenium.Message get[%=util.mergeAndCapitalize(methodName)%](){
+         return new org.tura.platform.selenium.primefaces.MessagePrimeFaces(webDriver.findElement( [%=s%]),webDriver);
      }
       public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
       return [%=s%];

@@ -3661,6 +3661,7 @@
               <classifiers uid="5ea26ee5-dd43-4828-bee2-ff8d9de8cfe7" hint="97b65510-1aaf-43b1-b505-99eb0c3dfdf0"/>
             </triggers>
             <refreshAreas area="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" group="2"/>
+            <refreshAreas area="20e5f690-a78c-4a85-8baf-bb6a51bfa642" group="1"/>
             <multiLangLabel value="Messages.HR Controller.CANCEL_BUTTON">
               <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
               <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>

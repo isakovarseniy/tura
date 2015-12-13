@@ -13,7 +13,6 @@
 package org.tura.metamodel.commons.properties.selections.grid.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -72,19 +71,6 @@ public class UielementOnEventRefreshAreaDS extends DataSource {
 							DomainPackage.eINSTANCE
 									.getUielement_RefreshAreas(),
 									removeAreaRef));
-
-			HashMap<String, domain.NickNamed> map = new HashMap<String, domain.NickNamed>();
-			for (domain.NickNamed event : ((domain.Uielement) (property.getModel())).getOnEventRefreshArea()) {
-				if (event instanceof domain.Uielement) {
-					map.put( ((domain.Uielement) event).getUid(), event);
-				}
-				if (event instanceof domain.ViewPort) {
-					map.put( ((domain.ViewPort) event).getUid(), event);
-				}
-				if (event instanceof domain.ViewArea) {
-					map.put( ((domain.ViewArea) event).getUid(), event);
-				}				
-			}
 
 			ArrayList<Object> rows = new ArrayList<Object>();
 			
