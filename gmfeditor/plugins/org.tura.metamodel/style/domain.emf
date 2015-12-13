@@ -1039,7 +1039,6 @@ class Uielement extends StyleElement,NickNamed,Categorized, Orderable, ActioinTr
     val Context enabled;
     val Context required;
     val Context readOnly;
-    ref NickNamed[*] onEventRefreshArea;
     val AreaRef[*]  refreshAreas;
 }
 

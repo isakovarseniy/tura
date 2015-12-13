@@ -1439,8 +1439,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="readOnly" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onEventRefreshArea" upperBound="-1"
-        eType="#//NickNamed"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refreshAreas" upperBound="-1"
         eType="#//AreaRef" containment="true"/>
   </eClassifiers>

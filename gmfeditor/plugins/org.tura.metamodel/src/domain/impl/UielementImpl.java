@@ -56,7 +56,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.UielementImpl#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getReadOnly <em>Read Only</em>}</li>
- *   <li>{@link domain.impl.UielementImpl#getOnEventRefreshArea <em>On Event Refresh Area</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRefreshAreas <em>Refresh Areas</em>}</li>
  * </ul>
  * </p>
@@ -173,16 +172,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	 * @ordered
 	 */
 	protected Context readOnly;
-
-	/**
-	 * The cached value of the '{@link #getOnEventRefreshArea() <em>On Event Refresh Area</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnEventRefreshArea()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<NickNamed> onEventRefreshArea;
 
 	/**
 	 * The cached value of the '{@link #getRefreshAreas() <em>Refresh Areas</em>}' containment reference list.
@@ -434,18 +423,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<NickNamed> getOnEventRefreshArea() {
-		if (onEventRefreshArea == null) {
-			onEventRefreshArea = new EObjectResolvingEList<NickNamed>(NickNamed.class, this, DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA);
-		}
-		return onEventRefreshArea;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<AreaRef> getRefreshAreas() {
 		if (refreshAreas == null) {
 			refreshAreas = new EObjectContainmentEList<AreaRef>(AreaRef.class, this, DomainPackage.UIELEMENT__REFRESH_AREAS);
@@ -501,8 +478,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return getRequired();
 			case DomainPackage.UIELEMENT__READ_ONLY:
 				return getReadOnly();
-			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
-				return getOnEventRefreshArea();
 			case DomainPackage.UIELEMENT__REFRESH_AREAS:
 				return getRefreshAreas();
 		}
@@ -544,10 +519,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 			case DomainPackage.UIELEMENT__READ_ONLY:
 				setReadOnly((Context)newValue);
 				return;
-			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
-				getOnEventRefreshArea().clear();
-				getOnEventRefreshArea().addAll((Collection<? extends NickNamed>)newValue);
-				return;
 			case DomainPackage.UIELEMENT__REFRESH_AREAS:
 				getRefreshAreas().clear();
 				getRefreshAreas().addAll((Collection<? extends AreaRef>)newValue);
@@ -588,9 +559,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 			case DomainPackage.UIELEMENT__READ_ONLY:
 				setReadOnly((Context)null);
 				return;
-			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
-				getOnEventRefreshArea().clear();
-				return;
 			case DomainPackage.UIELEMENT__REFRESH_AREAS:
 				getRefreshAreas().clear();
 				return;
@@ -622,8 +590,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return required != null;
 			case DomainPackage.UIELEMENT__READ_ONLY:
 				return readOnly != null;
-			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
-				return onEventRefreshArea != null && !onEventRefreshArea.isEmpty();
 			case DomainPackage.UIELEMENT__REFRESH_AREAS:
 				return refreshAreas != null && !refreshAreas.isEmpty();
 		}

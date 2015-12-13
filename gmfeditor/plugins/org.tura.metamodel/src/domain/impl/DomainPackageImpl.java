@@ -6239,17 +6239,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUielement_OnEventRefreshArea() {
-		return (EReference)uielementEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getUielement_RefreshAreas() {
-		return (EReference)uielementEClass.getEStructuralFeatures().get(5);
+		return (EReference)uielementEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -8552,7 +8543,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEReference(uielementEClass, UIELEMENT__ENABLED);
 		createEReference(uielementEClass, UIELEMENT__REQUIRED);
 		createEReference(uielementEClass, UIELEMENT__READ_ONLY);
-		createEReference(uielementEClass, UIELEMENT__ON_EVENT_REFRESH_AREA);
 		createEReference(uielementEClass, UIELEMENT__REFRESH_AREAS);
 
 		areaRefEClass = createEClass(AREA_REF);
@@ -9607,7 +9597,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getUielement_Enabled(), this.getContext(), null, "enabled", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_Required(), this.getContext(), null, "required", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_ReadOnly(), this.getContext(), null, "readOnly", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUielement_OnEventRefreshArea(), this.getNickNamed(), null, "onEventRefreshArea", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_RefreshAreas(), this.getAreaRef(), null, "refreshAreas", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(areaRefEClass, AreaRef.class, "AreaRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

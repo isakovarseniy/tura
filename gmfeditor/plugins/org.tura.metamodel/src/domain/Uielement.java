@@ -28,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link domain.Uielement#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.Uielement#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.Uielement#getReadOnly <em>Read Only</em>}</li>
- *   <li>{@link domain.Uielement#getOnEventRefreshArea <em>On Event Refresh Area</em>}</li>
  *   <li>{@link domain.Uielement#getRefreshAreas <em>Refresh Areas</em>}</li>
  * </ul>
  * </p>
@@ -141,22 +140,6 @@ public interface Uielement extends StyleElement, NickNamed, Categorized, Orderab
 	 * @generated
 	 */
 	void setReadOnly(Context value);
-
-	/**
-	 * Returns the value of the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * The list contents are of type {@link domain.NickNamed}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>On Event Refresh Area</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Event Refresh Area</em>' reference list.
-	 * @see domain.DomainPackage#getUielement_OnEventRefreshArea()
-	 * @model
-	 * @generated
-	 */
-	EList<NickNamed> getOnEventRefreshArea();
 
 	/**
 	 * Returns the value of the '<em><b>Refresh Areas</b></em>' containment reference list.

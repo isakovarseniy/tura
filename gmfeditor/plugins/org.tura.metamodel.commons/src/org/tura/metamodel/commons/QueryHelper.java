@@ -947,7 +947,7 @@ public class QueryHelper {
 			Collection<domain.NickNamed> map1 = (Collection<domain.NickNamed>) ocl.evaluate(obj, query);
 
 			ArrayList<domain.NickNamed> nickNamed = new ArrayList<domain.NickNamed>();
-			ArrayList<domain.NickNamed> remove = new ArrayList<domain.NickNamed>();
+			ArrayList<domain.AreaRef> remove = new ArrayList<domain.AreaRef>();
 
 			if (map.size() != 0) {
 				for (Iterator<domain.ViewArea> itr = map.iterator(); itr.hasNext();) {
@@ -958,10 +958,9 @@ public class QueryHelper {
 			}
 			nickNamed.addAll(map1);
 
-			for (Iterator<domain.NickNamed> itr1 = obj.getOnEventRefreshArea().iterator(); itr1.hasNext();) {
-				domain.NickNamed ref = itr1.next();
+			for (domain.AreaRef ref : obj.getRefreshAreas()) {
 
-				if (ref.getNickname() == null || "".equals(ref.getNickname()))
+				if ( ref.getArea() == null ||  ref.getArea().getNickname() == null || "".equals(ref.getArea().getNickname()))
 					remove.add(ref);
 			}
 			return new Object[] { nickNamed, remove };

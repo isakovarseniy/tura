@@ -7864,22 +7864,13 @@ public interface DomainPackage extends EPackage {
 	int UIELEMENT__READ_ONLY = STYLE_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UIELEMENT__ON_EVENT_REFRESH_AREA = STYLE_ELEMENT_FEATURE_COUNT + 8;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UIELEMENT__REFRESH_AREAS = STYLE_ELEMENT_FEATURE_COUNT + 9;
+	int UIELEMENT__REFRESH_AREAS = STYLE_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Uielement</em>' class.
@@ -7888,7 +7879,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UIELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 10;
+	int UIELEMENT_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.AreaRefImpl <em>Area Ref</em>}' class.
@@ -8056,15 +8047,6 @@ public interface DomainPackage extends EPackage {
 	int SOURCES_POINTER__READ_ONLY = UIELEMENT__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCES_POINTER__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8217,15 +8199,6 @@ public interface DomainPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_ELEMENT__READ_ONLY = SOURCES_POINTER__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_ELEMENT__ON_EVENT_REFRESH_AREA = SOURCES_POINTER__ON_EVENT_REFRESH_AREA;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
@@ -8437,15 +8410,6 @@ public interface DomainPackage extends EPackage {
 	int OPTION_SELECTION__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8627,15 +8591,6 @@ public interface DomainPackage extends EPackage {
 	int LAYER_HOLDER__READ_ONLY = UIELEMENT__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LAYER_HOLDER__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8770,15 +8725,6 @@ public interface DomainPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_TEXT__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_TEXT__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
@@ -8944,15 +8890,6 @@ public interface DomainPackage extends EPackage {
 	int PASSWORD__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PASSWORD__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9116,15 +9053,6 @@ public interface DomainPackage extends EPackage {
 	int LABEL__READ_ONLY = UIELEMENT__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9261,15 +9189,6 @@ public interface DomainPackage extends EPackage {
 	int MESSAGE_ELEMENT__READ_ONLY = UIELEMENT__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGE_ELEMENT__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9404,15 +9323,6 @@ public interface DomainPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT_TEXT__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_TEXT__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
@@ -9578,15 +9488,6 @@ public interface DomainPackage extends EPackage {
 	int CHECK_BOX__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHECK_BOX__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9739,15 +9640,6 @@ public interface DomainPackage extends EPackage {
 	 * @ordered
 	 */
 	int DROP_DOWN_SELECTION__READ_ONLY = OPTION_SELECTION__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__ON_EVENT_REFRESH_AREA = OPTION_SELECTION__ON_EVENT_REFRESH_AREA;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
@@ -9958,15 +9850,6 @@ public interface DomainPackage extends EPackage {
 	int IMAGE__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10119,15 +10002,6 @@ public interface DomainPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE__READ_ONLY = INPUT_ELEMENT__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__ON_EVENT_REFRESH_AREA = INPUT_ELEMENT__ON_EVENT_REFRESH_AREA;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
@@ -10291,15 +10165,6 @@ public interface DomainPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUTTON__READ_ONLY = UIELEMENT__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__ON_EVENT_REFRESH_AREA = UIELEMENT__ON_EVENT_REFRESH_AREA;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
@@ -10547,15 +10412,6 @@ public interface DomainPackage extends EPackage {
 	int TABLE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__ON_EVENT_REFRESH_AREA = SOURCES_POINTER__ON_EVENT_REFRESH_AREA;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10753,15 +10609,6 @@ public interface DomainPackage extends EPackage {
 	 * @ordered
 	 */
 	int TREE__READ_ONLY = SOURCES_POINTER__READ_ONLY;
-
-	/**
-	 * The feature id for the '<em><b>On Event Refresh Area</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE__ON_EVENT_REFRESH_AREA = SOURCES_POINTER__ON_EVENT_REFRESH_AREA;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
@@ -18941,17 +18788,6 @@ public interface DomainPackage extends EPackage {
 	EReference getUielement_ReadOnly();
 
 	/**
-	 * Returns the meta object for the reference list '{@link domain.Uielement#getOnEventRefreshArea <em>On Event Refresh Area</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>On Event Refresh Area</em>'.
-	 * @see domain.Uielement#getOnEventRefreshArea()
-	 * @see #getUielement()
-	 * @generated
-	 */
-	EReference getUielement_OnEventRefreshArea();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link domain.Uielement#getRefreshAreas <em>Refresh Areas</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -25311,14 +25147,6 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UIELEMENT__READ_ONLY = eINSTANCE.getUielement_ReadOnly();
-
-		/**
-		 * The meta object literal for the '<em><b>On Event Refresh Area</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UIELEMENT__ON_EVENT_REFRESH_AREA = eINSTANCE.getUielement_OnEventRefreshArea();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Areas</b></em>' containment reference list feature.

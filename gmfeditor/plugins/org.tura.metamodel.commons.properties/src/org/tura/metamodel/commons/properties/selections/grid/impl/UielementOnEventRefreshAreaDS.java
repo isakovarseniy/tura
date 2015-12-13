@@ -55,22 +55,14 @@ public class UielementOnEventRefreshAreaDS extends DataSource {
 			@SuppressWarnings("unchecked")
 			List<domain.NickNamed> allAreas = (List<domain.NickNamed>) result[0];
 			@SuppressWarnings("unchecked")
-			List<domain.NickNamed> removeAreas = (List<domain.NickNamed>) result[1];
+			List<domain.AreaRef> removeAreas = (List<domain.AreaRef>) result[1];
 
-			ArrayList<domain.AreaRef> removeAreaRef = new  ArrayList<>();
-			for (domain.NickNamed element : removeAreas){
-				for (  domain.AreaRef  ref :  ((domain.Uielement)element).getRefreshAreas()  ){
-					if (ref.getArea().equals(element) ){
-						removeAreaRef.add(ref);
-					}
-				}
-			}
 			// Remove
 			editingDomain.getCommandStack().execute(
 					RemoveCommand.create(editingDomain, property.getModel(),
 							DomainPackage.eINSTANCE
 									.getUielement_RefreshAreas(),
-									removeAreaRef));
+									removeAreas));
 
 			ArrayList<Object> rows = new ArrayList<Object>();
 			
