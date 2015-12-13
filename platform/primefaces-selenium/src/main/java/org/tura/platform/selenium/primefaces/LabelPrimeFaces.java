@@ -41,4 +41,10 @@ public class LabelPrimeFaces implements Label{
 		return element.getText();
 	}
 
+	@Override
+	public boolean isError() {
+		return element.getAttribute("class").contains("ui-state-error");
+	}
+	
+	
 }

@@ -24,5 +24,6 @@ package org.tura.platform.selenium;
 public interface Label {
 
 	public String getValue();
+	public boolean isError();
 	
 }

@@ -117,7 +117,7 @@ operation  domain::Password accessor(id,methodName)  {
 @template
 operation  domain::Label accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
-     var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
+     var s = 'org.openqa.selenium.By.cssSelector("label[id$=\''+id+'\']")';     
      
    %]
      public org.tura.platform.selenium.Label get[%=util.mergeAndCapitalize(methodName)%](){

@@ -1025,6 +1025,7 @@ public class HrControllerTest {
 		String msg = popUp.getMsg1().getValue();
 		assertEquals(msg.contains("Company name:"),true);
 		assertEquals(popUp.getMsg1().isError(),true);
+		assertEquals(popUp.getLb1().isError(), true);
 
 		
 		
@@ -1061,6 +1062,7 @@ public class HrControllerTest {
 		msg = popUp.getMsg1().getValue();
 		assertEquals("", msg);
 		assertEquals(popUp.getMsg1().isError(),false);
+		assertEquals(popUp.getLb1().isError(), false);
 
 	}
 
