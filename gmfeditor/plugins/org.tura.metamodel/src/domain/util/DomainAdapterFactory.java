@@ -27,6 +27,7 @@ import domain.ApplicationRole;
 import domain.ApplicationStyle;
 import domain.ApplicationUILayer;
 import domain.ApplicationUIPackage;
+import domain.AreaRef;
 import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
@@ -761,6 +762,10 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUielement(Uielement object) {
 				return createUielementAdapter();
+			}
+			@Override
+			public Adapter caseAreaRef(AreaRef object) {
+				return createAreaRefAdapter();
 			}
 			@Override
 			public Adapter caseFormatable(Formatable object) {
@@ -2759,6 +2764,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUielementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.AreaRef <em>Area Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.AreaRef
+	 * @generated
+	 */
+	public Adapter createAreaRefAdapter() {
 		return null;
 	}
 

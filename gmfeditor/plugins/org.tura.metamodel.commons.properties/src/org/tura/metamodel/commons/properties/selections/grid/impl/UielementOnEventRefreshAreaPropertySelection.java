@@ -16,8 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.CellEditor;
@@ -27,12 +29,14 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.tura.metamodel.commons.properties.selections.adapters.textdata.AreaNickname;
+import org.tura.metamodel.commons.properties.selections.adapters.textdata.RefreshAreaGroup;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
 import org.tura.metamodel.commons.properties.selections.grid.GridTextColumn;
+import org.tura.metamodel.commons.properties.selections.grid.TextColumnConverter;
 
+import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.Uielement;
 
 public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 
@@ -53,6 +57,7 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 			columnList = new ArrayList<GridColumn>();
 			columnList.add(new NickColumn(table, this, 0));
 			columnList.add(new RefrashableColumn(table, this, 1));
+			columnList.add(new GroupColumn(table, this,2));
 		}
 		return columnList;
 	}
@@ -64,13 +69,12 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 			setTextDataAdapter(new AreaNickname());
 			this.setColumnName("Nick name");
 		}
-		
+
 		@Override
 		public boolean isModify(Object element, String property) {
 			return false;
 		}
-	}	
-	
+	}
 
 	class RefrashableColumn implements GridColumn {
 
@@ -113,54 +117,47 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 
 		@Override
 		public Object getValue(Object element) {
-			UielementOnEventRefreshAreaDS.Area opt = (UielementOnEventRefreshAreaDS.Area) element;
-			return opt.isRefreshed();
+			RefreshAreaRow opt = (RefreshAreaRow) element;
+			return opt.isRefreshedArea();
 		}
 
 		@Override
 		public void modify(Object element, Object value) {
 
 			TableItem item = (TableItem) element;
-			UielementOnEventRefreshAreaDS.Area opt = (UielementOnEventRefreshAreaDS.Area) item
+			RefreshAreaRow opt = (RefreshAreaRow) item
 					.getData();
 
 			Boolean refreshable = ((Boolean) value);
-			opt.setRefreshed(refreshable);
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 
 			if (refreshable) {
-				ArrayList<domain.NickNamed> ls = new ArrayList<domain.NickNamed>();
-				ls.add(opt.getElement());
+				domain.AreaRef ref = DomainFactory.eINSTANCE.createAreaRef();
+				ref.setArea(opt.getNickNamed());
 
-				editingDomain
-						.getCommandStack()
-						.execute(
-								AddCommand.create(editingDomain, property
-										.getModel(), DomainPackage.eINSTANCE
-										.getUielement_OnEventRefreshArea(), ls));
+				ArrayList<domain.AreaRef> ls = new ArrayList<domain.AreaRef>();
+				ls.add(ref);
+
+				editingDomain.getCommandStack().execute(
+						AddCommand.create(editingDomain, property.getModel(),
+								DomainPackage.eINSTANCE
+										.getUielement_RefreshAreas(), ls));
+
+				opt.setRef(ref);
+
 			} else {
-				ArrayList<domain.NickNamed> ls = new ArrayList<domain.NickNamed>();
-				Uielement uie = (Uielement) property.getModel();
-				for (domain.NickNamed ev : uie.getOnEventRefreshArea()) {
-					String elUID = null;
-					if (ev instanceof domain.Uielement) {
-						elUID = ((domain.Uielement) ev).getUid();
-					}
-					if (ev instanceof domain.ViewPort) {
-						elUID = ((domain.ViewPort) ev).getUid();
-					}
+				domain.AreaRef ref = opt.getRef();
+				ArrayList<domain.AreaRef> ls = new ArrayList<domain.AreaRef>();
+				ls.add(ref);
 
-					if (elUID.equals(opt.getUid()))
-						ls.add(ev);
+				editingDomain.getCommandStack().execute(
+						RemoveCommand.create(editingDomain,
+								property.getModel(), DomainPackage.eINSTANCE
+										.getUielement_RefreshAreas(), ls));
 
-				}
-				editingDomain
-						.getCommandStack()
-						.execute(
-								RemoveCommand.create(editingDomain, property
-										.getModel(), DomainPackage.eINSTANCE
-										.getUielement_OnEventRefreshArea(), ls));
+				opt.setRef(null);
+				opt.setNickNamed(ref.getArea());
 
 			}
 
@@ -178,4 +175,66 @@ public class UielementOnEventRefreshAreaPropertySelection extends GridProperty {
 
 	}
 
+	class GroupColumn extends GridTextColumn{
+		
+		public GroupColumn(Table table, GridProperty property, int col) {
+			super(table, property, col);
+			setTextDataAdapter(new RefreshAreaGroup());
+			this.setColumnName("Group");
+		}
+		
+		@Override
+		public Object getText(Object element) {
+			EStructuralFeature feature = dataAdapter.getFeature();
+			if (dataAdapter instanceof TextColumnConverter)
+			    return ((TextColumnConverter) dataAdapter).convertToText( element);
+			else
+			    return dataAdapter.getFeatureValue( element, feature);
+		}		
+		
+		@Override
+		public Object getValue(Object element) {
+			EStructuralFeature feature = dataAdapter.getFeature();
+			Object obj = null;
+			if (dataAdapter instanceof TextColumnConverter)
+				obj =  ((TextColumnConverter) dataAdapter).convertToText(element);
+			else
+				obj =  dataAdapter.getFeatureValue((EObject) element, feature);
+			
+			if (obj == null)
+				return "";
+			else 
+				return obj;
+		}		
+		
+		
+		@Override
+		public boolean isModify(Object element, String property) {
+			RefreshAreaRow opt = (RefreshAreaRow) element;
+			return opt.isRefreshedArea();
+		}		
+		
+		@Override
+		public void modify(Object element, Object value) {
+
+			TableItem item = (TableItem) element;
+			RefreshAreaRow opt = (RefreshAreaRow) item
+					.getData();
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+
+			editingDomain.getCommandStack().execute(
+					SetCommand.create(editingDomain, opt.getRef(),
+							DomainPackage.eINSTANCE
+									.getAreaRef_Group(), new Integer ((String)value) ));
+			
+			
+		}
+		
+		
+		
+	}	
+	
+	
 }

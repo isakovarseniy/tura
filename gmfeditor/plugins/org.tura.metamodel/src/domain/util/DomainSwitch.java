@@ -27,6 +27,7 @@ import domain.ApplicationRole;
 import domain.ApplicationStyle;
 import domain.ApplicationUILayer;
 import domain.ApplicationUIPackage;
+import domain.AreaRef;
 import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
@@ -1119,6 +1120,12 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(uielement);
 				if (result == null) result = caseOrderable(uielement);
 				if (result == null) result = caseActioinTriggers(uielement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.AREA_REF: {
+				AreaRef areaRef = (AreaRef)theEObject;
+				T result = caseAreaRef(areaRef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3531,6 +3538,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUielement(Uielement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Area Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Area Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAreaRef(AreaRef object) {
 		return null;
 	}
 

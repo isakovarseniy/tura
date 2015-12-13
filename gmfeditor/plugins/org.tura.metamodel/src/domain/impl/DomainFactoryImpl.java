@@ -27,6 +27,7 @@ import domain.ApplicationRole;
 import domain.ApplicationStyle;
 import domain.ApplicationUILayer;
 import domain.ApplicationUIPackage;
+import domain.AreaRef;
 import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
@@ -379,6 +380,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.ACTIOIN_TRIGGERS: return createActioinTriggers();
 			case DomainPackage.ACTION_TRIGGER: return createActionTrigger();
 			case DomainPackage.UIELEMENT: return createUielement();
+			case DomainPackage.AREA_REF: return createAreaRef();
 			case DomainPackage.FORMATABLE: return createFormatable();
 			case DomainPackage.SOURCES_POINTER: return createSourcesPointer();
 			case DomainPackage.INPUT_ELEMENT: return createInputElement();
@@ -1738,6 +1740,16 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public Uielement createUielement() {
 		UielementImpl uielement = new UielementImpl();
 		return uielement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AreaRef createAreaRef() {
+		AreaRefImpl areaRef = new AreaRefImpl();
+		return areaRef;
 	}
 
 	/**

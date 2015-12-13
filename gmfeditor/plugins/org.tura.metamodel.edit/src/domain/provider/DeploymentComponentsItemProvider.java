@@ -843,6 +843,11 @@ public class DeploymentComponentsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
+				 DomainFactory.eINSTANCE.createAreaRef()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
 				 DomainFactory.eINSTANCE.createFormatable()));
 
 		newChildDescriptors.add

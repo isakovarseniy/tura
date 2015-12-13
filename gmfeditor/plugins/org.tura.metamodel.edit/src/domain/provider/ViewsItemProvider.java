@@ -898,6 +898,11 @@ public class ViewsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.VIEWS__ANY,
+				 DomainFactory.eINSTANCE.createAreaRef()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.VIEWS__ANY,
 				 DomainFactory.eINSTANCE.createFormatable()));
 
 		newChildDescriptors.add

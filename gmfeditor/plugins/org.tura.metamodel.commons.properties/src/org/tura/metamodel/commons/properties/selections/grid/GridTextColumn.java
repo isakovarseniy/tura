@@ -34,7 +34,7 @@ public class GridTextColumn implements GridColumn {
 	private GridProperty property;
 	private int width = 100;
 	private int col;
-	private TextDataAdapter dataAdapter;
+	protected TextDataAdapter dataAdapter;
 
 	public GridTextColumn(Table table, GridProperty property, int col) {
 		this.table = table;

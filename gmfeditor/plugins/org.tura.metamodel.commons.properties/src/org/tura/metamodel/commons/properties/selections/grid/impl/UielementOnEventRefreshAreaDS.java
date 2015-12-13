@@ -14,7 +14,6 @@ package org.tura.metamodel.commons.properties.selections.grid.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -59,45 +58,59 @@ public class UielementOnEventRefreshAreaDS extends DataSource {
 			@SuppressWarnings("unchecked")
 			List<domain.NickNamed> removeAreas = (List<domain.NickNamed>) result[1];
 
+			ArrayList<domain.AreaRef> removeAreaRef = new  ArrayList<>();
+			for (domain.NickNamed element : removeAreas){
+				for (  domain.AreaRef  ref :  ((domain.Uielement)element).getRefreshAreas()  ){
+					if (ref.getArea().equals(element) ){
+						removeAreaRef.add(ref);
+					}
+				}
+			}
 			// Remove
 			editingDomain.getCommandStack().execute(
 					RemoveCommand.create(editingDomain, property.getModel(),
 							DomainPackage.eINSTANCE
-									.getUielement_OnEventRefreshArea(),
-							removeAreas));
+									.getUielement_RefreshAreas(),
+									removeAreaRef));
 
 			HashMap<String, domain.NickNamed> map = new HashMap<String, domain.NickNamed>();
-			for (Iterator<domain.NickNamed> itr = ((domain.Uielement) (property
-					.getModel())).getOnEventRefreshArea().iterator(); itr
-					.hasNext();) {
-				domain.NickNamed event = itr.next();
+			for (domain.NickNamed event : ((domain.Uielement) (property.getModel())).getOnEventRefreshArea()) {
 				if (event instanceof domain.Uielement) {
 					map.put( ((domain.Uielement) event).getUid(), event);
 				}
 				if (event instanceof domain.ViewPort) {
 					map.put( ((domain.ViewPort) event).getUid(), event);
 				}
+				if (event instanceof domain.ViewArea) {
+					map.put( ((domain.ViewArea) event).getUid(), event);
+				}				
 			}
 
 			ArrayList<Object> rows = new ArrayList<Object>();
-			for (Iterator<domain.NickNamed> i = allAreas.iterator(); i
-					.hasNext();) {
-				domain.NickNamed p = i.next();
-				Area a = new Area();
-				a.setElement(p);
-				if (p instanceof domain.Uielement) {
-					a.setRefreshed(map.containsKey(((domain.Uielement) p)
-							.getUid()));
-					a.setUid(((domain.Uielement) p).getUid());
+			
+			boolean noThisElement = true;
+			for (domain.AreaRef p : ((domain.Uielement) property.getModel()).getRefreshAreas() ) {
+				RefreshAreaRow r = new RefreshAreaRow(p);
+				if (p.getArea().equals(((domain.Uielement) property.getModel())) ){
+					noThisElement = false;
+					r.setTHIS("this");
 				}
-				if (p instanceof domain.ViewPort) {
-					a.setRefreshed(map.containsKey(((domain.ViewPort) p)
-							.getUid()));
-					a.setUid(((domain.ViewPort) p).getUid());
-				}
-				rows.add(a);
+				
+
+				if (allAreas.contains(p.getArea()))
+					allAreas.remove(p.getArea());
+				
+				rows.add(r);
 			}
 
+			if (noThisElement){
+				rows.add( new RefreshAreaRow(((domain.Uielement) property.getModel()),"this"));
+			}
+			
+			for (domain.NickNamed nick :  allAreas){
+				rows.add( new RefreshAreaRow(nick));
+			}
+			
 			return rows;
 
 		} catch (Exception e) {
@@ -110,36 +123,5 @@ public class UielementOnEventRefreshAreaDS extends DataSource {
 	@Override
 	public int getSorterID() {
 		return 0;
-	}
-
-	public class Area {
-		private domain.NickNamed element;
-		private boolean refreshed;
-		private String uid;
-
-		public domain.NickNamed getElement() {
-			return element;
-		}
-
-		public void setElement(domain.NickNamed element) {
-			this.element = element;
-		}
-
-		public boolean isRefreshed() {
-			return refreshed;
-		}
-
-		public void setRefreshed(boolean refreshed) {
-			this.refreshed = refreshed;
-		}
-
-		public String getUid() {
-			return uid;
-		}
-
-		public void setUid(String uid) {
-			this.uid = uid;
-		}
-
 	}
 }

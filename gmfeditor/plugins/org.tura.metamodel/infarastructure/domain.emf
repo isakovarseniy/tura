@@ -1040,6 +1040,12 @@ class Uielement extends StyleElement,NickNamed,Categorized, Orderable, ActioinTr
     val Context required;
     val Context readOnly;
     ref NickNamed[*] onEventRefreshArea;
+    val AreaRef[*]  refreshAreas;
+}
+
+class AreaRef{
+	ref NickNamed area;
+	attr EInt group;
 }
 
 class Formatable{

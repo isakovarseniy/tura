@@ -14,14 +14,14 @@ package org.tura.metamodel.commons.properties.selections.adapters.textdata;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.commons.properties.selections.TextDataAdapter;
-import org.tura.metamodel.commons.properties.selections.grid.impl.UielementOnEventRefreshAreaDS;
+import org.tura.metamodel.commons.properties.selections.grid.impl.RefreshAreaRow;
 
 public class AreaNickname implements TextDataAdapter {
 
 	@Override
 	public Object getFeatureValue(Object eObject, EStructuralFeature feature) {
-		UielementOnEventRefreshAreaDS.Area opt = (UielementOnEventRefreshAreaDS.Area) eObject;
-		return opt.getElement().getNickname();
+		RefreshAreaRow opt = (RefreshAreaRow) eObject;
+		return opt.getNickName();
 	}
 
 	@Override

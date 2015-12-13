@@ -16,6 +16,7 @@ package domain.impl;
 
 import domain.ActioinTriggers;
 import domain.ActionTrigger;
+import domain.AreaRef;
 import domain.Categorized;
 import domain.Classifier;
 import domain.Context;
@@ -56,6 +57,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getOnEventRefreshArea <em>On Event Refresh Area</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getRefreshAreas <em>Refresh Areas</em>}</li>
  * </ul>
  * </p>
  *
@@ -181,6 +183,16 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	 * @ordered
 	 */
 	protected EList<NickNamed> onEventRefreshArea;
+
+	/**
+	 * The cached value of the '{@link #getRefreshAreas() <em>Refresh Areas</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshAreas()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AreaRef> refreshAreas;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -434,6 +446,18 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<AreaRef> getRefreshAreas() {
+		if (refreshAreas == null) {
+			refreshAreas = new EObjectContainmentEList<AreaRef>(AreaRef.class, this, DomainPackage.UIELEMENT__REFRESH_AREAS);
+		}
+		return refreshAreas;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -447,6 +471,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return basicSetRequired(null, msgs);
 			case DomainPackage.UIELEMENT__READ_ONLY:
 				return basicSetReadOnly(null, msgs);
+			case DomainPackage.UIELEMENT__REFRESH_AREAS:
+				return ((InternalEList<?>)getRefreshAreas()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -477,6 +503,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return getReadOnly();
 			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
 				return getOnEventRefreshArea();
+			case DomainPackage.UIELEMENT__REFRESH_AREAS:
+				return getRefreshAreas();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -520,6 +548,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				getOnEventRefreshArea().clear();
 				getOnEventRefreshArea().addAll((Collection<? extends NickNamed>)newValue);
 				return;
+			case DomainPackage.UIELEMENT__REFRESH_AREAS:
+				getRefreshAreas().clear();
+				getRefreshAreas().addAll((Collection<? extends AreaRef>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -559,6 +591,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
 				getOnEventRefreshArea().clear();
 				return;
+			case DomainPackage.UIELEMENT__REFRESH_AREAS:
+				getRefreshAreas().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -589,6 +624,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return readOnly != null;
 			case DomainPackage.UIELEMENT__ON_EVENT_REFRESH_AREA:
 				return onEventRefreshArea != null && !onEventRefreshArea.isEmpty();
+			case DomainPackage.UIELEMENT__REFRESH_AREAS:
+				return refreshAreas != null && !refreshAreas.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

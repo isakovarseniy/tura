@@ -2982,6 +2982,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.AreaRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AreaRefItemProvider areaRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.AreaRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAreaRefAdapter() {
+		if (areaRefItemProvider == null) {
+			areaRefItemProvider = new AreaRefItemProvider(this);
+		}
+
+		return areaRefItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.Formatable} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4448,6 +4471,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (actioinTriggersItemProvider != null) actioinTriggersItemProvider.dispose();
 		if (actionTriggerItemProvider != null) actionTriggerItemProvider.dispose();
 		if (uielementItemProvider != null) uielementItemProvider.dispose();
+		if (areaRefItemProvider != null) areaRefItemProvider.dispose();
 		if (formatableItemProvider != null) formatableItemProvider.dispose();
 		if (sourcesPointerItemProvider != null) sourcesPointerItemProvider.dispose();
 		if (inputElementItemProvider != null) inputElementItemProvider.dispose();

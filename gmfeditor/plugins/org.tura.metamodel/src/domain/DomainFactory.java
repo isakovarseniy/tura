@@ -1168,6 +1168,15 @@ public interface DomainFactory extends EFactory {
 	Uielement createUielement();
 
 	/**
+	 * Returns a new object of class '<em>Area Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Area Ref</em>'.
+	 * @generated
+	 */
+	AreaRef createAreaRef();
+
+	/**
 	 * Returns a new object of class '<em>Formatable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
