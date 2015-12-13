@@ -4610,6 +4610,7 @@
         <children xsi:type="tura.domain:DropDownSelection" nickname="department drop down" order="2" uid="c8eaca34-38aa-4063-830a-62efe68740a7" sourcePointer="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" valuePointer="ccb5469a-4dca-46ca-95ae-4519400f2afc" optionPointer="066f4691-289b-499a-acb8-6f171d02236c" optionCast="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369" optionCastDataControl="066f4691-289b-499a-acb8-6f171d02236c" initialOptionValue="-1">
           <style constant="true" value="width:150px"/>
           <refreshAreas area="8d87a02f-a042-4a10-ae3d-9897ff67583d" group="2"/>
+          <refreshAreas area="c8eaca34-38aa-4063-830a-62efe68740a7" group="1"/>
           <selection displayOptionPointer="Dep_7982905f-4f83-472f-8551-80e30e34934c" valueOptionPointer="32e932b5-e86f-43a3-96c1-8b919c740eb6"/>
           <initialOptionMessage value="Messages.Misc.INITIAL_SELECTION_MESSAGE">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
