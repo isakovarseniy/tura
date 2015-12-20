@@ -112,10 +112,11 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
             this.deleteCommand.setDatacontrol(this);
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
+            this.commandStack.getPoolFlushAware().add(this);
             setArtificialInterface(ICompanyArtifitialFields.class);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 

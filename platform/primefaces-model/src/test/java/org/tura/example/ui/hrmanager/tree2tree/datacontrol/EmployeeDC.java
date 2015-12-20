@@ -118,10 +118,11 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
             this.searchCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
+            this.commandStack.getPoolFlushAware().add(this);
             setArtificialInterface(IEmployeeArtifitialFields.class);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 

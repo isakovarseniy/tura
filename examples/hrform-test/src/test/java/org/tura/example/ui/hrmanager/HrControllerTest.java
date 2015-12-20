@@ -40,6 +40,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.NoSuchElementException;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.CityDetailsPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.CountryDetailsPageObject;
 import org.tura.example.ui.hrmanager.hrcontroller.pageobject.DepartmentsDetailsPageObject;
@@ -991,10 +992,12 @@ public class HrControllerTest {
 		assertEquals("12345", el.getText());
 
 		Tree tree = hrControllerPage.getLocationTree();
-		TreeRow tr = (TreeRow) tree.getRow("0");
+		try {
+			tree.getRow("0");
+			fail();
+		} catch (NoSuchElementException e) {
 
-		el = tr.getCell(1);
-		assertEquals("", el.getText());
+		}
 
 	}
 
@@ -1023,12 +1026,10 @@ public class HrControllerTest {
 				driver);
 
 		String msg = popUp.getMsg1().getValue();
-		assertEquals(msg.contains("Company name:"),true);
-		assertEquals(popUp.getMsg1().isError(),true);
+		assertEquals(msg.contains("Company name:"), true);
+		assertEquals(popUp.getMsg1().isError(), true);
 		assertEquals(popUp.getLb1().isError(), true);
 
-		
-		
 		new SeleniumActionExecutor(driver,
 				PopUpCpmpanyDetailsPageObject
 						.getPopupCompamyDetailsSearchCriteria()) {
@@ -1061,7 +1062,7 @@ public class HrControllerTest {
 
 		msg = popUp.getMsg1().getValue();
 		assertEquals("", msg);
-		assertEquals(popUp.getMsg1().isError(),false);
+		assertEquals(popUp.getMsg1().isError(), false);
 		assertEquals(popUp.getLb1().isError(), false);
 
 	}

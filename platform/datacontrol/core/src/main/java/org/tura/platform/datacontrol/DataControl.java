@@ -72,7 +72,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 	public DataControl() throws Exception {
 		this.pager = new Pager<T>(this);
 		this.scroller = new Scroller<T>(pager);
-		poolFlushAware.add(this);
 	}
 
 	public void addEventLiteners(EventListener listener) {
@@ -420,13 +419,13 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 	
 	public void flush() throws TuraException {
 
-		for (IDataControl dc : poolFlushAware) {
+		for (IDataControl dc : commandStack.getPoolFlushAware()) {
 			  dc.saveState();
 		}
 
 		pager.flush();
 
-		for (IDataControl dc : poolFlushAware) {
+		for (IDataControl dc : commandStack.getPoolFlushAware()) {
 			if (dc.getParent() == null && !(dc instanceof ChangeRecordListener) && dc.getTreeContext() == null)
 				dc.onPoolUpdate();
 		}

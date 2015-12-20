@@ -35,7 +35,6 @@ import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
-import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
@@ -130,9 +129,10 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
             this.deleteCommand.setDatacontrol(this);
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
+            this.commandStack.getPoolFlushAware().add(this);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 
@@ -345,8 +345,6 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     }
     )
     , orders = @DefaultOrderBys(orders =  {
-        @DefaultOrderBy(field = "objId", order = SelectQuery.Order.ASC)
-
     }
     )
     )

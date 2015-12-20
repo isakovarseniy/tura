@@ -29,8 +29,6 @@ import java.io.Serializable;
 
 import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Instance;
 
@@ -41,6 +39,7 @@ import javax.inject.Named;
 @ApplicationScoped
 public class BeanFactory implements IBeanFactory, Serializable {
     private static final long serialVersionUID = 1L;
+    private int section;
     @Inject
     private transient Logger logger;
     @Inject
@@ -53,19 +52,23 @@ public class BeanFactory implements IBeanFactory, Serializable {
     private Instance<TreeRootDepartmentDC> treeRootDepartmentproducer;
     private TreeRootDepartmentDC treeRootDepartment;
 
-    @PostConstruct
     public void init() {
+        if (section > 0) {
+            return;
+        }
+        section++;
         try {
             FactoryInitializeTrigger trigger = factoryInitializeTrigger.get();
             if (trigger != null) {
                 trigger.execute(this);
             }
         } catch (TuraException e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 
     public TreeRootCompanyDC getTreeRootCompany() {
+        init();
         if (treeRootCompany == null) {
             treeRootCompany = treeRootCompanyproducer.get();
         }
@@ -73,6 +76,8 @@ public class BeanFactory implements IBeanFactory, Serializable {
     }
 
     public TreeRootDepartmentDC getTreeRootDepartment() {
+        init();
+
         try {
             if (treeRootDepartment == null) {
                 getTreeRootCompany().getCurrentObject();
@@ -80,7 +85,7 @@ public class BeanFactory implements IBeanFactory, Serializable {
             }
             return treeRootDepartment;
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
             return null;
         }
     }

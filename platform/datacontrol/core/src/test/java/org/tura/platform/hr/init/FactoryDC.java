@@ -81,7 +81,7 @@ public class FactoryDC {
 		employeesDS.getKeys().add("objId");
 		employeesDS.setCommandStack(sc);
 		employeesDS.setBaseClass(EmployeesDAO.class);
-
+		sc.getPoolFlushAware().add(employeesDS);
 		createCreateCommand(employeesDS, elPrefix + "employees",
 				EmployeesDAO.class);
 		createInsertCommand(employeesDS, elPrefix + "employees",
@@ -106,6 +106,7 @@ public class FactoryDC {
 		departmentsDS.getKeys().add("objId");
 		departmentsDS.setCommandStack(sc);
 		departmentsDS.setBaseClass(DepartmentsDAO.class);
+		sc.getPoolFlushAware().add(departmentsDS);
 
 		createCreateCommand(departmentsDS, elPrefix + "departments",
 				DepartmentsDAO.class);

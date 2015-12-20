@@ -90,6 +90,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
       }
      i = i+1;
     }
+    %]this.commandStack.getPoolFlushAware().add(this);[%
     if (control.artificialFields.size() <> 0 ){%]
     setArtificialInterface(I[%=util.mergeAndCapitalize(control.name)%]ArtifitialFields.class);
     [%}%]

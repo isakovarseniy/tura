@@ -19,14 +19,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.hrmanager.tree2tree.datacontrol;
+package org.tura.platform.test;
 
-import org.tura.platform.datacontrol.IDataControl;
+import javax.annotation.Priority;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Alternative;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
-public interface IBeanFactory {
-    public String TREE2 = "tura5a983cdf_6679_42f2_b259_11e9803af1cd";
+import org.tura.example.ui.commons.producer.EntityManagerHelper;
+import org.tura.platform.commons.jpa.NotPersistedObjectService;
 
-    public IDataControl getTreeRootCompany();
+@Alternative
+@Priority(0)
+@ApplicationScoped
+public class NotPersistedObjectServiceService extends NotPersistedObjectService {
+    private static final long serialVersionUID = 1L;
+    @Inject
+    private EntityManagerHelper emHelper;
 
-    public IDataControl getTreeRootDepartment();
+    @Override
+    public EntityManager getEntityManager() {
+        return emHelper.getEntityManager();
+    }
 }

@@ -19,20 +19,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.hrmanager.tree2tree.datacontrol;
+package org.tura.example.ui.hrmanager.hrcontroller.datacontrol;
 
-import org.elsoft.platform.hr.objects.StateDAO;
-
-import org.tura.platform.commons.jpa.TuraJPAEntityService;
+import org.tura.platform.commons.jpa.NotPersistedObjectService;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
-import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
@@ -41,7 +37,6 @@ import org.tura.platform.datacontrol.annotations.Delete;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
-import org.tura.platform.datacontrol.annotations.Link;
 import org.tura.platform.datacontrol.annotations.Parameter;
 import org.tura.platform.datacontrol.annotations.Parameters;
 import org.tura.platform.datacontrol.annotations.PostCreate;
@@ -66,7 +61,6 @@ import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
-import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
 import java.io.Serializable;
@@ -76,23 +70,19 @@ import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 
-import javax.enterprise.inject.Instance;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.octo.java.sql.query.SelectQuery;
 
-public class StateDC extends DataControl<StateDAO> implements Serializable {
+public class UserDC extends DataControl<TuraObject> implements Serializable {
     private static final long serialVersionUID = 1L;
     @Inject
     private transient Logger logger;
     @Inject
-    private TuraJPAEntityService provider_0;
-    @Inject
-    private Instance<CityDC> cityproducer;
+    private NotPersistedObjectService provider_0;
 
-    public StateDC() throws Exception {
+    public UserDC() throws Exception {
         super();
 
     }
@@ -100,25 +90,20 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @PostConstruct
     public void init() {
         try {
-            setBaseClass(StateDAO.class);
+            setBaseClass(TuraObject.class);
 
-            this.createCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
-            this.insertCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.insertCommand.setProvider(provider_0);
             this.insertCommand.setDatacontrol(this);
-            this.updateCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.updateCommand.setProvider(provider_0);
             this.updateCommand.setDatacontrol(this);
-            this.deleteCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.deleteCommand.setProvider(provider_0);
             this.deleteCommand.setDatacontrol(this);
-            this.searchCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
             this.commandStack.getPoolFlushAware().add(this);
-            setArtificialInterface(IStateArtifitialFields.class);
+            setArtificialInterface(IUserArtifitialFields.class);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
             logger.info(e.getMessage());
@@ -139,7 +124,7 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Inject
     public void setArtificialProperties(
         @ArtificialFields(fields =  {
-        @ArtificialField(field = "nameArtf", type = String.class)
+        @ArtificialField(field = "loginError", type = Boolean.class)
 
     }
     )
@@ -155,7 +140,7 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
 
     @Inject
     public void setCommandStack(
-        @Named("hrmanager.tree2tree")
+        @Named("hrmanager.hrcontroller")
     CommandStack commandStack) {
         this.commandStack = commandStack;
     }
@@ -164,7 +149,7 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Inject
     public void setCreateCommand(
         @Create(objectAction = "create", parameters = @Parameters(value =  {
-        @Parameter(name = "objectClass", value = "org.elsoft.platform.hr.objects.StateDAO", type = String.class)
+        @Parameter(name = "objectClass", value = "org.elsoft.platform.hr.objects.UserDAO", type = String.class)
 
     }
     )
@@ -177,7 +162,7 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Inject
     public void setInsertCommand(
         @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.controls['*******'].currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.user.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -190,7 +175,7 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Inject
     public void setUpdateCommand(
         @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.controls['*******'].currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.user.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -203,7 +188,7 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Inject
     public void setDeleteCommand(
         @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.controls['*******'].currentObject}", type = TuraObject.class)
+        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.user.currentObject}", type = TuraObject.class)
 
     }
     )
@@ -216,10 +201,10 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Inject
     public void setSearchCommand(
         @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.controls['*******'].query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.controls['*******'].startIndex}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootCompany.controls['*******'].endIndex}", type = Integer.class)
-        , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.StateDAO", type = String.class)
+        @Parameter(name = "search", expression = "#{beanFactoryHrManagerHRController.user.query}", type = SelectQuery.class)
+        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerHRController.user.startIndex}", type = Integer.class)
+        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerHRController.user.endIndex}", type = Integer.class)
+        , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.UserDAO", type = String.class)
 
     }
     )
@@ -231,8 +216,8 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Override
     @Inject
     public void setPreQueryTrigger(
-        @Selector("hrmanager.tree2tree")
-    @PreQuery("state")
+        @Selector("hrmanager.hrcontroller")
+    @PreQuery("user")
     PreQueryTrigger preQueryTrigger) {
         this.preQueryTrigger = preQueryTrigger;
     }
@@ -240,8 +225,8 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Override
     @Inject
     public void setPostQueryTrigger(
-        @Selector("hrmanager.tree2tree")
-    @PostQuery("state")
+        @Selector("hrmanager.hrcontroller")
+    @PostQuery("user")
     PostQueryTrigger postQueryTrigger) {
         this.postQueryTrigger = postQueryTrigger;
     }
@@ -249,8 +234,8 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Override
     @Inject
     public void setPostCreateTrigger(
-        @Selector("hrmanager.tree2tree")
-    @PostCreate("state")
+        @Selector("hrmanager.hrcontroller")
+    @PostCreate("user")
     PostCreateTrigger postCreateTrigger) {
         this.postCreateTrigger = postCreateTrigger;
     }
@@ -258,8 +243,8 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Override
     @Inject
     public void setPreDeleteTrigger(
-        @Selector("hrmanager.tree2tree")
-    @PreDelete("state")
+        @Selector("hrmanager.hrcontroller")
+    @PreDelete("user")
     PreDeleteTrigger preDeleteTrigger) {
         this.preDeleteTrigger = preDeleteTrigger;
     }
@@ -267,8 +252,8 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Override
     @Inject
     public void setPreInsertTrigger(
-        @Selector("hrmanager.tree2tree")
-    @PreInsert("state")
+        @Selector("hrmanager.hrcontroller")
+    @PreInsert("user")
     PreInsertTrigger preInsertTrigger) {
         this.preInsertTrigger = preInsertTrigger;
     }
@@ -276,46 +261,21 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     @Override
     @Inject
     public void setPreUpdateTrigger(
-        @Selector("hrmanager.tree2tree")
-    @PreUpdate("state")
+        @Selector("hrmanager.hrcontroller")
+    @PreUpdate("user")
     PreUpdateTrigger preUpdateTrigger) {
         this.preUpdateTrigger = preUpdateTrigger;
-    }
-
-    @Connection(connectionName = "state2city", links =  {
-        @Link(field1 = "objId", field2 = "parentId")
-
-    }
-    )
-    public IDataControl getState2City()
-        throws org.tura.platform.datacontrol.commons.TuraException {
-        createChild("state2city");
-        Relation relation = this.getChild("state2city");
-        return relation.getChild();
     }
 
     @Override
     public void createChild(String relName)
         throws org.tura.platform.datacontrol.commons.TuraException {
-        Relation relation = this.getChild(relName);
-        if (relation.getChild() == null) {
-            IDataControl dc = null;
-            if ("state2city".equals(relName)) {
-                dc = cityproducer.get();
-            }
-
-            relation.setChild(dc);
-            dc.setParent(relation);
-            dc.setTreeContext(this.getTreeContext());
-            relation.setMasterCurrentObject(getCurrentObject());
-            dc.handleChangeMusterCurrentRecordNotification(relation.getMasterCurrentObject());
-        }
     }
 
     @Override
     @Inject
     public void setDefaultQuery(
-        @Query(base = @Base(clazz = StateDAO.class)
+        @Query(base = @Base(clazz = TuraObject.class)
     , search = @DefaultSearchCriterias(criterias =  {
     }
     )

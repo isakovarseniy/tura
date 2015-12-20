@@ -56,19 +56,14 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 	private DataControl<?> root;
 
 	
-	public TreeDataControl(){
-		poolFlushAware.add(this);
-	}
-	
 	public DataControl<?> getRoot() {
 		return root;
 	}
 
 	public void setRoot(DataControl<?> root) {
 		this.root = root;
-		// this.currentControl = root;
-		// root.setParent(treeRelation);
 		currentPosition = new TreePath[] { new TreePath(null, 0) };
+		root.getCommandStack().getPoolFlushAware().add(this);
 	}
 
 	@Override

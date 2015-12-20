@@ -19,14 +19,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.hrmanager.tree2tree.datacontrol;
+package org.tura.example.ui.hrmanager.hrcontroller.datacontrol;
 
-import org.tura.platform.datacontrol.IDataControl;
+public interface IUserArtifitialFields {
+    public Boolean getLoginError();
 
-public interface IBeanFactory {
-    public String TREE2 = "tura5a983cdf_6679_42f2_b259_11e9803af1cd";
-
-    public IDataControl getTreeRootCompany();
-
-    public IDataControl getTreeRootDepartment();
+    public void setLoginError(Boolean field);
 }

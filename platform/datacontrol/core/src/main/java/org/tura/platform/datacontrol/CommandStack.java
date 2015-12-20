@@ -21,6 +21,7 @@
  */
 package org.tura.platform.datacontrol;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Stack;
@@ -36,7 +37,15 @@ public abstract class CommandStack {
 
 	private Stack<SavePoint> savePoints;
 	private String id = UUID.randomUUID().toString();
+	private ArrayList<IDataControl> poolFlushAware = new ArrayList<IDataControl>(); 
 
+	
+	public abstract void beginTransaction();
+
+	public abstract void commitTransaction();
+
+	public abstract void rallbackTransaction();	
+	
 	public CommandStack() {
 		initSavePoint();
 	}
@@ -165,11 +174,11 @@ public abstract class CommandStack {
 		savePoints.push(newSp);
 	}
 
-	public abstract void beginTransaction();
+	
+	public ArrayList<IDataControl> getPoolFlushAware() {
+		return poolFlushAware;
+	}
 
-	public abstract void commitTransaction();
-
-	public abstract void rallbackTransaction();
 
 	public class SavePoint {
 

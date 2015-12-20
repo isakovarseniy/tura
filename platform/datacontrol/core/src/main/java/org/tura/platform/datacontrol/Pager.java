@@ -62,10 +62,6 @@ public class Pager<T> extends Pool {
 	private boolean direction;
 	private String id = UUID.randomUUID().toString();
 
-	//	private HashMap<String, ShiftControl> shifterHash = new HashMap<>();
-//	private ShiftControl shifter;
-
-	
 	public PagerData getPagerData(){
 		if (datacontrol.getCommandStack().getData(id) == null)
 			datacontrol.getCommandStack().addData(id, new PagerData());

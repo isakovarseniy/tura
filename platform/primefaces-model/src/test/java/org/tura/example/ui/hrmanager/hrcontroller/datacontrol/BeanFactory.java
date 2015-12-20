@@ -29,8 +29,6 @@ import java.io.Serializable;
 
 import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Instance;
 
@@ -41,6 +39,7 @@ import javax.inject.Named;
 @ApplicationScoped
 public class BeanFactory implements IBeanFactory, Serializable {
     private static final long serialVersionUID = 1L;
+    private int section;
     @Inject
     private transient Logger logger;
     private Long cmpId;
@@ -54,6 +53,9 @@ public class BeanFactory implements IBeanFactory, Serializable {
     @javax.inject.Inject
     private Instance<PopupCompanyDCProviderDC> popupCompanyDCProviderproducer;
     private PopupCompanyDCProviderDC popupCompanyDCProvider;
+    @javax.inject.Inject
+    private Instance<UserDC> userproducer;
+    private UserDC user;
     @javax.inject.Inject
     private Instance<DepartmentDC> departmentproducer;
     private DepartmentDC department;
@@ -74,19 +76,23 @@ public class BeanFactory implements IBeanFactory, Serializable {
         this.var1 = var1;
     }
 
-    @PostConstruct
     public void init() {
+        if (section > 0) {
+            return;
+        }
+        section++;
         try {
             FactoryInitializeTrigger trigger = factoryInitializeTrigger.get();
             if (trigger != null) {
                 trigger.execute(this);
             }
         } catch (TuraException e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 
     public CompanyDC getCompany() {
+        init();
         if (company == null) {
             company = companyproducer.get();
         }
@@ -94,23 +100,36 @@ public class BeanFactory implements IBeanFactory, Serializable {
     }
 
     public PopupCompanyDCProviderDC getPopupCompanyDCProvider() {
+        init();
         if (popupCompanyDCProvider == null) {
             popupCompanyDCProvider = popupCompanyDCProviderproducer.get();
         }
         return popupCompanyDCProvider;
     }
 
+    public UserDC getUser() {
+        init();
+        if (user == null) {
+            user = userproducer.get();
+        }
+        return user;
+    }
+
     public TreeRootCountryDC getTreeRootCountry() {
+        init();
+
         try {
             CompanyDC master = getCompany();
             return (TreeRootCountryDC) master.getCompany2Country();
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
             return null;
         }
     }
 
     public DepartmentDC getDepartment() {
+        init();
+
         try {
             if (department == null) {
                 getTreeRootCountry().getCurrentObject();
@@ -118,37 +137,43 @@ public class BeanFactory implements IBeanFactory, Serializable {
             }
             return department;
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
             return null;
         }
     }
 
     public EmployeeDC getEmployee() {
+        init();
+
         try {
             DepartmentDC master = getDepartment();
             return (EmployeeDC) master.getDepartment2Employee();
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
             return null;
         }
     }
 
     public VehicleDC getVehicle() {
+        init();
+
         try {
             DepartmentDC master = getDepartment();
             return (VehicleDC) master.getDepartment2Vehicle();
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
             return null;
         }
     }
 
     public TreeRootFilesDC getTreeRootFiles() {
+        init();
+
         try {
             EmployeeDC master = getEmployee();
             return (TreeRootFilesDC) master.getEmployee2Files();
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
             return null;
         }
     }

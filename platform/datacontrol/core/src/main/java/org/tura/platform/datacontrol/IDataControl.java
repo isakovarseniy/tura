@@ -21,7 +21,6 @@
  */
 package org.tura.platform.datacontrol;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -30,8 +29,6 @@ import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 
 public interface IDataControl {
-	
-	static ArrayList<IDataControl> poolFlushAware = new ArrayList<IDataControl>(); 
 	
 	public void addEventLiteners(EventListener listener);
 
