@@ -51,6 +51,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 	private static boolean SCROLL_DOWN = true;
 	private static boolean SCROLL_UP = false;
 	private String id = UUID.randomUUID().toString();
+	private Object stateObject;
 
 	protected boolean blocked = false;
 	private TreeDataControl treeDataControl;
@@ -61,7 +62,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	private Pager<T> pager;
 	private int currentPosition = 0;
-	
+
 	private Scroller<T> scroller;
 
 	protected Object comandResultHolder;
@@ -71,6 +72,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 	public DataControl() throws Exception {
 		this.pager = new Pager<T>(this);
 		this.scroller = new Scroller<T>(pager);
+		poolFlushAware.add(this);
 	}
 
 	public void addEventLiteners(EventListener listener) {
@@ -84,7 +86,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		notifyLiteners(new ControlRefreshedEvent(this));
 		notifyChageRecordAll(pager.getObject(currentPosition));
 	}
-	
+
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException {
 		if (newCurrentObject == null) {
@@ -120,8 +122,8 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	public void notifyLiteners(Event event) throws TuraException {
 		for (EventListener listener : eventLiteners) {
-			if (listener != null )
-			     listener.handleEventListener(event);
+			if (listener != null)
+				listener.handleEventListener(event);
 		}
 	}
 
@@ -216,11 +218,12 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 					&& (rel.getChild().getCurrentObject() != null))
 				rel.getChild().removeAll();
 		}
-		RowRemovedEvent event =   new RowRemovedEvent(this,pager.getObject(currentPosition));
+		RowRemovedEvent event = new RowRemovedEvent(this,
+				pager.getObject(currentPosition));
 		this.pager.remove(currentPosition);
 		if (currentPosition == pager.actualListSize())
 			currentPosition--;
-		
+
 		notifyLiteners(event);
 		notifyChageRecordAll(getCurrentObject());
 	}
@@ -290,7 +293,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 						}
 					}
 				}
-				notifyLiteners(new RowCreatedEvent(this,getCurrentObject()));
+				notifyLiteners(new RowCreatedEvent(this, getCurrentObject()));
 				notifyChageRecordAll(getCurrentObject());
 			}
 		} catch (Exception e) {
@@ -391,20 +394,21 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		return scroller;
 	}
 
-	public void putObjectToPool(Object obj, PoolCommand c) throws TuraException{
+	public void putObjectToPool(Object obj, PoolCommand c) throws TuraException {
 		Object pooledObj = obj;
-		try{
-			BeanWrapper w =  (BeanWrapper) Reflection.call(obj, "getWrapper");
+		try {
+			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
 			pooledObj = w.getObj();
-		}catch(Exception e){
-			
+		} catch (Exception e) {
+
 		}
 		Cloner cloner = new Cloner();
 		Object o = cloner.deepClone(pooledObj);
-		
-		pager.addCommand(  c.createdCommand(o, getObjectKey(obj), getBaseClass(), getShifter().getId()));
+
+		pager.addCommand(c.createdCommand(o, getObjectKey(obj), getBaseClass(),
+				getShifter().getId()));
 	}
-	
+
 	
 	public void islolate( ){
 		pager.isolate();
@@ -412,11 +416,58 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 	
 	public boolean isIsolated(){
 		return pager.isIsolateed();
-	}
+	}	
 	
-	
-	public void flush() throws TuraException{
+	public void flush() throws TuraException {
+
+		for (IDataControl dc : poolFlushAware) {
+			  dc.saveState();
+		}
+
 		pager.flush();
+
+		for (IDataControl dc : poolFlushAware) {
+			if (dc.getParent() == null && !(dc instanceof ChangeRecordListener) && dc.getTreeContext() == null)
+				dc.onPoolUpdate();
+		}
 	}
+
+	public void saveState()  throws TuraException {
+		stateObject = getCurrentObject();
+	}
+
 	
+	public void onPoolUpdate() throws TuraException {
+		T newObject = getCurrentObject();
+		String newObjectKey = null;
+		String stateObjectKey = null;
+		
+		if (newObject != null )
+		   newObjectKey = getObjectKey(newObject);
+		if (stateObject != null )
+		   stateObjectKey = getObjectKey(stateObject);
+
+		if (((newObject == null) && (stateObject != null))
+				|| ((newObject != null) && (stateObject == null))
+				|| !(newObjectKey.equals(stateObjectKey))) {
+
+			notifyLiteners(new RowChangedEvent(this));
+			notifyChageRecordAll(newObject);
+
+		} else {
+			for (Relation relation : children.values()) {
+				if (relation.getChild() != null)
+					((IDataControl) relation.getChild()).onPoolUpdate();
+			}
+
+			for (DependecyProperty dep : dependency) {
+				Object o = getElResolver().getValue(dep.getExpression());
+				if ( o instanceof IDataControl)
+					((IDataControl)o).onPoolUpdate();
+			}
+
+		}
+
+	}
+
 }

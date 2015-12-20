@@ -463,8 +463,8 @@ public class Pager<T> extends Pool {
 					
 				};
 				shifter.setActualRowNumber(entities.getActualRowNumber());
-				getPagerData().setShifter(shifter);
 			}
+			getPagerData().setShifter(shifter);
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}

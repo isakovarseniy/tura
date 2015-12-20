@@ -21,10 +21,9 @@
  */
 package org.tura.platform.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
+import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,13 +54,18 @@ import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.ICompanyArtifitialFields;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.PopupCompanyDCProviderDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.TreeRootCountryDC;
+import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.IDataControl;
+import org.tura.platform.datacontrol.Pager;
 import org.tura.platform.datacontrol.TreePath;
+import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
+import org.tura.platform.datacontrol.pool.PoolCommand;
+import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.hr.init.CityInit;
 import org.tura.platform.hr.init.CompanyInit;
 import org.tura.platform.hr.init.CountryInit;
@@ -497,8 +501,129 @@ public class CDITest {
 	}
 
 	
+	
 	@Test
-	public void a11_removeTree() {
+	public void a11_addNewCompanyIsolatedPool() {
+		try {
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			CompanyDC companyDC = bf.getCompany();
+			companyDC.getCurrentObject();
+			companyDC.nextObject();
+			CompanyDAO company = companyDC.getCurrentObject();
+			assertEquals(company.getObjId(), new Long(2));
+
+			DepartmentDC departmentDC = bf.getDepartment();
+			assertEquals(departmentDC.isBlocked(), true);
+
+			DepartmentsDAO department = departmentDC.getCurrentObject();
+			assertNull(department);
+
+			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
+			boolean isSet = locationDC.setCurrentPosition(new TreePath[] {
+					new TreePath(null, 0), new TreePath("country2state", 3),
+					new TreePath("state2city", 1),
+					new TreePath("city2street", 2) });
+
+			assertEquals(isSet, true);
+
+			StreetDAO row = (StreetDAO) locationDC.getCurrentObject();
+			assertEquals(row.getObjId(), new Long(12));
+
+			department = departmentDC.getCurrentObject();
+			assertEquals(department.getObjId(), new Long(200));
+			
+			assertNotNull(companyDC.getCurrentObject());
+			assertNotNull(locationDC.getCurrentObject());
+			assertNotNull(departmentDC.getCurrentObject());
+			
+			companyDC.islolate();
+			
+			CompanyDAO newrow = new CompanyDAO();
+			newrow.setObjId(123L);
+
+			Pager<?> pager = getPager(companyDC);
+	          
+	        PoolElement e = new PoolElement(newrow, companyDC.getObjectKey(newrow), companyDC.getBaseClass(), PoolCommand.C.name(), "1");
+	        pager.addCommand(e);
+
+	        companyDC.flush();
+	        
+	        assertNull(locationDC.getCurrentObject());
+	        assertNull(departmentDC.getCurrentObject());
+	        
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}	
+	
+	
+	@Test
+	public void a12_addNewCompanyIsolatedPool() {
+		try {
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			CompanyDC companyDC = bf.getCompany();
+			companyDC.getCurrentObject();
+			companyDC.nextObject();
+			CompanyDAO company = companyDC.getCurrentObject();
+			assertEquals(company.getObjId(), new Long(2));
+
+			DepartmentDC departmentDC = bf.getDepartment();
+			assertEquals(departmentDC.isBlocked(), true);
+
+			DepartmentsDAO department = departmentDC.getCurrentObject();
+			assertNull(department);
+
+			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
+			boolean isSet = locationDC.setCurrentPosition(new TreePath[] {
+					new TreePath(null, 0), new TreePath("country2state", 3),
+					new TreePath("state2city", 1),
+					new TreePath("city2street", 2) });
+
+			assertEquals(isSet, true);
+
+			StreetDAO row = (StreetDAO) locationDC.getCurrentObject();
+			assertEquals(row.getObjId(), new Long(12));
+
+			department = departmentDC.getCurrentObject();
+			assertEquals(department.getObjId(), new Long(200));
+			
+			assertNotNull(companyDC.getCurrentObject());
+			assertNotNull(locationDC.getCurrentObject());
+			assertNotNull(departmentDC.getCurrentObject());
+			
+			
+			DataControl<?> streetDC =  Util.getDataControl(row);
+			
+			streetDC.islolate();
+			
+			StreetDAO newrow = new StreetDAO();
+			newrow.setObjId(123L);
+			newrow.setParentId(row.getParentId());
+
+			Pager<?> pager = getPager(streetDC);
+	          
+	        PoolElement e = new PoolElement(newrow, streetDC.getObjectKey(newrow), streetDC.getBaseClass(), PoolCommand.C.name(), "1");
+	        pager.addCommand(e);
+
+	        streetDC.flush();
+	        
+			StreetDAO row1 = (StreetDAO) locationDC.getCurrentObject();
+
+	        assertEquals(newrow.getObjId(), row1.getObjId());
+	        assertNull(departmentDC.getCurrentObject());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}	
+		
+	
+	
+	@Test
+	public void a13_removeTree() {
 		try {
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 			CompanyDC companyDC = bf.getCompany();
@@ -524,7 +649,13 @@ public class CDITest {
 		}
 
 		
-	}	
+	}		
+	
+	private Pager<?> getPager(DataControl<?> dc) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+        Field field = DataControl.class.getDeclaredField("pager");
+        field.setAccessible(true);
+        return (Pager<?>) field.get(dc);	
+	}
 	
 	class RemoveObjectTracer implements EventListener {
 

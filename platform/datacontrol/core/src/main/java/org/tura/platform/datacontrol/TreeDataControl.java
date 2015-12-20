@@ -21,7 +21,6 @@
  */
 package org.tura.platform.datacontrol;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -46,9 +45,9 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 	protected HashMap<String, Relation> children = new HashMap<String, Relation>();
 
 	private ArrayList<EventListener> eventLiteners = new ArrayList<>();
-	private HashMap<String, IDataControl>  treeControls = new HashMap<>();
-	
+	private HashMap<String, IDataControl> treeControls = new HashMap<>();
 
+	private Object stateObject;
 	private Object currentObject;
 	private TreePath[] currentPosition;
 
@@ -56,13 +55,18 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 
 	private DataControl<?> root;
 
+	
+	public TreeDataControl(){
+		poolFlushAware.add(this);
+	}
+	
 	public DataControl<?> getRoot() {
 		return root;
 	}
 
 	public void setRoot(DataControl<?> root) {
 		this.root = root;
-//		this.currentControl = root;
+		// this.currentControl = root;
 		// root.setParent(treeRelation);
 		currentPosition = new TreePath[] { new TreePath(null, 0) };
 	}
@@ -109,14 +113,6 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		notifyLiteners(new MasterRowChangedEvent(this, newCurrentObject));
 		notifyChageRecordAll(getCurrentObject());
 	}
-
-//	public IDataControl getCurrentControl() {
-//		return currentControl;
-//	}
-
-//	public void setCurrentControl(IDataControl currentControl) {
-//		this.currentControl = currentControl;
-//	}
 
 	protected void notifyChageRecordAll(Object newCurrentObject)
 			throws TuraException {
@@ -236,20 +232,16 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		notifyChageRecordAll(null);
 	}
 
-	public synchronized boolean setCurrentPosition(Object o)
-			throws TuraException {
-		if (blocked)
-			return false;
-
-		TreePath[] path = (TreePath[]) o;
+	private Object[] treeScaner(TreePath[] path) throws TuraException {
 		IDataControl current = root;
 		Object obj = null;
 		for (int i = 0; i < path.length; i++) {
 			int key = path[i].getKey();
 			if (!current.setCurrentPosition(key))
-				return false;
-			obj = current.getCurrentObject();
-			if (obj != null) {
+				return new Object []{obj,false};
+			Object tmp = current.getCurrentObject();
+			if (tmp != null) {
+				obj = tmp;
 				if (i + 1 < path.length) {
 					String relationName = path[i + 1].getRelation();
 					if (current.getChild(relationName) != null) {
@@ -259,39 +251,30 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 						current = rel.getChild();
 
 					} else {
-						BeanWrapper w;
-						try {
-							w = ((BeanWrapper) Reflection.call(currentObject,
-									"getWrapper"));
-							current = w.getDatacontrol();
-						} catch (NoSuchMethodException | SecurityException
-								| IllegalAccessException
-								| IllegalArgumentException
-								| InvocationTargetException e) {
-							throw new TuraException(e);
-						}
-						return false;
+						return new Object []{obj,false};
 					}
 				}
 			} else {
-				BeanWrapper w;
-				try {
-					w = ((BeanWrapper) Reflection.call(currentObject,
-							"getWrapper"));
-					current = w.getDatacontrol();
-				} catch (NoSuchMethodException | SecurityException
-						| IllegalAccessException | IllegalArgumentException
-						| InvocationTargetException e) {
-					throw new TuraException(e);
-				}
-				return false;
+				return new Object []{obj,false};
 			}
-
 		}
-		currentObject = obj;
+		return new Object []{obj,true};
+
+	}
+
+	public synchronized boolean setCurrentPosition(Object o)
+			throws TuraException {
+		if (blocked)
+			return false;
+
+		Object[] a = treeScaner((TreePath[]) o);
+		if ( !(boolean)a[1] )
+			return false;
+
+		currentObject = a[0];
 		currentPosition = (TreePath[]) o;
 		notifyLiteners(new RowChangedEvent(this));
-		notifyChageRecordAll(obj);
+		notifyChageRecordAll(currentObject);
 
 		return true;
 	}
@@ -338,13 +321,52 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		notifyLiteners(event);
 	}
 
-	public void addControl(DataControl<?> dc){
+	public void addControl(DataControl<?> dc) {
 		treeControls.put(dc.getId(), dc);
 	}
-	
-	public HashMap<String, IDataControl> getControls(){
+
+	public HashMap<String, IDataControl> getControls() {
 		return treeControls;
 	}
 
+	public void saveState() throws TuraException {
+		stateObject = currentObject;
+	}
+
+	
+	public void flush() throws TuraException {
+	}	
+	
+	public void onPoolUpdate() throws TuraException {
+		root.onPoolUpdate();
+		Object[] a = treeScaner(currentPosition);
+		Object newObject = a[0];
+
+		String newObjectKey = null;
+		String stateObjectKey = null;
+		
+		if (newObject != null )
+			 newObjectKey = Util.getDataControl(newObject).getObjectKey(newObject);
+		if (stateObject != null )
+		    stateObjectKey = Util.getDataControl(stateObject).getObjectKey(stateObject);
+
+		if (((newObject == null) && (stateObject != null))
+				|| ((newObject != null) && (stateObject == null))
+				|| !(newObjectKey.equals(stateObjectKey))) {
+
+			currentObject = a[0];
+			notifyLiteners(new RowChangedEvent(this));
+			notifyChageRecordAll(newObject);
+
+		}else{
+			for (DependecyProperty dep : dependency) {
+				Object o = root.getElResolver().getValue(dep.getExpression());
+				if ( o instanceof IDataControl)
+					((IDataControl)o).onPoolUpdate();
+			}
+			
+		}
+
+	}
 
 }

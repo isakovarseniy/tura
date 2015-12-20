@@ -21,6 +21,7 @@
  */
 package org.tura.platform.datacontrol;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -30,12 +31,9 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 
 public interface IDataControl {
 	
+	static ArrayList<IDataControl> poolFlushAware = new ArrayList<IDataControl>(); 
 	
 	public void addEventLiteners(EventListener listener);
-
-//	public void addChageRecordLiteners(ChangeRecordListener listener);
-
-//	public void addMusterCurrentRecordChageLiteners(ChangeRecordListener listener);
 
 	public void handleChangeMusterCurrentRecordNotification(
 			Object newCurrentObject) throws TuraException;
@@ -70,6 +68,10 @@ public interface IDataControl {
 	
 	public Relation getParent();
 	
+	public void onPoolUpdate() throws TuraException;
 	
-
+	public void saveState()  throws TuraException;
+	
+	public void flush() throws TuraException;
+	
 }

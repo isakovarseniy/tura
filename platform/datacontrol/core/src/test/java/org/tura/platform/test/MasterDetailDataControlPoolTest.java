@@ -22,6 +22,7 @@
 package org.tura.platform.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 import java.lang.reflect.Field;
@@ -104,6 +105,116 @@ public class MasterDetailDataControlPoolTest {
 
 			assertEquals( new Long(123L),rowe.getObjId());
 			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		
+	}
+	
+	
+	@Test
+	public void t2_getApplyCreateModificationIsolated() {
+		try {
+			factory.initCommandStack();
+			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			
+			Relation relation = new Relation();
+			relation.setParent(dcd);
+			relation.setChild(dce);
+			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+			relation.getLinks().add(link);
+			
+			dcd.addChildren("departmentsToemployees", relation);
+			
+			DepartmentsDAO dep =  dcd.getCurrentObject();
+
+			EmployeesDAO newrow = new EmployeesDAO();
+			newrow.setObjId(123L);
+			newrow.setParentId(dep.getObjId());
+
+			EmployeesDAO rowe = dce.getCurrentObject();
+			
+			
+	        Pager<?> pager = getPager(dce);
+	          
+	        dce.islolate();
+	        
+	        PoolElement e = new PoolElement(newrow, dce.getObjectKey(newrow), dce.getBaseClass(), PoolCommand.C.name(), "1");
+	        pager.addCommand(e);
+	        
+	        
+			EmployeesDAO rowe1 = dce.getCurrentObject();
+
+			assertEquals( rowe1.getObjId(),rowe.getObjId());
+
+	        dce.flush();
+			
+			rowe = dce.getCurrentObject();
+
+			assertEquals( new Long(123L),rowe.getObjId());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		
+	}
+	
+	
+	
+	@Test
+	public void t3_getApplyCreateModificationMasterIsolated() {
+		try {
+			factory.initCommandStack();
+			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			
+			Relation relation = new Relation();
+			relation.setParent(dcd);
+			relation.setChild(dce);
+			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+			relation.getLinks().add(link);
+			
+			dcd.addChildren("departmentsToemployees", relation);
+
+			dcd.islolate();
+			
+			DepartmentsDAO rowd =  dcd.getCurrentObject();
+			EmployeesDAO rowe = dce.getCurrentObject();
+
+			DepartmentsDAO newrow = new DepartmentsDAO();
+			newrow.setObjId(123L);
+
+
+			Pager<?> pager = getPager(dcd);
+	          
+	        PoolElement e = new PoolElement(newrow, dcd.getObjectKey(newrow), dcd.getBaseClass(), PoolCommand.C.name(), "1");
+	        pager.addCommand(e);
+	        
+	        
+	        DepartmentsDAO rowd1 = dcd.getCurrentObject();
+			EmployeesDAO rowe1 = dce.getCurrentObject();
+			
+
+			assertEquals( rowd.getObjId(),rowd1.getObjId());
+			assertEquals( rowe.getObjId(),rowe1.getObjId());
+
+			dcd.flush();
+			
+			rowd =  dcd.getCurrentObject();
+			rowe = dce.getCurrentObject();
+
+			assertEquals( new Long(123L),rowd.getObjId());
+			assertNull(rowe);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

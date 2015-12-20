@@ -24,23 +24,36 @@ package org.tura.platform.datacontrol;
 import java.lang.reflect.InvocationTargetException;
 
 import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.commons.TuraException;
 
 public class Util {
-	
+
 	@SuppressWarnings({ "rawtypes" })
-	public static Object convertobject(Object obj, DataControl datacontrol) throws NoSuchMethodException,
-			SecurityException, InstantiationException, IllegalAccessException,
+	public static Object convertobject(Object obj, DataControl datacontrol)
+			throws NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException {
 
-		Object wrapper = BeanWrapper.newInstance(obj.getClass(),
-				datacontrol);
+		Object wrapper = BeanWrapper.newInstance(obj.getClass(), datacontrol);
 		BeanWrapper w = (BeanWrapper) Reflection.call(wrapper, "getWrapper");
 
 		w.setObj(obj);
 		w.setDatacontrol(datacontrol);
 
-		return  wrapper;
+		return wrapper;
 
-	}	
+	}
+
+	public static DataControl<?> getDataControl(Object obj) throws  TuraException{
+		try {
+			BeanWrapper w = ((BeanWrapper) Reflection.call(obj, "getWrapper"));
+			return w.getDatacontrol();
+		} catch (NoSuchMethodException | SecurityException
+				| IllegalAccessException
+				| IllegalArgumentException
+				| InvocationTargetException e) {
+			throw new TuraException(e);
+		}
+	}
 
 }
