@@ -36,7 +36,6 @@ import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
-import org.tura.platform.datacontrol.annotations.Dependencies;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
@@ -65,7 +64,6 @@ import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
-import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
@@ -322,15 +320,5 @@ public class FilesDC extends DataControl<FileDAO> implements Serializable {
     )
     SelectQuery selectQuery) {
         this.defaultQuery = selectQuery;
-    }
-
-    @Override
-    @Inject
-    public void setDependency(
-        @Dependencies(dependency =  {
-    }
-    )
-    List<DependecyProperty> dependency) {
-        this.dependency = dependency;
     }
 }

@@ -36,8 +36,6 @@ import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
-import org.tura.platform.datacontrol.annotations.Dependencies;
-import org.tura.platform.datacontrol.annotations.Dependency;
 import org.tura.platform.datacontrol.annotations.Insert;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
@@ -66,7 +64,6 @@ import org.tura.platform.datacontrol.command.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
-import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
 
@@ -119,10 +116,9 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
             this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
             this.commandStack.getPoolFlushAware().add(this);
-            
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
-            logger.fine(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 
@@ -324,17 +320,5 @@ public class CountryDC extends DataControl<CountryDAO> implements Serializable {
     )
     SelectQuery selectQuery) {
         this.defaultQuery = selectQuery;
-    }
-
-    @Override
-    @Inject
-    public void setDependency(
-        @Dependencies(dependency =  {
-        @Dependency(expression = "#{beanFactoryHrManagerHRController.department}")
-
-    }
-    )
-    List<DependecyProperty> dependency) {
-        this.dependency = dependency;
     }
 }

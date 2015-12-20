@@ -392,7 +392,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		this.defaultQuery = selectQuery;
 	}
 	
-   [% if ( control.~dependArray.isDefined()){%]
+   [% if ( control.~dependArray.isDefined() and not control.~treeRoot.isDefined()){%]
 	@Override
 	@javax.inject.Inject
 	public void setDependency(
