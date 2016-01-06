@@ -183,8 +183,12 @@ public class LoginManager implements EventAccessor {
 				.getValue("#{beanFactoryHrManagerHRController}");
 
 		try {
-			return ((IUserArtifitialFields) (bf.getUser().getCurrentObject()))
+			
+			Boolean b =  ((IUserArtifitialFields) (bf.getUser().getCurrentObject()))
 					.getLoginError();
+			if ( b == null)
+				return false;
+			return b;
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 			return false;
