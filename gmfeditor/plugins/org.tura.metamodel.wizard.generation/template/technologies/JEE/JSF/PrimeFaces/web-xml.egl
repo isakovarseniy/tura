@@ -114,14 +114,22 @@ operation  web_xml(hash) {
     var error = false ;
     var loginWin = null;
     var errorWin = null;
-    var exceptionHandler = new Native('java.util.HashMap');
+    var exceptionTypeHandler = new Native('java.util.HashMap');
+    var exceptionCodeHandler = new Native('java.util.HashMap');
     
     for (window in windows){
     
-        var list = window.findAllClassifiers("UIGeneration",  "JSF", "exception.handler");
+        var list = window.findAllClassifiers("UIGeneration",  "JSF", "exception.type.handler");
        
         if (list.size <> 0  )
-           exceptionHandler.put(window, list);
+           exceptionTypeHandler.put(window, list);
+
+        var list = window.findAllClassifiers("UIGeneration",  "JSF", "exception.code.handler");
+       
+        if (list.size <> 0  )
+           exceptionCodeHandler.put(window, list);
+
+
        
         if (window.findClassifier("UIGeneration",  "JSF", "login.page") and login == false  ){
           login = true;
@@ -157,8 +165,8 @@ operation  web_xml(hash) {
 
 [%
     }
-   for(window in exceptionHandler.keySet()){
-       var list = exceptionHandler.get(window);
+   for(window in exceptionTypeHandler.keySet()){
+       var list = exceptionTypeHandler.get(window);
         for(hint in  list){
           var form =  window.eContainer().parent.eContainer();
           var pkg = form.eContainer().parent;        
@@ -171,6 +179,22 @@ operation  web_xml(hash) {
         } 
    
    } 
+    
+    for(window in exceptionCodeHandler.keySet()){
+       var list = exceptionCodeHandler.get(window);
+        for(hint in  list){
+          var form =  window.eContainer().parent.eContainer();
+          var pkg = form.eContainer().parent;        
+        %]
+ <error-page>
+     <error-code>[%=hint.details%]</error-code>
+     <location>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(window.name)+".xhtml"%]</location>
+ </error-page>   
+ [%     
+        } 
+   
+   }    
+    
     
   }
  %]
