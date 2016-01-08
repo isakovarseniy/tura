@@ -19,4 +19,27 @@ public class  [%=type.~class%]Service extends org.tura.platform.commons.jpa.Tura
 	public javax.persistence.EntityManager getEntityManager() {
 		return emHelper.getEntityManager();
 	}
+	
+    @Override
+	public org.tura.platform.persistence.TuraObject create(String objectClass) throws Exception {
+    	try{
+    		getEntityManager().getTransaction().begin();
+    		
+    		return super.create(objectClass);
+    	}finally{
+       		getEntityManager().getTransaction().commit();
+       	    		
+    	}
+    }    	
+    
+    @Override
+	public java.util.List<?> find(com.octo.java.sql.query.SelectQuery dslQuery, Integer startIndex,Integer endIndex, String objectClass) throws Exception {
+    	try{
+    		return super.find(dslQuery, startIndex, endIndex, objectClass);
+    	}finally{
+    		emHelper.destroyEntityManager();
+    	}
+    	
+	}   	
+	
 }

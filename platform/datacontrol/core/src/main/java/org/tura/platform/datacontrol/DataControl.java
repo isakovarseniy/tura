@@ -448,7 +448,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 		if (((newObject == null) && (stateObject != null))
 				|| ((newObject != null) && (stateObject == null))
-				|| !(newObjectKey.equals(stateObjectKey))) {
+				|| ( (newObjectKey != null) && (stateObjectKey != null) &&  !(newObjectKey.equals(stateObjectKey)))  ) {
 
 			notifyLiteners(new RowChangedEvent(this));
 			notifyChageRecordAll(newObject);

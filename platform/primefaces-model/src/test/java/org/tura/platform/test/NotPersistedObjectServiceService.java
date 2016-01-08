@@ -24,10 +24,7 @@ package org.tura.platform.test;
 import javax.annotation.Priority;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
 
-import org.tura.example.ui.commons.producer.EntityManagerHelper;
 import org.tura.platform.commons.jpa.NotPersistedObjectService;
 
 @Alternative
@@ -35,11 +32,5 @@ import org.tura.platform.commons.jpa.NotPersistedObjectService;
 @ApplicationScoped
 public class NotPersistedObjectServiceService extends NotPersistedObjectService {
     private static final long serialVersionUID = 1L;
-    @Inject
-    private EntityManagerHelper emHelper;
 
-    @Override
-    public EntityManager getEntityManager() {
-        return emHelper.getEntityManager();
-    }
 }

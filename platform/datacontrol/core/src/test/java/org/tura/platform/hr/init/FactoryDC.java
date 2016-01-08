@@ -53,7 +53,7 @@ public class FactoryDC {
 	private ELResolver elResolver;
 	private EntityManager em;
 	private CommandStack sc;
-	private TuraJPAEntityService provider = new TuraJPAEntityService();
+	private TuraJPAEntityService provider = new TuraJPAEntityServiceProxy();
 
 	public FactoryDC(String unit) {
 

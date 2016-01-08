@@ -22,12 +22,13 @@
 package org.tura.platform.commons.jpa;
 
 import java.io.Serializable;
+import java.nio.ByteBuffer;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.EntityManager;
 
 import org.tura.platform.datacontrol.commons.LazyList;
-import org.tura.platform.persistence.ObjectsID;
 import org.tura.platform.persistence.TuraObject;
 
 import com.octo.java.sql.query.SelectQuery;
@@ -50,7 +51,8 @@ public class NotPersistedObjectService implements Serializable {
 		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
 				.loadClass(objectClass);
 		TuraObject obj = (TuraObject) clazz.newInstance();
-		obj.setObjId(this.getObjectID(getEntityManager()));
+		long id=ByteBuffer.wrap(UUID.randomUUID().toString().getBytes()).asLongBuffer().get();
+		obj.setObjId( id);
 		return obj;
 
 	}
@@ -68,13 +70,5 @@ public class NotPersistedObjectService implements Serializable {
 	public void insert(TuraObject entity) {
 	}
 
-	protected Long getObjectID(EntityManager em) {
-		ObjectsID obj = new ObjectsID();
-		em.persist(obj);
-		em.remove(obj);
-		em.flush();
-
-		return obj.getObjId();
-	}
 
 }

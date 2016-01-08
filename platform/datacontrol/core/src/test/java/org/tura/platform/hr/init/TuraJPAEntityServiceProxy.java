@@ -19,44 +19,13 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.test;
+package org.tura.platform.hr.init;
 
-import java.util.List;
-
-import javax.annotation.Priority;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-
-import org.tura.example.ui.commons.producer.EntityManagerHelper;
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.persistence.TuraObject;
 
-import com.octo.java.sql.query.SelectQuery;
-
-@Alternative
-@Priority(0)
-@ApplicationScoped
-public class TuraJPAEntityServiceService extends TuraJPAEntityService {
+public class TuraJPAEntityServiceProxy extends TuraJPAEntityService {
     private static final long serialVersionUID = 1L;
-    @Inject
-    private EntityManagerHelper emHelper;
-
-    @Override
-    public EntityManager getEntityManager() {
-        return emHelper.getEntityManager();
-    }
-    
-    @Override
-    public List<?> find(SelectQuery dslQuery, Integer startIndex,
-        Integer endIndex, String objectClass) throws Exception {
-        try {
-            return super.find(dslQuery, startIndex, endIndex, objectClass);
-        } finally {
-            emHelper.destroyEntityManager();
-        }
-    }   
     
     
     @Override
@@ -70,6 +39,5 @@ public class TuraJPAEntityServiceService extends TuraJPAEntityService {
        	    		
     	}
     }    
-    
-    
+
 }

@@ -11,13 +11,4 @@ public class  [%=type.~class%]Service extends org.tura.platform.commons.jpa.NotP
 
 	private static final long serialVersionUID = 1L;
 
-    @javax.inject.Inject
-    private org.tura.example.ui.commons.producer.EntityManagerHelper emHelper;
-
-
-    @Override
-	public javax.persistence.EntityManager getEntityManager() {
-		return emHelper.getEntityManager();
-	}
-
 }
