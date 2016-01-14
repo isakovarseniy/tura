@@ -12,7 +12,7 @@
  -->
 <project default="main">
 	
-	<target name="main" depends="application,artifact,domain,mapper,recipe,typedefinition,typesrepository,deployment,uipackage,control,infarastructure,view,roles,style,canvas,message,copy-icons">
+	<target name="main" depends="application,artifact,domain,mapper,recipe,typedefinition,typesrepository,deployment,uipackage,control,infarastructure,view,roles,style,canvas,message,menu,copy-icons">
 	</target>
 	
 	<target name="application">
@@ -131,6 +131,13 @@
 		<epsilon.eugenia   src="message/domain.emf" firststep="gmfcode"  />		
 	</target>	
 
+	
+	<target name="menu">
+		<copy file="basefolder/domain.emf" todir="menu"/>
+		<replace file="menu/domain.emf"    token="@gmf.diagram.menu" value="@gmf.diagram"/>
+		<epsilon.eugenia   src="menu/domain.emf" laststep="gmfgen" />		
+		<epsilon.eugenia   src="menu/domain.emf" firststep="gmfcode"  />		
+	</target>		
 	
 	<target name="copy-icons">
 		<copy todir="../org.tura.metamodel.edit/icons/full/obj16">

@@ -17,6 +17,7 @@ package domain.impl;
 import domain.CanvasFrame;
 import domain.DomainPackage;
 import domain.FormView;
+import domain.Menu;
 import domain.TabPagesInheritance;
 import domain.ViewInheritance;
 import domain.Views;
@@ -50,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ViewsImpl#getCanvases <em>Canvases</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getViewInheritances <em>View Inheritances</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getTabPagesInheritances <em>Tab Pages Inheritances</em>}</li>
+ *   <li>{@link domain.impl.ViewsImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link domain.impl.ViewsImpl#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
@@ -116,6 +118,16 @@ public class ViewsImpl extends EObjectImpl implements Views {
 	 * @ordered
 	 */
 	protected EList<TabPagesInheritance> tabPagesInheritances;
+
+	/**
+	 * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMenus()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Menu> menus;
 
 	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
@@ -268,6 +280,18 @@ public class ViewsImpl extends EObjectImpl implements Views {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Menu> getMenus() {
+		if (menus == null) {
+			menus = new EObjectContainmentEList<Menu>(Menu.class, this, DomainPackage.VIEWS__MENUS);
+		}
+		return menus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EObject getAny() {
 		return any;
 	}
@@ -338,6 +362,8 @@ public class ViewsImpl extends EObjectImpl implements Views {
 				return ((InternalEList<?>)getViewInheritances()).basicRemove(otherEnd, msgs);
 			case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
 				return ((InternalEList<?>)getTabPagesInheritances()).basicRemove(otherEnd, msgs);
+			case DomainPackage.VIEWS__MENUS:
+				return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
 			case DomainPackage.VIEWS__ANY:
 				return basicSetAny(null, msgs);
 		}
@@ -363,6 +389,8 @@ public class ViewsImpl extends EObjectImpl implements Views {
 				return getViewInheritances();
 			case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
 				return getTabPagesInheritances();
+			case DomainPackage.VIEWS__MENUS:
+				return getMenus();
 			case DomainPackage.VIEWS__ANY:
 				return getAny();
 		}
@@ -396,6 +424,10 @@ public class ViewsImpl extends EObjectImpl implements Views {
 				getTabPagesInheritances().clear();
 				getTabPagesInheritances().addAll((Collection<? extends TabPagesInheritance>)newValue);
 				return;
+			case DomainPackage.VIEWS__MENUS:
+				getMenus().clear();
+				getMenus().addAll((Collection<? extends Menu>)newValue);
+				return;
 			case DomainPackage.VIEWS__ANY:
 				setAny((EObject)newValue);
 				return;
@@ -426,6 +458,9 @@ public class ViewsImpl extends EObjectImpl implements Views {
 			case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
 				getTabPagesInheritances().clear();
 				return;
+			case DomainPackage.VIEWS__MENUS:
+				getMenus().clear();
+				return;
 			case DomainPackage.VIEWS__ANY:
 				setAny((EObject)null);
 				return;
@@ -451,6 +486,8 @@ public class ViewsImpl extends EObjectImpl implements Views {
 				return viewInheritances != null && !viewInheritances.isEmpty();
 			case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
 				return tabPagesInheritances != null && !tabPagesInheritances.isEmpty();
+			case DomainPackage.VIEWS__MENUS:
+				return menus != null && !menus.isEmpty();
 			case DomainPackage.VIEWS__ANY:
 				return any != null;
 		}

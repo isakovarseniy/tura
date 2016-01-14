@@ -111,6 +111,12 @@ import domain.LinkToMessage;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.Menu;
+import domain.MenuElement;
+import domain.MenuFolder;
+import domain.MenuItem;
+import domain.MenuSeparator;
+import domain.MenuView;
 import domain.Message;
 import domain.MessageElement;
 import domain.MessageLibrary;
@@ -166,6 +172,7 @@ import domain.StyleLibrary;
 import domain.StyleSet;
 import domain.Styles;
 import domain.StylesPackage;
+import domain.SubMenu;
 import domain.Subsystem;
 import domain.TabCanvas;
 import domain.TabPage;
@@ -946,6 +953,14 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DomainPackage.MENU: {
+				Menu menu = (Menu)theEObject;
+				T result = caseMenu(menu);
+				if (result == null) result = caseStyleElement(menu);
+				if (result == null) result = caseCategorized(menu);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DomainPackage.TAB_CANVAS: {
 				TabCanvas tabCanvas = (TabCanvas)theEObject;
 				T result = caseTabCanvas(tabCanvas);
@@ -1644,6 +1659,50 @@ public class DomainSwitch<T> extends Switch<T> {
 				ServerClaster serverClaster = (ServerClaster)theEObject;
 				T result = caseServerClaster(serverClaster);
 				if (result == null) result = caseInfrastructureComponent(serverClaster);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.MENU_VIEW: {
+				MenuView menuView = (MenuView)theEObject;
+				T result = caseMenuView(menuView);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.MENU_ELEMENT: {
+				MenuElement menuElement = (MenuElement)theEObject;
+				T result = caseMenuElement(menuElement);
+				if (result == null) result = caseOrderable(menuElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.MENU_FOLDER: {
+				MenuFolder menuFolder = (MenuFolder)theEObject;
+				T result = caseMenuFolder(menuFolder);
+				if (result == null) result = caseHTMLLayerHolder(menuFolder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.MENU_ITEM: {
+				MenuItem menuItem = (MenuItem)theEObject;
+				T result = caseMenuItem(menuItem);
+				if (result == null) result = caseMenuElement(menuItem);
+				if (result == null) result = caseOrderable(menuItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.SUB_MENU: {
+				SubMenu subMenu = (SubMenu)theEObject;
+				T result = caseSubMenu(subMenu);
+				if (result == null) result = caseMenuElement(subMenu);
+				if (result == null) result = caseOrderable(subMenu);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.MENU_SEPARATOR: {
+				MenuSeparator menuSeparator = (MenuSeparator)theEObject;
+				T result = caseMenuSeparator(menuSeparator);
+				if (result == null) result = caseMenuElement(menuSeparator);
+				if (result == null) result = caseOrderable(menuSeparator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3197,6 +3256,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Menu</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Menu</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMenu(Menu object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Tab Canvas</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -4363,6 +4437,96 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseServerClaster(ServerClaster object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Menu View</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Menu View</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMenuView(MenuView object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Menu Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Menu Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMenuElement(MenuElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Menu Folder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Menu Folder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMenuFolder(MenuFolder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Menu Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Menu Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMenuItem(MenuItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sub Menu</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sub Menu</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubMenu(SubMenu object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Menu Separator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Menu Separator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMenuSeparator(MenuSeparator object) {
 		return null;
 	}
 

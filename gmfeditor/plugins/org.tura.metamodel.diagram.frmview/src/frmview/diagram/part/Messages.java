@@ -278,72 +278,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String PopupCanvas2CreationTool_title;
+	public static String Menu2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PopupCanvas2CreationTool_desc;
+	public static String Menu2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas3CreationTool_title;
+	public static String PopupCanvas3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabCanvas3CreationTool_desc;
+	public static String PopupCanvas3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage4CreationTool_title;
+	public static String TabCanvas4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String TabPage4CreationTool_desc;
+	public static String TabCanvas4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea5CreationTool_title;
+	public static String TabPage5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewArea5CreationTool_desc;
+	public static String TabPage5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort6CreationTool_title;
+	public static String ViewArea6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPort6CreationTool_desc;
+	public static String ViewArea6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger7CreationTool_title;
+	public static String ViewPort7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ViewPortTrigger7CreationTool_desc;
+	public static String ViewPort7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Window8CreationTool_title;
+	public static String ViewPortTrigger8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Window8CreationTool_desc;
+	public static String ViewPortTrigger8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Window9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Window9CreationTool_desc;
 
 	/**
 	 * @generated

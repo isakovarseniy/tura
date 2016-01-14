@@ -1,0 +1,26 @@
+//Enable dynamic templates
+var genEditorGenerator = GmfGen!GenEditorGenerator.all.first;
+genEditorGenerator.setDynamicTemplates(true);
+genEditorGenerator.setTemplateDirectory('/org.tura.metamodel/templates/');
+
+var plugin = GmfGen!GenPlugin.all.first;
+plugin.id = 'org.tura.metamodel.diagram.menu';
+
+
+-- distinct visual ID
+for (c in GmfGen!GenCommonBase.allInstances) {
+  c.setVisualID (c.getVisualID()+1800000);
+}
+
+
+-- distinct model IDs
+genEditorGenerator.setModelID('Menu');
+-- distinct package prefix
+genEditorGenerator.setPackageNamePrefix('menu.diagram');
+-- distinct diagram file extension
+genEditorGenerator.setDiagramFileExtension('menu_diagram');
+-- set ID model editor
+var genEditorView = GmfGen!GenEditorView.all.first;
+genEditorView.setID('menu.diagram.part.MenuDiagramEditorID');
+
+

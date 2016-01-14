@@ -19,10 +19,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Set;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -46,6 +48,7 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import domain.DomainPackage;
 import frmview.diagram.edit.parts.CanvasEditPart;
+import frmview.diagram.edit.parts.MenuEditPart;
 import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
@@ -69,6 +72,11 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	private Set<EStructuralFeature> myFeaturesToSynchronize;
+
+	/**
+	 * @generated
+	 */
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -81,8 +89,15 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected EStructuralFeature getFeatureToSynchronize() {
-		return DomainPackage.eINSTANCE.getViews_Canvases();
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getViews_Canvases());
+			myFeaturesToSynchronize.add(DomainPackage.eINSTANCE
+					.getViews_Menus());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 	/**
@@ -123,6 +138,7 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case WindowEditPart.VISUAL_ID:
 		case TabPageEditPart.VISUAL_ID:
 		case TabCanvasEditPart.VISUAL_ID:
+		case MenuEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
@@ -330,6 +346,14 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getTabCanvas_1302008ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case MenuEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getMenu_1302010ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

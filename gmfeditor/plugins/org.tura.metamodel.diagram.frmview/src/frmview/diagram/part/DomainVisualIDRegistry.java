@@ -27,6 +27,8 @@ import domain.Views;
 import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
+import frmview.diagram.edit.parts.MenuEditPart;
+import frmview.diagram.edit.parts.MenuNameEditPart;
 import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.PopupCanvasNameEditPart;
 import frmview.diagram.edit.parts.PopupCanvasPopupCanvasViewElementCompartmentEditPart;
@@ -178,6 +180,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return TabCanvasEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getMenu().isSuperTypeOf(
+					domainElement.eClass())) {
+				return MenuEditPart.VISUAL_ID;
+			}
 			break;
 		case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getViewPort().isSuperTypeOf(
@@ -267,6 +273,9 @@ public class DomainVisualIDRegistry {
 			if (TabCanvasEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (MenuEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case PopupCanvasEditPart.VISUAL_ID:
 			if (PopupCanvasNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -302,6 +311,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case TabCanvasEditPart.VISUAL_ID:
 			if (TabCanvasNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case MenuEditPart.VISUAL_ID:
+			if (MenuNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -430,6 +444,7 @@ public class DomainVisualIDRegistry {
 		case ViewsEditPart.VISUAL_ID:
 			return false;
 		case TabCanvasEditPart.VISUAL_ID:
+		case MenuEditPart.VISUAL_ID:
 		case ViewPortTriggerEditPart.VISUAL_ID:
 		case ViewAreaEditPart.VISUAL_ID:
 			return true;

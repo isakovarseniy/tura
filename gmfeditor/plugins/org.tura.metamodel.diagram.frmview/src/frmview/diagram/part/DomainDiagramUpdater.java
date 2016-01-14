@@ -31,6 +31,7 @@ import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 import domain.Canvas;
 import domain.CanvasFrame;
 import domain.DomainPackage;
+import domain.Menu;
 import domain.PopupCanvas;
 import domain.TabCanvas;
 import domain.TabPage;
@@ -43,6 +44,7 @@ import domain.Views;
 import domain.Window;
 import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
+import frmview.diagram.edit.parts.MenuEditPart;
 import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.PopupCanvasPopupCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
@@ -125,6 +127,15 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 			if (visualID == TabCanvasEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getMenus().iterator(); it.hasNext();) {
+			Menu childElement = (Menu) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == MenuEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -298,6 +309,8 @@ public class DomainDiagramUpdater {
 			return getTabPage_1302002ContainedLinks(view);
 		case TabCanvasEditPart.VISUAL_ID:
 			return getTabCanvas_1302008ContainedLinks(view);
+		case MenuEditPart.VISUAL_ID:
+			return getMenu_1302010ContainedLinks(view);
 		case ViewPortEditPart.VISUAL_ID:
 			return getViewPort_1303004ContainedLinks(view);
 		case ViewPortTriggerEditPart.VISUAL_ID:
@@ -327,6 +340,8 @@ public class DomainDiagramUpdater {
 			return getTabPage_1302002IncomingLinks(view);
 		case TabCanvasEditPart.VISUAL_ID:
 			return getTabCanvas_1302008IncomingLinks(view);
+		case MenuEditPart.VISUAL_ID:
+			return getMenu_1302010IncomingLinks(view);
 		case ViewPortEditPart.VISUAL_ID:
 			return getViewPort_1303004IncomingLinks(view);
 		case ViewPortTriggerEditPart.VISUAL_ID:
@@ -356,6 +371,8 @@ public class DomainDiagramUpdater {
 			return getTabPage_1302002OutgoingLinks(view);
 		case TabCanvasEditPart.VISUAL_ID:
 			return getTabCanvas_1302008OutgoingLinks(view);
+		case MenuEditPart.VISUAL_ID:
+			return getMenu_1302010OutgoingLinks(view);
 		case ViewPortEditPart.VISUAL_ID:
 			return getViewPort_1303004OutgoingLinks(view);
 		case ViewPortTriggerEditPart.VISUAL_ID:
@@ -418,6 +435,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getTabCanvas_1302008ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getMenu_1302010ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -537,6 +562,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMenu_1302010IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getViewPort_1303004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -615,6 +648,14 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_TabPagesInheritance_1304002(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getMenu_1302010OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**

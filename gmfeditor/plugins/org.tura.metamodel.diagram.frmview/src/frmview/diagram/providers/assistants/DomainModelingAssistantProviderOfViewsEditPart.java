@@ -35,12 +35,13 @@ public class DomainModelingAssistantProviderOfViewsEditPart extends
 	 */
 	@Override
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
-		List<IElementType> types = new ArrayList<IElementType>(5);
+		List<IElementType> types = new ArrayList<IElementType>(6);
 		types.add(DomainElementTypes.PopupCanvas_1302009);
 		types.add(DomainElementTypes.Canvas_1302003);
 		types.add(DomainElementTypes.Window_1302007);
 		types.add(DomainElementTypes.TabPage_1302002);
 		types.add(DomainElementTypes.TabCanvas_1302008);
+		types.add(DomainElementTypes.Menu_1302010);
 		return types;
 	}
 

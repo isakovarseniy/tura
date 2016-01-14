@@ -2453,6 +2453,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.Menu} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuItemProvider menuItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.Menu}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuAdapter() {
+		if (menuItemProvider == null) {
+			menuItemProvider = new MenuItemProvider(this);
+		}
+
+		return menuItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.TabCanvas} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4247,6 +4270,144 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.MenuView} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuViewItemProvider menuViewItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.MenuView}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuViewAdapter() {
+		if (menuViewItemProvider == null) {
+			menuViewItemProvider = new MenuViewItemProvider(this);
+		}
+
+		return menuViewItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.MenuElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuElementItemProvider menuElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.MenuElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuElementAdapter() {
+		if (menuElementItemProvider == null) {
+			menuElementItemProvider = new MenuElementItemProvider(this);
+		}
+
+		return menuElementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.MenuFolder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuFolderItemProvider menuFolderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.MenuFolder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuFolderAdapter() {
+		if (menuFolderItemProvider == null) {
+			menuFolderItemProvider = new MenuFolderItemProvider(this);
+		}
+
+		return menuFolderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.MenuItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuItemItemProvider menuItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.MenuItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuItemAdapter() {
+		if (menuItemItemProvider == null) {
+			menuItemItemProvider = new MenuItemItemProvider(this);
+		}
+
+		return menuItemItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.SubMenu} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubMenuItemProvider subMenuItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.SubMenu}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSubMenuAdapter() {
+		if (subMenuItemProvider == null) {
+			subMenuItemProvider = new SubMenuItemProvider(this);
+		}
+
+		return subMenuItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.MenuSeparator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuSeparatorItemProvider menuSeparatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.MenuSeparator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuSeparatorAdapter() {
+		if (menuSeparatorItemProvider == null) {
+			menuSeparatorItemProvider = new MenuSeparatorItemProvider(this);
+		}
+
+		return menuSeparatorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4448,6 +4609,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (popupCanvasItemProvider != null) popupCanvasItemProvider.dispose();
 		if (canvasItemProvider != null) canvasItemProvider.dispose();
 		if (windowItemProvider != null) windowItemProvider.dispose();
+		if (menuItemProvider != null) menuItemProvider.dispose();
 		if (tabCanvasItemProvider != null) tabCanvasItemProvider.dispose();
 		if (tabPageItemProvider != null) tabPageItemProvider.dispose();
 		if (viewPortItemProvider != null) viewPortItemProvider.dispose();
@@ -4526,6 +4688,12 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (hubItemProvider != null) hubItemProvider.dispose();
 		if (storageItemProvider != null) storageItemProvider.dispose();
 		if (serverClasterItemProvider != null) serverClasterItemProvider.dispose();
+		if (menuViewItemProvider != null) menuViewItemProvider.dispose();
+		if (menuElementItemProvider != null) menuElementItemProvider.dispose();
+		if (menuFolderItemProvider != null) menuFolderItemProvider.dispose();
+		if (menuItemItemProvider != null) menuItemItemProvider.dispose();
+		if (subMenuItemProvider != null) subMenuItemProvider.dispose();
+		if (menuSeparatorItemProvider != null) menuSeparatorItemProvider.dispose();
 	}
 
 }

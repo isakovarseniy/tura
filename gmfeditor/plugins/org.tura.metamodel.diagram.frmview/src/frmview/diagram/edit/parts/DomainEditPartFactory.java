@@ -70,6 +70,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case TabCanvasNameEditPart.VISUAL_ID:
 				return new TabCanvasNameEditPart(view);
 
+			case MenuEditPart.VISUAL_ID:
+				return new MenuEditPart(view);
+
+			case MenuNameEditPart.VISUAL_ID:
+				return new MenuNameEditPart(view);
+
 			case ViewPortEditPart.VISUAL_ID:
 				return new ViewPortEditPart(view);
 

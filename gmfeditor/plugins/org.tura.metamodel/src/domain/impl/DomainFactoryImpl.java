@@ -113,6 +113,12 @@ import domain.LinkToMessage;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.Menu;
+import domain.MenuElement;
+import domain.MenuFolder;
+import domain.MenuItem;
+import domain.MenuSeparator;
+import domain.MenuView;
 import domain.Message;
 import domain.MessageElement;
 import domain.MessageLibrary;
@@ -171,6 +177,7 @@ import domain.StyleLibrary;
 import domain.StyleSet;
 import domain.Styles;
 import domain.StylesPackage;
+import domain.SubMenu;
 import domain.Subsystem;
 import domain.TabCanvas;
 import domain.TabPage;
@@ -357,6 +364,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.POPUP_CANVAS: return createPopupCanvas();
 			case DomainPackage.CANVAS: return createCanvas();
 			case DomainPackage.WINDOW: return createWindow();
+			case DomainPackage.MENU: return createMenu();
 			case DomainPackage.TAB_CANVAS: return createTabCanvas();
 			case DomainPackage.TAB_PAGE: return createTabPage();
 			case DomainPackage.VIEW_PORT: return createViewPort();
@@ -435,6 +443,12 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.HUB: return createHub();
 			case DomainPackage.STORAGE: return createStorage();
 			case DomainPackage.SERVER_CLASTER: return createServerClaster();
+			case DomainPackage.MENU_VIEW: return createMenuView();
+			case DomainPackage.MENU_ELEMENT: return createMenuElement();
+			case DomainPackage.MENU_FOLDER: return createMenuFolder();
+			case DomainPackage.MENU_ITEM: return createMenuItem();
+			case DomainPackage.SUB_MENU: return createSubMenu();
+			case DomainPackage.MENU_SEPARATOR: return createMenuSeparator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1517,6 +1531,16 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Menu createMenu() {
+		MenuImpl menu = new MenuImpl();
+		return menu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TabCanvas createTabCanvas() {
 		TabCanvasImpl tabCanvas = new TabCanvasImpl();
 		return tabCanvas;
@@ -2290,6 +2314,66 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public ServerClaster createServerClaster() {
 		ServerClasterImpl serverClaster = new ServerClasterImpl();
 		return serverClaster;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuView createMenuView() {
+		MenuViewImpl menuView = new MenuViewImpl();
+		return menuView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuElement createMenuElement() {
+		MenuElementImpl menuElement = new MenuElementImpl();
+		return menuElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuFolder createMenuFolder() {
+		MenuFolderImpl menuFolder = new MenuFolderImpl();
+		return menuFolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuItem createMenuItem() {
+		MenuItemImpl menuItem = new MenuItemImpl();
+		return menuItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubMenu createSubMenu() {
+		SubMenuImpl subMenu = new SubMenuImpl();
+		return subMenu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuSeparator createMenuSeparator() {
+		MenuSeparatorImpl menuSeparator = new MenuSeparatorImpl();
+		return menuSeparator;
 	}
 
 	/**

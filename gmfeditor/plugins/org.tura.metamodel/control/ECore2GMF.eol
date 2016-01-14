@@ -494,3 +494,19 @@ var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='LinkToLabel');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='LinkToLabel');
 delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='ToSubmenu');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ToSubmenu');
+delete tool;
+
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MenuFolder');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MenuItem');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MenuSeparator');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Menu');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='SubMenu');
+delete tool;

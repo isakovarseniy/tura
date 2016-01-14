@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Views#getCanvases <em>Canvases</em>}</li>
  *   <li>{@link domain.Views#getViewInheritances <em>View Inheritances</em>}</li>
  *   <li>{@link domain.Views#getTabPagesInheritances <em>Tab Pages Inheritances</em>}</li>
+ *   <li>{@link domain.Views#getMenus <em>Menus</em>}</li>
  *   <li>{@link domain.Views#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
@@ -141,6 +142,22 @@ public interface Views extends EObject {
 	 * @generated
 	 */
 	EList<TabPagesInheritance> getTabPagesInheritances();
+
+	/**
+	 * Returns the value of the '<em><b>Menus</b></em>' containment reference list.
+	 * The list contents are of type {@link domain.Menu}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Menus</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Menus</em>' containment reference list.
+	 * @see domain.DomainPackage#getViews_Menus()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Menu> getMenus();
 
 	/**
 	 * Returns the value of the '<em><b>Any</b></em>' containment reference.

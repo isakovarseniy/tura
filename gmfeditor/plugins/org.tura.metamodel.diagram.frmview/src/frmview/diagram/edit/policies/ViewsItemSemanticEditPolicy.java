@@ -23,6 +23,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import frmview.diagram.edit.commands.CanvasCreateCommand;
+import frmview.diagram.edit.commands.MenuCreateCommand;
 import frmview.diagram.edit.commands.PopupCanvasCreateCommand;
 import frmview.diagram.edit.commands.TabCanvasCreateCommand;
 import frmview.diagram.edit.commands.TabPageCreateCommand;
@@ -60,6 +61,9 @@ public class ViewsItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.TabCanvas_1302008 == req.getElementType()) {
 			return getGEFWrapper(new TabCanvasCreateCommand(req));
+		}
+		if (DomainElementTypes.Menu_1302010 == req.getElementType()) {
+			return getGEFWrapper(new MenuCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

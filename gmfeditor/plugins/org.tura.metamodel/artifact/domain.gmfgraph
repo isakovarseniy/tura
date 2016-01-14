@@ -47,6 +47,7 @@
       <figures xsi:type="gmfgraph:PolylineDecoration" name="RecipeInfrastructuresFigureTargetDecoration"/>
       <figures xsi:type="gmfgraph:PolylineDecoration" name="RecipeDeploymentFigureTargetDecoration"/>
       <figures xsi:type="gmfgraph:PolylineDecoration" name="InfrastructureRecipeConfigFigureTargetDecoration"/>
+      <figures xsi:type="gmfgraph:PolylineDecoration" name="SubMenuToSubmenuFigureTargetDecoration"/>
       <descriptors name="DomainArtifactsFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="DomainArtifactsFigure">
           <foregroundColor xsi:type="gmfgraph:RGBColor"/>
@@ -906,6 +907,19 @@
         <accessors accessor="getFigureWindowLabelFigure" figure="/0/@figures.0/@descriptors.63/@actualFigure/@children.0"/>
         <accessors accessor="getWindowViewElementCompartmentFigure" figure="/0/@figures.0/@descriptors.63/@actualFigure/@children.1"/>
       </descriptors>
+      <descriptors name="MenuFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MenuFigure">
+          <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+          <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="153" blue="204"/>
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="MenuLabelFigure" text="Menu">
+            <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
+          </children>
+        </actualFigure>
+        <accessors accessor="getFigureMenuLabelFigure" figure="/0/@figures.0/@descriptors.64/@actualFigure/@children.0"/>
+      </descriptors>
       <descriptors name="TabCanvasFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TabCanvasFigure">
           <foregroundColor xsi:type="gmfgraph:RGBColor"/>
@@ -917,7 +931,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureTabCanvasLabelFigure" figure="/0/@figures.0/@descriptors.64/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureTabCanvasLabelFigure" figure="/0/@figures.0/@descriptors.65/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="TabPageFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TabPageFigure">
@@ -932,8 +946,8 @@
           </children>
           <children xsi:type="gmfgraph:Rectangle" name="TabPageViewElementCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureTabPageLabelFigure" figure="/0/@figures.0/@descriptors.65/@actualFigure/@children.0"/>
-        <accessors accessor="getTabPageViewElementCompartmentFigure" figure="/0/@figures.0/@descriptors.65/@actualFigure/@children.1"/>
+        <accessors accessor="getFigureTabPageLabelFigure" figure="/0/@figures.0/@descriptors.66/@actualFigure/@children.0"/>
+        <accessors accessor="getTabPageViewElementCompartmentFigure" figure="/0/@figures.0/@descriptors.66/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors name="ViewPortFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ViewPortFigure">
@@ -948,8 +962,8 @@
           </children>
           <children xsi:type="gmfgraph:Rectangle" name="ViewPortViewPortTriggerCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureViewPortLabelFigure" figure="/0/@figures.0/@descriptors.66/@actualFigure/@children.0"/>
-        <accessors accessor="getViewPortViewPortTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.66/@actualFigure/@children.1"/>
+        <accessors accessor="getFigureViewPortLabelFigure" figure="/0/@figures.0/@descriptors.67/@actualFigure/@children.0"/>
+        <accessors accessor="getViewPortViewPortTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.67/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors name="ViewAreaFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ViewAreaFigure">
@@ -962,7 +976,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureViewAreaLabelFigure" figure="/0/@figures.0/@descriptors.67/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureViewAreaLabelFigure" figure="/0/@figures.0/@descriptors.68/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="ViewPortTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ViewPortTriggerFigure">
@@ -975,7 +989,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureViewPortTriggerLabelFigure" figure="/0/@figures.0/@descriptors.68/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureViewPortTriggerLabelFigure" figure="/0/@figures.0/@descriptors.69/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="FormDataControlsFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="FormDataControlsFigure">
@@ -988,7 +1002,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureFormDataControlsLabelFigure" figure="/0/@figures.0/@descriptors.69/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureFormDataControlsLabelFigure" figure="/0/@figures.0/@descriptors.70/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="LayerHolderFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="LayerHolderFigure">
@@ -997,7 +1011,7 @@
           </border>
           <children xsi:type="gmfgraph:Rectangle" name="LayerHolderChildrenCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getLayerHolderChildrenCompartmentFigure" figure="/0/@figures.0/@descriptors.70/@actualFigure/@children.0"/>
+        <accessors accessor="getLayerHolderChildrenCompartmentFigure" figure="/0/@figures.0/@descriptors.71/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="InputTextFigure">
         <actualFigure xsi:type="gmfgraph:CustomFigure" name="InputTextFigure" qualifiedClassName="org.tura.metamodel.commons.figures.InputTextFigure"/>
@@ -1014,7 +1028,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureLabelLabelFigure" figure="/0/@figures.0/@descriptors.73/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureLabelLabelFigure" figure="/0/@figures.0/@descriptors.74/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="MessageElementFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MessageElementFigure">
@@ -1025,7 +1039,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureMessageElementLabelFigure" figure="/0/@figures.0/@descriptors.74/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureMessageElementLabelFigure" figure="/0/@figures.0/@descriptors.75/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="OutputTextFigure">
         <actualFigure xsi:type="gmfgraph:CustomFigure" name="OutputTextFigure" qualifiedClassName="org.tura.metamodel.commons.figures.OutputTextFigure"/>
@@ -1048,7 +1062,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureButtonLabelFigure" figure="/0/@figures.0/@descriptors.80/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureButtonLabelFigure" figure="/0/@figures.0/@descriptors.81/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="ColumnFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ColumnFigure">
@@ -1061,8 +1075,8 @@
           </children>
           <children xsi:type="gmfgraph:Rectangle" name="ColumnElementCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureColumnLabelFigure" figure="/0/@figures.0/@descriptors.81/@actualFigure/@children.0"/>
-        <accessors accessor="getColumnElementCompartmentFigure" figure="/0/@figures.0/@descriptors.81/@actualFigure/@children.1"/>
+        <accessors accessor="getFigureColumnLabelFigure" figure="/0/@figures.0/@descriptors.82/@actualFigure/@children.0"/>
+        <accessors accessor="getColumnElementCompartmentFigure" figure="/0/@figures.0/@descriptors.82/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors name="TableFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TableFigure">
@@ -1075,8 +1089,8 @@
           </children>
           <children xsi:type="gmfgraph:Rectangle" name="TableColsCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureTableLabelFigure" figure="/0/@figures.0/@descriptors.82/@actualFigure/@children.0"/>
-        <accessors accessor="getTableColsCompartmentFigure" figure="/0/@figures.0/@descriptors.82/@actualFigure/@children.1"/>
+        <accessors accessor="getFigureTableLabelFigure" figure="/0/@figures.0/@descriptors.83/@actualFigure/@children.0"/>
+        <accessors accessor="getTableColsCompartmentFigure" figure="/0/@figures.0/@descriptors.83/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors name="TreeFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TreeFigure">
@@ -1089,8 +1103,8 @@
           </children>
           <children xsi:type="gmfgraph:Rectangle" name="TreeColsCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureTreeLabelFigure" figure="/0/@figures.0/@descriptors.83/@actualFigure/@children.0"/>
-        <accessors accessor="getTreeColsCompartmentFigure" figure="/0/@figures.0/@descriptors.83/@actualFigure/@children.1"/>
+        <accessors accessor="getFigureTreeLabelFigure" figure="/0/@figures.0/@descriptors.84/@actualFigure/@children.0"/>
+        <accessors accessor="getTreeColsCompartmentFigure" figure="/0/@figures.0/@descriptors.84/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors name="PREFormTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PREFormTriggerFigure">
@@ -1103,7 +1117,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigurePREFormTriggerLabelFigure" figure="/0/@figures.0/@descriptors.84/@actualFigure/@children.0"/>
+        <accessors accessor="getFigurePREFormTriggerLabelFigure" figure="/0/@figures.0/@descriptors.85/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="PREQueryTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PREQueryTriggerFigure">
@@ -1116,7 +1130,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigurePREQueryTriggerLabelFigure" figure="/0/@figures.0/@descriptors.85/@actualFigure/@children.0"/>
+        <accessors accessor="getFigurePREQueryTriggerLabelFigure" figure="/0/@figures.0/@descriptors.86/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="POSTQueryTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="POSTQueryTriggerFigure">
@@ -1129,7 +1143,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigurePOSTQueryTriggerLabelFigure" figure="/0/@figures.0/@descriptors.86/@actualFigure/@children.0"/>
+        <accessors accessor="getFigurePOSTQueryTriggerLabelFigure" figure="/0/@figures.0/@descriptors.87/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="PREInsertTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PREInsertTriggerFigure">
@@ -1142,7 +1156,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigurePREInsertTriggerLabelFigure" figure="/0/@figures.0/@descriptors.87/@actualFigure/@children.0"/>
+        <accessors accessor="getFigurePREInsertTriggerLabelFigure" figure="/0/@figures.0/@descriptors.88/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="PREDeleteTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PREDeleteTriggerFigure">
@@ -1155,7 +1169,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigurePREDeleteTriggerLabelFigure" figure="/0/@figures.0/@descriptors.88/@actualFigure/@children.0"/>
+        <accessors accessor="getFigurePREDeleteTriggerLabelFigure" figure="/0/@figures.0/@descriptors.89/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="POSTCreateTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="POSTCreateTriggerFigure">
@@ -1168,7 +1182,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigurePOSTCreateTriggerLabelFigure" figure="/0/@figures.0/@descriptors.89/@actualFigure/@children.0"/>
+        <accessors accessor="getFigurePOSTCreateTriggerLabelFigure" figure="/0/@figures.0/@descriptors.90/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="PREUpdateTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PREUpdateTriggerFigure">
@@ -1181,7 +1195,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigurePREUpdateTriggerLabelFigure" figure="/0/@figures.0/@descriptors.90/@actualFigure/@children.0"/>
+        <accessors accessor="getFigurePREUpdateTriggerLabelFigure" figure="/0/@figures.0/@descriptors.91/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="CreateTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="CreateTriggerFigure">
@@ -1194,7 +1208,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureCreateTriggerLabelFigure" figure="/0/@figures.0/@descriptors.91/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureCreateTriggerLabelFigure" figure="/0/@figures.0/@descriptors.92/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="InsertTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="InsertTriggerFigure">
@@ -1207,7 +1221,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureInsertTriggerLabelFigure" figure="/0/@figures.0/@descriptors.92/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureInsertTriggerLabelFigure" figure="/0/@figures.0/@descriptors.93/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="UpdateTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="UpdateTriggerFigure">
@@ -1220,7 +1234,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureUpdateTriggerLabelFigure" figure="/0/@figures.0/@descriptors.93/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureUpdateTriggerLabelFigure" figure="/0/@figures.0/@descriptors.94/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="DeleteTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="DeleteTriggerFigure">
@@ -1233,7 +1247,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureDeleteTriggerLabelFigure" figure="/0/@figures.0/@descriptors.94/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureDeleteTriggerLabelFigure" figure="/0/@figures.0/@descriptors.95/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="SearchTriggerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="SearchTriggerFigure">
@@ -1246,7 +1260,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureSearchTriggerLabelFigure" figure="/0/@figures.0/@descriptors.95/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureSearchTriggerLabelFigure" figure="/0/@figures.0/@descriptors.96/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="RootFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="RootFigure">
@@ -1262,9 +1276,9 @@
           <children xsi:type="gmfgraph:Rectangle" name="RootPreFormTriggerCompartmentFigure" outline="false"/>
           <children xsi:type="gmfgraph:Rectangle" name="RootVariablesCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureRootLabelFigure" figure="/0/@figures.0/@descriptors.96/@actualFigure/@children.0"/>
-        <accessors accessor="getRootPreFormTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.96/@actualFigure/@children.1"/>
-        <accessors accessor="getRootVariablesCompartmentFigure" figure="/0/@figures.0/@descriptors.96/@actualFigure/@children.2"/>
+        <accessors accessor="getFigureRootLabelFigure" figure="/0/@figures.0/@descriptors.97/@actualFigure/@children.0"/>
+        <accessors accessor="getRootPreFormTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.97/@actualFigure/@children.1"/>
+        <accessors accessor="getRootVariablesCompartmentFigure" figure="/0/@figures.0/@descriptors.97/@actualFigure/@children.2"/>
       </descriptors>
       <descriptors name="FormVariableFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="FormVariableFigure">
@@ -1277,7 +1291,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureFormVariableLabelFigure" figure="/0/@figures.0/@descriptors.97/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureFormVariableLabelFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="DataControlFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="DataControlFigure">
@@ -1303,19 +1317,19 @@
           <children xsi:type="gmfgraph:Rectangle" name="DataControlSearchCompartmentFigure" outline="false"/>
           <children xsi:type="gmfgraph:Rectangle" name="DataControlArtificialFieldsCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureDataControlLabelFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.0"/>
-        <accessors accessor="getDataControlPreQueryTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.1"/>
-        <accessors accessor="getDataControlPostQueryTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.2"/>
-        <accessors accessor="getDataControlPreInsertTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.3"/>
-        <accessors accessor="getDataControlPreDeleteTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.4"/>
-        <accessors accessor="getDataControlPostCreateTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.5"/>
-        <accessors accessor="getDataControlPreUpdateTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.6"/>
-        <accessors accessor="getDataControlCreateCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.7"/>
-        <accessors accessor="getDataControlInsertCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.8"/>
-        <accessors accessor="getDataControlUpdateCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.9"/>
-        <accessors accessor="getDataControlRemoveCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.10"/>
-        <accessors accessor="getDataControlSearchCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.11"/>
-        <accessors accessor="getDataControlArtificialFieldsCompartmentFigure" figure="/0/@figures.0/@descriptors.98/@actualFigure/@children.12"/>
+        <accessors accessor="getFigureDataControlLabelFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.0"/>
+        <accessors accessor="getDataControlPreQueryTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.1"/>
+        <accessors accessor="getDataControlPostQueryTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.2"/>
+        <accessors accessor="getDataControlPreInsertTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.3"/>
+        <accessors accessor="getDataControlPreDeleteTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.4"/>
+        <accessors accessor="getDataControlPostCreateTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.5"/>
+        <accessors accessor="getDataControlPreUpdateTriggerCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.6"/>
+        <accessors accessor="getDataControlCreateCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.7"/>
+        <accessors accessor="getDataControlInsertCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.8"/>
+        <accessors accessor="getDataControlUpdateCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.9"/>
+        <accessors accessor="getDataControlRemoveCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.10"/>
+        <accessors accessor="getDataControlSearchCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.11"/>
+        <accessors accessor="getDataControlArtificialFieldsCompartmentFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.12"/>
       </descriptors>
       <descriptors name="ArtificialFieldFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ArtificialFieldFigure">
@@ -1328,7 +1342,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureArtificialFieldLabelFigure" figure="/0/@figures.0/@descriptors.99/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureArtificialFieldLabelFigure" figure="/0/@figures.0/@descriptors.100/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="ApplicationInfrastructureLayerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ApplicationInfrastructureLayerFigure">
@@ -1341,7 +1355,7 @@
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureApplicationInfrastructureLayerLabelFigure" figure="/0/@figures.0/@descriptors.100/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureApplicationInfrastructureLayerLabelFigure" figure="/0/@figures.0/@descriptors.101/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="DatacenterFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="DatacenterFigure">
@@ -1354,8 +1368,8 @@
           </children>
           <children xsi:type="gmfgraph:Rectangle" name="DatacenterSubsystemsCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureDatacenterLabelFigure" figure="/0/@figures.0/@descriptors.101/@actualFigure/@children.0"/>
-        <accessors accessor="getDatacenterSubsystemsCompartmentFigure" figure="/0/@figures.0/@descriptors.101/@actualFigure/@children.1"/>
+        <accessors accessor="getFigureDatacenterLabelFigure" figure="/0/@figures.0/@descriptors.102/@actualFigure/@children.0"/>
+        <accessors accessor="getDatacenterSubsystemsCompartmentFigure" figure="/0/@figures.0/@descriptors.102/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors name="SubsystemFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="SubsystemFigure">
@@ -1368,8 +1382,8 @@
           </children>
           <children xsi:type="gmfgraph:Rectangle" name="SubsystemInfrastructureLayerCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureSubsystemLabelFigure" figure="/0/@figures.0/@descriptors.102/@actualFigure/@children.0"/>
-        <accessors accessor="getSubsystemInfrastructureLayerCompartmentFigure" figure="/0/@figures.0/@descriptors.102/@actualFigure/@children.1"/>
+        <accessors accessor="getFigureSubsystemLabelFigure" figure="/0/@figures.0/@descriptors.103/@actualFigure/@children.0"/>
+        <accessors accessor="getSubsystemInfrastructureLayerCompartmentFigure" figure="/0/@figures.0/@descriptors.103/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors name="InfrastructureLayerFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="InfrastructureLayerFigure">
@@ -1382,8 +1396,8 @@
           </children>
           <children xsi:type="gmfgraph:Rectangle" name="InfrastructureLayerInfrastructureComponentCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureInfrastructureLayerLabelFigure" figure="/0/@figures.0/@descriptors.103/@actualFigure/@children.0"/>
-        <accessors accessor="getInfrastructureLayerInfrastructureComponentCompartmentFigure" figure="/0/@figures.0/@descriptors.103/@actualFigure/@children.1"/>
+        <accessors accessor="getFigureInfrastructureLayerLabelFigure" figure="/0/@figures.0/@descriptors.104/@actualFigure/@children.0"/>
+        <accessors accessor="getInfrastructureLayerInfrastructureComponentCompartmentFigure" figure="/0/@figures.0/@descriptors.104/@actualFigure/@children.1"/>
       </descriptors>
       <descriptors name="ServerFigure">
         <actualFigure xsi:type="gmfgraph:CustomFigure" name="ServerFigure" qualifiedClassName="org.tura.metamodel.commons.figures.ServerFigure"/>
@@ -1428,8 +1442,63 @@
           </children>
           <children xsi:type="gmfgraph:Rectangle" name="ServerClasterServersCompartmentFigure" outline="false"/>
         </actualFigure>
-        <accessors accessor="getFigureServerClasterLabelFigure" figure="/0/@figures.0/@descriptors.112/@actualFigure/@children.0"/>
-        <accessors accessor="getServerClasterServersCompartmentFigure" figure="/0/@figures.0/@descriptors.112/@actualFigure/@children.1"/>
+        <accessors accessor="getFigureServerClasterLabelFigure" figure="/0/@figures.0/@descriptors.113/@actualFigure/@children.0"/>
+        <accessors accessor="getServerClasterServersCompartmentFigure" figure="/0/@figures.0/@descriptors.113/@actualFigure/@children.1"/>
+      </descriptors>
+      <descriptors name="MenuFolderFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MenuFolderFigure">
+          <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+          <backgroundColor xsi:type="gmfgraph:RGBColor" red="241" green="238" blue="203"/>
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="MenuFolderLabelFigure" text="MenuFolder">
+            <maximumSize dx="10000" dy="50"/>
+            <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
+          </children>
+          <children xsi:type="gmfgraph:Rectangle" name="MenuFolderMenuElementsCompartmentFigure" outline="false"/>
+        </actualFigure>
+        <accessors accessor="getFigureMenuFolderLabelFigure" figure="/0/@figures.0/@descriptors.114/@actualFigure/@children.0"/>
+        <accessors accessor="getMenuFolderMenuElementsCompartmentFigure" figure="/0/@figures.0/@descriptors.114/@actualFigure/@children.1"/>
+      </descriptors>
+      <descriptors name="MenuItemFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MenuItemFigure">
+          <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+          <backgroundColor xsi:type="gmfgraph:RGBColor" red="102" green="153"/>
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="MenuItemLabelFigure" text="MenuItem">
+            <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
+          </children>
+        </actualFigure>
+        <accessors accessor="getFigureMenuItemLabelFigure" figure="/0/@figures.0/@descriptors.115/@actualFigure/@children.0"/>
+      </descriptors>
+      <descriptors name="SubMenuFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="SubMenuFigure">
+          <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+          <backgroundColor xsi:type="gmfgraph:RGBColor" red="102" green="255" blue="255"/>
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="SubMenuLabelFigure" text="SubMenu">
+            <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
+          </children>
+        </actualFigure>
+        <accessors accessor="getFigureSubMenuLabelFigure" figure="/0/@figures.0/@descriptors.116/@actualFigure/@children.0"/>
+      </descriptors>
+      <descriptors name="MenuSeparatorFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MenuSeparatorFigure">
+          <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+          <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="204" blue="204"/>
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="MenuSeparatorLabelFigure" text="MenuSeparator">
+            <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
+          </children>
+        </actualFigure>
+        <accessors accessor="getFigureMenuSeparatorLabelFigure" figure="/0/@figures.0/@descriptors.117/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="ConfigExtensionFigure">
         <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ConfigExtensionFigure" lineWidth="2" lineKind="LINE_DOT" targetDecoration="/0/@figures.0/@figures.0"/>
@@ -1520,6 +1589,14 @@
           <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
         </actualFigure>
       </descriptors>
+      <descriptors name="SubMenuToSubmenuFigure">
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="SubMenuToSubmenuFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.15"/>
+      </descriptors>
+      <descriptors name="SubMenuToSubmenuExternalLabelFigure">
+        <actualFigure xsi:type="gmfgraph:Label" name="SubMenuToSubmenuExternalLabel">
+          <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
+        </actualFigure>
+      </descriptors>
     </figures>
     <nodes name="DomainArtifacts" figure="DomainArtifactsFigure"/>
     <nodes name="DomainTypes" figure="DomainTypesFigure"/>
@@ -1583,6 +1660,7 @@
     <nodes name="PopupCanvas" figure="PopupCanvasFigure"/>
     <nodes name="Canvas" figure="CanvasFigure"/>
     <nodes name="Window" figure="WindowFigure"/>
+    <nodes name="Menu" figure="MenuFigure"/>
     <nodes name="TabCanvas" figure="TabCanvasFigure"/>
     <nodes name="TabPage" figure="TabPageFigure"/>
     <nodes name="ViewPort" figure="ViewPortFigure"/>
@@ -1628,6 +1706,10 @@
     <nodes name="Hub" figure="HubFigure"/>
     <nodes name="Storage" figure="StorageFigure"/>
     <nodes name="ServerClaster" figure="ServerClasterFigure"/>
+    <nodes name="MenuFolder" figure="MenuFolderFigure"/>
+    <nodes name="MenuItem" figure="MenuItemFigure"/>
+    <nodes name="SubMenu" figure="SubMenuFigure"/>
+    <nodes name="MenuSeparator" figure="MenuSeparatorFigure"/>
     <connections name="ConfigExtension" figure="ConfigExtensionFigure"/>
     <connections name="TypeExtension" figure="TypeExtensionFigure"/>
     <connections name="ViewInheritance" figure="ViewInheritanceFigure"/>
@@ -1644,6 +1726,7 @@
     <connections name="RecipeInfrastructures" figure="RecipeInfrastructuresFigure"/>
     <connections name="RecipeDeployment" figure="RecipeDeploymentFigure"/>
     <connections name="InfrastructureRecipeConfig" figure="InfrastructureRecipeConfigFigure"/>
+    <connections name="SubMenuToSubmenu" figure="SubMenuToSubmenuFigure"/>
     <compartments name="DomainArtifactsDomainArtifactCompartment" figure="DomainArtifactsFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.0/@accessors.1"/>
     <compartments name="DomainApplicationsApplicationsCompartment" figure="DomainApplicationsFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.2/@accessors.1"/>
     <compartments name="ArtifactConfigVariablesCompartment" figure="ArtifactFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.9/@accessors.1"/>
@@ -1671,30 +1754,31 @@
     <compartments name="PopupCanvasViewElementCompartment" figure="PopupCanvasFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.61/@accessors.1"/>
     <compartments name="CanvasViewElementCompartment" figure="CanvasFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.62/@accessors.1"/>
     <compartments name="WindowViewElementCompartment" figure="WindowFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.63/@accessors.1"/>
-    <compartments name="TabPageViewElementCompartment" figure="TabPageFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.65/@accessors.1"/>
-    <compartments name="ViewPortViewPortTriggerCompartment" figure="ViewPortFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.66/@accessors.1"/>
-    <compartments name="LayerHolderChildrenCompartment" figure="LayerHolderFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.70/@accessors.0"/>
-    <compartments name="ColumnElementCompartment" figure="ColumnFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.81/@accessors.1"/>
-    <compartments name="TableColsCompartment" figure="TableFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.82/@accessors.1"/>
-    <compartments name="TreeColsCompartment" figure="TreeFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.83/@accessors.1"/>
-    <compartments name="RootPreFormTriggerCompartment" figure="RootFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.96/@accessors.1"/>
-    <compartments name="RootVariablesCompartment" figure="RootFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.96/@accessors.2"/>
-    <compartments name="DataControlPreQueryTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.1"/>
-    <compartments name="DataControlPostQueryTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.2"/>
-    <compartments name="DataControlPreInsertTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.3"/>
-    <compartments name="DataControlPreDeleteTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.4"/>
-    <compartments name="DataControlPostCreateTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.5"/>
-    <compartments name="DataControlPreUpdateTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.6"/>
-    <compartments name="DataControlCreateCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.7"/>
-    <compartments name="DataControlInsertCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.8"/>
-    <compartments name="DataControlUpdateCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.9"/>
-    <compartments name="DataControlRemoveCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.10"/>
-    <compartments name="DataControlSearchCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.11"/>
-    <compartments name="DataControlArtificialFieldsCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.98/@accessors.12"/>
-    <compartments name="DatacenterSubsystemsCompartment" figure="DatacenterFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.101/@accessors.1"/>
-    <compartments name="SubsystemInfrastructureLayerCompartment" figure="SubsystemFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.102/@accessors.1"/>
-    <compartments name="InfrastructureLayerInfrastructureComponentCompartment" figure="InfrastructureLayerFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.103/@accessors.1"/>
-    <compartments name="ServerClasterServersCompartment" figure="ServerClasterFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.112/@accessors.1"/>
+    <compartments name="TabPageViewElementCompartment" figure="TabPageFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.66/@accessors.1"/>
+    <compartments name="ViewPortViewPortTriggerCompartment" figure="ViewPortFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.67/@accessors.1"/>
+    <compartments name="LayerHolderChildrenCompartment" figure="LayerHolderFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.71/@accessors.0"/>
+    <compartments name="ColumnElementCompartment" figure="ColumnFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.82/@accessors.1"/>
+    <compartments name="TableColsCompartment" figure="TableFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.83/@accessors.1"/>
+    <compartments name="TreeColsCompartment" figure="TreeFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.84/@accessors.1"/>
+    <compartments name="RootPreFormTriggerCompartment" figure="RootFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.97/@accessors.1"/>
+    <compartments name="RootVariablesCompartment" figure="RootFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.97/@accessors.2"/>
+    <compartments name="DataControlPreQueryTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.1"/>
+    <compartments name="DataControlPostQueryTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.2"/>
+    <compartments name="DataControlPreInsertTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.3"/>
+    <compartments name="DataControlPreDeleteTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.4"/>
+    <compartments name="DataControlPostCreateTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.5"/>
+    <compartments name="DataControlPreUpdateTriggerCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.6"/>
+    <compartments name="DataControlCreateCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.7"/>
+    <compartments name="DataControlInsertCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.8"/>
+    <compartments name="DataControlUpdateCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.9"/>
+    <compartments name="DataControlRemoveCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.10"/>
+    <compartments name="DataControlSearchCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.11"/>
+    <compartments name="DataControlArtificialFieldsCompartment" figure="DataControlFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.99/@accessors.12"/>
+    <compartments name="DatacenterSubsystemsCompartment" figure="DatacenterFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.102/@accessors.1"/>
+    <compartments name="SubsystemInfrastructureLayerCompartment" figure="SubsystemFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.103/@accessors.1"/>
+    <compartments name="InfrastructureLayerInfrastructureComponentCompartment" figure="InfrastructureLayerFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.104/@accessors.1"/>
+    <compartments name="ServerClasterServersCompartment" figure="ServerClasterFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.113/@accessors.1"/>
+    <compartments name="MenuFolderMenuElementsCompartment" figure="MenuFolderFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.114/@accessors.1"/>
     <labels name="DomainArtifactsLabel" figure="DomainArtifactsFigure" accessor="/0/@figures.0/@descriptors.0/@accessors.0"/>
     <labels name="DomainTypesLabel" figure="DomainTypesFigure" accessor="/0/@figures.0/@descriptors.1/@accessors.0"/>
     <labels name="DomainApplicationsLabel" figure="DomainApplicationsFigure" accessor="/0/@figures.0/@descriptors.2/@accessors.0"/>
@@ -1757,43 +1841,48 @@
     <labels name="PopupCanvasLabel" figure="PopupCanvasFigure" accessor="/0/@figures.0/@descriptors.61/@accessors.0"/>
     <labels name="CanvasLabel" figure="CanvasFigure" accessor="/0/@figures.0/@descriptors.62/@accessors.0"/>
     <labels name="WindowLabel" figure="WindowFigure" accessor="/0/@figures.0/@descriptors.63/@accessors.0"/>
-    <labels name="TabCanvasLabel" figure="TabCanvasFigure" accessor="/0/@figures.0/@descriptors.64/@accessors.0"/>
-    <labels name="TabPageLabel" figure="TabPageFigure" accessor="/0/@figures.0/@descriptors.65/@accessors.0"/>
-    <labels name="ViewPortLabel" figure="ViewPortFigure" accessor="/0/@figures.0/@descriptors.66/@accessors.0"/>
-    <labels name="ViewAreaLabel" figure="ViewAreaFigure" accessor="/0/@figures.0/@descriptors.67/@accessors.0"/>
-    <labels name="ViewPortTriggerLabel" figure="ViewPortTriggerFigure" accessor="/0/@figures.0/@descriptors.68/@accessors.0"/>
-    <labels name="FormDataControlsLabel" figure="FormDataControlsFigure" accessor="/0/@figures.0/@descriptors.69/@accessors.0"/>
-    <labels name="LabelLabel" figure="LabelFigure" elementIcon="false" accessor="/0/@figures.0/@descriptors.73/@accessors.0"/>
-    <labels name="MessageElementLabel" figure="MessageElementFigure" elementIcon="false" accessor="/0/@figures.0/@descriptors.74/@accessors.0"/>
-    <labels name="ButtonLabel" figure="ButtonFigure" elementIcon="false" accessor="/0/@figures.0/@descriptors.80/@accessors.0"/>
-    <labels name="ColumnLabel" figure="ColumnFigure" accessor="/0/@figures.0/@descriptors.81/@accessors.0"/>
-    <labels name="TableLabel" figure="TableFigure" accessor="/0/@figures.0/@descriptors.82/@accessors.0"/>
-    <labels name="TreeLabel" figure="TreeFigure" accessor="/0/@figures.0/@descriptors.83/@accessors.0"/>
-    <labels name="PREFormTriggerLabel" figure="PREFormTriggerFigure" accessor="/0/@figures.0/@descriptors.84/@accessors.0"/>
-    <labels name="PREQueryTriggerLabel" figure="PREQueryTriggerFigure" accessor="/0/@figures.0/@descriptors.85/@accessors.0"/>
-    <labels name="POSTQueryTriggerLabel" figure="POSTQueryTriggerFigure" accessor="/0/@figures.0/@descriptors.86/@accessors.0"/>
-    <labels name="PREInsertTriggerLabel" figure="PREInsertTriggerFigure" accessor="/0/@figures.0/@descriptors.87/@accessors.0"/>
-    <labels name="PREDeleteTriggerLabel" figure="PREDeleteTriggerFigure" accessor="/0/@figures.0/@descriptors.88/@accessors.0"/>
-    <labels name="POSTCreateTriggerLabel" figure="POSTCreateTriggerFigure" accessor="/0/@figures.0/@descriptors.89/@accessors.0"/>
-    <labels name="PREUpdateTriggerLabel" figure="PREUpdateTriggerFigure" accessor="/0/@figures.0/@descriptors.90/@accessors.0"/>
-    <labels name="CreateTriggerLabel" figure="CreateTriggerFigure" accessor="/0/@figures.0/@descriptors.91/@accessors.0"/>
-    <labels name="InsertTriggerLabel" figure="InsertTriggerFigure" accessor="/0/@figures.0/@descriptors.92/@accessors.0"/>
-    <labels name="UpdateTriggerLabel" figure="UpdateTriggerFigure" accessor="/0/@figures.0/@descriptors.93/@accessors.0"/>
-    <labels name="DeleteTriggerLabel" figure="DeleteTriggerFigure" accessor="/0/@figures.0/@descriptors.94/@accessors.0"/>
-    <labels name="SearchTriggerLabel" figure="SearchTriggerFigure" accessor="/0/@figures.0/@descriptors.95/@accessors.0"/>
-    <labels name="RootLabel" figure="RootFigure" accessor="/0/@figures.0/@descriptors.96/@accessors.0"/>
-    <labels name="FormVariableLabel" figure="FormVariableFigure" accessor="/0/@figures.0/@descriptors.97/@accessors.0"/>
-    <labels name="DataControlLabel" figure="DataControlFigure" accessor="/0/@figures.0/@descriptors.98/@accessors.0"/>
-    <labels name="ArtificialFieldLabel" figure="ArtificialFieldFigure" accessor="/0/@figures.0/@descriptors.99/@accessors.0"/>
-    <labels name="ApplicationInfrastructureLayerLabel" figure="ApplicationInfrastructureLayerFigure" accessor="/0/@figures.0/@descriptors.100/@accessors.0"/>
-    <labels name="DatacenterLabel" figure="DatacenterFigure" accessor="/0/@figures.0/@descriptors.101/@accessors.0"/>
-    <labels name="SubsystemLabel" figure="SubsystemFigure" accessor="/0/@figures.0/@descriptors.102/@accessors.0"/>
-    <labels name="InfrastructureLayerLabel" figure="InfrastructureLayerFigure" accessor="/0/@figures.0/@descriptors.103/@accessors.0"/>
+    <labels name="MenuLabel" figure="MenuFigure" accessor="/0/@figures.0/@descriptors.64/@accessors.0"/>
+    <labels name="TabCanvasLabel" figure="TabCanvasFigure" accessor="/0/@figures.0/@descriptors.65/@accessors.0"/>
+    <labels name="TabPageLabel" figure="TabPageFigure" accessor="/0/@figures.0/@descriptors.66/@accessors.0"/>
+    <labels name="ViewPortLabel" figure="ViewPortFigure" accessor="/0/@figures.0/@descriptors.67/@accessors.0"/>
+    <labels name="ViewAreaLabel" figure="ViewAreaFigure" accessor="/0/@figures.0/@descriptors.68/@accessors.0"/>
+    <labels name="ViewPortTriggerLabel" figure="ViewPortTriggerFigure" accessor="/0/@figures.0/@descriptors.69/@accessors.0"/>
+    <labels name="FormDataControlsLabel" figure="FormDataControlsFigure" accessor="/0/@figures.0/@descriptors.70/@accessors.0"/>
+    <labels name="LabelLabel" figure="LabelFigure" elementIcon="false" accessor="/0/@figures.0/@descriptors.74/@accessors.0"/>
+    <labels name="MessageElementLabel" figure="MessageElementFigure" elementIcon="false" accessor="/0/@figures.0/@descriptors.75/@accessors.0"/>
+    <labels name="ButtonLabel" figure="ButtonFigure" elementIcon="false" accessor="/0/@figures.0/@descriptors.81/@accessors.0"/>
+    <labels name="ColumnLabel" figure="ColumnFigure" accessor="/0/@figures.0/@descriptors.82/@accessors.0"/>
+    <labels name="TableLabel" figure="TableFigure" accessor="/0/@figures.0/@descriptors.83/@accessors.0"/>
+    <labels name="TreeLabel" figure="TreeFigure" accessor="/0/@figures.0/@descriptors.84/@accessors.0"/>
+    <labels name="PREFormTriggerLabel" figure="PREFormTriggerFigure" accessor="/0/@figures.0/@descriptors.85/@accessors.0"/>
+    <labels name="PREQueryTriggerLabel" figure="PREQueryTriggerFigure" accessor="/0/@figures.0/@descriptors.86/@accessors.0"/>
+    <labels name="POSTQueryTriggerLabel" figure="POSTQueryTriggerFigure" accessor="/0/@figures.0/@descriptors.87/@accessors.0"/>
+    <labels name="PREInsertTriggerLabel" figure="PREInsertTriggerFigure" accessor="/0/@figures.0/@descriptors.88/@accessors.0"/>
+    <labels name="PREDeleteTriggerLabel" figure="PREDeleteTriggerFigure" accessor="/0/@figures.0/@descriptors.89/@accessors.0"/>
+    <labels name="POSTCreateTriggerLabel" figure="POSTCreateTriggerFigure" accessor="/0/@figures.0/@descriptors.90/@accessors.0"/>
+    <labels name="PREUpdateTriggerLabel" figure="PREUpdateTriggerFigure" accessor="/0/@figures.0/@descriptors.91/@accessors.0"/>
+    <labels name="CreateTriggerLabel" figure="CreateTriggerFigure" accessor="/0/@figures.0/@descriptors.92/@accessors.0"/>
+    <labels name="InsertTriggerLabel" figure="InsertTriggerFigure" accessor="/0/@figures.0/@descriptors.93/@accessors.0"/>
+    <labels name="UpdateTriggerLabel" figure="UpdateTriggerFigure" accessor="/0/@figures.0/@descriptors.94/@accessors.0"/>
+    <labels name="DeleteTriggerLabel" figure="DeleteTriggerFigure" accessor="/0/@figures.0/@descriptors.95/@accessors.0"/>
+    <labels name="SearchTriggerLabel" figure="SearchTriggerFigure" accessor="/0/@figures.0/@descriptors.96/@accessors.0"/>
+    <labels name="RootLabel" figure="RootFigure" accessor="/0/@figures.0/@descriptors.97/@accessors.0"/>
+    <labels name="FormVariableLabel" figure="FormVariableFigure" accessor="/0/@figures.0/@descriptors.98/@accessors.0"/>
+    <labels name="DataControlLabel" figure="DataControlFigure" accessor="/0/@figures.0/@descriptors.99/@accessors.0"/>
+    <labels name="ArtificialFieldLabel" figure="ArtificialFieldFigure" accessor="/0/@figures.0/@descriptors.100/@accessors.0"/>
+    <labels name="ApplicationInfrastructureLayerLabel" figure="ApplicationInfrastructureLayerFigure" accessor="/0/@figures.0/@descriptors.101/@accessors.0"/>
+    <labels name="DatacenterLabel" figure="DatacenterFigure" accessor="/0/@figures.0/@descriptors.102/@accessors.0"/>
+    <labels name="SubsystemLabel" figure="SubsystemFigure" accessor="/0/@figures.0/@descriptors.103/@accessors.0"/>
+    <labels name="InfrastructureLayerLabel" figure="InfrastructureLayerFigure" accessor="/0/@figures.0/@descriptors.104/@accessors.0"/>
     <labels name="ServerLabel" figure="ServerLabelFigure" elementIcon="false"/>
     <labels name="RouterLabel" figure="RouterLabelFigure" elementIcon="false"/>
     <labels name="HubLabel" figure="HubLabelFigure" elementIcon="false"/>
     <labels name="StorageLabel" figure="StorageLabelFigure" elementIcon="false"/>
-    <labels name="ServerClasterLabel" figure="ServerClasterFigure" accessor="/0/@figures.0/@descriptors.112/@accessors.0"/>
+    <labels name="ServerClasterLabel" figure="ServerClasterFigure" accessor="/0/@figures.0/@descriptors.113/@accessors.0"/>
+    <labels name="MenuFolderLabel" figure="MenuFolderFigure" accessor="/0/@figures.0/@descriptors.114/@accessors.0"/>
+    <labels name="MenuItemLabel" figure="MenuItemFigure" accessor="/0/@figures.0/@descriptors.115/@accessors.0"/>
+    <labels name="SubMenuLabel" figure="SubMenuFigure" accessor="/0/@figures.0/@descriptors.116/@accessors.0"/>
+    <labels name="MenuSeparatorLabel" figure="MenuSeparatorFigure" accessor="/0/@figures.0/@descriptors.117/@accessors.0"/>
     <labels name="GroupGroup2GroupExternalLabel" figure="GroupGroup2GroupExternalLabelFigure" elementIcon="false"/>
     <labels name="GroupGroup2RoleExternalLabel" figure="GroupGroup2RoleExternalLabelFigure" elementIcon="false"/>
     <labels name="DeploymentComponentDeploymentComponentLinkExternalLabel" figure="DeploymentComponentDeploymentComponentLinkExternalLabelFigure" elementIcon="false"/>
@@ -1801,6 +1890,7 @@
     <labels name="RecipeInfrastructuresExternalLabel" figure="RecipeInfrastructuresExternalLabelFigure" elementIcon="false"/>
     <labels name="RecipeDeploymentExternalLabel" figure="RecipeDeploymentExternalLabelFigure" elementIcon="false"/>
     <labels name="InfrastructureRecipeConfigExternalLabel" figure="InfrastructureRecipeConfigExternalLabelFigure" elementIcon="false"/>
+    <labels name="SubMenuToSubmenuExternalLabel" figure="SubMenuToSubmenuExternalLabelFigure" elementIcon="false"/>
   </gmfgraph:Canvas>
   <gmfgraph:Label name="LayerHolderLabelFigure" text="LayerHolder">
     <maximumSize dx="10000" dy="50"/>

@@ -831,11 +831,15 @@ class Views{
    val CanvasFrame[*]  canvases;
    val ViewInheritance[*] viewInheritances;
    val TabPagesInheritance[*] tabPagesInheritances;
+   val Menu[*] menus;
    
    //faking epsilon converter
    val EObject any;
    
 }
+
+
+
 
 class Orderable{
 
@@ -878,6 +882,15 @@ class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,Cat
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
 class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,Categorized ,Secured{
 }
+
+@gmf.node(label="name",border.color="0,0,0",color="255,153,204")
+class Menu extends StyleElement,Categorized {
+    id attr EString uid;
+   attr EString name;
+   ref MenuView#parent menuView;
+}
+
+
 
 enum Orientation{
 	Top;
@@ -1443,5 +1456,48 @@ class Storage extends InfrastructureComponent{
 class ServerClaster extends InfrastructureComponent{
    @gmf.compartment
   val Server[*] servers;
+}
+
+
+@gmf.diagram.menu
+class MenuView{
+    id attr EString uid;
+   ref Menu#menuView parent;
+   val MenuFolder[*] menuFolders; 
+   
+  //faking epsilon converter
+  val EObject any;
+   
+}
+
+
+class MenuElement extends Orderable{
+    id attr EString uid;
+    attr EString name;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class MenuFolder extends HTMLLayerHolder{
+    id attr EString uid;
+    attr EString name;
+   @gmf.compartment
+    val MenuElement[*] menuElements;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="102,153,0")
+class MenuItem extends MenuElement{
+	
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="102,255,255")
+class SubMenu extends MenuElement{
+	@gmf.link(target.decoration="arrow", style="dash")
+	ref MenuFolder toSubmenu;
+	
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="255,204,204")
+class MenuSeparator extends MenuElement{
+	
 }
 

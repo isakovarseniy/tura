@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainPackage;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
+import frmview.diagram.edit.parts.MenuNameEditPart;
 import frmview.diagram.edit.parts.PopupCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabPageNameEditPart;
@@ -139,6 +140,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser menuName_1305015Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMenuName_1305015Parser() {
+		if (menuName_1305015Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMenu_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			menuName_1305015Parser = parser;
+		}
+		return menuName_1305015Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser viewPortName_1305012Parser;
 
 	/**
@@ -205,6 +224,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getTabPageName_1305002Parser();
 		case TabCanvasNameEditPart.VISUAL_ID:
 			return getTabCanvasName_1305011Parser();
+		case MenuNameEditPart.VISUAL_ID:
+			return getMenuName_1305015Parser();
 		case ViewPortNameEditPart.VISUAL_ID:
 			return getViewPortName_1305012Parser();
 		case ViewPortTriggerFakeMethodEditPart.VISUAL_ID:

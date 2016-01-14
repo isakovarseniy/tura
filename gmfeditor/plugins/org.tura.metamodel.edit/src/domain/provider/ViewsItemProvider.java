@@ -140,6 +140,7 @@ public class ViewsItemProvider
 			childrenFeatures.add(DomainPackage.Literals.VIEWS__CANVASES);
 			childrenFeatures.add(DomainPackage.Literals.VIEWS__VIEW_INHERITANCES);
 			childrenFeatures.add(DomainPackage.Literals.VIEWS__TAB_PAGES_INHERITANCES);
+			childrenFeatures.add(DomainPackage.Literals.VIEWS__MENUS);
 			childrenFeatures.add(DomainPackage.Literals.VIEWS__ANY);
 		}
 		return childrenFeatures;
@@ -202,6 +203,7 @@ public class ViewsItemProvider
 			case DomainPackage.VIEWS__CANVASES:
 			case DomainPackage.VIEWS__VIEW_INHERITANCES:
 			case DomainPackage.VIEWS__TAB_PAGES_INHERITANCES:
+			case DomainPackage.VIEWS__MENUS:
 			case DomainPackage.VIEWS__ANY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -259,6 +261,11 @@ public class ViewsItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.VIEWS__TAB_PAGES_INHERITANCES,
 				 DomainFactory.eINSTANCE.createTabPagesInheritance()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.VIEWS__MENUS,
+				 DomainFactory.eINSTANCE.createMenu()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -783,6 +790,11 @@ public class ViewsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.VIEWS__ANY,
+				 DomainFactory.eINSTANCE.createMenu()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.VIEWS__ANY,
 				 DomainFactory.eINSTANCE.createTabCanvas()));
 
 		newChildDescriptors.add
@@ -1164,6 +1176,36 @@ public class ViewsItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.VIEWS__ANY,
 				 DomainFactory.eINSTANCE.createServerClaster()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.VIEWS__ANY,
+				 DomainFactory.eINSTANCE.createMenuView()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.VIEWS__ANY,
+				 DomainFactory.eINSTANCE.createMenuElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.VIEWS__ANY,
+				 DomainFactory.eINSTANCE.createMenuFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.VIEWS__ANY,
+				 DomainFactory.eINSTANCE.createMenuItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.VIEWS__ANY,
+				 DomainFactory.eINSTANCE.createSubMenu()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.VIEWS__ANY,
+				 DomainFactory.eINSTANCE.createMenuSeparator()));
 	}
 
 	/**
@@ -1181,7 +1223,8 @@ public class ViewsItemProvider
 			childFeature == DomainPackage.Literals.VIEWS__CANVASES ||
 			childFeature == DomainPackage.Literals.VIEWS__ANY ||
 			childFeature == DomainPackage.Literals.VIEWS__VIEW_INHERITANCES ||
-			childFeature == DomainPackage.Literals.VIEWS__TAB_PAGES_INHERITANCES;
+			childFeature == DomainPackage.Literals.VIEWS__TAB_PAGES_INHERITANCES ||
+			childFeature == DomainPackage.Literals.VIEWS__MENUS;
 
 		if (qualify) {
 			return getString

@@ -21,6 +21,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="Menu"
+          description="Create new Menu">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="PopupCanvas"
           description="Create new PopupCanvas">
         <smallIcon

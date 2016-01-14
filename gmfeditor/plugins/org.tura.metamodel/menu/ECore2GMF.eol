@@ -1,0 +1,376 @@
+-- set italic font for labels
+for (  label in GmfGraph!Label.all ){
+  label.font = new GmfGraph!BasicFont;
+  label.font.style = GmfGraph!FontStyle#ITALIC;
+  label.font.faceName="Palatino";  
+  label.font.height	 = 12;
+}
+
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'SubMenuFigure');
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'MenuItemFigure');
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'MenuSeparatorFigure');
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
+-- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Password');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MessageElement');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Image');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Date');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PopupCanvas');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FormVariable');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FormParameter');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Language');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StyleLibrary');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StyleSet');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ModelQuery');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ContinuousIintegration');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Query');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Attribute');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Component');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Configuration');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='EnumAttribute');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Enumarator');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='JavaMapper');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ModelMapper');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Operation');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Property');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Recipe');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TypeReference');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ReturnValue');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Type');
+delete tool;
+-- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Component');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='JavaMapper');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ModelMapper');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Option');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Property');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Recipe');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DomainArtifacts');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DomainTypes');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DomainApplications');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DomainApplication');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Package');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Primitive');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Types');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Artifact');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Specifier');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Variable');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ConfigVariable');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='GenerationHint');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Parameter');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DomainArtifact');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='EJBService');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='JPAService');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ORMEntity');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Infrastructure');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Ingredient');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='JavaComponent');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentComponent');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentStarStep');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentSequence');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DataControl');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Form');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FormView');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FormDataControls');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREFormTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREQueryTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREInsertTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREDeleteTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Root');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='POSTQueryTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='POSTCreateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ArtificialField');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='PREUpdateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='CreateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InsertTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='UpdateTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeleteTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='SearchTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Storage');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Hub');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Router');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InfrastructureLayer');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Server');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Subsystem');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Datacenter');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ServerClaster');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Canvas');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TabCanvas');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TabPage');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewPort');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewPortTrigger');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Window');
+delete tool;
+
+
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='CSSMapper');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='JavaScriptMapper');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Message');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MessageLibrary');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='RoleMapper');
+delete tool;
+
+
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Button');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Tree');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewArea');
+delete tool;
+
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Table');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Column');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DropDownSelection');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='CheckBox');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='OutputText');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Label');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InputText');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='LayerHolder');
+delete tool;
+
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Role');
+delete tool;
+
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Group');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Group2Group');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Group2Group');
+delete tool;
+
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Group2Role');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Group2Role');
+delete tool;
+
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='RecipeConfig');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='RecipeConfig');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='ConfigExtension');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ConfigExtension');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Deployment');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Deployment');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='DeploymentComponentLink');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='DeploymentComponentLink');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='FirstStep');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='FirstStep');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Relation');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Relation');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Dependency');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Dependency');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='TypeExtension');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TypeExtension');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Infrastructures');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Infrastructures');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='InfrastructureConnection');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='InfrastructureConnection');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='TabPagesInheritance');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TabPagesInheritance');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='ViewInheritance');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewInheritance');
+delete tool;
+
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='LinkToMessage');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='LinkToMessage');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='LinkToLabel');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='LinkToLabel');
+delete tool;
+
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationRole');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationStyle');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationMessages');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationMapper');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationMappers');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationRecipe');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationRecipes');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationInfrastructureLayer');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationUILayer');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationUIPackage');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StylesPackage');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Menu');
+delete tool;

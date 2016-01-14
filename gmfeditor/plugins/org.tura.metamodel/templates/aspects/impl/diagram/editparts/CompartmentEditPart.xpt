@@ -39,6 +39,8 @@
             «EXPAND compartmentHTMLLayout-»
 		«ELSEIF editPartClassName.indexOf('ApplicationUIPackagesCompartmentEditPart') > 0-»
             «EXPAND compartmentHTMLLayout-»
+		«ELSEIF editPartClassName.indexOf('MenuElementsCompartmentEditPart') > 0-»
+            «EXPAND compartmentHTMLLayout-»
 		«ELSE»
 		public org.eclipse.draw2d.IFigure createFigure() {
 			org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure result = (org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure) super.createFigure();

@@ -111,6 +111,12 @@ import domain.LinkToMessage;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
+import domain.Menu;
+import domain.MenuElement;
+import domain.MenuFolder;
+import domain.MenuItem;
+import domain.MenuSeparator;
+import domain.MenuView;
 import domain.Message;
 import domain.MessageElement;
 import domain.MessageLibrary;
@@ -166,6 +172,7 @@ import domain.StyleLibrary;
 import domain.StyleSet;
 import domain.Styles;
 import domain.StylesPackage;
+import domain.SubMenu;
 import domain.Subsystem;
 import domain.TabCanvas;
 import domain.TabPage;
@@ -672,6 +679,10 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createWindowAdapter();
 			}
 			@Override
+			public Adapter caseMenu(Menu object) {
+				return createMenuAdapter();
+			}
+			@Override
 			public Adapter caseTabCanvas(TabCanvas object) {
 				return createTabCanvasAdapter();
 			}
@@ -982,6 +993,30 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseServerClaster(ServerClaster object) {
 				return createServerClasterAdapter();
+			}
+			@Override
+			public Adapter caseMenuView(MenuView object) {
+				return createMenuViewAdapter();
+			}
+			@Override
+			public Adapter caseMenuElement(MenuElement object) {
+				return createMenuElementAdapter();
+			}
+			@Override
+			public Adapter caseMenuFolder(MenuFolder object) {
+				return createMenuFolderAdapter();
+			}
+			@Override
+			public Adapter caseMenuItem(MenuItem object) {
+				return createMenuItemAdapter();
+			}
+			@Override
+			public Adapter caseSubMenu(SubMenu object) {
+				return createSubMenuAdapter();
+			}
+			@Override
+			public Adapter caseMenuSeparator(MenuSeparator object) {
+				return createMenuSeparatorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -2446,6 +2481,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link domain.Menu <em>Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.Menu
+	 * @generated
+	 */
+	public Adapter createMenuAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link domain.TabCanvas <em>Tab Canvas</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3534,6 +3583,90 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createServerClasterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.MenuView <em>Menu View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.MenuView
+	 * @generated
+	 */
+	public Adapter createMenuViewAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.MenuElement <em>Menu Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.MenuElement
+	 * @generated
+	 */
+	public Adapter createMenuElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.MenuFolder <em>Menu Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.MenuFolder
+	 * @generated
+	 */
+	public Adapter createMenuFolderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.MenuItem <em>Menu Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.MenuItem
+	 * @generated
+	 */
+	public Adapter createMenuItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.SubMenu <em>Sub Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.SubMenu
+	 * @generated
+	 */
+	public Adapter createSubMenuAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.MenuSeparator <em>Menu Separator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.MenuSeparator
+	 * @generated
+	 */
+	public Adapter createMenuSeparatorAdapter() {
 		return null;
 	}
 

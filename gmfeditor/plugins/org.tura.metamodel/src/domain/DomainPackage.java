@@ -5806,13 +5806,22 @@ public interface DomainPackage extends EPackage {
 	int VIEWS__TAB_PAGES_INHERITANCES = 4;
 
 	/**
+	 * The feature id for the '<em><b>Menus</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEWS__MENUS = 5;
+
+	/**
 	 * The feature id for the '<em><b>Any</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEWS__ANY = 5;
+	int VIEWS__ANY = 6;
 
 	/**
 	 * The number of structural features of the '<em>Views</em>' class.
@@ -5821,7 +5830,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEWS_FEATURE_COUNT = 6;
+	int VIEWS_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.OrderableImpl <em>Orderable</em>}' class.
@@ -5887,7 +5896,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getStyleElement()
 	 * @generated
 	 */
-	int STYLE_ELEMENT = 120;
+	int STYLE_ELEMENT = 121;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6410,6 +6419,79 @@ public interface DomainPackage extends EPackage {
 	int WINDOW_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 5;
 
 	/**
+	 * The meta object id for the '{@link domain.impl.MenuImpl <em>Menu</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.MenuImpl
+	 * @see domain.impl.DomainPackageImpl#getMenu()
+	 * @generated
+	 */
+	int MENU = 103;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__STYLE = STYLE_ELEMENT__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__CLASSIFIERS = STYLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__UID = STYLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__NAME = STYLE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Menu View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__MENU_VIEW = STYLE_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Menu</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The meta object id for the '{@link domain.impl.TabCanvasImpl <em>Tab Canvas</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6417,7 +6499,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTabCanvas()
 	 * @generated
 	 */
-	int TAB_CANVAS = 103;
+	int TAB_CANVAS = 104;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6508,7 +6590,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTabPage()
 	 * @generated
 	 */
-	int TAB_PAGE = 104;
+	int TAB_PAGE = 105;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6608,7 +6690,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViewPort()
 	 * @generated
 	 */
-	int VIEW_PORT = 105;
+	int VIEW_PORT = 106;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6699,7 +6781,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViewArea()
 	 * @generated
 	 */
-	int VIEW_AREA = 106;
+	int VIEW_AREA = 107;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6790,7 +6872,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTrigger()
 	 * @generated
 	 */
-	int TRIGGER = 147;
+	int TRIGGER = 148;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -6872,7 +6954,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViewPortTrigger()
 	 * @generated
 	 */
-	int VIEW_PORT_TRIGGER = 107;
+	int VIEW_PORT_TRIGGER = 108;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -6963,7 +7045,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViewInheritance()
 	 * @generated
 	 */
-	int VIEW_INHERITANCE = 108;
+	int VIEW_INHERITANCE = 109;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7009,7 +7091,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTabPagesInheritance()
 	 * @generated
 	 */
-	int TAB_PAGES_INHERITANCE = 109;
+	int TAB_PAGES_INHERITANCE = 110;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7055,7 +7137,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getFormDataControls()
 	 * @generated
 	 */
-	int FORM_DATA_CONTROLS = 110;
+	int FORM_DATA_CONTROLS = 111;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7101,7 +7183,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getCanvasView()
 	 * @generated
 	 */
-	int CANVAS_VIEW = 111;
+	int CANVAS_VIEW = 112;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7174,7 +7256,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getLinkToMessage()
 	 * @generated
 	 */
-	int LINK_TO_MESSAGE = 112;
+	int LINK_TO_MESSAGE = 113;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7220,7 +7302,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getLinkToLabel()
 	 * @generated
 	 */
-	int LINK_TO_LABEL = 113;
+	int LINK_TO_LABEL = 114;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7266,7 +7348,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getChildrenHolder()
 	 * @generated
 	 */
-	int CHILDREN_HOLDER = 114;
+	int CHILDREN_HOLDER = 115;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -7294,7 +7376,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getContextParameter()
 	 * @generated
 	 */
-	int CONTEXT_PARAMETER = 115;
+	int CONTEXT_PARAMETER = 116;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7349,7 +7431,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getContextValue()
 	 * @generated
 	 */
-	int CONTEXT_VALUE = 116;
+	int CONTEXT_VALUE = 117;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7404,7 +7486,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getExpressionPart()
 	 * @generated
 	 */
-	int EXPRESSION_PART = 117;
+	int EXPRESSION_PART = 118;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7459,7 +7541,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getContextParameters()
 	 * @generated
 	 */
-	int CONTEXT_PARAMETERS = 118;
+	int CONTEXT_PARAMETERS = 119;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -7487,7 +7569,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 119;
+	int CONTEXT = 120;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7551,7 +7633,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getStyleClass()
 	 * @generated
 	 */
-	int STYLE_CLASS = 121;
+	int STYLE_CLASS = 122;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7615,7 +7697,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getNickNamed()
 	 * @generated
 	 */
-	int NICK_NAMED = 122;
+	int NICK_NAMED = 123;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -7643,7 +7725,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getActioinTriggers()
 	 * @generated
 	 */
-	int ACTIOIN_TRIGGERS = 123;
+	int ACTIOIN_TRIGGERS = 124;
 
 	/**
 	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
@@ -7671,7 +7753,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getActionTrigger()
 	 * @generated
 	 */
-	int ACTION_TRIGGER = 124;
+	int ACTION_TRIGGER = 125;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -7771,7 +7853,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getUielement()
 	 * @generated
 	 */
-	int UIELEMENT = 125;
+	int UIELEMENT = 126;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7889,7 +7971,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getAreaRef()
 	 * @generated
 	 */
-	int AREA_REF = 126;
+	int AREA_REF = 127;
 
 	/**
 	 * The feature id for the '<em><b>Area</b></em>' reference.
@@ -7926,7 +8008,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getFormatable()
 	 * @generated
 	 */
-	int FORMATABLE = 127;
+	int FORMATABLE = 128;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -7954,7 +8036,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getSourcesPointer()
 	 * @generated
 	 */
-	int SOURCES_POINTER = 128;
+	int SOURCES_POINTER = 129;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8108,7 +8190,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInputElement()
 	 * @generated
 	 */
-	int INPUT_ELEMENT = 129;
+	int INPUT_ELEMENT = 130;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8262,7 +8344,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getSelection()
 	 * @generated
 	 */
-	int SELECTION = 130;
+	int SELECTION = 131;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8317,7 +8399,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOptionSelection()
 	 * @generated
 	 */
-	int OPTION_SELECTION = 131;
+	int OPTION_SELECTION = 132;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8498,7 +8580,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getLayerHolder()
 	 * @generated
 	 */
-	int LAYER_HOLDER = 132;
+	int LAYER_HOLDER = 133;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8634,7 +8716,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInputText()
 	 * @generated
 	 */
-	int INPUT_TEXT = 133;
+	int INPUT_TEXT = 134;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8797,7 +8879,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPassword()
 	 * @generated
 	 */
-	int PASSWORD = 134;
+	int PASSWORD = 135;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8960,7 +9042,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 135;
+	int LABEL = 136;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9096,7 +9178,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMessageElement()
 	 * @generated
 	 */
-	int MESSAGE_ELEMENT = 136;
+	int MESSAGE_ELEMENT = 137;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9232,7 +9314,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOutputText()
 	 * @generated
 	 */
-	int OUTPUT_TEXT = 137;
+	int OUTPUT_TEXT = 138;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9395,7 +9477,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getCheckBox()
 	 * @generated
 	 */
-	int CHECK_BOX = 138;
+	int CHECK_BOX = 139;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9549,7 +9631,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDropDownSelection()
 	 * @generated
 	 */
-	int DROP_DOWN_SELECTION = 139;
+	int DROP_DOWN_SELECTION = 140;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9757,7 +9839,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getImage()
 	 * @generated
 	 */
-	int IMAGE = 140;
+	int IMAGE = 141;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9911,7 +9993,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 141;
+	int DATE = 142;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10074,7 +10156,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getButton()
 	 * @generated
 	 */
-	int BUTTON = 142;
+	int BUTTON = 143;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10219,7 +10301,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getColumn()
 	 * @generated
 	 */
-	int COLUMN = 143;
+	int COLUMN = 144;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10319,7 +10401,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 144;
+	int TABLE = 145;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10518,7 +10600,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 145;
+	int TREE = 146;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10717,7 +10799,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getControls()
 	 * @generated
 	 */
-	int CONTROLS = 146;
+	int CONTROLS = 147;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -10799,7 +10881,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPREFormTrigger()
 	 * @generated
 	 */
-	int PRE_FORM_TRIGGER = 148;
+	int PRE_FORM_TRIGGER = 149;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10890,7 +10972,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPREQueryTrigger()
 	 * @generated
 	 */
-	int PRE_QUERY_TRIGGER = 149;
+	int PRE_QUERY_TRIGGER = 150;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -10981,7 +11063,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPOSTQueryTrigger()
 	 * @generated
 	 */
-	int POST_QUERY_TRIGGER = 150;
+	int POST_QUERY_TRIGGER = 151;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11072,7 +11154,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPREInsertTrigger()
 	 * @generated
 	 */
-	int PRE_INSERT_TRIGGER = 151;
+	int PRE_INSERT_TRIGGER = 152;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11163,7 +11245,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPREDeleteTrigger()
 	 * @generated
 	 */
-	int PRE_DELETE_TRIGGER = 152;
+	int PRE_DELETE_TRIGGER = 153;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11254,7 +11336,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPOSTCreateTrigger()
 	 * @generated
 	 */
-	int POST_CREATE_TRIGGER = 153;
+	int POST_CREATE_TRIGGER = 154;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11345,7 +11427,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPREUpdateTrigger()
 	 * @generated
 	 */
-	int PRE_UPDATE_TRIGGER = 154;
+	int PRE_UPDATE_TRIGGER = 155;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11436,7 +11518,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getCreateTrigger()
 	 * @generated
 	 */
-	int CREATE_TRIGGER = 155;
+	int CREATE_TRIGGER = 156;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11527,7 +11609,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInsertTrigger()
 	 * @generated
 	 */
-	int INSERT_TRIGGER = 156;
+	int INSERT_TRIGGER = 157;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11618,7 +11700,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getUpdateTrigger()
 	 * @generated
 	 */
-	int UPDATE_TRIGGER = 157;
+	int UPDATE_TRIGGER = 158;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11709,7 +11791,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDeleteTrigger()
 	 * @generated
 	 */
-	int DELETE_TRIGGER = 158;
+	int DELETE_TRIGGER = 159;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11800,7 +11882,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getSearchTrigger()
 	 * @generated
 	 */
-	int SEARCH_TRIGGER = 159;
+	int SEARCH_TRIGGER = 160;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11891,7 +11973,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getRoot()
 	 * @generated
 	 */
-	int ROOT = 160;
+	int ROOT = 161;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11946,7 +12028,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getFormVariable()
 	 * @generated
 	 */
-	int FORM_VARIABLE = 161;
+	int FORM_VARIABLE = 162;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -12028,7 +12110,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDataControl()
 	 * @generated
 	 */
-	int DATA_CONTROL = 162;
+	int DATA_CONTROL = 163;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12209,7 +12291,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 163;
+	int ORDERS = 164;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12246,7 +12328,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 164;
+	int ORDER_BY = 165;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12292,7 +12374,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 165;
+	int RELATION = 166;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12365,7 +12447,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 166;
+	int DEPENDENCY = 167;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12420,7 +12502,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 167;
+	int ARTIFICIAL_FIELD = 168;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -12502,7 +12584,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getLink()
 	 * @generated
 	 */
-	int LINK = 168;
+	int LINK = 169;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12557,7 +12639,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
 	 * @generated
 	 */
-	int APPLICATION_INFRASTRUCTURE_LAYER = 169;
+	int APPLICATION_INFRASTRUCTURE_LAYER = 170;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12612,7 +12694,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
 	 * @generated
 	 */
-	int ENTERPRISE_INFRASTRUCTURE = 170;
+	int ENTERPRISE_INFRASTRUCTURE = 171;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12676,7 +12758,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDatacenter()
 	 * @generated
 	 */
-	int DATACENTER = 171;
+	int DATACENTER = 172;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -12740,7 +12822,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getSubsystem()
 	 * @generated
 	 */
-	int SUBSYSTEM = 172;
+	int SUBSYSTEM = 173;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12795,7 +12877,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
 	 * @generated
 	 */
-	int INFRASTRUCTURE_LAYER = 173;
+	int INFRASTRUCTURE_LAYER = 174;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12850,7 +12932,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
 	 * @generated
 	 */
-	int INFRASTRUCTURE_CONNECTION = 174;
+	int INFRASTRUCTURE_CONNECTION = 175;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12896,7 +12978,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
 	 * @generated
 	 */
-	int INFRASTRUCTURE_COMPONENT = 175;
+	int INFRASTRUCTURE_COMPONENT = 176;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12942,7 +13024,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getServer()
 	 * @generated
 	 */
-	int SERVER = 176;
+	int SERVER = 177;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12988,7 +13070,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getRouter()
 	 * @generated
 	 */
-	int ROUTER = 177;
+	int ROUTER = 178;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13034,7 +13116,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getHub()
 	 * @generated
 	 */
-	int HUB = 178;
+	int HUB = 179;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13080,7 +13162,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getStorage()
 	 * @generated
 	 */
-	int STORAGE = 179;
+	int STORAGE = 180;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13126,7 +13208,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getServerClaster()
 	 * @generated
 	 */
-	int SERVER_CLASTER = 180;
+	int SERVER_CLASTER = 181;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13174,6 +13256,309 @@ public interface DomainPackage extends EPackage {
 	int SERVER_CLASTER_FEATURE_COUNT = INFRASTRUCTURE_COMPONENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link domain.impl.MenuViewImpl <em>Menu View</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.MenuViewImpl
+	 * @see domain.impl.DomainPackageImpl#getMenuView()
+	 * @generated
+	 */
+	int MENU_VIEW = 182;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_VIEW__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_VIEW__PARENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Menu Folders</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_VIEW__MENU_FOLDERS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Any</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_VIEW__ANY = 3;
+
+	/**
+	 * The number of structural features of the '<em>Menu View</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_VIEW_FEATURE_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.MenuElementImpl <em>Menu Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.MenuElementImpl
+	 * @see domain.impl.DomainPackageImpl#getMenuElement()
+	 * @generated
+	 */
+	int MENU_ELEMENT = 183;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ELEMENT__ORDER = ORDERABLE__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ELEMENT__UID = ORDERABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ELEMENT__NAME = ORDERABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Menu Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ELEMENT_FEATURE_COUNT = ORDERABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.MenuFolderImpl <em>Menu Folder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.MenuFolderImpl
+	 * @see domain.impl.DomainPackageImpl#getMenuFolder()
+	 * @generated
+	 */
+	int MENU_FOLDER = 184;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_FOLDER__COLUMNS = HTML_LAYER_HOLDER__COLUMNS;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_FOLDER__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_FOLDER__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Menu Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_FOLDER__MENU_ELEMENTS = HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Menu Folder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_FOLDER_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.MenuItemImpl <em>Menu Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.MenuItemImpl
+	 * @see domain.impl.DomainPackageImpl#getMenuItem()
+	 * @generated
+	 */
+	int MENU_ITEM = 185;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ITEM__ORDER = MENU_ELEMENT__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ITEM__UID = MENU_ELEMENT__UID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ITEM__NAME = MENU_ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Menu Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ITEM_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.SubMenuImpl <em>Sub Menu</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.SubMenuImpl
+	 * @see domain.impl.DomainPackageImpl#getSubMenu()
+	 * @generated
+	 */
+	int SUB_MENU = 186;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_MENU__ORDER = MENU_ELEMENT__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_MENU__UID = MENU_ELEMENT__UID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_MENU__NAME = MENU_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>To Submenu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_MENU__TO_SUBMENU = MENU_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Sub Menu</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_MENU_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.MenuSeparatorImpl <em>Menu Separator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.MenuSeparatorImpl
+	 * @see domain.impl.DomainPackageImpl#getMenuSeparator()
+	 * @generated
+	 */
+	int MENU_SEPARATOR = 187;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_SEPARATOR__ORDER = MENU_ELEMENT__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_SEPARATOR__UID = MENU_ELEMENT__UID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_SEPARATOR__NAME = MENU_ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Menu Separator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_SEPARATOR_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link domain.PlatformLayers <em>Platform Layers</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13181,7 +13566,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPlatformLayers()
 	 * @generated
 	 */
-	int PLATFORM_LAYERS = 181;
+	int PLATFORM_LAYERS = 188;
 
 	/**
 	 * The meta object id for the '{@link domain.Comparator <em>Comparator</em>}' enum.
@@ -13191,7 +13576,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 182;
+	int COMPARATOR = 189;
 
 	/**
 	 * The meta object id for the '{@link domain.Order <em>Order</em>}' enum.
@@ -13201,7 +13586,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 183;
+	int ORDER = 190;
 
 
 	/**
@@ -13212,7 +13597,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 184;
+	int ORIENTATION = 191;
 
 
 	/**
@@ -17797,6 +18182,17 @@ public interface DomainPackage extends EPackage {
 	EReference getViews_TabPagesInheritances();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link domain.Views#getMenus <em>Menus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Menus</em>'.
+	 * @see domain.Views#getMenus()
+	 * @see #getViews()
+	 * @generated
+	 */
+	EReference getViews_Menus();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link domain.Views#getAny <em>Any</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17973,6 +18369,49 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getWindow();
+
+	/**
+	 * Returns the meta object for class '{@link domain.Menu <em>Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Menu</em>'.
+	 * @see domain.Menu
+	 * @generated
+	 */
+	EClass getMenu();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.Menu#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see domain.Menu#getUid()
+	 * @see #getMenu()
+	 * @generated
+	 */
+	EAttribute getMenu_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.Menu#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see domain.Menu#getName()
+	 * @see #getMenu()
+	 * @generated
+	 */
+	EAttribute getMenu_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link domain.Menu#getMenuView <em>Menu View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Menu View</em>'.
+	 * @see domain.Menu#getMenuView()
+	 * @see #getMenu()
+	 * @generated
+	 */
+	EReference getMenu_MenuView();
 
 	/**
 	 * Returns the meta object for class '{@link domain.TabCanvas <em>Tab Canvas</em>}'.
@@ -20689,6 +21128,176 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getServerClaster_Servers();
+
+	/**
+	 * Returns the meta object for class '{@link domain.MenuView <em>Menu View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Menu View</em>'.
+	 * @see domain.MenuView
+	 * @generated
+	 */
+	EClass getMenuView();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.MenuView#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see domain.MenuView#getUid()
+	 * @see #getMenuView()
+	 * @generated
+	 */
+	EAttribute getMenuView_Uid();
+
+	/**
+	 * Returns the meta object for the reference '{@link domain.MenuView#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see domain.MenuView#getParent()
+	 * @see #getMenuView()
+	 * @generated
+	 */
+	EReference getMenuView_Parent();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link domain.MenuView#getMenuFolders <em>Menu Folders</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Menu Folders</em>'.
+	 * @see domain.MenuView#getMenuFolders()
+	 * @see #getMenuView()
+	 * @generated
+	 */
+	EReference getMenuView_MenuFolders();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link domain.MenuView#getAny <em>Any</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Any</em>'.
+	 * @see domain.MenuView#getAny()
+	 * @see #getMenuView()
+	 * @generated
+	 */
+	EReference getMenuView_Any();
+
+	/**
+	 * Returns the meta object for class '{@link domain.MenuElement <em>Menu Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Menu Element</em>'.
+	 * @see domain.MenuElement
+	 * @generated
+	 */
+	EClass getMenuElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.MenuElement#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see domain.MenuElement#getUid()
+	 * @see #getMenuElement()
+	 * @generated
+	 */
+	EAttribute getMenuElement_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.MenuElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see domain.MenuElement#getName()
+	 * @see #getMenuElement()
+	 * @generated
+	 */
+	EAttribute getMenuElement_Name();
+
+	/**
+	 * Returns the meta object for class '{@link domain.MenuFolder <em>Menu Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Menu Folder</em>'.
+	 * @see domain.MenuFolder
+	 * @generated
+	 */
+	EClass getMenuFolder();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.MenuFolder#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see domain.MenuFolder#getUid()
+	 * @see #getMenuFolder()
+	 * @generated
+	 */
+	EAttribute getMenuFolder_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.MenuFolder#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see domain.MenuFolder#getName()
+	 * @see #getMenuFolder()
+	 * @generated
+	 */
+	EAttribute getMenuFolder_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link domain.MenuFolder#getMenuElements <em>Menu Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Menu Elements</em>'.
+	 * @see domain.MenuFolder#getMenuElements()
+	 * @see #getMenuFolder()
+	 * @generated
+	 */
+	EReference getMenuFolder_MenuElements();
+
+	/**
+	 * Returns the meta object for class '{@link domain.MenuItem <em>Menu Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Menu Item</em>'.
+	 * @see domain.MenuItem
+	 * @generated
+	 */
+	EClass getMenuItem();
+
+	/**
+	 * Returns the meta object for class '{@link domain.SubMenu <em>Sub Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sub Menu</em>'.
+	 * @see domain.SubMenu
+	 * @generated
+	 */
+	EClass getSubMenu();
+
+	/**
+	 * Returns the meta object for the reference '{@link domain.SubMenu#getToSubmenu <em>To Submenu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>To Submenu</em>'.
+	 * @see domain.SubMenu#getToSubmenu()
+	 * @see #getSubMenu()
+	 * @generated
+	 */
+	EReference getSubMenu_ToSubmenu();
+
+	/**
+	 * Returns the meta object for class '{@link domain.MenuSeparator <em>Menu Separator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Menu Separator</em>'.
+	 * @see domain.MenuSeparator
+	 * @generated
+	 */
+	EClass getMenuSeparator();
 
 	/**
 	 * Returns the meta object for enum '{@link domain.PlatformLayers <em>Platform Layers</em>}'.
@@ -24341,6 +24950,14 @@ public interface DomainPackage extends EPackage {
 		EReference VIEWS__TAB_PAGES_INHERITANCES = eINSTANCE.getViews_TabPagesInheritances();
 
 		/**
+		 * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIEWS__MENUS = eINSTANCE.getViews_Menus();
+
+		/**
 		 * The meta object literal for the '<em><b>Any</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -24493,6 +25110,40 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EClass WINDOW = eINSTANCE.getWindow();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.MenuImpl <em>Menu</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.MenuImpl
+		 * @see domain.impl.DomainPackageImpl#getMenu()
+		 * @generated
+		 */
+		EClass MENU = eINSTANCE.getMenu();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU__UID = eINSTANCE.getMenu_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU__NAME = eINSTANCE.getMenu_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Menu View</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU__MENU_VIEW = eINSTANCE.getMenu_MenuView();
 
 		/**
 		 * The meta object literal for the '{@link domain.impl.TabCanvasImpl <em>Tab Canvas</em>}' class.
@@ -26681,6 +27332,146 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVER_CLASTER__SERVERS = eINSTANCE.getServerClaster_Servers();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.MenuViewImpl <em>Menu View</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.MenuViewImpl
+		 * @see domain.impl.DomainPackageImpl#getMenuView()
+		 * @generated
+		 */
+		EClass MENU_VIEW = eINSTANCE.getMenuView();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU_VIEW__UID = eINSTANCE.getMenuView_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_VIEW__PARENT = eINSTANCE.getMenuView_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Menu Folders</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_VIEW__MENU_FOLDERS = eINSTANCE.getMenuView_MenuFolders();
+
+		/**
+		 * The meta object literal for the '<em><b>Any</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_VIEW__ANY = eINSTANCE.getMenuView_Any();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.MenuElementImpl <em>Menu Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.MenuElementImpl
+		 * @see domain.impl.DomainPackageImpl#getMenuElement()
+		 * @generated
+		 */
+		EClass MENU_ELEMENT = eINSTANCE.getMenuElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU_ELEMENT__UID = eINSTANCE.getMenuElement_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU_ELEMENT__NAME = eINSTANCE.getMenuElement_Name();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.MenuFolderImpl <em>Menu Folder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.MenuFolderImpl
+		 * @see domain.impl.DomainPackageImpl#getMenuFolder()
+		 * @generated
+		 */
+		EClass MENU_FOLDER = eINSTANCE.getMenuFolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU_FOLDER__UID = eINSTANCE.getMenuFolder_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU_FOLDER__NAME = eINSTANCE.getMenuFolder_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Menu Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_FOLDER__MENU_ELEMENTS = eINSTANCE.getMenuFolder_MenuElements();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.MenuItemImpl <em>Menu Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.MenuItemImpl
+		 * @see domain.impl.DomainPackageImpl#getMenuItem()
+		 * @generated
+		 */
+		EClass MENU_ITEM = eINSTANCE.getMenuItem();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.SubMenuImpl <em>Sub Menu</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.SubMenuImpl
+		 * @see domain.impl.DomainPackageImpl#getSubMenu()
+		 * @generated
+		 */
+		EClass SUB_MENU = eINSTANCE.getSubMenu();
+
+		/**
+		 * The meta object literal for the '<em><b>To Submenu</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUB_MENU__TO_SUBMENU = eINSTANCE.getSubMenu_ToSubmenu();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.MenuSeparatorImpl <em>Menu Separator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.MenuSeparatorImpl
+		 * @see domain.impl.DomainPackageImpl#getMenuSeparator()
+		 * @generated
+		 */
+		EClass MENU_SEPARATOR = eINSTANCE.getMenuSeparator();
 
 		/**
 		 * The meta object literal for the '{@link domain.PlatformLayers <em>Platform Layers</em>}' enum.

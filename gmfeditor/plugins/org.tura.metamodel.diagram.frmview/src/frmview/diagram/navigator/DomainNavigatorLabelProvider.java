@@ -37,6 +37,8 @@ import domain.ViewInheritance;
 import domain.Views;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
+import frmview.diagram.edit.parts.MenuEditPart;
+import frmview.diagram.edit.parts.MenuNameEditPart;
 import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.PopupCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
@@ -144,6 +146,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case PopupCanvasEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?PopupCanvas", DomainElementTypes.PopupCanvas_1302009); //$NON-NLS-1$
+		case MenuEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?Menu", DomainElementTypes.Menu_1302010); //$NON-NLS-1$
 		case ViewPortTriggerEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?ViewPortTrigger", DomainElementTypes.ViewPortTrigger_1303002); //$NON-NLS-1$
@@ -231,6 +236,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getTabCanvas_1302008Text(view);
 		case PopupCanvasEditPart.VISUAL_ID:
 			return getPopupCanvas_1302009Text(view);
+		case MenuEditPart.VISUAL_ID:
+			return getMenu_1302010Text(view);
 		case ViewPortTriggerEditPart.VISUAL_ID:
 			return getViewPortTrigger_1303002Text(view);
 		case ViewPortEditPart.VISUAL_ID:
@@ -352,6 +359,25 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 1305014); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getMenu_1302010Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Menu_1302010,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(MenuNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1305015); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

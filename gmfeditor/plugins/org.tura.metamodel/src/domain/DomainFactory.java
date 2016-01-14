@@ -961,6 +961,15 @@ public interface DomainFactory extends EFactory {
 	Window createWindow();
 
 	/**
+	 * Returns a new object of class '<em>Menu</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu</em>'.
+	 * @generated
+	 */
+	Menu createMenu();
+
+	/**
 	 * Returns a new object of class '<em>Tab Canvas</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1661,6 +1670,60 @@ public interface DomainFactory extends EFactory {
 	 * @generated
 	 */
 	ServerClaster createServerClaster();
+
+	/**
+	 * Returns a new object of class '<em>Menu View</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu View</em>'.
+	 * @generated
+	 */
+	MenuView createMenuView();
+
+	/**
+	 * Returns a new object of class '<em>Menu Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu Element</em>'.
+	 * @generated
+	 */
+	MenuElement createMenuElement();
+
+	/**
+	 * Returns a new object of class '<em>Menu Folder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu Folder</em>'.
+	 * @generated
+	 */
+	MenuFolder createMenuFolder();
+
+	/**
+	 * Returns a new object of class '<em>Menu Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu Item</em>'.
+	 * @generated
+	 */
+	MenuItem createMenuItem();
+
+	/**
+	 * Returns a new object of class '<em>Sub Menu</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sub Menu</em>'.
+	 * @generated
+	 */
+	SubMenu createSubMenu();
+
+	/**
+	 * Returns a new object of class '<em>Menu Separator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu Separator</em>'.
+	 * @generated
+	 */
+	MenuSeparator createMenuSeparator();
 
 	/**
 	 * Returns the package supported by this factory.

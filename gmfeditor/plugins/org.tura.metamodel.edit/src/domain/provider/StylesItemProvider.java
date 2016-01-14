@@ -744,6 +744,11 @@ public class StylesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.STYLES__ANY,
+				 DomainFactory.eINSTANCE.createMenu()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLES__ANY,
 				 DomainFactory.eINSTANCE.createTabCanvas()));
 
 		newChildDescriptors.add
@@ -1125,6 +1130,36 @@ public class StylesItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.STYLES__ANY,
 				 DomainFactory.eINSTANCE.createServerClaster()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLES__ANY,
+				 DomainFactory.eINSTANCE.createMenuView()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLES__ANY,
+				 DomainFactory.eINSTANCE.createMenuElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLES__ANY,
+				 DomainFactory.eINSTANCE.createMenuFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLES__ANY,
+				 DomainFactory.eINSTANCE.createMenuItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLES__ANY,
+				 DomainFactory.eINSTANCE.createSubMenu()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLES__ANY,
+				 DomainFactory.eINSTANCE.createMenuSeparator()));
 	}
 
 	/**
