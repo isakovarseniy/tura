@@ -80,6 +80,12 @@ public class QueryHelper {
 			frm = (Form) ((domain.Controls) root.getElement()).getParent().eContainer();
 		}
 
+		if (root.getElement() instanceof domain.MenuView) {
+			domain.Views views = (Views) (((domain.MenuView) root.getElement()).getParent().eContainer());
+			frm = (domain.Form) (views.getParent().eContainer());
+			
+		}
+		
 		if (root.getElement() instanceof domain.CanvasView) {
 
 			domain.Views views = (Views) (((domain.CanvasView) root.getElement()).getParent().eContainer()

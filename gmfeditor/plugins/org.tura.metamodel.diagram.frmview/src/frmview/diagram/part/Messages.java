@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -278,12 +266,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Menu2CreationTool_title;
+	public static String MenuDefinition2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Menu2CreationTool_desc;
+	public static String MenuDefinition2CreationTool_desc;
 
 	/**
 	 * @generated
@@ -393,12 +381,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TabPageTabPageViewElementCompartmentEditPart_title;
+	public static String WindowWindowViewElementCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String WindowWindowViewElementCompartmentEditPart_title;
+	public static String TabPageTabPageViewElementCompartmentEditPart_title;
 
 	/**
 	 * @generated

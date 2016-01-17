@@ -744,7 +744,7 @@ public class TypesRepositoryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
-				 DomainFactory.eINSTANCE.createMenu()));
+				 DomainFactory.eINSTANCE.createMenuDefinition()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -859,7 +859,17 @@ public class TypesRepositoryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
+				 DomainFactory.eINSTANCE.createEnabledUIItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
+				 DomainFactory.eINSTANCE.createItemIcon()));
 
 		newChildDescriptors.add
 			(createChildParameter

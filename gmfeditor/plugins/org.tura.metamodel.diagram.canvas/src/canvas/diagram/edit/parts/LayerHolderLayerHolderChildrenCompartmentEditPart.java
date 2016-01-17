@@ -188,13 +188,13 @@ public class LayerHolderLayerHolderChildrenCompartmentEditPart extends
 			if (type == DomainElementTypes.Image_1603028) {
 				return this;
 			}
+			if (type == DomainElementTypes.Button_1603017) {
+				return this;
+			}
 			if (type == DomainElementTypes.Label_1603005) {
 				return this;
 			}
 			if (type == DomainElementTypes.MessageElement_1603034) {
-				return this;
-			}
-			if (type == DomainElementTypes.Button_1603017) {
 				return this;
 			}
 			return getParent().getTargetEditPart(request);

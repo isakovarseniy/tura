@@ -5,7 +5,7 @@ package domain.provider;
 
 import domain.DomainFactory;
 import domain.DomainPackage;
-import domain.Menu;
+import domain.EnabledUIItem;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,27 +13,40 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link domain.Menu} object.
+ * This is the item provider adapter for a {@link domain.EnabledUIItem} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MenuItemProvider extends StyleElementItemProvider {
+public class EnabledUIItemItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MenuItemProvider(AdapterFactory adapterFactory) {
+	public EnabledUIItemItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -48,77 +61,8 @@ public class MenuItemProvider extends StyleElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addUidPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addMenuViewPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Uid feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUidPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Menu_uid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_uid_feature", "_UI_Menu_type"),
-				 DomainPackage.Literals.MENU__UID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Menu_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_name_feature", "_UI_Menu_type"),
-				 DomainPackage.Literals.MENU__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Menu View feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMenuViewPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Menu_menuView_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_menuView_feature", "_UI_Menu_type"),
-				 DomainPackage.Literals.MENU__MENU_VIEW,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -133,7 +77,7 @@ public class MenuItemProvider extends StyleElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED);
 		}
 		return childrenFeatures;
 	}
@@ -152,14 +96,14 @@ public class MenuItemProvider extends StyleElementItemProvider {
 	}
 
 	/**
-	 * This returns Menu.gif.
+	 * This returns EnabledUIItem.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Menu"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EnabledUIItem"));
 	}
 
 	/**
@@ -170,10 +114,7 @@ public class MenuItemProvider extends StyleElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Menu)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Menu_type") :
-			getString("_UI_Menu_type") + " " + label;
+		return getString("_UI_EnabledUIItem_type");
 	}
 	
 
@@ -188,12 +129,8 @@ public class MenuItemProvider extends StyleElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Menu.class)) {
-			case DomainPackage.MENU__UID:
-			case DomainPackage.MENU__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case DomainPackage.MENU__CLASSIFIERS:
+		switch (notification.getFeatureID(EnabledUIItem.class)) {
+			case DomainPackage.ENABLED_UI_ITEM__ENABLED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -213,8 +150,19 @@ public class MenuItemProvider extends StyleElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
-				 DomainFactory.eINSTANCE.createClassifier()));
+				(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED,
+				 DomainFactory.eINSTANCE.createContext()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return DomainEditPlugin.INSTANCE;
 	}
 
 }

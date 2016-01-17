@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -59,8 +47,8 @@ import org.eclipse.swt.graphics.FontData;
 import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
-import frmview.diagram.edit.parts.MenuEditPart;
-import frmview.diagram.edit.parts.MenuNameEditPart;
+import frmview.diagram.edit.parts.MenuDefinitionEditPart;
+import frmview.diagram.edit.parts.MenuDefinitionNameEditPart;
 import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.PopupCanvasNameEditPart;
 import frmview.diagram.edit.parts.PopupCanvasPopupCanvasViewElementCompartmentEditPart;
@@ -179,7 +167,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				case WindowEditPart.VISUAL_ID:
 				case TabPageEditPart.VISUAL_ID:
 				case TabCanvasEditPart.VISUAL_ID:
-				case MenuEditPart.VISUAL_ID:
+				case MenuDefinitionEditPart.VISUAL_ID:
 				case ViewPortEditPart.VISUAL_ID:
 				case ViewPortTriggerEditPart.VISUAL_ID:
 				case ViewAreaEditPart.VISUAL_ID:
@@ -200,7 +188,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| WindowEditPart.VISUAL_ID == visualID
 				|| TabPageEditPart.VISUAL_ID == visualID
 				|| TabCanvasEditPart.VISUAL_ID == visualID
-				|| MenuEditPart.VISUAL_ID == visualID
+				|| MenuDefinitionEditPart.VISUAL_ID == visualID
 				|| ViewPortEditPart.VISUAL_ID == visualID
 				|| ViewPortTriggerEditPart.VISUAL_ID == visualID
 				|| ViewAreaEditPart.VISUAL_ID == visualID;
@@ -275,9 +263,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case TabCanvasEditPart.VISUAL_ID:
 			return createTabCanvas_1302008(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case MenuEditPart.VISUAL_ID:
-			return createMenu_1302010(domainElement, containerView, index,
-					persisted, preferencesHint);
+		case MenuDefinitionEditPart.VISUAL_ID:
+			return createMenuDefinition_1302011(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case ViewPortEditPart.VISUAL_ID:
 			return createViewPort_1303004(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -406,6 +394,49 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	public Node createWindow_1302007(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(
+				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry.getType(WindowEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label1305010 = createLabel(node,
+				DomainVisualIDRegistry.getType(WindowNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(WindowWindowViewElementCompartmentEditPart.VISUAL_ID),
+				true, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
 	public Node createTabPage_1302002(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
@@ -443,49 +474,6 @@ public class DomainViewProvider extends AbstractProvider implements
 				node,
 				DomainVisualIDRegistry
 						.getType(TabPageTabPageViewElementCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
-	public Node createWindow_1302007(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles()
-				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(
-				NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(DomainVisualIDRegistry.getType(WindowEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		stampShortcut(containerView, node);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
-				.getPreferenceStore();
-		FontStyle nodeFontStyle = (FontStyle) node
-				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
-					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
-					.intValue());
-		}
-		Node label1305010 = createLabel(node,
-				DomainVisualIDRegistry.getType(WindowNameEditPart.VISUAL_ID));
-		createCompartment(
-				node,
-				DomainVisualIDRegistry
-						.getType(WindowWindowViewElementCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
 		return node;
 	}
@@ -531,8 +519,9 @@ public class DomainViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createMenu_1302010(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
+	public Node createMenuDefinition_1302011(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
 				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -544,7 +533,8 @@ public class DomainViewProvider extends AbstractProvider implements
 			node.getStyles().add(diagramFacet);
 		}
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(DomainVisualIDRegistry.getType(MenuEditPart.VISUAL_ID));
+		node.setType(DomainVisualIDRegistry
+				.getType(MenuDefinitionEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		stampShortcut(containerView, node);
@@ -565,8 +555,9 @@ public class DomainViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		Node label1305015 = createLabel(node,
-				DomainVisualIDRegistry.getType(MenuNameEditPart.VISUAL_ID));
+		Node label1305016 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(MenuDefinitionNameEditPart.VISUAL_ID));
 		return node;
 	}
 

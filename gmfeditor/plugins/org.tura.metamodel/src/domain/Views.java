@@ -145,7 +145,7 @@ public interface Views extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Menus</b></em>' containment reference list.
-	 * The list contents are of type {@link domain.Menu}.
+	 * The list contents are of type {@link domain.MenuDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Menus</em>' containment reference list isn't clear,
@@ -157,7 +157,7 @@ public interface Views extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Menu> getMenus();
+	EList<MenuDefinition> getMenus();
 
 	/**
 	 * Returns the value of the '<em><b>Any</b></em>' containment reference.

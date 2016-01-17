@@ -202,7 +202,7 @@ public class DropDownSelectionItemProvider extends OptionSelectionItemProvider {
 
 		boolean qualify =
 			childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
-			childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
+			childFeature == DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
 			childFeature == DomainPackage.Literals.DROP_DOWN_SELECTION__INITIAL_OPTION_MESSAGE;

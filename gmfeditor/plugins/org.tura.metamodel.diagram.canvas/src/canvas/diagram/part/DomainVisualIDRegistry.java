@@ -233,6 +233,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ImageEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ButtonEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
 					domainElement.eClass())) {
 				return LabelEditPart.VISUAL_ID;
@@ -240,10 +244,6 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getMessageElement().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MessageElementEditPart.VISUAL_ID;
-			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ButtonEditPart.VISUAL_ID;
 			}
 			break;
 		case TableTableColsCompartmentEditPart.VISUAL_ID:
@@ -293,6 +293,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return Image2EditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Button2EditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
 					domainElement.eClass())) {
 				return Label2EditPart.VISUAL_ID;
@@ -300,10 +304,6 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getMessageElement().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MessageElement2EditPart.VISUAL_ID;
-			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
-					domainElement.eClass())) {
-				return Button2EditPart.VISUAL_ID;
 			}
 			break;
 		case TableTableColsCompartment2EditPart.VISUAL_ID:
@@ -359,6 +359,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return Image2EditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Button2EditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
 					domainElement.eClass())) {
 				return Label2EditPart.VISUAL_ID;
@@ -366,10 +370,6 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getMessageElement().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MessageElement2EditPart.VISUAL_ID;
-			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
-					domainElement.eClass())) {
-				return Button2EditPart.VISUAL_ID;
 			}
 			break;
 		case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
@@ -413,6 +413,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ImageEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ButtonEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
 					domainElement.eClass())) {
 				return LabelEditPart.VISUAL_ID;
@@ -420,10 +424,6 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getMessageElement().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MessageElementEditPart.VISUAL_ID;
-			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ButtonEditPart.VISUAL_ID;
 			}
 			break;
 		case TreeTreeColsCompartment2EditPart.VISUAL_ID:
@@ -473,6 +473,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return ImageEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ButtonEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getLabel().isSuperTypeOf(
 					domainElement.eClass())) {
 				return LabelEditPart.VISUAL_ID;
@@ -480,10 +484,6 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getMessageElement().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MessageElementEditPart.VISUAL_ID;
-			}
-			if (DomainPackage.eINSTANCE.getButton().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ButtonEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -580,6 +580,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ButtonEditPart.VISUAL_ID:
+			if (ButtonLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case LabelEditPart.VISUAL_ID:
 			if (LabelLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -590,8 +595,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ButtonEditPart.VISUAL_ID:
-			if (ButtonLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case Button2EditPart.VISUAL_ID:
+			if (ButtonLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -602,11 +607,6 @@ public class DomainVisualIDRegistry {
 			break;
 		case MessageElement2EditPart.VISUAL_ID:
 			if (MessageElementLabel2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Button2EditPart.VISUAL_ID:
-			if (ButtonLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -641,13 +641,13 @@ public class DomainVisualIDRegistry {
 			if (ImageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (MessageElementEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -687,13 +687,13 @@ public class DomainVisualIDRegistry {
 			if (Image2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (Label2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (MessageElement2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -738,13 +738,13 @@ public class DomainVisualIDRegistry {
 			if (Image2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (Label2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (MessageElement2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -779,13 +779,13 @@ public class DomainVisualIDRegistry {
 			if (ImageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (MessageElementEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -825,13 +825,13 @@ public class DomainVisualIDRegistry {
 			if (ImageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (MessageElementEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

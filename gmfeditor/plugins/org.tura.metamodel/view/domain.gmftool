@@ -21,8 +21,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Menu"
-          description="Create new Menu">
+          title="MenuDefinition"
+          description="Create new MenuDefinition">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

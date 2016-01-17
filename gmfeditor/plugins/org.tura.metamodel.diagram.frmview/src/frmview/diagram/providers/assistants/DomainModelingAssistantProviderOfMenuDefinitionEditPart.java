@@ -8,7 +8,7 @@ import frmview.diagram.providers.DomainModelingAssistantProvider;
 /**
  * @generated
  */
-public class DomainModelingAssistantProviderOfMenuEditPart extends
+public class DomainModelingAssistantProviderOfMenuDefinitionEditPart extends
 		DomainModelingAssistantProvider {
 
 }

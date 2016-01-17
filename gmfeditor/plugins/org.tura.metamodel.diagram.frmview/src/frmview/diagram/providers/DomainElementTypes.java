@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -31,7 +19,7 @@ import org.eclipse.swt.graphics.Image;
 
 import domain.DomainPackage;
 import frmview.diagram.edit.parts.CanvasEditPart;
-import frmview.diagram.edit.parts.MenuEditPart;
+import frmview.diagram.edit.parts.MenuDefinitionEditPart;
 import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
@@ -87,11 +75,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType TabPage_1302002 = getElementType("org.tura.metamodel.diagram.frmview.TabPage_1302002"); //$NON-NLS-1$
+	public static final IElementType Window_1302007 = getElementType("org.tura.metamodel.diagram.frmview.Window_1302007"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Window_1302007 = getElementType("org.tura.metamodel.diagram.frmview.Window_1302007"); //$NON-NLS-1$
+	public static final IElementType TabPage_1302002 = getElementType("org.tura.metamodel.diagram.frmview.TabPage_1302002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -99,8 +87,7 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Menu_1302010 = getElementType("org.tura.metamodel.diagram.frmview.Menu_1302010"); //$NON-NLS-1$
-
+	public static final IElementType MenuDefinition_1302011 = getElementType("org.tura.metamodel.diagram.frmview.MenuDefinition_1302011"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -174,7 +161,8 @@ public class DomainElementTypes {
 			elements.put(TabCanvas_1302008,
 					DomainPackage.eINSTANCE.getTabCanvas());
 
-			elements.put(Menu_1302010, DomainPackage.eINSTANCE.getMenu());
+			elements.put(MenuDefinition_1302011,
+					DomainPackage.eINSTANCE.getMenuDefinition());
 
 			elements.put(ViewPort_1303004,
 					DomainPackage.eINSTANCE.getViewPort());
@@ -213,7 +201,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Window_1302007);
 			KNOWN_ELEMENT_TYPES.add(TabPage_1302002);
 			KNOWN_ELEMENT_TYPES.add(TabCanvas_1302008);
-			KNOWN_ELEMENT_TYPES.add(Menu_1302010);
+			KNOWN_ELEMENT_TYPES.add(MenuDefinition_1302011);
 			KNOWN_ELEMENT_TYPES.add(ViewPort_1303004);
 			KNOWN_ELEMENT_TYPES.add(ViewPortTrigger_1303002);
 			KNOWN_ELEMENT_TYPES.add(ViewArea_1303005);
@@ -240,8 +228,8 @@ public class DomainElementTypes {
 			return TabPage_1302002;
 		case TabCanvasEditPart.VISUAL_ID:
 			return TabCanvas_1302008;
-		case MenuEditPart.VISUAL_ID:
-			return Menu_1302010;
+		case MenuDefinitionEditPart.VISUAL_ID:
+			return MenuDefinition_1302011;
 		case ViewPortEditPart.VISUAL_ID:
 			return ViewPort_1303004;
 		case ViewPortTriggerEditPart.VISUAL_ID:

@@ -283,18 +283,18 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getColumnLabel_1605012Parser();
 		case TreeLabel2EditPart.VISUAL_ID:
 			return getTreeLabel_1605005Parser();
+		case ButtonLabelEditPart.VISUAL_ID:
+			return getButtonLabel_1605006Parser();
 		case LabelLabelEditPart.VISUAL_ID:
 			return getLabelLabel_1605001Parser();
 		case MessageElementLabelEditPart.VISUAL_ID:
 			return getMessageElementLabel_1605013Parser();
-		case ButtonLabelEditPart.VISUAL_ID:
-			return getButtonLabel_1605006Parser();
+		case ButtonLabel2EditPart.VISUAL_ID:
+			return getButtonLabel_1605009Parser();
 		case LabelLabel2EditPart.VISUAL_ID:
 			return getLabelLabel_1605002Parser();
 		case MessageElementLabel2EditPart.VISUAL_ID:
 			return getMessageElementLabel_1605014Parser();
-		case ButtonLabel2EditPart.VISUAL_ID:
-			return getButtonLabel_1605009Parser();
 		}
 		return null;
 	}

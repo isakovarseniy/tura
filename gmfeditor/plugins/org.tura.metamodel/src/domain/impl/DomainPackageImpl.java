@@ -75,6 +75,7 @@ import domain.DomainPackage;
 import domain.DomainTypes;
 import domain.DropDownSelection;
 import domain.EJBService;
+import domain.EnabledUIItem;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
@@ -99,6 +100,7 @@ import domain.Ingredient;
 import domain.InputElement;
 import domain.InputText;
 import domain.InsertTrigger;
+import domain.ItemIcon;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
@@ -114,6 +116,7 @@ import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.Menu;
+import domain.MenuDefinition;
 import domain.MenuElement;
 import domain.MenuFolder;
 import domain.MenuItem;
@@ -949,7 +952,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass menuEClass = null;
+	private EClass menuDefinitionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1110,7 +1113,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass enabledUIItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uielementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass itemIconEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5620,8 +5637,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMenu() {
-		return menuEClass;
+	public EClass getMenuDefinition() {
+		return menuDefinitionEClass;
 	}
 
 	/**
@@ -5629,8 +5646,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMenu_Uid() {
-		return (EAttribute)menuEClass.getEStructuralFeatures().get(0);
+	public EAttribute getMenuDefinition_Uid() {
+		return (EAttribute)menuDefinitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5638,8 +5655,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMenu_Name() {
-		return (EAttribute)menuEClass.getEStructuralFeatures().get(1);
+	public EAttribute getMenuDefinition_Name() {
+		return (EAttribute)menuDefinitionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5647,8 +5664,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMenu_MenuView() {
-		return (EReference)menuEClass.getEStructuralFeatures().get(2);
+	public EReference getMenuDefinition_MenuView() {
+		return (EReference)menuDefinitionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -6295,6 +6312,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEnabledUIItem() {
+		return enabledUIItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEnabledUIItem_Enabled() {
+		return (EReference)enabledUIItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUielement() {
 		return uielementEClass;
 	}
@@ -6313,7 +6348,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUielement_Enabled() {
+	public EReference getUielement_Required() {
 		return (EReference)uielementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -6322,7 +6357,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUielement_Required() {
+	public EReference getUielement_ReadOnly() {
 		return (EReference)uielementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -6331,7 +6366,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUielement_ReadOnly() {
+	public EReference getUielement_RefreshAreas() {
 		return (EReference)uielementEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -6340,8 +6375,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUielement_RefreshAreas() {
-		return (EReference)uielementEClass.getEStructuralFeatures().get(4);
+	public EClass getItemIcon() {
+		return itemIconEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getItemIcon_Icon() {
+		return (EReference)itemIconEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -6657,15 +6701,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 */
 	public EAttribute getButton_Label() {
 		return (EAttribute)buttonEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getButton_Icon() {
-		return (EReference)buttonEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -8691,10 +8726,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		windowEClass = createEClass(WINDOW);
 
-		menuEClass = createEClass(MENU);
-		createEAttribute(menuEClass, MENU__UID);
-		createEAttribute(menuEClass, MENU__NAME);
-		createEReference(menuEClass, MENU__MENU_VIEW);
+		menuDefinitionEClass = createEClass(MENU_DEFINITION);
+		createEAttribute(menuDefinitionEClass, MENU_DEFINITION__UID);
+		createEAttribute(menuDefinitionEClass, MENU_DEFINITION__NAME);
+		createEReference(menuDefinitionEClass, MENU_DEFINITION__MENU_VIEW);
 
 		tabCanvasEClass = createEClass(TAB_CANVAS);
 		createEAttribute(tabCanvasEClass, TAB_CANVAS__ORIENTATION);
@@ -8789,12 +8824,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		actionTriggerEClass = createEClass(ACTION_TRIGGER);
 		createEAttribute(actionTriggerEClass, ACTION_TRIGGER__UID);
 
+		enabledUIItemEClass = createEClass(ENABLED_UI_ITEM);
+		createEReference(enabledUIItemEClass, ENABLED_UI_ITEM__ENABLED);
+
 		uielementEClass = createEClass(UIELEMENT);
 		createEAttribute(uielementEClass, UIELEMENT__UID);
-		createEReference(uielementEClass, UIELEMENT__ENABLED);
 		createEReference(uielementEClass, UIELEMENT__REQUIRED);
 		createEReference(uielementEClass, UIELEMENT__READ_ONLY);
 		createEReference(uielementEClass, UIELEMENT__REFRESH_AREAS);
+
+		itemIconEClass = createEClass(ITEM_ICON);
+		createEReference(itemIconEClass, ITEM_ICON__ICON);
 
 		areaRefEClass = createEClass(AREA_REF);
 		createEReference(areaRefEClass, AREA_REF__AREA);
@@ -8847,7 +8887,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		buttonEClass = createEClass(BUTTON);
 		createEAttribute(buttonEClass, BUTTON__LABEL);
-		createEReference(buttonEClass, BUTTON__ICON);
 
 		columnEClass = createEClass(COLUMN);
 		createEAttribute(columnEClass, COLUMN__UID);
@@ -9144,8 +9183,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		windowEClass.getESuperTypes().add(this.getMultiLangLabel());
 		windowEClass.getESuperTypes().add(this.getCategorized());
 		windowEClass.getESuperTypes().add(this.getSecured());
-		menuEClass.getESuperTypes().add(this.getStyleElement());
-		menuEClass.getESuperTypes().add(this.getCategorized());
+		menuDefinitionEClass.getESuperTypes().add(this.getStyleElement());
+		menuDefinitionEClass.getESuperTypes().add(this.getCategorized());
 		tabCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
 		tabCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
 		tabCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
@@ -9170,6 +9209,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		uielementEClass.getESuperTypes().add(this.getCategorized());
 		uielementEClass.getESuperTypes().add(this.getOrderable());
 		uielementEClass.getESuperTypes().add(this.getActioinTriggers());
+		uielementEClass.getESuperTypes().add(this.getEnabledUIItem());
 		sourcesPointerEClass.getESuperTypes().add(this.getUielement());
 		inputElementEClass.getESuperTypes().add(this.getSourcesPointer());
 		selectionEClass.getESuperTypes().add(this.getStyleElement());
@@ -9194,6 +9234,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		dateEClass.getESuperTypes().add(this.getFormatable());
 		buttonEClass.getESuperTypes().add(this.getUielement());
 		buttonEClass.getESuperTypes().add(this.getMultiLangLabel());
+		buttonEClass.getESuperTypes().add(this.getItemIcon());
 		columnEClass.getESuperTypes().add(this.getStyleElement());
 		columnEClass.getESuperTypes().add(this.getMultiLangLabel());
 		columnEClass.getESuperTypes().add(this.getCategorized());
@@ -9227,10 +9268,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		hubEClass.getESuperTypes().add(this.getInfrastructureComponent());
 		storageEClass.getESuperTypes().add(this.getInfrastructureComponent());
 		serverClasterEClass.getESuperTypes().add(this.getInfrastructureComponent());
+		menuElementEClass.getESuperTypes().add(this.getMultiLangLabel());
+		menuElementEClass.getESuperTypes().add(this.getStyleElement());
+		menuElementEClass.getESuperTypes().add(this.getCategorized());
+		menuElementEClass.getESuperTypes().add(this.getEnabledUIItem());
 		menuElementEClass.getESuperTypes().add(this.getOrderable());
 		menuFolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+		menuFolderEClass.getESuperTypes().add(this.getEnabledUIItem());
+		menuFolderEClass.getESuperTypes().add(this.getCategorized());
+		menuFolderEClass.getESuperTypes().add(this.getStyleElement());
+		menuFolderEClass.getESuperTypes().add(this.getMultiLangLabel());
+		menuFolderEClass.getESuperTypes().add(this.getItemIcon());
 		menuItemEClass.getESuperTypes().add(this.getMenuElement());
+		menuItemEClass.getESuperTypes().add(this.getItemIcon());
 		subMenuEClass.getESuperTypes().add(this.getMenuElement());
+		subMenuEClass.getESuperTypes().add(this.getItemIcon());
 		menuSeparatorEClass.getESuperTypes().add(this.getMenuElement());
 
 		// Initialize classes and features; add operations and parameters
@@ -9752,7 +9804,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getViews_Canvases(), this.getCanvasFrame(), null, "canvases", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViews_ViewInheritances(), this.getViewInheritance(), null, "viewInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViews_TabPagesInheritances(), this.getTabPagesInheritance(), null, "tabPagesInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getViews_Menus(), this.getMenu(), null, "menus", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getViews_Menus(), this.getMenuDefinition(), null, "menus", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViews_Any(), ecorePackage.getEObject(), null, "any", null, 0, 1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orderableEClass, Orderable.class, "Orderable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -9780,10 +9832,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		initEClass(windowEClass, Window.class, "Window", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMenu_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMenu_Name(), ecorePackage.getEString(), "name", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMenu_MenuView(), this.getMenuView(), this.getMenuView_Parent(), "menuView", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(menuDefinitionEClass, MenuDefinition.class, "MenuDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMenuDefinition_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMenuDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuDefinition_MenuView(), this.getMenuView(), this.getMenuView_Parent(), "menuView", null, 0, 1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tabCanvasEClass, TabCanvas.class, "TabCanvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTabCanvas_Orientation(), this.getOrientation(), "orientation", null, 0, 1, TabCanvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9878,12 +9930,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(actionTriggerEClass, ActionTrigger.class, "ActionTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getActionTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ActionTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(enabledUIItemEClass, EnabledUIItem.class, "EnabledUIItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEnabledUIItem_Enabled(), this.getContext(), null, "enabled", null, 0, 1, EnabledUIItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(uielementEClass, Uielement.class, "Uielement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUielement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUielement_Enabled(), this.getContext(), null, "enabled", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_Required(), this.getContext(), null, "required", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_ReadOnly(), this.getContext(), null, "readOnly", null, 0, 1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUielement_RefreshAreas(), this.getAreaRef(), null, "refreshAreas", null, 0, -1, Uielement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(itemIconEClass, ItemIcon.class, "ItemIcon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getItemIcon_Icon(), this.getContext(), null, "icon", null, 0, 1, ItemIcon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(areaRefEClass, AreaRef.class, "AreaRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAreaRef_Area(), this.getNickNamed(), null, "area", null, 0, 1, AreaRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9936,7 +9993,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getButton_Label(), ecorePackage.getEString(), "label", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getButton_Icon(), this.getContext(), null, "icon", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumn_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10119,7 +10175,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		initEClass(menuViewEClass, MenuView.class, "MenuView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMenuView_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MenuView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMenuView_Parent(), this.getMenu(), this.getMenu_MenuView(), "parent", null, 0, 1, MenuView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuView_Parent(), this.getMenuDefinition(), this.getMenuDefinition_MenuView(), "parent", null, 0, 1, MenuView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMenuView_MenuFolders(), this.getMenuFolder(), null, "menuFolders", null, 0, -1, MenuView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMenuView_Any(), ecorePackage.getEObject(), null, "any", null, 0, 1, MenuView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -10747,7 +10803,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "color", "192,192,192"
 		   });	
 		addAnnotation
-		  (menuEClass, 
+		  (menuDefinitionEClass, 
 		   source, 
 		   new String[] {
 			 "label", "name",

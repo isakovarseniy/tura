@@ -915,18 +915,18 @@
         <accessors accessor="getFigureWindowLabelFigure" figure="/0/@figures.0/@descriptors.63/@actualFigure/@children.0"/>
         <accessors accessor="getWindowViewElementCompartmentFigure" figure="/0/@figures.0/@descriptors.63/@actualFigure/@children.1"/>
       </descriptors>
-      <descriptors name="MenuFigure">
-        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MenuFigure">
+      <descriptors name="MenuDefinitionFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MenuDefinitionFigure">
           <foregroundColor xsi:type="gmfgraph:RGBColor"/>
           <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="153" blue="204"/>
           <border xsi:type="gmfgraph:MarginBorder">
             <insets top="5" left="5" bottom="5" right="5"/>
           </border>
-          <children xsi:type="gmfgraph:Label" name="MenuLabelFigure" text="Menu">
+          <children xsi:type="gmfgraph:Label" name="MenuDefinitionLabelFigure" text="MenuDefinition">
             <font xsi:type="gmfgraph:BasicFont" faceName="Palatino" height="12" style="ITALIC"/>
           </children>
         </actualFigure>
-        <accessors accessor="getFigureMenuLabelFigure" figure="/0/@figures.0/@descriptors.64/@actualFigure/@children.0"/>
+        <accessors accessor="getFigureMenuDefinitionLabelFigure" figure="/0/@figures.0/@descriptors.64/@actualFigure/@children.0"/>
       </descriptors>
       <descriptors name="TabCanvasFigure">
         <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TabCanvasFigure">
@@ -1671,7 +1671,7 @@
     <nodes name="PopupCanvas" figure="PopupCanvasFigure"/>
     <nodes name="Canvas" figure="CanvasFigure"/>
     <nodes name="Window" figure="WindowFigure"/>
-    <nodes name="Menu" figure="MenuFigure"/>
+    <nodes name="MenuDefinition" figure="MenuDefinitionFigure"/>
     <nodes name="TabCanvas" figure="TabCanvasFigure"/>
     <nodes name="TabPage" figure="TabPageFigure"/>
     <nodes name="ViewPort" figure="ViewPortFigure"/>
@@ -1852,7 +1852,7 @@
     <labels name="PopupCanvasLabel" figure="PopupCanvasFigure" accessor="/0/@figures.0/@descriptors.61/@accessors.0"/>
     <labels name="CanvasLabel" figure="CanvasFigure" accessor="/0/@figures.0/@descriptors.62/@accessors.0"/>
     <labels name="WindowLabel" figure="WindowFigure" accessor="/0/@figures.0/@descriptors.63/@accessors.0"/>
-    <labels name="MenuLabel" figure="MenuFigure" accessor="/0/@figures.0/@descriptors.64/@accessors.0"/>
+    <labels name="MenuDefinitionLabel" figure="MenuDefinitionFigure" accessor="/0/@figures.0/@descriptors.64/@accessors.0"/>
     <labels name="TabCanvasLabel" figure="TabCanvasFigure" accessor="/0/@figures.0/@descriptors.65/@accessors.0"/>
     <labels name="TabPageLabel" figure="TabPageFigure" accessor="/0/@figures.0/@descriptors.66/@accessors.0"/>
     <labels name="ViewPortLabel" figure="ViewPortFigure" accessor="/0/@figures.0/@descriptors.67/@accessors.0"/>

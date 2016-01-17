@@ -961,13 +961,13 @@ public interface DomainFactory extends EFactory {
 	Window createWindow();
 
 	/**
-	 * Returns a new object of class '<em>Menu</em>'.
+	 * Returns a new object of class '<em>Menu Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Menu</em>'.
+	 * @return a new object of class '<em>Menu Definition</em>'.
 	 * @generated
 	 */
-	Menu createMenu();
+	MenuDefinition createMenuDefinition();
 
 	/**
 	 * Returns a new object of class '<em>Tab Canvas</em>'.
@@ -1168,6 +1168,15 @@ public interface DomainFactory extends EFactory {
 	ActionTrigger createActionTrigger();
 
 	/**
+	 * Returns a new object of class '<em>Enabled UI Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enabled UI Item</em>'.
+	 * @generated
+	 */
+	EnabledUIItem createEnabledUIItem();
+
+	/**
 	 * Returns a new object of class '<em>Uielement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1175,6 +1184,15 @@ public interface DomainFactory extends EFactory {
 	 * @generated
 	 */
 	Uielement createUielement();
+
+	/**
+	 * Returns a new object of class '<em>Item Icon</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Item Icon</em>'.
+	 * @generated
+	 */
+	ItemIcon createItemIcon();
 
 	/**
 	 * Returns a new object of class '<em>Area Ref</em>'.

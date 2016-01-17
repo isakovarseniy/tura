@@ -2453,26 +2453,26 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link domain.Menu} instances.
+	 * This keeps track of the one adapter used for all {@link domain.MenuDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MenuItemProvider menuItemProvider;
+	protected MenuDefinitionItemProvider menuDefinitionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link domain.Menu}.
+	 * This creates an adapter for a {@link domain.MenuDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createMenuAdapter() {
-		if (menuItemProvider == null) {
-			menuItemProvider = new MenuItemProvider(this);
+	public Adapter createMenuDefinitionAdapter() {
+		if (menuDefinitionItemProvider == null) {
+			menuDefinitionItemProvider = new MenuDefinitionItemProvider(this);
 		}
 
-		return menuItemProvider;
+		return menuDefinitionItemProvider;
 	}
 
 	/**
@@ -2982,6 +2982,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.EnabledUIItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnabledUIItemItemProvider enabledUIItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.EnabledUIItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnabledUIItemAdapter() {
+		if (enabledUIItemItemProvider == null) {
+			enabledUIItemItemProvider = new EnabledUIItemItemProvider(this);
+		}
+
+		return enabledUIItemItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.Uielement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3002,6 +3025,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		}
 
 		return uielementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.ItemIcon} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ItemIconItemProvider itemIconItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.ItemIcon}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createItemIconAdapter() {
+		if (itemIconItemProvider == null) {
+			itemIconItemProvider = new ItemIconItemProvider(this);
+		}
+
+		return itemIconItemProvider;
 	}
 
 	/**
@@ -4609,7 +4655,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (popupCanvasItemProvider != null) popupCanvasItemProvider.dispose();
 		if (canvasItemProvider != null) canvasItemProvider.dispose();
 		if (windowItemProvider != null) windowItemProvider.dispose();
-		if (menuItemProvider != null) menuItemProvider.dispose();
+		if (menuDefinitionItemProvider != null) menuDefinitionItemProvider.dispose();
 		if (tabCanvasItemProvider != null) tabCanvasItemProvider.dispose();
 		if (tabPageItemProvider != null) tabPageItemProvider.dispose();
 		if (viewPortItemProvider != null) viewPortItemProvider.dispose();
@@ -4632,7 +4678,9 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (nickNamedItemProvider != null) nickNamedItemProvider.dispose();
 		if (actioinTriggersItemProvider != null) actioinTriggersItemProvider.dispose();
 		if (actionTriggerItemProvider != null) actionTriggerItemProvider.dispose();
+		if (enabledUIItemItemProvider != null) enabledUIItemItemProvider.dispose();
 		if (uielementItemProvider != null) uielementItemProvider.dispose();
+		if (itemIconItemProvider != null) itemIconItemProvider.dispose();
 		if (areaRefItemProvider != null) areaRefItemProvider.dispose();
 		if (formatableItemProvider != null) formatableItemProvider.dispose();
 		if (sourcesPointerItemProvider != null) sourcesPointerItemProvider.dispose();

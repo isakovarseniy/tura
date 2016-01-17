@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -23,7 +11,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import frmview.diagram.edit.commands.CanvasCreateCommand;
-import frmview.diagram.edit.commands.MenuCreateCommand;
+import frmview.diagram.edit.commands.MenuDefinitionCreateCommand;
 import frmview.diagram.edit.commands.PopupCanvasCreateCommand;
 import frmview.diagram.edit.commands.TabCanvasCreateCommand;
 import frmview.diagram.edit.commands.TabPageCreateCommand;
@@ -62,8 +50,8 @@ public class ViewsItemSemanticEditPolicy extends
 		if (DomainElementTypes.TabCanvas_1302008 == req.getElementType()) {
 			return getGEFWrapper(new TabCanvasCreateCommand(req));
 		}
-		if (DomainElementTypes.Menu_1302010 == req.getElementType()) {
-			return getGEFWrapper(new MenuCreateCommand(req));
+		if (DomainElementTypes.MenuDefinition_1302011 == req.getElementType()) {
+			return getGEFWrapper(new MenuDefinitionCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

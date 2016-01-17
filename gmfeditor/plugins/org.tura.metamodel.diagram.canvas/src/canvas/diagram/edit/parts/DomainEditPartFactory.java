@@ -121,6 +121,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ImageEditPart.VISUAL_ID:
 				return new ImageEditPart(view);
 
+			case ButtonEditPart.VISUAL_ID:
+				return new ButtonEditPart(view);
+
+			case ButtonLabelEditPart.VISUAL_ID:
+				return new ButtonLabelEditPart(view);
+
 			case LabelEditPart.VISUAL_ID:
 				return new LabelEditPart(view);
 
@@ -133,17 +139,17 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case MessageElementLabelEditPart.VISUAL_ID:
 				return new MessageElementLabelEditPart(view);
 
-			case ButtonEditPart.VISUAL_ID:
-				return new ButtonEditPart(view);
-
-			case ButtonLabelEditPart.VISUAL_ID:
-				return new ButtonLabelEditPart(view);
-
 			case CheckBox2EditPart.VISUAL_ID:
 				return new CheckBox2EditPart(view);
 
 			case Image2EditPart.VISUAL_ID:
 				return new Image2EditPart(view);
+
+			case Button2EditPart.VISUAL_ID:
+				return new Button2EditPart(view);
+
+			case ButtonLabel2EditPart.VISUAL_ID:
+				return new ButtonLabel2EditPart(view);
 
 			case Label2EditPart.VISUAL_ID:
 				return new Label2EditPart(view);
@@ -156,12 +162,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case MessageElementLabel2EditPart.VISUAL_ID:
 				return new MessageElementLabel2EditPart(view);
-
-			case Button2EditPart.VISUAL_ID:
-				return new Button2EditPart(view);
-
-			case ButtonLabel2EditPart.VISUAL_ID:
-				return new ButtonLabel2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID:
 				return new LayerHolderLayerHolderChildrenCompartmentEditPart(

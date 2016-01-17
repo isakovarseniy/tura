@@ -18,6 +18,7 @@ import domain.CanvasFrame;
 import domain.DomainPackage;
 import domain.FormView;
 import domain.Menu;
+import domain.MenuDefinition;
 import domain.TabPagesInheritance;
 import domain.ViewInheritance;
 import domain.Views;
@@ -127,7 +128,7 @@ public class ViewsImpl extends EObjectImpl implements Views {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Menu> menus;
+	protected EList<MenuDefinition> menus;
 
 	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
@@ -280,9 +281,9 @@ public class ViewsImpl extends EObjectImpl implements Views {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Menu> getMenus() {
+	public EList<MenuDefinition> getMenus() {
 		if (menus == null) {
-			menus = new EObjectContainmentEList<Menu>(Menu.class, this, DomainPackage.VIEWS__MENUS);
+			menus = new EObjectContainmentEList<MenuDefinition>(MenuDefinition.class, this, DomainPackage.VIEWS__MENUS);
 		}
 		return menus;
 	}
@@ -426,7 +427,7 @@ public class ViewsImpl extends EObjectImpl implements Views {
 				return;
 			case DomainPackage.VIEWS__MENUS:
 				getMenus().clear();
-				getMenus().addAll((Collection<? extends Menu>)newValue);
+				getMenus().addAll((Collection<? extends MenuDefinition>)newValue);
 				return;
 			case DomainPackage.VIEWS__ANY:
 				setAny((EObject)newValue);

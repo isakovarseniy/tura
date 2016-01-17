@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyComposite;
 import org.tura.metamodel.commons.properties.selections.grid.impl.ContextParameterPropertySelection;
 
 import domain.ContextValue;
@@ -29,8 +30,8 @@ public abstract class DependentContextParameterPropertySelection extends
 
 	public void refresh() {
 		try {
-			super.refresh();
 			enableParametersEntry();
+			super.refresh();
 		} catch (org.eclipse.swt.SWTException e) {
 
 		}
@@ -47,6 +48,10 @@ public abstract class DependentContextParameterPropertySelection extends
 							.getContextValue_Expression().getFeatureID()) {
 						ds.cleanList();
 						enableParametersEntry();
+						((TabbedPropertyComposite) (getPropertySheetPage()
+								.getControl())).getTabComposite()
+								.layout(true, true);
+			
 						tableViewer.refresh();
 
 					}
@@ -62,7 +67,7 @@ public abstract class DependentContextParameterPropertySelection extends
 	private void enableParametersEntry() {
 		domain.ContextValue cnt = (ContextValue) getModel();
 		this.table.setVisible(false);
-		if (cnt.isConstant()) {
+		if (!cnt.isConstant()) {
 			if (cnt.getExpression() != null && cnt.getExpression().size() != 0) {
 				domain.ExpressionPart eobj = cnt.getExpression().get(
 						cnt.getExpression().size() - 1);

@@ -16,14 +16,14 @@ import frmview.diagram.providers.DomainElementTypes;
 /**
  * @generated
  */
-public class MenuItemSemanticEditPolicy extends
+public class MenuDefinitionItemSemanticEditPolicy extends
 		DomainBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public MenuItemSemanticEditPolicy() {
-		super(DomainElementTypes.Menu_1302010);
+	public MenuDefinitionItemSemanticEditPolicy() {
+		super(DomainElementTypes.MenuDefinition_1302011);
 	}
 
 	/**

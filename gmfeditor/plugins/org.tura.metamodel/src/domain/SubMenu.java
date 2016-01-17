@@ -19,7 +19,7 @@ package domain;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='102,255,255'"
  * @generated
  */
-public interface SubMenu extends MenuElement {
+public interface SubMenu extends MenuElement, ItemIcon {
 	/**
 	 * Returns the value of the '<em><b>To Submenu</b></em>' reference.
 	 * <!-- begin-user-doc -->

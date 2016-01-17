@@ -81,14 +81,14 @@ public class LayerHolderLayerHolderChildrenCompartmentItemSemanticEditPolicy
 		if (DomainElementTypes.Image_1603028 == req.getElementType()) {
 			return getGEFWrapper(new ImageCreateCommand(req));
 		}
+		if (DomainElementTypes.Button_1603017 == req.getElementType()) {
+			return getGEFWrapper(new ButtonCreateCommand(req));
+		}
 		if (DomainElementTypes.Label_1603005 == req.getElementType()) {
 			return getGEFWrapper(new LabelCreateCommand(req));
 		}
 		if (DomainElementTypes.MessageElement_1603034 == req.getElementType()) {
 			return getGEFWrapper(new MessageElementCreateCommand(req));
-		}
-		if (DomainElementTypes.Button_1603017 == req.getElementType()) {
-			return getGEFWrapper(new ButtonCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

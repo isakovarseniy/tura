@@ -4,6 +4,7 @@ package domain.impl;
 
 import domain.DomainPackage;
 import domain.Menu;
+import domain.MenuDefinition;
 import domain.MenuFolder;
 import domain.MenuView;
 
@@ -69,7 +70,7 @@ public class MenuViewImpl extends EObjectImpl implements MenuView {
 	 * @generated
 	 * @ordered
 	 */
-	protected Menu parent;
+	protected MenuDefinition parent;
 
 	/**
 	 * The cached value of the '{@link #getMenuFolders() <em>Menu Folders</em>}' containment reference list.
@@ -136,10 +137,10 @@ public class MenuViewImpl extends EObjectImpl implements MenuView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Menu getParent() {
+	public MenuDefinition getParent() {
 		if (parent != null && parent.eIsProxy()) {
 			InternalEObject oldParent = (InternalEObject)parent;
-			parent = (Menu)eResolveProxy(oldParent);
+			parent = (MenuDefinition)eResolveProxy(oldParent);
 			if (parent != oldParent) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.MENU_VIEW__PARENT, oldParent, parent));
@@ -153,7 +154,7 @@ public class MenuViewImpl extends EObjectImpl implements MenuView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Menu basicGetParent() {
+	public MenuDefinition basicGetParent() {
 		return parent;
 	}
 
@@ -162,8 +163,8 @@ public class MenuViewImpl extends EObjectImpl implements MenuView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetParent(Menu newParent, NotificationChain msgs) {
-		Menu oldParent = parent;
+	public NotificationChain basicSetParent(MenuDefinition newParent, NotificationChain msgs) {
+		MenuDefinition oldParent = parent;
 		parent = newParent;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_VIEW__PARENT, oldParent, newParent);
@@ -177,13 +178,13 @@ public class MenuViewImpl extends EObjectImpl implements MenuView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParent(Menu newParent) {
+	public void setParent(MenuDefinition newParent) {
 		if (newParent != parent) {
 			NotificationChain msgs = null;
 			if (parent != null)
-				msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.MENU__MENU_VIEW, Menu.class, msgs);
+				msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.MENU_DEFINITION__MENU_VIEW, MenuDefinition.class, msgs);
 			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.MENU__MENU_VIEW, Menu.class, msgs);
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.MENU_DEFINITION__MENU_VIEW, MenuDefinition.class, msgs);
 			msgs = basicSetParent(newParent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -256,8 +257,8 @@ public class MenuViewImpl extends EObjectImpl implements MenuView {
 		switch (featureID) {
 			case DomainPackage.MENU_VIEW__PARENT:
 				if (parent != null)
-					msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.MENU__MENU_VIEW, Menu.class, msgs);
-				return basicSetParent((Menu)otherEnd, msgs);
+					msgs = ((InternalEObject)parent).eInverseRemove(this, DomainPackage.MENU_DEFINITION__MENU_VIEW, MenuDefinition.class, msgs);
+				return basicSetParent((MenuDefinition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -314,7 +315,7 @@ public class MenuViewImpl extends EObjectImpl implements MenuView {
 				setUid((String)newValue);
 				return;
 			case DomainPackage.MENU_VIEW__PARENT:
-				setParent((Menu)newValue);
+				setParent((MenuDefinition)newValue);
 				return;
 			case DomainPackage.MENU_VIEW__MENU_FOLDERS:
 				getMenuFolders().clear();
@@ -339,7 +340,7 @@ public class MenuViewImpl extends EObjectImpl implements MenuView {
 				setUid(UID_EDEFAULT);
 				return;
 			case DomainPackage.MENU_VIEW__PARENT:
-				setParent((Menu)null);
+				setParent((MenuDefinition)null);
 				return;
 			case DomainPackage.MENU_VIEW__MENU_FOLDERS:
 				getMenuFolders().clear();

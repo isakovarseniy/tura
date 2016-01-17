@@ -732,7 +732,7 @@ public class MenuViewItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MENU_VIEW__ANY,
-				 DomainFactory.eINSTANCE.createMenu()));
+				 DomainFactory.eINSTANCE.createMenuDefinition()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -847,7 +847,17 @@ public class MenuViewItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MENU_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createEnabledUIItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_VIEW__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createItemIcon()));
 
 		newChildDescriptors.add
 			(createChildParameter

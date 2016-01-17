@@ -41,7 +41,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import domain.DomainFactory;
-import domain.Menu;
+import domain.MenuDefinition;
 import domain.MenuView;
 import frmview.diagram.part.DomainDiagramEditorPlugin;
 import frmview.diagram.part.DomainDiagramEditorUtil;
@@ -50,7 +50,7 @@ import frmview.diagram.part.Messages;
 /**
  * @generated
  */
-public class OpenDiagramMenuEditPolicy extends OpenEditPolicy {
+public class OpenDiagramMenuDefinitionEditPolicy extends OpenEditPolicy {
 
 	/**
 	 * @generated
@@ -138,9 +138,9 @@ public class OpenDiagramMenuEditPolicy extends OpenEditPolicy {
 		 */
 		protected Diagram intializeNewDiagram() throws ExecutionException {
 
-			Menu
+			MenuDefinition
 
-			sourceObject = (Menu
+			sourceObject = (MenuDefinition
 
 			) ((NodeImpl) (diagramFacet.eContainer())).basicGetElement();
 			if (sourceObject.getName() == null) {

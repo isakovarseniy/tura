@@ -1,16 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
-
 /*
  * 
  */
@@ -49,7 +36,7 @@ public class DomainPaletteFactory {
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createCanvas1CreationTool());
-		paletteContainer.add(createMenu2CreationTool());
+		paletteContainer.add(createMenuDefinition2CreationTool());
 		paletteContainer.add(createPopupCanvas3CreationTool());
 		paletteContainer.add(createTabCanvas4CreationTool());
 		paletteContainer.add(createTabPage5CreationTool());
@@ -91,14 +78,15 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createMenu2CreationTool() {
+	private ToolEntry createMenuDefinition2CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.Menu2CreationTool_title,
-				Messages.Menu2CreationTool_desc,
-				Collections.singletonList(DomainElementTypes.Menu_1302010));
-		entry.setId("createMenu2CreationTool"); //$NON-NLS-1$
+				Messages.MenuDefinition2CreationTool_title,
+				Messages.MenuDefinition2CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.MenuDefinition_1302011));
+		entry.setId("createMenuDefinition2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.Menu_1302010));
+				.getImageDescriptor(DomainElementTypes.MenuDefinition_1302011));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

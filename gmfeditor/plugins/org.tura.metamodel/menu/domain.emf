@@ -831,14 +831,12 @@ class Views{
    val CanvasFrame[*]  canvases;
    val ViewInheritance[*] viewInheritances;
    val TabPagesInheritance[*] tabPagesInheritances;
-   val Menu[*] menus;
+   val MenuDefinition[*] menus;
    
    //faking epsilon converter
    val EObject any;
    
 }
-
-
 
 
 class Orderable{
@@ -884,7 +882,7 @@ class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,Categorized ,Secu
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,153,204")
-class Menu extends StyleElement,Categorized {
+class MenuDefinition extends StyleElement,Categorized {
     id attr EString uid;
    attr EString name;
    ref MenuView#parent menuView;
@@ -1047,12 +1045,20 @@ class ActionTrigger extends Trigger , Categorized{
     id attr EString uid;
 }
 
-class Uielement extends StyleElement,NickNamed,Categorized, Orderable, ActioinTriggers{
-    id attr EString uid;
+
+class EnabledUIItem{
     val Context enabled;
+}
+
+class Uielement extends StyleElement,NickNamed,Categorized, Orderable, ActioinTriggers,EnabledUIItem{
+    id attr EString uid;
     val Context required;
     val Context readOnly;
     val AreaRef[*]  refreshAreas;
+}
+
+class ItemIcon{
+    val Context icon;
 }
 
 class AreaRef{
@@ -1146,9 +1152,8 @@ class Date extends InputElement ,Formatable{
 }
 
 @gmf.node( figure="org.tura.metamodel.commons.figures.ButtonFigure", label="label", label.icon="false", tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/button.png")
-class Button extends Uielement,MultiLangLabel{
+class Button extends Uielement,MultiLangLabel,ItemIcon{
    attr EString label;
-   val Context icon;   
 }
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/column.png")
@@ -1462,7 +1467,7 @@ class ServerClaster extends InfrastructureComponent{
 @gmf.diagram
 class MenuView{
     id attr EString uid;
-   ref Menu#menuView parent;
+   ref MenuDefinition#menuView parent;
    val MenuFolder[*] menuFolders; 
    
   //faking epsilon converter
@@ -1471,13 +1476,13 @@ class MenuView{
 }
 
 
-class MenuElement extends Orderable{
+class MenuElement extends MultiLangLabel,StyleElement,Categorized,EnabledUIItem,Orderable{
     id attr EString uid;
     attr EString name;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
-class MenuFolder extends HTMLLayerHolder{
+class MenuFolder extends HTMLLayerHolder,EnabledUIItem,Categorized,StyleElement,MultiLangLabel,ItemIcon{
     id attr EString uid;
     attr EString name;
    @gmf.compartment
@@ -1485,12 +1490,12 @@ class MenuFolder extends HTMLLayerHolder{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="102,153,0")
-class MenuItem extends MenuElement{
+class MenuItem extends MenuElement,ItemIcon{
 	
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="102,255,255")
-class SubMenu extends MenuElement{
+class SubMenu extends MenuElement,ItemIcon{
 	@gmf.link(target.decoration="arrow", style="dash")
 	ref MenuFolder toSubmenu;
 	

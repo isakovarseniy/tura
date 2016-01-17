@@ -240,19 +240,19 @@
         href="domain.ecore#//Views/menus"/>
     <ownedChild>
       <domainMetaElement
-          href="domain.ecore#//Menu"/>
+          href="domain.ecore#//MenuDefinition"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="domain.gmfgraph#MenuLabel"/>
+            href="domain.gmfgraph#MenuDefinitionLabel"/>
         <features
-            href="domain.ecore#//Menu/name"/>
+            href="domain.ecore#//MenuDefinition/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
-          href="domain.gmfgraph#Menu"/>
+          href="domain.gmfgraph#MenuDefinition"/>
     </ownedChild>
   </nodes>
   <links>

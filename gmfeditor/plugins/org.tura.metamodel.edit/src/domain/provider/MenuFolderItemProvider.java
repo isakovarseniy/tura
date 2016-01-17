@@ -110,6 +110,12 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED);
+			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(DomainPackage.Literals.STYLE_ELEMENT__STYLE);
+			childrenFeatures.add(DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS);
+			childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
+			childrenFeatures.add(DomainPackage.Literals.ITEM_ICON__ICON);
 			childrenFeatures.add(DomainPackage.Literals.MENU_FOLDER__MENU_ELEMENTS);
 		}
 		return childrenFeatures;
@@ -170,6 +176,12 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 			case DomainPackage.MENU_FOLDER__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case DomainPackage.MENU_FOLDER__ENABLED:
+			case DomainPackage.MENU_FOLDER__CLASSIFIERS:
+			case DomainPackage.MENU_FOLDER__STYLE:
+			case DomainPackage.MENU_FOLDER__STYLE_CLASS:
+			case DomainPackage.MENU_FOLDER__MULTI_LANG_LABEL:
+			case DomainPackage.MENU_FOLDER__ICON:
 			case DomainPackage.MENU_FOLDER__MENU_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -190,6 +202,36 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED,
+				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 DomainFactory.eINSTANCE.createClassifier()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLE_ELEMENT__STYLE,
+				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
+				 DomainFactory.eINSTANCE.createStyleClass()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ITEM_ICON__ICON,
+				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.MENU_FOLDER__MENU_ELEMENTS,
 				 DomainFactory.eINSTANCE.createMenuElement()));
 
@@ -207,6 +249,31 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.MENU_FOLDER__MENU_ELEMENTS,
 				 DomainFactory.eINSTANCE.createMenuSeparator()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
+			childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
+			childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
+			childFeature == DomainPackage.Literals.ITEM_ICON__ICON;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

@@ -20,7 +20,7 @@ package domain;
  * @model
  * @generated
  */
-public interface MenuElement extends Orderable {
+public interface MenuElement extends MultiLangLabel, StyleElement, Categorized, EnabledUIItem, Orderable {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

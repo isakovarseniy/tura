@@ -772,7 +772,7 @@ public class RecipesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.RECIPES__ANY,
-				 DomainFactory.eINSTANCE.createMenu()));
+				 DomainFactory.eINSTANCE.createMenuDefinition()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -887,7 +887,17 @@ public class RecipesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.RECIPES__ANY,
+				 DomainFactory.eINSTANCE.createEnabledUIItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.RECIPES__ANY,
 				 DomainFactory.eINSTANCE.createUielement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.RECIPES__ANY,
+				 DomainFactory.eINSTANCE.createItemIcon()));
 
 		newChildDescriptors.add
 			(createChildParameter

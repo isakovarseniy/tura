@@ -17,6 +17,7 @@ package domain.impl;
 import domain.Button;
 import domain.Context;
 import domain.DomainPackage;
+import domain.ItemIcon;
 import domain.MultiLangLabel;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -35,8 +36,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.ButtonImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
- *   <li>{@link domain.impl.ButtonImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link domain.impl.ButtonImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link domain.impl.ButtonImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,6 +53,16 @@ public class ButtonImpl extends UielementImpl implements Button {
 	 * @ordered
 	 */
 	protected Context multiLangLabel;
+
+	/**
+	 * The cached value of the '{@link #getIcon() <em>Icon</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIcon()
+	 * @generated
+	 * @ordered
+	 */
+	protected Context icon;
 
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
@@ -72,16 +83,6 @@ public class ButtonImpl extends UielementImpl implements Button {
 	 * @ordered
 	 */
 	protected String label = LABEL_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getIcon() <em>Icon</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIcon()
-	 * @generated
-	 * @ordered
-	 */
-	protected Context icon;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,10 +236,10 @@ public class ButtonImpl extends UielementImpl implements Button {
 		switch (featureID) {
 			case DomainPackage.BUTTON__MULTI_LANG_LABEL:
 				return getMultiLangLabel();
-			case DomainPackage.BUTTON__LABEL:
-				return getLabel();
 			case DomainPackage.BUTTON__ICON:
 				return getIcon();
+			case DomainPackage.BUTTON__LABEL:
+				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -254,11 +255,11 @@ public class ButtonImpl extends UielementImpl implements Button {
 			case DomainPackage.BUTTON__MULTI_LANG_LABEL:
 				setMultiLangLabel((Context)newValue);
 				return;
-			case DomainPackage.BUTTON__LABEL:
-				setLabel((String)newValue);
-				return;
 			case DomainPackage.BUTTON__ICON:
 				setIcon((Context)newValue);
+				return;
+			case DomainPackage.BUTTON__LABEL:
+				setLabel((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,11 +276,11 @@ public class ButtonImpl extends UielementImpl implements Button {
 			case DomainPackage.BUTTON__MULTI_LANG_LABEL:
 				setMultiLangLabel((Context)null);
 				return;
-			case DomainPackage.BUTTON__LABEL:
-				setLabel(LABEL_EDEFAULT);
-				return;
 			case DomainPackage.BUTTON__ICON:
 				setIcon((Context)null);
+				return;
+			case DomainPackage.BUTTON__LABEL:
+				setLabel(LABEL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -295,10 +296,10 @@ public class ButtonImpl extends UielementImpl implements Button {
 		switch (featureID) {
 			case DomainPackage.BUTTON__MULTI_LANG_LABEL:
 				return multiLangLabel != null;
-			case DomainPackage.BUTTON__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case DomainPackage.BUTTON__ICON:
 				return icon != null;
+			case DomainPackage.BUTTON__LABEL:
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -316,6 +317,12 @@ public class ButtonImpl extends UielementImpl implements Button {
 				default: return -1;
 			}
 		}
+		if (baseClass == ItemIcon.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.BUTTON__ICON: return DomainPackage.ITEM_ICON__ICON;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -329,6 +336,12 @@ public class ButtonImpl extends UielementImpl implements Button {
 		if (baseClass == MultiLangLabel.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL: return DomainPackage.BUTTON__MULTI_LANG_LABEL;
+				default: return -1;
+			}
+		}
+		if (baseClass == ItemIcon.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.ITEM_ICON__ICON: return DomainPackage.BUTTON__ICON;
 				default: return -1;
 			}
 		}

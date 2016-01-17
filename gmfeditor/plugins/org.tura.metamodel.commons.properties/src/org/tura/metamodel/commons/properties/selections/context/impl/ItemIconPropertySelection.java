@@ -20,20 +20,25 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import domain.DomainFactory;
 import domain.DomainPackage;
 
-public class ButtonIconPropertySelection extends AbstractStringPropertySelection {
+public class ItemIconPropertySelection extends AbstractStringPropertySelection {
 
+	
+	@Override
+	public String getLabelText() {
+		return "Icon";
+	}
 	
 	@Override
 	public EObject getModel() {
 
-		domain.Button el = ((domain.Button) getEObject());
+		domain.ItemIcon el = ((domain.ItemIcon) getEObject());
 		if (el.getIcon() == null) {
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getButton_Icon(),
+							DomainPackage.eINSTANCE.getItemIcon_Icon(),
 							DomainFactory.eINSTANCE.createContext()));
 		}
 		return el.getIcon();

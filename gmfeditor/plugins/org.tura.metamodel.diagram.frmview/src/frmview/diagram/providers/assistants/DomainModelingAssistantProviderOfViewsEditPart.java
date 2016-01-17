@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -41,7 +29,7 @@ public class DomainModelingAssistantProviderOfViewsEditPart extends
 		types.add(DomainElementTypes.Window_1302007);
 		types.add(DomainElementTypes.TabPage_1302002);
 		types.add(DomainElementTypes.TabCanvas_1302008);
-		types.add(DomainElementTypes.Menu_1302010);
+		types.add(DomainElementTypes.MenuDefinition_1302011);
 		return types;
 	}
 

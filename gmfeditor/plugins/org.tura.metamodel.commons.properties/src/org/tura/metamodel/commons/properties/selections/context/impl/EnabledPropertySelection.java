@@ -25,7 +25,7 @@ public class EnabledPropertySelection extends AbstractBooleanPropertySelection {
 	@Override
 	public EObject getModel() {
 
-		domain.Uielement el = ((domain.Uielement) getEObject());
+		domain.EnabledUIItem el = ((domain.EnabledUIItem) getEObject());
 		if (el.getEnabled() == null) {
 
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -33,7 +33,7 @@ public class EnabledPropertySelection extends AbstractBooleanPropertySelection {
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
 							DomainPackage.eINSTANCE
-									.getUielement_Enabled(),
+									.getEnabledUIItem_Enabled(),
 							DomainFactory.eINSTANCE.createContext()));
 
 		}

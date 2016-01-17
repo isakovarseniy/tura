@@ -186,13 +186,13 @@ public class ColumnColumnElementCompartment2EditPart extends
 			if (type == DomainElementTypes.Image_1603030) {
 				return this;
 			}
+			if (type == DomainElementTypes.Button_1603023) {
+				return this;
+			}
 			if (type == DomainElementTypes.Label_1603013) {
 				return this;
 			}
 			if (type == DomainElementTypes.MessageElement_1603035) {
-				return this;
-			}
-			if (type == DomainElementTypes.Button_1603023) {
 				return this;
 			}
 			return getParent().getTargetEditPart(request);

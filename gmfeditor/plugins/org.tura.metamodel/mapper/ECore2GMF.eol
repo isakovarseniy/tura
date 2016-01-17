@@ -339,7 +339,7 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MenuSeparator');
 delete tool;
 
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Menu');
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MenuDefinition');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='SubMenu');
 delete tool;

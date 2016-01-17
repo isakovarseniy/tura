@@ -372,5 +372,5 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationUIPackage');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='StylesPackage');
 delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Menu');
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MenuDefinition');
 delete tool;

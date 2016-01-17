@@ -55,13 +55,13 @@ import frmview.diagram.providers.DomainParserProvider;
 /**
  * @generated
  */
-public class MenuNameEditPart extends CompartmentEditPart implements
+public class MenuDefinitionNameEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1305015;
+	public static final int VISUAL_ID = 1305016;
 
 	/**
 	 * @generated
@@ -91,7 +91,7 @@ public class MenuNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public MenuNameEditPart(View view) {
+	public MenuDefinitionNameEditPart(View view) {
 		super(view);
 	}
 
@@ -313,10 +313,10 @@ public class MenuNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = DomainParserProvider
 					.getParser(
-							DomainElementTypes.Menu_1302010,
+							DomainElementTypes.MenuDefinition_1302011,
 							getParserElement(),
 							DomainVisualIDRegistry
-									.getType(frmview.diagram.edit.parts.MenuNameEditPart.VISUAL_ID));
+									.getType(frmview.diagram.edit.parts.MenuDefinitionNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

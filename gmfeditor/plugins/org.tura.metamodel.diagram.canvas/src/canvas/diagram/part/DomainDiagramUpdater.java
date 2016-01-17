@@ -212,15 +212,15 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == LabelEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == MessageElementEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == ButtonEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -302,13 +302,13 @@ public class DomainDiagramUpdater {
 			if (visualID == Image2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
+			if (visualID == Button2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
 			if (visualID == Label2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == MessageElement2EditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-			if (visualID == Button2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -415,13 +415,13 @@ public class DomainDiagramUpdater {
 			if (visualID == Image2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
+			if (visualID == Button2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
 			if (visualID == Label2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == MessageElement2EditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-			}
-			if (visualID == Button2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -487,15 +487,15 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == LabelEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == MessageElementEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == ButtonEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -588,15 +588,15 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == LabelEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == MessageElementEditPart.VISUAL_ID) {
-				result.add(new DomainNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == ButtonEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -653,22 +653,22 @@ public class DomainDiagramUpdater {
 			return getCheckBox_1603007ContainedLinks(view);
 		case ImageEditPart.VISUAL_ID:
 			return getImage_1603028ContainedLinks(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_1603017ContainedLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005ContainedLinks(view);
 		case MessageElementEditPart.VISUAL_ID:
 			return getMessageElement_1603034ContainedLinks(view);
-		case ButtonEditPart.VISUAL_ID:
-			return getButton_1603017ContainedLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015ContainedLinks(view);
 		case Image2EditPart.VISUAL_ID:
 			return getImage_1603030ContainedLinks(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_1603023ContainedLinks(view);
 		case Label2EditPart.VISUAL_ID:
 			return getLabel_1603013ContainedLinks(view);
 		case MessageElement2EditPart.VISUAL_ID:
 			return getMessageElement_1603035ContainedLinks(view);
-		case Button2EditPart.VISUAL_ID:
-			return getButton_1603023ContainedLinks(view);
 		case LinkToMessageEditPart.VISUAL_ID:
 			return getLinkToMessage_1604001ContainedLinks(view);
 		case LinkToLabelEditPart.VISUAL_ID:
@@ -724,22 +724,22 @@ public class DomainDiagramUpdater {
 			return getCheckBox_1603007IncomingLinks(view);
 		case ImageEditPart.VISUAL_ID:
 			return getImage_1603028IncomingLinks(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_1603017IncomingLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005IncomingLinks(view);
 		case MessageElementEditPart.VISUAL_ID:
 			return getMessageElement_1603034IncomingLinks(view);
-		case ButtonEditPart.VISUAL_ID:
-			return getButton_1603017IncomingLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015IncomingLinks(view);
 		case Image2EditPart.VISUAL_ID:
 			return getImage_1603030IncomingLinks(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_1603023IncomingLinks(view);
 		case Label2EditPart.VISUAL_ID:
 			return getLabel_1603013IncomingLinks(view);
 		case MessageElement2EditPart.VISUAL_ID:
 			return getMessageElement_1603035IncomingLinks(view);
-		case Button2EditPart.VISUAL_ID:
-			return getButton_1603023IncomingLinks(view);
 		case LinkToMessageEditPart.VISUAL_ID:
 			return getLinkToMessage_1604001IncomingLinks(view);
 		case LinkToLabelEditPart.VISUAL_ID:
@@ -795,22 +795,22 @@ public class DomainDiagramUpdater {
 			return getCheckBox_1603007OutgoingLinks(view);
 		case ImageEditPart.VISUAL_ID:
 			return getImage_1603028OutgoingLinks(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_1603017OutgoingLinks(view);
 		case LabelEditPart.VISUAL_ID:
 			return getLabel_1603005OutgoingLinks(view);
 		case MessageElementEditPart.VISUAL_ID:
 			return getMessageElement_1603034OutgoingLinks(view);
-		case ButtonEditPart.VISUAL_ID:
-			return getButton_1603017OutgoingLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015OutgoingLinks(view);
 		case Image2EditPart.VISUAL_ID:
 			return getImage_1603030OutgoingLinks(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_1603023OutgoingLinks(view);
 		case Label2EditPart.VISUAL_ID:
 			return getLabel_1603013OutgoingLinks(view);
 		case MessageElement2EditPart.VISUAL_ID:
 			return getMessageElement_1603035OutgoingLinks(view);
-		case Button2EditPart.VISUAL_ID:
-			return getButton_1603023OutgoingLinks(view);
 		case LinkToMessageEditPart.VISUAL_ID:
 			return getLinkToMessage_1604001OutgoingLinks(view);
 		case LinkToLabelEditPart.VISUAL_ID:

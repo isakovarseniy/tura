@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -30,7 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainPackage;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
-import frmview.diagram.edit.parts.MenuNameEditPart;
+import frmview.diagram.edit.parts.MenuDefinitionNameEditPart;
 import frmview.diagram.edit.parts.PopupCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabCanvasNameEditPart;
 import frmview.diagram.edit.parts.TabPageNameEditPart;
@@ -86,24 +74,6 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser tabPageName_1305002Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getTabPageName_1305002Parser() {
-		if (tabPageName_1305002Parser == null) {
-			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getCanvasFrame_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			tabPageName_1305002Parser = parser;
-		}
-		return tabPageName_1305002Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser windowName_1305010Parser;
 
 	/**
@@ -117,6 +87,24 @@ public class DomainParserProvider extends AbstractProvider implements
 			windowName_1305010Parser = parser;
 		}
 		return windowName_1305010Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser tabPageName_1305002Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTabPageName_1305002Parser() {
+		if (tabPageName_1305002Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getCanvasFrame_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			tabPageName_1305002Parser = parser;
+		}
+		return tabPageName_1305002Parser;
 	}
 
 	/**
@@ -140,19 +128,19 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser menuName_1305015Parser;
+	private IParser menuDefinitionName_1305016Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getMenuName_1305015Parser() {
-		if (menuName_1305015Parser == null) {
+	private IParser getMenuDefinitionName_1305016Parser() {
+		if (menuDefinitionName_1305016Parser == null) {
 			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
-					.getMenu_Name() };
+					.getMenuDefinition_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			menuName_1305015Parser = parser;
+			menuDefinitionName_1305016Parser = parser;
 		}
-		return menuName_1305015Parser;
+		return menuDefinitionName_1305016Parser;
 	}
 
 	/**
@@ -224,8 +212,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getTabPageName_1305002Parser();
 		case TabCanvasNameEditPart.VISUAL_ID:
 			return getTabCanvasName_1305011Parser();
-		case MenuNameEditPart.VISUAL_ID:
-			return getMenuName_1305015Parser();
+		case MenuDefinitionNameEditPart.VISUAL_ID:
+			return getMenuDefinitionName_1305016Parser();
 		case ViewPortNameEditPart.VISUAL_ID:
 			return getViewPortName_1305012Parser();
 		case ViewPortTriggerFakeMethodEditPart.VISUAL_ID:

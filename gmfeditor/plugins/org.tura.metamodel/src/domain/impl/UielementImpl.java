@@ -21,6 +21,7 @@ import domain.Categorized;
 import domain.Classifier;
 import domain.Context;
 import domain.DomainPackage;
+import domain.EnabledUIItem;
 import domain.NickNamed;
 import domain.Orderable;
 import domain.Uielement;
@@ -52,8 +53,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.UielementImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getTriggers <em>Triggers</em>}</li>
- *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getEnabled <em>Enabled</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRefreshAreas <em>Refresh Areas</em>}</li>
@@ -124,6 +125,16 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	protected EList<ActionTrigger> triggers;
 
 	/**
+	 * The cached value of the '{@link #getEnabled() <em>Enabled</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected Context enabled;
+
+	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -142,16 +153,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getEnabled() <em>Enabled</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEnabled()
-	 * @generated
-	 * @ordered
-	 */
-	protected Context enabled;
 
 	/**
 	 * The cached value of the '{@link #getRequired() <em>Required</em>}' containment reference.
@@ -470,10 +471,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return getOrder();
 			case DomainPackage.UIELEMENT__TRIGGERS:
 				return getTriggers();
-			case DomainPackage.UIELEMENT__UID:
-				return getUid();
 			case DomainPackage.UIELEMENT__ENABLED:
 				return getEnabled();
+			case DomainPackage.UIELEMENT__UID:
+				return getUid();
 			case DomainPackage.UIELEMENT__REQUIRED:
 				return getRequired();
 			case DomainPackage.UIELEMENT__READ_ONLY:
@@ -507,11 +508,11 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				getTriggers().clear();
 				getTriggers().addAll((Collection<? extends ActionTrigger>)newValue);
 				return;
-			case DomainPackage.UIELEMENT__UID:
-				setUid((String)newValue);
-				return;
 			case DomainPackage.UIELEMENT__ENABLED:
 				setEnabled((Context)newValue);
+				return;
+			case DomainPackage.UIELEMENT__UID:
+				setUid((String)newValue);
 				return;
 			case DomainPackage.UIELEMENT__REQUIRED:
 				setRequired((Context)newValue);
@@ -547,11 +548,11 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 			case DomainPackage.UIELEMENT__TRIGGERS:
 				getTriggers().clear();
 				return;
-			case DomainPackage.UIELEMENT__UID:
-				setUid(UID_EDEFAULT);
-				return;
 			case DomainPackage.UIELEMENT__ENABLED:
 				setEnabled((Context)null);
+				return;
+			case DomainPackage.UIELEMENT__UID:
+				setUid(UID_EDEFAULT);
 				return;
 			case DomainPackage.UIELEMENT__REQUIRED:
 				setRequired((Context)null);
@@ -582,10 +583,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return order != ORDER_EDEFAULT;
 			case DomainPackage.UIELEMENT__TRIGGERS:
 				return triggers != null && !triggers.isEmpty();
-			case DomainPackage.UIELEMENT__UID:
-				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.UIELEMENT__ENABLED:
 				return enabled != null;
+			case DomainPackage.UIELEMENT__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.UIELEMENT__REQUIRED:
 				return required != null;
 			case DomainPackage.UIELEMENT__READ_ONLY:
@@ -627,6 +628,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				default: return -1;
 			}
 		}
+		if (baseClass == EnabledUIItem.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.UIELEMENT__ENABLED: return DomainPackage.ENABLED_UI_ITEM__ENABLED;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -658,6 +665,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 		if (baseClass == ActioinTriggers.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.ACTIOIN_TRIGGERS__TRIGGERS: return DomainPackage.UIELEMENT__TRIGGERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == EnabledUIItem.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.ENABLED_UI_ITEM__ENABLED: return DomainPackage.UIELEMENT__ENABLED;
 				default: return -1;
 			}
 		}

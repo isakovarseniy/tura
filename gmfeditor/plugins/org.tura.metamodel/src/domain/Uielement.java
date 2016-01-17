@@ -25,7 +25,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link domain.Uielement#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.Uielement#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.Uielement#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.Uielement#getReadOnly <em>Read Only</em>}</li>
  *   <li>{@link domain.Uielement#getRefreshAreas <em>Refresh Areas</em>}</li>
@@ -36,7 +35,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Uielement extends StyleElement, NickNamed, Categorized, Orderable, ActioinTriggers {
+public interface Uielement extends StyleElement, NickNamed, Categorized, Orderable, ActioinTriggers, EnabledUIItem {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,32 +61,6 @@ public interface Uielement extends StyleElement, NickNamed, Categorized, Orderab
 	 * @generated
 	 */
 	void setUid(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Enabled</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Enabled</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Enabled</em>' containment reference.
-	 * @see #setEnabled(Context)
-	 * @see domain.DomainPackage#getUielement_Enabled()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Context getEnabled();
-
-	/**
-	 * Sets the value of the '{@link domain.Uielement#getEnabled <em>Enabled</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Enabled</em>' containment reference.
-	 * @see #getEnabled()
-	 * @generated
-	 */
-	void setEnabled(Context value);
 
 	/**
 	 * Returns the value of the '<em><b>Required</b></em>' containment reference.

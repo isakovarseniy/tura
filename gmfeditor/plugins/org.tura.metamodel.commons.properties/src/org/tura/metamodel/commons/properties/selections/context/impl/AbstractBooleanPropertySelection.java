@@ -52,6 +52,7 @@ public abstract class AbstractBooleanPropertySelection extends
 			
 		} catch (Exception e) {
 			// ignore
+			e.printStackTrace();
 		}
 
 		return rootOfTree;

@@ -16,18 +16,18 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import domain.DomainFactory;
-import domain.Menu;
+import domain.MenuDefinition;
 import domain.Views;
 
 /**
  * @generated
  */
-public class MenuCreateCommand extends EditElementCommand {
+public class MenuDefinitionCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public MenuCreateCommand(CreateElementRequest req) {
+	public MenuDefinitionCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -57,7 +57,8 @@ public class MenuCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Menu newElement = DomainFactory.eINSTANCE.createMenu();
+		MenuDefinition newElement = DomainFactory.eINSTANCE
+				.createMenuDefinition();
 
 		Views owner = (Views) getElementToEdit();
 		owner.getMenus().add(newElement);
@@ -73,8 +74,9 @@ public class MenuCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Menu newElement, IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected void doConfigure(MenuDefinition newElement,
+			IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(

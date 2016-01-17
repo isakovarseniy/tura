@@ -147,7 +147,7 @@ public class UielementItemProvider extends StyleElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(DomainPackage.Literals.ACTIOIN_TRIGGERS__TRIGGERS);
-			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__ENABLED);
+			childrenFeatures.add(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REQUIRED);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__READ_ONLY);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REFRESH_AREAS);
@@ -246,7 +246,7 @@ public class UielementItemProvider extends StyleElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DomainPackage.Literals.UIELEMENT__ENABLED,
+				(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED,
 				 DomainFactory.eINSTANCE.createContext()));
 
 		newChildDescriptors.add
@@ -278,7 +278,7 @@ public class UielementItemProvider extends StyleElementItemProvider {
 
 		boolean qualify =
 			childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
-			childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
+			childFeature == DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY;
 

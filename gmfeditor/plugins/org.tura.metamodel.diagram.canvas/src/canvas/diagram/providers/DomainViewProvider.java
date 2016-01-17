@@ -212,9 +212,9 @@ public class DomainViewProvider extends AbstractProvider implements
 				case TreeEditPart.VISUAL_ID:
 				case CheckBoxEditPart.VISUAL_ID:
 				case ImageEditPart.VISUAL_ID:
+				case ButtonEditPart.VISUAL_ID:
 				case LabelEditPart.VISUAL_ID:
 				case MessageElementEditPart.VISUAL_ID:
-				case ButtonEditPart.VISUAL_ID:
 				case InputText2EditPart.VISUAL_ID:
 				case Password2EditPart.VISUAL_ID:
 				case OutputText2EditPart.VISUAL_ID:
@@ -227,9 +227,9 @@ public class DomainViewProvider extends AbstractProvider implements
 				case LayerHolder3EditPart.VISUAL_ID:
 				case CheckBox2EditPart.VISUAL_ID:
 				case Image2EditPart.VISUAL_ID:
+				case Button2EditPart.VISUAL_ID:
 				case Label2EditPart.VISUAL_ID:
 				case MessageElement2EditPart.VISUAL_ID:
-				case Button2EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -263,14 +263,14 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| LayerHolder3EditPart.VISUAL_ID == visualID
 				|| CheckBoxEditPart.VISUAL_ID == visualID
 				|| ImageEditPart.VISUAL_ID == visualID
+				|| ButtonEditPart.VISUAL_ID == visualID
 				|| LabelEditPart.VISUAL_ID == visualID
 				|| MessageElementEditPart.VISUAL_ID == visualID
-				|| ButtonEditPart.VISUAL_ID == visualID
 				|| CheckBox2EditPart.VISUAL_ID == visualID
 				|| Image2EditPart.VISUAL_ID == visualID
+				|| Button2EditPart.VISUAL_ID == visualID
 				|| Label2EditPart.VISUAL_ID == visualID
-				|| MessageElement2EditPart.VISUAL_ID == visualID
-				|| Button2EditPart.VISUAL_ID == visualID;
+				|| MessageElement2EditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -390,20 +390,23 @@ public class DomainViewProvider extends AbstractProvider implements
 		case ImageEditPart.VISUAL_ID:
 			return createImage_1603028(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case ButtonEditPart.VISUAL_ID:
+			return createButton_1603017(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case LabelEditPart.VISUAL_ID:
 			return createLabel_1603005(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case MessageElementEditPart.VISUAL_ID:
 			return createMessageElement_1603034(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case ButtonEditPart.VISUAL_ID:
-			return createButton_1603017(domainElement, containerView, index,
-					persisted, preferencesHint);
 		case CheckBox2EditPart.VISUAL_ID:
 			return createCheckBox_1603015(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case Image2EditPart.VISUAL_ID:
 			return createImage_1603030(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case Button2EditPart.VISUAL_ID:
+			return createButton_1603023(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case Label2EditPart.VISUAL_ID:
 			return createLabel_1603013(domainElement, containerView, index,
@@ -411,9 +414,6 @@ public class DomainViewProvider extends AbstractProvider implements
 		case MessageElement2EditPart.VISUAL_ID:
 			return createMessageElement_1603035(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case Button2EditPart.VISUAL_ID:
-			return createButton_1603023(domainElement, containerView, index,
-					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;

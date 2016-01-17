@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MenuElementTest extends OrderableTest {
+public class MenuElementTest extends MultiLangLabelTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -2,14 +2,27 @@
  */
 package domain.impl;
 
+import domain.Categorized;
+import domain.Classifier;
+import domain.Context;
 import domain.DomainPackage;
+import domain.EnabledUIItem;
 import domain.MenuElement;
 
+import domain.Orderable;
+import domain.StyleClass;
+import domain.StyleElement;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +31,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.MenuElementImpl#getStyle <em>Style</em>}</li>
+ *   <li>{@link domain.impl.MenuElementImpl#getStyleClass <em>Style Class</em>}</li>
+ *   <li>{@link domain.impl.MenuElementImpl#getClassifiers <em>Classifiers</em>}</li>
+ *   <li>{@link domain.impl.MenuElementImpl#getEnabled <em>Enabled</em>}</li>
+ *   <li>{@link domain.impl.MenuElementImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.impl.MenuElementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MenuElementImpl#getName <em>Name</em>}</li>
  * </ul>
@@ -25,7 +43,67 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class MenuElementImpl extends OrderableImpl implements MenuElement {
+public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
+	/**
+	 * The cached value of the '{@link #getStyle() <em>Style</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected Context style;
+
+	/**
+	 * The cached value of the '{@link #getStyleClass() <em>Style Class</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyleClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StyleClass> styleClass;
+
+	/**
+	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassifiers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Classifier> classifiers;
+
+	/**
+	 * The cached value of the '{@link #getEnabled() <em>Enabled</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected Context enabled;
+
+	/**
+	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ORDER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected int order = ORDER_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,6 +168,137 @@ public class MenuElementImpl extends OrderableImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Context getStyle() {
+		return style;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStyle(Context newStyle, NotificationChain msgs) {
+		Context oldStyle = style;
+		style = newStyle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_ELEMENT__STYLE, oldStyle, newStyle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyle(Context newStyle) {
+		if (newStyle != style) {
+			NotificationChain msgs = null;
+			if (style != null)
+				msgs = ((InternalEObject)style).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.MENU_ELEMENT__STYLE, null, msgs);
+			if (newStyle != null)
+				msgs = ((InternalEObject)newStyle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.MENU_ELEMENT__STYLE, null, msgs);
+			msgs = basicSetStyle(newStyle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_ELEMENT__STYLE, newStyle, newStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<StyleClass> getStyleClass() {
+		if (styleClass == null) {
+			styleClass = new EObjectContainmentEList<StyleClass>(StyleClass.class, this, DomainPackage.MENU_ELEMENT__STYLE_CLASS);
+		}
+		return styleClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Classifier> getClassifiers() {
+		if (classifiers == null) {
+			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.MENU_ELEMENT__CLASSIFIERS);
+		}
+		return classifiers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Context getEnabled() {
+		return enabled;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEnabled(Context newEnabled, NotificationChain msgs) {
+		Context oldEnabled = enabled;
+		enabled = newEnabled;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_ELEMENT__ENABLED, oldEnabled, newEnabled);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnabled(Context newEnabled) {
+		if (newEnabled != enabled) {
+			NotificationChain msgs = null;
+			if (enabled != null)
+				msgs = ((InternalEObject)enabled).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.MENU_ELEMENT__ENABLED, null, msgs);
+			if (newEnabled != null)
+				msgs = ((InternalEObject)newEnabled).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.MENU_ELEMENT__ENABLED, null, msgs);
+			msgs = basicSetEnabled(newEnabled, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_ELEMENT__ENABLED, newEnabled, newEnabled));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getOrder() {
+		return order;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrder(int newOrder) {
+		int oldOrder = order;
+		order = newOrder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_ELEMENT__ORDER, oldOrder, order));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getUid() {
 		return uid;
 	}
@@ -133,8 +342,38 @@ public class MenuElementImpl extends OrderableImpl implements MenuElement {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DomainPackage.MENU_ELEMENT__STYLE:
+				return basicSetStyle(null, msgs);
+			case DomainPackage.MENU_ELEMENT__STYLE_CLASS:
+				return ((InternalEList<?>)getStyleClass()).basicRemove(otherEnd, msgs);
+			case DomainPackage.MENU_ELEMENT__CLASSIFIERS:
+				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
+			case DomainPackage.MENU_ELEMENT__ENABLED:
+				return basicSetEnabled(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DomainPackage.MENU_ELEMENT__STYLE:
+				return getStyle();
+			case DomainPackage.MENU_ELEMENT__STYLE_CLASS:
+				return getStyleClass();
+			case DomainPackage.MENU_ELEMENT__CLASSIFIERS:
+				return getClassifiers();
+			case DomainPackage.MENU_ELEMENT__ENABLED:
+				return getEnabled();
+			case DomainPackage.MENU_ELEMENT__ORDER:
+				return getOrder();
 			case DomainPackage.MENU_ELEMENT__UID:
 				return getUid();
 			case DomainPackage.MENU_ELEMENT__NAME:
@@ -148,9 +387,27 @@ public class MenuElementImpl extends OrderableImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DomainPackage.MENU_ELEMENT__STYLE:
+				setStyle((Context)newValue);
+				return;
+			case DomainPackage.MENU_ELEMENT__STYLE_CLASS:
+				getStyleClass().clear();
+				getStyleClass().addAll((Collection<? extends StyleClass>)newValue);
+				return;
+			case DomainPackage.MENU_ELEMENT__CLASSIFIERS:
+				getClassifiers().clear();
+				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+				return;
+			case DomainPackage.MENU_ELEMENT__ENABLED:
+				setEnabled((Context)newValue);
+				return;
+			case DomainPackage.MENU_ELEMENT__ORDER:
+				setOrder((Integer)newValue);
+				return;
 			case DomainPackage.MENU_ELEMENT__UID:
 				setUid((String)newValue);
 				return;
@@ -169,6 +426,21 @@ public class MenuElementImpl extends OrderableImpl implements MenuElement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DomainPackage.MENU_ELEMENT__STYLE:
+				setStyle((Context)null);
+				return;
+			case DomainPackage.MENU_ELEMENT__STYLE_CLASS:
+				getStyleClass().clear();
+				return;
+			case DomainPackage.MENU_ELEMENT__CLASSIFIERS:
+				getClassifiers().clear();
+				return;
+			case DomainPackage.MENU_ELEMENT__ENABLED:
+				setEnabled((Context)null);
+				return;
+			case DomainPackage.MENU_ELEMENT__ORDER:
+				setOrder(ORDER_EDEFAULT);
+				return;
 			case DomainPackage.MENU_ELEMENT__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -187,6 +459,16 @@ public class MenuElementImpl extends OrderableImpl implements MenuElement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DomainPackage.MENU_ELEMENT__STYLE:
+				return style != null;
+			case DomainPackage.MENU_ELEMENT__STYLE_CLASS:
+				return styleClass != null && !styleClass.isEmpty();
+			case DomainPackage.MENU_ELEMENT__CLASSIFIERS:
+				return classifiers != null && !classifiers.isEmpty();
+			case DomainPackage.MENU_ELEMENT__ENABLED:
+				return enabled != null;
+			case DomainPackage.MENU_ELEMENT__ORDER:
+				return order != ORDER_EDEFAULT;
 			case DomainPackage.MENU_ELEMENT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.MENU_ELEMENT__NAME:
@@ -201,11 +483,83 @@ public class MenuElementImpl extends OrderableImpl implements MenuElement {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == StyleElement.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.MENU_ELEMENT__STYLE: return DomainPackage.STYLE_ELEMENT__STYLE;
+				case DomainPackage.MENU_ELEMENT__STYLE_CLASS: return DomainPackage.STYLE_ELEMENT__STYLE_CLASS;
+				default: return -1;
+			}
+		}
+		if (baseClass == Categorized.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.MENU_ELEMENT__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == EnabledUIItem.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.MENU_ELEMENT__ENABLED: return DomainPackage.ENABLED_UI_ITEM__ENABLED;
+				default: return -1;
+			}
+		}
+		if (baseClass == Orderable.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.MENU_ELEMENT__ORDER: return DomainPackage.ORDERABLE__ORDER;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == StyleElement.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.STYLE_ELEMENT__STYLE: return DomainPackage.MENU_ELEMENT__STYLE;
+				case DomainPackage.STYLE_ELEMENT__STYLE_CLASS: return DomainPackage.MENU_ELEMENT__STYLE_CLASS;
+				default: return -1;
+			}
+		}
+		if (baseClass == Categorized.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.MENU_ELEMENT__CLASSIFIERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == EnabledUIItem.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.ENABLED_UI_ITEM__ENABLED: return DomainPackage.MENU_ELEMENT__ENABLED;
+				default: return -1;
+			}
+		}
+		if (baseClass == Orderable.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.ORDERABLE__ORDER: return DomainPackage.MENU_ELEMENT__ORDER;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (uid: ");
+		result.append(" (order: ");
+		result.append(order);
+		result.append(", uid: ");
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);

@@ -5,7 +5,7 @@ package domain.impl;
 import domain.Categorized;
 import domain.Classifier;
 import domain.DomainPackage;
-import domain.Menu;
+import domain.MenuDefinition;
 import domain.MenuView;
 
 import java.util.Collection;
@@ -25,21 +25,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Menu</b></em>'.
+ * An implementation of the model object '<em><b>Menu Definition</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link domain.impl.MenuImpl#getClassifiers <em>Classifiers</em>}</li>
- *   <li>{@link domain.impl.MenuImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.MenuImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.MenuImpl#getMenuView <em>Menu View</em>}</li>
+ *   <li>{@link domain.impl.MenuDefinitionImpl#getClassifiers <em>Classifiers</em>}</li>
+ *   <li>{@link domain.impl.MenuDefinitionImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link domain.impl.MenuDefinitionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link domain.impl.MenuDefinitionImpl#getMenuView <em>Menu View</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MenuImpl extends StyleElementImpl implements Menu {
+public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefinition {
 	/**
 	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -105,7 +105,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MenuImpl() {
+	protected MenuDefinitionImpl() {
 		super();
 	}
 
@@ -116,7 +116,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DomainPackage.Literals.MENU;
+		return DomainPackage.Literals.MENU_DEFINITION;
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	 */
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
-			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.MENU__CLASSIFIERS);
+			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.MENU_DEFINITION__CLASSIFIERS);
 		}
 		return classifiers;
 	}
@@ -149,7 +149,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU__UID, oldUid, uid));
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_DEFINITION__UID, oldUid, uid));
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_DEFINITION__NAME, oldName, name));
 	}
 
 	/**
@@ -184,7 +184,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 			menuView = (MenuView)eResolveProxy(oldMenuView);
 			if (menuView != oldMenuView) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.MENU__MENU_VIEW, oldMenuView, menuView));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.MENU_DEFINITION__MENU_VIEW, oldMenuView, menuView));
 			}
 		}
 		return menuView;
@@ -208,7 +208,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 		MenuView oldMenuView = menuView;
 		menuView = newMenuView;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.MENU__MENU_VIEW, oldMenuView, newMenuView);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_DEFINITION__MENU_VIEW, oldMenuView, newMenuView);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -230,7 +230,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU__MENU_VIEW, newMenuView, newMenuView));
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_DEFINITION__MENU_VIEW, newMenuView, newMenuView));
 	}
 
 	/**
@@ -241,7 +241,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DomainPackage.MENU__MENU_VIEW:
+			case DomainPackage.MENU_DEFINITION__MENU_VIEW:
 				if (menuView != null)
 					msgs = ((InternalEObject)menuView).eInverseRemove(this, DomainPackage.MENU_VIEW__PARENT, MenuView.class, msgs);
 				return basicSetMenuView((MenuView)otherEnd, msgs);
@@ -257,9 +257,9 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DomainPackage.MENU__CLASSIFIERS:
+			case DomainPackage.MENU_DEFINITION__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
-			case DomainPackage.MENU__MENU_VIEW:
+			case DomainPackage.MENU_DEFINITION__MENU_VIEW:
 				return basicSetMenuView(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -273,13 +273,13 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DomainPackage.MENU__CLASSIFIERS:
+			case DomainPackage.MENU_DEFINITION__CLASSIFIERS:
 				return getClassifiers();
-			case DomainPackage.MENU__UID:
+			case DomainPackage.MENU_DEFINITION__UID:
 				return getUid();
-			case DomainPackage.MENU__NAME:
+			case DomainPackage.MENU_DEFINITION__NAME:
 				return getName();
-			case DomainPackage.MENU__MENU_VIEW:
+			case DomainPackage.MENU_DEFINITION__MENU_VIEW:
 				if (resolve) return getMenuView();
 				return basicGetMenuView();
 		}
@@ -295,17 +295,17 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DomainPackage.MENU__CLASSIFIERS:
+			case DomainPackage.MENU_DEFINITION__CLASSIFIERS:
 				getClassifiers().clear();
 				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
 				return;
-			case DomainPackage.MENU__UID:
+			case DomainPackage.MENU_DEFINITION__UID:
 				setUid((String)newValue);
 				return;
-			case DomainPackage.MENU__NAME:
+			case DomainPackage.MENU_DEFINITION__NAME:
 				setName((String)newValue);
 				return;
-			case DomainPackage.MENU__MENU_VIEW:
+			case DomainPackage.MENU_DEFINITION__MENU_VIEW:
 				setMenuView((MenuView)newValue);
 				return;
 		}
@@ -320,16 +320,16 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DomainPackage.MENU__CLASSIFIERS:
+			case DomainPackage.MENU_DEFINITION__CLASSIFIERS:
 				getClassifiers().clear();
 				return;
-			case DomainPackage.MENU__UID:
+			case DomainPackage.MENU_DEFINITION__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case DomainPackage.MENU__NAME:
+			case DomainPackage.MENU_DEFINITION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DomainPackage.MENU__MENU_VIEW:
+			case DomainPackage.MENU_DEFINITION__MENU_VIEW:
 				setMenuView((MenuView)null);
 				return;
 		}
@@ -344,13 +344,13 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DomainPackage.MENU__CLASSIFIERS:
+			case DomainPackage.MENU_DEFINITION__CLASSIFIERS:
 				return classifiers != null && !classifiers.isEmpty();
-			case DomainPackage.MENU__UID:
+			case DomainPackage.MENU_DEFINITION__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case DomainPackage.MENU__NAME:
+			case DomainPackage.MENU_DEFINITION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DomainPackage.MENU__MENU_VIEW:
+			case DomainPackage.MENU_DEFINITION__MENU_VIEW:
 				return menuView != null;
 		}
 		return super.eIsSet(featureID);
@@ -365,7 +365,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Categorized.class) {
 			switch (derivedFeatureID) {
-				case DomainPackage.MENU__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+				case DomainPackage.MENU_DEFINITION__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
 				default: return -1;
 			}
 		}
@@ -381,7 +381,7 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
-				case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.MENU__CLASSIFIERS;
+				case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.MENU_DEFINITION__CLASSIFIERS;
 				default: return -1;
 			}
 		}
@@ -406,4 +406,4 @@ public class MenuImpl extends StyleElementImpl implements Menu {
 		return result.toString();
 	}
 
-} //MenuImpl
+} //MenuDefinitionImpl

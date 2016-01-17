@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -42,7 +30,7 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 
 import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
-import frmview.diagram.edit.parts.MenuEditPart;
+import frmview.diagram.edit.parts.MenuDefinitionEditPart;
 import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.PopupCanvasPopupCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
@@ -292,7 +280,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					DomainVisualIDRegistry.getType(MenuEditPart.VISUAL_ID));
+					DomainVisualIDRegistry
+							.getType(MenuDefinitionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),

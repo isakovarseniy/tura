@@ -73,6 +73,7 @@ import domain.DomainPackage;
 import domain.DomainTypes;
 import domain.DropDownSelection;
 import domain.EJBService;
+import domain.EnabledUIItem;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
@@ -97,6 +98,7 @@ import domain.Ingredient;
 import domain.InputElement;
 import domain.InputText;
 import domain.InsertTrigger;
+import domain.ItemIcon;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
@@ -112,6 +114,7 @@ import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.Menu;
+import domain.MenuDefinition;
 import domain.MenuElement;
 import domain.MenuFolder;
 import domain.MenuItem;
@@ -953,11 +956,11 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DomainPackage.MENU: {
-				Menu menu = (Menu)theEObject;
-				T result = caseMenu(menu);
-				if (result == null) result = caseStyleElement(menu);
-				if (result == null) result = caseCategorized(menu);
+			case DomainPackage.MENU_DEFINITION: {
+				MenuDefinition menuDefinition = (MenuDefinition)theEObject;
+				T result = caseMenuDefinition(menuDefinition);
+				if (result == null) result = caseStyleElement(menuDefinition);
+				if (result == null) result = caseCategorized(menuDefinition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1127,6 +1130,12 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DomainPackage.ENABLED_UI_ITEM: {
+				EnabledUIItem enabledUIItem = (EnabledUIItem)theEObject;
+				T result = caseEnabledUIItem(enabledUIItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DomainPackage.UIELEMENT: {
 				Uielement uielement = (Uielement)theEObject;
 				T result = caseUielement(uielement);
@@ -1135,6 +1144,13 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(uielement);
 				if (result == null) result = caseOrderable(uielement);
 				if (result == null) result = caseActioinTriggers(uielement);
+				if (result == null) result = caseEnabledUIItem(uielement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.ITEM_ICON: {
+				ItemIcon itemIcon = (ItemIcon)theEObject;
+				T result = caseItemIcon(itemIcon);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1159,6 +1175,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(sourcesPointer);
 				if (result == null) result = caseOrderable(sourcesPointer);
 				if (result == null) result = caseActioinTriggers(sourcesPointer);
+				if (result == null) result = caseEnabledUIItem(sourcesPointer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1172,6 +1189,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(inputElement);
 				if (result == null) result = caseOrderable(inputElement);
 				if (result == null) result = caseActioinTriggers(inputElement);
+				if (result == null) result = caseEnabledUIItem(inputElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1193,6 +1211,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(optionSelection);
 				if (result == null) result = caseOrderable(optionSelection);
 				if (result == null) result = caseActioinTriggers(optionSelection);
+				if (result == null) result = caseEnabledUIItem(optionSelection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1207,6 +1226,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(layerHolder);
 				if (result == null) result = caseOrderable(layerHolder);
 				if (result == null) result = caseActioinTriggers(layerHolder);
+				if (result == null) result = caseEnabledUIItem(layerHolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1222,6 +1242,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(inputText);
 				if (result == null) result = caseOrderable(inputText);
 				if (result == null) result = caseActioinTriggers(inputText);
+				if (result == null) result = caseEnabledUIItem(inputText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1237,6 +1258,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(password);
 				if (result == null) result = caseOrderable(password);
 				if (result == null) result = caseActioinTriggers(password);
+				if (result == null) result = caseEnabledUIItem(password);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1250,6 +1272,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(label);
 				if (result == null) result = caseOrderable(label);
 				if (result == null) result = caseActioinTriggers(label);
+				if (result == null) result = caseEnabledUIItem(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1263,6 +1286,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(messageElement);
 				if (result == null) result = caseOrderable(messageElement);
 				if (result == null) result = caseActioinTriggers(messageElement);
+				if (result == null) result = caseEnabledUIItem(messageElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1278,6 +1302,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(outputText);
 				if (result == null) result = caseOrderable(outputText);
 				if (result == null) result = caseActioinTriggers(outputText);
+				if (result == null) result = caseEnabledUIItem(outputText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1292,6 +1317,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(checkBox);
 				if (result == null) result = caseOrderable(checkBox);
 				if (result == null) result = caseActioinTriggers(checkBox);
+				if (result == null) result = caseEnabledUIItem(checkBox);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1307,6 +1333,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(dropDownSelection);
 				if (result == null) result = caseOrderable(dropDownSelection);
 				if (result == null) result = caseActioinTriggers(dropDownSelection);
+				if (result == null) result = caseEnabledUIItem(dropDownSelection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1321,6 +1348,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(image);
 				if (result == null) result = caseOrderable(image);
 				if (result == null) result = caseActioinTriggers(image);
+				if (result == null) result = caseEnabledUIItem(image);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1336,6 +1364,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(date);
 				if (result == null) result = caseOrderable(date);
 				if (result == null) result = caseActioinTriggers(date);
+				if (result == null) result = caseEnabledUIItem(date);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1344,11 +1373,13 @@ public class DomainSwitch<T> extends Switch<T> {
 				T result = caseButton(button);
 				if (result == null) result = caseUielement(button);
 				if (result == null) result = caseMultiLangLabel(button);
+				if (result == null) result = caseItemIcon(button);
 				if (result == null) result = caseStyleElement(button);
 				if (result == null) result = caseNickNamed(button);
 				if (result == null) result = caseCategorized(button);
 				if (result == null) result = caseOrderable(button);
 				if (result == null) result = caseActioinTriggers(button);
+				if (result == null) result = caseEnabledUIItem(button);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1375,6 +1406,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(table);
 				if (result == null) result = caseOrderable(table);
 				if (result == null) result = caseActioinTriggers(table);
+				if (result == null) result = caseEnabledUIItem(table);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1390,6 +1422,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(tree);
 				if (result == null) result = caseOrderable(tree);
 				if (result == null) result = caseActioinTriggers(tree);
+				if (result == null) result = caseEnabledUIItem(tree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1671,6 +1704,10 @@ public class DomainSwitch<T> extends Switch<T> {
 			case DomainPackage.MENU_ELEMENT: {
 				MenuElement menuElement = (MenuElement)theEObject;
 				T result = caseMenuElement(menuElement);
+				if (result == null) result = caseMultiLangLabel(menuElement);
+				if (result == null) result = caseStyleElement(menuElement);
+				if (result == null) result = caseCategorized(menuElement);
+				if (result == null) result = caseEnabledUIItem(menuElement);
 				if (result == null) result = caseOrderable(menuElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1679,6 +1716,11 @@ public class DomainSwitch<T> extends Switch<T> {
 				MenuFolder menuFolder = (MenuFolder)theEObject;
 				T result = caseMenuFolder(menuFolder);
 				if (result == null) result = caseHTMLLayerHolder(menuFolder);
+				if (result == null) result = caseEnabledUIItem(menuFolder);
+				if (result == null) result = caseCategorized(menuFolder);
+				if (result == null) result = caseStyleElement(menuFolder);
+				if (result == null) result = caseMultiLangLabel(menuFolder);
+				if (result == null) result = caseItemIcon(menuFolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1686,6 +1728,11 @@ public class DomainSwitch<T> extends Switch<T> {
 				MenuItem menuItem = (MenuItem)theEObject;
 				T result = caseMenuItem(menuItem);
 				if (result == null) result = caseMenuElement(menuItem);
+				if (result == null) result = caseItemIcon(menuItem);
+				if (result == null) result = caseMultiLangLabel(menuItem);
+				if (result == null) result = caseStyleElement(menuItem);
+				if (result == null) result = caseCategorized(menuItem);
+				if (result == null) result = caseEnabledUIItem(menuItem);
 				if (result == null) result = caseOrderable(menuItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1694,6 +1741,11 @@ public class DomainSwitch<T> extends Switch<T> {
 				SubMenu subMenu = (SubMenu)theEObject;
 				T result = caseSubMenu(subMenu);
 				if (result == null) result = caseMenuElement(subMenu);
+				if (result == null) result = caseItemIcon(subMenu);
+				if (result == null) result = caseMultiLangLabel(subMenu);
+				if (result == null) result = caseStyleElement(subMenu);
+				if (result == null) result = caseCategorized(subMenu);
+				if (result == null) result = caseEnabledUIItem(subMenu);
 				if (result == null) result = caseOrderable(subMenu);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1702,6 +1754,10 @@ public class DomainSwitch<T> extends Switch<T> {
 				MenuSeparator menuSeparator = (MenuSeparator)theEObject;
 				T result = caseMenuSeparator(menuSeparator);
 				if (result == null) result = caseMenuElement(menuSeparator);
+				if (result == null) result = caseMultiLangLabel(menuSeparator);
+				if (result == null) result = caseStyleElement(menuSeparator);
+				if (result == null) result = caseCategorized(menuSeparator);
+				if (result == null) result = caseEnabledUIItem(menuSeparator);
 				if (result == null) result = caseOrderable(menuSeparator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -3256,17 +3312,17 @@ public class DomainSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Menu</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Menu Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Menu</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Menu Definition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMenu(Menu object) {
+	public T caseMenuDefinition(MenuDefinition object) {
 		return null;
 	}
 
@@ -3601,6 +3657,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enabled UI Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enabled UI Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnabledUIItem(EnabledUIItem object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Uielement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3612,6 +3683,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUielement(Uielement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Item Icon</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Item Icon</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseItemIcon(ItemIcon object) {
 		return null;
 	}
 

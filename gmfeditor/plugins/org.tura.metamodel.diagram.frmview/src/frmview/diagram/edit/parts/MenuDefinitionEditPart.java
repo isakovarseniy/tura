@@ -40,19 +40,19 @@ import org.tura.metamodel.commons.editparts.SizeLimitedLabel;
 
 import domain.DomainPackage;
 import domain.Orderable;
-import frmview.diagram.edit.policies.MenuItemSemanticEditPolicy;
-import frmview.diagram.edit.policies.OpenDiagramMenuEditPolicy;
+import frmview.diagram.edit.policies.MenuDefinitionItemSemanticEditPolicy;
+import frmview.diagram.edit.policies.OpenDiagramMenuDefinitionEditPolicy;
 import frmview.diagram.part.DomainVisualIDRegistry;
 
 /**
  * @generated
  */
-public class MenuEditPart extends ShapeNodeEditPart {
+public class MenuDefinitionEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1302010;
+	public static final int VISUAL_ID = 1302011;
 
 	/**
 	 * @generated
@@ -67,7 +67,7 @@ public class MenuEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public MenuEditPart(View view) {
+	public MenuDefinitionEditPart(View view) {
 		super(view);
 	}
 
@@ -77,10 +77,10 @@ public class MenuEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new MenuItemSemanticEditPolicy());
+				new MenuDefinitionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenDiagramMenuEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+				new OpenDiagramMenuDefinitionEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -114,23 +114,24 @@ public class MenuEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new MenuFigure();
+		return primaryShape = new MenuDefinitionFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public MenuFigure getPrimaryShape() {
-		return (MenuFigure) primaryShape;
+	public MenuDefinitionFigure getPrimaryShape() {
+		return (MenuDefinitionFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof MenuNameEditPart) {
-			((MenuNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureMenuLabelFigure());
+		if (childEditPart instanceof MenuDefinitionNameEditPart) {
+			((MenuDefinitionNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureMenuDefinitionLabelFigure());
 			return true;
 		}
 		return false;
@@ -140,7 +141,7 @@ public class MenuEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof MenuNameEditPart) {
+		if (childEditPart instanceof MenuDefinitionNameEditPart) {
 			return true;
 		}
 		return false;
@@ -281,7 +282,7 @@ public class MenuEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(DomainVisualIDRegistry
-				.getType(MenuNameEditPart.VISUAL_ID));
+				.getType(MenuDefinitionNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -300,17 +301,17 @@ public class MenuEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class MenuFigure extends RoundedRectangle {
+	public class MenuDefinitionFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private SizeLimitedLabel fFigureMenuLabelFigure;
+		private SizeLimitedLabel fFigureMenuDefinitionLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public MenuFigure() {
+		public MenuDefinitionFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setForegroundColor(THIS_FORE);
@@ -326,21 +327,22 @@ public class MenuEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureMenuLabelFigure = new SizeLimitedLabel();
+			fFigureMenuDefinitionLabelFigure = new SizeLimitedLabel();
 
-			fFigureMenuLabelFigure.setText("Menu");
+			fFigureMenuDefinitionLabelFigure.setText("MenuDefinition");
 
-			fFigureMenuLabelFigure.setFont(FFIGUREMENULABELFIGURE_FONT);
+			fFigureMenuDefinitionLabelFigure
+					.setFont(FFIGUREMENUDEFINITIONLABELFIGURE_FONT);
 
-			this.add(fFigureMenuLabelFigure);
+			this.add(fFigureMenuDefinitionLabelFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public SizeLimitedLabel getFigureMenuLabelFigure() {
-			return fFigureMenuLabelFigure;
+		public SizeLimitedLabel getFigureMenuDefinitionLabelFigure() {
+			return fFigureMenuDefinitionLabelFigure;
 		}
 
 	}
@@ -358,7 +360,7 @@ public class MenuEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREMENULABELFIGURE_FONT = new Font(
+	static final Font FFIGUREMENUDEFINITIONLABELFIGURE_FONT = new Font(
 			Display.getCurrent(), "Palatino", 12, SWT.ITALIC);
 
 }

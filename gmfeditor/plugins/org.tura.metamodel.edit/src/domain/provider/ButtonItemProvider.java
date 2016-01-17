@@ -100,7 +100,7 @@ public class ButtonItemProvider extends UielementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
-			childrenFeatures.add(DomainPackage.Literals.BUTTON__ICON);
+			childrenFeatures.add(DomainPackage.Literals.ITEM_ICON__ICON);
 		}
 		return childrenFeatures;
 	}
@@ -185,7 +185,7 @@ public class ButtonItemProvider extends UielementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DomainPackage.Literals.BUTTON__ICON,
+				(DomainPackage.Literals.ITEM_ICON__ICON,
 				 DomainFactory.eINSTANCE.createContext()));
 	}
 
@@ -202,11 +202,11 @@ public class ButtonItemProvider extends UielementItemProvider {
 
 		boolean qualify =
 			childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
-			childFeature == DomainPackage.Literals.UIELEMENT__ENABLED ||
+			childFeature == DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
 			childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
-			childFeature == DomainPackage.Literals.BUTTON__ICON;
+			childFeature == DomainPackage.Literals.ITEM_ICON__ICON;
 
 		if (qualify) {
 			return getString

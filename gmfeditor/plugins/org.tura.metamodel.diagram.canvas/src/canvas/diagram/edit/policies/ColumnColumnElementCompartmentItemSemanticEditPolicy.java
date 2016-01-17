@@ -81,14 +81,14 @@ public class ColumnColumnElementCompartmentItemSemanticEditPolicy extends
 		if (DomainElementTypes.Image_1603030 == req.getElementType()) {
 			return getGEFWrapper(new Image2CreateCommand(req));
 		}
+		if (DomainElementTypes.Button_1603023 == req.getElementType()) {
+			return getGEFWrapper(new Button2CreateCommand(req));
+		}
 		if (DomainElementTypes.Label_1603013 == req.getElementType()) {
 			return getGEFWrapper(new Label2CreateCommand(req));
 		}
 		if (DomainElementTypes.MessageElement_1603035 == req.getElementType()) {
 			return getGEFWrapper(new MessageElement2CreateCommand(req));
-		}
-		if (DomainElementTypes.Button_1603023 == req.getElementType()) {
-			return getGEFWrapper(new Button2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

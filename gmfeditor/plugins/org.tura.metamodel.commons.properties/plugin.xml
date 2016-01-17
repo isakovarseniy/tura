@@ -1156,7 +1156,15 @@
 
             <propertySection
                tab="property.tab.domain.canvas.uielement.icon"
-               class="org.tura.metamodel.commons.properties.selections.context.impl.ButtonIconPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.ItemIconParameterPropertySelection"
+               id="property.tab.domain.canvas.uielement.button.icon">
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+           </propertySection>        
+
+            <propertySection
+               tab="property.tab.domain.canvas.uielement.icon"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.ItemIconPropertySelection"
                id="property.tab.domain.canvas.uielement.button.icon">
               <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
               <input type="canvas.diagram.edit.parts.Button2EditPart"/>
@@ -1183,7 +1191,7 @@
             <propertySection
                tab="property.tab.domain.canvas.uielement.required"
                class="org.tura.metamodel.commons.properties.selections.context.impl.RequiredParameterPropertySelection"
-               id="org.tura.metamodel.diagram.canvas.misce">
+               id="org.tura.metamodel.diagram.canvas.misce.parameter">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.DateEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -1203,7 +1211,7 @@
             <propertySection
                tab="property.tab.domain.canvas.uielement.required"
                class="org.tura.metamodel.commons.properties.selections.context.impl.RequiredPropertySelection"
-               id="org.tura.metamodel.diagram.canvas.misce">
+               id="org.tura.metamodel.diagram.canvas.misce.boolean">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.DateEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -1224,7 +1232,7 @@
             <propertySection
                tab="property.tab.domain.canvas.uielement.enabled"
                class="org.tura.metamodel.commons.properties.selections.context.impl.EnabledParameterPropertySelection"
-               id="org.tura.metamodel.diagram.canvas.misce">
+               id="org.tura.metamodel.diagram.canvas.misce.parameter">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.DateEditPart"/>
               <input type="canvas.diagram.edit.parts.ImageEditPart"/>
@@ -1252,7 +1260,7 @@
             <propertySection
                tab="property.tab.domain.canvas.uielement.enabled"
                class="org.tura.metamodel.commons.properties.selections.context.impl.EnabledPropertySelection"
-               id="org.tura.metamodel.diagram.canvas.misce">
+               id="org.tura.metamodel.diagram.canvas.misce.boolean">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.DateEditPart"/>
               <input type="canvas.diagram.edit.parts.ImageEditPart"/>
@@ -1281,7 +1289,7 @@
             <propertySection
                tab="property.tab.domain.canvas.uielement.readonly"
                class="org.tura.metamodel.commons.properties.selections.context.impl.ReadOnlyParameterPropertySelection"
-               id="org.tura.metamodel.diagram.canvas.misce">
+               id="org.tura.metamodel.diagram.canvas.misce.parameter">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.DateEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -1301,7 +1309,7 @@
             <propertySection
                tab="property.tab.domain.canvas.uielement.readonly"
                class="org.tura.metamodel.commons.properties.selections.context.impl.ReadOnlyPropertySelection"
-               id="org.tura.metamodel.diagram.canvas.misce">
+               id="org.tura.metamodel.diagram.canvas.misce.boolean">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.DateEditPart"/>
               <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
@@ -1346,10 +1354,47 @@
            </propertySection>        
 
 
+           <propertySection
+               tab="property.tab.domain.canvas.uielement.styleset"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.StyleParameterPropertySelection"
+               id="org.tura.metamodel.diagram.canvas.sourcepointer.style.parameter">
+              <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.TableEditPart"/>
+              <input type="canvas.diagram.edit.parts.TreeEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.LayerHolderEditPart"/>
+              <input type="canvas.diagram.edit.parts.LayerHolder2EditPart"/>
+              <input type="canvas.diagram.edit.parts.LayerHolder3EditPart"/>
+ 
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Table2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Tree2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+              
+              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
+              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
+              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
+              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
+
+           </propertySection>        
+
+
              <propertySection
                tab="property.tab.domain.canvas.uielement.styleset"
                class="org.tura.metamodel.commons.properties.selections.context.impl.StylePropertySelection"
-               id="org.tura.metamodel.diagram.canvas.sourcepointer.style">
+               id="org.tura.metamodel.diagram.canvas.sourcepointer.style.string">
               <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
               <input type="canvas.diagram.edit.parts.DateEditPart"/>
               <input type="canvas.diagram.edit.parts.ImageEditPart"/>
@@ -1576,6 +1621,245 @@
  
           </propertySections>
        </extension>
+
+      <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="org.tura.metamodel.diagram.menu.proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.tura.metamodel.diagram.menu">
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.menu.refresh"
+             label="Refresh on action"/>
+
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.menu.styleset"
+             label="Style set"/>
+             
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.menu.enabled"
+             label="Disabled"/>
+
+           <propertyTab
+             category="domain"
+             id="property.tab.domain.menu.mulilanglabel"
+             label="Multi lang label"/>
+             
+           <propertyTab
+             category="domain"
+             id="property.tab.domain.menu.icon"
+             label="Icon"/>
+    
+           <propertyTab
+             category="domain"
+             id="property.tab.domain.menu.classifier"
+             label="Hint"/>    
+             
+           <propertyTab
+             category="domain"
+             id="property.tab.domain.menu.triggers"
+             label="Triggers"/>    
+             
+          </propertyTabs>
+       </extension>
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="org.tura.metamodel.diagram.menu.propsections">
+      <?gmfgen generated="true"?>   
+ 
+      <propertySections contributorId="org.tura.metamodel.diagram.menu">
+
+
+           <propertySection
+               tab="property.tab.domain.menu.triggers"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActionTriggerCategorizedPropertySelection"
+               id="property.tab.domain.menu.trigger.classifier.properties">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+
+            </propertySection>  
+
+
+
+           <propertySection
+               tab="property.tab.domain.menu.triggers"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersTriggerContextParameterPropertySelection"
+               id="property.tab.domain.menu.triggers.parameters">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+
+            </propertySection>  
+
+
+
+           <propertySection
+               tab="property.tab.domain.menu.triggers"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersMethodNamePropertySection"
+               id="property.tab.domain.menu.triggers.method">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+
+            </propertySection>  
+            
+
+           <propertySection
+              tab="property.tab.domain.menu.triggers"
+              class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersTypeNamePropertySection"
+               id="property.tab.domain.menu.triggers.type">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+
+            </propertySection>  
+
+
+           <propertySection
+               tab="property.tab.domain.menu.triggers"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersPackageNamePropertySection"
+               id="property.tab.domain.menu.triggers.package">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+
+            </propertySection>      
+            
+            
+           <propertySection
+               tab="property.tab.domain.menu.triggers"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersPropertySelectioin"
+               id="property.tab.domain.menu.triggers.property">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+
+            </propertySection>        
+
+
+          <propertySection
+               tab="property.tab.domain.menu.classifier"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
+               id="property.tab.domain.menu.classifier.property">
+ 
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuSeparatorEditPart"/>
+              
+            </propertySection>        
+
+            <propertySection
+               tab="property.tab.domain.menu.icon"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.ItemIconParameterPropertySelection"
+               id="property.tab.domain.menu.icon.property.parameter">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
+
+           </propertySection>       
+
+            <propertySection
+               tab="property.tab.domain.menu.icon"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.ItemIconPropertySelection"
+               id="property.tab.domain.menu.icon.property.string">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
+
+           </propertySection>        
+
+            <propertySection
+               tab="property.tab.domain.menu.mulilanglabel"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.MultiLangLabelParameterPropertySelection"
+               id="property.tab.domain.menu.mulilanglabel.property.parameter">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
+              
+           </propertySection>      
+
+            <propertySection
+               tab="property.tab.domain.menu.mulilanglabel"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.MultiLangLabelPropertySelection"
+               id="property.tab.domain.menu.mulilanglabel.property.boolean">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
+              
+           </propertySection>    
+
+            <propertySection
+               tab="property.tab.domain.menu.enabled"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.EnabledParameterPropertySelection"
+               id="property.tab.domain.menu.enabled.property.parameters">
+              
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuSeparatorEditPart"/>
+ 
+           </propertySection>        
+
+            <propertySection
+               tab="property.tab.domain.menu.enabled"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.EnabledPropertySelection"
+               id="property.tab.domain.menu.enabled.property.boolean">
+              
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuSeparatorEditPart"/>
+ 
+           </propertySection>      
+
+            <propertySection
+               tab="property.tab.domain.menu.refresh"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.UielementOnEventRefreshAreaPropertySelection"
+               id="property.tab.domain.menu.refresh.property">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+ 
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.menu.styleset"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.StyleParameterPropertySelection"
+               id="property.tab.domain.menu.styleset.property.parameter">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuSeparatorEditPart"/>
+
+           </propertySection>   
+ 
+             <propertySection
+               tab="property.tab.domain.menu.styleset"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.StylePropertySelection"
+               id="property.tab.domain.menu.styleset.property.string">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuSeparatorEditPart"/>
+
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.menu.styleset"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.StyleClassPropertySelection"
+               id="property.tab.domain.menu.style.property">
+               
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuSeparatorEditPart"/>
+
+
+           </propertySection>        
+
+       </propertySections>
+  </extension>  
 
 
 </plugin>

@@ -119,9 +119,9 @@ public class LayerHolderLayerHolderChildrenCompartment3CanonicalEditPolicy
 		case LayerHolder3EditPart.VISUAL_ID:
 		case CheckBoxEditPart.VISUAL_ID:
 		case ImageEditPart.VISUAL_ID:
+		case ButtonEditPart.VISUAL_ID:
 		case LabelEditPart.VISUAL_ID:
 		case MessageElementEditPart.VISUAL_ID:
-		case ButtonEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

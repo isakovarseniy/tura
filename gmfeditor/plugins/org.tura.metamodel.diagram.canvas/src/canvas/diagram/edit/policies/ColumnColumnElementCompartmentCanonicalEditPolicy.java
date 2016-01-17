@@ -119,9 +119,9 @@ public class ColumnColumnElementCompartmentCanonicalEditPolicy extends
 		case LayerHolder2EditPart.VISUAL_ID:
 		case CheckBox2EditPart.VISUAL_ID:
 		case Image2EditPart.VISUAL_ID:
+		case Button2EditPart.VISUAL_ID:
 		case Label2EditPart.VISUAL_ID:
 		case MessageElement2EditPart.VISUAL_ID:
-		case Button2EditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

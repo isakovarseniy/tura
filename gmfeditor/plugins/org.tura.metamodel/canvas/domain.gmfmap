@@ -293,6 +293,27 @@
             href="domain.ecore#//ChildrenHolder/children"/>
         <ownedChild>
           <domainMetaElement
+              href="domain.ecore#//Button"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#ButtonLabel"/>
+            <features
+                href="domain.ecore#//Button/label"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
+          <diagramNode
+              href="domain.gmfgraph#Button"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//ChildrenHolder/children"/>
+        <ownedChild>
+          <domainMetaElement
               href="domain.ecore#//Label"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
@@ -327,27 +348,6 @@
               href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
           <diagramNode
               href="domain.gmfgraph#MessageElement"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="domain.ecore#//ChildrenHolder/children"/>
-        <ownedChild>
-          <domainMetaElement
-              href="domain.ecore#//Button"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#ButtonLabel"/>
-            <features
-                href="domain.ecore#//Button/label"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
-          <diagramNode
-              href="domain.gmfgraph#Button"/>
         </ownedChild>
       </children>
       <compartments

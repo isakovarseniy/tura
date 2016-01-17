@@ -563,10 +563,10 @@
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Canvas"/>
     <genClasses ecoreClass="domain.ecore#//Window"/>
-    <genClasses ecoreClass="domain.ecore#//Menu">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Menu/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Menu/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Menu/menuView"/>
+    <genClasses ecoreClass="domain.ecore#//MenuDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MenuDefinition/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MenuDefinition/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//MenuDefinition/menuView"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TabCanvas">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//TabCanvas/orientation"/>
@@ -659,12 +659,17 @@
     <genClasses ecoreClass="domain.ecore#//ActionTrigger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ActionTrigger/uid"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//EnabledUIItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//EnabledUIItem/enabled"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//Uielement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Uielement/uid"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/enabled"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/required"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/readOnly"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Uielement/refreshAreas"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ItemIcon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ItemIcon/icon"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//AreaRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//AreaRef/area"/>
@@ -709,7 +714,6 @@
     <genClasses ecoreClass="domain.ecore#//Date"/>
     <genClasses ecoreClass="domain.ecore#//Button">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Button/label"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Button/icon"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//Column">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Column/uid"/>

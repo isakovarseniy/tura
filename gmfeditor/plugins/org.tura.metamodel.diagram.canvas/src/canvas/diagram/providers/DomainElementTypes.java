@@ -322,24 +322,24 @@ public class DomainElementTypes {
 
 			elements.put(Image_1603028, DomainPackage.eINSTANCE.getImage());
 
+			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
+
 			elements.put(Label_1603005, DomainPackage.eINSTANCE.getLabel());
 
 			elements.put(MessageElement_1603034,
 					DomainPackage.eINSTANCE.getMessageElement());
-
-			elements.put(Button_1603017, DomainPackage.eINSTANCE.getButton());
 
 			elements.put(CheckBox_1603015,
 					DomainPackage.eINSTANCE.getCheckBox());
 
 			elements.put(Image_1603030, DomainPackage.eINSTANCE.getImage());
 
+			elements.put(Button_1603023, DomainPackage.eINSTANCE.getButton());
+
 			elements.put(Label_1603013, DomainPackage.eINSTANCE.getLabel());
 
 			elements.put(MessageElement_1603035,
 					DomainPackage.eINSTANCE.getMessageElement());
-
-			elements.put(Button_1603023, DomainPackage.eINSTANCE.getButton());
 
 			elements.put(LinkToMessage_1604001,
 					DomainPackage.eINSTANCE.getLinkToMessage());
@@ -385,14 +385,14 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(LayerHolder_1603019);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603007);
 			KNOWN_ELEMENT_TYPES.add(Image_1603028);
+			KNOWN_ELEMENT_TYPES.add(Button_1603017);
 			KNOWN_ELEMENT_TYPES.add(Label_1603005);
 			KNOWN_ELEMENT_TYPES.add(MessageElement_1603034);
-			KNOWN_ELEMENT_TYPES.add(Button_1603017);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603015);
 			KNOWN_ELEMENT_TYPES.add(Image_1603030);
+			KNOWN_ELEMENT_TYPES.add(Button_1603023);
 			KNOWN_ELEMENT_TYPES.add(Label_1603013);
 			KNOWN_ELEMENT_TYPES.add(MessageElement_1603035);
-			KNOWN_ELEMENT_TYPES.add(Button_1603023);
 			KNOWN_ELEMENT_TYPES.add(LinkToMessage_1604001);
 			KNOWN_ELEMENT_TYPES.add(LinkToLabel_1604002);
 		}
@@ -448,22 +448,22 @@ public class DomainElementTypes {
 			return CheckBox_1603007;
 		case ImageEditPart.VISUAL_ID:
 			return Image_1603028;
+		case ButtonEditPart.VISUAL_ID:
+			return Button_1603017;
 		case LabelEditPart.VISUAL_ID:
 			return Label_1603005;
 		case MessageElementEditPart.VISUAL_ID:
 			return MessageElement_1603034;
-		case ButtonEditPart.VISUAL_ID:
-			return Button_1603017;
 		case CheckBox2EditPart.VISUAL_ID:
 			return CheckBox_1603015;
 		case Image2EditPart.VISUAL_ID:
 			return Image_1603030;
+		case Button2EditPart.VISUAL_ID:
+			return Button_1603023;
 		case Label2EditPart.VISUAL_ID:
 			return Label_1603013;
 		case MessageElement2EditPart.VISUAL_ID:
 			return MessageElement_1603035;
-		case Button2EditPart.VISUAL_ID:
-			return Button_1603023;
 		case LinkToMessageEditPart.VISUAL_ID:
 			return LinkToMessage_1604001;
 		case LinkToLabelEditPart.VISUAL_ID:

@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -27,8 +15,8 @@ import domain.Views;
 import frmview.diagram.edit.parts.CanvasCanvasViewElementCompartmentEditPart;
 import frmview.diagram.edit.parts.CanvasEditPart;
 import frmview.diagram.edit.parts.CanvasNameEditPart;
-import frmview.diagram.edit.parts.MenuEditPart;
-import frmview.diagram.edit.parts.MenuNameEditPart;
+import frmview.diagram.edit.parts.MenuDefinitionEditPart;
+import frmview.diagram.edit.parts.MenuDefinitionNameEditPart;
 import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.PopupCanvasNameEditPart;
 import frmview.diagram.edit.parts.PopupCanvasPopupCanvasViewElementCompartmentEditPart;
@@ -180,9 +168,9 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return TabCanvasEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getMenu().isSuperTypeOf(
+			if (DomainPackage.eINSTANCE.getMenuDefinition().isSuperTypeOf(
 					domainElement.eClass())) {
-				return MenuEditPart.VISUAL_ID;
+				return MenuDefinitionEditPart.VISUAL_ID;
 			}
 			break;
 		case PopupCanvasPopupCanvasViewElementCompartmentEditPart.VISUAL_ID:
@@ -273,7 +261,7 @@ public class DomainVisualIDRegistry {
 			if (TabCanvasEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (MenuEditPart.VISUAL_ID == nodeVisualID) {
+			if (MenuDefinitionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -314,8 +302,8 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case MenuEditPart.VISUAL_ID:
-			if (MenuNameEditPart.VISUAL_ID == nodeVisualID) {
+		case MenuDefinitionEditPart.VISUAL_ID:
+			if (MenuDefinitionNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -444,7 +432,7 @@ public class DomainVisualIDRegistry {
 		case ViewsEditPart.VISUAL_ID:
 			return false;
 		case TabCanvasEditPart.VISUAL_ID:
-		case MenuEditPart.VISUAL_ID:
+		case MenuDefinitionEditPart.VISUAL_ID:
 		case ViewPortTriggerEditPart.VISUAL_ID:
 		case ViewAreaEditPart.VISUAL_ID:
 			return true;

@@ -73,6 +73,7 @@ import domain.DomainPackage;
 import domain.DomainTypes;
 import domain.DropDownSelection;
 import domain.EJBService;
+import domain.EnabledUIItem;
 import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
@@ -97,6 +98,7 @@ import domain.Ingredient;
 import domain.InputElement;
 import domain.InputText;
 import domain.InsertTrigger;
+import domain.ItemIcon;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
@@ -112,6 +114,7 @@ import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
 import domain.Menu;
+import domain.MenuDefinition;
 import domain.MenuElement;
 import domain.MenuFolder;
 import domain.MenuItem;
@@ -679,8 +682,8 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createWindowAdapter();
 			}
 			@Override
-			public Adapter caseMenu(Menu object) {
-				return createMenuAdapter();
+			public Adapter caseMenuDefinition(MenuDefinition object) {
+				return createMenuDefinitionAdapter();
 			}
 			@Override
 			public Adapter caseTabCanvas(TabCanvas object) {
@@ -771,8 +774,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createActionTriggerAdapter();
 			}
 			@Override
+			public Adapter caseEnabledUIItem(EnabledUIItem object) {
+				return createEnabledUIItemAdapter();
+			}
+			@Override
 			public Adapter caseUielement(Uielement object) {
 				return createUielementAdapter();
+			}
+			@Override
+			public Adapter caseItemIcon(ItemIcon object) {
+				return createItemIconAdapter();
 			}
 			@Override
 			public Adapter caseAreaRef(AreaRef object) {
@@ -2481,16 +2492,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.Menu <em>Menu</em>}'.
+	 * Creates a new adapter for an object of class '{@link domain.MenuDefinition <em>Menu Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see domain.Menu
+	 * @see domain.MenuDefinition
 	 * @generated
 	 */
-	public Adapter createMenuAdapter() {
+	public Adapter createMenuDefinitionAdapter() {
 		return null;
 	}
 
@@ -2803,6 +2814,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link domain.EnabledUIItem <em>Enabled UI Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.EnabledUIItem
+	 * @generated
+	 */
+	public Adapter createEnabledUIItemAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link domain.Uielement <em>Uielement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2813,6 +2838,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUielementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.ItemIcon <em>Item Icon</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.ItemIcon
+	 * @generated
+	 */
+	public Adapter createItemIconAdapter() {
 		return null;
 	}
 

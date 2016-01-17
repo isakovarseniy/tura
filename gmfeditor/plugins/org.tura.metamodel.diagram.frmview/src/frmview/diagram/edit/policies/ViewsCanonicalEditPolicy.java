@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 /*
  * 
  */
@@ -23,8 +11,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
 import java.util.Set;
+
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -48,7 +36,7 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import domain.DomainPackage;
 import frmview.diagram.edit.parts.CanvasEditPart;
-import frmview.diagram.edit.parts.MenuEditPart;
+import frmview.diagram.edit.parts.MenuDefinitionEditPart;
 import frmview.diagram.edit.parts.PopupCanvasEditPart;
 import frmview.diagram.edit.parts.TabCanvasEditPart;
 import frmview.diagram.edit.parts.TabPageEditPart;
@@ -138,7 +126,7 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 		case WindowEditPart.VISUAL_ID:
 		case TabPageEditPart.VISUAL_ID:
 		case TabCanvasEditPart.VISUAL_ID:
-		case MenuEditPart.VISUAL_ID:
+		case MenuDefinitionEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
@@ -350,10 +338,10 @@ public class ViewsCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case MenuEditPart.VISUAL_ID: {
+		case MenuDefinitionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
-						.getMenu_1302010ContainedLinks(view));
+						.getMenuDefinition_1302011ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
