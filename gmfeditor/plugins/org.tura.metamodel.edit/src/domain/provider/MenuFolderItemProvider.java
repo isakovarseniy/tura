@@ -207,6 +207,11 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
 				 DomainFactory.eINSTANCE.createClassifier()));
 
@@ -214,6 +219,11 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.STYLE_ELEMENT__STYLE,
 				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.STYLE_ELEMENT__STYLE,
+				 DomainFactory.eINSTANCE.createFlexField()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -227,8 +237,18 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.ITEM_ICON__ICON,
 				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ITEM_ICON__ICON,
+				 DomainFactory.eINSTANCE.createFlexField()));
 
 		newChildDescriptors.add
 			(createChildParameter

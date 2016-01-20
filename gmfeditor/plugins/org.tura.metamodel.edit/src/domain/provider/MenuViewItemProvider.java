@@ -837,6 +837,16 @@ public class MenuViewItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MENU_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createFlexFields()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_VIEW__ANY,
 				 DomainFactory.eINSTANCE.createActioinTriggers()));
 
 		newChildDescriptors.add

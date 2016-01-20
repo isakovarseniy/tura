@@ -78,6 +78,8 @@ import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.ExpressionPart;
+import domain.FlexField;
+import domain.FlexFields;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormParameter;
@@ -925,6 +927,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMultiLangLabel(popupCanvas);
 				if (result == null) result = caseCategorized(popupCanvas);
 				if (result == null) result = caseActioinTriggers(popupCanvas);
+				if (result == null) result = caseFlexFields(popupCanvas);
 				if (result == null) result = caseStyleElement(popupCanvas);
 				if (result == null) result = caseHTMLLayerHolder(popupCanvas);
 				if (result == null) result = defaultCase(theEObject);
@@ -1113,6 +1116,22 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DomainPackage.FLEX_FIELDS: {
+				FlexFields flexFields = (FlexFields)theEObject;
+				T result = caseFlexFields(flexFields);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.FLEX_FIELD: {
+				FlexField flexField = (FlexField)theEObject;
+				T result = caseFlexField(flexField);
+				if (result == null) result = caseContext(flexField);
+				if (result == null) result = caseCategorized(flexField);
+				if (result == null) result = caseContextValue(flexField);
+				if (result == null) result = caseContextParameters(flexField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DomainPackage.ACTIOIN_TRIGGERS: {
 				ActioinTriggers actioinTriggers = (ActioinTriggers)theEObject;
 				T result = caseActioinTriggers(actioinTriggers);
@@ -1145,6 +1164,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(uielement);
 				if (result == null) result = caseActioinTriggers(uielement);
 				if (result == null) result = caseEnabledUIItem(uielement);
+				if (result == null) result = caseFlexFields(uielement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1176,6 +1196,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(sourcesPointer);
 				if (result == null) result = caseActioinTriggers(sourcesPointer);
 				if (result == null) result = caseEnabledUIItem(sourcesPointer);
+				if (result == null) result = caseFlexFields(sourcesPointer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1190,6 +1211,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(inputElement);
 				if (result == null) result = caseActioinTriggers(inputElement);
 				if (result == null) result = caseEnabledUIItem(inputElement);
+				if (result == null) result = caseFlexFields(inputElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1212,6 +1234,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(optionSelection);
 				if (result == null) result = caseActioinTriggers(optionSelection);
 				if (result == null) result = caseEnabledUIItem(optionSelection);
+				if (result == null) result = caseFlexFields(optionSelection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1227,6 +1250,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(layerHolder);
 				if (result == null) result = caseActioinTriggers(layerHolder);
 				if (result == null) result = caseEnabledUIItem(layerHolder);
+				if (result == null) result = caseFlexFields(layerHolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1243,6 +1267,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(inputText);
 				if (result == null) result = caseActioinTriggers(inputText);
 				if (result == null) result = caseEnabledUIItem(inputText);
+				if (result == null) result = caseFlexFields(inputText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1259,6 +1284,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(password);
 				if (result == null) result = caseActioinTriggers(password);
 				if (result == null) result = caseEnabledUIItem(password);
+				if (result == null) result = caseFlexFields(password);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1273,6 +1299,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(label);
 				if (result == null) result = caseActioinTriggers(label);
 				if (result == null) result = caseEnabledUIItem(label);
+				if (result == null) result = caseFlexFields(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1287,6 +1314,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(messageElement);
 				if (result == null) result = caseActioinTriggers(messageElement);
 				if (result == null) result = caseEnabledUIItem(messageElement);
+				if (result == null) result = caseFlexFields(messageElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1303,6 +1331,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(outputText);
 				if (result == null) result = caseActioinTriggers(outputText);
 				if (result == null) result = caseEnabledUIItem(outputText);
+				if (result == null) result = caseFlexFields(outputText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1318,6 +1347,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(checkBox);
 				if (result == null) result = caseActioinTriggers(checkBox);
 				if (result == null) result = caseEnabledUIItem(checkBox);
+				if (result == null) result = caseFlexFields(checkBox);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1334,6 +1364,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(dropDownSelection);
 				if (result == null) result = caseActioinTriggers(dropDownSelection);
 				if (result == null) result = caseEnabledUIItem(dropDownSelection);
+				if (result == null) result = caseFlexFields(dropDownSelection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1349,6 +1380,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(image);
 				if (result == null) result = caseActioinTriggers(image);
 				if (result == null) result = caseEnabledUIItem(image);
+				if (result == null) result = caseFlexFields(image);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1365,6 +1397,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(date);
 				if (result == null) result = caseActioinTriggers(date);
 				if (result == null) result = caseEnabledUIItem(date);
+				if (result == null) result = caseFlexFields(date);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1380,6 +1413,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(button);
 				if (result == null) result = caseActioinTriggers(button);
 				if (result == null) result = caseEnabledUIItem(button);
+				if (result == null) result = caseFlexFields(button);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1407,6 +1441,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(table);
 				if (result == null) result = caseActioinTriggers(table);
 				if (result == null) result = caseEnabledUIItem(table);
+				if (result == null) result = caseFlexFields(table);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1423,6 +1458,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOrderable(tree);
 				if (result == null) result = caseActioinTriggers(tree);
 				if (result == null) result = caseEnabledUIItem(tree);
+				if (result == null) result = caseFlexFields(tree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3623,6 +3659,36 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNickNamed(NickNamed object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flex Fields</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flex Fields</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlexFields(FlexFields object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flex Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flex Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlexField(FlexField object) {
 		return null;
 	}
 

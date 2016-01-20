@@ -110,6 +110,7 @@ public abstract class ContextPropertySelection extends
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				handleIsExpressionPress();
+				handleModified();
 			}
 		});
 
@@ -147,6 +148,7 @@ public abstract class ContextPropertySelection extends
 
 			public void textChanged(Control control) {
 				handleTextModified();
+				handleModified();
 			}
 		};
 		listener.startListeningTo(text);
@@ -192,20 +194,28 @@ public abstract class ContextPropertySelection extends
 
 	public void refresh() {
 		super.refresh();
-		if (((domain.Context) getModel()).getValue() != null) {
+		if (getModel() != null
+				&& ((domain.Context) getModel()).getValue() != null) {
 			text.setText(((domain.Context) getModel()).getValue());
 			text1.setText(((domain.Context) getModel()).getValue());
 		} else {
 			text.setText("");
 			text1.setText("");
 		}
-		btnConfirm.setSelection(((domain.Context) getModel()).isConstant());
-		configure();
+		if (getModel() != null) {
+			btnConfirm.setSelection(((domain.Context) getModel()).isConstant());
+			configure();
+		}else{
+			btnConfirm.setSelection(false);
+			text1.setVisible(true);
+			nameLabel1.setVisible(true);
+			btnDialog.setVisible(true);
+		}
 	}
 
 	private void configure() {
 		domain.Context obj = (Context) getModel();
-		if (! obj.isConstant()) {
+		if (!obj.isConstant()) {
 			text1.setVisible(true);
 			nameLabel1.setVisible(true);
 			btnDialog.setVisible(true);
@@ -272,12 +282,18 @@ public abstract class ContextPropertySelection extends
 					updateExpession(editingDomain, (ContextValue) getModel(),
 							buildExpressionList(treePath[0]));
 					refresh();
+					handleModified();
+
 				} else {
 					showError();
 				}
 
 			}
 		}
+	}
+
+	protected void handleModified() {
+
 	}
 
 	protected void handleIsExpressionPress() {
@@ -296,6 +312,8 @@ public abstract class ContextPropertySelection extends
 	}
 
 	protected boolean isEqual(String newText) {
+		if (getModel() == null)
+			return false;
 		if (((domain.Context) getModel()).getValue() == null)
 			return false;
 		return ((domain.Context) getModel()).getValue().equals(newText);
@@ -314,10 +332,12 @@ public abstract class ContextPropertySelection extends
 						.getTrigger());
 
 			if (part.getObjRef() != null)
-				part.setExpressionType(part.getObjRef().getClass().getSimpleName());
+				part.setExpressionType(part.getObjRef().getClass()
+						.getSimpleName());
 			else
-				part.setExpressionType(path.getSegment(i).getClass().getSimpleName());
-				
+				part.setExpressionType(path.getSegment(i).getClass()
+						.getSimpleName());
+
 			part.setOrder(i);
 			ls.add(part);
 
@@ -380,15 +400,16 @@ public abstract class ContextPropertySelection extends
 						param.getExpression()));
 
 	}
-	
-	public void removeParameters(EditingDomain editingDomain, domain.ContextParameters model){
+
+	public void removeParameters(EditingDomain editingDomain,
+			domain.ContextParameters model) {
 
 		editingDomain.getCommandStack().execute(
 				RemoveCommand.create(editingDomain, model,
-						DomainPackage.eINSTANCE.getContextParameters_Parameters(),
-						model.getParameters()));
+						DomainPackage.eINSTANCE
+								.getContextParameters_Parameters(), model
+								.getParameters()));
 	}
-
 
 	protected abstract TreeRoot getContextRoot();
 

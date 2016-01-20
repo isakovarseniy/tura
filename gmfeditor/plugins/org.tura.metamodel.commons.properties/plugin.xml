@@ -612,6 +612,12 @@
 
              <propertyTab
              category="domain"
+             id="property.tab.domain.frmview.canvas.flexfields"
+             label="Flex fields"/>
+
+
+             <propertyTab
+             category="domain"
              id="property.tab.domain.frmview.frmview.classifier"
              label="Hint"/>
 
@@ -624,6 +630,38 @@
  
       <propertySections contributorId="org.tura.metamodel.diagram.frmview">
 
+
+          <propertySection
+               tab="property.tab.domain.frmview.canvas.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.FlexFieldCategorizedPropertySelection"
+               id="property.tab.domain.frmview.canvas.flexfields.categorized">
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+            </propertySection>  
+
+           <propertySection
+               tab="property.tab.domain.frmview.canvas.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.FlexFieldsContextParameterPropertySelection"
+               id="property.tab.domain.frmview.canvas.flexfields.parameters">
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+            </propertySection>  
+
+           <propertySection
+               tab="property.tab.domain.frmview.canvas.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.FlexFieldValuePropertySelection"
+               id="property.tab.domain.frmview.canvas.flexfields.value">
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+
+            </propertySection>  
+
+
+           <propertySection
+               tab="property.tab.domain.frmview.canvas.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.FlexFieldsPropertySelection"
+               id="property.tab.domain.frmview.canvas.flexfields.flexfields">
+              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
+            </propertySection>  
+
+
            <propertySection
                tab="property.tab.domain.frmview.canvas.triggers"
                class="org.tura.metamodel.commons.properties.selections.grid.impl.ActionTriggerCategorizedPropertySelection"
@@ -633,19 +671,6 @@
               
 
             </propertySection>  
-
-
-
-           <propertySection
-               tab="property.tab.domain.frmview.canvas.triggers"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersTriggerContextParameterPropertySelection"
-               id="property.tab.domain.frmview.canvas.actiontriggers">
-
-              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
-
-
-            </propertySection>  
-
 
 
            <propertySection

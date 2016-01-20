@@ -410,6 +410,10 @@
         <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="e1cd6c51-bf48-4e5d-87ba-d2dafbc0fd8f" name="role"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0"/>
       </operations>
+      <operations uid="45093711-3012-4807-8bf8-6d1f5bdd2583" name="test">
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="dd5ed7ba-5b19-4a7d-a074-e09c3bed18ad" name="qqqq"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438"/>
+      </operations>
     </types>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="e8faa4f9-a654-40f5-bdf5-454f90f2af19">
@@ -2405,6 +2409,15 @@
       </viewElement>
       <multiLangLabel/>
       <classifiers uid="378286b2-27eb-4ef9-a664-f546d6aca32c" hint="b21dc9b3-20fd-42ff-bb82-79acc378d3e5" details="popupCompany"/>
+      <fields uid="fa631613-9f8e-44b9-b006-1c7bdeef3cfa" value="Packages.Base package.Base package::Authentication manager.test()">
+        <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+        <expression objRef="dd77a443-471b-441e-88bf-3f3f092f372c" order="1" expressionType="PackageImpl"/>
+        <expression objRef="880454fd-5da9-4894-99d1-b3658d74409e" order="2" expressionType="TypeImpl"/>
+        <expression objRef="45093711-3012-4807-8bf8-6d1f5bdd2583" order="3" expressionType="OperationImpl"/>
+        <parameters uid="3af4e6c1-ecbd-4896-a0e2-ad135c9e3778" refObj="dd5ed7ba-5b19-4a7d-a074-e09c3bed18ad">
+          <value uid="81ec71ad-6162-4801-ba4b-3bc373be455e"/>
+        </parameters>
+      </fields>
     </canvases>
     <canvases xsi:type="tura.domain:Window" uid="eb01294e-b0b8-4f56-b7e9-1a8b3306de47" name="Login page">
       <style constant="true" value="width: 500px; margin: 200px auto 0 auto;"/>
@@ -2974,11 +2987,14 @@
           </triggers>
           <enabled/>
           <multiLangLabel/>
-          <icon value="Application styles.HR styles.HR Controller styles.save-button">
-            <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
-            <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
-            <expression objRef="bc917c9e-7594-4ff8-9157-a9e6cf5ac5f5" order="2" expressionType="StyleLibraryImpl"/>
-            <expression objRef="dfce4889-a037-4bb0-9cd3-9b3232911ea6" order="3" expressionType="StyleSetImpl"/>
+          <icon value="Packages.Base package.Base package::Authentication manager.test()">
+            <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+            <expression objRef="dd77a443-471b-441e-88bf-3f3f092f372c" order="1" expressionType="PackageImpl"/>
+            <expression objRef="880454fd-5da9-4894-99d1-b3658d74409e" order="2" expressionType="TypeImpl"/>
+            <expression objRef="45093711-3012-4807-8bf8-6d1f5bdd2583" order="3" expressionType="OperationImpl"/>
+            <parameters uid="eb78e766-7175-4915-b9bd-5075389768d7" refObj="dd5ed7ba-5b19-4a7d-a074-e09c3bed18ad">
+              <value uid="e4ec4ae0-4d47-4e8a-bc30-e5299f216ede"/>
+            </parameters>
           </icon>
         </children>
         <children xsi:type="tura.domain:Button" nickname="" order="1" uid="6ac93981-fd61-4ab4-9ca6-7a3e39852932" label="Rallback">

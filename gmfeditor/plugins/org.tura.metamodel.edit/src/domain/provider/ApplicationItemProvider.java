@@ -891,6 +891,16 @@ public class ApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createFlexFields()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createActioinTriggers()));
 
 		newChildDescriptors.add

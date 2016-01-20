@@ -874,6 +874,16 @@ public class MappersItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MAPPERS__ANY,
+				 DomainFactory.eINSTANCE.createFlexFields()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MAPPERS__ANY,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MAPPERS__ANY,
 				 DomainFactory.eINSTANCE.createActioinTriggers()));
 
 		newChildDescriptors.add

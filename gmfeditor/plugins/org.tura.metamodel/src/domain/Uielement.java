@@ -35,7 +35,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Uielement extends StyleElement, NickNamed, Categorized, Orderable, ActioinTriggers, EnabledUIItem {
+public interface Uielement extends StyleElement, NickNamed, Categorized, Orderable, ActioinTriggers, EnabledUIItem, FlexFields {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

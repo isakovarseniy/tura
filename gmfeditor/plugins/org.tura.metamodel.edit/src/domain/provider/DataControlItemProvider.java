@@ -347,6 +347,11 @@ public class DataControlItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH,
 				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add

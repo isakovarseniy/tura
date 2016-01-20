@@ -211,8 +211,18 @@ public class TreeItemProvider extends SourcesPointerItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.TREE__IMAGE,
 				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TREE__IMAGE,
+				 DomainFactory.eINSTANCE.createFlexField()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -237,7 +247,8 @@ public class TreeItemProvider extends SourcesPointerItemProvider {
 			childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
 			childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
-			childFeature == DomainPackage.Literals.TREE__IMAGE;
+			childFeature == DomainPackage.Literals.TREE__IMAGE ||
+			childFeature == DomainPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

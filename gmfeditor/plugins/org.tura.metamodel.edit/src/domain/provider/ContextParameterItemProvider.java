@@ -252,6 +252,11 @@ public class ContextParameterItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.CONTEXT_PARAMETER__VALUE,
 				 DomainFactory.eINSTANCE.createStyleClass()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CONTEXT_PARAMETER__VALUE,
+				 DomainFactory.eINSTANCE.createFlexField()));
 	}
 
 	/**

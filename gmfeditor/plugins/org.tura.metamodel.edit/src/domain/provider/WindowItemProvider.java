@@ -204,6 +204,11 @@ public class WindowItemProvider extends CanvasFrameItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
 				 DomainFactory.eINSTANCE.createClassifier()));
 

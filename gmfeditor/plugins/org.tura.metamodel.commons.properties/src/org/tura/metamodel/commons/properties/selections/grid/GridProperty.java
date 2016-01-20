@@ -151,7 +151,7 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 				tableViewer.setInput(ds);
 				if (ds.isRenewed()){
 					ds.reset();
-					if (ds.getRows().size() != 0)
+					if (ds.getRows() !=null && ds.getRows().size() != 0)
 				        tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(0)),true);
 				}
 				((TabbedPropertyComposite) (getPropertySheetPage().getControl()))

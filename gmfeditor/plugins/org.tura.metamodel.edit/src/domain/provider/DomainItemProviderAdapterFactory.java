@@ -2936,6 +2936,52 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.FlexFields} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FlexFieldsItemProvider flexFieldsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.FlexFields}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFlexFieldsAdapter() {
+		if (flexFieldsItemProvider == null) {
+			flexFieldsItemProvider = new FlexFieldsItemProvider(this);
+		}
+
+		return flexFieldsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.FlexField} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FlexFieldItemProvider flexFieldItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.FlexField}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFlexFieldAdapter() {
+		if (flexFieldItemProvider == null) {
+			flexFieldItemProvider = new FlexFieldItemProvider(this);
+		}
+
+		return flexFieldItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.ActioinTriggers} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4676,6 +4722,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (styleElementItemProvider != null) styleElementItemProvider.dispose();
 		if (styleClassItemProvider != null) styleClassItemProvider.dispose();
 		if (nickNamedItemProvider != null) nickNamedItemProvider.dispose();
+		if (flexFieldsItemProvider != null) flexFieldsItemProvider.dispose();
+		if (flexFieldItemProvider != null) flexFieldItemProvider.dispose();
 		if (actioinTriggersItemProvider != null) actioinTriggersItemProvider.dispose();
 		if (actionTriggerItemProvider != null) actionTriggerItemProvider.dispose();
 		if (enabledUIItemItemProvider != null) enabledUIItemItemProvider.dispose();

@@ -185,8 +185,18 @@ public class ButtonItemProvider extends UielementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.ITEM_ICON__ICON,
 				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ITEM_ICON__ICON,
+				 DomainFactory.eINSTANCE.createFlexField()));
 	}
 
 	/**
@@ -206,7 +216,8 @@ public class ButtonItemProvider extends UielementItemProvider {
 			childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
 			childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
-			childFeature == DomainPackage.Literals.ITEM_ICON__ICON;
+			childFeature == DomainPackage.Literals.ITEM_ICON__ICON ||
+			childFeature == DomainPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

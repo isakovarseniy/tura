@@ -1150,6 +1150,24 @@ public interface DomainFactory extends EFactory {
 	NickNamed createNickNamed();
 
 	/**
+	 * Returns a new object of class '<em>Flex Fields</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flex Fields</em>'.
+	 * @generated
+	 */
+	FlexFields createFlexFields();
+
+	/**
+	 * Returns a new object of class '<em>Flex Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flex Field</em>'.
+	 * @generated
+	 */
+	FlexField createFlexField();
+
+	/**
 	 * Returns a new object of class '<em>Actioin Triggers</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

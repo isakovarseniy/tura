@@ -21,6 +21,8 @@ import domain.Classifier;
 import domain.Context;
 import domain.DefaultCavas;
 import domain.DomainPackage;
+import domain.FlexField;
+import domain.FlexFields;
 import domain.HTMLLayerHolder;
 import domain.MultiLangLabel;
 import domain.PopupCanvas;
@@ -55,6 +57,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.PopupCanvasImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.PopupCanvasImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.PopupCanvasImpl#getTriggers <em>Triggers</em>}</li>
+ *   <li>{@link domain.impl.PopupCanvasImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link domain.impl.PopupCanvasImpl#isModal <em>Modal</em>}</li>
  * </ul>
  * </p>
@@ -141,6 +144,16 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 	 * @ordered
 	 */
 	protected EList<ActionTrigger> triggers;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
 
 	/**
 	 * The default value of the '{@link #isModal() <em>Modal</em>}' attribute.
@@ -307,6 +320,18 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, DomainPackage.POPUP_CANVAS__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isModal() {
 		return modal;
 	}
@@ -339,6 +364,8 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
 			case DomainPackage.POPUP_CANVAS__TRIGGERS:
 				return ((InternalEList<?>)getTriggers()).basicRemove(otherEnd, msgs);
+			case DomainPackage.POPUP_CANVAS__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -363,6 +390,8 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 				return getClassifiers();
 			case DomainPackage.POPUP_CANVAS__TRIGGERS:
 				return getTriggers();
+			case DomainPackage.POPUP_CANVAS__FIELDS:
+				return getFields();
 			case DomainPackage.POPUP_CANVAS__MODAL:
 				return isModal();
 		}
@@ -399,6 +428,10 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 				getTriggers().clear();
 				getTriggers().addAll((Collection<? extends ActionTrigger>)newValue);
 				return;
+			case DomainPackage.POPUP_CANVAS__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
+				return;
 			case DomainPackage.POPUP_CANVAS__MODAL:
 				setModal((Boolean)newValue);
 				return;
@@ -432,6 +465,9 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 			case DomainPackage.POPUP_CANVAS__TRIGGERS:
 				getTriggers().clear();
 				return;
+			case DomainPackage.POPUP_CANVAS__FIELDS:
+				getFields().clear();
+				return;
 			case DomainPackage.POPUP_CANVAS__MODAL:
 				setModal(MODAL_EDEFAULT);
 				return;
@@ -459,6 +495,8 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 				return classifiers != null && !classifiers.isEmpty();
 			case DomainPackage.POPUP_CANVAS__TRIGGERS:
 				return triggers != null && !triggers.isEmpty();
+			case DomainPackage.POPUP_CANVAS__FIELDS:
+				return fields != null && !fields.isEmpty();
 			case DomainPackage.POPUP_CANVAS__MODAL:
 				return modal != MODAL_EDEFAULT;
 		}
@@ -508,6 +546,12 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.POPUP_CANVAS__FIELDS: return DomainPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -551,6 +595,12 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 		if (baseClass == ActioinTriggers.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.ACTIOIN_TRIGGERS__TRIGGERS: return DomainPackage.POPUP_CANVAS__TRIGGERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.FLEX_FIELDS__FIELDS: return DomainPackage.POPUP_CANVAS__FIELDS;
 				default: return -1;
 			}
 		}

@@ -849,6 +849,16 @@ public class TypesRepositoryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
+				 DomainFactory.eINSTANCE.createFlexFields()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
 				 DomainFactory.eINSTANCE.createActioinTriggers()));
 
 		newChildDescriptors.add

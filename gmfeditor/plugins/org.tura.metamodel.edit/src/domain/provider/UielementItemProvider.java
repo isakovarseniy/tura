@@ -148,6 +148,7 @@ public class UielementItemProvider extends StyleElementItemProvider {
 			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(DomainPackage.Literals.ACTIOIN_TRIGGERS__TRIGGERS);
 			childrenFeatures.add(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED);
+			childrenFeatures.add(DomainPackage.Literals.FLEX_FIELDS__FIELDS);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REQUIRED);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__READ_ONLY);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REFRESH_AREAS);
@@ -214,6 +215,7 @@ public class UielementItemProvider extends StyleElementItemProvider {
 			case DomainPackage.UIELEMENT__CLASSIFIERS:
 			case DomainPackage.UIELEMENT__TRIGGERS:
 			case DomainPackage.UIELEMENT__ENABLED:
+			case DomainPackage.UIELEMENT__FIELDS:
 			case DomainPackage.UIELEMENT__REQUIRED:
 			case DomainPackage.UIELEMENT__READ_ONLY:
 			case DomainPackage.UIELEMENT__REFRESH_AREAS:
@@ -251,13 +253,33 @@ public class UielementItemProvider extends StyleElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.FLEX_FIELDS__FIELDS,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.UIELEMENT__REQUIRED,
 				 DomainFactory.eINSTANCE.createContext()));
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.UIELEMENT__REQUIRED,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.UIELEMENT__READ_ONLY,
 				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.UIELEMENT__READ_ONLY,
+				 DomainFactory.eINSTANCE.createFlexField()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -280,7 +302,8 @@ public class UielementItemProvider extends StyleElementItemProvider {
 			childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
 			childFeature == DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
-			childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY;
+			childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
+			childFeature == DomainPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

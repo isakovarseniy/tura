@@ -169,6 +169,11 @@ public class StyleElementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.STYLE_ELEMENT__STYLE,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
 				 DomainFactory.eINSTANCE.createStyleClass()));
 	}

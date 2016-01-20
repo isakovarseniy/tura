@@ -152,6 +152,11 @@ public class EnabledUIItemItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED,
 				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED,
+				 DomainFactory.eINSTANCE.createFlexField()));
 	}
 
 	/**

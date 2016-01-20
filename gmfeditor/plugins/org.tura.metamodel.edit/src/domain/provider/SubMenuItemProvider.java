@@ -163,6 +163,11 @@ public class SubMenuItemProvider extends MenuElementItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.ITEM_ICON__ICON,
 				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ITEM_ICON__ICON,
+				 DomainFactory.eINSTANCE.createFlexField()));
 	}
 
 	/**

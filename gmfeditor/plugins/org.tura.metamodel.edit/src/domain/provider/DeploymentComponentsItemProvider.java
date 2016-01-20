@@ -833,6 +833,16 @@ public class DeploymentComponentsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
+				 DomainFactory.eINSTANCE.createFlexFields()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
 				 DomainFactory.eINSTANCE.createActioinTriggers()));
 
 		newChildDescriptors.add

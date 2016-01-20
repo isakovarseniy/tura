@@ -1216,7 +1216,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCanvas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//StyleElement #//Categorized #//NickNamed"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PopupCanvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel #//Categorized #//ActioinTriggers">
+  <eClassifiers xsi:type="ecore:EClass" name="PopupCanvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel #//Categorized #//ActioinTriggers #//FlexFields">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
@@ -1436,6 +1436,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="NickNamed">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlexFields">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+        eType="#//FlexField" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlexField" eSuperTypes="#//Context #//Categorized"/>
   <eClassifiers xsi:type="ecore:EClass" name="ActioinTriggers">
     <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
         eType="#//ActionTrigger" containment="true"/>
@@ -1448,7 +1453,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="enabled" eType="#//Context"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed #//Categorized #//Orderable #//ActioinTriggers #//EnabledUIItem">
+  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed #//Categorized #//Orderable #//ActioinTriggers #//EnabledUIItem #//FlexFields">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="required" eType="#//Context"

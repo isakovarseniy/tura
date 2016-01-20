@@ -22,6 +22,8 @@ import domain.Classifier;
 import domain.Context;
 import domain.DomainPackage;
 import domain.EnabledUIItem;
+import domain.FlexField;
+import domain.FlexFields;
 import domain.NickNamed;
 import domain.Orderable;
 import domain.Uielement;
@@ -54,6 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.UielementImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getTriggers <em>Triggers</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getEnabled <em>Enabled</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getReadOnly <em>Read Only</em>}</li>
@@ -133,6 +136,16 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	 * @ordered
 	 */
 	protected Context enabled;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
 
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -338,6 +351,18 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, DomainPackage.UIELEMENT__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Context getRequired() {
 		return required;
 	}
@@ -445,6 +470,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return ((InternalEList<?>)getTriggers()).basicRemove(otherEnd, msgs);
 			case DomainPackage.UIELEMENT__ENABLED:
 				return basicSetEnabled(null, msgs);
+			case DomainPackage.UIELEMENT__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 			case DomainPackage.UIELEMENT__REQUIRED:
 				return basicSetRequired(null, msgs);
 			case DomainPackage.UIELEMENT__READ_ONLY:
@@ -473,6 +500,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return getTriggers();
 			case DomainPackage.UIELEMENT__ENABLED:
 				return getEnabled();
+			case DomainPackage.UIELEMENT__FIELDS:
+				return getFields();
 			case DomainPackage.UIELEMENT__UID:
 				return getUid();
 			case DomainPackage.UIELEMENT__REQUIRED:
@@ -510,6 +539,10 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return;
 			case DomainPackage.UIELEMENT__ENABLED:
 				setEnabled((Context)newValue);
+				return;
+			case DomainPackage.UIELEMENT__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
 				return;
 			case DomainPackage.UIELEMENT__UID:
 				setUid((String)newValue);
@@ -551,6 +584,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 			case DomainPackage.UIELEMENT__ENABLED:
 				setEnabled((Context)null);
 				return;
+			case DomainPackage.UIELEMENT__FIELDS:
+				getFields().clear();
+				return;
 			case DomainPackage.UIELEMENT__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -585,6 +621,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return triggers != null && !triggers.isEmpty();
 			case DomainPackage.UIELEMENT__ENABLED:
 				return enabled != null;
+			case DomainPackage.UIELEMENT__FIELDS:
+				return fields != null && !fields.isEmpty();
 			case DomainPackage.UIELEMENT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.UIELEMENT__REQUIRED:
@@ -634,6 +672,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.UIELEMENT__FIELDS: return DomainPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -671,6 +715,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 		if (baseClass == EnabledUIItem.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.ENABLED_UI_ITEM__ENABLED: return DomainPackage.UIELEMENT__ENABLED;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.FLEX_FIELDS__FIELDS: return DomainPackage.UIELEMENT__FIELDS;
 				default: return -1;
 			}
 		}

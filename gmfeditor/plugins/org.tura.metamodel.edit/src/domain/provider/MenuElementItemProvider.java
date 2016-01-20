@@ -224,6 +224,11 @@ public class MenuElementItemProvider extends MultiLangLabelItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.STYLE_ELEMENT__STYLE,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
 				 DomainFactory.eINSTANCE.createStyleClass()));
 
@@ -236,6 +241,11 @@ public class MenuElementItemProvider extends MultiLangLabelItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED,
 				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED,
+				 DomainFactory.eINSTANCE.createFlexField()));
 	}
 
 	/**

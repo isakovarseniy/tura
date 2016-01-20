@@ -233,6 +233,11 @@ public class TableItemProvider extends SourcesPointerItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.TABLE__COLS,
 				 DomainFactory.eINSTANCE.createColumn()));
 	}
@@ -253,7 +258,8 @@ public class TableItemProvider extends SourcesPointerItemProvider {
 			childFeature == DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__REQUIRED ||
 			childFeature == DomainPackage.Literals.UIELEMENT__READ_ONLY ||
-			childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
+			childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
+			childFeature == DomainPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

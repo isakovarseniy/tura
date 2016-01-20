@@ -149,6 +149,7 @@ public class PopupCanvasItemProvider extends CanvasFrameItemProvider {
 			childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
 			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(DomainPackage.Literals.ACTIOIN_TRIGGERS__TRIGGERS);
+			childrenFeatures.add(DomainPackage.Literals.FLEX_FIELDS__FIELDS);
 		}
 		return childrenFeatures;
 	}
@@ -213,6 +214,7 @@ public class PopupCanvasItemProvider extends CanvasFrameItemProvider {
 			case DomainPackage.POPUP_CANVAS__MULTI_LANG_LABEL:
 			case DomainPackage.POPUP_CANVAS__CLASSIFIERS:
 			case DomainPackage.POPUP_CANVAS__TRIGGERS:
+			case DomainPackage.POPUP_CANVAS__FIELDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -252,6 +254,11 @@ public class PopupCanvasItemProvider extends CanvasFrameItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
 				 DomainFactory.eINSTANCE.createClassifier()));
 
@@ -259,6 +266,11 @@ public class PopupCanvasItemProvider extends CanvasFrameItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.ACTIOIN_TRIGGERS__TRIGGERS,
 				 DomainFactory.eINSTANCE.createActionTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.FLEX_FIELDS__FIELDS,
+				 DomainFactory.eINSTANCE.createFlexField()));
 	}
 
 	/**
@@ -274,7 +286,8 @@ public class PopupCanvasItemProvider extends CanvasFrameItemProvider {
 
 		boolean qualify =
 			childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
-			childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
+			childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
+			childFeature == DomainPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

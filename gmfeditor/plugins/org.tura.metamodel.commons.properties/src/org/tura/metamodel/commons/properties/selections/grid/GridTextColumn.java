@@ -120,5 +120,9 @@ public class GridTextColumn implements GridColumn {
 	public void setColumnName(String columnName) {
 		this.columnName = columnName;
 	}
+	
+	public void setColumnwidth(int width) {
+		this.width = width;
+	}	
 
 }

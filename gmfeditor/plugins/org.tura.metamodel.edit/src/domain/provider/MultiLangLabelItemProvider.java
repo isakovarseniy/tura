@@ -164,6 +164,11 @@ public class MultiLangLabelItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
 				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL,
+				 DomainFactory.eINSTANCE.createFlexField()));
 	}
 
 	/**

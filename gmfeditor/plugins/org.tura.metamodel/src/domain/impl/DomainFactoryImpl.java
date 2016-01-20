@@ -80,6 +80,8 @@ import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.ExpressionPart;
+import domain.FlexField;
+import domain.FlexFields;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormParameter;
@@ -388,6 +390,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.STYLE_ELEMENT: return createStyleElement();
 			case DomainPackage.STYLE_CLASS: return createStyleClass();
 			case DomainPackage.NICK_NAMED: return createNickNamed();
+			case DomainPackage.FLEX_FIELDS: return createFlexFields();
+			case DomainPackage.FLEX_FIELD: return createFlexField();
 			case DomainPackage.ACTIOIN_TRIGGERS: return createActioinTriggers();
 			case DomainPackage.ACTION_TRIGGER: return createActionTrigger();
 			case DomainPackage.ENABLED_UI_ITEM: return createEnabledUIItem();
@@ -1739,6 +1743,26 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public NickNamed createNickNamed() {
 		NickNamedImpl nickNamed = new NickNamedImpl();
 		return nickNamed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlexFields createFlexFields() {
+		FlexFieldsImpl flexFields = new FlexFieldsImpl();
+		return flexFields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlexField createFlexField() {
+		FlexFieldImpl flexField = new FlexFieldImpl();
+		return flexField;
 	}
 
 	/**

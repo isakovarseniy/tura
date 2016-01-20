@@ -80,6 +80,8 @@ import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.ExpressionPart;
+import domain.FlexField;
+import domain.FlexFields;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormParameter;
@@ -1093,6 +1095,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EClass nickNamedEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass flexFieldsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass flexFieldEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6276,6 +6292,33 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFlexFields() {
+		return flexFieldsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlexFields_Fields() {
+		return (EReference)flexFieldsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFlexField() {
+		return flexFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getActioinTriggers() {
 		return actioinTriggersEClass;
 	}
@@ -8818,6 +8861,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		nickNamedEClass = createEClass(NICK_NAMED);
 		createEAttribute(nickNamedEClass, NICK_NAMED__NICKNAME);
 
+		flexFieldsEClass = createEClass(FLEX_FIELDS);
+		createEReference(flexFieldsEClass, FLEX_FIELDS__FIELDS);
+
+		flexFieldEClass = createEClass(FLEX_FIELD);
+
 		actioinTriggersEClass = createEClass(ACTIOIN_TRIGGERS);
 		createEReference(actioinTriggersEClass, ACTIOIN_TRIGGERS__TRIGGERS);
 
@@ -9173,6 +9221,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		popupCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
 		popupCanvasEClass.getESuperTypes().add(this.getCategorized());
 		popupCanvasEClass.getESuperTypes().add(this.getActioinTriggers());
+		popupCanvasEClass.getESuperTypes().add(this.getFlexFields());
 		canvasEClass.getESuperTypes().add(this.getCanvasFrame());
 		canvasEClass.getESuperTypes().add(this.getViewPortHolder());
 		canvasEClass.getESuperTypes().add(this.getDefaultCavas());
@@ -9202,6 +9251,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		contextEClass.getESuperTypes().add(this.getContextValue());
 		contextEClass.getESuperTypes().add(this.getContextParameters());
 		styleClassEClass.getESuperTypes().add(this.getContextValue());
+		flexFieldEClass.getESuperTypes().add(this.getContext());
+		flexFieldEClass.getESuperTypes().add(this.getCategorized());
 		actionTriggerEClass.getESuperTypes().add(this.getTrigger());
 		actionTriggerEClass.getESuperTypes().add(this.getCategorized());
 		uielementEClass.getESuperTypes().add(this.getStyleElement());
@@ -9210,6 +9261,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		uielementEClass.getESuperTypes().add(this.getOrderable());
 		uielementEClass.getESuperTypes().add(this.getActioinTriggers());
 		uielementEClass.getESuperTypes().add(this.getEnabledUIItem());
+		uielementEClass.getESuperTypes().add(this.getFlexFields());
 		sourcesPointerEClass.getESuperTypes().add(this.getUielement());
 		inputElementEClass.getESuperTypes().add(this.getSourcesPointer());
 		selectionEClass.getESuperTypes().add(this.getStyleElement());
@@ -9923,6 +9975,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		initEClass(nickNamedEClass, NickNamed.class, "NickNamed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNickNamed_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1, NickNamed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(flexFieldsEClass, FlexFields.class, "FlexFields", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFlexFields_Fields(), this.getFlexField(), null, "fields", null, 0, -1, FlexFields.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(flexFieldEClass, FlexField.class, "FlexField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actioinTriggersEClass, ActioinTriggers.class, "ActioinTriggers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActioinTriggers_Triggers(), this.getActionTrigger(), null, "triggers", null, 0, -1, ActioinTriggers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -78,6 +78,8 @@ import domain.EnterpriseInfrastructure;
 import domain.EnumAttribute;
 import domain.Enumarator;
 import domain.ExpressionPart;
+import domain.FlexField;
+import domain.FlexFields;
 import domain.Form;
 import domain.FormDataControls;
 import domain.FormParameter;
@@ -764,6 +766,14 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNickNamed(NickNamed object) {
 				return createNickNamedAdapter();
+			}
+			@Override
+			public Adapter caseFlexFields(FlexFields object) {
+				return createFlexFieldsAdapter();
+			}
+			@Override
+			public Adapter caseFlexField(FlexField object) {
+				return createFlexFieldAdapter();
 			}
 			@Override
 			public Adapter caseActioinTriggers(ActioinTriggers object) {
@@ -2782,6 +2792,34 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNickNamedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.FlexFields <em>Flex Fields</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.FlexFields
+	 * @generated
+	 */
+	public Adapter createFlexFieldsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.FlexField <em>Flex Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.FlexField
+	 * @generated
+	 */
+	public Adapter createFlexFieldAdapter() {
 		return null;
 	}
 

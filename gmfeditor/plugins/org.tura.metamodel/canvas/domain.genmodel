@@ -653,6 +653,10 @@
     <genClasses ecoreClass="domain.ecore#//NickNamed">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//NickNamed/nickname"/>
     </genClasses>
+    <genClasses ecoreClass="domain.ecore#//FlexFields">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//FlexFields/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//FlexField"/>
     <genClasses ecoreClass="domain.ecore#//ActioinTriggers">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ActioinTriggers/triggers"/>
     </genClasses>

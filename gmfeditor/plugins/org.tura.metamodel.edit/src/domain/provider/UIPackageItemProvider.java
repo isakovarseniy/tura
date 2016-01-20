@@ -849,6 +849,16 @@ public class UIPackageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.UI_PACKAGE__ANY,
+				 DomainFactory.eINSTANCE.createFlexFields()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.UI_PACKAGE__ANY,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.UI_PACKAGE__ANY,
 				 DomainFactory.eINSTANCE.createActioinTriggers()));
 
 		newChildDescriptors.add
