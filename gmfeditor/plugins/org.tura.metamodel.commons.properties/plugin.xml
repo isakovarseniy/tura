@@ -607,11 +607,6 @@
 
              <propertyTab
              category="domain"
-             id="property.tab.domain.frmview.canvas.triggers"
-             label="Triggers"/>
-
-             <propertyTab
-             category="domain"
              id="property.tab.domain.frmview.canvas.flexfields"
              label="Flex fields"/>
 
@@ -660,61 +655,6 @@
                id="property.tab.domain.frmview.canvas.flexfields.flexfields">
               <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
             </propertySection>  
-
-
-           <propertySection
-               tab="property.tab.domain.frmview.canvas.triggers"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActionTriggerCategorizedPropertySelection"
-               id="property.tab.domain.frmview.canvas.actiontriggers">
-
-              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
-              
-
-            </propertySection>  
-
-
-           <propertySection
-               tab="property.tab.domain.frmview.canvas.triggers"
-               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersMethodNamePropertySection"
-               id="property.tab.domain.frmview.canvas.actiontriggers">
-
-              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
-
-
-            </propertySection>  
-            
-
-           <propertySection
-               tab="property.tab.domain.frmview.canvas.triggers"
-               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersTypeNamePropertySection"
-               id="property.tab.domain.frmview.canvas.actiontriggers">
-
-              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
-
-            </propertySection>  
-
-
-
-
-
-           <propertySection
-               tab="property.tab.domain.frmview.canvas.triggers"
-               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersPackageNamePropertySection"
-               id="property.tab.domain.frmview.canvas.actiontriggers">
-
-              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
-
-
-            </propertySection>      
-            
-           <propertySection
-               tab="property.tab.domain.frmview.canvas.triggers"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersPropertySelectioin"
-               id="property.tab.domain.frmview.canvas.actiontriggers">
-
-              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
-
-            </propertySection>        
 
 
           <propertySection
@@ -842,6 +782,13 @@
       <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="org.tura.metamodel.diagram.canvas.proptabs">
       <?gmfgen generated="true"?>   
       <propertyTabs contributorId="org.tura.metamodel.diagram.canvas">
+      
+      
+             <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.flexfields"
+             label="Flex fields"/>      
+      
           <propertyTab
              category="domain"
              id="property.tab.domain.canvas.sourcepointer"
@@ -899,11 +846,6 @@
              
            <propertyTab
              category="domain"
-             id="property.tab.domain.canvas.uielement.triggers"
-             label="Triggers"/>    
-             
-           <propertyTab
-             category="domain"
              id="property.tab.domain.canvas.dropdown.inintoption"
              label="Initial option message"/>     
      
@@ -918,6 +860,141 @@
       <propertySections contributorId="org.tura.metamodel.diagram.canvas">
 
 
+
+          <propertySection
+               tab="property.tab.domain.canvas.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.FlexFieldCategorizedPropertySelection"
+               id="property.tab.domain.canvas.flexfields.categorized">
+               
+             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+              
+              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
+              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
+
+              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
+              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
+              
+            </propertySection>  
+
+           <propertySection
+               tab="property.tab.domain.canvas.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.FlexFieldsContextParameterPropertySelection"
+               id="property.tab.domain.canvas.flexfields.parameters">
+ 
+             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+              
+              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
+              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
+
+              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
+              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
+
+           </propertySection>  
+
+           <propertySection
+               tab="property.tab.domain.canvas.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.FlexFieldValuePropertySelection"
+               id="property.tab.domain.canvas.flexfields.value">
+ 
+              <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+              
+              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
+              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
+
+              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
+              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
+ 
+ 
+            </propertySection>  
+
+
+           <propertySection
+               tab="property.tab.domain.canvas.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.FlexFieldsPropertySelection"
+               id="property.tab.domain.canvas.flexfields">
+
+             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
+             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
+              <input type="canvas.diagram.edit.parts.DateEditPart"/>
+              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
+ 
+             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
+             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
+              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
+              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
+              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
+              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
+
+
+              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
+              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
+              
+              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
+              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
+
+              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
+              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
+
+            </propertySection>  
+
            <propertySection
                tab="property.tab.domain.canvas.dropdown.inintoption"
                class="org.tura.metamodel.commons.properties.selections.context.impl.InitialOptionMessagePropertySelection"
@@ -927,224 +1004,6 @@
               <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
 
            </propertySection>
-
-
-           <propertySection
-               tab="property.tab.domain.canvas.uielement.triggers"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActionTriggerCategorizedPropertySelection"
-               id="property.tab.domain.canvas.uielement.actiontriggers">
-
-             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
-             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
-              <input type="canvas.diagram.edit.parts.DateEditPart"/>
-              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
- 
-             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
-             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
-              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
-              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
-
-
-              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
-              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
-              
-              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
-              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
-              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
-              
-
-            </propertySection>  
-
-
-
-           <propertySection
-               tab="property.tab.domain.canvas.uielement.triggers"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersTriggerContextParameterPropertySelection"
-               id="property.tab.domain.canvas.uielement.actiontriggers">
-
-             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
-             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
-              <input type="canvas.diagram.edit.parts.DateEditPart"/>
-              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
- 
-             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
-             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
-              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
-              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
-
-
-
-              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
-              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
-              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
-              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
-
-
-            </propertySection>  
-
-
-
-           <propertySection
-               tab="property.tab.domain.canvas.uielement.triggers"
-               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersMethodNamePropertySection"
-               id="property.tab.domain.canvas.uielement.actiontriggers">
-
-             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
-             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
-              <input type="canvas.diagram.edit.parts.DateEditPart"/>
-              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
- 
-             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
-             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
-              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
-              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
-
-
-              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
-              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
-              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
-              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
-
-
-            </propertySection>  
-            
-
-           <propertySection
-               tab="property.tab.domain.canvas.uielement.triggers"
-               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersTypeNamePropertySection"
-               id="property.tab.domain.canvas.uielement.actiontriggers">
-
-             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
-             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
-              <input type="canvas.diagram.edit.parts.DateEditPart"/>
-              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
- 
-             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
-             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
-              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
-              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
-
-
-              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
-              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
-              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
-              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
-
-
-            </propertySection>  
-
-
-
-
-
-           <propertySection
-               tab="property.tab.domain.canvas.uielement.triggers"
-               class="org.tura.metamodel.commons.properties.selections.dropdown.ActioinTriggersPackageNamePropertySection"
-               id="property.tab.domain.canvas.uielement.actiontriggers">
-
-
-             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
-             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
-              <input type="canvas.diagram.edit.parts.DateEditPart"/>
-              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
- 
-             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
-             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
-              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
-              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
-
-
-              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
-              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
-              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
-              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
-
-
-            </propertySection>      
-            
-           <propertySection
-               tab="property.tab.domain.canvas.uielement.triggers"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.ActioinTriggersPropertySelectioin"
-               id="property.tab.domain.canvas.uielement.actiontriggers">
-
-             <input type="canvas.diagram.edit.parts.ImageEditPart"/>
-             <input type="canvas.diagram.edit.parts.CheckBoxEditPart"/>
-              <input type="canvas.diagram.edit.parts.DateEditPart"/>
-              <input type="canvas.diagram.edit.parts.InputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.PasswordEditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputTextEditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelectionEditPart"/>
- 
-             <input type="canvas.diagram.edit.parts.Image2EditPart"/>
-             <input type="canvas.diagram.edit.parts.Date2EditPart"/>
-              <input type="canvas.diagram.edit.parts.CheckBox2EditPart"/>
-              <input type="canvas.diagram.edit.parts.InputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.Password2EditPart"/>
-              <input type="canvas.diagram.edit.parts.OutputText2EditPart"/>
-              <input type="canvas.diagram.edit.parts.DropDownSelection2EditPart"/>
-
-
-
-              <input type="canvas.diagram.edit.parts.ButtonEditPart"/>
-              <input type="canvas.diagram.edit.parts.Button2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.LabelEditPart"/>
-              <input type="canvas.diagram.edit.parts.Label2EditPart"/>
-
-              <input type="canvas.diagram.edit.parts.MessageElementEditPart"/>
-              <input type="canvas.diagram.edit.parts.MessageElement2EditPart"/>
-
-
-            </propertySection>        
-
 
           <propertySection
                tab="property.tab.domain.canvas.uielement.classifier"

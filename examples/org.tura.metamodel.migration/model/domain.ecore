@@ -1189,6 +1189,8 @@
         eType="#//ViewInheritance" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tabPagesInheritances" upperBound="-1"
         eType="#//TabPagesInheritance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menus" upperBound="-1"
+        eType="#//MenuDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
@@ -1214,7 +1216,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCanvas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//StyleElement #//Categorized #//NickNamed"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PopupCanvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel #//Categorized #//ActioinTriggers">
+  <eClassifiers xsi:type="ecore:EClass" name="PopupCanvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel #//Categorized #//ActioinTriggers #//FlexFields">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
@@ -1235,6 +1237,18 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="192,192,192"/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MenuDefinition" eSuperTypes="#//StyleElement #//Categorized">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,153,204"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menuView" eType="#//MenuView"
+        eOpposite="#//MenuView/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Orientation">
     <eLiterals name="Top"/>
@@ -1422,6 +1436,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="NickNamed">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlexFields">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+        eType="#//FlexField" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlexField" eSuperTypes="#//Context #//Categorized"/>
   <eClassifiers xsi:type="ecore:EClass" name="ActioinTriggers">
     <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
         eType="#//ActionTrigger" containment="true"/>
@@ -1430,19 +1449,23 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed #//Categorized #//Orderable #//ActioinTriggers">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EnabledUIItem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enabled" eType="#//Context"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed #//Categorized #//Orderable #//ActioinTriggers #//EnabledUIItem #//FlexFields">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="required" eType="#//Context"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="readOnly" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onEventRefreshArea" upperBound="-1"
-        eType="#//NickNamed"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refreshAreas" upperBound="-1"
         eType="#//AreaRef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemIcon">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="#//Context"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AreaRef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//NickNamed"/>
@@ -1555,7 +1578,7 @@
       <details key="tool.small.path" value="icons/date.png"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Uielement #//MultiLangLabel">
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Uielement #//MultiLangLabel #//ItemIcon">
     <eAnnotations source="gmf.node">
       <details key="figure" value="org.tura.metamodel.commons.figures.ButtonFigure"/>
       <details key="label" value="label"/>
@@ -1564,8 +1587,6 @@
       <details key="tool.small.path" value="icons/button.png"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="#//Context"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel #//Categorized #//HTMLLayerHolder #//Orderable">
     <eAnnotations source="gmf.node">
@@ -2063,5 +2084,62 @@
         eType="#//Server" containment="true">
       <eAnnotations source="gmf.compartment"/>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MenuView">
+    <eAnnotations source="gmf.diagram.menu"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//MenuDefinition"
+        eOpposite="#//MenuDefinition/menuView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menuFolders" upperBound="-1"
+        eType="#//MenuFolder" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MenuElement" eSuperTypes="#//MultiLangLabel #//StyleElement #//Categorized #//EnabledUIItem #//Orderable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MenuFolder" eSuperTypes="#//HTMLLayerHolder #//EnabledUIItem #//Categorized #//StyleElement #//MultiLangLabel #//ItemIcon">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="241,238,203"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menuElements" upperBound="-1"
+        eType="#//MenuElement" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MenuItem" eSuperTypes="#//MenuElement #//ItemIcon">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="102,153,0"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubMenu" eSuperTypes="#//MenuElement #//ItemIcon">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="102,255,255"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toSubmenu" eType="#//MenuFolder">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="style" value="dash"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MenuSeparator" eSuperTypes="#//MenuElement">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="255,204,204"/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

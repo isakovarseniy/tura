@@ -1,0 +1,61 @@
+<project default="main">
+	
+	<!-- ANT Taskdefs for ant-contrib -->
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>  
+	
+	<target name="loadModels">
+		<epsilon.emf.register file="model/domain.ecore"/>		
+		<epsilon.emf.loadModel name="M" modelfile="model/hr.domain" 
+				metamodeluri="http://tura.org/2013/v1/domain" store="true"/>
+	</target>
+	
+	<target name="Transformation">
+		<epsilon.eol>
+			<model ref="M"/>
+			<![CDATA[
+			for (element in Uielement.all){
+			    if (element.onEventRefreshArea.size() <> 0) {
+			       for (nick in element.onEventRefreshArea){
+			          var ref : domain::AreaRef = new domain::AreaRef;
+			          ref.area = nick;
+			          ref.group = 2;
+			          element.refreshAreas.add(ref);
+			       }
+			    }
+			}
+			]]>
+		</epsilon.eol>
+	</target>
+
+	<target name="Validation">
+		<epsilon.evl>
+			<model ref="M"/>
+			<![CDATA[
+			
+			context Uielement {
+				constraint c1 {
+					check : self.onEventRefreshArea.size() ==  self.refreshAreas.size()
+                    message : 'Wrong conversion for element '+self.uid
+				}
+			}		
+			]]>
+			
+		</epsilon.evl>
+	</target>	
+	
+	
+	<target name="main" depends="loadModels">
+		<trycatch>
+			<try>
+				<epsilon.startTransaction name="Transaction1" models="M"/>
+				<runtarget target="Transformation"/>
+				<runtarget target="Validation"/>
+				<epsilon.commitTransaction name="Transaction1"/>
+			</try>
+			<catch>
+				<epsilon.rollbackTransaction name="Transaction1"/>
+			</catch>
+		</trycatch>
+	</target>
+	
+</project>
