@@ -5,14 +5,14 @@ operation domain::MessageElement draw(hash) {
      var hints = new Native('java.util.HashMap');
 
      if (hash.get("context") == null ){
-      %] [%=self.noContext(hash)%] [%           
+      %] [%=self.noContext(hash,hints)%] [%           
       }
      else{
           if (hash.get("context").equals("table") ){
-               %] [%=self.tableContext(hash)%] [%           
+               %] [%=self.tableContext(hash,hints)%] [%           
            }  
           if (hash.get("context").equals("tree") ){
-               %] [%=self.treeContext(hash)%] [%           
+               %] [%=self.treeContext(hash,hints)%] [%           
           }     
      }
 
