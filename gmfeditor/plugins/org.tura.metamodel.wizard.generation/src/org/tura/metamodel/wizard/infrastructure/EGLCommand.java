@@ -79,7 +79,7 @@ public class EGLCommand implements Command {
 		} catch (EolRuntimeException e) {
 			factory.getContext().getModelRepository().getTransactionSupport()
 					.rollbackTransaction();
-			LogUtil.log(e);
+			LogUtil.log("Error in template "+ template.toString(),e);
 			throw new RuntimeException(e);
 		} finally {
 			changeDescription = recorder.endRecording();

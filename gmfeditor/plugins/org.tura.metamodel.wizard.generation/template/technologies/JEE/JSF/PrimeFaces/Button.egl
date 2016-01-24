@@ -7,9 +7,10 @@ operation domain::Button draw(hash) {
      var ingredient = hash.get("ingredient");
      var form = hash.get("form");
      var uipackage = hash.get("uipackage");
+     var hints = new Native('java.util.HashMap');
      
-     var title =  " value=\"" + buildParameterizedExpression(self.multiLangLabel) + "\" ";  
-     var icon = " icon=\""+util.apostropheRemover(buildParameterizedExpression(self.icon))+"\" ";
+     var title =  " value=\"" + buildExpression(self.multiLangLabel,hints,hash) + "\" ";  
+     var icon = " icon=\""+buildExpression(self.icon,hints,hash)+"\" ";
  
      var immediate = "";
      var eventListener="";
@@ -19,24 +20,20 @@ operation domain::Button draw(hash) {
 
  %]
 <p:commandButton  [%=immediate%]  [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%][%  
-       var expression = constructExpression(null,self,'trigger.onclick',hash);
+       var expression = constructExpression(self,'trigger.onclick',hints, hash);
        if (expression <> ""){
        %]onclick="[%=expression%]"[%
        }
-       expression = constructExpression(null,self,'trigger.oncomplete',hash);
+       expression = constructExpression(self,'trigger.oncomplete',hints, hash);
        if (expression <> ""){
        %]oncomplete="[%=expression%]"[%
        }
-       for ( trigger in  self.triggers){
-          if (trigger.classifiers.size() <> 0 )
+       for ( field in  self.fields){
+          if (field.classifiers.size() <> 0 )
             continue;
-          var type = trigger.typeRef;
-          if (type <> null ){
-             type.mappingType2Java(recipe,ingredient);
-           }
-          if (type <> null and type.~mapper.isDefined() and "Type2Java".equals(type.~mapper) ){
-           %] actionListener="[%=trigger.javaTrigger(util.getBeanFactoryName(),hash)%]"[%
-          }
+           hints.put("actionListener",true); 
+           %]actionListener="[%=buildExpression(field,hints,hash)%]"[%
+           hints.remove("actionListener"); 
       }
 %] [%=icon%]    [%=self.refreshArias()%] >
 [%

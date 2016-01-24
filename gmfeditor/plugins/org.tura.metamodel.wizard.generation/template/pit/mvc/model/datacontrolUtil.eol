@@ -76,9 +76,12 @@ operation domain::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,d
 
 operation domain::ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient,datacontrol: domain::DataControl){
         var util = new Native('org.tura.metamodel.commons.Util');
+        var hints = new Native('java.util.HashMap');
+        var hash = new Native('java.util.HashMap');
+        
         for (parameter in self.parameters){
             parameter.value.~sourceControl=datacontrol.findTreeRoot();
-            parameter.~result =  buildExpression(parameter.value);
+            parameter.~result =  buildExpression(parameter.value,hints,hash);
             parameter.refObj.typeRef.mappingType2Java(recipe,ingredient);
         }
 }
@@ -146,6 +149,9 @@ operation domain::DataControl processRelations( recipe:Recipe, ingredient :Ingre
 
 operation domain::DataControl processDependencies(recipe:Recipe, ingredient :Ingredient){
         var util = new Native('org.tura.metamodel.commons.Util');
+        var hints = new Native('java.util.HashMap');
+        var hash = new Native('java.util.HashMap');
+        
         var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
         var form = queryHelper.getForm(self);
         var listOfDependencies = domain::Dependency.allInstances()->select(r| r.eContainer().uid = 
@@ -161,7 +167,7 @@ operation domain::DataControl processDependencies(recipe:Recipe, ingredient :Ing
              if (master.~dependArray = null)     
                  master.~dependArray = new Native('java.util.ArrayList');    
                  
-            master.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null)));
+            master.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null),hints,hash));
                  
         }         
 
@@ -170,6 +176,8 @@ operation domain::DataControl processDependencies(recipe:Recipe, ingredient :Ing
 operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataControl,recipe:Recipe, ingredient :Ingredient){
 
         var util = new Native('org.tura.metamodel.commons.Util');
+        var hints = new Native('java.util.HashMap');
+        var hash = new Native('java.util.HashMap');
 
          if (objectTrack.contains(self) )
               return;
@@ -179,7 +187,7 @@ operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataContr
         var listOfRelations = domain::Relation.allInstances()->select(r|r.isTree=false and r.master = self);
         for (rel in listOfRelations){
             var dependent = rel.detail;
-            treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null)));
+            treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null),hints,hash));
             if (dependent.~dependObject == null)
                 dependent.~dependObject = new Native('java.util.ArrayList');  
     // self is master datacontrol            
@@ -188,14 +196,14 @@ operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataContr
             dependent.~relation=rel;
             for ( lnk in rel.links ){
                 lnk.masterField.typeRef.mappingType2Java(recipe,ingredient);
-                lnk.~result = buildExpression ( util.createArtificialContextValue(rel.master,rel.master.findTreeRoot(), lnk));
+                lnk.~result = buildExpression ( util.createArtificialContextValue(rel.master,rel.master.findTreeRoot(), lnk),hints,hash);
             }
         }      
               
         var listOfDependecies = domain::Dependency.allInstances()->select(r| r.master = self);
         for (dep in listOfDependecies){
             var dependent = dep.detail;
-            treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null)));
+            treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null),hints,hash));
            if (dependent.~dependObject == null)
                 dependent.~dependObject = new Native('java.util.ArrayList');  
 

@@ -10,7 +10,9 @@ operation domain::Column draw(hash) {
 
 @template
 operation domain::Column generateBody(hash){
-     var title = buildParameterizedExpression(self.multiLangLabel);
+     var hints = new Native('java.util.HashMap');
+
+     var title = buildExpression(self.multiLangLabel,hints,hash);
      if (title <> "" )
         title = "headerText=\"" + title + "\"";
      else

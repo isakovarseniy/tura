@@ -33,14 +33,16 @@ operation domain::DropDownSelection noContext(hash,value) {
 @template
 operation domain::DropDownSelection rw(hash,value) { 
      var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     
 %]
 <p:selectOneMenu [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%] value="[%=value%]">
     [%if (self.initialOptionMessage <> null and self.initialOptionMessage.value <> null ){%]
-    <f:selectItem itemLabel="[%=buildExpression(self.initialOptionMessage)%]" itemValue="[%=self.initialOptionValue%]" />
+    <f:selectItem itemLabel="[%=buildExpression(self.initialOptionMessage,hints,hash)%]" itemValue="[%=self.initialOptionValue%]" />
 	[%}%]
-	<f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null)))%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
+	<f:selectItems  var="options"  itemValue="#{options[1]}" itemLabel="#{options[0]}" value="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setLabel('get[%=util.mergeAndCapitalize(self.selection.displayOptionPointer.name)%]').setValue('get[%=util.mergeAndCapitalize(self.selection.valueOptionPointer.name)%]').getOptions()}"/>
 	[%if (self.refreshArias() <> ''){%]
-	<p:ajax [%=self.refreshArias()%]  listener="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null)))%]).setSelectOption('[%=util.bracketRemover(value)%]').changeValueListener}" />
+	<p:ajax [%=self.refreshArias()%]  listener="#{viewmodel.getModel('[%=self.mkuid()%]','options', [%=buildExpression(util.createArtificialContextValue(self.optionPointer,self.optionPointer.findTreeRoot(),null),hints,hash)%]).setSelectOption('[%=value%]').changeValueListener}" />
 	[%}%]
 </p:selectOneMenu>
 [%

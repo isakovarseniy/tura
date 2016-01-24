@@ -10,7 +10,8 @@ operation  domain::TabPage draw(hash) {
 
 @template
 operation domain::TabPage generateBody(hash){
-     var title = buildParameterizedExpression(self.multiLangLabel);
+     var hints = new Native('java.util.HashMap');
+     var title = buildExpression(self.multiLangLabel,hints,hash);
         
      if (title <> "" )
         title = "title=\"" + title + "\"";

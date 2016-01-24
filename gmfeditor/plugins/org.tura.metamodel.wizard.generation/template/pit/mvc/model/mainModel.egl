@@ -31,11 +31,7 @@ ${percent}${end}
          hash.put("form",form);
          hash.put("uipackage",uipackage);
          hash.put("configuration",configuration);
-         
-         
-         util.setBeanFactoryName(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
-         util.setRecipe(recipe);
-         util.setIngredient(ingredient);
+         hash.put("beanFactoryName",util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
          
          if (form.datacontrols == null or form.datacontrols.formControl == null)
             continue;

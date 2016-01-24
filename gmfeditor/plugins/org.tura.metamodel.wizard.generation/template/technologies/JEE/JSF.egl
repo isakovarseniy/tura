@@ -57,9 +57,10 @@ operation domain::Uielement  uiElementAttributes(hash){
 @template
 operation domain::StyleElement  styleAttributes(hash){
       var util = new Native('org.tura.metamodel.commons.Util');
+      var hints = new Native('java.util.HashMap');
  
      if (self.style <> null  and  self.style.value <> null  ){
-        var value = util.apostropheRemover( buildParameterizedExpression(self.style));
+        var value = buildExpression(self.style,hints,hash);
      %]style="[%=value%]"[%}
 
      if (self.styleClass <> null  and self.styleClass.size() <> 0 ){%] styleClass="[%
@@ -68,7 +69,7 @@ operation domain::StyleElement  styleAttributes(hash){
         if (class.classifier = null or( class.classifier <> null   and class.classifier.hint = null )){
       
           if ( first <> 0){%] [%}
-         var value = util.apostropheRemover(buildExpression(class));
+         var value = buildExpression(class,hints,hash);
          first=1;
          %][%=value%][%}} 
      %]"[%
@@ -84,7 +85,7 @@ operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: St
       for (class in self.styleClass ){ 
          if (class.classifier <> null and class.classifier.findHint(artifactLib,artifact,classifier)){
              if ( first <> 0){value = value+",";}
-             value = value + util.apostropheRemover(buildExpression(class));
+             value = value + buildExpression(class,hints,hash);
              first=1;
            }
          } 
@@ -115,14 +116,15 @@ operation domain::Uielement  readOnlyConverter(hash){
 
 @template
 operation domain::Uielement  enabled(hash){
-      var value = constructExpression(self.enabled,self,'trigger.disabled',hash);
-     %]disabled="[%=value%]"[%
+      var hints = new Native('java.util.HashMap');
+     %]disabled="[%=buildExpression(self.enabled,hints,hash)%]"[%
 }
 
 
 @template
 operation domain::Uielement  rendered(hash){
-      var value = constructExpression(self.enabled,self,'trigger.rendered',hash);
+      var hints = new Native('java.util.HashMap');
+      var value = constructExpression(self,'trigger.rendered',hints,hash);
       if (value <> null and value <> ""){
      %]rendered="[%=value%]"[%
      }
@@ -131,16 +133,18 @@ operation domain::Uielement  rendered(hash){
 
 @template
 operation domain::Uielement  required(hash){
+      var hints = new Native('java.util.HashMap');
      if (self.required <> null  and self.required.value <> null){
-         var value = buildParameterizedExpression(self.required);
+         var value = buildExpression(self.required,hints,hash);
             
      %]required="[%=value%]"[%}
 }
 
 @template
 operation domain::Uielement  readonly(hash){
+      var hints = new Native('java.util.HashMap');
      if (self.readOnly <> null  and self.readOnly.value <> null){
-          var value = buildParameterizedExpression(self.readOnly);
+          var value = buildExpression(self.readOnly,hints,hash);
             
      %]readonly="[%=value%]"[%}
 }
@@ -149,12 +153,13 @@ operation domain::Uielement  readonly(hash){
 @template
 operation domain::Uielement  draw(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
      var value;
 
      util.traceIfDebug("UI element",  self.eClass().name +" start: " +self.uid);     
 
      if (hash.get("context") == null ){
-         value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer));
+         value = buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),self.valuePointer),hints,hash);
       %] [%=self.noContext(hash,value)%] [%           
       }
      else{
@@ -188,57 +193,21 @@ operation domain::ViewPort  mkUIDBinding(){
 %]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
 }
 
-@template
-operation domain::Trigger  scriptTrigger( beanName:String,hash){
-   hash.get("scriptTriggers").add(self);
-   %]#{scriptGenerator[%=beanName%].scriptBuilder('[%=self.mkuid()%]')}[%
-}
 
-@template
-operation domain::Trigger  javaTrigger( beanName:String, hash){
-   hash.get("actionTriggers").add(self);
-   %]#{actionExecutor[%=beanName%].setSource('[%=self.mkuid()%]').eventListener}[%
-}
-
-@template
-operation domain::Trigger  javaCall( beanName:String, hash){
-   hash.get("actionTriggers").add(self);
-   %]#{actionExecutor[%=beanName%].setSource('[%=self.mkuid()%]').action}[%
-}
-
-
-operation constructExpression( context : domain::Context, triggers: domain::ActioinTriggers, classifier : String , hash) {
+operation constructExpression( fields : domain::FlexFields, classifier : String , hints, hash) {
    var util = new Native('org.tura.metamodel.commons.Util');
-   var recipe = hash.get("recipe");
-   var ingredient = hash.get("ingredient");
 
-   var trigger = triggers.findClassifiedTrigger("UIGeneration",  "JSF", classifier);
-   if ( trigger <> null ){
-        var type = trigger.typeRef;
-        if (type <> null ){
-           type.mappingType2Java(recipe,ingredient);
-           type.mappingType2JavaScript(recipe,ingredient);
-        }else
-          return "";
-        if (type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper)){
-           return trigger.scriptTrigger(util.getBeanFactoryName(),hash );
-           
-        }
-        if (type.~mapper.isDefined() and "Type2Java".equals(type.~mapper)){
-           return trigger.javaCall(util.getBeanFactoryName(),hash);
-        }   
-   }else{
-     if (context <> null and context.value <> null){
-         return  buildParameterizedExpression(context);
-      }
-   }  
-   return "";
+   var field = fields.findClassifiedField("UIGeneration",  "JSF", classifier);
+   if (field <> null and field.value <> null)
+         return  buildExpression(field,hints,hash);
+   else
+        return "";      
 }
 
-operation domain::ActioinTriggers findClassifiedTrigger( artifactLib:String, artifact: String, classifier : String) {
-       for (trigger in self.triggers){
-          if (trigger.findClassifier(artifactLib,artifact,classifier)){
-             return trigger;
+operation domain::FlexFields findClassifiedField( artifactLib:String, artifact: String, classifier : String) {
+       for (field in self.fields){
+          if (field.findClassifier(artifactLib,artifact,classifier)){
+             return field;
           }
        }
        return null;

@@ -26,4 +26,10 @@ operation domain::ActionTrigger mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
 
+@template
+operation domain::FlexField mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+
 %]

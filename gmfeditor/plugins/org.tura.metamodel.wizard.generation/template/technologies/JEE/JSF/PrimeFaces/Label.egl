@@ -2,16 +2,17 @@
 operation domain::Label draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","Label start: "+self.uid);     
+     var hints = new Native('java.util.HashMap');
 
      if (hash.get("context") == null ){
-      %] [%=self.noContext(hash)%] [%           
+      %] [%=self.noContext(hash,hints)%] [%           
       }
      else{
           if (hash.get("context").equals("table") ){
-               %] [%=self.tableContext(hash)%] [%           
+               %] [%=self.tableContext(hash,hints)%] [%           
            }  
           if (hash.get("context").equals("tree") ){
-               %] [%=self.treeContext(hash)%] [%           
+               %] [%=self.treeContext(hash,hints)%] [%           
           }     
      }
 
@@ -19,28 +20,28 @@ operation domain::Label draw(hash) {
 }
 
 @template
-operation domain::Label treeContext(hash) { 
+operation domain::Label treeContext(hash,hints) { 
 %]
-	<p:outputLabel  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildParameterizedExpression(self.multiLangLabel)%]" />
+	<p:outputLabel  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />
 [%
 }
 
 @template
-operation domain::Label tableContext(hash) { 
+operation domain::Label tableContext(hash,hints) { 
 %]
-	<p:outputLabel  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildParameterizedExpression(self.multiLangLabel)%]" />
+	<p:outputLabel  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />
 [%   
 }
 
 @template
-operation domain::Label noContext(hash) { 
+operation domain::Label noContext(hash,hints) { 
    var link = domain::LinkToLabel->allInstances()->select(r|r.target.uid=self.uid)->first();
    var forRef = "";
    if ( link <> null and  link.source <> null){
       forRef="for=\""+link.source.mkuid()+"\"";
    }
 %]
-	<p:outputLabel [%=forRef%]  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildParameterizedExpression(self.multiLangLabel)%]" />
+	<p:outputLabel [%=forRef%]  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />
 [%   
 }
 %]

@@ -8,6 +8,8 @@ operation   scriptGenerator(hash) {
      var scriptTriggers = hash.get("scriptTriggers");
      var  javaPath =  hash.get("javaPath");
      var uipackage = hash.get("uipackage");
+     var hints = new Native('java.util.HashMap');
+     
  %]
 
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].action;
@@ -45,7 +47,7 @@ public class ScriptGenerator{
                for (parameter  in trigger.parameters){
                   if ( i <> 0)
                      %],[%
-                  %]"[%=buildExpression(parameter.value)%]"[%
+                  %]"[%=buildExpression(parameter.value,hints,hash)%]"[%
                   i = 1;
                }
            }

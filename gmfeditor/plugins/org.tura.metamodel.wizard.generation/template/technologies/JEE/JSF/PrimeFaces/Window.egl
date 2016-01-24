@@ -24,8 +24,9 @@ operation domain::Window generateBody(hash){
      var form = hash.get("form");   
      var recipe =  hash.get("recipe");
      var ingredient  = hash.get("ingredient");
+     var hints = new Native('java.util.HashMap');
 
-     var title = buildParameterizedExpression(self.multiLangLabel);
+     var title = buildExpression(self.multiLangLabel,hints,hash);
         
 %]
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

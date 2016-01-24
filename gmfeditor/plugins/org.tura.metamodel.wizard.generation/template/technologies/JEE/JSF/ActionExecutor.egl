@@ -40,6 +40,7 @@ public class ActionExecutor  implements java.io.Serializable {
     
 [%
      var map = new Native('java.util.HashMap'); 
+     var hints = new Native('java.util.HashMap');
 
      var counter = 0;
      for( trigger in  actionTriggers ){
@@ -87,7 +88,7 @@ public class ActionExecutor  implements java.io.Serializable {
                for (parameter  in trigger.parameters){
                   if ( i <> 0)
                      %],[%
-                  %]"[%=buildExpression(parameter.value)%]"[%
+                  %]"[%=buildExpression(parameter.value,hints,hash)%]"[%
                   i = 1;
                }
            }

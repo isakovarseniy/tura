@@ -3,6 +3,7 @@ operation domain::Table draw(hash) {
      var util = new Native('org.tura.metamodel.commons.Util');
      hash.put("context","table");
      util.traceIfDebug("UI element","Table start: "+self.uid);     
+     
 %]
      [%=self.generateBody(hash)%]     
 [%
@@ -14,6 +15,8 @@ operation domain::Table draw(hash) {
 @template
 operation domain::Table generateBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     
      var selector = "\"5,10,15\"";
      if (self.findClassifier('UIGeneration','Primefaces','row number selector')){
         selector = self.~hintDetails;
@@ -22,13 +25,13 @@ operation domain::Table generateBody(hash){
      
 %]
 	<p:dataTable [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] var="row" 
-		value="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=util.bracketRemover(buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null)))%]).getLazyModel()}"
+		value="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).getLazyModel()}"
 		paginator="true" rows="[%=self.rowNumber%]" lazy="true"
 		paginatorTemplate="{RowsPerPageDropdown}  {PreviousPageLink}  {NextPageLink}"
 		rowsPerPageTemplate=[%=selector%] selectionMode="single"   rowKey="#{row[0]}" editable="true" editMode="cell"
-		selection="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=util.bracketRemover( buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null)))%]).selected}"
+		selection="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).selected}"
 		>
-		<p:ajax event="rowSelect" listener="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=util.bracketRemover( buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null)))%]).ajaxSelected}" [%=self.refreshArias()%]/>
+		<p:ajax event="rowSelect" listener="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).ajaxSelected}" [%=self.refreshArias()%]/>
 		
 [%
                 for (element in self.cols.sortBy(q|q.order)){
