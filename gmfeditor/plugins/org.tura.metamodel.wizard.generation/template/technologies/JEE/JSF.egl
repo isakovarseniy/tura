@@ -79,6 +79,9 @@ operation domain::StyleElement  styleAttributes(hash){
 
 operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: String, classifier : String):String{
       var util = new Native('org.tura.metamodel.commons.Util');
+      var hints = new Native('java.util.HashMap');
+      var hash = new Native('java.util.HashMap');
+      
       var value = "";
      if (self.styleClass <> null  and self.styleClass.size() <> 0 ){
       var first = 0;

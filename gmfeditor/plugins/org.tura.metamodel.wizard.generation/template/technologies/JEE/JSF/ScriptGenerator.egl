@@ -28,8 +28,13 @@ public class ScriptGenerator{
      var map = new Native('java.util.HashMap'); 
 
      for( trigger in  scriptTriggers ){
-         if (trigger.typeRef <> null ){
-             var type = trigger.typeRef;
+          var action = trigger.expression.get( trigger.expression.size()-1);
+          var method = action.objRef;
+          var type = null;
+          if (method <> null)
+             type = action.objRef.eContainer();
+     
+         if (type <> null ){
              type.mappingType2JavaScript(recipe,ingredient);
          }
      }
@@ -38,7 +43,14 @@ public class ScriptGenerator{
      public ScriptGenerator(){
 [%      
       for( trigger in  scriptTriggers ){
-       if (trigger.methodRef <> null  and  trigger.typeRef.~url.isDefined()){  
+      
+        var action = trigger.expression.get( trigger.expression.size()-1);
+        var method = action.objRef;
+        var type = null;
+        if (method <> null)
+           type = action.objRef.eContainer();
+      
+       if (type <> null  and  type.~url.isDefined()){  
 %]
       hash.put("[%=trigger.mkuid()%]",new Object[]{
             new Object[]{[%
@@ -52,7 +64,7 @@ public class ScriptGenerator{
                }
            }
             %]},
-            "[%=util.mergeAndUnCapitalize(trigger.methodRef.name)%]"
+            "[%=util.mergeAndUnCapitalize(method.name)%]"
          }
       );
 [%     

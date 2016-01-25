@@ -44,8 +44,14 @@ public class ActionExecutor  implements java.io.Serializable {
 
      var counter = 0;
      for( trigger in  actionTriggers ){
-         if (trigger.typeRef <> null ){
-           var type = trigger.typeRef;
+       var action = trigger.expression.get( trigger.expression.size()-1);
+       var method = action.objRef;
+       var type = null;
+       if (method <> null)
+           type = action.objRef.eContainer();
+       
+     
+         if (type <> null ){
            type.mappingType2Java(recipe,ingredient);
            if (type.~fullName.isDefined() and map.get(type.~fullName) = null) {
                  type.~counter = counter;
@@ -66,13 +72,19 @@ public class ActionExecutor  implements java.io.Serializable {
 	public void init() {
 [%      
         for( trigger in  actionTriggers ){
-         if (trigger.typeRef <> null and trigger.typeRef.~fullName.isDefined()){
+          var action = trigger.expression.get( trigger.expression.size()-1);
+          var method = action.objRef;
+          var type = null;
+          if (method <> null)
+             type = action.objRef.eContainer();
+       
+         if (type <> null and type.~fullName.isDefined()){
 %]
       hash.put("[%=trigger.mkuid()%]",new Object[]{
             new Class[]{[%
            if (trigger.parameters <> null and trigger.parameters.size() <> 0 ){
               var i = 0;
-               for (parameter  in trigger.methodRef.parameters){
+               for (parameter  in method.parameters){
                   var type = parameter.typeRef;
                   type.mappingType2Java(recipe,ingredient);
                   if ( i <> 0)
@@ -93,8 +105,8 @@ public class ActionExecutor  implements java.io.Serializable {
                }
            }
             %]},
-            exec_[%=map.get(trigger.typeRef.~fullName).~counter%].get(),
-            "[%=util.mergeAndUnCapitalize(trigger.methodRef.name)%]"
+            exec_[%=map.get(type.~fullName).~counter%].get(),
+            "[%=util.mergeAndUnCapitalize(method.name)%]"
          }
       );
 [%     

@@ -71,8 +71,14 @@ operation domain::Window generateBody(hash){
      var scriptTriggers = hash.get("scriptTriggers");
      var urlHash = new Native('java.util.HashMap');
      for (trigger in scriptTriggers){
-           if (trigger.methodRef <> null  and  trigger.typeRef.~url.isDefined()){  
-           urlHash.put(trigger.typeRef.~url,trigger.typeRef.~url);
+         var action = trigger.expression.get( trigger.expression.size()-1);
+         var method = action.objRef;
+         var type = null;
+         if (method <> null)
+             type = action.objRef.eContainer();
+      
+           if (type <> null  and  type.~url.isDefined()){  
+              urlHash.put(type.~url,type.~url);
        }
      }
         for (url in urlHash.values()){
