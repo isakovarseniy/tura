@@ -3249,28 +3249,24 @@
           <children xsi:type="tura.domain:OutputText" order="4" uid="aea90e5a-e883-456e-952a-8bab3f1b1dc4" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_97c41a52-78c3-422f-ae56-c81eb04a899c">
             <style/>
             <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="159febef-7159-4516-85fe-1bedba34f81c" fakeMethod="empDetailsEnable" uid="ca63bcb1-eb19-4c79-a4cf-b142433776d6"/>
-            <enabled/>
-            <fields uid="3e433238-519d-4cac-bb50-3f2d82b8ee85" value="Packages.HR package.HR package:Action executor.empDetailsEnable()">
+            <enabled uid="bf54bbff-40b3-4e1b-8423-4c224b224557" value="Packages.HR package.HR package::Action executor.empDetailsEnable()">
               <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
               <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
               <expression objRef="c4654ad8-156f-4706-bda2-791ed81fcdea" order="2" expressionType="TypeImpl"/>
               <expression objRef="159febef-7159-4516-85fe-1bedba34f81c" order="3" expressionType="OperationImpl"/>
-              <classifiers uid="c46115c0-eaaa-425a-bc40-710136fc2c95" hint="a51a6638-5eb9-427a-9e2e-c9c9466c8922"/>
-            </fields>
+            </enabled>
             <required/>
             <readOnly/>
           </children>
           <children xsi:type="tura.domain:OutputText" order="3" uid="239b4114-6644-4b98-8d6e-a7b1ea5c6b9f" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_d3f4f447-e522-4da6-82d4-70c4add09a66">
             <style/>
             <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="159febef-7159-4516-85fe-1bedba34f81c" fakeMethod="empDetailsEnable" uid="247c008e-d60b-485a-a44f-f7a6f9bc0227"/>
-            <enabled/>
-            <fields uid="34cfc65d-19b7-40df-ba4c-1642e3eea000" value="Packages.HR package.HR package:Action executor.empDetailsEnable()">
+            <enabled uid="0a54db13-daf0-4958-8308-00bcffc132ef" value="Packages.HR package.HR package::Action executor.empDetailsEnable()">
               <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
               <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
               <expression objRef="c4654ad8-156f-4706-bda2-791ed81fcdea" order="2" expressionType="TypeImpl"/>
               <expression objRef="159febef-7159-4516-85fe-1bedba34f81c" order="3" expressionType="OperationImpl"/>
-              <classifiers uid="f8698ef7-fd9a-40bf-a868-fa41b63c1220" hint="a51a6638-5eb9-427a-9e2e-c9c9466c8922"/>
-            </fields>
+            </enabled>
             <required/>
             <readOnly/>
           </children>
@@ -3297,14 +3293,12 @@
           </children>
           <children xsi:type="tura.domain:Date" order="5" uid="33325a94-6f8a-4110-bbbd-a3afce3d7c9c" sourcePointer="0b115ae0-7710-49f2-bb74-45fa6af58c8e" valuePointer="Emp_bdf0412e-246e-4d81-8109-ffa32f0a2ab3" format="MM/dd/yyyy">
             <triggers packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package" fakeTypeName="Action executor" methodRef="159febef-7159-4516-85fe-1bedba34f81c" fakeMethod="empDetailsEnable" uid="4d909e9e-1b4b-49b6-a6cb-46e22aca1e01"/>
-            <enabled/>
-            <fields uid="942397ca-33ae-4645-a8ec-4618e5fbd451" value="Packages.HR package.HR package:Action executor.empDetailsEnable()">
+            <enabled uid="79142da2-8ce4-4f61-a6d3-e520f350dbc7" value="Packages.HR package.HR package::Action executor.empDetailsEnable()">
               <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
               <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
               <expression objRef="c4654ad8-156f-4706-bda2-791ed81fcdea" order="2" expressionType="TypeImpl"/>
               <expression objRef="159febef-7159-4516-85fe-1bedba34f81c" order="3" expressionType="OperationImpl"/>
-              <classifiers uid="05005002-7870-43a4-b121-acf628773308" hint="a51a6638-5eb9-427a-9e2e-c9c9466c8922"/>
-            </fields>
+            </enabled>
           </children>
         </children>
       </children>
