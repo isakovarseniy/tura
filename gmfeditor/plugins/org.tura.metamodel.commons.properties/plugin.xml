@@ -657,15 +657,6 @@
             </propertySection>  
 
 
-          <propertySection
-               tab="property.tab.domain.canvas.uielement.classifier"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
-               id="property.tab.domain.canvas.uielement.classifier">
- 
-              <input type="frmview.diagram.edit.parts.PopupCanvasEditPart"/>
-              
-            </propertySection>        
-
 
           <propertySection
                tab="property.tab.domain.frmview.classifier"

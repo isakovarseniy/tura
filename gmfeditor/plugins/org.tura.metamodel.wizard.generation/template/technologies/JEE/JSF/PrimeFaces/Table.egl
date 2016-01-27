@@ -21,8 +21,7 @@ operation domain::Table generateBody(hash){
      if (self.findClassifier('UIGeneration','Primefaces','row number selector')){
         selector = self.~hintDetails;
      }
-     
-     
+     hints.put("noCurlyBracket",true);
 %]
 	<p:dataTable [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%] var="row" 
 		value="#{viewmodel.getModel('[%=self.mkuid()%]','grid', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(), null),hints,hash)%]).getLazyModel()}"

@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.tura.metamodel.commons.properties.selections.context.impl;
 
+import java.util.UUID;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -20,9 +22,9 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import domain.DomainFactory;
 import domain.DomainPackage;
 
-public class MultiLangLabelPropertySelection extends AbstractStringPropertySelection {
+public class MultiLangLabelPropertySelection extends
+		AbstractStringPropertySelection {
 
-	
 	@Override
 	public EObject getModel() {
 
@@ -33,14 +35,23 @@ public class MultiLangLabelPropertySelection extends AbstractStringPropertySelec
 					.getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getMultiLangLabel_MultiLangLabel(),
+							DomainPackage.eINSTANCE.getEnabledUIItem_Enabled(),
 							DomainFactory.eINSTANCE.createContext()));
 
 		}
 
+		if (el.getMultiLangLabel().getUid() == null) {
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+			editingDomain.getCommandStack().execute(
+					SetCommand.create(editingDomain, el.getMultiLangLabel(),
+							DomainPackage.eINSTANCE.getContextValue_Uid(), UUID
+									.randomUUID().toString()));
+
+		}
 		return el.getMultiLangLabel();
 
 	}
 
-	
 }

@@ -15,24 +15,24 @@ operation domain::Button draw(hash) {
      var immediate = "";
      var eventListener="";
      if (self.findClassifier('UIGeneration','JSF','immediate')){
-        immediate = "immediate=\"true\"";
+        immediate = " immediate=\"true\"";
      }
 
  %]
 <p:commandButton  [%=immediate%]  [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%][%  
        var expression = constructExpression(self,'trigger.onclick',hints, hash);
        if (expression <> ""){
-       %]onclick="[%=expression%]"[%
+       %] onclick="[%=expression%]"[%
        }
        expression = constructExpression(self,'trigger.oncomplete',hints, hash);
        if (expression <> ""){
-       %]oncomplete="[%=expression%]"[%
+       %] oncomplete="[%=expression%]"[%
        }
        for ( field in  self.fields){
           if (field.classifiers.size() <> 0 )
             continue;
            hints.put("actionListener",true); 
-           %]actionListener="[%=buildExpression(field,hints,hash)%]"[%
+           %] actionListener="[%=buildExpression(field,hints,hash)%]"[%
            hints.remove("actionListener"); 
       }
 %] [%=icon%]    [%=self.refreshArias()%] >

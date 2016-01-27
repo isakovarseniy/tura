@@ -25,6 +25,7 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/m
          hash.put("resourcePath",resourcePath);
          hash.put("form",form);
          hash.put("uipackage",uipackage);
+         hash.put("beanFactoryName",util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
          
          
          util.setBeanFactoryName(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
@@ -38,15 +39,15 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/m
            control.processKeys(recipe,ingredient);
            control.processArtificialFields(recipe,ingredient);
 
-           control.processTriggers(recipe,ingredient);
+           control.processTriggers(recipe,ingredient,hash);
            
            //Process relations only ones for all datacontrols;
            if (i = 0 )
-              control.processRelations(recipe,ingredient);
+              control.processRelations(recipe,ingredient,hash);
            
            i=i+1;   
 
-           control.processDefaultQuery(recipe,ingredient);
+           control.processDefaultQuery(recipe,ingredient,hash);
            
          }
 

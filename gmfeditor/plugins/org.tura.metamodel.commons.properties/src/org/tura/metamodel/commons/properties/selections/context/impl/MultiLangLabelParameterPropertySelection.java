@@ -1,5 +1,7 @@
 package org.tura.metamodel.commons.properties.selections.context.impl;
 
+import java.util.UUID;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -23,13 +25,23 @@ public class MultiLangLabelParameterPropertySelection extends DependentContextPa
 
 		domain.MultiLangLabel el = ((domain.MultiLangLabel) getEObject());
 		if (el.getMultiLangLabel() == null) {
-
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getMultiLangLabel_MultiLangLabel(),
+							DomainPackage.eINSTANCE.getEnabledUIItem_Enabled(),
 							DomainFactory.eINSTANCE.createContext()));
+
+		}
+
+		if (el.getMultiLangLabel().getUid() == null) {
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+			editingDomain.getCommandStack().execute(
+					SetCommand.create(editingDomain, el.getMultiLangLabel(),
+							DomainPackage.eINSTANCE.getContextValue_Uid(), UUID
+									.randomUUID().toString()));
 
 		}
 

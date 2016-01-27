@@ -16,23 +16,23 @@ operation domain::Controls processRootElement(recipe:Recipe, ingredient :Ingredi
     }
 }
 
-operation domain::DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingredient ) { 
+operation domain::DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingredient,hash ) { 
 
       if ( self.defaultSearch<> null)
-            self.defaultSearch.processParameters(recipe,ingredient,self);
+            self.defaultSearch.processParameters(recipe,ingredient,self,hash);
 }
 
-operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredient ) { 
+operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredient , hash) { 
 
         var provider = new Native('java.util.HashMap');
         self.~provider=provider;
 
-        self.create.processTrigger(recipe,ingredient,self);
+        self.create.processTrigger(recipe,ingredient,self,hash);
         var array = new Native('java.util.ArrayList');
         array.add("create");
         provider.put(self.create.typeRef.~fullName,array);   
 
-        self.insert.processTrigger(recipe,ingredient,self);
+        self.insert.processTrigger(recipe,ingredient,self,hash);
         array = provider.get(self.insert.typeRef.~fullName);   
         if (array = null){
            array = new Native('java.util.ArrayList');
@@ -40,7 +40,7 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
          }
         array.add("insert");
         
-        self.update.processTrigger(recipe,ingredient,self);
+        self.update.processTrigger(recipe,ingredient,self,hash);
         array = provider.get(self.update.typeRef.~fullName);   
         if (array = null){
            array = new Native('java.util.ArrayList');
@@ -48,7 +48,7 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
          }
         array.add("update");
 
-        self.remove.processTrigger(recipe,ingredient,self);
+        self.remove.processTrigger(recipe,ingredient,self,hash);
         array = provider.get(self.remove.typeRef.~fullName);   
         if (array = null){
            array = new Native('java.util.ArrayList');
@@ -56,7 +56,7 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
          }
         array.add("delete");
 
-        self.search.processTrigger(recipe,ingredient,self);
+        self.search.processTrigger(recipe,ingredient,self,hash);
         array = provider.get(self.search.typeRef.~fullName);   
         if (array = null){
            array = new Native('java.util.ArrayList');
@@ -66,18 +66,17 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
 }
 
 
-operation domain::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,datacontrol: domain::DataControl){
+operation domain::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,datacontrol: domain::DataControl,hash){
         var util = new Native('org.tura.metamodel.commons.Util');
         if (self.typeRef.isDefined()){
           self.typeRef.mappingType2Java(recipe,ingredient);
-          self.processParameters(recipe,ingredient,datacontrol);
+          self.processParameters(recipe,ingredient,datacontrol,hash);
         }
 }
 
-operation domain::ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient,datacontrol: domain::DataControl){
+operation domain::ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient,datacontrol: domain::DataControl,hash){
         var util = new Native('org.tura.metamodel.commons.Util');
         var hints = new Native('java.util.HashMap');
-        var hash = new Native('java.util.HashMap');
         
         for (parameter in self.parameters){
             parameter.value.~sourceControl=datacontrol.findTreeRoot();
@@ -125,7 +124,7 @@ operation domain::DataControl processArtificialFields(recipe:Recipe, ingredient 
         }
 }
 
-operation domain::DataControl processRelations( recipe:Recipe, ingredient :Ingredient) { 
+operation domain::DataControl processRelations( recipe:Recipe, ingredient :Ingredient,hash) { 
         var util = new Native('org.tura.metamodel.commons.Util');
         var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
         
@@ -141,16 +140,15 @@ operation domain::DataControl processRelations( recipe:Recipe, ingredient :Ingre
             if (treeRoot.~dependArray = null)     
                  treeRoot.~dependArray = new Native('java.util.ArrayList');    
             treeRoot.~treeRoot=true;       
-            treeRoot.findDependecies(objectTrack, treeRoot,recipe,ingredient);
+            treeRoot.findDependecies(objectTrack, treeRoot,recipe,ingredient,hash);
         }
         
 }
 
 
-operation domain::DataControl processDependencies(recipe:Recipe, ingredient :Ingredient){
+operation domain::DataControl processDependencies(recipe:Recipe, ingredient :Ingredient,hash){
         var util = new Native('org.tura.metamodel.commons.Util');
         var hints = new Native('java.util.HashMap');
-        var hash = new Native('java.util.HashMap');
         
         var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
         var form = queryHelper.getForm(self);
@@ -173,11 +171,10 @@ operation domain::DataControl processDependencies(recipe:Recipe, ingredient :Ing
 
 }
 
-operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataControl,recipe:Recipe, ingredient :Ingredient){
+operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataControl,recipe:Recipe, ingredient :Ingredient,hash){
 
         var util = new Native('org.tura.metamodel.commons.Util');
         var hints = new Native('java.util.HashMap');
-        var hash = new Native('java.util.HashMap');
 
          if (objectTrack.contains(self) )
               return;
@@ -213,7 +210,7 @@ operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataContr
               
         var listOfTreeNodes = domain::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);
         for (treeNode in listOfTreeNodes){
-               treeNode.findDependecies(objectTrack, treeRoot,recipe,ingredient);
+               treeNode.findDependecies(objectTrack, treeRoot,recipe,ingredient,hash);
         }
 }
 

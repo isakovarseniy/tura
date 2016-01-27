@@ -1,5 +1,7 @@
 package org.tura.metamodel.commons.properties.selections.context.impl;
 
+import java.util.UUID;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -23,13 +25,23 @@ public class ItemIconParameterPropertySelection extends DependentContextParamete
 
 		domain.ItemIcon el = ((domain.ItemIcon) getEObject());
 		if (el.getIcon() == null) {
-
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getItemIcon_Icon(),
+							DomainPackage.eINSTANCE.getEnabledUIItem_Enabled(),
 							DomainFactory.eINSTANCE.createContext()));
+
+		}
+
+		if (el.getIcon().getUid() == null) {
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+			editingDomain.getCommandStack().execute(
+					SetCommand.create(editingDomain, el.getIcon(),
+							DomainPackage.eINSTANCE.getContextValue_Uid(), UUID
+									.randomUUID().toString()));
 
 		}
 

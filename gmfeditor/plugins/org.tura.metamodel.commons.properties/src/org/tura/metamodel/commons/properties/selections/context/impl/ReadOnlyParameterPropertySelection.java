@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.tura.metamodel.commons.properties.selections.context.impl;
 
+import java.util.UUID;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -36,15 +38,26 @@ public class ReadOnlyParameterPropertySelection extends DependentContextParamete
 
 		domain.Uielement el = ((domain.Uielement) getEObject());
 		if (el.getReadOnly() == null) {
-
 			EditingDomain editingDomain = ((DiagramEditor) getPart())
 					.getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getUielement_ReadOnly(),
+							DomainPackage.eINSTANCE.getEnabledUIItem_Enabled(),
 							DomainFactory.eINSTANCE.createContext()));
 
 		}
+
+		if (el.getReadOnly().getUid() == null) {
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+			editingDomain.getCommandStack().execute(
+					SetCommand.create(editingDomain, el.getReadOnly(),
+							DomainPackage.eINSTANCE.getContextValue_Uid(), UUID
+									.randomUUID().toString()));
+
+		}
+
 
 		return el.getReadOnly();
 

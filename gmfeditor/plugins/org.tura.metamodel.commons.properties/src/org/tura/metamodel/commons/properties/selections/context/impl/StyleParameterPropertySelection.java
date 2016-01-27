@@ -1,5 +1,7 @@
 package org.tura.metamodel.commons.properties.selections.context.impl;
 
+import java.util.UUID;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -28,10 +30,22 @@ public class StyleParameterPropertySelection extends DependentContextParameterPr
 					.getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getStyleElement_Style(),
+							DomainPackage.eINSTANCE.getEnabledUIItem_Enabled(),
 							DomainFactory.eINSTANCE.createContext()));
 
 		}
+
+		if (el.getStyle().getUid() == null) {
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart())
+					.getEditingDomain();
+			editingDomain.getCommandStack().execute(
+					SetCommand.create(editingDomain, el.getStyle(),
+							DomainPackage.eINSTANCE.getContextValue_Uid(), UUID
+									.randomUUID().toString()));
+
+		}
+
 
 		return el.getStyle();
 

@@ -22,6 +22,8 @@ operation domain::Tree draw(hash) {
 operation domain::Tree generateTreeBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
+
+     hints.put("noCurlyBracket",true);
      
 %]
 	<p:tree [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]

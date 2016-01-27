@@ -4,12 +4,26 @@ operation ArtificialFieldImpl(expression:String, contextValue , paramId: Integer
 
 operation DataControlHolder(expression:String, contextValue , paramId: Integer , array  , hints , inOutParams) : String {
    var util = new Native('org.tura.metamodel.commons.Util');
-   return "#{beanFactory"+inOutParams.get("beanFactoryName")+".<holder>}";
+   var begin = "#{";
+   var end = "}";
+   if (hints.get("noCurlyBracket") <> null  ){
+      begin = "";
+      end = "";
+   }
+   
+   return begin+"beanFactory"+inOutParams.get("beanFactoryName")+".<holder>"+end;
 }
 
 operation TreeRootDataControlHolder(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
    var util = new Native('org.tura.metamodel.commons.Util');
-   return "#{beanFactory"+inOutParams.get("beanFactoryName")+".treeRoot<holder>}";
+   var begin = "#{";
+   var end = "}";
+   if (hints.get("noCurlyBracket") <> null  ){
+      begin = "";
+      end = "";
+   }
+   
+   return begin+"beanFactory"+inOutParams.get("beanFactoryName")+".treeRoot<holder>"+end;
 }
 
 operation DataControlImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
@@ -62,10 +76,11 @@ operation OperationImpl(expression:String, contextValue , paramId: Integer , arr
            
         }
         if (type.~mapper.isDefined() and "Type2Java".equals(type.~mapper)){
+
         if (hints.get("actionListener") <> null  and hints.get("actionListener") )
-           return contextValue.javaCall(inOutParams);
-        else
            return contextValue.javaTrigger(inOutParams);
+        else
+           return contextValue.javaCall(inOutParams);
            
         }   
    }else{
@@ -94,7 +109,13 @@ operation MessageLibraryImpl(expression:String, contextValue , paramId: Integer 
 }
 
 operation MessagesImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
-   return "#{<holder>}";
+   var begin = "#{";
+   var end = "}";
+   if (hints.get("noCurlyBracket") <> null  ){
+      begin = "";
+      end = "";
+   }
+      return begin+"<holder>"+end;
 }
 
 
@@ -181,7 +202,14 @@ operation  StyleSetImpl(expression:String, contextValue , paramId: Integer, arra
 
 operation  RootImpl(expression:String, contextValue , paramId: Integer, array , hints , inOutParams ) : String {
    var util = new Native('org.tura.metamodel.commons.Util');
-   return "#{beanFactory"+inOutParams.get("beanFactoryName")+".<holder>}";
+   var begin = "#{";
+   var end = "}";
+   if (hints.get("noCurlyBracket") <> null  ){
+      begin = "";
+      end = "";
+   }
+   
+   return begin+"beanFactory"+inOutParams.get("beanFactoryName")+".<holder>"+end;
 }     
 
 operation  FormVariableImpl(expression:String, contextValue , paramId: Integer, array , hints , inOutParams ) : String {
@@ -194,17 +222,17 @@ operation  FormVariableImpl(expression:String, contextValue , paramId: Integer, 
 
 operation domain::Context  scriptTrigger( hash){
    hash.get("scriptTriggers").add(self);
-   return '#{scriptGenerator'+hash.get("beanFactoryName")+'.scriptBuilder('+self.mkuid()+')}';
+   return '#{scriptGenerator'+hash.get("beanFactoryName")+".scriptBuilder('"+self.mkuid()+"')}";
 }
 
 operation domain::Context  javaTrigger(  hash){
    hash.get("actionTriggers").add(self);
-   return '#{actionExecutor'+hash.get("beanFactoryName")+'.setSource('+self.mkuid()+').eventListener}';
+   return '#{actionExecutor'+hash.get("beanFactoryName")+".setSource('"+self.mkuid()+"').eventListener}";
 }
 
 operation domain::Context  javaCall( hash){
    hash.get("actionTriggers").add(self);
-   return '#{actionExecutor['+hash.get("beanFactoryName")+'.setSource('+self.mkuid()+').action}';
+   return '#{actionExecutor'+hash.get("beanFactoryName")+".setSource('"+self.mkuid()+"').action}";
 }
 
 

@@ -31,7 +31,7 @@ ${percent}${end}
          hash.put("configuration",configuration);
          hash.put("uipackage",uipackage);
          
-         util.setBeanFactoryName(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
+         hash.put("beanFactoryName",util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
 
 
          viewgeneration(hash);
