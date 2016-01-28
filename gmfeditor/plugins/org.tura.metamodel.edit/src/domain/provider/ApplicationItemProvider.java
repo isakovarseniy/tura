@@ -901,16 +901,6 @@ public class ApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
-				 DomainFactory.eINSTANCE.createActioinTriggers()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.APPLICATION__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createEnabledUIItem()));
 
 		newChildDescriptors.add

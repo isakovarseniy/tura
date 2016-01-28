@@ -31,7 +31,7 @@ package domain;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='192,192,192'"
  * @generated
  */
-public interface PopupCanvas extends CanvasFrame, ViewPortHolder, DefaultCavas, MultiLangLabel, Categorized, ActioinTriggers, FlexFields {
+public interface PopupCanvas extends CanvasFrame, ViewPortHolder, DefaultCavas, MultiLangLabel, Categorized, FlexFields {
 	/**
 	 * Returns the value of the '<em><b>Modal</b></em>' attribute.
 	 * <!-- begin-user-doc -->

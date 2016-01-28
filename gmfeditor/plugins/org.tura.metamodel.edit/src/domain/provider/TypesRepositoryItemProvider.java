@@ -859,16 +859,6 @@ public class TypesRepositoryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
-				 DomainFactory.eINSTANCE.createActioinTriggers()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
 				 DomainFactory.eINSTANCE.createEnabledUIItem()));
 
 		newChildDescriptors.add

@@ -859,16 +859,6 @@ public class ArtifactsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ARTIFACTS__ANY,
-				 DomainFactory.eINSTANCE.createActioinTriggers()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.ARTIFACTS__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.ARTIFACTS__ANY,
 				 DomainFactory.eINSTANCE.createEnabledUIItem()));
 
 		newChildDescriptors.add

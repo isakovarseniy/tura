@@ -1168,24 +1168,6 @@ public interface DomainFactory extends EFactory {
 	FlexField createFlexField();
 
 	/**
-	 * Returns a new object of class '<em>Actioin Triggers</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Actioin Triggers</em>'.
-	 * @generated
-	 */
-	ActioinTriggers createActioinTriggers();
-
-	/**
-	 * Returns a new object of class '<em>Action Trigger</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Action Trigger</em>'.
-	 * @generated
-	 */
-	ActionTrigger createActionTrigger();
-
-	/**
 	 * Returns a new object of class '<em>Enabled UI Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

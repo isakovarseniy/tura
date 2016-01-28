@@ -56,7 +56,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.PopupCanvasImpl#isDefaultCanvas <em>Default Canvas</em>}</li>
  *   <li>{@link domain.impl.PopupCanvasImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.PopupCanvasImpl#getClassifiers <em>Classifiers</em>}</li>
- *   <li>{@link domain.impl.PopupCanvasImpl#getTriggers <em>Triggers</em>}</li>
  *   <li>{@link domain.impl.PopupCanvasImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link domain.impl.PopupCanvasImpl#isModal <em>Modal</em>}</li>
  * </ul>
@@ -134,16 +133,6 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 	 * @ordered
 	 */
 	protected EList<Classifier> classifiers;
-
-	/**
-	 * The cached value of the '{@link #getTriggers() <em>Triggers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTriggers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ActionTrigger> triggers;
 
 	/**
 	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
@@ -308,18 +297,6 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ActionTrigger> getTriggers() {
-		if (triggers == null) {
-			triggers = new EObjectContainmentEList<ActionTrigger>(ActionTrigger.class, this, DomainPackage.POPUP_CANVAS__TRIGGERS);
-		}
-		return triggers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<FlexField> getFields() {
 		if (fields == null) {
 			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, DomainPackage.POPUP_CANVAS__FIELDS);
@@ -362,8 +339,6 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 				return basicSetMultiLangLabel(null, msgs);
 			case DomainPackage.POPUP_CANVAS__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
-			case DomainPackage.POPUP_CANVAS__TRIGGERS:
-				return ((InternalEList<?>)getTriggers()).basicRemove(otherEnd, msgs);
 			case DomainPackage.POPUP_CANVAS__FIELDS:
 				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 		}
@@ -388,8 +363,6 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 				return getMultiLangLabel();
 			case DomainPackage.POPUP_CANVAS__CLASSIFIERS:
 				return getClassifiers();
-			case DomainPackage.POPUP_CANVAS__TRIGGERS:
-				return getTriggers();
 			case DomainPackage.POPUP_CANVAS__FIELDS:
 				return getFields();
 			case DomainPackage.POPUP_CANVAS__MODAL:
@@ -423,10 +396,6 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 			case DomainPackage.POPUP_CANVAS__CLASSIFIERS:
 				getClassifiers().clear();
 				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
-				return;
-			case DomainPackage.POPUP_CANVAS__TRIGGERS:
-				getTriggers().clear();
-				getTriggers().addAll((Collection<? extends ActionTrigger>)newValue);
 				return;
 			case DomainPackage.POPUP_CANVAS__FIELDS:
 				getFields().clear();
@@ -462,9 +431,6 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 			case DomainPackage.POPUP_CANVAS__CLASSIFIERS:
 				getClassifiers().clear();
 				return;
-			case DomainPackage.POPUP_CANVAS__TRIGGERS:
-				getTriggers().clear();
-				return;
 			case DomainPackage.POPUP_CANVAS__FIELDS:
 				getFields().clear();
 				return;
@@ -493,8 +459,6 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 				return multiLangLabel != null;
 			case DomainPackage.POPUP_CANVAS__CLASSIFIERS:
 				return classifiers != null && !classifiers.isEmpty();
-			case DomainPackage.POPUP_CANVAS__TRIGGERS:
-				return triggers != null && !triggers.isEmpty();
 			case DomainPackage.POPUP_CANVAS__FIELDS:
 				return fields != null && !fields.isEmpty();
 			case DomainPackage.POPUP_CANVAS__MODAL:
@@ -537,12 +501,6 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 		if (baseClass == Categorized.class) {
 			switch (derivedFeatureID) {
 				case DomainPackage.POPUP_CANVAS__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
-				default: return -1;
-			}
-		}
-		if (baseClass == ActioinTriggers.class) {
-			switch (derivedFeatureID) {
-				case DomainPackage.POPUP_CANVAS__TRIGGERS: return DomainPackage.ACTIOIN_TRIGGERS__TRIGGERS;
 				default: return -1;
 			}
 		}
@@ -589,12 +547,6 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.POPUP_CANVAS__CLASSIFIERS;
-				default: return -1;
-			}
-		}
-		if (baseClass == ActioinTriggers.class) {
-			switch (baseFeatureID) {
-				case DomainPackage.ACTIOIN_TRIGGERS__TRIGGERS: return DomainPackage.POPUP_CANVAS__TRIGGERS;
 				default: return -1;
 			}
 		}

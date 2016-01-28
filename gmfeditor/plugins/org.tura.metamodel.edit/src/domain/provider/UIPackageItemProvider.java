@@ -859,16 +859,6 @@ public class UIPackageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.UI_PACKAGE__ANY,
-				 DomainFactory.eINSTANCE.createActioinTriggers()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.UI_PACKAGE__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.UI_PACKAGE__ANY,
 				 DomainFactory.eINSTANCE.createEnabledUIItem()));
 
 		newChildDescriptors.add

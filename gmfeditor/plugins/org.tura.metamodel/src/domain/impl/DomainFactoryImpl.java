@@ -392,8 +392,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.NICK_NAMED: return createNickNamed();
 			case DomainPackage.FLEX_FIELDS: return createFlexFields();
 			case DomainPackage.FLEX_FIELD: return createFlexField();
-			case DomainPackage.ACTIOIN_TRIGGERS: return createActioinTriggers();
-			case DomainPackage.ACTION_TRIGGER: return createActionTrigger();
 			case DomainPackage.ENABLED_UI_ITEM: return createEnabledUIItem();
 			case DomainPackage.UIELEMENT: return createUielement();
 			case DomainPackage.ITEM_ICON: return createItemIcon();
@@ -1763,26 +1761,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public FlexField createFlexField() {
 		FlexFieldImpl flexField = new FlexFieldImpl();
 		return flexField;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ActioinTriggers createActioinTriggers() {
-		ActioinTriggersImpl actioinTriggers = new ActioinTriggersImpl();
-		return actioinTriggers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ActionTrigger createActionTrigger() {
-		ActionTriggerImpl actionTrigger = new ActionTriggerImpl();
-		return actionTrigger;
 	}
 
 	/**

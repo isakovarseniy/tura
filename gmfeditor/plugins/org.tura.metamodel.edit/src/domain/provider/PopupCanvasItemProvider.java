@@ -148,7 +148,6 @@ public class PopupCanvasItemProvider extends CanvasFrameItemProvider {
 			childrenFeatures.add(DomainPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT);
 			childrenFeatures.add(DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
 			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
-			childrenFeatures.add(DomainPackage.Literals.ACTIOIN_TRIGGERS__TRIGGERS);
 			childrenFeatures.add(DomainPackage.Literals.FLEX_FIELDS__FIELDS);
 		}
 		return childrenFeatures;
@@ -213,7 +212,6 @@ public class PopupCanvasItemProvider extends CanvasFrameItemProvider {
 			case DomainPackage.POPUP_CANVAS__VIEW_ELEMENT:
 			case DomainPackage.POPUP_CANVAS__MULTI_LANG_LABEL:
 			case DomainPackage.POPUP_CANVAS__CLASSIFIERS:
-			case DomainPackage.POPUP_CANVAS__TRIGGERS:
 			case DomainPackage.POPUP_CANVAS__FIELDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -261,11 +259,6 @@ public class PopupCanvasItemProvider extends CanvasFrameItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
 				 DomainFactory.eINSTANCE.createClassifier()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.ACTIOIN_TRIGGERS__TRIGGERS,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter

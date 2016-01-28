@@ -657,12 +657,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//FlexFields/fields"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//FlexField"/>
-    <genClasses ecoreClass="domain.ecore#//ActioinTriggers">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//ActioinTriggers/triggers"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//ActionTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ActionTrigger/uid"/>
-    </genClasses>
     <genClasses ecoreClass="domain.ecore#//EnabledUIItem">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//EnabledUIItem/enabled"/>
     </genClasses>

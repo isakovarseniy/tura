@@ -54,7 +54,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.UielementImpl#getNickname <em>Nickname</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getOrder <em>Order</em>}</li>
- *   <li>{@link domain.impl.UielementImpl#getTriggers <em>Triggers</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
@@ -116,16 +115,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	 * @ordered
 	 */
 	protected int order = ORDER_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTriggers() <em>Triggers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTriggers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ActionTrigger> triggers;
 
 	/**
 	 * The cached value of the '{@link #getEnabled() <em>Enabled</em>}' containment reference.
@@ -268,18 +257,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 		order = newOrder;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__ORDER, oldOrder, order));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ActionTrigger> getTriggers() {
-		if (triggers == null) {
-			triggers = new EObjectContainmentEList<ActionTrigger>(ActionTrigger.class, this, DomainPackage.UIELEMENT__TRIGGERS);
-		}
-		return triggers;
 	}
 
 	/**
@@ -466,8 +443,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 		switch (featureID) {
 			case DomainPackage.UIELEMENT__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
-			case DomainPackage.UIELEMENT__TRIGGERS:
-				return ((InternalEList<?>)getTriggers()).basicRemove(otherEnd, msgs);
 			case DomainPackage.UIELEMENT__ENABLED:
 				return basicSetEnabled(null, msgs);
 			case DomainPackage.UIELEMENT__FIELDS:
@@ -496,8 +471,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return getClassifiers();
 			case DomainPackage.UIELEMENT__ORDER:
 				return getOrder();
-			case DomainPackage.UIELEMENT__TRIGGERS:
-				return getTriggers();
 			case DomainPackage.UIELEMENT__ENABLED:
 				return getEnabled();
 			case DomainPackage.UIELEMENT__FIELDS:
@@ -532,10 +505,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return;
 			case DomainPackage.UIELEMENT__ORDER:
 				setOrder((Integer)newValue);
-				return;
-			case DomainPackage.UIELEMENT__TRIGGERS:
-				getTriggers().clear();
-				getTriggers().addAll((Collection<? extends ActionTrigger>)newValue);
 				return;
 			case DomainPackage.UIELEMENT__ENABLED:
 				setEnabled((Context)newValue);
@@ -578,9 +547,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 			case DomainPackage.UIELEMENT__ORDER:
 				setOrder(ORDER_EDEFAULT);
 				return;
-			case DomainPackage.UIELEMENT__TRIGGERS:
-				getTriggers().clear();
-				return;
 			case DomainPackage.UIELEMENT__ENABLED:
 				setEnabled((Context)null);
 				return;
@@ -617,8 +583,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return classifiers != null && !classifiers.isEmpty();
 			case DomainPackage.UIELEMENT__ORDER:
 				return order != ORDER_EDEFAULT;
-			case DomainPackage.UIELEMENT__TRIGGERS:
-				return triggers != null && !triggers.isEmpty();
 			case DomainPackage.UIELEMENT__ENABLED:
 				return enabled != null;
 			case DomainPackage.UIELEMENT__FIELDS:
@@ -660,12 +624,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				default: return -1;
 			}
 		}
-		if (baseClass == ActioinTriggers.class) {
-			switch (derivedFeatureID) {
-				case DomainPackage.UIELEMENT__TRIGGERS: return DomainPackage.ACTIOIN_TRIGGERS__TRIGGERS;
-				default: return -1;
-			}
-		}
 		if (baseClass == EnabledUIItem.class) {
 			switch (derivedFeatureID) {
 				case DomainPackage.UIELEMENT__ENABLED: return DomainPackage.ENABLED_UI_ITEM__ENABLED;
@@ -703,12 +661,6 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.ORDERABLE__ORDER: return DomainPackage.UIELEMENT__ORDER;
-				default: return -1;
-			}
-		}
-		if (baseClass == ActioinTriggers.class) {
-			switch (baseFeatureID) {
-				case DomainPackage.ACTIOIN_TRIGGERS__TRIGGERS: return DomainPackage.UIELEMENT__TRIGGERS;
 				default: return -1;
 			}
 		}

@@ -880,16 +880,6 @@ public class ControlsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CONTROLS__ANY,
-				 DomainFactory.eINSTANCE.createActioinTriggers()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.CONTROLS__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.CONTROLS__ANY,
 				 DomainFactory.eINSTANCE.createEnabledUIItem()));
 
 		newChildDescriptors.add

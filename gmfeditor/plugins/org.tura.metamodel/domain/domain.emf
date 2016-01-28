@@ -869,7 +869,7 @@ class ViewElement extends StyleElement, Categorized,NickNamed {
 
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
-class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,Categorized, ActioinTriggers,FlexFields {
+class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,Categorized, FlexFields {
    attr boolean modal;
 }
 
@@ -1044,22 +1044,12 @@ class FlexFields {
 class FlexField extends Context , Categorized{
 }
 
-class ActioinTriggers {
-    val ActionTrigger[*] triggers;
-}
-
-class ActionTrigger extends Trigger , Categorized{
-    id attr EString uid;
-}
-
-
-
 
 class EnabledUIItem{
     val Context enabled;
 }
 
-class Uielement extends StyleElement,NickNamed,Categorized, Orderable, ActioinTriggers,EnabledUIItem,FlexFields{
+class Uielement extends StyleElement,NickNamed,Categorized, Orderable, EnabledUIItem,FlexFields{
     id attr EString uid;
     val Context required;
     val Context readOnly;

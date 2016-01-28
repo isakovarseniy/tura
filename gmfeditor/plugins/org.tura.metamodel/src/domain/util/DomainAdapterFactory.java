@@ -776,14 +776,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createFlexFieldAdapter();
 			}
 			@Override
-			public Adapter caseActioinTriggers(ActioinTriggers object) {
-				return createActioinTriggersAdapter();
-			}
-			@Override
-			public Adapter caseActionTrigger(ActionTrigger object) {
-				return createActionTriggerAdapter();
-			}
-			@Override
 			public Adapter caseEnabledUIItem(EnabledUIItem object) {
 				return createEnabledUIItemAdapter();
 			}
@@ -2820,34 +2812,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFlexFieldAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link domain.ActioinTriggers <em>Actioin Triggers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see domain.ActioinTriggers
-	 * @generated
-	 */
-	public Adapter createActioinTriggersAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link domain.ActionTrigger <em>Action Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see domain.ActionTrigger
-	 * @generated
-	 */
-	public Adapter createActionTriggerAdapter() {
 		return null;
 	}
 

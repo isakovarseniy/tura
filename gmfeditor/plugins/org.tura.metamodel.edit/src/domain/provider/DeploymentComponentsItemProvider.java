@@ -843,16 +843,6 @@ public class DeploymentComponentsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
-				 DomainFactory.eINSTANCE.createActioinTriggers()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.DEPLOYMENT_COMPONENTS__ANY,
 				 DomainFactory.eINSTANCE.createEnabledUIItem()));
 
 		newChildDescriptors.add

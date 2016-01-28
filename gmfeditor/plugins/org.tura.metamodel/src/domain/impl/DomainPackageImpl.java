@@ -1115,20 +1115,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass actioinTriggersEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass actionTriggerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass enabledUIItemEClass = null;
 
 	/**
@@ -6319,42 +6305,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getActioinTriggers() {
-		return actioinTriggersEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getActioinTriggers_Triggers() {
-		return (EReference)actioinTriggersEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getActionTrigger() {
-		return actionTriggerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getActionTrigger_Uid() {
-		return (EAttribute)actionTriggerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getEnabledUIItem() {
 		return enabledUIItemEClass;
 	}
@@ -8866,12 +8816,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		flexFieldEClass = createEClass(FLEX_FIELD);
 
-		actioinTriggersEClass = createEClass(ACTIOIN_TRIGGERS);
-		createEReference(actioinTriggersEClass, ACTIOIN_TRIGGERS__TRIGGERS);
-
-		actionTriggerEClass = createEClass(ACTION_TRIGGER);
-		createEAttribute(actionTriggerEClass, ACTION_TRIGGER__UID);
-
 		enabledUIItemEClass = createEClass(ENABLED_UI_ITEM);
 		createEReference(enabledUIItemEClass, ENABLED_UI_ITEM__ENABLED);
 
@@ -9220,7 +9164,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		popupCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
 		popupCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
 		popupCanvasEClass.getESuperTypes().add(this.getCategorized());
-		popupCanvasEClass.getESuperTypes().add(this.getActioinTriggers());
 		popupCanvasEClass.getESuperTypes().add(this.getFlexFields());
 		canvasEClass.getESuperTypes().add(this.getCanvasFrame());
 		canvasEClass.getESuperTypes().add(this.getViewPortHolder());
@@ -9253,13 +9196,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		styleClassEClass.getESuperTypes().add(this.getContextValue());
 		flexFieldEClass.getESuperTypes().add(this.getContext());
 		flexFieldEClass.getESuperTypes().add(this.getCategorized());
-		actionTriggerEClass.getESuperTypes().add(this.getTrigger());
-		actionTriggerEClass.getESuperTypes().add(this.getCategorized());
 		uielementEClass.getESuperTypes().add(this.getStyleElement());
 		uielementEClass.getESuperTypes().add(this.getNickNamed());
 		uielementEClass.getESuperTypes().add(this.getCategorized());
 		uielementEClass.getESuperTypes().add(this.getOrderable());
-		uielementEClass.getESuperTypes().add(this.getActioinTriggers());
 		uielementEClass.getESuperTypes().add(this.getEnabledUIItem());
 		uielementEClass.getESuperTypes().add(this.getFlexFields());
 		sourcesPointerEClass.getESuperTypes().add(this.getUielement());
@@ -9980,12 +9920,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getFlexFields_Fields(), this.getFlexField(), null, "fields", null, 0, -1, FlexFields.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flexFieldEClass, FlexField.class, "FlexField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(actioinTriggersEClass, ActioinTriggers.class, "ActioinTriggers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActioinTriggers_Triggers(), this.getActionTrigger(), null, "triggers", null, 0, -1, ActioinTriggers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(actionTriggerEClass, ActionTrigger.class, "ActionTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getActionTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ActionTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enabledUIItemEClass, EnabledUIItem.class, "EnabledUIItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnabledUIItem_Enabled(), this.getContext(), null, "enabled", null, 0, 1, EnabledUIItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -146,7 +146,6 @@ public class UielementItemProvider extends StyleElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
-			childrenFeatures.add(DomainPackage.Literals.ACTIOIN_TRIGGERS__TRIGGERS);
 			childrenFeatures.add(DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED);
 			childrenFeatures.add(DomainPackage.Literals.FLEX_FIELDS__FIELDS);
 			childrenFeatures.add(DomainPackage.Literals.UIELEMENT__REQUIRED);
@@ -213,7 +212,6 @@ public class UielementItemProvider extends StyleElementItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.UIELEMENT__CLASSIFIERS:
-			case DomainPackage.UIELEMENT__TRIGGERS:
 			case DomainPackage.UIELEMENT__ENABLED:
 			case DomainPackage.UIELEMENT__FIELDS:
 			case DomainPackage.UIELEMENT__REQUIRED:
@@ -240,11 +238,6 @@ public class UielementItemProvider extends StyleElementItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
 				 DomainFactory.eINSTANCE.createClassifier()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.ACTIOIN_TRIGGERS__TRIGGERS,
-				 DomainFactory.eINSTANCE.createActionTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter
