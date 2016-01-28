@@ -44,36 +44,6 @@ import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
 
 public class Util {
-
-	public static String beanFactoryName = "";
-	public static Object recipe;
-	public static Object ingredient;
-	
-
-	public static void setBeanFactoryName(String name) {
-		beanFactoryName = name;
-	}
-
-	public static String getBeanFactoryName() {
-		return beanFactoryName;
-	}
-
-	public static Object getRecipe() {
-		return recipe;
-	}
-
-	public static void setRecipe(Object recipe) {
-		Util.recipe = recipe;
-	}
-
-	public static Object getIngredient() {
-		return ingredient;
-	}
-
-	public static void setIngredient(Object ingredient) {
-		Util.ingredient = ingredient;
-	}
-
 	public static String bracketRemover(String str) {
 		if (str.length() < 2)
 			return str;

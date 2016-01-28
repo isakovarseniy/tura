@@ -27,8 +27,6 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/m
          hash.put("uipackage",uipackage);
          hash.put("beanFactoryName",util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
          
-         
-         util.setBeanFactoryName(util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
          if (form.datacontrols == null or form.datacontrols.formControl == null)
             continue;
          form.datacontrols.formControl.processRootElement(recipe,ingredient);
