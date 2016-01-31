@@ -976,6 +976,11 @@ public class RolesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ROLES__ANY,
+				 DomainFactory.eINSTANCE.createMenu()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ROLES__ANY,
 				 DomainFactory.eINSTANCE.createTree()));
 
 		newChildDescriptors.add
@@ -1156,6 +1161,16 @@ public class RolesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ROLES__ANY,
+				 DomainFactory.eINSTANCE.createMenuHolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ROLES__ANY,
+				 DomainFactory.eINSTANCE.createMenuExtensionRef()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ROLES__ANY,
 				 DomainFactory.eINSTANCE.createMenuElement()));
 
 		newChildDescriptors.add
@@ -1167,6 +1182,11 @@ public class RolesItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.ROLES__ANY,
 				 DomainFactory.eINSTANCE.createMenuItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ROLES__ANY,
+				 DomainFactory.eINSTANCE.createMenuExtensionPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter

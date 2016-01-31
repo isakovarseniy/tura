@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import menu.diagram.edit.commands.SubMenuToSubmenuCreateCommand;
 import menu.diagram.edit.commands.SubMenuToSubmenuReorientCommand;
+import menu.diagram.edit.parts.MenuExtensionPointEditPart;
 import menu.diagram.edit.parts.MenuFolderMenuFolderMenuElementsCompartmentEditPart;
 import menu.diagram.edit.parts.MenuItemEditPart;
 import menu.diagram.edit.parts.MenuSeparatorEditPart;
@@ -111,6 +112,13 @@ public class MenuFolderItemSemanticEditPolicy extends
 								continue;
 							}
 						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case MenuExtensionPointEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

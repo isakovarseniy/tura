@@ -44,6 +44,7 @@ import canvas.diagram.edit.parts.Image2EditPart;
 import canvas.diagram.edit.parts.InputText2EditPart;
 import canvas.diagram.edit.parts.Label2EditPart;
 import canvas.diagram.edit.parts.LayerHolder2EditPart;
+import canvas.diagram.edit.parts.Menu2EditPart;
 import canvas.diagram.edit.parts.MessageElement2EditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
 import canvas.diagram.edit.parts.Password2EditPart;
@@ -122,6 +123,7 @@ public class ColumnColumnElementCompartmentCanonicalEditPolicy extends
 		case Button2EditPart.VISUAL_ID:
 		case Label2EditPart.VISUAL_ID:
 		case MessageElement2EditPart.VISUAL_ID:
+		case Menu2EditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

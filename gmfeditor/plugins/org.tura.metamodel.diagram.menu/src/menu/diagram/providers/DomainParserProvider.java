@@ -3,6 +3,7 @@
  */
 package menu.diagram.providers;
 
+import menu.diagram.edit.parts.MenuExtensionPointNameEditPart;
 import menu.diagram.edit.parts.MenuFolderNameEditPart;
 import menu.diagram.edit.parts.MenuItemNameEditPart;
 import menu.diagram.edit.parts.MenuSeparatorNameEditPart;
@@ -88,6 +89,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser menuExtensionPointName_1805006Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMenuExtensionPointName_1805006Parser() {
+		if (menuExtensionPointName_1805006Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMenuElement_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			menuExtensionPointName_1805006Parser = parser;
+		}
+		return menuExtensionPointName_1805006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser menuSeparatorName_1805005Parser;
 
 	/**
@@ -114,6 +133,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getMenuItemName_1805001Parser();
 		case SubMenuNameEditPart.VISUAL_ID:
 			return getSubMenuName_1805004Parser();
+		case MenuExtensionPointNameEditPart.VISUAL_ID:
+			return getMenuExtensionPointName_1805006Parser();
 		case MenuSeparatorNameEditPart.VISUAL_ID:
 			return getMenuSeparatorName_1805005Parser();
 		}

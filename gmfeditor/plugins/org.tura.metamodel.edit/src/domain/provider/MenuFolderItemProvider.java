@@ -48,10 +48,33 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addExtensionRefPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Extension Ref feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExtensionRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MenuExtensionRef_extensionRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuExtensionRef_extensionRef_feature", "_UI_MenuExtensionRef_type"),
+				 DomainPackage.Literals.MENU_EXTENSION_REF__EXTENSION_REF,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -259,6 +282,11 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.MENU_FOLDER__MENU_ELEMENTS,
 				 DomainFactory.eINSTANCE.createMenuItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_FOLDER__MENU_ELEMENTS,
+				 DomainFactory.eINSTANCE.createMenuExtensionPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter

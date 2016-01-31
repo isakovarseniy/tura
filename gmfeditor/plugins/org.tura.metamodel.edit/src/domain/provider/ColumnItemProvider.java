@@ -348,6 +348,11 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.COLUMN__ELEMENT,
+				 DomainFactory.eINSTANCE.createMenu()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.COLUMN__ELEMENT,
 				 DomainFactory.eINSTANCE.createTree()));
 	}
 

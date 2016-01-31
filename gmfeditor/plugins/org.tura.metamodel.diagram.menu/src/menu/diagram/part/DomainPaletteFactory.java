@@ -35,10 +35,11 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Objects1Group_title);
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
-		paletteContainer.add(createMenuFolder1CreationTool());
-		paletteContainer.add(createMenuItem2CreationTool());
-		paletteContainer.add(createMenuSeparator3CreationTool());
-		paletteContainer.add(createSubMenu4CreationTool());
+		paletteContainer.add(createMenuExtensionPoint1CreationTool());
+		paletteContainer.add(createMenuFolder2CreationTool());
+		paletteContainer.add(createMenuItem3CreationTool());
+		paletteContainer.add(createMenuSeparator4CreationTool());
+		paletteContainer.add(createSubMenu5CreationTool());
 		return paletteContainer;
 	}
 
@@ -57,13 +58,29 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createMenuFolder1CreationTool() {
+	private ToolEntry createMenuExtensionPoint1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.MenuFolder1CreationTool_title,
-				Messages.MenuFolder1CreationTool_desc,
+				Messages.MenuExtensionPoint1CreationTool_title,
+				Messages.MenuExtensionPoint1CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.MenuExtensionPoint_1803005));
+		entry.setId("createMenuExtensionPoint1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.MenuExtensionPoint_1803005));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createMenuFolder2CreationTool() {
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.MenuFolder2CreationTool_title,
+				Messages.MenuFolder2CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.MenuFolder_1802001));
-		entry.setId("createMenuFolder1CreationTool"); //$NON-NLS-1$
+		entry.setId("createMenuFolder2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.MenuFolder_1802001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -73,12 +90,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createMenuItem2CreationTool() {
+	private ToolEntry createMenuItem3CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.MenuItem2CreationTool_title,
-				Messages.MenuItem2CreationTool_desc,
+				Messages.MenuItem3CreationTool_title,
+				Messages.MenuItem3CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.MenuItem_1803002));
-		entry.setId("createMenuItem2CreationTool"); //$NON-NLS-1$
+		entry.setId("createMenuItem3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.MenuItem_1803002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -88,13 +105,13 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createMenuSeparator3CreationTool() {
+	private ToolEntry createMenuSeparator4CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.MenuSeparator3CreationTool_title,
-				Messages.MenuSeparator3CreationTool_desc,
+				Messages.MenuSeparator4CreationTool_title,
+				Messages.MenuSeparator4CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.MenuSeparator_1803003));
-		entry.setId("createMenuSeparator3CreationTool"); //$NON-NLS-1$
+		entry.setId("createMenuSeparator4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.MenuSeparator_1803003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -104,12 +121,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSubMenu4CreationTool() {
+	private ToolEntry createSubMenu5CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.SubMenu4CreationTool_title,
-				Messages.SubMenu4CreationTool_desc,
+				Messages.SubMenu5CreationTool_title,
+				Messages.SubMenu5CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.SubMenu_1803004));
-		entry.setId("createSubMenu4CreationTool"); //$NON-NLS-1$
+		entry.setId("createSubMenu5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.SubMenu_1803004));
 		entry.setLargeIcon(entry.getSmallIcon());

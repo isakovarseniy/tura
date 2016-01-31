@@ -46,6 +46,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case SubMenuNameEditPart.VISUAL_ID:
 				return new SubMenuNameEditPart(view);
 
+			case MenuExtensionPointEditPart.VISUAL_ID:
+				return new MenuExtensionPointEditPart(view);
+
+			case MenuExtensionPointNameEditPart.VISUAL_ID:
+				return new MenuExtensionPointNameEditPart(view);
+
 			case MenuSeparatorEditPart.VISUAL_ID:
 				return new MenuSeparatorEditPart(view);
 

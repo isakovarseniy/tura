@@ -26,6 +26,7 @@ import canvas.diagram.edit.commands.Image2CreateCommand;
 import canvas.diagram.edit.commands.InputText2CreateCommand;
 import canvas.diagram.edit.commands.Label2CreateCommand;
 import canvas.diagram.edit.commands.LayerHolder2CreateCommand;
+import canvas.diagram.edit.commands.Menu2CreateCommand;
 import canvas.diagram.edit.commands.MessageElement2CreateCommand;
 import canvas.diagram.edit.commands.OutputText2CreateCommand;
 import canvas.diagram.edit.commands.Password2CreateCommand;
@@ -89,6 +90,9 @@ public class ColumnColumnElementCompartment2ItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.MessageElement_1603035 == req.getElementType()) {
 			return getGEFWrapper(new MessageElement2CreateCommand(req));
+		}
+		if (DomainElementTypes.Menu_1603037 == req.getElementType()) {
+			return getGEFWrapper(new Menu2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

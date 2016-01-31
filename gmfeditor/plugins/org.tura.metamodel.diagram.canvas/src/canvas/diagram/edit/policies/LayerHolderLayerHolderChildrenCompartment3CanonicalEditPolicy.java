@@ -44,6 +44,7 @@ import canvas.diagram.edit.parts.ImageEditPart;
 import canvas.diagram.edit.parts.InputTextEditPart;
 import canvas.diagram.edit.parts.LabelEditPart;
 import canvas.diagram.edit.parts.LayerHolder3EditPart;
+import canvas.diagram.edit.parts.MenuEditPart;
 import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.OutputTextEditPart;
 import canvas.diagram.edit.parts.PasswordEditPart;
@@ -122,6 +123,7 @@ public class LayerHolderLayerHolderChildrenCompartment3CanonicalEditPolicy
 		case ButtonEditPart.VISUAL_ID:
 		case LabelEditPart.VISUAL_ID:
 		case MessageElementEditPart.VISUAL_ID:
+		case MenuEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

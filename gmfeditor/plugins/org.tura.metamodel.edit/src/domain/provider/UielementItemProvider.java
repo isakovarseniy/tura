@@ -62,6 +62,7 @@ public class UielementItemProvider extends StyleElementItemProvider {
 
 			addNicknamePropertyDescriptor(object);
 			addOrderPropertyDescriptor(object);
+			addMenuPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -107,6 +108,28 @@ public class UielementItemProvider extends StyleElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Menu feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMenuPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MenuHolder_menu_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuHolder_menu_feature", "_UI_MenuHolder_type"),
+				 DomainPackage.Literals.MENU_HOLDER__MENU,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

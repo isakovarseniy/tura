@@ -1366,6 +1366,15 @@ public interface DomainFactory extends EFactory {
 	Table createTable();
 
 	/**
+	 * Returns a new object of class '<em>Menu</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu</em>'.
+	 * @generated
+	 */
+	Menu createMenu();
+
+	/**
 	 * Returns a new object of class '<em>Tree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1699,6 +1708,24 @@ public interface DomainFactory extends EFactory {
 	MenuView createMenuView();
 
 	/**
+	 * Returns a new object of class '<em>Menu Holder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu Holder</em>'.
+	 * @generated
+	 */
+	MenuHolder createMenuHolder();
+
+	/**
+	 * Returns a new object of class '<em>Menu Extension Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu Extension Ref</em>'.
+	 * @generated
+	 */
+	MenuExtensionRef createMenuExtensionRef();
+
+	/**
 	 * Returns a new object of class '<em>Menu Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1724,6 +1751,15 @@ public interface DomainFactory extends EFactory {
 	 * @generated
 	 */
 	MenuItem createMenuItem();
+
+	/**
+	 * Returns a new object of class '<em>Menu Extension Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu Extension Point</em>'.
+	 * @generated
+	 */
+	MenuExtensionPoint createMenuExtensionPoint();
 
 	/**
 	 * Returns a new object of class '<em>Sub Menu</em>'.

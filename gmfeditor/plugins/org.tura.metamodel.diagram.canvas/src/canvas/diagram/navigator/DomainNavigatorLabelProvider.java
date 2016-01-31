@@ -60,6 +60,10 @@ import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.LayerHolderEditPart;
 import canvas.diagram.edit.parts.LinkToLabelEditPart;
 import canvas.diagram.edit.parts.LinkToMessageEditPart;
+import canvas.diagram.edit.parts.Menu2EditPart;
+import canvas.diagram.edit.parts.MenuEditPart;
+import canvas.diagram.edit.parts.MenuFakeName2EditPart;
+import canvas.diagram.edit.parts.MenuFakeNameEditPart;
 import canvas.diagram.edit.parts.MessageElement2EditPart;
 import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.MessageElementLabel2EditPart;
@@ -248,6 +252,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case MessageElement2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?MessageElement", DomainElementTypes.MessageElement_1603035); //$NON-NLS-1$
+		case MenuEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Menu", DomainElementTypes.Menu_1603036); //$NON-NLS-1$
+		case Menu2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?Menu", DomainElementTypes.Menu_1603037); //$NON-NLS-1$
 		case LinkToMessageEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?LinkToMessage", DomainElementTypes.LinkToMessage_1604001); //$NON-NLS-1$
@@ -374,6 +384,10 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getMessageElement_1603034Text(view);
 		case MessageElement2EditPart.VISUAL_ID:
 			return getMessageElement_1603035Text(view);
+		case MenuEditPart.VISUAL_ID:
+			return getMenu_1603036Text(view);
+		case Menu2EditPart.VISUAL_ID:
+			return getMenu_1603037Text(view);
 		case LinkToMessageEditPart.VISUAL_ID:
 			return getLinkToMessage_1604001Text(view);
 		case LinkToLabelEditPart.VISUAL_ID:
@@ -862,6 +876,45 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 1605014); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getMenu_1603036Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.Menu_1603036,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry.getType(MenuFakeNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605015); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getMenu_1603037Text(View view) {
+		IParser parser = DomainParserProvider
+				.getParser(DomainElementTypes.Menu_1603037,
+						view.getElement() != null ? view.getElement() : view,
+						DomainVisualIDRegistry
+								.getType(MenuFakeName2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 1605016); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

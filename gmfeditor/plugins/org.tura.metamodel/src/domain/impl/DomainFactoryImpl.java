@@ -120,7 +120,10 @@ import domain.MappingSpecifier;
 import domain.Menu;
 import domain.MenuDefinition;
 import domain.MenuElement;
+import domain.MenuExtensionPoint;
+import domain.MenuExtensionRef;
 import domain.MenuFolder;
+import domain.MenuHolder;
 import domain.MenuItem;
 import domain.MenuSeparator;
 import domain.MenuView;
@@ -414,6 +417,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.BUTTON: return createButton();
 			case DomainPackage.COLUMN: return createColumn();
 			case DomainPackage.TABLE: return createTable();
+			case DomainPackage.MENU: return createMenu();
 			case DomainPackage.TREE: return createTree();
 			case DomainPackage.CONTROLS: return createControls();
 			case DomainPackage.TRIGGER: return createTrigger();
@@ -451,9 +455,12 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.STORAGE: return createStorage();
 			case DomainPackage.SERVER_CLASTER: return createServerClaster();
 			case DomainPackage.MENU_VIEW: return createMenuView();
+			case DomainPackage.MENU_HOLDER: return createMenuHolder();
+			case DomainPackage.MENU_EXTENSION_REF: return createMenuExtensionRef();
 			case DomainPackage.MENU_ELEMENT: return createMenuElement();
 			case DomainPackage.MENU_FOLDER: return createMenuFolder();
 			case DomainPackage.MENU_ITEM: return createMenuItem();
+			case DomainPackage.MENU_EXTENSION_POINT: return createMenuExtensionPoint();
 			case DomainPackage.SUB_MENU: return createSubMenu();
 			case DomainPackage.MENU_SEPARATOR: return createMenuSeparator();
 			default:
@@ -1988,6 +1995,16 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Menu createMenu() {
+		MenuImpl menu = new MenuImpl();
+		return menu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Tree createTree() {
 		TreeImpl tree = new TreeImpl();
 		return tree;
@@ -2358,6 +2375,26 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MenuHolder createMenuHolder() {
+		MenuHolderImpl menuHolder = new MenuHolderImpl();
+		return menuHolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuExtensionRef createMenuExtensionRef() {
+		MenuExtensionRefImpl menuExtensionRef = new MenuExtensionRefImpl();
+		return menuExtensionRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MenuElement createMenuElement() {
 		MenuElementImpl menuElement = new MenuElementImpl();
 		return menuElement;
@@ -2381,6 +2418,16 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public MenuItem createMenuItem() {
 		MenuItemImpl menuItem = new MenuItemImpl();
 		return menuItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuExtensionPoint createMenuExtensionPoint() {
+		MenuExtensionPointImpl menuExtensionPoint = new MenuExtensionPointImpl();
+		return menuExtensionPoint;
 	}
 
 	/**

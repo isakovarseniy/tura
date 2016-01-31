@@ -55,6 +55,8 @@ import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment3EditP
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartmentEditPart;
 import canvas.diagram.edit.parts.LinkToLabelEditPart;
 import canvas.diagram.edit.parts.LinkToMessageEditPart;
+import canvas.diagram.edit.parts.Menu2EditPart;
+import canvas.diagram.edit.parts.MenuEditPart;
 import canvas.diagram.edit.parts.MessageElement2EditPart;
 import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
@@ -224,6 +226,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == MenuEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -309,6 +315,9 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == MessageElement2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == Menu2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -424,6 +433,9 @@ public class DomainDiagramUpdater {
 			if (visualID == MessageElement2EditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 			}
+			if (visualID == Menu2EditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+			}
 		}
 		return result;
 	}
@@ -496,6 +508,10 @@ public class DomainDiagramUpdater {
 				continue;
 			}
 			if (visualID == MessageElementEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == MenuEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -600,6 +616,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == MenuEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -659,6 +679,8 @@ public class DomainDiagramUpdater {
 			return getLabel_1603005ContainedLinks(view);
 		case MessageElementEditPart.VISUAL_ID:
 			return getMessageElement_1603034ContainedLinks(view);
+		case MenuEditPart.VISUAL_ID:
+			return getMenu_1603036ContainedLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015ContainedLinks(view);
 		case Image2EditPart.VISUAL_ID:
@@ -669,6 +691,8 @@ public class DomainDiagramUpdater {
 			return getLabel_1603013ContainedLinks(view);
 		case MessageElement2EditPart.VISUAL_ID:
 			return getMessageElement_1603035ContainedLinks(view);
+		case Menu2EditPart.VISUAL_ID:
+			return getMenu_1603037ContainedLinks(view);
 		case LinkToMessageEditPart.VISUAL_ID:
 			return getLinkToMessage_1604001ContainedLinks(view);
 		case LinkToLabelEditPart.VISUAL_ID:
@@ -730,6 +754,8 @@ public class DomainDiagramUpdater {
 			return getLabel_1603005IncomingLinks(view);
 		case MessageElementEditPart.VISUAL_ID:
 			return getMessageElement_1603034IncomingLinks(view);
+		case MenuEditPart.VISUAL_ID:
+			return getMenu_1603036IncomingLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015IncomingLinks(view);
 		case Image2EditPart.VISUAL_ID:
@@ -740,6 +766,8 @@ public class DomainDiagramUpdater {
 			return getLabel_1603013IncomingLinks(view);
 		case MessageElement2EditPart.VISUAL_ID:
 			return getMessageElement_1603035IncomingLinks(view);
+		case Menu2EditPart.VISUAL_ID:
+			return getMenu_1603037IncomingLinks(view);
 		case LinkToMessageEditPart.VISUAL_ID:
 			return getLinkToMessage_1604001IncomingLinks(view);
 		case LinkToLabelEditPart.VISUAL_ID:
@@ -801,6 +829,8 @@ public class DomainDiagramUpdater {
 			return getLabel_1603005OutgoingLinks(view);
 		case MessageElementEditPart.VISUAL_ID:
 			return getMessageElement_1603034OutgoingLinks(view);
+		case MenuEditPart.VISUAL_ID:
+			return getMenu_1603036OutgoingLinks(view);
 		case CheckBox2EditPart.VISUAL_ID:
 			return getCheckBox_1603015OutgoingLinks(view);
 		case Image2EditPart.VISUAL_ID:
@@ -811,6 +841,8 @@ public class DomainDiagramUpdater {
 			return getLabel_1603013OutgoingLinks(view);
 		case MessageElement2EditPart.VISUAL_ID:
 			return getMessageElement_1603035OutgoingLinks(view);
+		case Menu2EditPart.VISUAL_ID:
+			return getMenu_1603037OutgoingLinks(view);
 		case LinkToMessageEditPart.VISUAL_ID:
 			return getLinkToMessage_1604001OutgoingLinks(view);
 		case LinkToLabelEditPart.VISUAL_ID:
@@ -1018,6 +1050,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMenu_1603036ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getButton_1603017ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -1051,6 +1091,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getMessageElement_1603035ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getMenu_1603037ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -1278,6 +1326,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMenu_1603036IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getButton_1603017IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -1325,6 +1381,14 @@ public class DomainDiagramUpdater {
 		result.addAll(getIncomingTypeModelFacetLinks_LinkToMessage_1604001(
 				modelElement, crossReferences));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getMenu_1603037IncomingLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
@@ -1586,6 +1650,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMenu_1603036OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getButton_1603017OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -1627,6 +1699,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getMessageElement_1603035OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getMenu_1603037OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

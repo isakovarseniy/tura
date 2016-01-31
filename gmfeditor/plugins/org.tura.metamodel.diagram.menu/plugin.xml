@@ -258,7 +258,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Menu"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1802001,1803002,1803004,1803003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="1802001,1803002,1803004,1803005,1803003"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="1804018"/>
       </viewProvider>
    </extension>
@@ -271,13 +271,13 @@
             <method name="getType()" value="Menu"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="1802001,1803002,1803004,1803003"/>
+            <method name="getType()" value="1802001,1803002,1803004,1803005,1803003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="1804018"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="1805003,1805001,1805004,1805005"/>
+            <method name="getType()" value="1805003,1805001,1805004,1805006,1805005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="1807001"/>
@@ -365,6 +365,16 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
+               id="org.tura.metamodel.diagram.menu.MenuExtensionPoint_1803005"
+               name="%metatype.name.MenuExtensionPoint_1803005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="MenuExtensionPoint"
+               edithelper="menu.diagram.edit.helpers.MenuExtensionPointEditHelper">
+            <param name="semanticHint" value="1803005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
                id="org.tura.metamodel.diagram.menu.MenuSeparator_1803003"
                name="%metatype.name.MenuSeparator_1803003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -402,6 +412,7 @@
          <elementType ref="org.tura.metamodel.diagram.menu.MenuFolder_1802001"/>
          <elementType ref="org.tura.metamodel.diagram.menu.MenuItem_1803002"/>
          <elementType ref="org.tura.metamodel.diagram.menu.SubMenu_1803004"/>
+         <elementType ref="org.tura.metamodel.diagram.menu.MenuExtensionPoint_1803005"/>
          <elementType ref="org.tura.metamodel.diagram.menu.MenuSeparator_1803003"/>
          <elementType ref="org.tura.metamodel.diagram.menu.SubMenuToSubmenu_1804018"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>

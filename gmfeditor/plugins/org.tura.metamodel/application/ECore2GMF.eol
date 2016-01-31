@@ -182,6 +182,8 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewPortTrigger');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Window');
 delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MenuExtensionPoint');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MenuFolder');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MenuItem');
@@ -191,6 +193,8 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MenuDefinition');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='SubMenu');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Menu');
 delete tool;
 
 

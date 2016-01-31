@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.tura.metamodel.commons.editparts.HTMLLikeLayout;
+
 import domain.HTMLLayerHolder;
 
 /**
@@ -149,6 +150,9 @@ public class MenuFolderMenuFolderMenuElementsCompartmentEditPart extends
 				return this;
 			}
 			if (type == DomainElementTypes.SubMenu_1803004) {
+				return this;
+			}
+			if (type == DomainElementTypes.MenuExtensionPoint_1803005) {
 				return this;
 			}
 			if (type == DomainElementTypes.MenuSeparator_1803003) {

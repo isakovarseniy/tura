@@ -195,6 +195,9 @@ public class ColumnColumnElementCompartmentEditPart extends
 			if (type == DomainElementTypes.MessageElement_1603035) {
 				return this;
 			}
+			if (type == DomainElementTypes.Menu_1603037) {
+				return this;
+			}
 			return getParent().getTargetEditPart(request);
 		}
 		if (request instanceof CreateUnspecifiedTypeConnectionRequest) {

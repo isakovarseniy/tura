@@ -256,42 +256,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String MenuFolder1CreationTool_title;
+	public static String MenuExtensionPoint1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String MenuFolder1CreationTool_desc;
+	public static String MenuExtensionPoint1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String MenuItem2CreationTool_title;
+	public static String MenuFolder2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String MenuItem2CreationTool_desc;
+	public static String MenuFolder2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String MenuSeparator3CreationTool_title;
+	public static String MenuItem3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String MenuSeparator3CreationTool_desc;
+	public static String MenuItem3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String SubMenu4CreationTool_title;
+	public static String MenuSeparator4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SubMenu4CreationTool_desc;
+	public static String MenuSeparator4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String SubMenu5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SubMenu5CreationTool_desc;
 
 	/**
 	 * @generated

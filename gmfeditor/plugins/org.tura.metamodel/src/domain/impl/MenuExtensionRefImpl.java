@@ -1,0 +1,157 @@
+/**
+ */
+package domain.impl;
+
+import domain.DomainPackage;
+import domain.MenuExtensionPoint;
+import domain.MenuExtensionRef;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Menu Extension Ref</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link domain.impl.MenuExtensionRefImpl#getExtensionRef <em>Extension Ref</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class MenuExtensionRefImpl extends EObjectImpl implements MenuExtensionRef {
+	/**
+	 * The cached value of the '{@link #getExtensionRef() <em>Extension Ref</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExtensionRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected MenuExtensionPoint extensionRef;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuExtensionRefImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return DomainPackage.Literals.MENU_EXTENSION_REF;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuExtensionPoint getExtensionRef() {
+		if (extensionRef != null && extensionRef.eIsProxy()) {
+			InternalEObject oldExtensionRef = (InternalEObject)extensionRef;
+			extensionRef = (MenuExtensionPoint)eResolveProxy(oldExtensionRef);
+			if (extensionRef != oldExtensionRef) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF, oldExtensionRef, extensionRef));
+			}
+		}
+		return extensionRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuExtensionPoint basicGetExtensionRef() {
+		return extensionRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExtensionRef(MenuExtensionPoint newExtensionRef) {
+		MenuExtensionPoint oldExtensionRef = extensionRef;
+		extensionRef = newExtensionRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF, oldExtensionRef, extensionRef));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF:
+				if (resolve) return getExtensionRef();
+				return basicGetExtensionRef();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF:
+				setExtensionRef((MenuExtensionPoint)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF:
+				setExtensionRef((MenuExtensionPoint)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF:
+				return extensionRef != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+} //MenuExtensionRefImpl

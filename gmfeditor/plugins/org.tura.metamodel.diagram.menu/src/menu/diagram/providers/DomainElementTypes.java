@@ -8,6 +8,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import menu.diagram.edit.parts.MenuExtensionPointEditPart;
 import menu.diagram.edit.parts.MenuFolderEditPart;
 import menu.diagram.edit.parts.MenuItemEditPart;
 import menu.diagram.edit.parts.MenuSeparatorEditPart;
@@ -74,6 +75,10 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType MenuExtensionPoint_1803005 = getElementType("org.tura.metamodel.diagram.menu.MenuExtensionPoint_1803005"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType MenuSeparator_1803003 = getElementType("org.tura.metamodel.diagram.menu.MenuSeparator_1803003"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -129,6 +134,9 @@ public class DomainElementTypes {
 
 			elements.put(SubMenu_1803004, DomainPackage.eINSTANCE.getSubMenu());
 
+			elements.put(MenuExtensionPoint_1803005,
+					DomainPackage.eINSTANCE.getMenuExtensionPoint());
+
 			elements.put(MenuSeparator_1803003,
 					DomainPackage.eINSTANCE.getMenuSeparator());
 
@@ -155,6 +163,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(MenuFolder_1802001);
 			KNOWN_ELEMENT_TYPES.add(MenuItem_1803002);
 			KNOWN_ELEMENT_TYPES.add(SubMenu_1803004);
+			KNOWN_ELEMENT_TYPES.add(MenuExtensionPoint_1803005);
 			KNOWN_ELEMENT_TYPES.add(MenuSeparator_1803003);
 			KNOWN_ELEMENT_TYPES.add(SubMenuToSubmenu_1804018);
 		}
@@ -174,6 +183,8 @@ public class DomainElementTypes {
 			return MenuItem_1803002;
 		case SubMenuEditPart.VISUAL_ID:
 			return SubMenu_1803004;
+		case MenuExtensionPointEditPart.VISUAL_ID:
+			return MenuExtensionPoint_1803005;
 		case MenuSeparatorEditPart.VISUAL_ID:
 			return MenuSeparator_1803003;
 		case SubMenuToSubmenuEditPart.VISUAL_ID:

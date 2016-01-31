@@ -1049,7 +1049,7 @@ class EnabledUIItem{
     val Context enabled;
 }
 
-class Uielement extends StyleElement,NickNamed,Categorized, Orderable, EnabledUIItem,FlexFields{
+class Uielement extends StyleElement,NickNamed,Categorized, Orderable, EnabledUIItem,FlexFields,MenuHolder{
     id attr EString uid;
     val Context required;
     val Context readOnly;
@@ -1170,6 +1170,12 @@ class Table extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
    @gmf.compartment
     val Column[*] cols;
 }
+
+@gmf.node(label="fakeName",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/menu.png")
+class Menu extends Uielement{
+    attr EString fakeName;
+}
+
 
 @gmf.node(label="label",tool.small.bundle="org.tura.metamodel.commons",tool.small.path="icons/tree.png")
 class Tree extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
@@ -1475,13 +1481,23 @@ class MenuView{
 }
 
 
+class MenuHolder {
+	ref MenuFolder menu;
+}
+
+class MenuExtensionRef{
+	ref MenuExtensionPoint extensionRef;
+}
+
+
 class MenuElement extends MultiLangLabel,StyleElement,Categorized,EnabledUIItem,Orderable{
     id attr EString uid;
     attr EString name;
 }
 
+
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
-class MenuFolder extends HTMLLayerHolder,EnabledUIItem,Categorized,StyleElement,MultiLangLabel,ItemIcon{
+class MenuFolder extends HTMLLayerHolder,EnabledUIItem,Categorized,StyleElement,MultiLangLabel,ItemIcon,MenuExtensionRef{
     id attr EString uid;
     attr EString name;
    @gmf.compartment
@@ -1492,6 +1508,13 @@ class MenuFolder extends HTMLLayerHolder,EnabledUIItem,Categorized,StyleElement,
 class MenuItem extends MenuElement,ItemIcon{
 	
 }
+
+
+@gmf.node(label="name",border.color="0,0,0",color="59,179,219")
+class MenuExtensionPoint extends MenuElement{
+	
+}
+
 
 @gmf.node(label="name",border.color="0,0,0",color="102,255,255")
 class SubMenu extends MenuElement,ItemIcon{

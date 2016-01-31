@@ -118,7 +118,10 @@ import domain.MappingSpecifier;
 import domain.Menu;
 import domain.MenuDefinition;
 import domain.MenuElement;
+import domain.MenuExtensionPoint;
+import domain.MenuExtensionRef;
 import domain.MenuFolder;
+import domain.MenuHolder;
 import domain.MenuItem;
 import domain.MenuSeparator;
 import domain.MenuView;
@@ -864,6 +867,10 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createTableAdapter();
 			}
 			@Override
+			public Adapter caseMenu(Menu object) {
+				return createMenuAdapter();
+			}
+			@Override
 			public Adapter caseTree(Tree object) {
 				return createTreeAdapter();
 			}
@@ -1012,6 +1019,14 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createMenuViewAdapter();
 			}
 			@Override
+			public Adapter caseMenuHolder(MenuHolder object) {
+				return createMenuHolderAdapter();
+			}
+			@Override
+			public Adapter caseMenuExtensionRef(MenuExtensionRef object) {
+				return createMenuExtensionRefAdapter();
+			}
+			@Override
 			public Adapter caseMenuElement(MenuElement object) {
 				return createMenuElementAdapter();
 			}
@@ -1022,6 +1037,10 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMenuItem(MenuItem object) {
 				return createMenuItemAdapter();
+			}
+			@Override
+			public Adapter caseMenuExtensionPoint(MenuExtensionPoint object) {
+				return createMenuExtensionPointAdapter();
 			}
 			@Override
 			public Adapter caseSubMenu(SubMenu object) {
@@ -3124,6 +3143,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link domain.Menu <em>Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.Menu
+	 * @generated
+	 */
+	public Adapter createMenuAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link domain.Tree <em>Tree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3642,6 +3675,34 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link domain.MenuHolder <em>Menu Holder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.MenuHolder
+	 * @generated
+	 */
+	public Adapter createMenuHolderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.MenuExtensionRef <em>Menu Extension Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.MenuExtensionRef
+	 * @generated
+	 */
+	public Adapter createMenuExtensionRefAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link domain.MenuElement <em>Menu Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3680,6 +3741,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMenuItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.MenuExtensionPoint <em>Menu Extension Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.MenuExtensionPoint
+	 * @generated
+	 */
+	public Adapter createMenuExtensionPointAdapter() {
 		return null;
 	}
 

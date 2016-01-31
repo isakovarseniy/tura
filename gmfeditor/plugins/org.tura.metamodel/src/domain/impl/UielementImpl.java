@@ -24,6 +24,8 @@ import domain.DomainPackage;
 import domain.EnabledUIItem;
 import domain.FlexField;
 import domain.FlexFields;
+import domain.MenuFolder;
+import domain.MenuHolder;
 import domain.NickNamed;
 import domain.Orderable;
 import domain.Uielement;
@@ -56,6 +58,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.UielementImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getFields <em>Fields</em>}</li>
+ *   <li>{@link domain.impl.UielementImpl#getMenu <em>Menu</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link domain.impl.UielementImpl#getReadOnly <em>Read Only</em>}</li>
@@ -135,6 +138,16 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	 * @ordered
 	 */
 	protected EList<FlexField> fields;
+
+	/**
+	 * The cached value of the '{@link #getMenu() <em>Menu</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMenu()
+	 * @generated
+	 * @ordered
+	 */
+	protected MenuFolder menu;
 
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -340,6 +353,44 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MenuFolder getMenu() {
+		if (menu != null && menu.eIsProxy()) {
+			InternalEObject oldMenu = (InternalEObject)menu;
+			menu = (MenuFolder)eResolveProxy(oldMenu);
+			if (menu != oldMenu) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.UIELEMENT__MENU, oldMenu, menu));
+			}
+		}
+		return menu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuFolder basicGetMenu() {
+		return menu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMenu(MenuFolder newMenu) {
+		MenuFolder oldMenu = menu;
+		menu = newMenu;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.UIELEMENT__MENU, oldMenu, menu));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Context getRequired() {
 		return required;
 	}
@@ -475,6 +526,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return getEnabled();
 			case DomainPackage.UIELEMENT__FIELDS:
 				return getFields();
+			case DomainPackage.UIELEMENT__MENU:
+				if (resolve) return getMenu();
+				return basicGetMenu();
 			case DomainPackage.UIELEMENT__UID:
 				return getUid();
 			case DomainPackage.UIELEMENT__REQUIRED:
@@ -512,6 +566,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 			case DomainPackage.UIELEMENT__FIELDS:
 				getFields().clear();
 				getFields().addAll((Collection<? extends FlexField>)newValue);
+				return;
+			case DomainPackage.UIELEMENT__MENU:
+				setMenu((MenuFolder)newValue);
 				return;
 			case DomainPackage.UIELEMENT__UID:
 				setUid((String)newValue);
@@ -553,6 +610,9 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 			case DomainPackage.UIELEMENT__FIELDS:
 				getFields().clear();
 				return;
+			case DomainPackage.UIELEMENT__MENU:
+				setMenu((MenuFolder)null);
+				return;
 			case DomainPackage.UIELEMENT__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -587,6 +647,8 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				return enabled != null;
 			case DomainPackage.UIELEMENT__FIELDS:
 				return fields != null && !fields.isEmpty();
+			case DomainPackage.UIELEMENT__MENU:
+				return menu != null;
 			case DomainPackage.UIELEMENT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.UIELEMENT__REQUIRED:
@@ -636,6 +698,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 				default: return -1;
 			}
 		}
+		if (baseClass == MenuHolder.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.UIELEMENT__MENU: return DomainPackage.MENU_HOLDER__MENU;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -673,6 +741,12 @@ public class UielementImpl extends StyleElementImpl implements Uielement {
 		if (baseClass == FlexFields.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.FLEX_FIELDS__FIELDS: return DomainPackage.UIELEMENT__FIELDS;
+				default: return -1;
+			}
+		}
+		if (baseClass == MenuHolder.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.MENU_HOLDER__MENU: return DomainPackage.UIELEMENT__MENU;
 				default: return -1;
 			}
 		}

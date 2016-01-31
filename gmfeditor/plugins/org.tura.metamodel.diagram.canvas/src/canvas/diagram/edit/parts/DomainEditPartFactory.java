@@ -139,6 +139,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case MessageElementLabelEditPart.VISUAL_ID:
 				return new MessageElementLabelEditPart(view);
 
+			case MenuEditPart.VISUAL_ID:
+				return new MenuEditPart(view);
+
+			case MenuFakeNameEditPart.VISUAL_ID:
+				return new MenuFakeNameEditPart(view);
+
 			case CheckBox2EditPart.VISUAL_ID:
 				return new CheckBox2EditPart(view);
 
@@ -162,6 +168,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case MessageElementLabel2EditPart.VISUAL_ID:
 				return new MessageElementLabel2EditPart(view);
+
+			case Menu2EditPart.VISUAL_ID:
+				return new Menu2EditPart(view);
+
+			case MenuFakeName2EditPart.VISUAL_ID:
+				return new MenuFakeName2EditPart(view);
 
 			case LayerHolderLayerHolderChildrenCompartmentEditPart.VISUAL_ID:
 				return new LayerHolderLayerHolderChildrenCompartmentEditPart(

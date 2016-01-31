@@ -197,6 +197,9 @@ public class LayerHolderLayerHolderChildrenCompartmentEditPart extends
 			if (type == DomainElementTypes.MessageElement_1603034) {
 				return this;
 			}
+			if (type == DomainElementTypes.Menu_1603036) {
+				return this;
+			}
 			return getParent().getTargetEditPart(request);
 		}
 		if (request instanceof CreateUnspecifiedTypeConnectionRequest) {

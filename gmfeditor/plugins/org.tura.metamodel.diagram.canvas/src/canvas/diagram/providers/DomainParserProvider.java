@@ -34,6 +34,8 @@ import canvas.diagram.edit.parts.ColumnLabel2EditPart;
 import canvas.diagram.edit.parts.ColumnLabelEditPart;
 import canvas.diagram.edit.parts.LabelLabel2EditPart;
 import canvas.diagram.edit.parts.LabelLabelEditPart;
+import canvas.diagram.edit.parts.MenuFakeName2EditPart;
+import canvas.diagram.edit.parts.MenuFakeNameEditPart;
 import canvas.diagram.edit.parts.MessageElementLabel2EditPart;
 import canvas.diagram.edit.parts.MessageElementLabelEditPart;
 import canvas.diagram.edit.parts.TableLabel2EditPart;
@@ -197,6 +199,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser menuFakeName_1605015Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMenuFakeName_1605015Parser() {
+		if (menuFakeName_1605015Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMenu_FakeName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			menuFakeName_1605015Parser = parser;
+		}
+		return menuFakeName_1605015Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser buttonLabel_1605006Parser;
 
 	/**
@@ -251,6 +271,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser menuFakeName_1605016Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMenuFakeName_1605016Parser() {
+		if (menuFakeName_1605016Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getMenu_FakeName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			menuFakeName_1605016Parser = parser;
+		}
+		return menuFakeName_1605016Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser buttonLabel_1605009Parser;
 
 	/**
@@ -289,12 +327,16 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getLabelLabel_1605001Parser();
 		case MessageElementLabelEditPart.VISUAL_ID:
 			return getMessageElementLabel_1605013Parser();
+		case MenuFakeNameEditPart.VISUAL_ID:
+			return getMenuFakeName_1605015Parser();
 		case ButtonLabel2EditPart.VISUAL_ID:
 			return getButtonLabel_1605009Parser();
 		case LabelLabel2EditPart.VISUAL_ID:
 			return getLabelLabel_1605002Parser();
 		case MessageElementLabel2EditPart.VISUAL_ID:
 			return getMessageElementLabel_1605014Parser();
+		case MenuFakeName2EditPart.VISUAL_ID:
+			return getMenuFakeName_1605016Parser();
 		}
 		return null;
 	}

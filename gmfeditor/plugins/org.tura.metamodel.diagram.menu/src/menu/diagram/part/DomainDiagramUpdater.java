@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import menu.diagram.edit.parts.MenuExtensionPointEditPart;
 import menu.diagram.edit.parts.MenuFolderEditPart;
 import menu.diagram.edit.parts.MenuFolderMenuFolderMenuElementsCompartmentEditPart;
 import menu.diagram.edit.parts.MenuItemEditPart;
@@ -107,6 +108,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == MenuExtensionPointEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == MenuSeparatorEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -128,6 +133,8 @@ public class DomainDiagramUpdater {
 			return getMenuItem_1803002ContainedLinks(view);
 		case SubMenuEditPart.VISUAL_ID:
 			return getSubMenu_1803004ContainedLinks(view);
+		case MenuExtensionPointEditPart.VISUAL_ID:
+			return getMenuExtensionPoint_1803005ContainedLinks(view);
 		case MenuSeparatorEditPart.VISUAL_ID:
 			return getMenuSeparator_1803003ContainedLinks(view);
 		}
@@ -145,6 +152,8 @@ public class DomainDiagramUpdater {
 			return getMenuItem_1803002IncomingLinks(view);
 		case SubMenuEditPart.VISUAL_ID:
 			return getSubMenu_1803004IncomingLinks(view);
+		case MenuExtensionPointEditPart.VISUAL_ID:
+			return getMenuExtensionPoint_1803005IncomingLinks(view);
 		case MenuSeparatorEditPart.VISUAL_ID:
 			return getMenuSeparator_1803003IncomingLinks(view);
 		}
@@ -162,6 +171,8 @@ public class DomainDiagramUpdater {
 			return getMenuItem_1803002OutgoingLinks(view);
 		case SubMenuEditPart.VISUAL_ID:
 			return getSubMenu_1803004OutgoingLinks(view);
+		case MenuExtensionPointEditPart.VISUAL_ID:
+			return getMenuExtensionPoint_1803005OutgoingLinks(view);
 		case MenuSeparatorEditPart.VISUAL_ID:
 			return getMenuSeparator_1803003OutgoingLinks(view);
 		}
@@ -206,6 +217,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMenuExtensionPoint_1803005ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getMenuSeparator_1803003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -244,6 +263,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getMenuExtensionPoint_1803005IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getMenuSeparator_1803003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -274,6 +301,14 @@ public class DomainDiagramUpdater {
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_SubMenu_ToSubmenu_1804018(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getMenuExtensionPoint_1803005OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**

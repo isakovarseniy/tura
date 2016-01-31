@@ -3488,6 +3488,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.Menu} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuItemProvider menuItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.Menu}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuAdapter() {
+		if (menuItemProvider == null) {
+			menuItemProvider = new MenuItemProvider(this);
+		}
+
+		return menuItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.Tree} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4339,6 +4362,52 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.MenuHolder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuHolderItemProvider menuHolderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.MenuHolder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuHolderAdapter() {
+		if (menuHolderItemProvider == null) {
+			menuHolderItemProvider = new MenuHolderItemProvider(this);
+		}
+
+		return menuHolderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.MenuExtensionRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuExtensionRefItemProvider menuExtensionRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.MenuExtensionRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuExtensionRefAdapter() {
+		if (menuExtensionRefItemProvider == null) {
+			menuExtensionRefItemProvider = new MenuExtensionRefItemProvider(this);
+		}
+
+		return menuExtensionRefItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.MenuElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4405,6 +4474,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		}
 
 		return menuItemItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.MenuExtensionPoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuExtensionPointItemProvider menuExtensionPointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.MenuExtensionPoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuExtensionPointAdapter() {
+		if (menuExtensionPointItemProvider == null) {
+			menuExtensionPointItemProvider = new MenuExtensionPointItemProvider(this);
+		}
+
+		return menuExtensionPointItemProvider;
 	}
 
 	/**
@@ -4700,6 +4792,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (buttonItemProvider != null) buttonItemProvider.dispose();
 		if (columnItemProvider != null) columnItemProvider.dispose();
 		if (tableItemProvider != null) tableItemProvider.dispose();
+		if (menuItemProvider != null) menuItemProvider.dispose();
 		if (treeItemProvider != null) treeItemProvider.dispose();
 		if (controlsItemProvider != null) controlsItemProvider.dispose();
 		if (triggerItemProvider != null) triggerItemProvider.dispose();
@@ -4737,9 +4830,12 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (storageItemProvider != null) storageItemProvider.dispose();
 		if (serverClasterItemProvider != null) serverClasterItemProvider.dispose();
 		if (menuViewItemProvider != null) menuViewItemProvider.dispose();
+		if (menuHolderItemProvider != null) menuHolderItemProvider.dispose();
+		if (menuExtensionRefItemProvider != null) menuExtensionRefItemProvider.dispose();
 		if (menuElementItemProvider != null) menuElementItemProvider.dispose();
 		if (menuFolderItemProvider != null) menuFolderItemProvider.dispose();
 		if (menuItemItemProvider != null) menuItemItemProvider.dispose();
+		if (menuExtensionPointItemProvider != null) menuExtensionPointItemProvider.dispose();
 		if (subMenuItemProvider != null) subMenuItemProvider.dispose();
 		if (menuSeparatorItemProvider != null) menuSeparatorItemProvider.dispose();
 	}

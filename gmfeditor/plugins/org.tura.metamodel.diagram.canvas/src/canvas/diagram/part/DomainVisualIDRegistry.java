@@ -55,6 +55,10 @@ import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartment3EditP
 import canvas.diagram.edit.parts.LayerHolderLayerHolderChildrenCompartmentEditPart;
 import canvas.diagram.edit.parts.LinkToLabelEditPart;
 import canvas.diagram.edit.parts.LinkToMessageEditPart;
+import canvas.diagram.edit.parts.Menu2EditPart;
+import canvas.diagram.edit.parts.MenuEditPart;
+import canvas.diagram.edit.parts.MenuFakeName2EditPart;
+import canvas.diagram.edit.parts.MenuFakeNameEditPart;
 import canvas.diagram.edit.parts.MessageElement2EditPart;
 import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.MessageElementLabel2EditPart;
@@ -245,6 +249,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return MessageElementEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getMenu().isSuperTypeOf(
+					domainElement.eClass())) {
+				return MenuEditPart.VISUAL_ID;
+			}
 			break;
 		case TableTableColsCompartmentEditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getColumn().isSuperTypeOf(
@@ -304,6 +312,10 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getMessageElement().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MessageElement2EditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getMenu().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Menu2EditPart.VISUAL_ID;
 			}
 			break;
 		case TableTableColsCompartment2EditPart.VISUAL_ID:
@@ -371,6 +383,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return MessageElement2EditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getMenu().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Menu2EditPart.VISUAL_ID;
+			}
 			break;
 		case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
 			if (DomainPackage.eINSTANCE.getInputText().isSuperTypeOf(
@@ -424,6 +440,10 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getMessageElement().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MessageElementEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getMenu().isSuperTypeOf(
+					domainElement.eClass())) {
+				return MenuEditPart.VISUAL_ID;
 			}
 			break;
 		case TreeTreeColsCompartment2EditPart.VISUAL_ID:
@@ -484,6 +504,10 @@ public class DomainVisualIDRegistry {
 			if (DomainPackage.eINSTANCE.getMessageElement().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MessageElementEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getMenu().isSuperTypeOf(
+					domainElement.eClass())) {
+				return MenuEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -595,6 +619,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case MenuEditPart.VISUAL_ID:
+			if (MenuFakeNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case Button2EditPart.VISUAL_ID:
 			if (ButtonLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -607,6 +636,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case MessageElement2EditPart.VISUAL_ID:
 			if (MessageElementLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case Menu2EditPart.VISUAL_ID:
+			if (MenuFakeName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -648,6 +682,9 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (MessageElementEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (MenuEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -694,6 +731,9 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (MessageElement2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Menu2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -747,6 +787,9 @@ public class DomainVisualIDRegistry {
 			if (MessageElement2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (Menu2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case LayerHolderLayerHolderChildrenCompartment2EditPart.VISUAL_ID:
 			if (InputTextEditPart.VISUAL_ID == nodeVisualID) {
@@ -786,6 +829,9 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (MessageElementEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (MenuEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -832,6 +878,9 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (MessageElementEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (MenuEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -928,6 +977,8 @@ public class DomainVisualIDRegistry {
 		case Password2EditPart.VISUAL_ID:
 		case MessageElementEditPart.VISUAL_ID:
 		case MessageElement2EditPart.VISUAL_ID:
+		case MenuEditPart.VISUAL_ID:
+		case Menu2EditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

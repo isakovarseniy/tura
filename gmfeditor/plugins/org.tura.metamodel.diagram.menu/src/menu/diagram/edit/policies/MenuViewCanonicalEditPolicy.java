@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import menu.diagram.edit.parts.MenuExtensionPointEditPart;
 import menu.diagram.edit.parts.MenuFolderEditPart;
 import menu.diagram.edit.parts.MenuItemEditPart;
 import menu.diagram.edit.parts.MenuSeparatorEditPart;
@@ -290,6 +291,14 @@ public class MenuViewCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getSubMenu_1803004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case MenuExtensionPointEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getMenuExtensionPoint_1803005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

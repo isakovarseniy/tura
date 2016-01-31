@@ -41,7 +41,7 @@
               href="domain.ecore#//Password"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.12"/>
           <diagramNode
               href="domain.gmfgraph#Password"/>
         </ownedChild>
@@ -55,7 +55,7 @@
               href="domain.ecore#//OutputText"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.11"/>
           <diagramNode
               href="domain.gmfgraph#OutputText"/>
         </ownedChild>
@@ -105,7 +105,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.12"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.13"/>
           <diagramNode
               href="domain.gmfgraph#Table"/>
           <children
@@ -206,8 +206,14 @@
                 <containmentFeature
                     href="domain.ecore#//Column/element"/>
               </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.13/@ownedChild">
+                <containmentFeature
+                    href="domain.ecore#//Column/element"/>
+              </children>
               <compartments
-                  children="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.11 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.12">
+                  children="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.11 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.12 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0/@ownedChild/@children.13">
                 <compartment
                     href="domain.gmfgraph#ColumnElementCompartment"/>
               </compartments>
@@ -237,7 +243,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.13"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.14"/>
           <diagramNode
               href="domain.gmfgraph#Tree"/>
           <children
@@ -345,13 +351,34 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.10"/>
           <diagramNode
               href="domain.gmfgraph#MessageElement"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//ChildrenHolder/children"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//Menu"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#MenuLabel"/>
+            <features
+                href="domain.ecore#//Menu/fakeName"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.9"/>
+          <diagramNode
+              href="domain.gmfgraph#Menu"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.11 //@nodes.0/@ownedChild/@children.12">
+          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.11 //@nodes.0/@ownedChild/@children.12 //@nodes.0/@ownedChild/@children.13">
         <compartment
             href="domain.gmfgraph#LayerHolderChildrenCompartment"/>
       </compartments>

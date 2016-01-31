@@ -10,6 +10,8 @@ import domain.EnabledUIItem;
 import domain.HTMLLayerHolder;
 import domain.ItemIcon;
 import domain.MenuElement;
+import domain.MenuExtensionPoint;
+import domain.MenuExtensionRef;
 import domain.MenuFolder;
 
 import domain.MultiLangLabel;
@@ -43,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.MenuFolderImpl#getStyleClass <em>Style Class</em>}</li>
  *   <li>{@link domain.impl.MenuFolderImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link domain.impl.MenuFolderImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link domain.impl.MenuFolderImpl#getExtensionRef <em>Extension Ref</em>}</li>
  *   <li>{@link domain.impl.MenuFolderImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.MenuFolderImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.MenuFolderImpl#getMenuElements <em>Menu Elements</em>}</li>
@@ -111,6 +114,16 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * @ordered
 	 */
 	protected Context icon;
+
+	/**
+	 * The cached value of the '{@link #getExtensionRef() <em>Extension Ref</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExtensionRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected MenuExtensionPoint extensionRef;
 
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -382,6 +395,44 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MenuExtensionPoint getExtensionRef() {
+		if (extensionRef != null && extensionRef.eIsProxy()) {
+			InternalEObject oldExtensionRef = (InternalEObject)extensionRef;
+			extensionRef = (MenuExtensionPoint)eResolveProxy(oldExtensionRef);
+			if (extensionRef != oldExtensionRef) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.MENU_FOLDER__EXTENSION_REF, oldExtensionRef, extensionRef));
+			}
+		}
+		return extensionRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuExtensionPoint basicGetExtensionRef() {
+		return extensionRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExtensionRef(MenuExtensionPoint newExtensionRef) {
+		MenuExtensionPoint oldExtensionRef = extensionRef;
+		extensionRef = newExtensionRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_FOLDER__EXTENSION_REF, oldExtensionRef, extensionRef));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getUid() {
 		return uid;
 	}
@@ -477,6 +528,9 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return getMultiLangLabel();
 			case DomainPackage.MENU_FOLDER__ICON:
 				return getIcon();
+			case DomainPackage.MENU_FOLDER__EXTENSION_REF:
+				if (resolve) return getExtensionRef();
+				return basicGetExtensionRef();
 			case DomainPackage.MENU_FOLDER__UID:
 				return getUid();
 			case DomainPackage.MENU_FOLDER__NAME:
@@ -515,6 +569,9 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return;
 			case DomainPackage.MENU_FOLDER__ICON:
 				setIcon((Context)newValue);
+				return;
+			case DomainPackage.MENU_FOLDER__EXTENSION_REF:
+				setExtensionRef((MenuExtensionPoint)newValue);
 				return;
 			case DomainPackage.MENU_FOLDER__UID:
 				setUid((String)newValue);
@@ -556,6 +613,9 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 			case DomainPackage.MENU_FOLDER__ICON:
 				setIcon((Context)null);
 				return;
+			case DomainPackage.MENU_FOLDER__EXTENSION_REF:
+				setExtensionRef((MenuExtensionPoint)null);
+				return;
 			case DomainPackage.MENU_FOLDER__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -589,6 +649,8 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return multiLangLabel != null;
 			case DomainPackage.MENU_FOLDER__ICON:
 				return icon != null;
+			case DomainPackage.MENU_FOLDER__EXTENSION_REF:
+				return extensionRef != null;
 			case DomainPackage.MENU_FOLDER__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.MENU_FOLDER__NAME:
@@ -637,6 +699,12 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				default: return -1;
 			}
 		}
+		if (baseClass == MenuExtensionRef.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.MENU_FOLDER__EXTENSION_REF: return DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -675,6 +743,12 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 		if (baseClass == ItemIcon.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.ITEM_ICON__ICON: return DomainPackage.MENU_FOLDER__ICON;
+				default: return -1;
+			}
+		}
+		if (baseClass == MenuExtensionRef.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF: return DomainPackage.MENU_FOLDER__EXTENSION_REF;
 				default: return -1;
 			}
 		}

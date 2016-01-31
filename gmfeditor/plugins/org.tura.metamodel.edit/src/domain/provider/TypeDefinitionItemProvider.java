@@ -989,6 +989,11 @@ public class TypeDefinitionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createMenu()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
 				 DomainFactory.eINSTANCE.createTree()));
 
 		newChildDescriptors.add
@@ -1169,6 +1174,16 @@ public class TypeDefinitionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createMenuHolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createMenuExtensionRef()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
 				 DomainFactory.eINSTANCE.createMenuElement()));
 
 		newChildDescriptors.add
@@ -1180,6 +1195,11 @@ public class TypeDefinitionItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
 				 DomainFactory.eINSTANCE.createMenuItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createMenuExtensionPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter

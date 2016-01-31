@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"
  * @generated
  */
-public interface MenuFolder extends HTMLLayerHolder, EnabledUIItem, Categorized, StyleElement, MultiLangLabel, ItemIcon {
+public interface MenuFolder extends HTMLLayerHolder, EnabledUIItem, Categorized, StyleElement, MultiLangLabel, ItemIcon, MenuExtensionRef {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

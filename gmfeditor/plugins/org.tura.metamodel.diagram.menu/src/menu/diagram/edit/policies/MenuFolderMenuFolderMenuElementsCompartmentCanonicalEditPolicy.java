@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import menu.diagram.edit.parts.MenuExtensionPointEditPart;
 import menu.diagram.edit.parts.MenuItemEditPart;
 import menu.diagram.edit.parts.MenuSeparatorEditPart;
 import menu.diagram.edit.parts.SubMenuEditPart;
@@ -87,9 +88,14 @@ public class MenuFolderMenuFolderMenuElementsCompartmentCanonicalEditPolicy
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
-		return visualID == MenuItemEditPart.VISUAL_ID
-				|| visualID == SubMenuEditPart.VISUAL_ID
-				|| visualID == MenuSeparatorEditPart.VISUAL_ID;
+		switch (visualID) {
+		case MenuItemEditPart.VISUAL_ID:
+		case SubMenuEditPart.VISUAL_ID:
+		case MenuExtensionPointEditPart.VISUAL_ID:
+		case MenuSeparatorEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**

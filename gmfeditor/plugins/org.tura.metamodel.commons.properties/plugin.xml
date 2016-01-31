@@ -1530,6 +1530,11 @@
              id="property.tab.domain.menu.classifier"
              label="Hint"/>    
              
+           <propertyTab
+             category="domain"
+             id="property.tab.domain.menu.extensionpoint"
+             label="Hint"/>                
+             
           </propertyTabs>
        </extension>
 
@@ -1538,6 +1543,17 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.menu">
+
+
+          <propertySection
+               tab="property.tab.domain.menu.extensionpoint"
+               class=" org.tura.metamodel.commons.properties.selections.dropdown.ExtensionPointPropertySelection"
+               id="property.tab.domain.menu.extensionpoint.property">
+ 
+             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+              
+            </propertySection>        
+
 
 
           <propertySection

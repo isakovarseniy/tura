@@ -243,6 +243,11 @@ public class ChildrenHolderItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
+				 DomainFactory.eINSTANCE.createMenu()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CHILDREN_HOLDER__CHILDREN,
 				 DomainFactory.eINSTANCE.createTree()));
 	}
 

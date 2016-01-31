@@ -51,6 +51,8 @@ import canvas.diagram.edit.parts.LayerHolder3EditPart;
 import canvas.diagram.edit.parts.LayerHolderEditPart;
 import canvas.diagram.edit.parts.LinkToLabelEditPart;
 import canvas.diagram.edit.parts.LinkToMessageEditPart;
+import canvas.diagram.edit.parts.Menu2EditPart;
+import canvas.diagram.edit.parts.MenuEditPart;
 import canvas.diagram.edit.parts.MessageElement2EditPart;
 import canvas.diagram.edit.parts.MessageElementEditPart;
 import canvas.diagram.edit.parts.OutputText2EditPart;
@@ -194,6 +196,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Menu_1603036 = getElementType("org.tura.metamodel.diagram.canvas.Menu_1603036"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType Button_1603017 = getElementType("org.tura.metamodel.diagram.canvas.Button_1603017"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -211,6 +218,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType MessageElement_1603035 = getElementType("org.tura.metamodel.diagram.canvas.MessageElement_1603035"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Menu_1603037 = getElementType("org.tura.metamodel.diagram.canvas.Menu_1603037"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -329,6 +341,8 @@ public class DomainElementTypes {
 			elements.put(MessageElement_1603034,
 					DomainPackage.eINSTANCE.getMessageElement());
 
+			elements.put(Menu_1603036, DomainPackage.eINSTANCE.getMenu());
+
 			elements.put(CheckBox_1603015,
 					DomainPackage.eINSTANCE.getCheckBox());
 
@@ -340,6 +354,8 @@ public class DomainElementTypes {
 
 			elements.put(MessageElement_1603035,
 					DomainPackage.eINSTANCE.getMessageElement());
+
+			elements.put(Menu_1603037, DomainPackage.eINSTANCE.getMenu());
 
 			elements.put(LinkToMessage_1604001,
 					DomainPackage.eINSTANCE.getLinkToMessage());
@@ -388,11 +404,13 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Button_1603017);
 			KNOWN_ELEMENT_TYPES.add(Label_1603005);
 			KNOWN_ELEMENT_TYPES.add(MessageElement_1603034);
+			KNOWN_ELEMENT_TYPES.add(Menu_1603036);
 			KNOWN_ELEMENT_TYPES.add(CheckBox_1603015);
 			KNOWN_ELEMENT_TYPES.add(Image_1603030);
 			KNOWN_ELEMENT_TYPES.add(Button_1603023);
 			KNOWN_ELEMENT_TYPES.add(Label_1603013);
 			KNOWN_ELEMENT_TYPES.add(MessageElement_1603035);
+			KNOWN_ELEMENT_TYPES.add(Menu_1603037);
 			KNOWN_ELEMENT_TYPES.add(LinkToMessage_1604001);
 			KNOWN_ELEMENT_TYPES.add(LinkToLabel_1604002);
 		}
@@ -454,6 +472,8 @@ public class DomainElementTypes {
 			return Label_1603005;
 		case MessageElementEditPart.VISUAL_ID:
 			return MessageElement_1603034;
+		case MenuEditPart.VISUAL_ID:
+			return Menu_1603036;
 		case CheckBox2EditPart.VISUAL_ID:
 			return CheckBox_1603015;
 		case Image2EditPart.VISUAL_ID:
@@ -464,6 +484,8 @@ public class DomainElementTypes {
 			return Label_1603013;
 		case MessageElement2EditPart.VISUAL_ID:
 			return MessageElement_1603035;
+		case Menu2EditPart.VISUAL_ID:
+			return Menu_1603037;
 		case LinkToMessageEditPart.VISUAL_ID:
 			return LinkToMessage_1604001;
 		case LinkToLabelEditPart.VISUAL_ID:

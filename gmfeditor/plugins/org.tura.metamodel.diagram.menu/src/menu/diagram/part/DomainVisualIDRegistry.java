@@ -3,6 +3,8 @@
  */
 package menu.diagram.part;
 
+import menu.diagram.edit.parts.MenuExtensionPointEditPart;
+import menu.diagram.edit.parts.MenuExtensionPointNameEditPart;
 import menu.diagram.edit.parts.MenuFolderEditPart;
 import menu.diagram.edit.parts.MenuFolderMenuFolderMenuElementsCompartmentEditPart;
 import menu.diagram.edit.parts.MenuFolderNameEditPart;
@@ -149,6 +151,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return SubMenuEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getMenuExtensionPoint().isSuperTypeOf(
+					domainElement.eClass())) {
+				return MenuExtensionPointEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getMenuSeparator().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MenuSeparatorEditPart.VISUAL_ID;
@@ -203,6 +209,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case MenuExtensionPointEditPart.VISUAL_ID:
+			if (MenuExtensionPointNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case MenuSeparatorEditPart.VISUAL_ID:
 			if (MenuSeparatorNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -213,6 +224,9 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			if (SubMenuEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (MenuExtensionPointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (MenuSeparatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -284,6 +298,7 @@ public class DomainVisualIDRegistry {
 		case MenuItemEditPart.VISUAL_ID:
 		case MenuSeparatorEditPart.VISUAL_ID:
 		case SubMenuEditPart.VISUAL_ID:
+		case MenuExtensionPointEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
