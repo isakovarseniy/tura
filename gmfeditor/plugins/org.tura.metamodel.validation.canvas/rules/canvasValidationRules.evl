@@ -59,4 +59,14 @@ context domain::Table{
 }
 
 
+ context domain::Menu {
+ 
+    constraint HasRef {
 
+      check :  self.menu.isDefined()
+
+      message : 'No menu reference ' + self.eClass().name + ' not allowed'
+
+  }
+  
+}

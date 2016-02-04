@@ -265,6 +265,10 @@ public class QueryHelper {
 
 	}
 
+	
+	
+			
+			
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Collection<domain.DataControl> findMasterControls(domain.Form frm)
 			throws Exception {
@@ -1147,9 +1151,13 @@ public class QueryHelper {
 		}
 	}
 
-	public List<domain.MenuExtensionPoint> findExtensionPoints(
-			domain.MenuExtensionRef ref) {
-
+	
+	
+  public List<domain.MenuFolder> findMenus(domain.Form frm){
+		
+		domain.ApplicationUILayer app = ((domain.UIPackage) (frm.eContainer()))
+				.getParent().getParent();
+	  
 		try {
 
 			@SuppressWarnings("rawtypes")
@@ -1160,7 +1168,66 @@ public class QueryHelper {
 			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
 
 			OCLExpression<EClassifier> query = helper
-					.createQuery("domain::ApplicationUILayer.allInstances()->select(q|q.uid='f8d4b412-d69a-46c7-bf26-2ac0ec31117e')"
+					.createQuery("domain::ApplicationUILayer.allInstances()->select(q|q.uid='"+app.getUid()+"')"
+							+ "            ->collect(v|v.oclAsType(domain::ApplicationUILayer).applicationUIPackages"
+							+ "                  ->collect(w|w.oclAsType(domain::ApplicationUIPackage).uipackage.forms"
+							+ "                         ->collect(f|f.oclAsType(domain::Form).view.view.menus)"
+							+ "                                  ->collect(fl|fl.oclAsType(domain::MenuDefinition).menuView.menuFolders"
+							+ "                                       ->select(mf|mf.oclIsKindOf(domain::MenuFolder)))))"
+							+ "           ->reject(qwe|domain::ApplicationUILayer.allInstances()->select(q|q.uid='"+app.getUid()+"')"
+							+ "                 ->collect(v|v.oclAsType(domain::ApplicationUILayer).applicationUIPackages"
+							+ "                      ->collect(w|w.oclAsType(domain::ApplicationUIPackage).uipackage.forms"
+							+ "                             ->collect(f|f.oclAsType(domain::Form).view.view.menus)"
+							+ "                                     ->collect(fl|fl.oclAsType(domain::MenuDefinition).menuView.menuFolders"
+							+ "                                             ->collect(mf|mf.oclAsType(domain::MenuFolder).menuElements"
+							+ "                                                   ->select(e|e.oclIsKindOf(domain::SubMenu) and e.oclAsType(domain::SubMenu).toSubmenu <> null )"
+							+ "                                                           ->collect(e|e.oclAsType(domain::SubMenu).toSubmenu ) ))))"
+							+ "           ->includes(qwe))");
+			
+			
+			@SuppressWarnings("unchecked")
+			Collection<domain.MenuFolder> map = (Collection<domain.MenuFolder>) ocl
+					.evaluate(frm, query);
+
+			ArrayList<domain.MenuFolder> list = new ArrayList<domain.MenuFolder>();
+
+			if (map.size() != 0) {
+				for (domain.MenuFolder point :  map) {
+					if (point.getName() != null && !point.getName().trim().equals(""))
+						list.add(point);
+				}
+			}
+			return list;
+			
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return new ArrayList<domain.MenuFolder>();
+		}
+
+		
+		
+	}
+	
+	public List<domain.MenuExtensionPoint> findExtensionPoints(
+			domain.MenuExtensionRef ref) {
+
+		domain.Views views = (Views) (((domain.MenuView) (ref.eContainer()))
+				.getParent().eContainer());
+		domain.Form frm = (domain.Form) (views.getParent().eContainer());
+		domain.ApplicationUILayer app = ((domain.UIPackage) (frm.eContainer()))
+				.getParent().getParent();
+		
+		try {
+
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper
+					.createQuery("domain::ApplicationUILayer.allInstances()->select(q|q.uid='"+app.getUid()+"')"
 							+ "          ->collect(v|v.oclAsType(domain::ApplicationUILayer).applicationUIPackages"
 							+ "                ->collect(w|w.oclAsType(domain::ApplicationUIPackage).uipackage.forms"
 							+ "                  ->collect(f|f.oclAsType(domain::Form).view.view.menus)"

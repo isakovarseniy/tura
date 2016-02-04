@@ -31,6 +31,7 @@
 		<module>org.tura.metamodel.diagram.infarastructure</module>
 		<module>org.tura.metamodel.diagram.mapper</module>
 		<module>org.tura.metamodel.diagram.message</module>
+        <module>org.tura.metamodel.diagram.menu/module>
 		<module>org.tura.metamodel.diagram.recipe</module>
 		<module>org.tura.metamodel.diagram.roles</module>
 		<module>org.tura.metamodel.diagram.style</module>
@@ -57,6 +58,7 @@
 		<module>org.tura.metamodel.validation.typedefinition.runtime</module>
 		<module>org.tura.metamodel.validation.typesrepository</module>
 		<module>org.tura.metamodel.validation.uipackage</module>
+		<module>org.tura.metamodel.validation.menu</module>
 		<module>org.tura.metamodel.wizard.generation</module>
 		<module>org.tura.metamodel.wizard.modelmapper</module>
 		<module>org.tura.metamodel.wizard.recipe</module>

@@ -840,6 +840,10 @@
              id="property.tab.domain.canvas.dropdown.inintoption"
              label="Initial option message"/>     
      
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.canvas.uielement.menu"
+             label="Menu"/>         
              
           </propertyTabs>
        </extension>
@@ -849,6 +853,18 @@
       <?gmfgen generated="true"?>   
  
       <propertySections contributorId="org.tura.metamodel.diagram.canvas">
+
+
+          <propertySection
+               tab="property.tab.domain.canvas.uielement.menu"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.MenuPointerPropertySelection"
+               id="property.tab.domain.canvas.uielement.menu.property">
+               
+             <input type="canvas.diagram.edit.parts.MenuEditPart"/>
+              
+            </propertySection>  
+
+
 
 
 
