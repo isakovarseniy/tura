@@ -13985,13 +13985,40 @@ public interface DomainPackage extends EPackage {
 	int MENU_ITEM__ICON = MENU_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ITEM__FIELDS = MENU_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Transition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ITEM__TRANSITION = MENU_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ITEM__REFRESH_AREAS = MENU_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Menu Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ITEM_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 1;
+	int MENU_ITEM_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.MenuExtensionPointImpl <em>Menu Extension Point</em>}' class.
@@ -22067,6 +22094,28 @@ public interface DomainPackage extends EPackage {
 	EClass getMenuItem();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link domain.MenuItem#getTransition <em>Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Transition</em>'.
+	 * @see domain.MenuItem#getTransition()
+	 * @see #getMenuItem()
+	 * @generated
+	 */
+	EReference getMenuItem_Transition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link domain.MenuItem#getRefreshAreas <em>Refresh Areas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Refresh Areas</em>'.
+	 * @see domain.MenuItem#getRefreshAreas()
+	 * @see #getMenuItem()
+	 * @generated
+	 */
+	EReference getMenuItem_RefreshAreas();
+
+	/**
 	 * Returns the meta object for class '{@link domain.MenuExtensionPoint <em>Menu Extension Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28318,6 +28367,22 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MENU_ITEM = eINSTANCE.getMenuItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Transition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_ITEM__TRANSITION = eINSTANCE.getMenuItem_Transition();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Areas</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_ITEM__REFRESH_AREAS = eINSTANCE.getMenuItem_RefreshAreas();
 
 		/**
 		 * The meta object literal for the '{@link domain.impl.MenuExtensionPointImpl <em>Menu Extension Point</em>}' class.

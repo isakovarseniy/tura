@@ -1777,6 +1777,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				T result = caseMenuItem(menuItem);
 				if (result == null) result = caseMenuElement(menuItem);
 				if (result == null) result = caseItemIcon(menuItem);
+				if (result == null) result = caseFlexFields(menuItem);
 				if (result == null) result = caseMultiLangLabel(menuItem);
 				if (result == null) result = caseStyleElement(menuItem);
 				if (result == null) result = caseCategorized(menuItem);

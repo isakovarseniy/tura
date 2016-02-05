@@ -1505,8 +1505,9 @@ class MenuFolder extends HTMLLayerHolder,EnabledUIItem,Categorized,StyleElement,
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="102,153,0")
-class MenuItem extends MenuElement,ItemIcon{
-	
+class MenuItem extends MenuElement,ItemIcon,FlexFields{
+	 val Context transition;
+     val AreaRef[*]  refreshAreas;	 
 }
 
 

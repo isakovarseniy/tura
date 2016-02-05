@@ -62,6 +62,9 @@ public class MenuItemItemProvider extends MenuElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.ITEM_ICON__ICON);
+			childrenFeatures.add(DomainPackage.Literals.FLEX_FIELDS__FIELDS);
+			childrenFeatures.add(DomainPackage.Literals.MENU_ITEM__TRANSITION);
+			childrenFeatures.add(DomainPackage.Literals.MENU_ITEM__REFRESH_AREAS);
 		}
 		return childrenFeatures;
 	}
@@ -118,6 +121,9 @@ public class MenuItemItemProvider extends MenuElementItemProvider {
 
 		switch (notification.getFeatureID(MenuItem.class)) {
 			case DomainPackage.MENU_ITEM__ICON:
+			case DomainPackage.MENU_ITEM__FIELDS:
+			case DomainPackage.MENU_ITEM__TRANSITION:
+			case DomainPackage.MENU_ITEM__REFRESH_AREAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -144,6 +150,26 @@ public class MenuItemItemProvider extends MenuElementItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.ITEM_ICON__ICON,
 				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.FLEX_FIELDS__FIELDS,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_ITEM__TRANSITION,
+				 DomainFactory.eINSTANCE.createContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_ITEM__TRANSITION,
+				 DomainFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_ITEM__REFRESH_AREAS,
+				 DomainFactory.eINSTANCE.createAreaRef()));
 	}
 
 	/**
@@ -161,7 +187,9 @@ public class MenuItemItemProvider extends MenuElementItemProvider {
 			childFeature == DomainPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
 			childFeature == DomainPackage.Literals.STYLE_ELEMENT__STYLE ||
 			childFeature == DomainPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
-			childFeature == DomainPackage.Literals.ITEM_ICON__ICON;
+			childFeature == DomainPackage.Literals.ITEM_ICON__ICON ||
+			childFeature == DomainPackage.Literals.MENU_ITEM__TRANSITION ||
+			childFeature == DomainPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

@@ -2,16 +2,23 @@
  */
 package domain.impl;
 
+import domain.AreaRef;
 import domain.Context;
 import domain.DomainPackage;
+import domain.FlexField;
+import domain.FlexFields;
 import domain.ItemIcon;
 import domain.MenuItem;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +28,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.MenuItemImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link domain.impl.MenuItemImpl#getFields <em>Fields</em>}</li>
+ *   <li>{@link domain.impl.MenuItemImpl#getTransition <em>Transition</em>}</li>
+ *   <li>{@link domain.impl.MenuItemImpl#getRefreshAreas <em>Refresh Areas</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,6 +46,36 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 	 * @ordered
 	 */
 	protected Context icon;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
+
+	/**
+	 * The cached value of the '{@link #getTransition() <em>Transition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransition()
+	 * @generated
+	 * @ordered
+	 */
+	protected Context transition;
+
+	/**
+	 * The cached value of the '{@link #getRefreshAreas() <em>Refresh Areas</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshAreas()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AreaRef> refreshAreas;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,11 +144,84 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, DomainPackage.MENU_ITEM__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Context getTransition() {
+		return transition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTransition(Context newTransition, NotificationChain msgs) {
+		Context oldTransition = transition;
+		transition = newTransition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_ITEM__TRANSITION, oldTransition, newTransition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransition(Context newTransition) {
+		if (newTransition != transition) {
+			NotificationChain msgs = null;
+			if (transition != null)
+				msgs = ((InternalEObject)transition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.MENU_ITEM__TRANSITION, null, msgs);
+			if (newTransition != null)
+				msgs = ((InternalEObject)newTransition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.MENU_ITEM__TRANSITION, null, msgs);
+			msgs = basicSetTransition(newTransition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_ITEM__TRANSITION, newTransition, newTransition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<AreaRef> getRefreshAreas() {
+		if (refreshAreas == null) {
+			refreshAreas = new EObjectContainmentEList<AreaRef>(AreaRef.class, this, DomainPackage.MENU_ITEM__REFRESH_AREAS);
+		}
+		return refreshAreas;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.MENU_ITEM__ICON:
 				return basicSetIcon(null, msgs);
+			case DomainPackage.MENU_ITEM__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
+			case DomainPackage.MENU_ITEM__TRANSITION:
+				return basicSetTransition(null, msgs);
+			case DomainPackage.MENU_ITEM__REFRESH_AREAS:
+				return ((InternalEList<?>)getRefreshAreas()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,6 +236,12 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 		switch (featureID) {
 			case DomainPackage.MENU_ITEM__ICON:
 				return getIcon();
+			case DomainPackage.MENU_ITEM__FIELDS:
+				return getFields();
+			case DomainPackage.MENU_ITEM__TRANSITION:
+				return getTransition();
+			case DomainPackage.MENU_ITEM__REFRESH_AREAS:
+				return getRefreshAreas();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -132,11 +251,23 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.MENU_ITEM__ICON:
 				setIcon((Context)newValue);
+				return;
+			case DomainPackage.MENU_ITEM__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
+				return;
+			case DomainPackage.MENU_ITEM__TRANSITION:
+				setTransition((Context)newValue);
+				return;
+			case DomainPackage.MENU_ITEM__REFRESH_AREAS:
+				getRefreshAreas().clear();
+				getRefreshAreas().addAll((Collection<? extends AreaRef>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -153,6 +284,15 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 			case DomainPackage.MENU_ITEM__ICON:
 				setIcon((Context)null);
 				return;
+			case DomainPackage.MENU_ITEM__FIELDS:
+				getFields().clear();
+				return;
+			case DomainPackage.MENU_ITEM__TRANSITION:
+				setTransition((Context)null);
+				return;
+			case DomainPackage.MENU_ITEM__REFRESH_AREAS:
+				getRefreshAreas().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -167,6 +307,12 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 		switch (featureID) {
 			case DomainPackage.MENU_ITEM__ICON:
 				return icon != null;
+			case DomainPackage.MENU_ITEM__FIELDS:
+				return fields != null && !fields.isEmpty();
+			case DomainPackage.MENU_ITEM__TRANSITION:
+				return transition != null;
+			case DomainPackage.MENU_ITEM__REFRESH_AREAS:
+				return refreshAreas != null && !refreshAreas.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -184,6 +330,12 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.MENU_ITEM__FIELDS: return DomainPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -197,6 +349,12 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 		if (baseClass == ItemIcon.class) {
 			switch (baseFeatureID) {
 				case DomainPackage.ITEM_ICON__ICON: return DomainPackage.MENU_ITEM__ICON;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.FLEX_FIELDS__FIELDS: return DomainPackage.MENU_ITEM__FIELDS;
 				default: return -1;
 			}
 		}

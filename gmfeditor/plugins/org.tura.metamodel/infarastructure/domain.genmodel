@@ -911,7 +911,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MenuFolder/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MenuFolder/menuElements"/>
     </genClasses>
-    <genClasses ecoreClass="domain.ecore#//MenuItem"/>
+    <genClasses ecoreClass="domain.ecore#//MenuItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MenuItem/transition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MenuItem/refreshAreas"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//MenuExtensionPoint"/>
     <genClasses ecoreClass="domain.ecore#//SubMenu">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//SubMenu/toSubmenu"/>

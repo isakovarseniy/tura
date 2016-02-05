@@ -8172,6 +8172,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMenuItem_Transition() {
+		return (EReference)menuItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMenuItem_RefreshAreas() {
+		return (EReference)menuItemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMenuExtensionPoint() {
 		return menuExtensionPointEClass;
 	}
@@ -9178,6 +9196,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEReference(menuFolderEClass, MENU_FOLDER__MENU_ELEMENTS);
 
 		menuItemEClass = createEClass(MENU_ITEM);
+		createEReference(menuItemEClass, MENU_ITEM__TRANSITION);
+		createEReference(menuItemEClass, MENU_ITEM__REFRESH_AREAS);
 
 		menuExtensionPointEClass = createEClass(MENU_EXTENSION_POINT);
 
@@ -9381,6 +9401,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		menuFolderEClass.getESuperTypes().add(this.getMenuExtensionRef());
 		menuItemEClass.getESuperTypes().add(this.getMenuElement());
 		menuItemEClass.getESuperTypes().add(this.getItemIcon());
+		menuItemEClass.getESuperTypes().add(this.getFlexFields());
 		menuExtensionPointEClass.getESuperTypes().add(this.getMenuElement());
 		subMenuEClass.getESuperTypes().add(this.getMenuElement());
 		subMenuEClass.getESuperTypes().add(this.getItemIcon());
@@ -10298,6 +10319,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getMenuFolder_MenuElements(), this.getMenuElement(), null, "menuElements", null, 0, -1, MenuFolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuItemEClass, MenuItem.class, "MenuItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMenuItem_Transition(), this.getContext(), null, "transition", null, 0, 1, MenuItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuItem_RefreshAreas(), this.getAreaRef(), null, "refreshAreas", null, 0, -1, MenuItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuExtensionPointEClass, MenuExtensionPoint.class, "MenuExtensionPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -35,7 +35,7 @@ public class RefreshAreaRow{
 		if ( THIS != null)
 			return THIS;
 		
-		if (ref == null) {
+		if (ref == null && element != null) {
 			return element.getNickname();
 		}
 		else{

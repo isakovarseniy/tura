@@ -1521,6 +1521,14 @@
              id="property.tab.domain.menu.refresh"
              label="Refresh on action"/>
 
+
+
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.menu.flexfields"
+             label="Flex Fields"/>
+
+
           <propertyTab
              category="domain"
              id="property.tab.domain.menu.styleset"
@@ -1551,6 +1559,14 @@
              id="property.tab.domain.menu.extensionpoint"
              label="Hint"/>                
              
+             
+   
+          <propertyTab
+             category="domain"
+             id="property.tab.domain.menu.transition"
+             label="Transition"/>       
+   
+                           
           </propertyTabs>
        </extension>
 
@@ -1562,8 +1578,19 @@
 
 
           <propertySection
+               tab="property.tab.domain.menu.refresh"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.MenuItemOnEventRefreshAreaPropertySelection"
+               id="property.tab.domain.menu.refresh.property">
+ 
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+              
+            </propertySection>        
+
+
+
+          <propertySection
                tab="property.tab.domain.menu.extensionpoint"
-               class=" org.tura.metamodel.commons.properties.selections.dropdown.ExtensionPointPropertySelection"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.ExtensionPointPropertySelection"
                id="property.tab.domain.menu.extensionpoint.property">
  
              <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
@@ -1652,15 +1679,6 @@
  
            </propertySection>      
 
-            <propertySection
-               tab="property.tab.domain.menu.refresh"
-               class="org.tura.metamodel.commons.properties.selections.grid.impl.UielementOnEventRefreshAreaPropertySelection"
-               id="property.tab.domain.menu.refresh.property">
-
-             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
- 
-           </propertySection>        
-
              <propertySection
                tab="property.tab.domain.menu.styleset"
                class="org.tura.metamodel.commons.properties.selections.context.impl.StyleParameterPropertySelection"
@@ -1697,6 +1715,59 @@
 
 
            </propertySection>        
+
+
+             <propertySection
+               tab="property.tab.domain.menu.transition"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.MenuTransitionParameterPropertySelection"
+               id="property.tab.domain.menu.transition.property.string">
+
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+
+           </propertySection>        
+
+             <propertySection
+               tab="property.tab.domain.menu.transition"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.MenuTransitionPropertySelection"
+               id="property.tab.domain.menu.transition.property">
+               
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+
+
+           </propertySection>      
+
+        <propertySection
+               tab="property.tab.domain.menu.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.FlexFieldCategorizedPropertySelection"
+               id="property.tab.domain.menu.flexfields.categorized">
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+            </propertySection>  
+
+           <propertySection
+               tab="property.tab.domain.menu.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.FlexFieldsContextParameterPropertySelection"
+               id="property.tab.domain.menu.flexfields.parameters">
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+            </propertySection>  
+
+           <propertySection
+               tab="property.tab.domain.menu.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.context.impl.FlexFieldValuePropertySelection"
+               id="property.tab.domain.menu.flexfields.value">
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+
+            </propertySection>  
+
+
+           <propertySection
+               tab="property.tab.domain.menu.flexfields"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.FlexFieldsPropertySelection"
+               id="property.tab.domain.menu.flexfields.flexfields">
+             <input type="menu.diagram.edit.parts.MenuItemEditPart"/>
+            </propertySection>  
+
+
+
 
        </propertySections>
   </extension>  
