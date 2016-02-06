@@ -2424,7 +2424,6 @@
     <viewInheritances uid="d9b29c5b-fe57-4406-af05-35158b8356d6" source="99d625cc-2adb-406c-8764-013a88c4df41" target="bb0ce180-9571-48fa-ac07-4f5ea99355eb"/>
     <tabPagesInheritances uid="d985923c-6783-4312-9c35-ba24224932da" source="c77769b5-0b24-4a83-b9ab-8e3635c3d913" target="6fb4cb14-2476-434d-8db9-7d7425982c83"/>
     <tabPagesInheritances uid="c30f4494-be73-42be-af50-ecbb582267f0" source="c77769b5-0b24-4a83-b9ab-8e3635c3d913" target="14993ad6-c07e-4480-bf18-bf8266961109"/>
-    <menus uid="1c704572-28f9-4bd1-abb6-473afdb49bfd" name="шеяше" menuView="5d9abe8a-67c4-4c80-a321-b954d4fafb8c"/>
   </tura.domain:Views>
   <tura.domain:CanvasView uid="2eb3f59e-2044-44ae-86ae-5a2dfd2dd37d"/>
   <tura.domain:DeploymentComponents uid="66e58865-f833-4cf9-9134-fb691096e931"/>
@@ -5035,11 +5034,5 @@
     </baseCanvas>
   </tura.domain:CanvasView>
   <tura.domain:MenuView uid="c9b90da3-dbe8-468c-927d-22d801a6cb14"/>
-  <tura.domain:MenuView uid="5d9abe8a-67c4-4c80-a321-b954d4fafb8c" parent="1c704572-28f9-4bd1-abb6-473afdb49bfd">
-    <menuFolders uid="ec0e719c-1d91-45a4-946e-061e1f7a9662">
-      <menuElements xsi:type="tura.domain:MenuExtensionPoint" uid="e4edb2bc-a455-4173-a23a-e5eef67c0a9b" name="Extension Point 1"/>
-      <menuElements xsi:type="tura.domain:MenuExtensionPoint" order="1" uid="4163d233-bb4d-471d-a564-7f2fc94887a6" name="Ext point 2"/>
-    </menuFolders>
-    <menuFolders extensionRef="4163d233-bb4d-471d-a564-7f2fc94887a6" uid="af2c11b4-5e4e-42ef-a6d9-c47bf4b682e8"/>
-  </tura.domain:MenuView>
+  <tura.domain:MenuView uid="5d9abe8a-67c4-4c80-a321-b954d4fafb8c"/>
 </xmi:XMI>
