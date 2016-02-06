@@ -53,8 +53,11 @@ public abstract class DependentContextParameterPropertySelection extends
 								.getControl())).getTabComposite()
 								.layout(true, true);
 			
-						tableViewer.refresh();
-
+						try{
+						   tableViewer.refresh();
+						}catch(SWTException e){
+							
+						}
 					}
 
 				}

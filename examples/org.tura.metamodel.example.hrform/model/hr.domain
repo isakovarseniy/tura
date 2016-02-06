@@ -2424,6 +2424,7 @@
     <viewInheritances uid="d9b29c5b-fe57-4406-af05-35158b8356d6" source="99d625cc-2adb-406c-8764-013a88c4df41" target="bb0ce180-9571-48fa-ac07-4f5ea99355eb"/>
     <tabPagesInheritances uid="d985923c-6783-4312-9c35-ba24224932da" source="c77769b5-0b24-4a83-b9ab-8e3635c3d913" target="6fb4cb14-2476-434d-8db9-7d7425982c83"/>
     <tabPagesInheritances uid="c30f4494-be73-42be-af50-ecbb582267f0" source="c77769b5-0b24-4a83-b9ab-8e3635c3d913" target="14993ad6-c07e-4480-bf18-bf8266961109"/>
+    <menus uid="7d9c3741-428c-437b-b929-69e64888c05f" name="Main Menu" menuView="398073c7-c262-4280-a12b-14afbb5bd173"/>
   </tura.domain:Views>
   <tura.domain:CanvasView uid="2eb3f59e-2044-44ae-86ae-5a2dfd2dd37d"/>
   <tura.domain:DeploymentComponents uid="66e58865-f833-4cf9-9134-fb691096e931"/>
@@ -2642,6 +2643,10 @@
         <translatioins uid="2fe5b9d0-6f66-4223-a5f3-86e307eab74e" translation="Session expired" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
         <translatioins uid="8484781c-a6ac-4c84-85fe-0a75f6912111" translation="Время вышло" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
+      <messages uid="623769a2-1543-44ff-a2a8-51be55d7053f" name="SUBMENU">
+        <translatioins uid="6af5d120-481a-465c-8d08-10cb7316c872" translation="SubMenu" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="3130ef96-e8d6-464f-9096-e322906816d4" translation="Подменю" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
+      </messages>
     </messageLibraries>
     <messageLibraries uid="0cc922a6-a203-490f-a02e-15d8d1ad5e16" name="Tree 2 tree">
       <classifiers uid="8cd88a2e-b729-4667-8042-7f1f971ffc97" hint="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" details="ISO-8859-1"/>
@@ -2659,6 +2664,10 @@
       <messages uid="af8d602d-98f1-4904-9433-79afaed9becc" name="INITIAL_SELECTION_MESSAGE">
         <translatioins uid="3dd27e1e-2875-4f0e-a2f9-5fdf978c7541" translation="Select one" lang="f7c28876-7cca-4cfa-8704-789e1e7e6adf"/>
         <translatioins uid="a887ead5-c87c-4b23-90c7-a6387bdf0d40" translation="Выберите значение" lang="4f6d7000-d61f-42b4-ad82-2ab56639d804"/>
+      </messages>
+      <messages uid="8b01a33d-e9e6-4c15-9337-69fe5fea8047" name="MAIN_WINDOW_SELECTION">
+        <translatioins uid="7f45e961-ee47-4d93-baf4-e96364c33459" translation="Miscel. elements" lang="f7c28876-7cca-4cfa-8704-789e1e7e6adf"/>
+        <translatioins uid="0f0f8589-f4c4-4c28-a2d5-c8e1e191ecb8" translation="Разные елементы" lang="4f6d7000-d61f-42b4-ad82-2ab56639d804"/>
       </messages>
     </messageLibraries>
     <messageLibraries uid="49f4e2ff-4c28-4b25-b5ed-773bc50ea8ef" name="ErrorPage">
@@ -3057,7 +3066,7 @@
         <style constant="true" value="width:100%"/>
         <children xsi:type="tura.domain:Label" uid="f2ae9ed4-8808-4dd9-9076-2cc2b3d9daab" label="HR controller form">
           <style constant="true" value="font:35px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
-          <multiLangLabel value="Messages.HR Controller.MAIN_WINDOW_LABEL">
+          <multiLangLabel uid="119f19a2-9c48-4900-9d01-385b09941739" value="Messages.HR Controller.MAIN_WINDOW_LABEL">
             <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
             <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
             <expression objRef="f994c763-7bfb-4952-b00f-b730b5d67043" order="2" expressionType="MessageImpl"/>
@@ -5035,4 +5044,93 @@
   </tura.domain:CanvasView>
   <tura.domain:MenuView uid="c9b90da3-dbe8-468c-927d-22d801a6cb14"/>
   <tura.domain:MenuView uid="5d9abe8a-67c4-4c80-a321-b954d4fafb8c"/>
+  <tura.domain:MenuView uid="398073c7-c262-4280-a12b-14afbb5bd173" parent="7d9c3741-428c-437b-b929-69e64888c05f">
+    <menuFolders extensionRef="ff723651-27ba-4b6e-b6cb-85797968162f" uid="7b4eed85-00ba-4a41-a450-c10a6d8fb893" name="Global menu">
+      <multiLangLabel uid="46ca7d92-744e-4da5-9e04-30fc1d5fcd37"/>
+      <menuElements xsi:type="tura.domain:MenuItem" uid="44dab1b7-28ef-461b-84db-52b920d26ff4" name="HrController form">
+        <multiLangLabel uid="b36cc9e3-3e0d-4653-b1dd-7f25eabb6846" value="Messages.HR Controller.MAIN_WINDOW_LABEL">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="f994c763-7bfb-4952-b00f-b730b5d67043" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+        <transition value="Windows.HR application.Hr manager.HR controller.HR Controller">
+          <expression objRef="28e10ed5-f6cf-4b06-896c-fd5c9bc2c8e2" expressionType="DomainApplicationsImpl"/>
+          <expression objRef="/0/@domainApplications/@applications.0" order="1" expressionType="DomainApplicationImpl"/>
+          <expression objRef="c65cfe9e-8e33-4160-beef-4a3a96d5b2c1" order="2" expressionType="ApplicationUIPackageImpl"/>
+          <expression objRef="7f769667-17ea-4c7f-8d81-c68b9cccd8ff" order="3" expressionType="FormImpl"/>
+          <expression objRef="7d1cb326-89e4-4280-9b72-567945d73b6f" order="4" expressionType="WindowImpl"/>
+        </transition>
+      </menuElements>
+      <menuElements xsi:type="tura.domain:MenuItem" order="1" uid="db62f5c6-8425-4c4a-aac1-bd24efb529bb" name="Tree2tree">
+        <multiLangLabel uid="959c58e9-c5fe-4810-b17f-00452dc40fb8" value="Messages.Tree 2 tree.MAIN_WINDOW_LABEL">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="0cc922a6-a203-490f-a02e-15d8d1ad5e16" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="e1afc867-8537-4c8d-bcd7-c50f39e6807c" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+        <transition value="Windows.HR application.Hr manager.Tree2tree.Tree 2 tree relations">
+          <expression objRef="28e10ed5-f6cf-4b06-896c-fd5c9bc2c8e2" expressionType="DomainApplicationsImpl"/>
+          <expression objRef="/0/@domainApplications/@applications.0" order="1" expressionType="DomainApplicationImpl"/>
+          <expression objRef="c65cfe9e-8e33-4160-beef-4a3a96d5b2c1" order="2" expressionType="ApplicationUIPackageImpl"/>
+          <expression objRef="6e2f11ed-d297-43d0-8343-f8235b46df8c" order="3" expressionType="FormImpl"/>
+          <expression objRef="d538b88e-b767-4aad-9825-3a03f4417029" order="4" expressionType="WindowImpl"/>
+        </transition>
+      </menuElements>
+      <menuElements xsi:type="tura.domain:MenuItem" order="2" uid="cf55ef2f-31bc-447d-adfe-9d22d187c68e" name="MiscElements">
+        <multiLangLabel uid="899bd547-6d57-4c5d-8de2-f60aba05dc6f" value="Messages.Misc.MAIN_WINDOW_SELECTION">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="35165706-afd8-4c17-9235-7fb0e4e4511f" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="8b01a33d-e9e6-4c15-9337-69fe5fea8047" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+        <transition value="Windows.HR application.Hr manager.MiscElements.MiscElements window">
+          <expression objRef="28e10ed5-f6cf-4b06-896c-fd5c9bc2c8e2" expressionType="DomainApplicationsImpl"/>
+          <expression objRef="/0/@domainApplications/@applications.0" order="1" expressionType="DomainApplicationImpl"/>
+          <expression objRef="c65cfe9e-8e33-4160-beef-4a3a96d5b2c1" order="2" expressionType="ApplicationUIPackageImpl"/>
+          <expression objRef="360f3368-6d95-4aaa-8a5d-95b2709639af" order="3" expressionType="FormImpl"/>
+          <expression objRef="de846076-28b5-4308-96a9-4256a45141e4" order="4" expressionType="WindowImpl"/>
+        </transition>
+      </menuElements>
+    </menuFolders>
+    <menuFolders extensionRef="0806b8bf-6c92-4b64-9020-cdfda9136736" uid="7d7f88e4-a560-4b2e-afcb-47f75b5f3cfa" name="Form menu">
+      <multiLangLabel uid="b0c7189d-95ee-4c38-932e-44906a4de742"/>
+      <menuElements xsi:type="tura.domain:MenuItem" uid="3cda5f39-54e6-4289-a22f-26887c720d52" name="Save">
+        <multiLangLabel uid="17952698-2a57-4b74-b204-302316c92f0e" value="Messages.HR Controller.SAVE_BUTTON"/>
+        <fields uid="da5954df-9d07-40c5-bde7-e4757de00834" value="Packages.HR package.HR package::Action executor.saveApplication()">
+          <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+          <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
+          <expression objRef="c4654ad8-156f-4706-bda2-791ed81fcdea" order="2" expressionType="TypeImpl"/>
+          <expression objRef="bf119b85-c597-4642-8522-b51b95e9c7b8" order="3" expressionType="OperationImpl"/>
+        </fields>
+        <transition/>
+      </menuElements>
+      <menuElements xsi:type="tura.domain:MenuSeparator" order="1" uid="8f1e1b16-2d6e-4793-b16b-78ee64fbea1a" name="Separator"/>
+      <menuElements xsi:type="tura.domain:SubMenu" order="2" uid="304be31d-97f6-4699-b9f8-5d86fa798c59" name="Sub menu" toSubmenu="3affd7e5-2d55-4931-a5f7-82e70f7208f4">
+        <multiLangLabel uid="8b1e3863-21b8-4b51-9433-037aee8b685f" value="Messages.HR Controller.SUBMENU">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="623769a2-1543-44ff-a2a8-51be55d7053f" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+      </menuElements>
+    </menuFolders>
+    <menuFolders uid="3affd7e5-2d55-4931-a5f7-82e70f7208f4" name="SubMenu">
+      <multiLangLabel uid="8f50731f-b0ba-4dfb-95c4-5996143ca5b9"/>
+      <menuElements xsi:type="tura.domain:MenuItem" uid="c3cd0c84-6f2e-46b2-8297-c12e55566da5" name="Rallback">
+        <multiLangLabel uid="25397444-82cc-4ad7-87f8-cab8a687e0bf" value="Messages.HR Controller.RALLBACK_BUTTON">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="05b18ec6-8d14-4eb6-82ca-6cc37735bd2a" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+        <fields uid="04847786-178a-47a9-a938-cebf3125e2a5" value="Packages.HR package.HR package::Action executor.rallbackApplication()">
+          <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+          <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
+          <expression objRef="c4654ad8-156f-4706-bda2-791ed81fcdea" order="2" expressionType="TypeImpl"/>
+          <expression objRef="f199d2af-fd03-45f9-b34f-3cff9b9b4e56" order="3" expressionType="OperationImpl"/>
+        </fields>
+        <transition/>
+      </menuElements>
+    </menuFolders>
+    <menuFolders uid="a53aecb9-55e1-4ae9-af25-245ae43bedb9" name="Menu">
+      <menuElements xsi:type="tura.domain:MenuExtensionPoint" uid="ff723651-27ba-4b6e-b6cb-85797968162f" name="Glogal Menu"/>
+      <menuElements xsi:type="tura.domain:MenuExtensionPoint" order="1" uid="0806b8bf-6c92-4b64-9020-cdfda9136736" name="Form Menu"/>
+    </menuFolders>
+  </tura.domain:MenuView>
 </xmi:XMI>

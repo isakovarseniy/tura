@@ -1557,7 +1557,7 @@
            <propertyTab
              category="domain"
              id="property.tab.domain.menu.extensionpoint"
-             label="Hint"/>                
+             label="Extension point"/>                
              
              
    

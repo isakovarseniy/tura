@@ -35,7 +35,7 @@ public class MultiLangLabelPropertySelection extends
 					.getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getEnabledUIItem_Enabled(),
+							DomainPackage.eINSTANCE.getMultiLangLabel_MultiLangLabel(),
 							DomainFactory.eINSTANCE.createContext()));
 
 		}
