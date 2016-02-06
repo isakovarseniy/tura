@@ -211,5 +211,37 @@
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>    
 
+      <factory  adaptableType="domain.DomainApplications"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+
+      <factory  adaptableType="domain.DomainApplication"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+
+      <factory  adaptableType="domain.ApplicationUIPackage"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+
+      <factory  adaptableType="domain.Form"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+
+
+     <factory  adaptableType="domain.Window"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+
+
 </extension>
 </plugin>

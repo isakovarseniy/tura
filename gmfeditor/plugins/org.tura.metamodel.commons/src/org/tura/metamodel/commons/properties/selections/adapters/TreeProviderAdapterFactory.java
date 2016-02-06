@@ -49,6 +49,13 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private StyleSetProvider styleSetProvider;
 	private FormVariableProvider formVariableProvider;
 	private FormVariablesProvider formVariablesProvider;
+	private DomainApplicationsProvider domainApplicationsProvider;
+	private DomainApplicationProvider domainApplicationProvider;
+	private ApplicationUIPackageProvider applicationUIPackageProvider;
+	private FormProvider formProvider;
+	private WindowProvider windowProvider;
+	
+	
 	
 
 	@SuppressWarnings({ "rawtypes" })
@@ -124,6 +131,16 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getFormVariablesProvider();
 			if (adaptableObject instanceof domain.FormVariable)
 				return getFormVariableProvider();
+			if (adaptableObject instanceof domain.DomainApplications)
+				return getDomainApplicationsProvider();
+			if (adaptableObject instanceof domain.DomainApplication)
+				return getDomainApplicationProvider();
+			if (adaptableObject instanceof domain.Form)
+				return getFormProvider();
+			if (adaptableObject instanceof domain.ApplicationUIPackage)
+				return getApplicationUIPackageProvider();
+			if (adaptableObject instanceof domain.Window)
+				return getWindowProvider();
 		}
 		return null;
 	}
@@ -320,6 +337,32 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		if (formVariableProvider == null)
 			formVariableProvider = new FormVariableProvider();
 		return formVariableProvider;		
-		
 	}
+	
+	protected DomainApplicationsProvider getDomainApplicationsProvider(){
+		if (domainApplicationsProvider == null)
+			domainApplicationsProvider = new DomainApplicationsProvider();
+		return domainApplicationsProvider;		
+	}
+	protected DomainApplicationProvider getDomainApplicationProvider(){
+		if (domainApplicationProvider == null)
+			domainApplicationProvider = new DomainApplicationProvider();
+		return domainApplicationProvider;		
+	}
+	protected FormProvider getFormProvider(){
+		if (formProvider == null)
+			formProvider = new FormProvider();
+		return formProvider;		
+	}
+	protected ApplicationUIPackageProvider getApplicationUIPackageProvider(){
+		if (applicationUIPackageProvider == null)
+			applicationUIPackageProvider = new ApplicationUIPackageProvider();
+		return applicationUIPackageProvider;		
+	}
+	protected WindowProvider getWindowProvider(){
+		if (windowProvider == null)
+			windowProvider = new WindowProvider();
+		return windowProvider;		
+	}
+	
 }

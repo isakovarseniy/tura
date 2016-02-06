@@ -15,6 +15,7 @@ package org.tura.metamodel.commons.properties.selections.context.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.SWTException;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyComposite;
 import org.tura.metamodel.commons.properties.selections.grid.impl.ContextParameterPropertySelection;
@@ -66,14 +67,22 @@ public abstract class DependentContextParameterPropertySelection extends
 
 	private void enableParametersEntry() {
 		domain.ContextValue cnt = (ContextValue) getModel();
-		this.table.setVisible(false);
+		try{
+		  this.table.setVisible(false);
+		}catch( SWTException e){
+			
+		}
 		if (!cnt.isConstant()) {
 			if (cnt.getExpression() != null && cnt.getExpression().size() != 0) {
 				domain.ExpressionPart eobj = cnt.getExpression().get(
 						cnt.getExpression().size() - 1);
 				if (eobj.getObjRef() != null
 						&& eobj.getObjRef() instanceof domain.Operation) {
-					this.table.setVisible(true);
+					try{
+					 this.table.setVisible(true);
+					}catch( SWTException e){
+						
+					}
 				}
 			}
 		}

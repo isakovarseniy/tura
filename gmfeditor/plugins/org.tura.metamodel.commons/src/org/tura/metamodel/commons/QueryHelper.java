@@ -37,6 +37,7 @@ import domain.Form;
 import domain.Parameter;
 import domain.Type;
 import domain.Types;
+import domain.UIPackage;
 import domain.Views;
 
 public class QueryHelper {
@@ -222,6 +223,14 @@ public class QueryHelper {
 		return frm.getDatacontrols().getFormControl().getRoot();
 	}
 
+	
+	public Object getDomainApplications(DiagramImpl root)  {
+		domain.Form frm = getForm(root);
+	    domain.UIPackage pkg = (UIPackage) frm.eContainer();
+	    return pkg.getParent().getParent().getParent().getParent().getParent();
+	}
+	
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Collection<TreeDataControl> findTreeRootControls(domain.Form frm)
 			throws Exception {

@@ -65,6 +65,12 @@ public abstract class AbstractStringPropertySelection extends ContextPropertySel
 			rootOfTree.addChild(obj);
 		}
 
+		obj = new QueryHelper().getDomainApplications(root);
+		if (obj != null) {
+			rootOfTree.addChild(obj);
+		}
+		
+		
 		return rootOfTree;
 	}
 
