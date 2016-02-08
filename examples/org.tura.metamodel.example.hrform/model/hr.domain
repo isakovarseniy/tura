@@ -1964,6 +1964,7 @@
       <hints uid="b64730f5-e159-4660-9bf8-c129197c1385" name="exception.type.handler"/>
       <hints uid="0473475f-11cf-4b5f-83ce-f1eb713469e4" name="separate.form"/>
       <hints uid="14bcc8aa-dc70-4c85-a62d-46e141770cd2" name="exception.code.handler"/>
+      <hints uid="68d2eab4-91b1-4b55-ac87-b21bd87f1a00" name="menu.global"/>
     </artifacts>
     <artifacts uid="297535b2-a50c-411c-9014-4d739432685b" name="Primefaces">
       <hints uid="21d9dc34-d2cb-4b87-ab39-94afefd6765c" name="row number selector"/>
@@ -5129,7 +5130,9 @@
       </menuElements>
     </menuFolders>
     <menuFolders uid="a53aecb9-55e1-4ae9-af25-245ae43bedb9" name="Menu">
-      <menuElements xsi:type="tura.domain:MenuExtensionPoint" uid="ff723651-27ba-4b6e-b6cb-85797968162f" name="Glogal Menu"/>
+      <menuElements xsi:type="tura.domain:MenuExtensionPoint" uid="ff723651-27ba-4b6e-b6cb-85797968162f" name="Glogal Menu">
+        <classifiers uid="b005ec51-502e-42c0-a683-ced1e056cfc0" hint="68d2eab4-91b1-4b55-ac87-b21bd87f1a00"/>
+      </menuElements>
       <menuElements xsi:type="tura.domain:MenuExtensionPoint" order="1" uid="0806b8bf-6c92-4b64-9020-cdfda9136736" name="Form Menu"/>
     </menuFolders>
   </tura.domain:MenuView>

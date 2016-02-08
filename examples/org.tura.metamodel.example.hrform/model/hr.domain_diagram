@@ -5257,6 +5257,13 @@
           <element xmi:type="tura.domain:GenerationHint" href="hr.domain#14bcc8aa-dc70-4c85-a62d-46e141770cd2"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gw8Xg7QXEeWDWcjAOmbPnw"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_BuvyAM4GEeWSTZOLkZxGFg" type="703006">
+          <children xmi:type="notation:DecorationNode" xmi:id="_Bu-bgM4GEeWSTZOLkZxGFg" type="705007"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_BuvyAc4GEeWSTZOLkZxGFg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_BuvyAs4GEeWSTZOLkZxGFg" fontName=".Helvetica Neue DeskInterface"/>
+          <element xmi:type="tura.domain:GenerationHint" href="hr.domain#68d2eab4-91b1-4b55-ac87-b21bd87f1a00"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BuvyA84GEeWSTZOLkZxGFg"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_MFPny7fgEeSgNOvTzdQqew"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_MFPnzLfgEeSgNOvTzdQqew"/>
       </children>
