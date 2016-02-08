@@ -1,0 +1,133 @@
+[%@template
+operation   menuGenerator(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var component = hash.get("component");
+     var form = hash.get("form");
+     var  javaPath =  hash.get("javaPath");  
+     var uipackage = hash.get("uipackage");
+     
+     for (menuDefinition in form.view.view.menus){
+        for (menu in menuDefinition.menuView.menuFolders){
+           for (item in menu.menuElements->select(q|q.isKindOf(domain::SubMenu)) ){
+             item.toSubmenu.~submenu=true;
+           }
+       }
+      }  
+     
+     for (menuDefinition in form.view.view.menus){
+        for (menu in menuDefinition.menuView.menuFolders){
+           menu.menuProcessor(hash);
+        }
+    }
+  }
+  
+ @template 
+  operation domain:: MenuFolder menuProcessor(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     var component = hash.get("component");
+     var form = hash.get("form");
+     var  javaPath =  hash.get("javaPath");  
+     var uipackage = hash.get("uipackage");
+
+      var type = "org.primefaces.model.menu.DefaultMenuModel";
+      var addOperation="addElement";
+      if (self.~submenu.isDefined()){
+           type = "org.primefaces.model.menu.DefaultSubMenu";
+      }
+      if (self.extensionRef <> null ){
+           type = "java.util.ArrayList<org.primefaces.model.menu.MenuElement>";
+           addOperation="add";
+      }
+           
+        %]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].menu;
+        
+        public class [%=util.mergeAndCapitalize(self.name)%]Menu{
+           public [%=type%] getMenu(){
+             [%
+               %][%=type%] model = new [%=type%]();
+             [%       if (self.~submenu.isDefined()){ %]  
+               model.setIcon("[%=buildExpression(self.icon,hints,hash)%]");
+             [%}
+                 for (item in self.menuElements){%]
+                   [%=item.addToModel(hash,addOperation)%]
+                [% }
+            %]
+              return model;
+           }
+        
+        }
+ [%       
+        var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
+        out.formatWith(f);
+        util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/menu/"  , util.mergeAndCapitalize(self.name) +"Menu.java",out.toString());  
+  }
+  
+@template  
+  operation domain::MenuItem addToModel(hash,addOperation){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     var update = self.refreshAreas->select(r|r.group > 1);
+     var process = self.refreshAreas->select(r|r.group == 1)->sortBy(q|q.group);
+     
+  %]
+        org.primefaces.model.menu.DefaultMenuItem [%=util.mergeAndUnCapitalize(self.name)%] = new org.primefaces.model.menu.DefaultMenuItem("[%=buildExpression(self.multiLangLabel,hints,hash)%]");
+        [%=util.mergeAndUnCapitalize(self.name)%].setUrl("[%=buildExpression(self.transition,hints,hash)%]");
+        [%=util.mergeAndUnCapitalize(self.name)%].setIcon("[%=buildExpression(self.icon,hints,hash)%]");
+        [%=util.mergeAndUnCapitalize(self.name)%].setUpdate("[%=refreshAriasGroup(update)%]");
+        [%=util.mergeAndUnCapitalize(self.name)%].setProcess("[%=refreshAriasGroup(process)%]");
+   [%
+       for ( field in  self.fields){
+          if (field.classifiers.size() <> 0 )
+            continue;
+           hints.put("actionListener",true); 
+           %] [%=util.mergeAndUnCapitalize(self.name)%].setCommand("[%=buildExpression(field,hints,hash)%]");[%
+           hints.remove("actionListener"); 
+      }   
+   
+   %]
+        model.[%=addOperation%]([%=util.mergeAndUnCapitalize(self.name)%]);
+[%  
+  }
+  
+@template  
+  operation domain::SubMenu addToModel(hash,addOperation){
+     var util = new Native('org.tura.metamodel.commons.Util');
+  %]
+         [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu [%=util.mergeAndUnCapitalize(self.name)%]  = new [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu();
+        model.[%=addOperation%]([%=util.mergeAndUnCapitalize(self.name)%].getMenu());
+[%  
+  }
+  
+
+  operation domain::MenuSeparator addToModel(hash,addOperation){
+       var util = new Native('org.tura.metamodel.commons.Util');
+  %]
+     org.primefaces.model.menu.DefaultSeparator  [%=util.mergeAndUnCapitalize(self.name)%]  = new org.primefaces.model.menu.DefaultSeparator();
+     model.[%=addOperation%]([%=util.mergeAndUnCapitalize(self.name)%]);
+  [%
+ }
+
+@template
+  operation domain::MenuExtensionPoint addToModel(hash,addOperation){
+     var form = hash.get("form");
+     var  javaPath =  hash.get("javaPath");  
+     var uipackage = hash.get("uipackage");
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+
+     if (self.findClassifier('UIGeneration','JSF','menu.global')){%]
+       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = GlobalExtensionPointResolver.find("[%=util.mergeAndCapitalize(self.name)%]","[%=form.name%]","[%=uipackage.name%]","[%=uipackage.parent.name%]");
+     [%  
+     }else{%]
+       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = FormsExtensionPointResolver.find("[%=util.mergeAndCapitalize(self.name)%]","[%=form.name%]","[%=uipackage.name%]");
+     [%
+     }
+  %]
+        for (  org.primefaces.model.menu.MenuElement  item :  [%=util.mergeAndUnCapitalize(self.name)%] )
+           model.[%=addOperation%](item);
+[%  
+  } 
+  
+ %]

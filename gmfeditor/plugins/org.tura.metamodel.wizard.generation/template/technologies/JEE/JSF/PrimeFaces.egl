@@ -28,6 +28,7 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/ActionExecutor.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/ScriptGenerator.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/MenuGenerator.egl";
 
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/styleLibraryElementUtil.eol";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
@@ -40,32 +41,24 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 operation   domain::Uielement  refreshArias() {
    var update = self.refreshAreas->select(r|r.group > 1);
    var process = self.refreshAreas->select(r|r.group == 1)->sortBy(q|q.group);
-
-
-    if (update.size() ==  0 ) return;
-    else{
-     %]update="[%
-      var first = 0;
-      for ( ref in update ){
-         if ( first = 1){
-           %],[% 
-         }
-         %]#{viewmodel.getClientId([%=ref.area.mkuid()%])}[%  
-         first=1;
-      }
-    }%]"[%
-    
-    if (process.size() ==  0 ) return;
-    else{
-     %] process="[%
-      var first = 0;
-      for ( ref in process ){
-         if ( first = 1){
-           %],[% 
-         }
-         %]#{viewmodel.getClientId([%=ref.area.mkuid()%])}[%  
-         first=1;
-      }
-    }%]"[%
+     %]process="[%=refreshAriasGroup(process)%]"  update="[%=refreshAriasGroup(update)%]"[%
 }
+
+@template
+operation refreshAriasGroup(list ){
+    if (list.size() ==  0 ) return;
+    else{
+      var first = 0;
+      for ( ref in list ){
+         if ( first = 1){
+           %],[% 
+         }
+         %]#{viewmodel.getClientId([%=ref.area.mkuid()%])}[%  
+         first=1;
+      }
+    }%]"[%
+
+}
+
+
 %]

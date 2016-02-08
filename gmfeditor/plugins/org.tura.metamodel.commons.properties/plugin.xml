@@ -1608,6 +1608,7 @@
              <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
              <input type="menu.diagram.edit.parts.SubMenuEditPart"/>
              <input type="menu.diagram.edit.parts.MenuSeparatorEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuExtensionPointEditPart"/>
               
             </propertySection>        
 

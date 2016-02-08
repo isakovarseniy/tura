@@ -39,13 +39,14 @@ operation  viewgeneration(hash) {
       var buffer = expproducer.process();
       util.saveFile( javaPath+"/commons/producer/"  , "ExpressionsProducer.java",buffer);  
       
-     var viewporttriggerproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortTriggerProducer.egl",hash,TemplateFactory);
+      var viewporttriggerproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/viewPortTriggerProducer.egl",hash,TemplateFactory);
       viewporttriggerproducer.setFormatter(f);
       var buffer = viewporttriggerproducer.process();
       util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewPortTriggerProducer.java",buffer);  
- 
+
       actionExecutor(hash);
       scriptGenerator(hash);
+      menuGenerator(hash);
 }
 
 @template
