@@ -11,6 +11,14 @@ operation   menuGenerator(hash) {
            for (item in menu.menuElements->select(q|q.isKindOf(domain::SubMenu)) ){
              item.toSubmenu.~submenu=true;
            }
+           if (menu.extensionRef <> null){
+                if (menu.extensionRef.findClassifier('UIGeneration','JSF','menu.global')){
+                   menu.~extpount = 'global';
+                }else{
+                   menu.~extpount = 'form';
+                }
+                
+           }
        }
       }  
      
@@ -29,6 +37,7 @@ operation   menuGenerator(hash) {
      var form = hash.get("form");
      var  javaPath =  hash.get("javaPath");  
      var uipackage = hash.get("uipackage");
+     hash.put("menu",self);
 
       var type = "org.primefaces.model.menu.DefaultMenuModel";
       var addOperation="addElement";
@@ -43,8 +52,18 @@ operation   menuGenerator(hash) {
         %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].menu;
         
-        public class [%=util.mergeAndCapitalize(self.name)%]Menu{
-           public [%=type%] getMenu(){
+[%  if (self.~extpount.isDefined() and self.~extpount = 'global'){%] 
+         [%=globalHeader(hash)%] 
+[%   } %]   
+        public class [%=util.mergeAndCapitalize(self.name)%]Menu  implements java.io.Serializable{
+        
+        	private static final long serialVersionUID = 1L;
+        
+[%  if (self.~extpount.isDefined() and self.~extpount = 'global'){%] 
+         [%=globalConstractor(hash)%] 
+[%   } %]           
+        
+           public [%=type%] getMenu() throws org.tura.platform.datacontrol.commons.TuraException{
              [%
                %][%=type%] model = new [%=type%]();
              [%       if (self.~submenu.isDefined()){ %]  
@@ -115,19 +134,85 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
      var  javaPath =  hash.get("javaPath");  
      var uipackage = hash.get("uipackage");
      var util = new Native('org.tura.metamodel.commons.Util');
+      var application = uipackage.eContainer().parent.parent;
      
 
      if (self.findClassifier('UIGeneration','JSF','menu.global')){%]
-       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = GlobalExtensionPointResolver.find("[%=util.mergeAndCapitalize(self.name)%]","[%=form.name%]","[%=uipackage.name%]","[%=uipackage.parent.name%]");
+       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.GlobalExtensionPointResolver.find("[%=util.mergeAndCapitalize(application.name)%]" , "[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(self.name)%]");
      [%  
      }else{%]
-       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = FormsExtensionPointResolver.find("[%=util.mergeAndCapitalize(self.name)%]","[%=form.name%]","[%=uipackage.name%]");
+       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.FormsExtensionPointResolver.find("[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(self.name)%]");
      [%
      }
   %]
+        if ([%=util.mergeAndUnCapitalize(self.name)%] != null){
         for (  org.primefaces.model.menu.MenuElement  item :  [%=util.mergeAndUnCapitalize(self.name)%] )
            model.[%=addOperation%](item);
+        }   
 [%  
   } 
+@template
+  operation globalHeader(hash){%]
+@javax.enterprise.context.ApplicationScoped
+@org.tura.platform.primefaces.menu.Eager
+  [%
+  }
+  
+@template
+  operation globalConstractor(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var menu=hash.get("menu");
+    
+    var extension = menu.extensionRef;
+    var form = extension.eContainer().eContainer().parent.eContainer().parent.eContainer();
+    var uipackage = form.eContainer().parent;
+    var application = uipackage.eContainer().parent.parent;
+     
+  
+  %]
+  
+  
+  	@javax.inject.Inject
+	private transient java.util.logging.Logger logger;
+  
+	@javax.annotation.PostConstruct
+	public void init() {
+	   String elements[] = new String[] { "[%=util.mergeAndCapitalize(application.name)%]", "[%=util.mergeAndCapitalize(uipackage.name)%]","[%=util.mergeAndCapitalize(form.name)%]" };
+		try {
+			javax.naming.Context ic = new javax.naming.InitialContext();
+			ic = (javax.naming.Context) ic.lookup("java:global");
+			for (String element : elements) {
+				try {
+					ic = ic.createSubcontext(element);
+				} catch (javax.naming.NameAlreadyBoundException e) {
+				}
+			}
+			ic.bind("[%=util.mergeAndCapitalize(extension.name)%]", this);
+		} catch (javax.naming.NamingException e) {
+			logger.info(e.getMessage());
+		}
+	}
+
+	@javax.annotation.PreDestroy
+	public void destroy() {
+		String path = "java:global/[%=util.mergeAndCapitalize(application.name)%]/[%=util.mergeAndCapitalize(uipackage.name)%]/[%=util.mergeAndCapitalize(form.name)%]";
+		try {
+			javax.naming.InitialContext ic = new javax.naming.InitialContext();
+			try {
+				ic.lookup(path);
+				ic.unbind("[%=util.mergeAndCapitalize(extension.name)%]");
+			} catch (javax.naming.NamingException ne) {
+			   logger.info(ne.getMessage());
+			}
+
+		} catch (javax.naming.NamingException e) {
+			logger.info(e.getMessage());
+		}
+
+	}
+  
+  
+  [%
+  }
   
  %]

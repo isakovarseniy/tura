@@ -7,11 +7,13 @@ operation  viewgeneration(hash) {
       var allPorts = new Native('java.util.ArrayList'); 
       var actionTriggers = new Native('java.util.ArrayList'); 
       var scriptTriggers = new Native('java.util.ArrayList'); 
+      var menuReferences = new Native('java.util.ArrayList'); 
       
       var uipackage = hash.get("uipackage");
 
       hash.put("actionTriggers",actionTriggers);
       hash.put("scriptTriggers",scriptTriggers);
+      hash.put("menuReferences",menuReferences);
       
       if (form.view = null or form.view.view = null)
          return;   
@@ -44,9 +46,10 @@ operation  viewgeneration(hash) {
       var buffer = viewporttriggerproducer.process();
       util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "ViewPortTriggerProducer.java",buffer);  
 
+      menuGenerator(hash);
+      menuProvider(hash);
       actionExecutor(hash);
       scriptGenerator(hash);
-      menuGenerator(hash);
 }
 
 @template

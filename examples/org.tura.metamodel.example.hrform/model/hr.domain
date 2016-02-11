@@ -2700,8 +2700,8 @@
   </tura.domain:Messages>
   <tura.domain:CanvasView uid="86803f23-9d44-4ebc-81e9-9a63b4a770ac" parent="e018aa58-2660-4bba-a75d-1674147458e7">
     <baseCanvas nickname="Main window" uid="c5f8ac47-356e-4c17-84db-fcf0a5037ca7">
-      <style/>
-      <children xsi:type="tura.domain:LayerHolder" order="2" uid="cae32081-1631-4110-9d0f-5a5b1cd5e23a" columns="2">
+      <style uid="eacc5a47-0241-4fc6-a214-9398dc382223"/>
+      <children xsi:type="tura.domain:LayerHolder" order="3" uid="cae32081-1631-4110-9d0f-5a5b1cd5e23a" columns="2">
         <style/>
         <styleClass uid="93f1efa6-7a32-4bd2-a137-c1f735a54cf9" value="Application styles.HR styles.HR Controller styles.verticalalign">
           <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -2993,10 +2993,10 @@
           </children>
         </children>
       </children>
-      <children xsi:type="tura.domain:Label" order="3" uid="3782b85e-89bd-4bb0-8c6f-6139d5a672bc" label="Empty label">
+      <children xsi:type="tura.domain:Label" order="4" uid="3782b85e-89bd-4bb0-8c6f-6139d5a672bc" label="Empty label">
         <style/>
       </children>
-      <children xsi:type="tura.domain:Label" order="4" uid="0d7589d8-f994-45c1-a37f-e9c3bd2c34e2" label="Details">
+      <children xsi:type="tura.domain:Label" order="5" uid="0d7589d8-f994-45c1-a37f-e9c3bd2c34e2" label="Details">
         <style constant="true" value="display: inline-block;margin:0px 20px 20px 0px;font:20px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
         <multiLangLabel value="Messages.HR Controller.DETAILS">
           <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
@@ -3004,11 +3004,11 @@
           <expression objRef="56e1bf95-de7b-466e-a335-b0fff00cde17" order="2" expressionType="MessageImpl"/>
         </multiLangLabel>
       </children>
-      <children xsi:type="tura.domain:Label" order="5" uid="f527a86c-8cdb-4a78-bf55-e7cfc3a78ad0" label="Empty label">
+      <children xsi:type="tura.domain:Label" order="6" uid="f527a86c-8cdb-4a78-bf55-e7cfc3a78ad0" label="Empty label">
         <style/>
         <multiLangLabel/>
       </children>
-      <children xsi:type="tura.domain:LayerHolder" order="1" uid="ecbb80f7-e997-4adf-bb0b-9aa8a2e2b0a5" columns="2">
+      <children xsi:type="tura.domain:LayerHolder" order="2" uid="ecbb80f7-e997-4adf-bb0b-9aa8a2e2b0a5" columns="2">
         <style/>
         <styleClass/>
         <children xsi:type="tura.domain:Button" nickname="" uid="1c158a9e-628f-43de-b721-5b4155baa65e" label="Save">
@@ -3063,8 +3063,8 @@
           </icon>
         </children>
       </children>
-      <children xsi:type="tura.domain:LayerHolder" uid="444aabc0-f948-4134-bbff-225bff8a2d36" columns="2">
-        <style constant="true" value="width:100%"/>
+      <children xsi:type="tura.domain:LayerHolder" order="1" uid="444aabc0-f948-4134-bbff-225bff8a2d36" columns="2">
+        <style uid="a2881d36-313d-49e7-97d4-6d7b932cbbde" constant="true" value="width:100%"/>
         <children xsi:type="tura.domain:Label" uid="f2ae9ed4-8808-4dd9-9076-2cc2b3d9daab" label="HR controller form">
           <style constant="true" value="font:35px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
           <multiLangLabel uid="119f19a2-9c48-4900-9d01-385b09941739" value="Messages.HR Controller.MAIN_WINDOW_LABEL">
@@ -3132,6 +3132,10 @@
             </icon>
           </children>
         </children>
+      </children>
+      <children xsi:type="tura.domain:LayerHolder" uid="0d49659c-2bb0-4b6f-91a5-3b3da26b6ee7">
+        <style uid="80f69f44-b405-461a-a29b-23370948b59a"/>
+        <children xsi:type="tura.domain:Menu" menu="a53aecb9-55e1-4ae9-af25-245ae43bedb9" uid="316b3553-0bb6-4080-ab90-f4eae8e386a0" fakeName="Menu"/>
       </children>
     </baseCanvas>
   </tura.domain:CanvasView>

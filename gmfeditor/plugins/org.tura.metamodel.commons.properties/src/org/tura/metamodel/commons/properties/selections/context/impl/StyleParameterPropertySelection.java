@@ -30,7 +30,7 @@ public class StyleParameterPropertySelection extends DependentContextParameterPr
 					.getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getEnabledUIItem_Enabled(),
+							DomainPackage.eINSTANCE.getStyleElement_Style(),
 							DomainFactory.eINSTANCE.createContext()));
 
 		}

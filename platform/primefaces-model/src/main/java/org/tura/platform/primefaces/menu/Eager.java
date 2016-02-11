@@ -19,16 +19,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.hrmanager.tree2tree.datacontrol;
+package org.tura.platform.primefaces.menu;
 
-import org.tura.platform.datacontrol.IDataControl;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 
-public interface IBeanFactory {
-    public String TREE2 = "tura5a983cdf_6679_42f2_b259_11e9803af1cd";
+import javax.inject.Qualifier;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import static java.lang.annotation.ElementType.*;
 
-    public IDataControl getTreeRootCompany()
-        throws org.tura.platform.datacontrol.commons.TuraException;
-
-    public IDataControl getTreeRootDepartment()
-        throws org.tura.platform.datacontrol.commons.TuraException;
+@Qualifier
+@Retention(RUNTIME)
+@Target({ TYPE })
+public @interface Eager {
 }

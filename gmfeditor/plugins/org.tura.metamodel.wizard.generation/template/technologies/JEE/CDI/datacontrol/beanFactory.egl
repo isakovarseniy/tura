@@ -143,7 +143,6 @@ public class BeanFactory  implements IBeanFactory, java.io.Serializable {
 
 }
 
-
 [% @template
 operation methodName(dc:domain::DataControl) {
      var util = new Native('org.tura.metamodel.commons.Util');

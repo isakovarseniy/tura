@@ -302,4 +302,19 @@ operation  domain::ViewPort accessor(id,methodName)  {
       [%   
 }
 
+
+@template
+operation  domain::Menu accessor(id,methodName) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var s = 'org.openqa.selenium.By.cssSelector("button[id$=\''+id+'\']")';
+   %]
+     public org.tura.platform.selenium.Button get[%=util.mergeAndCapitalize(methodName)%](){
+      return new org.tura.platform.selenium.primefaces.ButtonPrimeFaces (webDriver.findElement([%=s%]),webDriver);
+      }
+      
+     public static org.openqa.selenium.By get[%=util.mergeAndCapitalize(methodName)%]SearchCriteria(){
+      return [%=s%];
+      }      
+    [%
+}
 %]

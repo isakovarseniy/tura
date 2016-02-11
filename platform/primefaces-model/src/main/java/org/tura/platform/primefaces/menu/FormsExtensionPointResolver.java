@@ -19,16 +19,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.hrmanager.tree2tree.datacontrol;
+package org.tura.platform.primefaces.menu;
 
-import org.tura.platform.datacontrol.IDataControl;
+import java.util.ArrayList;
 
-public interface IBeanFactory {
-    public String TREE2 = "tura5a983cdf_6679_42f2_b259_11e9803af1cd";
+import org.primefaces.model.menu.MenuElement;
 
-    public IDataControl getTreeRootCompany()
-        throws org.tura.platform.datacontrol.commons.TuraException;
+public class FormsExtensionPointResolver {
 
-    public IDataControl getTreeRootDepartment()
-        throws org.tura.platform.datacontrol.commons.TuraException;
+	public static ArrayList<MenuElement> find(String string, String string2,
+			String string3) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

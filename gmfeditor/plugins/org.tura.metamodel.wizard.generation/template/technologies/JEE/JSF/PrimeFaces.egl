@@ -23,12 +23,14 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Tree.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Image.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Date.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/Menu.egl";
 
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/PrimeFaces/web-xml.egl";
 
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/ActionExecutor.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/ScriptGenerator.egl";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/MenuGenerator.egl";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/JSF/MenuProvider.egl";
 
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/styleLibraryElementUtil.eol";
 import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
@@ -56,7 +58,7 @@ operation refreshAriasGroup(list ){
          %]#{viewmodel.getClientId([%=ref.area.mkuid()%])}[%  
          first=1;
       }
-    }%]"[%
+    }%][%
 
 }
 
