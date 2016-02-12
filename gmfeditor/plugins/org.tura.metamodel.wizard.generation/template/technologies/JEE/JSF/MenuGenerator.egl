@@ -10,6 +10,7 @@ operation   menuGenerator(hash) {
         for (menu in menuDefinition.menuView.menuFolders){
            for (item in menu.menuElements->select(q|q.isKindOf(domain::SubMenu)) ){
              item.toSubmenu.~submenu=true;
+             item.toSubmenu.~label=item;
            }
            if (menu.extensionRef <> null){
                 if (menu.extensionRef.findClassifier('UIGeneration','JSF','menu.global')){
@@ -43,10 +44,11 @@ operation   menuGenerator(hash) {
       var addOperation="addElement";
       if (self.~submenu.isDefined()){
            type = "org.primefaces.model.menu.DefaultSubMenu";
-      }
-      if (self.extensionRef <> null ){
-           type = "java.util.ArrayList<org.primefaces.model.menu.MenuElement>";
-           addOperation="add";
+      }else{
+          if (self.extensionRef <> null ){
+            type = "java.util.ArrayList<org.primefaces.model.menu.MenuElement>";
+            addOperation="add";
+         }
       }
            
         %]
@@ -54,7 +56,13 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
         
 [%  if (self.~extpount.isDefined() and self.~extpount = 'global'){%] 
          [%=globalHeader(hash)%] 
-[%   } %]   
+[%   } else{
+     if (self.~extpount.isDefined() and self.~extpount = 'form'){%]
+         [%=formHeader(hash)%] 
+[%
+      }
+}
+%]   
         public class [%=util.mergeAndCapitalize(self.name)%]Menu extends org.tura.platform.primefaces.menu.AbsractMenuProvider  implements java.io.Serializable{
         
         	private static final long serialVersionUID = 1L;
@@ -66,8 +74,11 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
            public Object getMenu(org.tura.platform.datacontrol.ELResolver elResolver) throws org.tura.platform.datacontrol.commons.TuraException{
              [%
                %][%=type%] model = new [%=type%]();
-             [%       if (self.~submenu.isDefined()){ %]  
-               model.setIcon((String)resolver("[%=buildExpression(self.icon,hints,hash)%]",elResolver));
+             [%       if (self.~submenu.isDefined()){ 
+             var value = buildExpression(self.icon,hints,hash);
+             if (value <> ""){
+             %]model.setIcon((String)resolver("[%=buildExpression(self.icon,hints,hash)%]",elResolver))l[%}%]
+               model.setLabel((String)resolver("[%=buildExpression(self.~label.multiLangLabel,hints,hash)%]",elResolver));
              [%}
                  for (item in self.menuElements){%]
                    [%=item.addToModel(hash,addOperation)%]
@@ -151,7 +162,7 @@ operation domain::MenuItem setAttribute(attribute, value){
        java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.GlobalExtensionPointResolver.find("[%=util.mergeAndCapitalize(application.name)%]" , "[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(self.name)%]",elResolver);
      [%  
      }else{%]
-       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.FormsExtensionPointResolver.find("[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(self.name)%]",elResolver);
+       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.FormsExtensionPointResolver.find("[%=util.mergeAndCapitalize(application.name)%]","[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(self.name)%]",elResolver);
      [%
      }
   %]
@@ -168,6 +179,21 @@ operation domain::MenuItem setAttribute(attribute, value){
   [%
   }
   
+@template
+  operation formHeader(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var menu=hash.get("menu");
+    
+    var extension = menu.extensionRef;
+    var form = extension.eContainer().eContainer().parent.eContainer().parent.eContainer();
+    var uipackage = form.eContainer().parent;
+    var application = uipackage.eContainer().parent.parent;
+  
+  %]
+@javax.enterprise.context.RequestScoped
+@org.tura.platform.primefaces.menu.Menu(value="[%=util.mergeAndCapitalize(application.name)%].[%=util.mergeAndCapitalize(uipackage.name)%].[%=util.mergeAndCapitalize(form.name)%].[%=util.mergeAndCapitalize(extension.name)%]")
+  [%
+  }
 @template
   operation globalConstractor(hash){
      var util = new Native('org.tura.metamodel.commons.Util');

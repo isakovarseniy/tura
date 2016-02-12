@@ -2648,6 +2648,14 @@
         <translatioins uid="6af5d120-481a-465c-8d08-10cb7316c872" translation="SubMenu" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
         <translatioins uid="3130ef96-e8d6-464f-9096-e322906816d4" translation="Подменю" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
       </messages>
+      <messages uid="d4020463-6610-4479-9c93-53d193ab464e" name="FORMS">
+        <translatioins uid="2133dfab-5b0f-4c93-9574-b9f7af47dd21" translation="Forms" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="42bba115-de51-4599-b28d-c4cc7947c0ec" translation="Формы" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
+      </messages>
+      <messages uid="fb2620ad-1daa-4c3d-bef2-98c4cad28369" name="ACTIONS">
+        <translatioins uid="70838beb-ce69-47eb-ab61-8a36ba2b3f8e" translation="Actions" lang="5f566f06-7d99-4d79-986d-b42bdfb2b6a0"/>
+        <translatioins uid="c58f1e9d-cd09-4059-ba1c-762b635eb117" translation="Операции" lang="db7a4a4e-2ac3-4346-b382-9378d7ddc57f"/>
+      </messages>
     </messageLibraries>
     <messageLibraries uid="0cc922a6-a203-490f-a02e-15d8d1ad5e16" name="Tree 2 tree">
       <classifiers uid="8cd88a2e-b729-4667-8042-7f1f971ffc97" hint="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" details="UTF-8"/>
@@ -3137,7 +3145,7 @@
       </children>
       <children xsi:type="tura.domain:LayerHolder" nickname="Menu" uid="0d49659c-2bb0-4b6f-91a5-3b3da26b6ee7">
         <style uid="80f69f44-b405-461a-a29b-23370948b59a"/>
-        <children xsi:type="tura.domain:Menu" menu="a53aecb9-55e1-4ae9-af25-245ae43bedb9" uid="316b3553-0bb6-4080-ab90-f4eae8e386a0" fakeName="Menu"/>
+        <children xsi:type="tura.domain:Menu" menu="bea54a36-7425-463e-9309-86f63f59cb33" uid="316b3553-0bb6-4080-ab90-f4eae8e386a0" fakeName="MainMenue"/>
       </children>
     </baseCanvas>
   </tura.domain:CanvasView>
@@ -5135,10 +5143,28 @@
         <transition/>
       </menuElements>
     </menuFolders>
-    <menuFolders uid="a53aecb9-55e1-4ae9-af25-245ae43bedb9" name="Menu">
+    <menuFolders uid="a53aecb9-55e1-4ae9-af25-245ae43bedb9" name="FormsMenu">
       <menuElements xsi:type="tura.domain:MenuExtensionPoint" uid="ff723651-27ba-4b6e-b6cb-85797968162f" name="Glogal Menu">
         <classifiers uid="b005ec51-502e-42c0-a683-ced1e056cfc0" hint="68d2eab4-91b1-4b55-ac87-b21bd87f1a00"/>
       </menuElements>
+    </menuFolders>
+    <menuFolders uid="bea54a36-7425-463e-9309-86f63f59cb33" name="MainMenue">
+      <menuElements xsi:type="tura.domain:SubMenu" uid="bade9a5e-3419-4151-9391-e1a2a5ed5774" name="Forms" toSubmenu="a53aecb9-55e1-4ae9-af25-245ae43bedb9">
+        <multiLangLabel uid="ea80065d-af8f-485a-b48d-717baa32db36" value="Messages.HR Controller.FORMS">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="d4020463-6610-4479-9c93-53d193ab464e" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+      </menuElements>
+      <menuElements xsi:type="tura.domain:SubMenu" order="1" uid="a48c5240-064f-437f-a3fa-2e5cdaf11fcd" name="Actions" toSubmenu="7a63f192-66f3-408a-8669-7a722fac4cd3">
+        <multiLangLabel uid="5520057a-4b6b-48d1-a41c-977d1e379fdf" value="Messages.HR Controller.ACTIONS">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="fb2620ad-1daa-4c3d-bef2-98c4cad28369" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+      </menuElements>
+    </menuFolders>
+    <menuFolders uid="7a63f192-66f3-408a-8669-7a722fac4cd3" name="ActionsMenue">
       <menuElements xsi:type="tura.domain:MenuExtensionPoint" order="1" uid="0806b8bf-6c92-4b64-9020-cdfda9136736" name="Form Menu"/>
     </menuFolders>
   </tura.domain:MenuView>

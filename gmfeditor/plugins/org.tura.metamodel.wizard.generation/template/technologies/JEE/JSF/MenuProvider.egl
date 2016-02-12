@@ -45,13 +45,15 @@ public class MenuProvider  implements java.io.Serializable {
 
     }
 
-   public Object getModel(String menuId){
+   public org.primefaces.model.menu.DefaultMenuModel getModel(String menuId){
     	
     	Class <?> clazz = hash.get(menuId);
     	
     	try {
 			org.tura.platform.primefaces.menu.AbsractMenuProvider obj = (org.tura.platform.primefaces.menu.AbsractMenuProvider)clazz.newInstance();
-			return obj.getMenu(elResolver);
+			org.primefaces.model.menu.DefaultMenuModel model =  (org.primefaces.model.menu.DefaultMenuModel)obj.getMenu(elResolver);
+           model.generateUniqueIds();
+ 			return model;
 		} catch (Exception  e) {
             logger.log(java.util.logging.Level.INFO, e.getMessage(), e);
 		}

@@ -23,14 +23,31 @@ package org.tura.platform.primefaces.menu;
 
 import java.util.ArrayList;
 
+import javax.enterprise.context.spi.CreationalContext;
+import javax.enterprise.inject.spi.Bean;
+import javax.enterprise.inject.spi.BeanManager;
+import javax.enterprise.inject.spi.CDI;
+
 import org.primefaces.model.menu.MenuElement;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.commons.TuraException;
 
 public class FormsExtensionPointResolver {
 
-	public static ArrayList<MenuElement> find(String string, String string2,
-			String string3, ELResolver elResolver) {
-		return null;
+	@SuppressWarnings({ "unchecked" })
+	public static ArrayList<MenuElement> find(String application,String uipackage, String form, String menu, ELResolver elResolver) throws TuraException {
+		
+		String path =  application + "." + uipackage + "."+ form +"." +menu;
+		
+		BeanManager bm = CDI.current().getBeanManager();
+
+		Bean<MenuExtension> bean = (Bean<MenuExtension>) bm.getBeans(MenuExtension.class).iterator().next();
+		CreationalContext<MenuExtension> ctx = bm.createCreationalContext(bean);
+		MenuExtension registry = (MenuExtension) bm.getReference(bean, MenuExtension.class, ctx);
+		
+		AbsractMenuProvider m =  registry.getMenu(path);
+
+		return (ArrayList<MenuElement>) m.getMenu(elResolver);
 	}
 
 }
