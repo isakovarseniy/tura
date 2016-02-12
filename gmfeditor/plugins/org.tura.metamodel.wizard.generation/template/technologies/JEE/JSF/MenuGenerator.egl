@@ -55,7 +55,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 [%  if (self.~extpount.isDefined() and self.~extpount = 'global'){%] 
          [%=globalHeader(hash)%] 
 [%   } %]   
-        public class [%=util.mergeAndCapitalize(self.name)%]Menu  implements java.io.Serializable{
+        public class [%=util.mergeAndCapitalize(self.name)%]Menu extends org.tura.platform.primefaces.menu.AbsractMenuProvider  implements java.io.Serializable{
         
         	private static final long serialVersionUID = 1L;
         
@@ -63,11 +63,11 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
          [%=globalConstractor(hash)%] 
 [%   } %]           
         
-           public [%=type%] getMenu() throws org.tura.platform.datacontrol.commons.TuraException{
+           public Object getMenu(org.tura.platform.datacontrol.ELResolver elResolver) throws org.tura.platform.datacontrol.commons.TuraException{
              [%
                %][%=type%] model = new [%=type%]();
              [%       if (self.~submenu.isDefined()){ %]  
-               model.setIcon("[%=buildExpression(self.icon,hints,hash)%]");
+               model.setIcon((String)resolver("[%=buildExpression(self.icon,hints,hash)%]",elResolver));
              [%}
                  for (item in self.menuElements){%]
                    [%=item.addToModel(hash,addOperation)%]
@@ -91,11 +91,12 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
      var process = self.refreshAreas->select(r|r.group == 1)->sortBy(q|q.group);
      
   %]
-        org.primefaces.model.menu.DefaultMenuItem [%=util.mergeAndUnCapitalize(self.name)%] = new org.primefaces.model.menu.DefaultMenuItem("[%=buildExpression(self.multiLangLabel,hints,hash)%]");
-        [%=util.mergeAndUnCapitalize(self.name)%].setUrl("[%=buildExpression(self.transition,hints,hash)%]");
-        [%=util.mergeAndUnCapitalize(self.name)%].setIcon("[%=buildExpression(self.icon,hints,hash)%]");
-        [%=util.mergeAndUnCapitalize(self.name)%].setUpdate("[%=refreshAriasGroup(update)%]");
-        [%=util.mergeAndUnCapitalize(self.name)%].setProcess("[%=refreshAriasGroup(process)%]");
+        org.primefaces.model.menu.DefaultMenuItem [%=util.mergeAndUnCapitalize(self.name)%] = new org.primefaces.model.menu.DefaultMenuItem((String)resolver("[%=buildExpression(self.multiLangLabel,hints,hash)%]",elResolver));
+        [%=self.setAttribute("Url",buildExpression(self.transition,hints,hash))%]
+        [%=self.setAttribute("Icon",buildExpression(self.icon,hints,hash))%]
+
+        [%=util.mergeAndUnCapitalize(self.name)%].setUpdate((String)resolver("[%=refreshAriasGroup(update)%]",elResolver));
+        [%=util.mergeAndUnCapitalize(self.name)%].setProcess((String)resolver("[%=refreshAriasGroup(process)%]",elResolver));
    [%
        for ( field in  self.fields){
           if (field.classifiers.size() <> 0 )
@@ -110,12 +111,21 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 [%  
   }
   
+  
+@template 
+operation domain::MenuItem setAttribute(attribute, value){
+     var util = new Native('org.tura.metamodel.commons.Util');
+    if  (value <> ""){
+    %][%=util.mergeAndUnCapitalize(self.name)%].set[%=attribute%]((String)resolver("[%=value%]",elResolver));[%
+    }
+}
+  
 @template  
   operation domain::SubMenu addToModel(hash,addOperation){
      var util = new Native('org.tura.metamodel.commons.Util');
   %]
          [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu [%=util.mergeAndUnCapitalize(self.name)%]  = new [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu();
-        model.[%=addOperation%]([%=util.mergeAndUnCapitalize(self.name)%].getMenu());
+        model.[%=addOperation%]((org.primefaces.model.menu.MenuElement)[%=util.mergeAndUnCapitalize(self.name)%].getMenu(elResolver));
 [%  
   }
   
@@ -138,10 +148,10 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
      
 
      if (self.findClassifier('UIGeneration','JSF','menu.global')){%]
-       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.GlobalExtensionPointResolver.find("[%=util.mergeAndCapitalize(application.name)%]" , "[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(self.name)%]");
+       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.GlobalExtensionPointResolver.find("[%=util.mergeAndCapitalize(application.name)%]" , "[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(self.name)%]",elResolver);
      [%  
      }else{%]
-       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.FormsExtensionPointResolver.find("[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(self.name)%]");
+       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.FormsExtensionPointResolver.find("[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(self.name)%]",elResolver);
      [%
      }
   %]

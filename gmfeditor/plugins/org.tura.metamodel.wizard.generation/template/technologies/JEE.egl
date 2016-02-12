@@ -9,7 +9,7 @@ operation  commandstack_scope() {
 @template
 operation  elresolver_scope() {
 %]
-@javax.faces.view.ViewScoped
+
 [%
 }
 

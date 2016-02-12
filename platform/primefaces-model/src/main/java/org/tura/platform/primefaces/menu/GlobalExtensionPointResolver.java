@@ -27,22 +27,22 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 
 import org.primefaces.model.menu.MenuElement;
-import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 public class GlobalExtensionPointResolver {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<MenuElement> find(String application,
-			String uipackage, String form, String menu) throws TuraException {
+			String uipackage, String form, String menu, ELResolver elResolver) throws TuraException {
 
 		String path = "java:global/" + application + "/" + uipackage + "/"
 				+ form +"/" +menu;
 
 		try {
 			Context ic = new InitialContext();
-			Object obj  = ic.lookup(path);
-			return (ArrayList<MenuElement>) Reflection.call(obj, "getMenu");
+			AbsractMenuProvider obj  = (AbsractMenuProvider) ic.lookup(path);
+			return (ArrayList<MenuElement>) obj.getMenu(elResolver);
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}

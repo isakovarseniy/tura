@@ -2650,7 +2650,7 @@
       </messages>
     </messageLibraries>
     <messageLibraries uid="0cc922a6-a203-490f-a02e-15d8d1ad5e16" name="Tree 2 tree">
-      <classifiers uid="8cd88a2e-b729-4667-8042-7f1f971ffc97" hint="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" details="ISO-8859-1"/>
+      <classifiers uid="8cd88a2e-b729-4667-8042-7f1f971ffc97" hint="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" details="UTF-8"/>
       <libLanguages uid="b08087aa-6302-4d3b-86f8-5e3238698876" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
       <libLanguages uid="0d64924a-1d7e-4665-9d43-85b24187264a" lang="443736d3-5e1e-488c-9824-4b59435c8f2a"/>
       <messages uid="e1afc867-8537-4c8d-bcd7-c50f39e6807c" name="MAIN_WINDOW_LABEL">
@@ -2659,7 +2659,7 @@
       </messages>
     </messageLibraries>
     <messageLibraries uid="35165706-afd8-4c17-9235-7fb0e4e4511f" name="Misc">
-      <classifiers uid="b2d11d77-684b-4a65-aeeb-0cd6b4244282" hint="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" details="ISO-8859-1"/>
+      <classifiers uid="b2d11d77-684b-4a65-aeeb-0cd6b4244282" hint="fedbcbbc-e4d4-420a-b9eb-dd3c4fd33b87" details="UTF-8"/>
       <libLanguages uid="f7c28876-7cca-4cfa-8704-789e1e7e6adf" lang="2160c4e8-6839-4e94-a225-162cc9210518"/>
       <libLanguages uid="4f6d7000-d61f-42b4-ad82-2ab56639d804" lang="443736d3-5e1e-488c-9824-4b59435c8f2a"/>
       <messages uid="af8d602d-98f1-4904-9433-79afaed9becc" name="INITIAL_SELECTION_MESSAGE">
@@ -3088,6 +3088,7 @@
             </fields>
             <refreshAreas area="c5f8ac47-356e-4c17-84db-fcf0a5037ca7" group="2"/>
             <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
+            <refreshAreas area="0d49659c-2bb0-4b6f-91a5-3b3da26b6ee7" group="2"/>
             <multiLangLabel value=""/>
             <icon value="Application styles.HR styles.HR Controller styles.canada-flag-button">
               <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
@@ -3109,6 +3110,7 @@
             </fields>
             <refreshAreas area="c5f8ac47-356e-4c17-84db-fcf0a5037ca7" group="2"/>
             <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
+            <refreshAreas area="0d49659c-2bb0-4b6f-91a5-3b3da26b6ee7" group="2"/>
             <icon value="Application styles.HR styles.HR Controller styles.russia-flag-button">
               <expression objRef="c7379293-bc50-4b7e-8cc9-917bc2dd97aa" expressionType="ApplicationStyleImpl"/>
               <expression objRef="a9b99a7f-03c7-4b89-82c2-b3e1f0f326d2" order="1" expressionType="StylesPackageImpl"/>
@@ -3133,7 +3135,7 @@
           </children>
         </children>
       </children>
-      <children xsi:type="tura.domain:LayerHolder" uid="0d49659c-2bb0-4b6f-91a5-3b3da26b6ee7">
+      <children xsi:type="tura.domain:LayerHolder" nickname="Menu" uid="0d49659c-2bb0-4b6f-91a5-3b3da26b6ee7">
         <style uid="80f69f44-b405-461a-a29b-23370948b59a"/>
         <children xsi:type="tura.domain:Menu" menu="a53aecb9-55e1-4ae9-af25-245ae43bedb9" uid="316b3553-0bb6-4080-ab90-f4eae8e386a0" fakeName="Menu"/>
       </children>

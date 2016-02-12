@@ -21,16 +21,17 @@
  */
 package org.tura.platform.primefaces.menu;
 
-import java.util.ArrayList;
-
-import org.primefaces.model.menu.MenuElement;
 import org.tura.platform.datacontrol.ELResolver;
+import org.tura.platform.datacontrol.commons.TuraException;
 
-public class FormsExtensionPointResolver {
+public abstract class AbsractMenuProvider {
 
-	public static ArrayList<MenuElement> find(String string, String string2,
-			String string3, ELResolver elResolver) {
-		return null;
-	}
-
+    public abstract  Object getMenu(ELResolver eLResolver) throws TuraException;
+	
+    public Object resolver(String experssion, ELResolver eLResolver) {
+        if (  experssion.length() > 2 &&  "#{".equals(experssion.substring(0, 2))) {
+            return eLResolver.getValue(experssion);
+        }
+        return experssion;
+    }
 }

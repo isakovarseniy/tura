@@ -21,6 +21,8 @@ public class MenuProvider  implements java.io.Serializable {
     @javax.inject.Inject
     private transient java.util.logging.Logger logger;
 
+    @javax.inject.Inject
+    private transient org.tura.platform.datacontrol.ELResolver elResolver;
 
 
 	@javax.annotation.PostConstruct
@@ -48,8 +50,8 @@ public class MenuProvider  implements java.io.Serializable {
     	Class <?> clazz = hash.get(menuId);
     	
     	try {
-			Object obj = clazz.newInstance();
-			return org.tura.platform.datacontrol.commons.Reflection.call(obj, "getMenu" );
+			org.tura.platform.primefaces.menu.AbsractMenuProvider obj = (org.tura.platform.primefaces.menu.AbsractMenuProvider)clazz.newInstance();
+			return obj.getMenu(elResolver);
 		} catch (Exception  e) {
             logger.log(java.util.logging.Level.INFO, e.getMessage(), e);
 		}

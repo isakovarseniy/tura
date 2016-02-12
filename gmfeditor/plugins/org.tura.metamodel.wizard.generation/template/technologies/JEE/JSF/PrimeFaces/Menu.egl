@@ -10,7 +10,7 @@ operation domain::Menu draw(hash) {
      util.traceIfDebug("UI element","Menu start: "+self.uid);     
      
 %]
-    <p:menu model="#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]')}" />    
+    <p:menubar model="#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]')}" />    
 [%
      hash.put("context",null);
      util.traceIfDebug("UI element","Menu end: "+self.uid);     
