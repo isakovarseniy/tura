@@ -2728,7 +2728,7 @@
         <children xsi:type="tura.domain:LayerHolder" uid="b4779d71-722f-48ae-98c1-4d1e12202f93" columns="2">
           <style/>
           <children xsi:type="tura.domain:Table" nickname="companies" uid="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" sourcePointer="d45e9605-3706-493c-8422-3f7b8b6ea2ed" sourceCastDataControl="d45e9605-3706-493c-8422-3f7b8b6ea2ed" columns="3" label="Companies" rowNumber="5">
-            <style constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
+            <style uid="271fdb13-9396-47b2-a0b0-108d3dad2303" constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
             <classifiers uid="bbe77e69-5dc3-4413-9f07-7043568f59e2" hint="21d9dc34-d2cb-4b87-ab39-94afefd6765c" details="&quot;5,10&quot;"/>
             <enabled/>
             <refreshAreas area="bee23d39-6e59-450f-b696-94cf4c907c86" group="2"/>
@@ -5068,6 +5068,8 @@
           <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
           <expression objRef="f994c763-7bfb-4952-b00f-b730b5d67043" order="2" expressionType="MessageImpl"/>
         </multiLangLabel>
+        <style uid="b215e3ae-c933-4862-b718-6efbc15b2077"/>
+        <enabled uid="0e928cd2-28a5-4d26-be2c-54936507f70c"/>
         <transition value="Windows.HR application.Hr manager.HR controller.HR Controller">
           <expression objRef="28e10ed5-f6cf-4b06-896c-fd5c9bc2c8e2" expressionType="DomainApplicationsImpl"/>
           <expression objRef="/0/@domainApplications/@applications.0" order="1" expressionType="DomainApplicationImpl"/>
@@ -5108,7 +5110,11 @@
     <menuFolders extensionRef="0806b8bf-6c92-4b64-9020-cdfda9136736" uid="7d7f88e4-a560-4b2e-afcb-47f75b5f3cfa" name="Form menu">
       <multiLangLabel uid="b0c7189d-95ee-4c38-932e-44906a4de742"/>
       <menuElements xsi:type="tura.domain:MenuItem" uid="3cda5f39-54e6-4289-a22f-26887c720d52" name="Save">
-        <multiLangLabel uid="17952698-2a57-4b74-b204-302316c92f0e" value="Messages.HR Controller.SAVE_BUTTON"/>
+        <multiLangLabel uid="17952698-2a57-4b74-b204-302316c92f0e" value="Messages.HR Controller.SAVE_BUTTON">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="1a28eeca-a9e2-4de5-9d05-cc1d5660491a" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
         <fields uid="da5954df-9d07-40c5-bde7-e4757de00834" value="Packages.HR package.HR package::Action executor.saveApplication()">
           <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
           <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
@@ -5141,14 +5147,19 @@
           <expression objRef="f199d2af-fd03-45f9-b34f-3cff9b9b4e56" order="3" expressionType="OperationImpl"/>
         </fields>
         <transition/>
+        <refreshAreas area="92ea6c50-dc39-4ba0-bb76-b3ca2e161fe5" group="2"/>
+        <refreshAreas area="bee23d39-6e59-450f-b696-94cf4c907c86" group="2"/>
+        <refreshAreas area="ce2aedb4-2308-40d7-b9aa-c9819da6e0f4" group="2"/>
       </menuElements>
     </menuFolders>
     <menuFolders uid="a53aecb9-55e1-4ae9-af25-245ae43bedb9" name="FormsMenu">
+      <style uid="aa598301-2fcc-40c4-91eb-7102ff583a8f" constant="true" value="font: 15px arial, sans-serif;"/>
       <menuElements xsi:type="tura.domain:MenuExtensionPoint" uid="ff723651-27ba-4b6e-b6cb-85797968162f" name="Glogal Menu">
         <classifiers uid="b005ec51-502e-42c0-a683-ced1e056cfc0" hint="68d2eab4-91b1-4b55-ac87-b21bd87f1a00"/>
       </menuElements>
     </menuFolders>
     <menuFolders uid="bea54a36-7425-463e-9309-86f63f59cb33" name="MainMenue">
+      <style uid="7966abbd-345d-4b8c-9ced-b732eb23b9ca"/>
       <menuElements xsi:type="tura.domain:SubMenu" uid="bade9a5e-3419-4151-9391-e1a2a5ed5774" name="Forms" toSubmenu="a53aecb9-55e1-4ae9-af25-245ae43bedb9">
         <multiLangLabel uid="ea80065d-af8f-485a-b48d-717baa32db36" value="Messages.HR Controller.FORMS">
           <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
@@ -5165,6 +5176,7 @@
       </menuElements>
     </menuFolders>
     <menuFolders uid="7a63f192-66f3-408a-8669-7a722fac4cd3" name="ActionsMenue">
+      <style uid="71f635e3-f3f1-4abc-9b0f-ed6fbf528df3" constant="true" value="font: 15px arial, sans-serif;"/>
       <menuElements xsi:type="tura.domain:MenuExtensionPoint" order="1" uid="0806b8bf-6c92-4b64-9020-cdfda9136736" name="Form Menu"/>
     </menuFolders>
   </tura.domain:MenuView>

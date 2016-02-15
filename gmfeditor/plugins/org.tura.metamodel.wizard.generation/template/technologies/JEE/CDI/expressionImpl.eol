@@ -220,6 +220,21 @@ operation  FormVariableImpl(expression:String, contextValue , paramId: Integer, 
 }   
 
 
+operation  WindowImpl(expression:String, contextValue , paramId: Integer, array , hints , inOutParams ) : String {
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+     var app = contextValue.expression.get(paramId-3).objRef;
+     var uipackage = contextValue.expression.get(paramId-2).objRef;
+     var form = contextValue.expression.get(paramId-1).objRef;
+     var window = contextValue.expression.get(paramId).objRef;
+
+     return "/"+ util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/"+ util.mergeAndCapitalize(window.name)+".xhtml";
+     
+}  
+
+
+
+
 operation domain::Context  scriptTrigger( hash){
    hash.get("scriptTriggers").add(self);
    return '#{scriptGenerator'+hash.get("beanFactoryName")+".scriptBuilder('"+self.mkuid()+"')}";

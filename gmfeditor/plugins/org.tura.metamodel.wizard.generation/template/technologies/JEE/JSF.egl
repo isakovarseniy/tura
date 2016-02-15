@@ -60,25 +60,37 @@ operation domain::Uielement  uiElementAttributes(hash){
 
 @template
 operation domain::StyleElement  styleAttributes(hash){
-      var util = new Native('org.tura.metamodel.commons.Util');
+     %]style="[%=self.style(hash)%]" styleClass="[%=self.styleClass(hash)%]"
+[%
+}
+
+operation domain::StyleElement  style(hash) : String{
       var hints = new Native('java.util.HashMap');
  
      if (self.style <> null  and  self.style.value <> null  ){
-        var value = buildExpression(self.style,hints,hash);
-     %]style="[%=value%]"[%}
+         return buildExpression(self.style,hints,hash);
+     }
+     return "";
+}
 
-     if (self.styleClass <> null  and self.styleClass.size() <> 0 ){%] styleClass="[%
+operation domain::StyleElement  styleClass(hash) : String{
+    var hints = new Native('java.util.HashMap');
+    var result = "";
+     if (self.styleClass <> null  and self.styleClass.size() <> 0 ){
       var first = 0;
       for (class in self.styleClass ){ 
         if (class.classifier = null or( class.classifier <> null   and class.classifier.hint = null )){
-      
-          if ( first <> 0){%] [%}
-         var value = buildExpression(class,hints,hash);
+          if ( first <> 0){
+            result = result+ " "; 
+          }
+         result = result + buildExpression(class,hints,hash);
          first=1;
-         %][%=value%][%}} 
-     %]"[%
+         }
+       } 
      }
+     return result;
 }
+
 
 
 operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: String, classifier : String):String{

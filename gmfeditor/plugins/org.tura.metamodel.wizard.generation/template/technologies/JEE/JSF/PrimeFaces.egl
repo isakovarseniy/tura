@@ -46,21 +46,20 @@ operation   domain::Uielement  refreshArias() {
      %]process="[%=refreshAriasGroup(process)%]"  update="[%=refreshAriasGroup(update)%]"[%
 }
 
-@template
 operation refreshAriasGroup(list ){
-    if (list.size() ==  0 ) return;
+     var result ="";
+    if (list.size() ==  0 ) return result;
     else{
       var first = 0;
       for ( ref in list ){
          if ( first = 1){
-           %],[% 
+           result = result +",";
          }
-         %]#{viewmodel.getClientId([%=ref.area.mkuid()%])}[%  
+         result = result+"#{viewmodel.getClientId("+ref.area.mkuid()+")}";
          first=1;
       }
-    }%][%
-
+    }
+    return result;
 }
-
 
 %]

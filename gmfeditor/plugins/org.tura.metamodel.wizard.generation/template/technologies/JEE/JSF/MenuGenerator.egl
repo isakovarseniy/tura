@@ -74,11 +74,14 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
            public Object getMenu(org.tura.platform.datacontrol.ELResolver elResolver) throws org.tura.platform.datacontrol.commons.TuraException{
              [%
                %][%=type%] model = new [%=type%]();
-             [%       if (self.~submenu.isDefined()){ 
-             var value = buildExpression(self.icon,hints,hash);
-             if (value <> ""){
-             %]model.setIcon((String)resolver("[%=buildExpression(self.icon,hints,hash)%]",elResolver))l[%}%]
-               model.setLabel((String)resolver("[%=buildExpression(self.~label.multiLangLabel,hints,hash)%]",elResolver));
+             [%if (self.~submenu.isDefined()){ %]
+               [%=setAttribute("model","Icon",buildExpression(self.icon,hints,hash))%]
+               [%=setAttribute("model","Label",buildExpression(self.~label.multiLangLabel,hints,hash))%]
+               [%}
+               if (self.extensionRef = null  and type <> "org.primefaces.model.menu.DefaultMenuModel"){%]
+               [%=setAttribute("model","Style",self.style(hash))%]
+               [%=setAttribute("model","StyleClass",self.styleClass(hash))%]
+               
              [%}
                  for (item in self.menuElements){%]
                    [%=item.addToModel(hash,addOperation)%]
@@ -103,11 +106,16 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
      
   %]
         org.primefaces.model.menu.DefaultMenuItem [%=util.mergeAndUnCapitalize(self.name)%] = new org.primefaces.model.menu.DefaultMenuItem((String)resolver("[%=buildExpression(self.multiLangLabel,hints,hash)%]",elResolver));
-        [%=self.setAttribute("Url",buildExpression(self.transition,hints,hash))%]
-        [%=self.setAttribute("Icon",buildExpression(self.icon,hints,hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Url",buildExpression(self.transition,hints,hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Icon",buildExpression(self.icon,hints,hash))%]
 
-        [%=util.mergeAndUnCapitalize(self.name)%].setUpdate((String)resolver("[%=refreshAriasGroup(update)%]",elResolver));
-        [%=util.mergeAndUnCapitalize(self.name)%].setProcess((String)resolver("[%=refreshAriasGroup(process)%]",elResolver));
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Update",refreshAriasGroup(update))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Process",refreshAriasGroup(process))%]
+
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Style",self.style(hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"StyleClass",self.styleClass(hash))%]
+
+
    [%
        for ( field in  self.fields){
           if (field.classifiers.size() <> 0 )
@@ -124,10 +132,10 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
   
   
 @template 
-operation domain::MenuItem setAttribute(attribute, value){
+operation setAttribute(variable , attribute, value){
      var util = new Native('org.tura.metamodel.commons.Util');
     if  (value <> ""){
-    %][%=util.mergeAndUnCapitalize(self.name)%].set[%=attribute%]((String)resolver("[%=value%]",elResolver));[%
+    %][%=variable%].set[%=attribute%]((String)resolver("[%=value%]",elResolver));[%
     }
 }
   
@@ -135,16 +143,20 @@ operation domain::MenuItem setAttribute(attribute, value){
   operation domain::SubMenu addToModel(hash,addOperation){
      var util = new Native('org.tura.metamodel.commons.Util');
   %]
-         [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu [%=util.mergeAndUnCapitalize(self.name)%]  = new [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu();
+        [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu [%=util.mergeAndUnCapitalize(self.name)%]  = new [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu();
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Style",self.style(hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"StyleClass",self.styleClass(hash))%]
         model.[%=addOperation%]((org.primefaces.model.menu.MenuElement)[%=util.mergeAndUnCapitalize(self.name)%].getMenu(elResolver));
 [%  
   }
   
-
+@template
   operation domain::MenuSeparator addToModel(hash,addOperation){
        var util = new Native('org.tura.metamodel.commons.Util');
   %]
      org.primefaces.model.menu.DefaultSeparator  [%=util.mergeAndUnCapitalize(self.name)%]  = new org.primefaces.model.menu.DefaultSeparator();
+     [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Style",self.style(hash))%]
+     [%=setAttribute(util.mergeAndUnCapitalize(self.name),"StyleClass",self.styleClass(hash))%]
      model.[%=addOperation%]([%=util.mergeAndUnCapitalize(self.name)%]);
   [%
  }
