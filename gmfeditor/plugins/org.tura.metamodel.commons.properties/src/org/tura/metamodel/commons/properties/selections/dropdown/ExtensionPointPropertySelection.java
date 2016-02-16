@@ -28,10 +28,10 @@ public class ExtensionPointPropertySelection extends
 			values = new LinkedHashMap<String, Object>();
 
 			QueryHelper query = new QueryHelper();
-			List<domain.MenuExtensionPoint> ls = query
+			List<domain.MenuFolder> ls = query
 					.findExtensionPoints((MenuExtensionRef) getModel());
 
-			for (domain.MenuExtensionPoint p : ls) {
+			for (domain.MenuFolder p : ls) {
 				values.put(p.getName(), p);
 			}
 		}

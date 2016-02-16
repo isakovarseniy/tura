@@ -52,27 +52,6 @@
             href="domain.ecore#//MenuFolder/menuElements"/>
         <ownedChild>
           <domainMetaElement
-              href="domain.ecore#//SubMenu"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="domain.gmfgraph#SubMenuLabel"/>
-            <features
-                href="domain.ecore#//MenuElement/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
-          <diagramNode
-              href="domain.gmfgraph#SubMenu"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="domain.ecore#//MenuFolder/menuElements"/>
-        <ownedChild>
-          <domainMetaElement
               href="domain.ecore#//MenuExtensionPoint"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
@@ -86,6 +65,27 @@
               href="domain.gmftool#//@palette/@tools.0/@tools.0"/>
           <diagramNode
               href="domain.gmfgraph#MenuExtensionPoint"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="domain.ecore#//MenuFolder/menuElements"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//SubMenu"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#SubMenuLabel"/>
+            <features
+                href="domain.ecore#//MenuElement/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+          <diagramNode
+              href="domain.gmfgraph#SubMenu"/>
         </ownedChild>
       </children>
       <children

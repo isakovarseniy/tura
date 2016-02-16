@@ -2100,14 +2100,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="menu" eType="#//MenuFolder"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extensionRef" eType="#//MenuExtensionPoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extensionRef" eType="#//MenuFolder"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MenuElement" eSuperTypes="#//MultiLangLabel #//StyleElement #//Categorized #//EnabledUIItem #//Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuFolder" eSuperTypes="#//HTMLLayerHolder #//EnabledUIItem #//Categorized #//StyleElement #//MultiLangLabel #//ItemIcon #//MenuExtensionRef">
+  <eClassifiers xsi:type="ecore:EClass" name="MenuFolder" eSuperTypes="#//HTMLLayerHolder #//EnabledUIItem #//Categorized #//StyleElement #//MultiLangLabel #//ItemIcon">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>
@@ -2116,6 +2116,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extensionPoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="menuElements" upperBound="-1"
         eType="#//MenuElement" containment="true">
       <eAnnotations source="gmf.compartment"/>
@@ -2132,7 +2133,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="refreshAreas" upperBound="-1"
         eType="#//AreaRef" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionPoint" eSuperTypes="#//MenuElement">
+  <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionPoint" eSuperTypes="#//MenuElement #//MenuExtensionRef">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>

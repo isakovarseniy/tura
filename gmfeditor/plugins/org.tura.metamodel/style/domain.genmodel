@@ -909,6 +909,7 @@
     <genClasses ecoreClass="domain.ecore#//MenuFolder">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MenuFolder/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MenuFolder/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MenuFolder/extensionPoint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//MenuFolder/menuElements"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//MenuItem">

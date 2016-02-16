@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link domain.MenuFolder#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.MenuFolder#getName <em>Name</em>}</li>
+ *   <li>{@link domain.MenuFolder#isExtensionPoint <em>Extension Point</em>}</li>
  *   <li>{@link domain.MenuFolder#getMenuElements <em>Menu Elements</em>}</li>
  * </ul>
  * </p>
@@ -22,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"
  * @generated
  */
-public interface MenuFolder extends HTMLLayerHolder, EnabledUIItem, Categorized, StyleElement, MultiLangLabel, ItemIcon, MenuExtensionRef {
+public interface MenuFolder extends HTMLLayerHolder, EnabledUIItem, Categorized, StyleElement, MultiLangLabel, ItemIcon {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,6 +75,32 @@ public interface MenuFolder extends HTMLLayerHolder, EnabledUIItem, Categorized,
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Extension Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extension Point</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Extension Point</em>' attribute.
+	 * @see #setExtensionPoint(boolean)
+	 * @see domain.DomainPackage#getMenuFolder_ExtensionPoint()
+	 * @model
+	 * @generated
+	 */
+	boolean isExtensionPoint();
+
+	/**
+	 * Sets the value of the '{@link domain.MenuFolder#isExtensionPoint <em>Extension Point</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Extension Point</em>' attribute.
+	 * @see #isExtensionPoint()
+	 * @generated
+	 */
+	void setExtensionPoint(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Menu Elements</b></em>' containment reference list.

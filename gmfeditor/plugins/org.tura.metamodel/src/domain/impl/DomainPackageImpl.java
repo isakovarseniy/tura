@@ -8154,8 +8154,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMenuFolder_ExtensionPoint() {
+		return (EAttribute)menuFolderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getMenuFolder_MenuElements() {
-		return (EReference)menuFolderEClass.getEStructuralFeatures().get(2);
+		return (EReference)menuFolderEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -9193,6 +9202,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		menuFolderEClass = createEClass(MENU_FOLDER);
 		createEAttribute(menuFolderEClass, MENU_FOLDER__UID);
 		createEAttribute(menuFolderEClass, MENU_FOLDER__NAME);
+		createEAttribute(menuFolderEClass, MENU_FOLDER__EXTENSION_POINT);
 		createEReference(menuFolderEClass, MENU_FOLDER__MENU_ELEMENTS);
 
 		menuItemEClass = createEClass(MENU_ITEM);
@@ -9398,11 +9408,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		menuFolderEClass.getESuperTypes().add(this.getStyleElement());
 		menuFolderEClass.getESuperTypes().add(this.getMultiLangLabel());
 		menuFolderEClass.getESuperTypes().add(this.getItemIcon());
-		menuFolderEClass.getESuperTypes().add(this.getMenuExtensionRef());
 		menuItemEClass.getESuperTypes().add(this.getMenuElement());
 		menuItemEClass.getESuperTypes().add(this.getItemIcon());
 		menuItemEClass.getESuperTypes().add(this.getFlexFields());
 		menuExtensionPointEClass.getESuperTypes().add(this.getMenuElement());
+		menuExtensionPointEClass.getESuperTypes().add(this.getMenuExtensionRef());
 		subMenuEClass.getESuperTypes().add(this.getMenuElement());
 		subMenuEClass.getESuperTypes().add(this.getItemIcon());
 		menuSeparatorEClass.getESuperTypes().add(this.getMenuElement());
@@ -10307,7 +10317,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getMenuHolder_Menu(), this.getMenuFolder(), null, "menu", null, 0, 1, MenuHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuExtensionRefEClass, MenuExtensionRef.class, "MenuExtensionRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMenuExtensionRef_ExtensionRef(), this.getMenuExtensionPoint(), null, "extensionRef", null, 0, 1, MenuExtensionRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuExtensionRef_ExtensionRef(), this.getMenuFolder(), null, "extensionRef", null, 0, 1, MenuExtensionRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuElementEClass, MenuElement.class, "MenuElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMenuElement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MenuElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10316,6 +10326,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(menuFolderEClass, MenuFolder.class, "MenuFolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMenuFolder_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MenuFolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMenuFolder_Name(), ecorePackage.getEString(), "name", null, 0, 1, MenuFolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMenuFolder_ExtensionPoint(), ecorePackage.getEBoolean(), "extensionPoint", null, 0, 1, MenuFolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMenuFolder_MenuElements(), this.getMenuElement(), null, "menuElements", null, 0, -1, MenuFolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuItemEClass, MenuItem.class, "MenuItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

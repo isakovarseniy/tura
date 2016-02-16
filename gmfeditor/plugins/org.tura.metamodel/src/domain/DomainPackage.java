@@ -13849,22 +13849,13 @@ public interface DomainPackage extends EPackage {
 	int MENU_FOLDER__ICON = HTML_LAYER_HOLDER_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Extension Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU_FOLDER__EXTENSION_REF = HTML_LAYER_HOLDER_FEATURE_COUNT + 6;
-
-	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 7;
+	int MENU_FOLDER__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -13873,7 +13864,16 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 8;
+	int MENU_FOLDER__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Extension Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_FOLDER__EXTENSION_POINT = HTML_LAYER_HOLDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Menu Elements</b></em>' containment reference list.
@@ -14103,13 +14103,22 @@ public interface DomainPackage extends EPackage {
 	int MENU_EXTENSION_POINT__NAME = MENU_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extension Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_EXTENSION_POINT__EXTENSION_REF = MENU_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Menu Extension Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_EXTENSION_POINT_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 0;
+	int MENU_EXTENSION_POINT_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.SubMenuImpl <em>Sub Menu</em>}' class.
@@ -22073,6 +22082,17 @@ public interface DomainPackage extends EPackage {
 	EAttribute getMenuFolder_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link domain.MenuFolder#isExtensionPoint <em>Extension Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Extension Point</em>'.
+	 * @see domain.MenuFolder#isExtensionPoint()
+	 * @see #getMenuFolder()
+	 * @generated
+	 */
+	EAttribute getMenuFolder_ExtensionPoint();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link domain.MenuFolder#getMenuElements <em>Menu Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28349,6 +28369,14 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MENU_FOLDER__NAME = eINSTANCE.getMenuFolder_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Extension Point</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU_FOLDER__EXTENSION_POINT = eINSTANCE.getMenuFolder_ExtensionPoint();
 
 		/**
 		 * The meta object literal for the '<em><b>Menu Elements</b></em>' containment reference list feature.

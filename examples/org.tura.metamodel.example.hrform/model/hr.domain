@@ -4514,11 +4514,12 @@
       </viewElement>
       <multiLangLabel/>
     </canvases>
+    <menus uid="de06d0af-8c4e-4d3a-ab23-d6c09956386d" name="Menu" menuView="9dac7d4d-7cfd-4f53-a844-0368e8d1f66b"/>
   </tura.domain:Views>
   <tura.domain:CanvasView uid="d964331d-e39e-44b3-9e30-57e65ac9b63f" parent="3fbcf559-edb8-4c2f-b6dc-b04a8ad7080d">
     <baseCanvas uid="a21212d5-4457-4007-9bcf-008b3071e329">
       <style uid="fac26dfd-07c2-4095-81f2-fbd4dec6bc9b"/>
-      <children xsi:type="tura.domain:Label" uid="1f4bf46b-81d3-4e94-8dc7-99b07028f42f" label="Tree 2 tree relation">
+      <children xsi:type="tura.domain:Label" order="1" uid="1f4bf46b-81d3-4e94-8dc7-99b07028f42f" label="Tree 2 tree relation">
         <style constant="true" value="font:35px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
         <multiLangLabel value="Messages.Tree 2 tree.MAIN_WINDOW_LABEL">
           <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
@@ -4526,7 +4527,7 @@
           <expression objRef="e1afc867-8537-4c8d-bcd7-c50f39e6807c" order="2" expressionType="MessageImpl"/>
         </multiLangLabel>
       </children>
-      <children xsi:type="tura.domain:LayerHolder" order="1" uid="4d8fc4de-2893-45a3-a43f-f951f8c7140f" columns="2">
+      <children xsi:type="tura.domain:LayerHolder" order="2" uid="4d8fc4de-2893-45a3-a43f-f951f8c7140f" columns="2">
         <style/>
         <children xsi:type="tura.domain:Tree" order="1" uid="ad6e95c8-f28d-4e3f-8cc2-aeb0605f4321" sourcePointer="178d5648-ef4e-4712-aa09-431da395aeef" label="First tree">
           <style constant="true" value="padding: 0px 5px 5px 5px;font: 15px arial, sans-serif;"/>
@@ -4545,6 +4546,10 @@
             <element xsi:type="tura.domain:InputText" uid="302c0e26-9cc2-4044-b05e-18b78c8e567e" valuePointer="2aba5c47-190b-4c81-a505-c269615a8661"/>
           </cols>
         </children>
+      </children>
+      <children xsi:type="tura.domain:LayerHolder" uid="0e9813ca-d7af-424f-8cf5-64489f765917">
+        <style uid="31ae61d8-3bcd-4724-bb2c-ff1398cd7dc6"/>
+        <children xsi:type="tura.domain:Menu" menu="ad45c4a1-4a51-414b-a003-b36ad75a92a9" uid="f3b4e080-9d40-4b8e-87a1-a8d8237568b4" fakeName="Forms"/>
       </children>
     </baseCanvas>
   </tura.domain:CanvasView>
@@ -5060,7 +5065,8 @@
   <tura.domain:MenuView uid="c9b90da3-dbe8-468c-927d-22d801a6cb14"/>
   <tura.domain:MenuView uid="5d9abe8a-67c4-4c80-a321-b954d4fafb8c"/>
   <tura.domain:MenuView uid="398073c7-c262-4280-a12b-14afbb5bd173" parent="7d9c3741-428c-437b-b929-69e64888c05f">
-    <menuFolders extensionRef="ff723651-27ba-4b6e-b6cb-85797968162f" uid="7b4eed85-00ba-4a41-a450-c10a6d8fb893" name="Global menu">
+    <menuFolders uid="7b4eed85-00ba-4a41-a450-c10a6d8fb893" name="Global menu" extensionPoint="true">
+      <classifiers uid="bf7b9e3a-6adc-44b2-81aa-44fc457fa4bd" hint="68d2eab4-91b1-4b55-ac87-b21bd87f1a00"/>
       <multiLangLabel uid="46ca7d92-744e-4da5-9e04-30fc1d5fcd37"/>
       <menuElements xsi:type="tura.domain:MenuItem" uid="44dab1b7-28ef-461b-84db-52b920d26ff4" name="HrController form">
         <multiLangLabel uid="b36cc9e3-3e0d-4653-b1dd-7f25eabb6846" value="Messages.HR Controller.MAIN_WINDOW_LABEL">
@@ -5107,7 +5113,7 @@
         </transition>
       </menuElements>
     </menuFolders>
-    <menuFolders extensionRef="0806b8bf-6c92-4b64-9020-cdfda9136736" uid="7d7f88e4-a560-4b2e-afcb-47f75b5f3cfa" name="Form menu">
+    <menuFolders uid="7d7f88e4-a560-4b2e-afcb-47f75b5f3cfa" name="Form menu" extensionPoint="true">
       <multiLangLabel uid="b0c7189d-95ee-4c38-932e-44906a4de742"/>
       <menuElements xsi:type="tura.domain:MenuItem" uid="3cda5f39-54e6-4289-a22f-26887c720d52" name="Save">
         <multiLangLabel uid="17952698-2a57-4b74-b204-302316c92f0e" value="Messages.HR Controller.SAVE_BUTTON">
@@ -5168,9 +5174,7 @@
     </menuFolders>
     <menuFolders uid="a53aecb9-55e1-4ae9-af25-245ae43bedb9" name="FormsMenu">
       <style uid="aa598301-2fcc-40c4-91eb-7102ff583a8f" constant="true" value="font: 15px arial, sans-serif;"/>
-      <menuElements xsi:type="tura.domain:MenuExtensionPoint" uid="ff723651-27ba-4b6e-b6cb-85797968162f" name="Glogal Menu">
-        <classifiers uid="b005ec51-502e-42c0-a683-ced1e056cfc0" hint="68d2eab4-91b1-4b55-ac87-b21bd87f1a00"/>
-      </menuElements>
+      <menuElements xsi:type="tura.domain:MenuExtensionPoint" uid="ff723651-27ba-4b6e-b6cb-85797968162f" name="Glogal Menu" extensionRef="7b4eed85-00ba-4a41-a450-c10a6d8fb893"/>
     </menuFolders>
     <menuFolders uid="bea54a36-7425-463e-9309-86f63f59cb33" name="MainMenue">
       <style uid="7966abbd-345d-4b8c-9ced-b732eb23b9ca"/>
@@ -5191,7 +5195,28 @@
     </menuFolders>
     <menuFolders uid="7a63f192-66f3-408a-8669-7a722fac4cd3" name="ActionsMenue">
       <style uid="71f635e3-f3f1-4abc-9b0f-ed6fbf528df3" constant="true" value="font: 15px arial, sans-serif;"/>
-      <menuElements xsi:type="tura.domain:MenuExtensionPoint" order="1" uid="0806b8bf-6c92-4b64-9020-cdfda9136736" name="Form Menu"/>
+      <menuElements xsi:type="tura.domain:MenuExtensionPoint" order="1" uid="0806b8bf-6c92-4b64-9020-cdfda9136736" name="Form Menu" extensionRef="7d7f88e4-a560-4b2e-afcb-47f75b5f3cfa"/>
+    </menuFolders>
+  </tura.domain:MenuView>
+  <tura.domain:MenuView uid="9dac7d4d-7cfd-4f53-a844-0368e8d1f66b" parent="de06d0af-8c4e-4d3a-ab23-d6c09956386d">
+    <menuFolders uid="ad45c4a1-4a51-414b-a003-b36ad75a92a9" name="Forms">
+      <multiLangLabel uid="d6d4e661-2482-4638-a3b4-fe1f46b06366" value="Messages.HR Controller.FORMS">
+        <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+        <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+        <expression objRef="d4020463-6610-4479-9c93-53d193ab464e" order="2" expressionType="MessageImpl"/>
+      </multiLangLabel>
+      <menuElements xsi:type="tura.domain:SubMenu" uid="26cfbe8e-8a57-46d2-884c-d2e5c1842e29" name="Forms" toSubmenu="a257b568-f5fe-4527-bbb4-0241e0d49bdf">
+        <multiLangLabel uid="5036c937-dae6-41f9-9afc-04e690a48d3a" value="Messages.HR Controller.FORMS">
+          <expression objRef="af03a493-0ca4-486c-945f-5bfc2fdf35bd" expressionType="MessagesImpl"/>
+          <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
+          <expression objRef="d4020463-6610-4479-9c93-53d193ab464e" order="2" expressionType="MessageImpl"/>
+        </multiLangLabel>
+      </menuElements>
+    </menuFolders>
+    <menuFolders uid="a257b568-f5fe-4527-bbb4-0241e0d49bdf" name="Global menu">
+      <style uid="4ed6234f-793a-4ac7-8dd5-40f4175ebc87" constant="true" value="font: 15px arial, sans-serif;"/>
+      <multiLangLabel uid="287d2ed4-04d0-461f-aea0-e25d297430bf"/>
+      <menuElements xsi:type="tura.domain:MenuExtensionPoint" uid="8e1387ef-10a3-4b25-b0eb-220df9fa3c65" name="Menu Extension Point" extensionRef="7b4eed85-00ba-4a41-a450-c10a6d8fb893"/>
     </menuFolders>
   </tura.domain:MenuView>
 </xmi:XMI>

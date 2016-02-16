@@ -39,7 +39,7 @@ public class ItemIconPropertySelection extends AbstractStringPropertySelection {
 					.getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							DomainPackage.eINSTANCE.getEnabledUIItem_Enabled(),
+							DomainPackage.eINSTANCE.getItemIcon_Icon(),
 							DomainFactory.eINSTANCE.createContext()));
 
 		}

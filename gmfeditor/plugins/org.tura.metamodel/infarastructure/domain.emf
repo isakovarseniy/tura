@@ -1486,7 +1486,7 @@ class MenuHolder {
 }
 
 class MenuExtensionRef{
-	ref MenuExtensionPoint extensionRef;
+	ref MenuFolder extensionRef;
 }
 
 
@@ -1497,9 +1497,10 @@ class MenuElement extends MultiLangLabel,StyleElement,Categorized,EnabledUIItem,
 
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
-class MenuFolder extends HTMLLayerHolder,EnabledUIItem,Categorized,StyleElement,MultiLangLabel,ItemIcon,MenuExtensionRef{
+class MenuFolder extends HTMLLayerHolder,EnabledUIItem,Categorized,StyleElement,MultiLangLabel,ItemIcon{
     id attr EString uid;
     attr EString name;
+    attr EBoolean extensionPoint;
    @gmf.compartment
     val MenuElement[*] menuElements;
 }
@@ -1512,7 +1513,7 @@ class MenuItem extends MenuElement,ItemIcon,FlexFields{
 
 
 @gmf.node(label="name",border.color="0,0,0",color="59,179,219")
-class MenuExtensionPoint extends MenuElement{
+class MenuExtensionPoint extends MenuElement,MenuExtensionRef{
 	
 }
 

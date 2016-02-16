@@ -30,12 +30,12 @@ public interface MenuExtensionRef extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extension Ref</em>' reference.
-	 * @see #setExtensionRef(MenuExtensionPoint)
+	 * @see #setExtensionRef(MenuFolder)
 	 * @see domain.DomainPackage#getMenuExtensionRef_ExtensionRef()
 	 * @model
 	 * @generated
 	 */
-	MenuExtensionPoint getExtensionRef();
+	MenuFolder getExtensionRef();
 
 	/**
 	 * Sets the value of the '{@link domain.MenuExtensionRef#getExtensionRef <em>Extension Ref</em>}' reference.
@@ -45,6 +45,6 @@ public interface MenuExtensionRef extends EObject {
 	 * @see #getExtensionRef()
 	 * @generated
 	 */
-	void setExtensionRef(MenuExtensionPoint value);
+	void setExtensionRef(MenuFolder value);
 
 } // MenuExtensionRef

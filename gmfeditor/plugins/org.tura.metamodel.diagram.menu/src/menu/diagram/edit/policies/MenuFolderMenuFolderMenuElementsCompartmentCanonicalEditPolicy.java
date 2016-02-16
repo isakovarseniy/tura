@@ -90,8 +90,8 @@ public class MenuFolderMenuFolderMenuElementsCompartmentCanonicalEditPolicy
 		int visualID = DomainVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case MenuItemEditPart.VISUAL_ID:
-		case SubMenuEditPart.VISUAL_ID:
 		case MenuExtensionPointEditPart.VISUAL_ID:
+		case SubMenuEditPart.VISUAL_ID:
 		case MenuSeparatorEditPart.VISUAL_ID:
 			return true;
 		}

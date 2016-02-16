@@ -32,12 +32,12 @@ public class MenuFolderMenuFolderMenuElementsCompartmentItemSemanticEditPolicy
 		if (DomainElementTypes.MenuItem_1803002 == req.getElementType()) {
 			return getGEFWrapper(new MenuItemCreateCommand(req));
 		}
-		if (DomainElementTypes.SubMenu_1803004 == req.getElementType()) {
-			return getGEFWrapper(new SubMenuCreateCommand(req));
-		}
 		if (DomainElementTypes.MenuExtensionPoint_1803005 == req
 				.getElementType()) {
 			return getGEFWrapper(new MenuExtensionPointCreateCommand(req));
+		}
+		if (DomainElementTypes.SubMenu_1803004 == req.getElementType()) {
+			return getGEFWrapper(new SubMenuCreateCommand(req));
 		}
 		if (DomainElementTypes.MenuSeparator_1803003 == req.getElementType()) {
 			return getGEFWrapper(new MenuSeparatorCreateCommand(req));

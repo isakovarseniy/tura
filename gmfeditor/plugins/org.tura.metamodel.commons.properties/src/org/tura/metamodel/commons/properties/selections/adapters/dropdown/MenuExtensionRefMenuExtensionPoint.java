@@ -33,10 +33,10 @@ public class MenuExtensionRefMenuExtensionPoint  implements DropDownDataAdapter 
 
 	public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
 		
-		if (((domain.MenuFolder) eObject).getExtensionRef() == null)
+		if (((domain.MenuExtensionPoint) eObject).getExtensionRef() == null)
 			return false;
 
-		return values.get(key).equals(((domain.MenuFolder) eObject).getExtensionRef());
+		return values.get(key).equals(((domain.MenuExtensionPoint) eObject).getExtensionRef());
 		
 	}
 

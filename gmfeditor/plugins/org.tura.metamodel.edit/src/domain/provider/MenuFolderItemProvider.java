@@ -48,33 +48,11 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addExtensionRefPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addExtensionPointPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Extension Ref feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExtensionRefPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MenuExtensionRef_extensionRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MenuExtensionRef_extensionRef_feature", "_UI_MenuExtensionRef_type"),
-				 DomainPackage.Literals.MENU_EXTENSION_REF__EXTENSION_REF,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -117,6 +95,28 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Extension Point feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExtensionPointPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MenuFolder_extensionPoint_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuFolder_extensionPoint_feature", "_UI_MenuFolder_type"),
+				 DomainPackage.Literals.MENU_FOLDER__EXTENSION_POINT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -197,6 +197,7 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 		switch (notification.getFeatureID(MenuFolder.class)) {
 			case DomainPackage.MENU_FOLDER__UID:
 			case DomainPackage.MENU_FOLDER__NAME:
+			case DomainPackage.MENU_FOLDER__EXTENSION_POINT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.MENU_FOLDER__ENABLED:

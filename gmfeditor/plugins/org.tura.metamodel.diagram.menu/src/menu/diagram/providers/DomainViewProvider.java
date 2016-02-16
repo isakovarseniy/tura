@@ -153,8 +153,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				switch (visualID) {
 				case MenuFolderEditPart.VISUAL_ID:
 				case MenuItemEditPart.VISUAL_ID:
-				case SubMenuEditPart.VISUAL_ID:
 				case MenuExtensionPointEditPart.VISUAL_ID:
+				case SubMenuEditPart.VISUAL_ID:
 				case MenuSeparatorEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
@@ -170,8 +170,8 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		return MenuFolderEditPart.VISUAL_ID == visualID
 				|| MenuItemEditPart.VISUAL_ID == visualID
-				|| SubMenuEditPart.VISUAL_ID == visualID
 				|| MenuExtensionPointEditPart.VISUAL_ID == visualID
+				|| SubMenuEditPart.VISUAL_ID == visualID
 				|| MenuSeparatorEditPart.VISUAL_ID == visualID;
 	}
 
@@ -235,12 +235,12 @@ public class DomainViewProvider extends AbstractProvider implements
 		case MenuItemEditPart.VISUAL_ID:
 			return createMenuItem_1803002(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case SubMenuEditPart.VISUAL_ID:
-			return createSubMenu_1803004(domainElement, containerView, index,
-					persisted, preferencesHint);
 		case MenuExtensionPointEditPart.VISUAL_ID:
 			return createMenuExtensionPoint_1803005(domainElement,
 					containerView, index, persisted, preferencesHint);
+		case SubMenuEditPart.VISUAL_ID:
+			return createSubMenu_1803004(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case MenuSeparatorEditPart.VISUAL_ID:
 			return createMenuSeparator_1803003(domainElement, containerView,
 					index, persisted, preferencesHint);

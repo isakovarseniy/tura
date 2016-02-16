@@ -6,6 +6,7 @@ import domain.DomainPackage;
 import domain.MenuExtensionPoint;
 import domain.MenuExtensionRef;
 
+import domain.MenuFolder;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -36,7 +37,7 @@ public class MenuExtensionRefImpl extends EObjectImpl implements MenuExtensionRe
 	 * @generated
 	 * @ordered
 	 */
-	protected MenuExtensionPoint extensionRef;
+	protected MenuFolder extensionRef;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,10 +63,10 @@ public class MenuExtensionRefImpl extends EObjectImpl implements MenuExtensionRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MenuExtensionPoint getExtensionRef() {
+	public MenuFolder getExtensionRef() {
 		if (extensionRef != null && extensionRef.eIsProxy()) {
 			InternalEObject oldExtensionRef = (InternalEObject)extensionRef;
-			extensionRef = (MenuExtensionPoint)eResolveProxy(oldExtensionRef);
+			extensionRef = (MenuFolder)eResolveProxy(oldExtensionRef);
 			if (extensionRef != oldExtensionRef) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF, oldExtensionRef, extensionRef));
@@ -79,7 +80,7 @@ public class MenuExtensionRefImpl extends EObjectImpl implements MenuExtensionRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MenuExtensionPoint basicGetExtensionRef() {
+	public MenuFolder basicGetExtensionRef() {
 		return extensionRef;
 	}
 
@@ -88,8 +89,8 @@ public class MenuExtensionRefImpl extends EObjectImpl implements MenuExtensionRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExtensionRef(MenuExtensionPoint newExtensionRef) {
-		MenuExtensionPoint oldExtensionRef = extensionRef;
+	public void setExtensionRef(MenuFolder newExtensionRef) {
+		MenuFolder oldExtensionRef = extensionRef;
 		extensionRef = newExtensionRef;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF, oldExtensionRef, extensionRef));
@@ -119,7 +120,7 @@ public class MenuExtensionRefImpl extends EObjectImpl implements MenuExtensionRe
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF:
-				setExtensionRef((MenuExtensionPoint)newValue);
+				setExtensionRef((MenuFolder)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -134,7 +135,7 @@ public class MenuExtensionRefImpl extends EObjectImpl implements MenuExtensionRe
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DomainPackage.MENU_EXTENSION_REF__EXTENSION_REF:
-				setExtensionRef((MenuExtensionPoint)null);
+				setExtensionRef((MenuFolder)null);
 				return;
 		}
 		super.eUnset(featureID);

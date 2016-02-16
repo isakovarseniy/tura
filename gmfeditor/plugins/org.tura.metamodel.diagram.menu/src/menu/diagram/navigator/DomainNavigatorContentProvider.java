@@ -284,7 +284,8 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry
 							.getType(MenuFolderMenuFolderMenuElementsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry.getType(SubMenuEditPart.VISUAL_ID));
+					DomainVisualIDRegistry
+							.getType(MenuExtensionPointEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
@@ -292,8 +293,7 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 					DomainVisualIDRegistry
 							.getType(MenuFolderMenuFolderMenuElementsCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					DomainVisualIDRegistry
-							.getType(MenuExtensionPointEditPart.VISUAL_ID));
+					DomainVisualIDRegistry.getType(SubMenuEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(

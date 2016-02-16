@@ -131,10 +131,10 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getMenuFolderName_1805003Parser();
 		case MenuItemNameEditPart.VISUAL_ID:
 			return getMenuItemName_1805001Parser();
-		case SubMenuNameEditPart.VISUAL_ID:
-			return getSubMenuName_1805004Parser();
 		case MenuExtensionPointNameEditPart.VISUAL_ID:
 			return getMenuExtensionPointName_1805006Parser();
+		case SubMenuNameEditPart.VISUAL_ID:
+			return getSubMenuName_1805004Parser();
 		case MenuSeparatorNameEditPart.VISUAL_ID:
 			return getMenuSeparatorName_1805005Parser();
 		}

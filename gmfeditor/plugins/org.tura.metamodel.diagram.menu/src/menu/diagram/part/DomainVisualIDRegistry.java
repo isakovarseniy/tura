@@ -147,13 +147,13 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return MenuItemEditPart.VISUAL_ID;
 			}
-			if (DomainPackage.eINSTANCE.getSubMenu().isSuperTypeOf(
-					domainElement.eClass())) {
-				return SubMenuEditPart.VISUAL_ID;
-			}
 			if (DomainPackage.eINSTANCE.getMenuExtensionPoint().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MenuExtensionPointEditPart.VISUAL_ID;
+			}
+			if (DomainPackage.eINSTANCE.getSubMenu().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SubMenuEditPart.VISUAL_ID;
 			}
 			if (DomainPackage.eINSTANCE.getMenuSeparator().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -204,13 +204,13 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
-		case SubMenuEditPart.VISUAL_ID:
-			if (SubMenuNameEditPart.VISUAL_ID == nodeVisualID) {
+		case MenuExtensionPointEditPart.VISUAL_ID:
+			if (MenuExtensionPointNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case MenuExtensionPointEditPart.VISUAL_ID:
-			if (MenuExtensionPointNameEditPart.VISUAL_ID == nodeVisualID) {
+		case SubMenuEditPart.VISUAL_ID:
+			if (SubMenuNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -223,10 +223,10 @@ public class DomainVisualIDRegistry {
 			if (MenuItemEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SubMenuEditPart.VISUAL_ID == nodeVisualID) {
+			if (MenuExtensionPointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (MenuExtensionPointEditPart.VISUAL_ID == nodeVisualID) {
+			if (SubMenuEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (MenuSeparatorEditPart.VISUAL_ID == nodeVisualID) {

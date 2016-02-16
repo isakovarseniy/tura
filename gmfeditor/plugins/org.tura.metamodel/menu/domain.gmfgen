@@ -29,28 +29,6 @@
         </modelFacet>
       </labels>
     </childNodes>
-    <childNodes visualID="1803004" editPartClassName="SubMenuEditPart" itemSemanticEditPolicyClassName="SubMenuItemSemanticEditPolicy" canonicalEditPolicyClassName="SubMenuCanonicalEditPolicy" graphicalNodeEditPolicyClassName="SubMenuGraphicalNodeEditPolicy" createCommandClassName="SubMenuCreateCommand" containers="//@diagram/@compartments.0">
-      <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="SubMenuEditHelper"/>
-      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="SubMenuFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SubMenuFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSubMenuLabelFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SubMenuFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSubMenuLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSubMenuLabelFigure.setText(&quot;SubMenu&quot;);&#xA;&#xA;fFigureSubMenuLabelFigure.setFont(FFIGURESUBMENULABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureSubMenuLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSubMenuLabelFigure() {&#xA;&#x9;&#x9;return fFigureSubMenuLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 102, 255, 255);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESUBMENULABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
-        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true" fixedBackground="true"/>
-        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="200" height="16"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass href="domain.genmodel#//domain/SubMenu"/>
-        <containmentMetaFeature href="domain.genmodel#//domain/MenuFolder/menuElements"/>
-        <childMetaFeature href="domain.genmodel#//domain/MenuFolder/menuElements"/>
-      </modelFacet>
-      <labels visualID="1805004" editPartClassName="SubMenuNameEditPart" itemSemanticEditPolicyClassName="SubMenuNameItemSemanticEditPolicy" elementIcon="true">
-        <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureSubMenuLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes xsi:type="gmfgen:StyleAttributes" fixedFont="true"/>
-        </viewmap>
-        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="domain.genmodel#//domain/MenuElement/name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
     <childNodes visualID="1803005" editPartClassName="MenuExtensionPointEditPart" itemSemanticEditPolicyClassName="MenuExtensionPointItemSemanticEditPolicy" canonicalEditPolicyClassName="MenuExtensionPointCanonicalEditPolicy" graphicalNodeEditPolicyClassName="MenuExtensionPointGraphicalNodeEditPolicy" createCommandClassName="MenuExtensionPointCreateCommand" containers="//@diagram/@compartments.0">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="MenuExtensionPointEditHelper"/>
@@ -66,6 +44,28 @@
       <labels visualID="1805006" editPartClassName="MenuExtensionPointNameEditPart" itemSemanticEditPolicyClassName="MenuExtensionPointNameItemSemanticEditPolicy" elementIcon="true">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureMenuExtensionPointLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes xsi:type="gmfgen:StyleAttributes" fixedFont="true"/>
+        </viewmap>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="domain.genmodel#//domain/MenuElement/name"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes visualID="1803004" editPartClassName="SubMenuEditPart" itemSemanticEditPolicyClassName="SubMenuItemSemanticEditPolicy" canonicalEditPolicyClassName="SubMenuCanonicalEditPolicy" graphicalNodeEditPolicyClassName="SubMenuGraphicalNodeEditPolicy" createCommandClassName="SubMenuCreateCommand" containers="//@diagram/@compartments.0">
+      <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="SubMenuEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="SubMenuFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SubMenuFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSubMenuLabelFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SubMenuFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setOutline(false);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(200)&#xA;, getMapMode().DPtoLP(16)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSubMenuLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSubMenuLabelFigure.setText(&quot;SubMenu&quot;);&#xA;&#xA;fFigureSubMenuLabelFigure.setFont(FFIGURESUBMENULABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureSubMenuLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSubMenuLabelFigure() {&#xA;&#x9;&#x9;return fFigureSubMenuLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 102, 255, 255);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESUBMENULABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true" fixedBackground="true"/>
+        <attributes xsi:type="gmfgen:DefaultSizeAttributes" width="200" height="16"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="domain.genmodel#//domain/SubMenu"/>
+        <containmentMetaFeature href="domain.genmodel#//domain/MenuFolder/menuElements"/>
+        <childMetaFeature href="domain.genmodel#//domain/MenuFolder/menuElements"/>
+      </modelFacet>
+      <labels visualID="1805004" editPartClassName="SubMenuNameEditPart" itemSemanticEditPolicyClassName="SubMenuNameItemSemanticEditPolicy" elementIcon="true">
+        <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureSubMenuLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes xsi:type="gmfgen:StyleAttributes" fixedFont="true"/>
         </viewmap>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
@@ -139,11 +139,11 @@
     </compartments>
     <palette>
       <groups title="Objects" collapse="true">
-        <entries xsi:type="gmfgen:ToolEntry" title="MenuExtensionPoint" description="Create new MenuExtensionPoint" genNodes="//@diagram/@childNodes.2"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="MenuExtensionPoint" description="Create new MenuExtensionPoint" genNodes="//@diagram/@childNodes.1"/>
         <entries xsi:type="gmfgen:ToolEntry" title="MenuFolder" description="Create new MenuFolder" genNodes="//@diagram/@topLevelNodes.0"/>
         <entries xsi:type="gmfgen:ToolEntry" title="MenuItem" description="Create new MenuItem" genNodes="//@diagram/@childNodes.0"/>
         <entries xsi:type="gmfgen:ToolEntry" title="MenuSeparator" description="Create new MenuSeparator" genNodes="//@diagram/@childNodes.3"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="SubMenu" description="Create new SubMenu" genNodes="//@diagram/@childNodes.1"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="SubMenu" description="Create new SubMenu" genNodes="//@diagram/@childNodes.2"/>
       </groups>
       <groups title="Connections" collapse="true">
         <entries xsi:type="gmfgen:ToolEntry" title="ToSubmenu" description="Create new ToSubmenu" genLinks="//@diagram/@links.0"/>
@@ -172,8 +172,8 @@
     <childReferences parent="//@diagram" child="//@diagram/@links.0" groupName="links" groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences parent="//@diagram/@links.0" child="//@diagram/@topLevelNodes.0" referenceType="out_target" groupName="target" groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences parent="//@diagram/@topLevelNodes.0" child="//@diagram/@links.0" referenceType="in_source" groupName="incoming links" groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
-    <childReferences parent="//@diagram/@links.0" child="//@diagram/@childNodes.1" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences parent="//@diagram/@childNodes.1" child="//@diagram/@links.0" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@links.0" child="//@diagram/@childNodes.2" referenceType="in_source" groupName="source" groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences parent="//@diagram/@childNodes.2" child="//@diagram/@links.0" referenceType="out_target" groupName="outgoing links" groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>

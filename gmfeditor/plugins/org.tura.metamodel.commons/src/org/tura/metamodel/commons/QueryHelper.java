@@ -1287,10 +1287,10 @@ public class QueryHelper {
 		
 	}
 	
-	public List<domain.MenuExtensionPoint> findExtensionPoints(
+	public List<domain.MenuFolder> findExtensionPoints(
 			domain.MenuExtensionRef ref) {
 
-		domain.Views views = (Views) (((domain.MenuView) (ref.eContainer()))
+		domain.Views views = (Views) (((domain.MenuView) (ref.eContainer().eContainer()))
 				.getParent().eContainer());
 		domain.Form frm = (domain.Form) (views.getParent().eContainer());
 		domain.ApplicationUILayer app = ((domain.UIPackage) (frm.eContainer()))
@@ -1311,16 +1311,16 @@ public class QueryHelper {
 							+ "                ->collect(w|w.oclAsType(domain::ApplicationUIPackage).uipackage.forms"
 							+ "                  ->collect(f|f.oclAsType(domain::Form).view.view.menus)"
 							+ "                     ->collect(fl|fl.oclAsType(domain::MenuDefinition).menuView.menuFolders"
-							+ "                       ->collect(mf|mf.oclAsType(domain::MenuFolder).menuElements->select(e|e.oclIsKindOf(domain::MenuExtensionPoint)) ))))");
+							+ "                       ->collect(mf|mf.oclAsType(domain::MenuFolder)->select(e|e.extensionPoint) ))))");
 
 			@SuppressWarnings("unchecked")
-			Collection<domain.MenuExtensionPoint> map = (Collection<domain.MenuExtensionPoint>) ocl
+			Collection<domain.MenuFolder> map = (Collection<domain.MenuFolder>) ocl
 					.evaluate(ref, query);
 
-			ArrayList<domain.MenuExtensionPoint> list = new ArrayList<domain.MenuExtensionPoint>();
+			ArrayList<domain.MenuFolder> list = new ArrayList<domain.MenuFolder>();
 
 			if (map.size() != 0) {
-				for (domain.MenuExtensionPoint point :  map) {
+				for (domain.MenuFolder point :  map) {
 					if (point.getName() != null && !point.getName().trim().equals(""))
 						list.add(point);
 				}
@@ -1329,7 +1329,7 @@ public class QueryHelper {
 			
 		} catch (Exception e) {
 			LogUtil.log(e);
-			return new ArrayList<domain.MenuExtensionPoint>();
+			return new ArrayList<domain.MenuFolder>();
 		}
 
 

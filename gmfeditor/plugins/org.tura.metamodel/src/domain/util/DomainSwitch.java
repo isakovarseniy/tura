@@ -1768,7 +1768,6 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = caseStyleElement(menuFolder);
 				if (result == null) result = caseMultiLangLabel(menuFolder);
 				if (result == null) result = caseItemIcon(menuFolder);
-				if (result == null) result = caseMenuExtensionRef(menuFolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1790,6 +1789,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				MenuExtensionPoint menuExtensionPoint = (MenuExtensionPoint)theEObject;
 				T result = caseMenuExtensionPoint(menuExtensionPoint);
 				if (result == null) result = caseMenuElement(menuExtensionPoint);
+				if (result == null) result = caseMenuExtensionRef(menuExtensionPoint);
 				if (result == null) result = caseMultiLangLabel(menuExtensionPoint);
 				if (result == null) result = caseStyleElement(menuExtensionPoint);
 				if (result == null) result = caseCategorized(menuExtensionPoint);

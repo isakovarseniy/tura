@@ -13,5 +13,5 @@ package domain;
  * @model annotation="gmf.node label='name' border.color='0,0,0' color='59,179,219'"
  * @generated
  */
-public interface MenuExtensionPoint extends MenuElement {
+public interface MenuExtensionPoint extends MenuElement, MenuExtensionRef {
 } // MenuExtensionPoint

@@ -1593,7 +1593,7 @@
                class="org.tura.metamodel.commons.properties.selections.dropdown.ExtensionPointPropertySelection"
                id="property.tab.domain.menu.extensionpoint.property">
  
-             <input type="menu.diagram.edit.parts.MenuFolderEditPart"/>
+             <input type="menu.diagram.edit.parts.MenuExtensionPointEditPart"/>
               
             </propertySection>        
 

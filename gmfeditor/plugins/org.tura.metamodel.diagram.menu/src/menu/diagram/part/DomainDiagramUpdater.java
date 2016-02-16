@@ -104,11 +104,11 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == SubMenuEditPart.VISUAL_ID) {
+			if (visualID == MenuExtensionPointEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
-			if (visualID == MenuExtensionPointEditPart.VISUAL_ID) {
+			if (visualID == SubMenuEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -131,10 +131,10 @@ public class DomainDiagramUpdater {
 			return getMenuFolder_1802001ContainedLinks(view);
 		case MenuItemEditPart.VISUAL_ID:
 			return getMenuItem_1803002ContainedLinks(view);
-		case SubMenuEditPart.VISUAL_ID:
-			return getSubMenu_1803004ContainedLinks(view);
 		case MenuExtensionPointEditPart.VISUAL_ID:
 			return getMenuExtensionPoint_1803005ContainedLinks(view);
+		case SubMenuEditPart.VISUAL_ID:
+			return getSubMenu_1803004ContainedLinks(view);
 		case MenuSeparatorEditPart.VISUAL_ID:
 			return getMenuSeparator_1803003ContainedLinks(view);
 		}
@@ -150,10 +150,10 @@ public class DomainDiagramUpdater {
 			return getMenuFolder_1802001IncomingLinks(view);
 		case MenuItemEditPart.VISUAL_ID:
 			return getMenuItem_1803002IncomingLinks(view);
-		case SubMenuEditPart.VISUAL_ID:
-			return getSubMenu_1803004IncomingLinks(view);
 		case MenuExtensionPointEditPart.VISUAL_ID:
 			return getMenuExtensionPoint_1803005IncomingLinks(view);
+		case SubMenuEditPart.VISUAL_ID:
+			return getSubMenu_1803004IncomingLinks(view);
 		case MenuSeparatorEditPart.VISUAL_ID:
 			return getMenuSeparator_1803003IncomingLinks(view);
 		}
@@ -169,10 +169,10 @@ public class DomainDiagramUpdater {
 			return getMenuFolder_1802001OutgoingLinks(view);
 		case MenuItemEditPart.VISUAL_ID:
 			return getMenuItem_1803002OutgoingLinks(view);
-		case SubMenuEditPart.VISUAL_ID:
-			return getSubMenu_1803004OutgoingLinks(view);
 		case MenuExtensionPointEditPart.VISUAL_ID:
 			return getMenuExtensionPoint_1803005OutgoingLinks(view);
+		case SubMenuEditPart.VISUAL_ID:
+			return getSubMenu_1803004OutgoingLinks(view);
 		case MenuSeparatorEditPart.VISUAL_ID:
 			return getMenuSeparator_1803003OutgoingLinks(view);
 		}

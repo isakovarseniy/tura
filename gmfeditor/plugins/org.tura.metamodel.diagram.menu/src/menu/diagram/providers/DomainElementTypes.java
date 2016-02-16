@@ -132,10 +132,10 @@ public class DomainElementTypes {
 			elements.put(MenuItem_1803002,
 					DomainPackage.eINSTANCE.getMenuItem());
 
-			elements.put(SubMenu_1803004, DomainPackage.eINSTANCE.getSubMenu());
-
 			elements.put(MenuExtensionPoint_1803005,
 					DomainPackage.eINSTANCE.getMenuExtensionPoint());
+
+			elements.put(SubMenu_1803004, DomainPackage.eINSTANCE.getSubMenu());
 
 			elements.put(MenuSeparator_1803003,
 					DomainPackage.eINSTANCE.getMenuSeparator());
@@ -162,8 +162,8 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(MenuView_1801000);
 			KNOWN_ELEMENT_TYPES.add(MenuFolder_1802001);
 			KNOWN_ELEMENT_TYPES.add(MenuItem_1803002);
-			KNOWN_ELEMENT_TYPES.add(SubMenu_1803004);
 			KNOWN_ELEMENT_TYPES.add(MenuExtensionPoint_1803005);
+			KNOWN_ELEMENT_TYPES.add(SubMenu_1803004);
 			KNOWN_ELEMENT_TYPES.add(MenuSeparator_1803003);
 			KNOWN_ELEMENT_TYPES.add(SubMenuToSubmenu_1804018);
 		}
@@ -181,10 +181,10 @@ public class DomainElementTypes {
 			return MenuFolder_1802001;
 		case MenuItemEditPart.VISUAL_ID:
 			return MenuItem_1803002;
-		case SubMenuEditPart.VISUAL_ID:
-			return SubMenu_1803004;
 		case MenuExtensionPointEditPart.VISUAL_ID:
 			return MenuExtensionPoint_1803005;
+		case SubMenuEditPart.VISUAL_ID:
+			return SubMenu_1803004;
 		case MenuSeparatorEditPart.VISUAL_ID:
 			return MenuSeparator_1803003;
 		case SubMenuToSubmenuEditPart.VISUAL_ID:

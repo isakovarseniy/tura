@@ -149,10 +149,10 @@ public class MenuFolderMenuFolderMenuElementsCompartmentEditPart extends
 			if (type == DomainElementTypes.MenuItem_1803002) {
 				return this;
 			}
-			if (type == DomainElementTypes.SubMenu_1803004) {
+			if (type == DomainElementTypes.MenuExtensionPoint_1803005) {
 				return this;
 			}
-			if (type == DomainElementTypes.MenuExtensionPoint_1803005) {
+			if (type == DomainElementTypes.SubMenu_1803004) {
 				return this;
 			}
 			if (type == DomainElementTypes.MenuSeparator_1803003) {
