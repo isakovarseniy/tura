@@ -7719,7 +7719,7 @@
         <children xmi:type="notation:Shape" xmi:id="_TrY1YPc8EeSEGPx6vZxQsA" type="1603005" fontName=".Helvetica Neue DeskInterface">
           <children xmi:type="notation:DecorationNode" xmi:id="_TrZccPc8EeSEGPx6vZxQsA" type="1605001"/>
           <element xmi:type="tura.domain:Label" href="hr.domain#1f4bf46b-81d3-4e94-8dc7-99b07028f42f"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TrY1Yfc8EeSEGPx6vZxQsA" x="-3" y="-4"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TrY1Yfc8EeSEGPx6vZxQsA" x="-1" y="43"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_emEaQPc8EeSEGPx6vZxQsA" type="1603019" fontName=".Helvetica Neue DeskInterface">
           <children xmi:type="notation:BasicCompartment" xmi:id="_emFBUPc8EeSEGPx6vZxQsA" type="1607008">

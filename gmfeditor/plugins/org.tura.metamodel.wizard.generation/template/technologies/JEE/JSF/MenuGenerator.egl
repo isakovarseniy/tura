@@ -114,7 +114,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 
         [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Style",self.style(hash))%]
         [%=setAttribute(util.mergeAndUnCapitalize(self.name),"StyleClass",self.styleClass(hash))%]
-        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Rendered",buildExpression(self.enabled,hints,hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Rendered",buildExpression(self.enabled,hints,hash),"Boolean")%]
 
 
    [%
@@ -133,21 +133,31 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
   
   
 @template 
-operation setAttribute(variable , attribute, value){
+operation setAttribute(variable , attribute, value,type){
      var util = new Native('org.tura.metamodel.commons.Util');
     if  (value <> ""){
-    %][%=variable%].set[%=attribute%]((String)resolver("[%=value%]",elResolver));[%
+    %][%=variable%].set[%=attribute%](([%=type%])resolver("[%=value%]",elResolver));[%
     }
+}  
+  
+  
+@template 
+operation setAttribute(variable , attribute, value){
+%][%=setAttribute(variable , attribute, value,"String")%][%
 }
   
 @template  
   operation domain::SubMenu addToModel(hash,addOperation){
      var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
   %]
         [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu [%=util.mergeAndUnCapitalize(self.name)%]  = new [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu();
-        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Style",self.style(hash))%]
-        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"StyleClass",self.styleClass(hash))%]
-        model.[%=addOperation%]((org.primefaces.model.menu.MenuElement)[%=util.mergeAndUnCapitalize(self.name)%].getMenu(elResolver));
+        org.primefaces.model.menu.DefaultSubMenu [%=util.mergeAndUnCapitalize(self.name)%]_submenu = (org.primefaces.model.menu.DefaultSubMenu)[%=util.mergeAndUnCapitalize(self.name)%].getMenu(elResolver);
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name)+"_submenu","Style",self.style(hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name)+"_submenu","StyleClass",self.styleClass(hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name)+"_submenu","Rendered",buildExpression(self.enabled,hints,hash),"Boolean")%]
+        
+        model.[%=addOperation%]([%=util.mergeAndUnCapitalize(self.name)%]_submenu);
 [%  
   }
   

@@ -4517,7 +4517,7 @@
   </tura.domain:Views>
   <tura.domain:CanvasView uid="d964331d-e39e-44b3-9e30-57e65ac9b63f" parent="3fbcf559-edb8-4c2f-b6dc-b04a8ad7080d">
     <baseCanvas uid="a21212d5-4457-4007-9bcf-008b3071e329">
-      <style/>
+      <style uid="fac26dfd-07c2-4095-81f2-fbd4dec6bc9b"/>
       <children xsi:type="tura.domain:Label" uid="1f4bf46b-81d3-4e94-8dc7-99b07028f42f" label="Tree 2 tree relation">
         <style constant="true" value="font:35px arial, sans-serif;color: #0033CC;text-decoration: underline"/>
         <multiLangLabel value="Messages.Tree 2 tree.MAIN_WINDOW_LABEL">
