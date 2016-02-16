@@ -5130,9 +5130,11 @@
           <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
           <expression objRef="623769a2-1543-44ff-a2a8-51be55d7053f" order="2" expressionType="MessageImpl"/>
         </multiLangLabel>
+        <enabled uid="b76d2260-d367-494d-b355-4ef376e8093d"/>
       </menuElements>
     </menuFolders>
     <menuFolders uid="3affd7e5-2d55-4931-a5f7-82e70f7208f4" name="SubMenu">
+      <enabled uid="fef729c2-d688-4e53-8b38-eb3751b5959a"/>
       <multiLangLabel uid="8f50731f-b0ba-4dfb-95c4-5996143ca5b9"/>
       <menuElements xsi:type="tura.domain:MenuItem" uid="c3cd0c84-6f2e-46b2-8297-c12e55566da5" name="Rallback">
         <multiLangLabel uid="25397444-82cc-4ad7-87f8-cab8a687e0bf" value="Messages.HR Controller.RALLBACK_BUTTON">
@@ -5140,6 +5142,18 @@
           <expression objRef="5772ddee-a83b-41c9-8f34-c442412e1013" order="1" expressionType="MessageLibraryImpl"/>
           <expression objRef="05b18ec6-8d14-4eb6-82ca-6cc37735bd2a" order="2" expressionType="MessageImpl"/>
         </multiLangLabel>
+        <enabled uid="bd5a1379-fb55-48ef-a5e0-7d571bd295b6" value="Packages.Base package.Base package::Authentication manager.isUserInRole()">
+          <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+          <expression objRef="dd77a443-471b-441e-88bf-3f3f092f372c" order="1" expressionType="PackageImpl"/>
+          <expression objRef="880454fd-5da9-4894-99d1-b3658d74409e" order="2" expressionType="TypeImpl"/>
+          <expression objRef="0f156094-7380-4d64-937e-55ad395afc35" order="3" expressionType="OperationImpl"/>
+          <parameters uid="e7a4af6c-bb0f-4010-a8a4-a4cd6aec3fe8" refObj="e1cd6c51-bf48-4e5d-87ba-d2dafbc0fd8f">
+            <value uid="9f973c3f-b6cf-455b-b528-2692064e2cb4" value="Roles.admin">
+              <expression objRef="e2bd4f52-5745-4997-afe5-0afd62ed20f7" expressionType="RolesImpl"/>
+              <expression objRef="45d0609c-66c2-4dd1-845c-f3763940096a" order="1" expressionType="RoleImpl"/>
+            </value>
+          </parameters>
+        </enabled>
         <fields uid="04847786-178a-47a9-a938-cebf3125e2a5" value="Packages.HR package.HR package::Action executor.rallbackApplication()">
           <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
           <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
