@@ -31,6 +31,9 @@ ${percent}${end}
       hash.put("configuration",configuration);
       hash.put("roles",roles);
       hash.put("windows",win);
+      hash.put("application",app.get(0));
+ 
+ 
  
       web_xml(hash);
       web_xml_serverspecific(hash);  

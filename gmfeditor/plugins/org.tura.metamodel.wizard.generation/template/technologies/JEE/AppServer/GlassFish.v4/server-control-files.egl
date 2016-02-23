@@ -8,6 +8,8 @@ operation web_xml_serverspecific(hash){
    var roles = hash.get("roles");
    var recipe = hash.get("recipe");
    var ingredient = hash.get("ingredient");
+   var app = hash.get("application");
+
    
 %]
 <glassfish-web-app>
@@ -27,6 +29,7 @@ operation web_xml_serverspecific(hash){
     }
  }
 %]
+        <context-root>[%=util.mergeAndCapitalize(app.name).toLowerCase()%]</context-root> 
 </glassfish-web-app>
 [%
  

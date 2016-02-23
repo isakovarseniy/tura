@@ -19,6 +19,7 @@ ${percent}${end}
          var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
          var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/";
          var uipackage = form.eContainer().parent;
+         var application = uipackage.eContainer().parent.parent;
 
          hash.put("recipe",recipe);
          hash.put("ingredient",ingredient);
@@ -30,6 +31,7 @@ ${percent}${end}
          hash.put("form",form);
          hash.put("configuration",configuration);
          hash.put("uipackage",uipackage);
+         hash.put("application",application);
          
          hash.put("beanFactoryName",util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
 
