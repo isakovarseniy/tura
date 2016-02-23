@@ -84,7 +84,7 @@ public class Tree2TreeTest {
 
 	@Test
 	public void t000_tree2tree() {
-		driver.get("http://localhost:8080/hrform-1.0/hrmanager/tree2tree/Tree2TreeRelations.xhtml");
+		driver.get("http://localhost:8080/hrapplication/hrmanager/tree2tree/Tree2TreeRelations.xhtml");
 		
 
 	

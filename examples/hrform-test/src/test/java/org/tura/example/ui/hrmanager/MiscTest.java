@@ -82,7 +82,7 @@ public class MiscTest {
 	@Test
 	public void t1_validateDropDown() {
 		try {
-			driver.get("http://localhost:8080/hrform-1.0/hrmanager/miscelements/MiscElementsWindow.xhtml");
+			driver.get("http://localhost:8080/hrapplication/hrmanager/miscelements/MiscElementsWindow.xhtml");
 
 			MiscElementsWindowPageObject miscPage = new MiscElementsWindowPageObject(
 					driver);
@@ -106,7 +106,7 @@ public class MiscTest {
 	@Test
 	public void t2_validateCheckBox() {
 		try {
-			driver.get("http://localhost:8080/hrform-1.0/hrmanager/miscelements/MiscElementsWindow.xhtml");
+			driver.get("http://localhost:8080/hrapplication/hrmanager/miscelements/MiscElementsWindow.xhtml");
 
 			MiscElementsWindowPageObject miscPage = new MiscElementsWindowPageObject(
 					driver);
