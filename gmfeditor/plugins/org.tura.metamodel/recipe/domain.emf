@@ -125,6 +125,9 @@ class Artifact{
    @gmf.compartment(layout="list")
    val   ConfigVariable[*]#parent configVariables;
    
+   @gmf.compartment(layout="list")
+   val   ConfigHash[*]#parent configHashes;
+
    // Variables to query model ( for example FormName or service name)
    @gmf.compartment(layout="list")
    val   ModelQuery[*]#parent modelQuery;
@@ -155,6 +158,15 @@ class ConfigVariable{
   attr EString name;
    ref Artifact#configVariables parent;
 }
+
+@gmf.node(label="name",border.color="0,0,0",color="255,239,222")
+class ConfigHash{
+   id attr EString uid;
+  attr EString name;
+   ref Artifact#configHashes parent;
+}
+
+
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class ModelQuery{
@@ -613,6 +625,8 @@ class Configuration{
    ref Infrastructure#recipeConfig infrastructure;
    @gmf.compartment(layout="list")
    val Property[*] properties; 
+   @gmf.compartment(layout="list")
+   val HashProperty[*] hashProperties; 
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="192,192,192")
@@ -632,6 +646,22 @@ class Property{
     ref ConfigVariable confVarRef;
     attr EString value;
     attr EString fakeName;
+}
+
+
+@gmf.node(label="fakeName",border.color="0,0,0",color="255,239,222")
+class HashProperty{
+    id attr EString uid;
+    ref ConfigHash confHashRef;
+    val KeyValuePair[*] hash;
+    attr EString fakeName;
+}
+
+
+class KeyValuePair{
+    id attr EString uid;
+    attr EString key;
+    attr EString value;
 }
 
 class MappingSpecifier{

@@ -162,6 +162,14 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
+		if (childEditPart instanceof ArtifactArtifactConfigHashesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getArtifactConfigHashesCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((ArtifactArtifactConfigHashesCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		if (childEditPart instanceof ArtifactArtifactModelQueryCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getArtifactModelQueryCompartmentFigure();
@@ -200,6 +208,13 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 			IFigure pane = getPrimaryShape()
 					.getArtifactConfigVariablesCompartmentFigure();
 			pane.remove(((ArtifactArtifactConfigVariablesCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof ArtifactArtifactConfigHashesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getArtifactConfigHashesCompartmentFigure();
+			pane.remove(((ArtifactArtifactConfigHashesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -254,6 +269,9 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 		if (editPart instanceof ArtifactArtifactConfigVariablesCompartmentEditPart) {
 			return getPrimaryShape()
 					.getArtifactConfigVariablesCompartmentFigure();
+		}
+		if (editPart instanceof ArtifactArtifactConfigHashesCompartmentEditPart) {
+			return getPrimaryShape().getArtifactConfigHashesCompartmentFigure();
 		}
 		if (editPart instanceof ArtifactArtifactModelQueryCompartmentEditPart) {
 			return getPrimaryShape().getArtifactModelQueryCompartmentFigure();
@@ -392,6 +410,10 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID));
 			}
+			if (type == DomainElementTypes.ConfigHash_703007) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(ArtifactArtifactConfigHashesCompartmentEditPart.VISUAL_ID));
+			}
 			if (type == DomainElementTypes.ModelQuery_703005) {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID));
@@ -434,6 +456,10 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private RectangleFigure fArtifactConfigVariablesCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fArtifactConfigHashesCompartmentFigure;
 		/**
 		 * @generated
 		 */
@@ -483,6 +509,12 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 
 			this.add(fArtifactConfigVariablesCompartmentFigure);
 
+			fArtifactConfigHashesCompartmentFigure = new RectangleFigure();
+
+			fArtifactConfigHashesCompartmentFigure.setOutline(false);
+
+			this.add(fArtifactConfigHashesCompartmentFigure);
+
 			fArtifactModelQueryCompartmentFigure = new RectangleFigure();
 
 			fArtifactModelQueryCompartmentFigure.setOutline(false);
@@ -515,6 +547,13 @@ public class ArtifactEditPart extends ShapeNodeEditPart {
 		 */
 		public RectangleFigure getArtifactConfigVariablesCompartmentFigure() {
 			return fArtifactConfigVariablesCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getArtifactConfigHashesCompartmentFigure() {
+			return fArtifactConfigHashesCompartmentFigure;
 		}
 
 		/**

@@ -161,6 +161,7 @@ public class ConfigurationItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.CONFIGURATION__PROPERTIES);
+			childrenFeatures.add(DomainPackage.Literals.CONFIGURATION__HASH_PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -221,6 +222,7 @@ public class ConfigurationItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.CONFIGURATION__PROPERTIES:
+			case DomainPackage.CONFIGURATION__HASH_PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -242,6 +244,11 @@ public class ConfigurationItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.CONFIGURATION__PROPERTIES,
 				 DomainFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CONFIGURATION__HASH_PROPERTIES,
+				 DomainFactory.eINSTANCE.createHashProperty()));
 	}
 
 	/**

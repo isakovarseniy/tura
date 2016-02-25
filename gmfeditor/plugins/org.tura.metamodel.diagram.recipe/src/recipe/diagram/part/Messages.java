@@ -276,72 +276,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure3CreationTool_title;
+	public static String HashProperty3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Infrastructure3CreationTool_desc;
+	public static String HashProperty3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient4CreationTool_title;
+	public static String Infrastructure4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Ingredient4CreationTool_desc;
+	public static String Infrastructure4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponent5CreationTool_title;
+	public static String Ingredient5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String JavaComponent5CreationTool_desc;
+	public static String Ingredient5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelMapper6CreationTool_title;
+	public static String JavaComponent6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelMapper6CreationTool_desc;
+	public static String JavaComponent6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Property7CreationTool_title;
+	public static String ModelMapper7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Property7CreationTool_desc;
+	public static String ModelMapper7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Query8CreationTool_title;
+	public static String Property8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Query8CreationTool_desc;
+	public static String Property8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Recipe9CreationTool_title;
+	public static String Query9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Recipe9CreationTool_desc;
+	public static String Query9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Recipe10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Recipe10CreationTool_desc;
 
 	/**
 	 * @generated
@@ -407,6 +417,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String ConfigurationConfigurationPropertiesCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ConfigurationConfigurationHashPropertiesCompartmentEditPart_title;
 
 	/**
 	 * @generated

@@ -37,6 +37,7 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import recipe.diagram.edit.parts.ConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
+import recipe.diagram.edit.parts.HashPropertyEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.IngredientEditPart;
 import recipe.diagram.edit.parts.JavaComponentEditPart;
@@ -367,6 +368,14 @@ public class RecipesCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getProperty_303005ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case HashPropertyEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(DomainDiagramUpdater
+						.getHashProperty_303006ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

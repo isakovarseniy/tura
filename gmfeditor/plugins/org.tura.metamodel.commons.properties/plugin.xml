@@ -258,6 +258,15 @@
              category="domain"
              id="property.tab.domain.mappingVariable"
              label="Model query parameters"/>
+
+          <propertyTab
+             afterTab="property.tab.domain.query"
+             category="domain"
+             id="property.tab.domain.keyvalue.config"
+             label="Key/Value configuration"/>
+
+
+
       </propertyTabs>
 
    </extension>
@@ -266,6 +275,15 @@
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="org.tura.metamodel.diagram.recipe">
+      
+          <propertySection
+               tab="property.tab.domain.keyvalue.config"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.KeyValuePairPropertySelection"
+               id="org.tura.metamodel.keyvalue.config">
+              <input type="recipe.diagram.edit.parts.HashPropertyEditPart"/>
+         </propertySection>        
+      
+      
       
           <propertySection
                tab="property.tab.domain.availableMappers"

@@ -340,6 +340,11 @@ public class ControlsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CONTROLS__ANY,
+				 DomainFactory.eINSTANCE.createConfigHash()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CONTROLS__ANY,
 				 DomainFactory.eINSTANCE.createModelQuery()));
 
 		newChildDescriptors.add
@@ -596,6 +601,16 @@ public class ControlsItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.CONTROLS__ANY,
 				 DomainFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CONTROLS__ANY,
+				 DomainFactory.eINSTANCE.createHashProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CONTROLS__ANY,
+				 DomainFactory.eINSTANCE.createKeyValuePair()));
 
 		newChildDescriptors.add
 			(createChildParameter

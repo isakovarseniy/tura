@@ -151,6 +151,14 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 					.getFigure());
 			return true;
 		}
+		if (childEditPart instanceof ConfigurationConfigurationHashPropertiesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getConfigurationHashPropertiesCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((ConfigurationConfigurationHashPropertiesCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -165,6 +173,13 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 			IFigure pane = getPrimaryShape()
 					.getConfigurationPropertiesCompartmentFigure();
 			pane.remove(((ConfigurationConfigurationPropertiesCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof ConfigurationConfigurationHashPropertiesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getConfigurationHashPropertiesCompartmentFigure();
+			pane.remove(((ConfigurationConfigurationHashPropertiesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -198,6 +213,10 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 		if (editPart instanceof ConfigurationConfigurationPropertiesCompartmentEditPart) {
 			return getPrimaryShape()
 					.getConfigurationPropertiesCompartmentFigure();
+		}
+		if (editPart instanceof ConfigurationConfigurationHashPropertiesCompartmentEditPart) {
+			return getPrimaryShape()
+					.getConfigurationHashPropertiesCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -327,6 +346,10 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(DomainVisualIDRegistry
 						.getType(ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID));
 			}
+			if (type == DomainElementTypes.HashProperty_303006) {
+				return getChildBySemanticHint(DomainVisualIDRegistry
+						.getType(ConfigurationConfigurationHashPropertiesCompartmentEditPart.VISUAL_ID));
+			}
 		}
 		return super.getTargetEditPart(request);
 	}
@@ -357,6 +380,11 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private RectangleFigure fConfigurationPropertiesCompartmentFigure;
+
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fConfigurationHashPropertiesCompartmentFigure;
 
 		/**
 		 * @generated
@@ -395,6 +423,12 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 
 			this.add(fConfigurationPropertiesCompartmentFigure);
 
+			fConfigurationHashPropertiesCompartmentFigure = new RectangleFigure();
+
+			fConfigurationHashPropertiesCompartmentFigure.setOutline(false);
+
+			this.add(fConfigurationHashPropertiesCompartmentFigure);
+
 		}
 
 		/**
@@ -409,6 +443,13 @@ public class ConfigurationEditPart extends ShapeNodeEditPart {
 		 */
 		public RectangleFigure getConfigurationPropertiesCompartmentFigure() {
 			return fConfigurationPropertiesCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getConfigurationHashPropertiesCompartmentFigure() {
+			return fConfigurationHashPropertiesCompartmentFigure;
 		}
 
 	}

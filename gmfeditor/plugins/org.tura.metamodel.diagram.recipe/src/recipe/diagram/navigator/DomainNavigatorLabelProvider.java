@@ -26,6 +26,8 @@ import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceNameEditPart;
+import recipe.diagram.edit.parts.HashPropertyEditPart;
+import recipe.diagram.edit.parts.HashPropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.InfrastructureNameEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
@@ -148,6 +150,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case PropertyEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?Property", DomainElementTypes.Property_303005); //$NON-NLS-1$
+		case HashPropertyEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://tura.org/2013/v1/domain?HashProperty", DomainElementTypes.HashProperty_303006); //$NON-NLS-1$
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Recipe?infrastructures", DomainElementTypes.RecipeInfrastructures_304004); //$NON-NLS-1$
@@ -240,6 +245,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getQuery_303004Text(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303005Text(view);
+		case HashPropertyEditPart.VISUAL_ID:
+			return getHashProperty_303006Text(view);
 		case RecipeInfrastructuresEditPart.VISUAL_ID:
 			return getRecipeInfrastructures_304004Text(view);
 		case InfrastructureRecipeConfigEditPart.VISUAL_ID:
@@ -440,6 +447,26 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 305006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getHashProperty_303006Text(View view) {
+		IParser parser = DomainParserProvider.getParser(
+				DomainElementTypes.HashProperty_303006,
+				view.getElement() != null ? view.getElement() : view,
+				DomainVisualIDRegistry
+						.getType(HashPropertyFakeNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 305010); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

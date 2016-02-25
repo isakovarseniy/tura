@@ -220,6 +220,7 @@ public class PropertyFakeNameEditPart extends CompartmentEditPart implements
 			if (((Property) parserElement).getConfVarRef() != null)
 				name = ((Property) parserElement).getConfVarRef().getName();
 			text = name;
+
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;

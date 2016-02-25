@@ -1,0 +1,23 @@
+wizard PopulateHashRecipeConfiguration {
+	
+	guard : self.isKindOf(domain::Configuration) 
+		
+	title : 'Populate recipe hash configuration'
+	
+	do {
+
+	   var configVar := new Native('org.tura.metamodel.wizard.recipe.configuration.ConfigHashVarDialog');
+	   var uuid := Native('java.util.UUID');
+       var properties = configVar.runDialog(self);
+       for( property in properties ){
+           
+           var prop : new domain::HashProperty;
+           prop.confHashRef= property;
+           prop.uid = uuid.randomUUID().toString();
+           self.hashProperties.add(prop);
+       
+       }
+	
+	}
+	
+}

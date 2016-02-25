@@ -21,6 +21,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="ConfigHash"
+          description="Create new ConfigHash">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="ConfigVariable"
           description="Create new ConfigVariable">
         <smallIcon

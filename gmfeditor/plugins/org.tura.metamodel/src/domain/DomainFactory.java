@@ -205,6 +205,15 @@ public interface DomainFactory extends EFactory {
 	ConfigVariable createConfigVariable();
 
 	/**
+	 * Returns a new object of class '<em>Config Hash</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Config Hash</em>'.
+	 * @generated
+	 */
+	ConfigHash createConfigHash();
+
+	/**
 	 * Returns a new object of class '<em>Model Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -653,6 +662,24 @@ public interface DomainFactory extends EFactory {
 	 * @generated
 	 */
 	Property createProperty();
+
+	/**
+	 * Returns a new object of class '<em>Hash Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Hash Property</em>'.
+	 * @generated
+	 */
+	HashProperty createHashProperty();
+
+	/**
+	 * Returns a new object of class '<em>Key Value Pair</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Key Value Pair</em>'.
+	 * @generated
+	 */
+	KeyValuePair createKeyValuePair();
 
 	/**
 	 * Returns a new object of class '<em>Mapping Specifier</em>'.

@@ -16,6 +16,7 @@ package domain.impl;
 
 import domain.Artifact;
 import domain.Artifacts;
+import domain.ConfigHash;
 import domain.ConfigVariable;
 import domain.DomainPackage;
 import domain.GenerationHint;
@@ -52,6 +53,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ArtifactImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getConfigVariables <em>Config Variables</em>}</li>
+ *   <li>{@link domain.impl.ArtifactImpl#getConfigHashes <em>Config Hashes</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getModelQuery <em>Model Query</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link domain.impl.ArtifactImpl#getHints <em>Hints</em>}</li>
@@ -131,6 +133,16 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * @ordered
 	 */
 	protected EList<ConfigVariable> configVariables;
+
+	/**
+	 * The cached value of the '{@link #getConfigHashes() <em>Config Hashes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigHashes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConfigHash> configHashes;
 
 	/**
 	 * The cached value of the '{@link #getModelQuery() <em>Model Query</em>}' containment reference list.
@@ -322,6 +334,18 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ConfigHash> getConfigHashes() {
+		if (configHashes == null) {
+			configHashes = new EObjectContainmentWithInverseEList<ConfigHash>(ConfigHash.class, this, DomainPackage.ARTIFACT__CONFIG_HASHES, DomainPackage.CONFIG_HASH__PARENT);
+		}
+		return configHashes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ModelQuery> getModelQuery() {
 		if (modelQuery == null) {
 			modelQuery = new EObjectContainmentWithInverseEList<ModelQuery>(ModelQuery.class, this, DomainPackage.ARTIFACT__MODEL_QUERY, DomainPackage.MODEL_QUERY__PARENT);
@@ -389,6 +413,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 				return basicSetParent((Artifacts)otherEnd, msgs);
 			case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConfigVariables()).basicAdd(otherEnd, msgs);
+			case DomainPackage.ARTIFACT__CONFIG_HASHES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConfigHashes()).basicAdd(otherEnd, msgs);
 			case DomainPackage.ARTIFACT__MODEL_QUERY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getModelQuery()).basicAdd(otherEnd, msgs);
 			case DomainPackage.ARTIFACT__SPECIFIERS:
@@ -409,6 +435,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 				return basicSetParent(null, msgs);
 			case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
 				return ((InternalEList<?>)getConfigVariables()).basicRemove(otherEnd, msgs);
+			case DomainPackage.ARTIFACT__CONFIG_HASHES:
+				return ((InternalEList<?>)getConfigHashes()).basicRemove(otherEnd, msgs);
 			case DomainPackage.ARTIFACT__MODEL_QUERY:
 				return ((InternalEList<?>)getModelQuery()).basicRemove(otherEnd, msgs);
 			case DomainPackage.ARTIFACT__SPECIFIERS:
@@ -451,6 +479,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 				return getParent();
 			case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
 				return getConfigVariables();
+			case DomainPackage.ARTIFACT__CONFIG_HASHES:
+				return getConfigHashes();
 			case DomainPackage.ARTIFACT__MODEL_QUERY:
 				return getModelQuery();
 			case DomainPackage.ARTIFACT__SPECIFIERS:
@@ -487,6 +517,10 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 			case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
 				getConfigVariables().clear();
 				getConfigVariables().addAll((Collection<? extends ConfigVariable>)newValue);
+				return;
+			case DomainPackage.ARTIFACT__CONFIG_HASHES:
+				getConfigHashes().clear();
+				getConfigHashes().addAll((Collection<? extends ConfigHash>)newValue);
 				return;
 			case DomainPackage.ARTIFACT__MODEL_QUERY:
 				getModelQuery().clear();
@@ -530,6 +564,9 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 			case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
 				getConfigVariables().clear();
 				return;
+			case DomainPackage.ARTIFACT__CONFIG_HASHES:
+				getConfigHashes().clear();
+				return;
 			case DomainPackage.ARTIFACT__MODEL_QUERY:
 				getModelQuery().clear();
 				return;
@@ -564,6 +601,8 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 				return getParent() != null;
 			case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
 				return configVariables != null && !configVariables.isEmpty();
+			case DomainPackage.ARTIFACT__CONFIG_HASHES:
+				return configHashes != null && !configHashes.isEmpty();
 			case DomainPackage.ARTIFACT__MODEL_QUERY:
 				return modelQuery != null && !modelQuery.isEmpty();
 			case DomainPackage.ARTIFACT__SPECIFIERS:

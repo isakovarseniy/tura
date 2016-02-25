@@ -63,14 +63,25 @@ public class GMFGeneration {
 		runGMFGeneration(view, infrastructure, diagramEditPart);
 	}
 
-	private void getConfiguratioin(domain.Configuration conf ,HashMap<String,String> configuration){
+	private void getConfiguratioin(domain.Configuration conf ,HashMap<String,Object> configuration){
 		QueryHelper helper = new QueryHelper();
 		try{
 		if (conf != null){
-  		   for (Iterator<domain.Property> itr = conf.getProperties().iterator(); itr.hasNext();){
-			  domain.Property prop = itr.next();
+  		   for (domain.Property prop : conf.getProperties()){
 			  configuration.put(prop.getConfVarRef().getName(), prop.getValue());
 		   }
+  		   
+ 		   for (domain.HashProperty prop : conf.getHashProperties()){
+ 			  HashMap <String,String> hash = new HashMap<String, String>();
+
+ 			  for (domain.KeyValuePair pair : prop.getHash())
+ 				 hash.put(pair.getKey(), pair.getValue());
+ 			  
+			  configuration.put(prop.getConfHashRef().getName(), hash);
+		   }
+
+  		   
+  		   
 		   if (  helper.getConfigExtensionUp(conf) != null)
 			   getConfiguratioin(helper.getConfigExtensionUp(conf),configuration);
 		}
@@ -85,7 +96,7 @@ public class GMFGeneration {
 
 		if (target.isSetElement() && target.getElement() != null) {
 
-			HashMap<String, String> configuration = new HashMap<>();
+			HashMap<String, Object> configuration = new HashMap<>();
 			getConfiguratioin(infrastructure.getRecipeConfig(), configuration);
 			// Validate recipe
 			domain.Recipes recipes = (Recipes) target.getElement();

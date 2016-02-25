@@ -46,6 +46,7 @@ import domain.Column;
 import domain.Comparator;
 import domain.Component;
 import domain.ConfigExtension;
+import domain.ConfigHash;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
@@ -92,6 +93,7 @@ import domain.GenerationHint;
 import domain.GrantAccess;
 import domain.Group;
 import domain.HTMLLayerHolder;
+import domain.HashProperty;
 import domain.Hub;
 import domain.Image;
 import domain.Infrastructure;
@@ -107,6 +109,7 @@ import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.JavaScriptMapper;
+import domain.KeyValuePair;
 import domain.Label;
 import domain.Language;
 import domain.LanguageRef;
@@ -288,6 +291,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.ARTIFACT: return createArtifact();
 			case DomainPackage.GENERATION_HINT: return createGenerationHint();
 			case DomainPackage.CONFIG_VARIABLE: return createConfigVariable();
+			case DomainPackage.CONFIG_HASH: return createConfigHash();
 			case DomainPackage.MODEL_QUERY: return createModelQuery();
 			case DomainPackage.QUERY_PARAMETER: return createQueryParameter();
 			case DomainPackage.SPECIFIER: return createSpecifier();
@@ -338,6 +342,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.CONFIGURATION: return createConfiguration();
 			case DomainPackage.MODEL_MAPPER: return createModelMapper();
 			case DomainPackage.PROPERTY: return createProperty();
+			case DomainPackage.HASH_PROPERTY: return createHashProperty();
+			case DomainPackage.KEY_VALUE_PAIR: return createKeyValuePair();
 			case DomainPackage.MAPPING_SPECIFIER: return createMappingSpecifier();
 			case DomainPackage.QUERY: return createQuery();
 			case DomainPackage.QUERY_VARIABLE: return createQueryVariable();
@@ -698,6 +704,16 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public ConfigVariable createConfigVariable() {
 		ConfigVariableImpl configVariable = new ConfigVariableImpl();
 		return configVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConfigHash createConfigHash() {
+		ConfigHashImpl configHash = new ConfigHashImpl();
+		return configHash;
 	}
 
 	/**
@@ -1198,6 +1214,26 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public Property createProperty() {
 		PropertyImpl property = new PropertyImpl();
 		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HashProperty createHashProperty() {
+		HashPropertyImpl hashProperty = new HashPropertyImpl();
+		return hashProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public KeyValuePair createKeyValuePair() {
+		KeyValuePairImpl keyValuePair = new KeyValuePairImpl();
+		return keyValuePair;
 	}
 
 	/**

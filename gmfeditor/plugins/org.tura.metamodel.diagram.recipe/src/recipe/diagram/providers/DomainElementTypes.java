@@ -20,6 +20,7 @@ import org.eclipse.swt.graphics.Image;
 import recipe.diagram.edit.parts.ConfigExtensionEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
+import recipe.diagram.edit.parts.HashPropertyEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import recipe.diagram.edit.parts.IngredientEditPart;
@@ -105,6 +106,11 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType HashProperty_303006 = getElementType("org.tura.metamodel.diagram.recipe.HashProperty_303006"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType ConfigExtension_304014 = getElementType("org.tura.metamodel.diagram.recipe.ConfigExtension_304014"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -183,6 +189,9 @@ public class DomainElementTypes {
 
 			elements.put(Property_303005, DomainPackage.eINSTANCE.getProperty());
 
+			elements.put(HashProperty_303006,
+					DomainPackage.eINSTANCE.getHashProperty());
+
 			elements.put(ConfigExtension_304014,
 					DomainPackage.eINSTANCE.getConfigExtension());
 
@@ -221,6 +230,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ModelMapper_303003);
 			KNOWN_ELEMENT_TYPES.add(Query_303004);
 			KNOWN_ELEMENT_TYPES.add(Property_303005);
+			KNOWN_ELEMENT_TYPES.add(HashProperty_303006);
 			KNOWN_ELEMENT_TYPES.add(ConfigExtension_304014);
 			KNOWN_ELEMENT_TYPES.add(RecipeInfrastructures_304004);
 			KNOWN_ELEMENT_TYPES.add(RecipeDeployment_304013);
@@ -254,6 +264,8 @@ public class DomainElementTypes {
 			return Query_303004;
 		case PropertyEditPart.VISUAL_ID:
 			return Property_303005;
+		case HashPropertyEditPart.VISUAL_ID:
+			return HashProperty_303006;
 		case ConfigExtensionEditPart.VISUAL_ID:
 			return ConfigExtension_304014;
 		case RecipeInfrastructuresEditPart.VISUAL_ID:

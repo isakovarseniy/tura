@@ -45,6 +45,7 @@ import domain.Classifier;
 import domain.Column;
 import domain.Component;
 import domain.ConfigExtension;
+import domain.ConfigHash;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
@@ -90,6 +91,7 @@ import domain.GenerationHint;
 import domain.GrantAccess;
 import domain.Group;
 import domain.HTMLLayerHolder;
+import domain.HashProperty;
 import domain.Hub;
 import domain.Image;
 import domain.Infrastructure;
@@ -105,6 +107,7 @@ import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.JavaScriptMapper;
+import domain.KeyValuePair;
 import domain.Label;
 import domain.Language;
 import domain.LanguageRef;
@@ -351,6 +354,10 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createConfigVariableAdapter();
 			}
 			@Override
+			public Adapter caseConfigHash(ConfigHash object) {
+				return createConfigHashAdapter();
+			}
+			@Override
 			public Adapter caseModelQuery(ModelQuery object) {
 				return createModelQueryAdapter();
 			}
@@ -549,6 +556,14 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseProperty(Property object) {
 				return createPropertyAdapter();
+			}
+			@Override
+			public Adapter caseHashProperty(HashProperty object) {
+				return createHashPropertyAdapter();
+			}
+			@Override
+			public Adapter caseKeyValuePair(KeyValuePair object) {
+				return createKeyValuePairAdapter();
 			}
 			@Override
 			public Adapter caseMappingSpecifier(MappingSpecifier object) {
@@ -1337,6 +1352,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link domain.ConfigHash <em>Config Hash</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.ConfigHash
+	 * @generated
+	 */
+	public Adapter createConfigHashAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link domain.ModelQuery <em>Model Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2033,6 +2062,34 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.HashProperty <em>Hash Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.HashProperty
+	 * @generated
+	 */
+	public Adapter createHashPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.KeyValuePair <em>Key Value Pair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.KeyValuePair
+	 * @generated
+	 */
+	public Adapter createKeyValuePairAdapter() {
 		return null;
 	}
 

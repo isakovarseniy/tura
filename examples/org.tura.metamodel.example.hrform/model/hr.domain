@@ -2034,6 +2034,7 @@
     </artifacts>
     <artifacts uid="57cd7e45-c758-4dbf-b811-4e9ae6d3d299" name="web.xml" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/mainWeb-xml.egl">
       <configVariables uid="78797a84-61cd-434d-91ed-ee20d1f8afa6" name="Session timeout"/>
+      <configHashes uid="f19eb5d7-d667-4d3d-82e1-823f5cc6d7f9" name="Application routing table"/>
       <modelQuery uid="b302b42b-2e15-414c-9c02-6052833c2483" name="Query application" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Application}').oclAsType(domain::DomainApplication)">
         <parameters uid="dc5be3a6-c7d6-4855-9b29-3df3d608b6bb" name="Application"/>
       </modelQuery>
@@ -2108,7 +2109,7 @@
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3 78563d4f-0569-4ac4-9e43-650c3a9cb0e3" deployment="de56ff3a-4261-47dc-9ee7-0f61390fee4e">
       <ingredients uid="b27a7b7b-ba51-48d1-8f56-af453722dcd3" name="Form ingredient" layer="UILayer">
-        <components xsi:type="tura.domain:JavaComponent" columns="2" uid="44a5e8a3-a54c-4792-903c-a984627f6218" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="44a5e8a3-a54c-4792-903c-a984627f6218" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
           <mappers uid="5c3c0b94-aa71-4da9-923f-3460706b5394" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Process all datacontrol in ui package">
             <specifiers specifierRef="ef7f8f56-76ad-4842-8484-9e6bc1e2dc6a" valueRef="d746f08a-a1f0-4b81-907a-bf65ef936a8e"/>
             <specifiers specifierRef="6cf7c6cf-5261-4eef-af34-5c153e789430" valueRef="1b800057-4205-4852-ae56-f48caead1343"/>
@@ -2214,7 +2215,7 @@
             </queries>
           </mappers>
         </components>
-        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="d2fc347a-981b-465e-8599-cdcf896216d1" name="Forms interface" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform-interface" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+        <components xsi:type="tura.domain:JavaComponent" columns="4" uid="d2fc347a-981b-465e-8599-cdcf896216d1" name="Forms interface" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform-interface" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
           <mappers uid="240aab7b-e90f-4fb3-98fc-a1d12e7a73e3" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="cedb4abf-f19e-4eb2-af12-804869422780" name="Data control interface">
             <queries uid="572b80bb-7a5d-4ebb-a3d3-20a2db0b8f47" name="Query form" queryRef="f405cbaa-f466-4356-93e6-4254e2c19693">
               <variables queryParamRef="3d8f78f4-7f93-4976-b305-808952382cd4" value="Hr manager"/>
@@ -2300,9 +2301,15 @@
     </configurations>
     <configurations uid="b7da74ec-ce5f-485c-84b0-eeea4aff2080" infrastructure="81bafabb-45d9-48af-9283-6ffc90afbda3">
       <properties uid="eb1aa086-f53e-496e-9274-f648fbbb06ea" confVarRef="3165ef35-24f6-44f9-9ad1-1c89771ff777" value="http://localhost:8080/hrresources-2.0"/>
+      <hashProperties uid="89ea38b7-2785-4da2-8219-01a91b7e2b9c" confHashRef="f19eb5d7-d667-4d3d-82e1-823f5cc6d7f9">
+        <hash uid="ac430f36-7742-4425-bdb3-1df3ba489957" key="hrapplication" value="http://localhost:8080/hrapplication"/>
+      </hashProperties>
     </configurations>
     <configurations uid="0c15dd70-1aac-4e24-a758-cfdc111adb02" infrastructure="78563d4f-0569-4ac4-9e43-650c3a9cb0e3">
       <properties uid="e9a8733c-e392-4a13-9626-36e93832895a" confVarRef="3165ef35-24f6-44f9-9ad1-1c89771ff777" value="https://localhost:8181/hrresources-2.0"/>
+      <hashProperties uid="4ea120dd-558e-4f7b-8cea-5ba577846761" confHashRef="f19eb5d7-d667-4d3d-82e1-823f5cc6d7f9">
+        <hash uid="281a0997-5602-42d3-aab0-0b680126dbc9" key="hrapplication" value="https://localhost:8181/hrapplication"/>
+      </hashProperties>
     </configurations>
     <infrastructures uid="81bafabb-45d9-48af-9283-6ffc90afbda3" recipe="6cb40735-2e80-4221-9ab5-31d646aff979" name="Development" recipeConfig="b7da74ec-ce5f-485c-84b0-eeea4aff2080"/>
     <infrastructures uid="78563d4f-0569-4ac4-9e43-650c3a9cb0e3" recipe="6cb40735-2e80-4221-9ab5-31d646aff979" name="Development with https" recipeConfig="0c15dd70-1aac-4e24-a758-cfdc111adb02"/>

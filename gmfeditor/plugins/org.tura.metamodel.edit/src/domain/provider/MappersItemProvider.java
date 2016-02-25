@@ -344,6 +344,11 @@ public class MappersItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MAPPERS__ANY,
+				 DomainFactory.eINSTANCE.createConfigHash()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MAPPERS__ANY,
 				 DomainFactory.eINSTANCE.createModelQuery()));
 
 		newChildDescriptors.add
@@ -600,6 +605,16 @@ public class MappersItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.MAPPERS__ANY,
 				 DomainFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MAPPERS__ANY,
+				 DomainFactory.eINSTANCE.createHashProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MAPPERS__ANY,
+				 DomainFactory.eINSTANCE.createKeyValuePair()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -32,6 +32,22 @@ attributeFigure.setPreferredSize ( preferredSize);
 
 
 -- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'ConfigHashFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
+-- Find the attribute figure
 var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'ModelQueryFigure');
 
 -- ... delete its border
@@ -157,6 +173,8 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Option');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Property');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='HashProperty');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Recipe');
 delete tool;

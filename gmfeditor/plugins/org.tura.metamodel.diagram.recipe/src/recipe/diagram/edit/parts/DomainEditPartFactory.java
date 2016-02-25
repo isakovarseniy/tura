@@ -82,6 +82,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case PropertyFakeNameEditPart.VISUAL_ID:
 				return new PropertyFakeNameEditPart(view);
 
+			case HashPropertyEditPart.VISUAL_ID:
+				return new HashPropertyEditPart(view);
+
+			case HashPropertyFakeNameEditPart.VISUAL_ID:
+				return new HashPropertyFakeNameEditPart(view);
+
 			case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
 				return new RecipeRecipeIngredientsCompartmentEditPart(view);
 
@@ -99,6 +105,10 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
 				return new ConfigurationConfigurationPropertiesCompartmentEditPart(
+						view);
+
+			case ConfigurationConfigurationHashPropertiesCompartmentEditPart.VISUAL_ID:
+				return new ConfigurationConfigurationHashPropertiesCompartmentEditPart(
 						view);
 
 			case ConfigExtensionEditPart.VISUAL_ID:

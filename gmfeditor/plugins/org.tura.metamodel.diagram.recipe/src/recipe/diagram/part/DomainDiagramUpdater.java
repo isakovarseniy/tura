@@ -17,9 +17,11 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import recipe.diagram.edit.parts.ConfigExtensionEditPart;
+import recipe.diagram.edit.parts.ConfigurationConfigurationHashPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
+import recipe.diagram.edit.parts.HashPropertyEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
 import recipe.diagram.edit.parts.IngredientEditPart;
@@ -41,6 +43,7 @@ import domain.ConfigExtension;
 import domain.Configuration;
 import domain.DeploymentSequence;
 import domain.DomainPackage;
+import domain.HashProperty;
 import domain.Infrastructure;
 import domain.Ingredient;
 import domain.JavaComponent;
@@ -80,6 +83,8 @@ public class DomainDiagramUpdater {
 			return getModelMapperModelMapperQueriesCompartment_307004SemanticChildren(view);
 		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
 			return getConfigurationConfigurationPropertiesCompartment_307005SemanticChildren(view);
+		case ConfigurationConfigurationHashPropertiesCompartmentEditPart.VISUAL_ID:
+			return getConfigurationConfigurationHashPropertiesCompartment_307006SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -271,6 +276,33 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainNodeDescriptor> getConfigurationConfigurationHashPropertiesCompartment_307006SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Configuration modelElement = (Configuration) containerView.getElement();
+		LinkedList<DomainNodeDescriptor> result = new LinkedList<DomainNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getHashProperties().iterator(); it
+				.hasNext();) {
+			HashProperty childElement = (HashProperty) it.next();
+			int visualID = DomainVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == HashPropertyEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getContainedLinks(View view) {
 		switch (DomainVisualIDRegistry.getVisualID(view)) {
 		case RecipesEditPart.VISUAL_ID:
@@ -293,6 +325,8 @@ public class DomainDiagramUpdater {
 			return getQuery_303004ContainedLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303005ContainedLinks(view);
+		case HashPropertyEditPart.VISUAL_ID:
+			return getHashProperty_303006ContainedLinks(view);
 		case ConfigExtensionEditPart.VISUAL_ID:
 			return getConfigExtension_304014ContainedLinks(view);
 		}
@@ -322,6 +356,8 @@ public class DomainDiagramUpdater {
 			return getQuery_303004IncomingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303005IncomingLinks(view);
+		case HashPropertyEditPart.VISUAL_ID:
+			return getHashProperty_303006IncomingLinks(view);
 		case ConfigExtensionEditPart.VISUAL_ID:
 			return getConfigExtension_304014IncomingLinks(view);
 		}
@@ -351,6 +387,8 @@ public class DomainDiagramUpdater {
 			return getQuery_303004OutgoingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_303005OutgoingLinks(view);
+		case HashPropertyEditPart.VISUAL_ID:
+			return getHashProperty_303006OutgoingLinks(view);
 		case ConfigExtensionEditPart.VISUAL_ID:
 			return getConfigExtension_304014OutgoingLinks(view);
 		}
@@ -443,6 +481,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getProperty_303005ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getHashProperty_303006ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -551,6 +597,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getHashProperty_303006IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getConfigExtension_304014IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -634,6 +688,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getProperty_303005OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getHashProperty_303006OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

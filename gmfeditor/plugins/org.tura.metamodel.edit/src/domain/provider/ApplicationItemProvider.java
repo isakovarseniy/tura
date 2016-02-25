@@ -361,6 +361,11 @@ public class ApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createConfigHash()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createModelQuery()));
 
 		newChildDescriptors.add
@@ -617,6 +622,16 @@ public class ApplicationItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createHashProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createKeyValuePair()));
 
 		newChildDescriptors.add
 			(createChildParameter

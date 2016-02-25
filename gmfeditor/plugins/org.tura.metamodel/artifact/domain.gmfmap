@@ -40,13 +40,34 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="domain.gmfgraph#ConfigVariable"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="domain.ecore#//Artifact/configHashes"/>
+        <ownedChild>
+          <domainMetaElement
+              href="domain.ecore#//ConfigHash"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="domain.gmfgraph#ConfigHashLabel"/>
+            <features
+                href="domain.ecore#//ConfigHash/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="domain.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="domain.gmfgraph#ConfigHash"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.2">
         <containmentFeature
             href="domain.ecore#//Artifact/modelQuery"/>
         <ownedChild>
@@ -61,13 +82,13 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="domain.gmfgraph#ModelQuery"/>
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.2">
+          compartment="//@nodes.0/@ownedChild/@compartments.3">
         <containmentFeature
             href="domain.ecore#//Artifact/specifiers"/>
         <ownedChild>
@@ -82,13 +103,13 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="domain.gmfgraph#Specifier"/>
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.3">
+          compartment="//@nodes.0/@ownedChild/@compartments.4">
         <containmentFeature
             href="domain.ecore#//Artifact/hints"/>
         <ownedChild>
@@ -103,7 +124,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+              href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="domain.gmfgraph#GenerationHint"/>
         </ownedChild>
@@ -116,15 +137,20 @@
       <compartments
           children="//@nodes.0/@ownedChild/@children.1">
         <compartment
-            href="domain.gmfgraph#ArtifactModelQueryCompartment"/>
+            href="domain.gmfgraph#ArtifactConfigHashesCompartment"/>
       </compartments>
       <compartments
           children="//@nodes.0/@ownedChild/@children.2">
         <compartment
-            href="domain.gmfgraph#ArtifactSpecifiersCompartment"/>
+            href="domain.gmfgraph#ArtifactModelQueryCompartment"/>
       </compartments>
       <compartments
           children="//@nodes.0/@ownedChild/@children.3">
+        <compartment
+            href="domain.gmfgraph#ArtifactSpecifiersCompartment"/>
+      </compartments>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.4">
         <compartment
             href="domain.gmfgraph#ArtifactHintsCompartment"/>
       </compartments>

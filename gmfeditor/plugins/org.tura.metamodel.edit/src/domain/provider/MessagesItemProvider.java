@@ -326,6 +326,11 @@ public class MessagesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MESSAGES__ANY,
+				 DomainFactory.eINSTANCE.createConfigHash()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MESSAGES__ANY,
 				 DomainFactory.eINSTANCE.createModelQuery()));
 
 		newChildDescriptors.add
@@ -582,6 +587,16 @@ public class MessagesItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.MESSAGES__ANY,
 				 DomainFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MESSAGES__ANY,
+				 DomainFactory.eINSTANCE.createHashProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MESSAGES__ANY,
+				 DomainFactory.eINSTANCE.createKeyValuePair()));
 
 		newChildDescriptors.add
 			(createChildParameter

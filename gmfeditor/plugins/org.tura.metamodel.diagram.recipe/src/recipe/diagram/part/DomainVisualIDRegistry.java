@@ -11,11 +11,14 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import recipe.diagram.edit.parts.ConfigExtensionEditPart;
+import recipe.diagram.edit.parts.ConfigurationConfigurationHashPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceNameEditPart;
+import recipe.diagram.edit.parts.HashPropertyEditPart;
+import recipe.diagram.edit.parts.HashPropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.InfrastructureNameEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
@@ -200,6 +203,12 @@ public class DomainVisualIDRegistry {
 				return PropertyEditPart.VISUAL_ID;
 			}
 			break;
+		case ConfigurationConfigurationHashPropertiesCompartmentEditPart.VISUAL_ID:
+			if (DomainPackage.eINSTANCE.getHashProperty().isSuperTypeOf(
+					domainElement.eClass())) {
+				return HashPropertyEditPart.VISUAL_ID;
+			}
+			break;
 		}
 		return -1;
 	}
@@ -255,6 +264,9 @@ public class DomainVisualIDRegistry {
 			if (ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ConfigurationConfigurationHashPropertiesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case InfrastructureEditPart.VISUAL_ID:
 			if (InfrastructureNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -300,6 +312,11 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case HashPropertyEditPart.VISUAL_ID:
+			if (HashPropertyFakeNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case RecipeRecipeIngredientsCompartmentEditPart.VISUAL_ID:
 			if (IngredientEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -322,6 +339,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
 			if (PropertyEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ConfigurationConfigurationHashPropertiesCompartmentEditPart.VISUAL_ID:
+			if (HashPropertyEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -391,6 +413,7 @@ public class DomainVisualIDRegistry {
 		case JavaComponentJavaComponentMappersCompartmentEditPart.VISUAL_ID:
 		case ModelMapperModelMapperQueriesCompartmentEditPart.VISUAL_ID:
 		case ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID:
+		case ConfigurationConfigurationHashPropertiesCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -409,6 +432,7 @@ public class DomainVisualIDRegistry {
 		case DeploymentSequenceEditPart.VISUAL_ID:
 		case QueryEditPart.VISUAL_ID:
 		case PropertyEditPart.VISUAL_ID:
+		case HashPropertyEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

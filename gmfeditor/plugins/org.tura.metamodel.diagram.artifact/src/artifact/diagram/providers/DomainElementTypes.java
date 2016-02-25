@@ -31,6 +31,7 @@ import org.eclipse.swt.graphics.Image;
 
 import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
+import artifact.diagram.edit.parts.ConfigHashEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
 import artifact.diagram.edit.parts.GenerationHintEditPart;
 import artifact.diagram.edit.parts.ModelQueryEditPart;
@@ -78,6 +79,11 @@ public class DomainElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ConfigVariable_703004 = getElementType("org.tura.metamodel.diagram.artifact.ConfigVariable_703004"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType ConfigHash_703007 = getElementType("org.tura.metamodel.diagram.artifact.ConfigHash_703007"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -137,6 +143,9 @@ public class DomainElementTypes {
 			elements.put(ConfigVariable_703004,
 					DomainPackage.eINSTANCE.getConfigVariable());
 
+			elements.put(ConfigHash_703007,
+					DomainPackage.eINSTANCE.getConfigHash());
+
 			elements.put(ModelQuery_703005,
 					DomainPackage.eINSTANCE.getModelQuery());
 
@@ -165,6 +174,7 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Artifacts_701000);
 			KNOWN_ELEMENT_TYPES.add(Artifact_702001);
 			KNOWN_ELEMENT_TYPES.add(ConfigVariable_703004);
+			KNOWN_ELEMENT_TYPES.add(ConfigHash_703007);
 			KNOWN_ELEMENT_TYPES.add(ModelQuery_703005);
 			KNOWN_ELEMENT_TYPES.add(Specifier_703003);
 			KNOWN_ELEMENT_TYPES.add(GenerationHint_703006);
@@ -183,6 +193,8 @@ public class DomainElementTypes {
 			return Artifact_702001;
 		case ConfigVariableEditPart.VISUAL_ID:
 			return ConfigVariable_703004;
+		case ConfigHashEditPart.VISUAL_ID:
+			return ConfigHash_703007;
 		case ModelQueryEditPart.VISUAL_ID:
 			return ModelQuery_703005;
 		case SpecifierEditPart.VISUAL_ID:

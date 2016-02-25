@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Artifact#getDescription <em>Description</em>}</li>
  *   <li>{@link domain.Artifact#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.Artifact#getConfigVariables <em>Config Variables</em>}</li>
+ *   <li>{@link domain.Artifact#getConfigHashes <em>Config Hashes</em>}</li>
  *   <li>{@link domain.Artifact#getModelQuery <em>Model Query</em>}</li>
  *   <li>{@link domain.Artifact#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link domain.Artifact#getHints <em>Hints</em>}</li>
@@ -167,6 +168,25 @@ public interface Artifact extends EObject {
 	 * @generated
 	 */
 	EList<ConfigVariable> getConfigVariables();
+
+	/**
+	 * Returns the value of the '<em><b>Config Hashes</b></em>' containment reference list.
+	 * The list contents are of type {@link domain.ConfigHash}.
+	 * It is bidirectional and its opposite is '{@link domain.ConfigHash#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Config Hashes</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Hashes</em>' containment reference list.
+	 * @see domain.DomainPackage#getArtifact_ConfigHashes()
+	 * @see domain.ConfigHash#getParent
+	 * @model opposite="parent" containment="true"
+	 *        annotation="gmf.compartment layout='list'"
+	 * @generated
+	 */
+	EList<ConfigHash> getConfigHashes();
 
 	/**
 	 * Returns the value of the '<em><b>Model Query</b></em>' containment reference list.

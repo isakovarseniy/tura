@@ -84,6 +84,24 @@
       message : 'Configuration variable  is not defined'
 
   }   
+ 
+   constraint ConfigHashVariablesIsDefine {
+
+      check  {
+	   var configVar := new Native('org.tura.metamodel.wizard.recipe.configuration.ConfigHashVarDialog');
+	   var properties = configVar.propertiesList(self.recipeConfig);
+	      return true;
+	   
+	   if (properties.size() == 0  )
+	      return true;
+	   else
+	      return false;    
+      }
+
+      message : 'Configuration hash variable  is not defined'
+
+  }   
+ 
    
 }
 

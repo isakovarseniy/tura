@@ -273,47 +273,62 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ConfigVariable2CreationTool_title;
+	public static String ConfigHash2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ConfigVariable2CreationTool_desc;
+	public static String ConfigHash2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String GenerationHint3CreationTool_title;
+	public static String ConfigVariable3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String GenerationHint3CreationTool_desc;
+	public static String ConfigVariable3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelQuery4CreationTool_title;
+	public static String GenerationHint4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ModelQuery4CreationTool_desc;
+	public static String GenerationHint4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Specifier5CreationTool_title;
+	public static String ModelQuery5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Specifier5CreationTool_desc;
+	public static String ModelQuery5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Specifier6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Specifier6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
 	public static String ArtifactArtifactConfigVariablesCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ArtifactArtifactConfigHashesCompartmentEditPart_title;
 
 	/**
 	 * @generated

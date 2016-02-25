@@ -16,6 +16,7 @@ package domain.impl;
 
 import domain.Configuration;
 import domain.DomainPackage;
+import domain.HashProperty;
 import domain.Infrastructure;
 import domain.Property;
 
@@ -46,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.ConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getInfrastructure <em>Infrastructure</em>}</li>
  *   <li>{@link domain.impl.ConfigurationImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link domain.impl.ConfigurationImpl#getHashProperties <em>Hash Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,6 +113,16 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * @ordered
 	 */
 	protected EList<Property> properties;
+
+	/**
+	 * The cached value of the '{@link #getHashProperties() <em>Hash Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHashProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<HashProperty> hashProperties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -250,6 +262,18 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<HashProperty> getHashProperties() {
+		if (hashProperties == null) {
+			hashProperties = new EObjectContainmentEList<HashProperty>(HashProperty.class, this, DomainPackage.CONFIGURATION__HASH_PROPERTIES);
+		}
+		return hashProperties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -273,6 +297,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return basicSetInfrastructure(null, msgs);
 			case DomainPackage.CONFIGURATION__PROPERTIES:
 				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+			case DomainPackage.CONFIGURATION__HASH_PROPERTIES:
+				return ((InternalEList<?>)getHashProperties()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -294,6 +320,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return basicGetInfrastructure();
 			case DomainPackage.CONFIGURATION__PROPERTIES:
 				return getProperties();
+			case DomainPackage.CONFIGURATION__HASH_PROPERTIES:
+				return getHashProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -320,6 +348,10 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
+			case DomainPackage.CONFIGURATION__HASH_PROPERTIES:
+				getHashProperties().clear();
+				getHashProperties().addAll((Collection<? extends HashProperty>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -344,6 +376,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			case DomainPackage.CONFIGURATION__PROPERTIES:
 				getProperties().clear();
 				return;
+			case DomainPackage.CONFIGURATION__HASH_PROPERTIES:
+				getHashProperties().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -364,6 +399,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return infrastructure != null;
 			case DomainPackage.CONFIGURATION__PROPERTIES:
 				return properties != null && !properties.isEmpty();
+			case DomainPackage.CONFIGURATION__HASH_PROPERTIES:
+				return hashProperties != null && !hashProperties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

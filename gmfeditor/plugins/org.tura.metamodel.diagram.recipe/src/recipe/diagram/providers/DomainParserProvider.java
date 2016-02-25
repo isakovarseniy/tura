@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceNameEditPart;
+import recipe.diagram.edit.parts.HashPropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.InfrastructureNameEditPart;
 import recipe.diagram.edit.parts.IngredientNameEditPart;
 import recipe.diagram.edit.parts.JavaComponentNameEditPart;
@@ -200,6 +201,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser hashPropertyFakeName_305010Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getHashPropertyFakeName_305010Parser() {
+		if (hashPropertyFakeName_305010Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getHashProperty_FakeName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			hashPropertyFakeName_305010Parser = parser;
+		}
+		return hashPropertyFakeName_305010Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case RecipeNameEditPart.VISUAL_ID:
@@ -220,6 +239,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getQueryName_305001Parser();
 		case PropertyFakeNameEditPart.VISUAL_ID:
 			return getPropertyFakeName_305006Parser();
+		case HashPropertyFakeNameEditPart.VISUAL_ID:
+			return getHashPropertyFakeName_305010Parser();
 		}
 		return null;
 	}

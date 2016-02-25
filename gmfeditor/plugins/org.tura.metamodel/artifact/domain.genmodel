@@ -99,6 +99,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Artifact/description"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//Artifact/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Artifact/configVariables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Artifact/configHashes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Artifact/modelQuery"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Artifact/specifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Artifact/hints"/>
@@ -113,6 +114,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ConfigVariable/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ConfigVariable/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ConfigVariable/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//ConfigHash">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ConfigHash/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ConfigHash/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference domain.ecore#//ConfigHash/parent"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ModelQuery">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ModelQuery/uid"/>
@@ -395,6 +401,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Configuration/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Configuration/infrastructure"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Configuration/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Configuration/hashProperties"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//ModelMapper">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//ModelMapper/name"/>
@@ -409,6 +416,17 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Property/confVarRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Property/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Property/fakeName"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//HashProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//HashProperty/uid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//HashProperty/confHashRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//HashProperty/hash"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//HashProperty/fakeName"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//KeyValuePair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//KeyValuePair/uid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//KeyValuePair/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//KeyValuePair/value"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//MappingSpecifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//MappingSpecifier/uid"/>

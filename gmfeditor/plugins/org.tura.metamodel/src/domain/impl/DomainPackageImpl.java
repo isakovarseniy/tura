@@ -46,6 +46,7 @@ import domain.Column;
 import domain.Comparator;
 import domain.Component;
 import domain.ConfigExtension;
+import domain.ConfigHash;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
@@ -92,6 +93,7 @@ import domain.GenerationHint;
 import domain.GrantAccess;
 import domain.Group;
 import domain.HTMLLayerHolder;
+import domain.HashProperty;
 import domain.Hub;
 import domain.Image;
 import domain.Infrastructure;
@@ -107,6 +109,7 @@ import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.JavaScriptMapper;
+import domain.KeyValuePair;
 import domain.Label;
 import domain.Language;
 import domain.LanguageRef;
@@ -363,6 +366,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EClass configVariableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass configHashEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -713,6 +723,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EClass propertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass hashPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass keyValuePairEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2223,7 +2247,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_ModelQuery() {
+	public EReference getArtifact_ConfigHashes() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -2232,7 +2256,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_Specifiers() {
+	public EReference getArtifact_ModelQuery() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -2241,7 +2265,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_Hints() {
+	public EReference getArtifact_Specifiers() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -2250,8 +2274,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getArtifact_Hints() {
+		return (EReference)artifactEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getArtifact_Template() {
-		return (EAttribute)artifactEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2324,6 +2357,42 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 */
 	public EReference getConfigVariable_Parent() {
 		return (EReference)configVariableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConfigHash() {
+		return configHashEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigHash_Uid() {
+		return (EAttribute)configHashEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigHash_Name() {
+		return (EAttribute)configHashEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConfigHash_Parent() {
+		return (EReference)configHashEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4446,6 +4515,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getConfiguration_HashProperties() {
+		return (EReference)configurationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModelMapper() {
 		return modelMapperEClass;
 	}
@@ -4547,6 +4625,87 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 */
 	public EAttribute getProperty_FakeName() {
 		return (EAttribute)propertyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHashProperty() {
+		return hashPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHashProperty_Uid() {
+		return (EAttribute)hashPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getHashProperty_ConfHashRef() {
+		return (EReference)hashPropertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getHashProperty_Hash() {
+		return (EReference)hashPropertyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHashProperty_FakeName() {
+		return (EAttribute)hashPropertyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getKeyValuePair() {
+		return keyValuePairEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getKeyValuePair_Uid() {
+		return (EAttribute)keyValuePairEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getKeyValuePair_Key() {
+		return (EAttribute)keyValuePairEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getKeyValuePair_Value() {
+		return (EAttribute)keyValuePairEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -8370,6 +8529,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(artifactEClass, ARTIFACT__DESCRIPTION);
 		createEReference(artifactEClass, ARTIFACT__PARENT);
 		createEReference(artifactEClass, ARTIFACT__CONFIG_VARIABLES);
+		createEReference(artifactEClass, ARTIFACT__CONFIG_HASHES);
 		createEReference(artifactEClass, ARTIFACT__MODEL_QUERY);
 		createEReference(artifactEClass, ARTIFACT__SPECIFIERS);
 		createEReference(artifactEClass, ARTIFACT__HINTS);
@@ -8384,6 +8544,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(configVariableEClass, CONFIG_VARIABLE__UID);
 		createEAttribute(configVariableEClass, CONFIG_VARIABLE__NAME);
 		createEReference(configVariableEClass, CONFIG_VARIABLE__PARENT);
+
+		configHashEClass = createEClass(CONFIG_HASH);
+		createEAttribute(configHashEClass, CONFIG_HASH__UID);
+		createEAttribute(configHashEClass, CONFIG_HASH__NAME);
+		createEReference(configHashEClass, CONFIG_HASH__PARENT);
 
 		modelQueryEClass = createEClass(MODEL_QUERY);
 		createEAttribute(modelQueryEClass, MODEL_QUERY__UID);
@@ -8667,6 +8832,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(configurationEClass, CONFIGURATION__NAME);
 		createEReference(configurationEClass, CONFIGURATION__INFRASTRUCTURE);
 		createEReference(configurationEClass, CONFIGURATION__PROPERTIES);
+		createEReference(configurationEClass, CONFIGURATION__HASH_PROPERTIES);
 
 		modelMapperEClass = createEClass(MODEL_MAPPER);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__NAME);
@@ -8681,6 +8847,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEReference(propertyEClass, PROPERTY__CONF_VAR_REF);
 		createEAttribute(propertyEClass, PROPERTY__VALUE);
 		createEAttribute(propertyEClass, PROPERTY__FAKE_NAME);
+
+		hashPropertyEClass = createEClass(HASH_PROPERTY);
+		createEAttribute(hashPropertyEClass, HASH_PROPERTY__UID);
+		createEReference(hashPropertyEClass, HASH_PROPERTY__CONF_HASH_REF);
+		createEReference(hashPropertyEClass, HASH_PROPERTY__HASH);
+		createEAttribute(hashPropertyEClass, HASH_PROPERTY__FAKE_NAME);
+
+		keyValuePairEClass = createEClass(KEY_VALUE_PAIR);
+		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__UID);
+		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__KEY);
+		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__VALUE);
 
 		mappingSpecifierEClass = createEClass(MAPPING_SPECIFIER);
 		createEAttribute(mappingSpecifierEClass, MAPPING_SPECIFIER__UID);
@@ -9494,6 +9671,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getArtifact_Description(), ecorePackage.getEString(), "description", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Parent(), this.getArtifacts(), this.getArtifacts_Artifacts(), "parent", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_ConfigVariables(), this.getConfigVariable(), this.getConfigVariable_Parent(), "configVariables", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_ConfigHashes(), this.getConfigHash(), this.getConfigHash_Parent(), "configHashes", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_ModelQuery(), this.getModelQuery(), this.getModelQuery_Parent(), "modelQuery", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Specifiers(), this.getSpecifier(), this.getSpecifier_Parent(), "specifiers", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Hints(), this.getGenerationHint(), null, "hints", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9508,6 +9686,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getConfigVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConfigVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfigVariable_Parent(), this.getArtifact(), this.getArtifact_ConfigVariables(), "parent", null, 0, 1, ConfigVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(configHashEClass, ConfigHash.class, "ConfigHash", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConfigHash_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigHash.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigHash_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConfigHash.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigHash_Parent(), this.getArtifact(), this.getArtifact_ConfigHashes(), "parent", null, 0, 1, ConfigHash.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelQueryEClass, ModelQuery.class, "ModelQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelQuery_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9791,6 +9974,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getConfiguration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Infrastructure(), this.getInfrastructure(), this.getInfrastructure_RecipeConfig(), "infrastructure", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Properties(), this.getProperty(), null, "properties", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_HashProperties(), this.getHashProperty(), null, "hashProperties", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelMapperEClass, ModelMapper.class, "ModelMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelMapper_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9805,6 +9989,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getProperty_ConfVarRef(), this.getConfigVariable(), null, "confVarRef", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_FakeName(), ecorePackage.getEString(), "fakeName", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(hashPropertyEClass, HashProperty.class, "HashProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHashProperty_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, HashProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHashProperty_ConfHashRef(), this.getConfigHash(), null, "confHashRef", null, 0, 1, HashProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHashProperty_Hash(), this.getKeyValuePair(), null, "hash", null, 0, -1, HashProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHashProperty_FakeName(), ecorePackage.getEString(), "fakeName", null, 0, 1, HashProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(keyValuePairEClass, KeyValuePair.class, "KeyValuePair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getKeyValuePair_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKeyValuePair_Key(), ecorePackage.getEString(), "key", null, 0, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKeyValuePair_Value(), ecorePackage.getEString(), "value", null, 0, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingSpecifierEClass, MappingSpecifier.class, "MappingSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMappingSpecifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10544,6 +10739,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "color", "255,239,222"
 		   });	
 		addAnnotation
+		  (configHashEClass, 
+		   source, 
+		   new String[] {
+			 "label", "name",
+			 "border.color", "0,0,0",
+			 "color", "255,239,222"
+		   });	
+		addAnnotation
 		  (modelQueryEClass, 
 		   source, 
 		   new String[] {
@@ -10813,6 +11016,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		   });	
 		addAnnotation
 		  (propertyEClass, 
+		   source, 
+		   new String[] {
+			 "label", "fakeName",
+			 "border.color", "0,0,0",
+			 "color", "255,239,222"
+		   });	
+		addAnnotation
+		  (hashPropertyEClass, 
 		   source, 
 		   new String[] {
 			 "label", "fakeName",
@@ -11413,6 +11624,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "layout", "list"
 		   });	
 		addAnnotation
+		  (getArtifact_ConfigHashes(), 
+		   source, 
+		   new String[] {
+			 "layout", "list"
+		   });	
+		addAnnotation
 		  (getArtifact_ModelQuery(), 
 		   source, 
 		   new String[] {
@@ -11480,6 +11697,12 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		   });	
 		addAnnotation
 		  (getConfiguration_Properties(), 
+		   source, 
+		   new String[] {
+			 "layout", "list"
+		   });	
+		addAnnotation
+		  (getConfiguration_HashProperties(), 
 		   source, 
 		   new String[] {
 			 "layout", "list"

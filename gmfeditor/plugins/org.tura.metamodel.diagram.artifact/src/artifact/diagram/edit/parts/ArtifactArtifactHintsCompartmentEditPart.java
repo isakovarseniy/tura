@@ -48,7 +48,7 @@ public class ArtifactArtifactHintsCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 707004;
+	public static final int VISUAL_ID = 707005;
 
 	/**
 	 * @generated

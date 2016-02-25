@@ -184,6 +184,7 @@ public class ArtifactItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.ARTIFACT__CONFIG_VARIABLES);
+			childrenFeatures.add(DomainPackage.Literals.ARTIFACT__CONFIG_HASHES);
 			childrenFeatures.add(DomainPackage.Literals.ARTIFACT__MODEL_QUERY);
 			childrenFeatures.add(DomainPackage.Literals.ARTIFACT__SPECIFIERS);
 			childrenFeatures.add(DomainPackage.Literals.ARTIFACT__HINTS);
@@ -249,6 +250,7 @@ public class ArtifactItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.ARTIFACT__CONFIG_VARIABLES:
+			case DomainPackage.ARTIFACT__CONFIG_HASHES:
 			case DomainPackage.ARTIFACT__MODEL_QUERY:
 			case DomainPackage.ARTIFACT__SPECIFIERS:
 			case DomainPackage.ARTIFACT__HINTS:
@@ -273,6 +275,11 @@ public class ArtifactItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.ARTIFACT__CONFIG_VARIABLES,
 				 DomainFactory.eINSTANCE.createConfigVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ARTIFACT__CONFIG_HASHES,
+				 DomainFactory.eINSTANCE.createConfigHash()));
 
 		newChildDescriptors.add
 			(createChildParameter

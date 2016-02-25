@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Configuration#getName <em>Name</em>}</li>
  *   <li>{@link domain.Configuration#getInfrastructure <em>Infrastructure</em>}</li>
  *   <li>{@link domain.Configuration#getProperties <em>Properties</em>}</li>
+ *   <li>{@link domain.Configuration#getHashProperties <em>Hash Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -134,5 +135,22 @@ public interface Configuration extends EObject {
 	 * @generated
 	 */
 	EList<Property> getProperties();
+
+	/**
+	 * Returns the value of the '<em><b>Hash Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link domain.HashProperty}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Hash Properties</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Hash Properties</em>' containment reference list.
+	 * @see domain.DomainPackage#getConfiguration_HashProperties()
+	 * @model containment="true"
+	 *        annotation="gmf.compartment layout='list'"
+	 * @generated
+	 */
+	EList<HashProperty> getHashProperties();
 
 } // Configuration

@@ -50,6 +50,7 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
+import artifact.diagram.edit.parts.ArtifactArtifactConfigHashesCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactConfigVariablesCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactHintsCompartmentEditPart;
 import artifact.diagram.edit.parts.ArtifactArtifactModelQueryCompartmentEditPart;
@@ -57,6 +58,8 @@ import artifact.diagram.edit.parts.ArtifactArtifactSpecifiersCompartmentEditPart
 import artifact.diagram.edit.parts.ArtifactEditPart;
 import artifact.diagram.edit.parts.ArtifactNameEditPart;
 import artifact.diagram.edit.parts.ArtifactsEditPart;
+import artifact.diagram.edit.parts.ConfigHashEditPart;
+import artifact.diagram.edit.parts.ConfigHashNameEditPart;
 import artifact.diagram.edit.parts.ConfigVariableEditPart;
 import artifact.diagram.edit.parts.ConfigVariableNameEditPart;
 import artifact.diagram.edit.parts.GenerationHintEditPart;
@@ -159,6 +162,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				switch (visualID) {
 				case ArtifactEditPart.VISUAL_ID:
 				case ConfigVariableEditPart.VISUAL_ID:
+				case ConfigHashEditPart.VISUAL_ID:
 				case ModelQueryEditPart.VISUAL_ID:
 				case SpecifierEditPart.VISUAL_ID:
 				case GenerationHintEditPart.VISUAL_ID:
@@ -176,6 +180,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		return ArtifactEditPart.VISUAL_ID == visualID
 				|| ConfigVariableEditPart.VISUAL_ID == visualID
+				|| ConfigHashEditPart.VISUAL_ID == visualID
 				|| ModelQueryEditPart.VISUAL_ID == visualID
 				|| SpecifierEditPart.VISUAL_ID == visualID
 				|| GenerationHintEditPart.VISUAL_ID == visualID;
@@ -241,6 +246,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case ConfigVariableEditPart.VISUAL_ID:
 			return createConfigVariable_703004(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case ConfigHashEditPart.VISUAL_ID:
+			return createConfigHash_703007(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case ModelQueryEditPart.VISUAL_ID:
 			return createModelQuery_703005(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -313,6 +321,11 @@ public class DomainViewProvider extends AbstractProvider implements
 		createCompartment(
 				node,
 				DomainVisualIDRegistry
+						.getType(ArtifactArtifactConfigHashesCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
 						.getType(ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		createCompartment(
@@ -363,6 +376,44 @@ public class DomainViewProvider extends AbstractProvider implements
 		Node label705005 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(ConfigVariableNameEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createConfigHash_703007(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(ConfigHashEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label705008 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(ConfigHashNameEditPart.VISUAL_ID));
 		return node;
 	}
 

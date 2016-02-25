@@ -26,8 +26,9 @@ public class DomainModelingAssistantProviderOfConfigurationEditPart extends
 	 */
 	@Override
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
-		List<IElementType> types = new ArrayList<IElementType>(1);
+		List<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(DomainElementTypes.Property_303005);
+		types.add(DomainElementTypes.HashProperty_303006);
 		return types;
 	}
 

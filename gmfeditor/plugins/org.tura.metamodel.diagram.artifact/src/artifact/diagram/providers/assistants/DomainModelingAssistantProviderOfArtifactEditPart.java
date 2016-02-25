@@ -35,8 +35,9 @@ public class DomainModelingAssistantProviderOfArtifactEditPart extends
 	 */
 	@Override
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
-		List<IElementType> types = new ArrayList<IElementType>(4);
+		List<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(DomainElementTypes.ConfigVariable_703004);
+		types.add(DomainElementTypes.ConfigHash_703007);
 		types.add(DomainElementTypes.ModelQuery_703005);
 		types.add(DomainElementTypes.Specifier_703003);
 		types.add(DomainElementTypes.GenerationHint_703006);

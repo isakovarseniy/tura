@@ -307,6 +307,11 @@ public class MenuViewItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MENU_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createConfigHash()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_VIEW__ANY,
 				 DomainFactory.eINSTANCE.createModelQuery()));
 
 		newChildDescriptors.add
@@ -563,6 +568,16 @@ public class MenuViewItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.MENU_VIEW__ANY,
 				 DomainFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createHashProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createKeyValuePair()));
 
 		newChildDescriptors.add
 			(createChildParameter

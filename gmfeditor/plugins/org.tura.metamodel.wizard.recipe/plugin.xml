@@ -21,6 +21,7 @@
             namespaceURI="http://tura.org/2013/v1/domain">
       </wizards>
    </extension>
+   
    <extension
          point="org.eclipse.epsilon.common.dt.tool">
       <tool
@@ -29,6 +30,24 @@
       
       </tool>
    </extension>
+
+   <extension
+         point="org.eclipse.epsilon.ewl.emf.wizards">
+      <wizards
+            file="wizards/populateRecipeHashVariablesConfiguration.ewl"
+            namespaceURI="http://tura.org/2013/v1/domain">
+      </wizards>
+   </extension>
+   
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+      <tool
+            class="org.tura.metamodel.wizard.recipe.configuration.ConfigHashVarDialog"
+            defaultName="ConfigHashVarDialog"> 
+      
+      </tool>
+   </extension>
+
 
 </plugin>
 

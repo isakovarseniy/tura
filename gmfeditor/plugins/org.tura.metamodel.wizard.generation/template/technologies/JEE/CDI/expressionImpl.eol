@@ -227,8 +227,12 @@ operation  WindowImpl(expression:String, contextValue , paramId: Integer, array 
      var uipackage = contextValue.expression.get(paramId-2).objRef;
      var form = contextValue.expression.get(paramId-1).objRef;
      var window = contextValue.expression.get(paramId).objRef;
+     
+     var configuration = inOutParams.get("configuration");
+     var routingTable = configuration.get("Application routing table");
 
-     return "/"+ util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/"+ util.mergeAndCapitalize(window.name)+".xhtml";
+
+     return  routingTable.get(util.mergeAndCapitalize(app.name).toLowerCase()) +  "/"+ util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/"+ util.mergeAndCapitalize(window.name)+".xhtml";
      
 }  
 

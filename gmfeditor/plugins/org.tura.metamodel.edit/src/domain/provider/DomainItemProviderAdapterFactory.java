@@ -521,6 +521,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.ConfigHash} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfigHashItemProvider configHashItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.ConfigHash}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfigHashAdapter() {
+		if (configHashItemProvider == null) {
+			configHashItemProvider = new ConfigHashItemProvider(this);
+		}
+
+		return configHashItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.ModelQuery} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1668,6 +1691,52 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		}
 
 		return propertyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.HashProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HashPropertyItemProvider hashPropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.HashProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHashPropertyAdapter() {
+		if (hashPropertyItemProvider == null) {
+			hashPropertyItemProvider = new HashPropertyItemProvider(this);
+		}
+
+		return hashPropertyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.KeyValuePair} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KeyValuePairItemProvider keyValuePairItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.KeyValuePair}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKeyValuePairAdapter() {
+		if (keyValuePairItemProvider == null) {
+			keyValuePairItemProvider = new KeyValuePairItemProvider(this);
+		}
+
+		return keyValuePairItemProvider;
 	}
 
 	/**
@@ -4663,6 +4732,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (artifactItemProvider != null) artifactItemProvider.dispose();
 		if (generationHintItemProvider != null) generationHintItemProvider.dispose();
 		if (configVariableItemProvider != null) configVariableItemProvider.dispose();
+		if (configHashItemProvider != null) configHashItemProvider.dispose();
 		if (modelQueryItemProvider != null) modelQueryItemProvider.dispose();
 		if (queryParameterItemProvider != null) queryParameterItemProvider.dispose();
 		if (specifierItemProvider != null) specifierItemProvider.dispose();
@@ -4713,6 +4783,8 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (configurationItemProvider != null) configurationItemProvider.dispose();
 		if (modelMapperItemProvider != null) modelMapperItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
+		if (hashPropertyItemProvider != null) hashPropertyItemProvider.dispose();
+		if (keyValuePairItemProvider != null) keyValuePairItemProvider.dispose();
 		if (mappingSpecifierItemProvider != null) mappingSpecifierItemProvider.dispose();
 		if (queryItemProvider != null) queryItemProvider.dispose();
 		if (queryVariableItemProvider != null) queryVariableItemProvider.dispose();

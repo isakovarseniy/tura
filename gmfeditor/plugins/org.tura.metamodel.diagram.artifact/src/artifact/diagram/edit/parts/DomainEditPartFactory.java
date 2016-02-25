@@ -52,6 +52,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ConfigVariableNameEditPart.VISUAL_ID:
 				return new ConfigVariableNameEditPart(view);
 
+			case ConfigHashEditPart.VISUAL_ID:
+				return new ConfigHashEditPart(view);
+
+			case ConfigHashNameEditPart.VISUAL_ID:
+				return new ConfigHashNameEditPart(view);
+
 			case ModelQueryEditPart.VISUAL_ID:
 				return new ModelQueryEditPart(view);
 
@@ -73,6 +79,9 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case ArtifactArtifactConfigVariablesCompartmentEditPart.VISUAL_ID:
 				return new ArtifactArtifactConfigVariablesCompartmentEditPart(
 						view);
+
+			case ArtifactArtifactConfigHashesCompartmentEditPart.VISUAL_ID:
+				return new ArtifactArtifactConfigHashesCompartmentEditPart(view);
 
 			case ArtifactArtifactModelQueryCompartmentEditPart.VISUAL_ID:
 				return new ArtifactArtifactModelQueryCompartmentEditPart(view);

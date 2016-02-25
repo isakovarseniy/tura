@@ -13,6 +13,25 @@ preferredSize.dx = 200;
 preferredSize.dy = 16;
 attributeFigure.setPreferredSize ( preferredSize);
 
+
+-- Find the attribute figure
+var attributeFigure = GmfGraph!RoundedRectangle.all.selectOne(r|r.name = 'HashPropertyFigure');
+
+-- ... delete its border
+delete attributeFigure.border;
+
+-- ... set its outline to false
+attributeFigure.setOutline ( false);
+
+-- ... and add a preferred size to it
+var preferredSize = new GmfGraph!Dimension;
+preferredSize.dx = 200;
+preferredSize.dy = 16;
+attributeFigure.setPreferredSize ( preferredSize);
+
+
+
+
 -- set italic font for labels
 for (  label in GmfGraph!Label.all ){
   label.font = new GmfGraph!BasicFont;
@@ -62,7 +81,8 @@ var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ViewArea');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='GenerationHint');
 delete tool;
-
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ConfigHash');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationRole');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='ApplicationStyle');

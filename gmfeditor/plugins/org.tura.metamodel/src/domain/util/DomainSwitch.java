@@ -45,6 +45,7 @@ import domain.Classifier;
 import domain.Column;
 import domain.Component;
 import domain.ConfigExtension;
+import domain.ConfigHash;
 import domain.ConfigVariable;
 import domain.Configuration;
 import domain.Context;
@@ -90,6 +91,7 @@ import domain.GenerationHint;
 import domain.GrantAccess;
 import domain.Group;
 import domain.HTMLLayerHolder;
+import domain.HashProperty;
 import domain.Hub;
 import domain.Image;
 import domain.Infrastructure;
@@ -105,6 +107,7 @@ import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
 import domain.JavaScriptMapper;
+import domain.KeyValuePair;
 import domain.Label;
 import domain.Language;
 import domain.LanguageRef;
@@ -390,6 +393,12 @@ public class DomainSwitch<T> extends Switch<T> {
 			case DomainPackage.CONFIG_VARIABLE: {
 				ConfigVariable configVariable = (ConfigVariable)theEObject;
 				T result = caseConfigVariable(configVariable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.CONFIG_HASH: {
+				ConfigHash configHash = (ConfigHash)theEObject;
+				T result = caseConfigHash(configHash);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -713,6 +722,18 @@ public class DomainSwitch<T> extends Switch<T> {
 			case DomainPackage.PROPERTY: {
 				Property property = (Property)theEObject;
 				T result = caseProperty(property);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.HASH_PROPERTY: {
+				HashProperty hashProperty = (HashProperty)theEObject;
+				T result = caseHashProperty(hashProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.KEY_VALUE_PAIR: {
+				KeyValuePair keyValuePair = (KeyValuePair)theEObject;
+				T result = caseKeyValuePair(keyValuePair);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2113,6 +2134,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Config Hash</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Config Hash</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfigHash(ConfigHash object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Model Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2859,6 +2895,36 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProperty(Property object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Hash Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Hash Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHashProperty(HashProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Key Value Pair</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Key Value Pair</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKeyValuePair(KeyValuePair object) {
 		return null;
 	}
 

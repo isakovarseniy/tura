@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import artifact.diagram.edit.parts.ArtifactNameEditPart;
+import artifact.diagram.edit.parts.ConfigHashNameEditPart;
 import artifact.diagram.edit.parts.ConfigVariableNameEditPart;
 import artifact.diagram.edit.parts.GenerationHintNameEditPart;
 import artifact.diagram.edit.parts.ModelQueryNameEditPart;
@@ -77,6 +78,24 @@ public class DomainParserProvider extends AbstractProvider implements
 			configVariableName_705005Parser = parser;
 		}
 		return configVariableName_705005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser configHashName_705008Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getConfigHashName_705008Parser() {
+		if (configHashName_705008Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getConfigHash_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			configHashName_705008Parser = parser;
+		}
+		return configHashName_705008Parser;
 	}
 
 	/**
@@ -142,6 +161,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getArtifactName_705004Parser();
 		case ConfigVariableNameEditPart.VISUAL_ID:
 			return getConfigVariableName_705005Parser();
+		case ConfigHashNameEditPart.VISUAL_ID:
+			return getConfigHashName_705008Parser();
 		case ModelQueryNameEditPart.VISUAL_ID:
 			return getModelQueryName_705006Parser();
 		case SpecifierNameEditPart.VISUAL_ID:

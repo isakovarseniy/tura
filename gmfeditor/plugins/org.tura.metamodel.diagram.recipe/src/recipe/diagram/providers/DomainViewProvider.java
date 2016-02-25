@@ -47,11 +47,14 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
 import recipe.diagram.edit.parts.ConfigExtensionEditPart;
+import recipe.diagram.edit.parts.ConfigurationConfigurationHashPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationConfigurationPropertiesCompartmentEditPart;
 import recipe.diagram.edit.parts.ConfigurationEditPart;
 import recipe.diagram.edit.parts.ConfigurationNameEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceEditPart;
 import recipe.diagram.edit.parts.DeploymentSequenceNameEditPart;
+import recipe.diagram.edit.parts.HashPropertyEditPart;
+import recipe.diagram.edit.parts.HashPropertyFakeNameEditPart;
 import recipe.diagram.edit.parts.InfrastructureEditPart;
 import recipe.diagram.edit.parts.InfrastructureNameEditPart;
 import recipe.diagram.edit.parts.InfrastructureRecipeConfigEditPart;
@@ -178,6 +181,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				case ModelMapperEditPart.VISUAL_ID:
 				case QueryEditPart.VISUAL_ID:
 				case PropertyEditPart.VISUAL_ID:
+				case HashPropertyEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -198,7 +202,8 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| JavaComponentEditPart.VISUAL_ID == visualID
 				|| ModelMapperEditPart.VISUAL_ID == visualID
 				|| QueryEditPart.VISUAL_ID == visualID
-				|| PropertyEditPart.VISUAL_ID == visualID;
+				|| PropertyEditPart.VISUAL_ID == visualID
+				|| HashPropertyEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -282,6 +287,9 @@ public class DomainViewProvider extends AbstractProvider implements
 		case PropertyEditPart.VISUAL_ID:
 			return createProperty_303005(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case HashPropertyEditPart.VISUAL_ID:
+			return createHashProperty_303006(domainElement, containerView,
+					index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -399,6 +407,11 @@ public class DomainViewProvider extends AbstractProvider implements
 				node,
 				DomainVisualIDRegistry
 						.getType(ConfigurationConfigurationPropertiesCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		createCompartment(
+				node,
+				DomainVisualIDRegistry
+						.getType(ConfigurationConfigurationHashPropertiesCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		return node;
 	}
@@ -691,6 +704,44 @@ public class DomainViewProvider extends AbstractProvider implements
 		Node label305006 = createLabel(node,
 				DomainVisualIDRegistry
 						.getType(PropertyFakeNameEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createHashProperty_303006(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(HashPropertyEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label305010 = createLabel(node,
+				DomainVisualIDRegistry
+						.getType(HashPropertyFakeNameEditPart.VISUAL_ID));
 		return node;
 	}
 
