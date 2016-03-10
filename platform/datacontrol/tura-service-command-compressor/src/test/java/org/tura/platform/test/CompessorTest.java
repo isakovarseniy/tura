@@ -32,12 +32,15 @@ import javax.persistence.EntityManager;
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
 import org.tura.platform.hr.init.FactoryDC;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CompessorTest {
 
 	private static EntityManager em;
@@ -100,7 +103,7 @@ public class CompessorTest {
 	}
 	
 	@Test
-	public void t0_CreateUpdateCommands(){
+	public void t1_CreateUpdateCommands(){
 		try {
 			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
@@ -129,10 +132,65 @@ public class CompessorTest {
 			fail(e.getMessage());
 		}
 		
+	}
+	
+	@Test
+	public void t2_UpdateDifferentRowsCommands(){
+		try {
+			factory.initCommandStack();
+			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			DepartmentsDAO row = dc.getCurrentObject();
+			
+			row.setDepartmentName("test5");
+			row.setDescription("test6");
+			
+			dc.nextObject();
+			row=  dc.getCurrentObject();
+
+			dc.removeObject();
+			
+			dc.nextObject();
+			row=  dc.getCurrentObject();
+
+			
+			row.setDepartmentName("test7");
+			row.setDescription("test8");
+			
+			
+			dc.getCommandStack().commitCommand();
+			assertEquals(3, FactoryDC.list.size()); 
+			
+			Object[] array = (Object[]) FactoryDC.list.get(0);
+			
+			DepartmentsDAO obj = (DepartmentsDAO) array[0];
+
+			assertEquals(new Character('U'),array[1]); 
+			assertEquals("test5",obj.getDepartmentName()); 
+			assertEquals("test6",obj.getDescription()); 
+			
+			array = (Object[]) FactoryDC.list.get(1);
+			obj = (DepartmentsDAO) array[0];
+
+			assertEquals(new Character('R'),array[1]); 
+
+			
+			array = (Object[]) FactoryDC.list.get(2);
+			obj = (DepartmentsDAO) array[0];
+
+			assertEquals(new Character('U'),array[1]); 
+			assertEquals("test7",obj.getDepartmentName()); 
+			assertEquals("test8",obj.getDescription()); 
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		
 		
 		
 	}
-	
 	
 	
 	
