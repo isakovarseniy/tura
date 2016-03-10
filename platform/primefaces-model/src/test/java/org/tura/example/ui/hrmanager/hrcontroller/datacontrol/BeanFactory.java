@@ -22,7 +22,7 @@
 package org.tura.example.ui.hrmanager.hrcontroller.datacontrol;
 
 import org.tura.platform.datacontrol.annotations.Selector;
-import org.tura.platform.datacontrol.command.FactoryInitializeTrigger;
+import org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 import java.io.Serializable;
@@ -115,7 +115,8 @@ public class BeanFactory implements IBeanFactory, Serializable {
         return user;
     }
 
-    public TreeRootCountryDC getTreeRootCountry() {
+    public TreeRootCountryDC getTreeRootCountry()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         init();
 
         try {
@@ -123,11 +124,12 @@ public class BeanFactory implements IBeanFactory, Serializable {
             return (TreeRootCountryDC) master.getCompany2Country();
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
             logger.info(e.getMessage());
-            return null;
+            throw e;
         }
     }
 
-    public DepartmentDC getDepartment() {
+    public DepartmentDC getDepartment()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         init();
 
         try {
@@ -138,11 +140,12 @@ public class BeanFactory implements IBeanFactory, Serializable {
             return department;
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
             logger.info(e.getMessage());
-            return null;
+            throw e;
         }
     }
 
-    public EmployeeDC getEmployee() {
+    public EmployeeDC getEmployee()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         init();
 
         try {
@@ -150,11 +153,12 @@ public class BeanFactory implements IBeanFactory, Serializable {
             return (EmployeeDC) master.getDepartment2Employee();
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
             logger.info(e.getMessage());
-            return null;
+            throw e;
         }
     }
 
-    public VehicleDC getVehicle() {
+    public VehicleDC getVehicle()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         init();
 
         try {
@@ -162,11 +166,12 @@ public class BeanFactory implements IBeanFactory, Serializable {
             return (VehicleDC) master.getDepartment2Vehicle();
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
             logger.info(e.getMessage());
-            return null;
+            throw e;
         }
     }
 
-    public TreeRootFilesDC getTreeRootFiles() {
+    public TreeRootFilesDC getTreeRootFiles()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         init();
 
         try {
@@ -174,7 +179,7 @@ public class BeanFactory implements IBeanFactory, Serializable {
             return (TreeRootFilesDC) master.getEmployee2Files();
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
             logger.info(e.getMessage());
-            return null;
+            throw e;
         }
     }
 }

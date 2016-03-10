@@ -26,7 +26,7 @@ import javax.faces.context.FacesContext;
 
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IBeanFactory;
 import org.tura.platform.datacontrol.annotations.Selector;
-import org.tura.platform.datacontrol.command.FactoryInitializeTrigger;
+import org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 @Alternative

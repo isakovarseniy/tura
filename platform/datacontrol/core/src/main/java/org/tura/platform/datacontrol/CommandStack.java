@@ -23,11 +23,10 @@ package org.tura.platform.datacontrol;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Stack;
 import java.util.UUID;
 
-import org.tura.platform.datacontrol.command.Command;
+import org.tura.platform.datacontrol.command.base.Command;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.data.CommandStackData;
@@ -126,15 +125,37 @@ public abstract class CommandStack {
 
 		try {
 			beginTransaction();
+
+			Command prevCommand = null;
+			boolean waitingForExecution = false;
+			HashMap<String, Object> context = new HashMap<>();
+
 			for (SavePoint sv : savePoints) {
 				CommandStackData csd = (CommandStackData) sv.getData().get(id);
-				Iterator<Command> itr = csd.getTransaction().iterator();
-				while (itr.hasNext()) {
-					Command cmd = itr.next();
-					cmd.delayedExecution();
-					controlsId.put(cmd.getDatacontrol().getId(),
-							cmd.getDatacontrol());
+				for (Command cmd : csd.getTransaction()) {
+					if (cmd.isCompressable(prevCommand)){
+						cmd.compress(context);
+						if (prevCommand == null){
+						     prevCommand = cmd;
+						}
+						waitingForExecution = true;
+						
+					}else{
+						if (waitingForExecution){
+							compleatCommand(prevCommand,controlsId);
+						}
+						context.clear();
+						
+						cmd.compress(context);
+						
+						waitingForExecution = true;
+						prevCommand = cmd;
+					}
+					
 				}
+			}
+			if (waitingForExecution){
+				compleatCommand(prevCommand,controlsId);
 			}
 			commitTransaction();
 
@@ -156,6 +177,11 @@ public abstract class CommandStack {
 		}
 	}
 
+	private void compleatCommand( Command cmd,HashMap<String, DataControl<?>> controlsId ) throws Exception{
+		cmd.delayedExecution();
+		controlsId.put(cmd.getDatacontrol().getId(),cmd.getDatacontrol());
+	}
+	
 	public Object getData(String id) {
 		return this.savePoints.peek().getData().get(id);
 	}

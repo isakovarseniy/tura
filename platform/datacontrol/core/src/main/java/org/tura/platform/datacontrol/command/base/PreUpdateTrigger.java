@@ -19,12 +19,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.datacontrol.command;
+package org.tura.platform.datacontrol.command.base;
 
 import org.tura.platform.datacontrol.commons.TuraException;
 
-
-public interface PreInsertTrigger {
-	public void execute(InsertCommand cmd) throws TuraException;
-
+public interface PreUpdateTrigger {
+	public void execute(Command cmd) throws TuraException;
 }

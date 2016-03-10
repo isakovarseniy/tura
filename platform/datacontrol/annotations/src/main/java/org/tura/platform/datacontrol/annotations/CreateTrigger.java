@@ -19,10 +19,22 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.datacontrol.command;
+package org.tura.platform.datacontrol.annotations;
 
-import org.tura.platform.datacontrol.commons.TuraException;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 
-public interface FactoryInitializeTrigger {
-	public void execute(Object obj) throws TuraException;
+import javax.inject.Qualifier;
+
+@Qualifier
+@Retention(RUNTIME)
+@Target({ FIELD, PARAMETER,METHOD,TYPE})
+public @interface CreateTrigger {
+	String value();
+
 }

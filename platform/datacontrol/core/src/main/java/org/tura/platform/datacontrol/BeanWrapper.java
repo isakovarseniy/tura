@@ -37,6 +37,8 @@ import net.sf.cglib.proxy.NoOp;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.tura.platform.datacontrol.command.base.Command;
+import org.tura.platform.datacontrol.command.base.CommandFactory;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 
@@ -234,11 +236,11 @@ public class BeanWrapper implements MethodInterceptor {
 				if ((newValue != null) && (oldValue == null)
 						|| (newValue == null) && (oldValue != null)) {
 
-					createCommand();
+					createCommand( oldValue,newValue, field,proxy);
 
 				} else if (!newValue.equals(oldValue)) {
 
-					createCommand();
+					createCommand( oldValue,newValue, field,proxy);
 				}
 			}
 		} catch (InvocationTargetException e) {
@@ -250,16 +252,15 @@ public class BeanWrapper implements MethodInterceptor {
 		return result;
 	}
 
-	private void createCommand() throws Exception {
+	private void createCommand( Object oldValue, Object newValue,  String property, Object bean) throws Exception {
 		if (datacontrol.getCommandStack() != null) {
 			if (this.insertMode) {
-
-				datacontrol.getInsertCommand().setObj(obj);
-				datacontrol.getInsertCommand().execute();
+				Command cmd = CommandFactory.cloneCommand(datacontrol, datacontrol.getInsertCommand(), oldValue, newValue, bean,  property);
+			    cmd.execute();
 				setInsertMode(false);
 			} else {
-				datacontrol.getUpdateCommand().setObj(obj);
-				datacontrol.getUpdateCommand().execute();
+				Command cmd = CommandFactory.cloneCommand(datacontrol, datacontrol.getUpdateCommand(), oldValue, newValue, bean,  property);
+				cmd.execute();
 			}
 		}
 	}

@@ -19,11 +19,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.datacontrol.command;
+package org.tura.platform.datacontrol.command.base;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.tura.platform.datacontrol.BeanWrapper;
@@ -35,31 +36,87 @@ import com.rits.cloning.Cloner;
 
 public abstract class Command {
 
-	private DataControl<?> datacontrol;
+	private transient DataControl<?> datacontrol;
 	protected List<CallParameter> parameters = new ArrayList<>();
-	protected Object provider;
+	protected transient Object provider;
 	private String method;
-	protected Method call;
+	protected transient Method call;
 
+	private Object oldValue;
+	private Object newValue;
+	private String property;
+	private Object obj;	
+	private Object wrappedObject;
+	
 	public abstract Object execute() throws Exception;
 
 	public abstract void delayedExecution() throws Exception;
 
-	public Command(DataControl<?> datacontrol) {
-		this.datacontrol = datacontrol;
-	}
-
-	public Command() {
-
+	public void compress(HashMap <String,Object> context) throws TuraException{
+		
 	}
 	
-	public void fixParameters(String pattern,String replacement){
-		for (CallParameter parameter : parameters){
-			String exp = parameter.getExpression();
-			if (exp != null && !exp.equals("")) {
-				parameter.setExpression(exp.replaceAll(pattern, replacement));
-			}			
-		}
+	public boolean isCompressable(Command prevCommand) throws TuraException{
+		return false;
+	}
+	
+	public Command(DataControl<?> datacontrol) {
+		this.datacontrol =datacontrol;
+	}	
+	
+	public Command() {
+	}	
+	
+	public Object getProvider() {
+		return provider;
+	}
+
+	public String getMethod() {
+		return method;
+	}
+
+	public void setParameters(List<CallParameter> parameters) {
+		this.parameters = parameters;
+	}
+
+	public Object getOldValue() {
+		return oldValue;
+	}
+
+	public void setOldValue(Object oldValue) {
+		this.oldValue = oldValue;
+	}
+
+	public Object getNewValue() {
+		return newValue;
+	}
+
+	public void setNewValue(Object newValue) {
+		this.newValue = newValue;
+	}
+
+	public String getProperty() {
+		return property;
+	}
+
+	public void setProperty(String property) {
+		this.property = property;
+	}
+
+	public Object getObj() {
+		return obj;
+	}
+
+	public void setObj(Object obj) {
+		this.obj = obj;
+	}
+
+	public Object getWrappedObject() {
+		return wrappedObject;
+	}
+
+	public void setWrappedObject(Object wrappedObject) {
+		this.wrappedObject = wrappedObject;
 	}
 
 	public void setProvider(Object provider) {
@@ -100,10 +157,18 @@ public abstract class Command {
 		return call.invoke(provider, ls.toArray(new Object[ls.size()]));
 	}
 
-	public List<CallParameter> prepareParameters() throws Exception {
+	public void fixParameters(String pattern,String replacement){
+		for (CallParameter parameter : parameters){
+			String exp = parameter.getExpression();
+			if (exp != null && !exp.equals("")) {
+				parameter.setExpression(exp.replaceAll(pattern, replacement));
+			}			
+		}
+	}	
+	
+	public void prepareParameters() throws Exception {
 
 		Cloner cloner = new Cloner();
-		ArrayList<CallParameter> lst = new ArrayList<CallParameter>();
 
 		if (parameters.size() != 0) {
 			for (CallParameter parameter : parameters) {
@@ -133,73 +198,8 @@ public abstract class Command {
 					parameter.setObj(o);
 				}
 
-				CallParameter param = new CallParameter();
-				param.clazz = parameter.clazz;
-				param.expression = parameter.expression;
-				param.name = parameter.name;
-				param.obj = parameter.obj;
-
-				lst.add(param);
 			}
 		}
-		return lst;
 	}
-
-
-	public class CallParameter {
-		private String name;
-		private Object value;
-		private Class<?> clazz;
-		private String expression;
-		private Object obj;
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public Object getValue() {
-			return value;
-		}
-
-		public void setValue(Object value) {
-			this.value = value;
-		}
-
-		public String getExpression() {
-			return expression;
-		}
-
-		public void setExpression(String expression) {
-			this.expression = expression;
-		}
-
-		public Class<?> getClazz() {
-			return clazz;
-		}
-
-		public void setClazz(Class<?> clazz) {
-			this.clazz = clazz;
-		}
-
-		/**
-		 * @return the obj
-		 */
-		public Object getObj() {
-			return obj;
-		}
-
-		/**
-		 * @param obj
-		 *            the obj to set
-		 */
-		public void setObj(Object obj) {
-			this.obj = obj;
-		}
-
-	}
-
+	
 }

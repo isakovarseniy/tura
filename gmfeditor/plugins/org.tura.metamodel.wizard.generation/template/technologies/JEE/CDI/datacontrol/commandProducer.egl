@@ -1,0 +1,116 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].producer;  
+
+
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
+public class [%=util.mergeAndCapitalize(control.name)%]CommandProducer {
+
+ 	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")   @org.tura.platform.datacontrol.annotations.CreateTrigger("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.CreateCommandBase getCreateCommand( javax.enterprise.inject.spi.InjectionPoint injectionPoint) throws NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException{
+		org.tura.platform.datacontrol.annotations.Create annotation = injectionPoint.getAnnotated().getAnnotation(
+				org.tura.platform.datacontrol.annotations.Create.class);
+
+		org.tura.platform.datacontrol.command.CreateCommand cmd = new org.tura.platform.datacontrol.command.CreateCommand();
+		cmd.setMethod(annotation.objectAction());
+
+		parametersBuilder(annotation.parameters(), cmd);
+
+		return cmd;
+
+	}
+
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.InsertTrigger("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.InsertCommandBase getInsertCommand(javax.enterprise.inject.spi.InjectionPoint injectionPoint) throws NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException{
+
+		org.tura.platform.datacontrol.annotations.Insert annotation = injectionPoint.getAnnotated().getAnnotation(
+				org.tura.platform.datacontrol.annotations.Insert.class);
+
+		org.tura.platform.datacontrol.command.InsertCommand cmd = new org.tura.platform.datacontrol.command.InsertCommand();
+		cmd.setMethod(annotation.objectAction());
+
+		parametersBuilder(annotation.parameters(), cmd);
+
+		return cmd;
+
+	}
+
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.UpdateTrigger("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.UpdateCommandBase getUpdateCommand(javax.enterprise.inject.spi.InjectionPoint injectionPoint) throws NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException{
+		org.tura.platform.datacontrol.annotations.Update annotation = injectionPoint.getAnnotated().getAnnotation(
+				org.tura.platform.datacontrol.annotations.Update.class);
+
+		org.tura.platform.datacontrol.command.UpdateCommand cmd = new org.tura.platform.datacontrol.command.UpdateCommand();
+		cmd.setMethod(annotation.objectAction());
+
+		parametersBuilder(annotation.parameters(), cmd);
+
+		return cmd;
+
+	}
+
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.DeleteTrigger("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.DeleteCommandBase getDeleteCommand(javax.enterprise.inject.spi.InjectionPoint injectionPoint) throws NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException{
+		org.tura.platform.datacontrol.annotations.Delete annotation = injectionPoint.getAnnotated().getAnnotation(
+				org.tura.platform.datacontrol.annotations.Delete.class);
+
+		org.tura.platform.datacontrol.command.DeleteCommand cmd = new org.tura.platform.datacontrol.command.DeleteCommand();
+		cmd.setMethod(annotation.objectAction());
+
+		parametersBuilder(annotation.parameters(), cmd);
+
+		return cmd;
+
+	}
+
+	@javax.enterprise.inject.Produces @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")  @org.tura.platform.datacontrol.annotations.SearchTrigger("[%=util.mergeAndUnCapitalize(control.name)%]")
+	public org.tura.platform.datacontrol.command.base.SearchCommandBase getSearchCommand(javax.enterprise.inject.spi.InjectionPoint injectionPoint) throws NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException{
+		org.tura.platform.datacontrol.annotations.Search annotation = injectionPoint.getAnnotated().getAnnotation(
+				org.tura.platform.datacontrol.annotations.Search.class);
+
+		org.tura.platform.datacontrol.command.SearchCommand cmd = new org.tura.platform.datacontrol.command.SearchCommand();
+		cmd.setMethod(annotation.objectAction());
+
+		parametersBuilder(annotation.parameters(), cmd);
+
+		return cmd;
+
+	}
+
+
+	private void parametersBuilder(org.tura.platform.datacontrol.annotations.Parameters parameters, org.tura.platform.datacontrol.command.base.Command cmd)
+			throws NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException,
+			IllegalArgumentException, java.lang.reflect.InvocationTargetException {
+
+		for (org.tura.platform.datacontrol.annotations.Parameter prm : parameters.value()) {
+
+			org.tura.platform.datacontrol.command.base.CallParameter cp = new org.tura.platform.datacontrol.command.base.CallParameter();
+			cmd.getParameters().add(cp);
+			cp.setClazz(prm.type());
+			cp.setExpression(prm.expression());
+			cp.setName(prm.name());
+			if (!"".equals(prm.value())) {
+				java.lang.reflect.Constructor<?> constructor = prm.type().getConstructor(
+						String.class);
+				cp.setValue(constructor.newInstance(prm.value()));
+			}
+		}
+
+	}
+
+	
+}

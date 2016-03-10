@@ -28,12 +28,12 @@ import org.tura.platform.datacontrol.annotations.PreInsert;
 import org.tura.platform.datacontrol.annotations.PreQuery;
 import org.tura.platform.datacontrol.annotations.PreUpdate;
 import org.tura.platform.datacontrol.annotations.Selector;
-import org.tura.platform.datacontrol.command.PostCreateTrigger;
-import org.tura.platform.datacontrol.command.PostQueryTrigger;
-import org.tura.platform.datacontrol.command.PreDeleteTrigger;
-import org.tura.platform.datacontrol.command.PreInsertTrigger;
-import org.tura.platform.datacontrol.command.PreQueryTrigger;
-import org.tura.platform.datacontrol.command.PreUpdateTrigger;
+import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
+import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
+import org.tura.platform.datacontrol.command.base.PreInsertTrigger;
+import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
 
 import javax.annotation.Priority;
 

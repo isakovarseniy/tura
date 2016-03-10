@@ -37,7 +37,7 @@ public class BeanFactory  implements IBeanFactory, java.io.Serializable {
 	%]
 	@Inject
 	@org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]") 
-	private javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.FactoryInitializeTrigger> factoryInitializeTrigger;
+	private javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger> factoryInitializeTrigger;
 	[%
 	var root = form.datacontrols.formControl.root;
 	if (root <> null){
@@ -59,7 +59,7 @@ public class BeanFactory  implements IBeanFactory, java.io.Serializable {
     		return;
     	section++;
 		try {
-			org.tura.platform.datacontrol.command.FactoryInitializeTrigger trigger = factoryInitializeTrigger.get();
+			org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger trigger = factoryInitializeTrigger.get();
 			if (trigger != null)
 				trigger.execute(this);
 		} catch (TuraException e) {

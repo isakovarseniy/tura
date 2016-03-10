@@ -27,7 +27,7 @@ import javax.enterprise.inject.Alternative;
 
 import org.tura.example.ui.hrmanager.errorhandling.datacontrol.IBeanFactory;
 import org.tura.platform.datacontrol.annotations.Selector;
-import org.tura.platform.datacontrol.command.FactoryInitializeTrigger;
+import org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 

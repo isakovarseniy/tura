@@ -22,7 +22,7 @@
 package org.tura.example.ui.hrmanager.tree2tree.datacontrol;
 
 import org.tura.platform.datacontrol.annotations.Selector;
-import org.tura.platform.datacontrol.command.FactoryInitializeTrigger;
+import org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 import java.io.Serializable;
@@ -75,7 +75,8 @@ public class BeanFactory implements IBeanFactory, Serializable {
         return treeRootCompany;
     }
 
-    public TreeRootDepartmentDC getTreeRootDepartment() {
+    public TreeRootDepartmentDC getTreeRootDepartment()
+        throws org.tura.platform.datacontrol.commons.TuraException {
         init();
 
         try {
@@ -86,7 +87,7 @@ public class BeanFactory implements IBeanFactory, Serializable {
             return treeRootDepartment;
         } catch (org.tura.platform.datacontrol.commons.TuraException e) {
             logger.info(e.getMessage());
-            return null;
+            throw e;
         }
     }
 }

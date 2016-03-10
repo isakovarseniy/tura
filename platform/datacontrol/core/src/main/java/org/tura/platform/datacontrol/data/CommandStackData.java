@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.datacontrol.command.Command;
+import org.tura.platform.datacontrol.command.base.Command;
 
 public class CommandStackData {
 

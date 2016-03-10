@@ -161,7 +161,12 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      i = i+1;
     }
     %] 
-			})) org.tura.platform.datacontrol.command.CreateCommand createCommand) {
+			})) 
+			
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.CreateTrigger("[%=util.mergeAndUnCapitalize(control.name)%]") 			
+			
+			org.tura.platform.datacontrol.command.base.CreateCommandBase createCommand) {
 		this.createCommand = createCommand;
 	}
 
@@ -178,7 +183,11 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      i = i+1;
     }
     %] 
-			 })) org.tura.platform.datacontrol.command.InsertCommand insertCommand) {
+			 })) 
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.InsertTrigger("[%=util.mergeAndUnCapitalize(control.name)%]") 			
+			 
+			 org.tura.platform.datacontrol.command.base.InsertCommandBase insertCommand) {
 		this.insertCommand = insertCommand;
 	}
 
@@ -195,7 +204,11 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      i = i+1;
     }
     %] 
-			  })) org.tura.platform.datacontrol.command.UpdateCommand updateCommand) {
+			  })) 
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.UpdateTrigger("[%=util.mergeAndUnCapitalize(control.name)%]") 			
+			  
+			  org.tura.platform.datacontrol.command.base.UpdateCommandBase updateCommand) {
 		this.updateCommand = updateCommand;
 	}
 
@@ -212,7 +225,11 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      i = i+1;
     }
     %] 
-			 })) org.tura.platform.datacontrol.command.DeleteCommand deleteCommand) {
+			 })) 
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.DeleteTrigger("[%=util.mergeAndUnCapitalize(control.name)%]") 			
+			 
+			 org.tura.platform.datacontrol.command.base.DeleteCommandBase deleteCommand) {
 		this.deleteCommand = deleteCommand;
 	}
 
@@ -229,7 +246,11 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      i = i+1;
     }
     %] 
-					})) org.tura.platform.datacontrol.command.SearchCommand searchCommand) {
+					})) 
+	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+			@org.tura.platform.datacontrol.annotations.SearchTrigger("[%=util.mergeAndUnCapitalize(control.name)%]") 			
+					
+					org.tura.platform.datacontrol.command.base.SearchCommandBase searchCommand) {
 		this.searchCommand = searchCommand;
 	}
 
@@ -237,7 +258,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@javax.inject.Inject
 	public void setPreQueryTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-			@org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PreQueryTrigger preQueryTrigger) {
+			@org.tura.platform.datacontrol.annotations.PreQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreQueryTrigger preQueryTrigger) {
 		this.preQueryTrigger = preQueryTrigger;
 	}
 
@@ -245,7 +266,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@javax.inject.Inject
 	public void setPostQueryTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-			@org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PostQueryTrigger postQueryTrigger) {
+			@org.tura.platform.datacontrol.annotations.PostQuery("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PostQueryTrigger postQueryTrigger) {
 		this.postQueryTrigger = postQueryTrigger;
 	}
 
@@ -253,7 +274,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@javax.inject.Inject
 	public void setPostCreateTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-			@org.tura.platform.datacontrol.annotations.PostCreate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PostCreateTrigger postCreateTrigger) {
+			@org.tura.platform.datacontrol.annotations.PostCreate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PostCreateTrigger postCreateTrigger) {
 		this.postCreateTrigger = postCreateTrigger;
 	}
 
@@ -261,7 +282,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@javax.inject.Inject
 	public void setPreDeleteTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-			@org.tura.platform.datacontrol.annotations.PreDelete("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PreDeleteTrigger preDeleteTrigger) {
+			@org.tura.platform.datacontrol.annotations.PreDelete("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreDeleteTrigger preDeleteTrigger) {
 		this.preDeleteTrigger = preDeleteTrigger;
 	}
 
@@ -269,7 +290,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@javax.inject.Inject
 	public void setPreInsertTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-			@org.tura.platform.datacontrol.annotations.PreInsert("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PreInsertTrigger preInsertTrigger) {
+			@org.tura.platform.datacontrol.annotations.PreInsert("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreInsertTrigger preInsertTrigger) {
 		this.preInsertTrigger = preInsertTrigger;
 	}
 
@@ -277,7 +298,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@javax.inject.Inject
 	public void setPreUpdateTrigger(
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-			@org.tura.platform.datacontrol.annotations.PreUpdate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.PreUpdateTrigger preUpdateTrigger) {
+			@org.tura.platform.datacontrol.annotations.PreUpdate("[%=util.mergeAndUnCapitalize(control.name)%]") org.tura.platform.datacontrol.command.base.PreUpdateTrigger preUpdateTrigger) {
 		this.preUpdateTrigger = preUpdateTrigger;
 	}
 

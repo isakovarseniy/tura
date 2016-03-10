@@ -47,7 +47,7 @@ import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Pager;
 import org.tura.platform.datacontrol.CommandStack.SavePoint;
-import org.tura.platform.datacontrol.command.Command;
+import org.tura.platform.datacontrol.command.base.Command;
 import org.tura.platform.datacontrol.commons.ConditionConverter;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.data.CommandStackData;

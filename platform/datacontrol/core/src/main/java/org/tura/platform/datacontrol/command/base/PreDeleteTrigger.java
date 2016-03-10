@@ -19,13 +19,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.datacontrol.command;
+package org.tura.platform.datacontrol.command.base;
 
-import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.commons.TuraException;
 
-public interface PostCreateTrigger {
-	
-	public void execute(DataControl<?> datacontrol, Object obj) throws TuraException;
+public interface PreDeleteTrigger {
 
+	public void execute(Command cmd) throws TuraException;
 }

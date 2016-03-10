@@ -35,7 +35,7 @@ import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.command.Command.CallParameter;
+import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.CreateCommand;
 import org.tura.platform.datacontrol.command.DeleteCommand;
 import org.tura.platform.datacontrol.command.InsertCommand;
@@ -137,7 +137,7 @@ public class FactoryDC {
 		command.setProvider(provider);
 		command.setMethod("create");
 
-		CallParameter prm = command.new CallParameter();
+		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(String.class);
 		prm.setValue(clazz.getName());
@@ -152,7 +152,7 @@ public class FactoryDC {
 		insertCommand.setProvider(provider);
 		insertCommand.setMethod("insert");
 
-		CallParameter prm = insertCommand.new CallParameter();
+		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(clazz);
 		prm.setExpression(expr + ".currentObject");
@@ -167,7 +167,7 @@ public class FactoryDC {
 		command.setProvider(provider);
 		command.setMethod("update");
 
-		CallParameter prm = command.new CallParameter();
+		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(clazz);
 		prm.setExpression(expr + ".currentObject");
@@ -182,7 +182,7 @@ public class FactoryDC {
 		command.setProvider(provider);
 		command.setMethod("remove");
 
-		CallParameter prm = command.new CallParameter();
+		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(clazz);
 		prm.setExpression(expr + ".currentObject");
@@ -197,25 +197,25 @@ public class FactoryDC {
 		command.setProvider(provider);
 		command.setMethod("find");
 
-		CallParameter prm = command.new CallParameter();
+		CallParameter prm = new CallParameter();
 		prm.setName("dslQuery");
 		prm.setClazz(SelectQuery.class);
 		prm.setExpression(expr + ".query");
 		command.getParameters().add(prm);
 
-		prm = command.new CallParameter();
+		prm = new CallParameter();
 		prm.setName("startIndex");
 		prm.setClazz(Integer.class);
 		prm.setExpression(expr + ".startIndex");
 		command.getParameters().add(prm);
 
-		prm = command.new CallParameter();
+		prm = new CallParameter();
 		prm.setName("endIndex");
 		prm.setClazz(Integer.class);
 		prm.setExpression(expr + ".endIndex");
 		command.getParameters().add(prm);
 
-		prm = command.new CallParameter();
+		prm = new CallParameter();
 		prm.setName("objectClass");
 		prm.setClazz(String.class);
 		prm.setValue(clazz.getName());

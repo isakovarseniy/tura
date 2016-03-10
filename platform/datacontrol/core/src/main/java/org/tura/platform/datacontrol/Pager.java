@@ -33,6 +33,8 @@ import java.util.UUID;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
+import org.tura.platform.datacontrol.command.base.Command;
+import org.tura.platform.datacontrol.command.base.CommandFactory;
 import org.tura.platform.datacontrol.commons.ConditionConverter;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.LazyList;
@@ -365,14 +367,13 @@ public class Pager<T> extends Pool {
 	public T remove(int i) throws TuraException {
 		try {
 			T obj = getObject(i);
-
-			datacontrol.getDeleteCommand().setObj(obj);
+			
+			Command cmd = CommandFactory.cloneCommand(datacontrol, datacontrol.getDeleteCommand(), null, null, obj, null);
 
 			if (datacontrol.getPreDeleteTrigger() != null)
-				datacontrol.getPreDeleteTrigger().execute(
-						datacontrol.getDeleteCommand());
+				datacontrol.getPreDeleteTrigger().execute(cmd);
 
-			datacontrol.getDeleteCommand().execute();
+			cmd.execute();
 
 			return obj;
 		} catch (Exception e) {

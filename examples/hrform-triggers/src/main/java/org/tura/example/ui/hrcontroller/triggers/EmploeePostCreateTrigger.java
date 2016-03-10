@@ -30,7 +30,7 @@ import org.elsoft.platform.hr.objects.EmployeesDAO;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
-import org.tura.platform.datacontrol.command.PostCreateTrigger;
+import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 

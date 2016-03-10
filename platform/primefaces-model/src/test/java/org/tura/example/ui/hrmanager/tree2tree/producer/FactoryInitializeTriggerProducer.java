@@ -22,7 +22,7 @@
 package org.tura.example.ui.hrmanager.tree2tree.producer;
 
 import org.tura.platform.datacontrol.annotations.Selector;
-import org.tura.platform.datacontrol.command.FactoryInitializeTrigger;
+import org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger;
 
 import javax.annotation.Priority;
 

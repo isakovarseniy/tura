@@ -229,6 +229,9 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	public String getObjectKey(Object object) throws TuraException {
 		try {
+			if (!getBaseClass().isAssignableFrom(object.getClass()))
+				throw new TuraException("Wrong object type");
+			
 			StringBuffer key = new StringBuffer();
 			Iterator<String> itr = this.getKeys().iterator();
 			while (itr.hasNext()) {
@@ -236,6 +239,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 				key.append(Reflection.call(object, method));
 				key.append(" ");
 			}
+			key.append(getBaseClass().getName());
 			return key.toString();
 		} catch (Exception e) {
 			throw new TuraException(e);

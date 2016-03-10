@@ -31,7 +31,7 @@ import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortMeta;
 import org.primefaces.model.SortOrder;
 import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.datacontrol.command.PreQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.commons.ConditionConverter;
 import org.tura.platform.datacontrol.commons.TuraException;
 

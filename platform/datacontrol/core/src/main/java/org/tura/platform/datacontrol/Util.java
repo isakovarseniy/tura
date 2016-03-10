@@ -34,16 +34,28 @@ public class Util {
 			InstantiationException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException {
 
+		return convertobject(obj,datacontrol,false);
+
+	}
+
+	
+	@SuppressWarnings({ "rawtypes" })
+	public static Object convertobject(Object obj, DataControl datacontrol, boolean isCreated)
+			throws NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException {
+
 		Object wrapper = BeanWrapper.newInstance(obj.getClass(), datacontrol);
 		BeanWrapper w = (BeanWrapper) Reflection.call(wrapper, "getWrapper");
 
 		w.setObj(obj);
 		w.setDatacontrol(datacontrol);
+		w.setInsertMode(isCreated);
 
 		return wrapper;
 
-	}
-
+	}	
+	
 	public static DataControl<?> getDataControl(Object obj) throws  TuraException{
 		try {
 			BeanWrapper w = ((BeanWrapper) Reflection.call(obj, "getWrapper"));

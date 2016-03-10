@@ -35,11 +35,14 @@ import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
+import org.tura.platform.datacontrol.annotations.CreateTrigger;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Delete;
+import org.tura.platform.datacontrol.annotations.DeleteTrigger;
 import org.tura.platform.datacontrol.annotations.Insert;
+import org.tura.platform.datacontrol.annotations.InsertTrigger;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
 import org.tura.platform.datacontrol.annotations.Link;
@@ -53,19 +56,21 @@ import org.tura.platform.datacontrol.annotations.PreQuery;
 import org.tura.platform.datacontrol.annotations.PreUpdate;
 import org.tura.platform.datacontrol.annotations.Query;
 import org.tura.platform.datacontrol.annotations.Search;
+import org.tura.platform.datacontrol.annotations.SearchTrigger;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.annotations.Update;
-import org.tura.platform.datacontrol.command.CreateCommand;
-import org.tura.platform.datacontrol.command.DeleteCommand;
-import org.tura.platform.datacontrol.command.InsertCommand;
-import org.tura.platform.datacontrol.command.PostCreateTrigger;
-import org.tura.platform.datacontrol.command.PostQueryTrigger;
-import org.tura.platform.datacontrol.command.PreDeleteTrigger;
-import org.tura.platform.datacontrol.command.PreInsertTrigger;
-import org.tura.platform.datacontrol.command.PreQueryTrigger;
-import org.tura.platform.datacontrol.command.PreUpdateTrigger;
-import org.tura.platform.datacontrol.command.SearchCommand;
-import org.tura.platform.datacontrol.command.UpdateCommand;
+import org.tura.platform.datacontrol.annotations.UpdateTrigger;
+import org.tura.platform.datacontrol.command.base.CreateCommandBase;
+import org.tura.platform.datacontrol.command.base.DeleteCommandBase;
+import org.tura.platform.datacontrol.command.base.InsertCommandBase;
+import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
+import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
+import org.tura.platform.datacontrol.command.base.PreInsertTrigger;
+import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
+import org.tura.platform.datacontrol.command.base.SearchCommandBase;
+import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
@@ -178,7 +183,9 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     }
     )
     )
-    CreateCommand createCommand) {
+    @Selector("hrmanager.hrcontroller")
+    @CreateTrigger("department")
+    CreateCommandBase createCommand) {
         this.createCommand = createCommand;
     }
 
@@ -191,7 +198,9 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     }
     )
     )
-    InsertCommand insertCommand) {
+    @Selector("hrmanager.hrcontroller")
+    @InsertTrigger("department")
+    InsertCommandBase insertCommand) {
         this.insertCommand = insertCommand;
     }
 
@@ -204,7 +213,9 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     }
     )
     )
-    UpdateCommand updateCommand) {
+    @Selector("hrmanager.hrcontroller")
+    @UpdateTrigger("department")
+    UpdateCommandBase updateCommand) {
         this.updateCommand = updateCommand;
     }
 
@@ -217,7 +228,9 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     }
     )
     )
-    DeleteCommand deleteCommand) {
+    @Selector("hrmanager.hrcontroller")
+    @DeleteTrigger("department")
+    DeleteCommandBase deleteCommand) {
         this.deleteCommand = deleteCommand;
     }
 
@@ -233,7 +246,9 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     }
     )
     )
-    SearchCommand searchCommand) {
+    @Selector("hrmanager.hrcontroller")
+    @SearchTrigger("department")
+    SearchCommandBase searchCommand) {
         this.searchCommand = searchCommand;
     }
 

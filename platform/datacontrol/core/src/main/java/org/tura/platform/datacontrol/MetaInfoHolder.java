@@ -26,17 +26,18 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import org.tura.platform.datacontrol.command.CreateCommand;
-import org.tura.platform.datacontrol.command.DeleteCommand;
-import org.tura.platform.datacontrol.command.InsertCommand;
-import org.tura.platform.datacontrol.command.PostCreateTrigger;
-import org.tura.platform.datacontrol.command.PostQueryTrigger;
-import org.tura.platform.datacontrol.command.PreDeleteTrigger;
-import org.tura.platform.datacontrol.command.PreInsertTrigger;
-import org.tura.platform.datacontrol.command.PreQueryTrigger;
-import org.tura.platform.datacontrol.command.PreUpdateTrigger;
-import org.tura.platform.datacontrol.command.SearchCommand;
-import org.tura.platform.datacontrol.command.UpdateCommand;
+import org.tura.platform.datacontrol.command.base.Command;
+import org.tura.platform.datacontrol.command.base.CreateCommandBase;
+import org.tura.platform.datacontrol.command.base.DeleteCommandBase;
+import org.tura.platform.datacontrol.command.base.InsertCommandBase;
+import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
+import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
+import org.tura.platform.datacontrol.command.base.PreInsertTrigger;
+import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
+import org.tura.platform.datacontrol.command.base.SearchCommandBase;
+import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
@@ -56,11 +57,11 @@ public abstract class MetaInfoHolder {
 	protected Class<?> baseClass;
 	
 	protected ELResolver elResolver;
-	protected CreateCommand createCommand;
-	protected InsertCommand insertCommand;
-	protected UpdateCommand updateCommand;
-	protected DeleteCommand deleteCommand;
-	protected SearchCommand searchCommand;
+	protected CreateCommandBase createCommand;
+	protected InsertCommandBase insertCommand;
+	protected UpdateCommandBase updateCommand;
+	protected DeleteCommandBase deleteCommand;
+	protected SearchCommandBase searchCommand;
 	protected PreQueryTrigger preQueryTrigger;
 	protected PostQueryTrigger postQueryTrigger;
 	protected PostCreateTrigger postCreateTrigger;
@@ -71,13 +72,13 @@ public abstract class MetaInfoHolder {
 	protected SelectQuery defaultQuery;
 	
 	public abstract void setDefaultQuery(SelectQuery selectQuery) ;
-	public abstract void setCreateCommand(CreateCommand createCommand) ;
-	public abstract void setInsertCommand(InsertCommand insertCommand);
-	public abstract void setUpdateCommand(UpdateCommand updateCommand);
-	public abstract void setDeleteCommand(DeleteCommand deleteCommand) ;
+	public abstract void setCreateCommand(CreateCommandBase createCommand) ;
+	public abstract void setInsertCommand(InsertCommandBase insertCommand);
+	public abstract void setUpdateCommand(UpdateCommandBase updateCommand);
+	public abstract void setDeleteCommand(DeleteCommandBase deleteCommand) ;
 	public abstract void setPreQueryTrigger(PreQueryTrigger preQueryTrigger) ;
 	public abstract void setPostQueryTrigger(PostQueryTrigger postQueryTrigger) ;
-	public abstract void setSearchCommand(SearchCommand searchCommand) ;
+	public abstract void setSearchCommand(SearchCommandBase searchCommand) ;
 	public abstract void setPostCreateTrigger(PostCreateTrigger postCreateTrigger);
 	public abstract void setPreDeleteTrigger(PreDeleteTrigger preDeleteTrigger) ;
 	public abstract void setPreInsertTrigger(PreInsertTrigger preInsertTrigger);
@@ -113,22 +114,22 @@ public abstract class MetaInfoHolder {
 		return elResolver;
 	}
 	
-	public CreateCommand getCreateCommand() {
+	public Command getCreateCommand() {
 		return createCommand;
 	}
 	
-	public InsertCommand getInsertCommand() {
+	public Command getInsertCommand() {
 		return insertCommand;
 	}
 	
-	public UpdateCommand getUpdateCommand() {
+	public Command getUpdateCommand() {
 		return updateCommand;
 	}
 	
-	public DeleteCommand getDeleteCommand() {
+	public Command getDeleteCommand() {
 		return deleteCommand;
 	}
-	public SearchCommand getSearchCommand() {
+	public Command getSearchCommand() {
 		return searchCommand;
 	}
 	

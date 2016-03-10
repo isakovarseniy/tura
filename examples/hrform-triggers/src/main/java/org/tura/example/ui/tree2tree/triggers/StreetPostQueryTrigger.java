@@ -28,7 +28,7 @@ import org.tura.example.ui.hrmanager.tree2tree.datacontrol.IStreetArtifitialFiel
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostQuery;
 import org.tura.platform.datacontrol.annotations.Selector;
-import org.tura.platform.datacontrol.command.PostQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 @Alternative

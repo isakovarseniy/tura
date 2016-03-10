@@ -19,14 +19,37 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.datacontrol.command;
+package org.tura.platform.datacontrol.command.base;
 
 import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.pool.PoolCommand;
 
-public interface PreQueryTrigger {
+public class UpdateCommandBase extends Command {
 
-	public void execute(DataControl<?> datacontrol) throws TuraException;
-	
-	
+	public UpdateCommandBase(DataControl<?> datacontrol) {
+		super(datacontrol);
+	}
+
+	public UpdateCommandBase() {
+	}
+
+	@Override
+	public Object execute() throws Exception {
+
+		this.getDatacontrol().getShifter().update(this.getDatacontrol().getCurrentPosition(), getWrappedObject());
+		this.getDatacontrol().putObjectToPool(getWrappedObject(), PoolCommand.U);
+		this.getDatacontrol().getCommandStack().addTransaction(this);
+		
+		return null;
+	}
+
+	@Override
+	public void delayedExecution() throws Exception {
+
+		if (this.getDatacontrol().getPreUpdateTrigger() != null)
+			this.getDatacontrol().getPreUpdateTrigger().execute(this);
+
+		callMethod();
+	}
+
 }

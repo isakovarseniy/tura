@@ -13,7 +13,7 @@ public class FactoryInitializeTriggerProducer {
 
 	@Produces
     @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-	public org.tura.platform.datacontrol.command.FactoryInitializeTrigger produceFactoryInitializeTrigger(InjectionPoint injectionPoint) {
+	public org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger produceFactoryInitializeTrigger(InjectionPoint injectionPoint) {
 		return null;
 	}
 }
