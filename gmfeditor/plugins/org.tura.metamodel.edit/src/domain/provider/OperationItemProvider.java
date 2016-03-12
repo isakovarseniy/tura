@@ -121,6 +121,7 @@ public class OperationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(DomainPackage.Literals.OPERATION__PARAMETERS);
 			childrenFeatures.add(DomainPackage.Literals.OPERATION__RETURN_VALUE);
 		}
@@ -182,6 +183,7 @@ public class OperationItemProvider
 			case DomainPackage.OPERATION__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case DomainPackage.OPERATION__CLASSIFIERS:
 			case DomainPackage.OPERATION__PARAMETERS:
 			case DomainPackage.OPERATION__RETURN_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -200,6 +202,11 @@ public class OperationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 DomainFactory.eINSTANCE.createClassifier()));
 
 		newChildDescriptors.add
 			(createChildParameter

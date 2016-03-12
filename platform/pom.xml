@@ -191,6 +191,11 @@
 			<version>${version.tura-platform}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>tura-service-command-compressor</artifactId>
+			<version>${version.tura-platform}</version>
+		</dependency>
 
 		</dependencies>
 

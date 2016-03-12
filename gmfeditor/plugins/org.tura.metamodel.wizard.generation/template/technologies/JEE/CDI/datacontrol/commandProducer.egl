@@ -1,4 +1,6 @@
 [%
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/categorizedUtil.eol";
+
      var util = new Native('org.tura.metamodel.commons.Util');
 
 %]
@@ -32,8 +34,13 @@ public class [%=util.mergeAndCapitalize(control.name)%]CommandProducer {
 
 		org.tura.platform.datacontrol.annotations.Insert annotation = injectionPoint.getAnnotated().getAnnotation(
 				org.tura.platform.datacontrol.annotations.Insert.class);
-
+[%
+          if (control.insert.methodRef.findClassifier('UIGeneration','Data control','command.compressor')){%]
+		[%=control.insert.methodRef.~hintDetails%] cmd = new [%=control.insert.methodRef.~hintDetails%]();
+       [%}else{%]
 		org.tura.platform.datacontrol.command.InsertCommand cmd = new org.tura.platform.datacontrol.command.InsertCommand();
+       [%}
+%]
 		cmd.setMethod(annotation.objectAction());
 
 		parametersBuilder(annotation.parameters(), cmd);
@@ -49,7 +56,13 @@ public class [%=util.mergeAndCapitalize(control.name)%]CommandProducer {
 		org.tura.platform.datacontrol.annotations.Update annotation = injectionPoint.getAnnotated().getAnnotation(
 				org.tura.platform.datacontrol.annotations.Update.class);
 
+[%
+          if (control.update.methodRef.findClassifier('UIGeneration','Data control','command.compressor')){%]
+		[%=control.update.methodRef.~hintDetails%] cmd = new [%=control.update.methodRef.~hintDetails%]();
+       [%}else{%]
 		org.tura.platform.datacontrol.command.UpdateCommand cmd = new org.tura.platform.datacontrol.command.UpdateCommand();
+       [%}
+%]
 		cmd.setMethod(annotation.objectAction());
 
 		parametersBuilder(annotation.parameters(), cmd);
@@ -65,7 +78,14 @@ public class [%=util.mergeAndCapitalize(control.name)%]CommandProducer {
 		org.tura.platform.datacontrol.annotations.Delete annotation = injectionPoint.getAnnotated().getAnnotation(
 				org.tura.platform.datacontrol.annotations.Delete.class);
 
+[%
+          if (control.remove.methodRef.findClassifier('UIGeneration','Data control','command.compressor')){%]
+		[%=control.remove.methodRef.~hintDetails%] cmd = new [%=control.remove.methodRef.~hintDetails%]();
+       [%}else{%]
 		org.tura.platform.datacontrol.command.DeleteCommand cmd = new org.tura.platform.datacontrol.command.DeleteCommand();
+       [%}
+%]
+
 		cmd.setMethod(annotation.objectAction());
 
 		parametersBuilder(annotation.parameters(), cmd);

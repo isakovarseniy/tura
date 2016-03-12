@@ -753,7 +753,7 @@ class Attribute extends  TypePointer, Categorized{
 
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
-class Operation extends Secured{
+class Operation extends Secured, Categorized{
     id attr EString uid;
    attr EString name;
    ref Type#operations parent;

@@ -14,6 +14,8 @@
  */
 package domain.impl;
 
+import domain.Categorized;
+import domain.Classifier;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -22,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -39,6 +42,7 @@ import domain.Type;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.OperationImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.OperationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.OperationImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.OperationImpl#getParent <em>Parent</em>}</li>
@@ -50,6 +54,16 @@ import domain.Type;
  * @generated
  */
 public class OperationImpl extends SecuredImpl implements Operation {
+	/**
+	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassifiers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Classifier> classifiers;
+
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -127,6 +141,18 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	@Override
 	protected EClass eStaticClass() {
 		return DomainPackage.Literals.OPERATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Classifier> getClassifiers() {
+		if (classifiers == null) {
+			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, DomainPackage.OPERATION__CLASSIFIERS);
+		}
+		return classifiers;
 	}
 
 	/**
@@ -294,6 +320,8 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DomainPackage.OPERATION__CLASSIFIERS:
+				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
 			case DomainPackage.OPERATION__PARENT:
 				return basicSetParent(null, msgs);
 			case DomainPackage.OPERATION__PARAMETERS:
@@ -326,6 +354,8 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DomainPackage.OPERATION__CLASSIFIERS:
+				return getClassifiers();
 			case DomainPackage.OPERATION__UID:
 				return getUid();
 			case DomainPackage.OPERATION__NAME:
@@ -349,6 +379,10 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DomainPackage.OPERATION__CLASSIFIERS:
+				getClassifiers().clear();
+				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
+				return;
 			case DomainPackage.OPERATION__UID:
 				setUid((String)newValue);
 				return;
@@ -377,6 +411,9 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DomainPackage.OPERATION__CLASSIFIERS:
+				getClassifiers().clear();
+				return;
 			case DomainPackage.OPERATION__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -404,6 +441,8 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DomainPackage.OPERATION__CLASSIFIERS:
+				return classifiers != null && !classifiers.isEmpty();
 			case DomainPackage.OPERATION__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.OPERATION__NAME:
@@ -416,6 +455,38 @@ public class OperationImpl extends SecuredImpl implements Operation {
 				return returnValue != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Categorized.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.OPERATION__CLASSIFIERS: return DomainPackage.CATEGORIZED__CLASSIFIERS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Categorized.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.CATEGORIZED__CLASSIFIERS: return DomainPackage.OPERATION__CLASSIFIERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

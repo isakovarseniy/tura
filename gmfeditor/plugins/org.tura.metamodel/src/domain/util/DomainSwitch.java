@@ -821,6 +821,7 @@ public class DomainSwitch<T> extends Switch<T> {
 				Operation operation = (Operation)theEObject;
 				T result = caseOperation(operation);
 				if (result == null) result = caseSecured(operation);
+				if (result == null) result = caseCategorized(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

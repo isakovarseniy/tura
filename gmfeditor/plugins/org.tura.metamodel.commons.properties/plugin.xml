@@ -73,6 +73,7 @@
               <input type="typedefinition.diagram.edit.parts.TypeEditPart"/>
               <input type="typedefinition.diagram.edit.parts.TypeExtensionEditPart"/>
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
+              <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
            </propertySection>        
 
 

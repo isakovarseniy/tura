@@ -5185,13 +5185,22 @@ public interface DomainPackage extends EPackage {
 	int OPERATION__GRANTS = SECURED__GRANTS;
 
 	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__CLASSIFIERS = SECURED_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__UID = SECURED_FEATURE_COUNT + 0;
+	int OPERATION__UID = SECURED_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5200,7 +5209,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__NAME = SECURED_FEATURE_COUNT + 1;
+	int OPERATION__NAME = SECURED_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -5209,7 +5218,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__PARENT = SECURED_FEATURE_COUNT + 2;
+	int OPERATION__PARENT = SECURED_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -5218,7 +5227,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__PARAMETERS = SECURED_FEATURE_COUNT + 3;
+	int OPERATION__PARAMETERS = SECURED_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Return Value</b></em>' containment reference.
@@ -5227,7 +5236,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__RETURN_VALUE = SECURED_FEATURE_COUNT + 4;
+	int OPERATION__RETURN_VALUE = SECURED_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -5236,7 +5245,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = SECURED_FEATURE_COUNT + 5;
+	int OPERATION_FEATURE_COUNT = SECURED_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.ParameterImpl <em>Parameter</em>}' class.

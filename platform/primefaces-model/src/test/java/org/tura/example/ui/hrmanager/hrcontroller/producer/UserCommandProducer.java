@@ -87,7 +87,6 @@ public class UserCommandProducer {
             InvocationTargetException {
         Insert annotation =
             injectionPoint.getAnnotated().getAnnotation(Insert.class);
-
         InsertCommand cmd = new InsertCommand();
         cmd.setMethod(annotation.objectAction());
 
@@ -127,6 +126,7 @@ public class UserCommandProducer {
             injectionPoint.getAnnotated().getAnnotation(Delete.class);
 
         DeleteCommand cmd = new DeleteCommand();
+
         cmd.setMethod(annotation.objectAction());
 
         parametersBuilder(annotation.parameters(), cmd);

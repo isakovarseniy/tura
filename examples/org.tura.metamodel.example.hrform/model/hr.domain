@@ -299,14 +299,17 @@
         <returnValue packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="2b2e1b10-400a-11e4-916c-0800200c9a66"/>
       </operations>
       <operations uid="b14bfa20-4008-11e4-916c-0800200c9a66" name="insert">
+        <classifiers uid="76347def-e5b3-4b80-b114-bebb00f37e73" hint="ad0b1786-fda9-4d98-80d0-01c2698ee95a" details="org.tura.platform.datacontrol.command.turaservice.InsertCommandTuraService"/>
         <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" uid="b7ea5020-4008-11e4-916c-0800200c9a66" name="obj"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="caf1fc90-4008-11e4-916c-0800200c9a66" name="update">
+        <classifiers uid="0e828148-2e24-4967-9018-e2b943e77476" hint="ad0b1786-fda9-4d98-80d0-01c2698ee95a" details="org.tura.platform.datacontrol.command.turaservice.UpdateCommandTuraService"/>
         <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" uid="7c4f4d20-400a-11e4-916c-0800200c9a66" name="obj"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
       </operations>
       <operations uid="dbacf9e0-4008-11e4-916c-0800200c9a66" name="remove">
+        <classifiers uid="9824b958-9a18-4ee7-bbe6-cc710e4f8484" hint="ad0b1786-fda9-4d98-80d0-01c2698ee95a" details="org.tura.platform.datacontrol.command.turaservice.DeleteCommandTuraService"/>
         <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" uid="73df4460-400a-11e4-916c-0800200c9a66" name="obj"/>
         <returnValue packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
       </operations>
@@ -410,6 +413,9 @@
         <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="e1cd6c51-bf48-4e5d-87ba-d2dafbc0fd8f" name="role"/>
         <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="6f5f3825-6695-4b7e-b07c-76ea31fa40e0"/>
       </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="58bc4a5e-7b5f-452b-aead-dc5806513737" name="Insert Command Compressor for tura service">
+      <classifiers uid="4584b56e-7b1e-4b76-8171-2c711ace1224" hint="ad0b1786-fda9-4d98-80d0-01c2698ee95a"/>
     </types>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84" parent="e8faa4f9-a654-40f5-bdf5-454f90f2af19">
@@ -1891,6 +1897,7 @@
         <options uid="eb8a0a12-2ebb-46f5-b0e9-4fb2199a2926" value="JTA"/>
         <options uid="632c2ddb-644d-4a49-9385-9d89f1a2e1fa" value="nonJTA"/>
       </specifiers>
+      <hints uid="ad0b1786-fda9-4d98-80d0-01c2698ee95a" name="command.compressor"/>
     </artifacts>
     <artifacts uid="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service producer" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/model/mainServiceProducer.egl">
       <modelQuery uid="273cc7dd-85f8-430f-ac43-cad73dc0e847" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
@@ -2176,6 +2183,12 @@
               <variables queryParamRef="55397cd2-f33b-43b3-b033-3c4ca5e9a714" value="UIGeneration"/>
               <variables queryParamRef="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" value="JSF"/>
             </queries>
+            <queries uid="63adb713-ed01-4c67-93f4-779f55d6091e" name="Get Commpressor command" queryRef="188555d2-e437-4b17-ae85-a4f4597ad013">
+              <variables queryParamRef="78b18336-435a-4a3d-bc1b-3fae1dfb385b" value="command.compressor"/>
+              <variables queryParamRef="55397cd2-f33b-43b3-b033-3c4ca5e9a714" value="UIGeneration"/>
+              <variables queryParamRef="5d27dc6d-474d-48c2-bb14-ca7d390430f5" value="Base package"/>
+              <variables queryParamRef="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" value="Data control"/>
+            </queries>
           </mappers>
           <mappers uid="c936a1de-0c00-4eff-939f-a0778cecdd8d" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/builder.sh">
             <specifiers specifierRef="77a6558f-44e1-4d9a-ad85-16decf6aa3cb" valueRef="6cfa6c9d-d885-4f55-86d3-02f505f54045"/>
@@ -2292,7 +2305,7 @@
       <properties uid="304abca1-4cf9-4e0f-a4a5-a7f1a935bdb1" confVarRef="2e8c1ce3-aade-4c15-a7cd-ea9f5de5bd8e" value="jdbc:postgresql://localhost:5432/postgres"/>
       <properties uid="3f8cbc65-8b23-4394-a991-c114ea6ba94c" confVarRef="6ef3c0da-e95b-40a7-8b52-bd0c185543c1" value="org.postgresql.Driver"/>
       <properties uid="4c78ffdb-397b-4c93-8674-b869fb91f970" confVarRef="8761066c-1ea5-4ee3-9085-c60b248dc534" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
-      <properties uid="c7be5cd1-3d0a-4c57-a637-5ffb078d2b80" confVarRef="04f1aaa1-2500-4a3e-84e7-3c0f328fce17" value="/Users/arseniy/glassfish4"/>
+      <properties uid="c7be5cd1-3d0a-4c57-a637-5ffb078d2b80" confVarRef="04f1aaa1-2500-4a3e-84e7-3c0f328fce17" value="/Users/arseniy/servers/glassfish4"/>
       <properties uid="d97de117-00e1-4291-b455-7a25adf76d40" confVarRef="c1306333-7f7f-4da9-8b6e-f828d46cab5f" value="domain1"/>
       <properties uid="0d5e9fcf-7669-4838-9b0a-bc873254cdad" confVarRef="33fb6445-8890-4837-8905-d939a9338ff5" value="4848"/>
       <properties uid="739a8e89-55f4-4dec-8ae5-45b959dff04f" confVarRef="333ee7eb-2bb2-44d1-aae1-9025a4566164" value="2.47.1"/>
@@ -2464,6 +2477,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="1412aaf1-326a-4cb2-88df-919d5d1eee8b" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="04d63d66-f224-42a6-aabc-ed057fb924be" fakePackageName="HR package" fakeTypeName="User type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="UserDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="d9b1f377-f3f2-4259-babc-c8b694680978" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager" version="" libraryName=""/>
     <mappers xsi:type="tura.domain:RoleMapper" uid="56a24718-969f-4611-90a4-13942f870e5f" role="45d0609c-66c2-4dd1-845c-f3763940096a" localRoleName="power_user" globalRoleName="manager" fakeRoleName="admin"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="0e71569e-6278-4fd1-8b40-8bfdbe18fecd" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="58bc4a5e-7b5f-452b-aead-dc5806513737" fakePackageName="Base package" fakeTypeName="Insert Command Compressor for tura service" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="InsertCommandTuraService" artifactId="tura-service-command-compressor" groupId="org.tura.platform.datacontrol" version="2.0"/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">

@@ -35,10 +35,7 @@ import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.annotations.Update;
 import org.tura.platform.datacontrol.annotations.UpdateTrigger;
 import org.tura.platform.datacontrol.command.CreateCommand;
-import org.tura.platform.datacontrol.command.DeleteCommand;
-import org.tura.platform.datacontrol.command.InsertCommand;
 import org.tura.platform.datacontrol.command.SearchCommand;
-import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.Command;
 import org.tura.platform.datacontrol.command.base.CreateCommandBase;
@@ -46,6 +43,9 @@ import org.tura.platform.datacontrol.command.base.DeleteCommandBase;
 import org.tura.platform.datacontrol.command.base.InsertCommandBase;
 import org.tura.platform.datacontrol.command.base.SearchCommandBase;
 import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
+import org.tura.platform.datacontrol.command.turaservice.DeleteCommandTuraService;
+import org.tura.platform.datacontrol.command.turaservice.InsertCommandTuraService;
+import org.tura.platform.datacontrol.command.turaservice.UpdateCommandTuraService;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -87,8 +87,7 @@ public class EmployeeCommandProducer {
             InvocationTargetException {
         Insert annotation =
             injectionPoint.getAnnotated().getAnnotation(Insert.class);
-
-        InsertCommand cmd = new InsertCommand();
+        InsertCommandTuraService cmd = new InsertCommandTuraService();
         cmd.setMethod(annotation.objectAction());
 
         parametersBuilder(annotation.parameters(), cmd);
@@ -107,7 +106,7 @@ public class EmployeeCommandProducer {
         Update annotation =
             injectionPoint.getAnnotated().getAnnotation(Update.class);
 
-        UpdateCommand cmd = new UpdateCommand();
+        UpdateCommandTuraService cmd = new UpdateCommandTuraService();
         cmd.setMethod(annotation.objectAction());
 
         parametersBuilder(annotation.parameters(), cmd);
@@ -126,7 +125,8 @@ public class EmployeeCommandProducer {
         Delete annotation =
             injectionPoint.getAnnotated().getAnnotation(Delete.class);
 
-        DeleteCommand cmd = new DeleteCommand();
+        DeleteCommandTuraService cmd = new DeleteCommandTuraService();
+
         cmd.setMethod(annotation.objectAction());
 
         parametersBuilder(annotation.parameters(), cmd);
