@@ -840,8 +840,8 @@ public class HrControllerTest {
 		hrControllerPage = new HRControllerPageObject(driver);
 
 		t = hrControllerPage.getCompanies();
-		t.getRow(2).click();
-		WebElement el = t.getRow(2).getCell(0);
+		t.getRow(0).click();
+		WebElement el = t.getRow(0).getCell(0);
 		assertEquals("Company 3", el.getText());
 
 		tree = hrControllerPage.getLocationTree();

@@ -1195,7 +1195,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="f7d2fdf2-3ea6-4f60-95dc-b85dfe64d1c5" name="testField2"/>
       <defaultSearch/>
       <defaultOrderBy>
-        <orderRules uid="c1094c94-1e84-44e5-8ceb-47da2047664f" refObj="32e932b5-e86f-43a3-96c1-8b919c740eb6"/>
+        <orderRules uid="c1094c94-1e84-44e5-8ceb-47da2047664f" refObj="Comp_7982905f-4f83-472f-8551-80e30e34934c"/>
       </defaultOrderBy>
     </controls>
     <controls uid="cd1cab1c-1781-4867-85b8-84d9f465f989" name="Country" baseType="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369">
