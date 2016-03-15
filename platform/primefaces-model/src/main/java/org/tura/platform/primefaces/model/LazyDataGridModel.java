@@ -44,8 +44,6 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 	@SuppressWarnings("rawtypes")
 	private DataControl datacontrol;
 	private java.util.logging.Logger logger;
-	@SuppressWarnings("rawtypes")
-	private List datasource;
 
 	public int getRowCount() {
 		return datacontrol.getScroller().size();
@@ -107,9 +105,9 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 		return datasource;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public T getRowData(String rowKey) {
-		return (T) ((Object[]) (datasource.get(new Integer(rowKey))))[2];
+		return (T) ((Object[]) (((List)this.getWrappedData()).get(new Integer(rowKey))))[2];
 	}
 
 	public Object getRowKey(T object) {
