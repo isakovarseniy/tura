@@ -201,17 +201,17 @@ public class DomainViewProvider extends AbstractProvider implements
 				case DataControlEditPart.VISUAL_ID:
 				case PREFormTriggerEditPart.VISUAL_ID:
 				case FormVariableEditPart.VISUAL_ID:
+				case CreateTriggerEditPart.VISUAL_ID:
+				case InsertTriggerEditPart.VISUAL_ID:
+				case UpdateTriggerEditPart.VISUAL_ID:
+				case DeleteTriggerEditPart.VISUAL_ID:
+				case SearchTriggerEditPart.VISUAL_ID:
 				case PREQueryTriggerEditPart.VISUAL_ID:
 				case POSTQueryTriggerEditPart.VISUAL_ID:
 				case PREInsertTriggerEditPart.VISUAL_ID:
 				case PREDeleteTriggerEditPart.VISUAL_ID:
 				case POSTCreateTriggerEditPart.VISUAL_ID:
 				case PREUpdateTriggerEditPart.VISUAL_ID:
-				case CreateTriggerEditPart.VISUAL_ID:
-				case InsertTriggerEditPart.VISUAL_ID:
-				case UpdateTriggerEditPart.VISUAL_ID:
-				case DeleteTriggerEditPart.VISUAL_ID:
-				case SearchTriggerEditPart.VISUAL_ID:
 				case ArtificialFieldEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != DomainVisualIDRegistry
@@ -229,17 +229,17 @@ public class DomainViewProvider extends AbstractProvider implements
 				|| DataControlEditPart.VISUAL_ID == visualID
 				|| PREFormTriggerEditPart.VISUAL_ID == visualID
 				|| FormVariableEditPart.VISUAL_ID == visualID
+				|| CreateTriggerEditPart.VISUAL_ID == visualID
+				|| InsertTriggerEditPart.VISUAL_ID == visualID
+				|| UpdateTriggerEditPart.VISUAL_ID == visualID
+				|| DeleteTriggerEditPart.VISUAL_ID == visualID
+				|| SearchTriggerEditPart.VISUAL_ID == visualID
 				|| PREQueryTriggerEditPart.VISUAL_ID == visualID
 				|| POSTQueryTriggerEditPart.VISUAL_ID == visualID
 				|| PREInsertTriggerEditPart.VISUAL_ID == visualID
 				|| PREDeleteTriggerEditPart.VISUAL_ID == visualID
 				|| POSTCreateTriggerEditPart.VISUAL_ID == visualID
 				|| PREUpdateTriggerEditPart.VISUAL_ID == visualID
-				|| CreateTriggerEditPart.VISUAL_ID == visualID
-				|| InsertTriggerEditPart.VISUAL_ID == visualID
-				|| UpdateTriggerEditPart.VISUAL_ID == visualID
-				|| DeleteTriggerEditPart.VISUAL_ID == visualID
-				|| SearchTriggerEditPart.VISUAL_ID == visualID
 				|| ArtificialFieldEditPart.VISUAL_ID == visualID;
 	}
 
@@ -309,6 +309,21 @@ public class DomainViewProvider extends AbstractProvider implements
 		case FormVariableEditPart.VISUAL_ID:
 			return createFormVariable_1103017(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case CreateTriggerEditPart.VISUAL_ID:
+			return createCreateTrigger_1103012(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case InsertTriggerEditPart.VISUAL_ID:
+			return createInsertTrigger_1103013(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case UpdateTriggerEditPart.VISUAL_ID:
+			return createUpdateTrigger_1103014(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case DeleteTriggerEditPart.VISUAL_ID:
+			return createDeleteTrigger_1103015(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case SearchTriggerEditPart.VISUAL_ID:
+			return createSearchTrigger_1103016(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return createPREQueryTrigger_1103002(domainElement, containerView,
 					index, persisted, preferencesHint);
@@ -326,21 +341,6 @@ public class DomainViewProvider extends AbstractProvider implements
 					containerView, index, persisted, preferencesHint);
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			return createPREUpdateTrigger_1103010(domainElement, containerView,
-					index, persisted, preferencesHint);
-		case CreateTriggerEditPart.VISUAL_ID:
-			return createCreateTrigger_1103012(domainElement, containerView,
-					index, persisted, preferencesHint);
-		case InsertTriggerEditPart.VISUAL_ID:
-			return createInsertTrigger_1103013(domainElement, containerView,
-					index, persisted, preferencesHint);
-		case UpdateTriggerEditPart.VISUAL_ID:
-			return createUpdateTrigger_1103014(domainElement, containerView,
-					index, persisted, preferencesHint);
-		case DeleteTriggerEditPart.VISUAL_ID:
-			return createDeleteTrigger_1103015(domainElement, containerView,
-					index, persisted, preferencesHint);
-		case SearchTriggerEditPart.VISUAL_ID:
-			return createSearchTrigger_1103016(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return createArtificialField_1103008(domainElement, containerView,

@@ -208,6 +208,21 @@ public class DomainElementTypes {
 			elements.put(FormVariable_1103017,
 					DomainPackage.eINSTANCE.getFormVariable());
 
+			elements.put(CreateTrigger_1103012,
+					DomainPackage.eINSTANCE.getCreateTrigger());
+
+			elements.put(InsertTrigger_1103013,
+					DomainPackage.eINSTANCE.getInsertTrigger());
+
+			elements.put(UpdateTrigger_1103014,
+					DomainPackage.eINSTANCE.getUpdateTrigger());
+
+			elements.put(DeleteTrigger_1103015,
+					DomainPackage.eINSTANCE.getDeleteTrigger());
+
+			elements.put(SearchTrigger_1103016,
+					DomainPackage.eINSTANCE.getSearchTrigger());
+
 			elements.put(PREQueryTrigger_1103002,
 					DomainPackage.eINSTANCE.getPREQueryTrigger());
 
@@ -225,21 +240,6 @@ public class DomainElementTypes {
 
 			elements.put(PREUpdateTrigger_1103010,
 					DomainPackage.eINSTANCE.getPREUpdateTrigger());
-
-			elements.put(CreateTrigger_1103012,
-					DomainPackage.eINSTANCE.getCreateTrigger());
-
-			elements.put(InsertTrigger_1103013,
-					DomainPackage.eINSTANCE.getInsertTrigger());
-
-			elements.put(UpdateTrigger_1103014,
-					DomainPackage.eINSTANCE.getUpdateTrigger());
-
-			elements.put(DeleteTrigger_1103015,
-					DomainPackage.eINSTANCE.getDeleteTrigger());
-
-			elements.put(SearchTrigger_1103016,
-					DomainPackage.eINSTANCE.getSearchTrigger());
 
 			elements.put(ArtificialField_1103008,
 					DomainPackage.eINSTANCE.getArtificialField());
@@ -271,17 +271,17 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DataControl_1102002);
 			KNOWN_ELEMENT_TYPES.add(PREFormTrigger_1103001);
 			KNOWN_ELEMENT_TYPES.add(FormVariable_1103017);
+			KNOWN_ELEMENT_TYPES.add(CreateTrigger_1103012);
+			KNOWN_ELEMENT_TYPES.add(InsertTrigger_1103013);
+			KNOWN_ELEMENT_TYPES.add(UpdateTrigger_1103014);
+			KNOWN_ELEMENT_TYPES.add(DeleteTrigger_1103015);
+			KNOWN_ELEMENT_TYPES.add(SearchTrigger_1103016);
 			KNOWN_ELEMENT_TYPES.add(PREQueryTrigger_1103002);
 			KNOWN_ELEMENT_TYPES.add(POSTQueryTrigger_1103003);
 			KNOWN_ELEMENT_TYPES.add(PREInsertTrigger_1103004);
 			KNOWN_ELEMENT_TYPES.add(PREDeleteTrigger_1103005);
 			KNOWN_ELEMENT_TYPES.add(POSTCreateTrigger_1103011);
 			KNOWN_ELEMENT_TYPES.add(PREUpdateTrigger_1103010);
-			KNOWN_ELEMENT_TYPES.add(CreateTrigger_1103012);
-			KNOWN_ELEMENT_TYPES.add(InsertTrigger_1103013);
-			KNOWN_ELEMENT_TYPES.add(UpdateTrigger_1103014);
-			KNOWN_ELEMENT_TYPES.add(DeleteTrigger_1103015);
-			KNOWN_ELEMENT_TYPES.add(SearchTrigger_1103016);
 			KNOWN_ELEMENT_TYPES.add(ArtificialField_1103008);
 			KNOWN_ELEMENT_TYPES.add(Relation_1104009);
 			KNOWN_ELEMENT_TYPES.add(Dependency_1104010);
@@ -304,6 +304,16 @@ public class DomainElementTypes {
 			return PREFormTrigger_1103001;
 		case FormVariableEditPart.VISUAL_ID:
 			return FormVariable_1103017;
+		case CreateTriggerEditPart.VISUAL_ID:
+			return CreateTrigger_1103012;
+		case InsertTriggerEditPart.VISUAL_ID:
+			return InsertTrigger_1103013;
+		case UpdateTriggerEditPart.VISUAL_ID:
+			return UpdateTrigger_1103014;
+		case DeleteTriggerEditPart.VISUAL_ID:
+			return DeleteTrigger_1103015;
+		case SearchTriggerEditPart.VISUAL_ID:
+			return SearchTrigger_1103016;
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return PREQueryTrigger_1103002;
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -316,16 +326,6 @@ public class DomainElementTypes {
 			return POSTCreateTrigger_1103011;
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			return PREUpdateTrigger_1103010;
-		case CreateTriggerEditPart.VISUAL_ID:
-			return CreateTrigger_1103012;
-		case InsertTriggerEditPart.VISUAL_ID:
-			return InsertTrigger_1103013;
-		case UpdateTriggerEditPart.VISUAL_ID:
-			return UpdateTrigger_1103014;
-		case DeleteTriggerEditPart.VISUAL_ID:
-			return DeleteTrigger_1103015;
-		case SearchTriggerEditPart.VISUAL_ID:
-			return SearchTrigger_1103016;
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return ArtificialField_1103008;
 		case RelationEditPart.VISUAL_ID:

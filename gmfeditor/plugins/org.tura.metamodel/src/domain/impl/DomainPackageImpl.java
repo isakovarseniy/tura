@@ -162,6 +162,7 @@ import domain.PlatformLayers;
 import domain.PopupCanvas;
 import domain.Primitive;
 import domain.Property;
+import domain.ProxiesList;
 import domain.Query;
 import domain.QueryParameter;
 import domain.QueryVariable;
@@ -1367,6 +1368,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EClass preUpdateTriggerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass proxiesListEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -7224,6 +7232,24 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getProxiesList() {
+		return proxiesListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxiesList_TypePointers() {
+		return (EReference)proxiesListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCreateTrigger() {
 		return createTriggerEClass;
 	}
@@ -7422,7 +7448,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_BaseType() {
+	public EReference getDataControl_BaseTypeRef() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -9228,6 +9254,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		preUpdateTriggerEClass = createEClass(PRE_UPDATE_TRIGGER);
 		createEAttribute(preUpdateTriggerEClass, PRE_UPDATE_TRIGGER__UID);
 
+		proxiesListEClass = createEClass(PROXIES_LIST);
+		createEReference(proxiesListEClass, PROXIES_LIST__TYPE_POINTERS);
+
 		createTriggerEClass = createEClass(CREATE_TRIGGER);
 		createEAttribute(createTriggerEClass, CREATE_TRIGGER__UID);
 
@@ -9257,7 +9286,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		dataControlEClass = createEClass(DATA_CONTROL);
 		createEAttribute(dataControlEClass, DATA_CONTROL__UID);
 		createEAttribute(dataControlEClass, DATA_CONTROL__NAME);
-		createEReference(dataControlEClass, DATA_CONTROL__BASE_TYPE);
+		createEReference(dataControlEClass, DATA_CONTROL__BASE_TYPE_REF);
 		createEReference(dataControlEClass, DATA_CONTROL__PARENT);
 		createEReference(dataControlEClass, DATA_CONTROL__PRE_QUERY_TRIGGER);
 		createEReference(dataControlEClass, DATA_CONTROL__POST_QUERY_TRIGGER);
@@ -9563,10 +9592,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		postCreateTriggerEClass.getESuperTypes().add(this.getTrigger());
 		preUpdateTriggerEClass.getESuperTypes().add(this.getTrigger());
 		createTriggerEClass.getESuperTypes().add(this.getTrigger());
+		createTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		insertTriggerEClass.getESuperTypes().add(this.getTrigger());
+		insertTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		updateTriggerEClass.getESuperTypes().add(this.getTrigger());
+		updateTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		deleteTriggerEClass.getESuperTypes().add(this.getTrigger());
+		deleteTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		searchTriggerEClass.getESuperTypes().add(this.getTrigger());
+		searchTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		formVariableEClass.getESuperTypes().add(this.getTypePointer());
 		artificialFieldEClass.getESuperTypes().add(this.getTypePointer());
 		datacenterEClass.getESuperTypes().add(this.getHTMLLayerHolder());
@@ -10371,6 +10405,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(preUpdateTriggerEClass, PREUpdateTrigger.class, "PREUpdateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPREUpdateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREUpdateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(proxiesListEClass, ProxiesList.class, "ProxiesList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProxiesList_TypePointers(), this.getTypePointer(), null, "typePointers", null, 0, -1, ProxiesList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(createTriggerEClass, CreateTrigger.class, "CreateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCreateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CreateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -10400,7 +10437,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(dataControlEClass, DataControl.class, "DataControl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataControl_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataControl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataControl_BaseType(), this.getType(), null, "baseType", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataControl_BaseTypeRef(), this.getTypePointer(), null, "baseTypeRef", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_Parent(), this.getControls(), this.getControls_Controls(), "parent", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PreQueryTrigger(), this.getPREQueryTrigger(), null, "preQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PostQueryTrigger(), this.getPOSTQueryTrigger(), null, "postQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

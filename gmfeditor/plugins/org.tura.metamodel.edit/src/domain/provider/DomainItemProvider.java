@@ -1025,6 +1025,11 @@ public class DomainItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.DOMAIN__ANY,
+				 DomainFactory.eINSTANCE.createProxiesList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DOMAIN__ANY,
 				 DomainFactory.eINSTANCE.createCreateTrigger()));
 
 		newChildDescriptors.add

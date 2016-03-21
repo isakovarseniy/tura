@@ -355,6 +355,16 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getPREFormTriggerFakeMethod_1105001Parser();
 		case FormVariableNameEditPart.VISUAL_ID:
 			return getFormVariableName_1105019Parser();
+		case CreateTriggerFakeMethodEditPart.VISUAL_ID:
+			return getCreateTriggerFakeMethod_1105014Parser();
+		case InsertTriggerFakeMethodEditPart.VISUAL_ID:
+			return getInsertTriggerFakeMethod_1105015Parser();
+		case UpdateTriggerFakeMethodEditPart.VISUAL_ID:
+			return getUpdateTriggerFakeMethod_1105016Parser();
+		case DeleteTriggerFakeMethodEditPart.VISUAL_ID:
+			return getDeleteTriggerFakeMethod_1105017Parser();
+		case SearchTriggerFakeMethodEditPart.VISUAL_ID:
+			return getSearchTriggerFakeMethod_1105018Parser();
 		case PREQueryTriggerFakeMethodEditPart.VISUAL_ID:
 			return getPREQueryTriggerFakeMethod_1105003Parser();
 		case POSTQueryTriggerFakeMethodEditPart.VISUAL_ID:
@@ -367,16 +377,6 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getPOSTCreateTriggerFakeMethod_1105013Parser();
 		case PREUpdateTriggerFakeMethodEditPart.VISUAL_ID:
 			return getPREUpdateTriggerFakeMethod_1105012Parser();
-		case CreateTriggerFakeMethodEditPart.VISUAL_ID:
-			return getCreateTriggerFakeMethod_1105014Parser();
-		case InsertTriggerFakeMethodEditPart.VISUAL_ID:
-			return getInsertTriggerFakeMethod_1105015Parser();
-		case UpdateTriggerFakeMethodEditPart.VISUAL_ID:
-			return getUpdateTriggerFakeMethod_1105016Parser();
-		case DeleteTriggerFakeMethodEditPart.VISUAL_ID:
-			return getDeleteTriggerFakeMethod_1105017Parser();
-		case SearchTriggerFakeMethodEditPart.VISUAL_ID:
-			return getSearchTriggerFakeMethod_1105018Parser();
 		case ArtificialFieldNameEditPart.VISUAL_ID:
 			return getArtificialFieldName_1105010Parser();
 		}

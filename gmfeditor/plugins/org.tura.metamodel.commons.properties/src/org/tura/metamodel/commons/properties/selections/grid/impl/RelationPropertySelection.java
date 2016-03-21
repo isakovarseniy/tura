@@ -30,6 +30,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.adapters.dropdown.LinkDetailField;
 import org.tura.metamodel.commons.properties.selections.adapters.dropdown.LinkMasterField;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
@@ -130,14 +131,7 @@ public class RelationPropertySelection extends GridProperty {
 
 			domain.DataControl dc = opt.getParent().getMaster();
 
-			domain.Type type = null;
-
-			if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
-					&& dc.getCreate().getMethodRef().getReturnValue() != null) {
-				type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
-			}
-			if (dc.getBaseType() != null)
-				type = dc.getBaseType();
+			Type type = (Type) Util.getBase(dc);
 
 			if (type == null)
 				return new HashMap<String, Object>();
@@ -166,14 +160,7 @@ public class RelationPropertySelection extends GridProperty {
 
 			domain.DataControl dc = opt.getParent().getDetail();
 
-			domain.Type type = null;
-
-			if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
-					&& dc.getCreate().getMethodRef().getReturnValue() != null) {
-				type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
-			}
-			if (dc.getBaseType() != null)
-				type = dc.getBaseType();
+			Type type = (Type) Util.getBase(dc);
 
 			if (type == null)
 				return new HashMap<String, Object>();

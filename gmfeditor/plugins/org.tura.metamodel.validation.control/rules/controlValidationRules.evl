@@ -111,4 +111,12 @@ context domain::FormVariable{
   }
 
 
+ constraint BaseType {
+
+      check :  self.baseTypeRef <> null  and self.baseTypeRef.typeRef <> null
+
+      message : 'Basetype for ' + self.name + ' is not defined'
+
+  }
+
 }

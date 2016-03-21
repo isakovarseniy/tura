@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link domain.DataControl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.DataControl#getName <em>Name</em>}</li>
- *   <li>{@link domain.DataControl#getBaseType <em>Base Type</em>}</li>
+ *   <li>{@link domain.DataControl#getBaseTypeRef <em>Base Type Ref</em>}</li>
  *   <li>{@link domain.DataControl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.DataControl#getPreQueryTrigger <em>Pre Query Trigger</em>}</li>
  *   <li>{@link domain.DataControl#getPostQueryTrigger <em>Post Query Trigger</em>}</li>
@@ -105,30 +105,30 @@ public interface DataControl extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Base Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Base Type Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Base Type</em>' reference isn't clear,
+	 * If the meaning of the '<em>Base Type Ref</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Base Type</em>' reference.
-	 * @see #setBaseType(Type)
-	 * @see domain.DomainPackage#getDataControl_BaseType()
+	 * @return the value of the '<em>Base Type Ref</em>' reference.
+	 * @see #setBaseTypeRef(TypePointer)
+	 * @see domain.DomainPackage#getDataControl_BaseTypeRef()
 	 * @model
 	 * @generated
 	 */
-	Type getBaseType();
+	TypePointer getBaseTypeRef();
 
 	/**
-	 * Sets the value of the '{@link domain.DataControl#getBaseType <em>Base Type</em>}' reference.
+	 * Sets the value of the '{@link domain.DataControl#getBaseTypeRef <em>Base Type Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base Type</em>' reference.
-	 * @see #getBaseType()
+	 * @param value the new value of the '<em>Base Type Ref</em>' reference.
+	 * @see #getBaseTypeRef()
 	 * @generated
 	 */
-	void setBaseType(Type value);
+	void setBaseTypeRef(TypePointer value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.

@@ -31,6 +31,7 @@ import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
 import domain.SearchTrigger;
 import domain.Type;
+import domain.TypePointer;
 import domain.UpdateTrigger;
 
 import java.util.Collection;
@@ -59,7 +60,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.DataControlImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.DataControlImpl#getBaseType <em>Base Type</em>}</li>
+ *   <li>{@link domain.impl.DataControlImpl#getBaseTypeRef <em>Base Type Ref</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPreQueryTrigger <em>Pre Query Trigger</em>}</li>
  *   <li>{@link domain.impl.DataControlImpl#getPostQueryTrigger <em>Post Query Trigger</em>}</li>
@@ -122,14 +123,14 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBaseType() <em>Base Type</em>}' reference.
+	 * The cached value of the '{@link #getBaseTypeRef() <em>Base Type Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBaseType()
+	 * @see #getBaseTypeRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected Type baseType;
+	protected TypePointer baseTypeRef;
 
 	/**
 	 * The cached value of the '{@link #getPreQueryTrigger() <em>Pre Query Trigger</em>}' containment reference.
@@ -337,16 +338,16 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type getBaseType() {
-		if (baseType != null && baseType.eIsProxy()) {
-			InternalEObject oldBaseType = (InternalEObject)baseType;
-			baseType = (Type)eResolveProxy(oldBaseType);
-			if (baseType != oldBaseType) {
+	public TypePointer getBaseTypeRef() {
+		if (baseTypeRef != null && baseTypeRef.eIsProxy()) {
+			InternalEObject oldBaseTypeRef = (InternalEObject)baseTypeRef;
+			baseTypeRef = (TypePointer)eResolveProxy(oldBaseTypeRef);
+			if (baseTypeRef != oldBaseTypeRef) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.DATA_CONTROL__BASE_TYPE, oldBaseType, baseType));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.DATA_CONTROL__BASE_TYPE_REF, oldBaseTypeRef, baseTypeRef));
 			}
 		}
-		return baseType;
+		return baseTypeRef;
 	}
 
 	/**
@@ -354,8 +355,8 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type basicGetBaseType() {
-		return baseType;
+	public TypePointer basicGetBaseTypeRef() {
+		return baseTypeRef;
 	}
 
 	/**
@@ -363,11 +364,11 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBaseType(Type newBaseType) {
-		Type oldBaseType = baseType;
-		baseType = newBaseType;
+	public void setBaseTypeRef(TypePointer newBaseTypeRef) {
+		TypePointer oldBaseTypeRef = baseTypeRef;
+		baseTypeRef = newBaseTypeRef;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__BASE_TYPE, oldBaseType, baseType));
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DATA_CONTROL__BASE_TYPE_REF, oldBaseTypeRef, baseTypeRef));
 	}
 
 	/**
@@ -1069,9 +1070,9 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return getUid();
 			case DomainPackage.DATA_CONTROL__NAME:
 				return getName();
-			case DomainPackage.DATA_CONTROL__BASE_TYPE:
-				if (resolve) return getBaseType();
-				return basicGetBaseType();
+			case DomainPackage.DATA_CONTROL__BASE_TYPE_REF:
+				if (resolve) return getBaseTypeRef();
+				return basicGetBaseTypeRef();
 			case DomainPackage.DATA_CONTROL__PARENT:
 				return getParent();
 			case DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
@@ -1121,8 +1122,8 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 			case DomainPackage.DATA_CONTROL__NAME:
 				setName((String)newValue);
 				return;
-			case DomainPackage.DATA_CONTROL__BASE_TYPE:
-				setBaseType((Type)newValue);
+			case DomainPackage.DATA_CONTROL__BASE_TYPE_REF:
+				setBaseTypeRef((TypePointer)newValue);
 				return;
 			case DomainPackage.DATA_CONTROL__PARENT:
 				setParent((Controls)newValue);
@@ -1188,8 +1189,8 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 			case DomainPackage.DATA_CONTROL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DomainPackage.DATA_CONTROL__BASE_TYPE:
-				setBaseType((Type)null);
+			case DomainPackage.DATA_CONTROL__BASE_TYPE_REF:
+				setBaseTypeRef((TypePointer)null);
 				return;
 			case DomainPackage.DATA_CONTROL__PARENT:
 				setParent((Controls)null);
@@ -1252,8 +1253,8 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.DATA_CONTROL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DomainPackage.DATA_CONTROL__BASE_TYPE:
-				return baseType != null;
+			case DomainPackage.DATA_CONTROL__BASE_TYPE_REF:
+				return baseTypeRef != null;
 			case DomainPackage.DATA_CONTROL__PARENT:
 				return getParent() != null;
 			case DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:

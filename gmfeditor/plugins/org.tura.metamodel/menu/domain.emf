@@ -1274,32 +1274,36 @@ class PREUpdateTrigger   extends Trigger {
  }
 
 
+class ProxiesList{
+    val TypePointer[*]  	typePointers;
+}
+
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class CreateTrigger   extends Trigger {
+class CreateTrigger   extends Trigger,ProxiesList {
     id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class InsertTrigger  extends Trigger {
+class InsertTrigger  extends Trigger ,ProxiesList{
     id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class UpdateTrigger   extends Trigger {
+class UpdateTrigger   extends Trigger ,ProxiesList{
     id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class DeleteTrigger  extends Trigger {
+class DeleteTrigger  extends Trigger ,ProxiesList{
     id attr EString uid;
  }
 
 
 @gmf.node(label="fakeMethod",border.color="0,0,0",color="241,238,203")
-class SearchTrigger  extends Trigger {
+class SearchTrigger  extends Trigger, ProxiesList {
     id attr EString uid;
  }
 
@@ -1327,7 +1331,7 @@ class FormVariable extends TypePointer{
 class DataControl {
     id attr EString uid;
    attr EString name;
-   ref Type baseType;
+   ref TypePointer baseTypeRef;
    ref Controls#controls parent;
    @gmf.compartment(layout="list")
    val PREQueryTrigger preQueryTrigger;

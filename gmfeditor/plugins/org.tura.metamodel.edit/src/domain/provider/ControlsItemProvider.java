@@ -1055,6 +1055,11 @@ public class ControlsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.CONTROLS__ANY,
+				 DomainFactory.eINSTANCE.createProxiesList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.CONTROLS__ANY,
 				 DomainFactory.eINSTANCE.createCreateTrigger()));
 
 		newChildDescriptors.add

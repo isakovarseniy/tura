@@ -17,11 +17,19 @@ package domain.impl;
 import domain.CreateTrigger;
 import domain.DomainPackage;
 
+import domain.ProxiesList;
+import domain.TypePointer;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link domain.impl.CreateTriggerImpl#getTypePointers <em>Type Pointers</em>}</li>
  *   <li>{@link domain.impl.CreateTriggerImpl#getUid <em>Uid</em>}</li>
  * </ul>
  * </p>
@@ -37,6 +46,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class CreateTriggerImpl extends TriggerImpl implements CreateTrigger {
+	/**
+	 * The cached value of the '{@link #getTypePointers() <em>Type Pointers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypePointers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TypePointer> typePointers;
+
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,6 +100,18 @@ public class CreateTriggerImpl extends TriggerImpl implements CreateTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TypePointer> getTypePointers() {
+		if (typePointers == null) {
+			typePointers = new EObjectContainmentEList<TypePointer>(TypePointer.class, this, DomainPackage.CREATE_TRIGGER__TYPE_POINTERS);
+		}
+		return typePointers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getUid() {
 		return uid;
 	}
@@ -103,8 +134,24 @@ public class CreateTriggerImpl extends TriggerImpl implements CreateTrigger {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DomainPackage.CREATE_TRIGGER__TYPE_POINTERS:
+				return ((InternalEList<?>)getTypePointers()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DomainPackage.CREATE_TRIGGER__TYPE_POINTERS:
+				return getTypePointers();
 			case DomainPackage.CREATE_TRIGGER__UID:
 				return getUid();
 		}
@@ -116,9 +163,14 @@ public class CreateTriggerImpl extends TriggerImpl implements CreateTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DomainPackage.CREATE_TRIGGER__TYPE_POINTERS:
+				getTypePointers().clear();
+				getTypePointers().addAll((Collection<? extends TypePointer>)newValue);
+				return;
 			case DomainPackage.CREATE_TRIGGER__UID:
 				setUid((String)newValue);
 				return;
@@ -134,6 +186,9 @@ public class CreateTriggerImpl extends TriggerImpl implements CreateTrigger {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DomainPackage.CREATE_TRIGGER__TYPE_POINTERS:
+				getTypePointers().clear();
+				return;
 			case DomainPackage.CREATE_TRIGGER__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -149,10 +204,44 @@ public class CreateTriggerImpl extends TriggerImpl implements CreateTrigger {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DomainPackage.CREATE_TRIGGER__TYPE_POINTERS:
+				return typePointers != null && !typePointers.isEmpty();
 			case DomainPackage.CREATE_TRIGGER__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ProxiesList.class) {
+			switch (derivedFeatureID) {
+				case DomainPackage.CREATE_TRIGGER__TYPE_POINTERS: return DomainPackage.PROXIES_LIST__TYPE_POINTERS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ProxiesList.class) {
+			switch (baseFeatureID) {
+				case DomainPackage.PROXIES_LIST__TYPE_POINTERS: return DomainPackage.CREATE_TRIGGER__TYPE_POINTERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

@@ -32,6 +32,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.adapters.dropdown.OrderedByOrder;
 import org.tura.metamodel.commons.properties.selections.adapters.dropdown.OrderedByRefId;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
@@ -140,14 +141,7 @@ public class DefaultOrderByPropertySelection extends GridProperty {
 		public Map<String, Object> getEnumerationFeatureValues(EObject base) {
 			domain.DataControl dc = (DataControl) this.getProperty().getEObject();
 
-			domain.Type type = null;
-
-			if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
-					&& dc.getCreate().getMethodRef().getReturnValue() != null) {
-				type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
-			}
-			if (dc.getBaseType() != null)
-				type = dc.getBaseType();
+			Type type = (Type) Util.getBase(dc);
 
 			List<domain.Attribute> attributes = initOptions(type);
 

@@ -37,7 +37,6 @@ import org.tura.metamodel.commons.preferences.IPreferenceConstants;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
 import domain.DomainPackage;
-import domain.Type;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
@@ -68,20 +67,7 @@ public class Util {
 	}
 
 	public static domain.TypeElement getBase(domain.DataControl dc) {
-		if ((dc.getCreate().getMethodRef() == null
-				|| dc.getCreate().getMethodRef().getReturnValue() == null || dc
-				.getCreate().getMethodRef().getReturnValue().getTypeRef() == null)
-				&& (dc.getBaseType() == null))
-			return null;
-
-		domain.Type type = (Type) dc.getCreate().getMethodRef()
-				.getReturnValue().getTypeRef();
-
-		if (dc.getBaseType() != null)
-			type = dc.getBaseType();
-
-		return type;
-
+		return dc.getBaseTypeRef().getTypeRef();
 	}
 
 	public static boolean ifDataControlIsTreeRoot(domain.DataControl dc,

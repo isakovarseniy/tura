@@ -162,6 +162,7 @@ import domain.PlatformLayers;
 import domain.PopupCanvas;
 import domain.Primitive;
 import domain.Property;
+import domain.ProxiesList;
 import domain.Query;
 import domain.QueryParameter;
 import domain.QueryVariable;
@@ -434,6 +435,7 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.PRE_DELETE_TRIGGER: return createPREDeleteTrigger();
 			case DomainPackage.POST_CREATE_TRIGGER: return createPOSTCreateTrigger();
 			case DomainPackage.PRE_UPDATE_TRIGGER: return createPREUpdateTrigger();
+			case DomainPackage.PROXIES_LIST: return createProxiesList();
 			case DomainPackage.CREATE_TRIGGER: return createCreateTrigger();
 			case DomainPackage.INSERT_TRIGGER: return createInsertTrigger();
 			case DomainPackage.UPDATE_TRIGGER: return createUpdateTrigger();
@@ -2134,6 +2136,16 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public PREUpdateTrigger createPREUpdateTrigger() {
 		PREUpdateTriggerImpl preUpdateTrigger = new PREUpdateTriggerImpl();
 		return preUpdateTrigger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProxiesList createProxiesList() {
+		ProxiesListImpl proxiesList = new ProxiesListImpl();
+		return proxiesList;
 	}
 
 	/**

@@ -384,6 +384,13 @@
              id="property.tab.domain.control.formparameters"
              label="Mapping parameters"/>
 
+
+            <propertyTab
+             category="domain"
+             id="property.tab.domain.control.proxies"
+             label="Proxies"/>
+
+
        </propertyTabs>
        </extension>
     
@@ -416,13 +423,33 @@
               <input type="control.diagram.edit.parts.FormVariableEditPart"/>
          </propertySection>        
      
-           <propertySection
+            <propertySection
                tab="property.tab.domain.control.basetype"
-               class="org.tura.metamodel.commons.properties.selections.dropdown.BaseTypePropertySelection"
-               id="property.tab.domain.control.basetype">
+               class="org.tura.metamodel.commons.properties.selections.dropdown.BaseClassTypeNamepropertySelection"
+               id="property.tab.domain.control.basetype.typename">
               <input type="control.diagram.edit.parts.DataControlEditPart"/>             
            </propertySection>        
-      
+
+            <propertySection
+               tab="property.tab.domain.control.proxies"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.ProxiesPropertySelection"
+               id="property.tab.domain.control.proxies">
+ 
+             <input type="control.diagram.edit.parts.CreateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.InsertTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.UpdateTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.DeleteTriggerEditPart"/>
+              <input type="control.diagram.edit.parts.SearchTriggerEditPart"/>
+ 
+            </propertySection>        
+
+
+           <propertySection
+               tab="property.tab.domain.control.basetype"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.BaseClassPackageNamePropertySelection"
+               id="property.tab.domain.control.basetype.packagename">
+              <input type="control.diagram.edit.parts.DataControlEditPart"/>             
+           </propertySection>        
 
            <propertySection
                tab="property.tab.domain.control.defaultSearch"

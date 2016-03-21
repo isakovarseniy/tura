@@ -3810,6 +3810,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.ProxiesList} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxiesListItemProvider proxiesListItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.ProxiesList}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxiesListAdapter() {
+		if (proxiesListItemProvider == null) {
+			proxiesListItemProvider = new ProxiesListItemProvider(this);
+		}
+
+		return proxiesListItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.CreateTrigger} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4875,6 +4898,7 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (preDeleteTriggerItemProvider != null) preDeleteTriggerItemProvider.dispose();
 		if (postCreateTriggerItemProvider != null) postCreateTriggerItemProvider.dispose();
 		if (preUpdateTriggerItemProvider != null) preUpdateTriggerItemProvider.dispose();
+		if (proxiesListItemProvider != null) proxiesListItemProvider.dispose();
 		if (createTriggerItemProvider != null) createTriggerItemProvider.dispose();
 		if (insertTriggerItemProvider != null) insertTriggerItemProvider.dispose();
 		if (updateTriggerItemProvider != null) updateTriggerItemProvider.dispose();

@@ -372,6 +372,31 @@ public class DomainVisualIDRegistry {
 				return true;
 			}
 			break;
+		case CreateTriggerEditPart.VISUAL_ID:
+			if (CreateTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InsertTriggerEditPart.VISUAL_ID:
+			if (InsertTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case UpdateTriggerEditPart.VISUAL_ID:
+			if (UpdateTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case DeleteTriggerEditPart.VISUAL_ID:
+			if (DeleteTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SearchTriggerEditPart.VISUAL_ID:
+			if (SearchTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			if (PREQueryTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -399,31 +424,6 @@ public class DomainVisualIDRegistry {
 			break;
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			if (PREUpdateTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case CreateTriggerEditPart.VISUAL_ID:
-			if (CreateTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case InsertTriggerEditPart.VISUAL_ID:
-			if (InsertTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case UpdateTriggerEditPart.VISUAL_ID:
-			if (UpdateTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DeleteTriggerEditPart.VISUAL_ID:
-			if (DeleteTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case SearchTriggerEditPart.VISUAL_ID:
-			if (SearchTriggerFakeMethodEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

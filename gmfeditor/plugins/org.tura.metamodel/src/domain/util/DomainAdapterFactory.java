@@ -157,6 +157,7 @@ import domain.Password;
 import domain.PopupCanvas;
 import domain.Primitive;
 import domain.Property;
+import domain.ProxiesList;
 import domain.Query;
 import domain.QueryParameter;
 import domain.QueryVariable;
@@ -924,6 +925,10 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePREUpdateTrigger(PREUpdateTrigger object) {
 				return createPREUpdateTriggerAdapter();
+			}
+			@Override
+			public Adapter caseProxiesList(ProxiesList object) {
+				return createProxiesListAdapter();
 			}
 			@Override
 			public Adapter caseCreateTrigger(CreateTrigger object) {
@@ -3350,6 +3355,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPREUpdateTriggerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.ProxiesList <em>Proxies List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.ProxiesList
+	 * @generated
+	 */
+	public Adapter createProxiesListAdapter() {
 		return null;
 	}
 

@@ -536,6 +536,16 @@ public class DomainDiagramUpdater {
 			return getPREFormTrigger_1103001ContainedLinks(view);
 		case FormVariableEditPart.VISUAL_ID:
 			return getFormVariable_1103017ContainedLinks(view);
+		case CreateTriggerEditPart.VISUAL_ID:
+			return getCreateTrigger_1103012ContainedLinks(view);
+		case InsertTriggerEditPart.VISUAL_ID:
+			return getInsertTrigger_1103013ContainedLinks(view);
+		case UpdateTriggerEditPart.VISUAL_ID:
+			return getUpdateTrigger_1103014ContainedLinks(view);
+		case DeleteTriggerEditPart.VISUAL_ID:
+			return getDeleteTrigger_1103015ContainedLinks(view);
+		case SearchTriggerEditPart.VISUAL_ID:
+			return getSearchTrigger_1103016ContainedLinks(view);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return getPREQueryTrigger_1103002ContainedLinks(view);
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -548,16 +558,6 @@ public class DomainDiagramUpdater {
 			return getPOSTCreateTrigger_1103011ContainedLinks(view);
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			return getPREUpdateTrigger_1103010ContainedLinks(view);
-		case CreateTriggerEditPart.VISUAL_ID:
-			return getCreateTrigger_1103012ContainedLinks(view);
-		case InsertTriggerEditPart.VISUAL_ID:
-			return getInsertTrigger_1103013ContainedLinks(view);
-		case UpdateTriggerEditPart.VISUAL_ID:
-			return getUpdateTrigger_1103014ContainedLinks(view);
-		case DeleteTriggerEditPart.VISUAL_ID:
-			return getDeleteTrigger_1103015ContainedLinks(view);
-		case SearchTriggerEditPart.VISUAL_ID:
-			return getSearchTrigger_1103016ContainedLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return getArtificialField_1103008ContainedLinks(view);
 		case RelationEditPart.VISUAL_ID:
@@ -581,6 +581,16 @@ public class DomainDiagramUpdater {
 			return getPREFormTrigger_1103001IncomingLinks(view);
 		case FormVariableEditPart.VISUAL_ID:
 			return getFormVariable_1103017IncomingLinks(view);
+		case CreateTriggerEditPart.VISUAL_ID:
+			return getCreateTrigger_1103012IncomingLinks(view);
+		case InsertTriggerEditPart.VISUAL_ID:
+			return getInsertTrigger_1103013IncomingLinks(view);
+		case UpdateTriggerEditPart.VISUAL_ID:
+			return getUpdateTrigger_1103014IncomingLinks(view);
+		case DeleteTriggerEditPart.VISUAL_ID:
+			return getDeleteTrigger_1103015IncomingLinks(view);
+		case SearchTriggerEditPart.VISUAL_ID:
+			return getSearchTrigger_1103016IncomingLinks(view);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return getPREQueryTrigger_1103002IncomingLinks(view);
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -593,16 +603,6 @@ public class DomainDiagramUpdater {
 			return getPOSTCreateTrigger_1103011IncomingLinks(view);
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			return getPREUpdateTrigger_1103010IncomingLinks(view);
-		case CreateTriggerEditPart.VISUAL_ID:
-			return getCreateTrigger_1103012IncomingLinks(view);
-		case InsertTriggerEditPart.VISUAL_ID:
-			return getInsertTrigger_1103013IncomingLinks(view);
-		case UpdateTriggerEditPart.VISUAL_ID:
-			return getUpdateTrigger_1103014IncomingLinks(view);
-		case DeleteTriggerEditPart.VISUAL_ID:
-			return getDeleteTrigger_1103015IncomingLinks(view);
-		case SearchTriggerEditPart.VISUAL_ID:
-			return getSearchTrigger_1103016IncomingLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return getArtificialField_1103008IncomingLinks(view);
 		case RelationEditPart.VISUAL_ID:
@@ -626,6 +626,16 @@ public class DomainDiagramUpdater {
 			return getPREFormTrigger_1103001OutgoingLinks(view);
 		case FormVariableEditPart.VISUAL_ID:
 			return getFormVariable_1103017OutgoingLinks(view);
+		case CreateTriggerEditPart.VISUAL_ID:
+			return getCreateTrigger_1103012OutgoingLinks(view);
+		case InsertTriggerEditPart.VISUAL_ID:
+			return getInsertTrigger_1103013OutgoingLinks(view);
+		case UpdateTriggerEditPart.VISUAL_ID:
+			return getUpdateTrigger_1103014OutgoingLinks(view);
+		case DeleteTriggerEditPart.VISUAL_ID:
+			return getDeleteTrigger_1103015OutgoingLinks(view);
+		case SearchTriggerEditPart.VISUAL_ID:
+			return getSearchTrigger_1103016OutgoingLinks(view);
 		case PREQueryTriggerEditPart.VISUAL_ID:
 			return getPREQueryTrigger_1103002OutgoingLinks(view);
 		case POSTQueryTriggerEditPart.VISUAL_ID:
@@ -638,16 +648,6 @@ public class DomainDiagramUpdater {
 			return getPOSTCreateTrigger_1103011OutgoingLinks(view);
 		case PREUpdateTriggerEditPart.VISUAL_ID:
 			return getPREUpdateTrigger_1103010OutgoingLinks(view);
-		case CreateTriggerEditPart.VISUAL_ID:
-			return getCreateTrigger_1103012OutgoingLinks(view);
-		case InsertTriggerEditPart.VISUAL_ID:
-			return getInsertTrigger_1103013OutgoingLinks(view);
-		case UpdateTriggerEditPart.VISUAL_ID:
-			return getUpdateTrigger_1103014OutgoingLinks(view);
-		case DeleteTriggerEditPart.VISUAL_ID:
-			return getDeleteTrigger_1103015OutgoingLinks(view);
-		case SearchTriggerEditPart.VISUAL_ID:
-			return getSearchTrigger_1103016OutgoingLinks(view);
 		case ArtificialFieldEditPart.VISUAL_ID:
 			return getArtificialField_1103008OutgoingLinks(view);
 		case RelationEditPart.VISUAL_ID:

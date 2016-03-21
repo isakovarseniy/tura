@@ -1752,7 +1752,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CreateTrigger" eSuperTypes="#//Trigger">
+  <eClassifiers xsi:type="ecore:EClass" name="ProxiesList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typePointers" upperBound="-1"
+        eType="#//TypePointer" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CreateTrigger" eSuperTypes="#//Trigger #//ProxiesList">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeMethod"/>
       <details key="border.color" value="0,0,0"/>
@@ -1761,7 +1765,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InsertTrigger" eSuperTypes="#//Trigger">
+  <eClassifiers xsi:type="ecore:EClass" name="InsertTrigger" eSuperTypes="#//Trigger #//ProxiesList">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeMethod"/>
       <details key="border.color" value="0,0,0"/>
@@ -1770,7 +1774,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UpdateTrigger" eSuperTypes="#//Trigger">
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateTrigger" eSuperTypes="#//Trigger #//ProxiesList">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeMethod"/>
       <details key="border.color" value="0,0,0"/>
@@ -1779,7 +1783,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeleteTrigger" eSuperTypes="#//Trigger">
+  <eClassifiers xsi:type="ecore:EClass" name="DeleteTrigger" eSuperTypes="#//Trigger #//ProxiesList">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeMethod"/>
       <details key="border.color" value="0,0,0"/>
@@ -1788,7 +1792,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SearchTrigger" eSuperTypes="#//Trigger">
+  <eClassifiers xsi:type="ecore:EClass" name="SearchTrigger" eSuperTypes="#//Trigger #//ProxiesList">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakeMethod"/>
       <details key="border.color" value="0,0,0"/>
@@ -1839,7 +1843,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseTypeRef" eType="#//TypePointer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Controls"
         eOpposite="#//Controls/controls"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preQueryTrigger" eType="#//PREQueryTrigger"

@@ -67,12 +67,7 @@ public abstract class AbstractCastPropertySelection extends
 				if (dc == null || dc.getCreate() == null)
 					return values;
 
-				if ((dc.getCreate().getMethodRef() == null
-						|| dc.getCreate().getMethodRef().getReturnValue() == null || dc
-						.getCreate().getMethodRef().getReturnValue()
-						.getTypeRef() == null)
-						&& (dc.getBaseType() == null))
-
+				if (Util.getBase(dc) == null)
 					return values;
 
 				Type type = (Type) Util.getBase(dc);

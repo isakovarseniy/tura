@@ -31,7 +31,7 @@ package domain;
  * @model annotation="gmf.node label='fakeMethod' border.color='0,0,0' color='241,238,203'"
  * @generated
  */
-public interface SearchTrigger extends Trigger {
+public interface SearchTrigger extends Trigger, ProxiesList {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

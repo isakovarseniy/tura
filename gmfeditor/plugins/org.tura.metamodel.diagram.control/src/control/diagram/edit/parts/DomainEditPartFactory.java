@@ -64,6 +64,36 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case FormVariableNameEditPart.VISUAL_ID:
 				return new FormVariableNameEditPart(view);
 
+			case CreateTriggerEditPart.VISUAL_ID:
+				return new CreateTriggerEditPart(view);
+
+			case CreateTriggerFakeMethodEditPart.VISUAL_ID:
+				return new CreateTriggerFakeMethodEditPart(view);
+
+			case InsertTriggerEditPart.VISUAL_ID:
+				return new InsertTriggerEditPart(view);
+
+			case InsertTriggerFakeMethodEditPart.VISUAL_ID:
+				return new InsertTriggerFakeMethodEditPart(view);
+
+			case UpdateTriggerEditPart.VISUAL_ID:
+				return new UpdateTriggerEditPart(view);
+
+			case UpdateTriggerFakeMethodEditPart.VISUAL_ID:
+				return new UpdateTriggerFakeMethodEditPart(view);
+
+			case DeleteTriggerEditPart.VISUAL_ID:
+				return new DeleteTriggerEditPart(view);
+
+			case DeleteTriggerFakeMethodEditPart.VISUAL_ID:
+				return new DeleteTriggerFakeMethodEditPart(view);
+
+			case SearchTriggerEditPart.VISUAL_ID:
+				return new SearchTriggerEditPart(view);
+
+			case SearchTriggerFakeMethodEditPart.VISUAL_ID:
+				return new SearchTriggerFakeMethodEditPart(view);
+
 			case PREQueryTriggerEditPart.VISUAL_ID:
 				return new PREQueryTriggerEditPart(view);
 
@@ -99,36 +129,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 
 			case PREUpdateTriggerFakeMethodEditPart.VISUAL_ID:
 				return new PREUpdateTriggerFakeMethodEditPart(view);
-
-			case CreateTriggerEditPart.VISUAL_ID:
-				return new CreateTriggerEditPart(view);
-
-			case CreateTriggerFakeMethodEditPart.VISUAL_ID:
-				return new CreateTriggerFakeMethodEditPart(view);
-
-			case InsertTriggerEditPart.VISUAL_ID:
-				return new InsertTriggerEditPart(view);
-
-			case InsertTriggerFakeMethodEditPart.VISUAL_ID:
-				return new InsertTriggerFakeMethodEditPart(view);
-
-			case UpdateTriggerEditPart.VISUAL_ID:
-				return new UpdateTriggerEditPart(view);
-
-			case UpdateTriggerFakeMethodEditPart.VISUAL_ID:
-				return new UpdateTriggerFakeMethodEditPart(view);
-
-			case DeleteTriggerEditPart.VISUAL_ID:
-				return new DeleteTriggerEditPart(view);
-
-			case DeleteTriggerFakeMethodEditPart.VISUAL_ID:
-				return new DeleteTriggerFakeMethodEditPart(view);
-
-			case SearchTriggerEditPart.VISUAL_ID:
-				return new SearchTriggerEditPart(view);
-
-			case SearchTriggerFakeMethodEditPart.VISUAL_ID:
-				return new SearchTriggerFakeMethodEditPart(view);
 
 			case ArtificialFieldEditPart.VISUAL_ID:
 				return new ArtificialFieldEditPart(view);

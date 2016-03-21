@@ -1080,6 +1080,11 @@ public class ViewsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.VIEWS__ANY,
+				 DomainFactory.eINSTANCE.createProxiesList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.VIEWS__ANY,
 				 DomainFactory.eINSTANCE.createCreateTrigger()));
 
 		newChildDescriptors.add

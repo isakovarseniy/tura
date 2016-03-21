@@ -20,6 +20,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 import org.tura.metamodel.commons.properties.selections.grid.GridProperty;
 
@@ -41,15 +42,10 @@ public class RelationDS extends DataSource {
 		domain.Link row = DomainFactory.eINSTANCE.createLink();
 		row.setUid(UUID.randomUUID().toString());
 
-		domain.Type type = null;
 
 		domain.DataControl dc = ((domain.Relation) (property.getModel())).getMaster();
-		if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
-				&& dc.getCreate().getMethodRef().getReturnValue() != null) {
-			type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
-		}
-		if (dc.getBaseType() != null)
-			type = dc.getBaseType();
+
+		Type type = (Type) Util.getBase(dc);
 
 		if (type == null)
 			return;
@@ -61,12 +57,8 @@ public class RelationDS extends DataSource {
 		}
 
 		dc = ((domain.Relation) (property.getModel())).getDetail();
-		if (dc.getCreate() != null && dc.getCreate().getMethodRef() != null
-				&& dc.getCreate().getMethodRef().getReturnValue() != null) {
-			type = (Type) dc.getCreate().getMethodRef().getReturnValue().getTypeRef();
-		}
-		if (dc.getBaseType() != null)
-			type = dc.getBaseType();
+
+		type = (Type) Util.getBase(dc);
 
 		if (type == null)
 			return;

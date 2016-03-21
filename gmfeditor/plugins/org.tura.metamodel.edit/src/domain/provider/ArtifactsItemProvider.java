@@ -1034,6 +1034,11 @@ public class ArtifactsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ARTIFACTS__ANY,
+				 DomainFactory.eINSTANCE.createProxiesList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ARTIFACTS__ANY,
 				 DomainFactory.eINSTANCE.createCreateTrigger()));
 
 		newChildDescriptors.add
