@@ -83,8 +83,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
-			<artifactId>tura-service-command-compressor</artifactId>
+			<groupId>org.tura.platform.datacontrol.command</groupId>
+			<artifactId>tura-service-compressor</artifactId>
 			<scope>test</scope>
 		</dependency>
 

@@ -1137,9 +1137,9 @@
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="b6fbdc2c-2f55-41cc-b942-5b511fcd24fd">
         <parameters uid="758a9c97-f0f7-404e-a59b-e99fa294761b" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
           <value uid="34685cf4-b7b4-426e-a306-3da1f17c88e4" value="Packages.HR package.HR package::Company Type">
-            <expression uid="1547f531-3b97-47de-8b47-6ca44ac93bb5" expressionType="TypesImpl"/>
-            <expression uid="3093ee86-679d-4af1-a6f6-0f1b3f74da1e" objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
-            <expression uid="82a4a27f-3fa5-44fd-be56-4af4701d2952" objRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" order="2" expressionType="TypeImpl"/>
+            <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+            <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
+            <expression objRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" order="2" expressionType="TypeImpl"/>
           </value>
         </parameters>
         <parameters uid="2f9a03c9-fe28-4f3c-a825-75644db57db0" refObj="07ddc1e7-d94e-4c4a-ade2-610e4f1591e6">
@@ -2870,6 +2870,8 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="d9b1f377-f3f2-4259-babc-c8b694680978" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="880454fd-5da9-4894-99d1-b3658d74409e" fakePackageName="Base package" fakeTypeName="Authentication manager" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager" version="" libraryName=""/>
     <mappers xsi:type="tura.domain:RoleMapper" uid="56a24718-969f-4611-90a4-13942f870e5f" role="45d0609c-66c2-4dd1-845c-f3763940096a" localRoleName="power_user" globalRoleName="manager" fakeRoleName="admin"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="0e71569e-6278-4fd1-8b40-8bfdbe18fecd" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="58bc4a5e-7b5f-452b-aead-dc5806513737" fakePackageName="Base package" fakeTypeName="Insert Command Compressor for tura service" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="InsertCommandTuraService" artifactId="tura-service-command-compressor" groupId="org.tura.platform.datacontrol" version="2.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="00830491-dd97-4599-a172-824c4bac3c84" uiLayer="true" packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="411aea58-14c5-4bee-8d90-52335366808f" fakePackageName="DataControl command" fakeTypeName="Search criteria" mappedToPackageName="java.util" mappedToClassName="ArrayList" artifactId="" version=""/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="607a1dfd-bb8a-4a51-a05f-008083e21e4a" uiLayer="true" packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="3d09d9d5-0b17-4ffb-b40e-635862a2b8c5" fakePackageName="DataControl command" fakeTypeName="OrderByCiteria" mappedToPackageName="java.util" mappedToClassName="ArrayList"/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">

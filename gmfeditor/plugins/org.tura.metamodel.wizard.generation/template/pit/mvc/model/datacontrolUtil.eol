@@ -28,43 +28,36 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
         self.~provider=provider;
 
         self.create.processTrigger(recipe,ingredient,self,hash);
-        var array = new Native('java.util.ArrayList');
-        array.add("create");
-        provider.put(self.create.typeRef.~fullName,array);   
-
+        self.create.extarctProviders(recipe, ingredient , provider,"create");
+        
         self.insert.processTrigger(recipe,ingredient,self,hash);
-        array = provider.get(self.insert.typeRef.~fullName);   
-        if (array = null){
-           array = new Native('java.util.ArrayList');
-           provider.put(self.insert.typeRef.~fullName,array);   
-         }
-        array.add("insert");
+        self.insert.extarctProviders(recipe, ingredient , provider,"insert");
         
         self.update.processTrigger(recipe,ingredient,self,hash);
-        array = provider.get(self.update.typeRef.~fullName);   
-        if (array = null){
-           array = new Native('java.util.ArrayList');
-           provider.put(self.update.typeRef.~fullName,array);   
-         }
-        array.add("update");
+        self.update.extarctProviders(recipe, ingredient , provider,"update");
 
         self.remove.processTrigger(recipe,ingredient,self,hash);
-        array = provider.get(self.remove.typeRef.~fullName);   
-        if (array = null){
-           array = new Native('java.util.ArrayList');
-           provider.put(self.remove.typeRef.~fullName,array);   
-         }
-        array.add("delete");
+        self.remove.extarctProviders(recipe, ingredient , provider,"delete");
 
         self.search.processTrigger(recipe,ingredient,self,hash);
-        array = provider.get(self.search.typeRef.~fullName);   
-        if (array = null){
-           array = new Native('java.util.ArrayList');
-           provider.put(self.search.typeRef.~fullName,array);   
-         }
-        array.add("search");
+        self.search.extarctProviders(recipe, ingredient , provider,"search");
 }
 
+
+operation domain::Trigger extarctProviders(recipe:Recipe, ingredient :Ingredient, provider,cmd){
+     for (  pointer in self.typePointers){
+        pointer.typeRef.mappingType2Java(recipe,ingredient);
+        var fullName = pointer.typeRef.~fullName;
+        var array = provider.get(fullName);   
+        if (array == null){
+           array = new Native('java.util.ArrayList');
+           provider.put(fullName,array);   
+         }
+        array.add(cmd);
+     }
+     
+
+}
 
 operation domain::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,datacontrol: domain::DataControl,hash){
         var util = new Native('org.tura.metamodel.commons.Util');

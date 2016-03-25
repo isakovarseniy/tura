@@ -29,6 +29,7 @@ operation  buildExpression( contextValue,hints,inOutParams) : String {
           case "DataControlImpl":               resultExpression = DataControlImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "TriggerImpl":                       resultExpression = TriggerImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "TypeElementImpl":             resultExpression = TypeElementImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "TypeImpl":             	           resultExpression = TypeImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "AttributeImpl":                     resultExpression = AttributeImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "TypesImpl":                       resultExpression = TypesImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "PackageImpl":                    resultExpression = PackageImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);

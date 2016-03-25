@@ -45,6 +45,31 @@ operation TypeElementImpl(expression:String, contextValue , paramId: Integer , a
    return expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
 }
 
+operation TypeImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
+    var action = contextValue.expression.get(paramId);
+    var recipe = inOutParams.get("recipe");
+    var ingredient = inOutParams.get("ingredient");
+
+   if ( action.objRef <> null ){
+        var type = action.objRef;
+        if (type <> null ){
+           type.mappingType2Java(recipe,ingredient);
+           type.mappingType2JavaScript(recipe,ingredient);
+        }else{
+           expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
+          }
+        if (type.~mapper.isDefined() ){
+           return type.~fullName;
+        }else {
+           expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
+        }
+  
+   }else{
+      expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
+   }  
+}
+
+
 operation AttributeImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
    var util = new Native('org.tura.metamodel.commons.Util');
    var attr =  contextValue.expression.get(paramId).objRef;
