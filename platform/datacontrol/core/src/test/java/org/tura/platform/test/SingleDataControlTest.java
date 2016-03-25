@@ -21,7 +21,6 @@
  */
 package org.tura.platform.test;
 
-import static com.octo.java.sql.query.Query.c;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -43,6 +42,7 @@ import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.hr.init.DepartmentsInit;
@@ -137,8 +137,18 @@ public class SingleDataControlTest {
 			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			dc.getDefaultQuery().where(c("objId"))
-					.op(Operator.GT, new Long(30));
+			
+			ArrayList<SearchCriteria> sc = new ArrayList<>();
+
+			SearchCriteria s = new SearchCriteria();
+			s .setName("objId");
+			s.setComparator(Operator.GT.name());
+			s.setValue(new Long(30));
+			sc.add(s);
+			
+			dc.setDefaultSearchCriteria(sc);
+			
+			
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(40));
 
@@ -155,7 +165,17 @@ public class SingleDataControlTest {
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 			dc.getElResolver().setValue("limit", new Long(30));
-			dc.getDefaultQuery().where(c("objId")).op(Operator.GT, "#{limit}");
+			
+			ArrayList<SearchCriteria> sc = new ArrayList<>();
+
+			SearchCriteria s = new SearchCriteria();
+			s .setName("objId");
+			s.setComparator(Operator.GT.name());
+			s.setValue("#{limit}");
+			sc.add(s);
+			
+			dc.setDefaultSearchCriteria(sc);
+			
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(40));
 
@@ -240,8 +260,17 @@ public class SingleDataControlTest {
 			factory.initCommandStack();
 			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			dc.getDefaultQuery().where(c("objId"))
-					.op(Operator.EQ, new Long(70));
+			
+			ArrayList<SearchCriteria> sc = new ArrayList<>();
+
+			SearchCriteria s = new SearchCriteria();
+			s .setName("objId");
+			s.setComparator(Operator.EQ.name());
+			s.setValue(new Long(70));
+			sc.add(s);
+			
+			dc.setDefaultSearchCriteria(sc);
+			
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(70));
 
@@ -489,8 +518,15 @@ public class SingleDataControlTest {
 		@Override
 		public void execute(DataControl<?> datacontrol) throws TuraException {
 			try {
-				datacontrol.getQuery().where(c("objId"))
-						.op(Operator.EQ, new Long(70));
+
+				SearchCriteria s = new SearchCriteria();
+				s .setName("objId");
+				s.setComparator(Operator.EQ.name());
+				s.setValue(new Long(70));
+				s.setClassName(Long.class.getName());
+				
+				datacontrol.getSearchCriteria().add(s);
+				
 			} catch (Exception e) {
 				throw new TuraException(e);
 			}

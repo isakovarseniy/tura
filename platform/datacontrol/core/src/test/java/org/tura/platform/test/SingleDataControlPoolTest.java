@@ -21,8 +21,6 @@
  */
 package org.tura.platform.test;
 
-import static com.octo.java.sql.query.Query.c;
-import static com.octo.java.sql.query.Query.select;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -30,6 +28,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
@@ -44,11 +43,11 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.CommandStack;
+import org.tura.platform.datacontrol.CommandStack.SavePoint;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Pager;
-import org.tura.platform.datacontrol.CommandStack.SavePoint;
 import org.tura.platform.datacontrol.command.base.Command;
-import org.tura.platform.datacontrol.commons.ConditionConverter;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.data.CommandStackData;
 import org.tura.platform.datacontrol.data.PoolData;
@@ -61,7 +60,6 @@ import org.tura.platform.hr.init.FactoryDC;
 
 import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.QueryException;
-import com.octo.java.sql.query.SelectQuery;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SingleDataControlPoolTest {
@@ -488,14 +486,17 @@ public class SingleDataControlPoolTest {
 			IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException {
 
-		SelectQuery query = select(c("x")).from(entity).as("x")
-				.orderBy("objId");
+		ArrayList<SearchCriteria> sc = new ArrayList<>();
 
-		ConditionConverter.valueOf("WHERE").getRestriction(query, c("objId"));
-		query.op(Operator.EQ, "#{cmpId}");
-
-		control.setDefaultQuery(query);
-
+		SearchCriteria s = new SearchCriteria();
+		s .setName("objId");
+		s.setComparator(Operator.EQ.name());
+		s.setValue("#{cmpId}");
+		sc.add(s);
+		
+		control.setDefaultSearchCriteria(sc);
+		
+		
 	}
 
 	@SuppressWarnings("unchecked")

@@ -21,12 +21,10 @@
  */
 package org.tura.platform.datacontrol;
 
-import static com.octo.java.sql.query.Query.c;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.Stack;
 import java.util.UUID;
 
@@ -35,8 +33,8 @@ import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
 import org.tura.platform.datacontrol.command.base.Command;
 import org.tura.platform.datacontrol.command.base.CommandFactory;
-import org.tura.platform.datacontrol.commons.ConditionConverter;
 import org.tura.platform.datacontrol.commons.Constants;
+import org.tura.platform.datacontrol.commons.DefaulQueryFactory;
 import org.tura.platform.datacontrol.commons.LazyList;
 import org.tura.platform.datacontrol.commons.PlatformConfig;
 import org.tura.platform.datacontrol.commons.Reflection;
@@ -49,8 +47,6 @@ import org.tura.platform.datacontrol.pool.Pool;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
-import com.octo.java.sql.exp.Operator;
-import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
 import com.rits.cloning.Cloner;
 
@@ -111,45 +107,53 @@ public class Pager<T> extends Pool {
 
 			Cloner cloner = new Cloner();
 			datacontrol
-					.setQuery(cloner.deepClone(datacontrol.getDefaultQuery()));
+					.setSearchCriteria(cloner.deepClone(datacontrol.getDefaultSearchCriteria()));
+
+			datacontrol
+			       .setOrderCriteria(cloner.deepClone(datacontrol.getDefaultOrderCriteria()));
 
 			Collection<SearchCriteria> sc = null;
 
-			SelectQuery query = datacontrol.getQuery();
 			if (datacontrol.getParent() != null) {
 				sc = datacontrol.getParent().getChildSearchCriteria();
-				String condition = "AND";
-				if (!sc.isEmpty() && query.getWhereClause() == null)
-					condition = "WHERE";
 
 				for (SearchCriteria criteria : sc) {
-
 					if (!criteria.getValue().equals(
 							Constants.UNDEFINED_PARAMETER)) {
-						ConditionConverter.valueOf(condition).getRestriction(
-								query, c(criteria.getName()));
-						query.op(Operator.valueOf(criteria.getComparator()),
-								criteria.getValue());
-
+						datacontrol.getSearchCriteria().add(criteria);
 					} else {
 						return false;
 					}
-					condition = "AND";
 				}
 
 			}
-			query.toSql(new ExpressionResolver(datacontrol.getElResolver()));
-			// restore dafaut querybuilder
-			query.toSql(query.getQueryBuilder());
-
+			
+			for (SearchCriteria criteria: datacontrol.getSearchCriteria()){
+				if (criteria .getValue() instanceof String ){
+					criteria.setValue(resolver((String) criteria .getValue()));
+				}
+			}
 			return true;
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException | QueryException e) {
+				| InvocationTargetException  e) {
 			throw new TuraException(e);
 		}
 	}
 
+	
+	
+	private Object resolver(String str) {
+		int lastindex = str.length() - 1;
+		if (str.length() > 3 && "#{".equals(str.substring(0, 2))
+				&& "}".equals(str.substring(lastindex))) {
+			return datacontrol.getElResolver().getValue(str.substring(2, lastindex));
+		} else
+			return str;
+	}
+	
+	
+	
 	public DataControl<T> getDataControl() {
 		return datacontrol;
 	}
@@ -421,11 +425,11 @@ public class Pager<T> extends Pool {
 				}
 			}else{
 				if (prepareQuery()){
-					Map<String,Object> params = this.datacontrol.getQuery().getParams();
+					List<SearchCriteria> params = this.datacontrol.getSearchCriteria();
 					if (params != null  && !params.isEmpty()){
 						HashCodeBuilder builder = new HashCodeBuilder();
-						for (String k: params.keySet()){
-							builder.append(params.get(k));
+						for (SearchCriteria k: params){
+							builder.append(k);
 						}
 						key = ( new Integer(builder.toHashCode())).toString();
 					}
@@ -452,8 +456,8 @@ public class Pager<T> extends Pool {
 	}
 
 	@Override
-	protected SelectQuery getSelectQuery() {
-		return datacontrol.getQuery();
+	protected SelectQuery getSelectQuery() throws TuraException{
+		return DefaulQueryFactory.builder(datacontrol.getSearchCriteria(), datacontrol.getOrderCriteria(), datacontrol.getBaseClass()) ;
 	}
 
 	@Override

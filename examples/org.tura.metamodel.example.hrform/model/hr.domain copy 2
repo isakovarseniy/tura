@@ -249,6 +249,7 @@
       <packages uid="9fcd56c0-2fe7-445a-864e-9550f1b901c2" name="Primitive package" typedefinition="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d"/>
       <packages uid="dd77a443-471b-441e-88bf-3f3f092f372c" name="Base package" typedefinition="d3aaa3c1-ce4f-4b19-9e05-30631fe679cd"/>
       <packages uid="e8faa4f9-a654-40f5-bdf5-454f90f2af19" name="HR package" typedefinition="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84"/>
+      <packages uid="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" name="DataControl command" typedefinition="a1db2dd1-56ec-4c88-97cd-d3ec61a46d0b"/>
     </typeDefinition>
   </tura.domain:TypesRepository>
   <tura.domain:TypeDefinition uid="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d" parent="9fcd56c0-2fe7-445a-864e-9550f1b901c2">
@@ -1132,7 +1133,7 @@
       <variables packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="e521fc9c-5580-404a-aaff-dbccef13eb59" name="cmpId"/>
       <variables packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="7ef63886-d369-40e0-8cc2-1e0160478677" name="var1" paramRef="29fc2ee9-2554-4db1-b651-b4c66c472316"/>
     </root>
-    <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/55">
+    <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company" baseTypeRef="/55">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="8432e75c-3e68-43f0-94d0-c38cf73840e5">
         <parameters uid="80b8b8d8-50dd-4cc8-92e7-d2852ba64d3c" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="459ce8d2-b4ec-4ad2-b662-a4fbb0d5fc6e" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
@@ -1198,7 +1199,7 @@
         <orderRules uid="c1094c94-1e84-44e5-8ceb-47da2047664f" refObj="Comp_7982905f-4f83-472f-8551-80e30e34934c"/>
       </defaultOrderBy>
     </controls>
-    <controls uid="cd1cab1c-1781-4867-85b8-84d9f465f989" name="Country" baseType="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/56">
+    <controls uid="cd1cab1c-1781-4867-85b8-84d9f465f989" name="Country" baseTypeRef="/56">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="9963c6a1-841a-4daf-97e2-d3d7538a4924">
         <parameters uid="ceeebfd3-bcba-4e6c-89a9-b522d8190938" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="360d9906-2e11-4f41-8f34-94dd75518dcf" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
@@ -1266,7 +1267,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" name="State" baseType="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/57">
+    <controls uid="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" name="State" baseTypeRef="/57">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5a601dff-fe13-4626-8f2e-2d7c8437f9d2">
         <parameters uid="d4a40060-7f8e-4343-83f6-0344bee321f8" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="89e892f3-9f11-4b2d-8878-55386bbc5d53" constant="true" value="org.elsoft.platform.hr.objects.StateDAO"/>
@@ -1334,7 +1335,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="8d431a55-eddc-42cb-8397-588243cfb255" name="City" baseType="City_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/58">
+    <controls uid="8d431a55-eddc-42cb-8397-588243cfb255" name="City" baseTypeRef="/58">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="34a45fce-3c59-44ea-bcac-a5a8d0e165e6">
         <parameters uid="81f36481-4b2e-4fab-be46-570c05d9a7e9" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="20402c11-499b-4eb6-8609-a455c6a6934f" constant="true" value="org.elsoft.platform.hr.objects.CityDAO"/>
@@ -1401,7 +1402,7 @@
       </search>
       <defaultSearch/>
     </controls>
-    <controls uid="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" name="Street" baseType="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/59">
+    <controls uid="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" name="Street" baseTypeRef="/59">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5854e526-56a2-4f19-9b6a-1306d33c62b4">
         <parameters uid="9e8f99c3-b72f-4ff7-b180-26edd522adb2" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="1bcbc0a1-4c24-4594-81db-4850c037f863" constant="true" value="org.elsoft.platform.hr.objects.StreetDAO"/>
@@ -1468,7 +1469,7 @@
       </search>
       <defaultSearch/>
     </controls>
-    <controls uid="0feddc04-1241-40fa-a9f3-35089d2cf4c5" name="Department" baseType="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/60">
+    <controls uid="0feddc04-1241-40fa-a9f3-35089d2cf4c5" name="Department" baseTypeRef="/60">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="f84d75ec-98bc-4e08-ac93-1ab07ffca3e3">
         <parameters uid="85649180-e39e-49e4-bea9-eb7880b2877b" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="83f31914-943d-401c-8e8f-8b1958bfbb42" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
@@ -1530,7 +1531,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="0b115ae0-7710-49f2-bb74-45fa6af58c8e" name="Employee" baseType="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13" baseTypeRef="/61">
+    <controls uid="0b115ae0-7710-49f2-bb74-45fa6af58c8e" name="Employee" baseTypeRef="/61">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="2d640832-13e6-4750-88f1-b50126aac085">
         <parameters uid="4ddfb5d5-22c8-4abe-9f91-2de349bdae88" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="dcc8288a-bf86-47f8-ba1b-08b1f2d089a7" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
@@ -1591,7 +1592,7 @@
       </search>
       <defaultSearch/>
     </controls>
-    <controls uid="7787cfd3-a689-4089-8689-7c149a1a3a34" name="Vehicle" baseType="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/62">
+    <controls uid="7787cfd3-a689-4089-8689-7c149a1a3a34" name="Vehicle" baseTypeRef="/62">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5b1e6f0e-21c7-4be1-8955-1030bdab833c">
         <parameters uid="09ad9417-554b-47dd-9f79-9913e77b661c" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="47fa1a8d-1c27-4c06-ae53-b9a20287bed5" constant="true" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
@@ -1652,7 +1653,7 @@
       </search>
       <defaultSearch/>
     </controls>
-    <controls uid="34ec885b-a2e1-4c4a-8987-f56c9e935e86" name="Files" baseType="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6" baseTypeRef="/63">
+    <controls uid="34ec885b-a2e1-4c4a-8987-f56c9e935e86" name="Files" baseTypeRef="/63">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="2018a2dd-c305-47ee-97c3-ddb532d0e7a6">
         <parameters uid="1cd29549-6bfd-4af1-a8a3-c2ba9bfad200" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="805d642c-ba74-4258-9fac-02dbca45d0d6" constant="true" value="org.elsoft.platform.hr.objects.FileDAO"/>
@@ -1720,7 +1721,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="659ef9c4-06fb-48cb-a385-4424988c7872" name="Popup Company DC Provider" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/64">
+    <controls uid="659ef9c4-06fb-48cb-a385-4424988c7872" name="Popup Company DC Provider" baseTypeRef="/64">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="45bdb3bf-64aa-4549-8151-09a1234cbc89">
         <parameters uid="78ee001d-8fab-43ff-bb63-cc1dadc280d0" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="2ed97ddf-96f2-4331-9e7c-05bafc72dcea" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
@@ -1898,6 +1899,7 @@
         <options uid="632c2ddb-644d-4a49-9385-9d89f1a2e1fa" value="nonJTA"/>
       </specifiers>
       <hints uid="ad0b1786-fda9-4d98-80d0-01c2698ee95a" name="command.compressor"/>
+      <hints uid="029343ca-ea9d-49a6-b392-b3a1ddff06a8" name="datacontrol.command"/>
     </artifacts>
     <artifacts uid="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service producer" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/mvc/model/mainServiceProducer.egl">
       <modelQuery uid="273cc7dd-85f8-430f-ac43-cad73dc0e847" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
@@ -3890,7 +3892,7 @@
     <linkToMessages uid="891cef8d-51a8-4a92-a43a-28d84afea4c9" source="83a48362-b526-4c40-8830-1409325b4726" target="7f2833a3-2392-4b4a-b8cd-20b56f2dea71"/>
   </tura.domain:CanvasView>
   <tura.domain:Controls uid="9bab1cbe-e4c8-49df-9e9b-85c50d2dbe62" parent="42af1957-84a2-463d-9f1a-6a92bfe27914">
-    <controls uid="178d5648-ef4e-4712-aa09-431da395aeef" name="Company" baseType="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/66">
+    <controls uid="178d5648-ef4e-4712-aa09-431da395aeef" name="Company" baseTypeRef="/66">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="7d70e8cf-baab-46f6-85e0-28d8361307b9">
         <parameters uid="ba60fbd9-5417-432a-af90-e7ccef072665" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="68d64a6b-fa78-4d19-a5b8-ba6d4353494a" constant="true" value="org.elsoft.platform.hr.objects.CompanyDAO"/>
@@ -3959,7 +3961,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="706aa362-43cf-451f-8458-d94699968885" name="Country" baseType="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/67">
+    <controls uid="706aa362-43cf-451f-8458-d94699968885" name="Country" baseTypeRef="/67">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="95e6f31e-e433-4db6-af06-1bb170decc90">
         <parameters uid="46e26cb5-3fdb-4f5f-84d2-75cbe6ecd428" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="f28fd571-ed93-4155-87b5-4d487d0722aa" constant="true" value="org.elsoft.platform.hr.objects.CountryDAO"/>
@@ -4027,7 +4029,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="ae7ac879-af81-4dfb-b9d0-229361975480" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="8a7b48d7-c34c-4ddf-a87a-7ed0b741ab39" name="State" baseType="State_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/68">
+    <controls uid="8a7b48d7-c34c-4ddf-a87a-7ed0b741ab39" name="State" baseTypeRef="/68">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="5e320c9e-c311-485e-b2db-5afe04c4c272">
         <parameters uid="eb62ff49-d109-44d8-9a9d-1a5236d642b1" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="5e5498da-c0ab-402c-b396-3e6cae5b98f8" constant="true" value="org.elsoft.platform.hr.objects.StateDAO"/>
@@ -4095,7 +4097,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="83afcb01-b524-455e-a92c-8bc001cc3edc" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="307d054b-d029-4d33-b2fa-0690e088f381" name="City" baseType="City_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/69">
+    <controls uid="307d054b-d029-4d33-b2fa-0690e088f381" name="City" baseTypeRef="/69">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="6a8257ad-cce4-4c4a-abc4-0fa971527ff5">
         <parameters uid="fcc2e7fc-ec87-452a-84c9-67df7e72f184" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="b2e066b9-1db9-4924-979c-413334d261f7" constant="true" value="org.elsoft.platform.hr.objects.CityDAO"/>
@@ -4163,7 +4165,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="820c0dc3-5bff-4f3e-8208-151010a1a5d9" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="51ba3563-65f1-4560-aa9a-8948642203db" name="Street" baseType="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/70">
+    <controls uid="51ba3563-65f1-4560-aa9a-8948642203db" name="Street" baseTypeRef="/70">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="03ceeabc-7602-417b-bfaa-caf555533620">
         <parameters uid="2a1f05d3-a723-4b8b-a974-d932adef9cf7" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="7f1424c9-07d8-4e01-b4ff-ceee138bc3e0" constant="true" value="org.elsoft.platform.hr.objects.StreetDAO"/>
@@ -4231,7 +4233,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="54be63b6-c6fa-4930-9b5c-39e6f69fcfca" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="c2fbd57a-a79b-4f7b-961a-a4b4c022b303" name="Department" baseType="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/71">
+    <controls uid="c2fbd57a-a79b-4f7b-961a-a4b4c022b303" name="Department" baseTypeRef="/71">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="b3e586c8-94d4-44aa-a3f1-d43729fa9acc">
         <parameters uid="45b1a2de-b3f4-4a3e-96e4-adc59f69c3e2" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="e4e20eb1-f4d7-4a02-90d1-d1b234b2b089" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
@@ -4296,7 +4298,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="c0bf6228-cda1-4b2a-a6b5-0a519ae1a1e8" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="af8bd7cd-10dd-4658-9fdf-d6aa1deea4ad" name="Employee" baseType="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13" baseTypeRef="/72">
+    <controls uid="af8bd7cd-10dd-4658-9fdf-d6aa1deea4ad" name="Employee" baseTypeRef="/72">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="362a1b74-449b-457c-8e4d-15963123150c">
         <parameters uid="5a43cb36-22e6-465c-9557-001e1111bd0c" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="e7bd1d1f-f7f9-4173-aa1a-516df9207e9f" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
@@ -4364,7 +4366,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="17c955b8-6757-4684-a5ae-90f0efb0ca01" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="fc93f128-54f1-4f96-974e-abe19c2e658a" name="Vehicle" baseType="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/73">
+    <controls uid="fc93f128-54f1-4f96-974e-abe19c2e658a" name="Vehicle" baseTypeRef="/73">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="4397dddc-52a2-4d6f-900c-89401a9943d1">
         <parameters uid="962a3e66-9901-4d50-8c50-9c6c493d9d8d" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="d1c1d332-b5bd-44b3-b02d-61055641e8d2" constant="true" value="org.elsoft.platform.hr.objects.VehicleDAO"/>
@@ -4432,7 +4434,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="04093d6b-3535-4e0a-8b66-9c5c0ca87f86" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="07338878-9b76-4679-aa68-e84955f8aae5" name="Files" baseType="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6" baseTypeRef="/74">
+    <controls uid="07338878-9b76-4679-aa68-e84955f8aae5" name="Files" baseTypeRef="/74">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="031d6126-2ad5-4fa8-8cc1-c836593adf90">
         <parameters uid="2abe268a-ba5c-4922-ac63-6ac0dd195bbb" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="d7c4f1e5-3379-4cc2-bf20-655429e96e0d" constant="true" value="org.elsoft.platform.hr.objects.FileDAO"/>
@@ -4610,7 +4612,7 @@
     <infrastructureConnections uid="3616af72-389c-412e-97da-7933a3406793" master="04aa194b-3499-40de-8461-674738e5be0f" detail="97201a3f-8064-4038-8327-68349d73be3d"/>
   </tura.domain:EnterpriseInfrastructure>
   <tura.domain:Controls uid="275253ca-c6ab-42b4-833e-9aae82cb149d" parent="bdf00c56-8100-4230-953b-0be8e9190f24">
-    <controls uid="066f4691-289b-499a-acb8-6f171d02236c" name="Departments" baseType="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369" baseTypeRef="/75">
+    <controls uid="066f4691-289b-499a-acb8-6f171d02236c" name="Departments" baseTypeRef="/75">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="826890f1-bd27-4f2e-951d-c0e69b15bd38">
         <parameters uid="5c1985c1-c143-4672-a92e-de212616ed59" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="b29944c0-6656-4207-9db8-416db27be400" constant="true" value="org.elsoft.platform.hr.objects.DepartmentsDAO"/>
@@ -4672,7 +4674,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="f69d69e9-5d7f-481e-8309-504966d5ef8d" name="Employes" baseType="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13" baseTypeRef="/76">
+    <controls uid="f69d69e9-5d7f-481e-8309-504966d5ef8d" name="Employes" baseTypeRef="/76">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="4be45f5f-abc0-40da-959c-70e6d161c303">
         <parameters uid="98fb447a-23d6-4944-95f6-84ac056059ce" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="229837d1-e5a7-4fde-9db9-829cb7266db0" constant="true" value="org.elsoft.platform.hr.objects.EmployeesDAO"/>
@@ -4743,7 +4745,7 @@
         </parameters>
       </defaultSearch>
     </controls>
-    <controls uid="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" name="Departments2Employees" baseType="1fb89120-1544-4563-a949-33a8d12ab064" baseTypeRef="/77">
+    <controls uid="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" name="Departments2Employees" baseTypeRef="/77">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" methodRef="40b112a0-4008-11e4-916c-0800200c9a66" fakeMethod="create" uid="1a01f120-f960-44e9-8de1-d6090e5f0797">
         <parameters uid="fe197b51-fa3f-4a6e-a47e-6c79036804f1" refObj="9150e8ca-6703-4e2c-a2e0-479f42987fa5">
           <value uid="4a4b7798-d3cd-40d5-9479-a9fa7fa8254e" constant="true" value="org.elsoft.platform.hr.objects.Department2EntityDAO"/>
@@ -4966,7 +4968,7 @@
   </tura.domain:CanvasView>
   <tura.domain:Controls uid="ee3685c0-6109-4d07-88b5-93abe2feb61f" parent="bd05dbd1-ffb4-4555-92d6-79453d4074ec"/>
   <tura.domain:Controls uid="5c389a2e-07c6-41a8-9470-61a8272f77c6" parent="1ece42ef-12be-412c-97c5-5711e30fb3f9">
-    <controls uid="b6de5432-2b55-46cb-b5af-bc3e83ed510e" name="ErrorRecordDC" baseType="50dcca84-4d2c-4fe2-baad-56afdf1be76d" baseTypeRef="/78">
+    <controls uid="b6de5432-2b55-46cb-b5af-bc3e83ed510e" name="ErrorRecordDC" baseTypeRef="/78">
       <create packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" methodRef="7ef44e4a-d181-47f7-8667-7ca155fc87c6" fakeMethod="create" uid="5be390a2-3c9b-4ce6-9967-d854b2c168cd">
         <parameters uid="6e562e22-d0ec-4ff2-9c9d-cce31afbc08b" refObj="99d84fcb-dbc0-4db9-a169-e8eccb21a89a">
           <value uid="c3576291-160a-4f90-b08f-eab4015ec23f" constant="true" value="org.tura.platform.persistence.TuraObject"/>
@@ -5264,4 +5266,52 @@
   <tura.domain:TypePointer packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
   <tura.domain:TypePointer packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064"/>
   <tura.domain:TypePointer packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
+  <tura.domain:TypeDefinition uid="a1db2dd1-56ec-4c88-97cd-d3ec61a46d0b" parent="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6">
+    <types xsi:type="tura.domain:Type" uid="411aea58-14c5-4bee-8d90-52335366808f" name="Search criteria"/>
+    <types xsi:type="tura.domain:Type" uid="3d09d9d5-0b17-4ffb-b40e-635862a2b8c5" name="OrderByCiteria"/>
+    <types xsi:type="tura.domain:Type" uid="17329631-195a-44bd-acb3-e6f92cef5074" name="Create command">
+      <classifiers uid="08cf7f08-5813-4ff8-96ba-cf7be8fce96e" hint="029343ca-ea9d-49a6-b392-b3a1ddff06a8"/>
+      <operations uid="3096821b-a3ba-42a4-b83b-fc92e4d4c979" name="create">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6" name="objectType"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="07ddc1e7-d94e-4c4a-ade2-610e4f1591e6" name="method" order="1"/>
+        <returnValue packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="49aca0df-57d6-4315-a38a-eebc3d80321f" name="Insert commpressor command">
+      <classifiers uid="70b2a81f-2158-4406-a67f-a6b96458c0dd" hint="029343ca-ea9d-49a6-b392-b3a1ddff06a8"/>
+      <operations uid="a3d21656-1dbc-4e5d-8bf6-f681276123ea" name="insert">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="4042b6b1-89b0-454c-9283-4758d40446bd" name="object"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="60f90b18-4918-4547-9c4a-62b8a3aad375" name="method" order="1"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="3a163b93-3a17-4e30-8fdc-1d139061305f" name="Update compressor command">
+      <classifiers uid="68522856-5902-4d78-8ad7-5d90a39bdb48" hint="029343ca-ea9d-49a6-b392-b3a1ddff06a8"/>
+      <operations uid="d4e8f3b4-3cdd-4706-941c-e53c46c82953" name="update">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="99b65931-6d90-449c-9eba-aace9db2a0dc" name="object"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="9a2fa653-30a2-4287-8f5f-2fed2bdf3b10" name="method" order="1"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="60d4a3a7-d6bf-496c-a59c-46f6965746ba" name="Remove compressor command">
+      <classifiers uid="64f09f35-cc1d-44f9-a417-06dda83b7954" hint="029343ca-ea9d-49a6-b392-b3a1ddff06a8"/>
+      <operations uid="b0f03659-7158-4265-8ab8-7082a61d9147" name="remove">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="df2c227c-f88f-4fcb-b486-eab807a2821f" name="object"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="f0d2d387-ad89-4a54-817f-b5fcdcfb0f25" name="method" order="1"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="75244232-4768-4dc6-9bb7-20975ffc2947" name="Search command">
+      <classifiers uid="992452ae-1771-42f1-9f7c-f4b28b6ef05a" hint="029343ca-ea9d-49a6-b392-b3a1ddff06a8"/>
+      <operations uid="785082db-13ed-43d1-af68-60b063049754" name="search">
+        <parameters packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="411aea58-14c5-4bee-8d90-52335366808f" fakePackageName="DataControl command" fakeTypeName="Search criteria" uid="a9c8d279-f076-4a57-aded-65026e5b6683" name="searchCriteria"/>
+        <parameters packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="3d09d9d5-0b17-4ffb-b40e-635862a2b8c5" fakePackageName="DataControl command" fakeTypeName="OrderByCiteria" uid="aad64ea3-98d8-4ff0-8cb4-2af9f8e6e076" name="orderByCriteria" order="1"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="912aab66-1d7f-4442-a07d-863edcb814ef" name="start Index" order="2"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2829901f-e985-4786-96ff-852230536694" fakePackageName="Primitive package" fakeTypeName="Integer" uid="65940313-558b-4739-9c6d-c3ebf4561889" name="end Index" order="4"/>
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="adc91ff6-b654-4f28-a826-f74100dd9a89" name="objectType" order="5"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="74009a1e-80fa-423f-9e9e-3473d0008f11" name="method" order="6"/>
+        <returnValue packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="90b18156-de6d-42d1-b350-925e44a0e4cc"/>
+      </operations>
+    </types>
+  </tura.domain:TypeDefinition>
 </xmi:XMI>

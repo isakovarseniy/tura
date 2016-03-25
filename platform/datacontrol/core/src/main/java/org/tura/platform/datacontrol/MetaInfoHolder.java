@@ -38,12 +38,12 @@ import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.base.SearchCommandBase;
 import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
-
-import com.octo.java.sql.query.SelectQuery;
 
 public abstract class MetaInfoHolder {
 
@@ -55,6 +55,8 @@ public abstract class MetaInfoHolder {
 	protected Class<?> artificialInterface;
 	protected List<String> keys = new ArrayList<>();
 	protected Class<?> baseClass;
+	protected List<SearchCriteria> defaultSearchCriteria = new ArrayList<>();
+	protected List<OrderCriteria> defaultOrderCriteria = new ArrayList<>();
 	
 	protected ELResolver elResolver;
 	protected CreateCommandBase createCommand;
@@ -69,9 +71,7 @@ public abstract class MetaInfoHolder {
 	protected PreUpdateTrigger preUpdateTrigger;
 	protected PreDeleteTrigger preDeleteTrigger;
 
-	protected SelectQuery defaultQuery;
 	
-	public abstract void setDefaultQuery(SelectQuery selectQuery) ;
 	public abstract void setCreateCommand(CreateCommandBase createCommand) ;
 	public abstract void setInsertCommand(InsertCommandBase insertCommand);
 	public abstract void setUpdateCommand(UpdateCommandBase updateCommand);
@@ -84,6 +84,8 @@ public abstract class MetaInfoHolder {
 	public abstract void setPreInsertTrigger(PreInsertTrigger preInsertTrigger);
 	public abstract void setPreUpdateTrigger(PreUpdateTrigger preUpdateTrigger) ;
 	public abstract void setElResolver(ELResolver elResolver);
+	public abstract void setDefaultOrderCriteria(List<OrderCriteria> orderCriteria);
+	public abstract void setDefaultSearchCriteria(List<SearchCriteria> searchCriteria);
 	
 	
 	public void addChildren(String relationName, Relation relation) throws TuraException {
@@ -172,9 +174,6 @@ public abstract class MetaInfoHolder {
 		return keys;
 	}
 
-	public SelectQuery getDefaultQuery() {
-		return defaultQuery;
-	}
 	public Class<?> getArtificialInterface() {
 		return artificialInterface;
 	}
@@ -187,6 +186,13 @@ public abstract class MetaInfoHolder {
 	}
 	public void setBaseClass(Class<?> baseClass) {
 		this.baseClass = baseClass;
+	}
+	List<SearchCriteria> getDefaultSearchCriteria() {
+		return defaultSearchCriteria;
+	}
+	
+	List<OrderCriteria> getDefaultOrderCriteria() {
+		return defaultOrderCriteria;
 	}
 	
 }

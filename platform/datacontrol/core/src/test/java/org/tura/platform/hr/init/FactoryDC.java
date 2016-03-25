@@ -21,8 +21,7 @@
  */
 package org.tura.platform.hr.init;
 
-import static com.octo.java.sql.query.Query.c;
-import static com.octo.java.sql.query.Query.select;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -35,18 +34,15 @@ import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.CreateCommand;
 import org.tura.platform.datacontrol.command.DeleteCommand;
 import org.tura.platform.datacontrol.command.InsertCommand;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
+import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
 import org.tura.platform.persistence.TuraObject;
-
-import com.octo.java.sql.query.QueryException;
-import com.octo.java.sql.query.SelectQuery;
 
 public class FactoryDC {
 
@@ -92,7 +88,7 @@ public class FactoryDC {
 				TuraObject.class);
 		createSearchCommand(employeesDS, elPrefix + "employees",EmployeesDAO.class);
 
-		createQuery(employeesDS, EmployeesDAO.class.getCanonicalName());
+//		createQuery(employeesDS, EmployeesDAO.class.getCanonicalName());
 
 		return employeesDS;
 	}
@@ -118,18 +114,18 @@ public class FactoryDC {
 				TuraObject.class);
 		createSearchCommand(departmentsDS, elPrefix + "departments",DepartmentsDAO.class);
 
-		createQuery(departmentsDS, DepartmentsDAO.class.getCanonicalName());
+//		createQuery(departmentsDS, DepartmentsDAO.class.getCanonicalName());
 
 		return departmentsDS;
 	}
 
-	void createQuery(DataControl<?> control, String entity)
-			throws QueryException {
-		SelectQuery query = select(c("x")).from(entity).as("x")
-				.orderBy("objId");
-		control.setDefaultQuery(query);
-		
-	}
+//	void createQuery(DataControl<?> control, String entity)
+//			throws QueryException {
+//		SelectQuery query = select(c("x")).from(entity).as("x")
+//				.orderBy("objId");
+//		control.setDefaultQuery(query);
+//		
+//	}
 
 	void createCreateCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
@@ -198,11 +194,18 @@ public class FactoryDC {
 		command.setMethod("find");
 
 		CallParameter prm = new CallParameter();
-		prm.setName("dslQuery");
-		prm.setClazz(SelectQuery.class);
-		prm.setExpression(expr + ".query");
+		prm.setName("searchCriteria");
+		prm.setClazz(List.class);
+		prm.setExpression(expr + ".searchCriteria");
 		command.getParameters().add(prm);
 
+		prm = new CallParameter();
+		prm.setName("orderCriteria");
+		prm.setClazz(List.class);
+		prm.setExpression(expr + ".orderCriteria");
+		command.getParameters().add(prm);
+
+		
 		prm = new CallParameter();
 		prm.setName("startIndex");
 		prm.setClazz(Integer.class);

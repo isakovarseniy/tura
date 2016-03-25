@@ -28,6 +28,7 @@ import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.commons.Constants;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -42,7 +43,6 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
-import com.octo.java.sql.query.SelectQuery;
 import com.rits.cloning.Cloner;
 
 public abstract class DataControl<T> extends MetaInfoHolder implements
@@ -58,7 +58,8 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	private ArrayList<EventListener> eventLiteners = new ArrayList<>();
 
-	private SelectQuery query;
+	protected List<SearchCriteria> searchCriteria;
+	protected List<OrderCriteria> orderCriteria;
 
 	private Pager<T> pager;
 	private int currentPosition = 0;
@@ -346,14 +347,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		this.commandStack = commandStack;
 	}
 
-	public SelectQuery getQuery() {
-		return query;
-	}
-
-	public void setQuery(SelectQuery query) {
-		this.query = query;
-	}
-
 	public void setPageSize(int page) {
 		pager.setLoadStep(page);
 	}
@@ -471,6 +464,22 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 		}
 
+	}
+
+	public List<SearchCriteria> getSearchCriteria() {
+		return searchCriteria;
+	}
+
+	public void setSearchCriteria(List<SearchCriteria> searchCriteria) {
+		this.searchCriteria = searchCriteria;
+	}
+
+	public List<OrderCriteria> getOrderCriteria() {
+		return orderCriteria;
+	}
+
+	public void setOrderCriteria(List<OrderCriteria> orderCriteria) {
+		this.orderCriteria = orderCriteria;
 	}
 
 }

@@ -1,0 +1,55 @@
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/datacontrolWithCompressedCommandSetup.eol";
+
+
+/*
+wizard AllDataContorlInitialization {
+	guard : self.isKindOf(domain::DataControl) 
+		
+	title : 'All Data control initialization'
+	do {
+			var commandSelector = new Native('org.tura.metamodel.wizard.datacontrol.DataControlCommandSelector');
+			var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
+			
+			
+			for (form in Form.all){
+			  var commandList := commandSelector.propertiesList(form);
+			  var treeRoots  :=   queryHelper.findTreeRootControls(form);
+			  for ( tR in treeRoots ){
+			            var treeRoot = tR.getDc();
+			            treeRoot.~treeRoot=true;       
+			   }
+			   for(  dc in form.datacontrols.formControl.controls)  { 
+				   for( command in commandList ) {
+				        comperssorComandProcessor(dc,command);
+					}
+				}	
+			}
+    }
+
+}
+*/
+
+wizard DataContorlInitialization {
+	
+	guard : self.isKindOf(domain::DataControl) 
+		
+	title : 'Data control initialization'
+	do {
+	   var commandSelector = new Native('org.tura.metamodel.wizard.datacontrol.DataControlCommandSelector');
+       var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
+	   
+	   var commandList := commandSelector.runDialog(self);
+
+        var form = queryHelper.getForm(self);
+        var treeRoots =   queryHelper.findTreeRootControls(form);
+        for ( tR in treeRoots ){
+            var treeRoot = tR.getDc();
+            treeRoot.~treeRoot=true;       
+        }
+	   
+       for( command in commandList ) {
+           comperssorComandProcessor(self,command);
+	   }
+     }
+}
+

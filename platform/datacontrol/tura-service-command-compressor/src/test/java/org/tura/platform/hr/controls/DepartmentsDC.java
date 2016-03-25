@@ -21,6 +21,8 @@
  */
 package org.tura.platform.hr.controls;
 
+import java.util.List;
+
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
@@ -35,8 +37,8 @@ import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.base.SearchCommandBase;
 import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
-
-import com.octo.java.sql.query.SelectQuery;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 
 public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 
@@ -45,11 +47,16 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	}
 
 	@Override
-	public void setDefaultQuery(SelectQuery selectQuery) {
-		this.defaultQuery = selectQuery;
-
+	public  void setDefaultSearchCriteria(List<SearchCriteria> defaultSearchCriteria){
+		this.defaultSearchCriteria = defaultSearchCriteria;
 	}
 
+	@Override
+	public  void setDefaultOrderCriteria(List<OrderCriteria> defaultOrderCriteria){
+		this.defaultOrderCriteria=defaultOrderCriteria;
+	}
+	
+	
 	@Override
 	public void setCreateCommand(CreateCommandBase createCommand) {
 		this.createCommand = createCommand;

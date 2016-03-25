@@ -52,7 +52,7 @@ public class TypeElementProvider implements IWorkbenchAdapter  ,IReturnTypeProvi
 
 	@Override
 	public Object getReturnType(Object o) {
-		return null;
+		return o;
 	}
 
 }

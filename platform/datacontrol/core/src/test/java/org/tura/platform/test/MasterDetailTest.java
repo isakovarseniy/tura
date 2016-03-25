@@ -21,11 +21,11 @@
  */
 package org.tura.platform.test;
 
-import static com.octo.java.sql.query.Query.c;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -35,6 +35,7 @@ import org.elsoft.platform.hr.objects.EmployeesDAO;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
@@ -114,8 +115,16 @@ public class MasterDetailTest {
 			
 			DataControl<EmployeesDAO> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
-			dce.getDefaultQuery().where(c("objId"))
-			.op(Operator.GT, new Long(30));
+			
+			ArrayList<SearchCriteria> sc = new ArrayList<>();
+
+			SearchCriteria s = new SearchCriteria();
+			s .setName("objId");
+			s.setComparator(Operator.GT.name());
+			s.setValue(new Long(30));
+			sc.add(s);
+			
+			dce.setDefaultSearchCriteria(sc);
 			
 			
 			Relation relation = new Relation();

@@ -21,10 +21,8 @@
  */
 package org.tura.platform.hr.init;
 
-import static com.octo.java.sql.query.Query.c;
-import static com.octo.java.sql.query.Query.select;
-
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -42,12 +40,13 @@ import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.turaservice.DeleteCommandTuraService;
 import org.tura.platform.datacontrol.command.turaservice.InsertCommandTuraService;
 import org.tura.platform.datacontrol.command.turaservice.UpdateCommandTuraService;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
 import org.tura.platform.persistence.TuraObject;
 
 import com.octo.java.sql.query.QueryException;
-import com.octo.java.sql.query.SelectQuery;
+import com.octo.java.sql.query.SelectQuery.Order;
 
 public class FactoryDC {
 
@@ -55,11 +54,11 @@ public class FactoryDC {
 	private EntityManager em;
 	private CommandStack sc;
 	public static ArrayList<Object> list = new ArrayList<>();
-	private TuraJPAEntityServiceProxy provider ;
+	private JPAEntityService provider ;
 
 	public FactoryDC(String unit) {
 
-		provider = new TuraJPAEntityServiceProxy(list);
+		provider = new JPAEntityService(list);
 
 		
 		Configuration config = new Configuration();
@@ -130,9 +129,14 @@ public class FactoryDC {
 
 	void createQuery(DataControl<?> control, String entity)
 			throws QueryException {
-		SelectQuery query = select(c("x")).from(entity).as("x")
-				.orderBy("objId");
-		control.setDefaultQuery(query);
+		
+	  ArrayList<OrderCriteria> ordc= new ArrayList<>();
+	  OrderCriteria order = new OrderCriteria();
+	  order.setName("objId");
+	  order.setOrder(Order.ASC.name());
+	  ordc.add(order);
+	  
+	  control.setOrderCriteria(ordc);
 		
 	}
 
@@ -203,9 +207,15 @@ public class FactoryDC {
 		command.setMethod("find");
 
 		CallParameter prm = new CallParameter();
-		prm.setName("dslQuery");
-		prm.setClazz(SelectQuery.class);
-		prm.setExpression(expr + ".query");
+		prm.setName("searchCriteria");
+		prm.setClazz(List.class);
+		prm.setExpression(expr + ".searchCriteria");
+		command.getParameters().add(prm);
+
+		prm = new CallParameter();
+		prm.setName("orderCriteria");
+		prm.setClazz(List.class);
+		prm.setExpression(expr + ".orderCriteria");
 		command.getParameters().add(prm);
 
 		prm = new CallParameter();

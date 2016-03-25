@@ -27,7 +27,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.tura.platform.datacontrol.commons.DefaulQueryFactory;
 import org.tura.platform.datacontrol.commons.LazyList;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.persistence.ObjectsID;
 import org.tura.platform.persistence.TuraObject;
 
@@ -58,12 +61,13 @@ public class TuraJPAEntityService  implements Serializable{
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<?> find(SelectQuery dslQuery, Integer startIndex,
+	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria ,  Integer startIndex,
 			Integer endIndex, String objectClass) throws Exception {
 
 		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
 				.loadClass(objectClass);
 
+		SelectQuery  dslQuery =  DefaulQueryFactory.builder(searchCriteria, orderCriteria, Class.forName(objectClass) );
 		Query query = getEntityManager().createQuery(dslQuery.toSql(), clazz);
 		query.setFirstResult(startIndex);
 		query.setMaxResults(endIndex - startIndex);

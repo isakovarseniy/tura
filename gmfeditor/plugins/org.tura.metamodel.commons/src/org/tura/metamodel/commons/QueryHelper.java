@@ -200,10 +200,16 @@ public class QueryHelper {
 			return false;
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<?> getControlsList(DiagramImpl root) throws Exception {
 
 		domain.Form frm = getForm(root);
+		
+		return getControlsList(frm);
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<?> getControlsList(domain.Form frm) throws Exception {
+		
 		ArrayList ls = new ArrayList();
 
 		TreeRootDataControlHolder th = new TreeRootDataControlHolder();
@@ -216,8 +222,12 @@ public class QueryHelper {
 		ls.add(dh);
 
 		return ls;
+		
 	}
-
+	
+	
+	
+	
 	public Object getRootControl(DiagramImpl root) throws Exception {
 		domain.Form frm = getForm(root);
 		return frm.getDatacontrols().getFormControl().getRoot();

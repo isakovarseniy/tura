@@ -26,13 +26,13 @@ import java.util.List;
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.persistence.TuraObject;
 
-public class TuraJPAEntityServiceProxy extends TuraJPAEntityService {
+public class JPAEntityService extends TuraJPAEntityService {
     private static final long serialVersionUID = 1L;
     
     private List<Object> list;
     
     
-    public TuraJPAEntityServiceProxy(List<Object> list){
+    public JPAEntityService(List<Object> list){
     	this.list = list;
     }
     
