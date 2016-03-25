@@ -45,9 +45,8 @@ public class CommandFactory {
 		command.setWrappedObject(wrappedObject);
 		
 		command.setDatacontrol(dc);
-		command.setMethod(cmd.getMethod());
 		command.setParameters(cloneParameters(cmd.getParameters()));
-		command.setProvider(cmd.getProvider());
+		command.setProviders(cmd.getProviders());
 		
 		return command;
 		

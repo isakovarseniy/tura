@@ -49,7 +49,6 @@ public class UpdateCommandBase extends Command {
 		if (this.getDatacontrol().getPreUpdateTrigger() != null)
 			this.getDatacontrol().getPreUpdateTrigger().execute(this);
 
-		callMethod();
 	}
 
 }

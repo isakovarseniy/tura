@@ -51,9 +51,6 @@ public class DeleteCommandBase extends Command{
 		if (this.getDatacontrol().getPreDeleteTrigger() != null)
 			this.getDatacontrol().getPreDeleteTrigger().execute(this);
 
-		callMethod();
-		
 	}
-
 
 }

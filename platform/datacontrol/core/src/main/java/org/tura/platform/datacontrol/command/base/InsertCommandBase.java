@@ -50,8 +50,6 @@ public class InsertCommandBase extends Command {
 
 		if (this.getDatacontrol().getPreInsertTrigger() != null)
 			this.getDatacontrol().getPreInsertTrigger().execute(this);
-
-		callMethod();
 	}
 
 }

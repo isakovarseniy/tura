@@ -38,11 +38,8 @@ public class CreateCommandBase extends Command {
 
 	@Override
 	public Object execute() throws Exception {
-
-		this.prepareParameters();
-		this.prepareCall();
-
-		Object obj = callMethod();
+		
+      Object obj = getObj();
 
 		if (obj != null){
 			obj = Util.convertobject(obj, getDatacontrol(),true);

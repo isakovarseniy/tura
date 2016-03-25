@@ -31,6 +31,5 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 @Target({ FIELD, PARAMETER})
 public @interface Update {
-	String objectAction();
 	Parameters parameters();
 }

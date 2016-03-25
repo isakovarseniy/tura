@@ -33,5 +33,4 @@ import java.lang.annotation.Target;
 public @interface Query {
   Base base();
   DefaultSearchCriterias search();
-  DefaultOrderBys orders();
 }

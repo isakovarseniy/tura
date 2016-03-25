@@ -38,15 +38,13 @@ public abstract class Command {
 
 	private transient DataControl<?> datacontrol;
 	protected List<CallParameter> parameters = new ArrayList<>();
-	protected transient Object provider;
-	private String method;
-	protected transient Method call;
 
 	private Object oldValue;
 	private Object newValue;
 	private String property;
 	private Object obj;	
 	private Object wrappedObject;
+	public HashMap<String,Object> providers = new HashMap<>();
 	
 	public abstract Object execute() throws Exception;
 
@@ -67,12 +65,8 @@ public abstract class Command {
 	public Command() {
 	}	
 	
-	public Object getProvider() {
-		return provider;
-	}
-
-	public String getMethod() {
-		return method;
+	public Object getProvider(String providerType) {
+		return providers.get(providerType);
 	}
 
 	public void setParameters(List<CallParameter> parameters) {
@@ -119,12 +113,8 @@ public abstract class Command {
 		this.wrappedObject = wrappedObject;
 	}
 
-	public void setProvider(Object provider) {
-		this.provider = provider;
-	}
-
-	public void setMethod(String method) {
-		this.method = method;
+	public void setProvider(Object provider,String providerType) {
+		this.providers.put(providerType, provider);
 	}
 
 	public List<CallParameter> getParameters() {
@@ -139,19 +129,19 @@ public abstract class Command {
 		this.datacontrol = datacontrol;
 	}
 
-	public void prepareCall() throws Exception {
+	public Method prepareCall(  Object provider , String method ) throws Exception {
 		ArrayList<Class<?>> ls = new ArrayList<>();
 		for (CallParameter prm : parameters) {
 			ls.add(prm.getClazz());
 		}
-		call = provider.getClass().getMethod(method,
+		return  provider.getClass().getMethod(method,
 				ls.toArray(new Class<?>[ls.size()]));
 	}
 
-	protected Object callMethod() throws Exception {
+	protected Object callMethod(Method call , Object provider , List<CallParameter> params ) throws Exception {
 
 		ArrayList<Object> ls = new ArrayList<>();
-		for (CallParameter prm : parameters) {
+		for (CallParameter prm : params) {
 			ls.add(prm.getObj());
 		}
 		return call.invoke(provider, ls.toArray(new Object[ls.size()]));
@@ -200,6 +190,14 @@ public abstract class Command {
 
 			}
 		}
+	}
+
+	public HashMap<String, Object> getProviders() {
+		return providers;
+	}
+
+	public void setProviders(HashMap<String, Object> providers) {
+		this.providers = providers;
 	}
 	
 }

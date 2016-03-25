@@ -37,16 +37,11 @@ public class SearchCommandBase extends Command{
 	@Override
 	public Object execute() throws Exception {
 
-		if (getDatacontrol().getPreQueryTrigger() != null)
-			getDatacontrol().getPreQueryTrigger().execute(getDatacontrol());
-		
-		this.prepareParameters();
-		this.prepareCall();
 
 		if (getDatacontrol().getPreQueryTrigger() != null)
 			getDatacontrol().getPreQueryTrigger().execute(getDatacontrol());
 
-		return  callMethod();
+		return  null;
 	}
 
 	@Override

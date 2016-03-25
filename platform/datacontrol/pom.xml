@@ -19,7 +19,7 @@
   <modules>
     <module>commons</module>
     <module>core</module>
-    <module>tura-service-command-compressor</module>
+    <module>command</module>
     <module>annotations</module>
   </modules>
   
