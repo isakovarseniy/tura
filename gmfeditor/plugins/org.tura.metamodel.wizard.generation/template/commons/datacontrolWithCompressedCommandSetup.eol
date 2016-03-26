@@ -20,16 +20,6 @@ operation  createCommand(dc,command) {
    var uuid := Native('java.util.UUID');
    
    var trigger = new domain::CreateTrigger;
-   
-  //------------ Remove itt !!!
-  //var tpref = new domain::TypePointer;
-  //tpref.packageRef = dc.create.packageRef;
-  //tpref.typeRef = dc.create.typeRef;
-  //trigger.typePointers.add(tpref);
-  //------------ Remove itt !!!
-  
-   
-   
    trigger.uid = uuid.randomUUID().toString();
    dc.create = trigger;
    commonInit(dc,command,trigger,"create");
@@ -39,7 +29,6 @@ operation  createCommand(dc,command) {
        var i = k.toString();
 	   switch (i){
 		      case "0" :  ctxParam =typeParam(dc.baseTypeRef.typeRef,parameter);
-		      case "1":   ctxParam =typeConstant(parameter,"create");
            }
       k = k + 1;
 	  trigger.parameters.add(ctxParam);
@@ -49,15 +38,6 @@ operation  createCommand(dc,command) {
 operation  searchCommand(dc,command) { 
    var uuid := Native('java.util.UUID');
    var trigger = new domain::SearchTrigger;
-   
-  //------------ Remove itt !!!
-  //var tpref = new domain::TypePointer;
-  //tpref.packageRef = dc.search.packageRef;
-  //tpref.typeRef = dc.search.typeRef;
-  //trigger.typePointers.add(tpref);
-  //------------ Remove itt !!!
-  
-      
    
    trigger.uid = uuid.randomUUID().toString();
    dc.search = trigger;
@@ -76,7 +56,6 @@ operation  searchCommand(dc,command) {
 		      case "2":   ctxParam =treeDataControl(treedc,dc,"start Index","DataControlFakeAttribute",parameter);
 		      case "3":   ctxParam =treeDataControl(treedc,dc,"end Index","DataControlFakeAttribute",parameter);
 		      case "4":   ctxParam =typeParam(dc.baseTypeRef.typeRef,parameter);
-		      case "5":   ctxParam =typeConstant(parameter,"find");
 		  }  
 	   }else{
 	      switch (i){
@@ -85,7 +64,6 @@ operation  searchCommand(dc,command) {
 		      case "2":   ctxParam =simpleDataControl(dc,"start Index","DataControlFakeAttribute",parameter);
 		      case "3":   ctxParam =simpleDataControl(dc,"end Index","DataControlFakeAttribute",parameter);
 		      case "4":   ctxParam =typeParam(dc.baseTypeRef.typeRef,parameter);
-		      case "5":   ctxParam =typeConstant(parameter,"find");
 	      }
 	   }
        k = k + 1;
@@ -96,13 +74,6 @@ operation  searchCommand(dc,command) {
 operation  updateCompressorCommand(dc,command) { 
    var uuid := Native('java.util.UUID');
    var trigger = new domain::UpdateTrigger;
-  //------------ Remove itt !!!
-  //var tpref = new domain::TypePointer;
-  //tpref.packageRef = dc.update.packageRef;
-  //tpref.typeRef = dc.update.typeRef;
-  //trigger.typePointers.add(tpref);
-  //------------ Remove itt !!!
-  
    trigger.uid = uuid.randomUUID().toString();
    dc.update = trigger;
 
@@ -118,12 +89,10 @@ operation  updateCompressorCommand(dc,command) {
 		if (treedc.~treeRoot.isDefined()){
 		   switch (i){
 			      case "0" :  ctxParam =treeDataControl(treedc,dc,"currentObject","DataControlFakeMethod",parameter);
-			      case "1":   ctxParam =typeConstant(parameter,"update");
 	        }
 		}else{
 		   switch (i){
 			      case "0" :  ctxParam =simpleDataControl(dc,"currentObject","DataControlFakeMethod",parameter);
-			      case "1":   ctxParam =typeConstant(parameter,"update");
 	        }
 		}
       k = k + 1;
@@ -135,15 +104,6 @@ operation  updateCompressorCommand(dc,command) {
 operation  insertCommpressorCommand(dc,command) { 
    var uuid := Native('java.util.UUID');
    var trigger = new domain::InsertTrigger;
-   
-  //------------ Remove itt !!!
-  //var tpref = new domain::TypePointer;
-  //tpref.packageRef = dc.insert.packageRef;
-  //tpref.typeRef = dc.insert.typeRef;
-  //trigger.typePointers.add(tpref);
-  //------------ Remove itt !!!
-  
-      
    
    trigger.uid = uuid.randomUUID().toString();
    dc.insert = trigger;
@@ -160,12 +120,10 @@ operation  insertCommpressorCommand(dc,command) {
 		if (treedc.~treeRoot.isDefined()){
 		   switch (i){
 			      case "0" :  ctxParam =treeDataControl(treedc,dc,"currentObject","DataControlFakeMethod",parameter);
-			      case "1":   ctxParam =typeConstant(parameter,"insert");
 	        }
 		}else{
 		   switch (i){
 			      case "0" :  ctxParam =simpleDataControl(dc,"currentObject","DataControlFakeMethod",parameter);
-			      case "1":   ctxParam =typeConstant(parameter,"insert");
 	        }
 		}
       k = k + 1;
@@ -177,16 +135,6 @@ operation  insertCommpressorCommand(dc,command) {
 operation  removeCompressorCommand(dc,command) { 
    var uuid := Native('java.util.UUID');
    var trigger = new domain::DeleteTrigger;
-   
-   //------------ Remove itt !!!
-  //var tpref = new domain::TypePointer;
-  //tpref.packageRef = dc.remove.packageRef;
-  //tpref.typeRef = dc.remove.typeRef;
-  //trigger.typePointers.add(tpref);
-  //------------ Remove itt !!!
-  
-     
-   
    trigger.uid = uuid.randomUUID().toString();
    dc.remove = trigger;
    
@@ -199,12 +147,10 @@ operation  removeCompressorCommand(dc,command) {
 		if (treedc.~treeRoot.isDefined()){
 		   switch (i){
 			      case "0" :  ctxParam =treeDataControl(treedc,dc,"currentObject","DataControlFakeMethod",parameter);
-			      case "1":   ctxParam =typeConstant(parameter,"remove");
 	        }
 		}else{
 		   switch (i){
 			      case "0" :  ctxParam =simpleDataControl(dc,"currentObject","DataControlFakeMethod",parameter);
-			      case "1":   ctxParam =typeConstant(parameter,"remove");
 	        }
 		}
       k = k + 1;

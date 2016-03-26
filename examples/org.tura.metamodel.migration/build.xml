@@ -6,30 +6,77 @@
 	<target name="loadModels">
 		<epsilon.emf.register file="model/domain.ecore"/>		
 		<epsilon.emf.loadModel name="M" modelfile="model/hr.domain" 
-				metamodeluri="http://tura.org/2013/v1/domain" store="false"/>
+				metamodeluri="http://tura.org/2013/v1/domain" store="true"/>
 	</target>
 	
 	<target name="Transformation">
 		<epsilon.eol>
 			<model ref="M"/>
 			<![CDATA[
-			import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/datacontrolWithCompressedCommandSetup.eol";
+			   var i = 0;
+			   var k = 0;
+				for (dc in domain::DataControl.all){
+				
+				i.print();
+				"-------------------- ".print();
+				dc.name.print();
+				" --------------------".println();
+							
+			
+			   var trigger = dc.create;
+			   var prm =  trigger.parameters->select(q|q.refObj.name = 'method').first();
+			   trigger.parameters.remove(prm);
+			   
+			   "--- ".print();
+			   k.print();
+			   " --- ".print();
+			   prm.println();
+			   k= k+1;
+			
+			
+			   var trigger = dc.insert;
+			   var prm =  trigger.parameters->select(q|q.refObj.name = 'method').first();
+			   trigger.parameters.remove(prm);
 
-			var commandSelector = new Native('org.tura.metamodel.wizard.datacontrol.DataControlCommandSelector');
-			var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
+			   "--- ".print();
+			   k.print();
+			   " --- ".print();
+			   prm.println();
+			   k= k+1;
 
+			   var trigger = dc.update;
+			   var prm =  trigger.parameters->select(q|q.refObj.name = 'method').first();
+			   trigger.parameters.remove(prm);
 
-			for (form in Form.all){
-			  var commandList := commandSelector.propertiesList(form);
-			  var treeRoots  :=   queryHelper.findTreeRootControls(form);
-			  for ( tR in treeRoots ){
-			            var treeRoot = tR.getDc();
-			            treeRoot.~treeRoot=true;       
-			   }
-			   for(  dc in form.datacontrols.formControl.controls)   
-				   for( command in commandList ) {
-				        comperssorComandProcessor(dc,command);
-					}
+			   "--- ".print();
+			   k.print();
+			   " --- ".print();
+			   prm.println();
+			   k= k+1;
+
+			   var trigger = dc.remove;
+			   var prm =  trigger.parameters->select(q|q.refObj.name = 'method').first();
+			   trigger.parameters.remove(prm);
+
+			   "--- ".print();
+			   k.print();
+			   " --- ".print();
+			   prm.println();
+			   k= k+1;
+
+			   var trigger = dc.search;
+			   var prm =  trigger.parameters->select(q|q.refObj.name = 'method').first();
+			   trigger.parameters.remove(prm);
+
+			   "--- ".print();
+			   k.print();
+			   " --- ".print();
+			   prm.println();
+			   k= k+1;
+			
+			
+			i = i+1;
+
 
 			}
 			]]>

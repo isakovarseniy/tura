@@ -33,9 +33,9 @@ public class  [%=type.~class%]Service extends org.tura.platform.commons.jpa.Tura
     }    	
     
     @Override
-	public java.util.List<?> find(com.octo.java.sql.query.SelectQuery dslQuery, Integer startIndex,Integer endIndex, String objectClass) throws Exception {
+	public java.util.List<?> find(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria , Integer startIndex,Integer endIndex, String objectClass) throws Exception {
     	try{
-    		return super.find(dslQuery, startIndex, endIndex, objectClass);
+    		return super.find(searchCriteria,orderCriteria, startIndex, endIndex, objectClass);
     	}finally{
     		emHelper.destroyEntityManager();
     	}
