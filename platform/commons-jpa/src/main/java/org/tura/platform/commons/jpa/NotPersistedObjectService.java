@@ -29,6 +29,8 @@ import java.util.UUID;
 import javax.persistence.EntityManager;
 
 import org.tura.platform.datacontrol.commons.LazyList;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.persistence.TuraObject;
 
 import com.octo.java.sql.query.SelectQuery;
@@ -48,17 +50,16 @@ public class NotPersistedObjectService implements Serializable {
 	}
 
 	public TuraObject create(String objectClass) throws Exception {
-		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
-				.loadClass(objectClass);
+		Class<?> clazz = (Class<?>) this.getClass().getClassLoader().loadClass(objectClass);
 		TuraObject obj = (TuraObject) clazz.newInstance();
-		long id=ByteBuffer.wrap(UUID.randomUUID().toString().getBytes()).asLongBuffer().get();
-		obj.setObjId( id);
+		long id = ByteBuffer.wrap(UUID.randomUUID().toString().getBytes()).asLongBuffer().get();
+		obj.setObjId(id);
 		return obj;
 
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List<?> find(SelectQuery dslQuery, Integer startIndex,
+	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws Exception {
 
 		return new LazyList();
@@ -69,6 +70,5 @@ public class NotPersistedObjectService implements Serializable {
 
 	public void insert(TuraObject entity) {
 	}
-
 
 }

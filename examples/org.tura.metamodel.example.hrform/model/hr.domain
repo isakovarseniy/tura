@@ -1998,10 +1998,10 @@
     <controls uid="87c26cfe-fe6b-4aa6-915f-1c01179d242f" name="User" baseTypeRef="/65">
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="d449f09f-c355-4be9-9e25-fb547d30daeb">
         <parameters uid="0bb057c6-4ada-4758-bba7-f693969dcd26" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
-          <value uid="458a5d35-9b76-477e-8b84-60582c0eeaf6" value="Packages.Base package.Base package::BaseType">
-            <expression uid="737398d7-7855-492e-a403-bcfc8cadfdeb" expressionType="TypesImpl"/>
-            <expression uid="16463714-c6a1-4022-b657-a3229d79ed4e" objRef="dd77a443-471b-441e-88bf-3f3f092f372c" order="1" expressionType="PackageImpl"/>
-            <expression uid="fb0f0cd3-2ea6-4f8b-aee9-a69926f4b300" objRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" order="2" expressionType="TypeImpl"/>
+          <value uid="458a5d35-9b76-477e-8b84-60582c0eeaf6" value="Packages.HR package.HR package::User type">
+            <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+            <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
+            <expression objRef="04d63d66-f224-42a6-aabc-ed057fb924be" order="2" expressionType="TypeImpl"/>
           </value>
         </parameters>
         <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6"/>
