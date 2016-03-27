@@ -24,6 +24,7 @@ package org.tura.platform.datacontrol.command;
 import java.lang.reflect.Method;
 
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.CreateCommandBase;
 
 public class CreateCommand extends CreateCommandBase{
@@ -41,6 +42,20 @@ public class CreateCommand extends CreateCommandBase{
 	@Override
 	public Object execute() throws Exception {
 
+		/*
+		 * Fix objectType parameter convert if from Class to String
+		 * 
+		 * */
+		CallParameter parameter = getParameters().get(0);
+		if (parameter.getName().equals("objectType") &&   !(parameter.getClazz().isAssignableFrom(String.class))  ){
+			
+			String className = parameter.getExpression();
+			parameter.setClazz(String.class);
+			parameter.setExpression(null);
+			parameter.setObj(className);
+			parameter.setValue(className);
+		}	
+		
 		this.prepareParameters();
 		/*
 		 * This is simple option with one data provider per command and predefined name of method

@@ -42,7 +42,7 @@ public class ELResolverImpl implements ELResolver {
 	}
 
 	public Object getValue(String exp) {
-		ValueExpression ve = ef.createValueExpression(context, "${"+exp+"}",
+		ValueExpression ve = ef.createValueExpression(context, exp.replaceAll("\\#", "\\$"),
 				Object.class);
 		return ve.getValue(context);
 

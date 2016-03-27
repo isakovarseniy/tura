@@ -101,6 +101,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.octo.java.sql</groupId>
+			<artifactId>java-sql-dsl</artifactId>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>junit</groupId>

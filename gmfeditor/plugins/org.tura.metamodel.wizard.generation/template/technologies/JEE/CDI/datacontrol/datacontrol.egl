@@ -384,9 +384,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@Override
 	@javax.inject.Inject
 	public void setDefaultSearchCriteria(
-			@org.tura.platform.datacontrol.annotations.Query(
-			base = @org.tura.platform.datacontrol.annotations.Base(clazz = [%=control.~basefullName%].class)
-			, search = @org.tura.platform.datacontrol.annotations.DefaultSearchCriterias(criterias = {
+			@org.tura.platform.datacontrol.annotations.DefaultSearchCriterias(criterias = {
  
  [%
     var i = 0;
@@ -410,7 +408,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     }
    } 
     %] 
-			}) ) java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> defaultSearchCriteria) {
+			} ) java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> defaultSearchCriteria) {
 		this.defaultSearchCriteria = defaultSearchCriteria;
 	}
 	

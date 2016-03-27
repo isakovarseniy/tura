@@ -29,7 +29,6 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
-import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.CreateTrigger;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
@@ -49,7 +48,6 @@ import org.tura.platform.datacontrol.annotations.PreDelete;
 import org.tura.platform.datacontrol.annotations.PreInsert;
 import org.tura.platform.datacontrol.annotations.PreQuery;
 import org.tura.platform.datacontrol.annotations.PreUpdate;
-import org.tura.platform.datacontrol.annotations.Query;
 import org.tura.platform.datacontrol.annotations.Search;
 import org.tura.platform.datacontrol.annotations.SearchTrigger;
 import org.tura.platform.datacontrol.annotations.Selector;
@@ -66,6 +64,8 @@ import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.base.SearchCommandBase;
 import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.persistence.TuraObject;
 
@@ -97,22 +97,31 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     public void init() {
         try {
             setBaseClass(StreetDAO.class);
-
             this.createCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
-            this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
+
             this.insertCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
-            this.insertCommand.setProvider(provider_0);
             this.insertCommand.setDatacontrol(this);
+
             this.updateCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
-            this.updateCommand.setProvider(provider_0);
             this.updateCommand.setDatacontrol(this);
+
             this.deleteCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
-            this.deleteCommand.setProvider(provider_0);
             this.deleteCommand.setDatacontrol(this);
+
             this.searchCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
-            this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
+
+            this.createCommand.setProvider(provider_0,
+                "org.tura.platform.commons.jpa.TuraJPAEntityService");
+            this.insertCommand.setProvider(provider_0,
+                "org.tura.platform.commons.jpa.TuraJPAEntityService");
+            this.updateCommand.setProvider(provider_0,
+                "org.tura.platform.commons.jpa.TuraJPAEntityService");
+            this.deleteCommand.setProvider(provider_0,
+                "org.tura.platform.commons.jpa.TuraJPAEntityService");
+            this.searchCommand.setProvider(provider_0,
+                "org.tura.platform.commons.jpa.TuraJPAEntityService");
             this.commandStack.getPoolFlushAware().add(this);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {
@@ -156,8 +165,8 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     @Override
     @Inject
     public void setCreateCommand(
-        @Create(objectAction = "create", parameters = @Parameters(value =  {
-        @Parameter(name = "objectClass", value = "org.elsoft.platform.hr.objects.StreetDAO", type = String.class)
+        @Create(parameters = @Parameters(value =  {
+        @Parameter(name = "objectType", expression = "org.elsoft.platform.hr.objects.StreetDAO", type = TuraObject.class)
 
     }
     )
@@ -171,8 +180,8 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     @Override
     @Inject
     public void setInsertCommand(
-        @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].currentObject}", type = TuraObject.class)
+        @Insert(parameters = @Parameters(value =  {
+        @Parameter(name = "object", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -186,8 +195,8 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     @Override
     @Inject
     public void setUpdateCommand(
-        @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].currentObject}", type = TuraObject.class)
+        @Update(parameters = @Parameters(value =  {
+        @Parameter(name = "object", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -201,8 +210,8 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     @Override
     @Inject
     public void setDeleteCommand(
-        @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].currentObject}", type = TuraObject.class)
+        @Delete(parameters = @Parameters(value =  {
+        @Parameter(name = "object", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -216,11 +225,12 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
     @Override
     @Inject
     public void setSearchCommand(
-        @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].startIndex}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].endIndex}", type = Integer.class)
-        , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.StreetDAO", type = String.class)
+        @Search(parameters = @Parameters(value =  {
+        @Parameter(name = "searchCriteria", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].searchCriteria}", type = List.class)
+        , @Parameter(name = "orderByCriteria", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].orderCriteria}", type = List.class)
+        , @Parameter(name = "start Index", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].startIndex}", type = Integer.class)
+        , @Parameter(name = "end Index", expression = "#{beanFactoryHrManagerHRController.treeRootCountry.controls['*******'].endIndex}", type = Integer.class)
+        , @Parameter(name = "objectType", expression = "org.elsoft.platform.hr.objects.StreetDAO", type = TuraObject.class)
 
     }
     )
@@ -292,18 +302,23 @@ public class StreetDC extends DataControl<StreetDAO> implements Serializable {
 
     @Override
     @Inject
-    public void setDefaultQuery(
-        @Query(base = @Base(clazz = StreetDAO.class)
-    , search = @DefaultSearchCriterias(criterias =  {
+    public void setDefaultSearchCriteria(
+        @DefaultSearchCriterias(criterias =  {
     }
     )
-    , orders = @DefaultOrderBys(orders =  {
+    List<SearchCriteria> defaultSearchCriteria) {
+        this.defaultSearchCriteria = defaultSearchCriteria;
+    }
+
+    @Override
+    @Inject
+    public void setDefaultOrderCriteria(
+        @DefaultOrderBys(orders =  {
         @DefaultOrderBy(field = "objId", order = SelectQuery.Order.ASC)
 
     }
     )
-    )
-    SelectQuery selectQuery) {
-        this.defaultQuery = selectQuery;
+    List<OrderCriteria> defaultOrderCriteria) {
+        this.defaultOrderCriteria = defaultOrderCriteria;
     }
 }

@@ -24,6 +24,7 @@ package org.tura.platform.datacontrol.command;
 import java.lang.reflect.Method;
 
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.SearchCommandBase;
 
 public class SearchCommand extends SearchCommandBase{
@@ -42,8 +43,25 @@ public class SearchCommand extends SearchCommandBase{
 	@Override
 	public Object execute() throws Exception {
 
+		
 		super.execute();
+		
+		/*
+		 * Fix objectType parameter convert if from Class to String
+		 * 
+		 * */
+		CallParameter parameter = getParameters().get(4);
+		if (parameter.getName().equals("objectType") &&   !(parameter.getClazz().isAssignableFrom(String.class))  ){
+			
+			String className = parameter.getExpression();
+			parameter.setClazz(String.class);
+			parameter.setExpression(null);
+			parameter.setObj(className);
+			parameter.setValue(className);
+		}
+		
 		this.prepareParameters();
+
 		/*
 		 * This is simple option with one data provider per command and predefined name of method
 		 * oriented on TuraService 

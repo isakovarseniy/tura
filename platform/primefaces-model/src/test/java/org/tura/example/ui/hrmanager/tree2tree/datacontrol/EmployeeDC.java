@@ -31,7 +31,6 @@ import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
-import org.tura.platform.datacontrol.annotations.Base;
 import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.CreateTrigger;
@@ -53,7 +52,6 @@ import org.tura.platform.datacontrol.annotations.PreDelete;
 import org.tura.platform.datacontrol.annotations.PreInsert;
 import org.tura.platform.datacontrol.annotations.PreQuery;
 import org.tura.platform.datacontrol.annotations.PreUpdate;
-import org.tura.platform.datacontrol.annotations.Query;
 import org.tura.platform.datacontrol.annotations.Search;
 import org.tura.platform.datacontrol.annotations.SearchTrigger;
 import org.tura.platform.datacontrol.annotations.Selector;
@@ -70,6 +68,8 @@ import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
 import org.tura.platform.datacontrol.command.base.SearchCommandBase;
 import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.persistence.TuraObject;
@@ -107,22 +107,31 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
     public void init() {
         try {
             setBaseClass(EmployeesDAO.class);
-
             this.createCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
-            this.createCommand.setProvider(provider_0);
             this.createCommand.setDatacontrol(this);
+
             this.insertCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
-            this.insertCommand.setProvider(provider_0);
             this.insertCommand.setDatacontrol(this);
+
             this.updateCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
-            this.updateCommand.setProvider(provider_0);
             this.updateCommand.setDatacontrol(this);
+
             this.deleteCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
-            this.deleteCommand.setProvider(provider_0);
             this.deleteCommand.setDatacontrol(this);
+
             this.searchCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
-            this.searchCommand.setProvider(provider_0);
             this.searchCommand.setDatacontrol(this);
+
+            this.createCommand.setProvider(provider_0,
+                "org.tura.platform.commons.jpa.TuraJPAEntityService");
+            this.insertCommand.setProvider(provider_0,
+                "org.tura.platform.commons.jpa.TuraJPAEntityService");
+            this.updateCommand.setProvider(provider_0,
+                "org.tura.platform.commons.jpa.TuraJPAEntityService");
+            this.deleteCommand.setProvider(provider_0,
+                "org.tura.platform.commons.jpa.TuraJPAEntityService");
+            this.searchCommand.setProvider(provider_0,
+                "org.tura.platform.commons.jpa.TuraJPAEntityService");
             this.commandStack.getPoolFlushAware().add(this);
             setArtificialInterface(IEmployeeArtifitialFields.class);
             DataControlFactory.buildConnection(this);
@@ -169,8 +178,8 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
     @Override
     @Inject
     public void setCreateCommand(
-        @Create(objectAction = "create", parameters = @Parameters(value =  {
-        @Parameter(name = "objectClass", value = "org.elsoft.platform.hr.objects.EmployeesDAO", type = String.class)
+        @Create(parameters = @Parameters(value =  {
+        @Parameter(name = "objectType", expression = "org.elsoft.platform.hr.objects.EmployeesDAO", type = TuraObject.class)
 
     }
     )
@@ -184,8 +193,8 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
     @Override
     @Inject
     public void setInsertCommand(
-        @Insert(objectAction = "insert", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].currentObject}", type = TuraObject.class)
+        @Insert(parameters = @Parameters(value =  {
+        @Parameter(name = "object", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -199,8 +208,8 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
     @Override
     @Inject
     public void setUpdateCommand(
-        @Update(objectAction = "update", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].currentObject}", type = TuraObject.class)
+        @Update(parameters = @Parameters(value =  {
+        @Parameter(name = "object", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -214,8 +223,8 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
     @Override
     @Inject
     public void setDeleteCommand(
-        @Delete(objectAction = "remove", parameters = @Parameters(value =  {
-        @Parameter(name = "obj", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].currentObject}", type = TuraObject.class)
+        @Delete(parameters = @Parameters(value =  {
+        @Parameter(name = "object", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].currentObject}", type = TuraObject.class)
 
     }
     )
@@ -229,11 +238,12 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
     @Override
     @Inject
     public void setSearchCommand(
-        @Search(objectAction = "find", parameters = @Parameters(value =  {
-        @Parameter(name = "search", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].query}", type = SelectQuery.class)
-        , @Parameter(name = "startIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].startIndex}", type = Integer.class)
-        , @Parameter(name = "endIndex", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].endIndex}", type = Integer.class)
-        , @Parameter(name = "className", value = "org.elsoft.platform.hr.objects.EmployeesDAO", type = String.class)
+        @Search(parameters = @Parameters(value =  {
+        @Parameter(name = "searchCriteria", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].searchCriteria}", type = List.class)
+        , @Parameter(name = "orderByCriteria", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].orderCriteria}", type = List.class)
+        , @Parameter(name = "start Index", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].startIndex}", type = Integer.class)
+        , @Parameter(name = "end Index", expression = "#{beanFactoryHrManagerTree2tree.treeRootDepartment.controls['*******'].endIndex}", type = Integer.class)
+        , @Parameter(name = "objectType", expression = "org.elsoft.platform.hr.objects.EmployeesDAO", type = TuraObject.class)
 
     }
     )
@@ -330,18 +340,23 @@ public class EmployeeDC extends DataControl<EmployeesDAO>
 
     @Override
     @Inject
-    public void setDefaultQuery(
-        @Query(base = @Base(clazz = EmployeesDAO.class)
-    , search = @DefaultSearchCriterias(criterias =  {
+    public void setDefaultSearchCriteria(
+        @DefaultSearchCriterias(criterias =  {
     }
     )
-    , orders = @DefaultOrderBys(orders =  {
+    List<SearchCriteria> defaultSearchCriteria) {
+        this.defaultSearchCriteria = defaultSearchCriteria;
+    }
+
+    @Override
+    @Inject
+    public void setDefaultOrderCriteria(
+        @DefaultOrderBys(orders =  {
         @DefaultOrderBy(field = "objId", order = SelectQuery.Order.ASC)
 
     }
     )
-    )
-    SelectQuery selectQuery) {
-        this.defaultQuery = selectQuery;
+    List<OrderCriteria> defaultOrderCriteria) {
+        this.defaultOrderCriteria = defaultOrderCriteria;
     }
 }

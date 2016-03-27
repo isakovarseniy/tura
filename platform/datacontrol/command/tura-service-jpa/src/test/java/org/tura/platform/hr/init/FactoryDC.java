@@ -142,7 +142,7 @@ public class FactoryDC implements Factory{
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(clazz);
-		prm.setExpression(expr + ".currentObject");
+		prm.setExpression("#{"+expr + ".currentObject"+"}");
 		command.getParameters().add(prm);
 
 		control.setInsertCommand(command);
@@ -156,7 +156,7 @@ public class FactoryDC implements Factory{
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(clazz);
-		prm.setExpression(expr + ".currentObject");
+		prm.setExpression("#{"+expr + ".currentObject"+"}");
 		command.getParameters().add(prm);
 
 		control.setUpdateCommand(command);
@@ -170,7 +170,7 @@ public class FactoryDC implements Factory{
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(clazz);
-		prm.setExpression(expr + ".currentObject");
+		prm.setExpression("#{"+expr + ".currentObject"+"}");
 		command.getParameters().add(prm);
 
 		control.setDeleteCommand(command);
@@ -184,26 +184,26 @@ public class FactoryDC implements Factory{
 		CallParameter prm = new CallParameter();
 		prm.setName("searchCriteria");
 		prm.setClazz(List.class);
-		prm.setExpression(expr + ".searchCriteria");
+		prm.setExpression("#{"+expr + ".searchCriteria"+"}");
 		command.getParameters().add(prm);
 
 		prm = new CallParameter();
 		prm.setName("orderCriteria");
 		prm.setClazz(List.class);
-		prm.setExpression(expr + ".orderCriteria");
+		prm.setExpression("#{"+expr + ".orderCriteria"+"}");
 		command.getParameters().add(prm);
 
 		
 		prm = new CallParameter();
 		prm.setName("startIndex");
 		prm.setClazz(Integer.class);
-		prm.setExpression(expr + ".startIndex");
+		prm.setExpression("#{"+expr + ".startIndex"+"}");
 		command.getParameters().add(prm);
 
 		prm = new CallParameter();
 		prm.setName("endIndex");
 		prm.setClazz(Integer.class);
-		prm.setExpression(expr + ".endIndex");
+		prm.setExpression("#{"+expr + ".endIndex"+"}");
 		command.getParameters().add(prm);
 
 		prm = new CallParameter();

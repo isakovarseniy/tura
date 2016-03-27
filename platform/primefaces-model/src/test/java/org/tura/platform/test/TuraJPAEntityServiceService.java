@@ -31,45 +31,43 @@ import javax.persistence.EntityManager;
 
 import org.tura.example.ui.commons.producer.EntityManagerHelper;
 import org.tura.platform.commons.jpa.TuraJPAEntityService;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.persistence.TuraObject;
-
-import com.octo.java.sql.query.SelectQuery;
 
 @Alternative
 @Priority(0)
 @ApplicationScoped
 public class TuraJPAEntityServiceService extends TuraJPAEntityService {
-    private static final long serialVersionUID = 1L;
-    @Inject
-    private EntityManagerHelper emHelper;
+	private static final long serialVersionUID = 1L;
+	@Inject
+	private EntityManagerHelper emHelper;
 
-    @Override
-    public EntityManager getEntityManager() {
-        return emHelper.getEntityManager();
-    }
-    
-    @Override
-    public List<?> find(SelectQuery dslQuery, Integer startIndex,
-        Integer endIndex, String objectClass) throws Exception {
-        try {
-            return super.find(dslQuery, startIndex, endIndex, objectClass);
-        } finally {
-            emHelper.destroyEntityManager();
-        }
-    }   
-    
-    
-    @Override
+	@Override
+	public EntityManager getEntityManager() {
+		return emHelper.getEntityManager();
+	}
+
+	@Override
+	public List<?> find(List<SearchCriteria> search, List<OrderCriteria> order, Integer startIndex, Integer endIndex,
+			String objectClass) throws Exception {
+		try {
+			return super.find(search, order, startIndex, endIndex, objectClass);
+		} finally {
+			emHelper.destroyEntityManager();
+		}
+	}
+
+	@Override
 	public TuraObject create(String objectClass) throws Exception {
-    	try{
-    		getEntityManager().getTransaction().begin();
-    		
-    		return super.create(objectClass);
-    	}finally{
-       		getEntityManager().getTransaction().commit();
-       	    		
-    	}
-    }    
-    
-    
+		try {
+			getEntityManager().getTransaction().begin();
+
+			return super.create(objectClass);
+		} finally {
+			getEntityManager().getTransaction().commit();
+
+		}
+	}
+
 }

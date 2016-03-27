@@ -21,9 +21,6 @@
  */
 package org.tura.platform.datacontrol;
 
-import static com.octo.java.sql.query.Query.c;
-import static com.octo.java.sql.query.Query.select;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -37,24 +34,21 @@ import org.tura.platform.datacontrol.annotations.ArtificialField;
 import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
+import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
+import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
 import org.tura.platform.datacontrol.annotations.Dependencies;
 import org.tura.platform.datacontrol.annotations.Dependency;
 import org.tura.platform.datacontrol.annotations.Key;
 import org.tura.platform.datacontrol.annotations.Keys;
 import org.tura.platform.datacontrol.annotations.Link;
-import org.tura.platform.datacontrol.annotations.Query;
-import org.tura.platform.datacontrol.commons.ConditionConverter;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
 import org.tura.platform.datacontrol.metainfo.Relation;
-
-import com.octo.java.sql.exp.Operator;
-import com.octo.java.sql.query.QueryException;
-import com.octo.java.sql.query.SelectQuery;
-import com.octo.java.sql.query.SelectQuery.Order;
 
 public class DataControlFactory {
 
@@ -99,48 +93,50 @@ public class DataControlFactory {
 	}
 
 	@Produces
-	public SelectQuery getSelectQuery(InjectionPoint injectionPoint)
-			throws NoSuchMethodException, SecurityException,
-			InstantiationException, IllegalAccessException,
-			IllegalArgumentException, InvocationTargetException, QueryException {
+	public List<SearchCriteria> getSearchCriteria(InjectionPoint injectionPoint){
 
-		Query annotation = injectionPoint.getAnnotated().getAnnotation(
-				Query.class);
-		SelectQuery query = select(c("x")).from(
-				annotation.base().clazz().getCanonicalName()).as("x");
+		DefaultSearchCriterias annotation = injectionPoint.getAnnotated().getAnnotation(
+				DefaultSearchCriterias.class);
 
-		String condition = "WHERE";
 
-		for (DefaultSearchCriteria criteria : annotation.search().criterias()) {
+		ArrayList<SearchCriteria> ls = new ArrayList<>();
+		for (DefaultSearchCriteria criteria : annotation.criterias()) {
 
-			ConditionConverter.valueOf(condition).getRestriction(query,
-					c(criteria.field()));
-			Object obj = null;
-			if (criteria.expression() == null) {
-				Constructor<?> constructor = criteria.type().getConstructor(
-						String.class);
-				obj = constructor.newInstance(criteria.value());
-			}else{
-				obj = "#{"+criteria.expression()+"}";
-			}
+			SearchCriteria c = new SearchCriteria();
+			c.setClassName(criteria.type().getName());
+			c.setComparator(criteria.comparator().name());
+			c.setName(criteria.field());
+			c.setValue(criteria.expression());
 			
-			query.op(Operator.valueOf(criteria.comparator().name()), obj);
-
-			condition = "AND";
+			ls.add(c);
+			
 		}
 
-		for (DefaultOrderBy order : annotation.orders().orders()) {
-
-			query.orderBy(order.field());
-
-			if (order.order().equals(Order.ASC))
-				query.asc();
-			else
-				query.desc();
-		}
-		return query;
+		return ls;
 	}
 
+	
+	@Produces
+	public List<OrderCriteria> getOrderCriteria(InjectionPoint injectionPoint){
+
+		DefaultOrderBys annotation = injectionPoint.getAnnotated().getAnnotation(
+				DefaultOrderBys.class);
+
+
+		ArrayList<OrderCriteria> ls = new ArrayList<>();
+		for (DefaultOrderBy  criteria : annotation.orders()) {
+
+			OrderCriteria c = new OrderCriteria();
+			c.setName(criteria.field());
+			c.setOrder(criteria.order().name());
+			
+			ls.add(c);
+			
+		}
+
+		return ls;
+	}	
+	
 
 
 	@Produces

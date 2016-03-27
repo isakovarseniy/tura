@@ -19,18 +19,31 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.datacontrol.annotations;
+package org.tura.platform.hr.init.datastructure;
 
-import static java.lang.annotation.ElementType.FIELD;
-import static java.lang.annotation.ElementType.PARAMETER;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+public class Telephone {
+	private Long telephoneId;
+	private String number;
+	private String type;
+	
+	
+	public Long getTelephoneId() {
+		return telephoneId;
+	}
+	public void setTelephoneId(Long telephoneId) {
+		this.telephoneId = telephoneId;
+	}
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-@Retention(RUNTIME)
-@Target({ FIELD, PARAMETER})
-public @interface Query {
-  Base base();
-  DefaultSearchCriterias search();
 }

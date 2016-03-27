@@ -147,7 +147,7 @@ public class Pager<T> extends Pool {
 		int lastindex = str.length() - 1;
 		if (str.length() > 3 && "#{".equals(str.substring(0, 2))
 				&& "}".equals(str.substring(lastindex))) {
-			return datacontrol.getElResolver().getValue(str.substring(2, lastindex));
+			return datacontrol.getElResolver().getValue(str);
 		} else
 			return str;
 	}

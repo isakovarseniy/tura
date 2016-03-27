@@ -35,6 +35,7 @@ import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.annotations.Update;
 import org.tura.platform.datacontrol.annotations.UpdateTrigger;
 import org.tura.platform.datacontrol.command.CreateCommand;
+import org.tura.platform.datacontrol.command.DeleteCommand;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.Command;
@@ -43,7 +44,6 @@ import org.tura.platform.datacontrol.command.base.DeleteCommandBase;
 import org.tura.platform.datacontrol.command.base.InsertCommandBase;
 import org.tura.platform.datacontrol.command.base.SearchCommandBase;
 import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
-import org.tura.platform.datacontrol.command.turaservice.DeleteCommandTuraService;
 import org.tura.platform.datacontrol.command.turaservice.InsertCommandTuraService;
 import org.tura.platform.datacontrol.command.turaservice.UpdateCommandTuraService;
 
@@ -70,7 +70,6 @@ public class DepartmentCommandProducer {
             injectionPoint.getAnnotated().getAnnotation(Create.class);
 
         CreateCommand cmd = new CreateCommand();
-        cmd.setMethod(annotation.objectAction());
 
         parametersBuilder(annotation.parameters(), cmd);
 
@@ -87,8 +86,8 @@ public class DepartmentCommandProducer {
             InvocationTargetException {
         Insert annotation =
             injectionPoint.getAnnotated().getAnnotation(Insert.class);
+
         InsertCommandTuraService cmd = new InsertCommandTuraService();
-        cmd.setMethod(annotation.objectAction());
 
         parametersBuilder(annotation.parameters(), cmd);
 
@@ -107,7 +106,6 @@ public class DepartmentCommandProducer {
             injectionPoint.getAnnotated().getAnnotation(Update.class);
 
         UpdateCommandTuraService cmd = new UpdateCommandTuraService();
-        cmd.setMethod(annotation.objectAction());
 
         parametersBuilder(annotation.parameters(), cmd);
 
@@ -125,10 +123,7 @@ public class DepartmentCommandProducer {
         Delete annotation =
             injectionPoint.getAnnotated().getAnnotation(Delete.class);
 
-        DeleteCommandTuraService cmd = new DeleteCommandTuraService();
-
-        cmd.setMethod(annotation.objectAction());
-
+        DeleteCommand cmd = new DeleteCommand();
         parametersBuilder(annotation.parameters(), cmd);
 
         return cmd;
@@ -146,7 +141,6 @@ public class DepartmentCommandProducer {
             injectionPoint.getAnnotated().getAnnotation(Search.class);
 
         SearchCommand cmd = new SearchCommand();
-        cmd.setMethod(annotation.objectAction());
 
         parametersBuilder(annotation.parameters(), cmd);
 

@@ -21,8 +21,6 @@
  */
 package org.tura.platform.primefaces.model;
 
-import static com.octo.java.sql.query.Query.c;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,11 +30,12 @@ import org.primefaces.model.SortMeta;
 import org.primefaces.model.SortOrder;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
-import org.tura.platform.datacontrol.commons.ConditionConverter;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 import com.octo.java.sql.exp.Operator;
-import com.octo.java.sql.query.SelectQuery;
+import com.octo.java.sql.query.SelectQuery.Order;
 
 public class LazyDataGridModel<T> extends LazyDataModel<T> {
 
@@ -134,30 +133,37 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 		
 		@Override
 		public void execute(DataControl<?> datacontrol) throws TuraException {
-			if (trigger != null)
-				trigger.execute(datacontrol);
 
 			try {
 
-				SelectQuery query = datacontrol.getQuery();
+				List<SearchCriteria> ls = datacontrol.getSearchCriteria();
 
-				String condition = "WHERE";
 				for (String key : filters.keySet()) {
+					SearchCriteria criteria = new SearchCriteria();
 					Object value = filters.get(key);
-					ConditionConverter.valueOf(condition).getRestriction(query,
-							c(key));
-					query.op(Operator.EQ, value);
-					condition = "AND";
+					criteria.setValue(value);
+					criteria.setComparator(Operator.EQ.name());
+					criteria.setName(key);
+					ls.add(criteria);
 				}
+
+				List<OrderCriteria> ord = datacontrol.getOrderCriteria();
 
 				for (SortMeta sortField : multiSortMeta) {
-					query.orderBy(sortField.getSortField());
-
+					OrderCriteria criteria = new OrderCriteria();
+					criteria.setName(sortField.getSortField());
 					if (sortField.getSortOrder().equals(SortOrder.ASCENDING))
-						query.asc();
+						criteria.setOrder(Order.ASC.name()); 
 					else
-						query.desc();
+						criteria.setOrder(Order.DESC.name()); 
+					
+					ord.add(criteria);
 				}
+				
+				if (trigger != null)
+					trigger.execute(datacontrol);
+			
+				
 			} catch (Exception e) {
 				throw new TuraException(e);
 			}

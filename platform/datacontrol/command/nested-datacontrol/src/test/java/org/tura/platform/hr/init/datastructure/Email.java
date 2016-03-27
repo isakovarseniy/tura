@@ -19,17 +19,33 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.datacontrol.annotations;
+package org.tura.platform.hr.init.datastructure;
 
-import static java.lang.annotation.ElementType.FIELD;
-import static java.lang.annotation.ElementType.PARAMETER;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+public class Email {
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-@Retention(RUNTIME)
-@Target({ FIELD, PARAMETER})
-public @interface Base {
-	Class<?> clazz();
+	private Long emailId;
+	private String address;
+	private String type;
+	
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public Long getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(Long emailId) {
+		this.emailId = emailId;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	
 }
