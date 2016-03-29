@@ -272,7 +272,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Typedefinition"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="102002,102001,102004,102005,103001,103002,103005"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="104001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="104002,104003,104004,104005,104001"/>
       </viewProvider>
    </extension>
 
@@ -287,7 +287,7 @@
             <method name="getType()" value="102002,102001,102004,102005,103001,103002,103005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="104001"/>
+            <method name="getType()" value="104002,104003,104004,104005,104001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="105006,105001,105010,105011,105002,105005,105007"/>
@@ -421,6 +421,46 @@
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
          <metamodelType
+               id="org.tura.metamodel.diagram.typedefinition.One2One_104002"
+               name="%metatype.name.One2One_104002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="One2One"
+               edithelper="typedefinition.diagram.edit.helpers.One2OneEditHelper">
+            <param name="semanticHint" value="104002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.typedefinition.One2Many_104003"
+               name="%metatype.name.One2Many_104003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="One2Many"
+               edithelper="typedefinition.diagram.edit.helpers.One2ManyEditHelper">
+            <param name="semanticHint" value="104003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.typedefinition.Many2Many_104004"
+               name="%metatype.name.Many2Many_104004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Many2Many"
+               edithelper="typedefinition.diagram.edit.helpers.Many2ManyEditHelper">
+            <param name="semanticHint" value="104004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.typedefinition.Generalization_104005"
+               name="%metatype.name.Generalization_104005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Generalization"
+               edithelper="typedefinition.diagram.edit.helpers.GeneralizationEditHelper">
+            <param name="semanticHint" value="104005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
                id="org.tura.metamodel.diagram.typedefinition.TypeExtension_104001"
                name="%metatype.name.TypeExtension_104001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -453,6 +493,10 @@
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Attribute_103001"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Operation_103002"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.EnumAttribute_103005"/>
+         <elementType ref="org.tura.metamodel.diagram.typedefinition.One2One_104002"/>
+         <elementType ref="org.tura.metamodel.diagram.typedefinition.One2Many_104003"/>
+         <elementType ref="org.tura.metamodel.diagram.typedefinition.Many2Many_104004"/>
+         <elementType ref="org.tura.metamodel.diagram.typedefinition.Generalization_104005"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.TypeExtension_104001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>

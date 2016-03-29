@@ -33,6 +33,7 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
+import domain.AttributeConnection;
 import domain.Button;
 import domain.CSSMapper;
 import domain.Canvas;
@@ -89,6 +90,7 @@ import domain.FormParameter;
 import domain.FormVariable;
 import domain.FormView;
 import domain.Formatable;
+import domain.Generalization;
 import domain.GenerationHint;
 import domain.GrantAccess;
 import domain.Group;
@@ -117,6 +119,7 @@ import domain.LayerHolder;
 import domain.Link;
 import domain.LinkToLabel;
 import domain.LinkToMessage;
+import domain.Many2Many;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -140,6 +143,8 @@ import domain.ModelQuery;
 import domain.MultiLangLabel;
 import domain.NickNamed;
 import domain.ORMEntity;
+import domain.One2Many;
+import domain.One2One;
 import domain.Operation;
 import domain.Option;
 import domain.OptionSelection;
@@ -169,6 +174,7 @@ import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.Relation;
+import domain.RelationShip;
 import domain.ReturnValue;
 import domain.Role;
 import domain.RoleMapper;
@@ -351,6 +357,12 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.ARTIFACT_REF: return createArtifactRef();
 			case DomainPackage.TYPE_POINTER: return createTypePointer();
 			case DomainPackage.TYPE_DEFINITION: return createTypeDefinition();
+			case DomainPackage.RELATION_SHIP: return createRelationShip();
+			case DomainPackage.ATTRIBUTE_CONNECTION: return createAttributeConnection();
+			case DomainPackage.ONE2_ONE: return createOne2One();
+			case DomainPackage.ONE2_MANY: return createOne2Many();
+			case DomainPackage.MANY2_MANY: return createMany2Many();
+			case DomainPackage.GENERALIZATION: return createGeneralization();
 			case DomainPackage.TYPE_ELEMENT: return createTypeElement();
 			case DomainPackage.PRIMITIVE: return createPrimitive();
 			case DomainPackage.TYPE: return createType();
@@ -1296,6 +1308,66 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public TypeDefinition createTypeDefinition() {
 		TypeDefinitionImpl typeDefinition = new TypeDefinitionImpl();
 		return typeDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelationShip createRelationShip() {
+		RelationShipImpl relationShip = new RelationShipImpl();
+		return relationShip;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AttributeConnection createAttributeConnection() {
+		AttributeConnectionImpl attributeConnection = new AttributeConnectionImpl();
+		return attributeConnection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public One2One createOne2One() {
+		One2OneImpl one2One = new One2OneImpl();
+		return one2One;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public One2Many createOne2Many() {
+		One2ManyImpl one2Many = new One2ManyImpl();
+		return one2Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Many2Many createMany2Many() {
+		Many2ManyImpl many2Many = new Many2ManyImpl();
+		return many2Many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Generalization createGeneralization() {
+		GeneralizationImpl generalization = new GeneralizationImpl();
+		return generalization;
 	}
 
 	/**

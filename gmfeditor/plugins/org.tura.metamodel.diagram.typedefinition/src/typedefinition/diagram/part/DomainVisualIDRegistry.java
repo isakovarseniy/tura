@@ -31,6 +31,10 @@ import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
+import typedefinition.diagram.edit.parts.GeneralizationEditPart;
+import typedefinition.diagram.edit.parts.Many2ManyEditPart;
+import typedefinition.diagram.edit.parts.One2ManyEditPart;
+import typedefinition.diagram.edit.parts.One2OneEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
@@ -297,6 +301,22 @@ public class DomainVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
+		}
+		if (DomainPackage.eINSTANCE.getOne2One().isSuperTypeOf(
+				domainElement.eClass())) {
+			return One2OneEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getOne2Many().isSuperTypeOf(
+				domainElement.eClass())) {
+			return One2ManyEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getMany2Many().isSuperTypeOf(
+				domainElement.eClass())) {
+			return Many2ManyEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getGeneralization().isSuperTypeOf(
+				domainElement.eClass())) {
+			return GeneralizationEditPart.VISUAL_ID;
 		}
 		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
 				domainElement.eClass())) {

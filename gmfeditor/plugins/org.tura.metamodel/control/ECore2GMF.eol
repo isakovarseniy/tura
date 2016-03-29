@@ -469,6 +469,28 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TypeExtension');
 delete tool;
 
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='One2One');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='One2One');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='One2Many');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='One2Many');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Many2Many');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Many2Many');
+delete tool;
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Generalization');
+delete tool;
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Generalization');
+delete tool;
+
+
+
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Infrastructures');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Infrastructures');

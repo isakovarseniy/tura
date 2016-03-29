@@ -4737,13 +4737,22 @@ public interface DomainPackage extends EPackage {
 	int TYPE_DEFINITION__PARENT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Relation Ships</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_DEFINITION__RELATION_SHIPS = 3;
+
+	/**
 	 * The feature id for the '<em><b>Any</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_DEFINITION__ANY = 3;
+	int TYPE_DEFINITION__ANY = 4;
 
 	/**
 	 * The number of structural features of the '<em>Type Definition</em>' class.
@@ -4752,7 +4761,373 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_DEFINITION_FEATURE_COUNT = 4;
+	int TYPE_DEFINITION_FEATURE_COUNT = 5;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.RelationShipImpl <em>Relation Ship</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.RelationShipImpl
+	 * @see domain.impl.DomainPackageImpl#getRelationShip()
+	 * @generated
+	 */
+	int RELATION_SHIP = 78;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_SHIP__CLASSIFIERS = CATEGORIZED__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_SHIP__UID = CATEGORIZED_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_SHIP__SOURCE = CATEGORIZED_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_SHIP__TARGET = CATEGORIZED_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Relation Ship</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_SHIP_FEATURE_COUNT = CATEGORIZED_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.AttributeConnectionImpl <em>Attribute Connection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.AttributeConnectionImpl
+	 * @see domain.impl.DomainPackageImpl#getAttributeConnection()
+	 * @generated
+	 */
+	int ATTRIBUTE_CONNECTION = 79;
+
+	/**
+	 * The feature id for the '<em><b>Source Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_CONNECTION__SOURCE_ATTRIBUTE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Target Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_CONNECTION__TARGET_ATTRIBUTE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Attribute Connection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_CONNECTION_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.One2OneImpl <em>One2 One</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.One2OneImpl
+	 * @see domain.impl.DomainPackageImpl#getOne2One()
+	 * @generated
+	 */
+	int ONE2_ONE = 80;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_ONE__CLASSIFIERS = RELATION_SHIP__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_ONE__UID = RELATION_SHIP__UID;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_ONE__SOURCE = RELATION_SHIP__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_ONE__TARGET = RELATION_SHIP__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Source Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_ONE__SOURCE_ATTRIBUTE = RELATION_SHIP_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_ONE__TARGET_ATTRIBUTE = RELATION_SHIP_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>One2 One</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_ONE_FEATURE_COUNT = RELATION_SHIP_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.One2ManyImpl <em>One2 Many</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.One2ManyImpl
+	 * @see domain.impl.DomainPackageImpl#getOne2Many()
+	 * @generated
+	 */
+	int ONE2_MANY = 81;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_MANY__CLASSIFIERS = RELATION_SHIP__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_MANY__UID = RELATION_SHIP__UID;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_MANY__SOURCE = RELATION_SHIP__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_MANY__TARGET = RELATION_SHIP__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Source Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_MANY__SOURCE_ATTRIBUTE = RELATION_SHIP_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_MANY__TARGET_ATTRIBUTE = RELATION_SHIP_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>One2 Many</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE2_MANY_FEATURE_COUNT = RELATION_SHIP_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.Many2ManyImpl <em>Many2 Many</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.Many2ManyImpl
+	 * @see domain.impl.DomainPackageImpl#getMany2Many()
+	 * @generated
+	 */
+	int MANY2_MANY = 82;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY2_MANY__CLASSIFIERS = RELATION_SHIP__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY2_MANY__UID = RELATION_SHIP__UID;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY2_MANY__SOURCE = RELATION_SHIP__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY2_MANY__TARGET = RELATION_SHIP__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Source Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY2_MANY__SOURCE_ATTRIBUTE = RELATION_SHIP_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY2_MANY__TARGET_ATTRIBUTE = RELATION_SHIP_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Many2 Many</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY2_MANY_FEATURE_COUNT = RELATION_SHIP_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link domain.impl.GeneralizationImpl <em>Generalization</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see domain.impl.GeneralizationImpl
+	 * @see domain.impl.DomainPackageImpl#getGeneralization()
+	 * @generated
+	 */
+	int GENERALIZATION = 83;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION__CLASSIFIERS = RELATION_SHIP__CLASSIFIERS;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION__UID = RELATION_SHIP__UID;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION__SOURCE = RELATION_SHIP__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION__TARGET = RELATION_SHIP__TARGET;
+
+	/**
+	 * The number of structural features of the '<em>Generalization</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION_FEATURE_COUNT = RELATION_SHIP_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.TypeElementImpl <em>Type Element</em>}' class.
@@ -4762,7 +5137,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTypeElement()
 	 * @generated
 	 */
-	int TYPE_ELEMENT = 78;
+	int TYPE_ELEMENT = 84;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4808,7 +5183,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPrimitive()
 	 * @generated
 	 */
-	int PRIMITIVE = 79;
+	int PRIMITIVE = 85;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4854,7 +5229,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 80;
+	int TYPE = 86;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -4936,7 +5311,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTypeReference()
 	 * @generated
 	 */
-	int TYPE_REFERENCE = 81;
+	int TYPE_REFERENCE = 87;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5018,7 +5393,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTypeExtension()
 	 * @generated
 	 */
-	int TYPE_EXTENSION = 82;
+	int TYPE_EXTENSION = 88;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -5073,7 +5448,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 83;
+	int ATTRIBUTE = 89;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5173,7 +5548,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 84;
+	int OPERATION = 90;
 
 	/**
 	 * The feature id for the '<em><b>Grants</b></em>' containment reference list.
@@ -5255,7 +5630,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 85;
+	int PARAMETER = 91;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5346,7 +5721,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getReturnValue()
 	 * @generated
 	 */
-	int RETURN_VALUE = 86;
+	int RETURN_VALUE = 92;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5410,7 +5785,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getEnumarator()
 	 * @generated
 	 */
-	int ENUMARATOR = 87;
+	int ENUMARATOR = 93;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5465,7 +5840,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getEnumAttribute()
 	 * @generated
 	 */
-	int ENUM_ATTRIBUTE = 88;
+	int ENUM_ATTRIBUTE = 94;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5520,7 +5895,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTypesRepository()
 	 * @generated
 	 */
-	int TYPES_REPOSITORY = 89;
+	int TYPES_REPOSITORY = 95;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5575,7 +5950,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTypes()
 	 * @generated
 	 */
-	int TYPES = 90;
+	int TYPES = 96;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -5639,7 +6014,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 91;
+	int PACKAGE = 97;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5694,7 +6069,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getUIPackage()
 	 * @generated
 	 */
-	int UI_PACKAGE = 92;
+	int UI_PACKAGE = 98;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5749,7 +6124,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getForm()
 	 * @generated
 	 */
-	int FORM = 93;
+	int FORM = 99;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5813,7 +6188,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getFormParameter()
 	 * @generated
 	 */
-	int FORM_PARAMETER = 94;
+	int FORM_PARAMETER = 100;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -5886,7 +6261,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getFormView()
 	 * @generated
 	 */
-	int FORM_VIEW = 95;
+	int FORM_VIEW = 101;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5932,7 +6307,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViews()
 	 * @generated
 	 */
-	int VIEWS = 96;
+	int VIEWS = 102;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6014,7 +6389,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOrderable()
 	 * @generated
 	 */
-	int ORDERABLE = 97;
+	int ORDERABLE = 103;
 
 	/**
 	 * The feature id for the '<em><b>Order</b></em>' attribute.
@@ -6042,7 +6417,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMultiLangLabel()
 	 * @generated
 	 */
-	int MULTI_LANG_LABEL = 98;
+	int MULTI_LANG_LABEL = 104;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -6070,7 +6445,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getStyleElement()
 	 * @generated
 	 */
-	int STYLE_ELEMENT = 124;
+	int STYLE_ELEMENT = 130;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6107,7 +6482,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getCanvasFrame()
 	 * @generated
 	 */
-	int CANVAS_FRAME = 99;
+	int CANVAS_FRAME = 105;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6162,7 +6537,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViewPortHolder()
 	 * @generated
 	 */
-	int VIEW_PORT_HOLDER = 100;
+	int VIEW_PORT_HOLDER = 106;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -6199,7 +6574,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDefaultCavas()
 	 * @generated
 	 */
-	int DEFAULT_CAVAS = 101;
+	int DEFAULT_CAVAS = 107;
 
 	/**
 	 * The feature id for the '<em><b>Default Canvas</b></em>' attribute.
@@ -6227,7 +6602,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViewElement()
 	 * @generated
 	 */
-	int VIEW_ELEMENT = 102;
+	int VIEW_ELEMENT = 108;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6282,7 +6657,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPopupCanvas()
 	 * @generated
 	 */
-	int POPUP_CANVAS = 103;
+	int POPUP_CANVAS = 109;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6400,7 +6775,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getCanvas()
 	 * @generated
 	 */
-	int CANVAS = 104;
+	int CANVAS = 110;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6500,7 +6875,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getWindow()
 	 * @generated
 	 */
-	int WINDOW = 105;
+	int WINDOW = 111;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6600,7 +6975,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMenuDefinition()
 	 * @generated
 	 */
-	int MENU_DEFINITION = 106;
+	int MENU_DEFINITION = 112;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6673,7 +7048,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTabCanvas()
 	 * @generated
 	 */
-	int TAB_CANVAS = 107;
+	int TAB_CANVAS = 113;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6764,7 +7139,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTabPage()
 	 * @generated
 	 */
-	int TAB_PAGE = 108;
+	int TAB_PAGE = 114;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6864,7 +7239,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViewPort()
 	 * @generated
 	 */
-	int VIEW_PORT = 109;
+	int VIEW_PORT = 115;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6955,7 +7330,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViewArea()
 	 * @generated
 	 */
-	int VIEW_AREA = 110;
+	int VIEW_AREA = 116;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -7046,7 +7421,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTrigger()
 	 * @generated
 	 */
-	int TRIGGER = 154;
+	int TRIGGER = 160;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -7128,7 +7503,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViewPortTrigger()
 	 * @generated
 	 */
-	int VIEW_PORT_TRIGGER = 111;
+	int VIEW_PORT_TRIGGER = 117;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -7219,7 +7594,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getViewInheritance()
 	 * @generated
 	 */
-	int VIEW_INHERITANCE = 112;
+	int VIEW_INHERITANCE = 118;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7265,7 +7640,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTabPagesInheritance()
 	 * @generated
 	 */
-	int TAB_PAGES_INHERITANCE = 113;
+	int TAB_PAGES_INHERITANCE = 119;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7311,7 +7686,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getFormDataControls()
 	 * @generated
 	 */
-	int FORM_DATA_CONTROLS = 114;
+	int FORM_DATA_CONTROLS = 120;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7357,7 +7732,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getCanvasView()
 	 * @generated
 	 */
-	int CANVAS_VIEW = 115;
+	int CANVAS_VIEW = 121;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7430,7 +7805,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getLinkToMessage()
 	 * @generated
 	 */
-	int LINK_TO_MESSAGE = 116;
+	int LINK_TO_MESSAGE = 122;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7476,7 +7851,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getLinkToLabel()
 	 * @generated
 	 */
-	int LINK_TO_LABEL = 117;
+	int LINK_TO_LABEL = 123;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7522,7 +7897,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getChildrenHolder()
 	 * @generated
 	 */
-	int CHILDREN_HOLDER = 118;
+	int CHILDREN_HOLDER = 124;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -7550,7 +7925,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getContextParameter()
 	 * @generated
 	 */
-	int CONTEXT_PARAMETER = 119;
+	int CONTEXT_PARAMETER = 125;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7605,7 +7980,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getContextValue()
 	 * @generated
 	 */
-	int CONTEXT_VALUE = 120;
+	int CONTEXT_VALUE = 126;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7660,7 +8035,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getExpressionPart()
 	 * @generated
 	 */
-	int EXPRESSION_PART = 121;
+	int EXPRESSION_PART = 127;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7715,7 +8090,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getContextParameters()
 	 * @generated
 	 */
-	int CONTEXT_PARAMETERS = 122;
+	int CONTEXT_PARAMETERS = 128;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -7743,7 +8118,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 123;
+	int CONTEXT = 129;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7807,7 +8182,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getStyleClass()
 	 * @generated
 	 */
-	int STYLE_CLASS = 125;
+	int STYLE_CLASS = 131;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7871,7 +8246,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getNickNamed()
 	 * @generated
 	 */
-	int NICK_NAMED = 126;
+	int NICK_NAMED = 132;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -7899,7 +8274,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getFlexFields()
 	 * @generated
 	 */
-	int FLEX_FIELDS = 127;
+	int FLEX_FIELDS = 133;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -7927,7 +8302,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getFlexField()
 	 * @generated
 	 */
-	int FLEX_FIELD = 128;
+	int FLEX_FIELD = 134;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -8000,7 +8375,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getEnabledUIItem()
 	 * @generated
 	 */
-	int ENABLED_UI_ITEM = 129;
+	int ENABLED_UI_ITEM = 135;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -8028,7 +8403,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getUielement()
 	 * @generated
 	 */
-	int UIELEMENT = 130;
+	int UIELEMENT = 136;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8155,7 +8530,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getItemIcon()
 	 * @generated
 	 */
-	int ITEM_ICON = 131;
+	int ITEM_ICON = 137;
 
 	/**
 	 * The feature id for the '<em><b>Icon</b></em>' containment reference.
@@ -8183,7 +8558,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getAreaRef()
 	 * @generated
 	 */
-	int AREA_REF = 132;
+	int AREA_REF = 138;
 
 	/**
 	 * The feature id for the '<em><b>Area</b></em>' reference.
@@ -8220,7 +8595,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getFormatable()
 	 * @generated
 	 */
-	int FORMATABLE = 133;
+	int FORMATABLE = 139;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -8248,7 +8623,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getSourcesPointer()
 	 * @generated
 	 */
-	int SOURCES_POINTER = 134;
+	int SOURCES_POINTER = 140;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8411,7 +8786,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInputElement()
 	 * @generated
 	 */
-	int INPUT_ELEMENT = 135;
+	int INPUT_ELEMENT = 141;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8574,7 +8949,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getSelection()
 	 * @generated
 	 */
-	int SELECTION = 136;
+	int SELECTION = 142;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8629,7 +9004,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOptionSelection()
 	 * @generated
 	 */
-	int OPTION_SELECTION = 137;
+	int OPTION_SELECTION = 143;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8819,7 +9194,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getLayerHolder()
 	 * @generated
 	 */
-	int LAYER_HOLDER = 138;
+	int LAYER_HOLDER = 144;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -8964,7 +9339,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInputText()
 	 * @generated
 	 */
-	int INPUT_TEXT = 139;
+	int INPUT_TEXT = 145;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9136,7 +9511,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPassword()
 	 * @generated
 	 */
-	int PASSWORD = 140;
+	int PASSWORD = 146;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9308,7 +9683,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 141;
+	int LABEL = 147;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9453,7 +9828,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMessageElement()
 	 * @generated
 	 */
-	int MESSAGE_ELEMENT = 142;
+	int MESSAGE_ELEMENT = 148;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9598,7 +9973,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOutputText()
 	 * @generated
 	 */
-	int OUTPUT_TEXT = 143;
+	int OUTPUT_TEXT = 149;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9770,7 +10145,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getCheckBox()
 	 * @generated
 	 */
-	int CHECK_BOX = 144;
+	int CHECK_BOX = 150;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -9933,7 +10308,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDropDownSelection()
 	 * @generated
 	 */
-	int DROP_DOWN_SELECTION = 145;
+	int DROP_DOWN_SELECTION = 151;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10150,7 +10525,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getImage()
 	 * @generated
 	 */
-	int IMAGE = 146;
+	int IMAGE = 152;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10313,7 +10688,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 147;
+	int DATE = 153;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10485,7 +10860,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getButton()
 	 * @generated
 	 */
-	int BUTTON = 148;
+	int BUTTON = 154;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10639,7 +11014,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getColumn()
 	 * @generated
 	 */
-	int COLUMN = 149;
+	int COLUMN = 155;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10739,7 +11114,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 150;
+	int TABLE = 156;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -10947,7 +11322,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMenu()
 	 * @generated
 	 */
-	int MENU = 151;
+	int MENU = 157;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -11083,7 +11458,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 152;
+	int TREE = 158;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -11291,7 +11666,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getControls()
 	 * @generated
 	 */
-	int CONTROLS = 153;
+	int CONTROLS = 159;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -11373,7 +11748,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPREFormTrigger()
 	 * @generated
 	 */
-	int PRE_FORM_TRIGGER = 155;
+	int PRE_FORM_TRIGGER = 161;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11464,7 +11839,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPREQueryTrigger()
 	 * @generated
 	 */
-	int PRE_QUERY_TRIGGER = 156;
+	int PRE_QUERY_TRIGGER = 162;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11555,7 +11930,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPOSTQueryTrigger()
 	 * @generated
 	 */
-	int POST_QUERY_TRIGGER = 157;
+	int POST_QUERY_TRIGGER = 163;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11646,7 +12021,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPREInsertTrigger()
 	 * @generated
 	 */
-	int PRE_INSERT_TRIGGER = 158;
+	int PRE_INSERT_TRIGGER = 164;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11737,7 +12112,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPREDeleteTrigger()
 	 * @generated
 	 */
-	int PRE_DELETE_TRIGGER = 159;
+	int PRE_DELETE_TRIGGER = 165;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11828,7 +12203,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPOSTCreateTrigger()
 	 * @generated
 	 */
-	int POST_CREATE_TRIGGER = 160;
+	int POST_CREATE_TRIGGER = 166;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -11919,7 +12294,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPREUpdateTrigger()
 	 * @generated
 	 */
-	int PRE_UPDATE_TRIGGER = 161;
+	int PRE_UPDATE_TRIGGER = 167;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -12010,7 +12385,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getProxiesList()
 	 * @generated
 	 */
-	int PROXIES_LIST = 162;
+	int PROXIES_LIST = 168;
 
 	/**
 	 * The feature id for the '<em><b>Type Pointers</b></em>' containment reference list.
@@ -12038,7 +12413,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getCreateTrigger()
 	 * @generated
 	 */
-	int CREATE_TRIGGER = 163;
+	int CREATE_TRIGGER = 169;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -12138,7 +12513,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInsertTrigger()
 	 * @generated
 	 */
-	int INSERT_TRIGGER = 164;
+	int INSERT_TRIGGER = 170;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -12238,7 +12613,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getUpdateTrigger()
 	 * @generated
 	 */
-	int UPDATE_TRIGGER = 165;
+	int UPDATE_TRIGGER = 171;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -12338,7 +12713,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDeleteTrigger()
 	 * @generated
 	 */
-	int DELETE_TRIGGER = 166;
+	int DELETE_TRIGGER = 172;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -12438,7 +12813,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getSearchTrigger()
 	 * @generated
 	 */
-	int SEARCH_TRIGGER = 167;
+	int SEARCH_TRIGGER = 173;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -12538,7 +12913,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getRoot()
 	 * @generated
 	 */
-	int ROOT = 168;
+	int ROOT = 174;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12593,7 +12968,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getFormVariable()
 	 * @generated
 	 */
-	int FORM_VARIABLE = 169;
+	int FORM_VARIABLE = 175;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -12675,7 +13050,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDataControl()
 	 * @generated
 	 */
-	int DATA_CONTROL = 170;
+	int DATA_CONTROL = 176;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12856,7 +13231,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 171;
+	int ORDERS = 177;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12893,7 +13268,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 172;
+	int ORDER_BY = 178;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -12939,7 +13314,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 173;
+	int RELATION = 179;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13012,7 +13387,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 174;
+	int DEPENDENCY = 180;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13067,7 +13442,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 175;
+	int ARTIFICIAL_FIELD = 181;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -13149,7 +13524,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getLink()
 	 * @generated
 	 */
-	int LINK = 176;
+	int LINK = 182;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13204,7 +13579,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getApplicationInfrastructureLayer()
 	 * @generated
 	 */
-	int APPLICATION_INFRASTRUCTURE_LAYER = 177;
+	int APPLICATION_INFRASTRUCTURE_LAYER = 183;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13259,7 +13634,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getEnterpriseInfrastructure()
 	 * @generated
 	 */
-	int ENTERPRISE_INFRASTRUCTURE = 178;
+	int ENTERPRISE_INFRASTRUCTURE = 184;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13323,7 +13698,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getDatacenter()
 	 * @generated
 	 */
-	int DATACENTER = 179;
+	int DATACENTER = 185;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -13387,7 +13762,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getSubsystem()
 	 * @generated
 	 */
-	int SUBSYSTEM = 180;
+	int SUBSYSTEM = 186;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13442,7 +13817,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInfrastructureLayer()
 	 * @generated
 	 */
-	int INFRASTRUCTURE_LAYER = 181;
+	int INFRASTRUCTURE_LAYER = 187;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13497,7 +13872,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInfrastructureConnection()
 	 * @generated
 	 */
-	int INFRASTRUCTURE_CONNECTION = 182;
+	int INFRASTRUCTURE_CONNECTION = 188;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13543,7 +13918,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getInfrastructureComponent()
 	 * @generated
 	 */
-	int INFRASTRUCTURE_COMPONENT = 183;
+	int INFRASTRUCTURE_COMPONENT = 189;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13589,7 +13964,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getServer()
 	 * @generated
 	 */
-	int SERVER = 184;
+	int SERVER = 190;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13635,7 +14010,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getRouter()
 	 * @generated
 	 */
-	int ROUTER = 185;
+	int ROUTER = 191;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13681,7 +14056,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getHub()
 	 * @generated
 	 */
-	int HUB = 186;
+	int HUB = 192;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13727,7 +14102,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getStorage()
 	 * @generated
 	 */
-	int STORAGE = 187;
+	int STORAGE = 193;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13773,7 +14148,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getServerClaster()
 	 * @generated
 	 */
-	int SERVER_CLASTER = 188;
+	int SERVER_CLASTER = 194;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13828,7 +14203,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMenuView()
 	 * @generated
 	 */
-	int MENU_VIEW = 189;
+	int MENU_VIEW = 195;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -13883,7 +14258,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMenuHolder()
 	 * @generated
 	 */
-	int MENU_HOLDER = 190;
+	int MENU_HOLDER = 196;
 
 	/**
 	 * The feature id for the '<em><b>Menu</b></em>' reference.
@@ -13911,7 +14286,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMenuExtensionRef()
 	 * @generated
 	 */
-	int MENU_EXTENSION_REF = 191;
+	int MENU_EXTENSION_REF = 197;
 
 	/**
 	 * The feature id for the '<em><b>Extension Ref</b></em>' reference.
@@ -13939,7 +14314,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMenuElement()
 	 * @generated
 	 */
-	int MENU_ELEMENT = 192;
+	int MENU_ELEMENT = 198;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -14030,7 +14405,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMenuFolder()
 	 * @generated
 	 */
-	int MENU_FOLDER = 193;
+	int MENU_FOLDER = 199;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -14148,7 +14523,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMenuItem()
 	 * @generated
 	 */
-	int MENU_ITEM = 194;
+	int MENU_ITEM = 200;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -14275,7 +14650,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMenuExtensionPoint()
 	 * @generated
 	 */
-	int MENU_EXTENSION_POINT = 195;
+	int MENU_EXTENSION_POINT = 201;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -14375,7 +14750,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getSubMenu()
 	 * @generated
 	 */
-	int SUB_MENU = 196;
+	int SUB_MENU = 202;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -14484,7 +14859,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getMenuSeparator()
 	 * @generated
 	 */
-	int MENU_SEPARATOR = 197;
+	int MENU_SEPARATOR = 203;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -14575,7 +14950,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getPlatformLayers()
 	 * @generated
 	 */
-	int PLATFORM_LAYERS = 198;
+	int PLATFORM_LAYERS = 204;
 
 	/**
 	 * The meta object id for the '{@link domain.Comparator <em>Comparator</em>}' enum.
@@ -14585,7 +14960,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 199;
+	int COMPARATOR = 205;
 
 	/**
 	 * The meta object id for the '{@link domain.Order <em>Order</em>}' enum.
@@ -14595,7 +14970,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 200;
+	int ORDER = 206;
 
 
 	/**
@@ -14606,7 +14981,7 @@ public interface DomainPackage extends EPackage {
 	 * @see domain.impl.DomainPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 201;
+	int ORIENTATION = 207;
 
 
 	/**
@@ -18503,6 +18878,17 @@ public interface DomainPackage extends EPackage {
 	EReference getTypeDefinition_Parent();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link domain.TypeDefinition#getRelationShips <em>Relation Ships</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Relation Ships</em>'.
+	 * @see domain.TypeDefinition#getRelationShips()
+	 * @see #getTypeDefinition()
+	 * @generated
+	 */
+	EReference getTypeDefinition_RelationShips();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link domain.TypeDefinition#getAny <em>Any</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -18512,6 +18898,121 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTypeDefinition_Any();
+
+	/**
+	 * Returns the meta object for class '{@link domain.RelationShip <em>Relation Ship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Relation Ship</em>'.
+	 * @see domain.RelationShip
+	 * @generated
+	 */
+	EClass getRelationShip();
+
+	/**
+	 * Returns the meta object for the attribute '{@link domain.RelationShip#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see domain.RelationShip#getUid()
+	 * @see #getRelationShip()
+	 * @generated
+	 */
+	EAttribute getRelationShip_Uid();
+
+	/**
+	 * Returns the meta object for the reference '{@link domain.RelationShip#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see domain.RelationShip#getSource()
+	 * @see #getRelationShip()
+	 * @generated
+	 */
+	EReference getRelationShip_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link domain.RelationShip#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see domain.RelationShip#getTarget()
+	 * @see #getRelationShip()
+	 * @generated
+	 */
+	EReference getRelationShip_Target();
+
+	/**
+	 * Returns the meta object for class '{@link domain.AttributeConnection <em>Attribute Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attribute Connection</em>'.
+	 * @see domain.AttributeConnection
+	 * @generated
+	 */
+	EClass getAttributeConnection();
+
+	/**
+	 * Returns the meta object for the reference '{@link domain.AttributeConnection#getSourceAttribute <em>Source Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Attribute</em>'.
+	 * @see domain.AttributeConnection#getSourceAttribute()
+	 * @see #getAttributeConnection()
+	 * @generated
+	 */
+	EReference getAttributeConnection_SourceAttribute();
+
+	/**
+	 * Returns the meta object for the reference '{@link domain.AttributeConnection#getTargetAttribute <em>Target Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target Attribute</em>'.
+	 * @see domain.AttributeConnection#getTargetAttribute()
+	 * @see #getAttributeConnection()
+	 * @generated
+	 */
+	EReference getAttributeConnection_TargetAttribute();
+
+	/**
+	 * Returns the meta object for class '{@link domain.One2One <em>One2 One</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>One2 One</em>'.
+	 * @see domain.One2One
+	 * @generated
+	 */
+	EClass getOne2One();
+
+	/**
+	 * Returns the meta object for class '{@link domain.One2Many <em>One2 Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>One2 Many</em>'.
+	 * @see domain.One2Many
+	 * @generated
+	 */
+	EClass getOne2Many();
+
+	/**
+	 * Returns the meta object for class '{@link domain.Many2Many <em>Many2 Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Many2 Many</em>'.
+	 * @see domain.Many2Many
+	 * @generated
+	 */
+	EClass getMany2Many();
+
+	/**
+	 * Returns the meta object for class '{@link domain.Generalization <em>Generalization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Generalization</em>'.
+	 * @see domain.Generalization
+	 * @generated
+	 */
+	EClass getGeneralization();
 
 	/**
 	 * Returns the meta object for class '{@link domain.TypeElement <em>Type Element</em>}'.
@@ -25713,12 +26214,120 @@ public interface DomainPackage extends EPackage {
 		EReference TYPE_DEFINITION__PARENT = eINSTANCE.getTypeDefinition_Parent();
 
 		/**
+		 * The meta object literal for the '<em><b>Relation Ships</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_DEFINITION__RELATION_SHIPS = eINSTANCE.getTypeDefinition_RelationShips();
+
+		/**
 		 * The meta object literal for the '<em><b>Any</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference TYPE_DEFINITION__ANY = eINSTANCE.getTypeDefinition_Any();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.RelationShipImpl <em>Relation Ship</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.RelationShipImpl
+		 * @see domain.impl.DomainPackageImpl#getRelationShip()
+		 * @generated
+		 */
+		EClass RELATION_SHIP = eINSTANCE.getRelationShip();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELATION_SHIP__UID = eINSTANCE.getRelationShip_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_SHIP__SOURCE = eINSTANCE.getRelationShip_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_SHIP__TARGET = eINSTANCE.getRelationShip_Target();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.AttributeConnectionImpl <em>Attribute Connection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.AttributeConnectionImpl
+		 * @see domain.impl.DomainPackageImpl#getAttributeConnection()
+		 * @generated
+		 */
+		EClass ATTRIBUTE_CONNECTION = eINSTANCE.getAttributeConnection();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE_CONNECTION__SOURCE_ATTRIBUTE = eINSTANCE.getAttributeConnection_SourceAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE_CONNECTION__TARGET_ATTRIBUTE = eINSTANCE.getAttributeConnection_TargetAttribute();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.One2OneImpl <em>One2 One</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.One2OneImpl
+		 * @see domain.impl.DomainPackageImpl#getOne2One()
+		 * @generated
+		 */
+		EClass ONE2_ONE = eINSTANCE.getOne2One();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.One2ManyImpl <em>One2 Many</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.One2ManyImpl
+		 * @see domain.impl.DomainPackageImpl#getOne2Many()
+		 * @generated
+		 */
+		EClass ONE2_MANY = eINSTANCE.getOne2Many();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.Many2ManyImpl <em>Many2 Many</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.Many2ManyImpl
+		 * @see domain.impl.DomainPackageImpl#getMany2Many()
+		 * @generated
+		 */
+		EClass MANY2_MANY = eINSTANCE.getMany2Many();
+
+		/**
+		 * The meta object literal for the '{@link domain.impl.GeneralizationImpl <em>Generalization</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see domain.impl.GeneralizationImpl
+		 * @see domain.impl.DomainPackageImpl#getGeneralization()
+		 * @generated
+		 */
+		EClass GENERALIZATION = eINSTANCE.getGeneralization();
 
 		/**
 		 * The meta object literal for the '{@link domain.impl.TypeElementImpl <em>Type Element</em>}' class.

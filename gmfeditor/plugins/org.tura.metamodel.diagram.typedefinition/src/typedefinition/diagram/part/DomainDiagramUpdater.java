@@ -32,6 +32,10 @@ import domain.Attribute;
 import domain.DomainPackage;
 import domain.EnumAttribute;
 import domain.Enumarator;
+import domain.Generalization;
+import domain.Many2Many;
+import domain.One2Many;
+import domain.One2One;
 import domain.Operation;
 import domain.Primitive;
 import domain.Type;
@@ -43,6 +47,10 @@ import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
+import typedefinition.diagram.edit.parts.GeneralizationEditPart;
+import typedefinition.diagram.edit.parts.Many2ManyEditPart;
+import typedefinition.diagram.edit.parts.One2ManyEditPart;
+import typedefinition.diagram.edit.parts.One2OneEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
@@ -218,6 +226,14 @@ public class DomainDiagramUpdater {
 			return getOperation_103002ContainedLinks(view);
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getEnumAttribute_103005ContainedLinks(view);
+		case One2OneEditPart.VISUAL_ID:
+			return getOne2One_104002ContainedLinks(view);
+		case One2ManyEditPart.VISUAL_ID:
+			return getOne2Many_104003ContainedLinks(view);
+		case Many2ManyEditPart.VISUAL_ID:
+			return getMany2Many_104004ContainedLinks(view);
+		case GeneralizationEditPart.VISUAL_ID:
+			return getGeneralization_104005ContainedLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_104001ContainedLinks(view);
 		}
@@ -243,6 +259,14 @@ public class DomainDiagramUpdater {
 			return getOperation_103002IncomingLinks(view);
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getEnumAttribute_103005IncomingLinks(view);
+		case One2OneEditPart.VISUAL_ID:
+			return getOne2One_104002IncomingLinks(view);
+		case One2ManyEditPart.VISUAL_ID:
+			return getOne2Many_104003IncomingLinks(view);
+		case Many2ManyEditPart.VISUAL_ID:
+			return getMany2Many_104004IncomingLinks(view);
+		case GeneralizationEditPart.VISUAL_ID:
+			return getGeneralization_104005IncomingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_104001IncomingLinks(view);
 		}
@@ -268,6 +292,14 @@ public class DomainDiagramUpdater {
 			return getOperation_103002OutgoingLinks(view);
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getEnumAttribute_103005OutgoingLinks(view);
+		case One2OneEditPart.VISUAL_ID:
+			return getOne2One_104002OutgoingLinks(view);
+		case One2ManyEditPart.VISUAL_ID:
+			return getOne2Many_104003OutgoingLinks(view);
+		case Many2ManyEditPart.VISUAL_ID:
+			return getMany2Many_104004OutgoingLinks(view);
+		case GeneralizationEditPart.VISUAL_ID:
+			return getGeneralization_104005OutgoingLinks(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_104001OutgoingLinks(view);
 		}
@@ -279,7 +311,13 @@ public class DomainDiagramUpdater {
 	 */
 	public static List<DomainLinkDescriptor> getTypeDefinition_101000ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		TypeDefinition modelElement = (TypeDefinition) view.getElement();
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_One2One_104002(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_One2Many_104003(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Many2Many_104004(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Generalization_104005(modelElement));
+		return result;
 	}
 
 	/**
@@ -344,6 +382,38 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getOne2One_104002ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getOne2Many_104003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getMany2Many_104004ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getGeneralization_104005ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_104001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -358,6 +428,14 @@ public class DomainDiagramUpdater {
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_One2One_104002(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_One2Many_104003(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Many2Many_104004(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Generalization_104005(
+				modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(
 				modelElement, crossReferences));
 		return result;
@@ -372,6 +450,14 @@ public class DomainDiagramUpdater {
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_One2One_104002(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_One2Many_104003(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Many2Many_104004(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Generalization_104005(
+				modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(
 				modelElement, crossReferences));
 		return result;
@@ -386,6 +472,14 @@ public class DomainDiagramUpdater {
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_One2One_104002(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_One2Many_104003(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Many2Many_104004(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Generalization_104005(
+				modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(
 				modelElement, crossReferences));
 		return result;
@@ -400,6 +494,14 @@ public class DomainDiagramUpdater {
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_One2One_104002(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_One2Many_104003(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Many2Many_104004(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Generalization_104005(
+				modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_TypeExtension_104001(
 				modelElement, crossReferences));
 		return result;
@@ -432,6 +534,38 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getOne2One_104002IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getOne2Many_104003IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getMany2Many_104004IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getGeneralization_104005IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_104001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -444,6 +578,10 @@ public class DomainDiagramUpdater {
 			View view) {
 		Type modelElement = (Type) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_One2One_104002(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_One2Many_104003(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Many2Many_104004(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Generalization_104005(modelElement));
 		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
 		return result;
 	}
@@ -455,6 +593,10 @@ public class DomainDiagramUpdater {
 			View view) {
 		TypeReference modelElement = (TypeReference) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_One2One_104002(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_One2Many_104003(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Many2Many_104004(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Generalization_104005(modelElement));
 		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
 		return result;
 	}
@@ -466,6 +608,10 @@ public class DomainDiagramUpdater {
 			View view) {
 		Primitive modelElement = (Primitive) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_One2One_104002(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_One2Many_104003(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Many2Many_104004(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Generalization_104005(modelElement));
 		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
 		return result;
 	}
@@ -477,6 +623,10 @@ public class DomainDiagramUpdater {
 			View view) {
 		Enumarator modelElement = (Enumarator) view.getElement();
 		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_One2One_104002(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_One2Many_104003(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Many2Many_104004(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Generalization_104005(modelElement));
 		result.addAll(getOutgoingTypeModelFacetLinks_TypeExtension_104001(modelElement));
 		return result;
 	}
@@ -508,9 +658,145 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getOne2One_104002OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getOne2Many_104003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getMany2Many_104004OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getGeneralization_104005OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getTypeExtension_104001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_One2One_104002(
+			TypeDefinition container) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getRelationShips().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof One2One) {
+				continue;
+			}
+			One2One link = (One2One) linkObject;
+			if (One2OneEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement dst = link.getTarget();
+			TypeElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.One2One_104002,
+					One2OneEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_One2Many_104003(
+			TypeDefinition container) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getRelationShips().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof One2Many) {
+				continue;
+			}
+			One2Many link = (One2Many) linkObject;
+			if (One2ManyEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement dst = link.getTarget();
+			TypeElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.One2Many_104003,
+					One2ManyEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Many2Many_104004(
+			TypeDefinition container) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getRelationShips().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Many2Many) {
+				continue;
+			}
+			Many2Many link = (Many2Many) linkObject;
+			if (Many2ManyEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement dst = link.getTarget();
+			TypeElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.Many2Many_104004,
+					Many2ManyEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getContainedTypeModelFacetLinks_Generalization_104005(
+			TypeDefinition container) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getRelationShips().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Generalization) {
+				continue;
+			}
+			Generalization link = (Generalization) linkObject;
+			if (GeneralizationEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement dst = link.getTarget();
+			TypeElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.Generalization_104005,
+					GeneralizationEditPart.VISUAL_ID));
+		}
+		return result;
 	}
 
 	/**
@@ -542,6 +828,118 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_One2One_104002(
+			TypeElement target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
+					.getRelationShip_Target()
+					|| false == setting.getEObject() instanceof One2One) {
+				continue;
+			}
+			One2One link = (One2One) setting.getEObject();
+			if (One2OneEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, target, link,
+					DomainElementTypes.One2One_104002,
+					One2OneEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_One2Many_104003(
+			TypeElement target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
+					.getRelationShip_Target()
+					|| false == setting.getEObject() instanceof One2Many) {
+				continue;
+			}
+			One2Many link = (One2Many) setting.getEObject();
+			if (One2ManyEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, target, link,
+					DomainElementTypes.One2Many_104003,
+					One2ManyEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_Many2Many_104004(
+			TypeElement target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
+					.getRelationShip_Target()
+					|| false == setting.getEObject() instanceof Many2Many) {
+				continue;
+			}
+			Many2Many link = (Many2Many) setting.getEObject();
+			if (Many2ManyEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, target, link,
+					DomainElementTypes.Many2Many_104004,
+					Many2ManyEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_Generalization_104005(
+			TypeElement target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != DomainPackage.eINSTANCE
+					.getRelationShip_Target()
+					|| false == setting.getEObject() instanceof Generalization) {
+				continue;
+			}
+			Generalization link = (Generalization) setting.getEObject();
+			if (GeneralizationEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement src = link.getSource();
+			result.add(new DomainLinkDescriptor(src, target, link,
+					DomainElementTypes.Generalization_104005,
+					GeneralizationEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	private static Collection<DomainLinkDescriptor> getIncomingTypeModelFacetLinks_TypeExtension_104001(
 			TypeElement target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
@@ -563,6 +961,174 @@ public class DomainDiagramUpdater {
 			result.add(new DomainLinkDescriptor(src, target, link,
 					DomainElementTypes.TypeExtension_104001,
 					TypeExtensionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_One2One_104002(
+			TypeElement source) {
+		TypeDefinition container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof TypeDefinition) {
+				container = (TypeDefinition) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getRelationShips().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof One2One) {
+				continue;
+			}
+			One2One link = (One2One) linkObject;
+			if (One2OneEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement dst = link.getTarget();
+			TypeElement src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.One2One_104002,
+					One2OneEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_One2Many_104003(
+			TypeElement source) {
+		TypeDefinition container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof TypeDefinition) {
+				container = (TypeDefinition) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getRelationShips().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof One2Many) {
+				continue;
+			}
+			One2Many link = (One2Many) linkObject;
+			if (One2ManyEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement dst = link.getTarget();
+			TypeElement src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.One2Many_104003,
+					One2ManyEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Many2Many_104004(
+			TypeElement source) {
+		TypeDefinition container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof TypeDefinition) {
+				container = (TypeDefinition) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getRelationShips().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Many2Many) {
+				continue;
+			}
+			Many2Many link = (Many2Many) linkObject;
+			if (Many2ManyEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement dst = link.getTarget();
+			TypeElement src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.Many2Many_104004,
+					Many2ManyEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<DomainLinkDescriptor> getOutgoingTypeModelFacetLinks_Generalization_104005(
+			TypeElement source) {
+		TypeDefinition container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof TypeDefinition) {
+				container = (TypeDefinition) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<DomainLinkDescriptor> result = new LinkedList<DomainLinkDescriptor>();
+		for (Iterator<?> links = container.getRelationShips().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Generalization) {
+				continue;
+			}
+			Generalization link = (Generalization) linkObject;
+			if (GeneralizationEditPart.VISUAL_ID != DomainVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			TypeElement dst = link.getTarget();
+			TypeElement src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new DomainLinkDescriptor(src, dst, link,
+					DomainElementTypes.Generalization_104005,
+					GeneralizationEditPart.VISUAL_ID));
 		}
 		return result;
 	}

@@ -1878,6 +1878,144 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.RelationShip} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RelationShipItemProvider relationShipItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.RelationShip}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRelationShipAdapter() {
+		if (relationShipItemProvider == null) {
+			relationShipItemProvider = new RelationShipItemProvider(this);
+		}
+
+		return relationShipItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.AttributeConnection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AttributeConnectionItemProvider attributeConnectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.AttributeConnection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAttributeConnectionAdapter() {
+		if (attributeConnectionItemProvider == null) {
+			attributeConnectionItemProvider = new AttributeConnectionItemProvider(this);
+		}
+
+		return attributeConnectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.One2One} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected One2OneItemProvider one2OneItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.One2One}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOne2OneAdapter() {
+		if (one2OneItemProvider == null) {
+			one2OneItemProvider = new One2OneItemProvider(this);
+		}
+
+		return one2OneItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.One2Many} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected One2ManyItemProvider one2ManyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.One2Many}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOne2ManyAdapter() {
+		if (one2ManyItemProvider == null) {
+			one2ManyItemProvider = new One2ManyItemProvider(this);
+		}
+
+		return one2ManyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.Many2Many} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Many2ManyItemProvider many2ManyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.Many2Many}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMany2ManyAdapter() {
+		if (many2ManyItemProvider == null) {
+			many2ManyItemProvider = new Many2ManyItemProvider(this);
+		}
+
+		return many2ManyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.Generalization} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GeneralizationItemProvider generalizationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.Generalization}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGeneralizationAdapter() {
+		if (generalizationItemProvider == null) {
+			generalizationItemProvider = new GeneralizationItemProvider(this);
+		}
+
+		return generalizationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.TypeElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4814,6 +4952,12 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (artifactRefItemProvider != null) artifactRefItemProvider.dispose();
 		if (typePointerItemProvider != null) typePointerItemProvider.dispose();
 		if (typeDefinitionItemProvider != null) typeDefinitionItemProvider.dispose();
+		if (relationShipItemProvider != null) relationShipItemProvider.dispose();
+		if (attributeConnectionItemProvider != null) attributeConnectionItemProvider.dispose();
+		if (one2OneItemProvider != null) one2OneItemProvider.dispose();
+		if (one2ManyItemProvider != null) one2ManyItemProvider.dispose();
+		if (many2ManyItemProvider != null) many2ManyItemProvider.dispose();
+		if (generalizationItemProvider != null) generalizationItemProvider.dispose();
 		if (typeElementItemProvider != null) typeElementItemProvider.dispose();
 		if (primitiveItemProvider != null) primitiveItemProvider.dispose();
 		if (typeItemProvider != null) typeItemProvider.dispose();

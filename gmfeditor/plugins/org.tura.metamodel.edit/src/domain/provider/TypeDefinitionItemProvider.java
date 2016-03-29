@@ -138,6 +138,7 @@ public class TypeDefinitionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.TYPE_DEFINITION__TYPES);
+			childrenFeatures.add(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS);
 			childrenFeatures.add(DomainPackage.Literals.TYPE_DEFINITION__ANY);
 		}
 		return childrenFeatures;
@@ -198,6 +199,7 @@ public class TypeDefinitionItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.TYPE_DEFINITION__TYPES:
+			case DomainPackage.TYPE_DEFINITION__RELATION_SHIPS:
 			case DomainPackage.TYPE_DEFINITION__ANY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -240,6 +242,31 @@ public class TypeDefinitionItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__TYPES,
 				 DomainFactory.eINSTANCE.createEnumarator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS,
+				 DomainFactory.eINSTANCE.createRelationShip()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS,
+				 DomainFactory.eINSTANCE.createOne2One()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS,
+				 DomainFactory.eINSTANCE.createOne2Many()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS,
+				 DomainFactory.eINSTANCE.createMany2Many()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS,
+				 DomainFactory.eINSTANCE.createGeneralization()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -630,6 +657,36 @@ public class TypeDefinitionItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
 				 DomainFactory.eINSTANCE.createTypeDefinition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createRelationShip()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createAttributeConnection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createOne2One()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createOne2Many()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createMany2Many()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createGeneralization()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -1245,7 +1302,8 @@ public class TypeDefinitionItemProvider
 
 		boolean qualify =
 			childFeature == DomainPackage.Literals.TYPE_DEFINITION__TYPES ||
-			childFeature == DomainPackage.Literals.TYPE_DEFINITION__ANY;
+			childFeature == DomainPackage.Literals.TYPE_DEFINITION__ANY ||
+			childFeature == DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS;
 
 		if (qualify) {
 			return getString

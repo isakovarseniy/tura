@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.TypeDefinition#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.TypeDefinition#getTypes <em>Types</em>}</li>
  *   <li>{@link domain.TypeDefinition#getParent <em>Parent</em>}</li>
+ *   <li>{@link domain.TypeDefinition#getRelationShips <em>Relation Ships</em>}</li>
  *   <li>{@link domain.TypeDefinition#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
@@ -109,6 +110,22 @@ public interface TypeDefinition extends EObject {
 	 * @generated
 	 */
 	void setParent(domain.Package value);
+
+	/**
+	 * Returns the value of the '<em><b>Relation Ships</b></em>' containment reference list.
+	 * The list contents are of type {@link domain.RelationShip}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Relation Ships</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Relation Ships</em>' containment reference list.
+	 * @see domain.DomainPackage#getTypeDefinition_RelationShips()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RelationShip> getRelationShips();
 
 	/**
 	 * Returns the value of the '<em><b>Any</b></em>' containment reference.

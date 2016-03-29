@@ -736,6 +736,60 @@ public interface DomainFactory extends EFactory {
 	TypeDefinition createTypeDefinition();
 
 	/**
+	 * Returns a new object of class '<em>Relation Ship</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Relation Ship</em>'.
+	 * @generated
+	 */
+	RelationShip createRelationShip();
+
+	/**
+	 * Returns a new object of class '<em>Attribute Connection</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Attribute Connection</em>'.
+	 * @generated
+	 */
+	AttributeConnection createAttributeConnection();
+
+	/**
+	 * Returns a new object of class '<em>One2 One</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>One2 One</em>'.
+	 * @generated
+	 */
+	One2One createOne2One();
+
+	/**
+	 * Returns a new object of class '<em>One2 Many</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>One2 Many</em>'.
+	 * @generated
+	 */
+	One2Many createOne2Many();
+
+	/**
+	 * Returns a new object of class '<em>Many2 Many</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Many2 Many</em>'.
+	 * @generated
+	 */
+	Many2Many createMany2Many();
+
+	/**
+	 * Returns a new object of class '<em>Generalization</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generalization</em>'.
+	 * @generated
+	 */
+	Generalization createGeneralization();
+
+	/**
 	 * Returns a new object of class '<em>Type Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

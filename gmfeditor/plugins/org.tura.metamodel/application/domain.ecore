@@ -993,8 +993,55 @@
         eType="#//TypeElement" containment="true" eOpposite="#//TypeElement/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Package"
         eOpposite="#//Package/typedefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationShips" upperBound="-1"
+        eType="#//RelationShip" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationShip" eSuperTypes="#//Categorized">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//TypeElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TypeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeConnection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceAttribute" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetAttribute" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="One2One" eSuperTypes="#//RelationShip #//AttributeConnection">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="width" value="2"/>
+      <details key="color" value="126,84,9"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="One2Many" eSuperTypes="#//RelationShip #//AttributeConnection">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="width" value="2"/>
+      <details key="target.decoration" value="arrow"/>
+      <details key="color" value="20,126,23"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Many2Many" eSuperTypes="#//RelationShip #//AttributeConnection">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="width" value="2"/>
+      <details key="target.decoration" value="arrow"/>
+      <details key="source.decoration" value="arrow"/>
+      <details key="color" value="20,65,126"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Generalization" eSuperTypes="#//RelationShip">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="width" value="2"/>
+      <details key="target.decoration" value="closedarrow"/>
+    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

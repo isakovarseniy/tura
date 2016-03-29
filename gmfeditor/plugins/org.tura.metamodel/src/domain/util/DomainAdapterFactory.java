@@ -33,6 +33,7 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
+import domain.AttributeConnection;
 import domain.Button;
 import domain.CSSMapper;
 import domain.Canvas;
@@ -87,6 +88,7 @@ import domain.FormParameter;
 import domain.FormVariable;
 import domain.FormView;
 import domain.Formatable;
+import domain.Generalization;
 import domain.GenerationHint;
 import domain.GrantAccess;
 import domain.Group;
@@ -115,6 +117,7 @@ import domain.LayerHolder;
 import domain.Link;
 import domain.LinkToLabel;
 import domain.LinkToMessage;
+import domain.Many2Many;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -138,6 +141,8 @@ import domain.ModelQuery;
 import domain.MultiLangLabel;
 import domain.NickNamed;
 import domain.ORMEntity;
+import domain.One2Many;
+import domain.One2One;
 import domain.Operation;
 import domain.Option;
 import domain.OptionSelection;
@@ -164,6 +169,7 @@ import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.Relation;
+import domain.RelationShip;
 import domain.ReturnValue;
 import domain.Role;
 import domain.RoleMapper;
@@ -589,6 +595,30 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTypeDefinition(TypeDefinition object) {
 				return createTypeDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseRelationShip(RelationShip object) {
+				return createRelationShipAdapter();
+			}
+			@Override
+			public Adapter caseAttributeConnection(AttributeConnection object) {
+				return createAttributeConnectionAdapter();
+			}
+			@Override
+			public Adapter caseOne2One(One2One object) {
+				return createOne2OneAdapter();
+			}
+			@Override
+			public Adapter caseOne2Many(One2Many object) {
+				return createOne2ManyAdapter();
+			}
+			@Override
+			public Adapter caseMany2Many(Many2Many object) {
+				return createMany2ManyAdapter();
+			}
+			@Override
+			public Adapter caseGeneralization(Generalization object) {
+				return createGeneralizationAdapter();
 			}
 			@Override
 			public Adapter caseTypeElement(TypeElement object) {
@@ -2179,6 +2209,90 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.RelationShip <em>Relation Ship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.RelationShip
+	 * @generated
+	 */
+	public Adapter createRelationShipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.AttributeConnection <em>Attribute Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.AttributeConnection
+	 * @generated
+	 */
+	public Adapter createAttributeConnectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.One2One <em>One2 One</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.One2One
+	 * @generated
+	 */
+	public Adapter createOne2OneAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.One2Many <em>One2 Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.One2Many
+	 * @generated
+	 */
+	public Adapter createOne2ManyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.Many2Many <em>Many2 Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.Many2Many
+	 * @generated
+	 */
+	public Adapter createMany2ManyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.Generalization <em>Generalization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.Generalization
+	 * @generated
+	 */
+	public Adapter createGeneralizationAdapter() {
 		return null;
 	}
 

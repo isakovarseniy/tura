@@ -705,10 +705,44 @@ class TypeDefinition{
     id attr EString uid;
    val TypeElement[*]#parent types;
    ref Package#typedefinition parent;
+   val RelationShip[*] relationShips;
    
    //faking epsilon converter
    val EObject any;
    
+}
+
+
+class RelationShip  extends Categorized{
+    id attr EString uid;
+    ref TypeElement source;
+    ref TypeElement target;
+}
+
+class AttributeConnection{
+	ref Attribute sourceAttribute;
+	ref Attribute targetAttribute;
+}
+
+@gmf.link(source="source", target="target",  width="2"  , color="126,84,9")
+class One2One extends RelationShip,AttributeConnection{
+	
+}
+
+
+@gmf.link(source="source", target="target",  width="2" ,target.decoration="arrow" , color="20,126,23")
+class One2Many extends RelationShip,AttributeConnection{
+	
+}
+
+@gmf.link(source="source", target="target",  width="2" ,target.decoration="arrow" , source.decoration="arrow", color="20,65,126")
+class Many2Many extends RelationShip,AttributeConnection{
+	
+}
+
+
+@gmf.link(source="source", target="target",  width="2" ,target.decoration="closedarrow")
+class Generalization extends RelationShip{
 }
 
 class TypeElement{

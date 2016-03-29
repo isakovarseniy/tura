@@ -15,6 +15,7 @@
 package domain.impl;
 
 import domain.DomainPackage;
+import domain.RelationShip;
 import domain.TypeDefinition;
 import domain.TypeElement;
 
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -45,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.TypeDefinitionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.TypeDefinitionImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link domain.impl.TypeDefinitionImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link domain.impl.TypeDefinitionImpl#getRelationShips <em>Relation Ships</em>}</li>
  *   <li>{@link domain.impl.TypeDefinitionImpl#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
@@ -91,6 +94,16 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
 	 * @ordered
 	 */
 	protected domain.Package parent;
+
+	/**
+	 * The cached value of the '{@link #getRelationShips() <em>Relation Ships</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelationShips()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RelationShip> relationShips;
 
 	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' containment reference.
@@ -219,6 +232,18 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RelationShip> getRelationShips() {
+		if (relationShips == null) {
+			relationShips = new EObjectContainmentEList<RelationShip>(RelationShip.class, this, DomainPackage.TYPE_DEFINITION__RELATION_SHIPS);
+		}
+		return relationShips;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EObject getAny() {
 		return any;
 	}
@@ -288,6 +313,8 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case DomainPackage.TYPE_DEFINITION__PARENT:
 				return basicSetParent(null, msgs);
+			case DomainPackage.TYPE_DEFINITION__RELATION_SHIPS:
+				return ((InternalEList<?>)getRelationShips()).basicRemove(otherEnd, msgs);
 			case DomainPackage.TYPE_DEFINITION__ANY:
 				return basicSetAny(null, msgs);
 		}
@@ -309,6 +336,8 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
 			case DomainPackage.TYPE_DEFINITION__PARENT:
 				if (resolve) return getParent();
 				return basicGetParent();
+			case DomainPackage.TYPE_DEFINITION__RELATION_SHIPS:
+				return getRelationShips();
 			case DomainPackage.TYPE_DEFINITION__ANY:
 				return getAny();
 		}
@@ -334,6 +363,10 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
 			case DomainPackage.TYPE_DEFINITION__PARENT:
 				setParent((domain.Package)newValue);
 				return;
+			case DomainPackage.TYPE_DEFINITION__RELATION_SHIPS:
+				getRelationShips().clear();
+				getRelationShips().addAll((Collection<? extends RelationShip>)newValue);
+				return;
 			case DomainPackage.TYPE_DEFINITION__ANY:
 				setAny((EObject)newValue);
 				return;
@@ -358,6 +391,9 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
 			case DomainPackage.TYPE_DEFINITION__PARENT:
 				setParent((domain.Package)null);
 				return;
+			case DomainPackage.TYPE_DEFINITION__RELATION_SHIPS:
+				getRelationShips().clear();
+				return;
 			case DomainPackage.TYPE_DEFINITION__ANY:
 				setAny((EObject)null);
 				return;
@@ -379,6 +415,8 @@ public class TypeDefinitionImpl extends EObjectImpl implements TypeDefinition {
 				return types != null && !types.isEmpty();
 			case DomainPackage.TYPE_DEFINITION__PARENT:
 				return parent != null;
+			case DomainPackage.TYPE_DEFINITION__RELATION_SHIPS:
+				return relationShips != null && !relationShips.isEmpty();
 			case DomainPackage.TYPE_DEFINITION__ANY:
 				return any != null;
 		}

@@ -50,7 +50,11 @@ public class DomainModelingAssistantProviderOfTypeReferenceEditPart extends
 	 * @generated
 	 */
 	public List<IElementType> doGetRelTypesOnSource(TypeReferenceEditPart source) {
-		List<IElementType> types = new ArrayList<IElementType>(1);
+		List<IElementType> types = new ArrayList<IElementType>(5);
+		types.add(DomainElementTypes.One2One_104002);
+		types.add(DomainElementTypes.One2Many_104003);
+		types.add(DomainElementTypes.Many2Many_104004);
+		types.add(DomainElementTypes.Generalization_104005);
 		types.add(DomainElementTypes.TypeExtension_104001);
 		return types;
 	}
@@ -75,6 +79,54 @@ public class DomainModelingAssistantProviderOfTypeReferenceEditPart extends
 	public List<IElementType> doGetRelTypesOnSourceAndTarget(
 			TypeReferenceEditPart source, IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof TypeEditPart) {
+			types.add(DomainElementTypes.One2One_104002);
+		}
+		if (targetEditPart instanceof TypeReferenceEditPart) {
+			types.add(DomainElementTypes.One2One_104002);
+		}
+		if (targetEditPart instanceof PrimitiveEditPart) {
+			types.add(DomainElementTypes.One2One_104002);
+		}
+		if (targetEditPart instanceof EnumaratorEditPart) {
+			types.add(DomainElementTypes.One2One_104002);
+		}
+		if (targetEditPart instanceof TypeEditPart) {
+			types.add(DomainElementTypes.One2Many_104003);
+		}
+		if (targetEditPart instanceof TypeReferenceEditPart) {
+			types.add(DomainElementTypes.One2Many_104003);
+		}
+		if (targetEditPart instanceof PrimitiveEditPart) {
+			types.add(DomainElementTypes.One2Many_104003);
+		}
+		if (targetEditPart instanceof EnumaratorEditPart) {
+			types.add(DomainElementTypes.One2Many_104003);
+		}
+		if (targetEditPart instanceof TypeEditPart) {
+			types.add(DomainElementTypes.Many2Many_104004);
+		}
+		if (targetEditPart instanceof TypeReferenceEditPart) {
+			types.add(DomainElementTypes.Many2Many_104004);
+		}
+		if (targetEditPart instanceof PrimitiveEditPart) {
+			types.add(DomainElementTypes.Many2Many_104004);
+		}
+		if (targetEditPart instanceof EnumaratorEditPart) {
+			types.add(DomainElementTypes.Many2Many_104004);
+		}
+		if (targetEditPart instanceof TypeEditPart) {
+			types.add(DomainElementTypes.Generalization_104005);
+		}
+		if (targetEditPart instanceof TypeReferenceEditPart) {
+			types.add(DomainElementTypes.Generalization_104005);
+		}
+		if (targetEditPart instanceof PrimitiveEditPart) {
+			types.add(DomainElementTypes.Generalization_104005);
+		}
+		if (targetEditPart instanceof EnumaratorEditPart) {
+			types.add(DomainElementTypes.Generalization_104005);
+		}
 		if (targetEditPart instanceof TypeEditPart) {
 			types.add(DomainElementTypes.TypeExtension_104001);
 		}
@@ -108,7 +160,27 @@ public class DomainModelingAssistantProviderOfTypeReferenceEditPart extends
 	public List<IElementType> doGetTypesForTarget(TypeReferenceEditPart source,
 			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
+		if (relationshipType == DomainElementTypes.One2One_104002) {
+			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
+			types.add(DomainElementTypes.Enumarator_102005);
+		} else if (relationshipType == DomainElementTypes.One2Many_104003) {
+			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
+			types.add(DomainElementTypes.Enumarator_102005);
+		} else if (relationshipType == DomainElementTypes.Many2Many_104004) {
+			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
+			types.add(DomainElementTypes.Enumarator_102005);
+		} else if (relationshipType == DomainElementTypes.Generalization_104005) {
+			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
+			types.add(DomainElementTypes.Enumarator_102005);
+		} else if (relationshipType == DomainElementTypes.TypeExtension_104001) {
 			types.add(DomainElementTypes.Type_102002);
 			types.add(DomainElementTypes.TypeReference_102001);
 			types.add(DomainElementTypes.Primitive_102004);
@@ -131,7 +203,11 @@ public class DomainModelingAssistantProviderOfTypeReferenceEditPart extends
 	 * @generated
 	 */
 	public List<IElementType> doGetRelTypesOnTarget(TypeReferenceEditPart target) {
-		List<IElementType> types = new ArrayList<IElementType>(1);
+		List<IElementType> types = new ArrayList<IElementType>(5);
+		types.add(DomainElementTypes.One2One_104002);
+		types.add(DomainElementTypes.One2Many_104003);
+		types.add(DomainElementTypes.Many2Many_104004);
+		types.add(DomainElementTypes.Generalization_104005);
 		types.add(DomainElementTypes.TypeExtension_104001);
 		return types;
 	}
@@ -154,7 +230,27 @@ public class DomainModelingAssistantProviderOfTypeReferenceEditPart extends
 	public List<IElementType> doGetTypesForSource(TypeReferenceEditPart target,
 			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == DomainElementTypes.TypeExtension_104001) {
+		if (relationshipType == DomainElementTypes.One2One_104002) {
+			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
+			types.add(DomainElementTypes.Enumarator_102005);
+		} else if (relationshipType == DomainElementTypes.One2Many_104003) {
+			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
+			types.add(DomainElementTypes.Enumarator_102005);
+		} else if (relationshipType == DomainElementTypes.Many2Many_104004) {
+			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
+			types.add(DomainElementTypes.Enumarator_102005);
+		} else if (relationshipType == DomainElementTypes.Generalization_104005) {
+			types.add(DomainElementTypes.Type_102002);
+			types.add(DomainElementTypes.TypeReference_102001);
+			types.add(DomainElementTypes.Primitive_102004);
+			types.add(DomainElementTypes.Enumarator_102005);
+		} else if (relationshipType == DomainElementTypes.TypeExtension_104001) {
 			types.add(DomainElementTypes.Type_102002);
 			types.add(DomainElementTypes.TypeReference_102001);
 			types.add(DomainElementTypes.Primitive_102004);

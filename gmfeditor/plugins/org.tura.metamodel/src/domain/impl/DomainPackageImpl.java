@@ -33,6 +33,7 @@ import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
 import domain.Attribute;
+import domain.AttributeConnection;
 import domain.Button;
 import domain.CSSMapper;
 import domain.Canvas;
@@ -89,6 +90,7 @@ import domain.FormParameter;
 import domain.FormVariable;
 import domain.FormView;
 import domain.Formatable;
+import domain.Generalization;
 import domain.GenerationHint;
 import domain.GrantAccess;
 import domain.Group;
@@ -117,6 +119,7 @@ import domain.LayerHolder;
 import domain.Link;
 import domain.LinkToLabel;
 import domain.LinkToMessage;
+import domain.Many2Many;
 import domain.Mapper;
 import domain.Mappers;
 import domain.MappingSpecifier;
@@ -140,6 +143,8 @@ import domain.ModelQuery;
 import domain.MultiLangLabel;
 import domain.NickNamed;
 import domain.ORMEntity;
+import domain.One2Many;
+import domain.One2One;
 import domain.Operation;
 import domain.Option;
 import domain.OptionSelection;
@@ -169,6 +174,7 @@ import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
 import domain.Relation;
+import domain.RelationShip;
 import domain.ReturnValue;
 import domain.Role;
 import domain.RoleMapper;
@@ -780,6 +786,48 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EClass typeDefinitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass relationShipEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass attributeConnectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass one2OneEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass one2ManyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass many2ManyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass generalizationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -4964,8 +5012,116 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTypeDefinition_Any() {
+	public EReference getTypeDefinition_RelationShips() {
 		return (EReference)typeDefinitionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTypeDefinition_Any() {
+		return (EReference)typeDefinitionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRelationShip() {
+		return relationShipEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRelationShip_Uid() {
+		return (EAttribute)relationShipEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRelationShip_Source() {
+		return (EReference)relationShipEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRelationShip_Target() {
+		return (EReference)relationShipEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAttributeConnection() {
+		return attributeConnectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAttributeConnection_SourceAttribute() {
+		return (EReference)attributeConnectionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAttributeConnection_TargetAttribute() {
+		return (EReference)attributeConnectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOne2One() {
+		return one2OneEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOne2Many() {
+		return one2ManyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMany2Many() {
+		return many2ManyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGeneralization() {
+		return generalizationEClass;
 	}
 
 	/**
@@ -8917,7 +9073,25 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(typeDefinitionEClass, TYPE_DEFINITION__UID);
 		createEReference(typeDefinitionEClass, TYPE_DEFINITION__TYPES);
 		createEReference(typeDefinitionEClass, TYPE_DEFINITION__PARENT);
+		createEReference(typeDefinitionEClass, TYPE_DEFINITION__RELATION_SHIPS);
 		createEReference(typeDefinitionEClass, TYPE_DEFINITION__ANY);
+
+		relationShipEClass = createEClass(RELATION_SHIP);
+		createEAttribute(relationShipEClass, RELATION_SHIP__UID);
+		createEReference(relationShipEClass, RELATION_SHIP__SOURCE);
+		createEReference(relationShipEClass, RELATION_SHIP__TARGET);
+
+		attributeConnectionEClass = createEClass(ATTRIBUTE_CONNECTION);
+		createEReference(attributeConnectionEClass, ATTRIBUTE_CONNECTION__SOURCE_ATTRIBUTE);
+		createEReference(attributeConnectionEClass, ATTRIBUTE_CONNECTION__TARGET_ATTRIBUTE);
+
+		one2OneEClass = createEClass(ONE2_ONE);
+
+		one2ManyEClass = createEClass(ONE2_MANY);
+
+		many2ManyEClass = createEClass(MANY2_MANY);
+
+		generalizationEClass = createEClass(GENERALIZATION);
 
 		typeElementEClass = createEClass(TYPE_ELEMENT);
 		createEAttribute(typeElementEClass, TYPE_ELEMENT__UID);
@@ -9481,6 +9655,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		componentEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		javaComponentEClass.getESuperTypes().add(this.getComponent());
 		modelMapperEClass.getESuperTypes().add(this.getArtifactRef());
+		relationShipEClass.getESuperTypes().add(this.getCategorized());
+		one2OneEClass.getESuperTypes().add(this.getRelationShip());
+		one2OneEClass.getESuperTypes().add(this.getAttributeConnection());
+		one2ManyEClass.getESuperTypes().add(this.getRelationShip());
+		one2ManyEClass.getESuperTypes().add(this.getAttributeConnection());
+		many2ManyEClass.getESuperTypes().add(this.getRelationShip());
+		many2ManyEClass.getESuperTypes().add(this.getAttributeConnection());
+		generalizationEClass.getESuperTypes().add(this.getRelationShip());
 		primitiveEClass.getESuperTypes().add(this.getTypeElement());
 		typeEClass.getESuperTypes().add(this.getTypeElement());
 		typeEClass.getESuperTypes().add(this.getCategorized());
@@ -10068,7 +10250,25 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getTypeDefinition_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeDefinition_Types(), this.getTypeElement(), this.getTypeElement_Parent(), "types", null, 0, -1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeDefinition_Parent(), this.getPackage(), this.getPackage_Typedefinition(), "parent", null, 0, 1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypeDefinition_RelationShips(), this.getRelationShip(), null, "relationShips", null, 0, -1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeDefinition_Any(), ecorePackage.getEObject(), null, "any", null, 0, 1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(relationShipEClass, RelationShip.class, "RelationShip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRelationShip_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, RelationShip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationShip_Source(), this.getTypeElement(), null, "source", null, 0, 1, RelationShip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationShip_Target(), this.getTypeElement(), null, "target", null, 0, 1, RelationShip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(attributeConnectionEClass, AttributeConnection.class, "AttributeConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributeConnection_SourceAttribute(), this.getAttribute(), null, "sourceAttribute", null, 0, 1, AttributeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttributeConnection_TargetAttribute(), this.getAttribute(), null, "targetAttribute", null, 0, 1, AttributeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(one2OneEClass, One2One.class, "One2One", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(one2ManyEClass, One2Many.class, "One2Many", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(many2ManyEClass, Many2Many.class, "Many2Many", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(generalizationEClass, Generalization.class, "Generalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(typeElementEClass, TypeElement.class, "TypeElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypeElement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -12061,6 +12261,45 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		   new String[] {
 			 "target.decoration", "arrow",
 			 "style", "dash"
+		   });	
+		addAnnotation
+		  (one2OneEClass, 
+		   source, 
+		   new String[] {
+			 "source", "source",
+			 "target", "target",
+			 "width", "2",
+			 "color", "126,84,9"
+		   });	
+		addAnnotation
+		  (one2ManyEClass, 
+		   source, 
+		   new String[] {
+			 "source", "source",
+			 "target", "target",
+			 "width", "2",
+			 "target.decoration", "arrow",
+			 "color", "20,126,23"
+		   });	
+		addAnnotation
+		  (many2ManyEClass, 
+		   source, 
+		   new String[] {
+			 "source", "source",
+			 "target", "target",
+			 "width", "2",
+			 "target.decoration", "arrow",
+			 "source.decoration", "arrow",
+			 "color", "20,65,126"
+		   });	
+		addAnnotation
+		  (generalizationEClass, 
+		   source, 
+		   new String[] {
+			 "source", "source",
+			 "target", "target",
+			 "width", "2",
+			 "target.decoration", "closedarrow"
 		   });	
 		addAnnotation
 		  (typeExtensionEClass, 

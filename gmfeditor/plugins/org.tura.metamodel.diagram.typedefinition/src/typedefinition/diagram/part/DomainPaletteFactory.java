@@ -66,7 +66,11 @@ public class DomainPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
-		paletteContainer.add(createTypeExtension1CreationTool());
+		paletteContainer.add(createGeneralization1CreationTool());
+		paletteContainer.add(createMany2Many2CreationTool());
+		paletteContainer.add(createOne2Many3CreationTool());
+		paletteContainer.add(createOne2One4CreationTool());
+		paletteContainer.add(createTypeExtension5CreationTool());
 		return paletteContainer;
 	}
 
@@ -180,13 +184,74 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTypeExtension1CreationTool() {
+	private ToolEntry createGeneralization1CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
-				Messages.TypeExtension1CreationTool_title,
-				Messages.TypeExtension1CreationTool_desc,
+				Messages.Generalization1CreationTool_title,
+				Messages.Generalization1CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.Generalization_104005));
+		entry.setId("createGeneralization1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Generalization_104005));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createMany2Many2CreationTool() {
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.Many2Many2CreationTool_title,
+				Messages.Many2Many2CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.Many2Many_104004));
+		entry.setId("createMany2Many2CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.Many2Many_104004));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createOne2Many3CreationTool() {
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.One2Many3CreationTool_title,
+				Messages.One2Many3CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.One2Many_104003));
+		entry.setId("createOne2Many3CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.One2Many_104003));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createOne2One4CreationTool() {
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.One2One4CreationTool_title,
+				Messages.One2One4CreationTool_desc,
+				Collections.singletonList(DomainElementTypes.One2One_104002));
+		entry.setId("createOne2One4CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.One2One_104002));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createTypeExtension5CreationTool() {
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
+				Messages.TypeExtension5CreationTool_title,
+				Messages.TypeExtension5CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.TypeExtension_104001));
-		entry.setId("createTypeExtension1CreationTool"); //$NON-NLS-1$
+		entry.setId("createTypeExtension5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.TypeExtension_104001));
 		entry.setLargeIcon(entry.getSmallIcon());
