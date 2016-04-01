@@ -251,22 +251,17 @@ public class TypeDefinitionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS,
-				 DomainFactory.eINSTANCE.createOne2One()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS,
-				 DomainFactory.eINSTANCE.createOne2Many()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS,
-				 DomainFactory.eINSTANCE.createMany2Many()));
+				 DomainFactory.eINSTANCE.createReferences()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS,
 				 DomainFactory.eINSTANCE.createGeneralization()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__RELATION_SHIPS,
+				 DomainFactory.eINSTANCE.createAssosiation()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -666,27 +661,17 @@ public class TypeDefinitionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
-				 DomainFactory.eINSTANCE.createAttributeConnection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
-				 DomainFactory.eINSTANCE.createOne2One()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
-				 DomainFactory.eINSTANCE.createOne2Many()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
-				 DomainFactory.eINSTANCE.createMany2Many()));
+				 DomainFactory.eINSTANCE.createReferences()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
 				 DomainFactory.eINSTANCE.createGeneralization()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
+				 DomainFactory.eINSTANCE.createAssosiation()));
 
 		newChildDescriptors.add
 			(createChildParameter

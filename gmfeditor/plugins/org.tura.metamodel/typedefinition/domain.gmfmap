@@ -170,48 +170,14 @@
   </nodes>
   <links>
     <domainMetaElement
-        href="domain.ecore#//One2One"/>
-    <containmentFeature
-        href="domain.ecore#//TypeDefinition/relationShips"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.3"/>
-    <diagramLink
-        href="domain.gmfgraph#One2One"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="domain.ecore#//RelationShip/source"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="domain.ecore#//RelationShip/target"/>
-  </links>
-  <links>
-    <domainMetaElement
-        href="domain.ecore#//One2Many"/>
+        href="domain.ecore#//References"/>
     <containmentFeature
         href="domain.ecore#//TypeDefinition/relationShips"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="domain.gmftool#//@palette/@tools.1/@tools.2"/>
     <diagramLink
-        href="domain.gmfgraph#One2Many"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="domain.ecore#//RelationShip/source"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="domain.ecore#//RelationShip/target"/>
-  </links>
-  <links>
-    <domainMetaElement
-        href="domain.ecore#//Many2Many"/>
-    <containmentFeature
-        href="domain.ecore#//TypeDefinition/relationShips"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
-    <diagramLink
-        href="domain.gmfgraph#Many2Many"/>
+        href="domain.gmfgraph#References"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
         href="domain.ecore#//RelationShip/source"/>
@@ -226,9 +192,26 @@
         href="domain.ecore#//TypeDefinition/relationShips"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.0"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.1"/>
     <diagramLink
         href="domain.gmfgraph#Generalization"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//RelationShip/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="domain.ecore#//RelationShip/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="domain.ecore#//Assosiation"/>
+    <containmentFeature
+        href="domain.ecore#//TypeDefinition/relationShips"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="domain.gmftool#//@palette/@tools.1/@tools.0"/>
+    <diagramLink
+        href="domain.gmfgraph#Assosiation"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
         href="domain.ecore#//RelationShip/source"/>
@@ -243,7 +226,7 @@
         href="domain.ecore#//Type/extension"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.4"/>
+        href="domain.gmftool#//@palette/@tools.1/@tools.3"/>
     <diagramLink
         href="domain.gmfgraph#TypeExtension"/>
     <sourceMetaFeature

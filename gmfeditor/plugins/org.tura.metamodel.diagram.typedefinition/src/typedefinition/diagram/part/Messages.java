@@ -338,52 +338,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Generalization1CreationTool_title;
+	public static String Assosiation1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Generalization1CreationTool_desc;
+	public static String Assosiation1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Many2Many2CreationTool_title;
+	public static String Generalization2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Many2Many2CreationTool_desc;
+	public static String Generalization2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String One2Many3CreationTool_title;
+	public static String References3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String One2Many3CreationTool_desc;
+	public static String References3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String One2One4CreationTool_title;
+	public static String TypeExtension4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String One2One4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension5CreationTool_desc;
+	public static String TypeExtension4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -463,42 +453,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_One2One_104002_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_One2One_104002_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_One2Many_104003_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_One2Many_104003_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Many2Many_104004_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Many2Many_104004_source;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Generalization_104005_target;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Generalization_104005_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_References_104006_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_References_104006_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Assosiation_104007_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Assosiation_104007_source;
 
 	/**
 	 * @generated

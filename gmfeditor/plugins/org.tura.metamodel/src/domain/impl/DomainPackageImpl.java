@@ -32,6 +32,7 @@ import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
+import domain.Assosiation;
 import domain.Attribute;
 import domain.AttributeConnection;
 import domain.Button;
@@ -173,8 +174,10 @@ import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
+import domain.References;
 import domain.Relation;
 import domain.RelationShip;
+import domain.RelationType;
 import domain.ReturnValue;
 import domain.Role;
 import domain.RoleMapper;
@@ -799,28 +802,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass attributeConnectionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass one2OneEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass one2ManyEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass many2ManyEClass = null;
+	private EClass referencesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -828,6 +810,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EClass generalizationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass assosiationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1689,6 +1678,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * @generated
 	 */
 	private EEnum orderEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum relationTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5066,53 +5062,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAttributeConnection() {
-		return attributeConnectionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAttributeConnection_SourceAttribute() {
-		return (EReference)attributeConnectionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAttributeConnection_TargetAttribute() {
-		return (EReference)attributeConnectionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOne2One() {
-		return one2OneEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOne2Many() {
-		return one2ManyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMany2Many() {
-		return many2ManyEClass;
+	public EClass getReferences() {
+		return referencesEClass;
 	}
 
 	/**
@@ -5122,6 +5073,60 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 */
 	public EClass getGeneralization() {
 		return generalizationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAssosiation() {
+		return assosiationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAssosiation_Type() {
+		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssosiation_Links() {
+		return (EReference)assosiationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssosiation_SourceProperty() {
+		return (EReference)assosiationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssosiation_TargetProperty() {
+		return (EReference)assosiationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssosiation_Many2manyHelper() {
+		return (EReference)assosiationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -8603,6 +8608,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getRelationType() {
+		return relationTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getOrientation() {
 		return orientationEEnum;
 	}
@@ -9081,17 +9095,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEReference(relationShipEClass, RELATION_SHIP__SOURCE);
 		createEReference(relationShipEClass, RELATION_SHIP__TARGET);
 
-		attributeConnectionEClass = createEClass(ATTRIBUTE_CONNECTION);
-		createEReference(attributeConnectionEClass, ATTRIBUTE_CONNECTION__SOURCE_ATTRIBUTE);
-		createEReference(attributeConnectionEClass, ATTRIBUTE_CONNECTION__TARGET_ATTRIBUTE);
-
-		one2OneEClass = createEClass(ONE2_ONE);
-
-		one2ManyEClass = createEClass(ONE2_MANY);
-
-		many2ManyEClass = createEClass(MANY2_MANY);
+		referencesEClass = createEClass(REFERENCES);
 
 		generalizationEClass = createEClass(GENERALIZATION);
+
+		assosiationEClass = createEClass(ASSOSIATION);
+		createEAttribute(assosiationEClass, ASSOSIATION__TYPE);
+		createEReference(assosiationEClass, ASSOSIATION__LINKS);
+		createEReference(assosiationEClass, ASSOSIATION__SOURCE_PROPERTY);
+		createEReference(assosiationEClass, ASSOSIATION__TARGET_PROPERTY);
+		createEReference(assosiationEClass, ASSOSIATION__MANY2MANY_HELPER);
 
 		typeElementEClass = createEClass(TYPE_ELEMENT);
 		createEAttribute(typeElementEClass, TYPE_ELEMENT__UID);
@@ -9600,6 +9613,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		platformLayersEEnum = createEEnum(PLATFORM_LAYERS);
 		comparatorEEnum = createEEnum(COMPARATOR);
 		orderEEnum = createEEnum(ORDER);
+		relationTypeEEnum = createEEnum(RELATION_TYPE);
 		orientationEEnum = createEEnum(ORIENTATION);
 	}
 
@@ -9656,13 +9670,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		javaComponentEClass.getESuperTypes().add(this.getComponent());
 		modelMapperEClass.getESuperTypes().add(this.getArtifactRef());
 		relationShipEClass.getESuperTypes().add(this.getCategorized());
-		one2OneEClass.getESuperTypes().add(this.getRelationShip());
-		one2OneEClass.getESuperTypes().add(this.getAttributeConnection());
-		one2ManyEClass.getESuperTypes().add(this.getRelationShip());
-		one2ManyEClass.getESuperTypes().add(this.getAttributeConnection());
-		many2ManyEClass.getESuperTypes().add(this.getRelationShip());
-		many2ManyEClass.getESuperTypes().add(this.getAttributeConnection());
+		referencesEClass.getESuperTypes().add(this.getRelationShip());
 		generalizationEClass.getESuperTypes().add(this.getRelationShip());
+		assosiationEClass.getESuperTypes().add(this.getRelationShip());
 		primitiveEClass.getESuperTypes().add(this.getTypeElement());
 		typeEClass.getESuperTypes().add(this.getTypeElement());
 		typeEClass.getESuperTypes().add(this.getCategorized());
@@ -10258,17 +10268,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getRelationShip_Source(), this.getTypeElement(), null, "source", null, 0, 1, RelationShip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelationShip_Target(), this.getTypeElement(), null, "target", null, 0, 1, RelationShip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(attributeConnectionEClass, AttributeConnection.class, "AttributeConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeConnection_SourceAttribute(), this.getAttribute(), null, "sourceAttribute", null, 0, 1, AttributeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttributeConnection_TargetAttribute(), this.getAttribute(), null, "targetAttribute", null, 0, 1, AttributeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(one2OneEClass, One2One.class, "One2One", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(one2ManyEClass, One2Many.class, "One2Many", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(many2ManyEClass, Many2Many.class, "Many2Many", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(referencesEClass, References.class, "References", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(generalizationEClass, Generalization.class, "Generalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(assosiationEClass, Assosiation.class, "Assosiation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAssosiation_Type(), this.getRelationType(), "type", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssosiation_Links(), this.getLink(), null, "links", null, 0, -1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssosiation_SourceProperty(), this.getAttribute(), null, "sourceProperty", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssosiation_TargetProperty(), this.getAttribute(), null, "targetProperty", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssosiation_Many2manyHelper(), this.getTypeElement(), null, "many2manyHelper", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeElementEClass, TypeElement.class, "TypeElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypeElement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10789,6 +10798,11 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEEnum(orderEEnum, Order.class, "Order");
 		addEEnumLiteral(orderEEnum, Order.ASC);
 		addEEnumLiteral(orderEEnum, Order.DESC);
+
+		initEEnum(relationTypeEEnum, RelationType.class, "RelationType");
+		addEEnumLiteral(relationTypeEEnum, RelationType.ONE2_ONE);
+		addEEnumLiteral(relationTypeEEnum, RelationType.ONE2_MANY);
+		addEEnumLiteral(relationTypeEEnum, RelationType.MANY2_MANY);
 
 		initEEnum(orientationEEnum, Orientation.class, "Orientation");
 		addEEnumLiteral(orientationEEnum, Orientation.TOP);
@@ -12263,34 +12277,13 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "style", "dash"
 		   });	
 		addAnnotation
-		  (one2OneEClass, 
+		  (referencesEClass, 
 		   source, 
 		   new String[] {
 			 "source", "source",
 			 "target", "target",
 			 "width", "2",
 			 "color", "126,84,9"
-		   });	
-		addAnnotation
-		  (one2ManyEClass, 
-		   source, 
-		   new String[] {
-			 "source", "source",
-			 "target", "target",
-			 "width", "2",
-			 "target.decoration", "arrow",
-			 "color", "20,126,23"
-		   });	
-		addAnnotation
-		  (many2ManyEClass, 
-		   source, 
-		   new String[] {
-			 "source", "source",
-			 "target", "target",
-			 "width", "2",
-			 "target.decoration", "arrow",
-			 "source.decoration", "arrow",
-			 "color", "20,65,126"
 		   });	
 		addAnnotation
 		  (generalizationEClass, 
@@ -12300,6 +12293,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "target", "target",
 			 "width", "2",
 			 "target.decoration", "closedarrow"
+		   });	
+		addAnnotation
+		  (assosiationEClass, 
+		   source, 
+		   new String[] {
+			 "source", "source",
+			 "target", "target",
+			 "width", "2",
+			 "source.decoration", "arrow",
+			 "target.decoration", "arrow",
+			 "color", "20,126,23"
 		   });	
 		addAnnotation
 		  (typeExtensionEClass, 

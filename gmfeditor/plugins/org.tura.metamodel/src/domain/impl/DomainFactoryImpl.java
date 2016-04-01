@@ -32,6 +32,7 @@ import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
+import domain.Assosiation;
 import domain.Attribute;
 import domain.AttributeConnection;
 import domain.Button;
@@ -173,8 +174,10 @@ import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
+import domain.References;
 import domain.Relation;
 import domain.RelationShip;
+import domain.RelationType;
 import domain.ReturnValue;
 import domain.Role;
 import domain.RoleMapper;
@@ -358,11 +361,9 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.TYPE_POINTER: return createTypePointer();
 			case DomainPackage.TYPE_DEFINITION: return createTypeDefinition();
 			case DomainPackage.RELATION_SHIP: return createRelationShip();
-			case DomainPackage.ATTRIBUTE_CONNECTION: return createAttributeConnection();
-			case DomainPackage.ONE2_ONE: return createOne2One();
-			case DomainPackage.ONE2_MANY: return createOne2Many();
-			case DomainPackage.MANY2_MANY: return createMany2Many();
+			case DomainPackage.REFERENCES: return createReferences();
 			case DomainPackage.GENERALIZATION: return createGeneralization();
+			case DomainPackage.ASSOSIATION: return createAssosiation();
 			case DomainPackage.TYPE_ELEMENT: return createTypeElement();
 			case DomainPackage.PRIMITIVE: return createPrimitive();
 			case DomainPackage.TYPE: return createType();
@@ -502,6 +503,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 				return createComparatorFromString(eDataType, initialValue);
 			case DomainPackage.ORDER:
 				return createOrderFromString(eDataType, initialValue);
+			case DomainPackage.RELATION_TYPE:
+				return createRelationTypeFromString(eDataType, initialValue);
 			case DomainPackage.ORIENTATION:
 				return createOrientationFromString(eDataType, initialValue);
 			default:
@@ -523,6 +526,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 				return convertComparatorToString(eDataType, instanceValue);
 			case DomainPackage.ORDER:
 				return convertOrderToString(eDataType, instanceValue);
+			case DomainPackage.RELATION_TYPE:
+				return convertRelationTypeToString(eDataType, instanceValue);
 			case DomainPackage.ORIENTATION:
 				return convertOrientationToString(eDataType, instanceValue);
 			default:
@@ -1325,39 +1330,9 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AttributeConnection createAttributeConnection() {
-		AttributeConnectionImpl attributeConnection = new AttributeConnectionImpl();
-		return attributeConnection;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public One2One createOne2One() {
-		One2OneImpl one2One = new One2OneImpl();
-		return one2One;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public One2Many createOne2Many() {
-		One2ManyImpl one2Many = new One2ManyImpl();
-		return one2Many;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Many2Many createMany2Many() {
-		Many2ManyImpl many2Many = new Many2ManyImpl();
-		return many2Many;
+	public References createReferences() {
+		ReferencesImpl references = new ReferencesImpl();
+		return references;
 	}
 
 	/**
@@ -1368,6 +1343,16 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public Generalization createGeneralization() {
 		GeneralizationImpl generalization = new GeneralizationImpl();
 		return generalization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Assosiation createAssosiation() {
+		AssosiationImpl assosiation = new AssosiationImpl();
+		return assosiation;
 	}
 
 	/**
@@ -2627,6 +2612,26 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * @generated
 	 */
 	public String convertOrderToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelationType createRelationTypeFromString(EDataType eDataType, String initialValue) {
+		RelationType result = RelationType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRelationTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -32,6 +32,7 @@ import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
+import domain.Assosiation;
 import domain.Attribute;
 import domain.AttributeConnection;
 import domain.Button;
@@ -168,6 +169,7 @@ import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
+import domain.References;
 import domain.Relation;
 import domain.RelationShip;
 import domain.ReturnValue;
@@ -601,24 +603,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createRelationShipAdapter();
 			}
 			@Override
-			public Adapter caseAttributeConnection(AttributeConnection object) {
-				return createAttributeConnectionAdapter();
-			}
-			@Override
-			public Adapter caseOne2One(One2One object) {
-				return createOne2OneAdapter();
-			}
-			@Override
-			public Adapter caseOne2Many(One2Many object) {
-				return createOne2ManyAdapter();
-			}
-			@Override
-			public Adapter caseMany2Many(Many2Many object) {
-				return createMany2ManyAdapter();
+			public Adapter caseReferences(References object) {
+				return createReferencesAdapter();
 			}
 			@Override
 			public Adapter caseGeneralization(Generalization object) {
 				return createGeneralizationAdapter();
+			}
+			@Override
+			public Adapter caseAssosiation(Assosiation object) {
+				return createAssosiationAdapter();
 			}
 			@Override
 			public Adapter caseTypeElement(TypeElement object) {
@@ -2227,58 +2221,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link domain.AttributeConnection <em>Attribute Connection</em>}'.
+	 * Creates a new adapter for an object of class '{@link domain.References <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see domain.AttributeConnection
+	 * @see domain.References
 	 * @generated
 	 */
-	public Adapter createAttributeConnectionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link domain.One2One <em>One2 One</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see domain.One2One
-	 * @generated
-	 */
-	public Adapter createOne2OneAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link domain.One2Many <em>One2 Many</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see domain.One2Many
-	 * @generated
-	 */
-	public Adapter createOne2ManyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link domain.Many2Many <em>Many2 Many</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see domain.Many2Many
-	 * @generated
-	 */
-	public Adapter createMany2ManyAdapter() {
+	public Adapter createReferencesAdapter() {
 		return null;
 	}
 
@@ -2293,6 +2245,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGeneralizationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.Assosiation <em>Assosiation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.Assosiation
+	 * @generated
+	 */
+	public Adapter createAssosiationAdapter() {
 		return null;
 	}
 

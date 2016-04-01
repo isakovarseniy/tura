@@ -22,8 +22,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
-import domain.DomainPackage;
-import domain.TypeDefinition;
+import typedefinition.diagram.edit.parts.AssosiationEditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
@@ -32,13 +31,11 @@ import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEnumaratorValuesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
 import typedefinition.diagram.edit.parts.GeneralizationEditPart;
-import typedefinition.diagram.edit.parts.Many2ManyEditPart;
-import typedefinition.diagram.edit.parts.One2ManyEditPart;
-import typedefinition.diagram.edit.parts.One2OneEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
+import typedefinition.diagram.edit.parts.ReferencesEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
@@ -47,6 +44,8 @@ import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceFakePackageNameFakeTypeEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
+import domain.DomainPackage;
+import domain.TypeDefinition;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -302,21 +301,17 @@ public class DomainVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (DomainPackage.eINSTANCE.getOne2One().isSuperTypeOf(
+		if (DomainPackage.eINSTANCE.getReferences().isSuperTypeOf(
 				domainElement.eClass())) {
-			return One2OneEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getOne2Many().isSuperTypeOf(
-				domainElement.eClass())) {
-			return One2ManyEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getMany2Many().isSuperTypeOf(
-				domainElement.eClass())) {
-			return Many2ManyEditPart.VISUAL_ID;
+			return ReferencesEditPart.VISUAL_ID;
 		}
 		if (DomainPackage.eINSTANCE.getGeneralization().isSuperTypeOf(
 				domainElement.eClass())) {
 			return GeneralizationEditPart.VISUAL_ID;
+		}
+		if (DomainPackage.eINSTANCE.getAssosiation().isSuperTypeOf(
+				domainElement.eClass())) {
+			return AssosiationEditPart.VISUAL_ID;
 		}
 		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
 				domainElement.eClass())) {

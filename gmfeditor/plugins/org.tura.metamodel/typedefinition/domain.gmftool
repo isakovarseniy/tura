@@ -80,6 +80,15 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
+          title="Assosiation"
+          description="Create new Assosiation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Generalization"
           description="Create new Generalization">
         <smallIcon
@@ -89,26 +98,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Many2Many"
-          description="Create new Many2Many">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="One2Many"
-          description="Create new One2Many">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="One2One"
-          description="Create new One2One">
+          title="References"
+          description="Create new References">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

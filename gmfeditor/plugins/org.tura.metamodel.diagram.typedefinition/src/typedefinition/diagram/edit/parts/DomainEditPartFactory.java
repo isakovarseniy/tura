@@ -91,17 +91,14 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case EnumaratorEnumaratorValuesCompartmentEditPart.VISUAL_ID:
 				return new EnumaratorEnumaratorValuesCompartmentEditPart(view);
 
-			case One2OneEditPart.VISUAL_ID:
-				return new One2OneEditPart(view);
-
-			case One2ManyEditPart.VISUAL_ID:
-				return new One2ManyEditPart(view);
-
-			case Many2ManyEditPart.VISUAL_ID:
-				return new Many2ManyEditPart(view);
+			case ReferencesEditPart.VISUAL_ID:
+				return new ReferencesEditPart(view);
 
 			case GeneralizationEditPart.VISUAL_ID:
 				return new GeneralizationEditPart(view);
+
+			case AssosiationEditPart.VISUAL_ID:
+				return new AssosiationEditPart(view);
 
 			case TypeExtensionEditPart.VISUAL_ID:
 				return new TypeExtensionEditPart(view);

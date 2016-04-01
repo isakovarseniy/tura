@@ -54,10 +54,12 @@ import domain.TypeExtension;
 import typedefinition.diagram.part.DomainDiagramEditorPlugin;
 import typedefinition.diagram.part.DomainVisualIDRegistry;
 import typedefinition.diagram.providers.DomainElementTypes;
+import domain.Assosiation;
 import domain.Generalization;
 import domain.Many2Many;
 import domain.One2Many;
 import domain.One2One;
+import domain.References;
 
 /**
  * @generated
@@ -345,25 +347,9 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateOne2One_104002(TypeDefinition container,
+		public boolean canCreateReferences_104006(TypeDefinition container,
 				TypeElement source, TypeElement target) {
-			return canExistOne2One_104002(container, null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateOne2Many_104003(TypeDefinition container,
-				TypeElement source, TypeElement target) {
-			return canExistOne2Many_104003(container, null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateMany2Many_104004(TypeDefinition container,
-				TypeElement source, TypeElement target) {
-			return canExistMany2Many_104004(container, null, source, target);
+			return canExistReferences_104006(container, null, source, target);
 		}
 
 		/**
@@ -378,6 +364,14 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		public boolean canCreateAssosiation_104007(TypeDefinition container,
+				TypeElement source, TypeElement target) {
+			return canExistAssosiation_104007(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canCreateTypeExtension_104001(Type container,
 				TypeElement source, TypeElement target) {
 			return canExistTypeExtension_104001(container, null, source, target);
@@ -386,24 +380,8 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistOne2One_104002(TypeDefinition container,
-				One2One linkInstance, TypeElement source, TypeElement target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistOne2Many_104003(TypeDefinition container,
-				One2Many linkInstance, TypeElement source, TypeElement target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistMany2Many_104004(TypeDefinition container,
-				Many2Many linkInstance, TypeElement source, TypeElement target) {
+		public boolean canExistReferences_104006(TypeDefinition container,
+				References linkInstance, TypeElement source, TypeElement target) {
 			return true;
 		}
 
@@ -413,6 +391,14 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		public boolean canExistGeneralization_104005(TypeDefinition container,
 				Generalization linkInstance, TypeElement source,
 				TypeElement target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistAssosiation_104007(TypeDefinition container,
+				Assosiation linkInstance, TypeElement source, TypeElement target) {
 			return true;
 		}
 

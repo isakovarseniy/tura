@@ -32,8 +32,7 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
-import domain.TypeDefinition;
-import domain.TypeExtension;
+import typedefinition.diagram.edit.parts.AssosiationEditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.AttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
@@ -41,13 +40,11 @@ import typedefinition.diagram.edit.parts.EnumAttributeNameEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorNameEditPart;
 import typedefinition.diagram.edit.parts.GeneralizationEditPart;
-import typedefinition.diagram.edit.parts.Many2ManyEditPart;
-import typedefinition.diagram.edit.parts.One2ManyEditPart;
-import typedefinition.diagram.edit.parts.One2OneEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.OperationNameEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
+import typedefinition.diagram.edit.parts.ReferencesEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
@@ -58,10 +55,11 @@ import typedefinition.diagram.part.DomainDiagramEditorPlugin;
 import typedefinition.diagram.part.DomainVisualIDRegistry;
 import typedefinition.diagram.providers.DomainElementTypes;
 import typedefinition.diagram.providers.DomainParserProvider;
+import domain.Assosiation;
 import domain.Generalization;
-import domain.Many2Many;
-import domain.One2Many;
-import domain.One2One;
+import domain.References;
+import domain.TypeDefinition;
+import domain.TypeExtension;
 
 /**
  * @generated
@@ -157,18 +155,15 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_104001); //$NON-NLS-1$
-		case One2OneEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?One2One", DomainElementTypes.One2One_104002); //$NON-NLS-1$
-		case One2ManyEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?One2Many", DomainElementTypes.One2Many_104003); //$NON-NLS-1$
-		case Many2ManyEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?Many2Many", DomainElementTypes.Many2Many_104004); //$NON-NLS-1$
 		case GeneralizationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Generalization", DomainElementTypes.Generalization_104005); //$NON-NLS-1$
+		case ReferencesEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?References", DomainElementTypes.References_104006); //$NON-NLS-1$
+		case AssosiationEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://tura.org/2013/v1/domain?Assosiation", DomainElementTypes.Assosiation_104007); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -247,14 +242,12 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getEnumAttribute_103005Text(view);
 		case TypeExtensionEditPart.VISUAL_ID:
 			return getTypeExtension_104001Text(view);
-		case One2OneEditPart.VISUAL_ID:
-			return getOne2One_104002Text(view);
-		case One2ManyEditPart.VISUAL_ID:
-			return getOne2Many_104003Text(view);
-		case Many2ManyEditPart.VISUAL_ID:
-			return getMany2Many_104004Text(view);
 		case GeneralizationEditPart.VISUAL_ID:
 			return getGeneralization_104005Text(view);
+		case ReferencesEditPart.VISUAL_ID:
+			return getReferences_104006Text(view);
+		case AssosiationEditPart.VISUAL_ID:
+			return getAssosiation_104007Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -430,48 +423,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOne2One_104002Text(View view) {
-		One2One domainModelElement = (One2One) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getUid();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 104002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getOne2Many_104003Text(View view) {
-		One2Many domainModelElement = (One2Many) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getUid();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 104003); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getMany2Many_104004Text(View view) {
-		Many2Many domainModelElement = (Many2Many) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getUid();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 104004); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	private String getGeneralization_104005Text(View view) {
 		Generalization domainModelElement = (Generalization) view.getElement();
 		if (domainModelElement != null) {
@@ -479,6 +430,34 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 104005); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getReferences_104006Text(View view) {
+		References domainModelElement = (References) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 104006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getAssosiation_104007Text(View view) {
+		Assosiation domainModelElement = (Assosiation) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getUid();
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 104007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

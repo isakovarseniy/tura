@@ -29,21 +29,20 @@ import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypes;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
-import domain.DomainPackage;
+import typedefinition.diagram.edit.parts.AssosiationEditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumAttributeEditPart;
 import typedefinition.diagram.edit.parts.EnumaratorEditPart;
 import typedefinition.diagram.edit.parts.GeneralizationEditPart;
-import typedefinition.diagram.edit.parts.Many2ManyEditPart;
-import typedefinition.diagram.edit.parts.One2ManyEditPart;
-import typedefinition.diagram.edit.parts.One2OneEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.PrimitiveEditPart;
+import typedefinition.diagram.edit.parts.ReferencesEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
 import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.part.DomainDiagramEditorPlugin;
+import domain.DomainPackage;
 
 /**
  * @generated
@@ -108,22 +107,17 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType One2One_104002 = getElementType("org.tura.metamodel.diagram.typedefinition.One2One_104002"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType One2Many_104003 = getElementType("org.tura.metamodel.diagram.typedefinition.One2Many_104003"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType Many2Many_104004 = getElementType("org.tura.metamodel.diagram.typedefinition.Many2Many_104004"); //$NON-NLS-1$
+	public static final IElementType References_104006 = getElementType("org.tura.metamodel.diagram.typedefinition.References_104006"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
 	public static final IElementType Generalization_104005 = getElementType("org.tura.metamodel.diagram.typedefinition.Generalization_104005"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Assosiation_104007 = getElementType("org.tura.metamodel.diagram.typedefinition.Assosiation_104007"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -191,15 +185,14 @@ public class DomainElementTypes {
 			elements.put(EnumAttribute_103005,
 					DomainPackage.eINSTANCE.getEnumAttribute());
 
-			elements.put(One2One_104002, DomainPackage.eINSTANCE.getOne2One());
-
-			elements.put(One2Many_104003, DomainPackage.eINSTANCE.getOne2Many());
-
-			elements.put(Many2Many_104004,
-					DomainPackage.eINSTANCE.getMany2Many());
+			elements.put(References_104006,
+					DomainPackage.eINSTANCE.getReferences());
 
 			elements.put(Generalization_104005,
 					DomainPackage.eINSTANCE.getGeneralization());
+
+			elements.put(Assosiation_104007,
+					DomainPackage.eINSTANCE.getAssosiation());
 
 			elements.put(TypeExtension_104001,
 					DomainPackage.eINSTANCE.getTypeExtension());
@@ -228,10 +221,9 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Attribute_103001);
 			KNOWN_ELEMENT_TYPES.add(Operation_103002);
 			KNOWN_ELEMENT_TYPES.add(EnumAttribute_103005);
-			KNOWN_ELEMENT_TYPES.add(One2One_104002);
-			KNOWN_ELEMENT_TYPES.add(One2Many_104003);
-			KNOWN_ELEMENT_TYPES.add(Many2Many_104004);
+			KNOWN_ELEMENT_TYPES.add(References_104006);
 			KNOWN_ELEMENT_TYPES.add(Generalization_104005);
+			KNOWN_ELEMENT_TYPES.add(Assosiation_104007);
 			KNOWN_ELEMENT_TYPES.add(TypeExtension_104001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -258,14 +250,12 @@ public class DomainElementTypes {
 			return Operation_103002;
 		case EnumAttributeEditPart.VISUAL_ID:
 			return EnumAttribute_103005;
-		case One2OneEditPart.VISUAL_ID:
-			return One2One_104002;
-		case One2ManyEditPart.VISUAL_ID:
-			return One2Many_104003;
-		case Many2ManyEditPart.VISUAL_ID:
-			return Many2Many_104004;
+		case ReferencesEditPart.VISUAL_ID:
+			return References_104006;
 		case GeneralizationEditPart.VISUAL_ID:
 			return Generalization_104005;
+		case AssosiationEditPart.VISUAL_ID:
+			return Assosiation_104007;
 		case TypeExtensionEditPart.VISUAL_ID:
 			return TypeExtension_104001;
 		}

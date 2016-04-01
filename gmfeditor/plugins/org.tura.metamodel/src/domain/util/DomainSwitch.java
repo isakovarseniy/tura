@@ -32,6 +32,7 @@ import domain.Artifact;
 import domain.ArtifactRef;
 import domain.Artifacts;
 import domain.ArtificialField;
+import domain.Assosiation;
 import domain.Attribute;
 import domain.AttributeConnection;
 import domain.Button;
@@ -168,6 +169,7 @@ import domain.QueryParameter;
 import domain.QueryVariable;
 import domain.Recipe;
 import domain.Recipes;
+import domain.References;
 import domain.Relation;
 import domain.RelationShip;
 import domain.ReturnValue;
@@ -787,36 +789,11 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DomainPackage.ATTRIBUTE_CONNECTION: {
-				AttributeConnection attributeConnection = (AttributeConnection)theEObject;
-				T result = caseAttributeConnection(attributeConnection);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DomainPackage.ONE2_ONE: {
-				One2One one2One = (One2One)theEObject;
-				T result = caseOne2One(one2One);
-				if (result == null) result = caseRelationShip(one2One);
-				if (result == null) result = caseAttributeConnection(one2One);
-				if (result == null) result = caseCategorized(one2One);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DomainPackage.ONE2_MANY: {
-				One2Many one2Many = (One2Many)theEObject;
-				T result = caseOne2Many(one2Many);
-				if (result == null) result = caseRelationShip(one2Many);
-				if (result == null) result = caseAttributeConnection(one2Many);
-				if (result == null) result = caseCategorized(one2Many);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DomainPackage.MANY2_MANY: {
-				Many2Many many2Many = (Many2Many)theEObject;
-				T result = caseMany2Many(many2Many);
-				if (result == null) result = caseRelationShip(many2Many);
-				if (result == null) result = caseAttributeConnection(many2Many);
-				if (result == null) result = caseCategorized(many2Many);
+			case DomainPackage.REFERENCES: {
+				References references = (References)theEObject;
+				T result = caseReferences(references);
+				if (result == null) result = caseRelationShip(references);
+				if (result == null) result = caseCategorized(references);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -825,6 +802,14 @@ public class DomainSwitch<T> extends Switch<T> {
 				T result = caseGeneralization(generalization);
 				if (result == null) result = caseRelationShip(generalization);
 				if (result == null) result = caseCategorized(generalization);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.ASSOSIATION: {
+				Assosiation assosiation = (Assosiation)theEObject;
+				T result = caseAssosiation(assosiation);
+				if (result == null) result = caseRelationShip(assosiation);
+				if (result == null) result = caseCategorized(assosiation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3101,62 +3086,17 @@ public class DomainSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attribute Connection</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>References</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attribute Connection</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>References</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAttributeConnection(AttributeConnection object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>One2 One</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>One2 One</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOne2One(One2One object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>One2 Many</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>One2 Many</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOne2Many(One2Many object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Many2 Many</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Many2 Many</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMany2Many(Many2Many object) {
+	public T caseReferences(References object) {
 		return null;
 	}
 
@@ -3172,6 +3112,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGeneralization(Generalization object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assosiation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assosiation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssosiation(Assosiation object) {
 		return null;
 	}
 

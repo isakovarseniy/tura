@@ -661,27 +661,17 @@ public class ApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
-				 DomainFactory.eINSTANCE.createAttributeConnection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.APPLICATION__ANY,
-				 DomainFactory.eINSTANCE.createOne2One()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.APPLICATION__ANY,
-				 DomainFactory.eINSTANCE.createOne2Many()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.APPLICATION__ANY,
-				 DomainFactory.eINSTANCE.createMany2Many()));
+				 DomainFactory.eINSTANCE.createReferences()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createGeneralization()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createAssosiation()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -312,20 +312,17 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TypeExtension');
 delete tool;
 
-var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='One2One');
+
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Assosiation');
 delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='One2One');
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Assosiation');
 delete tool;
 
-var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='One2Many');
+var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='References');
 delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='One2Many');
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='References');
 delete tool;
 
-var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Many2Many');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Many2Many');
-delete tool;
 
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Generalization');
 delete tool;

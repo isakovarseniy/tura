@@ -745,40 +745,13 @@ public interface DomainFactory extends EFactory {
 	RelationShip createRelationShip();
 
 	/**
-	 * Returns a new object of class '<em>Attribute Connection</em>'.
+	 * Returns a new object of class '<em>References</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Attribute Connection</em>'.
+	 * @return a new object of class '<em>References</em>'.
 	 * @generated
 	 */
-	AttributeConnection createAttributeConnection();
-
-	/**
-	 * Returns a new object of class '<em>One2 One</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>One2 One</em>'.
-	 * @generated
-	 */
-	One2One createOne2One();
-
-	/**
-	 * Returns a new object of class '<em>One2 Many</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>One2 Many</em>'.
-	 * @generated
-	 */
-	One2Many createOne2Many();
-
-	/**
-	 * Returns a new object of class '<em>Many2 Many</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Many2 Many</em>'.
-	 * @generated
-	 */
-	Many2Many createMany2Many();
+	References createReferences();
 
 	/**
 	 * Returns a new object of class '<em>Generalization</em>'.
@@ -788,6 +761,15 @@ public interface DomainFactory extends EFactory {
 	 * @generated
 	 */
 	Generalization createGeneralization();
+
+	/**
+	 * Returns a new object of class '<em>Assosiation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Assosiation</em>'.
+	 * @generated
+	 */
+	Assosiation createAssosiation();
 
 	/**
 	 * Returns a new object of class '<em>Type Element</em>'.

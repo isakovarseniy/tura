@@ -719,31 +719,33 @@ class RelationShip  extends Categorized{
     ref TypeElement target;
 }
 
-class AttributeConnection{
-	ref Attribute sourceAttribute;
-	ref Attribute targetAttribute;
-}
+
 
 @gmf.link(source="source", target="target",  width="2"  , color="126,84,9")
-class One2One extends RelationShip,AttributeConnection{
+class References extends RelationShip{
 	
 }
-
-
-@gmf.link(source="source", target="target",  width="2" ,target.decoration="arrow" , color="20,126,23")
-class One2Many extends RelationShip,AttributeConnection{
-	
-}
-
-@gmf.link(source="source", target="target",  width="2" ,target.decoration="arrow" , source.decoration="arrow", color="20,65,126")
-class Many2Many extends RelationShip,AttributeConnection{
-	
-}
-
 
 @gmf.link(source="source", target="target",  width="2" ,target.decoration="closedarrow")
 class Generalization extends RelationShip{
 }
+
+enum RelationType{
+    One2One;
+    One2Many;
+    Many2Many;
+}
+
+@gmf.link(source="source", target="target",  width="2" ,source.decoration="arrow" , target.decoration="arrow" , color="20,126,23")
+class Assosiation extends RelationShip{
+   attr RelationType type;
+   val Link[*]  links; 
+   ref Attribute sourceProperty;  
+   ref Attribute targetProperty; 
+   ref TypeElement many2manyHelper;
+}
+
+
 
 class TypeElement{
     id attr EString uid;
