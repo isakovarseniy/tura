@@ -72,6 +72,11 @@
                id="org.tura.metamodel.typedefinition.classifier">
               <input type="typedefinition.diagram.edit.parts.TypeEditPart"/>
               <input type="typedefinition.diagram.edit.parts.TypeExtensionEditPart"/>
+
+              <input type="typedefinition.diagram.edit.parts.AssosiationEditPart"/>
+              <input type="typedefinition.diagram.edit.parts.GeneralizationEditPart"/>
+              <input type="typedefinition.diagram.edit.parts.ReferencesEditPart"/>
+
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
               <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
            </propertySection>        

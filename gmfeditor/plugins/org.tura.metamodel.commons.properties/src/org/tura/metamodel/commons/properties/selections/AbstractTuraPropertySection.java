@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.impl.ConnectorImpl;
+import org.eclipse.gmf.runtime.notation.impl.EdgeImpl;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.eclipse.jface.viewers.ISelection;
@@ -118,6 +119,9 @@ public abstract class AbstractTuraPropertySection extends
 		     eObject  = ((NodeImpl) editPart.getModel()).basicGetElement();
 		if (editPart.getModel() instanceof ConnectorImpl )
 		     eObject  = ((ConnectorImpl) editPart.getModel()).basicGetElement();
+		if (editPart.getModel() instanceof EdgeImpl )
+		     eObject  = ((EdgeImpl) editPart.getModel()).basicGetElement();
+
 	}
 	
 	
