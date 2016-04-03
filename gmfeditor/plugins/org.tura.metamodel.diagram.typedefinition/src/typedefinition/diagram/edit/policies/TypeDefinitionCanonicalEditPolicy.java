@@ -54,7 +54,6 @@ import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.ReferencesEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
-import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.part.DomainDiagramUpdater;
 import typedefinition.diagram.part.DomainLinkDescriptor;
@@ -371,14 +370,6 @@ public class TypeDefinitionCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(DomainDiagramUpdater
 						.getAssosiation_104007ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case TypeExtensionEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(DomainDiagramUpdater
-						.getTypeExtension_104001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

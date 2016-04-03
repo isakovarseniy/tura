@@ -100,9 +100,6 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case AssosiationEditPart.VISUAL_ID:
 				return new AssosiationEditPart(view);
 
-			case TypeExtensionEditPart.VISUAL_ID:
-				return new TypeExtensionEditPart(view);
-
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

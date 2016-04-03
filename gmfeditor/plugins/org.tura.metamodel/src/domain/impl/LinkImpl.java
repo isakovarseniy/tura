@@ -38,7 +38,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link domain.impl.LinkImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.LinkImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link domain.impl.LinkImpl#getMasterField <em>Master Field</em>}</li>
  *   <li>{@link domain.impl.LinkImpl#getDetailField <em>Detail Field</em>}</li>
  * </ul>
@@ -132,47 +131,6 @@ public class LinkImpl extends EObjectImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Relation getParent() {
-		if (eContainerFeatureID() != DomainPackage.LINK__PARENT) return null;
-		return (Relation)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParent(Relation newParent, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParent, DomainPackage.LINK__PARENT, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(Relation newParent) {
-		if (newParent != eInternalContainer() || (eContainerFeatureID() != DomainPackage.LINK__PARENT && newParent != null)) {
-			if (EcoreUtil.isAncestor(this, newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, DomainPackage.RELATION__LINKS, Relation.class, msgs);
-			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.LINK__PARENT, newParent, newParent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Attribute getMasterField() {
 		if (masterField != null && masterField.eIsProxy()) {
 			InternalEObject oldMasterField = (InternalEObject)masterField;
@@ -250,56 +208,10 @@ public class LinkImpl extends EObjectImpl implements Link {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DomainPackage.LINK__PARENT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetParent((Relation)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DomainPackage.LINK__PARENT:
-				return basicSetParent(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case DomainPackage.LINK__PARENT:
-				return eInternalContainer().eInverseRemove(this, DomainPackage.RELATION__LINKS, Relation.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DomainPackage.LINK__UID:
 				return getUid();
-			case DomainPackage.LINK__PARENT:
-				return getParent();
 			case DomainPackage.LINK__MASTER_FIELD:
 				if (resolve) return getMasterField();
 				return basicGetMasterField();
@@ -320,9 +232,6 @@ public class LinkImpl extends EObjectImpl implements Link {
 		switch (featureID) {
 			case DomainPackage.LINK__UID:
 				setUid((String)newValue);
-				return;
-			case DomainPackage.LINK__PARENT:
-				setParent((Relation)newValue);
 				return;
 			case DomainPackage.LINK__MASTER_FIELD:
 				setMasterField((Attribute)newValue);
@@ -345,9 +254,6 @@ public class LinkImpl extends EObjectImpl implements Link {
 			case DomainPackage.LINK__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case DomainPackage.LINK__PARENT:
-				setParent((Relation)null);
-				return;
 			case DomainPackage.LINK__MASTER_FIELD:
 				setMasterField((Attribute)null);
 				return;
@@ -368,8 +274,6 @@ public class LinkImpl extends EObjectImpl implements Link {
 		switch (featureID) {
 			case DomainPackage.LINK__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case DomainPackage.LINK__PARENT:
-				return getParent() != null;
 			case DomainPackage.LINK__MASTER_FIELD:
 				return masterField != null;
 			case DomainPackage.LINK__DETAIL_FIELD:

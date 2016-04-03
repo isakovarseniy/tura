@@ -77,7 +77,6 @@ public class DataControlItemProvider
 
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addBaseTypeRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -127,28 +126,6 @@ public class DataControlItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Base Type Ref feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBaseTypeRefPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataControl_baseTypeRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataControl_baseTypeRef_feature", "_UI_DataControl_type"),
-				 DomainPackage.Literals.DATA_CONTROL__BASE_TYPE_REF,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -160,6 +137,7 @@ public class DataControlItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE);
 			childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__PRE_QUERY_TRIGGER);
 			childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__POST_QUERY_TRIGGER);
 			childrenFeatures.add(DomainPackage.Literals.DATA_CONTROL__PRE_INSERT_TRIGGER);
@@ -233,6 +211,7 @@ public class DataControlItemProvider
 			case DomainPackage.DATA_CONTROL__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case DomainPackage.DATA_CONTROL__BASE_TYPE:
 			case DomainPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
 			case DomainPackage.DATA_CONTROL__POST_QUERY_TRIGGER:
 			case DomainPackage.DATA_CONTROL__PRE_INSERT_TRIGGER:
@@ -263,6 +242,136 @@ public class DataControlItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createTypePointer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createMethodPointer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createTypeMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createJavaMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createJavaScriptMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createTypeReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createAttribute()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createReturnValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createFormParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createViewPortTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createPREFormTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createPREQueryTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createPREInsertTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createPREDeleteTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createPREUpdateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createCreateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createInsertTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createUpdateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createDeleteTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createSearchTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createFormVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 DomainFactory.eINSTANCE.createArtificialField()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -427,8 +536,9 @@ public class DataControlItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_QUERY_TRIGGER ||
+			childFeature == DomainPackage.Literals.DATA_CONTROL__BASE_TYPE ||
 			childFeature == DomainPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH ||
+			childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_QUERY_TRIGGER ||
 			childFeature == DomainPackage.Literals.DATA_CONTROL__POST_QUERY_TRIGGER ||
 			childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_INSERT_TRIGGER ||
 			childFeature == DomainPackage.Literals.DATA_CONTROL__PRE_DELETE_TRIGGER ||
@@ -438,7 +548,8 @@ public class DataControlItemProvider
 			childFeature == DomainPackage.Literals.DATA_CONTROL__INSERT ||
 			childFeature == DomainPackage.Literals.DATA_CONTROL__UPDATE ||
 			childFeature == DomainPackage.Literals.DATA_CONTROL__REMOVE ||
-			childFeature == DomainPackage.Literals.DATA_CONTROL__SEARCH;
+			childFeature == DomainPackage.Literals.DATA_CONTROL__SEARCH ||
+			childFeature == DomainPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS;
 
 		if (qualify) {
 			return getString

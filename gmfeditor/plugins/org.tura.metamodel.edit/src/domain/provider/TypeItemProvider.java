@@ -77,7 +77,6 @@ public class TypeItemProvider extends TypeElementItemProvider {
 			childrenFeatures.add(DomainPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(DomainPackage.Literals.TYPE__ATTRIBUTES);
 			childrenFeatures.add(DomainPackage.Literals.TYPE__OPERATIONS);
-			childrenFeatures.add(DomainPackage.Literals.TYPE__EXTENSION);
 		}
 		return childrenFeatures;
 	}
@@ -136,7 +135,6 @@ public class TypeItemProvider extends TypeElementItemProvider {
 			case DomainPackage.TYPE__CLASSIFIERS:
 			case DomainPackage.TYPE__ATTRIBUTES:
 			case DomainPackage.TYPE__OPERATIONS:
-			case DomainPackage.TYPE__EXTENSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -168,11 +166,6 @@ public class TypeItemProvider extends TypeElementItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.TYPE__OPERATIONS,
 				 DomainFactory.eINSTANCE.createOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.TYPE__EXTENSION,
-				 DomainFactory.eINSTANCE.createTypeExtension()));
 	}
 
 }

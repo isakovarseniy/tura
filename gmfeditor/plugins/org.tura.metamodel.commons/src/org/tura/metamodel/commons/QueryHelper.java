@@ -1384,4 +1384,30 @@ public class QueryHelper {
 
 	}
 
+	public Collection<domain.Generalization> getTypeExtension(domain.Type type ){
+		try {
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper
+					.createQuery("domain::Generalization.allInstances()->select(r|r.oclAsType(domain::Generalization).source.uid ='"
+							+ type.getUid()+ "')");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.Generalization> list = (Collection<domain.Generalization>) ocl.evaluate(type, query);
+
+			return list;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return new ArrayList<domain.Generalization>();
+		}
+
+		
+		
+	}
+	
 }

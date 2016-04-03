@@ -372,14 +372,6 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTypeExtension_104001(Type container,
-				TypeElement source, TypeElement target) {
-			return canExistTypeExtension_104001(container, null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
 		public boolean canExistReferences_104006(TypeDefinition container,
 				References linkInstance, TypeElement source, TypeElement target) {
 			return true;
@@ -399,15 +391,6 @@ public class DomainBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		 */
 		public boolean canExistAssosiation_104007(TypeDefinition container,
 				Assosiation linkInstance, TypeElement source, TypeElement target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistTypeExtension_104001(Type container,
-				TypeExtension linkInstance, TypeElement source,
-				TypeElement target) {
 			return true;
 		}
 	}

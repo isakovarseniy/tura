@@ -272,7 +272,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Typedefinition"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="102002,102001,102004,102005,103001,103002,103005"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="104006,104005,104007,104001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="104006,104005,104007"/>
       </viewProvider>
    </extension>
 
@@ -287,7 +287,7 @@
             <method name="getType()" value="102002,102001,102004,102005,103001,103002,103005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="104006,104005,104007,104001"/>
+            <method name="getType()" value="104006,104005,104007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="105006,105001,105010,105011,105002,105005,105007"/>
@@ -449,16 +449,6 @@
             <param name="semanticHint" value="104007"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://tura.org/2013/v1/domain">
-         <metamodelType
-               id="org.tura.metamodel.diagram.typedefinition.TypeExtension_104001"
-               name="%metatype.name.TypeExtension_104001"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TypeExtension"
-               edithelper="typedefinition.diagram.edit.helpers.TypeExtensionEditHelper">
-            <param name="semanticHint" value="104001"/>
-         </metamodelType>
-      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
@@ -486,7 +476,6 @@
          <elementType ref="org.tura.metamodel.diagram.typedefinition.References_104006"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Generalization_104005"/>
          <elementType ref="org.tura.metamodel.diagram.typedefinition.Assosiation_104007"/>
-         <elementType ref="org.tura.metamodel.diagram.typedefinition.TypeExtension_104001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

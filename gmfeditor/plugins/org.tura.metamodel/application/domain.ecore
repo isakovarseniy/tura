@@ -1039,7 +1039,8 @@
         eType="#//Link" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" eType="#//Attribute"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" eType="#//Attribute"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="many2manyHelper" eType="#//TypeElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="many2manyHelper" eType="#//TypePointer"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1073,8 +1074,6 @@
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extension" upperBound="-1"
-        eType="#//TypeExtension" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeReference" eSuperTypes="#//TypeElement #//TypePointer">
     <eAnnotations source="gmf.node">
@@ -1082,19 +1081,6 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="255,239,222"/>
     </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeExtension" eSuperTypes="#//Categorized">
-    <eAnnotations source="gmf.link">
-      <details key="source" value="source"/>
-      <details key="target" value="target"/>
-      <details key="style" value="dot"/>
-      <details key="width" value="2"/>
-      <details key="target.decoration" value="closedarrow"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//TypeElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TypeElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//TypePointer #//Categorized">
     <eAnnotations source="gmf.node">
@@ -1888,7 +1874,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="baseTypeRef" eType="#//TypePointer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="#//TypePointer"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Controls"
         eOpposite="#//Controls/controls"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preQueryTrigger" eType="#//PREQueryTrigger"
@@ -1994,7 +1981,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="detail" eType="#//DataControl"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTree" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
-        eType="#//Link" containment="true" eOpposite="#//Link/parent"/>
+        eType="#//Link" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dependency">
     <eAnnotations source="gmf.link">
@@ -2026,8 +2013,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Link">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Relation"
-        eOpposite="#//Relation/links"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="masterField" eType="#//Attribute"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="detailField" eType="#//Attribute"/>
   </eClassifiers>

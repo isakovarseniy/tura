@@ -654,11 +654,6 @@ public class ArtifactsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ARTIFACTS__ANY,
-				 DomainFactory.eINSTANCE.createTypeExtension()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.ARTIFACTS__ANY,
 				 DomainFactory.eINSTANCE.createAttribute()));
 
 		newChildDescriptors.add

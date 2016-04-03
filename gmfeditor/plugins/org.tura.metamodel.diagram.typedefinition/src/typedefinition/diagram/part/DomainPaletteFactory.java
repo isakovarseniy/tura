@@ -69,7 +69,6 @@ public class DomainPaletteFactory {
 		paletteContainer.add(createAssosiation1CreationTool());
 		paletteContainer.add(createGeneralization2CreationTool());
 		paletteContainer.add(createReferences3CreationTool());
-		paletteContainer.add(createTypeExtension4CreationTool());
 		return paletteContainer;
 	}
 
@@ -223,22 +222,6 @@ public class DomainPaletteFactory {
 		entry.setId("createReferences3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.References_104006));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createTypeExtension4CreationTool() {
-		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
-				Messages.TypeExtension4CreationTool_title,
-				Messages.TypeExtension4CreationTool_desc,
-				Collections
-						.singletonList(DomainElementTypes.TypeExtension_104001));
-		entry.setId("createTypeExtension4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(DomainElementTypes
-				.getImageDescriptor(DomainElementTypes.TypeExtension_104001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

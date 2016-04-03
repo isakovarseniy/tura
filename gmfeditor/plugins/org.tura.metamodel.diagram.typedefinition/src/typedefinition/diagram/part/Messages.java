@@ -368,16 +368,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String TypeExtension4CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String TypeExtension4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
 	public static String TypeTypeAttributesCompartmentEditPart_title;
 
 	/**
@@ -439,16 +429,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Enumarator_102005_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TypeExtension_104001_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TypeExtension_104001_source;
 
 	/**
 	 * @generated

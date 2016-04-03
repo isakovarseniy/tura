@@ -679,11 +679,6 @@ public class MappersItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MAPPERS__ANY,
-				 DomainFactory.eINSTANCE.createTypeExtension()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.MAPPERS__ANY,
 				 DomainFactory.eINSTANCE.createAttribute()));
 
 		newChildDescriptors.add

@@ -742,7 +742,7 @@ class Assosiation extends RelationShip{
    val Link[*]  links; 
    ref Attribute sourceProperty;  
    ref Attribute targetProperty; 
-   ref TypeElement many2manyHelper;
+   val TypePointer many2manyHelper;
 }
 
 
@@ -765,19 +765,12 @@ class Type extends TypeElement , Categorized{
    val Attribute[*]#parent attributes;
    @gmf.compartment(layout="list")
    val Operation[*]#parent operations;
-   val TypeExtension[*] extension;
 }
 
 @gmf.node(label="fakePackageName,fakeTypeName",border.color="0,0,0",color="255,239,222")
 class TypeReference extends TypeElement , TypePointer{
  }
 
-@gmf.link(source="source", target="target", style="dot", width="2" ,target.decoration="closedarrow")
-class TypeExtension extends Categorized{
-    id attr EString uid;
-    ref TypeElement source;
-    ref TypeElement target;
-}
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
 class Attribute extends  TypePointer, Categorized{
@@ -1367,7 +1360,7 @@ class FormVariable extends TypePointer{
 class DataControl {
     id attr EString uid;
    attr EString name;
-   ref TypePointer baseTypeRef;
+   val TypePointer baseType;
    ref Controls#controls parent;
    @gmf.compartment(layout="list")
    val PREQueryTrigger preQueryTrigger;
@@ -1419,7 +1412,7 @@ class Relation{
    ref DataControl master;
    ref DataControl detail;
    attr EBoolean isTree;
-   val Link[*]#parent links;  
+   val Link[*] links;  
 }
 
 @gmf.link(source="master", target="detail", style="dash", color = "238,16,16" , width="2" , target.decoration="arrow")
@@ -1441,7 +1434,6 @@ class ArtificialField extends TypePointer{
 
 class Link{
     id attr EString uid;
-    ref Relation#links parent;
     ref Attribute masterField;
     ref Attribute detailField;
 }

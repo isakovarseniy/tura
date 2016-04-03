@@ -140,7 +140,7 @@
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifacts">
-    <eAnnotations source="gmf.diagram.artifact"/>
+    <eAnnotations source="gmf.diagram"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
@@ -993,7 +993,53 @@
         eType="#//TypeElement" containment="true" eOpposite="#//TypeElement/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Package"
         eOpposite="#//Package/typedefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationShips" upperBound="-1"
+        eType="#//RelationShip" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="any" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationShip" eSuperTypes="#//Categorized">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//TypeElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TypeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="References" eSuperTypes="#//RelationShip">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="width" value="2"/>
+      <details key="color" value="126,84,9"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Generalization" eSuperTypes="#//RelationShip">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="width" value="2"/>
+      <details key="target.decoration" value="closedarrow"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RelationType">
+    <eLiterals name="One2One"/>
+    <eLiterals name="One2Many" value="1"/>
+    <eLiterals name="Many2Many" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assosiation" eSuperTypes="#//RelationShip">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="width" value="2"/>
+      <details key="source.decoration" value="arrow"/>
+      <details key="target.decoration" value="arrow"/>
+      <details key="color" value="20,126,23"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RelationType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="#//Link" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="many2manyHelper" eType="#//TypePointer"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeElement">
@@ -1028,8 +1074,6 @@
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extension" upperBound="-1"
-        eType="#//TypeExtension" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeReference" eSuperTypes="#//TypeElement #//TypePointer">
     <eAnnotations source="gmf.node">
@@ -1037,19 +1081,6 @@
       <details key="border.color" value="0,0,0"/>
       <details key="color" value="255,239,222"/>
     </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeExtension" eSuperTypes="#//Categorized">
-    <eAnnotations source="gmf.link">
-      <details key="source" value="source"/>
-      <details key="target" value="target"/>
-      <details key="style" value="dot"/>
-      <details key="width" value="2"/>
-      <details key="target.decoration" value="closedarrow"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//TypeElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TypeElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//TypePointer #//Categorized">
     <eAnnotations source="gmf.node">
@@ -1392,7 +1423,7 @@
         eOpposite="#//Controls/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CanvasView">
-    <eAnnotations source="gmf.diagram"/>
+    <eAnnotations source="gmf.diagram.canvas"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ViewArea"
@@ -1843,8 +1874,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseTypeRef" eType="#//TypePointer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="#//TypePointer"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Controls"
         eOpposite="#//Controls/controls"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preQueryTrigger" eType="#//PREQueryTrigger"
@@ -1950,7 +1982,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="detail" eType="#//DataControl"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTree" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
-        eType="#//Link" containment="true" eOpposite="#//Link/parent"/>
+        eType="#//Link" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dependency">
     <eAnnotations source="gmf.link">
@@ -1982,8 +2014,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Link">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Relation"
-        eOpposite="#//Relation/links"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="masterField" eType="#//Attribute"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="detailField" eType="#//Attribute"/>
   </eClassifiers>

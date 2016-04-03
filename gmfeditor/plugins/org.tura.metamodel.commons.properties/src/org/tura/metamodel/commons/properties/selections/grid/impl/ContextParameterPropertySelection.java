@@ -13,7 +13,6 @@
 package org.tura.metamodel.commons.properties.selections.grid.impl;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -21,6 +20,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.properties.selections.adapters.textdata.ContextParameterParameterRefName;
 import org.tura.metamodel.commons.properties.selections.grid.DataSource;
 import org.tura.metamodel.commons.properties.selections.grid.GridColumn;
@@ -90,8 +90,8 @@ public abstract class ContextParameterPropertySelection extends ContextValueProp
 				type = ((TypeReference) type).getTypeRef();
 
 			if (type instanceof Type) {
-				for (Iterator<domain.TypeExtension> itr = ((Type) type).getExtension().iterator(); itr.hasNext();) {
-					TypeElement typeElement = itr.next().getTarget();
+				for (domain.Generalization ext : new QueryHelper().getTypeExtension((Type)type)) {
+					TypeElement typeElement =ext.getTarget();
 					if (typeElement instanceof Type) {
 						if (checkType(param, typeElement,model)) {
 							return true;

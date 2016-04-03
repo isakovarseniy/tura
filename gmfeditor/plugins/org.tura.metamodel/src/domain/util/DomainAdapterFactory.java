@@ -631,10 +631,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createTypeReferenceAdapter();
 			}
 			@Override
-			public Adapter caseTypeExtension(TypeExtension object) {
-				return createTypeExtensionAdapter();
-			}
-			@Override
 			public Adapter caseAttribute(Attribute object) {
 				return createAttributeAdapter();
 			}
@@ -2315,20 +2311,6 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link domain.TypeExtension <em>Type Extension</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see domain.TypeExtension
-	 * @generated
-	 */
-	public Adapter createTypeExtensionAdapter() {
 		return null;
 	}
 

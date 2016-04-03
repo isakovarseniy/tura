@@ -39,7 +39,6 @@ import typedefinition.diagram.edit.parts.PrimitiveEditPart;
 import typedefinition.diagram.edit.parts.ReferencesEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
-import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.part.DomainDiagramEditorPlugin;
 import domain.DomainPackage;
@@ -122,11 +121,6 @@ public class DomainElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType TypeExtension_104001 = getElementType("org.tura.metamodel.diagram.typedefinition.TypeExtension_104001"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
@@ -193,9 +187,6 @@ public class DomainElementTypes {
 
 			elements.put(Assosiation_104007,
 					DomainPackage.eINSTANCE.getAssosiation());
-
-			elements.put(TypeExtension_104001,
-					DomainPackage.eINSTANCE.getTypeExtension());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -224,7 +215,6 @@ public class DomainElementTypes {
 			KNOWN_ELEMENT_TYPES.add(References_104006);
 			KNOWN_ELEMENT_TYPES.add(Generalization_104005);
 			KNOWN_ELEMENT_TYPES.add(Assosiation_104007);
-			KNOWN_ELEMENT_TYPES.add(TypeExtension_104001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -256,8 +246,6 @@ public class DomainElementTypes {
 			return Generalization_104005;
 		case AssosiationEditPart.VISUAL_ID:
 			return Assosiation_104007;
-		case TypeExtensionEditPart.VISUAL_ID:
-			return TypeExtension_104001;
 		}
 		return null;
 	}

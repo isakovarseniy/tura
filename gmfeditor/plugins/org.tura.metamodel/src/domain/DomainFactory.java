@@ -808,15 +808,6 @@ public interface DomainFactory extends EFactory {
 	TypeReference createTypeReference();
 
 	/**
-	 * Returns a new object of class '<em>Type Extension</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Type Extension</em>'.
-	 * @generated
-	 */
-	TypeExtension createTypeExtension();
-
-	/**
 	 * Returns a new object of class '<em>Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -661,11 +661,6 @@ public class RolesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.ROLES__ANY,
-				 DomainFactory.eINSTANCE.createTypeExtension()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.ROLES__ANY,
 				 DomainFactory.eINSTANCE.createAttribute()));
 
 		newChildDescriptors.add

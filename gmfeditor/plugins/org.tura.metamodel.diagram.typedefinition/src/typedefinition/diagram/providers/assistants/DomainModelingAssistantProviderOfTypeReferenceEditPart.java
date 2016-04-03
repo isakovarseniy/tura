@@ -50,11 +50,10 @@ public class DomainModelingAssistantProviderOfTypeReferenceEditPart extends
 	 * @generated
 	 */
 	public List<IElementType> doGetRelTypesOnSource(TypeReferenceEditPart source) {
-		List<IElementType> types = new ArrayList<IElementType>(4);
+		List<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(DomainElementTypes.References_104006);
 		types.add(DomainElementTypes.Generalization_104005);
 		types.add(DomainElementTypes.Assosiation_104007);
-		types.add(DomainElementTypes.TypeExtension_104001);
 		return types;
 	}
 
@@ -114,18 +113,6 @@ public class DomainModelingAssistantProviderOfTypeReferenceEditPart extends
 		if (targetEditPart instanceof EnumaratorEditPart) {
 			types.add(DomainElementTypes.Assosiation_104007);
 		}
-		if (targetEditPart instanceof TypeEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		if (targetEditPart instanceof TypeReferenceEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		if (targetEditPart instanceof PrimitiveEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
-		if (targetEditPart instanceof EnumaratorEditPart) {
-			types.add(DomainElementTypes.TypeExtension_104001);
-		}
 		return types;
 	}
 
@@ -162,11 +149,6 @@ public class DomainModelingAssistantProviderOfTypeReferenceEditPart extends
 			types.add(DomainElementTypes.TypeReference_102001);
 			types.add(DomainElementTypes.Primitive_102004);
 			types.add(DomainElementTypes.Enumarator_102005);
-		} else if (relationshipType == DomainElementTypes.TypeExtension_104001) {
-			types.add(DomainElementTypes.Type_102002);
-			types.add(DomainElementTypes.TypeReference_102001);
-			types.add(DomainElementTypes.Primitive_102004);
-			types.add(DomainElementTypes.Enumarator_102005);
 		}
 		return types;
 	}
@@ -185,11 +167,10 @@ public class DomainModelingAssistantProviderOfTypeReferenceEditPart extends
 	 * @generated
 	 */
 	public List<IElementType> doGetRelTypesOnTarget(TypeReferenceEditPart target) {
-		List<IElementType> types = new ArrayList<IElementType>(4);
+		List<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(DomainElementTypes.References_104006);
 		types.add(DomainElementTypes.Generalization_104005);
 		types.add(DomainElementTypes.Assosiation_104007);
-		types.add(DomainElementTypes.TypeExtension_104001);
 		return types;
 	}
 
@@ -222,11 +203,6 @@ public class DomainModelingAssistantProviderOfTypeReferenceEditPart extends
 			types.add(DomainElementTypes.Primitive_102004);
 			types.add(DomainElementTypes.Enumarator_102005);
 		} else if (relationshipType == DomainElementTypes.Assosiation_104007) {
-			types.add(DomainElementTypes.Type_102002);
-			types.add(DomainElementTypes.TypeReference_102001);
-			types.add(DomainElementTypes.Primitive_102004);
-			types.add(DomainElementTypes.Enumarator_102005);
-		} else if (relationshipType == DomainElementTypes.TypeExtension_104001) {
 			types.add(DomainElementTypes.Type_102002);
 			types.add(DomainElementTypes.TypeReference_102001);
 			types.add(DomainElementTypes.Primitive_102004);

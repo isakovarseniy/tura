@@ -696,11 +696,6 @@ public class TypeDefinitionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
-				 DomainFactory.eINSTANCE.createTypeExtension()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.TYPE_DEFINITION__ANY,
 				 DomainFactory.eINSTANCE.createAttribute()));
 
 		newChildDescriptors.add

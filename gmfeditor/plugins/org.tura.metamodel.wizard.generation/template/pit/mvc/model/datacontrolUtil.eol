@@ -209,7 +209,7 @@ operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataContr
 
 operation domain::DataControl getBaseClass(recipe:Recipe, ingredient :Ingredient)  : domain::Type{
 
-       var base = self.baseTypeRef.typeRef;
+       var base = self.baseType.typeRef;
        base.mappingType2Java(recipe,ingredient);
        return base;
  

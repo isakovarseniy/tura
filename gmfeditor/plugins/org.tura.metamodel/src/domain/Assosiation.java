@@ -123,29 +123,29 @@ public interface Assosiation extends RelationShip {
 	void setTargetProperty(Attribute value);
 
 	/**
-	 * Returns the value of the '<em><b>Many2many Helper</b></em>' reference.
+	 * Returns the value of the '<em><b>Many2many Helper</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Many2many Helper</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Many2many Helper</em>' reference.
-	 * @see #setMany2manyHelper(TypeElement)
+	 * @return the value of the '<em>Many2many Helper</em>' containment reference.
+	 * @see #setMany2manyHelper(TypePointer)
 	 * @see domain.DomainPackage#getAssosiation_Many2manyHelper()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	TypeElement getMany2manyHelper();
+	TypePointer getMany2manyHelper();
 
 	/**
-	 * Sets the value of the '{@link domain.Assosiation#getMany2manyHelper <em>Many2many Helper</em>}' reference.
+	 * Sets the value of the '{@link domain.Assosiation#getMany2manyHelper <em>Many2many Helper</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Many2many Helper</em>' reference.
+	 * @param value the new value of the '<em>Many2many Helper</em>' containment reference.
 	 * @see #getMany2manyHelper()
 	 * @generated
 	 */
-	void setMany2manyHelper(TypeElement value);
+	void setMany2manyHelper(TypePointer value);
 
 } // Assosiation

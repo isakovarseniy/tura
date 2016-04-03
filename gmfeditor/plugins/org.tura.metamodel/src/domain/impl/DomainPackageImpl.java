@@ -851,13 +851,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass typeExtensionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass attributeEClass = null;
 
 	/**
@@ -5206,53 +5199,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getType_Extension() {
-		return (EReference)typeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTypeReference() {
 		return typeReferenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTypeExtension() {
-		return typeExtensionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTypeExtension_Uid() {
-		return (EAttribute)typeExtensionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypeExtension_Source() {
-		return (EReference)typeExtensionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypeExtension_Target() {
-		return (EReference)typeExtensionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -7609,7 +7557,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_BaseTypeRef() {
+	public EReference getDataControl_BaseType() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -7978,7 +7926,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLink_Parent() {
+	public EReference getLink_MasterField() {
 		return (EReference)linkEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -7987,17 +7935,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLink_MasterField() {
-		return (EReference)linkEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getLink_DetailField() {
-		return (EReference)linkEClass.getEStructuralFeatures().get(3);
+		return (EReference)linkEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -9116,14 +9055,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		typeEClass = createEClass(TYPE);
 		createEReference(typeEClass, TYPE__ATTRIBUTES);
 		createEReference(typeEClass, TYPE__OPERATIONS);
-		createEReference(typeEClass, TYPE__EXTENSION);
 
 		typeReferenceEClass = createEClass(TYPE_REFERENCE);
-
-		typeExtensionEClass = createEClass(TYPE_EXTENSION);
-		createEAttribute(typeExtensionEClass, TYPE_EXTENSION__UID);
-		createEReference(typeExtensionEClass, TYPE_EXTENSION__SOURCE);
-		createEReference(typeExtensionEClass, TYPE_EXTENSION__TARGET);
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__UID);
@@ -9473,7 +9406,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		dataControlEClass = createEClass(DATA_CONTROL);
 		createEAttribute(dataControlEClass, DATA_CONTROL__UID);
 		createEAttribute(dataControlEClass, DATA_CONTROL__NAME);
-		createEReference(dataControlEClass, DATA_CONTROL__BASE_TYPE_REF);
+		createEReference(dataControlEClass, DATA_CONTROL__BASE_TYPE);
 		createEReference(dataControlEClass, DATA_CONTROL__PARENT);
 		createEReference(dataControlEClass, DATA_CONTROL__PRE_QUERY_TRIGGER);
 		createEReference(dataControlEClass, DATA_CONTROL__POST_QUERY_TRIGGER);
@@ -9520,7 +9453,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		linkEClass = createEClass(LINK);
 		createEAttribute(linkEClass, LINK__UID);
-		createEReference(linkEClass, LINK__PARENT);
 		createEReference(linkEClass, LINK__MASTER_FIELD);
 		createEReference(linkEClass, LINK__DETAIL_FIELD);
 
@@ -9678,7 +9610,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		typeEClass.getESuperTypes().add(this.getCategorized());
 		typeReferenceEClass.getESuperTypes().add(this.getTypeElement());
 		typeReferenceEClass.getESuperTypes().add(this.getTypePointer());
-		typeExtensionEClass.getESuperTypes().add(this.getCategorized());
 		attributeEClass.getESuperTypes().add(this.getTypePointer());
 		attributeEClass.getESuperTypes().add(this.getCategorized());
 		operationEClass.getESuperTypes().add(this.getSecured());
@@ -10277,7 +10208,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getAssosiation_Links(), this.getLink(), null, "links", null, 0, -1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssosiation_SourceProperty(), this.getAttribute(), null, "sourceProperty", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssosiation_TargetProperty(), this.getAttribute(), null, "targetProperty", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssosiation_Many2manyHelper(), this.getTypeElement(), null, "many2manyHelper", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssosiation_Many2manyHelper(), this.getTypePointer(), null, "many2manyHelper", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeElementEClass, TypeElement.class, "TypeElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypeElement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10289,14 +10220,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getType_Attributes(), this.getAttribute(), this.getAttribute_Parent(), "attributes", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getType_Operations(), this.getOperation(), this.getOperation_Parent(), "operations", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_Extension(), this.getTypeExtension(), null, "extension", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeReferenceEClass, TypeReference.class, "TypeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(typeExtensionEClass, TypeExtension.class, "TypeExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTypeExtension_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TypeExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypeExtension_Source(), this.getTypeElement(), null, "source", null, 0, 1, TypeExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypeExtension_Target(), this.getTypeElement(), null, "target", null, 0, 1, TypeExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10646,7 +10571,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(dataControlEClass, DataControl.class, "DataControl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataControl_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataControl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataControl_BaseTypeRef(), this.getTypePointer(), null, "baseTypeRef", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataControl_BaseType(), this.getTypePointer(), null, "baseType", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_Parent(), this.getControls(), this.getControls_Controls(), "parent", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PreQueryTrigger(), this.getPREQueryTrigger(), null, "preQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PostQueryTrigger(), this.getPOSTQueryTrigger(), null, "postQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10678,7 +10603,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEReference(getRelation_Master(), this.getDataControl(), null, "master", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_Detail(), this.getDataControl(), null, "detail", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRelation_IsTree(), ecorePackage.getEBoolean(), "isTree", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelation_Links(), this.getLink(), this.getLink_Parent(), "links", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelation_Links(), this.getLink(), null, "links", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDependency_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10693,7 +10618,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLink_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLink_Parent(), this.getRelation(), this.getRelation_Links(), "parent", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_MasterField(), this.getAttribute(), null, "masterField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_DetailField(), this.getAttribute(), null, "detailField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -12304,16 +12228,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "source.decoration", "arrow",
 			 "target.decoration", "arrow",
 			 "color", "20,126,23"
-		   });	
-		addAnnotation
-		  (typeExtensionEClass, 
-		   source, 
-		   new String[] {
-			 "source", "source",
-			 "target", "target",
-			 "style", "dot",
-			 "width", "2",
-			 "target.decoration", "closedarrow"
 		   });	
 		addAnnotation
 		  (viewInheritanceEClass, 

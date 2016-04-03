@@ -13,7 +13,7 @@
 package org.tura.metamodel.commons.properties.selections.grid.impl;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +32,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.adapters.dropdown.OrderedByOrder;
 import org.tura.metamodel.commons.properties.selections.adapters.dropdown.OrderedByRefId;
@@ -157,9 +158,10 @@ public class DefaultOrderByPropertySelection extends GridProperty {
 	public List<domain.Attribute> initOptions(domain.Type type) {
 		List<domain.Attribute> attrs = new ArrayList<>();
 
-		if (type.getExtension().size() != 0) {
-			for (Iterator<domain.TypeExtension> itr = type.getExtension().iterator(); itr.hasNext();) {
-				TypeElement typeElement = itr.next().getTarget();
+		Collection<domain.Generalization> ls =  new QueryHelper().getTypeExtension(type);
+		if (ls.size() != 0) {
+			for (domain.Generalization ext : ls ) {
+				TypeElement typeElement = ext.getTarget();
 				if (typeElement instanceof domain.Type)
 					attrs.addAll(initOptions((Type) typeElement));
 

@@ -13,72 +13,9 @@
 		<epsilon.eol>
 			<model ref="M"/>
 			<![CDATA[
-			   var i = 0;
-			   var k = 0;
 				for (dc in domain::DataControl.all){
-				
-				i.print();
-				"-------------------- ".print();
-				dc.name.print();
-				" --------------------".println();
-							
-			
-			   var trigger = dc.create;
-			   var prm =  trigger.parameters->select(q|q.refObj.name = 'method').first();
-			   trigger.parameters.remove(prm);
-			   
-			   "--- ".print();
-			   k.print();
-			   " --- ".print();
-			   prm.println();
-			   k= k+1;
-			
-			
-			   var trigger = dc.insert;
-			   var prm =  trigger.parameters->select(q|q.refObj.name = 'method').first();
-			   trigger.parameters.remove(prm);
-
-			   "--- ".print();
-			   k.print();
-			   " --- ".print();
-			   prm.println();
-			   k= k+1;
-
-			   var trigger = dc.update;
-			   var prm =  trigger.parameters->select(q|q.refObj.name = 'method').first();
-			   trigger.parameters.remove(prm);
-
-			   "--- ".print();
-			   k.print();
-			   " --- ".print();
-			   prm.println();
-			   k= k+1;
-
-			   var trigger = dc.remove;
-			   var prm =  trigger.parameters->select(q|q.refObj.name = 'method').first();
-			   trigger.parameters.remove(prm);
-
-			   "--- ".print();
-			   k.print();
-			   " --- ".print();
-			   prm.println();
-			   k= k+1;
-
-			   var trigger = dc.search;
-			   var prm =  trigger.parameters->select(q|q.refObj.name = 'method').first();
-			   trigger.parameters.remove(prm);
-
-			   "--- ".print();
-			   k.print();
-			   " --- ".print();
-			   prm.println();
-			   k= k+1;
-			
-			
-			i = i+1;
-
-
-			}
+			       dc.baseType=dc.baseTypeRef;
+  			    }
 			]]>
 		</epsilon.eol>
 	</target>

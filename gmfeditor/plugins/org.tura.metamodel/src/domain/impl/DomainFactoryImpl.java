@@ -368,7 +368,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.PRIMITIVE: return createPrimitive();
 			case DomainPackage.TYPE: return createType();
 			case DomainPackage.TYPE_REFERENCE: return createTypeReference();
-			case DomainPackage.TYPE_EXTENSION: return createTypeExtension();
 			case DomainPackage.ATTRIBUTE: return createAttribute();
 			case DomainPackage.OPERATION: return createOperation();
 			case DomainPackage.PARAMETER: return createParameter();
@@ -1393,16 +1392,6 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public TypeReference createTypeReference() {
 		TypeReferenceImpl typeReference = new TypeReferenceImpl();
 		return typeReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TypeExtension createTypeExtension() {
-		TypeExtensionImpl typeExtension = new TypeExtensionImpl();
-		return typeExtension;
 	}
 
 	/**

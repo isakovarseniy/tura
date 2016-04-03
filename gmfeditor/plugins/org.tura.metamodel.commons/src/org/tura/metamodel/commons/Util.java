@@ -67,7 +67,7 @@ public class Util {
 	}
 
 	public static domain.TypeElement getBase(domain.DataControl dc) {
-		return dc.getBaseTypeRef().getTypeRef();
+		return dc.getBaseType().getTypeRef();
 	}
 
 	public static boolean ifDataControlIsTreeRoot(domain.DataControl dc,

@@ -25,13 +25,6 @@
         <template x="-2" y="-2"/>
         <template/>
       </figures>
-      <figures xsi:type="gmfgraph:PolygonDecoration" name="ClosedArrow">
-        <backgroundColor xsi:type="gmfgraph:ConstantColor"/>
-        <template/>
-        <template x="-2" y="2"/>
-        <template x="-2" y="-2"/>
-        <template/>
-      </figures>
       <figures xsi:type="gmfgraph:PolylineDecoration" name="TabPagesInheritanceFigureTargetDecoration"/>
       <figures xsi:type="gmfgraph:PolygonDecoration" name="ClosedArrow">
         <backgroundColor xsi:type="gmfgraph:ConstantColor"/>
@@ -1591,30 +1584,27 @@
           <foregroundColor xsi:type="gmfgraph:RGBColor" red="20" green="126" blue="23"/>
         </actualFigure>
       </descriptors>
-      <descriptors name="TypeExtensionFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TypeExtensionFigure" lineWidth="2" lineKind="LINE_DOT" targetDecoration="/0/@figures.0/@figures.4"/>
-      </descriptors>
       <descriptors name="ViewInheritanceFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ViewInheritanceFigure" lineWidth="2" lineKind="LINE_DOT" targetDecoration="/0/@figures.0/@figures.5">
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ViewInheritanceFigure" lineWidth="2" lineKind="LINE_DOT" targetDecoration="/0/@figures.0/@figures.4">
           <foregroundColor xsi:type="gmfgraph:RGBColor" red="80" green="195" blue="63"/>
         </actualFigure>
       </descriptors>
       <descriptors name="TabPagesInheritanceFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TabPagesInheritanceFigure" lineWidth="2" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.6">
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TabPagesInheritanceFigure" lineWidth="2" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.5">
           <foregroundColor xsi:type="gmfgraph:RGBColor" red="238" green="16" blue="16"/>
         </actualFigure>
       </descriptors>
       <descriptors name="LinkToMessageFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="LinkToMessageFigure" lineWidth="2" lineKind="LINE_DOT" targetDecoration="/0/@figures.0/@figures.7"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="LinkToMessageFigure" lineWidth="2" lineKind="LINE_DOT" targetDecoration="/0/@figures.0/@figures.6"/>
       </descriptors>
       <descriptors name="LinkToLabelFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="LinkToLabelFigure" lineWidth="2" lineKind="LINE_DOT" targetDecoration="/0/@figures.0/@figures.8"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="LinkToLabelFigure" lineWidth="2" lineKind="LINE_DOT" targetDecoration="/0/@figures.0/@figures.7"/>
       </descriptors>
       <descriptors name="RelationFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RelationFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.9"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RelationFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.8"/>
       </descriptors>
       <descriptors name="DependencyFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="DependencyFigure" lineWidth="2" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.10">
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="DependencyFigure" lineWidth="2" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.9">
           <foregroundColor xsi:type="gmfgraph:RGBColor" red="238" green="16" blue="16"/>
         </actualFigure>
       </descriptors>
@@ -1622,7 +1612,7 @@
         <actualFigure xsi:type="gmfgraph:PolylineConnection" name="InfrastructureConnectionFigure" lineWidth="2"/>
       </descriptors>
       <descriptors name="GroupGroup2GroupFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="GroupGroup2GroupFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.11"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="GroupGroup2GroupFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.10"/>
       </descriptors>
       <descriptors name="GroupGroup2GroupExternalLabelFigure">
         <actualFigure xsi:type="gmfgraph:Label" name="GroupGroup2GroupExternalLabel">
@@ -1630,7 +1620,7 @@
         </actualFigure>
       </descriptors>
       <descriptors name="GroupGroup2RoleFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="GroupGroup2RoleFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.12"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="GroupGroup2RoleFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.11"/>
       </descriptors>
       <descriptors name="GroupGroup2RoleExternalLabelFigure">
         <actualFigure xsi:type="gmfgraph:Label" name="GroupGroup2RoleExternalLabel">
@@ -1638,7 +1628,7 @@
         </actualFigure>
       </descriptors>
       <descriptors name="DeploymentComponentDeploymentComponentLinkFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="DeploymentComponentDeploymentComponentLinkFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.13"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="DeploymentComponentDeploymentComponentLinkFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.12"/>
       </descriptors>
       <descriptors name="DeploymentComponentDeploymentComponentLinkExternalLabelFigure">
         <actualFigure xsi:type="gmfgraph:Label" name="DeploymentComponentDeploymentComponentLinkExternalLabel">
@@ -1646,7 +1636,7 @@
         </actualFigure>
       </descriptors>
       <descriptors name="DeploymentStarStepFirstStepFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="DeploymentStarStepFirstStepFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.14"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="DeploymentStarStepFirstStepFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.13"/>
       </descriptors>
       <descriptors name="DeploymentStarStepFirstStepExternalLabelFigure">
         <actualFigure xsi:type="gmfgraph:Label" name="DeploymentStarStepFirstStepExternalLabel">
@@ -1654,7 +1644,7 @@
         </actualFigure>
       </descriptors>
       <descriptors name="RecipeInfrastructuresFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RecipeInfrastructuresFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.15"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RecipeInfrastructuresFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.14"/>
       </descriptors>
       <descriptors name="RecipeInfrastructuresExternalLabelFigure">
         <actualFigure xsi:type="gmfgraph:Label" name="RecipeInfrastructuresExternalLabel">
@@ -1662,7 +1652,7 @@
         </actualFigure>
       </descriptors>
       <descriptors name="RecipeDeploymentFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RecipeDeploymentFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.16"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RecipeDeploymentFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.15"/>
       </descriptors>
       <descriptors name="RecipeDeploymentExternalLabelFigure">
         <actualFigure xsi:type="gmfgraph:Label" name="RecipeDeploymentExternalLabel">
@@ -1670,7 +1660,7 @@
         </actualFigure>
       </descriptors>
       <descriptors name="InfrastructureRecipeConfigFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="InfrastructureRecipeConfigFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.17"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="InfrastructureRecipeConfigFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.16"/>
       </descriptors>
       <descriptors name="InfrastructureRecipeConfigExternalLabelFigure">
         <actualFigure xsi:type="gmfgraph:Label" name="InfrastructureRecipeConfigExternalLabel">
@@ -1678,7 +1668,7 @@
         </actualFigure>
       </descriptors>
       <descriptors name="SubMenuToSubmenuFigure">
-        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="SubMenuToSubmenuFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.18"/>
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="SubMenuToSubmenuFigure" lineKind="LINE_DASH" targetDecoration="/0/@figures.0/@figures.17"/>
       </descriptors>
       <descriptors name="SubMenuToSubmenuExternalLabelFigure">
         <actualFigure xsi:type="gmfgraph:Label" name="SubMenuToSubmenuExternalLabel">
@@ -1806,7 +1796,6 @@
     <connections name="References" figure="ReferencesFigure"/>
     <connections name="Generalization" figure="GeneralizationFigure"/>
     <connections name="Assosiation" figure="AssosiationFigure"/>
-    <connections name="TypeExtension" figure="TypeExtensionFigure"/>
     <connections name="ViewInheritance" figure="ViewInheritanceFigure"/>
     <connections name="TabPagesInheritance" figure="TabPagesInheritanceFigure"/>
     <connections name="LinkToMessage" figure="LinkToMessageFigure"/>

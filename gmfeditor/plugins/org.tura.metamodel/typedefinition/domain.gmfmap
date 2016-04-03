@@ -219,23 +219,6 @@
         xsi:type="ecore:EReference"
         href="domain.ecore#//RelationShip/target"/>
   </links>
-  <links>
-    <domainMetaElement
-        href="domain.ecore#//TypeExtension"/>
-    <containmentFeature
-        href="domain.ecore#//Type/extension"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="domain.gmftool#//@palette/@tools.1/@tools.3"/>
-    <diagramLink
-        href="domain.gmfgraph#TypeExtension"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="domain.ecore#//TypeExtension/source"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="domain.ecore#//TypeExtension/target"/>
-  </links>
   <diagram>
     <diagramCanvas
         href="domain.gmfgraph#domain"/>

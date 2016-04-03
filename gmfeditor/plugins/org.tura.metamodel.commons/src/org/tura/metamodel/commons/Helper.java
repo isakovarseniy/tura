@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 import domain.Type;
-import domain.TypeExtension;
 
 public class Helper {
 
@@ -37,12 +36,8 @@ public class Helper {
 					attributes.put(key, attribute);
 			}
 
-			if (type.getExtension() != null) {
-				for (Iterator<TypeExtension> itr = type.getExtension()
-						.iterator(); itr.hasNext();) {
-					domain.TypeExtension ext = itr.next();
-					addOperations(operations, attributes, ext.getTarget());
-				}
+			for (domain.Generalization ext :  new QueryHelper().getTypeExtension(type)) {
+				addOperations(operations, attributes, ext.getTarget());
 			}
 		}
 

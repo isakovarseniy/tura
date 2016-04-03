@@ -2062,29 +2062,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link domain.TypeExtension} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TypeExtensionItemProvider typeExtensionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link domain.TypeExtension}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTypeExtensionAdapter() {
-		if (typeExtensionItemProvider == null) {
-			typeExtensionItemProvider = new TypeExtensionItemProvider(this);
-		}
-
-		return typeExtensionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link domain.Attribute} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4914,7 +4891,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (primitiveItemProvider != null) primitiveItemProvider.dispose();
 		if (typeItemProvider != null) typeItemProvider.dispose();
 		if (typeReferenceItemProvider != null) typeReferenceItemProvider.dispose();
-		if (typeExtensionItemProvider != null) typeExtensionItemProvider.dispose();
 		if (attributeItemProvider != null) attributeItemProvider.dispose();
 		if (operationItemProvider != null) operationItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();

@@ -45,7 +45,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.TypeImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link domain.impl.TypeImpl#getOperations <em>Operations</em>}</li>
- *   <li>{@link domain.impl.TypeImpl#getExtension <em>Extension</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,16 +80,6 @@ public class TypeImpl extends TypeElementImpl implements Type {
 	 * @ordered
 	 */
 	protected EList<Operation> operations;
-
-	/**
-	 * The cached value of the '{@link #getExtension() <em>Extension</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExtension()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TypeExtension> extension;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,18 +141,6 @@ public class TypeImpl extends TypeElementImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TypeExtension> getExtension() {
-		if (extension == null) {
-			extension = new EObjectContainmentEList<TypeExtension>(TypeExtension.class, this, DomainPackage.TYPE__EXTENSION);
-		}
-		return extension;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -190,8 +167,6 @@ public class TypeImpl extends TypeElementImpl implements Type {
 				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 			case DomainPackage.TYPE__OPERATIONS:
 				return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
-			case DomainPackage.TYPE__EXTENSION:
-				return ((InternalEList<?>)getExtension()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -210,8 +185,6 @@ public class TypeImpl extends TypeElementImpl implements Type {
 				return getAttributes();
 			case DomainPackage.TYPE__OPERATIONS:
 				return getOperations();
-			case DomainPackage.TYPE__EXTENSION:
-				return getExtension();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -237,10 +210,6 @@ public class TypeImpl extends TypeElementImpl implements Type {
 				getOperations().clear();
 				getOperations().addAll((Collection<? extends Operation>)newValue);
 				return;
-			case DomainPackage.TYPE__EXTENSION:
-				getExtension().clear();
-				getExtension().addAll((Collection<? extends TypeExtension>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -262,9 +231,6 @@ public class TypeImpl extends TypeElementImpl implements Type {
 			case DomainPackage.TYPE__OPERATIONS:
 				getOperations().clear();
 				return;
-			case DomainPackage.TYPE__EXTENSION:
-				getExtension().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -283,8 +249,6 @@ public class TypeImpl extends TypeElementImpl implements Type {
 				return attributes != null && !attributes.isEmpty();
 			case DomainPackage.TYPE__OPERATIONS:
 				return operations != null && !operations.isEmpty();
-			case DomainPackage.TYPE__EXTENSION:
-				return extension != null && !extension.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

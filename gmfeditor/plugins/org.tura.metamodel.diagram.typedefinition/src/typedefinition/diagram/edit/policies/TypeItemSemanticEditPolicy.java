@@ -36,14 +36,11 @@ import typedefinition.diagram.edit.commands.GeneralizationCreateCommand;
 import typedefinition.diagram.edit.commands.GeneralizationReorientCommand;
 import typedefinition.diagram.edit.commands.ReferencesCreateCommand;
 import typedefinition.diagram.edit.commands.ReferencesReorientCommand;
-import typedefinition.diagram.edit.commands.TypeExtensionCreateCommand;
-import typedefinition.diagram.edit.commands.TypeExtensionReorientCommand;
 import typedefinition.diagram.edit.parts.AssosiationEditPart;
 import typedefinition.diagram.edit.parts.AttributeEditPart;
 import typedefinition.diagram.edit.parts.GeneralizationEditPart;
 import typedefinition.diagram.edit.parts.OperationEditPart;
 import typedefinition.diagram.edit.parts.ReferencesEditPart;
-import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeAttributesCompartmentEditPart;
 import typedefinition.diagram.edit.parts.TypeTypeOperationsCompartmentEditPart;
 import typedefinition.diagram.part.DomainVisualIDRegistry;
@@ -93,13 +90,6 @@ public class TypeItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
-			if (DomainVisualIDRegistry.getVisualID(incomingLink) == TypeExtensionEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						incomingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
@@ -118,13 +108,6 @@ public class TypeItemSemanticEditPolicy extends
 				continue;
 			}
 			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == AssosiationEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						outgoingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			}
-			if (DomainVisualIDRegistry.getVisualID(outgoingLink) == TypeExtensionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -214,10 +197,6 @@ public class TypeItemSemanticEditPolicy extends
 			return getGEFWrapper(new AssosiationCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (DomainElementTypes.TypeExtension_104001 == req.getElementType()) {
-			return getGEFWrapper(new TypeExtensionCreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
 		return null;
 	}
 
@@ -238,10 +217,6 @@ public class TypeItemSemanticEditPolicy extends
 			return getGEFWrapper(new AssosiationCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (DomainElementTypes.TypeExtension_104001 == req.getElementType()) {
-			return getGEFWrapper(new TypeExtensionCreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
 		return null;
 	}
 
@@ -260,8 +235,6 @@ public class TypeItemSemanticEditPolicy extends
 			return getGEFWrapper(new GeneralizationReorientCommand(req));
 		case AssosiationEditPart.VISUAL_ID:
 			return getGEFWrapper(new AssosiationReorientCommand(req));
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getGEFWrapper(new TypeExtensionReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

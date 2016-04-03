@@ -49,6 +49,18 @@
              id="property.tab.domain.classifier"
              label="Classifier"/>
 
+          <propertyTab
+             afterTab="property.tab.domain.classifier"
+             category="domain"
+             id="property.tab.domain.masterdetail"
+             label="Relation"/>
+
+         <propertyTab
+             afterTab="property.tab.domain.masterdetail"
+             category="domain"
+             id="property.tab.domain.helper"
+             label="Helper"/>
+
 
       </propertyTabs>
    </extension>
@@ -71,7 +83,6 @@
                class="org.tura.metamodel.commons.properties.selections.grid.impl.CategorizedPropertySelection"
                id="org.tura.metamodel.typedefinition.classifier">
               <input type="typedefinition.diagram.edit.parts.TypeEditPart"/>
-              <input type="typedefinition.diagram.edit.parts.TypeExtensionEditPart"/>
 
               <input type="typedefinition.diagram.edit.parts.AssosiationEditPart"/>
               <input type="typedefinition.diagram.edit.parts.GeneralizationEditPart"/>
@@ -80,6 +91,31 @@
               <input type="typedefinition.diagram.edit.parts.AttributeEditPart"/>
               <input type="typedefinition.diagram.edit.parts.OperationEditPart"/>
            </propertySection>        
+
+
+         <propertySection
+               tab="property.tab.domain.masterdetail"
+               class="org.tura.metamodel.commons.properties.selections.grid.impl.AssosiationMasterDetailPropertySelection"
+               id="org.tura.metamodel.typedefinition.masterdetail">
+              <input type="typedefinition.diagram.edit.parts.AssosiationEditPart"/>
+           </propertySection>        
+
+         <propertySection
+               tab="property.tab.domain.helper"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.AssosiationTypePropertySelection"
+               id="org.tura.metamodel.typedefinition.helper.type">
+              <input type="typedefinition.diagram.edit.parts.AssosiationEditPart"/>
+           </propertySection>        
+
+
+         <propertySection
+               tab="property.tab.domain.helper"
+               class="org.tura.metamodel.commons.properties.selections.dropdown.AssosiationPackagePropertySelection"
+               id="org.tura.metamodel.typedefinition.helper.package">
+              <input type="typedefinition.diagram.edit.parts.AssosiationEditPart"/>
+           </propertySection>        
+
+
 
 
           <propertySection

@@ -842,13 +842,6 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DomainPackage.TYPE_EXTENSION: {
-				TypeExtension typeExtension = (TypeExtension)theEObject;
-				T result = caseTypeExtension(typeExtension);
-				if (result == null) result = caseCategorized(typeExtension);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DomainPackage.ATTRIBUTE: {
 				Attribute attribute = (Attribute)theEObject;
 				T result = caseAttribute(attribute);
@@ -3187,21 +3180,6 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypeReference(TypeReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Type Extension</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Type Extension</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTypeExtension(TypeExtension object) {
 		return null;
 	}
 

@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -309,24 +310,9 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 */
 	public EList<Link> getLinks() {
 		if (links == null) {
-			links = new EObjectContainmentWithInverseEList<Link>(Link.class, this, DomainPackage.RELATION__LINKS, DomainPackage.LINK__PARENT);
+			links = new EObjectContainmentEList<Link>(Link.class, this, DomainPackage.RELATION__LINKS);
 		}
 		return links;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DomainPackage.RELATION__LINKS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLinks()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

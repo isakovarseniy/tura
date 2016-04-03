@@ -47,7 +47,6 @@ import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
 import typedefinition.diagram.edit.parts.ReferencesEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
-import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceFakePackageNameFakeTypeEditPart;
@@ -59,7 +58,6 @@ import domain.Assosiation;
 import domain.Generalization;
 import domain.References;
 import domain.TypeDefinition;
-import domain.TypeExtension;
 
 /**
  * @generated
@@ -152,9 +150,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://tura.org/2013/v1/domain?EnumAttribute", DomainElementTypes.EnumAttribute_103005); //$NON-NLS-1$
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://tura.org/2013/v1/domain?TypeExtension", DomainElementTypes.TypeExtension_104001); //$NON-NLS-1$
 		case GeneralizationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://tura.org/2013/v1/domain?Generalization", DomainElementTypes.Generalization_104005); //$NON-NLS-1$
@@ -240,8 +235,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getOperation_103002Text(view);
 		case EnumAttributeEditPart.VISUAL_ID:
 			return getEnumAttribute_103005Text(view);
-		case TypeExtensionEditPart.VISUAL_ID:
-			return getTypeExtension_104001Text(view);
 		case GeneralizationEditPart.VISUAL_ID:
 			return getGeneralization_104005Text(view);
 		case ReferencesEditPart.VISUAL_ID:
@@ -402,20 +395,6 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 105007); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getTypeExtension_104001Text(View view) {
-		TypeExtension domainModelElement = (TypeExtension) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getUid();
-		} else {
-			DomainDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 104001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

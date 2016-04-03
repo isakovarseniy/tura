@@ -305,11 +305,6 @@ delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Dependency');
 delete tool;
 
-var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='TypeExtension');
-delete tool;
-var tool = GmfTool!CreationTool.all.selectOne(r|r.title='TypeExtension');
-delete tool;
-
 var tool = GmfMap!LinkMapping.all.selectOne(r|r.tool.title='Assosiation');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Assosiation');

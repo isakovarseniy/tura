@@ -51,7 +51,6 @@ public class AssosiationItemProvider extends RelationShipItemProvider {
 			addTypePropertyDescriptor(object);
 			addSourcePropertyPropertyDescriptor(object);
 			addTargetPropertyPropertyDescriptor(object);
-			addMany2manyHelperPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -123,28 +122,6 @@ public class AssosiationItemProvider extends RelationShipItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Many2many Helper feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMany2manyHelperPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Assosiation_many2manyHelper_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Assosiation_many2manyHelper_feature", "_UI_Assosiation_type"),
-				 DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -157,6 +134,7 @@ public class AssosiationItemProvider extends RelationShipItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.ASSOSIATION__LINKS);
+			childrenFeatures.add(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER);
 		}
 		return childrenFeatures;
 	}
@@ -216,6 +194,7 @@ public class AssosiationItemProvider extends RelationShipItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.ASSOSIATION__LINKS:
+			case DomainPackage.ASSOSIATION__MANY2MANY_HELPER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -237,6 +216,136 @@ public class AssosiationItemProvider extends RelationShipItemProvider {
 			(createChildParameter
 				(DomainPackage.Literals.ASSOSIATION__LINKS,
 				 DomainFactory.eINSTANCE.createLink()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createTypePointer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createMethodPointer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createTypeMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createJavaMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createJavaScriptMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createTypeReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createAttribute()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createReturnValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createFormParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createViewPortTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createPREFormTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createPREQueryTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createPOSTQueryTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createPREInsertTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createPREDeleteTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createPREUpdateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createCreateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createInsertTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createUpdateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createDeleteTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createSearchTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createFormVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 DomainFactory.eINSTANCE.createArtificialField()));
 	}
 
 }

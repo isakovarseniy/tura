@@ -9,6 +9,7 @@ import domain.Link;
 import domain.RelationType;
 import domain.TypeElement;
 
+import domain.TypePointer;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -93,14 +94,14 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 	protected Attribute targetProperty;
 
 	/**
-	 * The cached value of the '{@link #getMany2manyHelper() <em>Many2many Helper</em>}' reference.
+	 * The cached value of the '{@link #getMany2manyHelper() <em>Many2many Helper</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMany2manyHelper()
 	 * @generated
 	 * @ordered
 	 */
-	protected TypeElement many2manyHelper;
+	protected TypePointer many2manyHelper;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,15 +236,7 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeElement getMany2manyHelper() {
-		if (many2manyHelper != null && many2manyHelper.eIsProxy()) {
-			InternalEObject oldMany2manyHelper = (InternalEObject)many2manyHelper;
-			many2manyHelper = (TypeElement)eResolveProxy(oldMany2manyHelper);
-			if (many2manyHelper != oldMany2manyHelper) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.ASSOSIATION__MANY2MANY_HELPER, oldMany2manyHelper, many2manyHelper));
-			}
-		}
+	public TypePointer getMany2manyHelper() {
 		return many2manyHelper;
 	}
 
@@ -252,20 +245,33 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeElement basicGetMany2manyHelper() {
-		return many2manyHelper;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMany2manyHelper(TypeElement newMany2manyHelper) {
-		TypeElement oldMany2manyHelper = many2manyHelper;
+	public NotificationChain basicSetMany2manyHelper(TypePointer newMany2manyHelper, NotificationChain msgs) {
+		TypePointer oldMany2manyHelper = many2manyHelper;
 		many2manyHelper = newMany2manyHelper;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ASSOSIATION__MANY2MANY_HELPER, oldMany2manyHelper, many2manyHelper));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.ASSOSIATION__MANY2MANY_HELPER, oldMany2manyHelper, newMany2manyHelper);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMany2manyHelper(TypePointer newMany2manyHelper) {
+		if (newMany2manyHelper != many2manyHelper) {
+			NotificationChain msgs = null;
+			if (many2manyHelper != null)
+				msgs = ((InternalEObject)many2manyHelper).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.ASSOSIATION__MANY2MANY_HELPER, null, msgs);
+			if (newMany2manyHelper != null)
+				msgs = ((InternalEObject)newMany2manyHelper).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.ASSOSIATION__MANY2MANY_HELPER, null, msgs);
+			msgs = basicSetMany2manyHelper(newMany2manyHelper, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ASSOSIATION__MANY2MANY_HELPER, newMany2manyHelper, newMany2manyHelper));
 	}
 
 	/**
@@ -278,6 +284,8 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 		switch (featureID) {
 			case DomainPackage.ASSOSIATION__LINKS:
 				return ((InternalEList<?>)getLinks()).basicRemove(otherEnd, msgs);
+			case DomainPackage.ASSOSIATION__MANY2MANY_HELPER:
+				return basicSetMany2manyHelper(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -301,8 +309,7 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 				if (resolve) return getTargetProperty();
 				return basicGetTargetProperty();
 			case DomainPackage.ASSOSIATION__MANY2MANY_HELPER:
-				if (resolve) return getMany2manyHelper();
-				return basicGetMany2manyHelper();
+				return getMany2manyHelper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -330,7 +337,7 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 				setTargetProperty((Attribute)newValue);
 				return;
 			case DomainPackage.ASSOSIATION__MANY2MANY_HELPER:
-				setMany2manyHelper((TypeElement)newValue);
+				setMany2manyHelper((TypePointer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -357,7 +364,7 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 				setTargetProperty((Attribute)null);
 				return;
 			case DomainPackage.ASSOSIATION__MANY2MANY_HELPER:
-				setMany2manyHelper((TypeElement)null);
+				setMany2manyHelper((TypePointer)null);
 				return;
 		}
 		super.eUnset(featureID);

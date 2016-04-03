@@ -28,7 +28,7 @@ operation  createCommand(dc,command) {
    for ( parameter in  trigger.methodRef.parameters){
        var i = k.toString();
 	   switch (i){
-		      case "0" :  ctxParam =typeParam(dc.baseTypeRef.typeRef,parameter);
+		      case "0" :  ctxParam =typeParam(dc.baseType.typeRef,parameter);
            }
       k = k + 1;
 	  trigger.parameters.add(ctxParam);
@@ -55,7 +55,7 @@ operation  searchCommand(dc,command) {
 		      case "1":   ctxParam =treeDataControl(treedc,dc,"orderCriteria","DataControlFakeAttribute",parameter);
 		      case "2":   ctxParam =treeDataControl(treedc,dc,"start Index","DataControlFakeAttribute",parameter);
 		      case "3":   ctxParam =treeDataControl(treedc,dc,"end Index","DataControlFakeAttribute",parameter);
-		      case "4":   ctxParam =typeParam(dc.baseTypeRef.typeRef,parameter);
+		      case "4":   ctxParam =typeParam(dc.baseType.typeRef,parameter);
 		  }  
 	   }else{
 	      switch (i){
@@ -63,7 +63,7 @@ operation  searchCommand(dc,command) {
 		      case "1":   ctxParam =simpleDataControl(dc,"orderCriteria","DataControlFakeAttribute",parameter);
 		      case "2":   ctxParam =simpleDataControl(dc,"start Index","DataControlFakeAttribute",parameter);
 		      case "3":   ctxParam =simpleDataControl(dc,"end Index","DataControlFakeAttribute",parameter);
-		      case "4":   ctxParam =typeParam(dc.baseTypeRef.typeRef,parameter);
+		      case "4":   ctxParam =typeParam(dc.baseType.typeRef,parameter);
 	      }
 	   }
        k = k + 1;

@@ -26,7 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link domain.Type#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link domain.Type#getOperations <em>Operations</em>}</li>
- *   <li>{@link domain.Type#getExtension <em>Extension</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,21 +71,5 @@ public interface Type extends TypeElement, Categorized {
 	 * @generated
 	 */
 	EList<Operation> getOperations();
-
-	/**
-	 * Returns the value of the '<em><b>Extension</b></em>' containment reference list.
-	 * The list contents are of type {@link domain.TypeExtension}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Extension</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extension</em>' containment reference list.
-	 * @see domain.DomainPackage#getType_Extension()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<TypeExtension> getExtension();
 
 } // Type

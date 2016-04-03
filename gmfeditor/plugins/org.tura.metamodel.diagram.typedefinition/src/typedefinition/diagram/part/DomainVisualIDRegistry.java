@@ -38,7 +38,6 @@ import typedefinition.diagram.edit.parts.PrimitiveNameEditPart;
 import typedefinition.diagram.edit.parts.ReferencesEditPart;
 import typedefinition.diagram.edit.parts.TypeDefinitionEditPart;
 import typedefinition.diagram.edit.parts.TypeEditPart;
-import typedefinition.diagram.edit.parts.TypeExtensionEditPart;
 import typedefinition.diagram.edit.parts.TypeNameEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceEditPart;
 import typedefinition.diagram.edit.parts.TypeReferenceFakePackageNameFakeTypeEditPart;
@@ -312,10 +311,6 @@ public class DomainVisualIDRegistry {
 		if (DomainPackage.eINSTANCE.getAssosiation().isSuperTypeOf(
 				domainElement.eClass())) {
 			return AssosiationEditPart.VISUAL_ID;
-		}
-		if (DomainPackage.eINSTANCE.getTypeExtension().isSuperTypeOf(
-				domainElement.eClass())) {
-			return TypeExtensionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}
