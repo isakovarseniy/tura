@@ -5,21 +5,24 @@
 %]
 package [%=type.~package%];  
 
-import org.tura.platform.persistence.TuraObject;
-
 
 @javax.persistence.Entity(name = "[%=type.~class%]")
 @javax.persistence.Table(name = "[%=type.~class.toUpperCase()%]")
-public class [%=type.~class%] extends TuraObject implements java.io.Serializable{
+public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%=type.~extension.~fullName%]  [%}%]    implements java.io.Serializable{
 
 	private static final long serialVersionUID = -1L;
 
-[%for ( field in type.attributes){     
+[%for ( field in type.attributes){
+     if (type.~skipAttributes.contains(field) )
+        continue; 
+     
     field.typeRef.mappingType2Java(recipe,ingredient);
 
     if (field.findClassifier("ORMEntity",  "entityObject","Bean validation"))%]
     [%=field.~hintDetails%]  
-    [%if (field.typeRef.~fullName = "java.util.Date"  or field.typeRef.~fullName = "java.sql.Timestamp")%]
+    [%if ( field.pk) %]
+    @javax.persistence.Id
+    [%if (field.typeRef.~fullName == "java.util.Date"  or field.typeRef.~fullName == "java.sql.Timestamp")%]
 	@javax.persistence.Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	@javax.persistence.Column(name = "[%=util.mergeAndCapitalize(field.name).toUpperCase()%]")
 	private [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%];
@@ -30,6 +33,128 @@ public class [%=type.~class%] extends TuraObject implements java.io.Serializable
 	public [%= field.typeRef.~fullName%] get[%=util.mergeAndCapitalize(field.name)%](){
 		return [%=util.mergeAndUnCapitalize(field.name)%];
 	}
+	
 [%}%]
 
+	[%
+	  var assosiations = domain::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+      for (rel in assosiations){
+        var target = rel.target;
+	    if (target.isKindOf(domain::TypeReference )){
+	         target = target.typeRef;
+	    }
+         var sourceMethodName = util.mergeAndCapitalize(target.name);
+
+         if (rel.sourceOperation.isDefined())
+             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
+         var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+      
+        var source = rel.source;
+	    if (source.isKindOf(domain::TypeReference )){
+	         source = source.typeRef;
+	    }
+        var targetMethodName = util.mergeAndCapitalize(source.name);
+
+         if (rel.targetOperation.isDefined())
+             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
+         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+      
+      
+      
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] @javax.persistence.One2One(mappedBy="[%=targetProperty%]")[%
+         case "One2Many" : %] @javax.persistence.One2Many(mappedBy="[%=targetProperty%]")[%
+         case "Many2Many" : %] @javax.persistence.Many2Many(mappedBy="[%=targetProperty%]")[%
+         }
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] private [%=target.~fullName%]  [%=sourceProperty%];[%
+         case "One2Many" : %]  public java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
+         case "Many2Many" : %] public java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
+         }
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public [%=target.~fullName%]  get[%=sourceMethodName%]()[%
+         case "One2Many" : %] public java.util.Collection<[%=target.~fullName%]>  get[%=sourceMethodName%]()[%
+         case "Many2Many" : %] public java.util.Collection<[%=target.~fullName%]>  get[%=sourceMethodName%]()[%
+         }                
+         %] { return [%=sourceProperty%]; } [%
+      }
+	%]
+
+	[%
+	  var assosiations = domain::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+      for (rel in assosiations){
+        var source = rel.source;
+	    if (source.isKindOf(domain::TypeReference )){
+	         source = source.typeRef;
+	    }
+      
+         var targetMethodName = util.mergeAndCapitalize(source.name);
+         if (rel.targetOperation.isDefined())
+             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
+         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+      
+         var target = rel.target;
+	     if (target.isKindOf(domain::TypeReference )){
+	         target = target.typeRef;
+	     }
+      
+         var sourceMethodName = util.mergeAndCapitalize(target.name);
+         if (rel.sourceOperation.isDefined())
+             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
+         var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] [%=rel.joinColumns()%] @javax.persistence.One2One[%
+         case "One2Many" : %]  [%=rel.joinColumns()%] @javax.persistence.Many2One[%
+         case "Many2Many" : %] [%=rel.joinTable(sourceMethodName,targetMethodName)%] @javax.persistence.Many2Many[%
+         }
+      
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] private [%=source.~fullName%]  [%=targetProperty%];[%
+         case "One2Many" : %] public [%=source.~fullName%]  [%=targetProperty%];[%
+         case "Many2Many" : %] public java.util.Collection<[%=source.~fullName%]>  [%=targetProperty%];[%
+         }
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public [%=source.~fullName%]  get[%=targetMethodName%]()[%
+         case "One2Many" : %] public [%=source.~fullName%]  get[%=targetMethodName%]()[%
+         case "Many2Many" : %] public java.util.Collection<[%=source.~fullName%]>  get[%=targetMethodName%]()[%
+         }                
+         %] { return [%=targetProperty%]; } [%
+      }
+	%]
 }
+[%
+@template
+operation domain::Assosiation  joinColumns(){
+	  var i = 0;
+      %]@javax.persistence.JoinColumns({[%
+            for (lnk in self.links){
+            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=lnk.masterField.name%]", referencedColumnName="[%=lnk.detailField.name%]")[%  
+            }
+    %]}) 
+[%
+}
+@template
+operation domain::Assosiation  joinTable(src,target){
+	  var i = 0;
+	  var table = "RL_"+src.toUpperCase()+target.toUpperCase();
+      if (field.findClassifier("ORMEntity",  "entityObject","Many2ManyTable"))
+         table = field.~hintDetails;
+      %]@javax.persistence.JoinTable(name="[%=table%]",  
+              joinColumns={[%
+	            for (lnk in self.links){
+	            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=lnk.masterField.name%]")[%  
+	            }
+              %]},  
+              inverseJoinColumns={[%
+	            for (lnk in self.links){
+	            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=lnk.detailField.name%]")[%  
+	            }
+              %]})      
+[%
+}%]

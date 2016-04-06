@@ -90,6 +90,14 @@
           <element xmi:type="tura.domain:ApplicationRecipe" href="hr.domain#643f117b-2ee8-49cd-b1ff-6123bc465259"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uOyziqtJEeSgxLZlz1KXmg" x="306" y="3"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_n8vGEPqzEeWeHcQqyQ203g" type="803001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_n8vtIPqzEeWeHcQqyQ203g" type="805001"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_n8vGEfqzEeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_n8vGEvqzEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_n8vGE_qzEeWeHcQqyQ203g" diagramLink="_po4e0PqzEeWeHcQqyQ203g" hint="Recipe"/>
+          <element xmi:type="tura.domain:ApplicationRecipe" href="hr.domain#c5fe3707-e225-47ab-8c81-4e698689133c"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n8vGFPqzEeWeHcQqyQ203g" x="157" y="70"/>
+        </children>
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_snxyYatJEeSgxLZlz1KXmg"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_snxyYqtJEeSgxLZlz1KXmg" fontName="Lucida Grande"/>
@@ -976,7 +984,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_UaX9wqtKEeSgxLZlz1KXmg"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_UaX9w6tKEeSgxLZlz1KXmg" fontName="Lucida Grande"/>
       <element xmi:type="tura.domain:JavaMapper" href="hr.domain#JavaMapper12"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UaX9xKtKEeSgxLZlz1KXmg" x="261" y="27"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UaX9xKtKEeSgxLZlz1KXmg" x="531" y="207"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_UaX9xqtKEeSgxLZlz1KXmg" type="402001">
       <children xmi:type="notation:DecorationNode" xmi:id="_UaX9yqtKEeSgxLZlz1KXmg" type="405001"/>
@@ -1018,7 +1026,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_UaYk26tKEeSgxLZlz1KXmg"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_UaYk3KtKEeSgxLZlz1KXmg" fontName="Lucida Grande"/>
       <element xmi:type="tura.domain:JavaMapper" href="hr.domain#JavaMapper21"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UaYk3atKEeSgxLZlz1KXmg" x="1773" y="27"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UaYk3atKEeSgxLZlz1KXmg" x="27" y="144"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_UaYk36tKEeSgxLZlz1KXmg" type="402001">
       <children xmi:type="notation:DecorationNode" xmi:id="_UaYk46tKEeSgxLZlz1KXmg" type="405001"/>
@@ -1298,7 +1306,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_UaeEcatKEeSgxLZlz1KXmg"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_UaeEcqtKEeSgxLZlz1KXmg" fontName="Lucida Grande"/>
       <element xmi:type="tura.domain:JavaMapper" href="hr.domain#49b627a0-c834-4b55-b0ad-a727254011f9"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UaeEc6tKEeSgxLZlz1KXmg" x="11016" y="27"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UaeEc6tKEeSgxLZlz1KXmg" x="27" y="279"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_YXP8sB09EeWAJNFW6jcN6w" type="402001">
       <children xmi:type="notation:DecorationNode" xmi:id="_YXRx4B09EeWAJNFW6jcN6w" type="405001"/>
@@ -1312,7 +1320,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_vxxGYR09EeWAJNFW6jcN6w"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_vxxGYh09EeWAJNFW6jcN6w" fontName=".Helvetica Neue DeskInterface"/>
       <element xmi:type="tura.domain:JavaMapper" href="hr.domain#dcfe6944-2ff1-44e7-bce7-be6242859737"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vxxGYx09EeWAJNFW6jcN6w" x="270" y="144"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vxxGYx09EeWAJNFW6jcN6w" x="513" y="261"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_Ag6kQB0-EeWAJNFW6jcN6w" type="402001">
       <children xmi:type="notation:DecorationNode" xmi:id="_Ag7yYB0-EeWAJNFW6jcN6w" type="405001"/>
@@ -1340,7 +1348,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_UAwysR0_EeWAJNFW6jcN6w"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_UAwysh0_EeWAJNFW6jcN6w" fontName=".Helvetica Neue DeskInterface"/>
       <element xmi:type="tura.domain:JavaMapper" href="hr.domain#0029084a-04fb-48e0-989a-0115d90c5aed"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UAwysx0_EeWAJNFW6jcN6w" x="289" y="249"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UAwysx0_EeWAJNFW6jcN6w" x="27" y="90"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_x9UQQHtpEeWV2fsPf-XqXQ" type="402001">
       <children xmi:type="notation:DecorationNode" xmi:id="_x9U3UHtpEeWV2fsPf-XqXQ" type="405001"/>
@@ -1348,6 +1356,13 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_x9UQQntpEeWV2fsPf-XqXQ" fontName=".Helvetica Neue DeskInterface"/>
       <element xmi:type="tura.domain:JavaMapper" href="hr.domain#0765b5d5-489b-46de-9a8b-3f2fb2c03567"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x9UQQ3tpEeWV2fsPf-XqXQ" x="1648" y="137"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_kdlDUPrOEeWzQ_jI2KbU3A" type="402006">
+      <children xmi:type="notation:DecorationNode" xmi:id="_kdmRcPrOEeWzQ_jI2KbU3A" type="405006"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_kdlDUfrOEeWzQ_jI2KbU3A"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_kdlDUvrOEeWzQ_jI2KbU3A" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:JavaPackageMapper" href="hr.domain#fe25473f-fe6b-4c3e-a637-3e696e8354e9"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kdlDU_rOEeWzQ_jI2KbU3A" x="297" y="27"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_UKr78atKEeSgxLZlz1KXmg"/>
     <element xmi:type="tura.domain:Mappers" href="hr.domain#35c625c3-5c19-4681-ac50-eb8581a54cc1"/>
@@ -3359,6 +3374,14 @@
           <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_hJ8Fg_FQEeWDMfsdLeFRdQ" diagramLink="_nwY1EPFQEeWDMfsdLeFRdQ" hint="Typedefinition"/>
           <element xmi:type="tura.domain:Package" href="hr.domain#b49d8147-4e3c-47e9-8338-4c7cffdbf6d6"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hJ8FhPFQEeWDMfsdLeFRdQ" x="26" y="43"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_zMluIPoNEeWa2vwysUFqww" type="203002">
+          <children xmi:type="notation:DecorationNode" xmi:id="_zMnjUPoNEeWa2vwysUFqww" type="205002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_zMluIfoNEeWa2vwysUFqww"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_zMmVMPoNEeWa2vwysUFqww" fontName=".SF NS Text"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_zMmVMfoNEeWa2vwysUFqww" diagramLink="_2SVXEPoNEeWa2vwysUFqww" hint="Typedefinition"/>
+          <element xmi:type="tura.domain:Package" href="hr.domain#1ad90013-ec38-45b6-838f-e1a64508151a"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zMmVMvoNEeWa2vwysUFqww" x="171" y="54"/>
         </children>
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_jcimEbDUEeSI5LYLlsXqHg"/>
@@ -8593,5 +8616,430 @@
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_nwY1EfFQEeWDMfsdLeFRdQ"/>
     <element xmi:type="tura.domain:TypeDefinition" href="hr.domain#a1db2dd1-56ec-4c88-97cd-d3ec61a46d0b"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_2SVXEPoNEeWa2vwysUFqww" type="Typedefinition" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_4BRlIPoNEeWa2vwysUFqww" type="102002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_4BSMMPoNEeWa2vwysUFqww" type="105006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_4BSMMfoNEeWa2vwysUFqww" type="107001">
+        <children xmi:type="notation:Node" xmi:id="_7G5SQPoNEeWa2vwysUFqww" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_7G55UPoNEeWa2vwysUFqww" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_7G5SQfoNEeWa2vwysUFqww"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_7G5SQvoNEeWa2vwysUFqww" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#1f3252f8-10a9-4f0b-b79a-4c7f6ac43e92"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7G5SQ_oNEeWa2vwysUFqww"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_A9cO4PoOEeWa2vwysUFqww" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_A9c18PoOEeWa2vwysUFqww" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_A9cO4foOEeWa2vwysUFqww"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_A9cO4voOEeWa2vwysUFqww" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#7b65b5f3-1869-45dd-a1f1-b54ebfb3554b"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_A9cO4_oOEeWa2vwysUFqww"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_4BSMMvoNEeWa2vwysUFqww"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_4BSMM_oNEeWa2vwysUFqww"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_4BSzQPoNEeWa2vwysUFqww" type="107002">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_4BSzQfoNEeWa2vwysUFqww"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_4BSzQvoNEeWa2vwysUFqww"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_4BRlIfoNEeWa2vwysUFqww"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_4BRlIvoNEeWa2vwysUFqww" fontName=".SF NS Text"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_4BRlI_oNEeWa2vwysUFqww"/>
+      <element xmi:type="tura.domain:Type" href="hr.domain#575a83de-46e4-4566-b413-809fa4f426a3"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4BRlJPoNEeWa2vwysUFqww" x="72" y="27"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_-2ODsPoNEeWa2vwysUFqww" type="102002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_-2OqwPoNEeWa2vwysUFqww" type="105006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_-2OqwfoNEeWa2vwysUFqww" type="107001">
+        <children xmi:type="notation:Node" xmi:id="_W3bZ8PoOEeWa2vwysUFqww" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_W3bZ9PoOEeWa2vwysUFqww" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_W3bZ8foOEeWa2vwysUFqww"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_W3bZ8voOEeWa2vwysUFqww" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#7919e969-6a56-4949-ba80-ec03959fc47c"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_W3bZ8_oOEeWa2vwysUFqww"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_YjhIUPoOEeWa2vwysUFqww" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_YjhIVPoOEeWa2vwysUFqww" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_YjhIUfoOEeWa2vwysUFqww"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_YjhIUvoOEeWa2vwysUFqww" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#aa6afb28-2237-4af2-b4c0-ce2f83c92976"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YjhIU_oOEeWa2vwysUFqww"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ZGH0MPoQEeW1NoqUoLg4Sw" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ZGIbQPoQEeW1NoqUoLg4Sw" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZGH0MfoQEeW1NoqUoLg4Sw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ZGH0MvoQEeW1NoqUoLg4Sw" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#b440c5ab-6659-4203-b122-ce6e9539a29f"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZGH0M_oQEeW1NoqUoLg4Sw"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_-2OqwvoNEeWa2vwysUFqww"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_-2Oqw_oNEeWa2vwysUFqww"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_-2OqxPoNEeWa2vwysUFqww" type="107002">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_-2OqxfoNEeWa2vwysUFqww"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_-2OqxvoNEeWa2vwysUFqww"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_-2ODsfoNEeWa2vwysUFqww"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_-2ODsvoNEeWa2vwysUFqww" fontName=".SF NS Text"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_-2ODs_oNEeWa2vwysUFqww"/>
+      <element xmi:type="tura.domain:Type" href="hr.domain#1da57482-9911-4791-a6e7-396f54063615"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-2ODtPoNEeWa2vwysUFqww" x="540" y="18"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_NU5o4PoQEeW1NoqUoLg4Sw" type="102005">
+      <children xmi:type="notation:DecorationNode" xmi:id="_NU6P8PoQEeW1NoqUoLg4Sw" type="105011"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_NU63APoQEeW1NoqUoLg4Sw" type="107006">
+        <children xmi:type="notation:Node" xmi:id="_PjdyMPoQEeW1NoqUoLg4Sw" type="103005">
+          <children xmi:type="notation:DecorationNode" xmi:id="_PjeZQPoQEeW1NoqUoLg4Sw" type="105007"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_PjdyMfoQEeW1NoqUoLg4Sw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_PjdyMvoQEeW1NoqUoLg4Sw" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:EnumAttribute" href="hr.domain#698fa0a0-4a55-4f9d-8118-75b0310f2e92"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PjdyM_oQEeW1NoqUoLg4Sw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_XmyvcPoQEeW1NoqUoLg4Sw" type="103005">
+          <children xmi:type="notation:DecorationNode" xmi:id="_XmyvdPoQEeW1NoqUoLg4Sw" type="105007"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_XmyvcfoQEeW1NoqUoLg4Sw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_XmyvcvoQEeW1NoqUoLg4Sw" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:EnumAttribute" href="hr.domain#93c0143a-52d6-4bc3-abf4-6f21edf06ca7"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xmyvc_oQEeW1NoqUoLg4Sw"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_NU63AfoQEeW1NoqUoLg4Sw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_NU63AvoQEeW1NoqUoLg4Sw"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_NU5o4foQEeW1NoqUoLg4Sw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_NU5o4voQEeW1NoqUoLg4Sw" fontName=".SF NS Text"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_NU5o4_oQEeW1NoqUoLg4Sw"/>
+      <element xmi:type="tura.domain:Enumarator" href="hr.domain#04327744-c104-472c-bd5f-f4f51ad533ce"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NU5o5PoQEeW1NoqUoLg4Sw" x="819" y="-18"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_EC2HUPoTEeWCDuFsaBj1Mw" type="102002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_EC3VcPoTEeWCDuFsaBj1Mw" type="105006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_EC3VcfoTEeWCDuFsaBj1Mw" type="107001">
+        <children xmi:type="notation:Node" xmi:id="_IWsiIPoTEeWCDuFsaBj1Mw" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_IWsiJPoTEeWCDuFsaBj1Mw" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_IWsiIfoTEeWCDuFsaBj1Mw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_IWsiIvoTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#180b75e2-bf79-4924-a7ea-32f7f47fd7e9"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IWsiI_oTEeWCDuFsaBj1Mw"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_EC3VcvoTEeWCDuFsaBj1Mw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_EC3Vc_oTEeWCDuFsaBj1Mw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_EC3VdPoTEeWCDuFsaBj1Mw" type="107002">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_EC3VdfoTEeWCDuFsaBj1Mw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_EC3VdvoTEeWCDuFsaBj1Mw"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_EC2uYPoTEeWCDuFsaBj1Mw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_EC2uYfoTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_EC2uYvoTEeWCDuFsaBj1Mw"/>
+      <element xmi:type="tura.domain:Type" href="hr.domain#aedad6c4-51c2-4864-b2f3-ce57a7a8475a"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EC2uY_oTEeWCDuFsaBj1Mw" x="549" y="315"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_duBFAPoTEeWCDuFsaBj1Mw" type="102002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_duBsEPoTEeWCDuFsaBj1Mw" type="105006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_duBsEfoTEeWCDuFsaBj1Mw" type="107001">
+        <children xmi:type="notation:Node" xmi:id="_g0wMcPoTEeWCDuFsaBj1Mw" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_g0wMdPoTEeWCDuFsaBj1Mw" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_g0wMcfoTEeWCDuFsaBj1Mw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_g0wMcvoTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#51a4ebe8-9520-48b4-b787-1e717b56720e"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g0wMc_oTEeWCDuFsaBj1Mw"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_duBsEvoTEeWCDuFsaBj1Mw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_duBsE_oTEeWCDuFsaBj1Mw"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_duBsFPoTEeWCDuFsaBj1Mw" type="107002">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_duBsFfoTEeWCDuFsaBj1Mw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_duBsFvoTEeWCDuFsaBj1Mw"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_duBFAfoTEeWCDuFsaBj1Mw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_duBFAvoTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_duBFA_oTEeWCDuFsaBj1Mw"/>
+      <element xmi:type="tura.domain:Type" href="hr.domain#c16ccaba-8dc4-4621-8a9c-7af6803fe6a2"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_duBFBPoTEeWCDuFsaBj1Mw" x="63" y="297"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_0ZMccPoTEeWCDuFsaBj1Mw" type="102005">
+      <children xmi:type="notation:DecorationNode" xmi:id="_0ZMcdfoTEeWCDuFsaBj1Mw" type="105011"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_0ZMcdvoTEeWCDuFsaBj1Mw" type="107006">
+        <children xmi:type="notation:Node" xmi:id="_3cwUEPoTEeWCDuFsaBj1Mw" type="103005">
+          <children xmi:type="notation:DecorationNode" xmi:id="_3cwUFPoTEeWCDuFsaBj1Mw" type="105007"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_3cwUEfoTEeWCDuFsaBj1Mw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_3cwUEvoTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:EnumAttribute" href="hr.domain#db687d02-701c-48b0-99b2-e9cebd7ac55a"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3cwUE_oTEeWCDuFsaBj1Mw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6fuV0PoTEeWCDuFsaBj1Mw" type="103005">
+          <children xmi:type="notation:DecorationNode" xmi:id="_6fu84PoTEeWCDuFsaBj1Mw" type="105007"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_6fuV0foTEeWCDuFsaBj1Mw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_6fuV0voTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:EnumAttribute" href="hr.domain#6ced1634-cda1-4450-bff4-8639eede852c"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6fuV0_oTEeWCDuFsaBj1Mw"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_0ZMcd_oTEeWCDuFsaBj1Mw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_0ZMcePoTEeWCDuFsaBj1Mw"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_0ZMccfoTEeWCDuFsaBj1Mw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_0ZMccvoTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_0ZMcc_oTEeWCDuFsaBj1Mw"/>
+      <element xmi:type="tura.domain:Enumarator" href="hr.domain#502a839c-936f-4167-8008-32f2919abe52"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0ZMcdPoTEeWCDuFsaBj1Mw" x="810" y="99"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_VcyD0PqxEeWeHcQqyQ203g" type="102002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_Vcyq4PqxEeWeHcQqyQ203g" type="105006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_Vcyq4fqxEeWeHcQqyQ203g" type="107001">
+        <children xmi:type="notation:Node" xmi:id="_XdewQPqxEeWeHcQqyQ203g" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_XdewRPqxEeWeHcQqyQ203g" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_XdewQfqxEeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_XdewQvqxEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#64d1bb6e-1835-4f67-97a7-8ee33ec93285"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XdewQ_qxEeWeHcQqyQ203g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ZPaA4PqxEeWeHcQqyQ203g" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ZPaA5PqxEeWeHcQqyQ203g" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZPaA4fqxEeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ZPaA4vqxEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#f37b04f1-2ada-461d-af7c-288ccd4f400a"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZPaA4_qxEeWeHcQqyQ203g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bUFOYPqxEeWeHcQqyQ203g" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_bUF1cPqxEeWeHcQqyQ203g" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_bUFOYfqxEeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_bUFOYvqxEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#d6ed6d78-d6f2-4cf0-bee3-db25f1146344"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bUFOY_qxEeWeHcQqyQ203g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_lsX34PqxEeWeHcQqyQ203g" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_lsYe8vqxEeWeHcQqyQ203g" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_lsX34fqxEeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_lsYe8PqxEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#fddb6deb-1647-49f4-bb49-1952f56c651d"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lsYe8fqxEeWeHcQqyQ203g"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Vcyq4vqxEeWeHcQqyQ203g"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Vcyq4_qxEeWeHcQqyQ203g"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_Vcyq5PqxEeWeHcQqyQ203g" type="107002">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Vcyq5fqxEeWeHcQqyQ203g"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Vcyq5vqxEeWeHcQqyQ203g"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_VcyD0fqxEeWeHcQqyQ203g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_VcyD0vqxEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_VcyD0_qxEeWeHcQqyQ203g"/>
+      <element xmi:type="tura.domain:Type" href="hr.domain#0a735c7e-8e85-4ebd-bf37-a6560a5f5219"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VcyD1PqxEeWeHcQqyQ203g" x="315" y="144"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9YtKUPqxEeWeHcQqyQ203g" type="102002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_9YtxYPqxEeWeHcQqyQ203g" type="105006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_9YtxYfqxEeWeHcQqyQ203g" type="107001">
+        <children xmi:type="notation:Node" xmi:id="_dXW4QPqyEeWeHcQqyQ203g" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_dXW4RPqyEeWeHcQqyQ203g" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_dXW4QfqyEeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_dXW4QvqyEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#46af370c-4e30-4eef-80fa-67fa1cac2bd4"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dXW4Q_qyEeWeHcQqyQ203g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_jF0P4PqyEeWeHcQqyQ203g" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_jF0P5PqyEeWeHcQqyQ203g" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_jF0P4fqyEeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_jF0P4vqyEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#3d2da316-d793-461b-ae39-6c6e13b3de60"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jF0P4_qyEeWeHcQqyQ203g"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_9YtxYvqxEeWeHcQqyQ203g"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_9YtxY_qxEeWeHcQqyQ203g"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_9YtxZPqxEeWeHcQqyQ203g" type="107002">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_9YtxZfqxEeWeHcQqyQ203g"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_9YtxZvqxEeWeHcQqyQ203g"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_9YtKUfqxEeWeHcQqyQ203g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_9YtKUvqxEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_9YtKU_qxEeWeHcQqyQ203g"/>
+      <element xmi:type="tura.domain:Type" href="hr.domain#2fb28cec-33f5-4ae6-8f13-a60b81a8ae66"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9YtKVPqxEeWeHcQqyQ203g" x="819" y="342"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__hUcoPqxEeWeHcQqyQ203g" type="102001">
+      <children xmi:type="notation:DecorationNode" xmi:id="__hUcpPqxEeWeHcQqyQ203g" type="105001"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="__hUcofqxEeWeHcQqyQ203g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="__hUcovqxEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:TypeReference" href="hr.domain#1e9f489f-112d-4c8d-91ff-7218e983bedf"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__hUco_qxEeWeHcQqyQ203g" x="863" y="253"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_UCpj8Pq4EeWeHcQqyQ203g" type="102002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_UCpj9fq4EeWeHcQqyQ203g" type="105006"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_UCpj9vq4EeWeHcQqyQ203g" type="107001">
+        <children xmi:type="notation:Node" xmi:id="_cMZSQPq4EeWeHcQqyQ203g" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_cMZ5UPq4EeWeHcQqyQ203g" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_cMZSQfq4EeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_cMZSQvq4EeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#19762397-61f4-4cc4-8f2f-4783460b87b6"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cMZSQ_q4EeWeHcQqyQ203g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ihKb8Pq4EeWeHcQqyQ203g" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ihKb9Pq4EeWeHcQqyQ203g" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_ihKb8fq4EeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ihKb8vq4EeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#338bae8a-8fb4-4f9b-9e24-8ea76b66fb53"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ihKb8_q4EeWeHcQqyQ203g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nmmrwPq4EeWeHcQqyQ203g" type="103001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_nmmrxPq4EeWeHcQqyQ203g" type="105002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_nmmrwfq4EeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nmmrwvq4EeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <element xmi:type="tura.domain:Attribute" href="hr.domain#0e956650-ad67-4c87-a2fc-62946dc64146"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nmmrw_q4EeWeHcQqyQ203g"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_UCpj9_q4EeWeHcQqyQ203g"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_UCpj-Pq4EeWeHcQqyQ203g"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_UCpj-fq4EeWeHcQqyQ203g" type="107002">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_UCpj-vq4EeWeHcQqyQ203g"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_UCpj-_q4EeWeHcQqyQ203g"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_UCpj8fq4EeWeHcQqyQ203g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_UCpj8vq4EeWeHcQqyQ203g" fontName=".SF NS Text"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_UCpj8_q4EeWeHcQqyQ203g"/>
+      <element xmi:type="tura.domain:Type" href="hr.domain#cd6f7f7a-4f54-4a83-bbc1-8163a39a98a3"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UCpj9Pq4EeWeHcQqyQ203g" x="70" y="418"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_2SVXEfoNEeWa2vwysUFqww"/>
+    <element xmi:type="tura.domain:TypeDefinition" href="hr.domain#a8925a50-3461-448a-bfcc-24a127ca62c3"/>
+    <edges xmi:type="notation:Edge" xmi:id="_DljgoPoOEeWa2vwysUFqww" type="104007" source="_4BRlIPoNEeWa2vwysUFqww" target="_-2ODsPoNEeWa2vwysUFqww">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_DljgofoOEeWa2vwysUFqww"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_DljgovoOEeWa2vwysUFqww" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Assosiation" href="hr.domain#0397d137-5eca-4a6c-b0c2-534c6402e9ad"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Dljgo_oOEeWa2vwysUFqww" points="[128, 3, -188, 0]$[309, -7, -7, -10]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DlnLAPoOEeWa2vwysUFqww" id="(0.41818181818181815,0.12048192771084337)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DlnLAfoOEeWa2vwysUFqww" id="(0.3076923076923077,0.16666666666666666)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_p7rG8PoOEeWa2vwysUFqww" type="104005" source="_4BRlIPoNEeWa2vwysUFqww" target="_VcyD0PqxEeWeHcQqyQ203g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_p7rG8foOEeWa2vwysUFqww" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Generalization" href="hr.domain#9494d049-645c-4d06-b4fb-ba346959dc6b"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_p7rG8voOEeWa2vwysUFqww" points="[18, -9, -168, 83]$[168, -92, -18, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_p7v_cPoOEeWa2vwysUFqww" id="(0.4681818181818182,0.10843373493975904)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_p7v_cfoOEeWa2vwysUFqww" id="(0.42727272727272725,0.17391304347826086)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_qgqqYPoOEeWa2vwysUFqww" type="104005" source="_-2ODsPoNEeWa2vwysUFqww" target="_VcyD0PqxEeWeHcQqyQ203g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_qgqqYfoOEeWa2vwysUFqww" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Generalization" href="hr.domain#40222a74-dd21-4b72-b35c-24aded1c9f58"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qgqqYvoOEeWa2vwysUFqww" points="[-23, -11, 146, 73]$[-152, -79, 17, 5]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qgtGoPoOEeWa2vwysUFqww" id="(0.5454545454545454,0.13253012048192772)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qgtGofoOEeWa2vwysUFqww" id="(0.740909090909091,0.043478260869565216)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_Q5oMgPoTEeWCDuFsaBj1Mw" type="104007" source="_-2ODsPoNEeWa2vwysUFqww" target="_EC2HUPoTEeWCDuFsaBj1Mw">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_Q5oMgfoTEeWCDuFsaBj1Mw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_Q5oMgvoTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Assosiation" href="hr.domain#5db8bb1e-b00d-490b-9e1d-cbe33970f7c3"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q5oMg_oTEeWCDuFsaBj1Mw" points="[3, 79, -11, -203]$[13, 277, -1, -5]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q5qowPoTEeWCDuFsaBj1Mw" id="(0.4,0.20202020202020202)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q5qowfoTEeWCDuFsaBj1Mw" id="(0.36818181818181817,0.014925373134328358)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_TgDcMPoTEeWCDuFsaBj1Mw" type="104005" source="_EC2HUPoTEeWCDuFsaBj1Mw" target="_VcyD0PqxEeWeHcQqyQ203g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_TgDcMfoTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Generalization" href="hr.domain#39f29e9c-cb43-4d6b-a574-07952420dfd2"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TgDcMvoTEeWCDuFsaBj1Mw" points="[-4, -7, 122, 286]$[-127, -273, -1, 20]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TgGfgPoTEeWCDuFsaBj1Mw" id="(0.11818181818181818,0.1044776119402985)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uOCW8PqxEeWeHcQqyQ203g" id="(0.8590909090909091,0.06086956521739131)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_lcpkoPoTEeWCDuFsaBj1Mw" type="104005" source="_duBFAPoTEeWCDuFsaBj1Mw" target="_VcyD0PqxEeWeHcQqyQ203g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_lcpkofoTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Generalization" href="hr.domain#3be30817-c1a6-4842-a1cd-e1c38ac9cae7"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lcpkovoTEeWCDuFsaBj1Mw" points="[11, -10, -52, 43]$[42, -50, -21, 3]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lcsn8PoTEeWCDuFsaBj1Mw" id="(0.7909090909090909,0.14925373134328357)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lcsn8foTEeWCDuFsaBj1Mw" id="(0.36818181818181817,0.11304347826086956)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_oasqIPoTEeWCDuFsaBj1Mw" type="104007" source="_-2ODsPoNEeWa2vwysUFqww" target="_duBFAPoTEeWCDuFsaBj1Mw">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_oasqIfoTEeWCDuFsaBj1Mw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_oasqIvoTEeWCDuFsaBj1Mw" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Assosiation" href="hr.domain#c5baf6dc-d167-4021-8520-7bd00c9fcd60"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oasqI_oTEeWCDuFsaBj1Mw" points="[26, -16, -312, 187]$[316, -214, -22, -11]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oavGYPoTEeWCDuFsaBj1Mw" id="(0.32727272727272727,0.10101010101010101)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oavGYfoTEeWCDuFsaBj1Mw" id="(0.42727272727272725,0.1044776119402985)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_cCdh4PqyEeWeHcQqyQ203g" type="104005" source="_9YtKUPqxEeWeHcQqyQ203g" target="__hUcoPqxEeWeHcQqyQ203g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_cCdh4fqyEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Generalization" href="hr.domain#3d38d78b-90d3-4c2a-bd20-6ee880fb311f"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cCdh4vqyEeWeHcQqyQ203g" points="[-4, -9, 0, 64]$[-37, -69, -33, 4]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cCglMPqyEeWeHcQqyQ203g" id="(0.625,0.15)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cCglMfqyEeWeHcQqyQ203g" id="(0.6619718309859155,0.8)"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_po4e0PqzEeWeHcQqyQ203g" type="Recipe" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="__VVkMPqzEeWeHcQqyQ203g" type="302001">
+      <children xmi:type="notation:DecorationNode" xmi:id="__VWLQPqzEeWeHcQqyQ203g" type="305005"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="__VWLQfqzEeWeHcQqyQ203g" type="307001">
+        <children xmi:type="notation:Node" xmi:id="_IdW4oPq0EeWeHcQqyQ203g" type="303001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_IdXfsPq0EeWeHcQqyQ203g" type="305004"/>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_IdXfsfq0EeWeHcQqyQ203g" type="307002">
+            <children xmi:type="notation:Node" xmi:id="_RCx2UPq0EeWeHcQqyQ203g" type="303002">
+              <children xmi:type="notation:DecorationNode" xmi:id="_RCydYPq0EeWeHcQqyQ203g" type="305003"/>
+              <children xmi:type="notation:BasicCompartment" xmi:id="_RCydYfq0EeWeHcQqyQ203g" type="307003">
+                <children xmi:type="notation:Node" xmi:id="_rWmIYPq0EeWeHcQqyQ203g" type="303003">
+                  <children xmi:type="notation:DecorationNode" xmi:id="_rWmvcPq0EeWeHcQqyQ203g" type="305002"/>
+                  <children xmi:type="notation:BasicCompartment" xmi:id="_rWmvcfq0EeWeHcQqyQ203g" type="307004">
+                    <children xmi:type="notation:Node" xmi:id="_cL2nEPq1EeWeHcQqyQ203g" type="303004">
+                      <children xmi:type="notation:DecorationNode" xmi:id="_cL2nFPq1EeWeHcQqyQ203g" type="305001"/>
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_cL2nEfq1EeWeHcQqyQ203g"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_cL2nEvq1EeWeHcQqyQ203g" fontName=".SF NS Text"/>
+                      <element xmi:type="tura.domain:Query" href="hr.domain#a16bbf06-c977-4b19-933d-1dfc366355b2"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cL2nE_q1EeWeHcQqyQ203g"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_vEgIEPq1EeWeHcQqyQ203g" type="303004">
+                      <children xmi:type="notation:DecorationNode" xmi:id="_vEgIFPq1EeWeHcQqyQ203g" type="305001"/>
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_vEgIEfq1EeWeHcQqyQ203g"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_vEgIEvq1EeWeHcQqyQ203g" fontName=".SF NS Text"/>
+                      <element xmi:type="tura.domain:Query" href="hr.domain#d1803824-9234-44c4-b5b2-805498927681"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vEgIE_q1EeWeHcQqyQ203g"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_rWmvcvq0EeWeHcQqyQ203g"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_rWmvc_q0EeWeHcQqyQ203g"/>
+                  </children>
+                  <styles xmi:type="notation:DescriptionStyle" xmi:id="_rWmIYfq0EeWeHcQqyQ203g"/>
+                  <styles xmi:type="notation:FontStyle" xmi:id="_rWmIYvq0EeWeHcQqyQ203g" fontName=".SF NS Text"/>
+                  <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_rWmIY_q0EeWeHcQqyQ203g"/>
+                  <element xmi:type="tura.domain:ModelMapper" href="hr.domain#480b8027-fd78-4a95-86ad-62a8ab68dae6"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rWmIZPq0EeWeHcQqyQ203g" x="32" y="5"/>
+                </children>
+              </children>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_RCx2Ufq0EeWeHcQqyQ203g"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_RCx2Uvq0EeWeHcQqyQ203g" fontName=".SF NS Text"/>
+              <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_RCx2U_q0EeWeHcQqyQ203g"/>
+              <element xmi:type="tura.domain:JavaComponent" href="hr.domain#daf0ee2a-7518-4331-a32d-d2fcdb3f96b9"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RCx2VPq0EeWeHcQqyQ203g" x="10" y="3"/>
+            </children>
+          </children>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_IdW4ofq0EeWeHcQqyQ203g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_IdW4ovq0EeWeHcQqyQ203g" fontName=".SF NS Text"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_IdW4o_q0EeWeHcQqyQ203g"/>
+          <element xmi:type="tura.domain:Ingredient" href="hr.domain#e90c462f-f8e5-4814-a1f6-abc939e5fe31"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IdW4pPq0EeWeHcQqyQ203g"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="__VWLQvqzEeWeHcQqyQ203g"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="__VWLQ_qzEeWeHcQqyQ203g"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="__VVkMfqzEeWeHcQqyQ203g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="__VVkMvqzEeWeHcQqyQ203g" fontName=".SF NS Text"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="__VVkM_qzEeWeHcQqyQ203g"/>
+      <element xmi:type="tura.domain:Recipe" href="hr.domain#4ba1e52b-1f16-406a-94a7-59e2049ccb45"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__VVkNPqzEeWeHcQqyQ203g" x="304" y="165"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_FMt4MPq9EeWY_ualpl_I-w" type="302003">
+      <children xmi:type="notation:DecorationNode" xmi:id="_FMufQPq9EeWY_ualpl_I-w" type="305008"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_FMt4Mfq9EeWY_ualpl_I-w"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_FMt4Mvq9EeWY_ualpl_I-w" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Infrastructure" href="hr.domain#17b8e001-fb6a-4a4d-b293-fe474ba6a031"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FMt4M_q9EeWY_ualpl_I-w" x="369" y="54"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_po4e0fqzEeWeHcQqyQ203g"/>
+    <element xmi:type="tura.domain:Recipes" href="hr.domain#496b054e-8e06-4a6d-883f-6656c149d6a5"/>
+    <edges xmi:type="notation:Connector" xmi:id="_IjPIEPq9EeWY_ualpl_I-w" type="304004" source="__VVkMPqzEeWeHcQqyQ203g" target="_FMt4MPq9EeWY_ualpl_I-w">
+      <children xmi:type="notation:DecorationNode" xmi:id="_IjPvIPq9EeWY_ualpl_I-w" type="306003">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_IjPvIfq9EeWY_ualpl_I-w"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_IjPvIvq9EeWY_ualpl_I-w" y="40"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_IjPIEfq9EeWY_ualpl_I-w" fontName=".SF NS Text"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_IjPIEvq9EeWY_ualpl_I-w" points="[-5, -15, 40, 91]$[3, -102, 48, 4]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_IjTZgPq9EeWY_ualpl_I-w" id="(0.5454545454545454,0.0)"/>
+    </edges>
   </notation:Diagram>
 </xmi:XMI>

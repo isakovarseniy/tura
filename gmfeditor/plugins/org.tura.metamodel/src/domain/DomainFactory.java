@@ -493,6 +493,15 @@ public interface DomainFactory extends EFactory {
 	TypeMapper createTypeMapper();
 
 	/**
+	 * Returns a new object of class '<em>Package Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Package Mapper</em>'.
+	 * @generated
+	 */
+	PackageMapper createPackageMapper();
+
+	/**
 	 * Returns a new object of class '<em>Java Mapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -500,6 +509,15 @@ public interface DomainFactory extends EFactory {
 	 * @generated
 	 */
 	JavaMapper createJavaMapper();
+
+	/**
+	 * Returns a new object of class '<em>Java Package Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Java Package Mapper</em>'.
+	 * @generated
+	 */
+	JavaPackageMapper createJavaPackageMapper();
 
 	/**
 	 * Returns a new object of class '<em>Java Script Mapper</em>'.

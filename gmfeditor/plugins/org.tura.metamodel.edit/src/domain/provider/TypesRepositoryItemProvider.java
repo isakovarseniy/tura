@@ -484,7 +484,17 @@ public class TypesRepositoryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
+				 DomainFactory.eINSTANCE.createPackageMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
 				 DomainFactory.eINSTANCE.createJavaMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.TYPES_REPOSITORY__ANY,
+				 DomainFactory.eINSTANCE.createJavaPackageMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

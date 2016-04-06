@@ -52,6 +52,12 @@ public class DomainEditPartFactory implements EditPartFactory {
 			case JavaScriptMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
 				return new JavaScriptMapperFakePackageNameFakeTypeEditPart(view);
 
+			case JavaPackageMapperEditPart.VISUAL_ID:
+				return new JavaPackageMapperEditPart(view);
+
+			case JavaPackageMapperFakePackageNameEditPart.VISUAL_ID:
+				return new JavaPackageMapperFakePackageNameEditPart(view);
+
 			case CSSMapperEditPart.VISUAL_ID:
 				return new CSSMapperEditPart(view);
 

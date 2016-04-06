@@ -44,9 +44,29 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="domain.gmfgraph#JavaScriptMapper"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="domain.ecore#//Mappers/mappers"/>
+    <ownedChild>
+      <domainMetaElement
+          href="domain.ecore#//JavaPackageMapper"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="domain.gmfgraph#JavaPackageMapperLabel"/>
+        <features
+            href="domain.ecore#//PackageMapper/fakePackageName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="domain.gmftool#//@palette/@tools.0/@tools.2"/>
+      <diagramNode
+          href="domain.gmfgraph#JavaPackageMapper"/>
     </ownedChild>
   </nodes>
   <nodes>
@@ -86,7 +106,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="domain.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="domain.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
           href="domain.gmfgraph#RoleMapper"/>
     </ownedChild>

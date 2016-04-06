@@ -1257,6 +1257,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link domain.PackageMapper} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PackageMapperItemProvider packageMapperItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.PackageMapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPackageMapperAdapter() {
+		if (packageMapperItemProvider == null) {
+			packageMapperItemProvider = new PackageMapperItemProvider(this);
+		}
+
+		return packageMapperItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link domain.JavaMapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1277,6 +1300,29 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		}
 
 		return javaMapperItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link domain.JavaPackageMapper} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JavaPackageMapperItemProvider javaPackageMapperItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link domain.JavaPackageMapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJavaPackageMapperAdapter() {
+		if (javaPackageMapperItemProvider == null) {
+			javaPackageMapperItemProvider = new JavaPackageMapperItemProvider(this);
+		}
+
+		return javaPackageMapperItemProvider;
 	}
 
 	/**
@@ -4856,7 +4902,9 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (mappersItemProvider != null) mappersItemProvider.dispose();
 		if (mapperItemProvider != null) mapperItemProvider.dispose();
 		if (typeMapperItemProvider != null) typeMapperItemProvider.dispose();
+		if (packageMapperItemProvider != null) packageMapperItemProvider.dispose();
 		if (javaMapperItemProvider != null) javaMapperItemProvider.dispose();
+		if (javaPackageMapperItemProvider != null) javaPackageMapperItemProvider.dispose();
 		if (javaScriptMapperItemProvider != null) javaScriptMapperItemProvider.dispose();
 		if (cssMapperItemProvider != null) cssMapperItemProvider.dispose();
 		if (roleMapperItemProvider != null) roleMapperItemProvider.dispose();

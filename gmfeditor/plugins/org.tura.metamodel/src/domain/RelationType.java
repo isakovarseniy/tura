@@ -39,6 +39,14 @@ public enum RelationType implements Enumerator {
 	ONE2_MANY(1, "One2Many", "One2Many"),
 
 	/**
+	 * The '<em><b>Many2 One</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MANY2_ONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MANY2_ONE(2, "Many2One", "Many2One"), /**
 	 * The '<em><b>Many2 Many</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +54,7 @@ public enum RelationType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MANY2_MANY(2, "Many2Many", "Many2Many");
+	MANY2_MANY(3, "Many2Many", "Many2Many");
 
 	/**
 	 * The '<em><b>One2 One</b></em>' literal value.
@@ -79,6 +87,21 @@ public enum RelationType implements Enumerator {
 	public static final int ONE2_MANY_VALUE = 1;
 
 	/**
+	 * The '<em><b>Many2 One</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Many2 One</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #MANY2_ONE
+	 * @model name="Many2One"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MANY2_ONE_VALUE = 2;
+
+	/**
 	 * The '<em><b>Many2 Many</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -91,7 +114,7 @@ public enum RelationType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MANY2_MANY_VALUE = 2;
+	public static final int MANY2_MANY_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Relation Type</b></em>' enumerators.
@@ -103,6 +126,7 @@ public enum RelationType implements Enumerator {
 		new RelationType[] {
 			ONE2_ONE,
 			ONE2_MANY,
+			MANY2_ONE,
 			MANY2_MANY,
 		};
 
@@ -156,6 +180,7 @@ public enum RelationType implements Enumerator {
 		switch (value) {
 			case ONE2_ONE_VALUE: return ONE2_ONE;
 			case ONE2_MANY_VALUE: return ONE2_MANY;
+			case MANY2_ONE_VALUE: return MANY2_ONE;
 			case MANY2_MANY_VALUE: return MANY2_MANY;
 		}
 		return null;

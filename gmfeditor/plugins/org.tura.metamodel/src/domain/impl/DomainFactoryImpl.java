@@ -111,6 +111,7 @@ import domain.ItemIcon;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.JavaPackageMapper;
 import domain.JavaScriptMapper;
 import domain.KeyValuePair;
 import domain.Label;
@@ -162,6 +163,7 @@ import domain.PREFormTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
+import domain.PackageMapper;
 import domain.Parameter;
 import domain.Password;
 import domain.PlatformLayers;
@@ -333,7 +335,9 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.MAPPERS: return createMappers();
 			case DomainPackage.MAPPER: return createMapper();
 			case DomainPackage.TYPE_MAPPER: return createTypeMapper();
+			case DomainPackage.PACKAGE_MAPPER: return createPackageMapper();
 			case DomainPackage.JAVA_MAPPER: return createJavaMapper();
+			case DomainPackage.JAVA_PACKAGE_MAPPER: return createJavaPackageMapper();
 			case DomainPackage.JAVA_SCRIPT_MAPPER: return createJavaScriptMapper();
 			case DomainPackage.CSS_MAPPER: return createCSSMapper();
 			case DomainPackage.ROLE_MAPPER: return createRoleMapper();
@@ -1049,9 +1053,29 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PackageMapper createPackageMapper() {
+		PackageMapperImpl packageMapper = new PackageMapperImpl();
+		return packageMapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JavaMapper createJavaMapper() {
 		JavaMapperImpl javaMapper = new JavaMapperImpl();
 		return javaMapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JavaPackageMapper createJavaPackageMapper() {
+		JavaPackageMapperImpl javaPackageMapper = new JavaPackageMapperImpl();
+		return javaPackageMapper;
 	}
 
 	/**

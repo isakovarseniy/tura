@@ -526,7 +526,17 @@ public class ApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createPackageMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
 				 DomainFactory.eINSTANCE.createJavaMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.APPLICATION__ANY,
+				 DomainFactory.eINSTANCE.createJavaPackageMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

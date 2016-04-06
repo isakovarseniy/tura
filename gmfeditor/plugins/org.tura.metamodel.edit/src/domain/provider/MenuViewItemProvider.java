@@ -472,7 +472,17 @@ public class MenuViewItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MENU_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createPackageMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_VIEW__ANY,
 				 DomainFactory.eINSTANCE.createJavaMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MENU_VIEW__ANY,
+				 DomainFactory.eINSTANCE.createJavaPackageMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

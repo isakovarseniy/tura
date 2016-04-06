@@ -512,7 +512,17 @@ public class RecipesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.RECIPES__ANY,
+				 DomainFactory.eINSTANCE.createPackageMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.RECIPES__ANY,
 				 DomainFactory.eINSTANCE.createJavaMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.RECIPES__ANY,
+				 DomainFactory.eINSTANCE.createJavaPackageMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

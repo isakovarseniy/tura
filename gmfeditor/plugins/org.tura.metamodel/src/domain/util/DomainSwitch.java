@@ -109,6 +109,7 @@ import domain.ItemIcon;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.JavaPackageMapper;
 import domain.JavaScriptMapper;
 import domain.KeyValuePair;
 import domain.Label;
@@ -158,6 +159,7 @@ import domain.PREFormTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
+import domain.PackageMapper;
 import domain.Parameter;
 import domain.Password;
 import domain.PopupCanvas;
@@ -605,12 +607,27 @@ public class DomainSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DomainPackage.PACKAGE_MAPPER: {
+				PackageMapper packageMapper = (PackageMapper)theEObject;
+				T result = casePackageMapper(packageMapper);
+				if (result == null) result = caseMapper(packageMapper);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DomainPackage.JAVA_MAPPER: {
 				JavaMapper javaMapper = (JavaMapper)theEObject;
 				T result = caseJavaMapper(javaMapper);
 				if (result == null) result = caseTypeMapper(javaMapper);
 				if (result == null) result = caseMapper(javaMapper);
 				if (result == null) result = caseTypePointer(javaMapper);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DomainPackage.JAVA_PACKAGE_MAPPER: {
+				JavaPackageMapper javaPackageMapper = (JavaPackageMapper)theEObject;
+				T result = caseJavaPackageMapper(javaPackageMapper);
+				if (result == null) result = casePackageMapper(javaPackageMapper);
+				if (result == null) result = caseMapper(javaPackageMapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -882,6 +899,7 @@ public class DomainSwitch<T> extends Switch<T> {
 			case DomainPackage.ENUM_ATTRIBUTE: {
 				EnumAttribute enumAttribute = (EnumAttribute)theEObject;
 				T result = caseEnumAttribute(enumAttribute);
+				if (result == null) result = caseCategorized(enumAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2659,6 +2677,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Package Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Package Mapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePackageMapper(PackageMapper object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Java Mapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2670,6 +2703,21 @@ public class DomainSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJavaMapper(JavaMapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Java Package Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Java Package Mapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJavaPackageMapper(JavaPackageMapper object) {
 		return null;
 	}
 

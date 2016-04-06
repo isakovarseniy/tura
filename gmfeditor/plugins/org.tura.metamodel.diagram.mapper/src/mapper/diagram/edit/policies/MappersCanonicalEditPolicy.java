@@ -40,6 +40,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import domain.DomainPackage;
 import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
+import mapper.diagram.edit.parts.JavaPackageMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.RoleMapperEditPart;
 import mapper.diagram.part.DomainDiagramUpdater;
@@ -105,6 +106,7 @@ public class MappersCanonicalEditPolicy extends CanonicalEditPolicy {
 		switch (visualID) {
 		case JavaMapperEditPart.VISUAL_ID:
 		case JavaScriptMapperEditPart.VISUAL_ID:
+		case JavaPackageMapperEditPart.VISUAL_ID:
 		case CSSMapperEditPart.VISUAL_ID:
 		case RoleMapperEditPart.VISUAL_ID:
 			return true;

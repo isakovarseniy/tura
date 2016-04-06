@@ -41,6 +41,7 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 
 import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
+import mapper.diagram.edit.parts.JavaPackageMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.edit.parts.RoleMapperEditPart;
@@ -261,6 +262,11 @@ public class DomainNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					DomainVisualIDRegistry
 							.getType(JavaScriptMapperEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					DomainVisualIDRegistry
+							.getType(JavaPackageMapperEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),

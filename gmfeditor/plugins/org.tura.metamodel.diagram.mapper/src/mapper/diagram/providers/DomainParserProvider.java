@@ -31,6 +31,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import domain.DomainPackage;
 import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaPackageMapperFakePackageNameEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.RoleMapperFakeRoleNameEditPart;
 import mapper.diagram.parsers.MessageFormatParser;
@@ -83,6 +84,24 @@ public class DomainParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser javaPackageMapperFakePackageName_405006Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getJavaPackageMapperFakePackageName_405006Parser() {
+		if (javaPackageMapperFakePackageName_405006Parser == null) {
+			EAttribute[] features = new EAttribute[] { DomainPackage.eINSTANCE
+					.getPackageMapper_FakePackageName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			javaPackageMapperFakePackageName_405006Parser = parser;
+		}
+		return javaPackageMapperFakePackageName_405006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser cSSMapperFakePackageNameFakeTypeName_405004Parser;
 
 	/**
@@ -126,6 +145,8 @@ public class DomainParserProvider extends AbstractProvider implements
 			return getJavaMapperFakePackageNameFakeTypeName_405001Parser();
 		case JavaScriptMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
 			return getJavaScriptMapperFakePackageNameFakeTypeName_405003Parser();
+		case JavaPackageMapperFakePackageNameEditPart.VISUAL_ID:
+			return getJavaPackageMapperFakePackageName_405006Parser();
 		case CSSMapperFakePackageNameFakeTypeEditPart.VISUAL_ID:
 			return getCSSMapperFakePackageNameFakeTypeName_405004Parser();
 		case RoleMapperFakeRoleNameEditPart.VISUAL_ID:

@@ -155,6 +155,27 @@ public class Util {
 		return null;
 	}
 
+	public static domain.PackageMapper mapPackage(Set<domain.PackageMapper> mappers,
+			domain.Ingredient ingredient, domain.Package pkg)
+			throws Exception {
+
+		for (domain.PackageMapper mapper : mappers) {
+
+			int ui = mapper.isUiLayer() ? 1 : 0;
+			int s = mapper.isServiceLayer() ? 1 : 0;
+			int ingr = ingredient.getLayer().getValue();
+
+			if (((((ui << 1) + s) & ingr) != 0)
+					&& (mapper.getPackageRef().getUid() == pkg.getUid())) {
+				return mapper;
+			}
+		}
+		return null;
+	}
+
+	
+	
+	
 	public static Object runQuery(domain.Query query, EObject eobj)
 			throws Exception {
 		String strQuery = query.getQueryRef().getQuery();

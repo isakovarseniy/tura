@@ -626,6 +626,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uiLayer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeMapper" eSuperTypes="#//Mapper #//TypePointer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageMapper" eSuperTypes="#//Mapper">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packageRef" eType="#//Package"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakePackageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaMapper" eSuperTypes="#//TypeMapper">
     <eAnnotations source="gmf.node">
       <details key="label" value="fakePackageName,fakeTypeName"/>
@@ -634,6 +638,20 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedToPackageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedToClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="libraryName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="jar"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaPackageMapper" eSuperTypes="#//PackageMapper">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="fakePackageName"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="color" value="77,255,228"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedToPackageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1023,22 +1041,22 @@
   <eClassifiers xsi:type="ecore:EEnum" name="RelationType">
     <eLiterals name="One2One"/>
     <eLiterals name="One2Many" value="1"/>
-    <eLiterals name="Many2Many" value="2"/>
+    <eLiterals name="Many2One" value="2"/>
+    <eLiterals name="Many2Many" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assosiation" eSuperTypes="#//RelationShip">
     <eAnnotations source="gmf.link">
       <details key="source" value="source"/>
       <details key="target" value="target"/>
       <details key="width" value="2"/>
-      <details key="source.decoration" value="arrow"/>
       <details key="target.decoration" value="arrow"/>
       <details key="color" value="20,126,23"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RelationType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
         eType="#//Link" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" eType="#//Attribute"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceOperation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetOperation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="many2manyHelper" eType="#//TypePointer"
         containment="true"/>
   </eClassifiers>
@@ -1136,7 +1154,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnumAttribute">
+  <eClassifiers xsi:type="ecore:EClass" name="EnumAttribute" eSuperTypes="#//Categorized">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
       <details key="border.color" value="0,0,0"/>

@@ -29,6 +29,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.tura.metamodel.commons.properties.selections.adapters.dropdown.DomainOperationPackageRef;
 import org.tura.metamodel.commons.properties.selections.adapters.dropdown.DomainTypePointerPackageRef;
+import org.tura.metamodel.commons.properties.selections.adapters.dropdown.JavaMapperPackageRef;
 
 import domain.DomainPackage;
 
@@ -44,6 +45,9 @@ public class PackageNamePropertySection extends
 			dropDownDataSupplier = new DomainTypePointerPackageRef();
 		if (getModel() instanceof domain.Operation)
 			dropDownDataSupplier = new DomainOperationPackageRef();
+		if (getModel() instanceof domain.JavaPackageMapper)
+			dropDownDataSupplier = new JavaMapperPackageRef();
+					
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

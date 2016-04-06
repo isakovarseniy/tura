@@ -24,6 +24,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="domain.ecore#//RelationType">
       <genEnumLiterals ecoreEnumLiteral="domain.ecore#//RelationType/One2One"/>
       <genEnumLiterals ecoreEnumLiteral="domain.ecore#//RelationType/One2Many"/>
+      <genEnumLiterals ecoreEnumLiteral="domain.ecore#//RelationType/Many2One"/>
       <genEnumLiterals ecoreEnumLiteral="domain.ecore#//RelationType/Many2Many"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="domain.ecore#//Orientation">
@@ -302,6 +303,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Mapper/uiLayer"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TypeMapper"/>
+    <genClasses ecoreClass="domain.ecore#//PackageMapper">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//PackageMapper/packageRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//PackageMapper/fakePackageName"/>
+    </genClasses>
     <genClasses ecoreClass="domain.ecore#//JavaMapper">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaMapper/mappedToPackageName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaMapper/mappedToClassName"/>
@@ -310,6 +315,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaMapper/version"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaMapper/libraryName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaMapper/artifactType"/>
+    </genClasses>
+    <genClasses ecoreClass="domain.ecore#//JavaPackageMapper">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaPackageMapper/mappedToPackageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaPackageMapper/artifactId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaPackageMapper/groupId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaPackageMapper/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaPackageMapper/libraryName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaPackageMapper/artifactType"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//JavaScriptMapper">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//JavaScriptMapper/libraryUrl"/>
@@ -478,8 +491,8 @@
     <genClasses ecoreClass="domain.ecore#//Assosiation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Assosiation/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Assosiation/links"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Assosiation/sourceProperty"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference domain.ecore#//Assosiation/targetProperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Assosiation/sourceOperation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Assosiation/targetOperation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Assosiation/many2manyHelper"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//TypeElement">

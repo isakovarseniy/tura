@@ -41,6 +41,8 @@ for (  label in GmfGraph!Label.all ){
 }
 
 -- remove unavailabels tools
+var tool = GmfTool!CreationTool.all.selectOne(r|r.title='JavaPackageMapper');
+delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='MessageElement');
 delete tool;
 var tool = GmfTool!CreationTool.all.selectOne(r|r.title='Password');

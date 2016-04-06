@@ -111,6 +111,7 @@ import domain.ItemIcon;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.JavaPackageMapper;
 import domain.JavaScriptMapper;
 import domain.KeyValuePair;
 import domain.Label;
@@ -162,6 +163,7 @@ import domain.PREFormTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
+import domain.PackageMapper;
 import domain.Parameter;
 import domain.Password;
 import domain.PlatformLayers;
@@ -606,7 +608,21 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass packageMapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass javaMapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass javaPackageMapperEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3768,6 +3784,33 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPackageMapper() {
+		return packageMapperEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPackageMapper_PackageRef() {
+		return (EReference)packageMapperEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPackageMapper_FakePackageName() {
+		return (EAttribute)packageMapperEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJavaMapper() {
 		return javaMapperEClass;
 	}
@@ -3833,6 +3876,69 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 */
 	public EAttribute getJavaMapper_ArtifactType() {
 		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getJavaPackageMapper() {
+		return javaPackageMapperEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaPackageMapper_MappedToPackageName() {
+		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaPackageMapper_ArtifactId() {
+		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaPackageMapper_GroupId() {
+		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaPackageMapper_Version() {
+		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaPackageMapper_LibraryName() {
+		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaPackageMapper_ArtifactType() {
+		return (EAttribute)javaPackageMapperEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -5100,8 +5206,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssosiation_SourceProperty() {
-		return (EReference)assosiationEClass.getEStructuralFeatures().get(2);
+	public EAttribute getAssosiation_SourceOperation() {
+		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5109,8 +5215,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssosiation_TargetProperty() {
-		return (EReference)assosiationEClass.getEStructuralFeatures().get(3);
+	public EAttribute getAssosiation_TargetOperation() {
+		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -8863,6 +8969,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		typeMapperEClass = createEClass(TYPE_MAPPER);
 
+		packageMapperEClass = createEClass(PACKAGE_MAPPER);
+		createEReference(packageMapperEClass, PACKAGE_MAPPER__PACKAGE_REF);
+		createEAttribute(packageMapperEClass, PACKAGE_MAPPER__FAKE_PACKAGE_NAME);
+
 		javaMapperEClass = createEClass(JAVA_MAPPER);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__MAPPED_TO_PACKAGE_NAME);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__MAPPED_TO_CLASS_NAME);
@@ -8871,6 +8981,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__VERSION);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__LIBRARY_NAME);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__ARTIFACT_TYPE);
+
+		javaPackageMapperEClass = createEClass(JAVA_PACKAGE_MAPPER);
+		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME);
+		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__ARTIFACT_ID);
+		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__GROUP_ID);
+		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__VERSION);
+		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__LIBRARY_NAME);
+		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE);
 
 		javaScriptMapperEClass = createEClass(JAVA_SCRIPT_MAPPER);
 		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__LIBRARY_URL);
@@ -9041,8 +9159,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		assosiationEClass = createEClass(ASSOSIATION);
 		createEAttribute(assosiationEClass, ASSOSIATION__TYPE);
 		createEReference(assosiationEClass, ASSOSIATION__LINKS);
-		createEReference(assosiationEClass, ASSOSIATION__SOURCE_PROPERTY);
-		createEReference(assosiationEClass, ASSOSIATION__TARGET_PROPERTY);
+		createEAttribute(assosiationEClass, ASSOSIATION__SOURCE_OPERATION);
+		createEAttribute(assosiationEClass, ASSOSIATION__TARGET_OPERATION);
 		createEReference(assosiationEClass, ASSOSIATION__MANY2MANY_HELPER);
 
 		typeElementEClass = createEClass(TYPE_ELEMENT);
@@ -9591,7 +9709,9 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		messageLibraryEClass.getESuperTypes().add(this.getCategorized());
 		typeMapperEClass.getESuperTypes().add(this.getMapper());
 		typeMapperEClass.getESuperTypes().add(this.getTypePointer());
+		packageMapperEClass.getESuperTypes().add(this.getMapper());
 		javaMapperEClass.getESuperTypes().add(this.getTypeMapper());
+		javaPackageMapperEClass.getESuperTypes().add(this.getPackageMapper());
 		javaScriptMapperEClass.getESuperTypes().add(this.getTypeMapper());
 		cssMapperEClass.getESuperTypes().add(this.getMapper());
 		roleMapperEClass.getESuperTypes().add(this.getMapper());
@@ -9617,6 +9737,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		parameterEClass.getESuperTypes().add(this.getTypePointer());
 		returnValueEClass.getESuperTypes().add(this.getTypePointer());
 		enumaratorEClass.getESuperTypes().add(this.getTypeElement());
+		enumAttributeEClass.getESuperTypes().add(this.getCategorized());
 		typesEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		formParameterEClass.getESuperTypes().add(this.getTypePointer());
 		canvasFrameEClass.getESuperTypes().add(this.getStyleElement());
@@ -10028,6 +10149,10 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 
 		initEClass(typeMapperEClass, TypeMapper.class, "TypeMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(packageMapperEClass, PackageMapper.class, "PackageMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPackageMapper_PackageRef(), this.getPackage(), null, "packageRef", null, 0, 1, PackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackageMapper_FakePackageName(), ecorePackage.getEString(), "fakePackageName", null, 0, 1, PackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(javaMapperEClass, JavaMapper.class, "JavaMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaMapper_MappedToPackageName(), ecorePackage.getEString(), "mappedToPackageName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_MappedToClassName(), ecorePackage.getEString(), "mappedToClassName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10036,6 +10161,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getJavaMapper_Version(), ecorePackage.getEString(), "version", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_LibraryName(), ecorePackage.getEString(), "libraryName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_ArtifactType(), ecorePackage.getEString(), "artifactType", "jar", 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(javaPackageMapperEClass, JavaPackageMapper.class, "JavaPackageMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJavaPackageMapper_MappedToPackageName(), ecorePackage.getEString(), "mappedToPackageName", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaPackageMapper_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaPackageMapper_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaPackageMapper_Version(), ecorePackage.getEString(), "version", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaPackageMapper_LibraryName(), ecorePackage.getEString(), "libraryName", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaPackageMapper_ArtifactType(), ecorePackage.getEString(), "artifactType", "jar", 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaScriptMapperEClass, JavaScriptMapper.class, "JavaScriptMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaScriptMapper_LibraryUrl(), ecorePackage.getEString(), "libraryUrl", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10206,8 +10339,8 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(assosiationEClass, Assosiation.class, "Assosiation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAssosiation_Type(), this.getRelationType(), "type", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssosiation_Links(), this.getLink(), null, "links", null, 0, -1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssosiation_SourceProperty(), this.getAttribute(), null, "sourceProperty", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssosiation_TargetProperty(), this.getAttribute(), null, "targetProperty", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssosiation_SourceOperation(), ecorePackage.getEString(), "sourceOperation", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssosiation_TargetOperation(), ecorePackage.getEString(), "targetOperation", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssosiation_Many2manyHelper(), this.getTypePointer(), null, "many2manyHelper", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeElementEClass, TypeElement.class, "TypeElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -10726,6 +10859,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEEnum(relationTypeEEnum, RelationType.class, "RelationType");
 		addEEnumLiteral(relationTypeEEnum, RelationType.ONE2_ONE);
 		addEEnumLiteral(relationTypeEEnum, RelationType.ONE2_MANY);
+		addEEnumLiteral(relationTypeEEnum, RelationType.MANY2_ONE);
 		addEEnumLiteral(relationTypeEEnum, RelationType.MANY2_MANY);
 
 		initEEnum(orientationEEnum, Orientation.class, "Orientation");
@@ -11093,6 +11227,14 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "label", "fakePackageName,fakeTypeName",
 			 "border.color", "0,0,0",
 			 "color", "255,237,85"
+		   });	
+		addAnnotation
+		  (javaPackageMapperEClass, 
+		   source, 
+		   new String[] {
+			 "label", "fakePackageName",
+			 "border.color", "0,0,0",
+			 "color", "77,255,228"
 		   });	
 		addAnnotation
 		  (javaScriptMapperEClass, 
@@ -12225,7 +12367,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 			 "source", "source",
 			 "target", "target",
 			 "width", "2",
-			 "source.decoration", "arrow",
 			 "target.decoration", "arrow",
 			 "color", "20,126,23"
 		   });	

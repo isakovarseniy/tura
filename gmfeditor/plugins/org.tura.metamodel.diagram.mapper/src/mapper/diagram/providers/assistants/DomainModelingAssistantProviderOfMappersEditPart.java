@@ -35,9 +35,10 @@ public class DomainModelingAssistantProviderOfMappersEditPart extends
 	 */
 	@Override
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
-		List<IElementType> types = new ArrayList<IElementType>(4);
+		List<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(DomainElementTypes.JavaMapper_402001);
 		types.add(DomainElementTypes.JavaScriptMapper_402003);
+		types.add(DomainElementTypes.JavaPackageMapper_402006);
 		types.add(DomainElementTypes.CSSMapper_402004);
 		types.add(DomainElementTypes.RoleMapper_402005);
 		return types;

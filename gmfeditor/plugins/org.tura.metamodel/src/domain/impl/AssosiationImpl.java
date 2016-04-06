@@ -34,8 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link domain.impl.AssosiationImpl#getType <em>Type</em>}</li>
  *   <li>{@link domain.impl.AssosiationImpl#getLinks <em>Links</em>}</li>
- *   <li>{@link domain.impl.AssosiationImpl#getSourceProperty <em>Source Property</em>}</li>
- *   <li>{@link domain.impl.AssosiationImpl#getTargetProperty <em>Target Property</em>}</li>
+ *   <li>{@link domain.impl.AssosiationImpl#getSourceOperation <em>Source Operation</em>}</li>
+ *   <li>{@link domain.impl.AssosiationImpl#getTargetOperation <em>Target Operation</em>}</li>
  *   <li>{@link domain.impl.AssosiationImpl#getMany2manyHelper <em>Many2many Helper</em>}</li>
  * </ul>
  * </p>
@@ -74,24 +74,44 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 	protected EList<Link> links;
 
 	/**
-	 * The cached value of the '{@link #getSourceProperty() <em>Source Property</em>}' reference.
+	 * The default value of the '{@link #getSourceOperation() <em>Source Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSourceProperty()
+	 * @see #getSourceOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Attribute sourceProperty;
+	protected static final String SOURCE_OPERATION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTargetProperty() <em>Target Property</em>}' reference.
+	 * The cached value of the '{@link #getSourceOperation() <em>Source Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTargetProperty()
+	 * @see #getSourceOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Attribute targetProperty;
+	protected String sourceOperation = SOURCE_OPERATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTargetOperation() <em>Target Operation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetOperation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TARGET_OPERATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTargetOperation() <em>Target Operation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetOperation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String targetOperation = TARGET_OPERATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMany2manyHelper() <em>Many2many Helper</em>}' containment reference.
@@ -160,16 +180,8 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Attribute getSourceProperty() {
-		if (sourceProperty != null && sourceProperty.eIsProxy()) {
-			InternalEObject oldSourceProperty = (InternalEObject)sourceProperty;
-			sourceProperty = (Attribute)eResolveProxy(oldSourceProperty);
-			if (sourceProperty != oldSourceProperty) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.ASSOSIATION__SOURCE_PROPERTY, oldSourceProperty, sourceProperty));
-			}
-		}
-		return sourceProperty;
+	public String getSourceOperation() {
+		return sourceOperation;
 	}
 
 	/**
@@ -177,20 +189,11 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Attribute basicGetSourceProperty() {
-		return sourceProperty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSourceProperty(Attribute newSourceProperty) {
-		Attribute oldSourceProperty = sourceProperty;
-		sourceProperty = newSourceProperty;
+	public void setSourceOperation(String newSourceOperation) {
+		String oldSourceOperation = sourceOperation;
+		sourceOperation = newSourceOperation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ASSOSIATION__SOURCE_PROPERTY, oldSourceProperty, sourceProperty));
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ASSOSIATION__SOURCE_OPERATION, oldSourceOperation, sourceOperation));
 	}
 
 	/**
@@ -198,16 +201,8 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Attribute getTargetProperty() {
-		if (targetProperty != null && targetProperty.eIsProxy()) {
-			InternalEObject oldTargetProperty = (InternalEObject)targetProperty;
-			targetProperty = (Attribute)eResolveProxy(oldTargetProperty);
-			if (targetProperty != oldTargetProperty) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DomainPackage.ASSOSIATION__TARGET_PROPERTY, oldTargetProperty, targetProperty));
-			}
-		}
-		return targetProperty;
+	public String getTargetOperation() {
+		return targetOperation;
 	}
 
 	/**
@@ -215,20 +210,11 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Attribute basicGetTargetProperty() {
-		return targetProperty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTargetProperty(Attribute newTargetProperty) {
-		Attribute oldTargetProperty = targetProperty;
-		targetProperty = newTargetProperty;
+	public void setTargetOperation(String newTargetOperation) {
+		String oldTargetOperation = targetOperation;
+		targetOperation = newTargetOperation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ASSOSIATION__TARGET_PROPERTY, oldTargetProperty, targetProperty));
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.ASSOSIATION__TARGET_OPERATION, oldTargetOperation, targetOperation));
 	}
 
 	/**
@@ -302,12 +288,10 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 				return getType();
 			case DomainPackage.ASSOSIATION__LINKS:
 				return getLinks();
-			case DomainPackage.ASSOSIATION__SOURCE_PROPERTY:
-				if (resolve) return getSourceProperty();
-				return basicGetSourceProperty();
-			case DomainPackage.ASSOSIATION__TARGET_PROPERTY:
-				if (resolve) return getTargetProperty();
-				return basicGetTargetProperty();
+			case DomainPackage.ASSOSIATION__SOURCE_OPERATION:
+				return getSourceOperation();
+			case DomainPackage.ASSOSIATION__TARGET_OPERATION:
+				return getTargetOperation();
 			case DomainPackage.ASSOSIATION__MANY2MANY_HELPER:
 				return getMany2manyHelper();
 		}
@@ -330,11 +314,11 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 				getLinks().clear();
 				getLinks().addAll((Collection<? extends Link>)newValue);
 				return;
-			case DomainPackage.ASSOSIATION__SOURCE_PROPERTY:
-				setSourceProperty((Attribute)newValue);
+			case DomainPackage.ASSOSIATION__SOURCE_OPERATION:
+				setSourceOperation((String)newValue);
 				return;
-			case DomainPackage.ASSOSIATION__TARGET_PROPERTY:
-				setTargetProperty((Attribute)newValue);
+			case DomainPackage.ASSOSIATION__TARGET_OPERATION:
+				setTargetOperation((String)newValue);
 				return;
 			case DomainPackage.ASSOSIATION__MANY2MANY_HELPER:
 				setMany2manyHelper((TypePointer)newValue);
@@ -357,11 +341,11 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 			case DomainPackage.ASSOSIATION__LINKS:
 				getLinks().clear();
 				return;
-			case DomainPackage.ASSOSIATION__SOURCE_PROPERTY:
-				setSourceProperty((Attribute)null);
+			case DomainPackage.ASSOSIATION__SOURCE_OPERATION:
+				setSourceOperation(SOURCE_OPERATION_EDEFAULT);
 				return;
-			case DomainPackage.ASSOSIATION__TARGET_PROPERTY:
-				setTargetProperty((Attribute)null);
+			case DomainPackage.ASSOSIATION__TARGET_OPERATION:
+				setTargetOperation(TARGET_OPERATION_EDEFAULT);
 				return;
 			case DomainPackage.ASSOSIATION__MANY2MANY_HELPER:
 				setMany2manyHelper((TypePointer)null);
@@ -382,10 +366,10 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 				return type != TYPE_EDEFAULT;
 			case DomainPackage.ASSOSIATION__LINKS:
 				return links != null && !links.isEmpty();
-			case DomainPackage.ASSOSIATION__SOURCE_PROPERTY:
-				return sourceProperty != null;
-			case DomainPackage.ASSOSIATION__TARGET_PROPERTY:
-				return targetProperty != null;
+			case DomainPackage.ASSOSIATION__SOURCE_OPERATION:
+				return SOURCE_OPERATION_EDEFAULT == null ? sourceOperation != null : !SOURCE_OPERATION_EDEFAULT.equals(sourceOperation);
+			case DomainPackage.ASSOSIATION__TARGET_OPERATION:
+				return TARGET_OPERATION_EDEFAULT == null ? targetOperation != null : !TARGET_OPERATION_EDEFAULT.equals(targetOperation);
 			case DomainPackage.ASSOSIATION__MANY2MANY_HELPER:
 				return many2manyHelper != null;
 		}
@@ -404,6 +388,10 @@ public class AssosiationImpl extends RelationShipImpl implements Assosiation {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (type: ");
 		result.append(type);
+		result.append(", sourceOperation: ");
+		result.append(sourceOperation);
+		result.append(", targetOperation: ");
+		result.append(targetOperation);
 		result.append(')');
 		return result.toString();
 	}

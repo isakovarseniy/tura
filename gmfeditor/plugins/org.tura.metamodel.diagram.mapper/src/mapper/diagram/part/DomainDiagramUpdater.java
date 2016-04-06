@@ -27,6 +27,7 @@ import domain.Mapper;
 import domain.Mappers;
 import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
+import mapper.diagram.edit.parts.JavaPackageMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
 import mapper.diagram.edit.parts.RoleMapperEditPart;
@@ -78,6 +79,10 @@ public class DomainDiagramUpdater {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == JavaPackageMapperEditPart.VISUAL_ID) {
+				result.add(new DomainNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == CSSMapperEditPart.VISUAL_ID) {
 				result.add(new DomainNodeDescriptor(childElement, visualID));
 				continue;
@@ -101,6 +106,8 @@ public class DomainDiagramUpdater {
 			return getJavaMapper_402001ContainedLinks(view);
 		case JavaScriptMapperEditPart.VISUAL_ID:
 			return getJavaScriptMapper_402003ContainedLinks(view);
+		case JavaPackageMapperEditPart.VISUAL_ID:
+			return getJavaPackageMapper_402006ContainedLinks(view);
 		case CSSMapperEditPart.VISUAL_ID:
 			return getCSSMapper_402004ContainedLinks(view);
 		case RoleMapperEditPart.VISUAL_ID:
@@ -118,6 +125,8 @@ public class DomainDiagramUpdater {
 			return getJavaMapper_402001IncomingLinks(view);
 		case JavaScriptMapperEditPart.VISUAL_ID:
 			return getJavaScriptMapper_402003IncomingLinks(view);
+		case JavaPackageMapperEditPart.VISUAL_ID:
+			return getJavaPackageMapper_402006IncomingLinks(view);
 		case CSSMapperEditPart.VISUAL_ID:
 			return getCSSMapper_402004IncomingLinks(view);
 		case RoleMapperEditPart.VISUAL_ID:
@@ -135,6 +144,8 @@ public class DomainDiagramUpdater {
 			return getJavaMapper_402001OutgoingLinks(view);
 		case JavaScriptMapperEditPart.VISUAL_ID:
 			return getJavaScriptMapper_402003OutgoingLinks(view);
+		case JavaPackageMapperEditPart.VISUAL_ID:
+			return getJavaPackageMapper_402006OutgoingLinks(view);
 		case CSSMapperEditPart.VISUAL_ID:
 			return getCSSMapper_402004OutgoingLinks(view);
 		case RoleMapperEditPart.VISUAL_ID:
@@ -163,6 +174,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getJavaPackageMapper_402006ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -202,6 +221,14 @@ public class DomainDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<DomainLinkDescriptor> getJavaPackageMapper_402006IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<DomainLinkDescriptor> getCSSMapper_402004IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -227,6 +254,14 @@ public class DomainDiagramUpdater {
 	 * @generated
 	 */
 	public static List<DomainLinkDescriptor> getJavaScriptMapper_402003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<DomainLinkDescriptor> getJavaPackageMapper_402006OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

@@ -5,7 +5,6 @@ operation domain::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingre
 
     var tp=self;
     if (self.isTypeOf(domain::TypeReference)){
-        selfUID = self.typeRef.uid;
         tp = self.typeRef;
     }
     
@@ -45,9 +44,53 @@ operation domain::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingre
               }  
           }    
      }
+
+     if (self.~class = null and tp <> null){
+	    for( appmapper in appmappers ){
+	         var pkg =  self.eContainer().parent;
+	         var pkgUID = self.eContainer().parent.uid;
+	         if (self.isTypeOf(domain::TypeReference)){
+	             pkgUID = self.typeRef.eContainer().parent.uid;
+	             pkg =  self.typeRef.eContainer().parent;
+	         }
+	         
+	         var set = appmapper.mapper.mappers.select(r|r.isKindOf(domain::JavaPackageMapper) and r.packageRef.uid= pkgUID);
+             if ( set.size() <> 0 ){
+              var pkgMp =  util.mapPackage(set,ingredient,pkg) ;
+ 
+              if ( pkgMp <> null){
+                 self.~mapper="Type2Java";
+                 self.~class=util.mergeAndCapitalize(self.name);
+                 self.~package= pkgMp.mappedToPackageName;
+                 self.~fullName=pkgMp.mappedToPackageName+"."+self.~class;
+                 self.~artifactId=pkgMp.artifactId;
+                 self.~groupId=pkgMp.groupId;
+                 self.~version= pkgMp.version;
+                 if (pkgMp.libraryName <> null)
+                     self.~library = pkgMp.libraryName;
+                 else{
+                    if ( pkgMp.artifactId<> null and pkgMp.version <> null )
+                        self.~library=pkgMp.artifactId+"-"+pkgMp.version+"."+pkgMp.artifactType;
+                    else
+                        self.~library=null;
+                 }    
+              }  
+             
+             }
+	     }
+     }
+
      if (self.~class = null and tp <> null){
 /*  Cannot throw exception */     
          util.traceIfDebug("JavaMapper","Unable to find JavaMapper for type \"" + tp.name +"\" on layer \"" + ingredient.layer +"\"");
+         self.~mapper="Type2Java";
+         self.~class="Unable to find JavaMapper for type \"" + tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~package= "Unable to find JavaMapper for type \"" + tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~fullName="Unable to find JavaMapper for type \"" + tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~artifactId="Unable to find JavaMapper for type \"" + tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~groupId="Unable to find JavaMapper for type \"" + tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~version= "Unable to find JavaMapper for type \"" + tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         
      }
 } 
 

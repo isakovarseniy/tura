@@ -491,7 +491,17 @@ public class MessagesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MESSAGES__ANY,
+				 DomainFactory.eINSTANCE.createPackageMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MESSAGES__ANY,
 				 DomainFactory.eINSTANCE.createJavaMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MESSAGES__ANY,
+				 DomainFactory.eINSTANCE.createJavaPackageMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

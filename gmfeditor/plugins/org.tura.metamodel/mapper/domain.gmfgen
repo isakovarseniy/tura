@@ -51,6 +51,27 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <topLevelNodes visualID="402006" editPartClassName="JavaPackageMapperEditPart" itemSemanticEditPolicyClassName="JavaPackageMapperItemSemanticEditPolicy" canonicalEditPolicyClassName="JavaPackageMapperCanonicalEditPolicy" graphicalNodeEditPolicyClassName="JavaPackageMapperGraphicalNodeEditPolicy" createCommandClassName="JavaPackageMapperCreateCommand">
+      <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="JavaPackageMapperEditHelper"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="JavaPackageMapperFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class JavaPackageMapperFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureJavaPackageMapperLabelFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public JavaPackageMapperFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureJavaPackageMapperLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureJavaPackageMapperLabelFigure.setText(&quot;JavaPackageMapper&quot;);&#xA;&#xA;fFigureJavaPackageMapperLabelFigure.setFont(FFIGUREJAVAPACKAGEMAPPERLABELFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureJavaPackageMapperLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureJavaPackageMapperLabelFigure() {&#xA;&#x9;&#x9;return fFigureJavaPackageMapperLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 77, 255, 228);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREJAVAPACKAGEMAPPERLABELFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Palatino&quot;, 12, org.eclipse.swt.SWT.ITALIC);&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:StyleAttributes" fixedForeground="true" fixedBackground="true"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass href="domain.genmodel#//domain/JavaPackageMapper"/>
+        <containmentMetaFeature href="domain.genmodel#//domain/Mappers/mappers"/>
+        <childMetaFeature href="domain.genmodel#//domain/Mappers/mappers"/>
+      </modelFacet>
+      <labels visualID="405006" editPartClassName="JavaPackageMapperFakePackageNameEditPart" itemSemanticEditPolicyClassName="JavaPackageMapperFakePackageNameItemSemanticEditPolicy" elementIcon="true">
+        <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureJavaPackageMapperLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes xsi:type="gmfgen:StyleAttributes" fixedFont="true"/>
+        </viewmap>
+        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
+          <metaFeatures href="domain.genmodel#//domain/PackageMapper/fakePackageName"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
     <topLevelNodes visualID="402004" editPartClassName="CSSMapperEditPart" itemSemanticEditPolicyClassName="CSSMapperItemSemanticEditPolicy" canonicalEditPolicyClassName="CSSMapperCanonicalEditPolicy" graphicalNodeEditPolicyClassName="CSSMapperGraphicalNodeEditPolicy" createCommandClassName="CSSMapperCreateCommand">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="CSSMapperEditHelper"/>
@@ -96,10 +117,11 @@
     </topLevelNodes>
     <palette>
       <groups title="Objects" collapse="true">
-        <entries xsi:type="gmfgen:ToolEntry" title="CSSMapper" description="Create new CSSMapper" genNodes="//@diagram/@topLevelNodes.2"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="CSSMapper" description="Create new CSSMapper" genNodes="//@diagram/@topLevelNodes.3"/>
         <entries xsi:type="gmfgen:ToolEntry" title="JavaMapper" description="Create new JavaMapper" genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="JavaPackageMapper" description="Create new JavaPackageMapper" genNodes="//@diagram/@topLevelNodes.2"/>
         <entries xsi:type="gmfgen:ToolEntry" title="JavaScriptMapper" description="Create new JavaScriptMapper" genNodes="//@diagram/@topLevelNodes.1"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="RoleMapper" description="Create new RoleMapper" genNodes="//@diagram/@topLevelNodes.3"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="RoleMapper" description="Create new RoleMapper" genNodes="//@diagram/@topLevelNodes.4"/>
       </groups>
     </palette>
     <preferencePages xsi:type="gmfgen:GenStandardPreferencePage" iD="org.tura.metamodel.diagram.general" name="Domain Diagram">
@@ -120,6 +142,7 @@
     <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.1"/>
     <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.2"/>
     <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.3"/>
+    <childReferences parent="//@diagram" child="//@diagram/@topLevelNodes.4"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>
@@ -135,7 +158,7 @@
   </propertySheet>
   <domainGenModel href="domain.genmodel#/"/>
   <labelParsers extensibleViaService="true">
-    <implementations xsi:type="gmfgen:PredefinedParser" uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet"/>
+    <implementations xsi:type="gmfgen:PredefinedParser" uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet //@diagram/@topLevelNodes.4/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus context="//@diagram">
     <items xsi:type="gmfgen:LoadResourceAction"/>

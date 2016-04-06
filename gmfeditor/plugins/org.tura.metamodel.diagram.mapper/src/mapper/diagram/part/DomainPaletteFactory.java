@@ -48,8 +48,9 @@ public class DomainPaletteFactory {
 		paletteContainer.setId("createObjects1Group"); //$NON-NLS-1$
 		paletteContainer.add(createCSSMapper1CreationTool());
 		paletteContainer.add(createJavaMapper2CreationTool());
-		paletteContainer.add(createJavaScriptMapper3CreationTool());
-		paletteContainer.add(createRoleMapper4CreationTool());
+		paletteContainer.add(createJavaPackageMapper3CreationTool());
+		paletteContainer.add(createJavaScriptMapper4CreationTool());
+		paletteContainer.add(createRoleMapper5CreationTool());
 		return paletteContainer;
 	}
 
@@ -86,13 +87,29 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createJavaScriptMapper3CreationTool() {
+	private ToolEntry createJavaPackageMapper3CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.JavaScriptMapper3CreationTool_title,
-				Messages.JavaScriptMapper3CreationTool_desc,
+				Messages.JavaPackageMapper3CreationTool_title,
+				Messages.JavaPackageMapper3CreationTool_desc,
+				Collections
+						.singletonList(DomainElementTypes.JavaPackageMapper_402006));
+		entry.setId("createJavaPackageMapper3CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(DomainElementTypes
+				.getImageDescriptor(DomainElementTypes.JavaPackageMapper_402006));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createJavaScriptMapper4CreationTool() {
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
+				Messages.JavaScriptMapper4CreationTool_title,
+				Messages.JavaScriptMapper4CreationTool_desc,
 				Collections
 						.singletonList(DomainElementTypes.JavaScriptMapper_402003));
-		entry.setId("createJavaScriptMapper3CreationTool"); //$NON-NLS-1$
+		entry.setId("createJavaScriptMapper4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.JavaScriptMapper_402003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -102,12 +119,12 @@ public class DomainPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRoleMapper4CreationTool() {
+	private ToolEntry createRoleMapper5CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.RoleMapper4CreationTool_title,
-				Messages.RoleMapper4CreationTool_desc,
+				Messages.RoleMapper5CreationTool_title,
+				Messages.RoleMapper5CreationTool_desc,
 				Collections.singletonList(DomainElementTypes.RoleMapper_402005));
-		entry.setId("createRoleMapper4CreationTool"); //$NON-NLS-1$
+		entry.setId("createRoleMapper5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DomainElementTypes
 				.getImageDescriptor(DomainElementTypes.RoleMapper_402005));
 		entry.setLargeIcon(entry.getSmallIcon());

@@ -126,7 +126,7 @@
    constraint UniqueName{
 
       guard : self.satisfies("HasName")
-      check : self.parent.enums.select(r|r.name=self.name).size() = 1
+      check : self.parent.types.select(r|r.name=self.name).size() = 1
       message : 'Enumarator name  ' + self.name + ' is not unique'
    
    } 
@@ -158,8 +158,6 @@
       message : 'EnumAttribute name  ' + self.name + ' is not unique'
    
    } 
-
-
 }
 
  context domain::TypePointer {
@@ -187,6 +185,16 @@
    constraint HasName {
       check :  self.methodRef.isDefined()
       message : 'Undefined method name ' + self.eClass().name + ' not allowed'
+
+  }
+}
+
+
+ context domain::Assosiation{
+ 
+   constraint ConnectionAttributes  {
+      check :  self.sourcePropert <> null  and  self.targetProperty<> null
+      message : 'Undefined source and target attributes ' + self.eClass().name + ' not allowed'
 
   }
 }

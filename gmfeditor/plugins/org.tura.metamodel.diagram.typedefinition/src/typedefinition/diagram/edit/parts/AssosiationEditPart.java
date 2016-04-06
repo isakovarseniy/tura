@@ -74,16 +74,7 @@ public class AssosiationEditPart extends ConnectionNodeEditPart implements
 			this.setLineWidth(2);
 			this.setForegroundColor(THIS_FORE);
 
-			setSourceDecoration(createSourceDecoration());
 			setTargetDecoration(createTargetDecoration());
-		}
-
-		/**
-		 * @generated
-		 */
-		private RotatableDecoration createSourceDecoration() {
-			PolylineDecoration df = new PolylineDecoration();
-			return df;
 		}
 
 		/**

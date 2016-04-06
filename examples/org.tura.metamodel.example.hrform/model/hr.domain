@@ -16,6 +16,7 @@
       <recipes uid="Hr_recipe" name="Hr recipe" recipes="e0a24138-9ba7-44dd-8b87-d1b01751c642"/>
       <recipes uid="fc4a8a78-b68c-4020-bb95-ab6d773b5486" name="Form generation" recipes="780d51bf-e928-4fb4-a228-4371d8fe439d"/>
       <recipes uid="643f117b-2ee8-49cd-b1ff-6123bc465259" name="DataControls for JSE" recipes="ea1699b1-79f1-4e4d-9342-3ba1cf05a54d"/>
+      <recipes uid="c5fe3707-e225-47ab-8c81-4e698689133c" name="Bean generation" recipes="496b054e-8e06-4a6d-883f-6656c149d6a5"/>
     </applicationRecipes>
     <applicationMappers columns="2" uid="bd625d91-80b6-42b4-bfd3-9311a0f32026" name="Application mapper">
       <mappers uid="0d86886f-6d6e-49e1-a123-d063d2d9bd22" name="Primitives mapper" mapper="e5ddc4b2-b9bc-4fb3-928a-2cb53fcc0d2d"/>
@@ -250,6 +251,7 @@
       <packages uid="dd77a443-471b-441e-88bf-3f3f092f372c" name="Base package" typedefinition="d3aaa3c1-ce4f-4b19-9e05-30631fe679cd"/>
       <packages uid="e8faa4f9-a654-40f5-bdf5-454f90f2af19" name="HR package" typedefinition="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84"/>
       <packages uid="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" name="DataControl command" typedefinition="a1db2dd1-56ec-4c88-97cd-d3ec61a46d0b"/>
+      <packages uid="1ad90013-ec38-45b6-838f-e1a64508151a" name="JPA relation test " typedefinition="a8925a50-3461-448a-bfcc-24a127ca62c3"/>
     </typeDefinition>
   </tura.domain:TypesRepository>
   <tura.domain:TypeDefinition uid="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d" parent="9fcd56c0-2fe7-445a-864e-9550f1b901c2">
@@ -900,6 +902,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="591dcaf7-6f43-47aa-9130-a3e32806e973" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="ab216003-0555-4f74-9882-b4caa57816e8" fakePackageName="HR package" fakeTypeName="List of departments2entity" mappedToPackageName="java.util" mappedToClassName="List&lt;org.elsoft.platform.hr.objects.Department2EntityDAO>"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="0029084a-04fb-48e0-989a-0115d90c5aed" serviceLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" fakePackageName="Base package" fakeTypeName="Object ID generator" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="ObjectsID" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="0765b5d5-489b-46de-9a8b-3f2fb2c03567" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="04d63d66-f224-42a6-aabc-ed057fb924be" fakePackageName="HR package" fakeTypeName="User type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="UserDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaPackageMapper" uid="fe25473f-fe6b-4c3e-a637-3e696e8354e9" serviceLayer="true" packageRef="1ad90013-ec38-45b6-838f-e1a64508151a" fakePackageName="JPA relation test " mappedToPackageName="org.tura.jpa.test" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0"/>
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415" deployment="f611d83d-edd3-42df-a8bd-78ba7e88b7d9">
@@ -1110,7 +1113,7 @@
       <variables packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="e521fc9c-5580-404a-aaff-dbccef13eb59" name="cmpId"/>
       <variables packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="7ef63886-d369-40e0-8cc2-1e0160478677" name="var1" paramRef="29fc2ee9-2554-4db1-b651-b4c66c472316"/>
     </root>
-    <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company" baseTypeRef="/15/@controls.0/@baseType">
+    <controls uid="d45e9605-3706-493c-8422-3f7b8b6ea2ed" name="Company">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="b6fbdc2c-2f55-41cc-b942-5b511fcd24fd">
         <parameters uid="758a9c97-f0f7-404e-a59b-e99fa294761b" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -1197,7 +1200,7 @@
         <orderRules uid="c1094c94-1e84-44e5-8ceb-47da2047664f" refObj="Comp_7982905f-4f83-472f-8551-80e30e34934c"/>
       </defaultOrderBy>
     </controls>
-    <controls uid="cd1cab1c-1781-4867-85b8-84d9f465f989" name="Country" baseTypeRef="/15/@controls.1/@baseType">
+    <controls uid="cd1cab1c-1781-4867-85b8-84d9f465f989" name="Country">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="688c07fc-63c0-4fa6-a9ff-55fe231edff2">
         <parameters uid="6cb88eb6-3c04-49b9-818a-30c95f9aded5" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -1287,7 +1290,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" name="State" baseTypeRef="/15/@controls.2/@baseType">
+    <controls uid="f77b6e6d-41a3-4fb5-8ab9-85b2b76191ec" name="State">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="61789c88-2f85-4507-905b-a0fba160dbe0">
         <parameters uid="f5fd11e8-6b22-46d8-9cef-1bd74a4f29b2" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -1377,7 +1380,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="8d431a55-eddc-42cb-8397-588243cfb255" name="City" baseTypeRef="/15/@controls.3/@baseType">
+    <controls uid="8d431a55-eddc-42cb-8397-588243cfb255" name="City">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="4501e2ba-61c2-4008-825e-63bf79141c86">
         <parameters uid="d3fd5774-9a7e-4b87-8a9a-ac004db17b6c" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -1466,7 +1469,7 @@
       </search>
       <defaultSearch/>
     </controls>
-    <controls uid="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" name="Street" baseTypeRef="/15/@controls.4/@baseType">
+    <controls uid="b4d21da3-17fa-49e6-ab0e-a8cd3bd9d01d" name="Street">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="e11fa7d3-dee9-4e47-b682-475d70aa80d5">
         <parameters uid="1df89c8d-7ca3-4e31-be71-a5ae3815f2f1" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -1555,7 +1558,7 @@
       </search>
       <defaultSearch/>
     </controls>
-    <controls uid="0feddc04-1241-40fa-a9f3-35089d2cf4c5" name="Department" baseTypeRef="/15/@controls.5/@baseType">
+    <controls uid="0feddc04-1241-40fa-a9f3-35089d2cf4c5" name="Department">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="62743e77-c258-455c-b049-b2f3536b958b">
         <parameters uid="a2837620-c232-48ee-836a-371068f220e1" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -1638,7 +1641,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="0b115ae0-7710-49f2-bb74-45fa6af58c8e" name="Employee" baseTypeRef="/15/@controls.6/@baseType">
+    <controls uid="0b115ae0-7710-49f2-bb74-45fa6af58c8e" name="Employee">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="3fec8244-7da0-4bc6-a7bc-39a75044aaa6">
         <parameters uid="6686acbe-669b-4e97-adbe-e9964bff345d" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -1720,7 +1723,7 @@
       </search>
       <defaultSearch/>
     </controls>
-    <controls uid="7787cfd3-a689-4089-8689-7c149a1a3a34" name="Vehicle" baseTypeRef="/15/@controls.7/@baseType">
+    <controls uid="7787cfd3-a689-4089-8689-7c149a1a3a34" name="Vehicle">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="dbe6c288-0a12-43e8-a27f-aa212ce334de">
         <parameters uid="587f36c2-b244-45d3-ab60-24c015f99291" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -1802,7 +1805,7 @@
       </search>
       <defaultSearch/>
     </controls>
-    <controls uid="34ec885b-a2e1-4c4a-8987-f56c9e935e86" name="Files" baseTypeRef="/15/@controls.8/@baseType">
+    <controls uid="34ec885b-a2e1-4c4a-8987-f56c9e935e86" name="Files">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="de5f949f-1f33-4641-957c-dceda9193fa9">
         <parameters uid="8e0f6c01-8c17-4b3c-a25e-48591d3a5881" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -1892,7 +1895,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="659ef9c4-06fb-48cb-a385-4424988c7872" name="Popup Company DC Provider" baseTypeRef="/15/@controls.9/@baseType">
+    <controls uid="659ef9c4-06fb-48cb-a385-4424988c7872" name="Popup Company DC Provider">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="f704502c-99d8-4abc-8715-7d5ae7c95d6c">
         <parameters uid="00499ffd-4797-4e68-9e94-712f9265b8e6" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -1982,7 +1985,7 @@
       </defaultSearch>
       <defaultOrderBy/>
     </controls>
-    <controls uid="87c26cfe-fe6b-4aa6-915f-1c01179d242f" name="User" baseTypeRef="/15/@controls.10/@baseType">
+    <controls uid="87c26cfe-fe6b-4aa6-915f-1c01179d242f" name="User">
       <baseType packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="d449f09f-c355-4be9-9e25-fb547d30daeb">
         <parameters uid="0bb057c6-4ada-4758-bba7-f693969dcd26" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -4111,7 +4114,7 @@
     <linkToMessages uid="891cef8d-51a8-4a92-a43a-28d84afea4c9" source="83a48362-b526-4c40-8830-1409325b4726" target="7f2833a3-2392-4b4a-b8cd-20b56f2dea71"/>
   </tura.domain:CanvasView>
   <tura.domain:Controls uid="9bab1cbe-e4c8-49df-9e9b-85c50d2dbe62" parent="42af1957-84a2-463d-9f1a-6a92bfe27914">
-    <controls uid="178d5648-ef4e-4712-aa09-431da395aeef" name="Company" baseTypeRef="/35/@controls.0/@baseType">
+    <controls uid="178d5648-ef4e-4712-aa09-431da395aeef" name="Company">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="c7091cd1-9653-43e2-bf82-20ee13987c5c">
         <parameters uid="924d9386-b6a4-4b12-9349-b1551f199ac5" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -4202,7 +4205,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="706aa362-43cf-451f-8458-d94699968885" name="Country" baseTypeRef="/35/@controls.1/@baseType">
+    <controls uid="706aa362-43cf-451f-8458-d94699968885" name="Country">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Cntr_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="a2142772-aad5-4336-8c87-6596609c20fb">
         <parameters uid="a71f61c3-1fb3-4d97-86ae-c5ea0b65f83b" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -4292,7 +4295,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="ae7ac879-af81-4dfb-b9d0-229361975480" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="8a7b48d7-c34c-4ddf-a87a-7ed0b741ab39" name="State" baseTypeRef="/35/@controls.2/@baseType">
+    <controls uid="8a7b48d7-c34c-4ddf-a87a-7ed0b741ab39" name="State">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="State_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="ca06be94-c110-42dd-9bce-266fe92607f9">
         <parameters uid="461cefc2-3e02-48b8-978d-26fdfb975c79" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -4382,7 +4385,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="83afcb01-b524-455e-a92c-8bc001cc3edc" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="307d054b-d029-4d33-b2fa-0690e088f381" name="City" baseTypeRef="/35/@controls.3/@baseType">
+    <controls uid="307d054b-d029-4d33-b2fa-0690e088f381" name="City">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="City_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="0e0c23cf-2e25-4c5f-8754-e3a470ce11f5">
         <parameters uid="22f837cd-5929-40a5-854e-31e1834132ef" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -4472,7 +4475,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="820c0dc3-5bff-4f3e-8208-151010a1a5d9" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="51ba3563-65f1-4560-aa9a-8948642203db" name="Street" baseTypeRef="/35/@controls.4/@baseType">
+    <controls uid="51ba3563-65f1-4560-aa9a-8948642203db" name="Street">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Str_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="2eb056c4-c947-4236-93fc-8a7189df533d">
         <parameters uid="956785cb-56a0-47e5-b2d1-23cfe12da033" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -4562,7 +4565,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="54be63b6-c6fa-4930-9b5c-39e6f69fcfca" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="c2fbd57a-a79b-4f7b-961a-a4b4c022b303" name="Department" baseTypeRef="/35/@controls.5/@baseType">
+    <controls uid="c2fbd57a-a79b-4f7b-961a-a4b4c022b303" name="Department">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="39a498fc-6a78-448a-8a17-f0fb78b0f4c8">
         <parameters uid="81415c1d-2b1e-4f69-b282-ae055b13b715" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -4652,7 +4655,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="c0bf6228-cda1-4b2a-a6b5-0a519ae1a1e8" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="af8bd7cd-10dd-4658-9fdf-d6aa1deea4ad" name="Employee" baseTypeRef="/35/@controls.6/@baseType">
+    <controls uid="af8bd7cd-10dd-4658-9fdf-d6aa1deea4ad" name="Employee">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="7c82b926-5c6d-423b-a232-8c1114f63844">
         <parameters uid="303b677d-c082-48cd-8bd1-0ae41732c1ee" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -4742,7 +4745,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="17c955b8-6757-4684-a5ae-90f0efb0ca01" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="fc93f128-54f1-4f96-974e-abe19c2e658a" name="Vehicle" baseTypeRef="/35/@controls.7/@baseType">
+    <controls uid="fc93f128-54f1-4f96-974e-abe19c2e658a" name="Vehicle">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="eab4cf5e-f9e5-4628-b2b0-f0de4813400e">
         <parameters uid="e9a602ed-d708-4d6e-acfc-c31fd3175cf5" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -4832,7 +4835,7 @@
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="04093d6b-3535-4e0a-8b66-9c5c0ca87f86" name="nameArtf"/>
       <defaultSearch/>
     </controls>
-    <controls uid="07338878-9b76-4679-aa68-e84955f8aae5" name="Files" baseTypeRef="/35/@controls.8/@baseType">
+    <controls uid="07338878-9b76-4679-aa68-e84955f8aae5" name="Files">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="30cc96c6-c58d-40e6-8d4a-6ebc1171626f">
         <parameters uid="f8cfb5d8-0f54-4efe-b7e9-743f39f6985b" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -5032,7 +5035,7 @@
     <infrastructureConnections uid="3616af72-389c-412e-97da-7933a3406793" master="04aa194b-3499-40de-8461-674738e5be0f" detail="97201a3f-8064-4038-8327-68349d73be3d"/>
   </tura.domain:EnterpriseInfrastructure>
   <tura.domain:Controls uid="275253ca-c6ab-42b4-833e-9aae82cb149d" parent="bdf00c56-8100-4230-953b-0be8e9190f24">
-    <controls uid="066f4691-289b-499a-acb8-6f171d02236c" name="Departments" baseTypeRef="/40/@controls.0/@baseType">
+    <controls uid="066f4691-289b-499a-acb8-6f171d02236c" name="Departments">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="7f90beea-1d03-4c31-9cc7-84182c9d7726">
         <parameters uid="75d8bd1a-8aec-4d1c-90a6-3afb148639be" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -5115,7 +5118,7 @@
       <defaultSearch/>
       <defaultOrderBy/>
     </controls>
-    <controls uid="f69d69e9-5d7f-481e-8309-504966d5ef8d" name="Employes" baseTypeRef="/40/@controls.1/@baseType">
+    <controls uid="f69d69e9-5d7f-481e-8309-504966d5ef8d" name="Employes">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="797e9547-20eb-4be1-8fda-7484279f6377">
         <parameters uid="f07ce70c-ef0d-426a-9742-c7b7e3db797b" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -5207,7 +5210,7 @@
         </parameters>
       </defaultSearch>
     </controls>
-    <controls uid="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" name="Departments2Employees" baseTypeRef="/40/@controls.2/@baseType">
+    <controls uid="dae44fc8-6914-47cb-a0ca-8aa3f88744c6" name="Departments2Employees">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="8a6f872a-c107-4ccb-97cd-bd51237c92f2">
         <parameters uid="70b50780-17ad-4bb0-b460-490a2fefd006" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -5451,7 +5454,7 @@
   </tura.domain:CanvasView>
   <tura.domain:Controls uid="ee3685c0-6109-4d07-88b5-93abe2feb61f" parent="bd05dbd1-ffb4-4555-92d6-79453d4074ec"/>
   <tura.domain:Controls uid="5c389a2e-07c6-41a8-9470-61a8272f77c6" parent="1ece42ef-12be-412c-97c5-5711e30fb3f9">
-    <controls uid="b6de5432-2b55-46cb-b5af-bc3e83ed510e" name="ErrorRecordDC" baseTypeRef="/48/@controls.0/@baseType">
+    <controls uid="b6de5432-2b55-46cb-b5af-bc3e83ed510e" name="ErrorRecordDC">
       <baseType packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="d4e8848d-3f60-46bf-9d74-cf3fd3e82ebc">
         <parameters uid="e27a776e-a609-4d94-8c22-967f67bd1b4b" refObj="c4bbaedd-6f6b-4e75-ac57-011b6a4a0be6">
@@ -5789,4 +5792,89 @@
       </operations>
     </types>
   </tura.domain:TypeDefinition>
+  <tura.domain:TypeDefinition uid="a8925a50-3461-448a-bfcc-24a127ca62c3" parent="1ad90013-ec38-45b6-838f-e1a64508151a">
+    <types xsi:type="tura.domain:Type" uid="575a83de-46e4-4566-b413-809fa4f426a3" name="Client">
+      <classifiers uid="8cd1b14c-7579-47db-a71e-7453b4016fa2" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="1f3252f8-10a9-4f0b-b79a-4c7f6ac43e92" name="name"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="7b65b5f3-1869-45dd-a1f1-b54ebfb3554b" name="personId"/>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="1da57482-9911-4791-a6e7-396f54063615" name="Person">
+      <classifiers uid="83a2babe-e434-42a5-abcf-571635ff04d5" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="7919e969-6a56-4949-ba80-ec03959fc47c" name="name"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="aa6afb28-2237-4af2-b4c0-ce2f83c92976" name="clientId"/>
+      <attributes packageRef="1ad90013-ec38-45b6-838f-e1a64508151a" typeRef="04327744-c104-472c-bd5f-f4f51ad533ce" fakePackageName="JPA relation test " fakeTypeName="Person Type" uid="b440c5ab-6659-4203-b122-ce6e9539a29f" name="person Type"/>
+    </types>
+    <types xsi:type="tura.domain:Enumarator" uid="04327744-c104-472c-bd5f-f4f51ad533ce" name="Person Type">
+      <values uid="698fa0a0-4a55-4f9d-8118-75b0310f2e92" name="FEMALE" value="FEMALE"/>
+      <values uid="93c0143a-52d6-4bc3-abf4-6f21edf06ca7" name="MALE" value="MALE"/>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="aedad6c4-51c2-4864-b2f3-ce57a7a8475a" name="Mail Address">
+      <classifiers uid="f175ee40-0475-48a5-aa3f-80be94a31480" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="180b75e2-bf79-4924-a7ea-32f7f47fd7e9" name="address"/>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="c16ccaba-8dc4-4621-8a9c-7af6803fe6a2" name="Phone">
+      <classifiers uid="616e9b9f-1dbf-40da-9f0a-76ea99d996c9" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="51a4ebe8-9520-48b4-b787-1e717b56720e" name="phone"/>
+    </types>
+    <types xsi:type="tura.domain:Enumarator" uid="502a839c-936f-4167-8008-32f2919abe52" name="Phone Type">
+      <values uid="db687d02-701c-48b0-99b2-e9cebd7ac55a" name="HOME" value="HOME"/>
+      <values uid="6ced1634-cda1-4450-bff4-8639eede852c" name="BUSINESS" value="BUSINESS"/>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="0a735c7e-8e85-4ebd-bf37-a6560a5f5219" name="Core Object">
+      <classifiers uid="15786ff2-7e27-4110-af38-5aff0be014e6" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="64d1bb6e-1835-4f67-97a7-8ee33ec93285" name="objId" pk="true"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="f37b04f1-2ada-461d-af7c-288ccd4f400a" name="parentId"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2d20ec03-0bec-4e3f-9cb6-c19e186711e7" fakePackageName="Primitive package" fakeTypeName="Date" uid="d6ed6d78-d6f2-4cf0-bee3-db25f1146344" name="crete date"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="fddb6deb-1647-49f4-bb49-1952f56c651d" name="object type" pk="true"/>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="2fb28cec-33f5-4ae6-8f13-a60b81a8ae66" name="Location">
+      <classifiers uid="96e6cc68-cd0f-41dd-a5d2-cb718b86eed9" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="46af370c-4e30-4eef-80fa-67fa1cac2bd4" name="City"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="3d2da316-d793-461b-ae39-6c6e13b3de60" name="Street"/>
+    </types>
+    <types xsi:type="tura.domain:TypeReference" uid="1e9f489f-112d-4c8d-91ff-7218e983bedf" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType"/>
+    <types xsi:type="tura.domain:Type" uid="cd6f7f7a-4f54-4a83-bbc1-8163a39a98a3" name="Vehicle">
+      <classifiers uid="3131eaa2-d147-48d5-aa46-aedeccb4b28e" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="19762397-61f4-4cc4-8f2f-4783460b87b6" name="objId" pk="true"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="338bae8a-8fb4-4f9b-9e24-8ea76b66fb53" name="model"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="0e956650-ad67-4c87-a2fc-62946dc64146" name="plate"/>
+    </types>
+    <relationShips xsi:type="tura.domain:Assosiation" uid="0397d137-5eca-4a6c-b0c2-534c6402e9ad" source="575a83de-46e4-4566-b413-809fa4f426a3" target="1da57482-9911-4791-a6e7-396f54063615">
+      <links uid="c1a6a6ee-1e3a-4ff0-83f6-7f6091fde6f6" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+      <many2manyHelper/>
+    </relationShips>
+    <relationShips xsi:type="tura.domain:Generalization" uid="9494d049-645c-4d06-b4fb-ba346959dc6b" source="575a83de-46e4-4566-b413-809fa4f426a3" target="0a735c7e-8e85-4ebd-bf37-a6560a5f5219"/>
+    <relationShips xsi:type="tura.domain:Generalization" uid="40222a74-dd21-4b72-b35c-24aded1c9f58" source="1da57482-9911-4791-a6e7-396f54063615" target="0a735c7e-8e85-4ebd-bf37-a6560a5f5219"/>
+    <relationShips xsi:type="tura.domain:Assosiation" uid="5db8bb1e-b00d-490b-9e1d-cbe33970f7c3" source="1da57482-9911-4791-a6e7-396f54063615" target="aedad6c4-51c2-4864-b2f3-ce57a7a8475a" type="Many2Many">
+      <links uid="55e3efbb-3791-402f-85b9-393a68cb5d18" masterField="64d1bb6e-1835-4f67-97a7-8ee33ec93285" detailField="64d1bb6e-1835-4f67-97a7-8ee33ec93285"/>
+    </relationShips>
+    <relationShips xsi:type="tura.domain:Generalization" uid="39f29e9c-cb43-4d6b-a574-07952420dfd2" source="aedad6c4-51c2-4864-b2f3-ce57a7a8475a" target="0a735c7e-8e85-4ebd-bf37-a6560a5f5219"/>
+    <relationShips xsi:type="tura.domain:Generalization" uid="3be30817-c1a6-4842-a1cd-e1c38ac9cae7" source="c16ccaba-8dc4-4621-8a9c-7af6803fe6a2" target="0a735c7e-8e85-4ebd-bf37-a6560a5f5219"/>
+    <relationShips xsi:type="tura.domain:Assosiation" uid="c5baf6dc-d167-4021-8520-7bd00c9fcd60" source="1da57482-9911-4791-a6e7-396f54063615" target="c16ccaba-8dc4-4621-8a9c-7af6803fe6a2" type="One2Many">
+      <links uid="6a6961c2-35fb-4e4c-82b5-bb3ab4de6f96" masterField="64d1bb6e-1835-4f67-97a7-8ee33ec93285" detailField="f37b04f1-2ada-461d-af7c-288ccd4f400a"/>
+    </relationShips>
+    <relationShips xsi:type="tura.domain:Generalization" uid="3d38d78b-90d3-4c2a-bd20-6ee880fb311f" source="2fb28cec-33f5-4ae6-8f13-a60b81a8ae66" target="1e9f489f-112d-4c8d-91ff-7218e983bedf"/>
+  </tura.domain:TypeDefinition>
+  <tura.domain:Recipes uid="496b054e-8e06-4a6d-883f-6656c149d6a5" parent="c5fe3707-e225-47ab-8c81-4e698689133c">
+    <recipe mappers="d29466f4-8d55-4047-b6ba-fc1a830db2a1 0d86886f-6d6e-49e1-a123-d063d2d9bd22" uid="4ba1e52b-1f16-406a-94a7-59e2049ccb45" name="Bean generation" infrastructures="17b8e001-fb6a-4a4d-b293-fe474ba6a031">
+      <ingredients uid="e90c462f-f8e5-4814-a1f6-abc939e5fe31" name="Data base mapping">
+        <components xsi:type="tura.domain:JavaComponent" uid="daf0ee2a-7518-4331-a32d-d2fcdb3f96b9" name="Sample objects" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0" basePackage="org.tura.jpa.test">
+          <mappers uid="480b8027-fd78-4a95-86ad-62a8ab68dae6" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="327f881c-6227-4ff4-9527-67b2ac881f02" name="Entity generation">
+            <specifiers specifierRef="a21e9bfd-b89f-4bf7-b6a3-307cf37be687" valueRef="4f777ca5-ac80-4568-8029-2658f241658a"/>
+            <queries uid="a16bbf06-c977-4b19-933d-1dfc366355b2" name="Get Sample package" queryRef="09cd4b78-183e-4275-a467-94db2e09840a">
+              <variables queryParamRef="be44f082-3418-4fd0-aa86-8c4a85221ece" value="JPA relation test "/>
+              <variables queryParamRef="53b47808-f7ad-44d0-8343-47e850b28be5" value="Entity"/>
+              <variables queryParamRef="bb75a0c8-eb1f-41cd-9419-0160768bb280" value="ORMEntity"/>
+              <variables queryParamRef="1786300e-0f28-4ed8-bf41-6b13cfb82e2a" value="entityObject"/>
+            </queries>
+            <queries uid="d1803824-9234-44c4-b5b2-805498927681" name="Get NA type" queryRef="d96c66dd-48c6-44f6-9f21-08c401f67ba6">
+              <variables queryParamRef="4f3bbd33-b9ec-4bda-b273-6a67b726693c" value="NA"/>
+              <variables queryParamRef="fdbde223-93e9-46a4-aaa4-11281a2919b0" value="NA"/>
+            </queries>
+          </mappers>
+        </components>
+      </ingredients>
+    </recipe>
+    <infrastructures uid="17b8e001-fb6a-4a4d-b293-fe474ba6a031" recipe="4ba1e52b-1f16-406a-94a7-59e2049ccb45" name="Development"/>
+  </tura.domain:Recipes>
 </xmi:XMI>

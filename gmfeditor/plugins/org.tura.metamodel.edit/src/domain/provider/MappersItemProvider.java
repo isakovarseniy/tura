@@ -229,7 +229,17 @@ public class MappersItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MAPPERS__MAPPERS,
+				 DomainFactory.eINSTANCE.createPackageMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MAPPERS__MAPPERS,
 				 DomainFactory.eINSTANCE.createJavaMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MAPPERS__MAPPERS,
+				 DomainFactory.eINSTANCE.createJavaPackageMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -509,7 +519,17 @@ public class MappersItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DomainPackage.Literals.MAPPERS__ANY,
+				 DomainFactory.eINSTANCE.createPackageMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MAPPERS__ANY,
 				 DomainFactory.eINSTANCE.createJavaMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.MAPPERS__ANY,
+				 DomainFactory.eINSTANCE.createJavaPackageMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

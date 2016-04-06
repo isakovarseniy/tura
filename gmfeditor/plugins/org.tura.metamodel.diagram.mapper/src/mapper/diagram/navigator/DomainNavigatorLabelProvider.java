@@ -37,6 +37,8 @@ import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaPackageMapperEditPart;
+import mapper.diagram.edit.parts.JavaPackageMapperFakePackageNameEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
@@ -129,6 +131,9 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		case RoleMapperEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?RoleMapper", DomainElementTypes.RoleMapper_402005); //$NON-NLS-1$
+		case JavaPackageMapperEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://tura.org/2013/v1/domain?JavaPackageMapper", DomainElementTypes.JavaPackageMapper_402006); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -199,6 +204,8 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 			return getCSSMapper_402004Text(view);
 		case RoleMapperEditPart.VISUAL_ID:
 			return getRoleMapper_402005Text(view);
+		case JavaPackageMapperEditPart.VISUAL_ID:
+			return getJavaPackageMapper_402006Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -296,6 +303,27 @@ public class DomainNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			DomainDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 405005); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getJavaPackageMapper_402006Text(View view) {
+		IParser parser = DomainParserProvider
+				.getParser(
+						DomainElementTypes.JavaPackageMapper_402006,
+						view.getElement() != null ? view.getElement() : view,
+						DomainVisualIDRegistry
+								.getType(JavaPackageMapperFakePackageNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			DomainDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 405006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

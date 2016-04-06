@@ -30,6 +30,15 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="JavaPackageMapper"
+          description="Create new JavaPackageMapper">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="JavaScriptMapper"
           description="Create new JavaScriptMapper">
         <smallIcon

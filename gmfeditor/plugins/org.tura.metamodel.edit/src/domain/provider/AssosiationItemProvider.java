@@ -49,8 +49,8 @@ public class AssosiationItemProvider extends RelationShipItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
-			addSourcePropertyPropertyDescriptor(object);
-			addTargetPropertyPropertyDescriptor(object);
+			addSourceOperationPropertyDescriptor(object);
+			addTargetOperationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -78,45 +78,45 @@ public class AssosiationItemProvider extends RelationShipItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Source Property feature.
+	 * This adds a property descriptor for the Source Operation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSourcePropertyPropertyDescriptor(Object object) {
+	protected void addSourceOperationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Assosiation_sourceProperty_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Assosiation_sourceProperty_feature", "_UI_Assosiation_type"),
-				 DomainPackage.Literals.ASSOSIATION__SOURCE_PROPERTY,
+				 getString("_UI_Assosiation_sourceOperation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Assosiation_sourceOperation_feature", "_UI_Assosiation_type"),
+				 DomainPackage.Literals.ASSOSIATION__SOURCE_OPERATION,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Target Property feature.
+	 * This adds a property descriptor for the Target Operation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTargetPropertyPropertyDescriptor(Object object) {
+	protected void addTargetOperationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Assosiation_targetProperty_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Assosiation_targetProperty_feature", "_UI_Assosiation_type"),
-				 DomainPackage.Literals.ASSOSIATION__TARGET_PROPERTY,
+				 getString("_UI_Assosiation_targetOperation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Assosiation_targetOperation_feature", "_UI_Assosiation_type"),
+				 DomainPackage.Literals.ASSOSIATION__TARGET_OPERATION,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -191,6 +191,8 @@ public class AssosiationItemProvider extends RelationShipItemProvider {
 
 		switch (notification.getFeatureID(Assosiation.class)) {
 			case DomainPackage.ASSOSIATION__TYPE:
+			case DomainPackage.ASSOSIATION__SOURCE_OPERATION:
+			case DomainPackage.ASSOSIATION__TARGET_OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.ASSOSIATION__LINKS:

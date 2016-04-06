@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import mapper.diagram.edit.commands.CSSMapperCreateCommand;
 import mapper.diagram.edit.commands.JavaMapperCreateCommand;
+import mapper.diagram.edit.commands.JavaPackageMapperCreateCommand;
 import mapper.diagram.edit.commands.JavaScriptMapperCreateCommand;
 import mapper.diagram.edit.commands.RoleMapperCreateCommand;
 import mapper.diagram.providers.DomainElementTypes;
@@ -50,6 +51,9 @@ public class MappersItemSemanticEditPolicy extends
 		}
 		if (DomainElementTypes.JavaScriptMapper_402003 == req.getElementType()) {
 			return getGEFWrapper(new JavaScriptMapperCreateCommand(req));
+		}
+		if (DomainElementTypes.JavaPackageMapper_402006 == req.getElementType()) {
+			return getGEFWrapper(new JavaPackageMapperCreateCommand(req));
 		}
 		if (DomainElementTypes.CSSMapper_402004 == req.getElementType()) {
 			return getGEFWrapper(new CSSMapperCreateCommand(req));

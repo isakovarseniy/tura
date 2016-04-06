@@ -27,16 +27,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumAttributeTest extends TestCase
+public class EnumAttributeTest extends CategorizedTest
 {
-
-  /**
-	 * The fixture for this Enum Attribute test case.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  protected EnumAttribute fixture = null;
 
   /**
 	 * <!-- begin-user-doc -->
@@ -60,25 +52,15 @@ public class EnumAttributeTest extends TestCase
 	}
 
   /**
-	 * Sets the fixture for this Enum Attribute test case.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  protected void setFixture(EnumAttribute fixture)
-  {
-		this.fixture = fixture;
-	}
-
-  /**
 	 * Returns the fixture for this Enum Attribute test case.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected EnumAttribute getFixture()
+  @Override
+		protected EnumAttribute getFixture()
   {
-		return fixture;
+		return (EnumAttribute)fixture;
 	}
 
   /**

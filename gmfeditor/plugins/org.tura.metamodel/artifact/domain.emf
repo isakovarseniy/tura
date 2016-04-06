@@ -442,6 +442,12 @@ class Mapper {
 class TypeMapper extends Mapper,TypePointer{
 }
 
+
+class PackageMapper extends Mapper{
+   ref Package packageRef;
+   attr EString fakePackageName;
+}
+
 @gmf.node(label="fakePackageName,fakeTypeName",border.color="0,0,0",color="255,237,85")
 class JavaMapper extends TypeMapper{
    attr EString mappedToPackageName;
@@ -453,6 +459,16 @@ class JavaMapper extends TypeMapper{
    attr EString artifactType = "jar";
 }
 
+
+@gmf.node(label="fakePackageName",border.color="0,0,0",color="77,255,228")
+class JavaPackageMapper extends PackageMapper {
+   attr EString mappedToPackageName;
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString libraryName;
+   attr EString artifactType = "jar";
+}
 
 
 @gmf.node(label="fakePackageName,fakeTypeName",border.color="0,0,0",color="47,180,155")
@@ -733,15 +749,16 @@ class Generalization extends RelationShip{
 enum RelationType{
     One2One;
     One2Many;
+    Many2One;
     Many2Many;
 }
 
-@gmf.link(source="source", target="target",  width="2" ,source.decoration="arrow" , target.decoration="arrow" , color="20,126,23")
+@gmf.link(source="source", target="target",  width="2"  , target.decoration="arrow" , color="20,126,23")
 class Assosiation extends RelationShip{
    attr RelationType type;
    val Link[*]  links; 
-   ref Attribute sourceProperty;  
-   ref Attribute targetProperty; 
+   attr EString sourceOperation;
+   attr EString targetOperation;
    val TypePointer many2manyHelper;
 }
 
@@ -809,7 +826,7 @@ class Enumarator extends TypeElement{
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="255,239,222")
-class EnumAttribute{
+class EnumAttribute extends  Categorized{
     id attr EString uid;
    ref Enumarator#values parent;
    attr EString name;

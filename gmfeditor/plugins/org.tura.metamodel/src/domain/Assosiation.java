@@ -14,14 +14,14 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link domain.Assosiation#getType <em>Type</em>}</li>
  *   <li>{@link domain.Assosiation#getLinks <em>Links</em>}</li>
- *   <li>{@link domain.Assosiation#getSourceProperty <em>Source Property</em>}</li>
- *   <li>{@link domain.Assosiation#getTargetProperty <em>Target Property</em>}</li>
+ *   <li>{@link domain.Assosiation#getSourceOperation <em>Source Operation</em>}</li>
+ *   <li>{@link domain.Assosiation#getTargetOperation <em>Target Operation</em>}</li>
  *   <li>{@link domain.Assosiation#getMany2manyHelper <em>Many2many Helper</em>}</li>
  * </ul>
  * </p>
  *
  * @see domain.DomainPackage#getAssosiation()
- * @model annotation="gmf.link source='source' target='target' width='2' source.decoration='arrow' target.decoration='arrow' color='20,126,23'"
+ * @model annotation="gmf.link source='source' target='target' width='2' target.decoration='arrow' color='20,126,23'"
  * @generated
  */
 public interface Assosiation extends RelationShip {
@@ -71,56 +71,56 @@ public interface Assosiation extends RelationShip {
 	EList<Link> getLinks();
 
 	/**
-	 * Returns the value of the '<em><b>Source Property</b></em>' reference.
+	 * Returns the value of the '<em><b>Source Operation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Property</em>' reference isn't clear,
+	 * If the meaning of the '<em>Source Operation</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source Property</em>' reference.
-	 * @see #setSourceProperty(Attribute)
-	 * @see domain.DomainPackage#getAssosiation_SourceProperty()
+	 * @return the value of the '<em>Source Operation</em>' attribute.
+	 * @see #setSourceOperation(String)
+	 * @see domain.DomainPackage#getAssosiation_SourceOperation()
 	 * @model
 	 * @generated
 	 */
-	Attribute getSourceProperty();
+	String getSourceOperation();
 
 	/**
-	 * Sets the value of the '{@link domain.Assosiation#getSourceProperty <em>Source Property</em>}' reference.
+	 * Sets the value of the '{@link domain.Assosiation#getSourceOperation <em>Source Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Property</em>' reference.
-	 * @see #getSourceProperty()
+	 * @param value the new value of the '<em>Source Operation</em>' attribute.
+	 * @see #getSourceOperation()
 	 * @generated
 	 */
-	void setSourceProperty(Attribute value);
+	void setSourceOperation(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Target Property</b></em>' reference.
+	 * Returns the value of the '<em><b>Target Operation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Target Property</em>' reference isn't clear,
+	 * If the meaning of the '<em>Target Operation</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Property</em>' reference.
-	 * @see #setTargetProperty(Attribute)
-	 * @see domain.DomainPackage#getAssosiation_TargetProperty()
+	 * @return the value of the '<em>Target Operation</em>' attribute.
+	 * @see #setTargetOperation(String)
+	 * @see domain.DomainPackage#getAssosiation_TargetOperation()
 	 * @model
 	 * @generated
 	 */
-	Attribute getTargetProperty();
+	String getTargetOperation();
 
 	/**
-	 * Sets the value of the '{@link domain.Assosiation#getTargetProperty <em>Target Property</em>}' reference.
+	 * Sets the value of the '{@link domain.Assosiation#getTargetOperation <em>Target Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Property</em>' reference.
-	 * @see #getTargetProperty()
+	 * @param value the new value of the '<em>Target Operation</em>' attribute.
+	 * @see #getTargetOperation()
 	 * @generated
 	 */
-	void setTargetProperty(Attribute value);
+	void setTargetOperation(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Many2many Helper</b></em>' containment reference.

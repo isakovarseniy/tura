@@ -109,6 +109,7 @@ import domain.ItemIcon;
 import domain.JPAService;
 import domain.JavaComponent;
 import domain.JavaMapper;
+import domain.JavaPackageMapper;
 import domain.JavaScriptMapper;
 import domain.KeyValuePair;
 import domain.Label;
@@ -158,6 +159,7 @@ import domain.PREFormTrigger;
 import domain.PREInsertTrigger;
 import domain.PREQueryTrigger;
 import domain.PREUpdateTrigger;
+import domain.PackageMapper;
 import domain.Parameter;
 import domain.Password;
 import domain.PopupCanvas;
@@ -491,8 +493,16 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createTypeMapperAdapter();
 			}
 			@Override
+			public Adapter casePackageMapper(PackageMapper object) {
+				return createPackageMapperAdapter();
+			}
+			@Override
 			public Adapter caseJavaMapper(JavaMapper object) {
 				return createJavaMapperAdapter();
+			}
+			@Override
+			public Adapter caseJavaPackageMapper(JavaPackageMapper object) {
+				return createJavaPackageMapperAdapter();
 			}
 			@Override
 			public Adapter caseJavaScriptMapper(JavaScriptMapper object) {
@@ -1825,6 +1835,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link domain.PackageMapper <em>Package Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.PackageMapper
+	 * @generated
+	 */
+	public Adapter createPackageMapperAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link domain.JavaMapper <em>Java Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1835,6 +1859,20 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJavaMapperAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.JavaPackageMapper <em>Java Package Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.JavaPackageMapper
+	 * @generated
+	 */
+	public Adapter createJavaPackageMapperAdapter() {
 		return null;
 	}
 

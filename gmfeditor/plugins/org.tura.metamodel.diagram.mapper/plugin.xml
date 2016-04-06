@@ -271,7 +271,7 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Mapper"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="402001,402003,402004,402005"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="402001,402003,402006,402004,402005"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
       </viewProvider>
    </extension>
@@ -284,13 +284,13 @@
             <method name="getType()" value="Mapper"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="402001,402003,402004,402005"/>
+            <method name="getType()" value="402001,402003,402006,402004,402005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value=""/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="405001,405003,405004,405005"/>
+            <method name="getType()" value="405001,405003,405006,405004,405005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value=""/>
@@ -306,9 +306,10 @@
          <object class="mapper.diagram.edit.parts.MappersEditPart" id="Mappers_401000"/>
          <object class="mapper.diagram.edit.parts.JavaMapperEditPart" id="JavaMapper_402001"/>
          <object class="mapper.diagram.edit.parts.JavaScriptMapperEditPart" id="JavaScriptMapper_402003"/>
+         <object class="mapper.diagram.edit.parts.JavaPackageMapperEditPart" id="JavaPackageMapper_402006"/>
          <object class="mapper.diagram.edit.parts.CSSMapperEditPart" id="CSSMapper_402004"/>
          <object class="mapper.diagram.edit.parts.RoleMapperEditPart" id="RoleMapper_402005"/>
-         <context elements="Mappers_401000,JavaMapper_402001,JavaScriptMapper_402003,CSSMapper_402004,RoleMapper_402005"/>
+         <context elements="Mappers_401000,JavaMapper_402001,JavaScriptMapper_402003,JavaPackageMapper_402006,CSSMapper_402004,RoleMapper_402005"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -331,7 +332,7 @@
       <decoratorProvider class="mapper.diagram.providers.DomainShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="402001,402003,402004,402005"/>
+            <method name="getType()" value="402001,402003,402006,402004,402005"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -367,6 +368,16 @@
                eclass="JavaScriptMapper"
                edithelper="mapper.diagram.edit.helpers.JavaScriptMapperEditHelper">
             <param name="semanticHint" value="402003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://tura.org/2013/v1/domain">
+         <metamodelType
+               id="org.tura.metamodel.diagram.mapper.JavaPackageMapper_402006"
+               name="%metatype.name.JavaPackageMapper_402006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="JavaPackageMapper"
+               edithelper="mapper.diagram.edit.helpers.JavaPackageMapperEditHelper">
+            <param name="semanticHint" value="402006"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://tura.org/2013/v1/domain">
@@ -408,6 +419,7 @@
          <elementType ref="org.tura.metamodel.diagram.mapper.Mappers_401000"/>
          <elementType ref="org.tura.metamodel.diagram.mapper.JavaMapper_402001"/>
          <elementType ref="org.tura.metamodel.diagram.mapper.JavaScriptMapper_402003"/>
+         <elementType ref="org.tura.metamodel.diagram.mapper.JavaPackageMapper_402006"/>
          <elementType ref="org.tura.metamodel.diagram.mapper.CSSMapper_402004"/>
          <elementType ref="org.tura.metamodel.diagram.mapper.RoleMapper_402005"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>

@@ -24,9 +24,44 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/t
 
 
     if (alltypes.size() <> 0 ){
- 
        for (type in alltypes){
           type.mappingType2Java(recipe,ingredient);
+
+          var extension = domain::Generalization.allInstances()->select(t|t.source.uid = type.uid).first();
+          
+          if (extension <> null){
+	          var ex =  extension.target;
+	          if (extension.isKindOf(domain::TypeReference )){
+	             ex = extension.target.typeRef;
+	          }
+	          ex.mappingType2Java(recipe,ingredient);
+	          type.~extension = ex;
+           }
+           
+           var skipAttributes=new Native('java.util.ArrayList');
+
+           var assosiations = domain::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+           for (rel in assosiations){
+  	          var tp =  rel.target;
+	          if (tp.isKindOf(domain::TypeReference )){
+	             tp = tp.typeRef;
+	          }
+	          tp.mappingType2Java(recipe,ingredient);
+                for (lnk in rel.links){
+                   skipAttributes.add(lnk.masterField);
+                }
+           }
+
+           var assosiations = domain::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+
+           for (rel in assosiations){
+  	          var tp =  rel.source;
+	          if (tp.isKindOf(domain::TypeReference )){
+	             tp = tp.typeRef;
+	          }
+	          tp.mappingType2Java(recipe,ingredient);
+           }
+           type.~skipAttributes=skipAttributes;
 
           var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
           hash.put("type",type);

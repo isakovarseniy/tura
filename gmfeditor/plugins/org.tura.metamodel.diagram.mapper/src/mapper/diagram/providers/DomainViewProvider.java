@@ -53,6 +53,8 @@ import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaPackageMapperEditPart;
+import mapper.diagram.edit.parts.JavaPackageMapperFakePackageNameEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
@@ -152,6 +154,7 @@ public class DomainViewProvider extends AbstractProvider implements
 				switch (visualID) {
 				case JavaMapperEditPart.VISUAL_ID:
 				case JavaScriptMapperEditPart.VISUAL_ID:
+				case JavaPackageMapperEditPart.VISUAL_ID:
 				case CSSMapperEditPart.VISUAL_ID:
 				case RoleMapperEditPart.VISUAL_ID:
 					if (domainElement == null
@@ -168,6 +171,7 @@ public class DomainViewProvider extends AbstractProvider implements
 		}
 		return JavaMapperEditPart.VISUAL_ID == visualID
 				|| JavaScriptMapperEditPart.VISUAL_ID == visualID
+				|| JavaPackageMapperEditPart.VISUAL_ID == visualID
 				|| CSSMapperEditPart.VISUAL_ID == visualID
 				|| RoleMapperEditPart.VISUAL_ID == visualID;
 	}
@@ -231,6 +235,9 @@ public class DomainViewProvider extends AbstractProvider implements
 					persisted, preferencesHint);
 		case JavaScriptMapperEditPart.VISUAL_ID:
 			return createJavaScriptMapper_402003(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case JavaPackageMapperEditPart.VISUAL_ID:
+			return createJavaPackageMapper_402006(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case CSSMapperEditPart.VISUAL_ID:
 			return createCSSMapper_402004(domainElement, containerView, index,
@@ -334,6 +341,46 @@ public class DomainViewProvider extends AbstractProvider implements
 				node,
 				DomainVisualIDRegistry
 						.getType(JavaScriptMapperFakePackageNameFakeTypeEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createJavaPackageMapper_402006(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(DomainVisualIDRegistry
+				.getType(JavaPackageMapperEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label405006 = createLabel(
+				node,
+				DomainVisualIDRegistry
+						.getType(JavaPackageMapperFakePackageNameEditPart.VISUAL_ID));
 		return node;
 	}
 

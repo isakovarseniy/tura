@@ -1405,8 +1405,6 @@ public class QueryHelper {
 			LogUtil.log(e);
 			return new ArrayList<domain.Generalization>();
 		}
-
-		
 		
 	}
 	

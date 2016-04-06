@@ -28,6 +28,8 @@ import mapper.diagram.edit.parts.CSSMapperEditPart;
 import mapper.diagram.edit.parts.CSSMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.JavaMapperEditPart;
 import mapper.diagram.edit.parts.JavaMapperFakePackageNameFakeTypeEditPart;
+import mapper.diagram.edit.parts.JavaPackageMapperEditPart;
+import mapper.diagram.edit.parts.JavaPackageMapperFakePackageNameEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperEditPart;
 import mapper.diagram.edit.parts.JavaScriptMapperFakePackageNameFakeTypeEditPart;
 import mapper.diagram.edit.parts.MappersEditPart;
@@ -151,6 +153,10 @@ public class DomainVisualIDRegistry {
 					domainElement.eClass())) {
 				return JavaScriptMapperEditPart.VISUAL_ID;
 			}
+			if (DomainPackage.eINSTANCE.getJavaPackageMapper().isSuperTypeOf(
+					domainElement.eClass())) {
+				return JavaPackageMapperEditPart.VISUAL_ID;
+			}
 			if (DomainPackage.eINSTANCE.getCSSMapper().isSuperTypeOf(
 					domainElement.eClass())) {
 				return CSSMapperEditPart.VISUAL_ID;
@@ -193,6 +199,9 @@ public class DomainVisualIDRegistry {
 			if (JavaScriptMapperEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (JavaPackageMapperEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (CSSMapperEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -207,6 +216,11 @@ public class DomainVisualIDRegistry {
 			break;
 		case JavaScriptMapperEditPart.VISUAL_ID:
 			if (JavaScriptMapperFakePackageNameFakeTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case JavaPackageMapperEditPart.VISUAL_ID:
+			if (JavaPackageMapperFakePackageNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -275,6 +289,7 @@ public class DomainVisualIDRegistry {
 		case JavaScriptMapperEditPart.VISUAL_ID:
 		case CSSMapperEditPart.VISUAL_ID:
 		case RoleMapperEditPart.VISUAL_ID:
+		case JavaPackageMapperEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
