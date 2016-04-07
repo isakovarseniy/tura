@@ -243,6 +243,11 @@
         <options uid="90bbb0b6-0d4f-49a5-ba69-8a53f1c4423d" value="1.7"/>
       </specifiers>
     </artifacts>
+    <artifacts uid="fff21b67-dca1-49ac-921a-0859fda5305f" name="Enumiration" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JSE/Object/mainEnumerator.egl">
+      <modelQuery uid="3bff15f4-6ca8-4d69-a054-09154ba2f22d" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Enumarator ) ) ))">
+        <parameters uid="eb2d692e-4ce7-473e-9cdf-715a9d344c78" name="Package name"/>
+      </modelQuery>
+    </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Artifacts uid="76c5c93b-9847-4bee-8968-bb19afbb1896"/>
   <tura.domain:TypesRepository uid="acbcf3e3-7b19-4349-9993-12a9fe3e753a" parent="5b26b14a-ae2f-4ac1-a04f-fbd45eab1344">
@@ -5856,7 +5861,7 @@
     <relationShips xsi:type="tura.domain:Generalization" uid="3d38d78b-90d3-4c2a-bd20-6ee880fb311f" source="2fb28cec-33f5-4ae6-8f13-a60b81a8ae66" target="1e9f489f-112d-4c8d-91ff-7218e983bedf"/>
   </tura.domain:TypeDefinition>
   <tura.domain:Recipes uid="496b054e-8e06-4a6d-883f-6656c149d6a5" parent="c5fe3707-e225-47ab-8c81-4e698689133c">
-    <recipe mappers="d29466f4-8d55-4047-b6ba-fc1a830db2a1 0d86886f-6d6e-49e1-a123-d063d2d9bd22" uid="4ba1e52b-1f16-406a-94a7-59e2049ccb45" name="Bean generation" infrastructures="17b8e001-fb6a-4a4d-b293-fe474ba6a031">
+    <recipe mappers="d29466f4-8d55-4047-b6ba-fc1a830db2a1 0d86886f-6d6e-49e1-a123-d063d2d9bd22" uid="4ba1e52b-1f16-406a-94a7-59e2049ccb45" name="Bean generation" infrastructures="17b8e001-fb6a-4a4d-b293-fe474ba6a031" deployment="fa6c4b72-089c-4c69-a305-9648190c52c8">
       <ingredients uid="e90c462f-f8e5-4814-a1f6-abc939e5fe31" name="Data base mapping">
         <components xsi:type="tura.domain:JavaComponent" columns="3" uid="daf0ee2a-7518-4331-a32d-d2fcdb3f96b9" name="Sample objects" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0" basePackage="org.tura.jpa.test">
           <mappers uid="480b8027-fd78-4a95-86ad-62a8ab68dae6" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="327f881c-6227-4ff4-9527-67b2ac881f02" name="Entity generation">
@@ -5920,6 +5925,11 @@
             <specifiers specifierRef="fa03b96b-1a8b-4793-8223-9f5c558038e0" valueRef="0bd59747-b761-466a-8ff8-7a9da20a640f"/>
             <specifiers specifierRef="cb0c094e-83a1-475f-99c3-78f6e843d1b3" valueRef="90bbb0b6-0d4f-49a5-ba69-8a53f1c4423d"/>
           </mappers>
+          <mappers uid="672a218e-28c8-4f61-94d7-7b2e8ca6087f" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="fff21b67-dca1-49ac-921a-0859fda5305f" name="Enumeration generation">
+            <queries uid="8efe0170-43ed-4839-b1ee-3d3b1e9aa7d3" name="Get JPA package" queryRef="3bff15f4-6ca8-4d69-a054-09154ba2f22d">
+              <variables queryParamRef="eb2d692e-4ce7-473e-9cdf-715a9d344c78" value="JPA relation test "/>
+            </queries>
+          </mappers>
         </components>
       </ingredients>
     </recipe>
@@ -5933,7 +5943,14 @@
       <properties uid="2fcd3591-fe57-4aba-9b5d-4ddfe356db3e" confVarRef="6ef3c0da-e95b-40a7-8b52-bd0c185543c1" value="na"/>
       <properties uid="76143d25-ec0f-4900-b369-0add684d04e7" confVarRef="618186f9-7c62-47cf-82f7-3b295a85ca9f" value="postgres"/>
       <properties uid="a722497b-b3c4-4a24-baeb-5e12e49062b0" confVarRef="485dd4e4-ed32-418d-a791-b071aa314ef1" value="JPA_TEST"/>
+      <properties uid="868267d1-ff03-4183-a14f-6f6c191ec6e7" confVarRef="0280c31d-3c59-47a6-95ad-161fe363fc3b" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
     </configurations>
     <infrastructures uid="17b8e001-fb6a-4a4d-b293-fe474ba6a031" recipe="4ba1e52b-1f16-406a-94a7-59e2049ccb45" name="Development" recipeConfig="8983f130-194a-4e69-a1af-c1b995fbf78d"/>
+    <deployment uid="fa6c4b72-089c-4c69-a305-9648190c52c8" name="Build jpa">
+      <deploymentComponents uid="a4735c1c-7757-4f3b-817d-106a4e65cc10">
+        <deplymentStep uid="a778eeef-5994-4a15-9d37-00667965ca84" name="Data base mapping:Sample objects:Build runner" mapper="c2cada71-65e2-483d-9ceb-73600afea06f"/>
+        <startSeq uid="235ca7b4-a2f1-4855-937c-e3057878abef" firstStep="a778eeef-5994-4a15-9d37-00667965ca84"/>
+      </deploymentComponents>
+    </deployment>
   </tura.domain:Recipes>
 </xmi:XMI>

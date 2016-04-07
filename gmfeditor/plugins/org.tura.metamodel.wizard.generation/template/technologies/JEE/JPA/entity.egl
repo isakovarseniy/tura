@@ -66,9 +66,9 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
       
       
   	     switch  (rel.type.toString()){
-         case "One2One" : %] @javax.persistence.One2One(mappedBy="[%=targetProperty%]")[%
-         case "One2Many" : %] @javax.persistence.One2Many(mappedBy="[%=targetProperty%]")[%
-         case "Many2Many" : %] @javax.persistence.Many2Many(mappedBy="[%=targetProperty%]")[%
+         case "One2One" : %] @javax.persistence.OneToOne(mappedBy="[%=targetProperty%]")[%
+         case "One2Many" : %] @javax.persistence.OneToMany(mappedBy="[%=targetProperty%]")[%
+         case "Many2Many" : %] @javax.persistence.ManyToMany(mappedBy="[%=targetProperty%]")[%
          }
       
   	     switch  (rel.type.toString()){
@@ -110,9 +110,9 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
          var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
       
   	     switch  (rel.type.toString()){
-         case "One2One" : %] [%=rel.joinColumns()%] @javax.persistence.One2One[%
-         case "One2Many" : %]  [%=rel.joinColumns()%] @javax.persistence.Many2One[%
-         case "Many2Many" : %] [%=rel.joinTable(sourceMethodName,targetMethodName)%] @javax.persistence.Many2Many[%
+         case "One2One" : %] [%=rel.joinColumns()%] @javax.persistence.OneToOne[%
+         case "One2Many" : %]  [%=rel.joinColumns()%] @javax.persistence.ManyToOne[%
+         case "Many2Many" : %] [%=rel.joinTable(sourceMethodName,targetMethodName)%] @javax.persistence.ManyToMany[%
          }
       
       

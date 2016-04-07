@@ -471,6 +471,9 @@ public class Util {
 
 	public static void populateTechnologies(EglTemplate template,
 			domain.ModelMapper mapper) {
+		if (mapper == null || mapper.getSpecifiers() == null)
+			return;
+		
 		for (domain.MappingSpecifier tech : mapper.getSpecifiers()) {
 			template.populate(tech.getSpecifierRef().getName()
 					.replace(' ', '_'), tech.getValueRef().getValue());
@@ -479,6 +482,9 @@ public class Util {
 
 	public static void populateTechnologies(Map<String, Object> hash,
 			domain.ModelMapper mapper) {
+		if (mapper == null || mapper.getSpecifiers() == null)
+			return;
+
 		for (domain.MappingSpecifier tech : mapper.getSpecifiers()) {
 			hash.put(tech.getSpecifierRef().getName().replace(' ', '_'), tech
 					.getValueRef().getValue());
