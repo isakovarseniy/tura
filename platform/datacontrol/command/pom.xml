@@ -19,8 +19,6 @@
   <modules>
     <module>tura-service-jpa</module>
     <module>tura-service-compressor</module>
-<!--     <module>nested-datacontrol</module>
- --> 
   </modules>
   
   
