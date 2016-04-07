@@ -5858,7 +5858,7 @@
   <tura.domain:Recipes uid="496b054e-8e06-4a6d-883f-6656c149d6a5" parent="c5fe3707-e225-47ab-8c81-4e698689133c">
     <recipe mappers="d29466f4-8d55-4047-b6ba-fc1a830db2a1 0d86886f-6d6e-49e1-a123-d063d2d9bd22" uid="4ba1e52b-1f16-406a-94a7-59e2049ccb45" name="Bean generation" infrastructures="17b8e001-fb6a-4a4d-b293-fe474ba6a031">
       <ingredients uid="e90c462f-f8e5-4814-a1f6-abc939e5fe31" name="Data base mapping">
-        <components xsi:type="tura.domain:JavaComponent" uid="daf0ee2a-7518-4331-a32d-d2fcdb3f96b9" name="Sample objects" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0" basePackage="org.tura.jpa.test">
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="daf0ee2a-7518-4331-a32d-d2fcdb3f96b9" name="Sample objects" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0" basePackage="org.tura.jpa.test">
           <mappers uid="480b8027-fd78-4a95-86ad-62a8ab68dae6" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="327f881c-6227-4ff4-9527-67b2ac881f02" name="Entity generation">
             <specifiers specifierRef="a21e9bfd-b89f-4bf7-b6a3-307cf37be687" valueRef="4f777ca5-ac80-4568-8029-2658f241658a"/>
             <queries uid="a16bbf06-c977-4b19-933d-1dfc366355b2" name="Get Sample package" queryRef="09cd4b78-183e-4275-a467-94db2e09840a">
@@ -5872,9 +5872,68 @@
               <variables queryParamRef="fdbde223-93e9-46a4-aaa4-11281a2919b0" value="NA"/>
             </queries>
           </mappers>
+          <mappers uid="011ddf27-8458-4915-b4bb-a2003b5cf07b" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="20d3f932-c6b8-40df-9001-b3c0daaf6c86" name="persistence xml">
+            <specifiers specifierRef="2222595d-7ccd-4df3-935d-d2a29eea6aa8" valueRef="06aae34f-e20e-4a7e-b520-cdc3a8a50e27"/>
+            <specifiers specifierRef="fe074bfa-3f0e-4b09-80fb-9b7b8f1bfdbc" valueRef="16fa5962-f152-410b-bb52-377d11325bd3"/>
+            <specifiers specifierRef="a248c600-a0c3-438b-bbe3-53db84f8e7fa" valueRef="6ebc795f-a205-4623-a275-7be191dd4c47"/>
+            <specifiers specifierRef="47cfe2e3-f5e7-46df-9fe5-db299263318c" valueRef="9bbf2ac9-d963-4567-99b5-ae10b5f2dc1c"/>
+            <queries uid="ad8ed926-e457-4b03-af9a-f2ec78f8781d" name="Get base package" queryRef="4d87c616-25ee-4815-9803-f6bf21be2840">
+              <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="ORMEntity"/>
+              <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="Base package"/>
+              <variables queryParamRef="60329795-7cb7-4d67-97a7-f208accbe7a0" value="Entity"/>
+              <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
+            </queries>
+            <queries uid="ed001ee2-ee3b-45fb-bf56-5904233f79d9" name="Get JPA test package" queryRef="4d87c616-25ee-4815-9803-f6bf21be2840">
+              <variables queryParamRef="5cb28e0b-218c-487c-8697-1c4773f9c4e8" value="ORMEntity"/>
+              <variables queryParamRef="ef789342-0a88-4618-85e7-0fa2b01f1b36" value="JPA relation test "/>
+              <variables queryParamRef="60329795-7cb7-4d67-97a7-f208accbe7a0" value="Entity"/>
+              <variables queryParamRef="87c1c616-79f3-452d-b88d-8761795f4bbc" value="entityObject"/>
+            </queries>
+            <queries uid="58be6dfd-2b4a-465a-a8ea-986b64228948" name="Get NA type" queryRef="33f876bb-d950-4b54-93cf-8a869ef321cd">
+              <variables queryParamRef="97d2c830-e4db-4e67-ad46-a90a530ce768" value="NA"/>
+              <variables queryParamRef="dfe0a7d4-62be-4cc4-8507-3cbc62f51c6f" value="NA"/>
+            </queries>
+          </mappers>
+          <mappers uid="624854f9-2a2b-4011-be3d-64ae2e2dba3e" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="460e6fc2-30b8-4ce5-9790-8bfdec46386d" name="Entity builder">
+            <specifiers specifierRef="a24318d6-fb39-4a8b-9811-9e18f4e5b643" valueRef="a122ae35-6fe1-4776-8a9d-514cd5a1da73"/>
+            <specifiers specifierRef="4e6e0590-ff64-481f-a832-ccdfed8b888b" valueRef="00f5611e-79e1-4949-a09b-b73da29f2683"/>
+            <queries uid="986966ef-cb8a-441f-adf2-3170337f007c" name="Get Base package" queryRef="a65ab03c-aff8-4c16-b3e2-39db8bef78a6">
+              <variables queryParamRef="56013971-a5c8-46c0-b66e-aa4237a9d9e3" value="Base package"/>
+              <variables queryParamRef="e460748c-a103-4c84-b6ba-2ce2c6f514ce" value="Entity"/>
+              <variables queryParamRef="d2266a0a-8eba-4550-8a22-d35e229bb585" value="ORMEntity"/>
+              <variables queryParamRef="d909f10c-bb8d-4ed9-805c-7716dcb3ac8e" value="entityObject"/>
+            </queries>
+            <queries uid="5483bc27-109a-4f66-bd82-5c6801dda468" name="Get JPA package" queryRef="a65ab03c-aff8-4c16-b3e2-39db8bef78a6">
+              <variables queryParamRef="56013971-a5c8-46c0-b66e-aa4237a9d9e3" value="JPA relation test "/>
+              <variables queryParamRef="e460748c-a103-4c84-b6ba-2ce2c6f514ce" value="Entity"/>
+              <variables queryParamRef="d2266a0a-8eba-4550-8a22-d35e229bb585" value="ORMEntity"/>
+              <variables queryParamRef="d909f10c-bb8d-4ed9-805c-7716dcb3ac8e" value="entityObject"/>
+            </queries>
+            <queries uid="02cda577-4255-4f0b-bd27-bc53c374ba90" name="Get NA type" queryRef="863de561-cc20-4c8b-a05a-8695a4d87793">
+              <variables queryParamRef="4442f333-2776-4ed8-8f92-23e2679baf5e" value="NA"/>
+              <variables queryParamRef="3b856fe2-7ead-4816-b1f2-cb76af98b26a" value="NA"/>
+            </queries>
+          </mappers>
+          <mappers uid="c2cada71-65e2-483d-9ceb-73600afea06f" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="e7dcf281-a775-4281-96aa-fcd2c3591508" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/jpa-test-objects/builder.sh">
+            <specifiers specifierRef="80ea26a9-8fbd-4bee-b7fa-94493375b1cf" valueRef="462f4f54-2cc4-4b59-bba8-0c50d3da51da"/>
+            <specifiers specifierRef="957331de-340a-49e8-a2fd-a52a9a975ef1" valueRef="edc968ae-54f0-4e53-8c5b-fcaa74717ece"/>
+            <specifiers specifierRef="fa03b96b-1a8b-4793-8223-9f5c558038e0" valueRef="0bd59747-b761-466a-8ff8-7a9da20a640f"/>
+            <specifiers specifierRef="cb0c094e-83a1-475f-99c3-78f6e843d1b3" valueRef="90bbb0b6-0d4f-49a5-ba69-8a53f1c4423d"/>
+          </mappers>
         </components>
       </ingredients>
     </recipe>
-    <infrastructures uid="17b8e001-fb6a-4a4d-b293-fe474ba6a031" recipe="4ba1e52b-1f16-406a-94a7-59e2049ccb45" name="Development"/>
+    <configurations uid="8983f130-194a-4e69-a1af-c1b995fbf78d" infrastructure="17b8e001-fb6a-4a4d-b293-fe474ba6a031">
+      <properties uid="fe01f128-c939-469f-93f6-a3dae19acd90" confVarRef="cd17301e-820b-4c33-b955-9cc0a938fe81" value="5432"/>
+      <properties uid="7e4a0307-0f01-4609-b4eb-a352742545e0" confVarRef="a52e5078-3017-43a0-b571-f58150f8ffd2" value="HR"/>
+      <properties uid="0ff38ebe-c2c9-4e26-ba89-c209f5f28d2b" confVarRef="57dea534-b8f3-4546-8a63-cc15dfedcd94" value="jdbc/JPA_TEST"/>
+      <properties uid="424ccb9c-0246-4b9f-a39d-5935bcccb314" confVarRef="2e8c1ce3-aade-4c15-a7cd-ea9f5de5bd8e" value="NA"/>
+      <properties uid="85ca6558-cb44-4c7b-b291-db1d7e8ca64c" confVarRef="9040caf7-fece-440f-bdad-5e598adfd243" value="localhost"/>
+      <properties uid="af7316b2-1f38-45d0-8c9a-866a0fc3a0d0" confVarRef="58ebee50-6a39-4ce0-b6f4-aab51c5bf239" value="postgres"/>
+      <properties uid="2fcd3591-fe57-4aba-9b5d-4ddfe356db3e" confVarRef="6ef3c0da-e95b-40a7-8b52-bd0c185543c1" value="na"/>
+      <properties uid="76143d25-ec0f-4900-b369-0add684d04e7" confVarRef="618186f9-7c62-47cf-82f7-3b295a85ca9f" value="postgres"/>
+      <properties uid="a722497b-b3c4-4a24-baeb-5e12e49062b0" confVarRef="485dd4e4-ed32-418d-a791-b071aa314ef1" value="JPA_TEST"/>
+    </configurations>
+    <infrastructures uid="17b8e001-fb6a-4a4d-b293-fe474ba6a031" recipe="4ba1e52b-1f16-406a-94a7-59e2049ccb45" name="Development" recipeConfig="8983f130-194a-4e69-a1af-c1b995fbf78d"/>
   </tura.domain:Recipes>
 </xmi:XMI>

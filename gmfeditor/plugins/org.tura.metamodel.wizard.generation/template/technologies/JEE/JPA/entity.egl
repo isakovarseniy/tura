@@ -20,6 +20,9 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 
     if (field.findClassifier("ORMEntity",  "entityObject","Bean validation"))%]
     [%=field.~hintDetails%]  
+    
+    [%if (field.findClassifier("ORMEntity",  "entityObject","Sequence"))%]
+    [%=field.~hintDetails%]  
     [%if ( field.pk) %]
     @javax.persistence.Id
     [%if (field.typeRef.~fullName == "java.util.Date"  or field.typeRef.~fullName == "java.sql.Timestamp")%]
@@ -142,9 +145,9 @@ operation domain::Assosiation  joinColumns(){
 @template
 operation domain::Assosiation  joinTable(src,target){
 	  var i = 0;
-	  var table = "RL_"+src.toUpperCase()+target.toUpperCase();
-      if (field.findClassifier("ORMEntity",  "entityObject","Many2ManyTable"))
-         table = field.~hintDetails;
+	  var table = "RL_"+src.toUpperCase()+"_"+target.toUpperCase();
+      if (self.source.findClassifier("ORMEntity",  "entityObject","Many2ManyTable"))
+         table = self.source.~hintDetails;
       %]@javax.persistence.JoinTable(name="[%=table%]",  
               joinColumns={[%
 	            for (lnk in self.links){
