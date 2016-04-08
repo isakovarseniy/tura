@@ -63,8 +63,6 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
          var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
       
       
-      
-      
   	     switch  (rel.type.toString()){
          case "One2One" : %] @javax.persistence.OneToOne(mappedBy="[%=targetProperty%]")[%
          case "One2Many" : %] @javax.persistence.OneToMany(mappedBy="[%=targetProperty%]")[%
@@ -83,6 +81,15 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
          case "Many2Many" : %] public java.util.Collection<[%=target.~fullName%]>  get[%=sourceMethodName%]()[%
          }                
          %] { return [%=sourceProperty%]; } [%
+         
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public  void set[%=sourceMethodName%]([%=target.~fullName%]  [%=sourceProperty%])[%
+         case "One2Many" : %] public  void  set[%=sourceMethodName%](java.util.Collection<[%=target.~fullName%]> [%=sourceProperty%])[%
+         case "Many2Many" : %] public  void  set[%=sourceMethodName%](java.util.Collection<[%=target.~fullName%]> [%=sourceProperty%])[%
+         }                
+         %] { this.[%=sourceProperty%]=[%=sourceProperty%]; } [%
+         
+         
       }
 	%]
 
@@ -128,6 +135,15 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
          case "Many2Many" : %] public java.util.Collection<[%=source.~fullName%]>  get[%=targetMethodName%]()[%
          }                
          %] { return [%=targetProperty%]; } [%
+
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public  void  set[%=targetMethodName%]([%=source.~fullName%] [%=targetProperty%])[%
+         case "One2Many" : %] public void set[%=targetMethodName%]([%=source.~fullName%] [%=targetProperty%])[%
+         case "Many2Many" : %] public  void set[%=targetMethodName%](java.util.Collection<[%=source.~fullName%]> [%=targetProperty%])[%
+         }                
+         %] { this.[%=targetProperty%]=[%=targetProperty%]; } [%
+
+
       }
 	%]
 }

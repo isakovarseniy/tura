@@ -60,6 +60,9 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/t
 	             tp = tp.typeRef;
 	          }
 	          tp.mappingType2Java(recipe,ingredient);
+                for (lnk in rel.links){
+                   skipAttributes.add(lnk.detailField);
+                }
            }
            type.~skipAttributes=skipAttributes;
 
