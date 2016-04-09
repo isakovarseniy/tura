@@ -5801,13 +5801,17 @@
     <types xsi:type="tura.domain:Type" uid="575a83de-46e4-4566-b413-809fa4f426a3" name="Client">
       <classifiers uid="8cd1b14c-7579-47db-a71e-7453b4016fa2" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="1f3252f8-10a9-4f0b-b79a-4c7f6ac43e92" name="name"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="7b65b5f3-1869-45dd-a1f1-b54ebfb3554b" name="personId"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="5371c073-3049-4650-8366-1730c9b84135" name="objId" pk="true"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2d20ec03-0bec-4e3f-9cb6-c19e186711e7" fakePackageName="Primitive package" fakeTypeName="Date" uid="d73dd916-3e40-4302-a3ba-1ad77fd8fc9f" name="create date"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="f99b72d3-a245-4ee6-a562-2b583476e3a7" name="object type"/>
     </types>
     <types xsi:type="tura.domain:Type" uid="1da57482-9911-4791-a6e7-396f54063615" name="Person">
       <classifiers uid="83a2babe-e434-42a5-abcf-571635ff04d5" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="7919e969-6a56-4949-ba80-ec03959fc47c" name="name"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="aa6afb28-2237-4af2-b4c0-ce2f83c92976" name="clientId"/>
-      <attributes packageRef="1ad90013-ec38-45b6-838f-e1a64508151a" typeRef="04327744-c104-472c-bd5f-f4f51ad533ce" fakePackageName="JPA relation test " fakeTypeName="Person Type" uid="b440c5ab-6659-4203-b122-ce6e9539a29f" name="person Type"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="9aee0176-854b-4e10-aadc-4ffd4ad87bbc" name="clientId"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="11acc1d1-77a7-41f3-92a2-e52f9346e4a4" name="objId" pk="true"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="995cd98f-6382-43cb-9310-22d23b7c41a2" name="object type"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2d20ec03-0bec-4e3f-9cb6-c19e186711e7" fakePackageName="Primitive package" fakeTypeName="Date" uid="248ce770-0031-41c1-b745-2b2794b49914" name="create date"/>
     </types>
     <types xsi:type="tura.domain:Enumarator" uid="04327744-c104-472c-bd5f-f4f51ad533ce" name="Person Type">
       <values uid="698fa0a0-4a55-4f9d-8118-75b0310f2e92" name="FEMALE" value="FEMALE"/>
@@ -5816,21 +5820,21 @@
     <types xsi:type="tura.domain:Type" uid="aedad6c4-51c2-4864-b2f3-ce57a7a8475a" name="Mail Address">
       <classifiers uid="f175ee40-0475-48a5-aa3f-80be94a31480" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="180b75e2-bf79-4924-a7ea-32f7f47fd7e9" name="address"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="d231f99f-dc3a-446c-b10d-f602753185d5" name="objId" pk="true"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="3f36d1b2-637f-416c-be0c-b34b8f209a64" name="object type"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2d20ec03-0bec-4e3f-9cb6-c19e186711e7" fakePackageName="Primitive package" fakeTypeName="Date" uid="bce477f7-3bdf-47bb-ba8a-8f9a660fa8d3" name="create date"/>
     </types>
     <types xsi:type="tura.domain:Type" uid="c16ccaba-8dc4-4621-8a9c-7af6803fe6a2" name="Phone">
       <classifiers uid="616e9b9f-1dbf-40da-9f0a-76ea99d996c9" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="51a4ebe8-9520-48b4-b787-1e717b56720e" name="phone"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="e82e0014-9e89-4cbe-bfa5-137fd9ceaf40" name="personId"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="c2b58546-7748-438b-b8d2-c278c3ce7da3" name="objId" pk="true"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="ae485ff3-f70d-4191-b569-385ef277bcb7" name="object type"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2d20ec03-0bec-4e3f-9cb6-c19e186711e7" fakePackageName="Primitive package" fakeTypeName="Date" uid="c46569e1-d954-4b77-bb4d-e2e846c079b6" name="create date"/>
     </types>
     <types xsi:type="tura.domain:Enumarator" uid="502a839c-936f-4167-8008-32f2919abe52" name="Phone Type">
       <values uid="db687d02-701c-48b0-99b2-e9cebd7ac55a" name="HOME" value="HOME"/>
       <values uid="6ced1634-cda1-4450-bff4-8639eede852c" name="BUSINESS" value="BUSINESS"/>
-    </types>
-    <types xsi:type="tura.domain:Type" uid="0a735c7e-8e85-4ebd-bf37-a6560a5f5219" name="Core Object">
-      <classifiers uid="15786ff2-7e27-4110-af38-5aff0be014e6" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="64d1bb6e-1835-4f67-97a7-8ee33ec93285" name="objId" pk="true"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="f37b04f1-2ada-461d-af7c-288ccd4f400a" name="parentId"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="2d20ec03-0bec-4e3f-9cb6-c19e186711e7" fakePackageName="Primitive package" fakeTypeName="Date" uid="d6ed6d78-d6f2-4cf0-bee3-db25f1146344" name="crete date"/>
-      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="fddb6deb-1647-49f4-bb49-1952f56c651d" name="object type" pk="true"/>
     </types>
     <types xsi:type="tura.domain:Type" uid="2fb28cec-33f5-4ae6-8f13-a60b81a8ae66" name="Location">
       <classifiers uid="96e6cc68-cd0f-41dd-a5d2-cb718b86eed9" hint="bf57ae0e-a725-4c7c-b178-ebbf640b2375"/>
@@ -5845,18 +5849,14 @@
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="0e956650-ad67-4c87-a2fc-62946dc64146" name="plate"/>
     </types>
     <relationShips xsi:type="tura.domain:Assosiation" uid="0397d137-5eca-4a6c-b0c2-534c6402e9ad" source="575a83de-46e4-4566-b413-809fa4f426a3" target="1da57482-9911-4791-a6e7-396f54063615">
-      <links uid="c1a6a6ee-1e3a-4ff0-83f6-7f6091fde6f6" masterField="32e932b5-e86f-43a3-96c1-8b919c740eb6" detailField="4ff34e6a-5c01-4656-9a98-32a95c0babea"/>
+      <links uid="c1a6a6ee-1e3a-4ff0-83f6-7f6091fde6f6" masterField="5371c073-3049-4650-8366-1730c9b84135" detailField="9aee0176-854b-4e10-aadc-4ffd4ad87bbc"/>
       <many2manyHelper/>
     </relationShips>
-    <relationShips xsi:type="tura.domain:Generalization" uid="9494d049-645c-4d06-b4fb-ba346959dc6b" source="575a83de-46e4-4566-b413-809fa4f426a3" target="0a735c7e-8e85-4ebd-bf37-a6560a5f5219"/>
-    <relationShips xsi:type="tura.domain:Generalization" uid="40222a74-dd21-4b72-b35c-24aded1c9f58" source="1da57482-9911-4791-a6e7-396f54063615" target="0a735c7e-8e85-4ebd-bf37-a6560a5f5219"/>
     <relationShips xsi:type="tura.domain:Assosiation" uid="5db8bb1e-b00d-490b-9e1d-cbe33970f7c3" source="1da57482-9911-4791-a6e7-396f54063615" target="aedad6c4-51c2-4864-b2f3-ce57a7a8475a" type="Many2Many">
-      <links uid="55e3efbb-3791-402f-85b9-393a68cb5d18" masterField="64d1bb6e-1835-4f67-97a7-8ee33ec93285" detailField="64d1bb6e-1835-4f67-97a7-8ee33ec93285"/>
+      <links uid="55e3efbb-3791-402f-85b9-393a68cb5d18" masterField="11acc1d1-77a7-41f3-92a2-e52f9346e4a4" detailField="d231f99f-dc3a-446c-b10d-f602753185d5"/>
     </relationShips>
-    <relationShips xsi:type="tura.domain:Generalization" uid="39f29e9c-cb43-4d6b-a574-07952420dfd2" source="aedad6c4-51c2-4864-b2f3-ce57a7a8475a" target="0a735c7e-8e85-4ebd-bf37-a6560a5f5219"/>
-    <relationShips xsi:type="tura.domain:Generalization" uid="3be30817-c1a6-4842-a1cd-e1c38ac9cae7" source="c16ccaba-8dc4-4621-8a9c-7af6803fe6a2" target="0a735c7e-8e85-4ebd-bf37-a6560a5f5219"/>
     <relationShips xsi:type="tura.domain:Assosiation" uid="c5baf6dc-d167-4021-8520-7bd00c9fcd60" source="1da57482-9911-4791-a6e7-396f54063615" target="c16ccaba-8dc4-4621-8a9c-7af6803fe6a2" type="One2Many">
-      <links uid="6a6961c2-35fb-4e4c-82b5-bb3ab4de6f96" masterField="64d1bb6e-1835-4f67-97a7-8ee33ec93285" detailField="f37b04f1-2ada-461d-af7c-288ccd4f400a"/>
+      <links uid="6a6961c2-35fb-4e4c-82b5-bb3ab4de6f96" masterField="11acc1d1-77a7-41f3-92a2-e52f9346e4a4" detailField="e82e0014-9e89-4cbe-bfa5-137fd9ceaf40"/>
     </relationShips>
     <relationShips xsi:type="tura.domain:Generalization" uid="3d38d78b-90d3-4c2a-bd20-6ee880fb311f" source="2fb28cec-33f5-4ae6-8f13-a60b81a8ae66" target="1e9f489f-112d-4c8d-91ff-7218e983bedf"/>
   </tura.domain:TypeDefinition>

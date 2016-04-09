@@ -47,9 +47,6 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/t
 	             tp = tp.typeRef;
 	          }
 	          tp.mappingType2Java(recipe,ingredient);
-                for (lnk in rel.links){
-                   skipAttributes.add(lnk.masterField);
-                }
            }
 
            var assosiations = domain::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
@@ -60,10 +57,14 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/t
 	             tp = tp.typeRef;
 	          }
 	          tp.mappingType2Java(recipe,ingredient);
+           }
+           
+           var assosiations = domain::Assosiation.allInstances()->select(t|t.target.uid = type.uid and (t.type.toString() = "One2One" or t.type.toString() = "One2Many"));
+           for (rel in assosiations){
                 for (lnk in rel.links){
                    skipAttributes.add(lnk.detailField);
                 }
-           }
+           }           
            type.~skipAttributes=skipAttributes;
 
           var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  

@@ -153,7 +153,7 @@ operation domain::Assosiation  joinColumns(){
 	  var i = 0;
       %]@javax.persistence.JoinColumns({[%
             for (lnk in self.links){
-            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=lnk.masterField.name%]", referencedColumnName="[%=lnk.detailField.name%]")[%  
+            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=lnk.detailField.name%]")[%  
             }
     %]}) 
 [%
@@ -167,12 +167,12 @@ operation domain::Assosiation  joinTable(src,target){
       %]@javax.persistence.JoinTable(name="[%=table%]",  
               joinColumns={[%
 	            for (lnk in self.links){
-	            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=lnk.masterField.name%]")[%  
+	            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=src.toLowerCase()%]_[%=lnk.masterField.name%]")[%  
 	            }
               %]},  
               inverseJoinColumns={[%
 	            for (lnk in self.links){
-	            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=lnk.detailField.name%]")[%  
+	            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=target.toLowerCase()%]_[%=lnk.detailField.name%]")[%  
 	            }
               %]})      
 [%

@@ -54,6 +54,7 @@
 		<module>datacontrol</module>
 		<module>primefaces-model</module>
 		<module>primefaces-selenium</module>
+		<module>test-of-generated-code</module>
 	</modules>
 
 

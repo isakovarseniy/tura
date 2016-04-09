@@ -1,0 +1,10 @@
+org/tura/jpa/test/PersonType.class
+org/tura/jpa/test/CoreObject.class
+org/tura/jpa/test/Person.class
+org/tura/jpa/test/Client.class
+org/tura/jpa/test/Phone.class
+org/tura/jpa/test/MailAddress.class
+org/tura/jpa/test/PhoneType.class
+org/tura/jpa/test/Location.class
+org/tura/jpa/JPATest.class
+org/tura/jpa/test/Vehicle.class
