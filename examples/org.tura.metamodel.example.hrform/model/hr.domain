@@ -257,6 +257,7 @@
       <packages uid="e8faa4f9-a654-40f5-bdf5-454f90f2af19" name="HR package" typedefinition="Uniq_115091ed-0c7c-4eae-be06-8496210d4b84"/>
       <packages uid="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" name="DataControl command" typedefinition="a1db2dd1-56ec-4c88-97cd-d3ec61a46d0b"/>
       <packages uid="1ad90013-ec38-45b6-838f-e1a64508151a" name="JPA relation test " typedefinition="a8925a50-3461-448a-bfcc-24a127ca62c3"/>
+      <packages uid="c3261418-92fe-4e17-ad65-023bbfd856b9" name="Domain test model package" typedefinition="6da53ce8-0d4f-4608-bf4f-4ea147cb1460"/>
     </typeDefinition>
   </tura.domain:TypesRepository>
   <tura.domain:TypeDefinition uid="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d" parent="9fcd56c0-2fe7-445a-864e-9550f1b901c2">
@@ -5953,4 +5954,19 @@
       </deploymentComponents>
     </deployment>
   </tura.domain:Recipes>
+  <tura.domain:TypeDefinition uid="6da53ce8-0d4f-4608-bf4f-4ea147cb1460" parent="c3261418-92fe-4e17-ad65-023bbfd856b9">
+    <types xsi:type="tura.domain:Type" uid="e5b94a28-c0c9-4e88-a194-de4595627af0" name="Clien">
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="7e9f3e53-6666-4f7f-9ba1-14f44177636e" name="clientId"/>
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="5e696144-51c1-4f3c-9912-808129ac74ff" name="name"/>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="f924e3d8-7e48-4ead-8f98-28a4ebb0abd9" name="Mail address">
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="694450e5-113a-4b5f-938a-6ca5a78bcf49" name="address"/>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="9f8867f2-cf9e-4206-9bcb-3c55157b4771" name="Phone">
+      <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="99ccf4ec-97a0-4798-b983-82cbd3d4c826" name="phone"/>
+    </types>
+    <relationShips xsi:type="tura.domain:Assosiation" uid="fe3dc34c-b5e6-4fc7-9f48-9d6fbf04b885" source="e5b94a28-c0c9-4e88-a194-de4595627af0" target="9f8867f2-cf9e-4206-9bcb-3c55157b4771" type="One2Many" sourceOperation="phone"/>
+    <relationShips xsi:type="tura.domain:Assosiation" uid="1daefc4e-ac87-4eae-abd4-bde9b9206a69" source="e5b94a28-c0c9-4e88-a194-de4595627af0" target="f924e3d8-7e48-4ead-8f98-28a4ebb0abd9" sourceOperation="business address"/>
+    <relationShips xsi:type="tura.domain:Assosiation" uid="96a04f38-b99b-4ed1-9040-a48753a79caf" source="e5b94a28-c0c9-4e88-a194-de4595627af0" target="f924e3d8-7e48-4ead-8f98-28a4ebb0abd9" sourceOperation="home address"/>
+  </tura.domain:TypeDefinition>
 </xmi:XMI>

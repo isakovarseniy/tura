@@ -8,9 +8,8 @@ package [%=type.~package%];
 
 @javax.persistence.Entity(name = "[%=type.~class%]")
 @javax.persistence.Table(name = "[%=type.~class.toUpperCase()%]")
-public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%=type.~extension.~fullName%]  [%}%]    implements java.io.Serializable{
+public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%=type.~extension.~fullName%]  [%}%] {
 
-	private static final long serialVersionUID = -1L;
 
 [%for ( field in type.attributes){
      if (type.~skipAttributes.contains(field) )

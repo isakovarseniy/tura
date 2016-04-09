@@ -24,7 +24,6 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="domain.ecore#//RelationType">
       <genEnumLiterals ecoreEnumLiteral="domain.ecore#//RelationType/One2One"/>
       <genEnumLiterals ecoreEnumLiteral="domain.ecore#//RelationType/One2Many"/>
-      <genEnumLiterals ecoreEnumLiteral="domain.ecore#//RelationType/Many2One"/>
       <genEnumLiterals ecoreEnumLiteral="domain.ecore#//RelationType/Many2Many"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="domain.ecore#//Orientation">

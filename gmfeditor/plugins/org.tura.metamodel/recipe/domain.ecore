@@ -1041,8 +1041,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="RelationType">
     <eLiterals name="One2One"/>
     <eLiterals name="One2Many" value="1"/>
-    <eLiterals name="Many2One" value="2"/>
-    <eLiterals name="Many2Many" value="3"/>
+    <eLiterals name="Many2Many" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assosiation" eSuperTypes="#//RelationShip">
     <eAnnotations source="gmf.link">

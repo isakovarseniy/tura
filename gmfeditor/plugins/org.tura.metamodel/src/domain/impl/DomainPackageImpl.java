@@ -10859,7 +10859,6 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEEnum(relationTypeEEnum, RelationType.class, "RelationType");
 		addEEnumLiteral(relationTypeEEnum, RelationType.ONE2_ONE);
 		addEEnumLiteral(relationTypeEEnum, RelationType.ONE2_MANY);
-		addEEnumLiteral(relationTypeEEnum, RelationType.MANY2_ONE);
 		addEEnumLiteral(relationTypeEEnum, RelationType.MANY2_MANY);
 
 		initEEnum(orientationEEnum, Orientation.class, "Orientation");

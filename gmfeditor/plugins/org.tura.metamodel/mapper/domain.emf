@@ -749,7 +749,6 @@ class Generalization extends RelationShip{
 enum RelationType{
     One2One;
     One2Many;
-    Many2One;
     Many2Many;
 }
 
