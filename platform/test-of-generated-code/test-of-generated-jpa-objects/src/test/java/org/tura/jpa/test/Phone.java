@@ -27,7 +27,7 @@ public class Phone {
     @JoinColumns({@JoinColumn(name = "personId")
     })
     @ManyToOne
-    public Person person;
+    private Person person;
 
     public void setPhone(String phone) {
         this.phone = phone;

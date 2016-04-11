@@ -128,9 +128,7 @@ public class ConfigHashVarDialog {
 					Collection<domain.ConfigHash> map = (Collection<domain.ConfigHash>) ocl
 							.evaluate(mapper, query);
 
-					for (Iterator<domain.ConfigHash> itrCnf = map.iterator(); itrCnf
-							.hasNext();) {
-						domain.ConfigHash cnfVar = itrCnf.next();
+					for (domain.ConfigHash cnfVar :  map) {
 						this.configVar.add(cnfVar);
 					}
 

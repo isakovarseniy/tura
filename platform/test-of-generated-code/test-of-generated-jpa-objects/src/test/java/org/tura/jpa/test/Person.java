@@ -28,9 +28,9 @@ public class Person {
     @Column(name = "CREATEDATE")
     private Date createDate;
     @ManyToMany(mappedBy = "person")
-    public Collection<MailAddress> mailAddress;
+    private Collection<MailAddress> mailAddress;
     @OneToMany(mappedBy = "person")
-    public Collection<Phone> phone;
+    private Collection<Phone> phone;
     @JoinColumns({@JoinColumn(name = "clientId")
     })
     @OneToOne

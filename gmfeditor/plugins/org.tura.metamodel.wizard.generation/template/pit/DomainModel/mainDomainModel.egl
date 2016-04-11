@@ -1,0 +1,87 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/typeElementUtil.eol";
+ ${percent}${end}
+
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var alltypes = new Native('java.util.ArrayList');
+     var hash = new Native('java.util.HashMap');
+
+     var type;
+     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+
+
+     var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
+
+     if (types <> null and types.size <> 0 )
+
+       for (type in types){
+          type.mappingType2Java(recipe,ingredient);
+
+
+          var extension = domain::Generalization.allInstances()->select(t|t.source.uid = type.uid and t.classifiers == null  ).first();
+          
+          if (extension <> null){
+	          var ex =  extension.target;
+	          if (extension.isKindOf(domain::TypeReference )){
+	             ex = extension.target.typeRef;
+	          }
+	          ex.mappingType2Java(recipe,ingredient);
+	          type.~extension = ex;
+           }
+           
+           var assosiations = domain::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+           for (rel in assosiations){
+  	          var tp =  rel.target;
+	          if (tp.isKindOf(domain::TypeReference )){
+	             tp = tp.typeRef;
+	          }
+	          tp.mappingType2Java(recipe,ingredient);
+           }
+
+           var assosiations = domain::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+
+           for (rel in assosiations){
+  	          var tp =  rel.source;
+	          if (tp.isKindOf(domain::TypeReference )){
+	             tp = tp.typeRef;
+	          }
+	          tp.mappingType2Java(recipe,ingredient);
+           }
+           
+          var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
+          hash.put("type",type);
+          hash.put("recipe",recipe);
+          hash.put("ingredient",ingredient);
+          hash.put("component",component);
+          hash.put("model_mapper",model_mapper);
+          hash.put("path",path);    
+     
+          domain_generation(hash);
+    }
+    
+operation  domain_generation(hash) {
+
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+        
+    var type =  hash.get("type");
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var component = hash.get("component");
+    var model_mapper = hash.get("model_mapper");
+    var path = hash.get("path");
+    
+    util.populateTechnologies(hash,model_mapper);
+
+    var entityBean : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies//JSE/Object/class.egl",hash,TemplateFactory);
+    entityBean.setFormatter(f);
+    var buffer = entityBean.process();
+    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class + ".java",buffer);   
+
+
+}
+%]

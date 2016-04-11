@@ -70,8 +70,8 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
       
   	     switch  (rel.type.toString()){
          case "One2One" : %] private [%=target.~fullName%]  [%=sourceProperty%];[%
-         case "One2Many" : %]  public java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
-         case "Many2Many" : %] public java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
+         case "One2Many" : %]  private java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
+         case "Many2Many" : %] private java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
          }
       
   	     switch  (rel.type.toString()){
@@ -124,8 +124,8 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
       
   	     switch  (rel.type.toString()){
          case "One2One" : %] private [%=source.~fullName%]  [%=targetProperty%];[%
-         case "One2Many" : %] public [%=source.~fullName%]  [%=targetProperty%];[%
-         case "Many2Many" : %] public java.util.Collection<[%=source.~fullName%]>  [%=targetProperty%];[%
+         case "One2Many" : %] private [%=source.~fullName%]  [%=targetProperty%];[%
+         case "Many2Many" : %] private java.util.Collection<[%=source.~fullName%]>  [%=targetProperty%];[%
          }
       
   	     switch  (rel.type.toString()){

@@ -33,7 +33,7 @@ public class MailAddress {
     }
     )
     @ManyToMany
-    public Collection<Person> person;
+    private Collection<Person> person;
 
     public void setAddress(String address) {
         this.address = address;

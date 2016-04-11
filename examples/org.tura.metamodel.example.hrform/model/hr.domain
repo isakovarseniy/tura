@@ -5,6 +5,7 @@
       <domainArtifact xsi:type="tura.domain:EJBService" uid="bf6005f8-bcb9-4c2a-b3e5-49468794367a" name="Service" artifact="e26c4095-ebd6-48b4-917a-11026d3e511f"/>
       <domainArtifact xsi:type="tura.domain:ORMEntity" uid="edb48357-89bd-4570-aaf7-e49d7bb75e57" name="ORMEntity" artifact="ec71bdb8-8365-492b-a974-5db4672bc0c0"/>
       <domainArtifact uid="5945624b-20f3-47f9-9cb1-d0dc8df9491a" name="UIGeneration" artifact="e15bf32f-16b2-4b20-bceb-f9866c131ad9"/>
+      <domainArtifact uid="fde015d1-59d3-4548-8c74-6c4cc830772d" name="Domain Model" artifact="f6a65a40-af0e-47f2-9e42-bdc153211343"/>
     </domainArtifacts>
     <domainTypes uid="5b26b14a-ae2f-4ac1-a04f-fbd45eab1344" name="Domain types" typesrepository="acbcf3e3-7b19-4349-9993-12a9fe3e753a"/>
     <domainApplications uid="28e10ed5-f6cf-4b06-896c-fd5c9bc2c8e2" name="Domain applications">
@@ -909,6 +910,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="0029084a-04fb-48e0-989a-0115d90c5aed" serviceLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" fakePackageName="Base package" fakeTypeName="Object ID generator" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="ObjectsID" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="0765b5d5-489b-46de-9a8b-3f2fb2c03567" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="04d63d66-f224-42a6-aabc-ed057fb924be" fakePackageName="HR package" fakeTypeName="User type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="UserDAO" artifactId="hr-objects" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="fe25473f-fe6b-4c3e-a637-3e696e8354e9" serviceLayer="true" packageRef="1ad90013-ec38-45b6-838f-e1a64508151a" fakePackageName="JPA relation test " mappedToPackageName="org.tura.jpa.test" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0"/>
+    <mappers xsi:type="tura.domain:JavaPackageMapper" uid="00a80eed-912e-4516-b021-0eeca8a632aa" serviceLayer="true" packageRef="c3261418-92fe-4e17-ad65-023bbfd856b9" fakePackageName="Domain test model package" mappedToPackageName="org.tura.domain.test" artifactId="domain-test-objects" groupId="org.tura.domain.test"/>
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415" deployment="f611d83d-edd3-42df-a8bd-78ba7e88b7d9">
@@ -5932,6 +5934,43 @@
             </queries>
           </mappers>
         </components>
+        <components xsi:type="tura.domain:JavaComponent" columns="3" uid="d89f14c3-d981-477c-aa37-a3dd5885451d" name="Domain Model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="domain-test-objects" groupId="org.tura.domain.test" version="1.0" basePackage="org.tura.domain.test">
+          <mappers uid="46a7c28c-be1e-40b6-8e28-145417c8b84f" domainArtifactRef="fde015d1-59d3-4548-8c74-6c4cc830772d" artifactRef="1f0bc4a9-c4df-4c5a-9600-5413f0fb45af" name="Model generation">
+            <queries uid="cfc0dcc2-74f3-4319-b910-f37698ad5508" name="Query package for classess" queryRef="734ca06a-9b2c-4db9-ad8a-bac1cf578b9a">
+              <variables queryParamRef="4c429c70-672b-4372-9d5c-6279f9e335fc" value="Domain Model"/>
+              <variables queryParamRef="3c7a6682-b3b1-429c-873c-6b3ce53041d9" value="Domain test model package"/>
+              <variables queryParamRef="aabd68f4-fb31-4943-b83e-6a009d758ed1" value="domain class"/>
+              <variables queryParamRef="7f620197-b223-41a6-98b5-9b39dc28324a" value="Domain model generation"/>
+            </queries>
+            <queries uid="f870da3b-3047-4c72-bef3-228ec06ab764" name="Query package for interfaces" queryRef="168a9d9e-26ab-431b-bdb5-4b9bc1480852">
+              <variables queryParamRef="df1f83f9-d5b2-4120-8127-270ae18ee07d" value="Domain model generation"/>
+              <variables queryParamRef="9b0dd193-a29e-4ef8-a529-3db4281d9aa5" value="Domain Model"/>
+              <variables queryParamRef="60ab6f39-f864-437f-b46c-ffe45c462517" value="domain interface"/>
+              <variables queryParamRef="fc7682f4-2e09-4599-9da4-0c86c83aadfa" value="Domain test model package"/>
+            </queries>
+          </mappers>
+          <mappers uid="566d3f32-aa66-4fd6-ab0e-3750c77af579" domainArtifactRef="fde015d1-59d3-4548-8c74-6c4cc830772d" artifactRef="1f27b739-b415-46c2-b97d-65175d4d5b4f" name="Domain buider">
+            <specifiers specifierRef="0130b411-0715-46ed-97d8-fe8223f006ed" valueRef="7557d715-3ca4-4742-95de-b133f8ea8c8b"/>
+            <queries uid="2fb1538e-b3d7-48fe-bca4-a65ee8157219" name="Query package for classes" queryRef="94a47815-51dd-4dc1-8db8-0b78a25e7ff9">
+              <variables queryParamRef="81bd7039-82bd-4465-a2e6-7c52934f9ffb" value="Domain model generation"/>
+              <variables queryParamRef="b0670767-0764-4a15-838a-c5fa8cd687f3" value="Domain test model package"/>
+              <variables queryParamRef="91500a35-6d97-4124-b4bc-3cddc9a3ac08" value="Domain Model"/>
+              <variables queryParamRef="772f90ba-aa6e-4f3d-a1ad-1c3708b18edd" value="domain class"/>
+            </queries>
+            <queries uid="b5eda32e-0185-4793-8a26-b872e920aea1" name="Query package for Interfaces" queryRef="94a47815-51dd-4dc1-8db8-0b78a25e7ff9">
+              <variables queryParamRef="81bd7039-82bd-4465-a2e6-7c52934f9ffb" value="Domain model generation"/>
+              <variables queryParamRef="b0670767-0764-4a15-838a-c5fa8cd687f3" value="Domain test model package"/>
+              <variables queryParamRef="91500a35-6d97-4124-b4bc-3cddc9a3ac08" value="Domain Model"/>
+              <variables queryParamRef="772f90ba-aa6e-4f3d-a1ad-1c3708b18edd" value="domain interface"/>
+            </queries>
+          </mappers>
+          <mappers uid="58af496b-ec3d-47ea-adcb-1c31a548fcd5" domainArtifactRef="edb48357-89bd-4570-aaf7-e49d7bb75e57" artifactRef="e7dcf281-a775-4281-96aa-fcd2c3591508" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/domain-test-objects/builder.sh">
+            <specifiers specifierRef="cb0c094e-83a1-475f-99c3-78f6e843d1b3" valueRef="90bbb0b6-0d4f-49a5-ba69-8a53f1c4423d"/>
+            <specifiers specifierRef="80ea26a9-8fbd-4bee-b7fa-94493375b1cf" valueRef="462f4f54-2cc4-4b59-bba8-0c50d3da51da"/>
+            <specifiers specifierRef="fa03b96b-1a8b-4793-8223-9f5c558038e0" valueRef="0bd59747-b761-466a-8ff8-7a9da20a640f"/>
+            <specifiers specifierRef="957331de-340a-49e8-a2fd-a52a9a975ef1" valueRef="edc968ae-54f0-4e53-8c5b-fcaa74717ece"/>
+          </mappers>
+        </components>
       </ingredients>
     </recipe>
     <configurations uid="8983f130-194a-4e69-a1af-c1b995fbf78d" infrastructure="17b8e001-fb6a-4a4d-b293-fe474ba6a031">
@@ -5947,26 +5986,60 @@
       <properties uid="868267d1-ff03-4183-a14f-6f6c191ec6e7" confVarRef="0280c31d-3c59-47a6-95ad-161fe363fc3b" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
     </configurations>
     <infrastructures uid="17b8e001-fb6a-4a4d-b293-fe474ba6a031" recipe="4ba1e52b-1f16-406a-94a7-59e2049ccb45" name="Development" recipeConfig="8983f130-194a-4e69-a1af-c1b995fbf78d"/>
-    <deployment uid="fa6c4b72-089c-4c69-a305-9648190c52c8" name="Build jpa">
+    <deployment uid="fa6c4b72-089c-4c69-a305-9648190c52c8" name="Build">
       <deploymentComponents uid="a4735c1c-7757-4f3b-817d-106a4e65cc10">
-        <deplymentStep uid="a778eeef-5994-4a15-9d37-00667965ca84" name="Data base mapping:Sample objects:Build runner" mapper="c2cada71-65e2-483d-9ceb-73600afea06f"/>
+        <deplymentStep uid="a778eeef-5994-4a15-9d37-00667965ca84" name="Data base mapping:Sample objects:Build runner" mapper="c2cada71-65e2-483d-9ceb-73600afea06f" deploymentComponentLink="35a2c9b5-3504-45b3-824d-7393e640ecc0"/>
+        <deplymentStep uid="35a2c9b5-3504-45b3-824d-7393e640ecc0" name="Data base mapping:Domain Model:Build runner" mapper="58af496b-ec3d-47ea-adcb-1c31a548fcd5"/>
         <startSeq uid="235ca7b4-a2f1-4855-937c-e3057878abef" firstStep="a778eeef-5994-4a15-9d37-00667965ca84"/>
       </deploymentComponents>
     </deployment>
   </tura.domain:Recipes>
   <tura.domain:TypeDefinition uid="6da53ce8-0d4f-4608-bf4f-4ea147cb1460" parent="c3261418-92fe-4e17-ad65-023bbfd856b9">
-    <types xsi:type="tura.domain:Type" uid="e5b94a28-c0c9-4e88-a194-de4595627af0" name="Clien">
+    <types xsi:type="tura.domain:Type" uid="e5b94a28-c0c9-4e88-a194-de4595627af0" name="Client">
+      <classifiers uid="42ab2f11-13fb-4e32-b6f9-41819788531b" hint="6bcb24e7-db2d-4b13-acd5-17c1f7d58a41"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" fakePackageName="Primitive package" fakeTypeName="Long" uid="7e9f3e53-6666-4f7f-9ba1-14f44177636e" name="clientId"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="5e696144-51c1-4f3c-9912-808129ac74ff" name="name"/>
     </types>
     <types xsi:type="tura.domain:Type" uid="f924e3d8-7e48-4ead-8f98-28a4ebb0abd9" name="Mail address">
+      <classifiers uid="fd14de6e-f286-477c-9608-6c94b735ca39" hint="6bcb24e7-db2d-4b13-acd5-17c1f7d58a41"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="694450e5-113a-4b5f-938a-6ca5a78bcf49" name="address"/>
     </types>
     <types xsi:type="tura.domain:Type" uid="9f8867f2-cf9e-4206-9bcb-3c55157b4771" name="Phone">
+      <classifiers uid="88459385-fe7c-4ea3-b151-44bd7dc42c13" hint="6bcb24e7-db2d-4b13-acd5-17c1f7d58a41"/>
       <attributes packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="99ccf4ec-97a0-4798-b983-82cbd3d4c826" name="phone"/>
     </types>
     <relationShips xsi:type="tura.domain:Assosiation" uid="fe3dc34c-b5e6-4fc7-9f48-9d6fbf04b885" source="e5b94a28-c0c9-4e88-a194-de4595627af0" target="9f8867f2-cf9e-4206-9bcb-3c55157b4771" type="One2Many" sourceOperation="phone"/>
     <relationShips xsi:type="tura.domain:Assosiation" uid="1daefc4e-ac87-4eae-abd4-bde9b9206a69" source="e5b94a28-c0c9-4e88-a194-de4595627af0" target="f924e3d8-7e48-4ead-8f98-28a4ebb0abd9" sourceOperation="business address"/>
     <relationShips xsi:type="tura.domain:Assosiation" uid="96a04f38-b99b-4ed1-9040-a48753a79caf" source="e5b94a28-c0c9-4e88-a194-de4595627af0" target="f924e3d8-7e48-4ead-8f98-28a4ebb0abd9" sourceOperation="home address"/>
   </tura.domain:TypeDefinition>
+  <tura.domain:Artifacts uid="f6a65a40-af0e-47f2-9e42-bdc153211343" parent="fde015d1-59d3-4548-8c74-6c4cc830772d">
+    <artifacts uid="1f0bc4a9-c4df-4c5a-9600-5413f0fb45af" name="Domain model generation" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/DomainModel/mainDomainModel.egl">
+      <modelQuery uid="734ca06a-9b2c-4db9-ad8a-bac1cf578b9a" name="Query model classes" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+        <parameters uid="3c7a6682-b3b1-429c-873c-6b3ce53041d9" name="Package name"/>
+        <parameters uid="aabd68f4-fb31-4943-b83e-6a009d758ed1" name="Hint"/>
+        <parameters uid="4c429c70-672b-4372-9d5c-6279f9e335fc" name="ArtifactLib"/>
+        <parameters uid="7f620197-b223-41a6-98b5-9b39dc28324a" name="Artifact"/>
+      </modelQuery>
+      <modelQuery uid="168a9d9e-26ab-431b-bdb5-4b9bc1480852" name="Query model interfaces" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+        <parameters uid="9b0dd193-a29e-4ef8-a529-3db4281d9aa5" name="ArtifactLib"/>
+        <parameters uid="fc7682f4-2e09-4599-9da4-0c86c83aadfa" name="Package name"/>
+        <parameters uid="60ab6f39-f864-437f-b46c-ffe45c462517" name="Hint"/>
+        <parameters uid="df1f83f9-d5b2-4120-8127-270ae18ee07d" name="Artifact"/>
+      </modelQuery>
+      <hints uid="6bcb24e7-db2d-4b13-acd5-17c1f7d58a41" name="domain class"/>
+      <hints uid="bb413b3b-6c71-45ce-947e-c6517a8ea7e3" name="domain interface"/>
+    </artifacts>
+    <artifacts uid="1f27b739-b415-46c2-b97d-65175d4d5b4f" name="Domain model builder" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/DomainModel/mainDomainModelBuilder.egl">
+      <modelQuery uid="94a47815-51dd-4dc1-8db8-0b78a25e7ff9" name="Query package of types" query="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())">
+        <parameters uid="81bd7039-82bd-4465-a2e6-7c52934f9ffb" name="Artifact"/>
+        <parameters uid="91500a35-6d97-4124-b4bc-3cddc9a3ac08" name="ArtifactLib"/>
+        <parameters uid="b0670767-0764-4a15-838a-c5fa8cd687f3" name="Package name"/>
+        <parameters uid="772f90ba-aa6e-4f3d-a1ad-1c3708b18edd" name="Hint"/>
+      </modelQuery>
+      <specifiers uid="0130b411-0715-46ed-97d8-fe8223f006ed" name="Builder implementation">
+        <options uid="16cd5595-0678-4530-b72c-198c9da4cdc5" value="JSE/Builder/Ant"/>
+        <options uid="7557d715-3ca4-4742-95de-b133f8ea8c8b" value="JSE/Builder/Maven"/>
+      </specifiers>
+    </artifacts>
+  </tura.domain:Artifacts>
 </xmi:XMI>
