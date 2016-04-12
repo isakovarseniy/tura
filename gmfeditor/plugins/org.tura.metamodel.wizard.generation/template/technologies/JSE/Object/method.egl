@@ -1,15 +1,21 @@
 [%@template
-operation  method_definition( type , hash ) {
+operation  method_definition( type , hash  ) {
     var recipe = hash.get("recipe");
     var ingredient =  hash.get("ingredient");
     var util = new Native('org.tura.metamodel.commons.Util');
+    var skipVar  = hash.get("skipVar");
+    
 %]
 
 [%for ( field in type.attributes){
      
-    field.typeRef.mappingType2Java(recipe,ingredient);%]
-
+    field.typeRef.mappingType2Java(recipe,ingredient);
+    
+    if (not skipVar ){
+    %]
 	private [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%];
+	
+	[%}%]
 	
 	public void set[%=util.mergeAndCapitalize(field.name)%](  [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%])
 		[%=setMethod(util.mergeAndUnCapitalize(field.name))%]
@@ -32,10 +38,13 @@ operation  method_definition( type , hash ) {
              sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
          var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
       
-  	     switch  (rel.type.toString()){
-         case "One2One" : %] private [%=target.~fullName%]  [%=sourceProperty%];[%
-         case "One2Many" : %]  private java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
-         case "Many2Many" : %] private java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
+      
+    if ( not skipVar ){
+	  	     switch  (rel.type.toString()){
+	         case "One2One" : %] private [%=target.~fullName%]  [%=sourceProperty%];[%
+	         case "One2Many" : %]  private java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
+	         case "Many2Many" : %] private java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
+	         }
          }
       
   	     switch  (rel.type.toString()){

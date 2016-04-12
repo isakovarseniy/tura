@@ -9,6 +9,8 @@
  
  hash.put("recipe",recipe);
  hash.put("ingredient",ingredient);
+ hash.put("skipVar",false);    
+ 
  
 %]
 package [%=type.~package%];  
