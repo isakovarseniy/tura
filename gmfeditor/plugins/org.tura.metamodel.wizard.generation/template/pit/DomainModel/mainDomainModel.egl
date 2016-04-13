@@ -21,14 +21,13 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/c
      if (types <> null and types.size <> 0 )
 
        for (type in types){
+type.name.println();       
           type.mappingType2Java(recipe,ingredient);
 
-
           var extension = domain::Generalization.allInstances()->select(t|t.source.uid = type.uid  and t.classifiers->size() = 0 ).first();
-
           if (extension <> null){
 	          var ex =  extension.target;
-	          if (extension.isKindOf(domain::TypeReference )){
+	          if (ex.isKindOf(domain::TypeReference )){
 	             ex = extension.target.typeRef;
 	          }
 	          ex.mappingType2Java(recipe,ingredient);

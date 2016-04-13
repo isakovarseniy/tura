@@ -31,7 +31,7 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/t
           
           if (extension <> null){
 	          var ex =  extension.target;
-	          if (extension.isKindOf(domain::TypeReference )){
+	          if (ex.isKindOf(domain::TypeReference )){
 	             ex = extension.target.typeRef;
 	          }
 	          ex.mappingType2Java(recipe,ingredient);
