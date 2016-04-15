@@ -21,10 +21,10 @@
  */
 package org.tura.platform.hr.init;
 
-import org.tura.platform.commons.jpa.TuraJPAEntityService;
-import org.tura.platform.persistence.TuraObject;
+import org.tura.platform.object.TuraObject;
+import org.tura.platform.services.JPAService;
 
-public class TuraJPAEntityServiceProxy extends TuraJPAEntityService {
+public class TuraJPAEntityServiceProxy extends JPAService {
     private static final long serialVersionUID = 1L;
     
     

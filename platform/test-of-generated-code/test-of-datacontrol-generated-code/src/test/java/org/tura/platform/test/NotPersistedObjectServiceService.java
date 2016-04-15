@@ -25,7 +25,7 @@ import javax.annotation.Priority;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
 
-import org.tura.platform.commons.jpa.NotPersistedObjectService;
+import org.tura.platform.services.NotPersistedObjectService;
 
 @Alternative
 @Priority(0)

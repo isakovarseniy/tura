@@ -31,6 +31,24 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>commons</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform</groupId>
+			<artifactId>commons-persistence</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.octo.java.sql</groupId>
+			<artifactId>java-sql-dsl</artifactId>
+		</dependency>
+
+
+
 	</dependencies>
 
 </project>

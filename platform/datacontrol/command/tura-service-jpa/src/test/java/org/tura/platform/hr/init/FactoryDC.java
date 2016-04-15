@@ -30,7 +30,6 @@ import javax.persistence.Persistence;
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.elsoft.platform.hr.objects.EmployeesDAO;
 import org.hibernate.cfg.Configuration;
-import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
@@ -42,7 +41,8 @@ import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
-import org.tura.platform.persistence.TuraObject;
+import org.tura.platform.object.TuraObject;
+import org.tura.platform.services.JPAService;
 import org.tura.platform.test.Factory;
 
 public class FactoryDC implements Factory{
@@ -50,7 +50,7 @@ public class FactoryDC implements Factory{
 	private ELResolver elResolver;
 	private EntityManager em;
 	private CommandStack sc;
-	private TuraJPAEntityService provider = new TuraJPAEntityServiceProxy();
+	private JPAService provider = new TuraJPAEntityServiceProxy();
 
 	public FactoryDC(String unit) {
 

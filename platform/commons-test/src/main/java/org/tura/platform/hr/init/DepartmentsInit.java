@@ -23,7 +23,7 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.DepartmentsDAO;
+import org.elsoft.platform.hr.objects.jpa.simple.model.DepartmentJPA;
 
 public class DepartmentsInit {
 
@@ -66,9 +66,9 @@ public class DepartmentsInit {
 
 	}
 
-	private DepartmentsDAO create(Long obj_id, Long departmentId,
+	private DepartmentJPA create(Long obj_id, Long departmentId,
 			String departmentName, Long managerId, Long locationId) {
-		DepartmentsDAO dpt = new DepartmentsDAO();
+		DepartmentJPA dpt = new DepartmentJPA();
 		dpt.setObjId(obj_id);
 		dpt.setDepartmentId(departmentId);
 		dpt.setDepartmentName(departmentName);

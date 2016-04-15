@@ -43,7 +43,7 @@ import org.tura.platform.datacontrol.command.turaservice.UpdateCommandTuraServic
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
-import org.tura.platform.persistence.TuraObject;
+import org.tura.platform.object.TuraObject;
 import org.tura.platform.test.Factory;
 
 import com.octo.java.sql.query.QueryException;

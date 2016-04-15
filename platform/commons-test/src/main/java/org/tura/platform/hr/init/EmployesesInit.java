@@ -27,7 +27,7 @@ import java.util.Date;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.EmployeesDAO;
+import org.elsoft.platform.hr.objects.jpa.simple.model.EmployeeJPA;
 
 
 public class EmployesesInit {
@@ -154,7 +154,7 @@ public class EmployesesInit {
 	}
 
 	private void create(Long obj_id, Long employeeid,String firstname,String lastname,String email, String phonenumber,Date hiredate,String jobid,Float salary, Float commissionpct, Long managerid, Long departmentid) {
-		EmployeesDAO emp = new EmployeesDAO();
+		EmployeeJPA emp = new EmployeeJPA();
 		emp.setObjId(obj_id);
 		emp.setEmployeeId(employeeid);
 		emp.setFirstName(firstname);

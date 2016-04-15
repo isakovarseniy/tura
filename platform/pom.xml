@@ -17,7 +17,7 @@
 		<tura.founder>Arseniy Isakov</tura.founder>
 		<tura.website>http://sourceforge.net/p/tura/wiki/Home/</tura.website>
 		<tura.inceptionYear>2012 - 2015</tura.inceptionYear>
-		
+
 		<version.tura-platform>2.0</version.tura-platform>
 		<version.hibernate-entitymanager>4.3.7.Final</version.hibernate-entitymanager>
 		<version.cglib>2.2.2</version.cglib>
@@ -33,6 +33,7 @@
 		<version.josql>2.2</version.josql>
 		<version.weld>2.1.1.Final</version.weld>
 		<version.primefaces>5.1</version.primefaces>
+		<verson.beanutil>1.9.2</verson.beanutil>
 
 	</properties>
 
@@ -46,11 +47,11 @@
 
 
 	<modules>
+		<module>test-model</module>
 		<module>java-sql-dsl</module>
 		<module>commons-test</module>
 		<module>commons-persistence</module>
 		<module>commons-selenium</module>
-		<module>commons-jpa</module>
 		<module>datacontrol</module>
 		<module>primefaces-model</module>
 		<module>primefaces-selenium</module>
@@ -60,6 +61,13 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${verson.beanutil}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>org.jboss.weld.se</groupId>
 				<artifactId>weld-se</artifactId>
@@ -179,30 +187,30 @@
 				<artifactId>primefaces</artifactId>
 				<version>${version.primefaces}</version>
 			</dependency>
-			
-		<dependency>
-			<groupId>org.tura.platform</groupId>
-			<artifactId>primefaces-model</artifactId>
-			<version>${version.tura-platform}</version>
-		</dependency>			
 
-		<dependency>
-			<groupId>org.tura.platform</groupId>
-			<artifactId>commons-selenium</artifactId>
-			<version>${version.tura-platform}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.tura.platform</groupId>
+				<artifactId>primefaces-model</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.tura.platform.datacontrol.command</groupId>
-			<artifactId>tura-service-compressor</artifactId>
-			<version>${version.tura-platform}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.tura.platform</groupId>
+				<artifactId>commons-selenium</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
 
-		<dependency>
-	       <groupId>org.tura.platform.datacontrol.command</groupId>
-	       <artifactId>tura-service-jpa</artifactId>
-		  <version>${version.tura-platform}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.tura.platform.datacontrol.command</groupId>
+				<artifactId>tura-service-compressor</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.datacontrol.command</groupId>
+				<artifactId>tura-service-jpa</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
 
 
 		</dependencies>
@@ -226,7 +234,9 @@
 				<configuration>
 					<header>src/license/LicenseHeader.txt</header>
 					<properties>
-						<project>${tura.project.name}</project>
+						<project>
+							${tura.project.name}
+						</project>
 						<founder>${tura.founder}</founder>
 						<year>${tura.inceptionYear}</year>
 						<website>${tura.website}</website>
@@ -255,7 +265,8 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>

@@ -23,7 +23,7 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.CityDAO;
+import org.elsoft.platform.hr.objects.jpa.simple.model.CityJPA;
 
 
 public class CityInit {
@@ -45,8 +45,8 @@ public class CityInit {
 
 	}
 	
-	private CityDAO create(Long obj_id, String cityName, Long state_id) {
-		CityDAO dpt = new CityDAO();
+	private CityJPA create(Long obj_id, String cityName, Long state_id) {
+		CityJPA dpt = new CityJPA();
 		dpt.setObjId(obj_id);
 		dpt.setParentId(state_id);
 		dpt.setName(cityName);

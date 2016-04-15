@@ -23,7 +23,7 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.StateDAO;
+import org.elsoft.platform.hr.objects.jpa.simple.model.StateJPA;
 
 
 public class StateInit {
@@ -63,8 +63,8 @@ public class StateInit {
 
 	}
 
-	private StateDAO create(Long obj_id, String stateName, Long country_id) {
-		StateDAO dpt = new StateDAO();
+	private StateJPA create(Long obj_id, String stateName, Long country_id) {
+		StateJPA dpt = new StateJPA();
 		dpt.setObjId(obj_id);
 		dpt.setParentId(country_id);
 		dpt.setName(stateName);

@@ -1074,14 +1074,14 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_YXP8sR09EeWAJNFW6jcN6w"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_YXP8sh09EeWAJNFW6jcN6w" fontName=".Helvetica Neue DeskInterface"/>
       <element xmi:type="tura.domain:JavaMapper" href="hr.domain#a9317dfd-dcb5-4550-9b2a-dddbb351ccd2"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YXP8sx09EeWAJNFW6jcN6w" x="1161" y="360"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YXP8sx09EeWAJNFW6jcN6w" x="963" y="369"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_vxxGYB09EeWAJNFW6jcN6w" type="402001">
       <children xmi:type="notation:DecorationNode" xmi:id="_vxy7kB09EeWAJNFW6jcN6w" type="405001"/>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_vxxGYR09EeWAJNFW6jcN6w"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_vxxGYh09EeWAJNFW6jcN6w" fontName=".Helvetica Neue DeskInterface"/>
       <element xmi:type="tura.domain:JavaMapper" href="hr.domain#dcfe6944-2ff1-44e7-bce7-be6242859737"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vxxGYx09EeWAJNFW6jcN6w" x="1152" y="486"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vxxGYx09EeWAJNFW6jcN6w" x="963" y="432"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_UAwysB0_EeWAJNFW6jcN6w" type="402001">
       <children xmi:type="notation:DecorationNode" xmi:id="_UAyA0B0_EeWAJNFW6jcN6w" type="405001"/>
@@ -8682,19 +8682,12 @@
                 <children xmi:type="notation:Node" xmi:id="_61uZgAA-EeaBKJuD4vWs7w" type="303003">
                   <children xmi:type="notation:DecorationNode" xmi:id="_61yD4AA-EeaBKJuD4vWs7w" type="305002"/>
                   <children xmi:type="notation:BasicCompartment" xmi:id="_61yD4QA-EeaBKJuD4vWs7w" type="307004">
-                    <children xmi:type="notation:Node" xmi:id="__WHbgAA-EeaBKJuD4vWs7w" type="303004">
-                      <children xmi:type="notation:DecorationNode" xmi:id="__WMUAAA-EeaBKJuD4vWs7w" type="305001"/>
-                      <styles xmi:type="notation:DescriptionStyle" xmi:id="__WHbgQA-EeaBKJuD4vWs7w"/>
-                      <styles xmi:type="notation:FontStyle" xmi:id="__WHbggA-EeaBKJuD4vWs7w" fontName=".SF NS Text"/>
-                      <element xmi:type="tura.domain:Query" href="hr.domain#36002d38-1095-4d87-ae68-6e39c62d4348"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__WHbgwA-EeaBKJuD4vWs7w"/>
-                    </children>
-                    <children xmi:type="notation:Node" xmi:id="_C2Uy4AA_EeaBKJuD4vWs7w" type="303004">
-                      <children xmi:type="notation:DecorationNode" xmi:id="_C2X2MAA_EeaBKJuD4vWs7w" type="305001"/>
-                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_C2Uy4QA_EeaBKJuD4vWs7w"/>
-                      <styles xmi:type="notation:FontStyle" xmi:id="_C2Uy4gA_EeaBKJuD4vWs7w" fontName=".SF NS Text"/>
-                      <element xmi:type="tura.domain:Query" href="hr.domain#7377ca54-a176-462e-b27f-fb5374033437"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C2Uy4wA_EeaBKJuD4vWs7w"/>
+                    <children xmi:type="notation:Node" xmi:id="_NPAyMAE1EeaJc6tJUzgSuQ" type="303004">
+                      <children xmi:type="notation:DecorationNode" xmi:id="_NPBZQAE1EeaJc6tJUzgSuQ" type="305001"/>
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_NPAyMQE1EeaJc6tJUzgSuQ"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_NPAyMgE1EeaJc6tJUzgSuQ" fontName=".SF NS Text"/>
+                      <element xmi:type="tura.domain:Query" href="hr.domain#60c71671-79c3-4856-a71d-714187883786"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NPAyMwE1EeaJc6tJUzgSuQ"/>
                     </children>
                     <styles xmi:type="notation:SortingStyle" xmi:id="_61yD4gA-EeaBKJuD4vWs7w"/>
                     <styles xmi:type="notation:FilteringStyle" xmi:id="_61yD4wA-EeaBKJuD4vWs7w"/>
@@ -8762,6 +8755,13 @@
                       <styles xmi:type="notation:FontStyle" xmi:id="_KvzIMgBNEeaba9l1JtMvwQ" fontName=".SF NS Text"/>
                       <element xmi:type="tura.domain:Query" href="hr.domain#612eb0bf-ed54-4b7e-a115-fbb6fab99c7f"/>
                       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KvzIMwBNEeaba9l1JtMvwQ"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_JUKQwAE2EeaJc6tJUzgSuQ" type="303004">
+                      <children xmi:type="notation:DecorationNode" xmi:id="_JUK30AE2EeaJc6tJUzgSuQ" type="305001"/>
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_JUKQwQE2EeaJc6tJUzgSuQ"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_JUKQwgE2EeaJc6tJUzgSuQ" fontName=".SF NS Text"/>
+                      <element xmi:type="tura.domain:Query" href="hr.domain#88085ef2-3bc4-4ede-b100-73137db8a709"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JUKQwwE2EeaJc6tJUzgSuQ"/>
                     </children>
                     <styles xmi:type="notation:SortingStyle" xmi:id="_HY6r9wBNEeaba9l1JtMvwQ"/>
                     <styles xmi:type="notation:FilteringStyle" xmi:id="_HY6r-ABNEeaba9l1JtMvwQ"/>

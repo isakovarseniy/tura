@@ -30,15 +30,15 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import org.tura.example.ui.commons.producer.EntityManagerHelper;
-import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.persistence.TuraObject;
+import org.tura.platform.object.TuraObject;
+import org.tura.platform.services.JPAService;
 
 @Alternative
 @Priority(0)
 @ApplicationScoped
-public class TuraJPAEntityServiceService extends TuraJPAEntityService {
+public class TuraJPAEntityServiceService extends JPAService {
 	private static final long serialVersionUID = 1L;
 	@Inject
 	private EntityManagerHelper emHelper;

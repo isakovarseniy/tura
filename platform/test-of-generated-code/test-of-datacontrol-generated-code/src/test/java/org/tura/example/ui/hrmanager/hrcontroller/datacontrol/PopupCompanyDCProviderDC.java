@@ -22,8 +22,6 @@
 package org.tura.example.ui.hrmanager.hrcontroller.datacontrol;
 
 import org.elsoft.platform.hr.objects.CompanyDAO;
-
-import org.tura.platform.commons.jpa.TuraJPAEntityService;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.DataControlFactory;
@@ -67,7 +65,8 @@ import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
-import org.tura.platform.persistence.TuraObject;
+import org.tura.platform.object.TuraObject;
+import org.tura.platform.services.JPAService;
 
 import java.io.Serializable;
 
@@ -87,7 +86,7 @@ public class PopupCompanyDCProviderDC extends DataControl<CompanyDAO>
     @Inject
     private transient Logger logger;
     @Inject
-    private TuraJPAEntityService provider_0;
+    private JPAService provider_0;
 
     public PopupCompanyDCProviderDC() throws Exception {
         super();
