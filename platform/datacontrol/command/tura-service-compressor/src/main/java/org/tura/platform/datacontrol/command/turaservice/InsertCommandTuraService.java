@@ -63,7 +63,7 @@ public class InsertCommandTuraService extends InsertCommand{
 		
 		Method m = this.prepareCall( provider, METHOD);
 		
-		 m.invoke(provider, new Object[] {context.get("object")});
+		 m.invoke(provider, new Object[] {context.get("object"),context.get("object").getClass().getName() });
 	
        }
 	

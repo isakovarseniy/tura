@@ -71,8 +71,8 @@ public class FactoryDC implements Factory{
 		em = emf.createEntityManager();
 
 		repository = new Repository();
-		SimpleTuraProvider provider = new SimpleTuraProvider(repository);
-		JPAService service = new JPAEntityService(list);
+		SimpleTuraProvider provider = new TestingRepositoryProvider(repository,list);
+		JPAService service = new TuraJPAEntityServiceProxy();
 		service.setEntityManager(em);
 		provider.setService(service);
 
