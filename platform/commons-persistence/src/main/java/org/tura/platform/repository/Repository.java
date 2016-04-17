@@ -31,10 +31,10 @@ import org.tura.platform.object.model.RepositoryException;
 
 public class Repository {
 
-	private HashMap<String, RepositoryProvider> providerTable = new HashMap<>();
+	private HashMap<String, DataProvider> providerTable = new HashMap<>();
 	private ArrayList<String> classList = new ArrayList<>();
 
-	public void addProvider(RepositoryProvider provider, String objectClass) {
+	public void addProvider(DataProvider provider, String objectClass) {
 		providerTable.put(objectClass, provider);
 		classList.add(objectClass);
 	}
@@ -43,37 +43,37 @@ public class Repository {
 		return classList.contains(clazz);
 	}
 
-	private RepositoryProvider findprovider(String objectClass) throws RepositoryException {
-		RepositoryProvider provider = providerTable.get(objectClass);
+	private DataProvider findprovider(String objectClass) throws RepositoryException {
+		DataProvider provider = providerTable.get(objectClass);
 		if (provider == null)
 			throw new RepositoryException( "No provider for "+objectClass);
 		return provider;
 	}
 
 	public Object create(String objectClass) throws RepositoryException {
-		RepositoryProvider provider = findprovider(objectClass);
+		DataProvider provider = findprovider(objectClass);
 		return provider.create(objectClass);
 	}
 
 	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException {
-		RepositoryProvider provider = findprovider(objectClass);
+		DataProvider provider = findprovider(objectClass);
 		return provider.find(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
 	}
 
 	public void update(Object request, String objectClass) throws RepositoryException {
-		RepositoryProvider provider = findprovider(objectClass);
+		DataProvider provider = findprovider(objectClass);
 		provider.update(request, objectClass);
 	}
 
 	public void insert(Object request, String objectClass) throws RepositoryException {
-		RepositoryProvider provider = findprovider(objectClass);
+		DataProvider provider = findprovider(objectClass);
 		provider.insert(request, objectClass);
 
 	}
 
 	public void remove(Object request, String objectClass) throws RepositoryException {
-		RepositoryProvider provider = findprovider(objectClass);
+		DataProvider provider = findprovider(objectClass);
 		provider.remove(request, objectClass);
 	}
 

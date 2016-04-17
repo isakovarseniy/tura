@@ -29,6 +29,8 @@ import javax.persistence.Persistence;
 
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.elsoft.platform.hr.objects.EmployeesDAO;
+import org.elsoft.platform.hr.objects.simple.model.Department;
+import org.elsoft.platform.hr.objects.simple.model.Employee;
 import org.hibernate.cfg.Configuration;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
@@ -42,15 +44,17 @@ import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
 import org.tura.platform.object.TuraObject;
+import org.tura.platform.repository.Repository;
 import org.tura.platform.services.JPAService;
 import org.tura.platform.test.Factory;
+import org.tura.platform.tura.simple.domain.provider.SimpleTuraProvider;
 
 public class FactoryDC implements Factory{
 
 	private ELResolver elResolver;
 	private EntityManager em;
 	private CommandStack sc;
-	private JPAService provider = new TuraJPAEntityServiceProxy();
+	private Repository repository ;
 
 	public FactoryDC(String unit) {
 
@@ -59,8 +63,16 @@ public class FactoryDC implements Factory{
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(
 				unit, config.getProperties());
 		em = emf.createEntityManager();
-		provider.setEntityManager(em);
 
+
+		repository = new Repository();
+		SimpleTuraProvider provider = new SimpleTuraProvider(repository);
+		JPAService service = new TuraJPAEntityServiceProxy();
+		service.setEntityManager(em);
+		provider.setService(service);
+		
+		
+		
 		elResolver = new ELResolverImpl();
 
 	}
@@ -123,7 +135,7 @@ public class FactoryDC implements Factory{
 	void createCreateCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		CreateCommand command = new CreateCommand(control);
-		command.getProviders().put("TuraService", provider);
+		command.getProviders().put("TuraService", repository);
 
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
@@ -137,7 +149,7 @@ public class FactoryDC implements Factory{
 	void createInsertCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		InsertCommand command = new InsertCommand(control);
-		command.getProviders().put("TuraService", provider);
+		command.getProviders().put("TuraService", repository);
 
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
@@ -151,7 +163,7 @@ public class FactoryDC implements Factory{
 	void createUpdateCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		UpdateCommand command = new UpdateCommand(control);
-		command.getProviders().put("TuraService", provider);
+		command.getProviders().put("TuraService", repository);
 
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
@@ -165,21 +177,21 @@ public class FactoryDC implements Factory{
 	void createRemoveCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		DeleteCommand command = new DeleteCommand(control);
-		command.getProviders().put("TuraService", provider);
+		command.getProviders().put("TuraService", repository);
 
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(clazz);
 		prm.setExpression("#{"+expr + ".currentObject"+"}");
 		command.getParameters().add(prm);
-
+		
 		control.setDeleteCommand(command);
 	}
 
 	void createSearchCommand(DataControl<?> control, String expr,Class<?> clazz) {
 
 		SearchCommand command = new SearchCommand(control);
-		command.getProviders().put("TuraService", provider);
+		command.getProviders().put("TuraService", repository);
 
 		CallParameter prm = new CallParameter();
 		prm.setName("searchCriteria");
@@ -207,7 +219,7 @@ public class FactoryDC implements Factory{
 		command.getParameters().add(prm);
 
 		prm = new CallParameter();
-		prm.setName("objectClass");
+		prm.setName("objectType");
 		prm.setClazz(String.class);
 		prm.setValue(clazz.getName());
 		command.getParameters().add(prm);
@@ -220,6 +232,19 @@ public class FactoryDC implements Factory{
 		return em;
 	}
 
+	@Override
+	public EmployeesDAO getNewEmployeesDAO() throws Exception {
+		return new Employee();
+	}
+
+
+	@Override
+	public DepartmentsDAO getNewDepartmentsDAO() throws Exception {
+		return  new Department();
+	}
+	
+	
+	
 	class LocalCommandStack extends CommandStack {
 
 		private EntityManager em;

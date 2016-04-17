@@ -32,9 +32,9 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.TuraObject;
 import org.tura.platform.object.model.RepositoryException;
 import org.tura.platform.repository.Repository;
-import org.tura.platform.repository.RepositoryProvider;
+import org.tura.platform.repository.DataProvider;
 
-public class SimpleNotPersistedObjectProvider implements RepositoryProvider {
+public class SimpleNotPersistedObjectProvider implements DataProvider {
 
 	public SimpleNotPersistedObjectProvider(Repository repository){
 		repository.addProvider(this, UserDAO.class.getName());

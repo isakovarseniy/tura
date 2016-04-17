@@ -28,9 +28,9 @@
 	<persistence-unit name="MasterDetail" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-         <class>org.tura.platform.persistence.ObjectsID</class>
-         <class>org.elsoft.platform.hr.objects.DepartmentsDAO</class>
-         <class>org.elsoft.platform.hr.objects.EmployeesDAO</class>
+         <class>org.tura.platform.object.persistence.ObjectsID</class>
+         <class>org.elsoft.platform.hr.objects.jpa.simple.model.DepartmentJPA</class>
+         <class>org.elsoft.platform.hr.objects.jpa.simple.model.EmployeeJPA</class>
       
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
@@ -46,9 +46,9 @@
 	<persistence-unit name="SingleDataControl" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-        <class>org.tura.platform.persistence.ObjectsID</class>
-         <class>org.elsoft.platform.hr.objects.DepartmentsDAO</class>
-         <class>org.elsoft.platform.hr.objects.EmployeesDAO</class>
+         <class>org.tura.platform.object.persistence.ObjectsID</class>
+         <class>org.elsoft.platform.hr.objects.jpa.simple.model.DepartmentJPA</class>
+         <class>org.elsoft.platform.hr.objects.jpa.simple.model.EmployeeJPA</class>
        
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />

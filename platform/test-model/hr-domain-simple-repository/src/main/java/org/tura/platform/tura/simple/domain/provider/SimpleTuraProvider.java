@@ -45,18 +45,31 @@ import org.elsoft.platform.hr.objects.jpa.simple.model.FileJPA;
 import org.elsoft.platform.hr.objects.jpa.simple.model.StateJPA;
 import org.elsoft.platform.hr.objects.jpa.simple.model.StreetJPA;
 import org.elsoft.platform.hr.objects.jpa.simple.model.VehicleJPA;
+import org.elsoft.platform.hr.objects.simple.model.City;
+import org.elsoft.platform.hr.objects.simple.model.Company;
+import org.elsoft.platform.hr.objects.simple.model.Country;
+import org.elsoft.platform.hr.objects.simple.model.Dep2Entity;
+import org.elsoft.platform.hr.objects.simple.model.Department;
+import org.elsoft.platform.hr.objects.simple.model.Employee;
+import org.elsoft.platform.hr.objects.simple.model.File;
+import org.elsoft.platform.hr.objects.simple.model.State;
+import org.elsoft.platform.hr.objects.simple.model.Street;
+import org.elsoft.platform.hr.objects.simple.model.Vehicle;
 import org.tura.platform.datacontrol.commons.LazyList;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.TuraObject;
 import org.tura.platform.object.model.RepositoryException;
 import org.tura.platform.repository.Repository;
-import org.tura.platform.repository.RepositoryProvider;
+import org.tura.platform.repository.DataProvider;
 import org.tura.platform.services.JPAService;
 
-public class SimpleTuraProvider implements RepositoryProvider {
+public class SimpleTuraProvider implements DataProvider {
 
-	private HashMap<String, String> classMapper = new HashMap<>();
+	private HashMap<String, String> persistenceClassMapper = new HashMap<>();
+	
+	private HashMap<String, String> domainModelClassMapper = new HashMap<>();
+	
 
 	private JPAService service;
 
@@ -72,24 +85,64 @@ public class SimpleTuraProvider implements RepositoryProvider {
 		repository.addProvider(this, VehicleDAO.class.getName());
 		repository.addProvider(this, Department2EntityDAO.class.getName());
 
-		classMapper.put(CompanyDAO.class.getName(), CompanyJPA.class.getName());
-		classMapper.put(CountryDAO.class.getName(), CountryJPA.class.getName());
-		classMapper.put(StateDAO.class.getName(), StateJPA.class.getName());
-		classMapper.put(CityDAO.class.getName(), CityJPA.class.getName());
-		classMapper.put(StreetDAO.class.getName(), StreetJPA.class.getName());
-		classMapper.put(DepartmentsDAO.class.getName(), DepartmentJPA.class.getName());
-		classMapper.put(EmployeesDAO.class.getName(), EmployeeJPA.class.getName());
-		classMapper.put(FileDAO.class.getName(), FileJPA.class.getName());
-		classMapper.put(VehicleDAO.class.getName(), VehicleJPA.class.getName());
-		classMapper.put(Department2EntityDAO.class.getName(), Dept2EmpJPA.class.getName());
+		repository.addProvider(this, Company.class.getName());
+		repository.addProvider(this, Country.class.getName());
+		repository.addProvider(this, State.class.getName());
+		repository.addProvider(this, City.class.getName());
+		repository.addProvider(this, Street.class.getName());
+		repository.addProvider(this, Department.class.getName());
+		repository.addProvider(this, Employee.class.getName());
+		repository.addProvider(this, File.class.getName());
+		repository.addProvider(this, Vehicle.class.getName());
+		repository.addProvider(this, Dep2Entity.class.getName());
+		
+		
+		persistenceClassMapper.put(CompanyDAO.class.getName(), CompanyJPA.class.getName());
+		persistenceClassMapper.put(CountryDAO.class.getName(), CountryJPA.class.getName());
+		persistenceClassMapper.put(StateDAO.class.getName(), StateJPA.class.getName());
+		persistenceClassMapper.put(CityDAO.class.getName(), CityJPA.class.getName());
+		persistenceClassMapper.put(StreetDAO.class.getName(), StreetJPA.class.getName());
+		persistenceClassMapper.put(DepartmentsDAO.class.getName(), DepartmentJPA.class.getName());
+		persistenceClassMapper.put(EmployeesDAO.class.getName(), EmployeeJPA.class.getName());
+		persistenceClassMapper.put(FileDAO.class.getName(), FileJPA.class.getName());
+		persistenceClassMapper.put(VehicleDAO.class.getName(), VehicleJPA.class.getName());
+		persistenceClassMapper.put(Department2EntityDAO.class.getName(), Dept2EmpJPA.class.getName());
 
+
+		persistenceClassMapper.put(Company.class.getName(), CompanyJPA.class.getName());
+		persistenceClassMapper.put(Country.class.getName(), CountryJPA.class.getName());
+		persistenceClassMapper.put(State.class.getName(), StateJPA.class.getName());
+		persistenceClassMapper.put(City.class.getName(), CityJPA.class.getName());
+		persistenceClassMapper.put(Street.class.getName(), StreetJPA.class.getName());
+		persistenceClassMapper.put(Department.class.getName(), DepartmentJPA.class.getName());
+		persistenceClassMapper.put(Employee.class.getName(), EmployeeJPA.class.getName());
+		persistenceClassMapper.put(File.class.getName(), FileJPA.class.getName());
+		persistenceClassMapper.put(Vehicle.class.getName(), VehicleJPA.class.getName());
+		persistenceClassMapper.put(Dep2Entity.class.getName(), Dept2EmpJPA.class.getName());
+
+		
+		
+		domainModelClassMapper.put(CompanyDAO.class.getName(), Company.class.getName());
+		domainModelClassMapper.put(CountryDAO.class.getName(), Country.class.getName());
+		domainModelClassMapper.put(StateDAO.class.getName(), State.class.getName());
+		domainModelClassMapper.put(CityDAO.class.getName(), City.class.getName());
+		domainModelClassMapper.put(StreetDAO.class.getName(), Street.class.getName());
+		domainModelClassMapper.put(DepartmentsDAO.class.getName(), Department.class.getName());
+		domainModelClassMapper.put(EmployeesDAO.class.getName(), Employee.class.getName());
+		domainModelClassMapper.put(FileDAO.class.getName(), File.class.getName());
+		domainModelClassMapper.put(VehicleDAO.class.getName(), Vehicle.class.getName());
+		domainModelClassMapper.put(Department2EntityDAO.class.getName(), Dep2Entity.class.getName());
+
+	
+	
 	}
 
 	public Object create(String objectClass) throws RepositoryException {
 		try {
-			String persistentClass = classMapper.get(objectClass);
+			String persistentClass = persistenceClassMapper.get(objectClass);
 			Object persistentObject = service.create(persistentClass);
-			Object domainObject = Class.forName(objectClass).newInstance();
+			String domainModelClass = domainModelClassMapper.get(objectClass);
+			Object domainObject = Class.forName(domainModelClass).newInstance();
 			BeanUtils.copyProperties(domainObject, persistentObject);
 			return domainObject;
 		} catch (Exception e) {
@@ -102,15 +155,17 @@ public class SimpleTuraProvider implements RepositoryProvider {
 			Integer endIndex, String objectClass) throws RepositoryException {
 
 		try {
-			String persistentClass = classMapper.get(objectClass);
-			LazyList list = (LazyList<?>) service.find(searchCriteria, orderCriteria, startIndex, endIndex,
+			String persistentClass = persistenceClassMapper.get(objectClass);
+			List list = (List<?>) service.find(searchCriteria, orderCriteria, startIndex, endIndex,
 					persistentClass);
 
 			long numberOfRows = service.findNumberOfRows(searchCriteria, orderCriteria, startIndex, endIndex,
 					persistentClass);
 
+			String domainModelClass = domainModelClassMapper.get(objectClass);
+
 			for (int i = 0; i < list.size(); i++) {
-				Object domainObject = Class.forName(objectClass).newInstance();
+				Object domainObject = Class.forName(domainModelClass).newInstance();
 				BeanUtils.copyProperties(domainObject, list.get(i));
 				list.set(i, domainObject);
 			}
@@ -124,10 +179,10 @@ public class SimpleTuraProvider implements RepositoryProvider {
 
 	public void update(Object request, String objectClass) throws RepositoryException {
 		try {
-			String persistentClass = classMapper.get(objectClass);
-			Object persistentObject = Class.forName(persistentClass).newInstance();
+			String persistentClass = persistenceClassMapper.get(objectClass);
+			Object persistentObject = service.findByPk(persistentClass, request);
 			BeanUtils.copyProperties(persistentObject, request);
-			service.update((TuraObject) request);
+			service.update((TuraObject) persistentObject);
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
@@ -135,10 +190,10 @@ public class SimpleTuraProvider implements RepositoryProvider {
 
 	public void insert(Object request, String objectClass) throws RepositoryException {
 		try {
-			String persistentClass = classMapper.get(objectClass);
+			String persistentClass = persistenceClassMapper.get(objectClass);
 			Object persistentObject = Class.forName(persistentClass).newInstance();
 			BeanUtils.copyProperties(persistentObject, request);
-			service.insert((TuraObject) request);
+			service.insert((TuraObject) persistentObject);
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
@@ -146,10 +201,10 @@ public class SimpleTuraProvider implements RepositoryProvider {
 
 	public void remove(Object request, String objectClass) throws RepositoryException {
 		try {
-			String persistentClass = classMapper.get(objectClass);
+			String persistentClass = persistenceClassMapper.get(objectClass);
 			Object persistentObject = Class.forName(persistentClass).newInstance();
 			BeanUtils.copyProperties(persistentObject, request);
-			service.remove((TuraObject) request);
+			service.remove((TuraObject) persistentObject);
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}

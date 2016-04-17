@@ -27,7 +27,7 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.model.RepositoryException;
 
-public interface RepositoryProvider {
+public interface DataProvider {
 
 	public Object create(String objectClass) throws RepositoryException;
 

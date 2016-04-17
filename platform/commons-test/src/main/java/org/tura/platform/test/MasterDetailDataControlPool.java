@@ -108,7 +108,7 @@ public abstract class MasterDetailDataControlPool {
 			
 			DepartmentsDAO dep =  dcd.getCurrentObject();
 
-			EmployeesDAO newrow = new EmployeesDAO();
+			EmployeesDAO newrow = factory.getNewEmployeesDAO();
 			newrow.setObjId(123L);
 			newrow.setParentId(dep.getObjId());
 			
@@ -150,7 +150,7 @@ public abstract class MasterDetailDataControlPool {
 			
 			DepartmentsDAO dep =  dcd.getCurrentObject();
 
-			EmployeesDAO newrow = new EmployeesDAO();
+			EmployeesDAO newrow = factory.getNewEmployeesDAO();
 			newrow.setObjId(123L);
 			newrow.setParentId(dep.getObjId());
 
@@ -207,7 +207,7 @@ public abstract class MasterDetailDataControlPool {
 			DepartmentsDAO rowd =  dcd.getCurrentObject();
 			EmployeesDAO rowe = dce.getCurrentObject();
 
-			DepartmentsDAO newrow = new DepartmentsDAO();
+			DepartmentsDAO newrow = factory.getNewDepartmentsDAO();
 			newrow.setObjId(123L);
 
 

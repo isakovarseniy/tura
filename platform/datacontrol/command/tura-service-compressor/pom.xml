@@ -29,10 +29,9 @@
 		</dependency>
 
 		<dependency>
-	       <groupId>org.tura.platform.datacontrol.command</groupId>
-	       <artifactId>tura-service-jpa</artifactId>
+			<groupId>org.tura.platform.datacontrol.command</groupId>
+			<artifactId>tura-service-jpa</artifactId>
 		</dependency>
-
 
 
 		<!-- Test -->
@@ -85,6 +84,31 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.tura.example.service</groupId>
+			<artifactId>hr-domain-simple-repository</artifactId>
+			<version> ${project.version} </version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.example.service</groupId>
+			<artifactId>hr-domain-simple-objects-model</artifactId>
+			<version>1.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.example.service</groupId>
+			<artifactId>hr-jpa-simple-objects-model</artifactId>
+			<version>1.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+
 
 	</dependencies>
 </project>

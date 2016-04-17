@@ -30,6 +30,8 @@ import javax.persistence.Persistence;
 
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.elsoft.platform.hr.objects.EmployeesDAO;
+import org.elsoft.platform.hr.objects.simple.model.Department;
+import org.elsoft.platform.hr.objects.simple.model.Employee;
 import org.hibernate.cfg.Configuration;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
@@ -44,7 +46,10 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
 import org.tura.platform.object.TuraObject;
+import org.tura.platform.repository.Repository;
+import org.tura.platform.services.JPAService;
 import org.tura.platform.test.Factory;
+import org.tura.platform.tura.simple.domain.provider.SimpleTuraProvider;
 
 import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery.Order;
@@ -55,19 +60,21 @@ public class FactoryDC implements Factory{
 	private EntityManager em;
 	private CommandStack sc;
 	public static ArrayList<Object> list = new ArrayList<>();
-	private JPAEntityService provider ;
+	private Repository repository ;
 
 	public FactoryDC(String unit) {
 
-		provider = new JPAEntityService(list);
-
-		
 		Configuration config = new Configuration();
 		config.addResource("META-INF/persistence.xml");
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(
 				unit, config.getProperties());
 		em = emf.createEntityManager();
-		provider.setEntityManager(em);
+
+		repository = new Repository();
+		SimpleTuraProvider provider = new SimpleTuraProvider(repository);
+		JPAService service = new JPAEntityService(list);
+		service.setEntityManager(em);
+		provider.setService(service);
 
 		elResolver = new ELResolverImpl();
 
@@ -144,7 +151,7 @@ public class FactoryDC implements Factory{
 	void createCreateCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		CreateCommand command = new CreateCommand(control);
-		command.getProviders().put("TuraService", provider);
+		command.getProviders().put("TuraService", repository);
 
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
@@ -158,7 +165,7 @@ public class FactoryDC implements Factory{
 	void createInsertCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		InsertCommandTuraService command = new InsertCommandTuraService(control);
-		command.getProviders().put("TuraService", provider);
+		command.getProviders().put("TuraService", repository);
 
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
@@ -172,7 +179,7 @@ public class FactoryDC implements Factory{
 	void createUpdateCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		UpdateCommandTuraService command = new UpdateCommandTuraService(control);
-		command.getProviders().put("TuraService", provider);
+		command.getProviders().put("TuraService", repository);
 
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
@@ -186,7 +193,7 @@ public class FactoryDC implements Factory{
 	void createRemoveCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		DeleteCommand command = new DeleteCommand(control);
-		command.getProviders().put("TuraService", provider);
+		command.getProviders().put("TuraService", repository);
 
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
@@ -200,7 +207,7 @@ public class FactoryDC implements Factory{
 	void createSearchCommand(DataControl<?> control, String expr,Class<?> clazz) {
 
 		SearchCommand command = new SearchCommand(control);
-		command.getProviders().put("TuraService", provider);
+		command.getProviders().put("TuraService", repository);
 
 		CallParameter prm = new CallParameter();
 		prm.setName("searchCriteria");
@@ -265,6 +272,17 @@ public class FactoryDC implements Factory{
 			em.getTransaction().rollback();
 		}
 
+	}
+
+	@Override
+	public EmployeesDAO getNewEmployeesDAO() throws Exception {
+		return new Employee();
+	}
+
+
+	@Override
+	public DepartmentsDAO getNewDepartmentsDAO() throws Exception {
+		return  new Department();
 	}
 
 }

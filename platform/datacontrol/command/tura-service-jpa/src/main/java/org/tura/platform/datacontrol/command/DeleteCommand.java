@@ -24,6 +24,7 @@ package org.tura.platform.datacontrol.command;
 import java.lang.reflect.Method;
 
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.DeleteCommandBase;
 
 public class DeleteCommand extends DeleteCommandBase{
@@ -40,6 +41,18 @@ public class DeleteCommand extends DeleteCommandBase{
 	
 	@Override
 	public Object execute() throws Exception {
+		
+		/*
+		 * Add additional parameter to pass type of object to reposiroty service
+		 * 
+		 * */
+		CallParameter parameter = new CallParameter();
+		parameter.setName("objectClass");
+		parameter.setClazz(String.class);
+		parameter.setExpression(null);
+		parameter.setObj(this.getObj().getClass().getName());
+		parameter.setValue(this.getObj().getClass().getName());
+		getParameters().add(parameter);
 		
 		prepareParameters();
 		super.execute();

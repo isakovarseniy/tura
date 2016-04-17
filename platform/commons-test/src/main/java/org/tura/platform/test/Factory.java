@@ -33,5 +33,7 @@ public interface Factory {
 	public DataControl<EmployeesDAO> initEmployees(String elPrefix) throws Exception;
 	public DataControl<DepartmentsDAO> initDepartments(String elPrefix) throws Exception;
 	public EntityManager getEntityManager();
+	public EmployeesDAO getNewEmployeesDAO() throws Exception;
+	public DepartmentsDAO getNewDepartmentsDAO() throws Exception;
 
 }

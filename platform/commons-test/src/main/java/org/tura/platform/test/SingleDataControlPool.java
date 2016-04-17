@@ -114,7 +114,7 @@ public class SingleDataControlPool {
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentsDAO row = dc.getCurrentObject();
 
-			DepartmentsDAO newrow = new DepartmentsDAO();
+			DepartmentsDAO newrow = factory.getNewDepartmentsDAO();
 			newrow.setObjId(123L);
 
 			Pager<?> pager = getPager(dc);
@@ -141,7 +141,7 @@ public class SingleDataControlPool {
 			dc.getElResolver().setValue("departments", dc);
 			DepartmentsDAO row = dc.getCurrentObject();
 
-			DepartmentsDAO newrow = new DepartmentsDAO();
+			DepartmentsDAO newrow = factory.getNewDepartmentsDAO();
 			newrow.setObjId(10L);
 
 			Pager<?> pager = getPager(dc);
@@ -200,7 +200,7 @@ public class SingleDataControlPool {
 
 			Pager<?> pager = getPager(dc);
 
-			DepartmentsDAO newrow = new DepartmentsDAO();
+			DepartmentsDAO newrow = factory.getNewDepartmentsDAO();
 			newrow.setObjId(123L);
 
 			PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow),

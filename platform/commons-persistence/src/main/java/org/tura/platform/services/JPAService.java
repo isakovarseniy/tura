@@ -60,6 +60,15 @@ public class JPAService  implements Serializable{
 
 	}
 
+	public Object findByPk(String objectClass,Object request)  throws Exception {
+		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
+				.loadClass(objectClass);
+		return em.find(clazz, ((TuraObject)request).getObjId());
+
+		
+	}
+	
+	
 	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria ,  Integer startIndex,
 			Integer endIndex, String objectClass) throws Exception {
 
