@@ -42,6 +42,8 @@ import org.elsoft.platform.hr.objects.CountryDAO;
 import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.elsoft.platform.hr.objects.StateDAO;
 import org.elsoft.platform.hr.objects.StreetDAO;
+import org.elsoft.platform.hr.objects.simple.model.Company;
+import org.elsoft.platform.hr.objects.simple.model.Street;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.After;
@@ -80,7 +82,7 @@ import org.tura.platform.primefaces.model.GridModel;
 import org.tura.platform.primefaces.model.LazyDataGridModel;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class CDITest {
+public class CDITest  implements DomainFactory{
 
 	private static Logger logger;
 	private  Weld w;
@@ -148,28 +150,28 @@ public class CDITest {
 		try {
 
 			ArrayList<String> fact = new ArrayList<>();
-			fact.add("StreetDAO_3");
-			fact.add("StreetDAO_7");
-			fact.add("StreetDAO_11");
-			fact.add("StreetDAO_15");
+			fact.add("Street_3");
+			fact.add("Street_7");
+			fact.add("Street_11");
+			fact.add("Street_15");
 
-			fact.add("StreetDAO_4");
-			fact.add("StreetDAO_8");
-			fact.add("StreetDAO_12");
-			fact.add("StreetDAO_16");
+			fact.add("Street_4");
+			fact.add("Street_8");
+			fact.add("Street_12");
+			fact.add("Street_16");
 
-			fact.add("CityDAO_3");
-			fact.add("CityDAO_4");
+			fact.add("City_3");
+			fact.add("City_4");
 
-			fact.add("StateDAO_6");
-			fact.add("StateDAO_7");
-			fact.add("StateDAO_8");
-			fact.add("StateDAO_9");
-			fact.add("StateDAO_10");
+			fact.add("State_6");
+			fact.add("State_7");
+			fact.add("State_8");
+			fact.add("State_9");
+			fact.add("State_10");
 
-			fact.add("CountryDAO_2");
+			fact.add("Country_2");
 
-			fact.add("CompanyDAO_2");
+			fact.add("Company_2");
 
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 
@@ -541,7 +543,7 @@ public class CDITest {
 			
 			companyDC.islolate();
 			
-			CompanyDAO newrow = new CompanyDAO();
+			CompanyDAO newrow = getNewCompanyDAO();
 			newrow.setObjId(123L);
 
 			Pager<?> pager = getPager(companyDC);
@@ -601,7 +603,7 @@ public class CDITest {
 			
 			streetDC.islolate();
 			
-			StreetDAO newrow = new StreetDAO();
+			StreetDAO newrow =  getNewStreetDAO();
 			newrow.setObjId(123L);
 			newrow.setParentId(row.getParentId());
 
@@ -670,6 +672,7 @@ public class CDITest {
 
 					String objName = ((RowRemovedEvent) event).getObj()
 							.getClass().getSimpleName();
+					
 					String key = objName.substring(0, objName.indexOf("$$"))
 							+ "_"
 							+ Reflection.call(
@@ -683,6 +686,17 @@ public class CDITest {
 
 		}
 
+	}
+
+	@Override
+	public CompanyDAO getNewCompanyDAO() throws Exception {
+		return new Company();
+	}
+
+
+	@Override
+	public StreetDAO getNewStreetDAO() throws Exception {
+		return  new Street();
 	}
 
 }
