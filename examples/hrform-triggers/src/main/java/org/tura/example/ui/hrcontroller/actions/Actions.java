@@ -43,10 +43,10 @@ import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.persistence.TuraObject;
 import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
 import org.tura.platform.primefaces.lib.EventAccessor;
 import org.tura.platform.primefaces.model.ViewModel;
+import org.tura.platform.object.TuraObject;
 
 public class Actions implements EventAccessor {
 	private ActionEvent event;

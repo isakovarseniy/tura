@@ -618,8 +618,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper69" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Vhc_52ffccb7-cea6-49de-ba4b-7437f1da3369" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="VehicleDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="959a104a-f235-4c76-a404-a6096fa9d67c" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="f81fc484-ab31-4ce6-9bb1-01bb7409cbd6" fakePackageName="HR package" fakeTypeName="File type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="FileDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="49b627a0-c834-4b55-b0ad-a727254011f9" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f" fakePackageName="Base package" fakeTypeName="JPA Entity CRAD Service" mappedToPackageName="org.tura.platform.repository" mappedToClassName="Repository" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0" libraryName=""/>
-    <mappers xsi:type="tura.domain:JavaMapper" uid="a9317dfd-dcb5-4550-9b2a-dddbb351ccd2" serviceLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="Department2EntityDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
-    <mappers xsi:type="tura.domain:JavaMapper" uid="dcfe6944-2ff1-44e7-bce7-be6242859737" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" mappedToPackageName="org.elsoft.platform.hr.services" mappedToClassName="Department2EntityDAO" artifactId="hr-services-proxy-client" groupId="org.tura.example.service" version="1.0" libraryName=""/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="a9317dfd-dcb5-4550-9b2a-dddbb351ccd2" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="1fb89120-1544-4563-a949-33a8d12ab064" fakePackageName="HR package" fakeTypeName="Department2Entity" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="Department2EntityDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="0029084a-04fb-48e0-989a-0115d90c5aed" serviceLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2ab4a62a-fe09-4a91-b1f7-2996f3fc498e" fakePackageName="Base package" fakeTypeName="Object ID generator" mappedToPackageName="org.tura.platform.persistence" mappedToClassName="ObjectsID" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="0765b5d5-489b-46de-9a8b-3f2fb2c03567" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="04d63d66-f224-42a6-aabc-ed057fb924be" fakePackageName="HR package" fakeTypeName="User type" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="UserDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="fe25473f-fe6b-4c3e-a637-3e696e8354e9" serviceLayer="true" packageRef="1ad90013-ec38-45b6-838f-e1a64508151a" fakePackageName="JPA relation test " mappedToPackageName="org.tura.jpa.test" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0"/>
@@ -629,6 +628,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="b2895f24-b52e-4ec1-a1ea-b3e48d373185" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="ee992c94-3286-4ae7-8b48-42be225f3e85" fakePackageName="Base package" fakeTypeName="Persistence Base type implementation" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="d36d0ac5-f844-4382-a599-4a281a6982c0" serviceLayer="true" uiLayer="true" packageRef="246d4955-9bac-433d-9105-d06a32b06504" fakePackageName="Hr package simple persistens model" mappedToPackageName="org.elsoft.platform.hr.objects.jpa.simple.model" artifactId="hr-jpa-simple-objects-model" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="e9eae309-3e39-434f-b16b-6a52eb0b3334" serviceLayer="true" uiLayer="true" packageRef="f44bbcfc-22d3-4feb-a629-44c0c2831913" fakePackageName="Hr package with complex domain model" mappedToPackageName="org.elsoft.platform.hr.objects.complex.model" artifactId="hr-domain-complex-objects-model" groupId="org.tura.example.service"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="4295e0d1-af1a-4c93-9d68-ef097ca6c4e1" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" mappedToPackageName="org.tura.platform.tura.simple.domain.provider" mappedToClassName="SimpleNotPersistedObjectProvider" artifactId="hr-domain-simple-repository" groupId="org.tura.example.service"/>
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415" deployment="f611d83d-edd3-42df-a8bd-78ba7e88b7d9">
@@ -2057,7 +2057,7 @@
     </artifacts>
   </tura.domain:Artifacts>
   <tura.domain:Recipes uid="780d51bf-e928-4fb4-a228-4371d8fe439d" parent="fc4a8a78-b68c-4020-bb95-ab6d773b5486">
-    <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3 78563d4f-0569-4ac4-9e43-650c3a9cb0e3" deployment="de56ff3a-4261-47dc-9ee7-0f61390fee4e">
+    <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 236f541c-3271-4e57-a60e-1769390bf194 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="6cb40735-2e80-4221-9ab5-31d646aff979" infrastructures="81bafabb-45d9-48af-9283-6ffc90afbda3 78563d4f-0569-4ac4-9e43-650c3a9cb0e3" deployment="de56ff3a-4261-47dc-9ee7-0f61390fee4e">
       <ingredients uid="b27a7b7b-ba51-48d1-8f56-af453722dcd3" name="Form ingredient" layer="UILayer">
         <components xsi:type="tura.domain:JavaComponent" columns="3" uid="44a5e8a3-a54c-4792-903c-a984627f6218" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
           <mappers uid="5c3c0b94-aa71-4da9-923f-3460706b5394" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="d597c2ba-7f76-4769-a0e5-f9828833760f" name="Process all datacontrol in ui package">
@@ -2115,13 +2115,13 @@
               <variables queryParamRef="a8380e66-d89a-4e24-81ad-64df9457a5e0" value="NA"/>
             </queries>
             <queries uid="660c0677-5dbf-4fc1-86b7-f7ebc4a0ca9e" name="Get HR package entities" queryRef="188555d2-e437-4b17-ae85-a4f4597ad013">
-              <variables queryParamRef="5d27dc6d-474d-48c2-bb14-ca7d390430f5" value="HR package"/>
-              <variables queryParamRef="78b18336-435a-4a3d-bc1b-3fae1dfb385b" value="Entity"/>
-              <variables queryParamRef="55397cd2-f33b-43b3-b033-3c4ca5e9a714" value="ORMEntity"/>
-              <variables queryParamRef="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" value="entityObject"/>
+              <variables queryParamRef="5d27dc6d-474d-48c2-bb14-ca7d390430f5" value="HR package domain model interface"/>
+              <variables queryParamRef="78b18336-435a-4a3d-bc1b-3fae1dfb385b" value="domain interface"/>
+              <variables queryParamRef="55397cd2-f33b-43b3-b033-3c4ca5e9a714" value="Domain Model"/>
+              <variables queryParamRef="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" value="Domain model generation"/>
             </queries>
             <queries uid="4548c68c-d51e-41ba-ae10-ca557208b218" name="Get HR form trigger" queryRef="188555d2-e437-4b17-ae85-a4f4597ad013">
-              <variables queryParamRef="5d27dc6d-474d-48c2-bb14-ca7d390430f5" value="HR package"/>
+              <variables queryParamRef="5d27dc6d-474d-48c2-bb14-ca7d390430f5" value="HR package domain model interface"/>
               <variables queryParamRef="78b18336-435a-4a3d-bc1b-3fae1dfb385b" value="trigger.library"/>
               <variables queryParamRef="55397cd2-f33b-43b3-b033-3c4ca5e9a714" value="UIGeneration"/>
               <variables queryParamRef="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" value="JSF"/>
@@ -2411,6 +2411,7 @@
     <mappers xsi:type="tura.domain:JavaMapper" uid="78dcc589-d542-425c-894f-8ed2ad69330f" uiLayer="true" packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="60d4a3a7-d6bf-496c-a59c-46f6965746ba" fakePackageName="DataControl command" fakeTypeName="Remove compressor command" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="DeleteCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="509d425d-bf57-46c4-ad4e-f1fc021116c7" uiLayer="true" packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="49aca0df-57d6-4315-a38a-eebc3d80321f" fakePackageName="DataControl command" fakeTypeName="Insert commpressor command" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="InsertCommandTuraService" artifactId="tura-service-compressor" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="796c5688-b88d-447f-a90d-85c2da3485c7" uiLayer="true" packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="3a163b93-3a17-4e30-8fdc-1d139061305f" fakePackageName="DataControl command" fakeTypeName="Update compressor command" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="UpdateCommandTuraService" artifactId="tura-service-compressor" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="394b5beb-12d2-411c-8d9e-036be00c9657" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="c4654ad8-156f-4706-bda2-791ed81fcdea" fakePackageName="HR package domain model interface" fakeTypeName="Action executor" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="Actions" artifactId="triggers" groupId="org.tura.example.service.hrform" version="1.0"/>
   </tura.domain:Mappers>
   <tura.domain:TypeDefinition uid="c9574970-474a-403a-9224-f91bc2f8fe7a"/>
   <tura.domain:Messages uid="af03a493-0ca4-486c-945f-5bfc2fdf35bd" parent="39c0cb8c-3370-4a8b-9dc8-f988c6c3a565">
@@ -5173,7 +5174,7 @@
             <expression uid="31d3d390-a246-4e72-8874-5efe571999c4" objRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" order="2" expressionType="TypeImpl"/>
           </value>
         </parameters>
-        <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6"/>
+        <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
       </create>
       <insert packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="49aca0df-57d6-4315-a38a-eebc3d80321f" fakePackageName="DataControl command" fakeTypeName="Insert commpressor command" methodRef="a3d21656-1dbc-4e5d-8bf6-f681276123ea" fakeMethod="insert" uid="cab2d353-f001-4452-8e8a-6eb3dcad8618">
         <parameters uid="5423ab9f-9922-4cbe-923d-7e612f4e1212" refObj="4042b6b1-89b0-454c-9283-4758d40446bd">
@@ -5183,7 +5184,7 @@
             <expression uid="8e3275a8-8e2f-4571-a413-36957a2b9eed" order="2" expressionType="DataControlFakeMethod"/>
           </value>
         </parameters>
-        <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6"/>
+        <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
       </insert>
       <update packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="3a163b93-3a17-4e30-8fdc-1d139061305f" fakePackageName="DataControl command" fakeTypeName="Update compressor command" methodRef="d4e8f3b4-3cdd-4706-941c-e53c46c82953" fakeMethod="update" uid="291fe365-aedf-424e-b8b0-2360e6ce6691">
         <parameters uid="bceddfb6-04fa-4499-888a-fe5c4b769bf8" refObj="99b65931-6d90-449c-9eba-aace9db2a0dc">
@@ -5193,7 +5194,7 @@
             <expression uid="62aba3f2-a795-4863-8a6b-18f7b88a7e99" order="2" expressionType="DataControlFakeMethod"/>
           </value>
         </parameters>
-        <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6"/>
+        <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
       </update>
       <remove packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="60d4a3a7-d6bf-496c-a59c-46f6965746ba" fakePackageName="DataControl command" fakeTypeName="Remove compressor command" methodRef="b0f03659-7158-4265-8ab8-7082a61d9147" fakeMethod="remove" uid="2416de65-f125-4cd0-a94f-0f48629b454f">
         <parameters uid="c8a49742-7ce9-49ef-9892-f817434c43d1" refObj="df2c227c-f88f-4fcb-b486-eab807a2821f">
@@ -5203,7 +5204,7 @@
             <expression uid="41ff713d-66cb-48cd-8ea0-c302da2d4f40" order="2" expressionType="DataControlFakeMethod"/>
           </value>
         </parameters>
-        <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6"/>
+        <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
       </remove>
       <search packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="75244232-4768-4dc6-9bb7-20975ffc2947" fakePackageName="DataControl command" fakeTypeName="Search command" methodRef="785082db-13ed-43d1-af68-60b063049754" fakeMethod="find" uid="d1785125-5915-4e05-96c2-62b528639626">
         <parameters uid="abb1d3a2-c1dd-42df-80a0-f3df534f3d7b" refObj="a9c8d279-f076-4a57-aded-65026e5b6683">
@@ -5241,7 +5242,7 @@
             <expression uid="ca367175-5a0b-4350-814a-1a428125533d" objRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" order="2" expressionType="TypeImpl"/>
           </value>
         </parameters>
-        <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6"/>
+        <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
       </search>
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="34479215-e3fe-4fd9-aa2b-247b3ddb16ac" name="statusCode"/>
       <artificialFields packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="8e06f4e1-c153-490f-b4d6-e4afc67abdd4" name="message"/>

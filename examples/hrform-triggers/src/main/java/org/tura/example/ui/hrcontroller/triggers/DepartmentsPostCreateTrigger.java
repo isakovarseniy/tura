@@ -32,7 +32,7 @@ import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.persistence.TuraObject;
+import org.tura.platform.object.TuraObject;
 
 @Alternative
 @Priority(10)
