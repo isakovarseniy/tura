@@ -385,7 +385,7 @@
     </types>
     <types xsi:type="tura.domain:Type" uid="ba908788-92df-4e2c-91d5-ce98b3c3e41e" name="Selenium"/>
     <types xsi:type="tura.domain:Type" uid="8074d457-e61b-424c-b02d-1bcc3356031a" name="Selenium for Primefaces"/>
-    <types xsi:type="tura.domain:Type" uid="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" name="Non Persisted CRAD Service">
+    <types xsi:type="tura.domain:Type" uid="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" name="JPA Entity CRAD Service">
       <operations uid="7ef44e4a-d181-47f7-8667-7ca155fc87c6" name="create">
         <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="99d84fcb-dbc0-4db9-a169-e8eccb21a89a" name="objectClass"/>
         <returnValue packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d"/>
@@ -607,7 +607,7 @@
   </tura.domain:Mappers>
   <tura.domain:Mappers uid="35c625c3-5c19-4681-ac50-eb8581a54cc1" parent="d29466f4-8d55-4047-b6ba-fc1a830db2a1">
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper13" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Dep_52ffccb7-cea6-49de-ba4b-7437f1da3369" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="DepartmentsDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
-    <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper21" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="commons-persistence" groupId="org.tura.platform.object" version="2.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper21" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper22" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Emp_dd5f2ada-dfef-49f4-99c9-77ee2bd72f13" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="EmployeesDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper29" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="CompanyDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="JavaMapper30" serviceLayer="true" uiLayer="true" packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="CompanyDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
@@ -624,11 +624,11 @@
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="fe25473f-fe6b-4c3e-a637-3e696e8354e9" serviceLayer="true" packageRef="1ad90013-ec38-45b6-838f-e1a64508151a" fakePackageName="JPA relation test " mappedToPackageName="org.tura.jpa.test" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="00a80eed-912e-4516-b021-0eeca8a632aa" serviceLayer="true" packageRef="c3261418-92fe-4e17-ad65-023bbfd856b9" fakePackageName="Domain test model package" mappedToPackageName="org.tura.domain.test" artifactId="domain-test-objects" groupId="org.tura.domain.test"/>
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="7efbf86e-baba-43e7-8b86-098ccbaf5906" serviceLayer="true" uiLayer="true" packageRef="522cad9e-5cb1-4d72-8e5f-fbb0216f3f71" fakePackageName="Hr package simple domain model" mappedToPackageName="org.elsoft.platform.hr.objects.simple.model" artifactId="hr-domain-simple-objects-model" groupId="org.tura.example.service" version="1.0"/>
-    <mappers xsi:type="tura.domain:JavaMapper" uid="0237bea6-386c-428a-8283-ff0f8a431536" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="6eb11d01-1a53-4e8a-91aa-a1aea03624eb" fakePackageName="Base package" fakeTypeName="Domain Base Type Implementation" mappedToPackageName="org.tura.platform.object.model" mappedToClassName="DomainTuraObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="0237bea6-386c-428a-8283-ff0f8a431536" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="6eb11d01-1a53-4e8a-91aa-a1aea03624eb" fakePackageName="Base package" fakeTypeName="Domain Base Type Implementation" mappedToPackageName="org.tura.platform.object.model" mappedToClassName="DomainObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="b2895f24-b52e-4ec1-a1ea-b3e48d373185" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="ee992c94-3286-4ae7-8b48-42be225f3e85" fakePackageName="Base package" fakeTypeName="Persistence Base type implementation" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="d36d0ac5-f844-4382-a599-4a281a6982c0" serviceLayer="true" uiLayer="true" packageRef="246d4955-9bac-433d-9105-d06a32b06504" fakePackageName="Hr package simple persistens model" mappedToPackageName="org.elsoft.platform.hr.objects.jpa.simple.model" artifactId="hr-jpa-simple-objects-model" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="e9eae309-3e39-434f-b16b-6a52eb0b3334" serviceLayer="true" uiLayer="true" packageRef="f44bbcfc-22d3-4feb-a629-44c0c2831913" fakePackageName="Hr package with complex domain model" mappedToPackageName="org.elsoft.platform.hr.objects.complex.model" artifactId="hr-domain-complex-objects-model" groupId="org.tura.example.service"/>
-    <mappers xsi:type="tura.domain:JavaMapper" uid="4295e0d1-af1a-4c93-9d68-ef097ca6c4e1" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" mappedToPackageName="org.tura.platform.tura.simple.domain.provider" mappedToClassName="SimpleNotPersistedObjectProvider" artifactId="hr-domain-simple-repository" groupId="org.tura.example.service"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="4295e0d1-af1a-4c93-9d68-ef097ca6c4e1" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" mappedToPackageName="org.tura.platform.tura.simple.domain.provider" mappedToClassName="TuraJpaService" groupId="org.tura.example.service"/>
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415" deployment="f611d83d-edd3-42df-a8bd-78ba7e88b7d9">
@@ -1783,10 +1783,10 @@
           </value>
         </parameters>
         <parameters uid="43cdce74-c333-439a-ac13-bbf919ac015f" refObj="adc91ff6-b654-4f28-a826-f74100dd9a89">
-          <value uid="a2cfb26b-2cb4-4842-ba35-f444cc21e717" value="Packages.Base package.Base package::BaseType">
-            <expression uid="e3385454-6494-41d4-9b41-6a5f46384aae" expressionType="TypesImpl"/>
-            <expression uid="1624a3ff-1870-455b-8b50-80130dbdbb62" objRef="dd77a443-471b-441e-88bf-3f3f092f372c" order="1" expressionType="PackageImpl"/>
-            <expression uid="dfc73c64-a760-4f85-bb91-6967a241a6be" objRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" order="2" expressionType="TypeImpl"/>
+          <value uid="a2cfb26b-2cb4-4842-ba35-f444cc21e717" value="Packages.HR package domain model interface.HR package domain model interface::User type">
+            <expression objRef="221291dc-9bcb-4876-8e6f-38f03f4560a2" expressionType="TypesImpl"/>
+            <expression objRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" order="1" expressionType="PackageImpl"/>
+            <expression objRef="04d63d66-f224-42a6-aabc-ed057fb924be" order="2" expressionType="TypeImpl"/>
           </value>
         </parameters>
         <typePointers packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="2957c51c-68e7-4d1e-b8b7-cbe7ccdbe13f"/>
@@ -2150,24 +2150,6 @@
             <specifiers specifierRef="1638b186-6831-4adb-950f-3a3e4ded6afd" valueRef="8c4ddc46-4ded-41e0-acf6-a9f423b8669b"/>
             <queries uid="8bb60a70-8826-4989-b13c-ddc77b48e1c5" name="Query roles" queryRef="b302b42b-2e15-414c-9c02-6052833c2483">
               <variables queryParamRef="dc5be3a6-c7d6-4855-9b29-3df3d608b6bb" value="HR application"/>
-            </queries>
-          </mappers>
-          <mappers uid="f888ec2e-8965-422f-9561-60b33c09e91c" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Non persisted service producer">
-            <specifiers specifierRef="3ee3d178-4bab-46e0-928e-508089f4dc2c" valueRef="6b0e89e5-8628-49a6-98bf-b125b206dd4d"/>
-            <specifiers specifierRef="741c9449-5abe-40f7-8dc9-fd15fb1c9680" valueRef="909ca457-f59f-4923-8acb-5101566dd99d"/>
-            <queries uid="3c26b63e-de13-4ed2-a5ec-43490cd08129" name="Query Non persisted service" queryRef="b925f051-ca27-4d9f-9445-e87d7f79ce84">
-              <variables queryParamRef="7425c708-e132-4008-90a1-4e3af0c44101" value="Non Persisted CRAD Service"/>
-              <variables queryParamRef="d39ee714-0496-40bc-8145-d6e653476abe" value="Base package"/>
-            </queries>
-            <queries uid="324caf6e-b955-4cbb-926d-2e10a9dbb4c0" name="Query package NA" queryRef="273cc7dd-85f8-430f-ac43-cad73dc0e847">
-              <variables queryParamRef="bbb2310c-3490-4d0a-91a7-5315a09d67ce" value="NA"/>
-              <variables queryParamRef="0ae9eee3-bcdb-4370-be2c-27620c06825a" value="NA"/>
-              <variables queryParamRef="3ac24526-fd51-402c-bb22-b3f5c1c17578" value="NA"/>
-              <variables queryParamRef="6d17ac61-9fff-4ec6-b018-2cbd66412adf" value="NA"/>
-            </queries>
-            <queries uid="66b3f1f4-643c-4730-991f-f88f1338047d" name="Query form" queryRef="13c455aa-256a-4cdc-bb7d-c7f5ef62ae02">
-              <variables queryParamRef="84abb27c-ea7f-4007-808c-28a7fc24e932" value="HR application"/>
-              <variables queryParamRef="e9513e0c-62c7-4e9d-b249-866d23d84e89" value="Hr manager"/>
             </queries>
           </mappers>
         </components>
@@ -5828,13 +5810,13 @@
     <configurations uid="8983f130-194a-4e69-a1af-c1b995fbf78d" infrastructure="17b8e001-fb6a-4a4d-b293-fe474ba6a031">
       <properties uid="fe01f128-c939-469f-93f6-a3dae19acd90" confVarRef="cd17301e-820b-4c33-b955-9cc0a938fe81" value="5432"/>
       <properties uid="7e4a0307-0f01-4609-b4eb-a352742545e0" confVarRef="a52e5078-3017-43a0-b571-f58150f8ffd2" value="HR"/>
-      <properties uid="0ff38ebe-c2c9-4e26-ba89-c209f5f28d2b" confVarRef="57dea534-b8f3-4546-8a63-cc15dfedcd94" value="jdbc/JPA_TEST"/>
+      <properties uid="0ff38ebe-c2c9-4e26-ba89-c209f5f28d2b" confVarRef="57dea534-b8f3-4546-8a63-cc15dfedcd94" value="jdbc/hrDS"/>
       <properties uid="424ccb9c-0246-4b9f-a39d-5935bcccb314" confVarRef="2e8c1ce3-aade-4c15-a7cd-ea9f5de5bd8e" value="NA"/>
       <properties uid="85ca6558-cb44-4c7b-b291-db1d7e8ca64c" confVarRef="9040caf7-fece-440f-bdad-5e598adfd243" value="localhost"/>
       <properties uid="af7316b2-1f38-45d0-8c9a-866a0fc3a0d0" confVarRef="58ebee50-6a39-4ce0-b6f4-aab51c5bf239" value="postgres"/>
       <properties uid="2fcd3591-fe57-4aba-9b5d-4ddfe356db3e" confVarRef="6ef3c0da-e95b-40a7-8b52-bd0c185543c1" value="na"/>
       <properties uid="76143d25-ec0f-4900-b369-0add684d04e7" confVarRef="618186f9-7c62-47cf-82f7-3b295a85ca9f" value="postgres"/>
-      <properties uid="a722497b-b3c4-4a24-baeb-5e12e49062b0" confVarRef="485dd4e4-ed32-418d-a791-b071aa314ef1" value="JPA_TEST"/>
+      <properties uid="a722497b-b3c4-4a24-baeb-5e12e49062b0" confVarRef="485dd4e4-ed32-418d-a791-b071aa314ef1" value="HRObjects"/>
       <properties uid="868267d1-ff03-4183-a14f-6f6c191ec6e7" confVarRef="0280c31d-3c59-47a6-95ad-161fe363fc3b" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
     </configurations>
     <infrastructures uid="17b8e001-fb6a-4a4d-b293-fe474ba6a031" recipe="4ba1e52b-1f16-406a-94a7-59e2049ccb45" name="Development" recipeConfig="8983f130-194a-4e69-a1af-c1b995fbf78d"/>

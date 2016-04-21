@@ -4,21 +4,21 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"  version="2.1">
 	
-	<persistence-unit name="JPA_TEST"  transaction-type="RESOURCE_LOCAL" >
+	<persistence-unit name="HRObjects"  transaction-type="RESOURCE_LOCAL" >
 		
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-		<non-jta-data-source>jdbc/JPA_TEST</non-jta-data-source>
+		<non-jta-data-source>jdbc/hrDS</non-jta-data-source>
 		
-		<class>org.elsoft.platform.hr.objects.jpa.simple.model.StreetJPA</class>
-		<class>org.elsoft.platform.hr.objects.jpa.simple.model.CompanyJPA</class>
 		<class>org.elsoft.platform.hr.objects.jpa.simple.model.CityJPA</class>
-		<class>org.elsoft.platform.hr.objects.jpa.simple.model.VehicleJPA</class>
-		<class>org.elsoft.platform.hr.objects.jpa.simple.model.StateJPA</class>
+		<class>org.elsoft.platform.hr.objects.jpa.simple.model.EmployeeJPA</class>
 		<class>org.elsoft.platform.hr.objects.jpa.simple.model.Dept2EmpJPA</class>
 		<class>org.elsoft.platform.hr.objects.jpa.simple.model.CountryJPA</class>
+		<class>org.elsoft.platform.hr.objects.jpa.simple.model.VehicleJPA</class>
+		<class>org.elsoft.platform.hr.objects.jpa.simple.model.StateJPA</class>
 		<class>org.elsoft.platform.hr.objects.jpa.simple.model.UserJPA</class>
-		<class>org.elsoft.platform.hr.objects.jpa.simple.model.EmployeeJPA</class>
+		<class>org.elsoft.platform.hr.objects.jpa.simple.model.StreetJPA</class>
+		<class>org.elsoft.platform.hr.objects.jpa.simple.model.CompanyJPA</class>
 		<class>org.elsoft.platform.hr.objects.jpa.simple.model.DepartmentJPA</class>
 		<class>org.elsoft.platform.hr.objects.jpa.simple.model.FileJPA</class>
 		

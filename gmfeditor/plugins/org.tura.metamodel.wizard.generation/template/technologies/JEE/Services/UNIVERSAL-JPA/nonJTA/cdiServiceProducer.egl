@@ -7,7 +7,7 @@ package  [%=component.basePackage%].commons.service;
 @javax.enterprise.inject.Alternative
 @javax.annotation.Priority(0)
 @javax.enterprise.context.RequestScoped
-public class  [%=type.~class%]Service extends org.tura.platform.commons.jpa.TuraJPAEntityService{
+public class  [%=type.~class%]Service extends org.tura.platform.services.JPAService{
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,7 +21,7 @@ public class  [%=type.~class%]Service extends org.tura.platform.commons.jpa.Tura
 	}
 	
     @Override
-	public org.tura.platform.persistence.TuraObject create(String objectClass) throws Exception {
+	public org.tura.platform.object.TuraObject create(String objectClass) throws Exception {
     	try{
     		getEntityManager().getTransaction().begin();
     		

@@ -21,38 +21,61 @@
  */
 package org.tura.platform.tura.simple.domain.provider;
 
-import java.nio.ByteBuffer;
+import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 import org.elsoft.platform.hr.objects.UserDAO;
+import org.elsoft.platform.hr.objects.simple.model.User;
 import org.tura.platform.datacontrol.commons.LazyList;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.TuraObject;
+import org.tura.platform.object.model.DomainObject;
 import org.tura.platform.object.model.RepositoryException;
-import org.tura.platform.repository.Repository;
 import org.tura.platform.repository.DataProvider;
+import org.tura.platform.repository.ObjectProvider;
+import org.tura.platform.repository.Repository;
 
+@ObjectProvider
 public class SimpleNotPersistedObjectProvider implements DataProvider {
 
-	public SimpleNotPersistedObjectProvider(Repository repository){
+	private HashMap<String, String> domainModelClassMapper = new HashMap<>();
+
+	
+	
+	public SimpleNotPersistedObjectProvider() {
+	}
+	
+	
+	public void setRepository(Repository repository){
+		init(repository);
+	}
+	
+	private  void init(Repository repository) {
 		repository.addProvider(this, UserDAO.class.getName());
+		repository.addProvider(this, TuraObject.class.getName());
+		
+		domainModelClassMapper.put(UserDAO.class.getName(), User.class.getName());
+		domainModelClassMapper.put(TuraObject.class.getName(), DomainObject.class.getName());
+	}	
+	
+	
+	public SimpleNotPersistedObjectProvider(Repository repository){
+		init(repository);
 	}
 	
 	
 	@Override
 	public Object create(String objectClass) throws RepositoryException {
 		try {
-			Object domainObject = Class.forName(objectClass).newInstance();
-			TuraObject obj = (TuraObject) domainObject;
-			long id = ByteBuffer.wrap(UUID.randomUUID().toString().getBytes()).asLongBuffer().get();
-			obj.setObjId(id);
+			String domainModelClass = domainModelClassMapper.get(objectClass);
+			Object domainObject = Class.forName(domainModelClass).newInstance();
 			return domainObject;
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
-
+		
+		
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -74,13 +97,6 @@ public class SimpleNotPersistedObjectProvider implements DataProvider {
 
 	@Override
 	public void remove(Object request, String objectClass) throws RepositoryException {
-		
-	}
-
-
-	@Override
-	public void setRepository(Repository repository) {
-		// TODO Auto-generated method stub
 		
 	}
 

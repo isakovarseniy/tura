@@ -47,10 +47,10 @@
 
 
 	<modules>
-		<module>test-model</module>
 		<module>java-sql-dsl</module>
-		<module>commons-test</module>
 		<module>commons-persistence</module>
+		<module>test-model</module>
+		<module>commons-test</module>
 		<module>commons-selenium</module>
 		<module>datacontrol</module>
 		<module>primefaces-model</module>
@@ -162,13 +162,6 @@
 				<artifactId>hsqldb</artifactId>
 				<version>${version.org.hsqldb.hsqldb}</version>
 			</dependency>
-
-			<dependency>
-				<groupId>org.tura.platform</groupId>
-				<artifactId>commons-jpa</artifactId>
-				<version>${version.tura-platform}</version>
-			</dependency>
-
 
 			<dependency>
 				<groupId>org.hibernate</groupId>

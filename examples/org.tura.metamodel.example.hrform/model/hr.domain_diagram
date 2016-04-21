@@ -664,7 +664,7 @@
                   <styles xmi:type="notation:FontStyle" xmi:id="_htYBi-iDEeWlAullrVJEpA" fontName=".SF NS Text"/>
                   <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_htYBjOiDEeWlAullrVJEpA"/>
                   <element xmi:type="tura.domain:ModelMapper" href="hr.domain#8fba4b70-da2d-42cd-a054-3930d715e823"/>
-                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htYBjeiDEeWlAullrVJEpA" x="265"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htYBjeiDEeWlAullrVJEpA" x="222" y="412"/>
                 </children>
                 <children xmi:type="notation:Node" xmi:id="_htYolOiDEeWlAullrVJEpA" type="303003">
                   <children xmi:type="notation:DecorationNode" xmi:id="_htYomeiDEeWlAullrVJEpA" type="305002"/>
@@ -777,18 +777,6 @@
                   <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_htadzOiDEeWlAullrVJEpA"/>
                   <element xmi:type="tura.domain:ModelMapper" href="hr.domain#0a64fa52-fae4-4d17-a3ce-c36690333529"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htadzeiDEeWlAullrVJEpA" x="1971"/>
-                </children>
-                <children xmi:type="notation:Node" xmi:id="_htbE0OiDEeWlAullrVJEpA" type="303003">
-                  <children xmi:type="notation:DecorationNode" xmi:id="_htbE1eiDEeWlAullrVJEpA" type="305002"/>
-                  <children xmi:type="notation:BasicCompartment" xmi:id="_htbE1uiDEeWlAullrVJEpA" type="307004">
-                    <styles xmi:type="notation:SortingStyle" xmi:id="_htbE1-iDEeWlAullrVJEpA"/>
-                    <styles xmi:type="notation:FilteringStyle" xmi:id="_htbE2OiDEeWlAullrVJEpA"/>
-                  </children>
-                  <styles xmi:type="notation:DescriptionStyle" xmi:id="_htbE0eiDEeWlAullrVJEpA"/>
-                  <styles xmi:type="notation:FontStyle" xmi:id="_htbE0uiDEeWlAullrVJEpA" fontName=".SF NS Text"/>
-                  <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_htbE0-iDEeWlAullrVJEpA"/>
-                  <element xmi:type="tura.domain:ModelMapper" href="hr.domain#f888ec2e-8965-422f-9561-60b33c09e91c"/>
-                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htbE1OiDEeWlAullrVJEpA" x="2140"/>
                 </children>
               </children>
               <styles xmi:type="notation:DescriptionStyle" xmi:id="_htNpceiDEeWlAullrVJEpA"/>

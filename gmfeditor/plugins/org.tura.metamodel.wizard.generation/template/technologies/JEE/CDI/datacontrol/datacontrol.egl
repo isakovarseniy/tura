@@ -37,11 +37,11 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     %] 
 
 
-	@javax.inject.Inject
     [%
     var i = 0;
     for (methodProvider in control.~provider.keySet()){
     %]
+	@javax.inject.Inject
     private [%=methodProvider%] provider_[%=i%];
     [%
      i = i+1;

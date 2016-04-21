@@ -71,12 +71,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform</groupId>
-			<artifactId>commons-jpa</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>org.tura.platform.datacontrol</groupId>
 			<artifactId>annotations</artifactId>
 			<scope>test</scope>
