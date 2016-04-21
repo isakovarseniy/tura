@@ -24,6 +24,8 @@ package org.tura.platform.tura.simple.domain.provider;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.apache.commons.beanutils.BeanUtils;
 import org.elsoft.platform.hr.objects.CityDAO;
 import org.elsoft.platform.hr.objects.CompanyDAO;
@@ -62,18 +64,32 @@ import org.tura.platform.object.TuraObject;
 import org.tura.platform.object.model.RepositoryException;
 import org.tura.platform.repository.Repository;
 import org.tura.platform.repository.DataProvider;
+import org.tura.platform.repository.ObjectProvider;
 import org.tura.platform.services.JPAService;
 
+
+@ObjectProvider
 public class SimpleTuraProvider implements DataProvider {
 
 	private HashMap<String, String> persistenceClassMapper = new HashMap<>();
 	
 	private HashMap<String, String> domainModelClassMapper = new HashMap<>();
 	
-
+   @Inject
 	private JPAService service;
 
 	public SimpleTuraProvider(Repository repository) {
+		init(repository);
+	}
+	
+	public SimpleTuraProvider() {
+	}
+	
+	public void setRepository(Repository repository){
+		init(repository);
+	}
+	
+	private  void init(Repository repository) {
 		repository.addProvider(this, CompanyDAO.class.getName());
 		repository.addProvider(this, CountryDAO.class.getName());
 		repository.addProvider(this, StateDAO.class.getName());
@@ -217,5 +233,6 @@ public class SimpleTuraProvider implements DataProvider {
 	public void setService(JPAService service) {
 		this.service = service;
 	}
+
 
 }

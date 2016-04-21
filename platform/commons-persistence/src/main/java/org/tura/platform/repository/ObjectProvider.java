@@ -21,25 +21,16 @@
  */
 package org.tura.platform.repository;
 
-import java.util.List;
+import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.model.RepositoryException;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 
-public interface DataProvider {
+import javax.inject.Qualifier;
 
-	public Object create(String objectClass) throws RepositoryException;
-
-	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException;
-
-	public void update(Object request, String objectClass) throws RepositoryException;
-
-	public void insert(Object request, String objectClass) throws RepositoryException;
-
-	public void remove(Object request, String objectClass) throws RepositoryException;
-	
-	public void setRepository(Repository repository);
-
+@Qualifier
+@Retention(RUNTIME)
+@Target({ TYPE })
+public @interface ObjectProvider {
 }

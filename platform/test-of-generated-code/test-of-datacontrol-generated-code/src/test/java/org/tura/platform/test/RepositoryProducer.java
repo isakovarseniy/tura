@@ -27,22 +27,25 @@ import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 
+import org.tura.platform.repository.DataProvider;
 import org.tura.platform.repository.Repository;
-import org.tura.platform.tura.simple.domain.provider.SimpleTuraProvider;
+import org.tura.platform.repository.RepositoryExtension;
 
 @Alternative
 @Priority(0)
 public class RepositoryProducer {
 	
 	@Inject
-	private TuraJPAEntityServiceService service;
+	private RepositoryExtension repositoryExtension;
+	
 	
     @Produces
 	public Repository getRepository(InjectionPoint injectionPoint) {
 
 		Repository repository = new Repository();
-		SimpleTuraProvider provider = new SimpleTuraProvider(repository);
-		provider.setService(service);
+		for ( DataProvider provider : repositoryExtension.getDataProviders()){
+			provider.setRepository(repository);
+		}
 		
 		return repository;
 		

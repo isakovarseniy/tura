@@ -77,4 +77,11 @@ public class SimpleNotPersistedObjectProvider implements DataProvider {
 		
 	}
 
+
+	@Override
+	public void setRepository(Repository repository) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
