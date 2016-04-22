@@ -262,6 +262,7 @@
       <packages uid="522cad9e-5cb1-4d72-8e5f-fbb0216f3f71" name="Hr package simple domain model" typedefinition="97ec4be8-3ea3-41cf-b16a-b3e01aac2818"/>
       <packages uid="246d4955-9bac-433d-9105-d06a32b06504" name="Hr package simple persistens model" typedefinition="111f7278-24de-4df5-b48b-a1d81f0340ae"/>
       <packages uid="f44bbcfc-22d3-4feb-a629-44c0c2831913" name="Hr package with complex domain model" typedefinition="110cd16c-9f28-40fd-a1b2-307826b33ba2"/>
+      <packages uid="aede4e49-35b9-42f0-92f0-067d192f168c" name="HR repository" typedefinition="d2c6f038-042f-497e-839e-5d452b9cc1c1"/>
     </typeDefinition>
   </tura.domain:TypesRepository>
   <tura.domain:TypeDefinition uid="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d" parent="9fcd56c0-2fe7-445a-864e-9550f1b901c2">
@@ -629,6 +630,7 @@
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="d36d0ac5-f844-4382-a599-4a281a6982c0" serviceLayer="true" uiLayer="true" packageRef="246d4955-9bac-433d-9105-d06a32b06504" fakePackageName="Hr package simple persistens model" mappedToPackageName="org.elsoft.platform.hr.objects.jpa.simple.model" artifactId="hr-jpa-simple-objects-model" groupId="org.tura.example.service" version="1.0"/>
     <mappers xsi:type="tura.domain:JavaPackageMapper" uid="e9eae309-3e39-434f-b16b-6a52eb0b3334" serviceLayer="true" uiLayer="true" packageRef="f44bbcfc-22d3-4feb-a629-44c0c2831913" fakePackageName="Hr package with complex domain model" mappedToPackageName="org.elsoft.platform.hr.objects.complex.model" artifactId="hr-domain-complex-objects-model" groupId="org.tura.example.service"/>
     <mappers xsi:type="tura.domain:JavaMapper" uid="4295e0d1-af1a-4c93-9d68-ef097ca6c4e1" serviceLayer="true" uiLayer="true" packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="8a0fb13c-dfa3-4ed8-9e77-d06f98d074a6" fakePackageName="Base package" fakeTypeName="Non Persisted CRAD Service" mappedToPackageName="org.tura.platform.tura.simple.domain.provider" mappedToClassName="TuraJpaService" groupId="org.tura.example.service"/>
+    <mappers xsi:type="tura.domain:JavaMapper" uid="52cf3d43-5b10-48bb-a5ef-3b63e330b19b" serviceLayer="true" uiLayer="true" packageRef="aede4e49-35b9-42f0-92f0-067d192f168c" typeRef="94a79cdf-052b-4555-94ac-2771cec42a39" fakePackageName="HR repository" fakeTypeName="Repository Provider" mappedToPackageName="org.tura.example.ui.commons.service" mappedToClassName="RepositoryProducer" artifactId="hr-domain-simple-repository" groupId="org.tura.example.service" version="2.0"/>
   </tura.domain:Mappers>
   <tura.domain:Recipes uid="e0a24138-9ba7-44dd-8b87-d1b01751c642" parent="Hr_recipe">
     <recipe mappers="0d86886f-6d6e-49e1-a123-d063d2d9bd22 d29466f4-8d55-4047-b6ba-fc1a830db2a1" uid="f89d43e4-5d8d-4437-ad00-188328a43ed0" infrastructures="080702f2-6a78-43d2-8987-c923fe681415" deployment="f611d83d-edd3-42df-a8bd-78ba7e88b7d9">
@@ -2131,6 +2133,10 @@
               <variables queryParamRef="55397cd2-f33b-43b3-b033-3c4ca5e9a714" value="UIGeneration"/>
               <variables queryParamRef="5d27dc6d-474d-48c2-bb14-ca7d390430f5" value="DataControl command"/>
               <variables queryParamRef="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" value="Data control"/>
+            </queries>
+            <queries uid="ba4c881b-5fc5-4b51-9283-4afbace90c32" name="Get Repository" queryRef="ddb22166-e7e3-4f0b-8260-fe09d16f47b0">
+              <variables queryParamRef="a8380e66-d89a-4e24-81ad-64df9457a5e0" value="HR repository"/>
+              <variables queryParamRef="6f6c8d57-871f-4e0b-9ade-0989c55add70" value="Repository Producer"/>
             </queries>
           </mappers>
           <mappers uid="c936a1de-0c00-4eff-939f-a0778cecdd8d" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/builder.sh">
@@ -6135,5 +6141,8 @@
     <relationShips xsi:type="tura.domain:Assosiation" uid="1cfe3b0f-816b-4d43-9f3b-fda706586a4e" source="5aaf5c22-a2f9-4ea4-9222-448125de7d4b" target="9e3f11b0-a44d-4cd9-9eb4-61fc25b106a1" type="One2Many"/>
     <relationShips xsi:type="tura.domain:Assosiation" uid="2a6efe35-c7b9-465f-a91a-4109a862c023" source="5aaf5c22-a2f9-4ea4-9222-448125de7d4b" target="7f4efac8-bd57-4373-85c5-3b2e80e8b698" type="One2Many"/>
     <relationShips xsi:type="tura.domain:Assosiation" uid="8c941e1e-9032-4e97-9ca8-276a31af78ba" source="9e3f11b0-a44d-4cd9-9eb4-61fc25b106a1" target="9e3f11b0-a44d-4cd9-9eb4-61fc25b106a1" type="One2Many"/>
+  </tura.domain:TypeDefinition>
+  <tura.domain:TypeDefinition uid="d2c6f038-042f-497e-839e-5d452b9cc1c1" parent="aede4e49-35b9-42f0-92f0-067d192f168c">
+    <types xsi:type="tura.domain:Type" uid="94a79cdf-052b-4555-94ac-2771cec42a39" name="Repository Producer"/>
   </tura.domain:TypeDefinition>
 </xmi:XMI>

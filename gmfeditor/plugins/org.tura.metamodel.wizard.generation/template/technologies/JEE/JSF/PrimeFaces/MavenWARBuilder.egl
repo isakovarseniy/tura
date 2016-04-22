@@ -95,12 +95,6 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.tura.platform</groupId>
-			<artifactId>commons-jpa</artifactId>
-			<version>${openexp}version.tura-platform}</version>
-		</dependency>
-		
-		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>${openexp}version.commons-fileupload}</version>
