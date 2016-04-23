@@ -1,8 +1,8 @@
-﻿-- Table: hr.department2entitydao
+﻿-- Table: hr.dept2empjpa
 
--- DROP TABLE hr.department2entitydao;
+-- DROP TABLE hr.dept2empjpa;
 
-CREATE TABLE hr.department2entitydao
+CREATE TABLE hr.dept2empjpa
 (
   obj_id bigint NOT NULL,
   active_date timestamp without time zone,
@@ -17,17 +17,17 @@ CREATE TABLE hr.department2entitydao
   departmentref bigint,
   entityref bigint,
   image character varying(255),
-  CONSTRAINT department2entitydao_pkey PRIMARY KEY (obj_id)
+  CONSTRAINT dept2empjpa_pkey PRIMARY KEY (obj_id)
 )
 WITH (
   OIDS=FALSE
 );
 
--- Table: hr.citydao
+-- Table: hr.cityjpa
 
--- DROP TABLE hr.citydao;
+-- DROP TABLE hr.cityjpa;
 
-CREATE TABLE hr.citydao
+CREATE TABLE hr.cityjpa
 (
   obj_id bigint NOT NULL,
   active_date timestamp without time zone,
@@ -39,18 +39,18 @@ CREATE TABLE hr.citydao
   update_date timestamp without time zone,
   optlock integer,
   name character varying(255),
-  CONSTRAINT citydao_pkey PRIMARY KEY (obj_id)
+  CONSTRAINT cityjpa_pkey PRIMARY KEY (obj_id)
 )
 WITH (
   OIDS=FALSE
 );
 
 
--- Table: hr.companydao
+-- Table: hr.companyjpa
 
--- DROP TABLE hr.companydao;
+-- DROP TABLE hr.companyjpa;
 
-CREATE TABLE hr.companydao
+CREATE TABLE hr.companyjpa
 (
   obj_id bigint NOT NULL,
   active_date timestamp without time zone,
@@ -64,18 +64,18 @@ CREATE TABLE hr.companydao
   companyname character varying(255),
   countryid bigint,
   description character varying(255),
-  CONSTRAINT companydao_pkey PRIMARY KEY (obj_id)
+  CONSTRAINT companyjpa_pkey PRIMARY KEY (obj_id)
 )
 WITH (
   OIDS=FALSE
 );
 
 
--- Table: hr.countrydao
+-- Table: hr.countryjpa
 
--- DROP TABLE hr.countrydao;
+-- DROP TABLE hr.countryjpa;
 
-CREATE TABLE hr.countrydao
+CREATE TABLE hr.countryjpa
 (
   obj_id bigint NOT NULL,
   active_date timestamp without time zone,
@@ -87,18 +87,18 @@ CREATE TABLE hr.countrydao
   update_date timestamp without time zone,
   optlock integer,
   name character varying(255),
-  CONSTRAINT countrydao_pkey PRIMARY KEY (obj_id)
+  CONSTRAINT countryjpa_pkey PRIMARY KEY (obj_id)
 )
 WITH (
   OIDS=FALSE
 );
 
 
--- Table: hr.departmentsdao
+-- Table: hr.departmentjpa
 
--- DROP TABLE hr.departmentsdao;
+-- DROP TABLE hr.departmentjpa;
 
-CREATE TABLE hr.departmentsdao
+CREATE TABLE hr.departmentjpa
 (
   obj_id bigint NOT NULL,
   active_date timestamp without time zone,
@@ -114,17 +114,17 @@ CREATE TABLE hr.departmentsdao
   description character varying(255),
   locationid bigint,
   managerid bigint,
-  CONSTRAINT departmentsdao_pkey PRIMARY KEY (obj_id)
+  CONSTRAINT departmentsjpa_pkey PRIMARY KEY (obj_id)
 )
 WITH (
   OIDS=FALSE
 );
 
--- Table: hr.employeesdao
+-- Table: hr.employeejpa
 
--- DROP TABLE hr.employeesdao;
+-- DROP TABLE hr.employeejpa;
 
-CREATE TABLE hr.employeesdao
+CREATE TABLE hr.employeejpa
 (
   obj_id bigint NOT NULL,
   active_date timestamp without time zone,
@@ -145,18 +145,18 @@ CREATE TABLE hr.employeesdao
   managerid bigint,
   phonenumber character varying(255),
   salary real,
-  CONSTRAINT employeesdao_pkey PRIMARY KEY (obj_id)
+  CONSTRAINT employeesjpa_pkey PRIMARY KEY (obj_id)
 )
 WITH (
   OIDS=FALSE
 );
 
 
--- Table: hr.filedao
+-- Table: hr.filejpa
 
--- DROP TABLE hr.filedao;
+-- DROP TABLE hr.filejpa;
 
-CREATE TABLE hr.filedao
+CREATE TABLE hr.filejpa
 (
   obj_id bigint NOT NULL,
   active_date timestamp without time zone,
@@ -170,7 +170,7 @@ CREATE TABLE hr.filedao
   directory boolean,
   filename character varying(255),
   size integer,
-  CONSTRAINT filedao_pkey PRIMARY KEY (obj_id)
+  CONSTRAINT filejpa_pkey PRIMARY KEY (obj_id)
 )
 WITH (
   OIDS=FALSE
@@ -189,11 +189,11 @@ WITH (
   OIDS=FALSE
 );
 
--- Table: hr.statedao
+-- Table: hr.statejpa
 
--- DROP TABLE hr.statedao;
+-- DROP TABLE hr.statejpa;
 
-CREATE TABLE hr.statedao
+CREATE TABLE hr.statejpa
 (
   obj_id bigint NOT NULL,
   active_date timestamp without time zone,
@@ -205,18 +205,18 @@ CREATE TABLE hr.statedao
   update_date timestamp without time zone,
   optlock integer,
   name character varying(255),
-  CONSTRAINT statedao_pkey PRIMARY KEY (obj_id)
+  CONSTRAINT statejpa_pkey PRIMARY KEY (obj_id)
 )
 WITH (
   OIDS=FALSE
 );
 
 
--- Table: hr.streetdao
+-- Table: hr.streetjpa
 
--- DROP TABLE hr.streetdao;
+-- DROP TABLE hr.streetjpa;
 
-CREATE TABLE hr.streetdao
+CREATE TABLE hr.streetjpa
 (
   obj_id bigint NOT NULL,
   active_date timestamp without time zone,
@@ -228,7 +228,7 @@ CREATE TABLE hr.streetdao
   update_date timestamp without time zone,
   optlock integer,
   name character varying(255),
-  CONSTRAINT streetdao_pkey PRIMARY KEY (obj_id)
+  CONSTRAINT streetjpa_pkey PRIMARY KEY (obj_id)
 )
 WITH (
   OIDS=FALSE
@@ -236,11 +236,11 @@ WITH (
 
 
 
--- Table: hr.vehicledao
+-- Table: hr.vehiclejpa
 
--- DROP TABLE hr.vehicledao;
+-- DROP TABLE hr.vehiclejpa;
 
-CREATE TABLE hr.vehicledao
+CREATE TABLE hr.vehiclejpa
 (
   obj_id bigint NOT NULL,
   active_date timestamp without time zone,
@@ -253,7 +253,7 @@ CREATE TABLE hr.vehicledao
   optlock integer,
   platenumber character varying(255),
   vehiclemaker character varying(255),
-  CONSTRAINT vehicledao_pkey PRIMARY KEY (obj_id)
+  CONSTRAINT vehiclejpa_pkey PRIMARY KEY (obj_id)
 )
 WITH (
   OIDS=FALSE
