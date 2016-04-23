@@ -24,8 +24,6 @@ package org.tura.platform.tura.simple.domain.provider;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.apache.commons.beanutils.BeanUtils;
 import org.elsoft.platform.hr.objects.CityDAO;
 import org.elsoft.platform.hr.objects.CompanyDAO;
@@ -62,20 +60,17 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.TuraObject;
 import org.tura.platform.object.model.RepositoryException;
-import org.tura.platform.repository.Repository;
 import org.tura.platform.repository.DataProvider;
-import org.tura.platform.repository.ObjectProvider;
+import org.tura.platform.repository.Repository;
 import org.tura.platform.services.JPAService;
 
 
-@ObjectProvider
 public class SimpleTuraProvider implements DataProvider {
 
 	private HashMap<String, String> persistenceClassMapper = new HashMap<>();
 	
 	private HashMap<String, String> domainModelClassMapper = new HashMap<>();
 	
-   @Inject
 	private JPAService service;
 
 	public SimpleTuraProvider(Repository repository) {
@@ -156,7 +151,7 @@ public class SimpleTuraProvider implements DataProvider {
 	public Object create(String objectClass) throws RepositoryException {
 		try {
 			String persistentClass = persistenceClassMapper.get(objectClass);
-			Object persistentObject = service.create(persistentClass);
+			Object persistentObject = getService().create(persistentClass);
 			String domainModelClass = domainModelClassMapper.get(objectClass);
 			Object domainObject = Class.forName(domainModelClass).newInstance();
 			BeanUtils.copyProperties(domainObject, persistentObject);
@@ -172,10 +167,10 @@ public class SimpleTuraProvider implements DataProvider {
 
 		try {
 			String persistentClass = persistenceClassMapper.get(objectClass);
-			List list = (List<?>) service.find(searchCriteria, orderCriteria, startIndex, endIndex,
+			List list = (List<?>) getService().find(searchCriteria, orderCriteria, startIndex, endIndex,
 					persistentClass);
 
-			long numberOfRows = service.findNumberOfRows(searchCriteria, orderCriteria, startIndex, endIndex,
+			long numberOfRows = getService().findNumberOfRows(searchCriteria, orderCriteria, startIndex, endIndex,
 					persistentClass);
 
 			String domainModelClass = domainModelClassMapper.get(objectClass);
@@ -196,9 +191,9 @@ public class SimpleTuraProvider implements DataProvider {
 	public void update(Object request, String objectClass) throws RepositoryException {
 		try {
 			String persistentClass = persistenceClassMapper.get(objectClass);
-			Object persistentObject = service.findByPk(persistentClass, request);
+			Object persistentObject = getService().findByPk(persistentClass, request);
 			BeanUtils.copyProperties(persistentObject, request);
-			service.update((TuraObject) persistentObject);
+			getService().update((TuraObject) persistentObject);
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
@@ -209,7 +204,7 @@ public class SimpleTuraProvider implements DataProvider {
 			String persistentClass = persistenceClassMapper.get(objectClass);
 			Object persistentObject = Class.forName(persistentClass).newInstance();
 			BeanUtils.copyProperties(persistentObject, request);
-			service.insert((TuraObject) persistentObject);
+			getService().insert((TuraObject) persistentObject);
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
@@ -220,7 +215,7 @@ public class SimpleTuraProvider implements DataProvider {
 			String persistentClass = persistenceClassMapper.get(objectClass);
 			Object persistentObject = Class.forName(persistentClass).newInstance();
 			BeanUtils.copyProperties(persistentObject, request);
-			service.remove((TuraObject) persistentObject);
+			getService().remove((TuraObject) persistentObject);
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}

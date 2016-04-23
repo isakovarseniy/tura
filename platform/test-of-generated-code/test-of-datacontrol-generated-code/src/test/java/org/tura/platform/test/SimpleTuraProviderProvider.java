@@ -19,32 +19,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.commons.service;
+package org.tura.platform.test;
 
-import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.InjectionPoint;
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.tura.platform.repository.DataProvider;
-import org.tura.platform.repository.Repository;
-import org.tura.platform.repository.RepositoryExtension;
+import org.tura.platform.repository.ObjectProvider;
+import org.tura.platform.services.JPAService;
+import org.tura.platform.tura.simple.domain.provider.SimpleTuraProvider;
 
-public class RepositoryProducer {
-	
-	@Inject
-	private RepositoryExtension repositoryExtension;
-	
-	
-    @Produces
-	public Repository getRepository(InjectionPoint injectionPoint) {
 
-		Repository repository = new Repository();
-		for ( DataProvider provider : repositoryExtension.getDataProviders()){
-			provider.setRepository(repository);
-		}
-		
-		return repository;
-		
-	}
+@ObjectProvider
+public class SimpleTuraProviderProvider extends SimpleTuraProvider{
+	   @Inject
+		private JPAService service;
 
+
+	   @PostConstruct
+	   public void init(){
+		   this.setService(service);
+	   }
+	   
 }

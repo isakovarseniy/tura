@@ -31,6 +31,8 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/technolog
 [%       
         }
 %]   
+		<class>org.tura.platform.object.persistence.ObjectsID</class>
+
 		[%=persistence_jpaproperties(Connection,configuration)%]
 
 	</persistence-unit>

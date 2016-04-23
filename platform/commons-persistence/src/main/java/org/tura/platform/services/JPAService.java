@@ -37,8 +37,8 @@ import org.tura.platform.object.persistence.ObjectsID;
 
 import com.octo.java.sql.query.SelectQuery;
 
-public class JPAService  implements Serializable{
-	
+public class JPAService implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	private EntityManager em;
@@ -50,32 +50,27 @@ public class JPAService  implements Serializable{
 	public EntityManager getEntityManager() {
 		return this.em;
 	}
-	
+
 	public TuraObject create(String objectClass) throws Exception {
-		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
-				.loadClass(objectClass);
+		Class<?> clazz = (Class<?>) this.getClass().getClassLoader().loadClass(objectClass);
 		TuraObject obj = (TuraObject) clazz.newInstance();
-		obj.setObjId(this.getObjectID(getEntityManager()));
+		obj.setObjId(this.getObjectID());
 		return obj;
 
 	}
 
-	public Object findByPk(String objectClass,Object request)  throws Exception {
-		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
-				.loadClass(objectClass);
-		return em.find(clazz, ((TuraObject)request).getObjId());
+	public Object findByPk(String objectClass, Object request) throws Exception {
+		Class<?> clazz = (Class<?>) this.getClass().getClassLoader().loadClass(objectClass);
+		return getEntityManager().find(clazz, ((TuraObject) request).getObjId());
 
-		
 	}
-	
-	
-	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria ,  Integer startIndex,
+
+	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws Exception {
 
-		Class<?> clazz = (Class<?>) this.getClass().getClassLoader()
-				.loadClass(objectClass);
+		Class<?> clazz = (Class<?>) this.getClass().getClassLoader().loadClass(objectClass);
 
-		SelectQuery  dslQuery =  DefaulQueryFactory.builder(searchCriteria, orderCriteria, Class.forName(objectClass) );
+		SelectQuery dslQuery = DefaulQueryFactory.builder(searchCriteria, orderCriteria, Class.forName(objectClass));
 		Query query = getEntityManager().createQuery(dslQuery.toSql(), clazz);
 		query.setFirstResult(startIndex);
 		query.setMaxResults(endIndex - startIndex);
@@ -86,23 +81,20 @@ public class JPAService  implements Serializable{
 		return query.getResultList();
 	}
 
-	public long findNumberOfRows(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria ,  Integer startIndex,
-			Integer endIndex, String objectClass) throws Exception {
+	public long findNumberOfRows(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
+			Integer startIndex, Integer endIndex, String objectClass) throws Exception {
 
-
-		SelectQuery  dslQuery =  DefaulQueryFactory.builder(searchCriteria, orderCriteria, Class.forName(objectClass) );
+		SelectQuery dslQuery = DefaulQueryFactory.builder(searchCriteria, orderCriteria, Class.forName(objectClass));
 		dslQuery.getColumns()[0] = c("count(*)");
 		dslQuery.getOrderBy().clear();
 
-		Query query  = getEntityManager().createQuery(dslQuery.toSql());
+		Query query = getEntityManager().createQuery(dslQuery.toSql());
 		for (String param : dslQuery.getParams().keySet()) {
 			query.setParameter(param, dslQuery.getParams().get(param));
 		}
 		return (long) query.getSingleResult();
-	}	
-	
-	
-	
+	}
+
 	public void update(TuraObject entity) {
 		getEntityManager().merge(entity);
 
@@ -112,16 +104,16 @@ public class JPAService  implements Serializable{
 		getEntityManager().persist(entity);
 	}
 
-	public void remove( TuraObject entity) throws ClassNotFoundException {
-		Object obj = getEntityManager().find(entity.getClass(),entity.getObjId());
+	public void remove(TuraObject entity) throws ClassNotFoundException {
+		Object obj = getEntityManager().find(entity.getClass(), entity.getObjId());
 		getEntityManager().remove(obj);
 	}
 
-	protected Long getObjectID(EntityManager em) {
+	protected Long getObjectID() {
 		ObjectsID obj = new ObjectsID();
-		em.persist(obj);
-		em.remove(obj);
-		em.flush();
+		getEntityManager().persist(obj);
+		getEntityManager().remove(obj);
+		getEntityManager().flush();
 
 		return obj.getObjId();
 	}

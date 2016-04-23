@@ -19,31 +19,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository;
+package org.tura.platform.test;
 
-import java.util.ArrayList;
+import org.tura.platform.repository.ObjectProvider;
+import org.tura.platform.tura.simple.domain.provider.SimpleNotPersistedObjectProvider;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
-import javax.enterprise.inject.spi.Bean;
-import javax.enterprise.inject.spi.Extension;
-import javax.enterprise.inject.spi.ProcessBean;
-
-@ApplicationScoped
-public class RepositoryExtension implements Extension {
-
-	private ArrayList<Bean<?>> dataProviderBeans = new ArrayList<>();
-
-	public <T> void collect(@Observes ProcessBean<T> event) {
-		if (event.getAnnotated().isAnnotationPresent(ObjectProvider.class)) {
-			dataProviderBeans.add(event.getBean());
-		}
-	}
-	
-
-	public ArrayList<Bean<?>> getDataProviderBeans() {
-		return dataProviderBeans;
-	}
-
+@ObjectProvider
+public class SimpleNotPersistedObjectProviderProvider extends SimpleNotPersistedObjectProvider{
 
 }

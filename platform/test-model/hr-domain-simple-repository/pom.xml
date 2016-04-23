@@ -45,12 +45,6 @@
 			<artifactId>commons-beanutils</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-		</dependency>
-
-
 	</dependencies>
 
 </project>

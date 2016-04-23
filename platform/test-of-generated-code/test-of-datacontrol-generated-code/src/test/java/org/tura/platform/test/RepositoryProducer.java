@@ -21,9 +21,16 @@
  */
 package org.tura.platform.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Priority;
+import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
+import javax.enterprise.inject.spi.Bean;
+import javax.enterprise.inject.spi.BeanManager;
+import javax.enterprise.inject.spi.CDI;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 
@@ -43,7 +50,7 @@ public class RepositoryProducer {
 	public Repository getRepository(InjectionPoint injectionPoint) {
 
 		Repository repository = new Repository();
-		for ( DataProvider provider : repositoryExtension.getDataProviders()){
+		for ( DataProvider provider : getDataProviders()){
 			provider.setRepository(repository);
 		}
 		
@@ -51,4 +58,23 @@ public class RepositoryProducer {
 		
 	}
 
+    
+	private  List<DataProvider> getDataProviders() {
+
+		ArrayList<DataProvider> array = new ArrayList<>();
+
+		for (Bean<?> bean : repositoryExtension.getDataProviderBeans()) {
+			BeanManager bm = CDI.current().getBeanManager();
+
+			CreationalContext<?> ctx = bm.createCreationalContext(bean);
+			DataProvider provider = (DataProvider) bm.getReference(bean, DataProvider.class, ctx);
+
+			array.add(provider);
+		}
+
+		return array;
+	}
+   
+    
+    
 }
