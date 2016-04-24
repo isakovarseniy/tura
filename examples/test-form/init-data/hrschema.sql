@@ -1,4 +1,5 @@
-﻿-- Table: hr.dept2empjpa
+﻿-- SELECT count(*) FROM pg_stat_activity;
+-- Table: hr.dept2empjpa
 
 -- DROP TABLE hr.dept2empjpa;
 

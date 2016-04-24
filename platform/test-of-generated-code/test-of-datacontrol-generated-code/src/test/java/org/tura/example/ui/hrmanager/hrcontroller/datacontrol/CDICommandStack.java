@@ -21,7 +21,7 @@
  */
 package org.tura.example.ui.hrmanager.hrcontroller.datacontrol;
 
-import org.tura.example.ui.commons.producer.EntityManagerHelper;
+import org.tura.example.ui.commons.producer.EntityManagerHelperImpl;
 import org.tura.platform.datacontrol.CommandStack;
 
 import java.io.Serializable;
@@ -36,7 +36,7 @@ import javax.inject.Named;
 public class CDICommandStack extends CommandStack implements Serializable {
     private static final long serialVersionUID = 1L;
     @Inject
-    private EntityManagerHelper emHelper;
+    private EntityManagerHelperImpl emHelper;
 
     @Override
     public void beginTransaction() {

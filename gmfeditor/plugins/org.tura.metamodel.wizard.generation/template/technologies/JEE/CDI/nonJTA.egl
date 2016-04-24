@@ -29,6 +29,6 @@
     var helper : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/nonJTA/entityManagerHelper.egl",hash,TemplateFactory);
     helper.setFormatter(f);
     buffer = helper.process();
-    util.saveFile( javaPath+"/commons/producer/"  , "EntityManagerHelper.java",buffer);  
+    util.saveFile( javaPath+"/commons/producer/"  , "EntityManagerHelperImpl.java",buffer);  
 
 %]

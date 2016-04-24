@@ -52,7 +52,7 @@ import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.tura.example.ui.commons.producer.EntityManagerHelper;
+import org.tura.example.ui.commons.producer.EntityManagerHelperImpl;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.BeanFactory;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
@@ -92,8 +92,8 @@ public class CDITest  implements DomainFactory{
 
 	@After
 	public void after() {
-		EntityManagerHelper helper = weld.instance()
-				.select(EntityManagerHelper.class).get();
+		EntityManagerHelperImpl helper = weld.instance()
+				.select(EntityManagerHelperImpl.class).get();
 		EntityManager em = helper.getEntityManager();
 		if (em.isOpen())
 			em.close();
@@ -121,8 +121,8 @@ public class CDITest  implements DomainFactory{
 		w = new Weld();
 		weld = w.initialize();
 
-		EntityManagerHelper helper = weld.instance()
-				.select(EntityManagerHelper.class).get();
+		EntityManagerHelperImpl helper = weld.instance()
+				.select(EntityManagerHelperImpl.class).get();
 		EntityManager em = helper.getEntityManager();
 
 		em.getTransaction().begin();

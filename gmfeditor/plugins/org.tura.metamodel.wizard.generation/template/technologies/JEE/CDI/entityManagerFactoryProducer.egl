@@ -12,11 +12,19 @@ package  [%=component.basePackage%].commons.producer;
 
 @javax.enterprise.inject.Alternative
 @javax.annotation.Priority(0)
-public class EntityManagerFactoryProducer  {
+@javax.faces.view.ViewScoped
+public class EntityManagerFactoryProducer implements java.io.Serializable {
+
+   private static final long serialVersionUID = 1L;
+
+   private javax.persistence.EntityManagerFactory emf;
 
 	@javax.enterprise.inject.Produces
 	public javax.persistence.EntityManagerFactory getEntityManagerFactory(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
-		return  javax.persistence.Persistence.createEntityManagerFactory(
+		if (emf == null)
+			emf = javax.persistence.Persistence.createEntityManagerFactory(
 				"[%=configuration.get("persistence_unit")%]");
+
+		return emf;
 	}
 }

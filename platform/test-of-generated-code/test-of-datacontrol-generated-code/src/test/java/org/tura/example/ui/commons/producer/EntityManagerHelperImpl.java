@@ -19,55 +19,42 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.test;
+package org.tura.example.ui.commons.producer;
 
-import java.util.List;
+import java.io.Serializable;
 
 import javax.annotation.Priority;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.TuraObject;
+import javax.inject.Inject;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 import org.tura.platform.object.persistence.EntityManagerHelper;
-import org.tura.platform.services.JPAService;
 
 @Alternative
 @Priority(0)
 @ApplicationScoped
-public class TuraJPAEntityServiceService extends JPAService {
-	private static final long serialVersionUID = 1L;
-	@Inject
-	private EntityManagerHelper emHelper;
+public class EntityManagerHelperImpl implements EntityManagerHelper, Serializable {
+    private static final long serialVersionUID = 1L;
+    @Inject
+    private EntityManagerFactory emf;
+    private EntityManager em;
 
-	@Override
-	public EntityManager getEntityManager() {
-		return emHelper.getEntityManager();
-	}
+    public EntityManager getEntityManager() {
+        if (em == null) {
+            em = emf.createEntityManager();
+        }
+        return em;
+    }
 
-	@Override
-	public List<?> find(List<SearchCriteria> search, List<OrderCriteria> order, Integer startIndex, Integer endIndex,
-			String objectClass) throws Exception {
-		try {
-			return super.find(search, order, startIndex, endIndex, objectClass);
-		} finally {
-			emHelper.destroyEntityManager();
-		}
-	}
-
-	@Override
-	public TuraObject create(String objectClass) throws Exception {
-		try {
-			getEntityManager().getTransaction().begin();
-
-			return super.create(objectClass);
-		} finally {
-			getEntityManager().getTransaction().commit();
-
-		}
-	}
-
+    public void destroyEntityManager() {
+        if (em.isOpen()) {
+            em.close();
+        }
+        em = null;
+    }
 }

@@ -16,7 +16,7 @@ public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack 
 	private static final long serialVersionUID = 1L;
 
 	@javax.inject.Inject
-	private [%=component.basePackage%].commons.producer.EntityManagerHelper emHelper;
+	private org.tura.platform.object.persistence.EntityManagerHelper emHelper;
 
 	@Override
 	public void beginTransaction() {

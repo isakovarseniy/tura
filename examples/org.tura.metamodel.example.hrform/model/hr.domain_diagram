@@ -654,18 +654,6 @@
                   <element xmi:type="tura.domain:ModelMapper" href="hr.domain#5c3c0b94-aa71-4da9-923f-3460706b5394"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htYBhOiDEeWlAullrVJEpA"/>
                 </children>
-                <children xmi:type="notation:Node" xmi:id="_htYBieiDEeWlAullrVJEpA" type="303003">
-                  <children xmi:type="notation:DecorationNode" xmi:id="_htYokOiDEeWlAullrVJEpA" type="305002"/>
-                  <children xmi:type="notation:BasicCompartment" xmi:id="_htYokeiDEeWlAullrVJEpA" type="307004">
-                    <styles xmi:type="notation:SortingStyle" xmi:id="_htYokuiDEeWlAullrVJEpA"/>
-                    <styles xmi:type="notation:FilteringStyle" xmi:id="_htYok-iDEeWlAullrVJEpA"/>
-                  </children>
-                  <styles xmi:type="notation:DescriptionStyle" xmi:id="_htYBiuiDEeWlAullrVJEpA"/>
-                  <styles xmi:type="notation:FontStyle" xmi:id="_htYBi-iDEeWlAullrVJEpA" fontName=".SF NS Text"/>
-                  <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_htYBjOiDEeWlAullrVJEpA"/>
-                  <element xmi:type="tura.domain:ModelMapper" href="hr.domain#8fba4b70-da2d-42cd-a054-3930d715e823"/>
-                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htYBjeiDEeWlAullrVJEpA" x="222" y="412"/>
-                </children>
                 <children xmi:type="notation:Node" xmi:id="_htYolOiDEeWlAullrVJEpA" type="303003">
                   <children xmi:type="notation:DecorationNode" xmi:id="_htYomeiDEeWlAullrVJEpA" type="305002"/>
                   <children xmi:type="notation:BasicCompartment" xmi:id="_htYomuiDEeWlAullrVJEpA" type="307004">
@@ -732,13 +720,6 @@
                       <styles xmi:type="notation:FontStyle" xmi:id="_-t1RQuiJEeWlAullrVJEpA" fontName=".SF NS Text"/>
                       <element xmi:type="tura.domain:Query" href="hr.domain#63adb713-ed01-4c67-93f4-779f55d6091e"/>
                       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-t1RQ-iJEeWlAullrVJEpA"/>
-                    </children>
-                    <children xmi:type="notation:Node" xmi:id="_yGhdMAgfEea22fU4CyEB3A" type="303004">
-                      <children xmi:type="notation:DecorationNode" xmi:id="_yGiEQAgfEea22fU4CyEB3A" type="305001"/>
-                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_yGhdMQgfEea22fU4CyEB3A"/>
-                      <styles xmi:type="notation:FontStyle" xmi:id="_yGhdMggfEea22fU4CyEB3A" fontName=".SF NS Text"/>
-                      <element xmi:type="tura.domain:Query" href="hr.domain#ba4c881b-5fc5-4b51-9283-4afbace90c32"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yGhdMwgfEea22fU4CyEB3A"/>
                     </children>
                     <styles xmi:type="notation:SortingStyle" xmi:id="_htZ2suiDEeWlAullrVJEpA"/>
                     <styles xmi:type="notation:FilteringStyle" xmi:id="_htZ2s-iDEeWlAullrVJEpA"/>

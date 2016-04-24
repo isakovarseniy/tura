@@ -2071,24 +2071,6 @@
               <variables queryParamRef="6dbc30b8-95cd-4776-90de-d7b5ce5df2f8" value="HR application"/>
             </queries>
           </mappers>
-          <mappers uid="8fba4b70-da2d-42cd-a054-3930d715e823" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="53a25731-a3bd-4158-81d1-70a4cab4c22c" name="Service producers ">
-            <specifiers specifierRef="3ee3d178-4bab-46e0-928e-508089f4dc2c" valueRef="6b0e89e5-8628-49a6-98bf-b125b206dd4d"/>
-            <specifiers specifierRef="741c9449-5abe-40f7-8dc9-fd15fb1c9680" valueRef="3309af92-cc56-4e33-8068-81f23b432831"/>
-            <queries uid="76b7a57c-5a4c-4ba7-8e48-f771eeaf6de6" name="Query JPA Entity CRAD Service" queryRef="b925f051-ca27-4d9f-9445-e87d7f79ce84">
-              <variables queryParamRef="7425c708-e132-4008-90a1-4e3af0c44101" value="JPA Entity CRAD Service"/>
-              <variables queryParamRef="d39ee714-0496-40bc-8145-d6e653476abe" value="Base package"/>
-            </queries>
-            <queries uid="c1ca7ae2-0e19-4a07-b6e9-4cfd30ed512b" name="Query package NA" queryRef="273cc7dd-85f8-430f-ac43-cad73dc0e847">
-              <variables queryParamRef="0ae9eee3-bcdb-4370-be2c-27620c06825a" value="NA"/>
-              <variables queryParamRef="3ac24526-fd51-402c-bb22-b3f5c1c17578" value="NA"/>
-              <variables queryParamRef="6d17ac61-9fff-4ec6-b018-2cbd66412adf" value="NA"/>
-              <variables queryParamRef="bbb2310c-3490-4d0a-91a7-5315a09d67ce" value="NA"/>
-            </queries>
-            <queries uid="15f4f36e-b123-43fb-9bbb-b79fa1ce94aa" name="Query form" queryRef="13c455aa-256a-4cdc-bb7d-c7f5ef62ae02">
-              <variables queryParamRef="84abb27c-ea7f-4007-808c-28a7fc24e932" value="HR application"/>
-              <variables queryParamRef="e9513e0c-62c7-4e9d-b249-866d23d84e89" value="Hr manager"/>
-            </queries>
-          </mappers>
           <mappers uid="d49fa8b1-5f7c-4728-a313-e44f985d1860" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="91baf89f-60ba-4074-a47a-0c8d5f6b2877" name="Process all form's views">
             <specifiers specifierRef="5fe66e3c-599f-42d3-9f6c-78ebf2e41346" valueRef="e3af28e6-d625-4a99-bdda-2b578d78a341"/>
             <queries uid="55f49365-3012-4c34-8d11-5836da6036e1" name="Query form" queryRef="fe5b2bc4-040d-490b-97af-e6511696e169">
@@ -2133,10 +2115,6 @@
               <variables queryParamRef="55397cd2-f33b-43b3-b033-3c4ca5e9a714" value="UIGeneration"/>
               <variables queryParamRef="5d27dc6d-474d-48c2-bb14-ca7d390430f5" value="DataControl command"/>
               <variables queryParamRef="6fb0907b-ba5d-4954-bdc9-8c174e44c0a0" value="Data control"/>
-            </queries>
-            <queries uid="ba4c881b-5fc5-4b51-9283-4afbace90c32" name="Get Repository" queryRef="ddb22166-e7e3-4f0b-8260-fe09d16f47b0">
-              <variables queryParamRef="a8380e66-d89a-4e24-81ad-64df9457a5e0" value="HR repository"/>
-              <variables queryParamRef="6f6c8d57-871f-4e0b-9ade-0989c55add70" value="Repository Producer"/>
             </queries>
           </mappers>
           <mappers uid="c936a1de-0c00-4eff-939f-a0778cecdd8d" domainArtifactRef="5945624b-20f3-47f9-9cb1-d0dc8df9491a" artifactRef="b6450037-f0e0-440d-a26d-26685c245fe8" name="Application build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/builder.sh">
