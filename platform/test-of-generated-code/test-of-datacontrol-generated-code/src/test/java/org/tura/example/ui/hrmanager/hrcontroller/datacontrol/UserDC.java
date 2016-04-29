@@ -227,7 +227,7 @@ public class UserDC extends DataControl<TuraObject> implements Serializable {
         , @Parameter(name = "orderByCriteria", expression = "#{beanFactoryHrManagerHRController.user.orderCriteria}", type = List.class)
         , @Parameter(name = "start Index", expression = "#{beanFactoryHrManagerHRController.user.startIndex}", type = Integer.class)
         , @Parameter(name = "end Index", expression = "#{beanFactoryHrManagerHRController.user.endIndex}", type = Integer.class)
-        , @Parameter(name = "objectType", expression = "org.tura.platform.object.TuraObject", type = TuraObject.class)
+        , @Parameter(name = "objectType", expression = "org.elsoft.platform.hr.objects.UserDAO", type = TuraObject.class)
 
     }
     )

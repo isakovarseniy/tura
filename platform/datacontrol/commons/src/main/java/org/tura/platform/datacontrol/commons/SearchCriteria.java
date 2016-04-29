@@ -28,6 +28,16 @@ public class SearchCriteria {
 	private Object value;
 	private String className;
 	
+	public SearchCriteria(){
+	}
+
+	public SearchCriteria(String name,String comparator,Object value,String className){
+		this.name=name;
+		this.comparator=comparator;
+		this.value=value;
+		this.className=className;
+	}
+	
 	public String getName() {
 		return name;
 	}

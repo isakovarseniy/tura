@@ -34,6 +34,7 @@ import org.tura.platform.datacontrol.annotations.ArtificialFields;
 import org.tura.platform.datacontrol.annotations.Connection;
 import org.tura.platform.datacontrol.annotations.Create;
 import org.tura.platform.datacontrol.annotations.CreateTrigger;
+import org.tura.platform.datacontrol.annotations.DefaultOrderBy;
 import org.tura.platform.datacontrol.annotations.DefaultOrderBys;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriteria;
 import org.tura.platform.datacontrol.annotations.DefaultSearchCriterias;
@@ -88,6 +89,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.octo.java.sql.exp.Operator;
+import com.octo.java.sql.query.SelectQuery;
 
 public class DepartmentDC extends DataControl<DepartmentsDAO>
     implements Serializable, ChangeRecordListener {
@@ -375,6 +377,8 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @Inject
     public void setDefaultOrderCriteria(
         @DefaultOrderBys(orders =  {
+        @DefaultOrderBy(field = "objId", order = SelectQuery.Order.ASC)
+
     }
     )
     List<OrderCriteria> defaultOrderCriteria) {

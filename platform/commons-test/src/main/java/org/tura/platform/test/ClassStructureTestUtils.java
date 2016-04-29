@@ -40,6 +40,16 @@ public class ClassStructureTestUtils {
 			return false;
 	}
 	
+	public static Method getMethod(Class<?> clazz, String method,Class<?>... parameters){
+		Method  m=null;
+		try{
+		    m = clazz.getDeclaredMethod(method, parameters);
+		    return m;
+		}catch(Exception e){
+			return null;
+		}
+	}
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Annotation findFieldAnnotation(Class<?> clazz, Class  annotation ,String method,Class<?>... parameters){
 		Method  m=null;

@@ -25,7 +25,17 @@ public class OrderCriteria {
 	private String name;
 	private String order;
 
-	public String getName() {
+	 public OrderCriteria(){
+		 
+	 }
+	
+	 public OrderCriteria(String name,String order){
+		 this.name=name;
+		 this.order=order;
+	 }
+
+	 
+	 public String getName() {
 		return name;
 	}
 

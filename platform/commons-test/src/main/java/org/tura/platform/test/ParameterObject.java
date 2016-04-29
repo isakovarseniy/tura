@@ -19,72 +19,51 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.datacontrol.command.base;
+package org.tura.platform.test;
 
-public class CallParameter {
+public class ParameterObject {
 	private String name;
-	private Object value;
-	private Class<?> clazz;
 	private String expression;
-	private Object obj;
-
-	public CallParameter(String name, String expression , Class<?> clazz){
+	private Class<?> type;
+	
+	
+	public ParameterObject(String name,String expression,Class<?> type){
 		this.name = name;
 		this.expression = expression;
-		this.clazz = clazz;
+		this.setType(type);
 	}
-	
-	public CallParameter(){
-		
-	}
-	
-	
-	
+
+
 	public String getName() {
 		return name;
 	}
+
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public Object getValue() {
-		return value;
-	}
-
-	public void setValue(Object value) {
-		this.value = value;
-	}
 
 	public String getExpression() {
 		return expression;
 	}
 
+
 	public void setExpression(String expression) {
 		this.expression = expression;
 	}
 
-	public Class<?> getClazz() {
-		return clazz;
+
+	public Class<?> getType() {
+		return type;
 	}
 
-	public void setClazz(Class<?> clazz) {
-		this.clazz = clazz;
+
+	public void setType(Class<?> type) {
+		this.type = type;
 	}
 
-	/**
-	 * @return the obj
-	 */
-	public Object getObj() {
-		return obj;
-	}
 
-	/**
-	 * @param obj
-	 *            the obj to set
-	 */
-	public void setObj(Object obj) {
-		this.obj = obj;
-	}
+	
 
 }

@@ -21,21 +21,30 @@
  */
 package org.tura.example.ui.commons.producer;
 
-import javax.annotation.Priority;
+import java.io.Serializable;
 
+import javax.annotation.Priority;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
-
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @Alternative
 @Priority(0)
-public class EntityManagerFactoryProducer {
+@ApplicationScoped
+public class EntityManagerFactoryProducer implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private EntityManagerFactory emf;
+
     @Produces
     public EntityManagerFactory getEntityManagerFactory(
         InjectionPoint injectionPoint) {
-        return Persistence.createEntityManagerFactory("UIComponent");
+        if (emf == null) {
+            emf = Persistence.createEntityManagerFactory("UIComponent");
+        }
+
+        return emf;
     }
 }
