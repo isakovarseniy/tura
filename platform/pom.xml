@@ -49,13 +49,11 @@
 	<modules>
 		<module>java-sql-dsl</module>
 		<module>commons-persistence</module>
-		<module>test-model</module>
-		<module>commons-test</module>
 		<module>commons-selenium</module>
 		<module>datacontrol</module>
 		<module>primefaces-model</module>
 		<module>primefaces-selenium</module>
-		<module>test-of-generated-code</module>
+		<module>test</module>
 	</modules>
 
 
@@ -105,7 +103,7 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform</groupId>
+				<groupId>org.tura.platform.test</groupId>
 				<artifactId>commons-test</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>

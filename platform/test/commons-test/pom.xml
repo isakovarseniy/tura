@@ -4,15 +4,15 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.tura</groupId>
-		<artifactId>platform</artifactId>
+		<groupId>org.tura.platform</groupId>
+		<artifactId>test</artifactId>
 		<version>2.0</version>
 	</parent>
 
-	<groupId>org.tura.platform</groupId>
+	<groupId>org.tura.platform.test</groupId>
 	<artifactId>commons-test</artifactId>
 
-	<name>Tura :: Platform :: Commons :: Test</name>
+	<name>Tura :: Platform :: Test :: Commons</name>
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 

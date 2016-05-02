@@ -5,18 +5,20 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.tura.platform</groupId>
-		<artifactId>test-of-generated-code</artifactId>
+		<artifactId>test</artifactId>
 		<version>2.0</version>
 	</parent>
 
-	<groupId>org.tura.platform.test-of-generated-code</groupId>
-	<artifactId>test-of-datacontrol-generated-code</artifactId>
+	<groupId>org.tura.platform.test</groupId>
+	<artifactId>test-jpa-service-command</artifactId>
 
-	<name>Tura :: Platform :: Test of generated code :: DataControl</name>
+	<name>Tura :: Platform :: Test :: Tura Service JPA Command</name>
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
+
 		<!-- Test -->
+
 		<dependency>
 			<groupId>de.odysseus.juel</groupId>
 			<artifactId>juel</artifactId>
@@ -24,7 +26,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform</groupId>
+			<groupId>org.tura.platform.test</groupId>
 			<artifactId>commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
@@ -48,60 +50,14 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
-			<artifactId>annotations</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform.datacontrol.command</groupId>
-			<artifactId>tura-service-compressor</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-
-		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>org.jboss.weld.se</groupId>
-			<artifactId>weld-se</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.octo.java.sql</groupId>
-			<artifactId>java-sql-dsl</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-
-
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.tura.platform</groupId>
-			<artifactId>primefaces-model</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
 			<scope>test</scope>
 		</dependency>
 
@@ -112,7 +68,26 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.tura.example.service</groupId>
+			<artifactId>hr-domain-simple-objects-model</artifactId>
+			<version>1.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.example.service</groupId>
+			<artifactId>hr-jpa-simple-objects-model</artifactId>
+			<version>1.0</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.tura.platform.datacontrol.command</groupId>
+			<artifactId>tura-service-jpa</artifactId>
+		</dependency>
+
+
 
 	</dependencies>
-
 </project>

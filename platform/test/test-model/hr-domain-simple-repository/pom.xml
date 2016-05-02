@@ -16,7 +16,7 @@
 
 	<packaging>jar</packaging>
 
-	<name>Tura :: Platform :: Commons :: HR simple domain model repository</name>
+	<name>Tura :: Platform :: Test :: HR simple domain model repository</name>
 
 	<dependencies>
 		<dependency>
