@@ -33,10 +33,8 @@ import org.tura.platform.object.TuraObject;
 import org.tura.platform.object.model.DomainObject;
 import org.tura.platform.object.model.RepositoryException;
 import org.tura.platform.repository.DataProvider;
-import org.tura.platform.repository.ObjectProvider;
 import org.tura.platform.repository.Repository;
 
-@ObjectProvider
 public class SimpleNotPersistedObjectProvider implements DataProvider {
 
 	private HashMap<String, String> domainModelClassMapper = new HashMap<>();
