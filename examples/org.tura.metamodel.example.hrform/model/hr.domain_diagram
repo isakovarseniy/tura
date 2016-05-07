@@ -10584,28 +10584,12 @@
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uK-usAEOEeawM5n6_tuTVQ" id="(0.9923076923076923,0.23333333333333334)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uK-usQEOEeawM5n6_tuTVQ" id="(0.1,0.2)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_2AstwAEOEeawM5n6_tuTVQ" type="104007" source="_jI0o0AEOEeawM5n6_tuTVQ" target="_vlBDwAEOEeawM5n6_tuTVQ">
-      <styles xmi:type="notation:RoutingStyle" xmi:id="_2AstwQEOEeawM5n6_tuTVQ"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_2AstwgEOEeawM5n6_tuTVQ" fontName=".SF NS Text"/>
-      <element xmi:type="tura.domain:Assosiation" href="hr.domain#7619e2b1-e700-4b04-9f95-720667d48ddf"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2AstwwEOEeawM5n6_tuTVQ" points="[10, -3, -101, 0]$[105, -4, -6, -1]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2Aui8AEOEeawM5n6_tuTVQ" id="(0.9107142857142857,0.16666666666666666)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2Aui8QEOEeawM5n6_tuTVQ" id="(0.02531645569620253,0.125)"/>
-    </edges>
     <edges xmi:type="notation:Connector" xmi:id="_AfFYMAEPEeawM5n6_tuTVQ" type="104005" source="_5hiXQAEOEeawM5n6_tuTVQ" target="_9cyr4AEOEeawM5n6_tuTVQ">
       <styles xmi:type="notation:FontStyle" xmi:id="_AfFYMQEPEeawM5n6_tuTVQ" fontName=".SF NS Text"/>
       <element xmi:type="tura.domain:Generalization" href="hr.domain#0044feea-8b47-4acf-bb02-ececab651a63"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_AfFYMgEPEeawM5n6_tuTVQ" points="[-2, -1, 60, 33]$[-53, -34, 9, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AfIbgAEPEeawM5n6_tuTVQ" id="(0.44047619047619047,0.016666666666666666)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AfIbgQEPEeawM5n6_tuTVQ" id="(0.9569377990430622,0.75)"/>
-    </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_H-qIIAEPEeawM5n6_tuTVQ" type="104007" source="_6kSNsAEOEeawM5n6_tuTVQ" target="_F9GgEAEPEeawM5n6_tuTVQ">
-      <styles xmi:type="notation:RoutingStyle" xmi:id="_H-qIIQEPEeawM5n6_tuTVQ"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_H-qIIgEPEeawM5n6_tuTVQ" fontName=".SF NS Text"/>
-      <element xmi:type="tura.domain:Assosiation" href="hr.domain#db207cd3-b567-40ed-a68c-b6951f5a4626"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_H-qIIwEPEeawM5n6_tuTVQ" points="[9, 4, -127, 0]$[135, 3, -1, -1]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_H-r9UAEPEeawM5n6_tuTVQ" id="(0.9117647058823529,0.06666666666666667)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_H-r9UQEPEeawM5n6_tuTVQ" id="(0.004405286343612335,0.25)"/>
     </edges>
     <edges xmi:type="notation:Edge" xmi:id="_JcJZ0AEPEeawM5n6_tuTVQ" type="104007" source="_jI0o0AEOEeawM5n6_tuTVQ" target="_5hiXQAEOEeawM5n6_tuTVQ">
       <styles xmi:type="notation:RoutingStyle" xmi:id="_JcJZ0QEPEeawM5n6_tuTVQ"/>
@@ -10630,6 +10614,20 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MdLh4wEPEeawM5n6_tuTVQ" points="[9, -6, 27, -44]$[71, -6, 89, -44]$[71, 107, 89, 69]$[-12, 107, 6, 69]$[-12, 45, 6, 7]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MdNXEAEPEeawM5n6_tuTVQ" id="(0.8928571428571429,0.25)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MdNXEQEPEeawM5n6_tuTVQ" id="(0.6785714285714286,0.8833333333333333)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_j0bMABGgEeaEv-uJWWEHEg" type="104005" source="_jI0o0AEOEeawM5n6_tuTVQ" target="_vlBDwAEOEeawM5n6_tuTVQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_j0bMARGgEeaEv-uJWWEHEg" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Generalization" href="hr.domain#a5a11156-6e17-4697-8b10-1500127d3401"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_j0bMAhGgEeaEv-uJWWEHEg" points="[13, 0, -103, 0]$[108, -1, -8, -1]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_j0e2YBGgEeaEv-uJWWEHEg" id="(0.8839285714285714,0.2)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_j0e2YRGgEeaEv-uJWWEHEg" id="(0.03375527426160337,0.25)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Pa4woBMMEeaBxbghDW_KnQ" type="104005" source="_6kSNsAEOEeawM5n6_tuTVQ" target="_F9GgEAEPEeawM5n6_tuTVQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_Pa4woRMMEeaBxbghDW_KnQ" fontName=".SF NS Text"/>
+      <element xmi:type="tura.domain:Generalization" href="hr.domain#643b298b-2f61-4542-9377-7cd5f71ccb57"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Pa4wohMMEeaBxbghDW_KnQ" points="[7, -4, -142, 0]$[133, -6, -16, -2]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Pa8bABMMEeaBxbghDW_KnQ" id="(0.9313725490196079,0.23333333333333334)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Pa8bARMMEeaBxbghDW_KnQ" id="(0.07048458149779736,0.3)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_QpPqkAgeEeaBtoTlyOP1bg" type="Typedefinition" measurementUnit="Pixel">

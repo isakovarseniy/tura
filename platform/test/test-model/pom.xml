@@ -23,6 +23,7 @@
 	      <module>hr-domain-simple-objects-model</module>
 	      <module>hr-jpa-simple-objects-model</module>
 	      <module>hr-domain-simple-repository</module>
+	      <module>hr-domain-complex-repository</module>
 	</modules>
 
 

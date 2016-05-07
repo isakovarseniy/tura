@@ -62,9 +62,15 @@ public class JPAService implements Serializable {
 	public Object findByPk(String objectClass, Object request) throws Exception {
 		Class<?> clazz = (Class<?>) this.getClass().getClassLoader().loadClass(objectClass);
 		return getEntityManager().find(clazz, ((TuraObject) request).getObjId());
-
 	}
 
+	public Object findByPk(String objectClass, Long id) throws Exception {
+		Class<?> clazz = (Class<?>) this.getClass().getClassLoader().loadClass(objectClass);
+		return getEntityManager().find(clazz, id);
+	}
+	
+	
+	
 	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws Exception {
 
@@ -81,8 +87,7 @@ public class JPAService implements Serializable {
 		return query.getResultList();
 	}
 
-	public long findNumberOfRows(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
-			Integer startIndex, Integer endIndex, String objectClass) throws Exception {
+	public long findNumberOfRows(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,String objectClass) throws Exception {
 
 		SelectQuery dslQuery = DefaulQueryFactory.builder(searchCriteria, orderCriteria, Class.forName(objectClass));
 		dslQuery.getColumns()[0] = c("count(*)");

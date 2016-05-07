@@ -23,7 +23,7 @@
 		<version.cglib>2.2.2</version.cglib>
 		<version.commons-collections>3.2.1</version.commons-collections>
 		<version.uk.com.robust-it.cloning>1.7.9</version.uk.com.robust-it.cloning>
-		<version.commons-lang>2.5</version.commons-lang>
+		<version.commons-lang>2.6</version.commons-lang>
 		<version.hibernate-jpa-2.1-api>1.0.0.Final</version.hibernate-jpa-2.1-api>
 		<version.junit>4.11</version.junit>
 		<version.java-sql-dsl>0.1.1-SNAPSHOT</version.java-sql-dsl>

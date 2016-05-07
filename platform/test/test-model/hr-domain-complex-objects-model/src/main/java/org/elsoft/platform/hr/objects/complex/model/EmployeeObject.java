@@ -4,18 +4,9 @@ import org.elsoft.platform.hr.objects.simple.model.Employee;
 
 import java.util.Collection;
 
-public class EmployeeObject {
-    private Employee employee;
+public class EmployeeObject extends Employee {
     private Collection<FileObject> fileObject;
     private Collection<VehicleObject> vehicleObject;
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 
     public Collection<FileObject> getFileObject() {
         return fileObject;

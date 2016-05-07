@@ -6113,12 +6113,12 @@
     <relationShips xsi:type="tura.domain:Assosiation" uid="55ade8d0-df85-4b6d-84c2-73320b9823bd" source="5dea3a6e-f633-4888-915f-10ac5807813f" target="fcdfc8ca-0dd1-4292-976d-67584371be9b" type="One2Many"/>
     <relationShips xsi:type="tura.domain:Assosiation" uid="e0e98ad7-d78b-4523-870a-7f27bc8fde6f" source="fcdfc8ca-0dd1-4292-976d-67584371be9b" target="5aaf5c22-a2f9-4ea4-9222-448125de7d4b" type="One2Many"/>
     <relationShips xsi:type="tura.domain:Generalization" uid="1e30fbc1-e3fa-4a0e-aec2-f660a26ce734" source="fcdfc8ca-0dd1-4292-976d-67584371be9b" target="5eb63760-cc09-4d86-b6f5-56f3a61e7d08"/>
-    <relationShips xsi:type="tura.domain:Assosiation" uid="7619e2b1-e700-4b04-9f95-720667d48ddf" source="5aaf5c22-a2f9-4ea4-9222-448125de7d4b" target="9d2d04de-427a-4de9-9b96-14960c6baed1"/>
     <relationShips xsi:type="tura.domain:Generalization" uid="0044feea-8b47-4acf-bb02-ececab651a63" source="9e3f11b0-a44d-4cd9-9eb4-61fc25b106a1" target="97f405d3-e5c7-4dcb-9fa1-80a63c639097"/>
-    <relationShips xsi:type="tura.domain:Assosiation" uid="db207cd3-b567-40ed-a68c-b6951f5a4626" source="7f4efac8-bd57-4373-85c5-3b2e80e8b698" target="660e37ba-ec5c-43b5-85a4-bef7c7996e7c"/>
     <relationShips xsi:type="tura.domain:Assosiation" uid="1cfe3b0f-816b-4d43-9f3b-fda706586a4e" source="5aaf5c22-a2f9-4ea4-9222-448125de7d4b" target="9e3f11b0-a44d-4cd9-9eb4-61fc25b106a1" type="One2Many"/>
     <relationShips xsi:type="tura.domain:Assosiation" uid="2a6efe35-c7b9-465f-a91a-4109a862c023" source="5aaf5c22-a2f9-4ea4-9222-448125de7d4b" target="7f4efac8-bd57-4373-85c5-3b2e80e8b698" type="One2Many"/>
     <relationShips xsi:type="tura.domain:Assosiation" uid="8c941e1e-9032-4e97-9ca8-276a31af78ba" source="9e3f11b0-a44d-4cd9-9eb4-61fc25b106a1" target="9e3f11b0-a44d-4cd9-9eb4-61fc25b106a1" type="One2Many"/>
+    <relationShips xsi:type="tura.domain:Generalization" uid="a5a11156-6e17-4697-8b10-1500127d3401" source="5aaf5c22-a2f9-4ea4-9222-448125de7d4b" target="9d2d04de-427a-4de9-9b96-14960c6baed1"/>
+    <relationShips xsi:type="tura.domain:Generalization" uid="643b298b-2f61-4542-9377-7cd5f71ccb57" source="7f4efac8-bd57-4373-85c5-3b2e80e8b698" target="660e37ba-ec5c-43b5-85a4-bef7c7996e7c"/>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="d2c6f038-042f-497e-839e-5d452b9cc1c1" parent="aede4e49-35b9-42f0-92f0-067d192f168c">
     <types xsi:type="tura.domain:Type" uid="94a79cdf-052b-4555-94ac-2771cec42a39" name="Repository Producer"/>

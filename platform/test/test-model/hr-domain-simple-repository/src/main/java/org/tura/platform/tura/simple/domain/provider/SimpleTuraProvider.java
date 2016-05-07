@@ -170,8 +170,7 @@ public class SimpleTuraProvider implements DataProvider {
 			List list = (List<?>) getService().find(searchCriteria, orderCriteria, startIndex, endIndex,
 					persistentClass);
 
-			long numberOfRows = getService().findNumberOfRows(searchCriteria, orderCriteria, startIndex, endIndex,
-					persistentClass);
+			long numberOfRows = getService().findNumberOfRows(searchCriteria, orderCriteria, persistentClass);
 
 			String domainModelClass = domainModelClassMapper.get(objectClass);
 
