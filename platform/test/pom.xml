@@ -22,6 +22,7 @@
     <module>test-jpa-service-command</module>
     <module>test-compressor-command</module>
     <module>test-of-generated-code</module>
+    <module>test-nested-data-control</module>
   </modules>
   
   
