@@ -263,6 +263,7 @@
       <packages uid="246d4955-9bac-433d-9105-d06a32b06504" name="Hr package simple persistens model" typedefinition="111f7278-24de-4df5-b48b-a1d81f0340ae"/>
       <packages uid="f44bbcfc-22d3-4feb-a629-44c0c2831913" name="Hr package with complex domain model" typedefinition="110cd16c-9f28-40fd-a1b2-307826b33ba2"/>
       <packages uid="aede4e49-35b9-42f0-92f0-067d192f168c" name="HR repository" typedefinition="d2c6f038-042f-497e-839e-5d452b9cc1c1"/>
+      <packages uid="06497804-2bf2-4fc8-b351-548832ec7196" name="Nested DataControl command" typedefinition="3d0e873e-ec5e-4f1a-ac3c-cd238a76c7dc"/>
     </typeDefinition>
   </tura.domain:TypesRepository>
   <tura.domain:TypeDefinition uid="29bf33f0-cf65-44c3-89d9-0f63b8cf9b1d" parent="9fcd56c0-2fe7-445a-864e-9550f1b901c2">
@@ -6122,5 +6123,40 @@
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="d2c6f038-042f-497e-839e-5d452b9cc1c1" parent="aede4e49-35b9-42f0-92f0-067d192f168c">
     <types xsi:type="tura.domain:Type" uid="94a79cdf-052b-4555-94ac-2771cec42a39" name="Repository Producer"/>
+  </tura.domain:TypeDefinition>
+  <tura.domain:TypeDefinition uid="3d0e873e-ec5e-4f1a-ac3c-cd238a76c7dc" parent="06497804-2bf2-4fc8-b351-548832ec7196">
+    <types xsi:type="tura.domain:Type" uid="82ca8360-b6c8-4d6f-a92a-2264c96fe7bc" name="Nested Insert command">
+      <operations uid="cf1233b7-1c2a-4005-847f-fc3ec66c253b" name="insert">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="deb33fc1-3837-44e0-956b-c39d56488aa7" name="main object"/>
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="93a6ef79-c0fe-4c2a-aea3-c5d197ab85d1" name="parent object" order="1"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="c0e8b5dc-8620-4242-951c-e81bf4ea99c6" name="relation name" order="2"/>
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="f06fb5ab-9102-40be-862b-72fd81cf1450" name="current object" order="3"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="9228b7b5-cd7e-481a-8dd2-a338f76d904c" name="Nested Update command">
+      <operations uid="54c57f3c-2921-4616-aa9c-d7c104125d0d" name="update">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="39348887-2001-43a3-aed5-c21508b4d56a" name="main object"/>
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="fe1cc306-6a83-4327-a636-4d46a1848056" name="parent object" order="1"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="e14da59f-31d7-44a4-988a-c5be66eb51d5" name="relation name" order="2"/>
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="f45b503e-d9ed-408b-a4dc-7fb729802db9" name="current object" order="3"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="b48fdf38-9632-479a-868e-d814a5c26d94" name="Nested Delete command">
+      <operations uid="fa3eda4f-b20f-4d1d-a655-8a3e28ede9ee" name="remove">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="52ad13e4-e20a-45f1-96d4-0bdcca67ae6b" name="main object"/>
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="c692c212-8789-4935-b7b8-7cebe5741427" name="parent object" order="1"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="677f61ee-3a93-46b5-b364-7d453b6af793" name="relation name" order="2"/>
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="9348b865-6d14-40ba-bbf8-3833e54e3956" name="current object" order="3"/>
+      </operations>
+    </types>
+    <types xsi:type="tura.domain:Type" uid="9b7070d5-7b3f-4633-8982-f2a756c3939e" name="Nested Search command">
+      <operations uid="b5e487b1-a18a-450b-b8d1-5ed81e5b80f1" name="find">
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="8ad7e908-d294-4ca8-88f4-590b18b9f95b" name="parent object"/>
+        <parameters packageRef="9fcd56c0-2fe7-445a-864e-9550f1b901c2" typeRef="e370b9d1-a6fb-4a40-88e2-8845be441438" fakePackageName="Primitive package" fakeTypeName="String" uid="ef757a19-7dd8-4d40-a470-3c98e9562e53" name="relation name" order="1"/>
+        <parameters packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="411aea58-14c5-4bee-8d90-52335366808f" fakePackageName="DataControl command" fakeTypeName="Search criteria" uid="23f9dfce-1b90-4b99-b3e0-aea614bc764d" name="searchCriteria" order="2"/>
+        <parameters packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="3d09d9d5-0b17-4ffb-b40e-635862a2b8c5" fakePackageName="DataControl command" fakeTypeName="OrderByCiteria" uid="4255222a-9e13-45ca-9f34-7b61457b9be5" name="orderByCriteria" order="3"/>
+        <parameters packageRef="dd77a443-471b-441e-88bf-3f3f092f372c" typeRef="50dcca84-4d2c-4fe2-baad-56afdf1be76d" fakePackageName="Base package" fakeTypeName="BaseType" uid="17197bc5-3e1f-4d10-8576-5393c19f5822" name="objectType" order="4"/>
+      </operations>
+    </types>
   </tura.domain:TypeDefinition>
 </xmi:XMI>
