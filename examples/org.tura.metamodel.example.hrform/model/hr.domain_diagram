@@ -10749,7 +10749,7 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_JLq5IhoOEeaV3qA9EAr7eg" fontName=".SF NS Text"/>
       <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JLq5IxoOEeaV3qA9EAr7eg"/>
       <element xmi:type="tura.domain:Type" href="hr.domain#9b7070d5-7b3f-4633-8982-f2a756c3939e"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JLq5JBoOEeaV3qA9EAr7eg" x="438" y="211"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JLq5JBoOEeaV3qA9EAr7eg" x="423" y="207"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_GBNaMRoMEeaV3qA9EAr7eg"/>
     <element xmi:type="tura.domain:TypeDefinition" href="hr.domain#3d0e873e-ec5e-4f1a-ac3c-cd238a76c7dc"/>
