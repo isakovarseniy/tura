@@ -1,16 +1,54 @@
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2015, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.datacontrol.command.turaservice;
 
+import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
 
 import org.tura.platform.datacontrol.BeanWrapper;
+import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.command.base.CallParameter;
+import org.tura.platform.datacontrol.command.base.Command;
+import org.tura.platform.datacontrol.command.base.InsertCommandBase;
+import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 import com.rits.cloning.Cloner;
 
-public class NestedUpdateCommand extends UpdateCommandTuraService{
+public class NestedUpdateCommand extends UpdateCommandBase{
 
+	protected static String METHOD = "update";
+	
+	private HashMap <String,Object> context;
+	
+	public NestedUpdateCommand(DataControl<?> datacontrol) {
+		super(datacontrol);
+	}	
+	
+	public NestedUpdateCommand() {
+	}		
+	
 	
 	/*
 	 * 
@@ -24,11 +62,18 @@ public class NestedUpdateCommand extends UpdateCommandTuraService{
 	@Override
 	public Object execute() throws Exception {
 		this.prepareParameters();
+		super.execute();
 
-		List array = (List) Reflection.call(parameters.get(1).getObj(),
-				(String) (parameters.get(2).getObj()));
+		if (parameters.get(0).getObj() == null) {
+			setObj(this.getDatacontrol().getParent().getMasterCurrentObject());
+		}else{
+			setObj(parameters.get(0).getObj());
+		}
+		
+		List array = (List) Reflection.call(getObj(),(String) (parameters.get(2).getObj()));
 		int i = 0;
 		String key =  getDatacontrol().getObjectKey( parameters.get(3).getObj());
+
 		for (Object obj : array){
 			if (getDatacontrol().getObjectKey( obj ).equals(key)){
 				break;
@@ -54,11 +99,44 @@ public class NestedUpdateCommand extends UpdateCommandTuraService{
 
 		
 		replaceParameters();
-		this.prepareParameters();
 
 		
 		return null;
 	}
+	
+	@Override
+	public void compress(HashMap <String,Object> context){
+		this.context=context;
+		this.context.put("object", getObj());
+	}
+	
+	@Override
+	public boolean isCompressable(Command prevCommand) throws TuraException{
+		if ( prevCommand == null)
+			return true;
+		if ( prevCommand instanceof InsertCommandBase || prevCommand instanceof UpdateCommandBase){
+			if ( prevCommand.getDatacontrol().getObjectKey(prevCommand.getObj()).equals(getDatacontrol().getObjectKey(getObj()))) {
+					return true;
+			}
+		}
+		return false;
+	}	
+	
+	
+	@Override
+	public void delayedExecution() throws Exception {
+
+		if (this.getDatacontrol().getPreUpdateTrigger() != null)
+			this.getDatacontrol().getPreUpdateTrigger().execute(this);
+
+		Object provider = getProviders().values().iterator().next();
+		
+		Method m = this.prepareCall( provider, METHOD);
+		
+		 m.invoke(provider, new Object[] {context.get("object"),context.get("object").getClass().getName() });
+	
+       }
+	
 	
 	private void replaceParameters(){
 		getParameters().clear();

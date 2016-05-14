@@ -22,6 +22,17 @@
 			<version> ${project.version} </version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.tura.example.service</groupId>
+			<artifactId>hr-domain-complex-repository</artifactId>
+			<version> ${project.version} </version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.datacontrol.command</groupId>
+			<artifactId>tura-nested-data</artifactId>
+			<version> ${project.version} </version>
+		</dependency>
 
 
 		<!-- Test -->
@@ -70,9 +81,8 @@
 
 		<dependency>
 			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-simple-repository</artifactId>
+			<artifactId>hr-domain-complex-repository</artifactId>
 			<version> ${project.version} </version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -81,6 +91,14 @@
 			<version>1.0</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.tura.example.service</groupId>
+			<artifactId>hr-domain-complex-objects-model</artifactId>
+			<version>1.0</version>
+			<scope>test</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.tura.example.service</groupId>

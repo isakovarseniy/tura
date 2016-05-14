@@ -24,6 +24,7 @@ package org.tura.platform.tura.complex.domain.provider;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.elsoft.platform.hr.objects.CityDAO;
 import org.elsoft.platform.hr.objects.CompanyDAO;
 import org.elsoft.platform.hr.objects.CountryDAO;
@@ -42,8 +43,15 @@ import org.elsoft.platform.hr.objects.complex.model.FileObject;
 import org.elsoft.platform.hr.objects.complex.model.StateObject;
 import org.elsoft.platform.hr.objects.complex.model.StreetObject;
 import org.elsoft.platform.hr.objects.complex.model.VehicleObject;
+import org.elsoft.platform.hr.objects.jpa.simple.model.CityJPA;
 import org.elsoft.platform.hr.objects.jpa.simple.model.CompanyJPA;
+import org.elsoft.platform.hr.objects.jpa.simple.model.CountryJPA;
 import org.elsoft.platform.hr.objects.jpa.simple.model.DepartmentJPA;
+import org.elsoft.platform.hr.objects.jpa.simple.model.EmployeeJPA;
+import org.elsoft.platform.hr.objects.jpa.simple.model.FileJPA;
+import org.elsoft.platform.hr.objects.jpa.simple.model.StateJPA;
+import org.elsoft.platform.hr.objects.jpa.simple.model.StreetJPA;
+import org.elsoft.platform.hr.objects.jpa.simple.model.VehicleJPA;
 import org.tura.platform.datacontrol.commons.LazyList;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -85,9 +93,37 @@ public class ComplexObjectTuraProvider implements DataProvider {
 		repository.addProvider(this, CompanyDAO.class.getName());
 		repository.addProvider(this, CompanyObject.class.getName());
 
+		repository.addProvider(this,  StateObject.class.getName());
+		repository.addProvider(this,  CityObject.class.getName());
+		repository.addProvider(this,  StreetObject.class.getName());
+		repository.addProvider(this,  DepartmentsObject.class.getName());
+		repository.addProvider(this,  EmployeeObject.class.getName());
+		repository.addProvider(this,  FileObject.class.getName());
+		repository.addProvider(this,  VehicleObject.class.getName());
+		
+		repository.addProvider(this,  StateDAO.class.getName());
+		repository.addProvider(this,  CityDAO.class.getName());
+		repository.addProvider(this,  StreetDAO.class.getName());
+		repository.addProvider(this,  DepartmentsDAO.class.getName());
+		repository.addProvider(this,  EmployeesDAO.class.getName());
+		repository.addProvider(this,  FileDAO.class.getName());
+		repository.addProvider(this,  VehicleDAO.class.getName());
+		
 		persistenceClassMapper.put(CompanyObject.class.getName(), CompanyJPA.class.getName());
 		persistenceClassMapper.put(DepartmentsObject.class.getName(), DepartmentJPA.class.getName());
 
+		
+		persistenceClassMapper.put(CompanyDAO.class.getName(), CompanyJPA.class.getName());
+		persistenceClassMapper.put(CountryDAO.class.getName(), CountryJPA.class.getName());
+		persistenceClassMapper.put(StateDAO.class.getName(), StateJPA.class.getName());
+		persistenceClassMapper.put(CityDAO.class.getName(), CityJPA.class.getName());
+		persistenceClassMapper.put(StreetDAO.class.getName(), StreetJPA.class.getName());
+		persistenceClassMapper.put(DepartmentsDAO.class.getName(), DepartmentJPA.class.getName());
+		persistenceClassMapper.put(EmployeesDAO.class.getName(), EmployeeJPA.class.getName());
+		persistenceClassMapper.put(FileDAO.class.getName(), FileJPA.class.getName());
+		persistenceClassMapper.put(VehicleDAO.class.getName(), VehicleJPA.class.getName());
+		
+		
 		domainModelClassMapper.put(CompanyDAO.class.getName(), CompanyObject.class.getName());
 		domainModelClassMapper.put(CountryDAO.class.getName(), CountryObject.class.getName());
 		domainModelClassMapper.put(StateDAO.class.getName(), StateObject.class.getName());
@@ -112,8 +148,16 @@ public class ComplexObjectTuraProvider implements DataProvider {
 
 	@Override
 	public Object create(String objectClass) throws RepositoryException {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			String persistentClass = persistenceClassMapper.get(objectClass);
+			Object persistentObject = getService().create(persistentClass);
+			String domainModelClass = domainModelClassMapper.get(objectClass);
+			Object domainObject = Class.forName(domainModelClass).newInstance();
+			BeanUtils.copyProperties(domainObject, persistentObject);
+			return domainObject;
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+		}
 	}
 
 	@Override

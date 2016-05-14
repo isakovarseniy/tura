@@ -1,3 +1,24 @@
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2015, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.datacontrol.command.turaservice;
 
 import java.util.List;
@@ -11,6 +32,7 @@ import org.tura.platform.datacontrol.commons.LazyList;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.datacontrol.pool.JOSQLExpressionBuilder;
 
 import com.octo.java.sql.query.SelectQuery;
 
@@ -39,20 +61,22 @@ public class NestedSearchCommand extends SearchCommandBase {
 		this.prepareParameters();
 
 		if (parameters.get(0).getObj() == null) {
-			parameters.get(0).setObj(this.getDatacontrol().getParent().getMasterCurrentObject());
+			setObj(this.getDatacontrol().getParent().getMasterCurrentObject());
 		}
 
-		List array = (List) Reflection.call(parameters.get(0).getObj(),
-				(String) (parameters.get(1).getObj()));
+		List array = (List) Reflection.call(getObj(),(String) (parameters.get(1).getObj()));
 		List<SearchCriteria> searchCriteria = (List<SearchCriteria>) parameters.get(2).getObj();
 		List<OrderCriteria> orderCriteria = (List<OrderCriteria>) parameters.get(3).getObj();
-		Class<?> baseClass = (Class<?>) parameters.get(4).getObj();
+		Class<?> baseClass =   Class.forName( (String) parameters.get(4).getObj());
 
+		
+		if (array == null)
+			return new LazyList<>();
 
 		SelectQuery selectQuery = DefaulQueryFactory.builder(searchCriteria, orderCriteria, baseClass);
 		
 		Query query = new Query();
-		query.parse(selectQuery.toSql());
+		query.parse(selectQuery.toSql(new JOSQLExpressionBuilder()));
 
 		for (String param : selectQuery.getParams().keySet()) {
 			query.setVariable(param, selectQuery.getParams().get(param));
