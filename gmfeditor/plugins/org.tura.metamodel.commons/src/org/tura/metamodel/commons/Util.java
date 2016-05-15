@@ -33,6 +33,9 @@ import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
 import org.tura.metamodel.commons.preferences.IPreferenceConstants;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
@@ -491,6 +494,16 @@ public class Util {
 		}
 	}
 
+	
+	public int message(String header, String message){
+		MessageBox dialog = 
+				  new MessageBox(Display.getCurrent().getActiveShell(), SWT.ICON_QUESTION | SWT.OK| SWT.CANCEL);
+				dialog.setText(header);
+				dialog.setMessage(message);
+
+				return dialog.open(); 		
+	}
+	
 	public static EglTemplate loadTemplate(String templateFile,
 			HashMap<String, Object> parameters, EglTemplateFactory factory)
 			throws Exception {

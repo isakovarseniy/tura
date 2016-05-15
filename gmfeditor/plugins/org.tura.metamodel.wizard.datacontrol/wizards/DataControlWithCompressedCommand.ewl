@@ -1,4 +1,4 @@
-import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/datacontrolWithCompressedCommandSetup.eol";
+import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/dcWithCompressedCommand.eol";
 
 
 /*
@@ -29,17 +29,23 @@ wizard AllDataContorlInitialization {
 }
 */
 
-wizard DataContorlInitialization {
+wizard DataControlWithCompressedCommand {
 	
 	guard : self.isKindOf(domain::DataControl) 
 		
-	title : 'Data control initialization'
+	title : 'Data control with Compressed Command'
 	do {
-	   var commandSelector = new Native('org.tura.metamodel.wizard.datacontrol.DataControlCommandSelector');
        var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
-	   
-	   var commandList := commandSelector.runDialog(self);
 
+       if (not self.baseType.isDefined()){
+          var util = new Native('org.tura.metamodel.commons.Util');
+          util.message("Info","Base type is not defined");
+          return;
+	   }
+       
+	   
+	   var commandList =queryHelper.queryTypesByHint(self,"DataControl command","Data control","datacontrol.command","UIGeneration");
+	   
         var form = queryHelper.getForm(self);
         var treeRoots =   queryHelper.findTreeRootControls(form);
         for ( tR in treeRoots ){

@@ -17,20 +17,19 @@
    <extension
          point="org.eclipse.epsilon.ewl.emf.wizards">
       <wizards
-            file="wizards/dataControlInit.ewl"
+            file="wizards/DataControlWithCompressedCommand.ewl"
             namespaceURI="http://tura.org/2013/v1/domain">
       </wizards>
    </extension>
    
-   <extension
-         point="org.eclipse.epsilon.common.dt.tool">
-      <tool
-            class="org.tura.metamodel.wizard.datacontrol.DataControlCommandSelector"
-            defaultName="CommandSelectorDialog"> 
-      
-      </tool>
-   </extension>
-
+     <extension
+         point="org.eclipse.epsilon.ewl.emf.wizards">
+      <wizards
+            file="wizards/DataControlWithNestedCommand.ewl"
+            namespaceURI="http://tura.org/2013/v1/domain">
+      </wizards>
+   </extension> 
+   
    <extension
          point="org.eclipse.epsilon.common.dt.tool">
      <tool

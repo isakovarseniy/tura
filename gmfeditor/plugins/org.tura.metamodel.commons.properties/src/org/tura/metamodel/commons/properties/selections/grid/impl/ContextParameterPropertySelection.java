@@ -82,7 +82,11 @@ public abstract class ContextParameterPropertySelection extends ContextValueProp
 
 	
 	public boolean checkType(domain.ContextValue param, domain.TypeElement type,Object model) {
-
+		domain.TypeElement nullType =   new QueryHelper().findNullType(type);
+		
+		if (type.getUid().equals(nullType.getUid()))
+			return true;
+		
 		if (type.getUid().equals(contextRefTypeExtreactor((ContextParameter) model).getUid()))
 			return true;
 		else {

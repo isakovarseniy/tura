@@ -286,6 +286,7 @@
     <types xsi:type="tura.domain:Primitive" uid="2829901f-e985-4786-96ff-852230536694" name="Integer"/>
     <types xsi:type="tura.domain:Primitive" uid="7b7c554c-a1ad-4e6e-8c91-20df7d6530f8" name="Long"/>
     <types xsi:type="tura.domain:Primitive" uid="90b18156-de6d-42d1-b350-925e44a0e4cc" name="Void"/>
+    <types xsi:type="tura.domain:Primitive" uid="3bc5a30c-4b8f-4d5e-b96c-e7013bfd743e" name="Null"/>
   </tura.domain:TypeDefinition>
   <tura.domain:TypeDefinition uid="d3aaa3c1-ce4f-4b19-9e05-30631fe679cd" parent="dd77a443-471b-441e-88bf-3f3f092f372c">
     <types xsi:type="tura.domain:Type" uid="9ec6d2e0-4002-11e4-916c-0800200c9a66" name="Search criterias"/>
@@ -835,6 +836,9 @@
     <forms uid="2bc1d59e-d752-43cb-a3a3-d57283edc14a" name="ErrorHandling">
       <view uid="ecbbfc74-5335-4c1b-aec9-54cd85cc5297" name="View" view="5fd54cb2-6c19-4442-a13f-e704ff8c94cb"/>
       <datacontrols uid="1ece42ef-12be-412c-97c5-5711e30fb3f9" name="Data control" formControl="5c389a2e-07c6-41a8-9470-61a8272f77c6"/>
+    </forms>
+    <forms uid="d88acecd-ed0b-4834-b502-bdfeea34af99" name="Nested data">
+      <datacontrols uid="ffa60cd5-9120-4049-8f9f-c063bcce4cfe" name="Data control" formControl="0b06d1b0-f53c-4197-a50b-13489718218f"/>
     </forms>
   </tura.domain:UIPackage>
   <tura.domain:Controls uid="5541fdd1-fedb-45ba-ab74-966e737af3a6" parent="60346910-0b2a-4fed-b397-25731ca3a1df">
@@ -6167,4 +6171,5 @@
       </operations>
     </types>
   </tura.domain:TypeDefinition>
+  <tura.domain:Controls uid="0b06d1b0-f53c-4197-a50b-13489718218f" parent="ffa60cd5-9120-4049-8f9f-c063bcce4cfe"/>
 </xmi:XMI>

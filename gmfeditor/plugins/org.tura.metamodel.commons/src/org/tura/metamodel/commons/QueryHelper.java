@@ -812,6 +812,34 @@ public class QueryHelper {
 
 	}
 
+	public domain.TypeElement findNullType(Object obj) {
+		try {
+			@SuppressWarnings("rawtypes")
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			@SuppressWarnings("unchecked")
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
+
+			OCLExpression<EClassifier> query = helper
+					.createQuery("domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name = 'Null'  and  r.oclAsType(domain::Primitive).parent.parent.name ='"
+							+ InitDiagram.PRIVATE_PACKAGE + "')");
+
+			@SuppressWarnings("unchecked")
+			Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
+					.evaluate(obj, query);
+
+			if (map.size() != 0)
+				return map.iterator().next();
+
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return null;
+	}
+
+	
+	
 	public domain.TypeElement findSearchCriteriaType(Object obj) {
 		try {
 			@SuppressWarnings("rawtypes")
@@ -1405,6 +1433,35 @@ public class QueryHelper {
 			LogUtil.log(e);
 			return new ArrayList<domain.Generalization>();
 		}
+		
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public List<domain.Type> queryTypesByHint(Object obj,  String packageName, String artifactName, String hint, String artifactLib){
+		List<domain.Type> array = new ArrayList<domain.Type>();
+
+		try {
+			OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+			OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
+					.createOCLHelper();
+			helper.setContext(DomainPackage.eINSTANCE
+					.getEClassifier("Domain"));
+
+			
+			String query_str="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type ) ) )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}' and c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name = '${Artifact}' and  c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name = '${ArtifactLib}' )->collect(c|c.oclAsType(ecore::EObject).eContainer())";
+			query_str = query_str.replaceAll("\\$\\{Package name\\}", packageName).replaceAll("\\$\\{Artifact\\}", artifactName).replaceAll("\\$\\{Hint\\}", hint).replaceAll("\\$\\{ArtifactLib\\}", artifactLib);
+			
+			OCLExpression<EClassifier> query = helper.createQuery(query_str);
+
+			Collection<domain.Type> map = (Collection<domain.Type>) ocl.evaluate(obj, query);
+
+			array = new ArrayList<domain.Type>();
+			array.addAll(map);
+
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return array;
 		
 	}
 	
