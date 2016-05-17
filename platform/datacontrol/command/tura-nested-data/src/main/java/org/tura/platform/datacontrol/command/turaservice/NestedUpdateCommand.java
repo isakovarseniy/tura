@@ -41,6 +41,7 @@ public class NestedUpdateCommand extends UpdateCommandBase{
 	protected static String METHOD = "update";
 	
 	private HashMap <String,Object> context;
+	private Object parent;
 	
 	public NestedUpdateCommand(DataControl<?> datacontrol) {
 		super(datacontrol);
@@ -70,7 +71,12 @@ public class NestedUpdateCommand extends UpdateCommandBase{
 			setObj(parameters.get(0).getObj());
 		}
 		
-		List array = (List) Reflection.call(getObj(),(String) (parameters.get(2).getObj()));
+		parent = parameters.get(1).getObj();
+		if (parent == null) {
+			parent = this.getDatacontrol().getParent().getMasterCurrentObject();
+		}
+		
+		List array = (List) Reflection.call(parent,(String) (parameters.get(2).getObj()));
 		int i = 0;
 		String key =  getDatacontrol().getObjectKey( parameters.get(3).getObj());
 
@@ -85,11 +91,6 @@ public class NestedUpdateCommand extends UpdateCommandBase{
 		}
 		array.set(i,parameters.get(3).getObj());
 		
-		if (parameters.get(0).getObj() == null) {
-			setObj(this.getDatacontrol().getParent().getMasterCurrentObject());
-		}else{
-			setObj(parameters.get(0).getObj());
-		}
 		BeanWrapper w = (BeanWrapper) Reflection.call(getObj(), "getWrapper");
 		setDatacontrol(w.getDatacontrol());
 		

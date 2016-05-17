@@ -4,38 +4,19 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.tura.platform</groupId>
-		<artifactId>test</artifactId>
+		<groupId>org.tura.platform.test</groupId>
+		<artifactId>test-of-generated-code</artifactId>
 		<version>2.0</version>
 	</parent>
 
-	<groupId>org.tura.platform.test</groupId>
-	<artifactId>test-nested-data-control</artifactId>
+	<groupId>org.tura.platform.test.test-of-generated-code</groupId>
+	<artifactId>test-of-nested-datacontrols</artifactId>
 
-	<name>Tura :: Platform :: Test :: Tura Service Nested Data Control Command</name>
+	<name>Tura :: Platform :: Test :: Generated code :: Nested Data Control</name>
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-complex-repository</artifactId>
-			<version> ${project.version} </version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-complex-repository</artifactId>
-			<version> ${project.version} </version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform.datacontrol.command</groupId>
-			<artifactId>tura-nested-data</artifactId>
-		</dependency>
-
-
 		<!-- Test -->
-
 		<dependency>
 			<groupId>de.odysseus.juel</groupId>
 			<artifactId>juel</artifactId>
@@ -61,10 +42,29 @@
 		</dependency>
 
 		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901.jdbc4</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.tura.platform</groupId>
 			<artifactId>commons-persistence</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>annotations</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.datacontrol.command</groupId>
+			<artifactId>tura-nested-data</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -73,41 +73,52 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.jboss.weld.se</groupId>
+			<artifactId>weld-se</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.octo.java.sql</groupId>
+			<artifactId>java-sql-dsl</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
+			<groupId>org.tura.platform</groupId>
+			<artifactId>primefaces-model</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.tura.example.service</groupId>
 			<artifactId>hr-domain-complex-repository</artifactId>
 			<version> ${project.version} </version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-simple-objects-model</artifactId>
-			<version>1.0</version>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-complex-objects-model</artifactId>
-			<version>1.0</version>
-			<scope>test</scope>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-jpa-simple-objects-model</artifactId>
-			<version>1.0</version>
-			<scope>test</scope>
-		</dependency>
-
-
 
 
 	</dependencies>
+
 </project>

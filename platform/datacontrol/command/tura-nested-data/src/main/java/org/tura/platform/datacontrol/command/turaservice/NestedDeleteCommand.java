@@ -36,6 +36,7 @@ import com.rits.cloning.Cloner;
 public class NestedDeleteCommand extends DeleteCommandBase{
 
 	private static String METHOD = "remove";
+	private Object parent;
 	
 	public NestedDeleteCommand(DataControl<?> datacontrol) {
 		super(datacontrol);
@@ -64,7 +65,12 @@ public class NestedDeleteCommand extends DeleteCommandBase{
 			setObj(parameters.get(0).getObj());
 		}
 		
-		List array = (List) Reflection.call(getObj(),(String) (parameters.get(2).getObj()));
+		parent = parameters.get(1).getObj();
+		if (parent == null) {
+			parent = this.getDatacontrol().getParent().getMasterCurrentObject();
+		}
+		
+		List array = (List) Reflection.call(parent,(String) (parameters.get(2).getObj()));
 		int i = 0;
 		String key =  getDatacontrol().getObjectKey( parameters.get(3).getObj());
 		for (Object obj : array){

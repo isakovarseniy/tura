@@ -60,7 +60,6 @@ import org.tura.platform.hr.init.FileInit;
 import org.tura.platform.hr.init.StateInit;
 import org.tura.platform.hr.init.StreetInit;
 import org.tura.platform.hr.init.VehicleInit;
-import org.tura.platform.object.TuraObject;
 import org.tura.platform.repository.Repository;
 import org.tura.platform.tura.complex.domain.livecycle.CityObjectLiveCycle;
 import org.tura.platform.tura.complex.domain.livecycle.CompanyObjectLiveCycle;

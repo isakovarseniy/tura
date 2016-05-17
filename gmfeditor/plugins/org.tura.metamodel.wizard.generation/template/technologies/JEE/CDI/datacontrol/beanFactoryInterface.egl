@@ -3,7 +3,10 @@ import "platform:/plugin/org.tura.metamodel.wizard.generation/template/commons/i
 
      var util = new Native('org.tura.metamodel.commons.Util');
      var query =  new Native('org.tura.metamodel.commons.QueryHelper');
-     var nicnamed = query.collectRefreshedAeas(form.getView().getView());
+     var nicnamed = new Native('java.util.ArrayList');
+     if (form.getView() <> null){  
+         nicnamed = query.collectRefreshedAeas(form.getView().getView());
+     }
      
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  

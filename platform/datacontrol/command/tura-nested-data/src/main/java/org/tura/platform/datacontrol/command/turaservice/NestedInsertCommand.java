@@ -38,6 +38,7 @@ public class NestedInsertCommand extends InsertCommandBase {
 
 	protected static String METHOD = "insert";
 	private HashMap <String,Object> context;
+	private Object parent;
 	
 	
 	public NestedInsertCommand(DataControl<?> datacontrol) {
@@ -67,7 +68,12 @@ public class NestedInsertCommand extends InsertCommandBase {
 			setObj(parameters.get(0).getObj());
 		}
 
-		List array = (List) Reflection.call(getObj(),(String) (parameters.get(2).getObj()));
+		parent = parameters.get(1).getObj();
+		if (parent == null) {
+			parent = this.getDatacontrol().getParent().getMasterCurrentObject();
+		}
+		
+		List array = (List) Reflection.call(parent,(String) (parameters.get(2).getObj()));
 		array.add(parameters.get(3).getObj());
 		
 

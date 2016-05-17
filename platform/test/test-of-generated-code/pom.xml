@@ -20,6 +20,7 @@
 	<modules>
 		<module>test-of-datacontrol-generated-code</module>
 		<module>test-of-generated-jpa-objects</module>
+		<module>test-of-nested-datacontrols</module>
 	</modules>
 
 

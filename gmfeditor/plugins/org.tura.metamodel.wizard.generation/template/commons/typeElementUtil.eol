@@ -26,7 +26,7 @@ operation domain::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingre
                  self.~mapper="Type2Java";
                  self.~class=type.mappedToClassName;
                  self.~package= type.mappedToPackageName;
-                 if (type.mappedToPackageName <>'')
+                 if (type.mappedToPackageName <>'' and type.mappedToPackageName <> null)
                      self.~fullName=type.mappedToPackageName+"."+type.mappedToClassName;
                   else
                      self.~fullName=type.mappedToClassName;
