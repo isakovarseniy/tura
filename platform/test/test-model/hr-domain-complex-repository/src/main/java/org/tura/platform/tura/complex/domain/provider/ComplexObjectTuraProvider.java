@@ -93,6 +93,7 @@ public class ComplexObjectTuraProvider implements DataProvider {
 		repository.addProvider(this, CompanyDAO.class.getName());
 		repository.addProvider(this, CompanyObject.class.getName());
 
+		repository.addProvider(this,  CountryObject.class.getName());
 		repository.addProvider(this,  StateObject.class.getName());
 		repository.addProvider(this,  CityObject.class.getName());
 		repository.addProvider(this,  StreetObject.class.getName());
@@ -101,6 +102,7 @@ public class ComplexObjectTuraProvider implements DataProvider {
 		repository.addProvider(this,  FileObject.class.getName());
 		repository.addProvider(this,  VehicleObject.class.getName());
 		
+		repository.addProvider(this,  CountryDAO.class.getName());
 		repository.addProvider(this,  StateDAO.class.getName());
 		repository.addProvider(this,  CityDAO.class.getName());
 		repository.addProvider(this,  StreetDAO.class.getName());

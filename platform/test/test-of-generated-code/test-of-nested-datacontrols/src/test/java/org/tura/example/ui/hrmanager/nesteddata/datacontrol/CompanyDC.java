@@ -70,6 +70,7 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.object.TuraObject;
+import org.tura.platform.repository.Repository;
 
 import java.io.Serializable;
 
@@ -89,6 +90,8 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
     private static final long serialVersionUID = 1L;
     @Inject
     private transient Logger logger;
+    @Inject
+    private Repository provider_0;
     @Inject
     private Instance<TreeRootCountryDC> countryproducer;
 
@@ -111,6 +114,16 @@ public class CompanyDC extends DataControl<CompanyDAO> implements Serializable {
 
             this.searchCommand.setDatacontrol(this);
 
+            this.createCommand.setProvider(provider_0,
+                "org.tura.platform.repository.Repository");
+            this.insertCommand.setProvider(provider_0,
+                "org.tura.platform.repository.Repository");
+            this.updateCommand.setProvider(provider_0,
+                "org.tura.platform.repository.Repository");
+            this.deleteCommand.setProvider(provider_0,
+                "org.tura.platform.repository.Repository");
+            this.searchCommand.setProvider(provider_0,
+                "org.tura.platform.repository.Repository");
             this.commandStack.getPoolFlushAware().add(this);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {

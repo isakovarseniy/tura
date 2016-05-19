@@ -5,7 +5,7 @@
 	<persistence-unit name="UIComponent" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-         <class>org.tura.platform.object.persistence.ObjectsID</class>
+        <class>org.tura.platform.object.persistence.ObjectsID</class>
          <class>org.elsoft.platform.hr.objects.jpa.simple.model.DepartmentJPA</class>
          <class>org.elsoft.platform.hr.objects.jpa.simple.model.EmployeeJPA</class>
          <class>org.elsoft.platform.hr.objects.jpa.simple.model.CityJPA</class>
@@ -13,6 +13,8 @@
          <class>org.elsoft.platform.hr.objects.jpa.simple.model.CountryJPA</class>
          <class>org.elsoft.platform.hr.objects.jpa.simple.model.StateJPA</class>
          <class>org.elsoft.platform.hr.objects.jpa.simple.model.StreetJPA</class>
+         <class>org.elsoft.platform.hr.objects.jpa.simple.model.FileJPA</class>
+         <class>org.elsoft.platform.hr.objects.jpa.simple.model.VehicleJPA</class>
       
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />

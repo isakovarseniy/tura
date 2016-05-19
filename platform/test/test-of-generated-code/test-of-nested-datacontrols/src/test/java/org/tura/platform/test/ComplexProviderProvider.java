@@ -33,6 +33,7 @@ import org.elsoft.platform.hr.objects.complex.model.FileObject;
 import org.elsoft.platform.hr.objects.complex.model.StateObject;
 import org.elsoft.platform.hr.objects.complex.model.StreetObject;
 import org.elsoft.platform.hr.objects.complex.model.VehicleObject;
+import org.tura.platform.repository.ObjectProvider;
 import org.tura.platform.services.JPAService;
 import org.tura.platform.tura.complex.domain.livecycle.CityObjectLiveCycle;
 import org.tura.platform.tura.complex.domain.livecycle.CompanyObjectLiveCycle;
@@ -45,6 +46,7 @@ import org.tura.platform.tura.complex.domain.livecycle.StreetObjectLiveCycle;
 import org.tura.platform.tura.complex.domain.livecycle.VehicleObjectLiveCycle;
 import org.tura.platform.tura.complex.domain.provider.ComplexObjectTuraProvider;
 
+@ObjectProvider
 public class ComplexProviderProvider extends ComplexObjectTuraProvider{
 
 	   @Inject

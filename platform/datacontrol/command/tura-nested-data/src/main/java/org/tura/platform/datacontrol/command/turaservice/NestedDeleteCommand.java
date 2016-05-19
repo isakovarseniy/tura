@@ -24,6 +24,7 @@ package org.tura.platform.datacontrol.command.turaservice;
 import java.lang.reflect.Method;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.command.base.CallParameter;
@@ -59,18 +60,16 @@ public class NestedDeleteCommand extends DeleteCommandBase{
 		this.prepareParameters();
 		super.execute();
 
-		if (parameters.get(0).getObj() == null) {
-			setObj(this.getDatacontrol().getParent().getMasterCurrentObject());
-		}else{
-			setObj(parameters.get(0).getObj());
-		}
-		
 		parent = parameters.get(1).getObj();
 		if (parent == null) {
 			parent = this.getDatacontrol().getParent().getMasterCurrentObject();
 		}
 		
-		List array = (List) Reflection.call(parent,(String) (parameters.get(2).getObj()));
+		List array = (List) Reflection.call(parent,makeGetMethod((String) (parameters.get(2).getObj())));
+		if (array == null ){
+			throw new TuraException("Object hasn't been found");
+		}
+		
 		int i = 0;
 		String key =  getDatacontrol().getObjectKey( parameters.get(3).getObj());
 		for (Object obj : array){
@@ -84,12 +83,25 @@ public class NestedDeleteCommand extends DeleteCommandBase{
 		}
 		array.remove(i);
 		
-		BeanWrapper w = (BeanWrapper) Reflection.call(getObj(), "getWrapper");
-		setDatacontrol(w.getDatacontrol());
-		
-		Cloner cloner = new Cloner();
-		Object o = cloner.deepClone(w.getObj());
-		setObj(o);
+		if (parameters.get(0).getObj() == null) {
+			setObj(this.getDatacontrol().getParent().getMasterCurrentObject());
+			BeanWrapper w = (BeanWrapper) Reflection.call(getObj(), "getWrapper");
+			setDatacontrol(w.getDatacontrol());
+			
+			Cloner cloner = new Cloner();
+			Object o = cloner.deepClone(w.getObj());
+			setObj(o);
+		}else{
+			setObj(parameters.get(0).getObj());
+			Cloner cloner = new Cloner();
+			Object o = cloner.deepClone(getObj());
+			setObj(o);
+			String exp = parameters.get(0).getExpression();
+			Object obj = getDatacontrol().getElResolver().getValue(exp);
+			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+			setDatacontrol(w.getDatacontrol());
+		}		
+
 
 		
 		replaceParameters();
@@ -143,5 +155,23 @@ public class NestedDeleteCommand extends DeleteCommandBase{
 		
 	}
 	
+	@SuppressWarnings("unused")
+	private String makeSetMethod(String field){
+		String property = field;
+		if ((field.substring(0, 3).equals("set"))  || (field.substring(0, 3).equals("get")))
+			property = StringUtils.uncapitalize(field.substring(3));
+		
+		return "set"+StringUtils.capitalize(property);
+
+	}
 	
+	private String makeGetMethod(String field){
+		String property = field;
+		if ((field.substring(0, 3).equals("set"))  || (field.substring(0, 3).equals("get")))
+			property = StringUtils.uncapitalize(field.substring(3));
+		
+		return "get"+StringUtils.capitalize(property);
+
+	}
+		
 }

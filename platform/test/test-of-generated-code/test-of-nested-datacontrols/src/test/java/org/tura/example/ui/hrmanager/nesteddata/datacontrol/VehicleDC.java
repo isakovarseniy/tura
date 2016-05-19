@@ -67,6 +67,7 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.object.TuraObject;
+import org.tura.platform.repository.Repository;
 
 import java.io.Serializable;
 
@@ -84,6 +85,8 @@ public class VehicleDC extends DataControl<VehicleDAO> implements Serializable {
     private static final long serialVersionUID = 1L;
     @Inject
     private transient Logger logger;
+    @Inject
+    private Repository provider_0;
 
     public VehicleDC() throws Exception {
         super();
@@ -104,6 +107,8 @@ public class VehicleDC extends DataControl<VehicleDAO> implements Serializable {
 
             this.searchCommand.setDatacontrol(this);
 
+            this.createCommand.setProvider(provider_0,
+                "org.tura.platform.repository.Repository");
             this.commandStack.getPoolFlushAware().add(this);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {

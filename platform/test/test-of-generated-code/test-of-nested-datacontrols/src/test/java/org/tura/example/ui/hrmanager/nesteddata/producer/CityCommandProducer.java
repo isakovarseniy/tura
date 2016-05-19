@@ -156,7 +156,9 @@ public class CityCommandProducer {
             CallParameter cp = new CallParameter();
             cmd.getParameters().add(cp);
             cp.setClazz(prm.type());
-            cp.setExpression(prm.expression());
+            if (!prm.expression().equals("null")) {
+                cp.setExpression(prm.expression());
+            }
             cp.setName(prm.name());
             if (!"".equals(prm.value())) {
                 Constructor<?> constructor =

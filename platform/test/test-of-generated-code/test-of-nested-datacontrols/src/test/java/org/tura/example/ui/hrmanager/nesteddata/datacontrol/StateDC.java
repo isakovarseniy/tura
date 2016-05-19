@@ -70,6 +70,7 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.object.TuraObject;
+import org.tura.platform.repository.Repository;
 
 import java.io.Serializable;
 
@@ -89,6 +90,8 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
     private static final long serialVersionUID = 1L;
     @Inject
     private transient Logger logger;
+    @Inject
+    private Repository provider_0;
     @Inject
     private Instance<CityDC> cityproducer;
 
@@ -116,6 +119,8 @@ public class StateDC extends DataControl<StateDAO> implements Serializable {
             this.searchCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*", getId());
             this.searchCommand.setDatacontrol(this);
 
+            this.createCommand.setProvider(provider_0,
+                "org.tura.platform.repository.Repository");
             this.commandStack.getPoolFlushAware().add(this);
             DataControlFactory.buildConnection(this);
         } catch (Exception e) {

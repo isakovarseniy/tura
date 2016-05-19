@@ -98,7 +98,9 @@ public class [%=util.mergeAndCapitalize(control.name)%]CommandProducer {
 			org.tura.platform.datacontrol.command.base.CallParameter cp = new org.tura.platform.datacontrol.command.base.CallParameter();
 			cmd.getParameters().add(cp);
 			cp.setClazz(prm.type());
-			cp.setExpression(prm.expression());
+			if (!prm.expression().equals("null")){
+				cp.setExpression(prm.expression());
+			}
 			cp.setName(prm.name());
 			if (!"".equals(prm.value())) {
 				java.lang.reflect.Constructor<?> constructor = prm.type().getConstructor(
