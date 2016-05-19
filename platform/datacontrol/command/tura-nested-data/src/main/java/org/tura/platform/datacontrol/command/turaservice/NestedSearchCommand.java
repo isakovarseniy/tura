@@ -62,8 +62,13 @@ public class NestedSearchCommand extends SearchCommandBase {
 
 		if (parameters.get(0).getObj() == null) {
 			setObj(this.getDatacontrol().getParent().getMasterCurrentObject());
+		}else{
+			setObj(parameters.get(0).getObj());
 		}
 
+		if (getObj() == null)
+			return new LazyList<>();
+		
 		List array = (List) Reflection.call(getObj(),(String) (parameters.get(1).getObj()));
 		List<SearchCriteria> searchCriteria = (List<SearchCriteria>) parameters.get(2).getObj();
 		List<OrderCriteria> orderCriteria = (List<OrderCriteria>) parameters.get(3).getObj();

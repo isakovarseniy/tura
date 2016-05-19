@@ -147,28 +147,28 @@ public class CDITest  implements DomainFactory{
 		try {
 
 			ArrayList<String> fact = new ArrayList<>();
-			fact.add("Street_3");
-			fact.add("Street_7");
-			fact.add("Street_11");
-			fact.add("Street_15");
+			fact.add("StreetObject_3");
+			fact.add("StreetObject_7");
+			fact.add("StreetObject_11");
+			fact.add("StreetObject_15");
 
-			fact.add("Street_4");
-			fact.add("Street_8");
-			fact.add("Street_12");
-			fact.add("Street_16");
+			fact.add("StreetObject_4");
+			fact.add("StreetObject_8");
+			fact.add("StreetObject_12");
+			fact.add("StreetObject_16");
 
-			fact.add("City_3");
-			fact.add("City_4");
+			fact.add("CityObject_3");
+			fact.add("CityObject_4");
 
-			fact.add("State_6");
-			fact.add("State_7");
-			fact.add("State_8");
-			fact.add("State_9");
-			fact.add("State_10");
+			fact.add("StateObject_6");
+			fact.add("StateObject_7");
+			fact.add("StateObject_8");
+			fact.add("StateObject_9");
+			fact.add("StateObject_10");
 
-			fact.add("Country_2");
+			fact.add("CountryObject_2");
 
-			fact.add("Company_2");
+			fact.add("CompanyObject_2");
 
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
 

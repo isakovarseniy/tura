@@ -193,7 +193,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     public void setInsertCommand(
         @Insert(parameters = @Parameters(value =  {
         @Parameter(name = "main object", expression = "#{beanFactoryHrManagerNestedData.company.currentObject}", type = TuraObject.class)
-        , @Parameter(name = "parent object", expression = "null", type = TuraObject.class)
+        , @Parameter(name = "parent object", expression = "#{beanFactoryHrManagerNestedData.treeRootCountry.currentObject}", type = TuraObject.class)
         , @Parameter(name = "relation name", value = "getDepartmentsObject", type = String.class)
         , @Parameter(name = "current object", expression = "#{beanFactoryHrManagerNestedData.department.currentObject}", type = TuraObject.class)
 
@@ -211,7 +211,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     public void setUpdateCommand(
         @Update(parameters = @Parameters(value =  {
         @Parameter(name = "main object", expression = "#{beanFactoryHrManagerNestedData.company.currentObject}", type = TuraObject.class)
-        , @Parameter(name = "parent object", expression = "null", type = TuraObject.class)
+        , @Parameter(name = "parent object", expression = "#{beanFactoryHrManagerNestedData.treeRootCountry.currentObject}", type = TuraObject.class)
         , @Parameter(name = "relation name", value = "getDepartmentsObject", type = String.class)
         , @Parameter(name = "current object", expression = "#{beanFactoryHrManagerNestedData.department.currentObject}", type = TuraObject.class)
 
@@ -229,7 +229,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     public void setDeleteCommand(
         @Delete(parameters = @Parameters(value =  {
         @Parameter(name = "main object", expression = "#{beanFactoryHrManagerNestedData.company.currentObject}", type = TuraObject.class)
-        , @Parameter(name = "parent object", expression = "null", type = TuraObject.class)
+        , @Parameter(name = "parent object", expression = "#{beanFactoryHrManagerNestedData.treeRootCountry.currentObject}", type = TuraObject.class)
         , @Parameter(name = "relation name", value = "getDepartmentsObject", type = String.class)
         , @Parameter(name = "current object", expression = "#{beanFactoryHrManagerNestedData.department.currentObject}", type = TuraObject.class)
 
@@ -246,7 +246,7 @@ public class DepartmentDC extends DataControl<DepartmentsDAO>
     @Inject
     public void setSearchCommand(
         @Search(parameters = @Parameters(value =  {
-        @Parameter(name = "parent object", expression = "null", type = TuraObject.class)
+        @Parameter(name = "parent object", expression = "#{beanFactoryHrManagerNestedData.treeRootCountry.currentObject}", type = TuraObject.class)
         , @Parameter(name = "relation name", value = "getDepartmentsObject", type = String.class)
         , @Parameter(name = "searchCriteria", expression = "#{beanFactoryHrManagerNestedData.department.searchCriteria}", type = List.class)
         , @Parameter(name = "orderByCriteria", expression = "#{beanFactoryHrManagerNestedData.department.orderCriteria}", type = List.class)
