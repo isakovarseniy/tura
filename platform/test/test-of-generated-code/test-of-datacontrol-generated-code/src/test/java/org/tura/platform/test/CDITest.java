@@ -458,7 +458,8 @@ public class CDITest  implements DomainFactory{
 			company.setCompanyName("Company 3");
 			company.setDescription("Company 3 description");
 
-			treeLocation.createObject();
+			CountryDAO country =  (CountryDAO) treeLocation.createObject();
+			country.setName("qq");
 
 			companyDC.removeObject();
 
@@ -468,6 +469,31 @@ public class CDITest  implements DomainFactory{
 		}
 	}
 
+	
+	@Test
+	public void a9_1addNewCompany() {
+		try {
+			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			CompanyDC companyDC = bf.getCompany();
+			TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
+
+			CompanyDAO company = companyDC.getCurrentObject();
+
+			company = companyDC.createObject();
+			company.setCompanyName("Company 3");
+			company.setDescription("Company 3 description");
+
+			treeLocation.createObject();
+	
+			companyDC.removeObject();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}	
+	
+	
 	@Test
 	public void a10_addNewCompany() {
 		try {

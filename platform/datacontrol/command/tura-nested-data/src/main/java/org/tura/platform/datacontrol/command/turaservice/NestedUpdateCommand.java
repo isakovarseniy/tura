@@ -21,29 +21,23 @@
  */
 package org.tura.platform.datacontrol.command.turaservice;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.Command;
-import org.tura.platform.datacontrol.command.base.InsertCommandBase;
+import org.tura.platform.datacontrol.command.base.CommandFactory;
 import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
-
-import com.rits.cloning.Cloner;
+import org.tura.platform.datacontrol.pool.PoolCommand;
 
 public class NestedUpdateCommand extends UpdateCommandBase{
 
 	protected static String METHOD = "update";
-	
-	private HashMap <String,Object> context;
 	private Object parent;
 	
 	public NestedUpdateCommand(DataControl<?> datacontrol) {
@@ -66,8 +60,10 @@ public class NestedUpdateCommand extends UpdateCommandBase{
 	@Override
 	public Object execute() throws Exception {
 		this.prepareParameters();
-		super.execute();
 
+		this.getDatacontrol().getShifter().update(this.getDatacontrol().getCurrentPosition(), getWrappedObject());
+		this.getDatacontrol().putObjectToPool(getWrappedObject(), PoolCommand.U);
+		
 		parent = parameters.get(1).getObj();
 		if (parent == null) {
 			parent = this.getDatacontrol().getParent().getMasterCurrentObject();
@@ -94,90 +90,31 @@ public class NestedUpdateCommand extends UpdateCommandBase{
 		}
 		array.set(i,parameters.get(3).getObj());
 		
+		Command cmd = null;
 		if (parameters.get(0).getObj() == null) {
-			setObj(this.getDatacontrol().getParent().getMasterCurrentObject());
-			BeanWrapper w = (BeanWrapper) Reflection.call(getObj(), "getWrapper");
-			setDatacontrol(w.getDatacontrol());
-			
-			Cloner cloner = new Cloner();
-			Object o = cloner.deepClone(w.getObj());
-			setObj(o);
+			Object obj = this.getDatacontrol().getParent().getMasterCurrentObject();
+			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+			DataControl<?> dc = w.getDatacontrol();
+			Object currentObject= parameters.get(3).getObj();
+			Object masterObject= obj;
+
+			cmd = CommandFactory.cloneCommand(dc, dc.getUpdateCommand(), null, currentObject, masterObject,  (String)(parameters.get(2).getObj()));
+
 		}else{
-			setObj(parameters.get(0).getObj());
-			Cloner cloner = new Cloner();
-			Object o = cloner.deepClone(getObj());
-			setObj(o);
 			String exp = parameters.get(0).getExpression();
 			Object obj = getDatacontrol().getElResolver().getValue(exp);
 			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-			setDatacontrol(w.getDatacontrol());
-		}		
-		
-		replaceParameters();
+			DataControl<?> dc = w.getDatacontrol();
+			Object currentObject= parameters.get(3).getObj();
+			Object masterObject= obj;
 
+			cmd = CommandFactory.cloneCommand(dc, dc.getUpdateCommand(), null, currentObject, masterObject,  (String)(parameters.get(2).getObj()));
+		}		
+		cmd.execute();
 		
 		return null;
 	}
 	
-	@Override
-	public void compress(HashMap <String,Object> context){
-		this.context=context;
-		this.context.put("object", getObj());
-	}
-	
-	@Override
-	public boolean isCompressable(Command prevCommand) throws TuraException{
-		if ( prevCommand == null)
-			return true;
-		if ( prevCommand instanceof InsertCommandBase || prevCommand instanceof UpdateCommandBase){
-			if ( prevCommand.getDatacontrol().getObjectKey(prevCommand.getObj()).equals(getDatacontrol().getObjectKey(getObj()))) {
-					return true;
-			}
-		}
-		return false;
-	}	
-	
-	
-	@Override
-	public void delayedExecution() throws Exception {
-
-		if (this.getDatacontrol().getPreUpdateTrigger() != null)
-			this.getDatacontrol().getPreUpdateTrigger().execute(this);
-
-		Object provider = getProviders().values().iterator().next();
-		
-		Method m = this.prepareCall( provider, METHOD);
-		
-		 m.invoke(provider, new Object[] {context.get("object"),context.get("object").getClass().getName() });
-	
-       }
-	
-	
-	private void replaceParameters(){
-		getParameters().clear();
-		
-		CallParameter parameter = new CallParameter();
-		parameter.setName("object");
-		parameter.setClazz(this.getObj().getClass());
-		parameter.setExpression(null);
-		parameter.setObj(getObj());
-		parameter.setValue(getObj());
-		getParameters().add(parameter);
-		
-		
-		/*
-		 * Add additional parameter to pass type of object to reposiroty service
-		 * 
-		 * */
-		parameter = new CallParameter();
-		parameter.setName("objectClass");
-		parameter.setClazz(String.class);
-		parameter.setExpression(null);
-		parameter.setObj(this.getObj().getClass().getName());
-		parameter.setValue(this.getObj().getClass().getName());
-		getParameters().add(parameter);
-		
-	}
 	
 	private String makeSetMethod(String field){
 		String property = field;
