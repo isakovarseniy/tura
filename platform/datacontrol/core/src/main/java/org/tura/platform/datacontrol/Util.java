@@ -23,6 +23,7 @@ package org.tura.platform.datacontrol;
 
 import java.lang.reflect.InvocationTargetException;
 
+import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 
@@ -68,4 +69,23 @@ public class Util {
 		}
 	}
 
+	public static  String makeSetMethod(String field){
+		String property = field;
+		if ((field.substring(0, 3).equals("set"))  || (field.substring(0, 3).equals("get")))
+			property = StringUtils.uncapitalize(field.substring(3));
+		
+		return "set"+StringUtils.capitalize(property);
+
+	}
+	
+	public static String makeGetMethod(String field){
+		String property = field;
+		if ((field.substring(0, 3).equals("set"))  || (field.substring(0, 3).equals("get")))
+			property = StringUtils.uncapitalize(field.substring(3));
+		
+		return "get"+StringUtils.capitalize(property);
+
+	}
+	
+	
 }

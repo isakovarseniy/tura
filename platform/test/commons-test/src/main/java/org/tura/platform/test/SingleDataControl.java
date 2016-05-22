@@ -291,8 +291,8 @@ public class SingleDataControl {
 			DepartmentsDAO row = dc.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(70));
 
-			row.setDepartmentName("test");
-			row.setDepartmentName("qwerty");
+			dc.getCurrentObject().setDepartmentName("test");
+			dc.getCurrentObject().setDepartmentName("qwerty");
 
 			dc.getShifter().setLogger(logger);
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);

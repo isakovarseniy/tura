@@ -24,9 +24,9 @@ package org.tura.platform.datacontrol.command.turaservice;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.command.base.Command;
 import org.tura.platform.datacontrol.command.base.CommandFactory;
 import org.tura.platform.datacontrol.command.base.DeleteCommandBase;
@@ -67,7 +67,7 @@ public class NestedDeleteCommand extends DeleteCommandBase{
 			parent = this.getDatacontrol().getParent().getMasterCurrentObject();
 		}
 		
-		List array = (List) Reflection.call(parent,makeGetMethod((String) (parameters.get(2).getObj())));
+		List array = (List) Reflection.call(parent,Util.makeGetMethod((String) (parameters.get(2).getObj())));
 		if (array == null ){
 			throw new TuraException("Object hasn't been found");
 		}
@@ -129,25 +129,5 @@ public class NestedDeleteCommand extends DeleteCommandBase{
 		
 		
 	}	
-	
-	
-	@SuppressWarnings("unused")
-	private String makeSetMethod(String field){
-		String property = field;
-		if ((field.substring(0, 3).equals("set"))  || (field.substring(0, 3).equals("get")))
-			property = StringUtils.uncapitalize(field.substring(3));
-		
-		return "set"+StringUtils.capitalize(property);
-
-	}
-	
-	private String makeGetMethod(String field){
-		String property = field;
-		if ((field.substring(0, 3).equals("set"))  || (field.substring(0, 3).equals("get")))
-			property = StringUtils.uncapitalize(field.substring(3));
-		
-		return "get"+StringUtils.capitalize(property);
-
-	}
 		
 }

@@ -25,9 +25,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.command.base.Command;
 import org.tura.platform.datacontrol.command.base.CommandFactory;
 import org.tura.platform.datacontrol.command.base.InsertCommandBase;
@@ -69,11 +69,11 @@ public class NestedInsertCommand extends InsertCommandBase {
 			parent = this.getDatacontrol().getParent().getMasterCurrentObject();
 		}
 		
-		List array = (List) Reflection.call(parent,makeGetMethod((String) (parameters.get(2).getObj())));
+		List array = (List) Reflection.call(parent,Util.makeGetMethod((String) (parameters.get(2).getObj())));
 		if (array == null ){
 			array = new ArrayList<>();
 			BeanWrapper w = (BeanWrapper) Reflection.call(parent, "getWrapper");
-			Reflection.callTyped(w.getObj(), makeSetMethod((String) (parameters.get(2).getObj())),Collection.class,array );
+			Reflection.callTyped(w.getObj(), Util.makeSetMethod((String) (parameters.get(2).getObj())),Collection.class,array );
 		}
 		array.add(parameters.get(3).getObj());
 		
@@ -103,23 +103,6 @@ public class NestedInsertCommand extends InsertCommandBase {
 	}
 	
 	
-	private String makeSetMethod(String field){
-		String property = field;
-		if ((field.substring(0, 3).equals("set"))  || (field.substring(0, 3).equals("get")))
-			property = StringUtils.uncapitalize(field.substring(3));
-		
-		return "set"+StringUtils.capitalize(property);
-
-	}
-	
-	private String makeGetMethod(String field){
-		String property = field;
-		if ((field.substring(0, 3).equals("set"))  || (field.substring(0, 3).equals("get")))
-			property = StringUtils.uncapitalize(field.substring(3));
-		
-		return "get"+StringUtils.capitalize(property);
-
-	}
 		
 	
 }

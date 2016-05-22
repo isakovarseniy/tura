@@ -26,23 +26,38 @@ import java.util.List;
 
 import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
+
+import com.rits.cloning.Cloner;
 
 public class CommandFactory {
 	
 	
 	public static Command cloneCommand( DataControl<?> dc,  Command cmd , Object oldValue, Object newValue, Object wrappedObject, String property ) throws Exception{
 		
-		Object w = Reflection.call(wrappedObject, "getWrapper");
-		Object obj = ((BeanWrapper)w).getObj();
+		BeanWrapper w = (BeanWrapper) Reflection.call(wrappedObject, "getWrapper");
+		Object obj = w.getObj();
 		
+		Cloner cloner = new Cloner();
+		Object cloned =  cloner.deepClone(obj);
+		
+		Object clonedWrapped = Util.convertobject(cloned, dc);
+
+		for (ArtificialProperty p : dc.getArtificialProperties()) {
+			Object o = Reflection.call(wrappedObject,Util.makeGetMethod(p.getProperty()));
+			if(o != null){
+			   Reflection.call(clonedWrapped,Util.makeSetMethod(p.getProperty()),o);
+			}
+		}
 		
 		Command command  = cmd.getClass().newInstance();
 		command.setProperty(property);
 		command.setOldValue(oldValue);
 		command.setNewValue(newValue);
-		command.setObj(obj);
-		command.setWrappedObject(wrappedObject);
+		command.setObj(cloned);
+		command.setWrappedObject( clonedWrapped);
 		
 		command.setDatacontrol(dc);
 		command.setParameters(cloneParameters(cmd.getParameters()));
