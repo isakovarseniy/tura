@@ -29,7 +29,6 @@ import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.command.base.Command;
-import org.tura.platform.datacontrol.command.base.CommandFactory;
 import org.tura.platform.datacontrol.command.base.InsertCommandBase;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.pool.PoolCommand;
@@ -63,46 +62,48 @@ public class NestedInsertCommand extends InsertCommandBase {
 		this.getDatacontrol().putObjectToPool(getWrappedObject(), PoolCommand.U);
 		this.getDatacontrol().getShifter().update(this.getDatacontrol().getCurrentPosition(), getWrappedObject());
 
-		
 		parent = parameters.get(1).getObj();
 		if (parent == null) {
 			parent = this.getDatacontrol().getParent().getMasterCurrentObject();
 		}
 		
-		List array = (List) Reflection.call(parent,Util.makeGetMethod((String) (parameters.get(2).getObj())));
-		if (array == null ){
-			array = new ArrayList<>();
-			BeanWrapper w = (BeanWrapper) Reflection.call(parent, "getWrapper");
-			Reflection.callTyped(w.getObj(), Util.makeSetMethod((String) (parameters.get(2).getObj())),Collection.class,array );
-		}
-		array.add(parameters.get(3).getObj());
-		
-		Command cmd = null;
+		DataControl<?> dc;
+		Object masterObject;
+		Command cmd;
+		Object currentObject;
 		if (parameters.get(0).getObj() == null) {
 			Object obj = this.getDatacontrol().getParent().getMasterCurrentObject();
 			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-			DataControl<?> dc = w.getDatacontrol();
-			Object currentObject= parameters.get(3).getObj();
-			Object masterObject= obj;
-
-			cmd = CommandFactory.cloneCommand(dc, dc.getInsertCommand(), null, currentObject, masterObject,  (String)(parameters.get(2).getObj()));
-
+			dc = w.getDatacontrol();
+			currentObject= parameters.get(3).getObj();
+			masterObject= obj;
 		}else{
 			String exp = parameters.get(0).getExpression();
 			Object obj = getDatacontrol().getElResolver().getValue(exp);
 			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-			DataControl<?> dc = w.getDatacontrol();
-			Object currentObject= parameters.get(3).getObj();
-			Object masterObject= obj;
-
-			cmd = CommandFactory.cloneCommand(dc, dc.getInsertCommand(), null, currentObject, masterObject,  (String)(parameters.get(2).getObj()));
+			dc = w.getDatacontrol();
+			currentObject= parameters.get(3).getObj();
+			masterObject= obj;
 		}		
+
+		List clonedObjects = NUtil.clone(masterObject, parent);
+		Object clonedMaster = clonedObjects.get(0);
+		Object clonedParent = clonedObjects.get(1);
+		
+		List array = (List) Reflection.call(clonedParent,Util.makeGetMethod((String) (parameters.get(2).getObj())));
+		if (array == null ){
+			array = new ArrayList<>();
+			BeanWrapper w = (BeanWrapper) Reflection.call(clonedParent, "getWrapper");
+			Reflection.callTyped(w.getObj(), Util.makeSetMethod((String) (parameters.get(2).getObj())),Collection.class,array );
+		}
+		array.add(currentObject);
+		
+		cmd = NUtil.buildUpdateMasterObjectCommand(dc, clonedMaster);
+
 		cmd.execute();
 		
 		return null;
 	}
 	
-	
-		
 	
 }

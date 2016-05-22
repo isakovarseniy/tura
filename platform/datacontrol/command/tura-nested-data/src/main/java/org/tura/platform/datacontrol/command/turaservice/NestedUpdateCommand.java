@@ -29,7 +29,6 @@ import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.command.base.Command;
-import org.tura.platform.datacontrol.command.base.CommandFactory;
 import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -69,12 +68,37 @@ public class NestedUpdateCommand extends UpdateCommandBase{
 			parent = this.getDatacontrol().getParent().getMasterCurrentObject();
 		}
 		
-		List array = (List) Reflection.call(parent,Util.makeGetMethod((String) (parameters.get(2).getObj())));
+		DataControl<?> dc;
+		Object masterObject;
+		Command cmd;
+		Object currentObject;
+		if (parameters.get(0).getObj() == null) {
+			Object obj = this.getDatacontrol().getParent().getMasterCurrentObject();
+			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+			dc = w.getDatacontrol();
+			currentObject= parameters.get(3).getObj();
+			masterObject= obj;
+		}else{
+			String exp = parameters.get(0).getExpression();
+			Object obj = getDatacontrol().getElResolver().getValue(exp);
+			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+			dc = w.getDatacontrol();
+			currentObject= parameters.get(3).getObj();
+			masterObject= obj;
+		}		
+
+		List clonedObjects = NUtil.clone(masterObject, parent);
+		Object clonedMaster = clonedObjects.get(0);
+		Object clonedParent = clonedObjects.get(1);
+		
+		
+		List array = (List) Reflection.call(clonedParent,Util.makeGetMethod((String) (parameters.get(2).getObj())));
 		if (array == null ){
 			array = new ArrayList<>();
-			BeanWrapper w = (BeanWrapper) Reflection.call(parent, "getWrapper");
+			BeanWrapper w = (BeanWrapper) Reflection.call(clonedParent, "getWrapper");
 			Reflection.callTyped(w.getObj(), Util.makeSetMethod((String) (parameters.get(2).getObj())),Collection.class,array );
 		}
+
 		
 		int i = 0;
 		String key =  getDatacontrol().getObjectKey( parameters.get(3).getObj());
@@ -88,28 +112,10 @@ public class NestedUpdateCommand extends UpdateCommandBase{
 		if (i >= array.size()){
 			throw new TuraException("Object hasn't been found");
 		}
-		array.set(i,parameters.get(3).getObj());
+		array.set(i,currentObject);
 		
-		Command cmd = null;
-		if (parameters.get(0).getObj() == null) {
-			Object obj = this.getDatacontrol().getParent().getMasterCurrentObject();
-			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-			DataControl<?> dc = w.getDatacontrol();
-			Object currentObject= parameters.get(3).getObj();
-			Object masterObject= obj;
+		cmd = NUtil.buildUpdateMasterObjectCommand(dc, clonedMaster);
 
-			cmd = CommandFactory.cloneCommand(dc, dc.getUpdateCommand(), null, currentObject, masterObject,  (String)(parameters.get(2).getObj()));
-
-		}else{
-			String exp = parameters.get(0).getExpression();
-			Object obj = getDatacontrol().getElResolver().getValue(exp);
-			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-			DataControl<?> dc = w.getDatacontrol();
-			Object currentObject= parameters.get(3).getObj();
-			Object masterObject= obj;
-
-			cmd = CommandFactory.cloneCommand(dc, dc.getUpdateCommand(), null, currentObject, masterObject,  (String)(parameters.get(2).getObj()));
-		}		
 		cmd.execute();
 		
 		return null;

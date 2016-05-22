@@ -28,7 +28,6 @@ import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.command.base.Command;
-import org.tura.platform.datacontrol.command.base.CommandFactory;
 import org.tura.platform.datacontrol.command.base.DeleteCommandBase;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -67,13 +66,37 @@ public class NestedDeleteCommand extends DeleteCommandBase{
 			parent = this.getDatacontrol().getParent().getMasterCurrentObject();
 		}
 		
-		List array = (List) Reflection.call(parent,Util.makeGetMethod((String) (parameters.get(2).getObj())));
+		DataControl<?> dc;
+		Object masterObject;
+		Command cmd;
+		Object currentObject;
+		if (parameters.get(0).getObj() == null) {
+			Object obj = this.getDatacontrol().getParent().getMasterCurrentObject();
+			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+			dc = w.getDatacontrol();
+			currentObject= parameters.get(3).getObj();
+			masterObject= obj;
+		}else{
+			String exp = parameters.get(0).getExpression();
+			Object obj = getDatacontrol().getElResolver().getValue(exp);
+			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+			dc = w.getDatacontrol();
+			currentObject= parameters.get(3).getObj();
+			masterObject= obj;
+		}		
+
+		List clonedObjects = NUtil.clone(masterObject, parent);
+		Object clonedMaster = clonedObjects.get(0);
+		Object clonedParent = clonedObjects.get(1);
+		
+		
+		List array = (List) Reflection.call(clonedParent,Util.makeGetMethod((String) (parameters.get(2).getObj())));
 		if (array == null ){
 			throw new TuraException("Object hasn't been found");
 		}
 		
 		int i = 0;
-		String key =  getDatacontrol().getObjectKey( parameters.get(3).getObj());
+		String key =  getDatacontrol().getObjectKey( currentObject);
 		for (Object obj : array){
 			if (getDatacontrol().getObjectKey( obj ).equals(key)){
 				break;
@@ -85,26 +108,7 @@ public class NestedDeleteCommand extends DeleteCommandBase{
 		}
 		array.remove(i);
 		
-		Command cmd = null;
-		if (parameters.get(0).getObj() == null) {
-			Object obj = this.getDatacontrol().getParent().getMasterCurrentObject();
-			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-			DataControl<?> dc = w.getDatacontrol();
-			Object currentObject= parameters.get(3).getObj();
-			Object masterObject= obj;
-
-			cmd = CommandFactory.cloneCommand(dc, dc.getUpdateCommand(), null, currentObject, masterObject,  (String)(parameters.get(2).getObj()));
-
-		}else{
-			String exp = parameters.get(0).getExpression();
-			Object obj = getDatacontrol().getElResolver().getValue(exp);
-			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-			DataControl<?> dc = w.getDatacontrol();
-			Object currentObject= parameters.get(3).getObj();
-			Object masterObject= obj;
-
-			cmd = CommandFactory.cloneCommand(dc, dc.getUpdateCommand(), null, currentObject, masterObject,  (String)(parameters.get(2).getObj()));
-		}		
+		cmd = NUtil.buildUpdateMasterObjectCommand(dc, clonedMaster);
 		
 		cmd.execute();
 

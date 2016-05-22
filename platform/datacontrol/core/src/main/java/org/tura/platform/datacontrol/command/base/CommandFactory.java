@@ -67,7 +67,7 @@ public class CommandFactory {
 		
 	}
 	
-   private static  List<CallParameter> cloneParameters(List<CallParameter> parameters){
+   public static  List<CallParameter> cloneParameters(List<CallParameter> parameters){
 	   
 	 ArrayList<CallParameter>  list = new ArrayList<>();
 	 for (CallParameter param : parameters){
