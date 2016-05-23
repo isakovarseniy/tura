@@ -58,6 +58,9 @@ public class NestedDeleteCommand extends DeleteCommandBase{
 	public Object execute() throws Exception {
 		this.prepareParameters();
 
+		String ex = parameters.get(3).getExpression();
+		Object cr = getDatacontrol().getElResolver().getValue(ex);
+
 		this.getDatacontrol().getShifter().remove(this.getDatacontrol().getCurrentPosition());
 		this.getDatacontrol().putObjectToPool(getWrappedObject(), PoolCommand.R);
 
@@ -93,7 +96,12 @@ public class NestedDeleteCommand extends DeleteCommandBase{
 		
 		List array = (List) Reflection.call(clonedParent,Util.makeGetMethod((String) (parameters.get(2).getObj())));
 		if (array == null ){
-			throw new TuraException("Object hasn't been found");
+			BeanWrapper wcr = (BeanWrapper) Reflection.call(cr, "getWrapper");
+			if (wcr.isInsertMode()){
+				return null;
+			}else{
+				throw new TuraException("Object hasn't been found");
+			}
 		}
 		
 		int i = 0;
