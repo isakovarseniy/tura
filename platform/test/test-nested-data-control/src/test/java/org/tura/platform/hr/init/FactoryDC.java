@@ -90,7 +90,7 @@ public class FactoryDC implements Factory{
 
 
 		repository = new Repository();
-		JPAService service = new TuraJPAEntityServiceProxy();
+		JPAService service = new JPAService();
 
 		ComplexObjectTuraProvider provider = new ComplexObjectTuraProvider(repository);
 		provider.setObjectLiveCycle(CityObject.class.getName(), new CityObjectLiveCycle(service)); 

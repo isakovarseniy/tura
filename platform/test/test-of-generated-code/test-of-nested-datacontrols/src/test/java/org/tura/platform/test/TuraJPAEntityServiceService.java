@@ -51,23 +51,12 @@ public class TuraJPAEntityServiceService extends JPAService {
 	@Override
 	public List<?> find(List<SearchCriteria> search, List<OrderCriteria> order, Integer startIndex, Integer endIndex,
 			String objectClass) throws Exception {
-		try {
 			return super.find(search, order, startIndex, endIndex, objectClass);
-		} finally {
-			emHelper.destroyEntityManager();
-		}
 	}
 
 	@Override
 	public TuraObject create(String objectClass) throws Exception {
-		try {
-			getEntityManager().getTransaction().begin();
-
 			return super.create(objectClass);
-		} finally {
-			getEntityManager().getTransaction().commit();
-
-		}
 	}
 
 }

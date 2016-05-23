@@ -166,9 +166,12 @@ public class Pager<T> extends Pool {
 	public T createObject(int index, boolean managable) throws TuraException {
 
 		try {
+			datacontrol.getCommandStack().beginTransaction();
 			Object obj = datacontrol.getCreateCommand().execute();
+			datacontrol.getCommandStack().commitTransaction();
 			return (T) obj;
 		} catch (Exception e) {
+			datacontrol.getCommandStack().rallbackTransaction();
 			throw new TuraException(e);
 		}
 	}
@@ -270,9 +273,17 @@ public class Pager<T> extends Pool {
 
 			if (!prepareQuery())
 				return null;
+			try{
+			   datacontrol.getCommandStack().beginTransaction();
 
-				entities = (LazyList<T>) datacontrol.getSearchCommand()
+			   entities = (LazyList<T>) datacontrol.getSearchCommand()
 						.execute();
+
+			   datacontrol.getCommandStack().commitTransaction();
+ 
+			}catch(Exception e){
+				   datacontrol.getCommandStack().rallbackTransaction();
+			}
 				getShifter().setActualRowNumber(entities.getActualRowNumber());
 
 			if (entities.getFragmentSize() != 0

@@ -72,7 +72,7 @@ public class FactoryDC implements Factory{
 
 		repository = new Repository();
 		SimpleTuraProvider provider = new TestingRepositoryProvider(repository,list);
-		JPAService service = new TuraJPAEntityServiceProxy();
+		JPAService service = new JPAService();
 		service.setEntityManager(em);
 		provider.setService(service);
 
