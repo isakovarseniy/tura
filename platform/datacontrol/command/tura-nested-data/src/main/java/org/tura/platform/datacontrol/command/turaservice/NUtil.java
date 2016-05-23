@@ -25,11 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.tura.platform.datacontrol.BeanWrapper;
+import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.command.base.Command;
 import org.tura.platform.datacontrol.command.base.CommandFactory;
 import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.data.CommandStackData;
 import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 
 import com.rits.cloning.Cloner;
@@ -92,6 +94,24 @@ public class NUtil {
 		masterUpdateCmd.setDatacontrol(dc);
 		
 		return masterUpdateCmd;
+		
+	}
+	
+	
+	public static Object findPreviousCommand(Object masterObject, DataControl<?> dc) throws Exception{
+		
+		CommandStack stack = dc.getCommandStack();
+		String id = stack.getId();
+		CommandStackData data = (CommandStackData) stack.getData(id);
+		String key = dc.getObjectKey(masterObject);
+		Object returnObject = masterObject;
+		for (Command command : data.getTransaction()){
+			if (command.getDatacontrol().getObjectKey(command.getObj()).equals(key) ){
+				returnObject=Util.convertobject(command.getObj(), command.getDatacontrol());
+			}
+		}
+		
+		return returnObject;
 		
 	}
 	

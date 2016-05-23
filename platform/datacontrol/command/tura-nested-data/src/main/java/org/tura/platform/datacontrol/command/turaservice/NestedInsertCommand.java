@@ -85,10 +85,13 @@ public class NestedInsertCommand extends InsertCommandBase {
 			currentObject= parameters.get(3).getObj();
 			masterObject= obj;
 		}		
-
+		
+		masterObject = NUtil.findPreviousCommand(masterObject, dc);
+		
 		List clonedObjects = NUtil.clone(masterObject, parent);
 		Object clonedMaster = clonedObjects.get(0);
 		Object clonedParent = clonedObjects.get(1);
+		
 		
 		List array = (List) Reflection.call(clonedParent,Util.makeGetMethod((String) (parameters.get(2).getObj())));
 		if (array == null ){

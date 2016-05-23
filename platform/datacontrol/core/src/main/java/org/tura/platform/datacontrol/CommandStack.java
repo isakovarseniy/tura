@@ -206,6 +206,11 @@ public abstract class CommandStack {
 	}
 
 
+	public String getId() {
+		return id;
+	}
+
+
 	public class SavePoint {
 
 		private HashMap<String, Object> data = new HashMap<>();
