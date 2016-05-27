@@ -60,6 +60,21 @@
 			<version>2.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-jpa-module-api</artifactId>
+			<version>${version.deltaspike}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-jpa-module-impl</artifactId>
+			<version>${version.deltaspike}</version>
+		</dependency>
+
+
+
 	</dependencies>
 
 </project>

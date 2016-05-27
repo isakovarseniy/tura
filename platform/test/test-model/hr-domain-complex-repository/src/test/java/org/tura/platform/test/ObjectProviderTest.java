@@ -103,7 +103,6 @@ public class ObjectProviderTest {
 		em.getTransaction().begin();
 		em.createNativeQuery("DROP SEQUENCE obj_id_gen").executeUpdate();
 		em.createNativeQuery("CREATE SEQUENCE obj_id_gen START WITH 1000000").executeUpdate();
-		em.getTransaction().commit();
 		new CompanyInit(em).init();
 		new CountryInit(em).init();
 		new StateInit(em).init();
@@ -116,6 +115,7 @@ public class ObjectProviderTest {
 
 			new FileInit(em).init();
 			new VehicleInit(em).init();
+			em.getTransaction().commit();
 
 		} catch (ParseException e1) {
 			e1.printStackTrace();

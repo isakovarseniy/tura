@@ -21,43 +21,23 @@
  */
 package org.tura.example.ui.hrmanager.nesteddata.datacontrol;
 
-import org.tura.platform.datacontrol.CommandStack;
-import org.tura.platform.object.persistence.EntityManagerHelper;
-
 import java.io.Serializable;
 
 import javax.enterprise.context.ApplicationScoped;
-
-import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.apache.deltaspike.jpa.api.transaction.Transactional;
+import org.tura.platform.datacontrol.CommandStack;
+import org.tura.platform.datacontrol.commons.TuraException;
 
 @ApplicationScoped
 @Named("hrmanager.nesteddata")
 public class CDICommandStack extends CommandStack implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Inject
-    private EntityManagerHelper emHelper;
+	private static final long serialVersionUID = 1L;
 
-    @Override
-    public void beginTransaction() {
-        emHelper.getEntityManager().getTransaction().begin();
-    }
-
-    @Override
-    public void commitTransaction() {
-        try {
-            emHelper.getEntityManager().getTransaction().commit();
-        } finally {
-            emHelper.destroyEntityManager();
-        }
-    }
-
-    @Override
-    public void rallbackTransaction() {
-        try {
-            emHelper.getEntityManager().getTransaction().rollback();
-        } finally {
-            emHelper.destroyEntityManager();
-        }
-    }
+	@Override
+	@Transactional
+	public void commitCommand() throws TuraException {
+		super.commitCommand();
+	}
 }

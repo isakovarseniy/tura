@@ -26,6 +26,7 @@
     </applicationMappers>
     <applicationUILayer uid="f8d4b412-d69a-46c7-bf26-2ac0ec31117e">
       <applicationUIPackages uid="c65cfe9e-8e33-4160-beef-4a3a96d5b2c1" name="Hr manager" uipackage="63d7b545-e3cb-4b2e-8597-44c6734d825b"/>
+      <applicationUIPackages uid="275ada99-80f2-456d-90fb-6544020e6770" name="Hr Manager Nested" uipackage="6c667111-908d-4f7e-9e27-95c17097b973"/>
     </applicationUILayer>
     <applicationInfrastructureLayer uid="938b862a-de81-42a7-af46-621005d51e9c" name="Application Infrastructure"/>
     <applicationStyle uid="c7379293-bc50-4b7e-8cc9-917bc2dd97aa">
@@ -837,9 +838,6 @@
     <forms uid="2bc1d59e-d752-43cb-a3a3-d57283edc14a" name="ErrorHandling">
       <view uid="ecbbfc74-5335-4c1b-aec9-54cd85cc5297" name="View" view="5fd54cb2-6c19-4442-a13f-e704ff8c94cb"/>
       <datacontrols uid="1ece42ef-12be-412c-97c5-5711e30fb3f9" name="Data control" formControl="5c389a2e-07c6-41a8-9470-61a8272f77c6"/>
-    </forms>
-    <forms uid="d88acecd-ed0b-4834-b502-bdfeea34af99" name="Nested data">
-      <datacontrols uid="ffa60cd5-9120-4049-8f9f-c063bcce4cfe" name="Data control" formControl="0b06d1b0-f53c-4197-a50b-13489718218f"/>
     </forms>
   </tura.domain:UIPackage>
   <tura.domain:Controls uid="5541fdd1-fedb-45ba-ab74-966e737af3a6" parent="60346910-0b2a-4fed-b397-25731ca3a1df">
@@ -6176,7 +6174,7 @@
       </operations>
     </types>
   </tura.domain:TypeDefinition>
-  <tura.domain:Controls uid="0b06d1b0-f53c-4197-a50b-13489718218f" parent="ffa60cd5-9120-4049-8f9f-c063bcce4cfe">
+  <tura.domain:Controls uid="0b06d1b0-f53c-4197-a50b-13489718218f" parent="ee8f9680-eee4-4a3f-8151-e929eb6b2865">
     <controls uid="d1cbba9f-41fa-430e-a516-82d0adb6c9b6" name="Company">
       <baseType packageRef="e8faa4f9-a654-40f5-bdf5-454f90f2af19" typeRef="Comp_52ffccb7-cea6-49de-ba4b-7437f1da3369" fakePackageName="HR package domain model interface" fakeTypeName="Company Type"/>
       <create packageRef="b49d8147-4e3c-47e9-8338-4c7cffdbf6d6" typeRef="17329631-195a-44bd-acb3-e6f92cef5074" fakePackageName="DataControl command" fakeTypeName="Create command" methodRef="3096821b-a3ba-42a4-b83b-fc92e4d4c979" fakeMethod="create" uid="7d894098-e046-4aa8-8b5e-7a8ecce15663">
@@ -7289,4 +7287,11 @@
     <relations uid="92847b9e-5248-45f8-969e-ec2dee27662d" master="226b9dd2-7c31-4ea1-86ca-6f3a6a9fea33" detail="740fb4f4-233f-4310-8ace-cb4acef7d126"/>
     <relations uid="91c40f9c-51ba-498d-99d6-5ac37632a458" master="740fb4f4-233f-4310-8ace-cb4acef7d126" detail="740fb4f4-233f-4310-8ace-cb4acef7d126" isTree="true"/>
   </tura.domain:Controls>
+  <tura.domain:UIPackage uid="6c667111-908d-4f7e-9e27-95c17097b973" parent="275ada99-80f2-456d-90fb-6544020e6770">
+    <forms uid="d74f0211-90f2-455d-8e73-de9ab7ce7814" name="HR controller">
+      <view uid="efaf1abe-5c12-427f-81b3-fe1a76fd4ae7" name="View" view="1ee43466-7c36-41d1-82e9-5ab62df123ea"/>
+      <datacontrols uid="ee8f9680-eee4-4a3f-8151-e929eb6b2865" name="Data control" formControl="0b06d1b0-f53c-4197-a50b-13489718218f"/>
+    </forms>
+  </tura.domain:UIPackage>
+  <tura.domain:Views uid="1ee43466-7c36-41d1-82e9-5ab62df123ea" parent="efaf1abe-5c12-427f-81b3-fe1a76fd4ae7"/>
 </xmi:XMI>

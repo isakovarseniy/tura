@@ -35,7 +35,6 @@ public class StateInit {
 	}
 
 	public void init() {
-		em.getTransaction().begin();
 		
 		create(1L,"State 1 Ct 1", 1L);
 		create(2L,"State 2 Ct 1", 1L);
@@ -57,10 +56,6 @@ public class StateInit {
 		create(15L,"State 5 Ct 2", 3L);
 		
 		
-		
-		
-		em.getTransaction().commit();
-
 	}
 
 	private StateJPA create(Long obj_id, String stateName, Long country_id) {

@@ -19,32 +19,41 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.commons.producer;
+package org.tura.platform.test;
 
-import java.io.Serializable;
-
-import javax.annotation.Priority;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.InjectionPoint;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
-@Alternative
-@Priority(0)
+import org.apache.deltaspike.jpa.api.entitymanager.PersistenceUnitName;
+
 @ApplicationScoped
-public class EntityManagerFactoryProducer implements Serializable {
-    private static final long serialVersionUID = 1L;
-    private EntityManagerFactory emf;
-
+public class EntityManagerProducer
+{
+	
+	 @Inject
+	 @PersistenceUnitName("UIComponent")
+	 private EntityManagerFactory emf;
+	
+	 private EntityManager em;
+	 
+	 
     @Produces
-    public EntityManagerFactory getEntityManagerFactory(
-        InjectionPoint injectionPoint) {
-        if (emf == null) {
-            emf = Persistence.createEntityManagerFactory("UIComponent");
-        }
+    protected EntityManager createEntityManager(){
+    	if (em == null){
+            em =  emf.createEntityManager();
+    	}
+    	return em;
+    }
 
-        return emf;
+    protected void closeEntityManager(@Disposes EntityManager entityManager)
+    {
+        if (entityManager.isOpen())
+        {
+            entityManager.close();
+        }
     }
 }

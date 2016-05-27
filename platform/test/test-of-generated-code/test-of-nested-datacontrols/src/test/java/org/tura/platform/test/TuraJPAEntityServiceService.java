@@ -29,10 +29,10 @@ import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import org.apache.deltaspike.jpa.api.transaction.Transactional;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.TuraObject;
-import org.tura.platform.object.persistence.EntityManagerHelper;
 import org.tura.platform.services.JPAService;
 
 @Alternative
@@ -40,21 +40,22 @@ import org.tura.platform.services.JPAService;
 @ApplicationScoped
 public class TuraJPAEntityServiceService extends JPAService {
 	private static final long serialVersionUID = 1L;
-	@Inject
-	private EntityManagerHelper emHelper;
 
 	@Override
-	public EntityManager getEntityManager() {
-		return emHelper.getEntityManager();
+	@Inject
+	public void setEntityManager(EntityManager em) {
+		super.setEntityManager(em);
 	}
 
 	@Override
+	@Transactional
 	public List<?> find(List<SearchCriteria> search, List<OrderCriteria> order, Integer startIndex, Integer endIndex,
 			String objectClass) throws Exception {
 			return super.find(search, order, startIndex, endIndex, objectClass);
 	}
 
 	@Override
+	@Transactional
 	public TuraObject create(String objectClass) throws Exception {
 			return super.create(objectClass);
 	}

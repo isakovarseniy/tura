@@ -78,14 +78,26 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-jpa-module-api</artifactId>
+			<version>${version.deltaspike}</version>
+			<scope>compile</scope>
+		</dependency>
 
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-jpa-module-impl</artifactId>
+			<version>${version.deltaspike}</version>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.tura.platform</groupId>
 			<artifactId>primefaces-model</artifactId>

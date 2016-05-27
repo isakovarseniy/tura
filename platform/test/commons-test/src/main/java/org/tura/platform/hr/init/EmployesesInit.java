@@ -42,7 +42,6 @@ public class EmployesesInit {
 
 		SimpleDateFormat format = new SimpleDateFormat(
 				"dd-MMM-yy");
-		em.getTransaction().begin();
 		create( (long)100,(long)100,"Steven","King","SKING","515.123.4567",format.parse("17-Jun-87"),"AD_PRES",(float)24000,null,null,(long)10);
 		create( (long)101,(long)101,"Neena","Kochhar","NKOCHHAR","515.123.4568",format.parse("21-Sep-89"),"AD_VP",(float)17000,null,(long)100,(long)10);
 		create( (long)102,(long)102,"Lex","De Haan","LDEHAAN","515.123.4569",format.parse("13-Jan-93"),"AD_VP",(float)17000,null,(long)100,(long)10);
@@ -149,7 +148,6 @@ public class EmployesesInit {
 		create( (long)203,(long)203,"Susan","Mavris","SMAVRIS","515.123.7777",format.parse("07-Jun-94"),"REP",(float)6500,null,(long)101,(long)40);
 		create( (long)204,(long)204,"Hermann","Baer","HBAER","515.123.8888",format.parse("07-Jun-94"),"PR_REP",(float)10000,null,(long)101,(long)70);
 		create( (long)205, (long)205,"Shelley","Higgins","SHIGGINS","515.123.8080",format.parse("07-Jun-94"),"AC_MGR",(float)12000,null,(long)101,(long)110);
-		em.getTransaction().commit();
 
 	}
 

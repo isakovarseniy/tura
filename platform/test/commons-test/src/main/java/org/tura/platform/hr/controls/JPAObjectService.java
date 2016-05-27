@@ -19,45 +19,46 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.test;
+package org.tura.platform.hr.controls;
 
 import java.util.List;
 
-import javax.annotation.Priority;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-
-import org.apache.deltaspike.jpa.api.transaction.Transactional;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.TuraObject;
 import org.tura.platform.services.JPAService;
 
-@Alternative
-@Priority(0)
-@ApplicationScoped
-public class TuraJPAEntityServiceService extends JPAService {
+public class JPAObjectService extends JPAService{
+
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	@Inject
-	public void setEntityManager(EntityManager em) {
-		super.setEntityManager(em);
-	}
-
-	@Override
-	@Transactional
-	public List<?> find(List<SearchCriteria> search, List<OrderCriteria> order, Integer startIndex, Integer endIndex,
-			String objectClass) throws Exception {
-			return super.find(search, order, startIndex, endIndex, objectClass);
-	}
-
-	@Override
-	@Transactional
 	public TuraObject create(String objectClass) throws Exception {
-			return super.create(objectClass);
+		TuraObject obj=null;
+		try{
+			TransactionHelper.beginTransaction(this.getEntityManager());
+			obj = super.create(objectClass);
+			TransactionHelper.commitTransaction(this.getEntityManager());
+			
+		}catch(Exception e){
+			TransactionHelper.rollbackTransaction(this.getEntityManager());
+			throw e;
+		}
+		return obj;
 	}
+	
 
+	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
+			Integer endIndex, String objectClass) throws Exception {
+		List<?> list=null;
+		try{
+			TransactionHelper.beginTransaction(this.getEntityManager());
+			list = super.find(searchCriteria, orderCriteria,  startIndex, endIndex,  objectClass);
+			TransactionHelper.commitTransaction(this.getEntityManager());
+		}catch(Exception e){
+			TransactionHelper.rollbackTransaction(this.getEntityManager());
+			throw e;
+		}
+		return list;
+	}
+	
 }

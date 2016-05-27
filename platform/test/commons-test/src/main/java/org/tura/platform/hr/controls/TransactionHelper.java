@@ -19,37 +19,32 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.hr.init;
+package org.tura.platform.hr.controls;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.jpa.simple.model.CityJPA;
+public class TransactionHelper {
 
-
-public class CityInit {
-	private EntityManager em;
-
-	public CityInit(EntityManager em) {
-		this.em = em;
-	}
-
-	public void init() {
-		create(1L,"City 1 State 1 Ct 1",1L);
-		create(2L,"City 2 State 4 Ct 1", 4L);
-		create(3L,"City 1 State 4 Ct 2",9L);
-		create(4L,"City 2 State 5 Ct 2",9L);
-		
-
+	private static int level = 0;
+	
+	public static  void beginTransaction(EntityManager em){
+		level++;
+		if (level == 1){
+			em.getTransaction().begin();
+		}
 	}
 	
-	private CityJPA create(Long obj_id, String cityName, Long state_id) {
-		CityJPA dpt = new CityJPA();
-		dpt.setObjId(obj_id);
-		dpt.setParentId(state_id);
-		dpt.setName(cityName);
-		em.persist(dpt);
-		return dpt;
-
+	public static   void commitTransaction(EntityManager em){
+		level--;
+		if (level == 0){
+			em.getTransaction().commit();
+		}
+		
+	}	
+	
+	public static  void rollbackTransaction(EntityManager em){
+		em.getTransaction().rollback();
 	}
+	
 	
 }

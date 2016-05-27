@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Priority;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
@@ -41,7 +40,6 @@ import org.tura.platform.repository.RepositoryExtension;
 
 @Alternative
 @Priority(0)
-@RequestScoped
 public class RepositoryProducer {
 	
 	@Inject

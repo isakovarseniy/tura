@@ -41,49 +41,46 @@ import org.tura.platform.datacontrol.command.InsertCommand;
 import org.tura.platform.datacontrol.command.SearchCommand;
 import org.tura.platform.datacontrol.command.UpdateCommand;
 import org.tura.platform.datacontrol.command.base.CallParameter;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
+import org.tura.platform.hr.controls.JPAObjectService;
+import org.tura.platform.hr.controls.TransactionHelper;
 import org.tura.platform.object.TuraObject;
 import org.tura.platform.repository.Repository;
 import org.tura.platform.services.JPAService;
 import org.tura.platform.test.Factory;
 import org.tura.platform.tura.simple.domain.provider.SimpleTuraProvider;
 
-public class FactoryDC implements Factory{
+public class FactoryDC implements Factory {
 
 	private ELResolver elResolver;
 	private EntityManager em;
 	private CommandStack sc;
-	private Repository repository ;
+	private Repository repository;
 
 	public FactoryDC(String unit) {
 
 		Configuration config = new Configuration();
 		config.addResource("META-INF/persistence.xml");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory(
-				unit, config.getProperties());
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory(unit, config.getProperties());
 		em = emf.createEntityManager();
-
 
 		repository = new Repository();
 		SimpleTuraProvider provider = new SimpleTuraProvider(repository);
-		JPAService service = new JPAService();
+		JPAService service = new JPAObjectService();
 		service.setEntityManager(em);
 		provider.setService(service);
-		
-		
-		
+
 		elResolver = new ELResolverImpl();
 
 	}
 
-	
-	public void initCommandStack(){
+	public void initCommandStack() {
 		sc = new LocalCommandStack(em);
 	}
 
-	public DataControl<EmployeesDAO> initEmployees(String elPrefix)
-			throws Exception {
+	public DataControl<EmployeesDAO> initEmployees(String elPrefix) throws Exception {
 		EmployeesDC employeesDS = new EmployeesDC();
 
 		employeesDS.setElResolver(elResolver);
@@ -91,24 +88,18 @@ public class FactoryDC implements Factory{
 		employeesDS.setCommandStack(sc);
 		employeesDS.setBaseClass(EmployeesDAO.class);
 		sc.getPoolFlushAware().add(employeesDS);
-		createCreateCommand(employeesDS, elPrefix + "employees",
-				EmployeesDAO.class);
-		createInsertCommand(employeesDS, elPrefix + "employees",
-				TuraObject.class);
-		createUpdateCommand(employeesDS, elPrefix + "employees",
-				TuraObject.class);
-		createRemoveCommand(employeesDS, elPrefix + "employees",
-				TuraObject.class);
-		createSearchCommand(employeesDS, elPrefix + "employees",EmployeesDAO.class);
+		createCreateCommand(employeesDS, elPrefix + "employees", EmployeesDAO.class);
+		createInsertCommand(employeesDS, elPrefix + "employees", TuraObject.class);
+		createUpdateCommand(employeesDS, elPrefix + "employees", TuraObject.class);
+		createRemoveCommand(employeesDS, elPrefix + "employees", TuraObject.class);
+		createSearchCommand(employeesDS, elPrefix + "employees", EmployeesDAO.class);
 
-//		createQuery(employeesDS, EmployeesDAO.class.getCanonicalName());
+		// createQuery(employeesDS, EmployeesDAO.class.getCanonicalName());
 
 		return employeesDS;
 	}
-	
-	
-	public DataControl<DepartmentsDAO> initDepartments(String elPrefix)
-			throws Exception {
+
+	public DataControl<DepartmentsDAO> initDepartments(String elPrefix) throws Exception {
 		DepartmentsDC departmentsDS = new DepartmentsDC();
 
 		departmentsDS.setElResolver(elResolver);
@@ -117,20 +108,14 @@ public class FactoryDC implements Factory{
 		departmentsDS.setBaseClass(DepartmentsDAO.class);
 		sc.getPoolFlushAware().add(departmentsDS);
 
-		createCreateCommand(departmentsDS, elPrefix + "departments",
-				DepartmentsDAO.class);
-		createInsertCommand(departmentsDS, elPrefix + "departments",
-				TuraObject.class);
-		createUpdateCommand(departmentsDS, elPrefix + "departments",
-				TuraObject.class);
-		createRemoveCommand(departmentsDS, elPrefix + "departments",
-				TuraObject.class);
-		createSearchCommand(departmentsDS, elPrefix + "departments",DepartmentsDAO.class);
-
+		createCreateCommand(departmentsDS, elPrefix + "departments", DepartmentsDAO.class);
+		createInsertCommand(departmentsDS, elPrefix + "departments", TuraObject.class);
+		createUpdateCommand(departmentsDS, elPrefix + "departments", TuraObject.class);
+		createRemoveCommand(departmentsDS, elPrefix + "departments", TuraObject.class);
+		createSearchCommand(departmentsDS, elPrefix + "departments", DepartmentsDAO.class);
 
 		return departmentsDS;
 	}
-
 
 	void createCreateCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
@@ -154,7 +139,7 @@ public class FactoryDC implements Factory{
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(clazz);
-		prm.setExpression("#{"+expr + ".currentObject"+"}");
+		prm.setExpression("#{" + expr + ".currentObject" + "}");
 		command.getParameters().add(prm);
 
 		control.setInsertCommand(command);
@@ -168,7 +153,7 @@ public class FactoryDC implements Factory{
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(clazz);
-		prm.setExpression("#{"+expr + ".currentObject"+"}");
+		prm.setExpression("#{" + expr + ".currentObject" + "}");
 		command.getParameters().add(prm);
 
 		control.setUpdateCommand(command);
@@ -182,13 +167,13 @@ public class FactoryDC implements Factory{
 		CallParameter prm = new CallParameter();
 		prm.setName("obj");
 		prm.setClazz(clazz);
-		prm.setExpression("#{"+expr + ".currentObject"+"}");
+		prm.setExpression("#{" + expr + ".currentObject" + "}");
 		command.getParameters().add(prm);
-		
+
 		control.setDeleteCommand(command);
 	}
 
-	void createSearchCommand(DataControl<?> control, String expr,Class<?> clazz) {
+	void createSearchCommand(DataControl<?> control, String expr, Class<?> clazz) {
 
 		SearchCommand command = new SearchCommand(control);
 		command.getProviders().put("TuraService", repository);
@@ -196,26 +181,25 @@ public class FactoryDC implements Factory{
 		CallParameter prm = new CallParameter();
 		prm.setName("searchCriteria");
 		prm.setClazz(List.class);
-		prm.setExpression("#{"+expr + ".searchCriteria"+"}");
+		prm.setExpression("#{" + expr + ".searchCriteria" + "}");
 		command.getParameters().add(prm);
 
 		prm = new CallParameter();
 		prm.setName("orderCriteria");
 		prm.setClazz(List.class);
-		prm.setExpression("#{"+expr + ".orderCriteria"+"}");
+		prm.setExpression("#{" + expr + ".orderCriteria" + "}");
 		command.getParameters().add(prm);
 
-		
 		prm = new CallParameter();
 		prm.setName("startIndex");
 		prm.setClazz(Integer.class);
-		prm.setExpression("#{"+expr + ".startIndex"+"}");
+		prm.setExpression("#{" + expr + ".startIndex" + "}");
 		command.getParameters().add(prm);
 
 		prm = new CallParameter();
 		prm.setName("endIndex");
 		prm.setClazz(Integer.class);
-		prm.setExpression("#{"+expr + ".endIndex"+"}");
+		prm.setExpression("#{" + expr + ".endIndex" + "}");
 		command.getParameters().add(prm);
 
 		prm = new CallParameter();
@@ -237,14 +221,11 @@ public class FactoryDC implements Factory{
 		return new Employee();
 	}
 
-
 	@Override
 	public DepartmentsDAO getNewDepartmentsDAO() throws Exception {
-		return  new Department();
+		return new Department();
 	}
-	
-	
-	
+
 	class LocalCommandStack extends CommandStack {
 
 		private EntityManager em;
@@ -254,22 +235,15 @@ public class FactoryDC implements Factory{
 		}
 
 		@Override
-		public void beginTransaction() {
-			em.getTransaction().begin();
-
+		public void commitCommand() throws TuraException {
+			try{
+				TransactionHelper.beginTransaction(em);
+				super.commitCommand();
+				TransactionHelper.commitTransaction(em);
+			}catch(Exception e){
+				TransactionHelper.rollbackTransaction(em);
+				throw e;
+			}			
 		}
-
-		@Override
-		public void commitTransaction() {
-			em.getTransaction().commit();
-
-		}
-
-		@Override
-		public void rallbackTransaction() {
-			em.getTransaction().rollback();
-		}
-
 	}
-
 }

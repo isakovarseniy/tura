@@ -79,9 +79,11 @@ public abstract class MasterDetailDataControlPool {
 		
 		
 		em = factory.getEntityManager();
+		em.getTransaction().begin();
 		new DepartmentsInit(em).init();
 		try {
 			new EmployesesInit(em).init();
+			em.getTransaction().commit();
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

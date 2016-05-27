@@ -34,10 +34,8 @@ public class CompanyInit {
 	}
 
 	public void init() {
-		em.getTransaction().begin();
 		create(1L, "Company 1");
 		create(2L, "Company 2");
-		em.getTransaction().commit();
 
 	}
 

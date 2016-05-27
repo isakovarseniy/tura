@@ -125,15 +125,6 @@ public class DepartmentsDC extends DataControl<DepartmentsDAO> {
 	public void createChild( String  relName) {
 	}
 
-//	@Override
-//	public void setBaseClass(Class<?> baseClass) {
-//		this.baseClass = baseClass;
-//
-//	}
 
-//	@Override
-//	public void setVersionAttribute(String versionAttribute) {
-//		this.versionAttribute = versionAttribute;
-//	}
 
 }

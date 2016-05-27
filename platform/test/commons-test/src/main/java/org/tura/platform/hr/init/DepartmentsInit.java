@@ -34,7 +34,6 @@ public class DepartmentsInit {
 	}
 
 	public void init() {
-		em.getTransaction().begin();
 		create((long) 10, (long) 10, "Administration", (long) 200, 1L);
 		create((long) 20, (long) 20, "Marketing", (long) 201, 1L);
 		create((long) 30, (long) 30, "Purchasing", (long) 114, 2L);
@@ -62,7 +61,6 @@ public class DepartmentsInit {
 		create((long) 250, (long) 250, "Retail Sales", null, 12L);
 		create((long) 260, (long) 260, "Recruiting", null, 12L);
 		create((long) 270, (long) 270, "Payroll", null, 12L);
-		em.getTransaction().commit();
 
 	}
 

@@ -36,7 +36,6 @@ public class FileInit {
 	}
 
 	public void init() throws ParseException {
-		em.getTransaction().begin();
 	
 		create(1L,100L,"File1");
 		create(2L,100L,"File2");
@@ -47,7 +46,6 @@ public class FileInit {
 		create(6L,1L,"File6");
 		create(7L,1L,"File7");
 		
-		em.getTransaction().commit();
 		
 		
 	}

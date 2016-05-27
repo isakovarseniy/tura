@@ -39,12 +39,6 @@ public abstract class CommandStack {
 	private ArrayList<IDataControl> poolFlushAware = new ArrayList<IDataControl>(); 
 
 	
-	public abstract void beginTransaction();
-
-	public abstract void commitTransaction();
-
-	public abstract void rallbackTransaction();	
-	
 	public CommandStack() {
 		initSavePoint();
 	}
@@ -124,7 +118,6 @@ public abstract class CommandStack {
 		HashMap<String, DataControl<?>> controlsId = new HashMap<>();
 
 		try {
-			beginTransaction();
 
 			Command prevCommand = null;
 			boolean waitingForExecution = false;
@@ -157,7 +150,6 @@ public abstract class CommandStack {
 			if (waitingForExecution){
 				compleatCommand(prevCommand,controlsId);
 			}
-			commitTransaction();
 
 			SavePoint sv = savePoints.peek();
 			savePoints = new Stack<>();
@@ -172,7 +164,6 @@ public abstract class CommandStack {
 			}
 
 		} catch (Exception e) {
-			rallbackTransaction();
 			throw new TuraException(e);
 		}
 	}

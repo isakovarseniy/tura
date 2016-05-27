@@ -54,6 +54,11 @@
 			<artifactId>annotations</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.tura.example.service</groupId>
+			<artifactId>hr-domain-simple-repository</artifactId>
+			<version> ${project.version} </version>
+		</dependency>
 
 
 	</dependencies>

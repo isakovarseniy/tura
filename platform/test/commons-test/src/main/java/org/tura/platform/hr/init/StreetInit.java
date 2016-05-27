@@ -34,7 +34,6 @@ public class StreetInit {
 	}
 
 	public void init() {
-		em.getTransaction().begin();
 
 		create(1L,"Street 1 City 1 State 1 Ct 1",1L);
 		create(2L,"Street 2 City 1 State 1 Ct 1",2L);
@@ -57,7 +56,6 @@ public class StreetInit {
 		create(15L,"Street 3 City 2 State 5 Ct 2",3L);
 		create(16L,"Street 4 City 2 State 5 Ct 2",4L);
 		
-		em.getTransaction().commit();
 
 	}
 	

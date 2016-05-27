@@ -35,7 +35,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 
 import org.elsoft.platform.hr.objects.CompanyDAO;
 import org.elsoft.platform.hr.objects.CountryDAO;
@@ -52,7 +51,6 @@ import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.tura.example.ui.commons.producer.EntityManagerHelperImpl;
 import org.tura.example.ui.hrmanager.nesteddata.datacontrol.BeanFactory;
 import org.tura.example.ui.hrmanager.nesteddata.datacontrol.CompanyDC;
 import org.tura.example.ui.hrmanager.nesteddata.datacontrol.DepartmentDC;
@@ -89,15 +87,9 @@ public class CDITest  implements DomainFactory{
 
 	@After
 	public void after() {
-		EntityManagerHelperImpl helper = weld.instance()
-				.select(EntityManagerHelperImpl.class).get();
-		EntityManager em = helper.getEntityManager();
+		EntityManager em = weld.instance().select(EntityManager.class).get();
 		if (em.isOpen())
 			em.close();
-
-		EntityManagerFactory emf = weld.instance()
-				.select(EntityManagerFactory.class).get();
-		emf.close();
 
 		weld = null;
 		w.shutdown();
@@ -118,15 +110,13 @@ public class CDITest  implements DomainFactory{
 		w = new Weld();
 		weld = w.initialize();
 
-		EntityManagerHelperImpl helper = weld.instance()
-				.select(EntityManagerHelperImpl.class).get();
-		EntityManager em = helper.getEntityManager();
+		EntityManager em = weld.instance()
+				.select(EntityManager.class).get();
 
 		em.getTransaction().begin();
 		em.createNativeQuery("DROP SEQUENCE obj_id_gen").executeUpdate();
 		em.createNativeQuery("CREATE SEQUENCE obj_id_gen START WITH 1000000")
 				.executeUpdate();
-		em.getTransaction().commit();
 		new CompanyInit(em).init();
 		new CountryInit(em).init();
 		new StateInit(em).init();
@@ -136,6 +126,7 @@ public class CDITest  implements DomainFactory{
 		new DepartmentsInit(em).init();
 		try {
 			new EmployesesInit(em).init();
+			em.getTransaction().commit();
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}

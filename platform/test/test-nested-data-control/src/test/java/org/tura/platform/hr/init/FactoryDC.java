@@ -53,8 +53,11 @@ import org.tura.platform.datacontrol.command.turaservice.NestedSearchCommand;
 import org.tura.platform.datacontrol.command.turaservice.NestedUpdateCommand;
 import org.tura.platform.datacontrol.command.turaservice.UpdateCommandTuraService;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
+import org.tura.platform.hr.controls.JPAObjectService;
+import org.tura.platform.hr.controls.TransactionHelper;
 import org.tura.platform.object.TuraObject;
 import org.tura.platform.repository.Repository;
 import org.tura.platform.services.JPAService;
@@ -90,7 +93,7 @@ public class FactoryDC implements Factory{
 
 
 		repository = new Repository();
-		JPAService service = new JPAService();
+		JPAService service = new JPAObjectService();
 
 		ComplexObjectTuraProvider provider = new ComplexObjectTuraProvider(repository);
 		provider.setObjectLiveCycle(CityObject.class.getName(), new CityObjectLiveCycle(service)); 
@@ -433,22 +436,16 @@ public class FactoryDC implements Factory{
 		}
 
 		@Override
-		public void beginTransaction() {
-			em.getTransaction().begin();
-
+		public void commitCommand() throws TuraException {
+			try{
+				TransactionHelper.beginTransaction(em);
+				super.commitCommand();
+				TransactionHelper.commitTransaction(em);
+			}catch(Exception e){
+				TransactionHelper.rollbackTransaction(em);
+				throw e;
+			}			
 		}
-
-		@Override
-		public void commitTransaction() {
-			em.getTransaction().commit();
-
-		}
-
-		@Override
-		public void rallbackTransaction() {
-			em.getTransaction().rollback();
-		}
-
 	}
 
 	@Override
