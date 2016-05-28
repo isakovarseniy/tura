@@ -69,7 +69,7 @@ operation  datacontrolgeneration(hash) {
     buffer = resolver.process();
     util.saveFile( javaPath+"/commons/datacontrol/"  , "ELResolverImpl.java",buffer);   
 
-    var entityproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/entityManagerFactoryProducer.egl",hash,TemplateFactory);
+    var entityproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/entityManagerProducer.egl",hash,TemplateFactory);
     entityproducer.setFormatter(f);
     buffer = entityproducer.process();
     util.saveFile( javaPath+"/commons/producer/"  , "EntityManagerFactoryProducer.java",buffer);   

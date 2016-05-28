@@ -12,19 +12,21 @@ package  [%=component.basePackage%].commons.producer;
 
 @javax.enterprise.inject.Alternative
 @javax.annotation.Priority(0)
-@javax.faces.view.ViewScoped
-public class EntityManagerFactoryProducer implements java.io.Serializable {
+public class EntityManagerProducer{
 
-   private static final long serialVersionUID = 1L;
-
+  @org.apache.deltaspike.jpa.api.entitymanager.PersistenceUnitName("[%=configuration.get("persistence_unit")%]")
    private javax.persistence.EntityManagerFactory emf;
 
 	@javax.enterprise.inject.Produces
-	public javax.persistence.EntityManagerFactory getEntityManagerFactory(javax.enterprise.inject.spi.InjectionPoint injectionPoint) {
-		if (emf == null)
-			emf = javax.persistence.Persistence.createEntityManagerFactory(
-				"[%=configuration.get("persistence_unit")%]");
-
-		return emf;
+	@javax.enterprise.context.RequestScoped
+	protected javax.persistence.EntityManager createEntityManager() {
+			return emf.createEntityManager();
 	}
+
+	protected void closeEntityManager(@javax.enterprise.inject.Disposes javax.persistence.EntityManager entityManager) {
+		if (entityManager.isOpen()) {
+			entityManager.close();
+		}
+	}
+	
 }

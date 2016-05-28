@@ -26,9 +26,5 @@
     var buffer = commandstack.process();
     util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CDICommandStack.java",buffer);   
 
-    var helper : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.wizard.generation/template/technologies/JEE/CDI/nonJTA/entityManagerHelper.egl",hash,TemplateFactory);
-    helper.setFormatter(f);
-    buffer = helper.process();
-    util.saveFile( javaPath+"/commons/producer/"  , "EntityManagerHelperImpl.java",buffer);  
 
 %]
