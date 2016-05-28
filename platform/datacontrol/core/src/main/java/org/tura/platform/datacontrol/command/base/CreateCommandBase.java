@@ -40,6 +40,7 @@ public class CreateCommandBase extends Command {
 	public Object execute() throws Exception {
 		
       Object obj = getObj();
+      Object saveObj = obj;
 
 		if (obj != null){
 			obj = Util.convertobject(obj, getDatacontrol(),true);
@@ -49,7 +50,7 @@ public class CreateCommandBase extends Command {
 		}
 
 		if (obj != null && this.getDatacontrol().getPostCreateTrigger() != null)
-			this.getDatacontrol().getPostCreateTrigger().execute(this.getDatacontrol(), obj);
+			this.getDatacontrol().getPostCreateTrigger().execute(this.getDatacontrol(), saveObj);
 
 		return obj;
 
