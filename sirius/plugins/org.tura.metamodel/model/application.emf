@@ -1,0 +1,8 @@
+@namespace(uri="http://tura.org/2016/v2/application", prefix="tura.application")
+package application;
+	
+	class Application{
+	  id attr EString uid;
+	   attr EString name;
+		
+	}

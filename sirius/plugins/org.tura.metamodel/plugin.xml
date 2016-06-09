@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+    Tura - application generation platform
+   
+    Copyright (c) 2012, 2015, Arseniy Isakov
+     
+    This project includes software developed by Arseniy Isakov
+    http://sourceforge.net/p/tura/wiki/Home/
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+ -->
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated domain -->
+      <package
+            uri="http://tura.org/2016/v2/domain"
+            class="tura.domain.DomainPackage"
+            genModel="model/domain.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated domain -->
+      <package
+            uri="http://tura.org/2016/v2/artifact"
+            class="artifact.ArtifactPackage"
+            genModel="model/domain.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated domain -->
+      <package
+            uri="http://tura.org/2016/v2/type"
+            class="type.TypePackage"
+            genModel="model/domain.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated domain1 -->
+      <package
+            uri="http://tura.org/2016/v2/application"
+            class="application.ApplicationPackage"
+            genModel="model/domain1.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated domain -->
+      <package
+            uri="http://tura.org/2016/v2/common"
+            class="common.CommonPackage"
+            genModel="model/domain.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated domain -->
+      <package
+            uri="http://tura.org/2016/v2/permission"
+            class="permission.PermissionPackage"
+            genModel="model/domain.genmodel"/>
+   </extension>
+</plugin>

@@ -1,0 +1,9 @@
+@namespace(uri="http://tura.org/2016/v2/artifact", prefix="tura.artifact")
+package artifact;
+	
+	class Artifact{
+	  id attr EString uid;
+	      attr EString name;
+		
+	}
+

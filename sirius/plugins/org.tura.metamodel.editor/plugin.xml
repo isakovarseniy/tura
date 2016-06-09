@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="tura.domain.presentation.DomainModelWizardID"
+            name="%_UI_DomainModelWizard_label"
+            class="tura.domain.presentation.DomainModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DomainModelFile.gif">
+         <description>%_UI_DomainModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain -->
+      <editor
+            id="tura.domain.presentation.DomainEditorID"
+            name="%_UI_DomainEditor_label"
+            icon="icons/full/obj16/DomainModelFile.gif"
+            extensions="domain"
+            class="tura.domain.presentation.DomainEditor"
+            contributorClass="tura.domain.presentation.DomainActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="artifact.presentation.ArtifactModelWizardID"
+            name="%_UI_ArtifactModelWizard_label"
+            class="artifact.presentation.ArtifactModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ArtifactModelFile.gif">
+         <description>%_UI_ArtifactModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain -->
+      <editor
+            id="artifact.presentation.ArtifactEditorID"
+            name="%_UI_ArtifactEditor_label"
+            icon="icons/full/obj16/ArtifactModelFile.gif"
+            extensions="artifact"
+            class="artifact.presentation.ArtifactEditor"
+            contributorClass="artifact.presentation.ArtifactActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="type.presentation.TypeModelWizardID"
+            name="%_UI_TypeModelWizard_label"
+            class="type.presentation.TypeModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TypeModelFile.gif">
+         <description>%_UI_TypeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain -->
+      <editor
+            id="type.presentation.TypeEditorID"
+            name="%_UI_TypeEditor_label"
+            icon="icons/full/obj16/TypeModelFile.gif"
+            extensions="type"
+            class="type.presentation.TypeEditor"
+            contributorClass="type.presentation.TypeActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="application.presentation.ApplicationModelWizardID"
+            name="%_UI_ApplicationModelWizard_label"
+            class="application.presentation.ApplicationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ApplicationModelFile.gif">
+         <description>%_UI_ApplicationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain1 -->
+      <editor
+            id="application.presentation.ApplicationEditorID"
+            name="%_UI_ApplicationEditor_label"
+            icon="icons/full/obj16/ApplicationModelFile.gif"
+            extensions="application"
+            class="application.presentation.ApplicationEditor"
+            contributorClass="application.presentation.ApplicationActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="common.presentation.CommonModelWizardID"
+            name="%_UI_CommonModelWizard_label"
+            class="common.presentation.CommonModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CommonModelFile.gif">
+         <description>%_UI_CommonModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain -->
+      <editor
+            id="common.presentation.CommonEditorID"
+            name="%_UI_CommonEditor_label"
+            icon="icons/full/obj16/CommonModelFile.gif"
+            extensions="common"
+            class="common.presentation.CommonEditor"
+            contributorClass="common.presentation.CommonActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="permission.presentation.PermissionModelWizardID"
+            name="%_UI_PermissionModelWizard_label"
+            class="permission.presentation.PermissionModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PermissionModelFile.gif">
+         <description>%_UI_PermissionModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain -->
+      <editor
+            id="permission.presentation.PermissionEditorID"
+            name="%_UI_PermissionEditor_label"
+            icon="icons/full/obj16/PermissionModelFile.gif"
+            extensions="permission"
+            class="permission.presentation.PermissionEditor"
+            contributorClass="permission.presentation.PermissionActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

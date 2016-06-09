@@ -1,0 +1,66 @@
+@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
+package tura;
+
+import "platform:/resource/org.tura.metamodel/model/application.ecore";
+import "platform:/resource/org.tura.metamodel/model/common.ecore";
+import "platform:/resource/org.tura.metamodel/model/permission.ecore";
+import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
+import "platform:/resource/org.tura.metamodel/model/type.ecore";
+
+
+
+@namespace(uri="http://tura.org/2016/v2/domain", prefix="tura.domain")
+package domain{
+
+	@gmf.diagram
+	class Domain{
+	  id attr EString uid;
+	  val DomainArtifacts[1] domainArtifacts;
+	  val DomainTypes[1] domainTypes;
+	  val DomainApplications[1] domainApplications;
+	
+	}
+	@gmf.node(label="name")
+	class DomainArtifacts {
+	    id attr EString uid;
+	    attr EString name;  
+	    val DomainArtifact[*] domainArtifact;
+	}
+	
+	class DomainArtifact{
+	    id attr EString uid;
+	   attr EString name;
+	   val  artifact.Artifact artifact;
+	}
+	
+	
+	class DomainTypes{
+	    id attr EString uid;
+	   attr EString name;  
+	   val DomainTypesRepository[*] typesRepository;
+	}
+	
+	class DomainTypesRepository{
+	    id attr EString uid;
+	   attr EString name;
+	   val  type.Repository repository;
+	}
+	
+	
+	class DomainApplications {
+	    id attr EString uid;
+	   attr EString name;  
+	   val DomainApplication[*] applications;
+	}
+	
+	class DomainApplication{
+	   id attr EString uid;
+	   attr EString name;  
+	   val application.Application application;
+	}
+}
+
+
+
+
+

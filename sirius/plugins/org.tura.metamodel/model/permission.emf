@@ -1,0 +1,32 @@
+@namespace(uri="http://tura.org/2016/v2/permission", prefix="tura.permission")
+package permission;
+
+	class Roles{
+	    id attr EString uid;
+	    val Role[*] roles;
+	    val Group[*] groups;
+	}
+
+	class Role{
+	    id attr EString uid;
+	    attr EString name;
+	}
+
+	class Group{
+	    id attr EString uid;
+	    attr EString name;
+	   ref Group[*] group2Group;
+	   ref Role[*] group2Role;
+	}
+
+
+	class Secured{
+		val GrantAccess[*] grants;
+	}	
+	
+	class GrantAccess {
+	    id attr EString uid;
+		ref Role roleRef;
+	}
+
+
