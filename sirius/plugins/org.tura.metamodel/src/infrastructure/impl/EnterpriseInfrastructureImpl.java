@@ -1,0 +1,259 @@
+/**
+ */
+package infrastructure.impl;
+
+import infrastructure.Datacenter;
+import infrastructure.EnterpriseInfrastructure;
+import infrastructure.InfrastructureConnection;
+import infrastructure.InfrastructurePackage;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Enterprise Infrastructure</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link infrastructure.impl.EnterpriseInfrastructureImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link infrastructure.impl.EnterpriseInfrastructureImpl#getDatacenters <em>Datacenters</em>}</li>
+ *   <li>{@link infrastructure.impl.EnterpriseInfrastructureImpl#getInfrastructureConnections <em>Infrastructure Connections</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class EnterpriseInfrastructureImpl extends MinimalEObjectImpl.Container implements EnterpriseInfrastructure {
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String UID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDatacenters() <em>Datacenters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatacenters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Datacenter> datacenters;
+
+	/**
+	 * The cached value of the '{@link #getInfrastructureConnections() <em>Infrastructure Connections</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInfrastructureConnections()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<InfrastructureConnection> infrastructureConnections;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnterpriseInfrastructureImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return InfrastructurePackage.Literals.ENTERPRISE_INFRASTRUCTURE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUid(String newUid) {
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Datacenter> getDatacenters() {
+		if (datacenters == null) {
+			datacenters = new EObjectContainmentEList<Datacenter>(Datacenter.class, this, InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS);
+		}
+		return datacenters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<InfrastructureConnection> getInfrastructureConnections() {
+		if (infrastructureConnections == null) {
+			infrastructureConnections = new EObjectContainmentEList<InfrastructureConnection>(InfrastructureConnection.class, this, InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS);
+		}
+		return infrastructureConnections;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
+				return ((InternalEList<?>)getDatacenters()).basicRemove(otherEnd, msgs);
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
+				return ((InternalEList<?>)getInfrastructureConnections()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__UID:
+				return getUid();
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
+				return getDatacenters();
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
+				return getInfrastructureConnections();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__UID:
+				setUid((String)newValue);
+				return;
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
+				getDatacenters().clear();
+				getDatacenters().addAll((Collection<? extends Datacenter>)newValue);
+				return;
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
+				getInfrastructureConnections().clear();
+				getInfrastructureConnections().addAll((Collection<? extends InfrastructureConnection>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__UID:
+				setUid(UID_EDEFAULT);
+				return;
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
+				getDatacenters().clear();
+				return;
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
+				getInfrastructureConnections().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
+				return datacenters != null && !datacenters.isEmpty();
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
+				return infrastructureConnections != null && !infrastructureConnections.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(')');
+		return result.toString();
+	}
+
+} //EnterpriseInfrastructureImpl
