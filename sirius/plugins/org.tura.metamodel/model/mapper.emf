@@ -1,0 +1,63 @@
+@namespace(uri="http://tura.org/2016/v2/mapper", prefix="tura.mapper")
+package mapper;
+
+import "platform:/resource/org.tura.metamodel/model/type.ecore";
+
+
+class Mappers{
+    id attr EString uid;
+   val Mapper[*] mappers;
+}
+
+class Mapper {
+    id attr EString uid;
+    attr boolean serviceLayer;
+    attr boolean uiLayer;
+}
+
+
+class TypeMapper extends Mapper,type.TypePointer{
+}
+
+
+class PackageMapper extends Mapper{
+   ref type.Package packageRef;
+}
+
+class JavaMapper extends TypeMapper{
+   attr EString mappedToPackageName;
+   attr EString mappedToClassName;
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString libraryName;
+   attr EString artifactType = "jar";
+}
+
+
+class JavaPackageMapper extends PackageMapper {
+   attr EString mappedToPackageName;
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString libraryName;
+   attr EString artifactType = "jar";
+}
+
+
+class JavaScriptMapper extends TypeMapper{
+   attr EString libraryUrl;
+}
+
+class CSSMapper extends Mapper{
+   attr EString libraryUrl;
+   ref StylesPackage stylePackage;
+   ref StyleLibrary styleLibrary;
+
+}
+
+class RoleMapper extends Mapper{
+     ref EObject role;
+     attr EString localRoleName;
+     attr EString globalRoleName;
+}

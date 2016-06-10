@@ -1,0 +1,21 @@
+@namespace(uri="http://tura.org/2016/v2/style", prefix="tura.style")
+package style;
+
+
+@gmf.diagram.style
+class Styles{
+    id attr EString uid;
+    val StyleLibrary[*] libraries;
+
+}
+
+class StyleLibrary{
+    id attr EString uid;
+    attr EString name;
+    val StyleSet[*] styles;    
+}
+
+class StyleSet{
+    id attr EString uid;
+   attr EString name;
+}

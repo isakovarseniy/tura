@@ -3,7 +3,6 @@ package tura;
 
 import "platform:/resource/org.tura.metamodel/model/application.ecore";
 import "platform:/resource/org.tura.metamodel/model/common.ecore";
-import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
 

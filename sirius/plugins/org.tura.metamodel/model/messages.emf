@@ -1,0 +1,48 @@
+@namespace(uri="http://tura.org/2016/v2/message", prefix="tura.message")
+package message;
+
+import "platform:/resource/org.tura.metamodel/model/common.ecore";
+
+
+class Messages{
+    id attr EString uid;
+    val MessageLibrary[*]  messageLibraries;
+    val Language[*] languages;
+}
+
+
+class MessageLibrary extends common.Categorized{
+    id attr EString uid;
+    attr EString name;
+    val LanguageRef[*] libLanguages;
+    val Message[*] messages ;
+
+}
+
+class LanguageRef{
+    id attr EString uid;
+    ref Language lang; 
+}
+
+
+class Message{
+    id attr EString uid;
+    attr EString name;
+   val Translation[*] translatioins;
+   
+
+}
+
+class Translation{
+    id attr EString uid;
+    attr EString translation;
+    ref LanguageRef lang;
+}
+
+
+class Language{
+    id attr EString uid;
+   attr EString lang;
+   attr EString code;
+   attr EBoolean defaultLang; 
+}

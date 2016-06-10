@@ -110,4 +110,6 @@ import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 	   attr EString  value;
 	}
 	
-	
+class MethodPointer extends TypePointer{
+    ref Operation methodRef;
+}	
