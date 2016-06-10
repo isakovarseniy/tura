@@ -72,6 +72,10 @@ public class PermissionAdapterFactory extends AdapterFactoryImpl {
 				return createRolesAdapter();
 			}
 			@Override
+			public Adapter caseSecurityEntity(SecurityEntity object) {
+				return createSecurityEntityAdapter();
+			}
+			@Override
 			public Adapter caseRole(Role object) {
 				return createRoleAdapter();
 			}
@@ -86,6 +90,10 @@ public class PermissionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGrantAccess(GrantAccess object) {
 				return createGrantAccessAdapter();
+			}
+			@Override
+			public Adapter caseSecurityEntityPointer(SecurityEntityPointer object) {
+				return createSecurityEntityPointerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -118,6 +126,20 @@ public class PermissionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRolesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link permission.SecurityEntity <em>Security Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see permission.SecurityEntity
+	 * @generated
+	 */
+	public Adapter createSecurityEntityAdapter() {
 		return null;
 	}
 
@@ -174,6 +196,20 @@ public class PermissionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGrantAccessAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link permission.SecurityEntityPointer <em>Security Entity Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see permission.SecurityEntityPointer
+	 * @generated
+	 */
+	public Adapter createSecurityEntityPointerAdapter() {
 		return null;
 	}
 

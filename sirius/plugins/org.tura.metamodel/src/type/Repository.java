@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.Repository#getUid <em>Uid</em>}</li>
  *   <li>{@link type.Repository#getName <em>Name</em>}</li>
  *   <li>{@link type.Repository#getPackages <em>Packages</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getRepository()
  * @model

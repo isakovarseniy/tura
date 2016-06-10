@@ -4,12 +4,14 @@ package application.provider;
 
 
 import application.Application;
+import application.ApplicationFactory;
 import application.ApplicationPackage;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -58,7 +60,6 @@ public class ApplicationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,25 +87,39 @@ public class ApplicationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Application_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Application_name_feature", "_UI_Application_type"),
-				 ApplicationPackage.Literals.APPLICATION__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_RECIPES);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_MAPPERS);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_UI_LAYER);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_STYLE);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_ROLE);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_MESSAGES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -126,7 +141,7 @@ public class ApplicationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Application)object).getName();
+		String label = ((Application)object).getUid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Application_type") :
 			getString("_UI_Application_type") + " " + label;
@@ -146,8 +161,16 @@ public class ApplicationItemProvider
 
 		switch (notification.getFeatureID(Application.class)) {
 			case ApplicationPackage.APPLICATION__UID:
-			case ApplicationPackage.APPLICATION__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case ApplicationPackage.APPLICATION__APPLICATION_RECIPES:
+			case ApplicationPackage.APPLICATION__APPLICATION_MAPPERS:
+			case ApplicationPackage.APPLICATION__APPLICATION_UI_LAYER:
+			case ApplicationPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER:
+			case ApplicationPackage.APPLICATION__APPLICATION_STYLE:
+			case ApplicationPackage.APPLICATION__APPLICATION_ROLE:
+			case ApplicationPackage.APPLICATION__APPLICATION_MESSAGES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -163,6 +186,41 @@ public class ApplicationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_RECIPES,
+				 ApplicationFactory.eINSTANCE.createApplicationRecipes()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_MAPPERS,
+				 ApplicationFactory.eINSTANCE.createApplicationMappers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_UI_LAYER,
+				 ApplicationFactory.eINSTANCE.createApplicationUILayer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER,
+				 ApplicationFactory.eINSTANCE.createApplicationInfrastructureLayers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_STYLE,
+				 ApplicationFactory.eINSTANCE.createApplicationStyleLibraries()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_ROLE,
+				 ApplicationFactory.eINSTANCE.createApplicationRealms()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_MESSAGES,
+				 ApplicationFactory.eINSTANCE.createApplicationMessageLibraries()));
 	}
 
 	/**

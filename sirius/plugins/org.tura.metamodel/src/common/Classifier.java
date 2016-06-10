@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link common.Classifier#getUid <em>Uid</em>}</li>
  *   <li>{@link common.Classifier#getHint <em>Hint</em>}</li>
  *   <li>{@link common.Classifier#getDetails <em>Details</em>}</li>
  * </ul>
- * </p>
  *
  * @see common.CommonPackage#getClassifier()
  * @model

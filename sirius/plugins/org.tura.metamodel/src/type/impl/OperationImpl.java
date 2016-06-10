@@ -35,6 +35,7 @@ import type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link type.impl.OperationImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link type.impl.OperationImpl#getUid <em>Uid</em>}</li>
@@ -43,7 +44,6 @@ import type.TypePackage;
  *   <li>{@link type.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link type.impl.OperationImpl#getReturnValue <em>Return Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

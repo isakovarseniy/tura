@@ -36,8 +36,10 @@
     <eLiterals name="Many2Many" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypePointer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="packageRef" eType="#//Package"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="#//TypeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackagePointer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packageRef" eType="#//Package"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assosiation" eSuperTypes="#//Relationship">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RelationType"/>

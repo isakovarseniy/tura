@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.domain.DomainArtifacts#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.DomainArtifacts#getName <em>Name</em>}</li>
  *   <li>{@link tura.domain.DomainArtifacts#getDomainArtifact <em>Domain Artifact</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.domain.DomainPackage#getDomainArtifacts()
  * @model annotation="gmf.node label='name'"

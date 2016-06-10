@@ -24,7 +24,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import permission.GrantAccess;
 import permission.PermissionPackage;
-
 import tura.domain.provider.DomainEditPlugin;
 
 /**

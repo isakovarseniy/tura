@@ -34,7 +34,7 @@ class FormView{
 
 class Views{
     id attr EString uid;
-   ref FormView#view parent; 
+   ref FormView parent; 
    val CanvasFrame[*]  canvases;
    val ViewInheritance[*] viewInheritances;
    val TabPagesInheritance[*] tabPagesInheritances;
@@ -351,14 +351,61 @@ class Table extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
 }
 
 class Menu extends Uielement{
-    attr EString fakeName;
+}
+
+
+
+class MenuView{
+    id attr EString uid;
+   ref MenuDefinition#menuView parent;
+   val MenuFolder[*] menuFolders; 
+}
+
+
+class MenuHolder {
+	ref MenuFolder menu;
+}
+
+class MenuExtensionRef{
+	ref MenuFolder extensionRef;
+}
+
+
+class MenuElement extends MultiLangLabel,StyleElement,common.Categorized,EnabledUIItem,Orderable{
+    id attr EString uid;
+    attr EString name;
+}
+
+
+class MenuFolder extends HTMLLayerHolder,EnabledUIItem,common.Categorized,StyleElement,MultiLangLabel,ItemIcon{
+    id attr EString uid;
+    attr EString name;
+    attr EBoolean extensionPoint;
+    val MenuElement[*] menuElements;
+}
+
+class MenuItem extends MenuElement,ItemIcon,FlexFields{
+	 val Context transition;
+     val AreaRef[*]  refreshAreas;	 
+}
+
+
+class MenuExtensionPoint extends MenuElement,MenuExtensionRef{
+	
+}
+
+
+class SubMenu extends MenuElement,ItemIcon{
+	ref MenuFolder toSubmenu;
+}
+
+class MenuSeparator extends MenuElement{
 }
 
 
 class Tree extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
    attr EString label;
    val Context image;
-    @gmf.compartment
     val Column[*] cols;
 }
 

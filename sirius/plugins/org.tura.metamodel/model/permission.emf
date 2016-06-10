@@ -7,12 +7,16 @@ package permission;
 	    val Group[*] groups;
 	}
 
-	class Role{
+    class SecurityEntity{
+    	
+    }
+
+	class Role extends SecurityEntity{
 	    id attr EString uid;
 	    attr EString name;
 	}
 
-	class Group{
+	class Group extends SecurityEntity{
 	    id attr EString uid;
 	    attr EString name;
 	   ref Group[*] group2Group;
@@ -28,5 +32,10 @@ package permission;
 	    id attr EString uid;
 		ref Role roleRef;
 	}
+	
+	class SecurityEntityPointer{
+		ref SecurityEntity securityEntity;
+	}
+	
 
 

@@ -19,7 +19,9 @@ import type.EnumAttribute;
 import type.Enumarator;
 import type.Generalization;
 import type.Link;
+import type.MethodPointer;
 import type.Operation;
+import type.PackagePointer;
 import type.Parameter;
 import type.Primitive;
 import type.References;
@@ -117,6 +119,10 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 				return createTypePointerAdapter();
 			}
 			@Override
+			public Adapter casePackagePointer(PackagePointer object) {
+				return createPackagePointerAdapter();
+			}
+			@Override
 			public Adapter caseAssosiation(Assosiation object) {
 				return createAssosiationAdapter();
 			}
@@ -159,6 +165,10 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEnumAttribute(EnumAttribute object) {
 				return createEnumAttributeAdapter();
+			}
+			@Override
+			public Adapter caseMethodPointer(MethodPointer object) {
+				return createMethodPointerAdapter();
 			}
 			@Override
 			public Adapter caseCategorized(Categorized object) {
@@ -283,6 +293,20 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypePointerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link type.PackagePointer <em>Package Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see type.PackagePointer
+	 * @generated
+	 */
+	public Adapter createPackagePointerAdapter() {
 		return null;
 	}
 
@@ -437,6 +461,20 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEnumAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link type.MethodPointer <em>Method Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see type.MethodPointer
+	 * @generated
+	 */
+	public Adapter createMethodPointerAdapter() {
 		return null;
 	}
 

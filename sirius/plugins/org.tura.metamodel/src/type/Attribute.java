@@ -11,12 +11,12 @@ import common.Categorized;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.Attribute#getUid <em>Uid</em>}</li>
  *   <li>{@link type.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link type.Attribute#isPk <em>Pk</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getAttribute()
  * @model

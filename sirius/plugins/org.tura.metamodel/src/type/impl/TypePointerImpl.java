@@ -20,25 +20,14 @@ import type.TypePointer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- *   <li>{@link type.impl.TypePointerImpl#getPackageRef <em>Package Ref</em>}</li>
  *   <li>{@link type.impl.TypePointerImpl#getTypeRef <em>Type Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class TypePointerImpl extends MinimalEObjectImpl.Container implements TypePointer {
-	/**
-	 * The cached value of the '{@link #getPackageRef() <em>Package Ref</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPackageRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected type.Package packageRef;
-
 	/**
 	 * The cached value of the '{@link #getTypeRef() <em>Type Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -66,44 +55,6 @@ public class TypePointerImpl extends MinimalEObjectImpl.Container implements Typ
 	@Override
 	protected EClass eStaticClass() {
 		return TypePackage.Literals.TYPE_POINTER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public type.Package getPackageRef() {
-		if (packageRef != null && packageRef.eIsProxy()) {
-			InternalEObject oldPackageRef = (InternalEObject)packageRef;
-			packageRef = (type.Package)eResolveProxy(oldPackageRef);
-			if (packageRef != oldPackageRef) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypePackage.TYPE_POINTER__PACKAGE_REF, oldPackageRef, packageRef));
-			}
-		}
-		return packageRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public type.Package basicGetPackageRef() {
-		return packageRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPackageRef(type.Package newPackageRef) {
-		type.Package oldPackageRef = packageRef;
-		packageRef = newPackageRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.TYPE_POINTER__PACKAGE_REF, oldPackageRef, packageRef));
 	}
 
 	/**
@@ -152,9 +103,6 @@ public class TypePointerImpl extends MinimalEObjectImpl.Container implements Typ
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TypePackage.TYPE_POINTER__PACKAGE_REF:
-				if (resolve) return getPackageRef();
-				return basicGetPackageRef();
 			case TypePackage.TYPE_POINTER__TYPE_REF:
 				if (resolve) return getTypeRef();
 				return basicGetTypeRef();
@@ -170,9 +118,6 @@ public class TypePointerImpl extends MinimalEObjectImpl.Container implements Typ
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TypePackage.TYPE_POINTER__PACKAGE_REF:
-				setPackageRef((type.Package)newValue);
-				return;
 			case TypePackage.TYPE_POINTER__TYPE_REF:
 				setTypeRef((TypeElement)newValue);
 				return;
@@ -188,9 +133,6 @@ public class TypePointerImpl extends MinimalEObjectImpl.Container implements Typ
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TypePackage.TYPE_POINTER__PACKAGE_REF:
-				setPackageRef((type.Package)null);
-				return;
 			case TypePackage.TYPE_POINTER__TYPE_REF:
 				setTypeRef((TypeElement)null);
 				return;
@@ -206,8 +148,6 @@ public class TypePointerImpl extends MinimalEObjectImpl.Container implements Typ
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TypePackage.TYPE_POINTER__PACKAGE_REF:
-				return packageRef != null;
 			case TypePackage.TYPE_POINTER__TYPE_REF:
 				return typeRef != null;
 		}

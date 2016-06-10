@@ -11,8 +11,6 @@ import type.TypePackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Generalization</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

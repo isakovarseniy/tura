@@ -47,7 +47,7 @@ public class ArtifactSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -66,14 +66,77 @@ public class ArtifactSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case ArtifactPackage.ARTIFACTS: {
+				Artifacts artifacts = (Artifacts)theEObject;
+				T result = caseArtifacts(artifacts);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ArtifactPackage.ARTIFACT: {
 				Artifact artifact = (Artifact)theEObject;
 				T result = caseArtifact(artifact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ArtifactPackage.GENERATION_HINT: {
+				GenerationHint generationHint = (GenerationHint)theEObject;
+				T result = caseGenerationHint(generationHint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactPackage.CONFIG_VARIABLE: {
+				ConfigVariable configVariable = (ConfigVariable)theEObject;
+				T result = caseConfigVariable(configVariable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactPackage.CONFIG_HASH: {
+				ConfigHash configHash = (ConfigHash)theEObject;
+				T result = caseConfigHash(configHash);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactPackage.MODEL_QUERY: {
+				ModelQuery modelQuery = (ModelQuery)theEObject;
+				T result = caseModelQuery(modelQuery);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactPackage.QUERY_PARAMETER: {
+				QueryParameter queryParameter = (QueryParameter)theEObject;
+				T result = caseQueryParameter(queryParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactPackage.TECHNOLOGY: {
+				Technology technology = (Technology)theEObject;
+				T result = caseTechnology(technology);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactPackage.OPTION: {
+				Option option = (Option)theEObject;
+				T result = caseOption(option);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Artifacts</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Artifacts</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArtifacts(Artifacts object) {
+		return null;
 	}
 
 	/**
@@ -88,6 +151,111 @@ public class ArtifactSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseArtifact(Artifact object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generation Hint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generation Hint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenerationHint(GenerationHint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Config Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Config Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfigVariable(ConfigVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Config Hash</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Config Hash</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfigHash(ConfigHash object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Model Query</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Model Query</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModelQuery(ModelQuery object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Query Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Query Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseQueryParameter(QueryParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Technology</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Technology</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTechnology(Technology object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Option</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOption(Option object) {
 		return null;
 	}
 

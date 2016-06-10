@@ -2,8 +2,6 @@
  */
 package permission;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Role</b></em>'.
@@ -11,17 +9,17 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link permission.Role#getUid <em>Uid</em>}</li>
  *   <li>{@link permission.Role#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see permission.PermissionPackage#getRole()
  * @model
  * @generated
  */
-public interface Role extends EObject {
+public interface Role extends SecurityEntity {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

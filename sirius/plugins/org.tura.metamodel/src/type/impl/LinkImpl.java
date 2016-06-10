@@ -20,12 +20,12 @@ import type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link type.impl.LinkImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link type.impl.LinkImpl#getMasterField <em>Master Field</em>}</li>
  *   <li>{@link type.impl.LinkImpl#getDetailField <em>Detail Field</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

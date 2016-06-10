@@ -3,9 +3,11 @@
 package type.provider;
 
 
+import form.FormFactory;
 import java.util.Collection;
 import java.util.List;
 
+import mapper.MapperFactory;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -243,6 +245,111 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 			(createChildParameter
 				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
 				 TypeFactory.eINSTANCE.createReturnValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 TypeFactory.eINSTANCE.createMethodPointer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createFormParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createViewPortTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createPREFormTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createPREQueryTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createPOSTQueryTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createPREInsertTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createPREDeleteTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createPOSTCreateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createPREUpdateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createCreateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createInsertTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createUpdateTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createDeleteTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createSearchTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createFormVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 FormFactory.eINSTANCE.createArtificialField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 MapperFactory.eINSTANCE.createTypeMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 MapperFactory.eINSTANCE.createJavaMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 MapperFactory.eINSTANCE.createJavaScriptMapper()));
 	}
 
 }

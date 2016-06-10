@@ -50,7 +50,6 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import application.ApplicationFactory;
 import application.ApplicationPackage;
 import tura.domain.provider.DomainEditPlugin;
-import tura.domain.presentation.DomainEditorPlugin;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -58,6 +57,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+import tura.domain.presentation.DomainEditorPlugin;
 
 
 /**

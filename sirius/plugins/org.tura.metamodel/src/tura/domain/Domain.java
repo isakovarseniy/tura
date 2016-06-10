@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.domain.Domain#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.Domain#getDomainArtifacts <em>Domain Artifacts</em>}</li>
  *   <li>{@link tura.domain.Domain#getDomainTypes <em>Domain Types</em>}</li>
  *   <li>{@link tura.domain.Domain#getDomainApplications <em>Domain Applications</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.domain.DomainPackage#getDomain()
  * @model

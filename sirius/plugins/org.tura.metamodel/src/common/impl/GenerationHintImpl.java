@@ -18,12 +18,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link common.impl.GenerationHintImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link common.impl.GenerationHintImpl#getName <em>Name</em>}</li>
  *   <li>{@link common.impl.GenerationHintImpl#getApplyedClass <em>Applyed Class</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

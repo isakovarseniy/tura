@@ -14,6 +14,14 @@ import common.CommonPackage;
 
 import common.impl.CommonPackageImpl;
 
+import form.FormPackage;
+import form.impl.FormPackageImpl;
+import infrastructure.InfrastructurePackage;
+import infrastructure.impl.InfrastructurePackageImpl;
+import mapper.MapperPackage;
+import mapper.impl.MapperPackageImpl;
+import message.MessagePackage;
+import message.impl.MessagePackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -29,6 +37,12 @@ import permission.Role;
 import permission.Roles;
 import permission.Secured;
 
+import permission.SecurityEntity;
+import permission.SecurityEntityPointer;
+import recipe.RecipePackage;
+import recipe.impl.RecipePackageImpl;
+import style.StylePackage;
+import style.impl.StylePackageImpl;
 import tura.domain.DomainPackage;
 
 import tura.domain.impl.DomainPackageImpl;
@@ -50,6 +64,13 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * @generated
 	 */
 	private EClass rolesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass securityEntityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,6 +99,13 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * @generated
 	 */
 	private EClass grantAccessEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass securityEntityPointerEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -131,6 +159,12 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		TypePackageImpl theTypePackage = (TypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) instanceof TypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) : TypePackage.eINSTANCE);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
 		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
+		InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) instanceof InfrastructurePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) : InfrastructurePackage.eINSTANCE);
+		MessagePackageImpl theMessagePackage = (MessagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) instanceof MessagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) : MessagePackage.eINSTANCE);
+		StylePackageImpl theStylePackage = (StylePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) instanceof StylePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) : StylePackage.eINSTANCE);
+		FormPackageImpl theFormPackage = (FormPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) instanceof FormPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) : FormPackage.eINSTANCE);
+		RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
+		MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePermissionPackage.createPackageContents();
@@ -139,6 +173,12 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
 		theCommonPackage.createPackageContents();
+		theInfrastructurePackage.createPackageContents();
+		theMessagePackage.createPackageContents();
+		theStylePackage.createPackageContents();
+		theFormPackage.createPackageContents();
+		theRecipePackage.createPackageContents();
+		theMapperPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePermissionPackage.initializePackageContents();
@@ -147,6 +187,12 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
 		theCommonPackage.initializePackageContents();
+		theInfrastructurePackage.initializePackageContents();
+		theMessagePackage.initializePackageContents();
+		theStylePackage.initializePackageContents();
+		theFormPackage.initializePackageContents();
+		theRecipePackage.initializePackageContents();
+		theMapperPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		thePermissionPackage.freeze();
@@ -191,6 +237,15 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 */
 	public EReference getRoles_Groups() {
 		return (EReference)rolesEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSecurityEntity() {
+		return securityEntityEClass;
 	}
 
 	/**
@@ -315,6 +370,24 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSecurityEntityPointer() {
+		return securityEntityPointerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSecurityEntityPointer_SecurityEntity() {
+		return (EReference)securityEntityPointerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PermissionFactory getPermissionFactory() {
 		return (PermissionFactory)getEFactoryInstance();
 	}
@@ -343,6 +416,8 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		createEReference(rolesEClass, ROLES__ROLES);
 		createEReference(rolesEClass, ROLES__GROUPS);
 
+		securityEntityEClass = createEClass(SECURITY_ENTITY);
+
 		roleEClass = createEClass(ROLE);
 		createEAttribute(roleEClass, ROLE__UID);
 		createEAttribute(roleEClass, ROLE__NAME);
@@ -359,6 +434,9 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		grantAccessEClass = createEClass(GRANT_ACCESS);
 		createEAttribute(grantAccessEClass, GRANT_ACCESS__UID);
 		createEReference(grantAccessEClass, GRANT_ACCESS__ROLE_REF);
+
+		securityEntityPointerEClass = createEClass(SECURITY_ENTITY_POINTER);
+		createEReference(securityEntityPointerEClass, SECURITY_ENTITY_POINTER__SECURITY_ENTITY);
 	}
 
 	/**
@@ -389,12 +467,16 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		roleEClass.getESuperTypes().add(this.getSecurityEntity());
+		groupEClass.getESuperTypes().add(this.getSecurityEntity());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rolesEClass, Roles.class, "Roles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRoles_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoles_Roles(), this.getRole(), null, "roles", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoles_Groups(), this.getGroup(), null, "groups", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(securityEntityEClass, SecurityEntity.class, "SecurityEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRole_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -412,6 +494,9 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		initEClass(grantAccessEClass, GrantAccess.class, "GrantAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGrantAccess_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, GrantAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGrantAccess_RoleRef(), this.getRole(), null, "roleRef", null, 0, 1, GrantAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(securityEntityPointerEClass, SecurityEntityPointer.class, "SecurityEntityPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSecurityEntityPointer_SecurityEntity(), this.getSecurityEntity(), null, "securityEntity", null, 0, 1, SecurityEntityPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

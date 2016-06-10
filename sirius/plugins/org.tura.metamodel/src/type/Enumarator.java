@@ -11,10 +11,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.Enumarator#getValues <em>Values</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getEnumarator()
  * @model

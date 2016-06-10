@@ -17,7 +17,9 @@ import type.EnumAttribute;
 import type.Enumarator;
 import type.Generalization;
 import type.Link;
+import type.MethodPointer;
 import type.Operation;
+import type.PackagePointer;
 import type.Parameter;
 import type.Primitive;
 import type.References;
@@ -83,6 +85,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 			case TypePackage.REFERENCES: return createReferences();
 			case TypePackage.GENERALIZATION: return createGeneralization();
 			case TypePackage.TYPE_POINTER: return createTypePointer();
+			case TypePackage.PACKAGE_POINTER: return createPackagePointer();
 			case TypePackage.ASSOSIATION: return createAssosiation();
 			case TypePackage.LINK: return createLink();
 			case TypePackage.ATTRIBUTE: return createAttribute();
@@ -94,6 +97,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 			case TypePackage.RETURN_VALUE: return createReturnValue();
 			case TypePackage.ENUMARATOR: return createEnumarator();
 			case TypePackage.ENUM_ATTRIBUTE: return createEnumAttribute();
+			case TypePackage.METHOD_POINTER: return createMethodPointer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -204,6 +208,16 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PackagePointer createPackagePointer() {
+		PackagePointerImpl packagePointer = new PackagePointerImpl();
+		return packagePointer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Assosiation createAssosiation() {
 		AssosiationImpl assosiation = new AssosiationImpl();
 		return assosiation;
@@ -307,6 +321,16 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	public EnumAttribute createEnumAttribute() {
 		EnumAttributeImpl enumAttribute = new EnumAttributeImpl();
 		return enumAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MethodPointer createMethodPointer() {
+		MethodPointerImpl methodPointer = new MethodPointerImpl();
+		return methodPointer;
 	}
 
 	/**

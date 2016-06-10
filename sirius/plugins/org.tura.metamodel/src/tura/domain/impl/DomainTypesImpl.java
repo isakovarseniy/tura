@@ -22,12 +22,12 @@ import tura.domain.DomainTypesRepository;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.domain.impl.DomainTypesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.impl.DomainTypesImpl#getName <em>Name</em>}</li>
  *   <li>{@link tura.domain.impl.DomainTypesImpl#getTypesRepository <em>Types Repository</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

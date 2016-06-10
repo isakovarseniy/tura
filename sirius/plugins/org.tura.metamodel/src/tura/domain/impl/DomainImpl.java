@@ -20,13 +20,13 @@ import tura.domain.DomainTypes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.domain.impl.DomainImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.impl.DomainImpl#getDomainArtifacts <em>Domain Artifacts</em>}</li>
  *   <li>{@link tura.domain.impl.DomainImpl#getDomainTypes <em>Domain Types</em>}</li>
  *   <li>{@link tura.domain.impl.DomainImpl#getDomainApplications <em>Domain Applications</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

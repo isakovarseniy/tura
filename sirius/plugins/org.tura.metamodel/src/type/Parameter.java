@@ -10,12 +10,12 @@ package type;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.Parameter#getUid <em>Uid</em>}</li>
  *   <li>{@link type.Parameter#getName <em>Name</em>}</li>
  *   <li>{@link type.Parameter#getOrder <em>Order</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getParameter()
  * @model

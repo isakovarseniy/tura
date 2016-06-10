@@ -12,12 +12,12 @@ import type.Repository;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.domain.DomainTypesRepository#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.DomainTypesRepository#getName <em>Name</em>}</li>
  *   <li>{@link tura.domain.DomainTypesRepository#getRepository <em>Repository</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.domain.DomainPackage#getDomainTypesRepository()
  * @model

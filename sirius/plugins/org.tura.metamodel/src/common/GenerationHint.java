@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link common.GenerationHint#getUid <em>Uid</em>}</li>
  *   <li>{@link common.GenerationHint#getName <em>Name</em>}</li>
  *   <li>{@link common.GenerationHint#getApplyedClass <em>Applyed Class</em>}</li>
  * </ul>
- * </p>
  *
  * @see common.CommonPackage#getGenerationHint()
  * @model

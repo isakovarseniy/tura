@@ -43,9 +43,13 @@ import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 	}
 
 	class TypePointer{
-	  ref Package packageRef;
 	  ref TypeElement typeRef;
 	}
+
+   class PackagePointer{
+        ref Package packageRef;
+   }
+
 
 	class Assosiation extends Relationship{
 	   attr RelationType type;

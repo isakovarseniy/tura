@@ -28,13 +28,13 @@ import type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link type.impl.PackageImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link type.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link type.impl.PackageImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link type.impl.PackageImpl#getRelationships <em>Relationships</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

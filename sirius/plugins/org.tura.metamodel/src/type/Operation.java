@@ -15,6 +15,7 @@ import permission.Secured;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.Operation#getUid <em>Uid</em>}</li>
  *   <li>{@link type.Operation#getName <em>Name</em>}</li>
@@ -22,7 +23,6 @@ import permission.Secured;
  *   <li>{@link type.Operation#getParameters <em>Parameters</em>}</li>
  *   <li>{@link type.Operation#getReturnValue <em>Return Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getOperation()
  * @model

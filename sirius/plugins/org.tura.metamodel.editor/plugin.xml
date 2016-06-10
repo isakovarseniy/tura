@@ -174,4 +174,172 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="infrastructure.presentation.InfrastructureModelWizardID"
+            name="%_UI_InfrastructureModelWizard_label"
+            class="infrastructure.presentation.InfrastructureModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/InfrastructureModelFile.gif">
+         <description>%_UI_InfrastructureModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain1 -->
+      <editor
+            id="infrastructure.presentation.InfrastructureEditorID"
+            name="%_UI_InfrastructureEditor_label"
+            icon="icons/full/obj16/InfrastructureModelFile.gif"
+            extensions="infrastructure"
+            class="infrastructure.presentation.InfrastructureEditor"
+            contributorClass="infrastructure.presentation.InfrastructureActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="message.presentation.MessageModelWizardID"
+            name="%_UI_MessageModelWizard_label"
+            class="message.presentation.MessageModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MessageModelFile.gif">
+         <description>%_UI_MessageModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain1 -->
+      <editor
+            id="message.presentation.MessageEditorID"
+            name="%_UI_MessageEditor_label"
+            icon="icons/full/obj16/MessageModelFile.gif"
+            extensions="message"
+            class="message.presentation.MessageEditor"
+            contributorClass="message.presentation.MessageActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="style.presentation.StyleModelWizardID"
+            name="%_UI_StyleModelWizard_label"
+            class="style.presentation.StyleModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/StyleModelFile.gif">
+         <description>%_UI_StyleModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain1 -->
+      <editor
+            id="style.presentation.StyleEditorID"
+            name="%_UI_StyleEditor_label"
+            icon="icons/full/obj16/StyleModelFile.gif"
+            extensions="style"
+            class="style.presentation.StyleEditor"
+            contributorClass="style.presentation.StyleActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="form.presentation.FormModelWizardID"
+            name="%_UI_FormModelWizard_label"
+            class="form.presentation.FormModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FormModelFile.gif">
+         <description>%_UI_FormModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain1 -->
+      <editor
+            id="form.presentation.FormEditorID"
+            name="%_UI_FormEditor_label"
+            icon="icons/full/obj16/FormModelFile.gif"
+            extensions="form"
+            class="form.presentation.FormEditor"
+            contributorClass="form.presentation.FormActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="recipe.presentation.RecipeModelWizardID"
+            name="%_UI_RecipeModelWizard_label"
+            class="recipe.presentation.RecipeModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/RecipeModelFile.gif">
+         <description>%_UI_RecipeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain1 -->
+      <editor
+            id="recipe.presentation.RecipeEditorID"
+            name="%_UI_RecipeEditor_label"
+            icon="icons/full/obj16/RecipeModelFile.gif"
+            extensions="recipe"
+            class="recipe.presentation.RecipeEditor"
+            contributorClass="recipe.presentation.RecipeActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="mapper.presentation.MapperModelWizardID"
+            name="%_UI_MapperModelWizard_label"
+            class="mapper.presentation.MapperModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MapperModelFile.gif">
+         <description>%_UI_MapperModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain1 -->
+      <editor
+            id="mapper.presentation.MapperEditorID"
+            name="%_UI_MapperEditor_label"
+            icon="icons/full/obj16/MapperModelFile.gif"
+            extensions="mapper"
+            class="mapper.presentation.MapperEditor"
+            contributorClass="mapper.presentation.MapperActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

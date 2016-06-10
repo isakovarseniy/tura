@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link common.impl.ClassifierImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link common.impl.ClassifierImpl#getHint <em>Hint</em>}</li>
  *   <li>{@link common.impl.ClassifierImpl#getDetails <em>Details</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

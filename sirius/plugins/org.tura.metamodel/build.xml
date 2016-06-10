@@ -12,13 +12,9 @@
  -->
 <project default="main">
 	
-	<target name="main" depends="application,common,permission,artifact,type,domain,genmodel,copy-icons">
+	<target name="main" depends="common,permission,artifact,type,domain,style,infrastructure,messages,mapper,recipe,form,application,domain,genmodel,copy-icons">
 	</target>
 	
-
-	<target name="application">
-		<epsilon.eugenia   src="model/application.emf" laststep="ecore" />		
-	</target>	
 
 	<target name="common">
 		<epsilon.eugenia   src="model/common.emf" laststep="ecore" />		
@@ -37,19 +33,42 @@
 		<epsilon.eugenia   src="model/type.emf" laststep="ecore" />		
 	</target>	
 	
+	
+	<target name="style">
+		<epsilon.eugenia   src="model/style.emf" laststep="ecore" />		
+	</target>		
+	
+	<target name="infrastructure">
+		<epsilon.eugenia   src="model/infrastructure.emf" laststep="ecore" />		
+	</target>		
+	
+	<target name="messages">
+		<epsilon.eugenia   src="model/messages.emf" laststep="ecore" />		
+	</target>		
+
+	<target name="mapper">
+		<epsilon.eugenia   src="model/mapper.emf" laststep="ecore" />		
+	</target>		
+	
+	<target name="recipe">
+		<epsilon.eugenia   src="model/recipe.emf" laststep="ecore" />		
+	</target>		
+	
+	
+	<target name="form">
+		<epsilon.eugenia   src="model/form.emf" laststep="ecore" />		
+	</target>		
+	
+	<target name="application">
+		<epsilon.eugenia   src="model/application.emf" laststep="ecore" />		
+	</target>			
+	
 	<target name="domain">
 		<epsilon.eugenia   src="model/domain.emf" laststep="ecore" />		
 	</target>	
 	
 	<target name="genmodel">
-		
-		<!--epsilon.emf.loadModel name="application"
-		                               modelFile="model/application.ecore"
-		                               metamodelUri="ecore"
-		                               read="true" store="false"/-->		
-		
 		<epsilon.eugenia   src="model/domain.emf" laststep="emfcode" >
-			<model ref="application"/>
 		</epsilon.eugenia>
 	</target>	
 

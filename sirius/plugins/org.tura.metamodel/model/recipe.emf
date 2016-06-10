@@ -1,6 +1,8 @@
 @namespace(uri="http://tura.org/2016/v2/recipe", prefix="tura.recipe")
 package recipe;
 
+import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
+import "platform:/resource/org.tura.metamodel/model/mapper.ecore";
 
 
 class Recipes{
@@ -57,7 +59,7 @@ class DeploymentStarStep{
 
 
 class UsingMappers{
-  ref ApplicationMapper[*] mappers;
+  ref mapper.Mappers[*] mappers;
 }
 
 //Value of laers must be 2^n
@@ -65,7 +67,6 @@ enum PlatformLayers{
    ServiceLayer = 1;
    UILayer = 2;
 }
-
 
 
 class Ingredient extends UsingMappers {
@@ -115,7 +116,7 @@ class ModelMapper extends ArtifactRef{
 
 class Property{
     id attr EString uid;
-    ref ConfigVariable confVarRef;
+    ref artifact.ConfigVariable confVarRef;
     attr EString value;
     attr EString fakeName;
 }
@@ -124,7 +125,7 @@ class Property{
 @gmf.node(label="fakeName",border.color="0,0,0",color="255,239,222")
 class HashProperty{
     id attr EString uid;
-    ref ConfigHash confHashRef;
+    ref artifact.ConfigHash confHashRef;
     val KeyValuePair[*] hash;
     attr EString fakeName;
 }
@@ -138,28 +139,27 @@ class KeyValuePair{
 
 class MappingSpecifier{
     id attr EString uid;
-   ref Technology specifierRef;
-   ref Option valueRef;
+   ref artifact.Technology specifierRef;
+   ref artifact.Option valueRef;
 }
 
 @gmf.node(label="name",border.color="0,0,0",color="241,238,203")
 class Query{
     id attr EString uid;
-   ref ModelQuery modelQuery;
+   ref artifact.ModelQuery modelQuery;
    attr EString name;
-   ref ModelQuery queryRef;
+   ref artifact.ModelQuery queryRef;
    val QueryVariable[*] variables;
 }
 
 class QueryVariable{
     id attr EString uid;
-   ref QueryParameter queryParamRef;
+   ref artifact.QueryParameter queryParamRef;
    attr EString value;
 }
 
 class ArtifactRef{
     id attr EString uid;
-   ref DomainArtifact domainArtifactRef;
-   ref Artifact artifactRef;
+   ref artifact.Artifact artifactRef;
 }
 

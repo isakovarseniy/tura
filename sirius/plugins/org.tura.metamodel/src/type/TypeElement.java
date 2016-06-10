@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.TypeElement#getUid <em>Uid</em>}</li>
  *   <li>{@link type.TypeElement#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getTypeElement()
  * @model

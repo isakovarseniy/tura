@@ -18,11 +18,11 @@ import type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link type.impl.TypeElementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link type.impl.TypeElementImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

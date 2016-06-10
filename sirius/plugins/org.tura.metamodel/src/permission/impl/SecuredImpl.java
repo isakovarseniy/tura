@@ -26,10 +26,10 @@ import permission.Secured;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link permission.impl.SecuredImpl#getGrants <em>Grants</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

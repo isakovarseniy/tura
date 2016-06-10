@@ -10,10 +10,10 @@ package type;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.ReturnValue#getUid <em>Uid</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getReturnValue()
  * @model

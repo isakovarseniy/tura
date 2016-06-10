@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.Type#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link type.Type#getOperations <em>Operations</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getType()
  * @model

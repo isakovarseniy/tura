@@ -29,12 +29,12 @@ import permission.Roles;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link permission.impl.RolesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link permission.impl.RolesImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link permission.impl.RolesImpl#getGroups <em>Groups</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

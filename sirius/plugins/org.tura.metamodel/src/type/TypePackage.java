@@ -429,22 +429,13 @@ public interface TypePackage extends EPackage {
 	int TYPE_POINTER = 6;
 
 	/**
-	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_POINTER__PACKAGE_REF = 0;
-
-	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_POINTER__TYPE_REF = 1;
+	int TYPE_POINTER__TYPE_REF = 0;
 
 	/**
 	 * The number of structural features of the '<em>Pointer</em>' class.
@@ -453,7 +444,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_POINTER_FEATURE_COUNT = 2;
+	int TYPE_POINTER_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Pointer</em>' class.
@@ -465,6 +456,43 @@ public interface TypePackage extends EPackage {
 	int TYPE_POINTER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link type.impl.PackagePointerImpl <em>Package Pointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see type.impl.PackagePointerImpl
+	 * @see type.impl.TypePackageImpl#getPackagePointer()
+	 * @generated
+	 */
+	int PACKAGE_POINTER = 7;
+
+	/**
+	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_POINTER__PACKAGE_REF = 0;
+
+	/**
+	 * The number of structural features of the '<em>Package Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_POINTER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Package Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_POINTER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link type.impl.AssosiationImpl <em>Assosiation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -472,7 +500,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getAssosiation()
 	 * @generated
 	 */
-	int ASSOSIATION = 7;
+	int ASSOSIATION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -581,7 +609,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getLink()
 	 * @generated
 	 */
-	int LINK = 8;
+	int LINK = 9;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -636,16 +664,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
+	int ATTRIBUTE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -718,7 +737,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 10;
+	int OPERATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Grants</b></em>' containment reference list.
@@ -809,7 +828,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getPrimitive()
 	 * @generated
 	 */
-	int PRIMITIVE = 11;
+	int PRIMITIVE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -855,7 +874,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 12;
+	int TYPE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -928,7 +947,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getTypeReference()
 	 * @generated
 	 */
-	int TYPE_REFERENCE = 13;
+	int TYPE_REFERENCE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -949,22 +968,13 @@ public interface TypePackage extends EPackage {
 	int TYPE_REFERENCE__NAME = TYPE_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_REFERENCE__PACKAGE_REF = TYPE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_REFERENCE__TYPE_REF = TYPE_ELEMENT_FEATURE_COUNT + 1;
+	int TYPE_REFERENCE__TYPE_REF = TYPE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
@@ -973,7 +983,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 2;
+	int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Reference</em>' class.
@@ -992,16 +1002,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 14;
-
-	/**
-	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
+	int PARAMETER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -1065,16 +1066,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getReturnValue()
 	 * @generated
 	 */
-	int RETURN_VALUE = 15;
-
-	/**
-	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RETURN_VALUE__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
+	int RETURN_VALUE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -1120,7 +1112,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getEnumarator()
 	 * @generated
 	 */
-	int ENUMARATOR = 16;
+	int ENUMARATOR = 17;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1175,7 +1167,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getEnumAttribute()
 	 * @generated
 	 */
-	int ENUM_ATTRIBUTE = 17;
+	int ENUM_ATTRIBUTE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -1241,6 +1233,52 @@ public interface TypePackage extends EPackage {
 	int ENUM_ATTRIBUTE_OPERATION_COUNT = CommonPackage.CATEGORIZED_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link type.impl.MethodPointerImpl <em>Method Pointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see type.impl.MethodPointerImpl
+	 * @see type.impl.TypePackageImpl#getMethodPointer()
+	 * @generated
+	 */
+	int METHOD_POINTER = 19;
+
+	/**
+	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_POINTER__TYPE_REF = TYPE_POINTER__TYPE_REF;
+
+	/**
+	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_POINTER__METHOD_REF = TYPE_POINTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Method Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_POINTER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Method Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_POINTER_OPERATION_COUNT = TYPE_POINTER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link type.RelationType <em>Relation Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1248,7 +1286,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getRelationType()
 	 * @generated
 	 */
-	int RELATION_TYPE = 18;
+	int RELATION_TYPE = 20;
 
 
 	/**
@@ -1454,17 +1492,6 @@ public interface TypePackage extends EPackage {
 	EClass getTypePointer();
 
 	/**
-	 * Returns the meta object for the reference '{@link type.TypePointer#getPackageRef <em>Package Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Package Ref</em>'.
-	 * @see type.TypePointer#getPackageRef()
-	 * @see #getTypePointer()
-	 * @generated
-	 */
-	EReference getTypePointer_PackageRef();
-
-	/**
 	 * Returns the meta object for the reference '{@link type.TypePointer#getTypeRef <em>Type Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1474,6 +1501,27 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTypePointer_TypeRef();
+
+	/**
+	 * Returns the meta object for class '{@link type.PackagePointer <em>Package Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Package Pointer</em>'.
+	 * @see type.PackagePointer
+	 * @generated
+	 */
+	EClass getPackagePointer();
+
+	/**
+	 * Returns the meta object for the reference '{@link type.PackagePointer#getPackageRef <em>Package Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Package Ref</em>'.
+	 * @see type.PackagePointer#getPackageRef()
+	 * @see #getPackagePointer()
+	 * @generated
+	 */
+	EReference getPackagePointer_PackageRef();
 
 	/**
 	 * Returns the meta object for class '{@link type.Assosiation <em>Assosiation</em>}'.
@@ -1883,6 +1931,27 @@ public interface TypePackage extends EPackage {
 	EAttribute getEnumAttribute_Value();
 
 	/**
+	 * Returns the meta object for class '{@link type.MethodPointer <em>Method Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Method Pointer</em>'.
+	 * @see type.MethodPointer
+	 * @generated
+	 */
+	EClass getMethodPointer();
+
+	/**
+	 * Returns the meta object for the reference '{@link type.MethodPointer#getMethodRef <em>Method Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Method Ref</em>'.
+	 * @see type.MethodPointer#getMethodRef()
+	 * @see #getMethodPointer()
+	 * @generated
+	 */
+	EReference getMethodPointer_MethodRef();
+
+	/**
 	 * Returns the meta object for enum '{@link type.RelationType <em>Relation Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2082,20 +2151,30 @@ public interface TypePackage extends EPackage {
 		EClass TYPE_POINTER = eINSTANCE.getTypePointer();
 
 		/**
-		 * The meta object literal for the '<em><b>Package Ref</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE_POINTER__PACKAGE_REF = eINSTANCE.getTypePointer_PackageRef();
-
-		/**
 		 * The meta object literal for the '<em><b>Type Ref</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference TYPE_POINTER__TYPE_REF = eINSTANCE.getTypePointer_TypeRef();
+
+		/**
+		 * The meta object literal for the '{@link type.impl.PackagePointerImpl <em>Package Pointer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see type.impl.PackagePointerImpl
+		 * @see type.impl.TypePackageImpl#getPackagePointer()
+		 * @generated
+		 */
+		EClass PACKAGE_POINTER = eINSTANCE.getPackagePointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Package Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE_POINTER__PACKAGE_REF = eINSTANCE.getPackagePointer_PackageRef();
 
 		/**
 		 * The meta object literal for the '{@link type.impl.AssosiationImpl <em>Assosiation</em>}' class.
@@ -2422,6 +2501,24 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENUM_ATTRIBUTE__VALUE = eINSTANCE.getEnumAttribute_Value();
+
+		/**
+		 * The meta object literal for the '{@link type.impl.MethodPointerImpl <em>Method Pointer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see type.impl.MethodPointerImpl
+		 * @see type.impl.TypePackageImpl#getMethodPointer()
+		 * @generated
+		 */
+		EClass METHOD_POINTER = eINSTANCE.getMethodPointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Method Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD_POINTER__METHOD_REF = eINSTANCE.getMethodPointer_MethodRef();
 
 		/**
 		 * The meta object literal for the '{@link type.RelationType <em>Relation Type</em>}' enum.

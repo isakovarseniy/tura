@@ -1,10 +1,14 @@
 @namespace(uri="http://tura.org/2016/v2/application", prefix="tura.application")
 package application;
 	
-import "platform:/resource/org.tura.metamodel/model/mapper.ecore";
 import "platform:/resource/org.tura.metamodel/model/permission.ecore";
+import "platform:/resource/org.tura.metamodel/model/style.ecore";
+import "platform:/resource/org.tura.metamodel/model/infrastructure.ecore";
+import "platform:/resource/org.tura.metamodel/model/messages.ecore";
+import "platform:/resource/org.tura.metamodel/model/mapper.ecore";
 import "platform:/resource/org.tura.metamodel/model/recipe.ecore";
-import "platform:/resource/org.tura.metamodel/model/infrastructure.emf";
+import "platform:/resource/org.tura.metamodel/model/form.ecore";
+	
 	
 	
 	
@@ -32,7 +36,7 @@ class ApplicationInfrastructureLayers{
 class ApplicationInfrastructureLayer{
     id attr EString uid;
    attr EString name;
-   val EnterpriseInfrastructure infarastructure;
+   val infrastructure.EnterpriseInfrastructure infarastructure;
 }
 	
 	
@@ -46,7 +50,7 @@ class ApplicationMessageLibraries{
 class ApplicationMessageLibrary{
     id attr EString uid;
    attr EString name;
-   val Messages  messages;
+   val message.Messages  messages;
 }
 
 
@@ -59,7 +63,7 @@ class ApplicationRealms{
 class ApplicationRealm{
     id attr EString uid;
    attr EString name;
-   val Roles roles; 
+   val permission.Roles roles; 
 }
 
 
@@ -73,7 +77,7 @@ class ApplicationStyleLibraries {
 class ApplicationStyle {
     id attr EString uid;
    attr EString name;
-   val StylesPackage[*] stylesPackage;
+   val style.Styles[*] stylesPackage;
 }
 
 
@@ -86,7 +90,7 @@ class ApplicationUILayer {
 class ApplicationUIPackage{
     id attr EString uid;
    attr EString name;
-   val UIPackage uipackage;
+   val form.UIPackage uipackage;
 }
 
 
@@ -99,7 +103,7 @@ class ApplicationRecipes {
 class ApplicationRecipe{
     id attr EString uid;
    attr EString name;
-   val Recipe recipes;
+   val recipe.Recipe recipes;
 }
 
 class ApplicationMappers {
@@ -111,7 +115,7 @@ class ApplicationMappers {
 class ApplicationMapper{
     id attr EString uid;
    attr EString name;
-   ref Mappers mapper; 
+   ref mapper.Mappers mapper; 
 }
 
 	

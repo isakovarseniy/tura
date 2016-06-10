@@ -17,7 +17,9 @@ import type.EnumAttribute;
 import type.Enumarator;
 import type.Generalization;
 import type.Link;
+import type.MethodPointer;
 import type.Operation;
+import type.PackagePointer;
 import type.Parameter;
 import type.Primitive;
 import type.References;
@@ -68,7 +70,7 @@ public class TypeSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -131,6 +133,12 @@ public class TypeSwitch<T> extends Switch<T> {
 			case TypePackage.TYPE_POINTER: {
 				TypePointer typePointer = (TypePointer)theEObject;
 				T result = caseTypePointer(typePointer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypePackage.PACKAGE_POINTER: {
+				PackagePointer packagePointer = (PackagePointer)theEObject;
+				T result = casePackagePointer(packagePointer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -212,6 +220,13 @@ public class TypeSwitch<T> extends Switch<T> {
 				EnumAttribute enumAttribute = (EnumAttribute)theEObject;
 				T result = caseEnumAttribute(enumAttribute);
 				if (result == null) result = caseCategorized(enumAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypePackage.METHOD_POINTER: {
+				MethodPointer methodPointer = (MethodPointer)theEObject;
+				T result = caseMethodPointer(methodPointer);
+				if (result == null) result = caseTypePointer(methodPointer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -321,6 +336,21 @@ public class TypeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypePointer(TypePointer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Package Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Package Pointer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePackagePointer(PackagePointer object) {
 		return null;
 	}
 
@@ -486,6 +516,21 @@ public class TypeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEnumAttribute(EnumAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method Pointer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethodPointer(MethodPointer object) {
 		return null;
 	}
 

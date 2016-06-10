@@ -2,10 +2,10 @@
  */
 package artifact.tests;
 
-import artifact.Artifact;
 import artifact.ArtifactFactory;
 import artifact.ArtifactPackage;
 
+import artifact.Artifacts;
 import java.io.File;
 import java.io.IOException;
 
@@ -60,7 +60,7 @@ public class ArtifactExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.artifact"));
-				Artifact root = ArtifactFactory.eINSTANCE.createArtifact();
+				Artifacts root = ArtifactFactory.eINSTANCE.createArtifacts();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

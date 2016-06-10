@@ -11,13 +11,13 @@ import common.Categorized;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.EnumAttribute#getUid <em>Uid</em>}</li>
  *   <li>{@link type.EnumAttribute#getParent <em>Parent</em>}</li>
  *   <li>{@link type.EnumAttribute#getName <em>Name</em>}</li>
  *   <li>{@link type.EnumAttribute#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getEnumAttribute()
  * @model

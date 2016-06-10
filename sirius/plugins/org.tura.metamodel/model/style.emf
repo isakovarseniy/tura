@@ -2,7 +2,6 @@
 package style;
 
 
-@gmf.diagram.style
 class Styles{
     id attr EString uid;
     val StyleLibrary[*] libraries;
@@ -18,4 +17,9 @@ class StyleLibrary{
 class StyleSet{
     id attr EString uid;
    attr EString name;
+}
+
+
+class StylePointer{
+   ref StyleLibrary styleLibrary;
 }

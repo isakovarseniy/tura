@@ -18,12 +18,12 @@ import type.Repository;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.domain.impl.DomainTypesRepositoryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.impl.DomainTypesRepositoryImpl#getName <em>Name</em>}</li>
  *   <li>{@link tura.domain.impl.DomainTypesRepositoryImpl#getRepository <em>Repository</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

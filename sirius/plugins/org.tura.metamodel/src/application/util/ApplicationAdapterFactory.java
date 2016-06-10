@@ -72,6 +72,62 @@ public class ApplicationAdapterFactory extends AdapterFactoryImpl {
 				return createApplicationAdapter();
 			}
 			@Override
+			public Adapter caseApplicationInfrastructureLayers(ApplicationInfrastructureLayers object) {
+				return createApplicationInfrastructureLayersAdapter();
+			}
+			@Override
+			public Adapter caseApplicationInfrastructureLayer(ApplicationInfrastructureLayer object) {
+				return createApplicationInfrastructureLayerAdapter();
+			}
+			@Override
+			public Adapter caseApplicationMessageLibraries(ApplicationMessageLibraries object) {
+				return createApplicationMessageLibrariesAdapter();
+			}
+			@Override
+			public Adapter caseApplicationMessageLibrary(ApplicationMessageLibrary object) {
+				return createApplicationMessageLibraryAdapter();
+			}
+			@Override
+			public Adapter caseApplicationRealms(ApplicationRealms object) {
+				return createApplicationRealmsAdapter();
+			}
+			@Override
+			public Adapter caseApplicationRealm(ApplicationRealm object) {
+				return createApplicationRealmAdapter();
+			}
+			@Override
+			public Adapter caseApplicationStyleLibraries(ApplicationStyleLibraries object) {
+				return createApplicationStyleLibrariesAdapter();
+			}
+			@Override
+			public Adapter caseApplicationStyle(ApplicationStyle object) {
+				return createApplicationStyleAdapter();
+			}
+			@Override
+			public Adapter caseApplicationUILayer(ApplicationUILayer object) {
+				return createApplicationUILayerAdapter();
+			}
+			@Override
+			public Adapter caseApplicationUIPackage(ApplicationUIPackage object) {
+				return createApplicationUIPackageAdapter();
+			}
+			@Override
+			public Adapter caseApplicationRecipes(ApplicationRecipes object) {
+				return createApplicationRecipesAdapter();
+			}
+			@Override
+			public Adapter caseApplicationRecipe(ApplicationRecipe object) {
+				return createApplicationRecipeAdapter();
+			}
+			@Override
+			public Adapter caseApplicationMappers(ApplicationMappers object) {
+				return createApplicationMappersAdapter();
+			}
+			@Override
+			public Adapter caseApplicationMapper(ApplicationMapper object) {
+				return createApplicationMapperAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -102,6 +158,202 @@ public class ApplicationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationInfrastructureLayers <em>Infrastructure Layers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationInfrastructureLayers
+	 * @generated
+	 */
+	public Adapter createApplicationInfrastructureLayersAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationInfrastructureLayer <em>Infrastructure Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationInfrastructureLayer
+	 * @generated
+	 */
+	public Adapter createApplicationInfrastructureLayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationMessageLibraries <em>Message Libraries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationMessageLibraries
+	 * @generated
+	 */
+	public Adapter createApplicationMessageLibrariesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationMessageLibrary <em>Message Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationMessageLibrary
+	 * @generated
+	 */
+	public Adapter createApplicationMessageLibraryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationRealms <em>Realms</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationRealms
+	 * @generated
+	 */
+	public Adapter createApplicationRealmsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationRealm <em>Realm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationRealm
+	 * @generated
+	 */
+	public Adapter createApplicationRealmAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationStyleLibraries <em>Style Libraries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationStyleLibraries
+	 * @generated
+	 */
+	public Adapter createApplicationStyleLibrariesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationStyle <em>Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationStyle
+	 * @generated
+	 */
+	public Adapter createApplicationStyleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationUILayer <em>UI Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationUILayer
+	 * @generated
+	 */
+	public Adapter createApplicationUILayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationUIPackage <em>UI Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationUIPackage
+	 * @generated
+	 */
+	public Adapter createApplicationUIPackageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationRecipes <em>Recipes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationRecipes
+	 * @generated
+	 */
+	public Adapter createApplicationRecipesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationRecipe <em>Recipe</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationRecipe
+	 * @generated
+	 */
+	public Adapter createApplicationRecipeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationMappers <em>Mappers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationMappers
+	 * @generated
+	 */
+	public Adapter createApplicationMappersAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link application.ApplicationMapper <em>Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see application.ApplicationMapper
+	 * @generated
+	 */
+	public Adapter createApplicationMapperAdapter() {
 		return null;
 	}
 

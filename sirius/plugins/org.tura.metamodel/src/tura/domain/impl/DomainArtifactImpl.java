@@ -18,12 +18,12 @@ import tura.domain.DomainPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.domain.impl.DomainArtifactImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.impl.DomainArtifactImpl#getName <em>Name</em>}</li>
  *   <li>{@link tura.domain.impl.DomainArtifactImpl#getArtifact <em>Artifact</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

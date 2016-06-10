@@ -29,6 +29,7 @@ import type.TypePointer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link type.impl.AssosiationImpl#getType <em>Type</em>}</li>
  *   <li>{@link type.impl.AssosiationImpl#getLinks <em>Links</em>}</li>
@@ -36,7 +37,6 @@ import type.TypePointer;
  *   <li>{@link type.impl.AssosiationImpl#getTargetOperation <em>Target Operation</em>}</li>
  *   <li>{@link type.impl.AssosiationImpl#getMany2manyHelper <em>Many2many Helper</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

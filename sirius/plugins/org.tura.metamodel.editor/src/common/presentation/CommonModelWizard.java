@@ -72,8 +72,6 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import common.CommonFactory;
 import common.CommonPackage;
 import tura.domain.provider.DomainEditPlugin;
-
-
 import org.eclipse.core.runtime.Path;
 
 import org.eclipse.jface.viewers.ISelection;
@@ -83,7 +81,6 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
-
 import tura.domain.presentation.DomainEditorPlugin;
 
 

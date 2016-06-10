@@ -68,8 +68,40 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 	protected ArtifactSwitch<Adapter> modelSwitch =
 		new ArtifactSwitch<Adapter>() {
 			@Override
+			public Adapter caseArtifacts(Artifacts object) {
+				return createArtifactsAdapter();
+			}
+			@Override
 			public Adapter caseArtifact(Artifact object) {
 				return createArtifactAdapter();
+			}
+			@Override
+			public Adapter caseGenerationHint(GenerationHint object) {
+				return createGenerationHintAdapter();
+			}
+			@Override
+			public Adapter caseConfigVariable(ConfigVariable object) {
+				return createConfigVariableAdapter();
+			}
+			@Override
+			public Adapter caseConfigHash(ConfigHash object) {
+				return createConfigHashAdapter();
+			}
+			@Override
+			public Adapter caseModelQuery(ModelQuery object) {
+				return createModelQueryAdapter();
+			}
+			@Override
+			public Adapter caseQueryParameter(QueryParameter object) {
+				return createQueryParameterAdapter();
+			}
+			@Override
+			public Adapter caseTechnology(Technology object) {
+				return createTechnologyAdapter();
+			}
+			@Override
+			public Adapter caseOption(Option object) {
+				return createOptionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -92,6 +124,20 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link artifact.Artifacts <em>Artifacts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.Artifacts
+	 * @generated
+	 */
+	public Adapter createArtifactsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link artifact.Artifact <em>Artifact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -102,6 +148,104 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArtifactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.GenerationHint <em>Generation Hint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.GenerationHint
+	 * @generated
+	 */
+	public Adapter createGenerationHintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.ConfigVariable <em>Config Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.ConfigVariable
+	 * @generated
+	 */
+	public Adapter createConfigVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.ConfigHash <em>Config Hash</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.ConfigHash
+	 * @generated
+	 */
+	public Adapter createConfigHashAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.ModelQuery <em>Model Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.ModelQuery
+	 * @generated
+	 */
+	public Adapter createModelQueryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.QueryParameter <em>Query Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.QueryParameter
+	 * @generated
+	 */
+	public Adapter createQueryParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.Technology <em>Technology</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.Technology
+	 * @generated
+	 */
+	public Adapter createTechnologyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.Option <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.Option
+	 * @generated
+	 */
+	public Adapter createOptionAdapter() {
 		return null;
 	}
 

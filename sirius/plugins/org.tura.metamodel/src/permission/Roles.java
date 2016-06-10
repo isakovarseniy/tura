@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link permission.Roles#getUid <em>Uid</em>}</li>
  *   <li>{@link permission.Roles#getRoles <em>Roles</em>}</li>
  *   <li>{@link permission.Roles#getGroups <em>Groups</em>}</li>
  * </ul>
- * </p>
  *
  * @see permission.PermissionPackage#getRoles()
  * @model

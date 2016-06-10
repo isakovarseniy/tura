@@ -11,12 +11,12 @@ import common.Categorized;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.Relationship#getUid <em>Uid</em>}</li>
  *   <li>{@link type.Relationship#getSource <em>Source</em>}</li>
  *   <li>{@link type.Relationship#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getRelationship()
  * @model

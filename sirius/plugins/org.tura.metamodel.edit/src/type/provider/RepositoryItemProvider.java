@@ -23,9 +23,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import tura.domain.provider.DomainEditPlugin;
-
 import type.Repository;
 import type.TypeFactory;
 import type.TypePackage;

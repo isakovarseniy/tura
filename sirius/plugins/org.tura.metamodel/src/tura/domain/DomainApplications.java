@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.domain.DomainApplications#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.DomainApplications#getName <em>Name</em>}</li>
  *   <li>{@link tura.domain.DomainApplications#getApplications <em>Applications</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.domain.DomainPackage#getDomainApplications()
  * @model

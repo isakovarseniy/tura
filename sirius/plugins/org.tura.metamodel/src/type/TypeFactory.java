@@ -85,6 +85,15 @@ public interface TypeFactory extends EFactory {
 	TypePointer createTypePointer();
 
 	/**
+	 * Returns a new object of class '<em>Package Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Package Pointer</em>'.
+	 * @generated
+	 */
+	PackagePointer createPackagePointer();
+
+	/**
 	 * Returns a new object of class '<em>Assosiation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +191,15 @@ public interface TypeFactory extends EFactory {
 	 * @generated
 	 */
 	EnumAttribute createEnumAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Method Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Method Pointer</em>'.
+	 * @generated
+	 */
+	MethodPointer createMethodPointer();
 
 	/**
 	 * Returns the package supported by this factory.

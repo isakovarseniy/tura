@@ -22,9 +22,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import permission.provider.SecuredItemProvider;
-
 import tura.domain.provider.DomainEditPlugin;
-
 import type.Operation;
 import type.TypeFactory;
 import type.TypePackage;

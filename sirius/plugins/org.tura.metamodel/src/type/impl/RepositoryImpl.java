@@ -27,12 +27,12 @@ import type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link type.impl.RepositoryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link type.impl.RepositoryImpl#getName <em>Name</em>}</li>
  *   <li>{@link type.impl.RepositoryImpl#getPackages <em>Packages</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

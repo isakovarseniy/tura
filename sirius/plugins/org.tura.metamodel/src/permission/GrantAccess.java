@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link permission.GrantAccess#getUid <em>Uid</em>}</li>
  *   <li>{@link permission.GrantAccess#getRoleRef <em>Role Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @see permission.PermissionPackage#getGrantAccess()
  * @model

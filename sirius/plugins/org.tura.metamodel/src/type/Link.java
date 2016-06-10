@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link type.Link#getUid <em>Uid</em>}</li>
  *   <li>{@link type.Link#getMasterField <em>Master Field</em>}</li>
  *   <li>{@link type.Link#getDetailField <em>Detail Field</em>}</li>
  * </ul>
- * </p>
  *
  * @see type.TypePackage#getLink()
  * @model

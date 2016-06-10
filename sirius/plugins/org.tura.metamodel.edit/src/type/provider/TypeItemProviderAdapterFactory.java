@@ -233,6 +233,29 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link type.PackagePointer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PackagePointerItemProvider packagePointerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link type.PackagePointer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPackagePointerAdapter() {
+		if (packagePointerItemProvider == null) {
+			packagePointerItemProvider = new PackagePointerItemProvider(this);
+		}
+
+		return packagePointerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link type.Assosiation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,6 +509,29 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link type.MethodPointer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodPointerItemProvider methodPointerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link type.MethodPointer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodPointerAdapter() {
+		if (methodPointerItemProvider == null) {
+			methodPointerItemProvider = new MethodPointerItemProvider(this);
+		}
+
+		return methodPointerItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -591,6 +637,7 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 		if (referencesItemProvider != null) referencesItemProvider.dispose();
 		if (generalizationItemProvider != null) generalizationItemProvider.dispose();
 		if (typePointerItemProvider != null) typePointerItemProvider.dispose();
+		if (packagePointerItemProvider != null) packagePointerItemProvider.dispose();
 		if (assosiationItemProvider != null) assosiationItemProvider.dispose();
 		if (linkItemProvider != null) linkItemProvider.dispose();
 		if (attributeItemProvider != null) attributeItemProvider.dispose();
@@ -602,6 +649,7 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 		if (returnValueItemProvider != null) returnValueItemProvider.dispose();
 		if (enumaratorItemProvider != null) enumaratorItemProvider.dispose();
 		if (enumAttributeItemProvider != null) enumAttributeItemProvider.dispose();
+		if (methodPointerItemProvider != null) methodPointerItemProvider.dispose();
 	}
 
 }

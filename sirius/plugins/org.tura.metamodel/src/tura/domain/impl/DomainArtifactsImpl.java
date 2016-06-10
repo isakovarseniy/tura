@@ -22,12 +22,12 @@ import tura.domain.DomainPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.domain.impl.DomainArtifactsImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.impl.DomainArtifactsImpl#getName <em>Name</em>}</li>
  *   <li>{@link tura.domain.impl.DomainArtifactsImpl#getDomainArtifact <em>Domain Artifact</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
