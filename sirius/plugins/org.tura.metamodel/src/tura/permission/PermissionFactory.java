@@ -31,6 +31,15 @@ public interface PermissionFactory extends EFactory {
 	Roles createRoles();
 
 	/**
+	 * Returns a new object of class '<em>Security Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Security Entity</em>'.
+	 * @generated
+	 */
+	SecurityEntity createSecurityEntity();
+
+	/**
 	 * Returns a new object of class '<em>Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +74,15 @@ public interface PermissionFactory extends EFactory {
 	 * @generated
 	 */
 	GrantAccess createGrantAccess();
+
+	/**
+	 * Returns a new object of class '<em>Security Entity Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Security Entity Pointer</em>'.
+	 * @generated
+	 */
+	SecurityEntityPointer createSecurityEntityPointer();
 
 	/**
 	 * Returns the package supported by this factory.

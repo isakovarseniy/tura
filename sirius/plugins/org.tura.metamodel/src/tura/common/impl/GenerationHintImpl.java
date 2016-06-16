@@ -3,9 +3,12 @@
 package tura.common.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import tura.common.CommonPackage;
 import tura.common.GenerationHint;
 
@@ -15,12 +18,12 @@ import tura.common.GenerationHint;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.common.impl.GenerationHintImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.common.impl.GenerationHintImpl#getName <em>Name</em>}</li>
  *   <li>{@link tura.common.impl.GenerationHintImpl#getApplyedClass <em>Applyed Class</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

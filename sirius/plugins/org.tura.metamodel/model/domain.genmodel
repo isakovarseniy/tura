@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.tura.metamodel/src" modelPluginID="org.tura.metamodel"
+    modelName="Domain" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>domain.ecore</foreignModel>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="domain.ecore#/">
+    <nestedGenPackages prefix="Domain" disposableProviderFactory="true" ecorePackage="domain.ecore#//domain">
+      <genClasses ecoreClass="domain.ecore#//domain/Domain">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/Domain/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//domain/Domain/domainArtifacts"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//domain/Domain/domainTypes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//domain/Domain/domainApplications"/>
+      </genClasses>
+      <genClasses ecoreClass="domain.ecore#//domain/DomainArtifacts">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainArtifacts/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainArtifacts/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//domain/DomainArtifacts/domainArtifact"/>
+      </genClasses>
+      <genClasses ecoreClass="domain.ecore#//domain/DomainArtifact">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainArtifact/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainArtifact/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//domain/DomainArtifact/artifactPackages"/>
+      </genClasses>
+      <genClasses ecoreClass="domain.ecore#//domain/DomainTypes">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainTypes/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainTypes/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//domain/DomainTypes/typesRepository"/>
+      </genClasses>
+      <genClasses ecoreClass="domain.ecore#//domain/DomainTypesRepository">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainTypesRepository/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainTypesRepository/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//domain/DomainTypesRepository/repositoryPackages"/>
+      </genClasses>
+      <genClasses ecoreClass="domain.ecore#//domain/DomainApplications">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainApplications/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainApplications/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//domain/DomainApplications/applications"/>
+      </genClasses>
+      <genClasses ecoreClass="domain.ecore#//domain/DomainApplication">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainApplication/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//domain/DomainApplication/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//domain/DomainApplication/applicationPackages"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="artifact.ecore#/">
+    <nestedGenPackages prefix="Artifact" disposableProviderFactory="true" ecorePackage="artifact.ecore#//artifact">
+      <genClasses ecoreClass="artifact.ecore#//artifact/ArtifactGroup">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/ArtifactGroup/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/ArtifactGroup/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//artifact/ArtifactGroup/artifacts"/>
+      </genClasses>
+      <genClasses ecoreClass="artifact.ecore#//artifact/Artifact">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/Artifact/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/Artifact/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/Artifact/description"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//artifact/Artifact/configVariables"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//artifact/Artifact/configHashes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//artifact/Artifact/modelQuery"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//artifact/Artifact/technologies"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//artifact/Artifact/hints"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/Artifact/template"/>
+      </genClasses>
+      <genClasses ecoreClass="artifact.ecore#//artifact/GenerationHint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/GenerationHint/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/GenerationHint/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/GenerationHint/applyedClass"/>
+      </genClasses>
+      <genClasses ecoreClass="artifact.ecore#//artifact/ConfigVariable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/ConfigVariable/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/ConfigVariable/name"/>
+      </genClasses>
+      <genClasses ecoreClass="artifact.ecore#//artifact/ConfigHash">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/ConfigHash/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/ConfigHash/name"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference artifact.ecore#//artifact/ConfigHash/parent"/>
+      </genClasses>
+      <genClasses ecoreClass="artifact.ecore#//artifact/ModelQuery">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/ModelQuery/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/ModelQuery/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/ModelQuery/query"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//artifact/ModelQuery/parameters"/>
+      </genClasses>
+      <genClasses ecoreClass="artifact.ecore#//artifact/QueryParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/QueryParameter/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/QueryParameter/name"/>
+      </genClasses>
+      <genClasses ecoreClass="artifact.ecore#//artifact/Technology">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/Technology/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/Technology/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference artifact.ecore#//artifact/Technology/options"/>
+      </genClasses>
+      <genClasses ecoreClass="artifact.ecore#//artifact/Option">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/Option/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute artifact.ecore#//artifact/Option/value"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="type.ecore#/">
+    <nestedGenPackages prefix="Type" disposableProviderFactory="true" ecorePackage="type.ecore#//type">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="type.ecore#//type/RelationType">
+        <genEnumLiterals ecoreEnumLiteral="type.ecore#//type/RelationType/One2One"/>
+        <genEnumLiterals ecoreEnumLiteral="type.ecore#//type/RelationType/One2Many"/>
+        <genEnumLiterals ecoreEnumLiteral="type.ecore#//type/RelationType/Many2Many"/>
+      </genEnums>
+      <genClasses ecoreClass="type.ecore#//type/TypeGroup">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/TypeGroup/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/TypeGroup/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference type.ecore#//type/TypeGroup/types"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference type.ecore#//type/TypeGroup/relationships"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/TypeElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/TypeElement/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/TypeElement/name"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/Relationship">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Relationship/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference type.ecore#//type/Relationship/source"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference type.ecore#//type/Relationship/target"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/References"/>
+      <genClasses ecoreClass="type.ecore#//type/Generalization"/>
+      <genClasses ecoreClass="type.ecore#//type/TypePointer">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference type.ecore#//type/TypePointer/typeRef"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/PackagePointer">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference type.ecore#//type/PackagePointer/packageRef"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/Assosiation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Assosiation/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference type.ecore#//type/Assosiation/links"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Assosiation/sourceOperation"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Assosiation/targetOperation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference type.ecore#//type/Assosiation/many2manyHelper"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/Link">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Link/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference type.ecore#//type/Link/masterField"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference type.ecore#//type/Link/detailField"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/Attribute">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Attribute/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Attribute/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Attribute/pk"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/Operation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Operation/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Operation/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference type.ecore#//type/Operation/parent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference type.ecore#//type/Operation/parameters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference type.ecore#//type/Operation/returnValue"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/Primitive"/>
+      <genClasses ecoreClass="type.ecore#//type/Type">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference type.ecore#//type/Type/attributes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference type.ecore#//type/Type/operations"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/TypeReference"/>
+      <genClasses ecoreClass="type.ecore#//type/Parameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Parameter/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Parameter/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/Parameter/order"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/ReturnValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/ReturnValue/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/Enumarator">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference type.ecore#//type/Enumarator/values"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/EnumAttribute">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/EnumAttribute/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference type.ecore#//type/EnumAttribute/parent"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/EnumAttribute/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute type.ecore#//type/EnumAttribute/value"/>
+      </genClasses>
+      <genClasses ecoreClass="type.ecore#//type/MethodPointer">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference type.ecore#//type/MethodPointer/methodRef"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="application.ecore#/">
+    <nestedGenPackages prefix="Application" disposableProviderFactory="true" ecorePackage="application.ecore#//application">
+      <genClasses ecoreClass="application.ecore#//application/ApplicationGroup">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationGroup/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationGroup/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationGroup/applications"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/Application">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/Application/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/Application/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/Application/applicationRecipes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/Application/applicationMappers"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/Application/applicationUILayer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/Application/applicationInfrastructureLayer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/Application/applicationStyle"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/Application/applicationRole"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/Application/applicationMessages"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationInfrastructureLayers">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationInfrastructureLayers/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationInfrastructureLayers/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationInfrastructureLayers/infarastructureLayers"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationInfrastructureLayer">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationInfrastructureLayer/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationInfrastructureLayer/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationInfrastructureLayer/infarastructure"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationMessageLibraries">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMessageLibraries/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMessageLibraries/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationMessageLibraries/messageLibraries"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationMessageLibrary">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMessageLibrary/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMessageLibrary/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationMessageLibrary/messages"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationRealms">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationRealms/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationRealms/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationRealms/realms"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationRealm">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationRealm/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationRealm/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationRealm/roles"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationStyleLibraries">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationStyleLibraries/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationStyleLibraries/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationStyleLibraries/styleLibraries"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationStyle">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationStyle/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationStyle/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationStyle/stylesPackage"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationUILayer">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationUILayer/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationUILayer/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationUILayer/applicationUIPackages"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationUIPackage">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationUIPackage/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationUIPackage/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationUIPackage/uipackage"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationRecipes">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationRecipes/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationRecipes/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationRecipes/recipes"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationRecipe">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationRecipe/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationRecipe/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationRecipe/recipes"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationMappers">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMappers/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMappers/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationMappers/mappers"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationMapper">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMapper/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMapper/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference application.ecore#//application/ApplicationMapper/mapper"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="common.ecore#/">
+    <nestedGenPackages prefix="Common" disposableProviderFactory="true" ecorePackage="common.ecore#//common">
+      <genClasses ecoreClass="common.ecore#//common/Categorized">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference common.ecore#//common/Categorized/classifiers"/>
+      </genClasses>
+      <genClasses ecoreClass="common.ecore#//common/Classifier">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//common/Classifier/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference common.ecore#//common/Classifier/hint"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//common/Classifier/details"/>
+      </genClasses>
+      <genClasses ecoreClass="common.ecore#//common/GenerationHint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//common/GenerationHint/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//common/GenerationHint/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//common/GenerationHint/applyedClass"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="permission.ecore#/">
+    <nestedGenPackages prefix="Permission" disposableProviderFactory="true" ecorePackage="permission.ecore#//permission">
+      <genClasses ecoreClass="permission.ecore#//permission/Roles">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute permission.ecore#//permission/Roles/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference permission.ecore#//permission/Roles/roles"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference permission.ecore#//permission/Roles/groups"/>
+      </genClasses>
+      <genClasses ecoreClass="permission.ecore#//permission/SecurityEntity"/>
+      <genClasses ecoreClass="permission.ecore#//permission/Role">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute permission.ecore#//permission/Role/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute permission.ecore#//permission/Role/name"/>
+      </genClasses>
+      <genClasses ecoreClass="permission.ecore#//permission/Group">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute permission.ecore#//permission/Group/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute permission.ecore#//permission/Group/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference permission.ecore#//permission/Group/group2Group"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference permission.ecore#//permission/Group/group2Role"/>
+      </genClasses>
+      <genClasses ecoreClass="permission.ecore#//permission/Secured">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference permission.ecore#//permission/Secured/grants"/>
+      </genClasses>
+      <genClasses ecoreClass="permission.ecore#//permission/GrantAccess">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute permission.ecore#//permission/GrantAccess/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference permission.ecore#//permission/GrantAccess/roleRef"/>
+      </genClasses>
+      <genClasses ecoreClass="permission.ecore#//permission/SecurityEntityPointer">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference permission.ecore#//permission/SecurityEntityPointer/securityEntity"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="infrastructure.ecore#/">
+    <nestedGenPackages prefix="Infrastructure" disposableProviderFactory="true" ecorePackage="infrastructure.ecore#//infrastructure">
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/EnterpriseInfrastructure">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//infrastructure/EnterpriseInfrastructure/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//infrastructure/EnterpriseInfrastructure/datacenters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//infrastructure/EnterpriseInfrastructure/infrastructureConnections"/>
+      </genClasses>
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/Datacenter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//infrastructure/Datacenter/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//infrastructure/Datacenter/subsystems"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//infrastructure/Datacenter/name"/>
+      </genClasses>
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/Subsystem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//infrastructure/Subsystem/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//infrastructure/Subsystem/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//infrastructure/Subsystem/infrastructureLayer"/>
+      </genClasses>
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/InfrastructureLayer">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//infrastructure/InfrastructureLayer/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//infrastructure/InfrastructureLayer/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//infrastructure/InfrastructureLayer/infrastructureComponent"/>
+      </genClasses>
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/InfrastructureConnection">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//infrastructure/InfrastructureConnection/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference infrastructure.ecore#//infrastructure/InfrastructureConnection/master"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference infrastructure.ecore#//infrastructure/InfrastructureConnection/detail"/>
+      </genClasses>
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/InfrastructureComponent">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//infrastructure/InfrastructureComponent/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//infrastructure/InfrastructureComponent/name"/>
+      </genClasses>
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/Server"/>
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/Router"/>
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/Hub"/>
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/Storage"/>
+      <genClasses ecoreClass="infrastructure.ecore#//infrastructure/ServerClaster">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//infrastructure/ServerClaster/servers"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="messages.ecore#/">
+    <nestedGenPackages prefix="Message" disposableProviderFactory="true" ecorePackage="messages.ecore#//message">
+      <genClasses ecoreClass="messages.ecore#//message/MessagesRepository">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessagesRepository/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessagesRepository/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/MessagesRepository/messages"/>
+      </genClasses>
+      <genClasses ecoreClass="messages.ecore#//message/MessagesGroup">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessagesGroup/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessagesGroup/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/MessagesGroup/messages"/>
+      </genClasses>
+      <genClasses ecoreClass="messages.ecore#//message/Messages">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Messages/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/Messages/messageLibraries"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/Messages/languages"/>
+      </genClasses>
+      <genClasses ecoreClass="messages.ecore#//message/MessageLibrary">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessageLibrary/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessageLibrary/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/MessageLibrary/libLanguages"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/MessageLibrary/messages"/>
+      </genClasses>
+      <genClasses ecoreClass="messages.ecore#//message/LanguageRef">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/LanguageRef/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference messages.ecore#//message/LanguageRef/lang"/>
+      </genClasses>
+      <genClasses ecoreClass="messages.ecore#//message/Message">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Message/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Message/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/Message/translatioins"/>
+      </genClasses>
+      <genClasses ecoreClass="messages.ecore#//message/Translation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Translation/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Translation/translation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference messages.ecore#//message/Translation/lang"/>
+      </genClasses>
+      <genClasses ecoreClass="messages.ecore#//message/Language">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Language/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Language/lang"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Language/code"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Language/defaultLang"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="style.ecore#/">
+    <nestedGenPackages prefix="Style" disposableProviderFactory="true" ecorePackage="style.ecore#//style">
+      <genClasses ecoreClass="style.ecore#//style/Styles">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute style.ecore#//style/Styles/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference style.ecore#//style/Styles/libraries"/>
+      </genClasses>
+      <genClasses ecoreClass="style.ecore#//style/StyleLibrary">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute style.ecore#//style/StyleLibrary/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute style.ecore#//style/StyleLibrary/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference style.ecore#//style/StyleLibrary/styles"/>
+      </genClasses>
+      <genClasses ecoreClass="style.ecore#//style/StyleSet">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute style.ecore#//style/StyleSet/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute style.ecore#//style/StyleSet/name"/>
+      </genClasses>
+      <genClasses ecoreClass="style.ecore#//style/StylePointer">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference style.ecore#//style/StylePointer/styleLibrary"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="form.ecore#/">
+    <nestedGenPackages prefix="Form" disposableProviderFactory="true" ecorePackage="form.ecore#//form">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="form.ecore#//form/Comparator">
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Comparator/EQ"/>
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Comparator/NEQ"/>
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Comparator/GT"/>
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Comparator/GEQ"/>
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Comparator/LT"/>
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Comparator/LEQ"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="form.ecore#//form/Order">
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Order/ASC"/>
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Order/DESC"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="form.ecore#//form/Orientation">
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Orientation/Top"/>
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Orientation/Bottom"/>
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Orientation/Left"/>
+        <genEnumLiterals ecoreEnumLiteral="form.ecore#//form/Orientation/Right"/>
+      </genEnums>
+      <genClasses ecoreClass="form.ecore#//form/UIPackage">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/UIPackage/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/UIPackage/forms"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Form">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Form/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Form/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Form/view"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Form/datacontrols"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Form/parameters"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/FormParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/FormParameter/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/FormParameter/name"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/FormView">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/FormView/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/FormView/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/FormView/view"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Views">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Views/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/Views/parent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Views/canvases"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Views/viewInheritances"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Views/tabPagesInheritances"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Views/menus"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/HTMLLayerHolder">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/HTMLLayerHolder/columns"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Orderable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Orderable/order"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/MultiLangLabel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/MultiLangLabel/multiLangLabel"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/CanvasFrame">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/CanvasFrame/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/CanvasFrame/name"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ViewPortHolder">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/ViewPortHolder/viewElement"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/DefaultCavas">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/DefaultCavas/defaultCanvas"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ViewElement"/>
+      <genClasses ecoreClass="form.ecore#//form/PopupCanvas">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/PopupCanvas/modal"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Canvas"/>
+      <genClasses ecoreClass="form.ecore#//form/Window"/>
+      <genClasses ecoreClass="form.ecore#//form/MenuDefinition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/MenuDefinition/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/MenuDefinition/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/MenuDefinition/menuView"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/TabCanvas">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/TabCanvas/orientation"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/TabPage"/>
+      <genClasses ecoreClass="form.ecore#//form/ViewPort">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ViewPort/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ViewPort/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/ViewPort/viewPortTrigger"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ViewArea">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ViewArea/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ViewArea/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/ViewArea/canvasView"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ViewPortTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ViewPortTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ViewInheritance">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ViewInheritance/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/ViewInheritance/source"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/ViewInheritance/target"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/TabPagesInheritance">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/TabPagesInheritance/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/TabPagesInheritance/source"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/TabPagesInheritance/target"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/FormDataControls">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/FormDataControls/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/FormDataControls/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/FormDataControls/formControl"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/CanvasView">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/CanvasView/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/CanvasView/parent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/CanvasView/baseCanvas"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/CanvasView/linkToLabels"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/CanvasView/linkToMessages"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/LinkToMessage">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/LinkToMessage/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/LinkToMessage/source"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/LinkToMessage/target"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/LinkToLabel">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/LinkToLabel/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/LinkToLabel/source"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/LinkToLabel/target"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ChildrenHolder">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/ChildrenHolder/children"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ContextParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ContextParameter/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/ContextParameter/refObj"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ContextParameter/operation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/ContextParameter/value"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ContextValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ContextValue/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ContextValue/constant"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ContextValue/value"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/ContextValue/expression"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ExpressionPart">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ExpressionPart/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/ExpressionPart/objRef"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ExpressionPart/order"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ExpressionPart/expressionType"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ContextParameters">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/ContextParameters/parameters"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Context"/>
+      <genClasses ecoreClass="form.ecore#//form/StyleElement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/StyleElement/style"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/StyleElement/styleClass"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/StyleClass">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/StyleClass/classifier"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/NickNamed">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/NickNamed/nickname"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/FlexFields">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/FlexFields/fields"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/FlexField"/>
+      <genClasses ecoreClass="form.ecore#//form/EnabledUIItem">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/EnabledUIItem/enabled"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Uielement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Uielement/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Uielement/required"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Uielement/readOnly"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Uielement/refreshAreas"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ItemIcon">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/ItemIcon/icon"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/AreaRef">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/AreaRef/area"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/AreaRef/group"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Formatable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Formatable/format"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/SourcesPointer">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/SourcesPointer/sourcePointer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/SourcesPointer/valuePointer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/SourcesPointer/sourceCast"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/SourcesPointer/sourceCastDataControl"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/InputElement"/>
+      <genClasses ecoreClass="form.ecore#//form/Selection">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/Selection/displayOptionPointer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/Selection/valueOptionPointer"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/OptionSelection">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/OptionSelection/optionPointer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/OptionSelection/optionCast"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/OptionSelection/optionCastDataControl"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/LayerHolder"/>
+      <genClasses ecoreClass="form.ecore#//form/InputText"/>
+      <genClasses ecoreClass="form.ecore#//form/Password"/>
+      <genClasses ecoreClass="form.ecore#//form/Label">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Label/label"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/MessageElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/MessageElement/label"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/OutputText"/>
+      <genClasses ecoreClass="form.ecore#//form/CheckBox"/>
+      <genClasses ecoreClass="form.ecore#//form/DropDownSelection">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DropDownSelection/selection"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DropDownSelection/initialOptionMessage"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/DropDownSelection/initialOptionValue"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Image"/>
+      <genClasses ecoreClass="form.ecore#//form/Date"/>
+      <genClasses ecoreClass="form.ecore#//form/Button">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Button/label"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Column">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Column/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Column/label"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Column/element"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Table">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Table/label"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Table/rowNumber"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Table/cols"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Menu"/>
+      <genClasses ecoreClass="form.ecore#//form/MenuView">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/MenuView/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/MenuView/parent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/MenuView/menuFolders"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/MenuHolder">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/MenuHolder/menu"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/MenuExtensionRef">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/MenuExtensionRef/extensionRef"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/MenuElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/MenuElement/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/MenuElement/name"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/MenuFolder">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/MenuFolder/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/MenuFolder/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/MenuFolder/extensionPoint"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/MenuFolder/menuElements"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/MenuItem">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/MenuItem/transition"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/MenuItem/refreshAreas"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/MenuExtensionPoint"/>
+      <genClasses ecoreClass="form.ecore#//form/SubMenu">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/SubMenu/toSubmenu"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/MenuSeparator"/>
+      <genClasses ecoreClass="form.ecore#//form/Tree">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Tree/label"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Tree/image"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Tree/cols"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Controls">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Controls/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/Controls/parent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Controls/root"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Controls/controls"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Controls/relations"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Controls/dependencies"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Trigger"/>
+      <genClasses ecoreClass="form.ecore#//form/PREFormTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/PREFormTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/PREQueryTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/PREQueryTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/POSTQueryTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/POSTQueryTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/PREInsertTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/PREInsertTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/PREDeleteTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/PREDeleteTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/POSTCreateTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/POSTCreateTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/PREUpdateTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/PREUpdateTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ProxiesList">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/ProxiesList/typePointers"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/CreateTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/CreateTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/InsertTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/InsertTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/UpdateTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/UpdateTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/DeleteTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/DeleteTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/SearchTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/SearchTrigger/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Root">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Root/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Root/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Root/preFormTrigger"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Root/variables"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/FormVariable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/FormVariable/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/FormVariable/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/FormVariable/paramRef"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/DataControl">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/DataControl/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/DataControl/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/baseType"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/parent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/preQueryTrigger"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/postQueryTrigger"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/preInsertTrigger"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/preDeleteTrigger"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/postCreateTrigger"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/preUpdateTrigger"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/create"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/insert"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/update"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/remove"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/search"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/artificialFields"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/defaultSearch"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/DataControl/defaultOrderBy"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Orders">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Orders/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Orders/orderRules"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/OrderBy">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/OrderBy/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/OrderBy/refObj"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/OrderBy/order"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Relation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Relation/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Relation/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/Relation/master"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/Relation/detail"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Relation/isTree"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference form.ecore#//form/Relation/links"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Dependency">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Dependency/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Dependency/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/Dependency/master"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/Dependency/detail"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/ArtificialField">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ArtificialField/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/ArtificialField/name"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference form.ecore#//form/ArtificialField/parent"/>
+      </genClasses>
+      <genClasses ecoreClass="form.ecore#//form/Link">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute form.ecore#//form/Link/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/Link/masterField"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference form.ecore#//form/Link/detailField"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="recipe.ecore#/">
+    <nestedGenPackages prefix="Recipe" disposableProviderFactory="true" ecorePackage="recipe.ecore#//recipe">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="recipe.ecore#//recipe/PlatformLayers">
+        <genEnumLiterals ecoreEnumLiteral="recipe.ecore#//recipe/PlatformLayers/ServiceLayer"/>
+        <genEnumLiterals ecoreEnumLiteral="recipe.ecore#//recipe/PlatformLayers/UILayer"/>
+      </genEnums>
+      <genClasses ecoreClass="recipe.ecore#//recipe/Recipes">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Recipes/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Recipes/recipe"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Recipes/configurations"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Recipes/infrastructures"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Recipes/deployment"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Recipes/configExtension"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/Recipe">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Recipe/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Recipe/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Recipe/ingredients"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/Recipe/infrastructures"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/Recipe/deployment"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/ConfigExtension">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/ConfigExtension/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/ConfigExtension/source"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/ConfigExtension/target"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/DeploymentSequence">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/DeploymentSequence/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/DeploymentSequence/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/DeploymentSequence/deploymentComponents"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/DeploymentComponents">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/DeploymentComponents/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/DeploymentComponents/deplymentStep"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/DeploymentComponents/startSeq"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/DeploymentComponent">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/DeploymentComponent/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/DeploymentComponent/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/DeploymentComponent/mapper"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/DeploymentComponent/deploymentComponentLink"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/DeploymentStarStep">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/DeploymentStarStep/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/DeploymentStarStep/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/DeploymentStarStep/firstStep"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/UsingMappers">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/UsingMappers/mappers"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/Ingredient">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Ingredient/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Ingredient/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Ingredient/components"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Ingredient/layer"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/Component">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Component/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Component/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Component/mappers"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Component/componentRoot"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/JavaComponent">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/JavaComponent/artifactId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/JavaComponent/groupId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/JavaComponent/version"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/JavaComponent/basePackage"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/Infrastructure">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Infrastructure/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/Infrastructure/recipe"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Infrastructure/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/Infrastructure/recipeConfig"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/Configuration">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Configuration/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Configuration/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/Configuration/infrastructure"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Configuration/properties"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Configuration/hashProperties"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/ModelMapper">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/ModelMapper/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/ModelMapper/artifactRoot"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/ModelMapper/specifiers"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/ModelMapper/queries"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/ModelMapper/artifactExecutionString"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/Property">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Property/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/Property/confVarRef"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Property/value"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Property/fakeName"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/HashProperty">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/HashProperty/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/HashProperty/confHashRef"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/HashProperty/hash"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/HashProperty/fakeName"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/KeyValuePair">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/KeyValuePair/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/KeyValuePair/key"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/KeyValuePair/value"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/MappingSpecifier">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/MappingSpecifier/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/MappingSpecifier/specifierRef"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/MappingSpecifier/valueRef"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/Query">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Query/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/Query/modelQuery"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/Query/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/Query/queryRef"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//recipe/Query/variables"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/QueryVariable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/QueryVariable/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/QueryVariable/queryParamRef"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/QueryVariable/value"/>
+      </genClasses>
+      <genClasses ecoreClass="recipe.ecore#//recipe/ArtifactRef">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//recipe/ArtifactRef/uid"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference recipe.ecore#//recipe/ArtifactRef/artifactRef"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="mapper.ecore#/">
+    <nestedGenPackages prefix="Mapper" disposableProviderFactory="true" ecorePackage="mapper.ecore#//mapper">
+      <genClasses ecoreClass="mapper.ecore#//mapper/Mappers">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/Mappers/uid"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mapper.ecore#//mapper/Mappers/mappers"/>
+      </genClasses>
+      <genClasses ecoreClass="mapper.ecore#//mapper/Mapper">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/Mapper/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/Mapper/serviceLayer"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/Mapper/uiLayer"/>
+      </genClasses>
+      <genClasses ecoreClass="mapper.ecore#//mapper/TypeMapper"/>
+      <genClasses ecoreClass="mapper.ecore#//mapper/PackageMapper"/>
+      <genClasses ecoreClass="mapper.ecore#//mapper/JavaMapper">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaMapper/mappedToPackageName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaMapper/mappedToClassName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaMapper/artifactId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaMapper/groupId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaMapper/version"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaMapper/libraryName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaMapper/artifactType"/>
+      </genClasses>
+      <genClasses ecoreClass="mapper.ecore#//mapper/JavaPackageMapper">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaPackageMapper/mappedToPackageName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaPackageMapper/artifactId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaPackageMapper/groupId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaPackageMapper/version"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaPackageMapper/libraryName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaPackageMapper/artifactType"/>
+      </genClasses>
+      <genClasses ecoreClass="mapper.ecore#//mapper/JavaScriptMapper">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/JavaScriptMapper/libraryUrl"/>
+      </genClasses>
+      <genClasses ecoreClass="mapper.ecore#//mapper/CSSMapper">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/CSSMapper/libraryUrl"/>
+      </genClasses>
+      <genClasses ecoreClass="mapper.ecore#//mapper/RoleMapper">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/RoleMapper/localRoleName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapper.ecore#//mapper/RoleMapper/globalRoleName"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

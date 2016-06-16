@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.common.Classifier#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.common.Classifier#getHint <em>Hint</em>}</li>
  *   <li>{@link tura.common.Classifier#getDetails <em>Details</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.common.CommonPackage#getClassifier()
  * @model

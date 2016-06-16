@@ -23,7 +23,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/artifact"
-            class="artifact.provider.ArtifactItemProviderAdapterFactory"
+            class="tura.artifact.provider.ArtifactItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -36,7 +36,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/type"
-            class="type.provider.TypeItemProviderAdapterFactory"
+            class="tura.type.provider.TypeItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -46,10 +46,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/application"
-            class="application.provider.ApplicationItemProviderAdapterFactory"
+            class="tura.application.provider.ApplicationItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -62,7 +62,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/common"
-            class="common.provider.CommonItemProviderAdapterFactory"
+            class="tura.common.provider.CommonItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -75,7 +75,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/permission"
-            class="permission.provider.PermissionItemProviderAdapterFactory"
+            class="tura.permission.provider.PermissionItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -85,10 +85,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/infrastructure"
-            class="infrastructure.provider.InfrastructureItemProviderAdapterFactory"
+            class="tura.infrastructure.provider.InfrastructureItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -98,10 +98,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/message"
-            class="message.provider.MessageItemProviderAdapterFactory"
+            class="tura.message.provider.MessageItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -111,10 +111,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/style"
-            class="style.provider.StyleItemProviderAdapterFactory"
+            class="tura.style.provider.StyleItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -124,10 +124,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/form"
-            class="form.provider.FormItemProviderAdapterFactory"
+            class="tura.form.provider.FormItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -137,10 +137,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/recipe"
-            class="recipe.provider.RecipeItemProviderAdapterFactory"
+            class="tura.recipe.provider.RecipeItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -150,10 +150,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/mapper"
-            class="mapper.provider.MapperItemProviderAdapterFactory"
+            class="tura.mapper.provider.MapperItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

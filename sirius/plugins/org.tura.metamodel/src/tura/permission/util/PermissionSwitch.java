@@ -47,7 +47,7 @@ public class PermissionSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -72,15 +72,23 @@ public class PermissionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PermissionPackage.SECURITY_ENTITY: {
+				SecurityEntity securityEntity = (SecurityEntity)theEObject;
+				T result = caseSecurityEntity(securityEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PermissionPackage.ROLE: {
 				Role role = (Role)theEObject;
 				T result = caseRole(role);
+				if (result == null) result = caseSecurityEntity(role);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case PermissionPackage.GROUP: {
 				Group group = (Group)theEObject;
 				T result = caseGroup(group);
+				if (result == null) result = caseSecurityEntity(group);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -93,6 +101,12 @@ public class PermissionSwitch<T> extends Switch<T> {
 			case PermissionPackage.GRANT_ACCESS: {
 				GrantAccess grantAccess = (GrantAccess)theEObject;
 				T result = caseGrantAccess(grantAccess);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PermissionPackage.SECURITY_ENTITY_POINTER: {
+				SecurityEntityPointer securityEntityPointer = (SecurityEntityPointer)theEObject;
+				T result = caseSecurityEntityPointer(securityEntityPointer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -112,6 +126,21 @@ public class PermissionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRoles(Roles object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Security Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Security Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecurityEntity(SecurityEntity object) {
 		return null;
 	}
 
@@ -172,6 +201,21 @@ public class PermissionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGrantAccess(GrantAccess object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Security Entity Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Security Entity Pointer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecurityEntityPointer(SecurityEntityPointer object) {
 		return null;
 	}
 

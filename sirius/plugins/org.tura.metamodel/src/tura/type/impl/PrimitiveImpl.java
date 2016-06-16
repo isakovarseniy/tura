@@ -11,8 +11,6 @@ import tura.type.TypePackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Primitive</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

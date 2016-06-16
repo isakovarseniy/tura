@@ -3,10 +3,13 @@
 package tura.permission.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import tura.permission.GrantAccess;
 import tura.permission.PermissionPackage;
 import tura.permission.Role;
@@ -17,11 +20,11 @@ import tura.permission.Role;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.permission.impl.GrantAccessImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.permission.impl.GrantAccessImpl#getRoleRef <em>Role Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

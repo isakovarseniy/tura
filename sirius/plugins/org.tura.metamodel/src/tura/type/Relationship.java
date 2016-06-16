@@ -11,12 +11,12 @@ import tura.common.Categorized;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.Relationship#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.type.Relationship#getSource <em>Source</em>}</li>
  *   <li>{@link tura.type.Relationship#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.type.TypePackage#getRelationship()
  * @model

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -203,13 +204,13 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_ARTIFACT__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Artifact</b></em>' containment reference.
+	 * The feature id for the '<em><b>Artifact Packages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_ARTIFACT__ARTIFACT = 2;
+	int DOMAIN_ARTIFACT__ARTIFACT_PACKAGES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Artifact</em>' class.
@@ -313,13 +314,13 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_TYPES_REPOSITORY__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Repository</b></em>' containment reference.
+	 * The feature id for the '<em><b>Repository Packages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_TYPES_REPOSITORY__REPOSITORY = 2;
+	int DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Types Repository</em>' class.
@@ -423,13 +424,13 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_APPLICATION__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Application</b></em>' containment reference.
+	 * The feature id for the '<em><b>Application Packages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_APPLICATION__APPLICATION = 2;
+	int DOMAIN_APPLICATION__APPLICATION_PACKAGES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -439,7 +440,6 @@ public interface DomainPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOMAIN_APPLICATION_FEATURE_COUNT = 3;
-
 
 	/**
 	 * The number of operations of the '<em>Application</em>' class.
@@ -581,15 +581,15 @@ public interface DomainPackage extends EPackage {
 	EAttribute getDomainArtifact_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link tura.domain.DomainArtifact#getArtifact <em>Artifact</em>}'.
+	 * Returns the meta object for the containment reference list '{@link tura.domain.DomainArtifact#getArtifactPackages <em>Artifact Packages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Artifact</em>'.
-	 * @see tura.domain.DomainArtifact#getArtifact()
+	 * @return the meta object for the containment reference list '<em>Artifact Packages</em>'.
+	 * @see tura.domain.DomainArtifact#getArtifactPackages()
 	 * @see #getDomainArtifact()
 	 * @generated
 	 */
-	EReference getDomainArtifact_Artifact();
+	EReference getDomainArtifact_ArtifactPackages();
 
 	/**
 	 * Returns the meta object for class '{@link tura.domain.DomainTypes <em>Types</em>}'.
@@ -667,15 +667,15 @@ public interface DomainPackage extends EPackage {
 	EAttribute getDomainTypesRepository_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link tura.domain.DomainTypesRepository#getRepository <em>Repository</em>}'.
+	 * Returns the meta object for the containment reference list '{@link tura.domain.DomainTypesRepository#getRepositoryPackages <em>Repository Packages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Repository</em>'.
-	 * @see tura.domain.DomainTypesRepository#getRepository()
+	 * @return the meta object for the containment reference list '<em>Repository Packages</em>'.
+	 * @see tura.domain.DomainTypesRepository#getRepositoryPackages()
 	 * @see #getDomainTypesRepository()
 	 * @generated
 	 */
-	EReference getDomainTypesRepository_Repository();
+	EReference getDomainTypesRepository_RepositoryPackages();
 
 	/**
 	 * Returns the meta object for class '{@link tura.domain.DomainApplications <em>Applications</em>}'.
@@ -753,15 +753,15 @@ public interface DomainPackage extends EPackage {
 	EAttribute getDomainApplication_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link tura.domain.DomainApplication#getApplication <em>Application</em>}'.
+	 * Returns the meta object for the containment reference list '{@link tura.domain.DomainApplication#getApplicationPackages <em>Application Packages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Application</em>'.
-	 * @see tura.domain.DomainApplication#getApplication()
+	 * @return the meta object for the containment reference list '<em>Application Packages</em>'.
+	 * @see tura.domain.DomainApplication#getApplicationPackages()
 	 * @see #getDomainApplication()
 	 * @generated
 	 */
-	EReference getDomainApplication_Application();
+	EReference getDomainApplication_ApplicationPackages();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -778,6 +778,7 @@ public interface DomainPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -888,12 +889,12 @@ public interface DomainPackage extends EPackage {
 		EAttribute DOMAIN_ARTIFACT__NAME = eINSTANCE.getDomainArtifact_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Artifact</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Artifact Packages</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOMAIN_ARTIFACT__ARTIFACT = eINSTANCE.getDomainArtifact_Artifact();
+		EReference DOMAIN_ARTIFACT__ARTIFACT_PACKAGES = eINSTANCE.getDomainArtifact_ArtifactPackages();
 
 		/**
 		 * The meta object literal for the '{@link tura.domain.impl.DomainTypesImpl <em>Types</em>}' class.
@@ -956,12 +957,12 @@ public interface DomainPackage extends EPackage {
 		EAttribute DOMAIN_TYPES_REPOSITORY__NAME = eINSTANCE.getDomainTypesRepository_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Repository</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Repository Packages</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOMAIN_TYPES_REPOSITORY__REPOSITORY = eINSTANCE.getDomainTypesRepository_Repository();
+		EReference DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES = eINSTANCE.getDomainTypesRepository_RepositoryPackages();
 
 		/**
 		 * The meta object literal for the '{@link tura.domain.impl.DomainApplicationsImpl <em>Applications</em>}' class.
@@ -1024,12 +1025,12 @@ public interface DomainPackage extends EPackage {
 		EAttribute DOMAIN_APPLICATION__NAME = eINSTANCE.getDomainApplication_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Application</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Application Packages</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOMAIN_APPLICATION__APPLICATION = eINSTANCE.getDomainApplication_Application();
+		EReference DOMAIN_APPLICATION__APPLICATION_PACKAGES = eINSTANCE.getDomainApplication_ApplicationPackages();
 
 	}
 

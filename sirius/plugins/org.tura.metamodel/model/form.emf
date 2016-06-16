@@ -1,568 +1,570 @@
-@namespace(uri="http://tura.org/2016/v2/form", prefix="tura.form")
-package form;
-
+@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
+package tura;
 
 import "platform:/resource/org.tura.metamodel/model/common.ecore";
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
 import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 
 
-class UIPackage{
-    id attr EString uid;
-    val Form[*] forms;
-}
-
-class Form{
-    id attr EString uid;
-   attr EString name;
-   val FormView view;
-   val FormDataControls datacontrols;
-   val FormParameter[*] parameters;
-   
-}
-
-class FormParameter extends type.TypePointer{
-    id attr EString uid;
-   attr EString name;
-}
-
-class FormView{
-    id attr EString uid;
-   attr EString name;
-   val Views view;
-}
-
-class Views{
-    id attr EString uid;
-   ref FormView parent; 
-   val CanvasFrame[*]  canvases;
-   val ViewInheritance[*] viewInheritances;
-   val TabPagesInheritance[*] tabPagesInheritances;
-   val MenuDefinition[*] menus;
-}
-
-class HTMLLayerHolder{
-   attr EInt columns = 1;
-}
-
-
-class Orderable{
-  attr EInt order; 
-}
-
-enum Comparator{
-    EQ;
-    NEQ;
-    GT;
-    GEQ;
-    LT;
-    LEQ;
-}
-
-enum Order {
-   ASC;
-   DESC;
-}
-
-class MultiLangLabel{
-   val Context multiLangLabel;
-}
-
-class CanvasFrame extends StyleElement{
-    id attr EString uid;
-   attr EString name;
-}
-
-class ViewPortHolder extends HTMLLayerHolder{
-   @gmf.compartment
-   val ViewElement[*] viewElement;
-}
-
-class DefaultCavas{
-   attr boolean defaultCanvas;
-}
-
-class ViewElement extends StyleElement, common.Categorized,NickNamed {
-
-}
-
-
-class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,common.Categorized, FlexFields {
-   attr boolean modal;
-}
-
-class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,common.Categorized {
-}
-
-class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,common.Categorized ,permission.Secured{
-}
-
-class MenuDefinition extends StyleElement,common.Categorized {
-    id attr EString uid;
-   attr EString name;
-   ref MenuView#parent menuView;
-}
-
-enum Orientation{
-	Top;
-	Bottom;
-	Left;
-	Right;
-}
-
-class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel,common.Categorized {
-  attr Orientation orientation ;
-}
-
-class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,common.Categorized,Orderable {
-}
-
-class ViewPort extends ViewElement,Orderable{
-    id attr EString uid;
-   attr EString name;
-    val ViewPortTrigger  viewPortTrigger;
-}
-
-class ViewArea extends ViewElement,Orderable{
-    id attr EString uid;
-   attr EString name;
-   ref CanvasView#parent canvasView;
-}
-
-
-class ViewPortTrigger extends Trigger  {
-   id attr EString uid;
- }
-
-class ViewInheritance{
-    id attr EString uid;
-   ref ViewPort source;
-   ref CanvasFrame target;
-}
-
-
-
-class TabPagesInheritance{
-    id attr EString uid;
-   ref TabCanvas source;
-   ref TabPage target;
-}
-
-class FormDataControls{
-    id attr EString uid;
-   attr EString name;
-   ref Controls#parent formControl;
-}
-
-
-class CanvasView{
-    id attr EString uid;
-   ref ViewArea#canvasView parent;
-   val LayerHolder  baseCanvas; 
-   val LinkToLabel[*] linkToLabels;
-   val LinkToMessage[*] linkToMessages;
-}
-
-
-class LinkToMessage {
-    id attr EString uid;
-    ref InputElement source;
-    ref MessageElement target;
-}
-
-
-class LinkToLabel {
-    id attr EString uid;
-    ref InputElement source;
-    ref Label target;
-}
-
-
-class ChildrenHolder{
-   val Uielement [*] children; 
-}
-
-class ContextParameter{
-    id attr EString uid;
-   ref EObject refObj;
-   attr Comparator operation;
-   val ContextValue value;
-}
-
-class ContextValue{
-   id attr EString uid;
-   attr boolean constant;
-   attr EString value;
-   val ExpressionPart[*] expression;
-}
-
-class ExpressionPart{
-   id attr EString uid;
-   ref EObject objRef;
-   attr EInt order;
-   attr EString expressionType;   
-}
-
-class ContextParameters {
-    val ContextParameter[*] parameters;
-}
-
-class Context extends ContextValue, ContextParameters{
-}
-
-
-
-class StyleElement{
-    val Context style;
-    val StyleClass[*] styleClass;
-}
-
-class StyleClass extends ContextValue{
-    val common.Classifier classifier;
-
-}
-
-
-class NickNamed{
-
-    attr EString nickname;
-}
-
-
-class FlexFields {
+@namespace(uri="http://tura.org/2016/v2/form", prefix="tura.form")
+package form{
 	
-	val FlexField[*] fields;
-}
-
-
-class FlexField extends Context , common.Categorized{
-}
-
-
-class EnabledUIItem{
-    val Context enabled;
-}
-
-class Uielement extends StyleElement,NickNamed,common.Categorized, Orderable, EnabledUIItem,FlexFields,MenuHolder{
-    id attr EString uid;
-    val Context required;
-    val Context readOnly;
-    val AreaRef[*]  refreshAreas;
-}
-
-class ItemIcon{
-    val Context icon;
-}
-
-class AreaRef{
-	ref NickNamed area;
-	attr EInt group;
-}
-
-class Formatable{
-   attr EString format;
-}
-
-
-class SourcesPointer extends Uielement{
-   ref DataControl sourcePointer;
-   ref EObject valuePointer;
-   ref type.Type sourceCast;
-   // to support tree structure
-   ref DataControl sourceCastDataControl;
-}
-
-
-class InputElement extends SourcesPointer {
-}
-
-class Selection extends StyleElement{
-   ref EObject displayOptionPointer;
-   ref EObject valueOptionPointer;
-}
-
-class OptionSelection extends InputElement {
-   ref DataControl optionPointer;
-   ref type.Type optionCast;
-   // to support tree structure
-   ref DataControl optionCastDataControl;
-}
-
-class LayerHolder extends Uielement , ChildrenHolder, HTMLLayerHolder{
-   
-}
-
-class InputText extends InputElement ,Formatable{
-
-}
-
-class Password extends InputElement ,Formatable{
-
-}
-
-
-
-class Label extends Uielement ,MultiLangLabel{
-  attr EString label;
-}
-
-class MessageElement extends Uielement ,MultiLangLabel{
-  attr EString label;
-}
-
-
-class OutputText extends InputElement ,Formatable{
-   
-}
-
-class CheckBox extends InputElement {
-   
-}
-
-class DropDownSelection extends OptionSelection {
-   val Selection selection;
-   val Context initialOptionMessage;
-   attr EString  initialOptionValue;
-}
-
-class Image extends InputElement {
-   
-}
-
-
-class Date extends InputElement ,Formatable{
-   
-}
-
-class Button extends Uielement,MultiLangLabel,ItemIcon{
-   attr EString label;
-}
-
-class Column extends StyleElement,MultiLangLabel, common.Categorized,HTMLLayerHolder,Orderable{
-    id attr EString uid;
-   attr EString label;
-   val Uielement element;   
-}
-
-class Table extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
-   attr EString label;
-   attr EInt rowNumber;
-    val Column[*] cols;
-}
-
-class Menu extends Uielement{
-}
-
-
-
-class MenuView{
-    id attr EString uid;
-   ref MenuDefinition#menuView parent;
-   val MenuFolder[*] menuFolders; 
-}
-
-
-class MenuHolder {
-	ref MenuFolder menu;
-}
-
-class MenuExtensionRef{
-	ref MenuFolder extensionRef;
-}
-
-
-class MenuElement extends MultiLangLabel,StyleElement,common.Categorized,EnabledUIItem,Orderable{
-    id attr EString uid;
-    attr EString name;
-}
-
-
-class MenuFolder extends HTMLLayerHolder,EnabledUIItem,common.Categorized,StyleElement,MultiLangLabel,ItemIcon{
-    id attr EString uid;
-    attr EString name;
-    attr EBoolean extensionPoint;
-    val MenuElement[*] menuElements;
-}
-
-class MenuItem extends MenuElement,ItemIcon,FlexFields{
-	 val Context transition;
-     val AreaRef[*]  refreshAreas;	 
-}
-
-
-class MenuExtensionPoint extends MenuElement,MenuExtensionRef{
+	class UIPackage{
+	    id attr EString uid;
+	    val Form[*] forms;
+	}
 	
+	class Form{
+	    id attr EString uid;
+	   attr EString name;
+	   val FormView view;
+	   val FormDataControls datacontrols;
+	   val FormParameter[*] parameters;
+	   
+	}
+	
+	class FormParameter extends tura.type.TypePointer{
+	    id attr EString uid;
+	   attr EString name;
+	}
+	
+	class FormView{
+	    id attr EString uid;
+	   attr EString name;
+	   val Views view;
+	}
+	
+	class Views{
+	    id attr EString uid;
+	   ref FormView parent; 
+	   val CanvasFrame[*]  canvases;
+	   val ViewInheritance[*] viewInheritances;
+	   val TabPagesInheritance[*] tabPagesInheritances;
+	   val MenuDefinition[*] menus;
+	}
+	
+	class HTMLLayerHolder{
+	   attr EInt columns = 1;
+	}
+	
+	
+	class Orderable{
+	  attr EInt order; 
+	}
+	
+	enum Comparator{
+	    EQ;
+	    NEQ;
+	    GT;
+	    GEQ;
+	    LT;
+	    LEQ;
+	}
+	
+	enum Order {
+	   ASC;
+	   DESC;
+	}
+	
+	class MultiLangLabel{
+	   val Context multiLangLabel;
+	}
+	
+	class CanvasFrame extends StyleElement{
+	    id attr EString uid;
+	   attr EString name;
+	}
+	
+	class ViewPortHolder extends HTMLLayerHolder{
+	   @gmf.compartment
+	   val ViewElement[*] viewElement;
+	}
+	
+	class DefaultCavas{
+	   attr boolean defaultCanvas;
+	}
+	
+	class ViewElement extends StyleElement, tura.common.Categorized,NickNamed {
+	
+	}
+	
+	
+	class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,tura.common.Categorized, FlexFields {
+	   attr boolean modal;
+	}
+	
+	class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,tura.common.Categorized {
+	}
+	
+	class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,tura.common.Categorized ,tura.permission.Secured{
+	}
+	
+	class MenuDefinition extends StyleElement,tura.common.Categorized {
+	    id attr EString uid;
+	   attr EString name;
+	   ref MenuView#parent menuView;
+	}
+	
+	enum Orientation{
+		Top;
+		Bottom;
+		Left;
+		Right;
+	}
+	
+	class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel,tura.common.Categorized {
+	  attr Orientation orientation ;
+	}
+	
+	class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,tura.common.Categorized,Orderable {
+	}
+	
+	class ViewPort extends ViewElement,Orderable{
+	    id attr EString uid;
+	   attr EString name;
+	    val ViewPortTrigger  viewPortTrigger;
+	}
+	
+	class ViewArea extends ViewElement,Orderable{
+	    id attr EString uid;
+	   attr EString name;
+	   ref CanvasView#parent canvasView;
+	}
+	
+	
+	class ViewPortTrigger extends Trigger  {
+	   id attr EString uid;
+	 }
+	
+	class ViewInheritance{
+	    id attr EString uid;
+	   ref ViewPort source;
+	   ref CanvasFrame target;
+	}
+	
+	
+	
+	class TabPagesInheritance{
+	    id attr EString uid;
+	   ref TabCanvas source;
+	   ref TabPage target;
+	}
+	
+	class FormDataControls{
+	    id attr EString uid;
+	   attr EString name;
+	   ref Controls#parent formControl;
+	}
+	
+	
+	class CanvasView{
+	    id attr EString uid;
+	   ref ViewArea#canvasView parent;
+	   val LayerHolder  baseCanvas; 
+	   val LinkToLabel[*] linkToLabels;
+	   val LinkToMessage[*] linkToMessages;
+	}
+	
+	
+	class LinkToMessage {
+	    id attr EString uid;
+	    ref InputElement source;
+	    ref MessageElement target;
+	}
+	
+	
+	class LinkToLabel {
+	    id attr EString uid;
+	    ref InputElement source;
+	    ref Label target;
+	}
+	
+	
+	class ChildrenHolder{
+	   val Uielement [*] children; 
+	}
+	
+	class ContextParameter{
+	    id attr EString uid;
+	   ref EObject refObj;
+	   attr Comparator operation;
+	   val ContextValue value;
+	}
+	
+	class ContextValue{
+	   id attr EString uid;
+	   attr boolean constant;
+	   attr EString value;
+	   val ExpressionPart[*] expression;
+	}
+	
+	class ExpressionPart{
+	   id attr EString uid;
+	   ref EObject objRef;
+	   attr EInt order;
+	   attr EString expressionType;   
+	}
+	
+	class ContextParameters {
+	    val ContextParameter[*] parameters;
+	}
+	
+	class Context extends ContextValue, ContextParameters{
+	}
+	
+	
+	
+	class StyleElement{
+	    val Context style;
+	    val StyleClass[*] styleClass;
+	}
+	
+	class StyleClass extends ContextValue{
+	    val tura.common.Classifier classifier;
+	
+	}
+	
+	
+	class NickNamed{
+	
+	    attr EString nickname;
+	}
+	
+	
+	class FlexFields {
+		
+		val FlexField[*] fields;
+	}
+	
+	
+	class FlexField extends Context , tura.common.Categorized{
+	}
+	
+	
+	class EnabledUIItem{
+	    val Context enabled;
+	}
+	
+	class Uielement extends StyleElement,NickNamed,tura.common.Categorized, Orderable, EnabledUIItem,FlexFields,MenuHolder{
+	    id attr EString uid;
+	    val Context required;
+	    val Context readOnly;
+	    val AreaRef[*]  refreshAreas;
+	}
+	
+	class ItemIcon{
+	    val Context icon;
+	}
+	
+	class AreaRef{
+		ref NickNamed area;
+		attr EInt group;
+	}
+	
+	class Formatable{
+	   attr EString format;
+	}
+	
+	
+	class SourcesPointer extends Uielement{
+	   ref DataControl sourcePointer;
+	   ref EObject valuePointer;
+	   ref tura.type.Type sourceCast;
+	   // to support tree structure
+	   ref DataControl sourceCastDataControl;
+	}
+	
+	
+	class InputElement extends SourcesPointer {
+	}
+	
+	class Selection extends StyleElement{
+	   ref EObject displayOptionPointer;
+	   ref EObject valueOptionPointer;
+	}
+	
+	class OptionSelection extends InputElement {
+	   ref DataControl optionPointer;
+	   ref tura.type.Type optionCast;
+	   // to support tree structure
+	   ref DataControl optionCastDataControl;
+	}
+	
+	class LayerHolder extends Uielement , ChildrenHolder, HTMLLayerHolder{
+	   
+	}
+	
+	class InputText extends InputElement ,Formatable{
+	
+	}
+	
+	class Password extends InputElement ,Formatable{
+	
+	}
+	
+	
+	
+	class Label extends Uielement ,MultiLangLabel{
+	  attr EString label;
+	}
+	
+	class MessageElement extends Uielement ,MultiLangLabel{
+	  attr EString label;
+	}
+	
+	
+	class OutputText extends InputElement ,Formatable{
+	   
+	}
+	
+	class CheckBox extends InputElement {
+	   
+	}
+	
+	class DropDownSelection extends OptionSelection {
+	   val Selection selection;
+	   val Context initialOptionMessage;
+	   attr EString  initialOptionValue;
+	}
+	
+	class Image extends InputElement {
+	   
+	}
+	
+	
+	class Date extends InputElement ,Formatable{
+	   
+	}
+	
+	class Button extends Uielement,MultiLangLabel,ItemIcon{
+	   attr EString label;
+	}
+	
+	class Column extends StyleElement,MultiLangLabel, tura.common.Categorized,HTMLLayerHolder,Orderable{
+	    id attr EString uid;
+	   attr EString label;
+	   val Uielement element;   
+	}
+	
+	class Table extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
+	   attr EString label;
+	   attr EInt rowNumber;
+	    val Column[*] cols;
+	}
+	
+	class Menu extends Uielement{
+	}
+	
+	
+	
+	class MenuView{
+	    id attr EString uid;
+	   ref MenuDefinition#menuView parent;
+	   val MenuFolder[*] menuFolders; 
+	}
+	
+	
+	class MenuHolder {
+		ref MenuFolder menu;
+	}
+	
+	class MenuExtensionRef{
+		ref MenuFolder extensionRef;
+	}
+	
+	
+	class MenuElement extends MultiLangLabel,StyleElement,tura.common.Categorized,EnabledUIItem,Orderable{
+	    id attr EString uid;
+	    attr EString name;
+	}
+	
+	
+	class MenuFolder extends HTMLLayerHolder,EnabledUIItem,tura.common.Categorized,StyleElement,MultiLangLabel,ItemIcon{
+	    id attr EString uid;
+	    attr EString name;
+	    attr EBoolean extensionPoint;
+	    val MenuElement[*] menuElements;
+	}
+	
+	class MenuItem extends MenuElement,ItemIcon,FlexFields{
+		 val Context transition;
+	     val AreaRef[*]  refreshAreas;	 
+	}
+	
+	
+	class MenuExtensionPoint extends MenuElement,MenuExtensionRef{
+		
+	}
+	
+	
+	class SubMenu extends MenuElement,ItemIcon{
+		ref MenuFolder toSubmenu;
+	}
+	
+	class MenuSeparator extends MenuElement{
+	}
+	
+	
+	class Tree extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
+	   attr EString label;
+	   val Context image;
+	    val Column[*] cols;
+	}
+	
+	
+	
+	class Controls{
+	    id attr EString uid;
+	    ref FormDataControls#formControl parent; 
+	    val Root root;
+	    val DataControl [*]#parent controls;
+	    val Relation[*] relations;
+	    val Dependency[*] dependencies;
+	}
+	
+	class Trigger extends tura.type.MethodPointer , ContextParameters{
+	}
+	
+	class PREFormTrigger  extends Trigger {
+	    id attr EString uid;
+	 }
+	
+	class PREQueryTrigger  extends  Trigger {
+	   id attr EString uid;
+	 }
+	
+	class POSTQueryTrigger   extends Trigger {
+	    id attr EString uid;
+	 }
+	
+	
+	class PREInsertTrigger   extends Trigger {
+	    id attr EString uid;
+	 }
+	
+	
+	class PREDeleteTrigger   extends Trigger {
+	    id attr EString uid;
+	 }
+	
+	
+	class POSTCreateTrigger   extends Trigger {
+	    id attr EString uid;
+	 }
+	
+	
+	class PREUpdateTrigger   extends Trigger {
+	    id attr EString uid;
+	 }
+	
+	
+	class ProxiesList{
+	    val tura.type.TypePointer[*]  	typePointers;
+	}
+	
+	class CreateTrigger   extends Trigger,ProxiesList {
+	    id attr EString uid;
+	 }
+	
+	
+	class InsertTrigger  extends Trigger ,ProxiesList{
+	    id attr EString uid;
+	 }
+	
+	
+	class UpdateTrigger   extends Trigger ,ProxiesList{
+	    id attr EString uid;
+	 }
+	
+	
+	class DeleteTrigger  extends Trigger ,ProxiesList{
+	    id attr EString uid;
+	 }
+	
+	
+	class SearchTrigger  extends Trigger, ProxiesList {
+	    id attr EString uid;
+	 }
+	
+	
+	
+	class Root{
+	    id attr EString uid;
+	   attr EString name;
+	   @gmf.compartment(layout="list")
+	   val PREFormTrigger preFormTrigger;
+	   @gmf.compartment(layout="list")
+	   val FormVariable[*] variables;
+	}
+	
+	class FormVariable extends tura.type.TypePointer{
+	    id attr EString uid;
+	   attr EString name;
+	   ref FormParameter paramRef;
+	}
+	
+	
+	class DataControl {
+	    id attr EString uid;
+	   attr EString name;
+	   val tura.type.TypePointer baseType;
+	   ref Controls#controls parent;
+	   val PREQueryTrigger preQueryTrigger;
+	   val POSTQueryTrigger postQueryTrigger;
+	   val PREInsertTrigger preInsertTrigger;
+	   val PREDeleteTrigger preDeleteTrigger;
+	   val POSTCreateTrigger postCreateTrigger;
+	   val PREUpdateTrigger preUpdateTrigger;
+	   val CreateTrigger create;
+	   val InsertTrigger insert;
+	   val UpdateTrigger update;
+	   val DeleteTrigger remove;
+	   val SearchTrigger search;
+	   val ArtificialField[*]#parent artificialFields;   
+	   val ContextParameters defaultSearch;
+	   val Orders defaultOrderBy;
+	    
+	}
+	
+	class Orders{
+	    id attr EString uid;
+	    val OrderBy[*] orderRules;
+	}
+	
+	class OrderBy{
+	    id attr EString uid;
+	    ref EObject refObj;
+	    attr Order order;
+	}
+	
+	class Relation{
+	    id attr EString uid;
+	   attr EString name;
+	   ref DataControl master;
+	   ref DataControl detail;
+	   attr EBoolean isTree;
+	   val Link[*] links;  
+	}
+	
+	class Dependency{
+	    id attr EString uid;
+	   attr EString name;
+	   ref DataControl master;
+	   ref DataControl detail;
+	}
+	
+	
+	class ArtificialField extends tura.type.TypePointer{
+	    id attr EString uid;
+	   attr EString name;
+	   ref DataControl#artificialFields parent; 
+	   
+	}
+	
+	class Link{
+	    id attr EString uid;
+	    ref tura.type.Attribute masterField;
+	    ref tura.type.Attribute detailField;
+	}
+
 }
-
-
-class SubMenu extends MenuElement,ItemIcon{
-	ref MenuFolder toSubmenu;
-}
-
-class MenuSeparator extends MenuElement{
-}
-
-
-class Tree extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
-   attr EString label;
-   val Context image;
-    val Column[*] cols;
-}
-
-
-
-class Controls{
-    id attr EString uid;
-    ref FormDataControls#formControl parent; 
-    val Root root;
-    val DataControl [*]#parent controls;
-    val Relation[*] relations;
-    val Dependency[*] dependencies;
-}
-
-class Trigger extends type.MethodPointer , ContextParameters{
-}
-
-class PREFormTrigger  extends Trigger {
-    id attr EString uid;
- }
-
-class PREQueryTrigger  extends  Trigger {
-   id attr EString uid;
- }
-
-class POSTQueryTrigger   extends Trigger {
-    id attr EString uid;
- }
-
-
-class PREInsertTrigger   extends Trigger {
-    id attr EString uid;
- }
-
-
-class PREDeleteTrigger   extends Trigger {
-    id attr EString uid;
- }
-
-
-class POSTCreateTrigger   extends Trigger {
-    id attr EString uid;
- }
-
-
-class PREUpdateTrigger   extends Trigger {
-    id attr EString uid;
- }
-
-
-class ProxiesList{
-    val type.TypePointer[*]  	typePointers;
-}
-
-class CreateTrigger   extends Trigger,ProxiesList {
-    id attr EString uid;
- }
-
-
-class InsertTrigger  extends Trigger ,ProxiesList{
-    id attr EString uid;
- }
-
-
-class UpdateTrigger   extends Trigger ,ProxiesList{
-    id attr EString uid;
- }
-
-
-class DeleteTrigger  extends Trigger ,ProxiesList{
-    id attr EString uid;
- }
-
-
-class SearchTrigger  extends Trigger, ProxiesList {
-    id attr EString uid;
- }
-
-
-
-class Root{
-    id attr EString uid;
-   attr EString name;
-   @gmf.compartment(layout="list")
-   val PREFormTrigger preFormTrigger;
-   @gmf.compartment(layout="list")
-   val FormVariable[*] variables;
-}
-
-class FormVariable extends type.TypePointer{
-    id attr EString uid;
-   attr EString name;
-   ref FormParameter paramRef;
-}
-
-
-class DataControl {
-    id attr EString uid;
-   attr EString name;
-   val type.TypePointer baseType;
-   ref Controls#controls parent;
-   val PREQueryTrigger preQueryTrigger;
-   val POSTQueryTrigger postQueryTrigger;
-   val PREInsertTrigger preInsertTrigger;
-   val PREDeleteTrigger preDeleteTrigger;
-   val POSTCreateTrigger postCreateTrigger;
-   val PREUpdateTrigger preUpdateTrigger;
-   val CreateTrigger create;
-   val InsertTrigger insert;
-   val UpdateTrigger update;
-   val DeleteTrigger remove;
-   val SearchTrigger search;
-   val ArtificialField[*]#parent artificialFields;   
-   val ContextParameters defaultSearch;
-   val Orders defaultOrderBy;
-    
-}
-
-class Orders{
-    id attr EString uid;
-    val OrderBy[*] orderRules;
-}
-
-class OrderBy{
-    id attr EString uid;
-    ref EObject refObj;
-    attr Order order;
-}
-
-class Relation{
-    id attr EString uid;
-   attr EString name;
-   ref DataControl master;
-   ref DataControl detail;
-   attr EBoolean isTree;
-   val Link[*] links;  
-}
-
-class Dependency{
-    id attr EString uid;
-   attr EString name;
-   ref DataControl master;
-   ref DataControl detail;
-}
-
-
-class ArtificialField extends type.TypePointer{
-    id attr EString uid;
-   attr EString name;
-   ref DataControl#artificialFields parent; 
-   
-}
-
-class Link{
-    id attr EString uid;
-    ref type.Attribute masterField;
-    ref type.Attribute detailField;
-}
-
-

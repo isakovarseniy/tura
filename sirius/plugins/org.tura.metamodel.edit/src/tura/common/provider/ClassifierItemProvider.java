@@ -25,6 +25,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import tura.common.Classifier;
 import tura.common.CommonPackage;
 
+import tura.domain.provider.DomainEditPlugin;
+
 /**
  * This is the item provider adapter for a {@link tura.common.Classifier} object.
  * <!-- begin-user-doc -->
@@ -199,7 +201,7 @@ public class ClassifierItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Domain1EditPlugin.INSTANCE;
+		return DomainEditPlugin.INSTANCE;
 	}
 
 }

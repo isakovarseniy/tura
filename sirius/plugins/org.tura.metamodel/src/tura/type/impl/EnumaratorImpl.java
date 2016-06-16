@@ -24,10 +24,10 @@ import tura.type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.impl.EnumaratorImpl#getValues <em>Values</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

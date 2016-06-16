@@ -5,18 +5,26 @@ package tura.type.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import tura.common.CommonFactory;
 import tura.common.CommonPackage;
-import tura.common.provider.Domain1EditPlugin;
+
+import tura.domain.provider.DomainEditPlugin;
+
 import tura.permission.provider.SecuredItemProvider;
+
 import tura.type.Operation;
 import tura.type.TypeFactory;
 import tura.type.TypePackage;
@@ -240,7 +248,7 @@ public class OperationItemProvider extends SecuredItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Domain1EditPlugin.INSTANCE;
+		return DomainEditPlugin.INSTANCE;
 	}
 
 }

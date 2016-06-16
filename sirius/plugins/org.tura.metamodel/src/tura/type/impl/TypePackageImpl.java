@@ -7,32 +7,72 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import tura.application.ApplicationPackage;
+
+import tura.application.impl.ApplicationPackageImpl;
+
 import tura.artifact.ArtifactPackage;
+
 import tura.artifact.impl.ArtifactPackageImpl;
+
 import tura.common.CommonPackage;
+
 import tura.common.impl.CommonPackageImpl;
+
 import tura.domain.DomainPackage;
+
 import tura.domain.impl.DomainPackageImpl;
+
+import tura.form.FormPackage;
+
+import tura.form.impl.FormPackageImpl;
+
+import tura.infrastructure.InfrastructurePackage;
+
+import tura.infrastructure.impl.InfrastructurePackageImpl;
+
+import tura.mapper.MapperPackage;
+
+import tura.mapper.impl.MapperPackageImpl;
+
+import tura.message.MessagePackage;
+
+import tura.message.impl.MessagePackageImpl;
+
 import tura.permission.PermissionPackage;
+
 import tura.permission.impl.PermissionPackageImpl;
+
+import tura.recipe.RecipePackage;
+
+import tura.recipe.impl.RecipePackageImpl;
+
+import tura.style.StylePackage;
+
+import tura.style.impl.StylePackageImpl;
+
 import tura.type.Assosiation;
 import tura.type.Attribute;
 import tura.type.EnumAttribute;
 import tura.type.Enumarator;
 import tura.type.Generalization;
 import tura.type.Link;
+import tura.type.MethodPointer;
 import tura.type.Operation;
+import tura.type.PackagePointer;
 import tura.type.Parameter;
 import tura.type.Primitive;
 import tura.type.References;
 import tura.type.RelationType;
 import tura.type.Relationship;
-import tura.type.Repository;
 import tura.type.ReturnValue;
 import tura.type.Type;
 import tura.type.TypeElement;
 import tura.type.TypeFactory;
+import tura.type.TypeGroup;
 import tura.type.TypePackage;
 import tura.type.TypePointer;
 import tura.type.TypeReference;
@@ -49,110 +89,134 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass repositoryEClass = null;
+	private EClass typeGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass packageEClass = null;
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass typeElementEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass relationshipEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass referencesEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass generalizationEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass typePointerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass packagePointerEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass assosiationEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass linkEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass attributeEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass operationEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass primitiveEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass typeEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass typeReferenceEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass parameterEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass returnValueEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass enumaratorEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass enumAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass methodPointerEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,27 +271,45 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
-		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) instanceof PermissionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) : PermissionPackage.eINSTANCE);
 		DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
 		ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
-		application.impl.ApplicationPackageImpl theApplicationPackage = (application.impl.ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(application.ApplicationPackage.eNS_URI) instanceof application.impl.ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(application.ApplicationPackage.eNS_URI) : application.ApplicationPackage.eINSTANCE);
+		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
+		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
+		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) instanceof PermissionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) : PermissionPackage.eINSTANCE);
+		InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) instanceof InfrastructurePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) : InfrastructurePackage.eINSTANCE);
+		MessagePackageImpl theMessagePackage = (MessagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) instanceof MessagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) : MessagePackage.eINSTANCE);
+		StylePackageImpl theStylePackage = (StylePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) instanceof StylePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) : StylePackage.eINSTANCE);
+		FormPackageImpl theFormPackage = (FormPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) instanceof FormPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) : FormPackage.eINSTANCE);
+		RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
+		MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTypePackage.createPackageContents();
-		theCommonPackage.createPackageContents();
-		thePermissionPackage.createPackageContents();
 		theDomainPackage.createPackageContents();
 		theArtifactPackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
+		theCommonPackage.createPackageContents();
+		thePermissionPackage.createPackageContents();
+		theInfrastructurePackage.createPackageContents();
+		theMessagePackage.createPackageContents();
+		theStylePackage.createPackageContents();
+		theFormPackage.createPackageContents();
+		theRecipePackage.createPackageContents();
+		theMapperPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTypePackage.initializePackageContents();
-		theCommonPackage.initializePackageContents();
-		thePermissionPackage.initializePackageContents();
 		theDomainPackage.initializePackageContents();
 		theArtifactPackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
+		theCommonPackage.initializePackageContents();
+		thePermissionPackage.initializePackageContents();
+		theInfrastructurePackage.initializePackageContents();
+		theMessagePackage.initializePackageContents();
+		theStylePackage.initializePackageContents();
+		theFormPackage.initializePackageContents();
+		theRecipePackage.initializePackageContents();
+		theMapperPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTypePackage.freeze();
@@ -243,8 +325,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRepository() {
-		return repositoryEClass;
+	public EClass getTypeGroup() {
+		return typeGroupEClass;
 	}
 
 	/**
@@ -252,8 +334,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRepository_Uid() {
-		return (EAttribute)repositoryEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTypeGroup_Uid() {
+		return (EAttribute)typeGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -261,8 +343,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRepository_Name() {
-		return (EAttribute)repositoryEClass.getEStructuralFeatures().get(1);
+	public EAttribute getTypeGroup_Name() {
+		return (EAttribute)typeGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -270,8 +352,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRepository_Packages() {
-		return (EReference)repositoryEClass.getEStructuralFeatures().get(2);
+	public EReference getTypeGroup_Types() {
+		return (EReference)typeGroupEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -279,44 +361,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPackage() {
-		return packageEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPackage_Uid() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPackage_Name() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPackage_Types() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPackage_Relationships() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(3);
+	public EReference getTypeGroup_Relationships() {
+		return (EReference)typeGroupEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -414,7 +460,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTypePointer_PackageRef() {
+	public EReference getTypePointer_TypeRef() {
 		return (EReference)typePointerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -423,8 +469,17 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTypePointer_TypeRef() {
-		return (EReference)typePointerEClass.getEStructuralFeatures().get(1);
+	public EClass getPackagePointer() {
+		return packagePointerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPackagePointer_PackageRef() {
+		return (EReference)packagePointerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -774,6 +829,24 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMethodPointer() {
+		return methodPointerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMethodPointer_MethodRef() {
+		return (EReference)methodPointerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getRelationType() {
 		return relationTypeEEnum;
 	}
@@ -806,16 +879,11 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		isCreated = true;
 
 		// Create classes and their features
-		repositoryEClass = createEClass(REPOSITORY);
-		createEAttribute(repositoryEClass, REPOSITORY__UID);
-		createEAttribute(repositoryEClass, REPOSITORY__NAME);
-		createEReference(repositoryEClass, REPOSITORY__PACKAGES);
-
-		packageEClass = createEClass(PACKAGE);
-		createEAttribute(packageEClass, PACKAGE__UID);
-		createEAttribute(packageEClass, PACKAGE__NAME);
-		createEReference(packageEClass, PACKAGE__TYPES);
-		createEReference(packageEClass, PACKAGE__RELATIONSHIPS);
+		typeGroupEClass = createEClass(TYPE_GROUP);
+		createEAttribute(typeGroupEClass, TYPE_GROUP__UID);
+		createEAttribute(typeGroupEClass, TYPE_GROUP__NAME);
+		createEReference(typeGroupEClass, TYPE_GROUP__TYPES);
+		createEReference(typeGroupEClass, TYPE_GROUP__RELATIONSHIPS);
 
 		typeElementEClass = createEClass(TYPE_ELEMENT);
 		createEAttribute(typeElementEClass, TYPE_ELEMENT__UID);
@@ -831,8 +899,10 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		generalizationEClass = createEClass(GENERALIZATION);
 
 		typePointerEClass = createEClass(TYPE_POINTER);
-		createEReference(typePointerEClass, TYPE_POINTER__PACKAGE_REF);
 		createEReference(typePointerEClass, TYPE_POINTER__TYPE_REF);
+
+		packagePointerEClass = createEClass(PACKAGE_POINTER);
+		createEReference(packagePointerEClass, PACKAGE_POINTER__PACKAGE_REF);
 
 		assosiationEClass = createEClass(ASSOSIATION);
 		createEAttribute(assosiationEClass, ASSOSIATION__TYPE);
@@ -882,6 +952,9 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		createEReference(enumAttributeEClass, ENUM_ATTRIBUTE__PARENT);
 		createEAttribute(enumAttributeEClass, ENUM_ATTRIBUTE__NAME);
 		createEAttribute(enumAttributeEClass, ENUM_ATTRIBUTE__VALUE);
+
+		methodPointerEClass = createEClass(METHOD_POINTER);
+		createEReference(methodPointerEClass, METHOD_POINTER__METHOD_REF);
 
 		// Create enums
 		relationTypeEEnum = createEEnum(RELATION_TYPE);
@@ -936,18 +1009,14 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		returnValueEClass.getESuperTypes().add(this.getTypePointer());
 		enumaratorEClass.getESuperTypes().add(this.getTypeElement());
 		enumAttributeEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		methodPointerEClass.getESuperTypes().add(this.getTypePointer());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRepository_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRepository_Name(), ecorePackage.getEString(), "name", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRepository_Packages(), this.getPackage(), null, "packages", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(packageEClass, tura.type.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPackage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, tura.type.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, tura.type.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Types(), this.getTypeElement(), null, "types", null, 0, -1, tura.type.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Relationships(), this.getRelationship(), null, "relationships", null, 0, -1, tura.type.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(typeGroupEClass, TypeGroup.class, "TypeGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTypeGroup_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TypeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTypeGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, TypeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypeGroup_Types(), this.getTypeElement(), null, "types", null, 0, -1, TypeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypeGroup_Relationships(), this.getRelationship(), null, "relationships", null, 0, -1, TypeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeElementEClass, TypeElement.class, "TypeElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypeElement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -963,8 +1032,10 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		initEClass(generalizationEClass, Generalization.class, "Generalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(typePointerEClass, TypePointer.class, "TypePointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTypePointer_PackageRef(), this.getPackage(), null, "packageRef", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypePointer_TypeRef(), this.getTypeElement(), null, "typeRef", null, 0, 1, TypePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(packagePointerEClass, PackagePointer.class, "PackagePointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPackagePointer_PackageRef(), this.getTypeGroup(), null, "packageRef", null, 0, 1, PackagePointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(assosiationEClass, Assosiation.class, "Assosiation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAssosiation_Type(), this.getRelationType(), "type", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1014,6 +1085,9 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		initEReference(getEnumAttribute_Parent(), this.getEnumarator(), null, "parent", null, 0, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnumAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnumAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(methodPointerEClass, MethodPointer.class, "MethodPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMethodPointer_MethodRef(), this.getOperation(), null, "methodRef", null, 0, 1, MethodPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(relationTypeEEnum, RelationType.class, "RelationType");

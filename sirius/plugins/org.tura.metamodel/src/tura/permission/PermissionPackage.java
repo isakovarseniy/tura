@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -111,6 +112,34 @@ public interface PermissionPackage extends EPackage {
 	int ROLES_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link tura.permission.impl.SecurityEntityImpl <em>Security Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tura.permission.impl.SecurityEntityImpl
+	 * @see tura.permission.impl.PermissionPackageImpl#getSecurityEntity()
+	 * @generated
+	 */
+	int SECURITY_ENTITY = 1;
+
+	/**
+	 * The number of structural features of the '<em>Security Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_ENTITY_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Security Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_ENTITY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link tura.permission.impl.RoleImpl <em>Role</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,7 +147,7 @@ public interface PermissionPackage extends EPackage {
 	 * @see tura.permission.impl.PermissionPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 1;
+	int ROLE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -127,7 +156,7 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__UID = 0;
+	int ROLE__UID = SECURITY_ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -136,7 +165,7 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__NAME = 1;
+	int ROLE__NAME = SECURITY_ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Role</em>' class.
@@ -145,7 +174,7 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_FEATURE_COUNT = 2;
+	int ROLE_FEATURE_COUNT = SECURITY_ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Role</em>' class.
@@ -154,7 +183,7 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_OPERATION_COUNT = 0;
+	int ROLE_OPERATION_COUNT = SECURITY_ENTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link tura.permission.impl.GroupImpl <em>Group</em>}' class.
@@ -164,7 +193,7 @@ public interface PermissionPackage extends EPackage {
 	 * @see tura.permission.impl.PermissionPackageImpl#getGroup()
 	 * @generated
 	 */
-	int GROUP = 2;
+	int GROUP = 3;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -173,7 +202,7 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__UID = 0;
+	int GROUP__UID = SECURITY_ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -182,7 +211,7 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__NAME = 1;
+	int GROUP__NAME = SECURITY_ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Group2 Group</b></em>' reference list.
@@ -191,7 +220,7 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__GROUP2_GROUP = 2;
+	int GROUP__GROUP2_GROUP = SECURITY_ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Group2 Role</b></em>' reference list.
@@ -200,7 +229,7 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__GROUP2_ROLE = 3;
+	int GROUP__GROUP2_ROLE = SECURITY_ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Group</em>' class.
@@ -209,7 +238,7 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FEATURE_COUNT = 4;
+	int GROUP_FEATURE_COUNT = SECURITY_ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Group</em>' class.
@@ -218,7 +247,7 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_OPERATION_COUNT = 0;
+	int GROUP_OPERATION_COUNT = SECURITY_ENTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link tura.permission.impl.SecuredImpl <em>Secured</em>}' class.
@@ -228,7 +257,7 @@ public interface PermissionPackage extends EPackage {
 	 * @see tura.permission.impl.PermissionPackageImpl#getSecured()
 	 * @generated
 	 */
-	int SECURED = 3;
+	int SECURED = 4;
 
 	/**
 	 * The feature id for the '<em><b>Grants</b></em>' containment reference list.
@@ -265,7 +294,7 @@ public interface PermissionPackage extends EPackage {
 	 * @see tura.permission.impl.PermissionPackageImpl#getGrantAccess()
 	 * @generated
 	 */
-	int GRANT_ACCESS = 4;
+	int GRANT_ACCESS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -294,7 +323,6 @@ public interface PermissionPackage extends EPackage {
 	 */
 	int GRANT_ACCESS_FEATURE_COUNT = 2;
 
-
 	/**
 	 * The number of operations of the '<em>Grant Access</em>' class.
 	 * <!-- begin-user-doc -->
@@ -303,6 +331,43 @@ public interface PermissionPackage extends EPackage {
 	 * @ordered
 	 */
 	int GRANT_ACCESS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link tura.permission.impl.SecurityEntityPointerImpl <em>Security Entity Pointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tura.permission.impl.SecurityEntityPointerImpl
+	 * @see tura.permission.impl.PermissionPackageImpl#getSecurityEntityPointer()
+	 * @generated
+	 */
+	int SECURITY_ENTITY_POINTER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Security Entity</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_ENTITY_POINTER__SECURITY_ENTITY = 0;
+
+	/**
+	 * The number of structural features of the '<em>Security Entity Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_ENTITY_POINTER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Security Entity Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_ENTITY_POINTER_OPERATION_COUNT = 0;
 
 
 	/**
@@ -347,6 +412,16 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRoles_Groups();
+
+	/**
+	 * Returns the meta object for class '{@link tura.permission.SecurityEntity <em>Security Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Security Entity</em>'.
+	 * @see tura.permission.SecurityEntity
+	 * @generated
+	 */
+	EClass getSecurityEntity();
 
 	/**
 	 * Returns the meta object for class '{@link tura.permission.Role <em>Role</em>}'.
@@ -488,6 +563,27 @@ public interface PermissionPackage extends EPackage {
 	EReference getGrantAccess_RoleRef();
 
 	/**
+	 * Returns the meta object for class '{@link tura.permission.SecurityEntityPointer <em>Security Entity Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Security Entity Pointer</em>'.
+	 * @see tura.permission.SecurityEntityPointer
+	 * @generated
+	 */
+	EClass getSecurityEntityPointer();
+
+	/**
+	 * Returns the meta object for the reference '{@link tura.permission.SecurityEntityPointer#getSecurityEntity <em>Security Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Security Entity</em>'.
+	 * @see tura.permission.SecurityEntityPointer#getSecurityEntity()
+	 * @see #getSecurityEntityPointer()
+	 * @generated
+	 */
+	EReference getSecurityEntityPointer_SecurityEntity();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -502,6 +598,7 @@ public interface PermissionPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -542,6 +639,16 @@ public interface PermissionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROLES__GROUPS = eINSTANCE.getRoles_Groups();
+
+		/**
+		 * The meta object literal for the '{@link tura.permission.impl.SecurityEntityImpl <em>Security Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tura.permission.impl.SecurityEntityImpl
+		 * @see tura.permission.impl.PermissionPackageImpl#getSecurityEntity()
+		 * @generated
+		 */
+		EClass SECURITY_ENTITY = eINSTANCE.getSecurityEntity();
 
 		/**
 		 * The meta object literal for the '{@link tura.permission.impl.RoleImpl <em>Role</em>}' class.
@@ -654,6 +761,24 @@ public interface PermissionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GRANT_ACCESS__ROLE_REF = eINSTANCE.getGrantAccess_RoleRef();
+
+		/**
+		 * The meta object literal for the '{@link tura.permission.impl.SecurityEntityPointerImpl <em>Security Entity Pointer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tura.permission.impl.SecurityEntityPointerImpl
+		 * @see tura.permission.impl.PermissionPackageImpl#getSecurityEntityPointer()
+		 * @generated
+		 */
+		EClass SECURITY_ENTITY_POINTER = eINSTANCE.getSecurityEntityPointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Entity</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_ENTITY_POINTER__SECURITY_ENTITY = eINSTANCE.getSecurityEntityPointer_SecurityEntity();
 
 	}
 

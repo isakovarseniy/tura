@@ -1,5 +1,10 @@
+@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
+package tura;
+
+
 @namespace(uri="http://tura.org/2016/v2/permission", prefix="tura.permission")
-package permission;
+package permission{
+	
 
 	class Roles{
 	    id attr EString uid;
@@ -37,5 +42,5 @@ package permission;
 		ref SecurityEntity securityEntity;
 	}
 	
-
+}
 

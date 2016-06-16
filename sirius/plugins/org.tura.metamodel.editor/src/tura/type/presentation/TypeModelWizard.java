@@ -12,52 +12,79 @@ import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
+
 import org.eclipse.emf.common.CommonPlugin;
+
 import org.eclipse.emf.common.util.URI;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.ecore.xmi.XMLResource;
+
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
+
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+
 import org.eclipse.core.runtime.IProgressMonitor;
+
 import org.eclipse.jface.dialogs.MessageDialog;
+
 import org.eclipse.jface.viewers.IStructuredSelection;
+
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
+
 import org.eclipse.swt.SWT;
+
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
+
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
+
 import tura.type.TypeFactory;
 import tura.type.TypePackage;
-import tura.common.provider.Domain1EditPlugin;
+import tura.domain.provider.DomainEditPlugin;
+
+
 import org.eclipse.core.runtime.Path;
+
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
-import tura.common.presentation.Domain1EditorPlugin;
+
+import tura.domain.presentation.DomainEditorPlugin;
 
 
 /**
@@ -74,7 +101,7 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(Domain1EditorPlugin.INSTANCE.getString("_UI_TypeEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(DomainEditorPlugin.INSTANCE.getString("_UI_TypeEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -83,7 +110,7 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		Domain1EditorPlugin.INSTANCE.getString("_UI_TypeEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		DomainEditorPlugin.INSTANCE.getString("_UI_TypeEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -150,8 +177,8 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(Domain1EditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(Domain1EditorPlugin.INSTANCE.getImage("full/wizban/NewType")));
+		setWindowTitle(DomainEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(DomainEditorPlugin.INSTANCE.getImage("full/wizban/NewType")));
 	}
 
 	/**
@@ -234,7 +261,7 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							Domain1EditorPlugin.INSTANCE.log(exception);
+							DomainEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -267,14 +294,14 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), Domain1EditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), DomainEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			Domain1EditorPlugin.INSTANCE.log(exception);
+			DomainEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -308,7 +335,7 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(Domain1EditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(DomainEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -385,7 +412,7 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(Domain1EditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(DomainEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -411,7 +438,7 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(Domain1EditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(DomainEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -510,10 +537,10 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return Domain1EditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return DomainEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				Domain1EditorPlugin.INSTANCE.log(mre);
+				DomainEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -526,7 +553,7 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(Domain1EditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(DomainEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -545,9 +572,9 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new TypeModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(Domain1EditorPlugin.INSTANCE.getString("_UI_TypeModelWizard_label"));
-		newFileCreationPage.setDescription(Domain1EditorPlugin.INSTANCE.getString("_UI_TypeModelWizard_description"));
-		newFileCreationPage.setFileName(Domain1EditorPlugin.INSTANCE.getString("_UI_TypeEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setTitle(DomainEditorPlugin.INSTANCE.getString("_UI_TypeModelWizard_label"));
+		newFileCreationPage.setDescription(DomainEditorPlugin.INSTANCE.getString("_UI_TypeModelWizard_description"));
+		newFileCreationPage.setFileName(DomainEditorPlugin.INSTANCE.getString("_UI_TypeEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -573,7 +600,7 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = Domain1EditorPlugin.INSTANCE.getString("_UI_TypeEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = DomainEditorPlugin.INSTANCE.getString("_UI_TypeEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -584,8 +611,8 @@ public class TypeModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new TypeModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(Domain1EditorPlugin.INSTANCE.getString("_UI_TypeModelWizard_label"));
-		initialObjectCreationPage.setDescription(Domain1EditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(DomainEditorPlugin.INSTANCE.getString("_UI_TypeModelWizard_label"));
+		initialObjectCreationPage.setDescription(DomainEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

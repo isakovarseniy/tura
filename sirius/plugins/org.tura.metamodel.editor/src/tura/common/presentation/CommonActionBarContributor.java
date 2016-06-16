@@ -39,6 +39,8 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
+import tura.domain.presentation.DomainEditorPlugin;
+
 /**
  * This is the action bar contributor for the Common model editor.
  * <!-- begin-user-doc -->
@@ -71,14 +73,14 @@ public class CommonActionBarContributor
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction =
-		new Action(Domain1EditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		new Action(DomainEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
 			@Override
 			public void run() {
 				try {
 					getPage().showView("org.eclipse.ui.views.PropertySheet");
 				}
 				catch (PartInitException exception) {
-					Domain1EditorPlugin.INSTANCE.log(exception);
+					DomainEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -91,7 +93,7 @@ public class CommonActionBarContributor
 	 * @generated
 	 */
 	protected IAction refreshViewerAction =
-		new Action(Domain1EditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		new Action(DomainEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
 			@Override
 			public boolean isEnabled() {
 				return activeEditorPart instanceof IViewerProvider;
@@ -178,7 +180,7 @@ public class CommonActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(Domain1EditorPlugin.INSTANCE.getString("_UI_CommonEditor_menu"), "tura.commonMenuID");
+		IMenuManager submenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CommonEditor_menu"), "tura.commonMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -187,12 +189,12 @@ public class CommonActionBarContributor
 
 		// Prepare for CreateChild item addition or removal.
 		//
-		createChildMenuManager = new MenuManager(Domain1EditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		createChildMenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		submenuManager.insertBefore("additions", createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
-		createSiblingMenuManager = new MenuManager(Domain1EditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		createSiblingMenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
@@ -383,11 +385,11 @@ public class CommonActionBarContributor
 		super.menuAboutToShow(menuManager);
 		MenuManager submenuManager = null;
 
-		submenuManager = new MenuManager(Domain1EditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		submenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 
-		submenuManager = new MenuManager(Domain1EditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		submenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 	}

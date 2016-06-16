@@ -5,10 +5,14 @@ package tura.permission.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -19,7 +23,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import tura.common.provider.Domain1EditPlugin;
+
+import tura.domain.provider.DomainEditPlugin;
+
 import tura.permission.PermissionFactory;
 import tura.permission.PermissionPackage;
 import tura.permission.Roles;
@@ -196,7 +202,7 @@ public class RolesItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Domain1EditPlugin.INSTANCE;
+		return DomainEditPlugin.INSTANCE;
 	}
 
 }

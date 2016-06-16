@@ -2,8 +2,11 @@
  */
 package tura.domain;
 
-import application.Application;
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
+
+import tura.application.ApplicationGroup;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link tura.domain.DomainApplication#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.DomainApplication#getName <em>Name</em>}</li>
- *   <li>{@link tura.domain.DomainApplication#getApplication <em>Application</em>}</li>
+ *   <li>{@link tura.domain.DomainApplication#getApplicationPackages <em>Application Packages</em>}</li>
  * </ul>
  *
  * @see tura.domain.DomainPackage#getDomainApplication()
@@ -77,29 +80,19 @@ public interface DomainApplication extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Application</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Application Packages</b></em>' containment reference list.
+	 * The list contents are of type {@link tura.application.ApplicationGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Application</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Application Packages</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Application</em>' containment reference.
-	 * @see #setApplication(Application)
-	 * @see tura.domain.DomainPackage#getDomainApplication_Application()
+	 * @return the value of the '<em>Application Packages</em>' containment reference list.
+	 * @see tura.domain.DomainPackage#getDomainApplication_ApplicationPackages()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Application getApplication();
-
-	/**
-	 * Sets the value of the '{@link tura.domain.DomainApplication#getApplication <em>Application</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Application</em>' containment reference.
-	 * @see #getApplication()
-	 * @generated
-	 */
-	void setApplication(Application value);
+	EList<ApplicationGroup> getApplicationPackages();
 
 } // DomainApplication

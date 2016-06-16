@@ -7,7 +7,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import tura.common.CommonPackage;
+
 import tura.permission.PermissionPackage;
 
 /**
@@ -17,6 +19,7 @@ import tura.permission.PermissionPackage;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -59,14 +62,14 @@ public interface TypePackage extends EPackage {
 	TypePackage eINSTANCE = tura.type.impl.TypePackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link tura.type.impl.RepositoryImpl <em>Repository</em>}' class.
+	 * The meta object id for the '{@link tura.type.impl.TypeGroupImpl <em>Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see tura.type.impl.RepositoryImpl
-	 * @see tura.type.impl.TypePackageImpl#getRepository()
+	 * @see tura.type.impl.TypeGroupImpl
+	 * @see tura.type.impl.TypePackageImpl#getTypeGroup()
 	 * @generated
 	 */
-	int REPOSITORY = 0;
+	int TYPE_GROUP = 0;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -75,7 +78,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__UID = 0;
+	int TYPE_GROUP__UID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -84,63 +87,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY__PACKAGES = 2;
-
-	/**
-	 * The number of structural features of the '<em>Repository</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_FEATURE_COUNT = 3;
-
-
-	/**
-	 * The number of operations of the '<em>Repository</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link tura.type.impl.PackageImpl <em>Package</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see tura.type.impl.PackageImpl
-	 * @see tura.type.impl.TypePackageImpl#getPackage()
-	 * @generated
-	 */
-	int PACKAGE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__NAME = 1;
+	int TYPE_GROUP__NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -149,7 +96,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__TYPES = 2;
+	int TYPE_GROUP__TYPES = 2;
 
 	/**
 	 * The feature id for the '<em><b>Relationships</b></em>' containment reference list.
@@ -158,25 +105,25 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__RELATIONSHIPS = 3;
+	int TYPE_GROUP__RELATIONSHIPS = 3;
 
 	/**
-	 * The number of structural features of the '<em>Package</em>' class.
+	 * The number of structural features of the '<em>Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = 4;
+	int TYPE_GROUP_FEATURE_COUNT = 4;
 
 	/**
-	 * The number of operations of the '<em>Package</em>' class.
+	 * The number of operations of the '<em>Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_OPERATION_COUNT = 0;
+	int TYPE_GROUP_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link tura.type.impl.TypeElementImpl <em>Element</em>}' class.
@@ -186,7 +133,7 @@ public interface TypePackage extends EPackage {
 	 * @see tura.type.impl.TypePackageImpl#getTypeElement()
 	 * @generated
 	 */
-	int TYPE_ELEMENT = 2;
+	int TYPE_ELEMENT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -232,7 +179,7 @@ public interface TypePackage extends EPackage {
 	 * @see tura.type.impl.TypePackageImpl#getRelationship()
 	 * @generated
 	 */
-	int RELATIONSHIP = 3;
+	int RELATIONSHIP = 2;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -296,7 +243,7 @@ public interface TypePackage extends EPackage {
 	 * @see tura.type.impl.TypePackageImpl#getReferences()
 	 * @generated
 	 */
-	int REFERENCES = 4;
+	int REFERENCES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -360,7 +307,7 @@ public interface TypePackage extends EPackage {
 	 * @see tura.type.impl.TypePackageImpl#getGeneralization()
 	 * @generated
 	 */
-	int GENERALIZATION = 5;
+	int GENERALIZATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -424,16 +371,7 @@ public interface TypePackage extends EPackage {
 	 * @see tura.type.impl.TypePackageImpl#getTypePointer()
 	 * @generated
 	 */
-	int TYPE_POINTER = 6;
-
-	/**
-	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_POINTER__PACKAGE_REF = 0;
+	int TYPE_POINTER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -442,7 +380,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_POINTER__TYPE_REF = 1;
+	int TYPE_POINTER__TYPE_REF = 0;
 
 	/**
 	 * The number of structural features of the '<em>Pointer</em>' class.
@@ -451,7 +389,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_POINTER_FEATURE_COUNT = 2;
+	int TYPE_POINTER_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Pointer</em>' class.
@@ -461,6 +399,43 @@ public interface TypePackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_POINTER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link tura.type.impl.PackagePointerImpl <em>Package Pointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tura.type.impl.PackagePointerImpl
+	 * @see tura.type.impl.TypePackageImpl#getPackagePointer()
+	 * @generated
+	 */
+	int PACKAGE_POINTER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_POINTER__PACKAGE_REF = 0;
+
+	/**
+	 * The number of structural features of the '<em>Package Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_POINTER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Package Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_POINTER_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link tura.type.impl.AssosiationImpl <em>Assosiation</em>}' class.
@@ -635,15 +610,6 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	int ATTRIBUTE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -947,22 +913,13 @@ public interface TypePackage extends EPackage {
 	int TYPE_REFERENCE__NAME = TYPE_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_REFERENCE__PACKAGE_REF = TYPE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_REFERENCE__TYPE_REF = TYPE_ELEMENT_FEATURE_COUNT + 1;
+	int TYPE_REFERENCE__TYPE_REF = TYPE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
@@ -971,7 +928,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 2;
+	int TYPE_REFERENCE_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Reference</em>' class.
@@ -991,15 +948,6 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	int PARAMETER = 14;
-
-	/**
-	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -1064,15 +1012,6 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	int RETURN_VALUE = 15;
-
-	/**
-	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RETURN_VALUE__PACKAGE_REF = TYPE_POINTER__PACKAGE_REF;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -1239,6 +1178,52 @@ public interface TypePackage extends EPackage {
 	int ENUM_ATTRIBUTE_OPERATION_COUNT = CommonPackage.CATEGORIZED_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link tura.type.impl.MethodPointerImpl <em>Method Pointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tura.type.impl.MethodPointerImpl
+	 * @see tura.type.impl.TypePackageImpl#getMethodPointer()
+	 * @generated
+	 */
+	int METHOD_POINTER = 18;
+
+	/**
+	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_POINTER__TYPE_REF = TYPE_POINTER__TYPE_REF;
+
+	/**
+	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_POINTER__METHOD_REF = TYPE_POINTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Method Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_POINTER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Method Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_POINTER_OPERATION_COUNT = TYPE_POINTER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link tura.type.RelationType <em>Relation Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1246,105 +1231,62 @@ public interface TypePackage extends EPackage {
 	 * @see tura.type.impl.TypePackageImpl#getRelationType()
 	 * @generated
 	 */
-	int RELATION_TYPE = 18;
+	int RELATION_TYPE = 19;
 
 
 	/**
-	 * Returns the meta object for class '{@link tura.type.Repository <em>Repository</em>}'.
+	 * Returns the meta object for class '{@link tura.type.TypeGroup <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Repository</em>'.
-	 * @see tura.type.Repository
+	 * @return the meta object for class '<em>Group</em>'.
+	 * @see tura.type.TypeGroup
 	 * @generated
 	 */
-	EClass getRepository();
+	EClass getTypeGroup();
 
 	/**
-	 * Returns the meta object for the attribute '{@link tura.type.Repository#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see tura.type.Repository#getUid()
-	 * @see #getRepository()
-	 * @generated
-	 */
-	EAttribute getRepository_Uid();
-
-	/**
-	 * Returns the meta object for the attribute '{@link tura.type.Repository#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see tura.type.Repository#getName()
-	 * @see #getRepository()
-	 * @generated
-	 */
-	EAttribute getRepository_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link tura.type.Repository#getPackages <em>Packages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Packages</em>'.
-	 * @see tura.type.Repository#getPackages()
-	 * @see #getRepository()
-	 * @generated
-	 */
-	EReference getRepository_Packages();
-
-	/**
-	 * Returns the meta object for class '{@link tura.type.Package <em>Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Package</em>'.
-	 * @see tura.type.Package
-	 * @generated
-	 */
-	EClass getPackage();
-
-	/**
-	 * Returns the meta object for the attribute '{@link tura.type.Package#getUid <em>Uid</em>}'.
+	 * Returns the meta object for the attribute '{@link tura.type.TypeGroup#getUid <em>Uid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see tura.type.Package#getUid()
-	 * @see #getPackage()
+	 * @see tura.type.TypeGroup#getUid()
+	 * @see #getTypeGroup()
 	 * @generated
 	 */
-	EAttribute getPackage_Uid();
+	EAttribute getTypeGroup_Uid();
 
 	/**
-	 * Returns the meta object for the attribute '{@link tura.type.Package#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link tura.type.TypeGroup#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see tura.type.Package#getName()
-	 * @see #getPackage()
+	 * @see tura.type.TypeGroup#getName()
+	 * @see #getTypeGroup()
 	 * @generated
 	 */
-	EAttribute getPackage_Name();
+	EAttribute getTypeGroup_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link tura.type.Package#getTypes <em>Types</em>}'.
+	 * Returns the meta object for the containment reference list '{@link tura.type.TypeGroup#getTypes <em>Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Types</em>'.
-	 * @see tura.type.Package#getTypes()
-	 * @see #getPackage()
+	 * @see tura.type.TypeGroup#getTypes()
+	 * @see #getTypeGroup()
 	 * @generated
 	 */
-	EReference getPackage_Types();
+	EReference getTypeGroup_Types();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link tura.type.Package#getRelationships <em>Relationships</em>}'.
+	 * Returns the meta object for the containment reference list '{@link tura.type.TypeGroup#getRelationships <em>Relationships</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Relationships</em>'.
-	 * @see tura.type.Package#getRelationships()
-	 * @see #getPackage()
+	 * @see tura.type.TypeGroup#getRelationships()
+	 * @see #getTypeGroup()
 	 * @generated
 	 */
-	EReference getPackage_Relationships();
+	EReference getTypeGroup_Relationships();
 
 	/**
 	 * Returns the meta object for class '{@link tura.type.TypeElement <em>Element</em>}'.
@@ -1452,17 +1394,6 @@ public interface TypePackage extends EPackage {
 	EClass getTypePointer();
 
 	/**
-	 * Returns the meta object for the reference '{@link tura.type.TypePointer#getPackageRef <em>Package Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Package Ref</em>'.
-	 * @see tura.type.TypePointer#getPackageRef()
-	 * @see #getTypePointer()
-	 * @generated
-	 */
-	EReference getTypePointer_PackageRef();
-
-	/**
 	 * Returns the meta object for the reference '{@link tura.type.TypePointer#getTypeRef <em>Type Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1472,6 +1403,27 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTypePointer_TypeRef();
+
+	/**
+	 * Returns the meta object for class '{@link tura.type.PackagePointer <em>Package Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Package Pointer</em>'.
+	 * @see tura.type.PackagePointer
+	 * @generated
+	 */
+	EClass getPackagePointer();
+
+	/**
+	 * Returns the meta object for the reference '{@link tura.type.PackagePointer#getPackageRef <em>Package Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Package Ref</em>'.
+	 * @see tura.type.PackagePointer#getPackageRef()
+	 * @see #getPackagePointer()
+	 * @generated
+	 */
+	EReference getPackagePointer_PackageRef();
 
 	/**
 	 * Returns the meta object for class '{@link tura.type.Assosiation <em>Assosiation</em>}'.
@@ -1881,6 +1833,27 @@ public interface TypePackage extends EPackage {
 	EAttribute getEnumAttribute_Value();
 
 	/**
+	 * Returns the meta object for class '{@link tura.type.MethodPointer <em>Method Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Method Pointer</em>'.
+	 * @see tura.type.MethodPointer
+	 * @generated
+	 */
+	EClass getMethodPointer();
+
+	/**
+	 * Returns the meta object for the reference '{@link tura.type.MethodPointer#getMethodRef <em>Method Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Method Ref</em>'.
+	 * @see tura.type.MethodPointer#getMethodRef()
+	 * @see #getMethodPointer()
+	 * @generated
+	 */
+	EReference getMethodPointer_MethodRef();
+
+	/**
 	 * Returns the meta object for enum '{@link tura.type.RelationType <em>Relation Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1905,6 +1878,7 @@ public interface TypePackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -1913,14 +1887,14 @@ public interface TypePackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link tura.type.impl.RepositoryImpl <em>Repository</em>}' class.
+		 * The meta object literal for the '{@link tura.type.impl.TypeGroupImpl <em>Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see tura.type.impl.RepositoryImpl
-		 * @see tura.type.impl.TypePackageImpl#getRepository()
+		 * @see tura.type.impl.TypeGroupImpl
+		 * @see tura.type.impl.TypePackageImpl#getTypeGroup()
 		 * @generated
 		 */
-		EClass REPOSITORY = eINSTANCE.getRepository();
+		EClass TYPE_GROUP = eINSTANCE.getTypeGroup();
 
 		/**
 		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
@@ -1928,7 +1902,7 @@ public interface TypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute REPOSITORY__UID = eINSTANCE.getRepository_Uid();
+		EAttribute TYPE_GROUP__UID = eINSTANCE.getTypeGroup_Uid();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1936,41 +1910,7 @@ public interface TypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute REPOSITORY__NAME = eINSTANCE.getRepository_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REPOSITORY__PACKAGES = eINSTANCE.getRepository_Packages();
-
-		/**
-		 * The meta object literal for the '{@link tura.type.impl.PackageImpl <em>Package</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see tura.type.impl.PackageImpl
-		 * @see tura.type.impl.TypePackageImpl#getPackage()
-		 * @generated
-		 */
-		EClass PACKAGE = eINSTANCE.getPackage();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PACKAGE__UID = eINSTANCE.getPackage_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
+		EAttribute TYPE_GROUP__NAME = eINSTANCE.getTypeGroup_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
@@ -1978,7 +1918,7 @@ public interface TypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PACKAGE__TYPES = eINSTANCE.getPackage_Types();
+		EReference TYPE_GROUP__TYPES = eINSTANCE.getTypeGroup_Types();
 
 		/**
 		 * The meta object literal for the '<em><b>Relationships</b></em>' containment reference list feature.
@@ -1986,7 +1926,7 @@ public interface TypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PACKAGE__RELATIONSHIPS = eINSTANCE.getPackage_Relationships();
+		EReference TYPE_GROUP__RELATIONSHIPS = eINSTANCE.getTypeGroup_Relationships();
 
 		/**
 		 * The meta object literal for the '{@link tura.type.impl.TypeElementImpl <em>Element</em>}' class.
@@ -2079,20 +2019,30 @@ public interface TypePackage extends EPackage {
 		EClass TYPE_POINTER = eINSTANCE.getTypePointer();
 
 		/**
-		 * The meta object literal for the '<em><b>Package Ref</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE_POINTER__PACKAGE_REF = eINSTANCE.getTypePointer_PackageRef();
-
-		/**
 		 * The meta object literal for the '<em><b>Type Ref</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference TYPE_POINTER__TYPE_REF = eINSTANCE.getTypePointer_TypeRef();
+
+		/**
+		 * The meta object literal for the '{@link tura.type.impl.PackagePointerImpl <em>Package Pointer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tura.type.impl.PackagePointerImpl
+		 * @see tura.type.impl.TypePackageImpl#getPackagePointer()
+		 * @generated
+		 */
+		EClass PACKAGE_POINTER = eINSTANCE.getPackagePointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Package Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE_POINTER__PACKAGE_REF = eINSTANCE.getPackagePointer_PackageRef();
 
 		/**
 		 * The meta object literal for the '{@link tura.type.impl.AssosiationImpl <em>Assosiation</em>}' class.
@@ -2419,6 +2369,24 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENUM_ATTRIBUTE__VALUE = eINSTANCE.getEnumAttribute_Value();
+
+		/**
+		 * The meta object literal for the '{@link tura.type.impl.MethodPointerImpl <em>Method Pointer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tura.type.impl.MethodPointerImpl
+		 * @see tura.type.impl.TypePackageImpl#getMethodPointer()
+		 * @generated
+		 */
+		EClass METHOD_POINTER = eINSTANCE.getMethodPointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Method Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD_POINTER__METHOD_REF = eINSTANCE.getMethodPointer_MethodRef();
 
 		/**
 		 * The meta object literal for the '{@link tura.type.RelationType <em>Relation Type</em>}' enum.

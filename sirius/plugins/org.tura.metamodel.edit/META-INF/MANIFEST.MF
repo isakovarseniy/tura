@@ -7,23 +7,18 @@ Bundle-ClassPath: .
 Bundle-Activator: tura.domain.provider.DomainEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: tura.application.provider,
- application.provider,
- artifact.provider,
- common.provider,
- form.provider,
- infrastructure.provider,
- mapper.provider,
- message.provider,
- permission.provider,
- recipe.provider,
- style.provider,
  tura.artifact.provider,
  tura.common.provider,
  tura.domain.provider,
- type.provider,
+ tura.form.provider,
+ tura.infrastructure.provider,
+ tura.mapper.provider,
+ tura.message.provider,
  tura.permission.provider,
+ tura.recipe.provider,
+ tura.style.provider,
  tura.type.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.tura.metamodel;visibility:=reexport,

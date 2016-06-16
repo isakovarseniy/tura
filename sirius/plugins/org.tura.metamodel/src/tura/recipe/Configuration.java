@@ -1,0 +1,140 @@
+/**
+ */
+package tura.recipe;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Configuration</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link tura.recipe.Configuration#getUid <em>Uid</em>}</li>
+ *   <li>{@link tura.recipe.Configuration#getName <em>Name</em>}</li>
+ *   <li>{@link tura.recipe.Configuration#getInfrastructure <em>Infrastructure</em>}</li>
+ *   <li>{@link tura.recipe.Configuration#getProperties <em>Properties</em>}</li>
+ *   <li>{@link tura.recipe.Configuration#getHashProperties <em>Hash Properties</em>}</li>
+ * </ul>
+ *
+ * @see tura.recipe.RecipePackage#getConfiguration()
+ * @model
+ * @generated
+ */
+public interface Configuration extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Uid</em>' attribute.
+	 * @see #setUid(String)
+	 * @see tura.recipe.RecipePackage#getConfiguration_Uid()
+	 * @model id="true"
+	 * @generated
+	 */
+	String getUid();
+
+	/**
+	 * Sets the value of the '{@link tura.recipe.Configuration#getUid <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Uid</em>' attribute.
+	 * @see #getUid()
+	 * @generated
+	 */
+	void setUid(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see tura.recipe.RecipePackage#getConfiguration_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link tura.recipe.Configuration#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Infrastructure</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Infrastructure</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Infrastructure</em>' reference.
+	 * @see #setInfrastructure(Infrastructure)
+	 * @see tura.recipe.RecipePackage#getConfiguration_Infrastructure()
+	 * @model
+	 * @generated
+	 */
+	Infrastructure getInfrastructure();
+
+	/**
+	 * Sets the value of the '{@link tura.recipe.Configuration#getInfrastructure <em>Infrastructure</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Infrastructure</em>' reference.
+	 * @see #getInfrastructure()
+	 * @generated
+	 */
+	void setInfrastructure(Infrastructure value);
+
+	/**
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link tura.recipe.Property}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see tura.recipe.RecipePackage#getConfiguration_Properties()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Property> getProperties();
+
+	/**
+	 * Returns the value of the '<em><b>Hash Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link tura.recipe.HashProperty}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Hash Properties</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Hash Properties</em>' containment reference list.
+	 * @see tura.recipe.RecipePackage#getConfiguration_HashProperties()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<HashProperty> getHashProperties();
+
+} // Configuration

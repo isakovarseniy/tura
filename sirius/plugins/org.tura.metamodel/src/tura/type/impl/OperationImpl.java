@@ -3,18 +3,26 @@
 package tura.type.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import tura.common.Categorized;
 import tura.common.Classifier;
 import tura.common.CommonPackage;
+
 import tura.permission.impl.SecuredImpl;
+
 import tura.type.Operation;
 import tura.type.Parameter;
 import tura.type.ReturnValue;
@@ -27,6 +35,7 @@ import tura.type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.impl.OperationImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link tura.type.impl.OperationImpl#getUid <em>Uid</em>}</li>
@@ -35,7 +44,6 @@ import tura.type.TypePackage;
  *   <li>{@link tura.type.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link tura.type.impl.OperationImpl#getReturnValue <em>Return Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

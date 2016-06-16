@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.permission.Roles#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.permission.Roles#getRoles <em>Roles</em>}</li>
  *   <li>{@link tura.permission.Roles#getGroups <em>Groups</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.permission.PermissionPackage#getRoles()
  * @model

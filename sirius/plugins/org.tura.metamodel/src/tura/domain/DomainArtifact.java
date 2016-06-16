@@ -2,8 +2,11 @@
  */
 package tura.domain;
 
-import artifact.Artifact;
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
+
+import tura.artifact.ArtifactGroup;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link tura.domain.DomainArtifact#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.DomainArtifact#getName <em>Name</em>}</li>
- *   <li>{@link tura.domain.DomainArtifact#getArtifact <em>Artifact</em>}</li>
+ *   <li>{@link tura.domain.DomainArtifact#getArtifactPackages <em>Artifact Packages</em>}</li>
  * </ul>
  *
  * @see tura.domain.DomainPackage#getDomainArtifact()
@@ -77,29 +80,19 @@ public interface DomainArtifact extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Artifact</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Artifact Packages</b></em>' containment reference list.
+	 * The list contents are of type {@link tura.artifact.ArtifactGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Artifact</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Artifact Packages</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Artifact</em>' containment reference.
-	 * @see #setArtifact(Artifact)
-	 * @see tura.domain.DomainPackage#getDomainArtifact_Artifact()
+	 * @return the value of the '<em>Artifact Packages</em>' containment reference list.
+	 * @see tura.domain.DomainPackage#getDomainArtifact_ArtifactPackages()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Artifact getArtifact();
-
-	/**
-	 * Sets the value of the '{@link tura.domain.DomainArtifact#getArtifact <em>Artifact</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Artifact</em>' containment reference.
-	 * @see #getArtifact()
-	 * @generated
-	 */
-	void setArtifact(Artifact value);
+	EList<ArtifactGroup> getArtifactPackages();
 
 } // DomainArtifact

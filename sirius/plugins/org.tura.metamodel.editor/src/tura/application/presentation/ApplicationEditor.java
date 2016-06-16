@@ -160,13 +160,25 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import tura.artifact.provider.ArtifactItemProviderAdapterFactory;
 
-import tura.common.presentation.TuraEditorPlugin;
-
 import tura.common.provider.CommonItemProviderAdapterFactory;
+
+import tura.domain.presentation.DomainEditorPlugin;
 
 import tura.domain.provider.DomainItemProviderAdapterFactory;
 
+import tura.form.provider.FormItemProviderAdapterFactory;
+
+import tura.infrastructure.provider.InfrastructureItemProviderAdapterFactory;
+
+import tura.mapper.provider.MapperItemProviderAdapterFactory;
+
+import tura.message.provider.MessageItemProviderAdapterFactory;
+
 import tura.permission.provider.PermissionItemProviderAdapterFactory;
+
+import tura.recipe.provider.RecipeItemProviderAdapterFactory;
+
+import tura.style.provider.StyleItemProviderAdapterFactory;
 
 import tura.type.provider.TypeItemProviderAdapterFactory;
 
@@ -542,7 +554,7 @@ public class ApplicationEditor
 					}
 				}
 				catch (CoreException exception) {
-					TuraEditorPlugin.INSTANCE.log(exception);
+					DomainEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -658,7 +670,7 @@ public class ApplicationEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					TuraEditorPlugin.INSTANCE.log(exception);
+					DomainEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -669,7 +681,7 @@ public class ApplicationEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						TuraEditorPlugin.INSTANCE.log(exception);
+						DomainEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -713,12 +725,18 @@ public class ApplicationEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CommonItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new PermissionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DomainItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CommonItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new PermissionItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new InfrastructureItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new MessageItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new StyleItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new FormItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -966,7 +984,7 @@ public class ApplicationEditor
 	 * @generated
 	 */
 	public void createModel() {
-		URI resourceURI = EditUIUtil.getURI(getEditorInput());
+		URI resourceURI = EditUIUtil.getURI(getEditorInput(), editingDomain.getResourceSet().getURIConverter());
 		Exception exception = null;
 		Resource resource = null;
 		try {
@@ -994,10 +1012,11 @@ public class ApplicationEditor
 	 * @generated
 	 */
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
-		if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
+		boolean hasErrors = !resource.getErrors().isEmpty();
+		if (hasErrors || !resource.getWarnings().isEmpty()) {
 			BasicDiagnostic basicDiagnostic =
 				new BasicDiagnostic
-					(Diagnostic.ERROR,
+					(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
 					 "org.tura.metamodel.editor",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),
@@ -1539,7 +1558,7 @@ public class ApplicationEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			TuraEditorPlugin.INSTANCE.log(exception);
+			DomainEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1743,7 +1762,7 @@ public class ApplicationEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return TuraEditorPlugin.INSTANCE.getString(key);
+		return DomainEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1753,7 +1772,7 @@ public class ApplicationEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return TuraEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return DomainEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

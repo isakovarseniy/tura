@@ -1,510 +1,514 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="form" nsURI="http://tura.org/2016/v2/form" nsPrefix="tura.form">
-  <eClassifiers xsi:type="ecore:EClass" name="UIPackage">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="forms" upperBound="-1"
-        eType="#//Form" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Form">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//FormView"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="datacontrols" eType="#//FormDataControls"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//FormParameter" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FormParameter" eSuperTypes="type.ecore#//TypePointer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FormView">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//Views"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Views">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//FormView"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="canvases" upperBound="-1"
-        eType="#//CanvasFrame" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="viewInheritances" upperBound="-1"
-        eType="#//ViewInheritance" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tabPagesInheritances" upperBound="-1"
-        eType="#//TabPagesInheritance" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menus" upperBound="-1"
-        eType="#//MenuDefinition" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HTMLLayerHolder">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Orderable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Comparator">
-    <eLiterals name="EQ"/>
-    <eLiterals name="NEQ" value="1"/>
-    <eLiterals name="GT" value="2"/>
-    <eLiterals name="GEQ" value="3"/>
-    <eLiterals name="LT" value="4"/>
-    <eLiterals name="LEQ" value="5"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Order">
-    <eLiterals name="ASC"/>
-    <eLiterals name="DESC" value="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MultiLangLabel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="multiLangLabel" eType="#//Context"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CanvasFrame" eSuperTypes="#//StyleElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewPortHolder" eSuperTypes="#//HTMLLayerHolder">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="viewElement" upperBound="-1"
-        eType="#//ViewElement" containment="true">
-      <eAnnotations source="gmf.compartment"/>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefaultCavas">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCanvas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//StyleElement common.ecore#//Categorized #//NickNamed"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PopupCanvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel common.ecore#//Categorized #//FlexFields">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//DefaultCavas #//MultiLangLabel common.ecore#//Categorized"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel common.ecore#//Categorized permission.ecore#//Secured"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuDefinition" eSuperTypes="#//StyleElement common.ecore#//Categorized">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menuView" eType="#//MenuView"
-        eOpposite="#//MenuView/parent"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Orientation">
-    <eLiterals name="Top"/>
-    <eLiterals name="Bottom" value="1"/>
-    <eLiterals name="Left" value="2"/>
-    <eLiterals name="Right" value="3"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabCanvas" eSuperTypes="#//CanvasFrame #//DefaultCavas #//MultiLangLabel common.ecore#//Categorized">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="#//Orientation"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel common.ecore#//Categorized #//Orderable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewPort" eSuperTypes="#//ViewElement #//Orderable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="viewPortTrigger" eType="#//ViewPortTrigger"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewArea" eSuperTypes="#//ViewElement #//Orderable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="canvasView" eType="#//CanvasView"
-        eOpposite="#//CanvasView/parent"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewPortTrigger" eSuperTypes="#//Trigger">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewInheritance">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//ViewPort"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//CanvasFrame"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabPagesInheritance">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//TabCanvas"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TabPage"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FormDataControls">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="formControl" eType="#//Controls"
-        eOpposite="#//Controls/parent"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CanvasView">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ViewArea"
-        eOpposite="#//ViewArea/canvasView"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="baseCanvas" eType="#//LayerHolder"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="linkToLabels" upperBound="-1"
-        eType="#//LinkToLabel" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="linkToMessages" upperBound="-1"
-        eType="#//LinkToMessage" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkToMessage">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//InputElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//MessageElement"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkToLabel">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//InputElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Label"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChildrenHolder">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        eType="#//Uielement" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ContextParameter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refObj" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//Comparator"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ContextValue"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ContextValue">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" upperBound="-1"
-        eType="#//ExpressionPart" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExpressionPart">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="objRef" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expressionType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ContextParameters">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//ContextParameter" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Context" eSuperTypes="#//ContextValue #//ContextParameters"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StyleElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styleClass" upperBound="-1"
-        eType="#//StyleClass" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StyleClass" eSuperTypes="#//ContextValue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" eType="ecore:EClass common.ecore#//Classifier"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NickNamed">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FlexFields">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
-        eType="#//FlexField" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FlexField" eSuperTypes="#//Context common.ecore#//Categorized"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EnabledUIItem">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enabled" eType="#//Context"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed common.ecore#//Categorized #//Orderable #//EnabledUIItem #//FlexFields #//MenuHolder">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="required" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="readOnly" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refreshAreas" upperBound="-1"
-        eType="#//AreaRef" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ItemIcon">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="#//Context"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AreaRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//NickNamed"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Formatable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SourcesPointer" eSuperTypes="#//Uielement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePointer" eType="#//DataControl"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valuePointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCast" eType="ecore:EClass type.ecore#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCastDataControl"
-        eType="#//DataControl"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//SourcesPointer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//StyleElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="displayOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valueOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OptionSelection" eSuperTypes="#//InputElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="optionPointer" eType="#//DataControl"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="ecore:EClass type.ecore#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="optionCastDataControl"
-        eType="#//DataControl"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//Uielement #//ChildrenHolder #//HTMLLayerHolder"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement #//Formatable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Password" eSuperTypes="#//InputElement #//Formatable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Uielement #//MultiLangLabel">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MessageElement" eSuperTypes="#//Uielement #//MultiLangLabel">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputText" eSuperTypes="#//InputElement #//Formatable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CheckBox" eSuperTypes="#//InputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DropDownSelection" eSuperTypes="#//OptionSelection">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//Selection"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="initialOptionMessage" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialOptionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//InputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//InputElement #//Formatable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Uielement #//MultiLangLabel #//ItemIcon">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel common.ecore#//Categorized #//HTMLLayerHolder #//Orderable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//Uielement"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SourcesPointer #//HTMLLayerHolder #//MultiLangLabel">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cols" upperBound="-1" eType="#//Column"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//Uielement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuView">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//MenuDefinition"
-        eOpposite="#//MenuDefinition/menuView"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menuFolders" upperBound="-1"
-        eType="#//MenuFolder" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuHolder">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menu" eType="#//MenuFolder"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extensionRef" eType="#//MenuFolder"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuElement" eSuperTypes="#//MultiLangLabel #//StyleElement common.ecore#//Categorized #//EnabledUIItem #//Orderable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuFolder" eSuperTypes="#//HTMLLayerHolder #//EnabledUIItem common.ecore#//Categorized #//StyleElement #//MultiLangLabel #//ItemIcon">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extensionPoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menuElements" upperBound="-1"
-        eType="#//MenuElement" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuItem" eSuperTypes="#//MenuElement #//ItemIcon #//FlexFields">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refreshAreas" upperBound="-1"
-        eType="#//AreaRef" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionPoint" eSuperTypes="#//MenuElement #//MenuExtensionRef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SubMenu" eSuperTypes="#//MenuElement #//ItemIcon">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toSubmenu" eType="#//MenuFolder"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuSeparator" eSuperTypes="#//MenuElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//SourcesPointer #//HTMLLayerHolder #//MultiLangLabel">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//Context"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cols" upperBound="-1" eType="#//Column"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Controls">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//FormDataControls"
-        eOpposite="#//FormDataControls/formControl"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//Root" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
-        eType="#//DataControl" containment="true" eOpposite="#//DataControl/parent"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
-        eType="#//Relation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
-        eType="#//Dependency" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="type.ecore#//MethodPointer #//ContextParameters"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PREFormTrigger" eSuperTypes="#//Trigger">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PREQueryTrigger" eSuperTypes="#//Trigger">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="POSTQueryTrigger" eSuperTypes="#//Trigger">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PREInsertTrigger" eSuperTypes="#//Trigger">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PREDeleteTrigger" eSuperTypes="#//Trigger">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="POSTCreateTrigger" eSuperTypes="#//Trigger">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PREUpdateTrigger" eSuperTypes="#//Trigger">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProxiesList">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typePointers" upperBound="-1"
-        eType="ecore:EClass type.ecore#//TypePointer" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CreateTrigger" eSuperTypes="#//Trigger #//ProxiesList">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InsertTrigger" eSuperTypes="#//Trigger #//ProxiesList">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UpdateTrigger" eSuperTypes="#//Trigger #//ProxiesList">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeleteTrigger" eSuperTypes="#//Trigger #//ProxiesList">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SearchTrigger" eSuperTypes="#//Trigger #//ProxiesList">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Root">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preFormTrigger" eType="#//PREFormTrigger"
-        containment="true">
-      <eAnnotations source="gmf.compartment">
-        <details key="layout" value="list"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-        eType="#//FormVariable" containment="true">
-      <eAnnotations source="gmf.compartment">
-        <details key="layout" value="list"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FormVariable" eSuperTypes="type.ecore#//TypePointer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="paramRef" eType="#//FormParameter"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataControl">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="ecore:EClass type.ecore#//TypePointer"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Controls"
-        eOpposite="#//Controls/controls"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preQueryTrigger" eType="#//PREQueryTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="postQueryTrigger" eType="#//POSTQueryTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preInsertTrigger" eType="#//PREInsertTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preDeleteTrigger" eType="#//PREDeleteTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="postCreateTrigger" eType="#//POSTCreateTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preUpdateTrigger" eType="#//PREUpdateTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="create" eType="#//CreateTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="insert" eType="#//InsertTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="update" eType="#//UpdateTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="remove" eType="#//DeleteTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="search" eType="#//SearchTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="artificialFields" upperBound="-1"
-        eType="#//ArtificialField" containment="true" eOpposite="#//ArtificialField/parent"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="#//ContextParameters"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOrderBy" eType="#//Orders"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Orders">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="orderRules" upperBound="-1"
-        eType="#//OrderBy" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OrderBy">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refObj" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="#//Order"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Relation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="master" eType="#//DataControl"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="detail" eType="#//DataControl"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTree" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
-        eType="#//Link" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Dependency">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="master" eType="#//DataControl"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="detail" eType="#//DataControl"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArtificialField" eSuperTypes="type.ecore#//TypePointer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DataControl"
-        eOpposite="#//DataControl/artificialFields"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Link">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="masterField" eType="ecore:EClass type.ecore#//Attribute"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="detailField" eType="ecore:EClass type.ecore#//Attribute"/>
-  </eClassifiers>
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tura" nsURI="http://tura.org/2016/v2/tura" nsPrefix="tura">
+  <eSubpackages name="form" nsURI="http://tura.org/2016/v2/form" nsPrefix="tura.form">
+    <eClassifiers xsi:type="ecore:EClass" name="UIPackage">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="forms" upperBound="-1"
+          eType="#//form/Form" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Form">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//form/FormView"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="datacontrols" eType="#//form/FormDataControls"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//form/FormParameter" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FormParameter" eSuperTypes="type.ecore#//type/TypePointer">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FormView">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//form/Views"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Views">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//form/FormView"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="canvases" upperBound="-1"
+          eType="#//form/CanvasFrame" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewInheritances" upperBound="-1"
+          eType="#//form/ViewInheritance" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tabPagesInheritances"
+          upperBound="-1" eType="#//form/TabPagesInheritance" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="menus" upperBound="-1"
+          eType="#//form/MenuDefinition" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HTMLLayerHolder">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Orderable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Comparator">
+      <eLiterals name="EQ"/>
+      <eLiterals name="NEQ" value="1"/>
+      <eLiterals name="GT" value="2"/>
+      <eLiterals name="GEQ" value="3"/>
+      <eLiterals name="LT" value="4"/>
+      <eLiterals name="LEQ" value="5"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Order">
+      <eLiterals name="ASC"/>
+      <eLiterals name="DESC" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MultiLangLabel">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="multiLangLabel" eType="#//form/Context"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CanvasFrame" eSuperTypes="#//form/StyleElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewPortHolder" eSuperTypes="#//form/HTMLLayerHolder">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewElement" upperBound="-1"
+          eType="#//form/ViewElement" containment="true">
+        <eAnnotations source="gmf.compartment"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DefaultCavas">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCanvas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//form/StyleElement common.ecore#//common/Categorized #//form/NickNamed"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PopupCanvas" eSuperTypes="#//form/CanvasFrame #//form/ViewPortHolder #//form/DefaultCavas #//form/MultiLangLabel common.ecore#//common/Categorized #//form/FlexFields">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//form/CanvasFrame #//form/ViewPortHolder #//form/DefaultCavas #//form/MultiLangLabel common.ecore#//common/Categorized"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//form/CanvasFrame #//form/ViewPortHolder #//form/MultiLangLabel common.ecore#//common/Categorized permission.ecore#//permission/Secured"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuDefinition" eSuperTypes="#//form/StyleElement common.ecore#//common/Categorized">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="menuView" eType="#//form/MenuView"
+          eOpposite="#//form/MenuView/parent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Orientation">
+      <eLiterals name="Top"/>
+      <eLiterals name="Bottom" value="1"/>
+      <eLiterals name="Left" value="2"/>
+      <eLiterals name="Right" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TabCanvas" eSuperTypes="#//form/CanvasFrame #//form/DefaultCavas #//form/MultiLangLabel common.ecore#//common/Categorized">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="#//form/Orientation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//form/CanvasFrame #//form/ViewPortHolder #//form/MultiLangLabel common.ecore#//common/Categorized #//form/Orderable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewPort" eSuperTypes="#//form/ViewElement #//form/Orderable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewPortTrigger" eType="#//form/ViewPortTrigger"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewArea" eSuperTypes="#//form/ViewElement #//form/Orderable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="canvasView" eType="#//form/CanvasView"
+          eOpposite="#//form/CanvasView/parent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewPortTrigger" eSuperTypes="#//form/Trigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewInheritance">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//form/ViewPort"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//form/CanvasFrame"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TabPagesInheritance">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//form/TabCanvas"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//form/TabPage"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FormDataControls">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formControl" eType="#//form/Controls"
+          eOpposite="#//form/Controls/parent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CanvasView">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//form/ViewArea"
+          eOpposite="#//form/ViewArea/canvasView"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="baseCanvas" eType="#//form/LayerHolder"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkToLabels" upperBound="-1"
+          eType="#//form/LinkToLabel" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkToMessages" upperBound="-1"
+          eType="#//form/LinkToMessage" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LinkToMessage">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//form/InputElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//form/MessageElement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LinkToLabel">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//form/InputElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//form/Label"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ChildrenHolder">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+          eType="#//form/Uielement" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContextParameter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refObj" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//form/Comparator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//form/ContextValue"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContextValue">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" upperBound="-1"
+          eType="#//form/ExpressionPart" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExpressionPart">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objRef" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="expressionType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContextParameters">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//form/ContextParameter" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Context" eSuperTypes="#//form/ContextValue #//form/ContextParameters"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StyleElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//form/Context"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="styleClass" upperBound="-1"
+          eType="#//form/StyleClass" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StyleClass" eSuperTypes="#//form/ContextValue">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" eType="ecore:EClass common.ecore#//common/Classifier"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NickNamed">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FlexFields">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+          eType="#//form/FlexField" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FlexField" eSuperTypes="#//form/Context common.ecore#//common/Categorized"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EnabledUIItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="enabled" eType="#//form/Context"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//form/StyleElement #//form/NickNamed common.ecore#//common/Categorized #//form/Orderable #//form/EnabledUIItem #//form/FlexFields #//form/MenuHolder">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="required" eType="#//form/Context"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="readOnly" eType="#//form/Context"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refreshAreas" upperBound="-1"
+          eType="#//form/AreaRef" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemIcon">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="#//form/Context"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AreaRef">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//form/NickNamed"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Formatable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SourcesPointer" eSuperTypes="#//form/Uielement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePointer" eType="#//form/DataControl"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="valuePointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCast" eType="ecore:EClass type.ecore#//type/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCastDataControl"
+          eType="#//form/DataControl"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InputElement" eSuperTypes="#//form/SourcesPointer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//form/StyleElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="displayOptionPointer"
+          eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="valueOptionPointer" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OptionSelection" eSuperTypes="#//form/InputElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="optionPointer" eType="#//form/DataControl"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="optionCast" eType="ecore:EClass type.ecore#//type/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="optionCastDataControl"
+          eType="#//form/DataControl"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//form/Uielement #//form/ChildrenHolder #//form/HTMLLayerHolder"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//form/InputElement #//form/Formatable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Password" eSuperTypes="#//form/InputElement #//form/Formatable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//form/Uielement #//form/MultiLangLabel">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MessageElement" eSuperTypes="#//form/Uielement #//form/MultiLangLabel">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputText" eSuperTypes="#//form/InputElement #//form/Formatable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CheckBox" eSuperTypes="#//form/InputElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DropDownSelection" eSuperTypes="#//form/OptionSelection">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//form/Selection"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initialOptionMessage"
+          eType="#//form/Context" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialOptionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//form/InputElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//form/InputElement #//form/Formatable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//form/Uielement #//form/MultiLangLabel #//form/ItemIcon">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//form/StyleElement #//form/MultiLangLabel common.ecore#//common/Categorized #//form/HTMLLayerHolder #//form/Orderable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//form/Uielement"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//form/SourcesPointer #//form/HTMLLayerHolder #//form/MultiLangLabel">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cols" upperBound="-1"
+          eType="#//form/Column" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//form/Uielement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuView">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//form/MenuDefinition"
+          eOpposite="#//form/MenuDefinition/menuView"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="menuFolders" upperBound="-1"
+          eType="#//form/MenuFolder" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuHolder">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="menu" eType="#//form/MenuFolder"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionRef">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extensionRef" eType="#//form/MenuFolder"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuElement" eSuperTypes="#//form/MultiLangLabel #//form/StyleElement common.ecore#//common/Categorized #//form/EnabledUIItem #//form/Orderable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuFolder" eSuperTypes="#//form/HTMLLayerHolder #//form/EnabledUIItem common.ecore#//common/Categorized #//form/StyleElement #//form/MultiLangLabel #//form/ItemIcon">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="extensionPoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="menuElements" upperBound="-1"
+          eType="#//form/MenuElement" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuItem" eSuperTypes="#//form/MenuElement #//form/ItemIcon #//form/FlexFields">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="transition" eType="#//form/Context"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refreshAreas" upperBound="-1"
+          eType="#//form/AreaRef" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionPoint" eSuperTypes="#//form/MenuElement #//form/MenuExtensionRef"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SubMenu" eSuperTypes="#//form/MenuElement #//form/ItemIcon">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="toSubmenu" eType="#//form/MenuFolder"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuSeparator" eSuperTypes="#//form/MenuElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//form/SourcesPointer #//form/HTMLLayerHolder #//form/MultiLangLabel">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//form/Context"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cols" upperBound="-1"
+          eType="#//form/Column" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Controls">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//form/FormDataControls"
+          eOpposite="#//form/FormDataControls/formControl"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//form/Root"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
+          eType="#//form/DataControl" containment="true" eOpposite="#//form/DataControl/parent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
+          eType="#//form/Relation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
+          eType="#//form/Dependency" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="type.ecore#//type/MethodPointer #//form/ContextParameters"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PREFormTrigger" eSuperTypes="#//form/Trigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PREQueryTrigger" eSuperTypes="#//form/Trigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="POSTQueryTrigger" eSuperTypes="#//form/Trigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PREInsertTrigger" eSuperTypes="#//form/Trigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PREDeleteTrigger" eSuperTypes="#//form/Trigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="POSTCreateTrigger" eSuperTypes="#//form/Trigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PREUpdateTrigger" eSuperTypes="#//form/Trigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProxiesList">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typePointers" upperBound="-1"
+          eType="ecore:EClass type.ecore#//type/TypePointer" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CreateTrigger" eSuperTypes="#//form/Trigger #//form/ProxiesList">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InsertTrigger" eSuperTypes="#//form/Trigger #//form/ProxiesList">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UpdateTrigger" eSuperTypes="#//form/Trigger #//form/ProxiesList">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DeleteTrigger" eSuperTypes="#//form/Trigger #//form/ProxiesList">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SearchTrigger" eSuperTypes="#//form/Trigger #//form/ProxiesList">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Root">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preFormTrigger" eType="#//form/PREFormTrigger"
+          containment="true">
+        <eAnnotations source="gmf.compartment">
+          <details key="layout" value="list"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+          eType="#//form/FormVariable" containment="true">
+        <eAnnotations source="gmf.compartment">
+          <details key="layout" value="list"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FormVariable" eSuperTypes="type.ecore#//type/TypePointer">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="paramRef" eType="#//form/FormParameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataControl">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="ecore:EClass type.ecore#//type/TypePointer"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//form/Controls"
+          eOpposite="#//form/Controls/controls"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preQueryTrigger" eType="#//form/PREQueryTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="postQueryTrigger" eType="#//form/POSTQueryTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preInsertTrigger" eType="#//form/PREInsertTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preDeleteTrigger" eType="#//form/PREDeleteTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="postCreateTrigger" eType="#//form/POSTCreateTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preUpdateTrigger" eType="#//form/PREUpdateTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="create" eType="#//form/CreateTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="insert" eType="#//form/InsertTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="update" eType="#//form/UpdateTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="remove" eType="#//form/DeleteTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="search" eType="#//form/SearchTrigger"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artificialFields" upperBound="-1"
+          eType="#//form/ArtificialField" containment="true" eOpposite="#//form/ArtificialField/parent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="#//form/ContextParameters"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOrderBy" eType="#//form/Orders"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Orders">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="orderRules" upperBound="-1"
+          eType="#//form/OrderBy" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OrderBy">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refObj" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="#//form/Order"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Relation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="master" eType="#//form/DataControl"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="detail" eType="#//form/DataControl"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTree" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+          eType="#//form/Link" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Dependency">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="master" eType="#//form/DataControl"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="detail" eType="#//form/DataControl"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArtificialField" eSuperTypes="type.ecore#//type/TypePointer">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//form/DataControl"
+          eOpposite="#//form/DataControl/artificialFields"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Link">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="masterField" eType="ecore:EClass type.ecore#//type/Attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="detailField" eType="ecore:EClass type.ecore#//type/Attribute"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

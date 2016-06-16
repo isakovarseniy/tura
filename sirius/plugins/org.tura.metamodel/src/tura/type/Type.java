@@ -13,11 +13,11 @@ import tura.common.Categorized;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.Type#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link tura.type.Type#getOperations <em>Operations</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.type.TypePackage#getType()
  * @model

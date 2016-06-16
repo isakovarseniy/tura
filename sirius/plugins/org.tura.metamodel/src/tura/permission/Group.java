@@ -4,8 +4,6 @@ package tura.permission;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Group</b></em>'.
@@ -13,19 +11,19 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.permission.Group#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.permission.Group#getName <em>Name</em>}</li>
  *   <li>{@link tura.permission.Group#getGroup2Group <em>Group2 Group</em>}</li>
  *   <li>{@link tura.permission.Group#getGroup2Role <em>Group2 Role</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.permission.PermissionPackage#getGroup()
  * @model
  * @generated
  */
-public interface Group extends EObject {
+public interface Group extends SecurityEntity {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

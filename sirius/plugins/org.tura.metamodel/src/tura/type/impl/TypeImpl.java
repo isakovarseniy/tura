@@ -29,12 +29,12 @@ import tura.type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.impl.TypeImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link tura.type.impl.TypeImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link tura.type.impl.TypeImpl#getOperations <em>Operations</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -57,10 +57,12 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case PermissionPackage.ROLES: return createRoles();
+			case PermissionPackage.SECURITY_ENTITY: return createSecurityEntity();
 			case PermissionPackage.ROLE: return createRole();
 			case PermissionPackage.GROUP: return createGroup();
 			case PermissionPackage.SECURED: return createSecured();
 			case PermissionPackage.GRANT_ACCESS: return createGrantAccess();
+			case PermissionPackage.SECURITY_ENTITY_POINTER: return createSecurityEntityPointer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -74,6 +76,16 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	public Roles createRoles() {
 		RolesImpl roles = new RolesImpl();
 		return roles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecurityEntity createSecurityEntity() {
+		SecurityEntityImpl securityEntity = new SecurityEntityImpl();
+		return securityEntity;
 	}
 
 	/**
@@ -114,6 +126,16 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	public GrantAccess createGrantAccess() {
 		GrantAccessImpl grantAccess = new GrantAccessImpl();
 		return grantAccess;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecurityEntityPointer createSecurityEntityPointer() {
+		SecurityEntityPointerImpl securityEntityPointer = new SecurityEntityPointerImpl();
+		return securityEntityPointer;
 	}
 
 	/**

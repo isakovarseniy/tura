@@ -15,6 +15,7 @@ import tura.permission.Secured;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.Operation#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.type.Operation#getName <em>Name</em>}</li>
@@ -22,7 +23,6 @@ import tura.permission.Secured;
  *   <li>{@link tura.type.Operation#getParameters <em>Parameters</em>}</li>
  *   <li>{@link tura.type.Operation#getReturnValue <em>Return Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.type.TypePackage#getOperation()
  * @model

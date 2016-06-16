@@ -2,31 +2,25 @@
  */
 package tura.domain.impl;
 
-import application.ApplicationPackage;
-import application.impl.ApplicationPackageImpl;
-import artifact.ArtifactPackage;
-import artifact.impl.ArtifactPackageImpl;
-import common.CommonPackage;
-import common.impl.CommonPackageImpl;
-import form.FormPackage;
-import form.impl.FormPackageImpl;
-import infrastructure.InfrastructurePackage;
-import infrastructure.impl.InfrastructurePackageImpl;
-import mapper.MapperPackage;
-import mapper.impl.MapperPackageImpl;
-import message.MessagePackage;
-import message.impl.MessagePackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import permission.PermissionPackage;
-import permission.impl.PermissionPackageImpl;
-import recipe.RecipePackage;
-import recipe.impl.RecipePackageImpl;
-import style.StylePackage;
-import style.impl.StylePackageImpl;
+
+import tura.application.ApplicationPackage;
+
+import tura.application.impl.ApplicationPackageImpl;
+
+import tura.artifact.ArtifactPackage;
+
+import tura.artifact.impl.ArtifactPackageImpl;
+
+import tura.common.CommonPackage;
+
+import tura.common.impl.CommonPackageImpl;
+
 import tura.domain.Domain;
 import tura.domain.DomainApplication;
 import tura.domain.DomainApplications;
@@ -36,8 +30,38 @@ import tura.domain.DomainFactory;
 import tura.domain.DomainPackage;
 import tura.domain.DomainTypes;
 import tura.domain.DomainTypesRepository;
-import type.TypePackage;
-import type.impl.TypePackageImpl;
+
+import tura.form.FormPackage;
+
+import tura.form.impl.FormPackageImpl;
+
+import tura.infrastructure.InfrastructurePackage;
+
+import tura.infrastructure.impl.InfrastructurePackageImpl;
+
+import tura.mapper.MapperPackage;
+
+import tura.mapper.impl.MapperPackageImpl;
+
+import tura.message.MessagePackage;
+
+import tura.message.impl.MessagePackageImpl;
+
+import tura.permission.PermissionPackage;
+
+import tura.permission.impl.PermissionPackageImpl;
+
+import tura.recipe.RecipePackage;
+
+import tura.recipe.impl.RecipePackageImpl;
+
+import tura.style.StylePackage;
+
+import tura.style.impl.StylePackageImpl;
+
+import tura.type.TypePackage;
+
+import tura.type.impl.TypePackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -304,7 +328,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainArtifact_Artifact() {
+	public EReference getDomainArtifact_ArtifactPackages() {
 		return (EReference)domainArtifactEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -376,7 +400,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainTypesRepository_Repository() {
+	public EReference getDomainTypesRepository_RepositoryPackages() {
 		return (EReference)domainTypesRepositoryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -448,7 +472,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainApplication_Application() {
+	public EReference getDomainApplication_ApplicationPackages() {
 		return (EReference)domainApplicationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -494,7 +518,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		domainArtifactEClass = createEClass(DOMAIN_ARTIFACT);
 		createEAttribute(domainArtifactEClass, DOMAIN_ARTIFACT__UID);
 		createEAttribute(domainArtifactEClass, DOMAIN_ARTIFACT__NAME);
-		createEReference(domainArtifactEClass, DOMAIN_ARTIFACT__ARTIFACT);
+		createEReference(domainArtifactEClass, DOMAIN_ARTIFACT__ARTIFACT_PACKAGES);
 
 		domainTypesEClass = createEClass(DOMAIN_TYPES);
 		createEAttribute(domainTypesEClass, DOMAIN_TYPES__UID);
@@ -504,7 +528,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		domainTypesRepositoryEClass = createEClass(DOMAIN_TYPES_REPOSITORY);
 		createEAttribute(domainTypesRepositoryEClass, DOMAIN_TYPES_REPOSITORY__UID);
 		createEAttribute(domainTypesRepositoryEClass, DOMAIN_TYPES_REPOSITORY__NAME);
-		createEReference(domainTypesRepositoryEClass, DOMAIN_TYPES_REPOSITORY__REPOSITORY);
+		createEReference(domainTypesRepositoryEClass, DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES);
 
 		domainApplicationsEClass = createEClass(DOMAIN_APPLICATIONS);
 		createEAttribute(domainApplicationsEClass, DOMAIN_APPLICATIONS__UID);
@@ -514,7 +538,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		domainApplicationEClass = createEClass(DOMAIN_APPLICATION);
 		createEAttribute(domainApplicationEClass, DOMAIN_APPLICATION__UID);
 		createEAttribute(domainApplicationEClass, DOMAIN_APPLICATION__NAME);
-		createEReference(domainApplicationEClass, DOMAIN_APPLICATION__APPLICATION);
+		createEReference(domainApplicationEClass, DOMAIN_APPLICATION__APPLICATION_PACKAGES);
 	}
 
 	/**
@@ -566,7 +590,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(domainArtifactEClass, DomainArtifact.class, "DomainArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDomainArtifact_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDomainArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainArtifact_Artifact(), theArtifactPackage.getArtifact(), null, "artifact", null, 0, 1, DomainArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainArtifact_ArtifactPackages(), theArtifactPackage.getArtifactGroup(), null, "artifactPackages", null, 0, -1, DomainArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(domainTypesEClass, DomainTypes.class, "DomainTypes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDomainTypes_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -576,7 +600,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(domainTypesRepositoryEClass, DomainTypesRepository.class, "DomainTypesRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDomainTypesRepository_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainTypesRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDomainTypesRepository_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainTypesRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainTypesRepository_Repository(), theTypePackage.getRepository(), null, "repository", null, 0, 1, DomainTypesRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainTypesRepository_RepositoryPackages(), theTypePackage.getTypeGroup(), null, "repositoryPackages", null, 0, -1, DomainTypesRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(domainApplicationsEClass, DomainApplications.class, "DomainApplications", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDomainApplications_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainApplications.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -586,7 +610,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEClass(domainApplicationEClass, DomainApplication.class, "DomainApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDomainApplication_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDomainApplication_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainApplication_Application(), theApplicationPackage.getApplication(), null, "application", null, 0, 1, DomainApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainApplication_ApplicationPackages(), theApplicationPackage.getApplicationGroup(), null, "applicationPackages", null, 0, -1, DomainApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

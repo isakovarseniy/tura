@@ -6,28 +6,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import tura.type.Assosiation;
-import tura.type.Attribute;
-import tura.type.EnumAttribute;
-import tura.type.Enumarator;
-import tura.type.Generalization;
-import tura.type.Link;
-import tura.type.Operation;
-import tura.type.Parameter;
-import tura.type.Primitive;
-import tura.type.References;
-import tura.type.RelationType;
-import tura.type.Relationship;
-import tura.type.Repository;
-import tura.type.ReturnValue;
-import tura.type.Type;
-import tura.type.TypeElement;
-import tura.type.TypeFactory;
-import tura.type.TypePackage;
-import tura.type.TypePointer;
-import tura.type.TypeReference;
+
+import tura.type.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,13 +57,13 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TypePackage.REPOSITORY: return createRepository();
-			case TypePackage.PACKAGE: return createPackage();
+			case TypePackage.TYPE_GROUP: return createTypeGroup();
 			case TypePackage.TYPE_ELEMENT: return createTypeElement();
 			case TypePackage.RELATIONSHIP: return createRelationship();
 			case TypePackage.REFERENCES: return createReferences();
 			case TypePackage.GENERALIZATION: return createGeneralization();
 			case TypePackage.TYPE_POINTER: return createTypePointer();
+			case TypePackage.PACKAGE_POINTER: return createPackagePointer();
 			case TypePackage.ASSOSIATION: return createAssosiation();
 			case TypePackage.LINK: return createLink();
 			case TypePackage.ATTRIBUTE: return createAttribute();
@@ -91,6 +75,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 			case TypePackage.RETURN_VALUE: return createReturnValue();
 			case TypePackage.ENUMARATOR: return createEnumarator();
 			case TypePackage.ENUM_ATTRIBUTE: return createEnumAttribute();
+			case TypePackage.METHOD_POINTER: return createMethodPointer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -131,19 +116,9 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Repository createRepository() {
-		RepositoryImpl repository = new RepositoryImpl();
-		return repository;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public tura.type.Package createPackage() {
-		PackageImpl package_ = new PackageImpl();
-		return package_;
+	public TypeGroup createTypeGroup() {
+		TypeGroupImpl typeGroup = new TypeGroupImpl();
+		return typeGroup;
 	}
 
 	/**
@@ -194,6 +169,16 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	public TypePointer createTypePointer() {
 		TypePointerImpl typePointer = new TypePointerImpl();
 		return typePointer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PackagePointer createPackagePointer() {
+		PackagePointerImpl packagePointer = new PackagePointerImpl();
+		return packagePointer;
 	}
 
 	/**
@@ -304,6 +289,16 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	public EnumAttribute createEnumAttribute() {
 		EnumAttributeImpl enumAttribute = new EnumAttributeImpl();
 		return enumAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MethodPointer createMethodPointer() {
+		MethodPointerImpl methodPointer = new MethodPointerImpl();
+		return methodPointer;
 	}
 
 	/**

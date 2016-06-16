@@ -27,8 +27,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" eType="ecore:EClass artifact.ecore#//Artifact"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artifactPackages" upperBound="-1"
+          eType="ecore:EClass artifact.ecore#//artifact/ArtifactGroup" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DomainTypes">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -41,8 +41,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="repository" eType="ecore:EClass type.ecore#//Repository"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryPackages" upperBound="-1"
+          eType="ecore:EClass type.ecore#//type/TypeGroup" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DomainApplications">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -55,7 +55,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="application" eType="ecore:EClass application.ecore#//Application"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="applicationPackages"
+          upperBound="-1" eType="ecore:EClass application.ecore#//application/ApplicationGroup"
           containment="true"/>
     </eClassifiers>
   </eSubpackages>

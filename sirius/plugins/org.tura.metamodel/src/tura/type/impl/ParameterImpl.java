@@ -17,12 +17,12 @@ import tura.type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.impl.ParameterImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.type.impl.ParameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link tura.type.impl.ParameterImpl#getOrder <em>Order</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

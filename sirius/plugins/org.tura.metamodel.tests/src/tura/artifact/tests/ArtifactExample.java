@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import tura.artifact.Artifact;
 import tura.artifact.ArtifactFactory;
+import tura.artifact.ArtifactGroup;
 import tura.artifact.ArtifactPackage;
 
 /**
@@ -60,7 +60,7 @@ public class ArtifactExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.artifact"));
-				Artifact root = ArtifactFactory.eINSTANCE.createArtifact();
+				ArtifactGroup root = ArtifactFactory.eINSTANCE.createArtifactGroup();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

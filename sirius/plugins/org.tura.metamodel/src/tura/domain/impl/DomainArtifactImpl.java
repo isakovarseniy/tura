@@ -2,13 +2,24 @@
  */
 package tura.domain.impl;
 
-import artifact.Artifact;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import tura.artifact.ArtifactGroup;
+
 import tura.domain.DomainArtifact;
 import tura.domain.DomainPackage;
 
@@ -22,7 +33,7 @@ import tura.domain.DomainPackage;
  * <ul>
  *   <li>{@link tura.domain.impl.DomainArtifactImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.impl.DomainArtifactImpl#getName <em>Name</em>}</li>
- *   <li>{@link tura.domain.impl.DomainArtifactImpl#getArtifact <em>Artifact</em>}</li>
+ *   <li>{@link tura.domain.impl.DomainArtifactImpl#getArtifactPackages <em>Artifact Packages</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,14 +80,14 @@ public class DomainArtifactImpl extends MinimalEObjectImpl.Container implements 
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getArtifact() <em>Artifact</em>}' containment reference.
+	 * The cached value of the '{@link #getArtifactPackages() <em>Artifact Packages</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getArtifact()
+	 * @see #getArtifactPackages()
 	 * @generated
 	 * @ordered
 	 */
-	protected Artifact artifact;
+	protected EList<ArtifactGroup> artifactPackages;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,42 +155,11 @@ public class DomainArtifactImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Artifact getArtifact() {
-		return artifact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetArtifact(Artifact newArtifact, NotificationChain msgs) {
-		Artifact oldArtifact = artifact;
-		artifact = newArtifact;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, oldArtifact, newArtifact);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<ArtifactGroup> getArtifactPackages() {
+		if (artifactPackages == null) {
+			artifactPackages = new EObjectContainmentEList<ArtifactGroup>(ArtifactGroup.class, this, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT_PACKAGES);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setArtifact(Artifact newArtifact) {
-		if (newArtifact != artifact) {
-			NotificationChain msgs = null;
-			if (artifact != null)
-				msgs = ((InternalEObject)artifact).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, null, msgs);
-			if (newArtifact != null)
-				msgs = ((InternalEObject)newArtifact).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, null, msgs);
-			msgs = basicSetArtifact(newArtifact, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACT__ARTIFACT, newArtifact, newArtifact));
+		return artifactPackages;
 	}
 
 	/**
@@ -190,8 +170,8 @@ public class DomainArtifactImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-				return basicSetArtifact(null, msgs);
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT_PACKAGES:
+				return ((InternalEList<?>)getArtifactPackages()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -208,8 +188,8 @@ public class DomainArtifactImpl extends MinimalEObjectImpl.Container implements 
 				return getUid();
 			case DomainPackage.DOMAIN_ARTIFACT__NAME:
 				return getName();
-			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-				return getArtifact();
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT_PACKAGES:
+				return getArtifactPackages();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,6 +199,7 @@ public class DomainArtifactImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -228,8 +209,9 @@ public class DomainArtifactImpl extends MinimalEObjectImpl.Container implements 
 			case DomainPackage.DOMAIN_ARTIFACT__NAME:
 				setName((String)newValue);
 				return;
-			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-				setArtifact((Artifact)newValue);
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT_PACKAGES:
+				getArtifactPackages().clear();
+				getArtifactPackages().addAll((Collection<? extends ArtifactGroup>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -249,8 +231,8 @@ public class DomainArtifactImpl extends MinimalEObjectImpl.Container implements 
 			case DomainPackage.DOMAIN_ARTIFACT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-				setArtifact((Artifact)null);
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT_PACKAGES:
+				getArtifactPackages().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -268,8 +250,8 @@ public class DomainArtifactImpl extends MinimalEObjectImpl.Container implements 
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.DOMAIN_ARTIFACT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
-				return artifact != null;
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT_PACKAGES:
+				return artifactPackages != null && !artifactPackages.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

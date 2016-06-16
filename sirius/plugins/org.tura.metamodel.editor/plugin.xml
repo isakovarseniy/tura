@@ -40,9 +40,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="artifact.presentation.ArtifactModelWizardID"
+            id="tura.artifact.presentation.ArtifactModelWizardID"
             name="%_UI_ArtifactModelWizard_label"
-            class="artifact.presentation.ArtifactModelWizard"
+            class="tura.artifact.presentation.ArtifactModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/ArtifactModelFile.gif">
          <description>%_UI_ArtifactModelWizard_description</description>
@@ -53,12 +53,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated domain -->
       <editor
-            id="artifact.presentation.ArtifactEditorID"
+            id="tura.artifact.presentation.ArtifactEditorID"
             name="%_UI_ArtifactEditor_label"
             icon="icons/full/obj16/ArtifactModelFile.gif"
             extensions="artifact"
-            class="artifact.presentation.ArtifactEditor"
-            contributorClass="artifact.presentation.ArtifactActionBarContributor">
+            class="tura.artifact.presentation.ArtifactEditor"
+            contributorClass="tura.artifact.presentation.ArtifactActionBarContributor">
       </editor>
    </extension>
 
@@ -68,9 +68,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="type.presentation.TypeModelWizardID"
+            id="tura.type.presentation.TypeModelWizardID"
             name="%_UI_TypeModelWizard_label"
-            class="type.presentation.TypeModelWizard"
+            class="tura.type.presentation.TypeModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/TypeModelFile.gif">
          <description>%_UI_TypeModelWizard_description</description>
@@ -81,40 +81,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated domain -->
       <editor
-            id="type.presentation.TypeEditorID"
+            id="tura.type.presentation.TypeEditorID"
             name="%_UI_TypeEditor_label"
             icon="icons/full/obj16/TypeModelFile.gif"
             extensions="type"
-            class="type.presentation.TypeEditor"
-            contributorClass="type.presentation.TypeActionBarContributor">
-      </editor>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated domain1 -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="application.presentation.ApplicationModelWizardID"
-            name="%_UI_ApplicationModelWizard_label"
-            class="application.presentation.ApplicationModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ApplicationModelFile.gif">
-         <description>%_UI_ApplicationModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated domain1 -->
-      <editor
-            id="application.presentation.ApplicationEditorID"
-            name="%_UI_ApplicationEditor_label"
-            icon="icons/full/obj16/ApplicationModelFile.gif"
-            extensions="application"
-            class="application.presentation.ApplicationEditor"
-            contributorClass="application.presentation.ApplicationActionBarContributor">
+            class="tura.type.presentation.TypeEditor"
+            contributorClass="tura.type.presentation.TypeActionBarContributor">
       </editor>
    </extension>
 
@@ -124,9 +96,37 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="common.presentation.CommonModelWizardID"
+            id="tura.application.presentation.ApplicationModelWizardID"
+            name="%_UI_ApplicationModelWizard_label"
+            class="tura.application.presentation.ApplicationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ApplicationModelFile.gif">
+         <description>%_UI_ApplicationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated domain -->
+      <editor
+            id="tura.application.presentation.ApplicationEditorID"
+            name="%_UI_ApplicationEditor_label"
+            icon="icons/full/obj16/ApplicationModelFile.gif"
+            extensions="application"
+            class="tura.application.presentation.ApplicationEditor"
+            contributorClass="tura.application.presentation.ApplicationActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated domain -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="tura.common.presentation.CommonModelWizardID"
             name="%_UI_CommonModelWizard_label"
-            class="common.presentation.CommonModelWizard"
+            class="tura.common.presentation.CommonModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/CommonModelFile.gif">
          <description>%_UI_CommonModelWizard_description</description>
@@ -137,12 +137,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated domain -->
       <editor
-            id="common.presentation.CommonEditorID"
+            id="tura.common.presentation.CommonEditorID"
             name="%_UI_CommonEditor_label"
             icon="icons/full/obj16/CommonModelFile.gif"
             extensions="common"
-            class="common.presentation.CommonEditor"
-            contributorClass="common.presentation.CommonActionBarContributor">
+            class="tura.common.presentation.CommonEditor"
+            contributorClass="tura.common.presentation.CommonActionBarContributor">
       </editor>
    </extension>
 
@@ -152,9 +152,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="permission.presentation.PermissionModelWizardID"
+            id="tura.permission.presentation.PermissionModelWizardID"
             name="%_UI_PermissionModelWizard_label"
-            class="permission.presentation.PermissionModelWizard"
+            class="tura.permission.presentation.PermissionModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/PermissionModelFile.gif">
          <description>%_UI_PermissionModelWizard_description</description>
@@ -165,24 +165,24 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated domain -->
       <editor
-            id="permission.presentation.PermissionEditorID"
+            id="tura.permission.presentation.PermissionEditorID"
             name="%_UI_PermissionEditor_label"
             icon="icons/full/obj16/PermissionModelFile.gif"
             extensions="permission"
-            class="permission.presentation.PermissionEditor"
-            contributorClass="permission.presentation.PermissionActionBarContributor">
+            class="tura.permission.presentation.PermissionEditor"
+            contributorClass="tura.permission.presentation.PermissionActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="infrastructure.presentation.InfrastructureModelWizardID"
+            id="tura.infrastructure.presentation.InfrastructureModelWizardID"
             name="%_UI_InfrastructureModelWizard_label"
-            class="infrastructure.presentation.InfrastructureModelWizard"
+            class="tura.infrastructure.presentation.InfrastructureModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/InfrastructureModelFile.gif">
          <description>%_UI_InfrastructureModelWizard_description</description>
@@ -191,26 +191,26 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <editor
-            id="infrastructure.presentation.InfrastructureEditorID"
+            id="tura.infrastructure.presentation.InfrastructureEditorID"
             name="%_UI_InfrastructureEditor_label"
             icon="icons/full/obj16/InfrastructureModelFile.gif"
             extensions="infrastructure"
-            class="infrastructure.presentation.InfrastructureEditor"
-            contributorClass="infrastructure.presentation.InfrastructureActionBarContributor">
+            class="tura.infrastructure.presentation.InfrastructureEditor"
+            contributorClass="tura.infrastructure.presentation.InfrastructureActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="message.presentation.MessageModelWizardID"
+            id="tura.message.presentation.MessageModelWizardID"
             name="%_UI_MessageModelWizard_label"
-            class="message.presentation.MessageModelWizard"
+            class="tura.message.presentation.MessageModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/MessageModelFile.gif">
          <description>%_UI_MessageModelWizard_description</description>
@@ -219,26 +219,26 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <editor
-            id="message.presentation.MessageEditorID"
+            id="tura.message.presentation.MessageEditorID"
             name="%_UI_MessageEditor_label"
             icon="icons/full/obj16/MessageModelFile.gif"
             extensions="message"
-            class="message.presentation.MessageEditor"
-            contributorClass="message.presentation.MessageActionBarContributor">
+            class="tura.message.presentation.MessageEditor"
+            contributorClass="tura.message.presentation.MessageActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="style.presentation.StyleModelWizardID"
+            id="tura.style.presentation.StyleModelWizardID"
             name="%_UI_StyleModelWizard_label"
-            class="style.presentation.StyleModelWizard"
+            class="tura.style.presentation.StyleModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/StyleModelFile.gif">
          <description>%_UI_StyleModelWizard_description</description>
@@ -247,26 +247,26 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <editor
-            id="style.presentation.StyleEditorID"
+            id="tura.style.presentation.StyleEditorID"
             name="%_UI_StyleEditor_label"
             icon="icons/full/obj16/StyleModelFile.gif"
             extensions="style"
-            class="style.presentation.StyleEditor"
-            contributorClass="style.presentation.StyleActionBarContributor">
+            class="tura.style.presentation.StyleEditor"
+            contributorClass="tura.style.presentation.StyleActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="form.presentation.FormModelWizardID"
+            id="tura.form.presentation.FormModelWizardID"
             name="%_UI_FormModelWizard_label"
-            class="form.presentation.FormModelWizard"
+            class="tura.form.presentation.FormModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/FormModelFile.gif">
          <description>%_UI_FormModelWizard_description</description>
@@ -275,26 +275,26 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <editor
-            id="form.presentation.FormEditorID"
+            id="tura.form.presentation.FormEditorID"
             name="%_UI_FormEditor_label"
             icon="icons/full/obj16/FormModelFile.gif"
             extensions="form"
-            class="form.presentation.FormEditor"
-            contributorClass="form.presentation.FormActionBarContributor">
+            class="tura.form.presentation.FormEditor"
+            contributorClass="tura.form.presentation.FormActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="recipe.presentation.RecipeModelWizardID"
+            id="tura.recipe.presentation.RecipeModelWizardID"
             name="%_UI_RecipeModelWizard_label"
-            class="recipe.presentation.RecipeModelWizard"
+            class="tura.recipe.presentation.RecipeModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/RecipeModelFile.gif">
          <description>%_UI_RecipeModelWizard_description</description>
@@ -303,26 +303,26 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <editor
-            id="recipe.presentation.RecipeEditorID"
+            id="tura.recipe.presentation.RecipeEditorID"
             name="%_UI_RecipeEditor_label"
             icon="icons/full/obj16/RecipeModelFile.gif"
             extensions="recipe"
-            class="recipe.presentation.RecipeEditor"
-            contributorClass="recipe.presentation.RecipeActionBarContributor">
+            class="tura.recipe.presentation.RecipeEditor"
+            contributorClass="tura.recipe.presentation.RecipeActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="mapper.presentation.MapperModelWizardID"
+            id="tura.mapper.presentation.MapperModelWizardID"
             name="%_UI_MapperModelWizard_label"
-            class="mapper.presentation.MapperModelWizard"
+            class="tura.mapper.presentation.MapperModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/MapperModelFile.gif">
          <description>%_UI_MapperModelWizard_description</description>
@@ -331,14 +331,14 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated domain1 -->
+      <!-- @generated domain -->
       <editor
-            id="mapper.presentation.MapperEditorID"
+            id="tura.mapper.presentation.MapperEditorID"
             name="%_UI_MapperEditor_label"
             icon="icons/full/obj16/MapperModelFile.gif"
             extensions="mapper"
-            class="mapper.presentation.MapperEditor"
-            contributorClass="mapper.presentation.MapperActionBarContributor">
+            class="tura.mapper.presentation.MapperEditor"
+            contributorClass="tura.mapper.presentation.MapperActionBarContributor">
       </editor>
    </extension>
 

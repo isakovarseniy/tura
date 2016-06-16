@@ -2,8 +2,6 @@
  */
 package tura.permission.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import tura.permission.Group;
@@ -15,15 +13,7 @@ import tura.permission.PermissionFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GroupTest extends TestCase {
-
-	/**
-	 * The fixture for this Group test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Group fixture = null;
+public class GroupTest extends SecurityEntityTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +35,14 @@ public class GroupTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Group test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Group fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Group test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Group getFixture() {
-		return fixture;
+		return (Group)fixture;
 	}
 
 	/**

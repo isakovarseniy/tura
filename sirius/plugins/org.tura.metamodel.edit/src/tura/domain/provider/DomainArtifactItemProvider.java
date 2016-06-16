@@ -3,13 +3,16 @@
 package tura.domain.provider;
 
 
-import artifact.ArtifactFactory;
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -20,6 +23,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import tura.artifact.ArtifactFactory;
+
 import tura.domain.DomainArtifact;
 import tura.domain.DomainPackage;
 
@@ -120,7 +126,7 @@ public class DomainArtifactItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DomainPackage.Literals.DOMAIN_ARTIFACT__ARTIFACT);
+			childrenFeatures.add(DomainPackage.Literals.DOMAIN_ARTIFACT__ARTIFACT_PACKAGES);
 		}
 		return childrenFeatures;
 	}
@@ -180,7 +186,7 @@ public class DomainArtifactItemProvider
 			case DomainPackage.DOMAIN_ARTIFACT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT:
+			case DomainPackage.DOMAIN_ARTIFACT__ARTIFACT_PACKAGES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -200,8 +206,8 @@ public class DomainArtifactItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DomainPackage.Literals.DOMAIN_ARTIFACT__ARTIFACT,
-				 ArtifactFactory.eINSTANCE.createArtifact()));
+				(DomainPackage.Literals.DOMAIN_ARTIFACT__ARTIFACT_PACKAGES,
+				 ArtifactFactory.eINSTANCE.createArtifactGroup()));
 	}
 
 	/**

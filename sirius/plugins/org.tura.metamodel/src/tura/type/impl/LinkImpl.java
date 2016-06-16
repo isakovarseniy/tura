@@ -3,10 +3,13 @@
 package tura.type.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import tura.type.Attribute;
 import tura.type.Link;
 import tura.type.TypePackage;
@@ -17,12 +20,12 @@ import tura.type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.impl.LinkImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.type.impl.LinkImpl#getMasterField <em>Master Field</em>}</li>
  *   <li>{@link tura.type.impl.LinkImpl#getDetailField <em>Detail Field</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

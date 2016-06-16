@@ -6,19 +6,57 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import tura.application.ApplicationPackage;
+
+import tura.application.impl.ApplicationPackageImpl;
+
 import tura.artifact.ArtifactPackage;
+
 import tura.artifact.impl.ArtifactPackageImpl;
+
 import tura.common.Categorized;
 import tura.common.Classifier;
 import tura.common.CommonFactory;
 import tura.common.CommonPackage;
 import tura.common.GenerationHint;
+
 import tura.domain.DomainPackage;
+
 import tura.domain.impl.DomainPackageImpl;
+
+import tura.form.FormPackage;
+
+import tura.form.impl.FormPackageImpl;
+
+import tura.infrastructure.InfrastructurePackage;
+
+import tura.infrastructure.impl.InfrastructurePackageImpl;
+
+import tura.mapper.MapperPackage;
+
+import tura.mapper.impl.MapperPackageImpl;
+
+import tura.message.MessagePackage;
+
+import tura.message.impl.MessagePackageImpl;
+
 import tura.permission.PermissionPackage;
+
 import tura.permission.impl.PermissionPackageImpl;
+
+import tura.recipe.RecipePackage;
+
+import tura.recipe.impl.RecipePackageImpl;
+
+import tura.style.StylePackage;
+
+import tura.style.impl.StylePackageImpl;
+
 import tura.type.TypePackage;
+
 import tura.type.impl.TypePackageImpl;
 
 /**
@@ -96,27 +134,45 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) instanceof PermissionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) : PermissionPackage.eINSTANCE);
 		DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
 		ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
 		TypePackageImpl theTypePackage = (TypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) instanceof TypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) : TypePackage.eINSTANCE);
-		application.impl.ApplicationPackageImpl theApplicationPackage = (application.impl.ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(application.ApplicationPackage.eNS_URI) instanceof application.impl.ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(application.ApplicationPackage.eNS_URI) : application.ApplicationPackage.eINSTANCE);
+		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
+		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) instanceof PermissionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) : PermissionPackage.eINSTANCE);
+		InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) instanceof InfrastructurePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) : InfrastructurePackage.eINSTANCE);
+		MessagePackageImpl theMessagePackage = (MessagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) instanceof MessagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) : MessagePackage.eINSTANCE);
+		StylePackageImpl theStylePackage = (StylePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) instanceof StylePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) : StylePackage.eINSTANCE);
+		FormPackageImpl theFormPackage = (FormPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) instanceof FormPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) : FormPackage.eINSTANCE);
+		RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
+		MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCommonPackage.createPackageContents();
-		thePermissionPackage.createPackageContents();
 		theDomainPackage.createPackageContents();
 		theArtifactPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
+		thePermissionPackage.createPackageContents();
+		theInfrastructurePackage.createPackageContents();
+		theMessagePackage.createPackageContents();
+		theStylePackage.createPackageContents();
+		theFormPackage.createPackageContents();
+		theRecipePackage.createPackageContents();
+		theMapperPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theCommonPackage.initializePackageContents();
-		thePermissionPackage.initializePackageContents();
 		theDomainPackage.initializePackageContents();
 		theArtifactPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
+		thePermissionPackage.initializePackageContents();
+		theInfrastructurePackage.initializePackageContents();
+		theMessagePackage.initializePackageContents();
+		theStylePackage.initializePackageContents();
+		theFormPackage.initializePackageContents();
+		theRecipePackage.initializePackageContents();
+		theMapperPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theCommonPackage.freeze();

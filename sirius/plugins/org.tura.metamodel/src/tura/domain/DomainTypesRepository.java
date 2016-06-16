@@ -2,8 +2,11 @@
  */
 package tura.domain;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
-import type.Repository;
+
+import tura.type.TypeGroup;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +19,7 @@ import type.Repository;
  * <ul>
  *   <li>{@link tura.domain.DomainTypesRepository#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.DomainTypesRepository#getName <em>Name</em>}</li>
- *   <li>{@link tura.domain.DomainTypesRepository#getRepository <em>Repository</em>}</li>
+ *   <li>{@link tura.domain.DomainTypesRepository#getRepositoryPackages <em>Repository Packages</em>}</li>
  * </ul>
  *
  * @see tura.domain.DomainPackage#getDomainTypesRepository()
@@ -77,29 +80,19 @@ public interface DomainTypesRepository extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Repository</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Repository Packages</b></em>' containment reference list.
+	 * The list contents are of type {@link tura.type.TypeGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Repository</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Repository Packages</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Repository</em>' containment reference.
-	 * @see #setRepository(Repository)
-	 * @see tura.domain.DomainPackage#getDomainTypesRepository_Repository()
+	 * @return the value of the '<em>Repository Packages</em>' containment reference list.
+	 * @see tura.domain.DomainPackage#getDomainTypesRepository_RepositoryPackages()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Repository getRepository();
-
-	/**
-	 * Sets the value of the '{@link tura.domain.DomainTypesRepository#getRepository <em>Repository</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Repository</em>' containment reference.
-	 * @see #getRepository()
-	 * @generated
-	 */
-	void setRepository(Repository value);
+	EList<TypeGroup> getRepositoryPackages();
 
 } // DomainTypesRepository

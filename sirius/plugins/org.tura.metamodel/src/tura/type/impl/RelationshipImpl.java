@@ -21,12 +21,12 @@ import tura.type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.impl.RelationshipImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.type.impl.RelationshipImpl#getSource <em>Source</em>}</li>
  *   <li>{@link tura.type.impl.RelationshipImpl#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

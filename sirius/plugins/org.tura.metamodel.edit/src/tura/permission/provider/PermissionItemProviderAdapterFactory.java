@@ -95,6 +95,29 @@ public class PermissionItemProviderAdapterFactory extends PermissionAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link tura.permission.SecurityEntity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SecurityEntityItemProvider securityEntityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.permission.SecurityEntity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSecurityEntityAdapter() {
+		if (securityEntityItemProvider == null) {
+			securityEntityItemProvider = new SecurityEntityItemProvider(this);
+		}
+
+		return securityEntityItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link tura.permission.Role} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,6 +207,29 @@ public class PermissionItemProviderAdapterFactory extends PermissionAdapterFacto
 		}
 
 		return grantAccessItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link tura.permission.SecurityEntityPointer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SecurityEntityPointerItemProvider securityEntityPointerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.permission.SecurityEntityPointer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSecurityEntityPointerAdapter() {
+		if (securityEntityPointerItemProvider == null) {
+			securityEntityPointerItemProvider = new SecurityEntityPointerItemProvider(this);
+		}
+
+		return securityEntityPointerItemProvider;
 	}
 
 	/**
@@ -286,10 +332,12 @@ public class PermissionItemProviderAdapterFactory extends PermissionAdapterFacto
 	 */
 	public void dispose() {
 		if (rolesItemProvider != null) rolesItemProvider.dispose();
+		if (securityEntityItemProvider != null) securityEntityItemProvider.dispose();
 		if (roleItemProvider != null) roleItemProvider.dispose();
 		if (groupItemProvider != null) groupItemProvider.dispose();
 		if (securedItemProvider != null) securedItemProvider.dispose();
 		if (grantAccessItemProvider != null) grantAccessItemProvider.dispose();
+		if (securityEntityPointerItemProvider != null) securityEntityPointerItemProvider.dispose();
 	}
 
 }

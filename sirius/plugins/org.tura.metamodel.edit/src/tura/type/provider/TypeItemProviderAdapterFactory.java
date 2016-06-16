@@ -72,49 +72,26 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link tura.type.Repository} instances.
+	 * This keeps track of the one adapter used for all {@link tura.type.TypeGroup} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RepositoryItemProvider repositoryItemProvider;
+	protected TypeGroupItemProvider typeGroupItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link tura.type.Repository}.
+	 * This creates an adapter for a {@link tura.type.TypeGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRepositoryAdapter() {
-		if (repositoryItemProvider == null) {
-			repositoryItemProvider = new RepositoryItemProvider(this);
+	public Adapter createTypeGroupAdapter() {
+		if (typeGroupItemProvider == null) {
+			typeGroupItemProvider = new TypeGroupItemProvider(this);
 		}
 
-		return repositoryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link tura.type.Package} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PackageItemProvider packageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link tura.type.Package}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPackageAdapter() {
-		if (packageItemProvider == null) {
-			packageItemProvider = new PackageItemProvider(this);
-		}
-
-		return packageItemProvider;
+		return typeGroupItemProvider;
 	}
 
 	/**
@@ -230,6 +207,29 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 		}
 
 		return typePointerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link tura.type.PackagePointer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PackagePointerItemProvider packagePointerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.type.PackagePointer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPackagePointerAdapter() {
+		if (packagePointerItemProvider == null) {
+			packagePointerItemProvider = new PackagePointerItemProvider(this);
+		}
+
+		return packagePointerItemProvider;
 	}
 
 	/**
@@ -486,6 +486,29 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link tura.type.MethodPointer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodPointerItemProvider methodPointerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.type.MethodPointer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodPointerAdapter() {
+		if (methodPointerItemProvider == null) {
+			methodPointerItemProvider = new MethodPointerItemProvider(this);
+		}
+
+		return methodPointerItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -584,13 +607,13 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 	 * @generated
 	 */
 	public void dispose() {
-		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
-		if (packageItemProvider != null) packageItemProvider.dispose();
+		if (typeGroupItemProvider != null) typeGroupItemProvider.dispose();
 		if (typeElementItemProvider != null) typeElementItemProvider.dispose();
 		if (relationshipItemProvider != null) relationshipItemProvider.dispose();
 		if (referencesItemProvider != null) referencesItemProvider.dispose();
 		if (generalizationItemProvider != null) generalizationItemProvider.dispose();
 		if (typePointerItemProvider != null) typePointerItemProvider.dispose();
+		if (packagePointerItemProvider != null) packagePointerItemProvider.dispose();
 		if (assosiationItemProvider != null) assosiationItemProvider.dispose();
 		if (linkItemProvider != null) linkItemProvider.dispose();
 		if (attributeItemProvider != null) attributeItemProvider.dispose();
@@ -602,6 +625,7 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 		if (returnValueItemProvider != null) returnValueItemProvider.dispose();
 		if (enumaratorItemProvider != null) enumaratorItemProvider.dispose();
 		if (enumAttributeItemProvider != null) enumAttributeItemProvider.dispose();
+		if (methodPointerItemProvider != null) methodPointerItemProvider.dispose();
 	}
 
 }

@@ -20,25 +20,14 @@ import tura.type.TypeReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- *   <li>{@link tura.type.impl.TypeReferenceImpl#getPackageRef <em>Package Ref</em>}</li>
  *   <li>{@link tura.type.impl.TypeReferenceImpl#getTypeRef <em>Type Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class TypeReferenceImpl extends TypeElementImpl implements TypeReference {
-	/**
-	 * The cached value of the '{@link #getPackageRef() <em>Package Ref</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPackageRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected tura.type.Package packageRef;
-
 	/**
 	 * The cached value of the '{@link #getTypeRef() <em>Type Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -66,44 +55,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference 
 	@Override
 	protected EClass eStaticClass() {
 		return TypePackage.Literals.TYPE_REFERENCE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public tura.type.Package getPackageRef() {
-		if (packageRef != null && packageRef.eIsProxy()) {
-			InternalEObject oldPackageRef = (InternalEObject)packageRef;
-			packageRef = (tura.type.Package)eResolveProxy(oldPackageRef);
-			if (packageRef != oldPackageRef) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypePackage.TYPE_REFERENCE__PACKAGE_REF, oldPackageRef, packageRef));
-			}
-		}
-		return packageRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public tura.type.Package basicGetPackageRef() {
-		return packageRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPackageRef(tura.type.Package newPackageRef) {
-		tura.type.Package oldPackageRef = packageRef;
-		packageRef = newPackageRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.TYPE_REFERENCE__PACKAGE_REF, oldPackageRef, packageRef));
 	}
 
 	/**
@@ -152,9 +103,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TypePackage.TYPE_REFERENCE__PACKAGE_REF:
-				if (resolve) return getPackageRef();
-				return basicGetPackageRef();
 			case TypePackage.TYPE_REFERENCE__TYPE_REF:
 				if (resolve) return getTypeRef();
 				return basicGetTypeRef();
@@ -170,9 +118,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TypePackage.TYPE_REFERENCE__PACKAGE_REF:
-				setPackageRef((tura.type.Package)newValue);
-				return;
 			case TypePackage.TYPE_REFERENCE__TYPE_REF:
 				setTypeRef((TypeElement)newValue);
 				return;
@@ -188,9 +133,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TypePackage.TYPE_REFERENCE__PACKAGE_REF:
-				setPackageRef((tura.type.Package)null);
-				return;
 			case TypePackage.TYPE_REFERENCE__TYPE_REF:
 				setTypeRef((TypeElement)null);
 				return;
@@ -206,8 +148,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TypePackage.TYPE_REFERENCE__PACKAGE_REF:
-				return packageRef != null;
 			case TypePackage.TYPE_REFERENCE__TYPE_REF:
 				return typeRef != null;
 		}
@@ -223,7 +163,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference 
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == TypePointer.class) {
 			switch (derivedFeatureID) {
-				case TypePackage.TYPE_REFERENCE__PACKAGE_REF: return TypePackage.TYPE_POINTER__PACKAGE_REF;
 				case TypePackage.TYPE_REFERENCE__TYPE_REF: return TypePackage.TYPE_POINTER__TYPE_REF;
 				default: return -1;
 			}
@@ -240,7 +179,6 @@ public class TypeReferenceImpl extends TypeElementImpl implements TypeReference 
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == TypePointer.class) {
 			switch (baseFeatureID) {
-				case TypePackage.TYPE_POINTER__PACKAGE_REF: return TypePackage.TYPE_REFERENCE__PACKAGE_REF;
 				case TypePackage.TYPE_POINTER__TYPE_REF: return TypePackage.TYPE_REFERENCE__TYPE_REF;
 				default: return -1;
 			}

@@ -3,17 +3,24 @@
 package tura.type.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import tura.common.Categorized;
 import tura.common.Classifier;
 import tura.common.CommonPackage;
+
 import tura.type.Attribute;
 import tura.type.TypePackage;
 
@@ -23,13 +30,13 @@ import tura.type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.impl.AttributeImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link tura.type.impl.AttributeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.type.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link tura.type.impl.AttributeImpl#isPk <em>Pk</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

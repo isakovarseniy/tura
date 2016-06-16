@@ -4,28 +4,16 @@ package tura.type.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
 import org.eclipse.emf.ecore.EObject;
+
 import tura.common.Categorized;
+
 import tura.permission.Secured;
-import tura.type.Assosiation;
-import tura.type.Attribute;
-import tura.type.EnumAttribute;
-import tura.type.Enumarator;
-import tura.type.Generalization;
-import tura.type.Link;
-import tura.type.Operation;
-import tura.type.Parameter;
-import tura.type.Primitive;
-import tura.type.References;
-import tura.type.Relationship;
-import tura.type.Repository;
-import tura.type.ReturnValue;
-import tura.type.Type;
-import tura.type.TypeElement;
-import tura.type.TypePackage;
-import tura.type.TypePointer;
-import tura.type.TypeReference;
+
+import tura.type.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,12 +72,8 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	protected TypeSwitch<Adapter> modelSwitch =
 		new TypeSwitch<Adapter>() {
 			@Override
-			public Adapter caseRepository(Repository object) {
-				return createRepositoryAdapter();
-			}
-			@Override
-			public Adapter casePackage(tura.type.Package object) {
-				return createPackageAdapter();
+			public Adapter caseTypeGroup(TypeGroup object) {
+				return createTypeGroupAdapter();
 			}
 			@Override
 			public Adapter caseTypeElement(TypeElement object) {
@@ -110,6 +94,10 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTypePointer(TypePointer object) {
 				return createTypePointerAdapter();
+			}
+			@Override
+			public Adapter casePackagePointer(PackagePointer object) {
+				return createPackagePointerAdapter();
 			}
 			@Override
 			public Adapter caseAssosiation(Assosiation object) {
@@ -156,6 +144,10 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 				return createEnumAttributeAdapter();
 			}
 			@Override
+			public Adapter caseMethodPointer(MethodPointer object) {
+				return createMethodPointerAdapter();
+			}
+			@Override
 			public Adapter caseCategorized(Categorized object) {
 				return createCategorizedAdapter();
 			}
@@ -184,30 +176,16 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tura.type.Repository <em>Repository</em>}'.
+	 * Creates a new adapter for an object of class '{@link tura.type.TypeGroup <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tura.type.Repository
+	 * @see tura.type.TypeGroup
 	 * @generated
 	 */
-	public Adapter createRepositoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link tura.type.Package <em>Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see tura.type.Package
-	 * @generated
-	 */
-	public Adapter createPackageAdapter() {
+	public Adapter createTypeGroupAdapter() {
 		return null;
 	}
 
@@ -278,6 +256,20 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypePointerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tura.type.PackagePointer <em>Package Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tura.type.PackagePointer
+	 * @generated
+	 */
+	public Adapter createPackagePointerAdapter() {
 		return null;
 	}
 
@@ -432,6 +424,20 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEnumAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tura.type.MethodPointer <em>Method Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tura.type.MethodPointer
+	 * @generated
+	 */
+	public Adapter createMethodPointerAdapter() {
 		return null;
 	}
 

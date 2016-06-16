@@ -1,17 +1,13 @@
-@namespace(uri="http://tura.org/2016/v2/type", prefix="tura.type")
-package type;
+@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
+package tura;
 
 import "platform:/resource/org.tura.metamodel/model/common.ecore";
 import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 
-
-	class Repository{
-	  id attr EString uid;
-	   attr EString name;
-	   val Package[*] packages;
-	}
+@namespace(uri="http://tura.org/2016/v2/type", prefix="tura.type")
+package type{
 	
-	class Package{
+	class TypeGroup{
 	    id attr EString uid;
 	   attr EString name;
        val TypeElement[*]  types;
@@ -23,7 +19,7 @@ import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 	   attr EString name; 
 	}
 	
-	class Relationship  extends common.Categorized{
+	class Relationship  extends tura.common.Categorized{
 	    id attr EString uid;
 	    ref TypeElement source;
 	    ref TypeElement target;
@@ -47,7 +43,7 @@ import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 	}
 
    class PackagePointer{
-        ref Package packageRef;
+        ref TypeGroup packageRef;
    }
 
 
@@ -66,13 +62,13 @@ import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 	    ref Attribute detailField;
 	}	
 
-	class Attribute extends  TypePointer, common.Categorized{
+	class Attribute extends  TypePointer, tura.common.Categorized{
 	    id attr EString uid;
 	   attr EString name;
 	   attr EBoolean pk;
 	}
 	
-	class Operation extends permission.Secured, common.Categorized{
+	class Operation extends tura.permission.Secured, tura.common.Categorized{
 	    id attr EString uid;
 	   attr EString name;
 	   ref Type parent;
@@ -84,7 +80,7 @@ import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 	}
 
 
-	class Type extends TypeElement , common.Categorized{
+	class Type extends TypeElement , tura.common.Categorized{
 	   val Attribute[*] attributes;
 	   val Operation[*] operations;
 	}
@@ -107,13 +103,14 @@ import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 	   val EnumAttribute[*]  values;
 	}
 
-	class EnumAttribute extends  common.Categorized{
+	class EnumAttribute extends  tura.common.Categorized{
 	    id attr EString uid;
 	   ref Enumarator parent;
 	   attr EString name;
 	   attr EString  value;
 	}
 	
-class MethodPointer extends TypePointer{
-    ref Operation methodRef;
-}	
+	class MethodPointer extends TypePointer{
+	    ref Operation methodRef;
+	}	
+}

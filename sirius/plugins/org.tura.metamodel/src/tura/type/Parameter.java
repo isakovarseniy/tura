@@ -10,12 +10,12 @@ package tura.type;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.Parameter#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.type.Parameter#getName <em>Name</em>}</li>
  *   <li>{@link tura.type.Parameter#getOrder <em>Order</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.type.TypePackage#getParameter()
  * @model

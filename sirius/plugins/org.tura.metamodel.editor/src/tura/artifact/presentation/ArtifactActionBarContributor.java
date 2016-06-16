@@ -4,15 +4,19 @@ package tura.artifact.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+
 import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
+
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -24,15 +28,18 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.SubContributionItem;
+
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
+
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
-import tura.common.presentation.Domain1EditorPlugin;
+
+import tura.domain.presentation.DomainEditorPlugin;
 
 /**
  * This is the action bar contributor for the Artifact model editor.
@@ -66,14 +73,14 @@ public class ArtifactActionBarContributor
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction =
-		new Action(Domain1EditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		new Action(DomainEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
 			@Override
 			public void run() {
 				try {
 					getPage().showView("org.eclipse.ui.views.PropertySheet");
 				}
 				catch (PartInitException exception) {
-					Domain1EditorPlugin.INSTANCE.log(exception);
+					DomainEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -86,7 +93,7 @@ public class ArtifactActionBarContributor
 	 * @generated
 	 */
 	protected IAction refreshViewerAction =
-		new Action(Domain1EditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		new Action(DomainEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
 			@Override
 			public boolean isEnabled() {
 				return activeEditorPart instanceof IViewerProvider;
@@ -173,7 +180,7 @@ public class ArtifactActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(Domain1EditorPlugin.INSTANCE.getString("_UI_ArtifactEditor_menu"), "tura.artifactMenuID");
+		IMenuManager submenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_ArtifactEditor_menu"), "tura.artifactMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -182,12 +189,12 @@ public class ArtifactActionBarContributor
 
 		// Prepare for CreateChild item addition or removal.
 		//
-		createChildMenuManager = new MenuManager(Domain1EditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		createChildMenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		submenuManager.insertBefore("additions", createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
-		createSiblingMenuManager = new MenuManager(Domain1EditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		createSiblingMenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
@@ -378,11 +385,11 @@ public class ArtifactActionBarContributor
 		super.menuAboutToShow(menuManager);
 		MenuManager submenuManager = null;
 
-		submenuManager = new MenuManager(Domain1EditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		submenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 
-		submenuManager = new MenuManager(Domain1EditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		submenuManager = new MenuManager(DomainEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 	}

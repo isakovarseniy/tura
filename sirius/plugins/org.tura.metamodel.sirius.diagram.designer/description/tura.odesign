@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="ASCII"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="tura" version="10.1.3.201511131800">
+  <ownedViewpoints name="Domain tree" modelFileExtension="domain">
+    <ownedRepresentations xsi:type="description_1:TreeDescription" name="Domain tree" domainClass="domain.Domain">
+      <subItemMappings name="Domain artifacts" domainClass="domain.DomainArtifacts" semanticCandidatesExpression="feature:domainArtifacts">
+        <defaultStyle labelSize="12" labelExpression="Domain Artifacts">
+          <labelFormat>italic</labelFormat>
+          <labelFormat>bold</labelFormat>
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+        </defaultStyle>
+        <subItemMappings name="Domain artifact" domainClass="domain.DomainArtifact" semanticCandidatesExpression="feature:domainArtifact">
+          <defaultStyle labelSize="12">
+            <labelFormat>italic</labelFormat>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+          <subItemMappings name="Artifact groups" domainClass="artifact.ArtifactGroup" semanticCandidatesExpression="feature:artifactPackages">
+            <defaultStyle labelSize="12">
+              <labelFormat>italic</labelFormat>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            </defaultStyle>
+          </subItemMappings>
+          <create name="Create Artifact package" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20artifacts']/@subItemMappings[name='Domain%20artifact']">
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="artifact.ArtifactGroup" referenceName="artifactPackages">
+                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+              </subModelOperations>
+            </firstModelOperation>
+            <variables name="root" documentation="The semantic element of the tree."/>
+            <variables name="element" documentation="The currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+          </create>
+        </subItemMappings>
+        <create name="Create Domain artifact" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20artifacts']">
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="domain.DomainArtifact" referenceName="domainArtifact">
+              <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+              <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <variables name="root" documentation="The semantic element of the tree."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        </create>
+      </subItemMappings>
+      <subItemMappings name="Domain applications" domainClass="domain.DomainApplications" semanticCandidatesExpression="feature:domainApplications">
+        <defaultStyle labelSize="12" labelExpression="Domain applications">
+          <labelFormat>italic</labelFormat>
+          <labelFormat>bold</labelFormat>
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+        </defaultStyle>
+        <subItemMappings name="Domain application" domainClass="domain.DomainApplication" semanticCandidatesExpression="feature:applications">
+          <defaultStyle labelSize="12">
+            <labelFormat>italic</labelFormat>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+          <subItemMappings name="Application groups" domainClass="application.ApplicationGroup" semanticCandidatesExpression="feature:applicationPackages">
+            <defaultStyle labelSize="12">
+              <labelFormat>italic</labelFormat>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            </defaultStyle>
+            <subItemMappings name="Application" domainClass="application.Application" semanticCandidatesExpression="feature:applications">
+              <defaultStyle labelSize="12">
+                <labelFormat>italic</labelFormat>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              </defaultStyle>
+              <subItemMappings name="ApplicationRecipes" domainClass="application.ApplicationRecipes" semanticCandidatesExpression="feature:applicationRecipes">
+                <defaultStyle labelSize="12" labelExpression="Application recipes">
+                  <labelFormat>italic</labelFormat>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                </defaultStyle>
+                <subItemMappings name="Application Recipe" domainClass="application.ApplicationRecipe" semanticCandidatesExpression="feature:recipes">
+                  <defaultStyle labelSize="12">
+                    <labelFormat>italic</labelFormat>
+                    <labelFormat>bold</labelFormat>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  </defaultStyle>
+                </subItemMappings>
+              </subItemMappings>
+              <subItemMappings name="Application mappers" domainClass="application.ApplicationMappers" semanticCandidatesExpression="feature:applicationMappers">
+                <defaultStyle labelSize="12" labelExpression="Application mappers">
+                  <labelFormat>italic</labelFormat>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                </defaultStyle>
+              </subItemMappings>
+              <subItemMappings name="Application ui layer" domainClass="application.ApplicationUILayer" semanticCandidatesExpression="feature:applicationUILayer">
+                <defaultStyle labelSize="12" labelExpression="Application ui layer">
+                  <labelFormat>italic</labelFormat>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                </defaultStyle>
+              </subItemMappings>
+              <subItemMappings name="Application infrastructure" domainClass="application.ApplicationInfrastructureLayers" semanticCandidatesExpression="feature:applicationInfrastructureLayer">
+                <defaultStyle labelSize="12" labelExpression="Application infrastructure">
+                  <labelFormat>italic</labelFormat>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                </defaultStyle>
+              </subItemMappings>
+              <subItemMappings name="Application styles" domainClass="application.ApplicationStyleLibraries" semanticCandidatesExpression="feature:applicationStyle">
+                <defaultStyle labelSize="12" labelExpression="Application styles">
+                  <labelFormat>italic</labelFormat>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                </defaultStyle>
+              </subItemMappings>
+              <subItemMappings name="Application security" domainClass="application.ApplicationRealms" semanticCandidatesExpression="feature:applicationRole">
+                <defaultStyle labelSize="12" labelExpression="Application security">
+                  <labelFormat>italic</labelFormat>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                </defaultStyle>
+              </subItemMappings>
+              <subItemMappings name="Application messages" domainClass="application.ApplicationMessageLibraries" semanticCandidatesExpression="feature:applicationMessages">
+                <defaultStyle labelSize="12" labelExpression="Application messages">
+                  <labelFormat>italic</labelFormat>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                </defaultStyle>
+              </subItemMappings>
+            </subItemMappings>
+            <create name="Create Application" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']">
+              <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="application.Application" referenceName="applications">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationRecipes" referenceName="applicationRecipes" variableName="instance1">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Recipes"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationMappers" referenceName="applicationMappers" variableName="instance2">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Mappers"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationUILayer" referenceName="applicationUILayer" variableName="instance3">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="UILayer"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationInfrastructureLayers" referenceName="applicationInfrastructureLayer" variableName="instance4">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Infrastructure"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationStyleLibraries" referenceName="applicationStyle" variableName="instance5">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Style Libraries"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationRealms" referenceName="applicationRole" variableName="instance6">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Security"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationMessageLibraries" referenceName="applicationMessages" variableName="instance7">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Message libraries"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperation>
+              <variables name="root" documentation="The semantic element of the tree."/>
+              <variables name="element" documentation="The currently edited element."/>
+              <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            </create>
+          </subItemMappings>
+          <create name="Create Application package" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']">
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationGroup" referenceName="applicationPackages">
+                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+              </subModelOperations>
+            </firstModelOperation>
+            <variables name="root" documentation="The semantic element of the tree."/>
+            <variables name="element" documentation="The currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+          </create>
+        </subItemMappings>
+        <create name="Create Domain application" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']">
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="domain.DomainApplication" referenceName="applications">
+              <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+              <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <variables name="root" documentation="The semantic element of the tree."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        </create>
+      </subItemMappings>
+      <subItemMappings name="Domain types" domainClass="domain.DomainTypes" semanticCandidatesExpression="feature:domainTypes">
+        <defaultStyle labelSize="12" labelExpression="Domain types">
+          <labelFormat>italic</labelFormat>
+          <labelFormat>bold</labelFormat>
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+        </defaultStyle>
+        <subItemMappings name="Domain type's repository" domainClass="domain.DomainTypesRepository" semanticCandidatesExpression="feature:typesRepository">
+          <defaultStyle labelSize="12">
+            <labelFormat>italic</labelFormat>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+          <subItemMappings name="Type group" domainClass="type.TypeGroup" semanticCandidatesExpression="feature:repositoryPackages">
+            <defaultStyle labelSize="12">
+              <labelFormat>italic</labelFormat>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            </defaultStyle>
+          </subItemMappings>
+          <create name="Create Type package" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20types']/@subItemMappings[name='Domain%20type%27s%20repository']">
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="type.TypeGroup" referenceName="repositoryPackages">
+                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+              </subModelOperations>
+            </firstModelOperation>
+            <variables name="root" documentation="The semantic element of the tree."/>
+            <variables name="element" documentation="The currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+          </create>
+        </subItemMappings>
+        <create name="Create Domain type repository" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20types']">
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="domain.DomainTypesRepository" referenceName="typesRepository">
+              <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+              <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <variables name="root" documentation="The semantic element of the tree."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        </create>
+      </subItemMappings>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.tura.metamodel.sirius.diagram.designer.service.DiagramService"/>
+  </ownedViewpoints>
+</description:Group>

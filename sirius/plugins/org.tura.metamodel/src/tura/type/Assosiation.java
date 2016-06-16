@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.Assosiation#getType <em>Type</em>}</li>
  *   <li>{@link tura.type.Assosiation#getLinks <em>Links</em>}</li>
@@ -18,7 +19,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link tura.type.Assosiation#getTargetOperation <em>Target Operation</em>}</li>
  *   <li>{@link tura.type.Assosiation#getMany2manyHelper <em>Many2many Helper</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.type.TypePackage#getAssosiation()
  * @model

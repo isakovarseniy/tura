@@ -5,6 +5,7 @@ package tura.common.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -14,6 +15,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -22,19 +24,24 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+
 import org.eclipse.jface.util.LocalSelectionTransfer;
+
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -48,21 +55,29 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+
 import org.eclipse.swt.SWT;
+
 import org.eclipse.swt.custom.CTabFolder;
+
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.dnd.Transfer;
+
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
+
 import org.eclipse.swt.graphics.Point;
+
 import org.eclipse.swt.layout.FillLayout;
+
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
+
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -70,56 +85,101 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
+
 import org.eclipse.ui.dialogs.SaveAsDialog;
+
 import org.eclipse.ui.ide.IGotoMarker;
+
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
+
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
+
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.ui.MarkerHelper;
 import org.eclipse.emf.common.ui.ViewerPane;
+
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
+
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
+
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
+
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
+
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
+
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
+
 import tura.common.provider.CommonItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
+import tura.application.provider.ApplicationItemProviderAdapterFactory;
+
 import tura.artifact.provider.ArtifactItemProviderAdapterFactory;
+
+import tura.domain.presentation.DomainEditorPlugin;
+
 import tura.domain.provider.DomainItemProviderAdapterFactory;
+
+import tura.form.provider.FormItemProviderAdapterFactory;
+
+import tura.infrastructure.provider.InfrastructureItemProviderAdapterFactory;
+
+import tura.mapper.provider.MapperItemProviderAdapterFactory;
+
+import tura.message.provider.MessageItemProviderAdapterFactory;
+
 import tura.permission.provider.PermissionItemProviderAdapterFactory;
+
+import tura.recipe.provider.RecipeItemProviderAdapterFactory;
+
+import tura.style.provider.StyleItemProviderAdapterFactory;
+
 import tura.type.provider.TypeItemProviderAdapterFactory;
 
 
@@ -494,7 +554,7 @@ public class CommonEditor
 					}
 				}
 				catch (CoreException exception) {
-					Domain1EditorPlugin.INSTANCE.log(exception);
+					DomainEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -610,7 +670,7 @@ public class CommonEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					Domain1EditorPlugin.INSTANCE.log(exception);
+					DomainEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -621,7 +681,7 @@ public class CommonEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						Domain1EditorPlugin.INSTANCE.log(exception);
+						DomainEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -665,12 +725,18 @@ public class CommonEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CommonItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new PermissionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DomainItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypeItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new application.provider.ApplicationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CommonItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new PermissionItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new InfrastructureItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new MessageItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new StyleItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new FormItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -918,7 +984,7 @@ public class CommonEditor
 	 * @generated
 	 */
 	public void createModel() {
-		URI resourceURI = EditUIUtil.getURI(getEditorInput());
+		URI resourceURI = EditUIUtil.getURI(getEditorInput(), editingDomain.getResourceSet().getURIConverter());
 		Exception exception = null;
 		Resource resource = null;
 		try {
@@ -946,10 +1012,11 @@ public class CommonEditor
 	 * @generated
 	 */
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
-		if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
+		boolean hasErrors = !resource.getErrors().isEmpty();
+		if (hasErrors || !resource.getWarnings().isEmpty()) {
 			BasicDiagnostic basicDiagnostic =
 				new BasicDiagnostic
-					(Diagnostic.ERROR,
+					(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
 					 "org.tura.metamodel.editor",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),
@@ -1491,7 +1558,7 @@ public class CommonEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			Domain1EditorPlugin.INSTANCE.log(exception);
+			DomainEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1695,7 +1762,7 @@ public class CommonEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return Domain1EditorPlugin.INSTANCE.getString(key);
+		return DomainEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1705,7 +1772,7 @@ public class CommonEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return Domain1EditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return DomainEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="permission" nsURI="http://tura.org/2016/v2/permission" nsPrefix="tura.permission">
-  <eClassifiers xsi:type="ecore:EClass" name="Roles">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
-        eType="#//Role" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
-        eType="#//Group" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SecurityEntity"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//SecurityEntity">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Group" eSuperTypes="#//SecurityEntity">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group2Group" upperBound="-1"
-        eType="#//Group"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group2Role" upperBound="-1"
-        eType="#//Role"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Secured">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="grants" upperBound="-1"
-        eType="#//GrantAccess" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GrantAccess">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roleRef" eType="#//Role"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SecurityEntityPointer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityEntity" eType="#//SecurityEntity"/>
-  </eClassifiers>
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tura" nsURI="http://tura.org/2016/v2/tura" nsPrefix="tura">
+  <eSubpackages name="permission" nsURI="http://tura.org/2016/v2/permission" nsPrefix="tura.permission">
+    <eClassifiers xsi:type="ecore:EClass" name="Roles">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+          eType="#//permission/Role" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
+          eType="#//permission/Group" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SecurityEntity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//permission/SecurityEntity">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Group" eSuperTypes="#//permission/SecurityEntity">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="group2Group" upperBound="-1"
+          eType="#//permission/Group"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="group2Role" upperBound="-1"
+          eType="#//permission/Role"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Secured">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="grants" upperBound="-1"
+          eType="#//permission/GrantAccess" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GrantAccess">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="roleRef" eType="#//permission/Role"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SecurityEntityPointer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="securityEntity" eType="#//permission/SecurityEntity"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

@@ -18,9 +18,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
-import tura.application.Application;
 import tura.application.ApplicationFactory;
+import tura.application.ApplicationGroup;
 import tura.application.ApplicationPackage;
 
 /**
@@ -60,7 +59,7 @@ public class ApplicationExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.application"));
-				Application root = ApplicationFactory.eINSTANCE.createApplication();
+				ApplicationGroup root = ApplicationFactory.eINSTANCE.createApplicationGroup();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

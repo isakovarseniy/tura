@@ -2,6 +2,8 @@
  */
 package tura.artifact;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -11,11 +13,18 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.artifact.Artifact#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.artifact.Artifact#getName <em>Name</em>}</li>
+ *   <li>{@link tura.artifact.Artifact#getDescription <em>Description</em>}</li>
+ *   <li>{@link tura.artifact.Artifact#getConfigVariables <em>Config Variables</em>}</li>
+ *   <li>{@link tura.artifact.Artifact#getConfigHashes <em>Config Hashes</em>}</li>
+ *   <li>{@link tura.artifact.Artifact#getModelQuery <em>Model Query</em>}</li>
+ *   <li>{@link tura.artifact.Artifact#getTechnologies <em>Technologies</em>}</li>
+ *   <li>{@link tura.artifact.Artifact#getHints <em>Hints</em>}</li>
+ *   <li>{@link tura.artifact.Artifact#getTemplate <em>Template</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.artifact.ArtifactPackage#getArtifact()
  * @model
@@ -73,5 +82,139 @@ public interface Artifact extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see tura.artifact.ArtifactPackage#getArtifact_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link tura.artifact.Artifact#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Config Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link tura.artifact.ConfigVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Config Variables</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Variables</em>' containment reference list.
+	 * @see tura.artifact.ArtifactPackage#getArtifact_ConfigVariables()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ConfigVariable> getConfigVariables();
+
+	/**
+	 * Returns the value of the '<em><b>Config Hashes</b></em>' containment reference list.
+	 * The list contents are of type {@link tura.artifact.ConfigHash}.
+	 * It is bidirectional and its opposite is '{@link tura.artifact.ConfigHash#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Config Hashes</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Hashes</em>' containment reference list.
+	 * @see tura.artifact.ArtifactPackage#getArtifact_ConfigHashes()
+	 * @see tura.artifact.ConfigHash#getParent
+	 * @model opposite="parent" containment="true"
+	 * @generated
+	 */
+	EList<ConfigHash> getConfigHashes();
+
+	/**
+	 * Returns the value of the '<em><b>Model Query</b></em>' containment reference list.
+	 * The list contents are of type {@link tura.artifact.ModelQuery}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Model Query</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model Query</em>' containment reference list.
+	 * @see tura.artifact.ArtifactPackage#getArtifact_ModelQuery()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ModelQuery> getModelQuery();
+
+	/**
+	 * Returns the value of the '<em><b>Technologies</b></em>' containment reference list.
+	 * The list contents are of type {@link tura.artifact.Technology}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Technologies</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Technologies</em>' containment reference list.
+	 * @see tura.artifact.ArtifactPackage#getArtifact_Technologies()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Technology> getTechnologies();
+
+	/**
+	 * Returns the value of the '<em><b>Hints</b></em>' containment reference list.
+	 * The list contents are of type {@link tura.artifact.GenerationHint}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Hints</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Hints</em>' containment reference list.
+	 * @see tura.artifact.ArtifactPackage#getArtifact_Hints()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<GenerationHint> getHints();
+
+	/**
+	 * Returns the value of the '<em><b>Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Template</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Template</em>' attribute.
+	 * @see #setTemplate(String)
+	 * @see tura.artifact.ArtifactPackage#getArtifact_Template()
+	 * @model
+	 * @generated
+	 */
+	String getTemplate();
+
+	/**
+	 * Sets the value of the '{@link tura.artifact.Artifact#getTemplate <em>Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Template</em>' attribute.
+	 * @see #getTemplate()
+	 * @generated
+	 */
+	void setTemplate(String value);
 
 } // Artifact

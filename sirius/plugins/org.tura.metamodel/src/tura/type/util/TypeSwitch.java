@@ -4,27 +4,14 @@ package tura.type.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.Switch;
+
 import tura.common.Categorized;
+
 import tura.permission.Secured;
-import tura.type.Assosiation;
-import tura.type.Attribute;
-import tura.type.EnumAttribute;
-import tura.type.Enumarator;
-import tura.type.Generalization;
-import tura.type.Link;
-import tura.type.Operation;
-import tura.type.Parameter;
-import tura.type.Primitive;
-import tura.type.References;
-import tura.type.Relationship;
-import tura.type.Repository;
-import tura.type.ReturnValue;
-import tura.type.Type;
-import tura.type.TypeElement;
-import tura.type.TypePackage;
-import tura.type.TypePointer;
-import tura.type.TypeReference;
+
+import tura.type.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,7 +51,7 @@ public class TypeSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -83,15 +70,9 @@ public class TypeSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case TypePackage.REPOSITORY: {
-				Repository repository = (Repository)theEObject;
-				T result = caseRepository(repository);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TypePackage.PACKAGE: {
-				tura.type.Package package_ = (tura.type.Package)theEObject;
-				T result = casePackage(package_);
+			case TypePackage.TYPE_GROUP: {
+				TypeGroup typeGroup = (TypeGroup)theEObject;
+				T result = caseTypeGroup(typeGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,6 +108,12 @@ public class TypeSwitch<T> extends Switch<T> {
 			case TypePackage.TYPE_POINTER: {
 				TypePointer typePointer = (TypePointer)theEObject;
 				T result = caseTypePointer(typePointer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypePackage.PACKAGE_POINTER: {
+				PackagePointer packagePointer = (PackagePointer)theEObject;
+				T result = casePackagePointer(packagePointer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,37 +198,29 @@ public class TypeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case TypePackage.METHOD_POINTER: {
+				MethodPointer methodPointer = (MethodPointer)theEObject;
+				T result = caseMethodPointer(methodPointer);
+				if (result == null) result = caseTypePointer(methodPointer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Repository</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Group</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRepository(Repository object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Package</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePackage(tura.type.Package object) {
+	public T caseTypeGroup(TypeGroup object) {
 		return null;
 	}
 
@@ -317,6 +296,21 @@ public class TypeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypePointer(TypePointer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Package Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Package Pointer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePackagePointer(PackagePointer object) {
 		return null;
 	}
 
@@ -482,6 +476,21 @@ public class TypeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEnumAttribute(EnumAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method Pointer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethodPointer(MethodPointer object) {
 		return null;
 	}
 

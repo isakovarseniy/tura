@@ -1,60 +1,64 @@
-@namespace(uri="http://tura.org/2016/v2/mapper", prefix="tura.mapper")
-package mapper;
+@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
+package tura;
 
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
 import "platform:/resource/org.tura.metamodel/model/style.ecore";
 import "platform:/resource/org.tura.metamodel/model/permission.ecore";
+		
 
-
-class Mappers{
-    id attr EString uid;
-   val Mapper[*] mappers;
-}
-
-class Mapper {
-    id attr EString uid;
-    attr boolean serviceLayer;
-    attr boolean uiLayer;
-}
-
-
-class TypeMapper extends Mapper,type.TypePointer{
-}
-
-
-class PackageMapper extends Mapper,type.PackagePointer{
-}
-
-class JavaMapper extends TypeMapper{
-   attr EString mappedToPackageName;
-   attr EString mappedToClassName;
-   attr EString artifactId;
-   attr EString groupId;
-   attr EString version;
-   attr EString libraryName;
-   attr EString artifactType = "jar";
-}
-
-
-class JavaPackageMapper extends PackageMapper {
-   attr EString mappedToPackageName;
-   attr EString artifactId;
-   attr EString groupId;
-   attr EString version;
-   attr EString libraryName;
-   attr EString artifactType = "jar";
-}
-
-
-class JavaScriptMapper extends TypeMapper{
-   attr EString libraryUrl;
-}
-
-class CSSMapper extends Mapper, style.StylePointer{
-   attr EString libraryUrl;
-}
-
-class RoleMapper extends Mapper,permission.SecurityEntityPointer{
-     attr EString localRoleName;
-     attr EString globalRoleName;
+@namespace(uri="http://tura.org/2016/v2/mapper", prefix="tura.mapper")
+package mapper{
+		
+		class Mappers{
+		    id attr EString uid;
+		   val Mapper[*] mappers;
+		}
+		
+		class Mapper {
+		    id attr EString uid;
+		    attr boolean serviceLayer;
+		    attr boolean uiLayer;
+		}
+		
+		
+		class TypeMapper extends Mapper,tura.type.TypePointer{
+		}
+		
+		
+		class PackageMapper extends Mapper,tura.type.PackagePointer{
+		}
+		
+		class JavaMapper extends TypeMapper{
+		   attr EString mappedToPackageName;
+		   attr EString mappedToClassName;
+		   attr EString artifactId;
+		   attr EString groupId;
+		   attr EString version;
+		   attr EString libraryName;
+		   attr EString artifactType = "jar";
+		}
+		
+		
+		class JavaPackageMapper extends PackageMapper {
+		   attr EString mappedToPackageName;
+		   attr EString artifactId;
+		   attr EString groupId;
+		   attr EString version;
+		   attr EString libraryName;
+		   attr EString artifactType = "jar";
+		}
+		
+		
+		class JavaScriptMapper extends TypeMapper{
+		   attr EString libraryUrl;
+		}
+		
+		class CSSMapper extends Mapper, tura.style.StylePointer{
+		   attr EString libraryUrl;
+		}
+		
+		class RoleMapper extends Mapper,tura.permission.SecurityEntityPointer{
+		     attr EString localRoleName;
+		     attr EString globalRoleName;
+		}
 }

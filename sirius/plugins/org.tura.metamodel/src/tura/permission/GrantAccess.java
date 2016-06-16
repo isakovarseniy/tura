@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.permission.GrantAccess#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.permission.GrantAccess#getRoleRef <em>Role Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.permission.PermissionPackage#getGrantAccess()
  * @model

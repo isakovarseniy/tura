@@ -11,13 +11,13 @@ import tura.common.Categorized;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.EnumAttribute#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.type.EnumAttribute#getParent <em>Parent</em>}</li>
  *   <li>{@link tura.type.EnumAttribute#getName <em>Name</em>}</li>
  *   <li>{@link tura.type.EnumAttribute#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.type.TypePackage#getEnumAttribute()
  * @model

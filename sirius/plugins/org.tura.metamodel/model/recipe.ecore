@@ -1,177 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="recipe" nsURI="http://tura.org/2016/v2/recipe" nsPrefix="tura.recipe">
-  <eClassifiers xsi:type="ecore:EClass" name="Recipes">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" eType="#//Recipe"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
-        eType="#//Configuration" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructures" upperBound="-1"
-        eType="#//Infrastructure" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" eType="#//DeploymentSequence"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configExtension" upperBound="-1"
-        eType="#//ConfigExtension" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//UsingMappers">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ingredients" upperBound="-1"
-        eType="#//Ingredient" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructures" upperBound="-1"
-        eType="#//Infrastructure"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" eType="#//DeploymentSequence"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConfigExtension">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Configuration"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Configuration"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeploymentSequence">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentComponents" eType="#//DeploymentComponents"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeploymentComponents">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deplymentStep" upperBound="-1"
-        eType="#//DeploymentComponent" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="startSeq" eType="#//DeploymentStarStep"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeploymentComponent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" eType="#//ModelMapper"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentComponentLink"
-        eType="#//DeploymentComponent"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeploymentStarStep">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="firstStep" eType="#//DeploymentComponent"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UsingMappers">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
-        eType="ecore:EClass mapper.ecore#//Mappers"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="PlatformLayers">
-    <eLiterals name="ServiceLayer" value="1"/>
-    <eLiterals name="UILayer" value="2"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Ingredient" eSuperTypes="#//UsingMappers">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="layer" eType="#//PlatformLayers"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Component">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
-        eType="#//ModelMapper" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="componentRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JavaComponent" eSuperTypes="#//Component">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePackage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Infrastructure">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" eType="#//Recipe"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recipeConfig" eType="#//Configuration"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructure" eType="#//Infrastructure"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//Property" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hashProperties" upperBound="-1"
-        eType="#//HashProperty" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelMapper" eSuperTypes="#//ArtifactRef">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="specifiers" upperBound="-1"
-        eType="#//MappingSpecifier" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="queries" upperBound="-1"
-        eType="#//Query" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactExecutionString"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Property">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="confVarRef" eType="ecore:EClass artifact.ecore#//ConfigVariable"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HashProperty">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeName"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="confHashRef" eType="ecore:EClass artifact.ecore#//ConfigHash"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="hash" upperBound="-1" eType="#//KeyValuePair"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="KeyValuePair">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MappingSpecifier">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="specifierRef" eType="ecore:EClass artifact.ecore#//Technology"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valueRef" eType="ecore:EClass artifact.ecore#//Option"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Query">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="name"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelQuery" eType="ecore:EClass artifact.ecore#//ModelQuery"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="queryRef" eType="ecore:EClass artifact.ecore#//ModelQuery"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-        eType="#//QueryVariable" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="QueryVariable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="queryParamRef" eType="ecore:EClass artifact.ecore#//QueryParameter"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArtifactRef">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="artifactRef" eType="ecore:EClass artifact.ecore#//Artifact"/>
-  </eClassifiers>
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tura" nsURI="http://tura.org/2016/v2/tura" nsPrefix="tura">
+  <eSubpackages name="recipe" nsURI="http://tura.org/2016/v2/recipe" nsPrefix="tura.recipe">
+    <eClassifiers xsi:type="ecore:EClass" name="Recipes">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" eType="#//recipe/Recipe"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+          eType="#//recipe/Configuration" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructures" upperBound="-1"
+          eType="#//recipe/Infrastructure" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" eType="#//recipe/DeploymentSequence"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="configExtension" upperBound="-1"
+          eType="#//recipe/ConfigExtension" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//recipe/UsingMappers">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ingredients" upperBound="-1"
+          eType="#//recipe/Ingredient" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructures" upperBound="-1"
+          eType="#//recipe/Infrastructure"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" eType="#//recipe/DeploymentSequence"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConfigExtension">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//recipe/Configuration"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//recipe/Configuration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DeploymentSequence">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentComponents"
+          eType="#//recipe/DeploymentComponents" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DeploymentComponents">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="deplymentStep" upperBound="-1"
+          eType="#//recipe/DeploymentComponent" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="startSeq" eType="#//recipe/DeploymentStarStep"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DeploymentComponent">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" eType="#//recipe/ModelMapper"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentComponentLink"
+          eType="#//recipe/DeploymentComponent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DeploymentStarStep">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="firstStep" eType="#//recipe/DeploymentComponent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UsingMappers">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
+          eType="ecore:EClass mapper.ecore#//mapper/Mappers"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PlatformLayers">
+      <eLiterals name="ServiceLayer" value="1"/>
+      <eLiterals name="UILayer" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Ingredient" eSuperTypes="#//recipe/UsingMappers">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+          eType="#//recipe/Component" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="layer" eType="#//recipe/PlatformLayers"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Component">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
+          eType="#//recipe/ModelMapper" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="componentRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JavaComponent" eSuperTypes="#//recipe/Component">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePackage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Infrastructure">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" eType="#//recipe/Recipe"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recipeConfig" eType="#//recipe/Configuration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Configuration">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructure" eType="#//recipe/Infrastructure"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//recipe/Property" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hashProperties" upperBound="-1"
+          eType="#//recipe/HashProperty" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ModelMapper" eSuperTypes="#//recipe/ArtifactRef">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specifiers" upperBound="-1"
+          eType="#//recipe/MappingSpecifier" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="queries" upperBound="-1"
+          eType="#//recipe/Query" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactExecutionString"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Property">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="confVarRef" eType="ecore:EClass artifact.ecore#//artifact/ConfigVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HashProperty">
+      <eAnnotations source="gmf.node">
+        <details key="label" value="fakeName"/>
+        <details key="border.color" value="0,0,0"/>
+        <details key="color" value="255,239,222"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="confHashRef" eType="ecore:EClass artifact.ecore#//artifact/ConfigHash"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hash" upperBound="-1"
+          eType="#//recipe/KeyValuePair" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="KeyValuePair">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MappingSpecifier">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specifierRef" eType="ecore:EClass artifact.ecore#//artifact/Technology"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="valueRef" eType="ecore:EClass artifact.ecore#//artifact/Option"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Query">
+      <eAnnotations source="gmf.node">
+        <details key="label" value="name"/>
+        <details key="border.color" value="0,0,0"/>
+        <details key="color" value="241,238,203"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modelQuery" eType="ecore:EClass artifact.ecore#//artifact/ModelQuery"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="queryRef" eType="ecore:EClass artifact.ecore#//artifact/ModelQuery"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+          eType="#//recipe/QueryVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QueryVariable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="queryParamRef" eType="ecore:EClass artifact.ecore#//artifact/QueryParameter"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArtifactRef">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artifactRef" eType="ecore:EClass artifact.ecore#//artifact/Artifact"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

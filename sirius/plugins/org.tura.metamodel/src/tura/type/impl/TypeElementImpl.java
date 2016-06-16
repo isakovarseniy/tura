@@ -3,9 +3,12 @@
 package tura.type.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import tura.type.TypeElement;
 import tura.type.TypePackage;
 
@@ -15,11 +18,11 @@ import tura.type.TypePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.impl.TypeElementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.type.impl.TypeElementImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

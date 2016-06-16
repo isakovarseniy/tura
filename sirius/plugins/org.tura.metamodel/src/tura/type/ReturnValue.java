@@ -10,10 +10,10 @@ package tura.type;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.ReturnValue#getUid <em>Uid</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.type.TypePackage#getReturnValue()
  * @model

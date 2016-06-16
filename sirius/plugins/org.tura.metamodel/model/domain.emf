@@ -7,7 +7,6 @@ import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
 
 
-
 @namespace(uri="http://tura.org/2016/v2/domain", prefix="tura.domain")
 package domain{
 
@@ -29,7 +28,7 @@ package domain{
 	class DomainArtifact{
 	    id attr EString uid;
 	   attr EString name;
-	   val  artifact.Artifact artifact;
+	   val  tura.artifact.ArtifactGroup[*] artifactPackages;
 	}
 	
 	
@@ -42,7 +41,7 @@ package domain{
 	class DomainTypesRepository{
 	    id attr EString uid;
 	   attr EString name;
-	   val  type.Repository repository;
+	   val  tura.type.TypeGroup[*] repositoryPackages;
 	}
 	
 	
@@ -55,7 +54,7 @@ package domain{
 	class DomainApplication{
 	   id attr EString uid;
 	   attr EString name;  
-	   val application.Application application;
+	   val tura.application.ApplicationGroup[*] applicationPackages;
 	}
 }
 

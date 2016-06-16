@@ -2,13 +2,24 @@
  */
 package tura.domain.impl;
 
-import application.Application;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import tura.application.ApplicationGroup;
+
 import tura.domain.DomainApplication;
 import tura.domain.DomainPackage;
 
@@ -22,7 +33,7 @@ import tura.domain.DomainPackage;
  * <ul>
  *   <li>{@link tura.domain.impl.DomainApplicationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.domain.impl.DomainApplicationImpl#getName <em>Name</em>}</li>
- *   <li>{@link tura.domain.impl.DomainApplicationImpl#getApplication <em>Application</em>}</li>
+ *   <li>{@link tura.domain.impl.DomainApplicationImpl#getApplicationPackages <em>Application Packages</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,14 +80,14 @@ public class DomainApplicationImpl extends MinimalEObjectImpl.Container implemen
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getApplication() <em>Application</em>}' containment reference.
+	 * The cached value of the '{@link #getApplicationPackages() <em>Application Packages</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getApplication()
+	 * @see #getApplicationPackages()
 	 * @generated
 	 * @ordered
 	 */
-	protected Application application;
+	protected EList<ApplicationGroup> applicationPackages;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,42 +155,11 @@ public class DomainApplicationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Application getApplication() {
-		return application;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetApplication(Application newApplication, NotificationChain msgs) {
-		Application oldApplication = application;
-		application = newApplication;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_APPLICATION__APPLICATION, oldApplication, newApplication);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<ApplicationGroup> getApplicationPackages() {
+		if (applicationPackages == null) {
+			applicationPackages = new EObjectContainmentEList<ApplicationGroup>(ApplicationGroup.class, this, DomainPackage.DOMAIN_APPLICATION__APPLICATION_PACKAGES);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setApplication(Application newApplication) {
-		if (newApplication != application) {
-			NotificationChain msgs = null;
-			if (application != null)
-				msgs = ((InternalEObject)application).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN_APPLICATION__APPLICATION, null, msgs);
-			if (newApplication != null)
-				msgs = ((InternalEObject)newApplication).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN_APPLICATION__APPLICATION, null, msgs);
-			msgs = basicSetApplication(newApplication, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_APPLICATION__APPLICATION, newApplication, newApplication));
+		return applicationPackages;
 	}
 
 	/**
@@ -190,8 +170,8 @@ public class DomainApplicationImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
-				return basicSetApplication(null, msgs);
+			case DomainPackage.DOMAIN_APPLICATION__APPLICATION_PACKAGES:
+				return ((InternalEList<?>)getApplicationPackages()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -208,8 +188,8 @@ public class DomainApplicationImpl extends MinimalEObjectImpl.Container implemen
 				return getUid();
 			case DomainPackage.DOMAIN_APPLICATION__NAME:
 				return getName();
-			case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
-				return getApplication();
+			case DomainPackage.DOMAIN_APPLICATION__APPLICATION_PACKAGES:
+				return getApplicationPackages();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,6 +199,7 @@ public class DomainApplicationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -228,8 +209,9 @@ public class DomainApplicationImpl extends MinimalEObjectImpl.Container implemen
 			case DomainPackage.DOMAIN_APPLICATION__NAME:
 				setName((String)newValue);
 				return;
-			case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
-				setApplication((Application)newValue);
+			case DomainPackage.DOMAIN_APPLICATION__APPLICATION_PACKAGES:
+				getApplicationPackages().clear();
+				getApplicationPackages().addAll((Collection<? extends ApplicationGroup>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -249,8 +231,8 @@ public class DomainApplicationImpl extends MinimalEObjectImpl.Container implemen
 			case DomainPackage.DOMAIN_APPLICATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
-				setApplication((Application)null);
+			case DomainPackage.DOMAIN_APPLICATION__APPLICATION_PACKAGES:
+				getApplicationPackages().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -268,8 +250,8 @@ public class DomainApplicationImpl extends MinimalEObjectImpl.Container implemen
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case DomainPackage.DOMAIN_APPLICATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DomainPackage.DOMAIN_APPLICATION__APPLICATION:
-				return application != null;
+			case DomainPackage.DOMAIN_APPLICATION__APPLICATION_PACKAGES:
+				return applicationPackages != null && !applicationPackages.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

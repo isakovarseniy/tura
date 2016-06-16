@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import tura.type.Repository;
 import tura.type.TypeFactory;
+import tura.type.TypeGroup;
 import tura.type.TypePackage;
 
 /**
@@ -60,7 +60,7 @@ public class TypeExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.type"));
-				Repository root = TypeFactory.eINSTANCE.createRepository();
+				TypeGroup root = TypeFactory.eINSTANCE.createTypeGroup();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

@@ -11,6 +11,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,9 +25,10 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import tura.application.Application;
+import tura.application.ApplicationFactory;
 import tura.application.ApplicationPackage;
 
-import tura.common.provider.TuraEditPlugin;
+import tura.domain.provider.DomainEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link tura.application.Application} object.
@@ -113,6 +116,42 @@ public class ApplicationItemProvider
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_RECIPES);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_MAPPERS);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_UI_LAYER);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_STYLE);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_ROLE);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION__APPLICATION_MESSAGES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns Application.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -154,6 +193,15 @@ public class ApplicationItemProvider
 			case ApplicationPackage.APPLICATION__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case ApplicationPackage.APPLICATION__APPLICATION_RECIPES:
+			case ApplicationPackage.APPLICATION__APPLICATION_MAPPERS:
+			case ApplicationPackage.APPLICATION__APPLICATION_UI_LAYER:
+			case ApplicationPackage.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER:
+			case ApplicationPackage.APPLICATION__APPLICATION_STYLE:
+			case ApplicationPackage.APPLICATION__APPLICATION_ROLE:
+			case ApplicationPackage.APPLICATION__APPLICATION_MESSAGES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -168,6 +216,41 @@ public class ApplicationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_RECIPES,
+				 ApplicationFactory.eINSTANCE.createApplicationRecipes()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_MAPPERS,
+				 ApplicationFactory.eINSTANCE.createApplicationMappers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_UI_LAYER,
+				 ApplicationFactory.eINSTANCE.createApplicationUILayer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_INFRASTRUCTURE_LAYER,
+				 ApplicationFactory.eINSTANCE.createApplicationInfrastructureLayers()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_STYLE,
+				 ApplicationFactory.eINSTANCE.createApplicationStyleLibraries()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_ROLE,
+				 ApplicationFactory.eINSTANCE.createApplicationRealms()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION__APPLICATION_MESSAGES,
+				 ApplicationFactory.eINSTANCE.createApplicationMessageLibraries()));
 	}
 
 	/**
@@ -178,7 +261,7 @@ public class ApplicationItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return TuraEditPlugin.INSTANCE;
+		return DomainEditPlugin.INSTANCE;
 	}
 
 }

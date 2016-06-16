@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -193,7 +194,6 @@ public interface CommonPackage extends EPackage {
 	 */
 	int GENERATION_HINT_FEATURE_COUNT = 3;
 
-
 	/**
 	 * The number of operations of the '<em>Generation Hint</em>' class.
 	 * <!-- begin-user-doc -->
@@ -326,6 +326,7 @@ public interface CommonPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

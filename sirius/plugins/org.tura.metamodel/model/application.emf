@@ -1,6 +1,6 @@
-@namespace(uri="http://tura.org/2016/v2/application", prefix="tura.application")
-package application;
-	
+@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
+package tura;
+
 import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 import "platform:/resource/org.tura.metamodel/model/style.ecore";
 import "platform:/resource/org.tura.metamodel/model/infrastructure.ecore";
@@ -9,113 +9,120 @@ import "platform:/resource/org.tura.metamodel/model/mapper.ecore";
 import "platform:/resource/org.tura.metamodel/model/recipe.ecore";
 import "platform:/resource/org.tura.metamodel/model/form.ecore";
 	
-	
-	
-	
-@gmf.diagram.application
-class Application{
-    id attr EString uid;
-   val ApplicationRecipes applicationRecipes;
-   val ApplicationMappers applicationMappers;
-   val ApplicationUILayer applicationUILayer;
-   val ApplicationInfrastructureLayers  applicationInfrastructureLayer;
-   val ApplicationStyleLibraries applicationStyle;
-   val ApplicationRealms applicationRole;
-   val ApplicationMessageLibraries applicationMessages;
-   
-}	
-	
-class ApplicationInfrastructureLayers{
-    id attr EString uid;
-   attr EString name;
-   val ApplicationInfrastructureLayer[*]  infarastructureLayers;
-}
+		@namespace(uri="http://tura.org/2016/v2/application", prefix="tura.application")
+		package application{
+			
+		class ApplicationGroup{
+		    id attr EString uid;
+	        attr EString name;
+		   val Application[*] applications;
 		
-	
-	
-class ApplicationInfrastructureLayer{
-    id attr EString uid;
-   attr EString name;
-   val infrastructure.EnterpriseInfrastructure infarastructure;
-}
-	
-	
-class ApplicationMessageLibraries{
-    id attr EString uid;
-   attr EString name;
-   val  ApplicationMessageLibrary  messageLibrary;
-}
-
-
-class ApplicationMessageLibrary{
-    id attr EString uid;
-   attr EString name;
-   val message.Messages  messages;
-}
-
-
-class ApplicationRealms{
-    id attr EString uid;
-   attr EString name;
-   val  ApplicationRealm[*] realms; 
-}
-
-class ApplicationRealm{
-    id attr EString uid;
-   attr EString name;
-   val permission.Roles roles; 
-}
-
-
-class ApplicationStyleLibraries {
-    id attr EString uid;
-   attr EString name;
-   val ApplicationStyle[*] styleLibraries;
-}
-
-
-class ApplicationStyle {
-    id attr EString uid;
-   attr EString name;
-   val style.Styles[*] stylesPackage;
-}
-
-
-class ApplicationUILayer {
-    id attr EString uid;
-   attr EString name;
-   val ApplicationUIPackage[*] applicationUIPackages;
-}
-
-class ApplicationUIPackage{
-    id attr EString uid;
-   attr EString name;
-   val form.UIPackage uipackage;
-}
-
-
-class ApplicationRecipes {
-    id attr EString uid;
-   attr EString name;
-   val ApplicationRecipe[*] recipes;
-}
-
-class ApplicationRecipe{
-    id attr EString uid;
-   attr EString name;
-   val recipe.Recipe recipes;
-}
-
-class ApplicationMappers {
-    id attr EString uid;
-   attr EString name;
-   val ApplicationMapper[*] mappers;
-}
-
-class ApplicationMapper{
-    id attr EString uid;
-   attr EString name;
-   ref mapper.Mappers mapper; 
-}
-
-	
+		}
+			
+			
+		class Application{
+		    id attr EString uid;
+	       attr EString name;
+		   val ApplicationRecipes applicationRecipes;
+		   val ApplicationMappers applicationMappers;
+		   val ApplicationUILayer applicationUILayer;
+		   val ApplicationInfrastructureLayers  applicationInfrastructureLayer;
+		   val ApplicationStyleLibraries applicationStyle;
+		   val ApplicationRealms applicationRole;
+		   val ApplicationMessageLibraries applicationMessages;
+		   
+		}	
+			
+		class ApplicationInfrastructureLayers{
+		    id attr EString uid;
+		   attr EString name;
+		   val ApplicationInfrastructureLayer[*]  infarastructureLayers;
+		}
+				
+			
+			
+		class ApplicationInfrastructureLayer{
+		    id attr EString uid;
+		   attr EString name;
+		   val tura.infrastructure.EnterpriseInfrastructure infarastructure;
+		}
+			
+			
+		class ApplicationMessageLibraries{
+		    id attr EString uid;
+		   attr EString name;
+		   val  ApplicationMessageLibrary[*]  messageLibraries;
+		}
+		
+		
+		class ApplicationMessageLibrary{
+		    id attr EString uid;
+		   attr EString name;
+		   val tura.message.Messages  messages;
+		}
+		
+		
+		class ApplicationRealms{
+		    id attr EString uid;
+		   attr EString name;
+		   val  ApplicationRealm[*] realms; 
+		}
+		
+		class ApplicationRealm{
+		    id attr EString uid;
+		   attr EString name;
+		   val tura.permission.Roles roles; 
+		}
+		
+		
+		class ApplicationStyleLibraries {
+		    id attr EString uid;
+		   attr EString name;
+		   val ApplicationStyle[*] styleLibraries;
+		}
+		
+		
+		class ApplicationStyle {
+		    id attr EString uid;
+		   attr EString name;
+		   val tura.style.Styles[*] stylesPackage;
+		}
+		
+		
+		class ApplicationUILayer {
+		    id attr EString uid;
+		   attr EString name;
+		   val ApplicationUIPackage[*] applicationUIPackages;
+		}
+		
+		class ApplicationUIPackage{
+		    id attr EString uid;
+		   attr EString name;
+		   val tura.form.UIPackage uipackage;
+		}
+		
+		
+		class ApplicationRecipes {
+		    id attr EString uid;
+		   attr EString name;
+		   val ApplicationRecipe[*] recipes;
+		}
+		
+		class ApplicationRecipe{
+		    id attr EString uid;
+		   attr EString name;
+		   val tura.recipe.Recipe recipes;
+		}
+		
+		class ApplicationMappers {
+		    id attr EString uid;
+		   attr EString name;
+		   val ApplicationMapper[*] mappers;
+		}
+		
+		class ApplicationMapper{
+		    id attr EString uid;
+		   attr EString name;
+		   ref tura.mapper.Mappers mapper; 
+		}
+	}

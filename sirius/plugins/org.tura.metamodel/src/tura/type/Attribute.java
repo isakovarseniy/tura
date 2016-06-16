@@ -11,12 +11,12 @@ import tura.common.Categorized;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link tura.type.Attribute#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.type.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link tura.type.Attribute#isPk <em>Pk</em>}</li>
  * </ul>
- * </p>
  *
  * @see tura.type.TypePackage#getAttribute()
  * @model

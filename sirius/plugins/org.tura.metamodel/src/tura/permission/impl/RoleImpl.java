@@ -3,9 +3,11 @@
 package tura.permission.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import tura.permission.PermissionPackage;
 import tura.permission.Role;
 
@@ -15,15 +17,15 @@ import tura.permission.Role;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.permission.impl.RoleImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.permission.impl.RoleImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
+public class RoleImpl extends SecurityEntityImpl implements Role {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->

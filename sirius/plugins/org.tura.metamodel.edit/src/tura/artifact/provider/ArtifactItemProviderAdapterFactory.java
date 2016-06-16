@@ -72,6 +72,29 @@ public class ArtifactItemProviderAdapterFactory extends ArtifactAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link tura.artifact.ArtifactGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArtifactGroupItemProvider artifactGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.artifact.ArtifactGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArtifactGroupAdapter() {
+		if (artifactGroupItemProvider == null) {
+			artifactGroupItemProvider = new ArtifactGroupItemProvider(this);
+		}
+
+		return artifactGroupItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link tura.artifact.Artifact} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +115,167 @@ public class ArtifactItemProviderAdapterFactory extends ArtifactAdapterFactory i
 		}
 
 		return artifactItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link tura.artifact.GenerationHint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenerationHintItemProvider generationHintItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.artifact.GenerationHint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenerationHintAdapter() {
+		if (generationHintItemProvider == null) {
+			generationHintItemProvider = new GenerationHintItemProvider(this);
+		}
+
+		return generationHintItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link tura.artifact.ConfigVariable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfigVariableItemProvider configVariableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.artifact.ConfigVariable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfigVariableAdapter() {
+		if (configVariableItemProvider == null) {
+			configVariableItemProvider = new ConfigVariableItemProvider(this);
+		}
+
+		return configVariableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link tura.artifact.ConfigHash} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfigHashItemProvider configHashItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.artifact.ConfigHash}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfigHashAdapter() {
+		if (configHashItemProvider == null) {
+			configHashItemProvider = new ConfigHashItemProvider(this);
+		}
+
+		return configHashItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link tura.artifact.ModelQuery} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModelQueryItemProvider modelQueryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.artifact.ModelQuery}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModelQueryAdapter() {
+		if (modelQueryItemProvider == null) {
+			modelQueryItemProvider = new ModelQueryItemProvider(this);
+		}
+
+		return modelQueryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link tura.artifact.QueryParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QueryParameterItemProvider queryParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.artifact.QueryParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQueryParameterAdapter() {
+		if (queryParameterItemProvider == null) {
+			queryParameterItemProvider = new QueryParameterItemProvider(this);
+		}
+
+		return queryParameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link tura.artifact.Technology} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TechnologyItemProvider technologyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.artifact.Technology}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTechnologyAdapter() {
+		if (technologyItemProvider == null) {
+			technologyItemProvider = new TechnologyItemProvider(this);
+		}
+
+		return technologyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link tura.artifact.Option} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OptionItemProvider optionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.artifact.Option}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOptionAdapter() {
+		if (optionItemProvider == null) {
+			optionItemProvider = new OptionItemProvider(this);
+		}
+
+		return optionItemProvider;
 	}
 
 	/**
@@ -193,7 +377,15 @@ public class ArtifactItemProviderAdapterFactory extends ArtifactAdapterFactory i
 	 * @generated
 	 */
 	public void dispose() {
+		if (artifactGroupItemProvider != null) artifactGroupItemProvider.dispose();
 		if (artifactItemProvider != null) artifactItemProvider.dispose();
+		if (generationHintItemProvider != null) generationHintItemProvider.dispose();
+		if (configVariableItemProvider != null) configVariableItemProvider.dispose();
+		if (configHashItemProvider != null) configHashItemProvider.dispose();
+		if (modelQueryItemProvider != null) modelQueryItemProvider.dispose();
+		if (queryParameterItemProvider != null) queryParameterItemProvider.dispose();
+		if (technologyItemProvider != null) technologyItemProvider.dispose();
+		if (optionItemProvider != null) optionItemProvider.dispose();
 	}
 
 }

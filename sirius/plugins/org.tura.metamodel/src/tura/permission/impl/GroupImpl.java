@@ -3,12 +3,17 @@
 package tura.permission.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import tura.permission.Group;
 import tura.permission.PermissionPackage;
 import tura.permission.Role;
@@ -19,17 +24,17 @@ import tura.permission.Role;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link tura.permission.impl.GroupImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.permission.impl.GroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link tura.permission.impl.GroupImpl#getGroup2Group <em>Group2 Group</em>}</li>
  *   <li>{@link tura.permission.impl.GroupImpl#getGroup2Role <em>Group2 Role</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
+public class GroupImpl extends SecurityEntityImpl implements Group {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->

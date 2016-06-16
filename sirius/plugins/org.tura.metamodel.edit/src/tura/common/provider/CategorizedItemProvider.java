@@ -26,6 +26,8 @@ import tura.common.Categorized;
 import tura.common.CommonFactory;
 import tura.common.CommonPackage;
 
+import tura.domain.provider.DomainEditPlugin;
+
 /**
  * This is the item provider adapter for a {@link tura.common.Categorized} object.
  * <!-- begin-user-doc -->
@@ -162,7 +164,7 @@ public class CategorizedItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Domain1EditPlugin.INSTANCE;
+		return DomainEditPlugin.INSTANCE;
 	}
 
 }

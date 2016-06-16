@@ -5,10 +5,14 @@ package tura.domain.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -19,9 +23,11 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import tura.domain.DomainPackage;
 import tura.domain.DomainTypesRepository;
-import type.TypeFactory;
+
+import tura.type.TypeFactory;
 
 /**
  * This is the item provider adapter for a {@link tura.domain.DomainTypesRepository} object.
@@ -120,7 +126,7 @@ public class DomainTypesRepositoryItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DomainPackage.Literals.DOMAIN_TYPES_REPOSITORY__REPOSITORY);
+			childrenFeatures.add(DomainPackage.Literals.DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES);
 		}
 		return childrenFeatures;
 	}
@@ -180,7 +186,7 @@ public class DomainTypesRepositoryItemProvider
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DomainPackage.DOMAIN_TYPES_REPOSITORY__REPOSITORY:
+			case DomainPackage.DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -200,8 +206,8 @@ public class DomainTypesRepositoryItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DomainPackage.Literals.DOMAIN_TYPES_REPOSITORY__REPOSITORY,
-				 TypeFactory.eINSTANCE.createRepository()));
+				(DomainPackage.Literals.DOMAIN_TYPES_REPOSITORY__REPOSITORY_PACKAGES,
+				 TypeFactory.eINSTANCE.createTypeGroup()));
 	}
 
 	/**
