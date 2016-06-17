@@ -59,171 +59,6 @@ public interface MessagePackage extends EPackage {
 	MessagePackage eINSTANCE = tura.message.impl.MessagePackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link tura.message.impl.MessagesRepositoryImpl <em>Messages Repository</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see tura.message.impl.MessagesRepositoryImpl
-	 * @see tura.message.impl.MessagePackageImpl#getMessagesRepository()
-	 * @generated
-	 */
-	int MESSAGES_REPOSITORY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_REPOSITORY__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_REPOSITORY__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_REPOSITORY__MESSAGES = 2;
-
-	/**
-	 * The number of structural features of the '<em>Messages Repository</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_REPOSITORY_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Messages Repository</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_REPOSITORY_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link tura.message.impl.MessagesGroupImpl <em>Messages Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see tura.message.impl.MessagesGroupImpl
-	 * @see tura.message.impl.MessagePackageImpl#getMessagesGroup()
-	 * @generated
-	 */
-	int MESSAGES_GROUP = 1;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_GROUP__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_GROUP__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_GROUP__MESSAGES = 2;
-
-	/**
-	 * The number of structural features of the '<em>Messages Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_GROUP_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Messages Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_GROUP_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link tura.message.impl.MessagesImpl <em>Messages</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see tura.message.impl.MessagesImpl
-	 * @see tura.message.impl.MessagePackageImpl#getMessages()
-	 * @generated
-	 */
-	int MESSAGES = 2;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Message Libraries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES__MESSAGE_LIBRARIES = 1;
-
-	/**
-	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES__LANGUAGES = 2;
-
-	/**
-	 * The number of structural features of the '<em>Messages</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Messages</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGES_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link tura.message.impl.MessageLibraryImpl <em>Library</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -231,7 +66,7 @@ public interface MessagePackage extends EPackage {
 	 * @see tura.message.impl.MessagePackageImpl#getMessageLibrary()
 	 * @generated
 	 */
-	int MESSAGE_LIBRARY = 3;
+	int MESSAGE_LIBRARY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -304,7 +139,7 @@ public interface MessagePackage extends EPackage {
 	 * @see tura.message.impl.MessagePackageImpl#getLanguageRef()
 	 * @generated
 	 */
-	int LANGUAGE_REF = 4;
+	int LANGUAGE_REF = 1;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -350,7 +185,7 @@ public interface MessagePackage extends EPackage {
 	 * @see tura.message.impl.MessagePackageImpl#getMessage()
 	 * @generated
 	 */
-	int MESSAGE = 5;
+	int MESSAGE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -405,7 +240,7 @@ public interface MessagePackage extends EPackage {
 	 * @see tura.message.impl.MessagePackageImpl#getTranslation()
 	 * @generated
 	 */
-	int TRANSLATION = 6;
+	int TRANSLATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -460,7 +295,7 @@ public interface MessagePackage extends EPackage {
 	 * @see tura.message.impl.MessagePackageImpl#getLanguage()
 	 * @generated
 	 */
-	int LANGUAGE = 7;
+	int LANGUAGE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -516,135 +351,6 @@ public interface MessagePackage extends EPackage {
 	 */
 	int LANGUAGE_OPERATION_COUNT = 0;
 
-
-	/**
-	 * Returns the meta object for class '{@link tura.message.MessagesRepository <em>Messages Repository</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Messages Repository</em>'.
-	 * @see tura.message.MessagesRepository
-	 * @generated
-	 */
-	EClass getMessagesRepository();
-
-	/**
-	 * Returns the meta object for the attribute '{@link tura.message.MessagesRepository#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see tura.message.MessagesRepository#getUid()
-	 * @see #getMessagesRepository()
-	 * @generated
-	 */
-	EAttribute getMessagesRepository_Uid();
-
-	/**
-	 * Returns the meta object for the attribute '{@link tura.message.MessagesRepository#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see tura.message.MessagesRepository#getName()
-	 * @see #getMessagesRepository()
-	 * @generated
-	 */
-	EAttribute getMessagesRepository_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link tura.message.MessagesRepository#getMessages <em>Messages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Messages</em>'.
-	 * @see tura.message.MessagesRepository#getMessages()
-	 * @see #getMessagesRepository()
-	 * @generated
-	 */
-	EReference getMessagesRepository_Messages();
-
-	/**
-	 * Returns the meta object for class '{@link tura.message.MessagesGroup <em>Messages Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Messages Group</em>'.
-	 * @see tura.message.MessagesGroup
-	 * @generated
-	 */
-	EClass getMessagesGroup();
-
-	/**
-	 * Returns the meta object for the attribute '{@link tura.message.MessagesGroup#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see tura.message.MessagesGroup#getUid()
-	 * @see #getMessagesGroup()
-	 * @generated
-	 */
-	EAttribute getMessagesGroup_Uid();
-
-	/**
-	 * Returns the meta object for the attribute '{@link tura.message.MessagesGroup#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see tura.message.MessagesGroup#getName()
-	 * @see #getMessagesGroup()
-	 * @generated
-	 */
-	EAttribute getMessagesGroup_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link tura.message.MessagesGroup#getMessages <em>Messages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Messages</em>'.
-	 * @see tura.message.MessagesGroup#getMessages()
-	 * @see #getMessagesGroup()
-	 * @generated
-	 */
-	EReference getMessagesGroup_Messages();
-
-	/**
-	 * Returns the meta object for class '{@link tura.message.Messages <em>Messages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Messages</em>'.
-	 * @see tura.message.Messages
-	 * @generated
-	 */
-	EClass getMessages();
-
-	/**
-	 * Returns the meta object for the attribute '{@link tura.message.Messages#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see tura.message.Messages#getUid()
-	 * @see #getMessages()
-	 * @generated
-	 */
-	EAttribute getMessages_Uid();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link tura.message.Messages#getMessageLibraries <em>Message Libraries</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Message Libraries</em>'.
-	 * @see tura.message.Messages#getMessageLibraries()
-	 * @see #getMessages()
-	 * @generated
-	 */
-	EReference getMessages_MessageLibraries();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link tura.message.Messages#getLanguages <em>Languages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Languages</em>'.
-	 * @see tura.message.Messages#getLanguages()
-	 * @see #getMessages()
-	 * @generated
-	 */
-	EReference getMessages_Languages();
 
 	/**
 	 * Returns the meta object for class '{@link tura.message.MessageLibrary <em>Library</em>}'.
@@ -895,108 +601,6 @@ public interface MessagePackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link tura.message.impl.MessagesRepositoryImpl <em>Messages Repository</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see tura.message.impl.MessagesRepositoryImpl
-		 * @see tura.message.impl.MessagePackageImpl#getMessagesRepository()
-		 * @generated
-		 */
-		EClass MESSAGES_REPOSITORY = eINSTANCE.getMessagesRepository();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MESSAGES_REPOSITORY__UID = eINSTANCE.getMessagesRepository_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MESSAGES_REPOSITORY__NAME = eINSTANCE.getMessagesRepository_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Messages</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MESSAGES_REPOSITORY__MESSAGES = eINSTANCE.getMessagesRepository_Messages();
-
-		/**
-		 * The meta object literal for the '{@link tura.message.impl.MessagesGroupImpl <em>Messages Group</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see tura.message.impl.MessagesGroupImpl
-		 * @see tura.message.impl.MessagePackageImpl#getMessagesGroup()
-		 * @generated
-		 */
-		EClass MESSAGES_GROUP = eINSTANCE.getMessagesGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MESSAGES_GROUP__UID = eINSTANCE.getMessagesGroup_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MESSAGES_GROUP__NAME = eINSTANCE.getMessagesGroup_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Messages</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MESSAGES_GROUP__MESSAGES = eINSTANCE.getMessagesGroup_Messages();
-
-		/**
-		 * The meta object literal for the '{@link tura.message.impl.MessagesImpl <em>Messages</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see tura.message.impl.MessagesImpl
-		 * @see tura.message.impl.MessagePackageImpl#getMessages()
-		 * @generated
-		 */
-		EClass MESSAGES = eINSTANCE.getMessages();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MESSAGES__UID = eINSTANCE.getMessages_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Message Libraries</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MESSAGES__MESSAGE_LIBRARIES = eINSTANCE.getMessages_MessageLibraries();
-
-		/**
-		 * The meta object literal for the '<em><b>Languages</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MESSAGES__LANGUAGES = eINSTANCE.getMessages_Languages();
-
 		/**
 		 * The meta object literal for the '{@link tura.message.impl.MessageLibraryImpl <em>Library</em>}' class.
 		 * <!-- begin-user-doc -->

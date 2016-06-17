@@ -22,33 +22,6 @@ public interface MessageFactory extends EFactory {
 	MessageFactory eINSTANCE = tura.message.impl.MessageFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Messages Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Messages Repository</em>'.
-	 * @generated
-	 */
-	MessagesRepository createMessagesRepository();
-
-	/**
-	 * Returns a new object of class '<em>Messages Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Messages Group</em>'.
-	 * @generated
-	 */
-	MessagesGroup createMessagesGroup();
-
-	/**
-	 * Returns a new object of class '<em>Messages</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Messages</em>'.
-	 * @generated
-	 */
-	Messages createMessages();
-
-	/**
 	 * Returns a new object of class '<em>Library</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

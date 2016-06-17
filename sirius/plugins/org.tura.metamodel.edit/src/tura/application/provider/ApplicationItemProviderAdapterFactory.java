@@ -187,6 +187,29 @@ public class ApplicationItemProviderAdapterFactory extends ApplicationAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link tura.application.ApplicationLanguages} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApplicationLanguagesItemProvider applicationLanguagesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link tura.application.ApplicationLanguages}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createApplicationLanguagesAdapter() {
+		if (applicationLanguagesItemProvider == null) {
+			applicationLanguagesItemProvider = new ApplicationLanguagesItemProvider(this);
+		}
+
+		return applicationLanguagesItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link tura.application.ApplicationMessageLibrary} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,6 +566,7 @@ public class ApplicationItemProviderAdapterFactory extends ApplicationAdapterFac
 		if (applicationInfrastructureLayersItemProvider != null) applicationInfrastructureLayersItemProvider.dispose();
 		if (applicationInfrastructureLayerItemProvider != null) applicationInfrastructureLayerItemProvider.dispose();
 		if (applicationMessageLibrariesItemProvider != null) applicationMessageLibrariesItemProvider.dispose();
+		if (applicationLanguagesItemProvider != null) applicationLanguagesItemProvider.dispose();
 		if (applicationMessageLibraryItemProvider != null) applicationMessageLibraryItemProvider.dispose();
 		if (applicationRealmsItemProvider != null) applicationRealmsItemProvider.dispose();
 		if (applicationRealmItemProvider != null) applicationRealmItemProvider.dispose();

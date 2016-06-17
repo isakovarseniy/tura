@@ -43,9 +43,6 @@ import tura.message.Message;
 import tura.message.MessageFactory;
 import tura.message.MessageLibrary;
 import tura.message.MessagePackage;
-import tura.message.Messages;
-import tura.message.MessagesGroup;
-import tura.message.MessagesRepository;
 import tura.message.Translation;
 
 import tura.permission.PermissionPackage;
@@ -71,27 +68,6 @@ import tura.type.impl.TypePackageImpl;
  * @generated
  */
 public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass messagesRepositoryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass messagesGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass messagesEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,114 +197,6 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(MessagePackage.eNS_URI, theMessagePackage);
 		return theMessagePackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMessagesRepository() {
-		return messagesRepositoryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMessagesRepository_Uid() {
-		return (EAttribute)messagesRepositoryEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMessagesRepository_Name() {
-		return (EAttribute)messagesRepositoryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMessagesRepository_Messages() {
-		return (EReference)messagesRepositoryEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMessagesGroup() {
-		return messagesGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMessagesGroup_Uid() {
-		return (EAttribute)messagesGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMessagesGroup_Name() {
-		return (EAttribute)messagesGroupEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMessagesGroup_Messages() {
-		return (EReference)messagesGroupEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMessages() {
-		return messagesEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMessages_Uid() {
-		return (EAttribute)messagesEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMessages_MessageLibraries() {
-		return (EReference)messagesEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMessages_Languages() {
-		return (EReference)messagesEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -548,21 +416,6 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		isCreated = true;
 
 		// Create classes and their features
-		messagesRepositoryEClass = createEClass(MESSAGES_REPOSITORY);
-		createEAttribute(messagesRepositoryEClass, MESSAGES_REPOSITORY__UID);
-		createEAttribute(messagesRepositoryEClass, MESSAGES_REPOSITORY__NAME);
-		createEReference(messagesRepositoryEClass, MESSAGES_REPOSITORY__MESSAGES);
-
-		messagesGroupEClass = createEClass(MESSAGES_GROUP);
-		createEAttribute(messagesGroupEClass, MESSAGES_GROUP__UID);
-		createEAttribute(messagesGroupEClass, MESSAGES_GROUP__NAME);
-		createEReference(messagesGroupEClass, MESSAGES_GROUP__MESSAGES);
-
-		messagesEClass = createEClass(MESSAGES);
-		createEAttribute(messagesEClass, MESSAGES__UID);
-		createEReference(messagesEClass, MESSAGES__MESSAGE_LIBRARIES);
-		createEReference(messagesEClass, MESSAGES__LANGUAGES);
-
 		messageLibraryEClass = createEClass(MESSAGE_LIBRARY);
 		createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__UID);
 		createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__NAME);
@@ -624,21 +477,6 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		messageLibraryEClass.getESuperTypes().add(theCommonPackage.getCategorized());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(messagesRepositoryEClass, MessagesRepository.class, "MessagesRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMessagesRepository_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MessagesRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMessagesRepository_Name(), ecorePackage.getEString(), "name", null, 0, 1, MessagesRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMessagesRepository_Messages(), this.getMessagesGroup(), null, "messages", null, 0, -1, MessagesRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(messagesGroupEClass, MessagesGroup.class, "MessagesGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMessagesGroup_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MessagesGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMessagesGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, MessagesGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMessagesGroup_Messages(), this.getMessages(), null, "messages", null, 0, -1, MessagesGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(messagesEClass, Messages.class, "Messages", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMessages_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMessages_MessageLibraries(), this.getMessageLibrary(), null, "messageLibraries", null, 0, -1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMessages_Languages(), this.getLanguage(), null, "languages", null, 0, -1, Messages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(messageLibraryEClass, MessageLibrary.class, "MessageLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMessageLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -88,6 +88,10 @@ public class ApplicationAdapterFactory extends AdapterFactoryImpl {
 				return createApplicationMessageLibrariesAdapter();
 			}
 			@Override
+			public Adapter caseApplicationLanguages(ApplicationLanguages object) {
+				return createApplicationLanguagesAdapter();
+			}
+			@Override
 			public Adapter caseApplicationMessageLibrary(ApplicationMessageLibrary object) {
 				return createApplicationMessageLibraryAdapter();
 			}
@@ -218,6 +222,20 @@ public class ApplicationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationMessageLibrariesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tura.application.ApplicationLanguages <em>Languages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tura.application.ApplicationLanguages
+	 * @generated
+	 */
+	public Adapter createApplicationLanguagesAdapter() {
 		return null;
 	}
 

@@ -61,6 +61,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 			case ApplicationPackage.APPLICATION_INFRASTRUCTURE_LAYERS: return createApplicationInfrastructureLayers();
 			case ApplicationPackage.APPLICATION_INFRASTRUCTURE_LAYER: return createApplicationInfrastructureLayer();
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES: return createApplicationMessageLibraries();
+			case ApplicationPackage.APPLICATION_LANGUAGES: return createApplicationLanguages();
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY: return createApplicationMessageLibrary();
 			case ApplicationPackage.APPLICATION_REALMS: return createApplicationRealms();
 			case ApplicationPackage.APPLICATION_REALM: return createApplicationRealm();
@@ -125,6 +126,16 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationF
 	public ApplicationMessageLibraries createApplicationMessageLibraries() {
 		ApplicationMessageLibrariesImpl applicationMessageLibraries = new ApplicationMessageLibrariesImpl();
 		return applicationMessageLibraries;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationLanguages createApplicationLanguages() {
+		ApplicationLanguagesImpl applicationLanguages = new ApplicationLanguagesImpl();
+		return applicationLanguages;
 	}
 
 	/**

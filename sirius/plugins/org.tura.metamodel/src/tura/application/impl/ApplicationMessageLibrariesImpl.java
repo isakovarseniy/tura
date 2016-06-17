@@ -2,19 +2,14 @@
  */
 package tura.application.impl;
 
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import tura.application.ApplicationLanguages;
 import tura.application.ApplicationMessageLibraries;
 import tura.application.ApplicationMessageLibrary;
 import tura.application.ApplicationPackage;
@@ -30,6 +25,7 @@ import tura.application.ApplicationPackage;
  *   <li>{@link tura.application.impl.ApplicationMessageLibrariesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.application.impl.ApplicationMessageLibrariesImpl#getName <em>Name</em>}</li>
  *   <li>{@link tura.application.impl.ApplicationMessageLibrariesImpl#getMessageLibraries <em>Message Libraries</em>}</li>
+ *   <li>{@link tura.application.impl.ApplicationMessageLibrariesImpl#getApplicationLanguages <em>Application Languages</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,14 +72,24 @@ public class ApplicationMessageLibrariesImpl extends MinimalEObjectImpl.Containe
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMessageLibraries() <em>Message Libraries</em>}' containment reference list.
+	 * The cached value of the '{@link #getMessageLibraries() <em>Message Libraries</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMessageLibraries()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ApplicationMessageLibrary> messageLibraries;
+	protected ApplicationMessageLibrary messageLibraries;
+
+	/**
+	 * The cached value of the '{@link #getApplicationLanguages() <em>Application Languages</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getApplicationLanguages()
+	 * @generated
+	 * @ordered
+	 */
+	protected ApplicationLanguages applicationLanguages;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,11 +157,85 @@ public class ApplicationMessageLibrariesImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ApplicationMessageLibrary> getMessageLibraries() {
-		if (messageLibraries == null) {
-			messageLibraries = new EObjectContainmentEList<ApplicationMessageLibrary>(ApplicationMessageLibrary.class, this, ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES);
-		}
+	public ApplicationMessageLibrary getMessageLibraries() {
 		return messageLibraries;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMessageLibraries(ApplicationMessageLibrary newMessageLibraries, NotificationChain msgs) {
+		ApplicationMessageLibrary oldMessageLibraries = messageLibraries;
+		messageLibraries = newMessageLibraries;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES, oldMessageLibraries, newMessageLibraries);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMessageLibraries(ApplicationMessageLibrary newMessageLibraries) {
+		if (newMessageLibraries != messageLibraries) {
+			NotificationChain msgs = null;
+			if (messageLibraries != null)
+				msgs = ((InternalEObject)messageLibraries).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES, null, msgs);
+			if (newMessageLibraries != null)
+				msgs = ((InternalEObject)newMessageLibraries).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES, null, msgs);
+			msgs = basicSetMessageLibraries(newMessageLibraries, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES, newMessageLibraries, newMessageLibraries));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationLanguages getApplicationLanguages() {
+		return applicationLanguages;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetApplicationLanguages(ApplicationLanguages newApplicationLanguages, NotificationChain msgs) {
+		ApplicationLanguages oldApplicationLanguages = applicationLanguages;
+		applicationLanguages = newApplicationLanguages;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES, oldApplicationLanguages, newApplicationLanguages);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setApplicationLanguages(ApplicationLanguages newApplicationLanguages) {
+		if (newApplicationLanguages != applicationLanguages) {
+			NotificationChain msgs = null;
+			if (applicationLanguages != null)
+				msgs = ((InternalEObject)applicationLanguages).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES, null, msgs);
+			if (newApplicationLanguages != null)
+				msgs = ((InternalEObject)newApplicationLanguages).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES, null, msgs);
+			msgs = basicSetApplicationLanguages(newApplicationLanguages, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES, newApplicationLanguages, newApplicationLanguages));
 	}
 
 	/**
@@ -167,7 +247,9 @@ public class ApplicationMessageLibrariesImpl extends MinimalEObjectImpl.Containe
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES:
-				return ((InternalEList<?>)getMessageLibraries()).basicRemove(otherEnd, msgs);
+				return basicSetMessageLibraries(null, msgs);
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES:
+				return basicSetApplicationLanguages(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -186,6 +268,8 @@ public class ApplicationMessageLibrariesImpl extends MinimalEObjectImpl.Containe
 				return getName();
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES:
 				return getMessageLibraries();
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES:
+				return getApplicationLanguages();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -206,8 +290,10 @@ public class ApplicationMessageLibrariesImpl extends MinimalEObjectImpl.Containe
 				setName((String)newValue);
 				return;
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES:
-				getMessageLibraries().clear();
-				getMessageLibraries().addAll((Collection<? extends ApplicationMessageLibrary>)newValue);
+				setMessageLibraries((ApplicationMessageLibrary)newValue);
+				return;
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES:
+				setApplicationLanguages((ApplicationLanguages)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -228,7 +314,10 @@ public class ApplicationMessageLibrariesImpl extends MinimalEObjectImpl.Containe
 				setName(NAME_EDEFAULT);
 				return;
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES:
-				getMessageLibraries().clear();
+				setMessageLibraries((ApplicationMessageLibrary)null);
+				return;
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES:
+				setApplicationLanguages((ApplicationLanguages)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -247,7 +336,9 @@ public class ApplicationMessageLibrariesImpl extends MinimalEObjectImpl.Containe
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES:
-				return messageLibraries != null && !messageLibraries.isEmpty();
+				return messageLibraries != null;
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES:
+				return applicationLanguages != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -128,6 +128,7 @@ public class ApplicationMessageLibrariesItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES);
 		}
 		return childrenFeatures;
 	}
@@ -188,6 +189,7 @@ public class ApplicationMessageLibrariesItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES:
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -209,6 +211,11 @@ public class ApplicationMessageLibrariesItemProvider
 			(createChildParameter
 				(ApplicationPackage.Literals.APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES,
 				 ApplicationFactory.eINSTANCE.createApplicationMessageLibrary()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES,
+				 ApplicationFactory.eINSTANCE.createApplicationLanguages()));
 	}
 
 	/**

@@ -96,6 +96,12 @@ public class ApplicationSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ApplicationPackage.APPLICATION_LANGUAGES: {
+				ApplicationLanguages applicationLanguages = (ApplicationLanguages)theEObject;
+				T result = caseApplicationLanguages(applicationLanguages);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY: {
 				ApplicationMessageLibrary applicationMessageLibrary = (ApplicationMessageLibrary)theEObject;
 				T result = caseApplicationMessageLibrary(applicationMessageLibrary);
@@ -238,6 +244,21 @@ public class ApplicationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseApplicationMessageLibraries(ApplicationMessageLibraries object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Languages</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Languages</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseApplicationLanguages(ApplicationLanguages object) {
 		return null;
 	}
 

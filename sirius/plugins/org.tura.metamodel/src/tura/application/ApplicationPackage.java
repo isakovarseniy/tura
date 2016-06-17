@@ -359,7 +359,7 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_MESSAGE_LIBRARIES__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Message Libraries</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Message Libraries</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -368,13 +368,22 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES = 2;
 
 	/**
+	 * The feature id for the '<em><b>Application Languages</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Message Libraries</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_MESSAGE_LIBRARIES_FEATURE_COUNT = 3;
+	int APPLICATION_MESSAGE_LIBRARIES_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Message Libraries</em>' class.
@@ -386,6 +395,61 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_MESSAGE_LIBRARIES_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link tura.application.impl.ApplicationLanguagesImpl <em>Languages</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tura.application.impl.ApplicationLanguagesImpl
+	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationLanguages()
+	 * @generated
+	 */
+	int APPLICATION_LANGUAGES = 5;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_LANGUAGES__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_LANGUAGES__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_LANGUAGES__LANGUAGES = 2;
+
+	/**
+	 * The number of structural features of the '<em>Languages</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_LANGUAGES_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Languages</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_LANGUAGES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link tura.application.impl.ApplicationMessageLibraryImpl <em>Message Library</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -393,7 +457,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationMessageLibrary()
 	 * @generated
 	 */
-	int APPLICATION_MESSAGE_LIBRARY = 5;
+	int APPLICATION_MESSAGE_LIBRARY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -414,13 +478,13 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_MESSAGE_LIBRARY__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference.
+	 * The feature id for the '<em><b>Libraries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_MESSAGE_LIBRARY__MESSAGES = 2;
+	int APPLICATION_MESSAGE_LIBRARY__LIBRARIES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Message Library</em>' class.
@@ -448,7 +512,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationRealms()
 	 * @generated
 	 */
-	int APPLICATION_REALMS = 6;
+	int APPLICATION_REALMS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -503,7 +567,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationRealm()
 	 * @generated
 	 */
-	int APPLICATION_REALM = 7;
+	int APPLICATION_REALM = 8;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -558,7 +622,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationStyleLibraries()
 	 * @generated
 	 */
-	int APPLICATION_STYLE_LIBRARIES = 8;
+	int APPLICATION_STYLE_LIBRARIES = 9;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -613,7 +677,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationStyle()
 	 * @generated
 	 */
-	int APPLICATION_STYLE = 9;
+	int APPLICATION_STYLE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -668,7 +732,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationUILayer()
 	 * @generated
 	 */
-	int APPLICATION_UI_LAYER = 10;
+	int APPLICATION_UI_LAYER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -723,7 +787,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationUIPackage()
 	 * @generated
 	 */
-	int APPLICATION_UI_PACKAGE = 11;
+	int APPLICATION_UI_PACKAGE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -778,7 +842,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationRecipes()
 	 * @generated
 	 */
-	int APPLICATION_RECIPES = 12;
+	int APPLICATION_RECIPES = 13;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -833,7 +897,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationRecipe()
 	 * @generated
 	 */
-	int APPLICATION_RECIPE = 13;
+	int APPLICATION_RECIPE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -888,7 +952,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationMappers()
 	 * @generated
 	 */
-	int APPLICATION_MAPPERS = 14;
+	int APPLICATION_MAPPERS = 15;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -943,7 +1007,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @see tura.application.impl.ApplicationPackageImpl#getApplicationMapper()
 	 * @generated
 	 */
-	int APPLICATION_MAPPER = 15;
+	int APPLICATION_MAPPER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1262,15 +1326,69 @@ public interface ApplicationPackage extends EPackage {
 	EAttribute getApplicationMessageLibraries_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link tura.application.ApplicationMessageLibraries#getMessageLibraries <em>Message Libraries</em>}'.
+	 * Returns the meta object for the containment reference '{@link tura.application.ApplicationMessageLibraries#getMessageLibraries <em>Message Libraries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Message Libraries</em>'.
+	 * @return the meta object for the containment reference '<em>Message Libraries</em>'.
 	 * @see tura.application.ApplicationMessageLibraries#getMessageLibraries()
 	 * @see #getApplicationMessageLibraries()
 	 * @generated
 	 */
 	EReference getApplicationMessageLibraries_MessageLibraries();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link tura.application.ApplicationMessageLibraries#getApplicationLanguages <em>Application Languages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Application Languages</em>'.
+	 * @see tura.application.ApplicationMessageLibraries#getApplicationLanguages()
+	 * @see #getApplicationMessageLibraries()
+	 * @generated
+	 */
+	EReference getApplicationMessageLibraries_ApplicationLanguages();
+
+	/**
+	 * Returns the meta object for class '{@link tura.application.ApplicationLanguages <em>Languages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Languages</em>'.
+	 * @see tura.application.ApplicationLanguages
+	 * @generated
+	 */
+	EClass getApplicationLanguages();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tura.application.ApplicationLanguages#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see tura.application.ApplicationLanguages#getUid()
+	 * @see #getApplicationLanguages()
+	 * @generated
+	 */
+	EAttribute getApplicationLanguages_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tura.application.ApplicationLanguages#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see tura.application.ApplicationLanguages#getName()
+	 * @see #getApplicationLanguages()
+	 * @generated
+	 */
+	EAttribute getApplicationLanguages_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link tura.application.ApplicationLanguages#getLanguages <em>Languages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Languages</em>'.
+	 * @see tura.application.ApplicationLanguages#getLanguages()
+	 * @see #getApplicationLanguages()
+	 * @generated
+	 */
+	EReference getApplicationLanguages_Languages();
 
 	/**
 	 * Returns the meta object for class '{@link tura.application.ApplicationMessageLibrary <em>Message Library</em>}'.
@@ -1305,15 +1423,15 @@ public interface ApplicationPackage extends EPackage {
 	EAttribute getApplicationMessageLibrary_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link tura.application.ApplicationMessageLibrary#getMessages <em>Messages</em>}'.
+	 * Returns the meta object for the containment reference list '{@link tura.application.ApplicationMessageLibrary#getLibraries <em>Libraries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Messages</em>'.
-	 * @see tura.application.ApplicationMessageLibrary#getMessages()
+	 * @return the meta object for the containment reference list '<em>Libraries</em>'.
+	 * @see tura.application.ApplicationMessageLibrary#getLibraries()
 	 * @see #getApplicationMessageLibrary()
 	 * @generated
 	 */
-	EReference getApplicationMessageLibrary_Messages();
+	EReference getApplicationMessageLibrary_Libraries();
 
 	/**
 	 * Returns the meta object for class '{@link tura.application.ApplicationRealms <em>Realms</em>}'.
@@ -1979,12 +2097,54 @@ public interface ApplicationPackage extends EPackage {
 		EAttribute APPLICATION_MESSAGE_LIBRARIES__NAME = eINSTANCE.getApplicationMessageLibraries_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Message Libraries</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Message Libraries</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES = eINSTANCE.getApplicationMessageLibraries_MessageLibraries();
+
+		/**
+		 * The meta object literal for the '<em><b>Application Languages</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES = eINSTANCE.getApplicationMessageLibraries_ApplicationLanguages();
+
+		/**
+		 * The meta object literal for the '{@link tura.application.impl.ApplicationLanguagesImpl <em>Languages</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tura.application.impl.ApplicationLanguagesImpl
+		 * @see tura.application.impl.ApplicationPackageImpl#getApplicationLanguages()
+		 * @generated
+		 */
+		EClass APPLICATION_LANGUAGES = eINSTANCE.getApplicationLanguages();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION_LANGUAGES__UID = eINSTANCE.getApplicationLanguages_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION_LANGUAGES__NAME = eINSTANCE.getApplicationLanguages_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Languages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION_LANGUAGES__LANGUAGES = eINSTANCE.getApplicationLanguages_Languages();
 
 		/**
 		 * The meta object literal for the '{@link tura.application.impl.ApplicationMessageLibraryImpl <em>Message Library</em>}' class.
@@ -2013,12 +2173,12 @@ public interface ApplicationPackage extends EPackage {
 		EAttribute APPLICATION_MESSAGE_LIBRARY__NAME = eINSTANCE.getApplicationMessageLibrary_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Messages</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Libraries</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference APPLICATION_MESSAGE_LIBRARY__MESSAGES = eINSTANCE.getApplicationMessageLibrary_Messages();
+		EReference APPLICATION_MESSAGE_LIBRARY__LIBRARIES = eINSTANCE.getApplicationMessageLibrary_Libraries();
 
 		/**
 		 * The meta object literal for the '{@link tura.application.impl.ApplicationRealmsImpl <em>Realms</em>}' class.

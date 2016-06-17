@@ -139,6 +139,60 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
                 </defaultStyle>
+                <subItemMappings name="Message libraries" domainClass="application.ApplicationMessageLibrary" semanticCandidatesExpression="feature:messageLibraries">
+                  <defaultStyle labelSize="12" labelExpression="Message libraries">
+                    <labelFormat>italic</labelFormat>
+                    <labelFormat>bold</labelFormat>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  </defaultStyle>
+                  <subItemMappings name="Message library" domainClass="message.MessageLibrary" semanticCandidatesExpression="feature:libraries">
+                    <defaultStyle labelSize="12">
+                      <labelFormat>italic</labelFormat>
+                      <labelFormat>bold</labelFormat>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                    </defaultStyle>
+                  </subItemMappings>
+                  <create name="Create Message librariy" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20messages']/@subItemMappings[name='Message%20libraries']">
+                    <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="message.MessageLibrary" referenceName="libraries">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+                      </subModelOperations>
+                    </firstModelOperation>
+                    <variables name="root" documentation="The semantic element of the tree."/>
+                    <variables name="element" documentation="The currently edited element."/>
+                    <variables name="container" documentation="The semantic element corresponding to the view container."/>
+                  </create>
+                </subItemMappings>
+                <subItemMappings name="Application languages" domainClass="application.ApplicationLanguages" semanticCandidatesExpression="feature:applicationLanguages">
+                  <defaultStyle labelSize="12" labelExpression="Application languages">
+                    <labelFormat>italic</labelFormat>
+                    <labelFormat>bold</labelFormat>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  </defaultStyle>
+                  <subItemMappings name="Language" domainClass="message.Language" semanticCandidatesExpression="feature:languages">
+                    <defaultStyle labelSize="12" labelExpression="feature:lang">
+                      <labelFormat>italic</labelFormat>
+                      <labelFormat>bold</labelFormat>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                    </defaultStyle>
+                  </subItemMappings>
+                  <create name="Create Language" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20messages']/@subItemMappings[name='Application%20languages']">
+                    <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="message.Language" referenceName="languages">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="lang" valueExpression="service:generateName"/>
+                      </subModelOperations>
+                    </firstModelOperation>
+                    <variables name="root" documentation="The semantic element of the tree."/>
+                    <variables name="element" documentation="The currently edited element."/>
+                    <variables name="container" documentation="The semantic element corresponding to the view container."/>
+                  </create>
+                </subItemMappings>
               </subItemMappings>
             </subItemMappings>
             <create name="Create Application" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']">
@@ -172,7 +226,15 @@
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationMessageLibraries" referenceName="applicationMessages" variableName="instance7">
                     <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Message libraries"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Application message libraries"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationMessageLibrary" referenceName="messageLibraries" variableName="instance8">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Message libraries"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationLanguages" referenceName="applicationLanguages" variableName="instance9">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Languages"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperation>

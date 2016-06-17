@@ -128,7 +128,7 @@ public class ApplicationMessageLibraryItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_MESSAGE_LIBRARY__MESSAGES);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_MESSAGE_LIBRARY__LIBRARIES);
 		}
 		return childrenFeatures;
 	}
@@ -188,7 +188,7 @@ public class ApplicationMessageLibraryItemProvider
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__MESSAGES:
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__LIBRARIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -208,8 +208,8 @@ public class ApplicationMessageLibraryItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ApplicationPackage.Literals.APPLICATION_MESSAGE_LIBRARY__MESSAGES,
-				 MessageFactory.eINSTANCE.createMessages()));
+				(ApplicationPackage.Literals.APPLICATION_MESSAGE_LIBRARY__LIBRARIES,
+				 MessageFactory.eINSTANCE.createMessageLibrary()));
 	}
 
 	/**

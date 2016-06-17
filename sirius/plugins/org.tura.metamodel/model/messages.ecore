@@ -2,28 +2,6 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tura" nsURI="http://tura.org/2016/v2/tura" nsPrefix="tura">
   <eSubpackages name="message" nsURI="http://tura.org/2016/v2/message" nsPrefix="tura.message">
-    <eClassifiers xsi:type="ecore:EClass" name="MessagesRepository">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="messages" upperBound="-1"
-          eType="#//message/MessagesGroup" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MessagesGroup">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="messages" upperBound="-1"
-          eType="#//message/Messages" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Messages">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="messageLibraries" upperBound="-1"
-          eType="#//message/MessageLibrary" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="languages" upperBound="-1"
-          eType="#//message/Language" containment="true"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MessageLibrary" eSuperTypes="common.ecore#//common/Categorized">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>

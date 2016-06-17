@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore,
  org.eclipse.sirius.editor;bundle-version="3.1.6",
  org.eclipse.gmf.runtime.common.ui.services;bundle-version="1.9.0",
- org.tura.metamodel;bundle-version="4.0.0"
+ org.tura.metamodel
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.gmf.runtime.diagram.ui.editparts,

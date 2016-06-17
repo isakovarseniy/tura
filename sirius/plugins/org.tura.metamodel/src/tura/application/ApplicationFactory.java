@@ -67,6 +67,15 @@ public interface ApplicationFactory extends EFactory {
 	ApplicationMessageLibraries createApplicationMessageLibraries();
 
 	/**
+	 * Returns a new object of class '<em>Languages</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Languages</em>'.
+	 * @generated
+	 */
+	ApplicationLanguages createApplicationLanguages();
+
+	/**
 	 * Returns a new object of class '<em>Message Library</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

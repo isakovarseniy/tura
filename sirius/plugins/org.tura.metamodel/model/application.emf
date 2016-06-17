@@ -51,14 +51,22 @@ import "platform:/resource/org.tura.metamodel/model/form.ecore";
 		class ApplicationMessageLibraries{
 		    id attr EString uid;
 		   attr EString name;
-		   val  ApplicationMessageLibrary[*]  messageLibraries;
+		   val  ApplicationMessageLibrary  messageLibraries;
+		   val ApplicationLanguages applicationLanguages;
 		}
 		
+
+		class ApplicationLanguages{
+		    id attr EString uid;
+		   attr EString name;
+		   val tura.message.Language[*] languages;
+		}
+
 		
 		class ApplicationMessageLibrary{
 		    id attr EString uid;
 		   attr EString name;
-		   val tura.message.Messages  messages;
+		   val tura.message.MessageLibrary[*]  libraries;
 		}
 		
 		

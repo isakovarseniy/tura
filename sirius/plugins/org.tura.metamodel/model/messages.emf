@@ -7,27 +7,6 @@ import "platform:/resource/org.tura.metamodel/model/common.ecore";
 package message{
 		
 		
-		class MessagesRepository{
-		    id attr EString uid;
-	       attr EString name;
-		   val MessagesGroup[*] messages;
-		
-		}
-		
-		class MessagesGroup{
-		    id attr EString uid;
-	        attr EString name;
-		   val Messages[*] messages;
-		}
-			
-		
-		class Messages{
-		    id attr EString uid;
-		    val MessageLibrary[*]  messageLibraries;
-		    val Language[*] languages;
-		}
-		
-		
 		class MessageLibrary extends tura.common.Categorized{
 		    id attr EString uid;
 		    attr EString name;

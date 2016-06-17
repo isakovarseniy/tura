@@ -72,75 +72,6 @@ public class MessageItemProviderAdapterFactory extends MessageAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link tura.message.MessagesRepository} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MessagesRepositoryItemProvider messagesRepositoryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link tura.message.MessagesRepository}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMessagesRepositoryAdapter() {
-		if (messagesRepositoryItemProvider == null) {
-			messagesRepositoryItemProvider = new MessagesRepositoryItemProvider(this);
-		}
-
-		return messagesRepositoryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link tura.message.MessagesGroup} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MessagesGroupItemProvider messagesGroupItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link tura.message.MessagesGroup}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMessagesGroupAdapter() {
-		if (messagesGroupItemProvider == null) {
-			messagesGroupItemProvider = new MessagesGroupItemProvider(this);
-		}
-
-		return messagesGroupItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link tura.message.Messages} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MessagesItemProvider messagesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link tura.message.Messages}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMessagesAdapter() {
-		if (messagesItemProvider == null) {
-			messagesItemProvider = new MessagesItemProvider(this);
-		}
-
-		return messagesItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link tura.message.MessageLibrary} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -354,9 +285,6 @@ public class MessageItemProviderAdapterFactory extends MessageAdapterFactory imp
 	 * @generated
 	 */
 	public void dispose() {
-		if (messagesRepositoryItemProvider != null) messagesRepositoryItemProvider.dispose();
-		if (messagesGroupItemProvider != null) messagesGroupItemProvider.dispose();
-		if (messagesItemProvider != null) messagesItemProvider.dispose();
 		if (messageLibraryItemProvider != null) messageLibraryItemProvider.dispose();
 		if (languageRefItemProvider != null) languageRefItemProvider.dispose();
 		if (messageItemProvider != null) messageItemProvider.dispose();

@@ -46,15 +46,24 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="messageLibraries" upperBound="-1"
-          eType="#//application/ApplicationMessageLibrary" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="messageLibraries" eType="#//application/ApplicationMessageLibrary"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="applicationLanguages"
+          eType="#//application/ApplicationLanguages" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ApplicationLanguages">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="languages" upperBound="-1"
+          eType="ecore:EClass messages.ecore#//message/Language" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ApplicationMessageLibrary">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="messages" eType="ecore:EClass messages.ecore#//message/Messages"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" upperBound="-1"
+          eType="ecore:EClass messages.ecore#//message/MessageLibrary" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ApplicationRealms">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import tura.message.MessageFactory;
+import tura.message.MessageLibrary;
 import tura.message.MessagePackage;
-import tura.message.MessagesRepository;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public class MessageExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.message"));
-				MessagesRepository root = MessageFactory.eINSTANCE.createMessagesRepository();
+				MessageLibrary root = MessageFactory.eINSTANCE.createMessageLibrary();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

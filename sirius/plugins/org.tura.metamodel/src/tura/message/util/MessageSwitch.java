@@ -68,24 +68,6 @@ public class MessageSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case MessagePackage.MESSAGES_REPOSITORY: {
-				MessagesRepository messagesRepository = (MessagesRepository)theEObject;
-				T result = caseMessagesRepository(messagesRepository);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MessagePackage.MESSAGES_GROUP: {
-				MessagesGroup messagesGroup = (MessagesGroup)theEObject;
-				T result = caseMessagesGroup(messagesGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MessagePackage.MESSAGES: {
-				Messages messages = (Messages)theEObject;
-				T result = caseMessages(messages);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MessagePackage.MESSAGE_LIBRARY: {
 				MessageLibrary messageLibrary = (MessageLibrary)theEObject;
 				T result = caseMessageLibrary(messageLibrary);
@@ -119,51 +101,6 @@ public class MessageSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Messages Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Messages Repository</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMessagesRepository(MessagesRepository object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Messages Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Messages Group</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMessagesGroup(MessagesGroup object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Messages</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Messages</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMessages(Messages object) {
-		return null;
 	}
 
 	/**

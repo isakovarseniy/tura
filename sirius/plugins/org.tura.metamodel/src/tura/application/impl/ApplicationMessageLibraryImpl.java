@@ -2,19 +2,23 @@
  */
 package tura.application.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import tura.application.ApplicationMessageLibrary;
 import tura.application.ApplicationPackage;
 
-import tura.message.Messages;
+import tura.message.MessageLibrary;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +30,7 @@ import tura.message.Messages;
  * <ul>
  *   <li>{@link tura.application.impl.ApplicationMessageLibraryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.application.impl.ApplicationMessageLibraryImpl#getName <em>Name</em>}</li>
- *   <li>{@link tura.application.impl.ApplicationMessageLibraryImpl#getMessages <em>Messages</em>}</li>
+ *   <li>{@link tura.application.impl.ApplicationMessageLibraryImpl#getLibraries <em>Libraries</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,14 +77,14 @@ public class ApplicationMessageLibraryImpl extends MinimalEObjectImpl.Container 
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference.
+	 * The cached value of the '{@link #getLibraries() <em>Libraries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMessages()
+	 * @see #getLibraries()
 	 * @generated
 	 * @ordered
 	 */
-	protected Messages messages;
+	protected EList<MessageLibrary> libraries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,42 +152,11 @@ public class ApplicationMessageLibraryImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Messages getMessages() {
-		return messages;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMessages(Messages newMessages, NotificationChain msgs) {
-		Messages oldMessages = messages;
-		messages = newMessages;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__MESSAGES, oldMessages, newMessages);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<MessageLibrary> getLibraries() {
+		if (libraries == null) {
+			libraries = new EObjectContainmentEList<MessageLibrary>(MessageLibrary.class, this, ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__LIBRARIES);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMessages(Messages newMessages) {
-		if (newMessages != messages) {
-			NotificationChain msgs = null;
-			if (messages != null)
-				msgs = ((InternalEObject)messages).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__MESSAGES, null, msgs);
-			if (newMessages != null)
-				msgs = ((InternalEObject)newMessages).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__MESSAGES, null, msgs);
-			msgs = basicSetMessages(newMessages, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__MESSAGES, newMessages, newMessages));
+		return libraries;
 	}
 
 	/**
@@ -194,8 +167,8 @@ public class ApplicationMessageLibraryImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__MESSAGES:
-				return basicSetMessages(null, msgs);
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__LIBRARIES:
+				return ((InternalEList<?>)getLibraries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -212,8 +185,8 @@ public class ApplicationMessageLibraryImpl extends MinimalEObjectImpl.Container 
 				return getUid();
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__NAME:
 				return getName();
-			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__MESSAGES:
-				return getMessages();
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__LIBRARIES:
+				return getLibraries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -223,6 +196,7 @@ public class ApplicationMessageLibraryImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -232,8 +206,9 @@ public class ApplicationMessageLibraryImpl extends MinimalEObjectImpl.Container 
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__NAME:
 				setName((String)newValue);
 				return;
-			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__MESSAGES:
-				setMessages((Messages)newValue);
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__LIBRARIES:
+				getLibraries().clear();
+				getLibraries().addAll((Collection<? extends MessageLibrary>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -253,8 +228,8 @@ public class ApplicationMessageLibraryImpl extends MinimalEObjectImpl.Container 
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__MESSAGES:
-				setMessages((Messages)null);
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__LIBRARIES:
+				getLibraries().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -272,8 +247,8 @@ public class ApplicationMessageLibraryImpl extends MinimalEObjectImpl.Container 
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__MESSAGES:
-				return messages != null;
+			case ApplicationPackage.APPLICATION_MESSAGE_LIBRARY__LIBRARIES:
+				return libraries != null && !libraries.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

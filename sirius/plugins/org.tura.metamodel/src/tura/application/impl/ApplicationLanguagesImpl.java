@@ -1,6 +1,6 @@
 /**
  */
-package tura.message.impl;
+package tura.application.impl;
 
 import java.util.Collection;
 
@@ -18,26 +18,27 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import tura.message.MessagePackage;
-import tura.message.Messages;
-import tura.message.MessagesGroup;
+import tura.application.ApplicationLanguages;
+import tura.application.ApplicationPackage;
+
+import tura.message.Language;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Messages Group</b></em>'.
+ * An implementation of the model object '<em><b>Languages</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link tura.message.impl.MessagesGroupImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link tura.message.impl.MessagesGroupImpl#getName <em>Name</em>}</li>
- *   <li>{@link tura.message.impl.MessagesGroupImpl#getMessages <em>Messages</em>}</li>
+ *   <li>{@link tura.application.impl.ApplicationLanguagesImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link tura.application.impl.ApplicationLanguagesImpl#getName <em>Name</em>}</li>
+ *   <li>{@link tura.application.impl.ApplicationLanguagesImpl#getLanguages <em>Languages</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements MessagesGroup {
+public class ApplicationLanguagesImpl extends MinimalEObjectImpl.Container implements ApplicationLanguages {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -79,21 +80,21 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference list.
+	 * The cached value of the '{@link #getLanguages() <em>Languages</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMessages()
+	 * @see #getLanguages()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Messages> messages;
+	protected EList<Language> languages;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MessagesGroupImpl() {
+	protected ApplicationLanguagesImpl() {
 		super();
 	}
 
@@ -104,7 +105,7 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MessagePackage.Literals.MESSAGES_GROUP;
+		return ApplicationPackage.Literals.APPLICATION_LANGUAGES;
 	}
 
 	/**
@@ -125,7 +126,7 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MessagePackage.MESSAGES_GROUP__UID, oldUid, uid));
+			eNotify(new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_LANGUAGES__UID, oldUid, uid));
 	}
 
 	/**
@@ -146,7 +147,7 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MessagePackage.MESSAGES_GROUP__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_LANGUAGES__NAME, oldName, name));
 	}
 
 	/**
@@ -154,11 +155,11 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Messages> getMessages() {
-		if (messages == null) {
-			messages = new EObjectContainmentEList<Messages>(Messages.class, this, MessagePackage.MESSAGES_GROUP__MESSAGES);
+	public EList<Language> getLanguages() {
+		if (languages == null) {
+			languages = new EObjectContainmentEList<Language>(Language.class, this, ApplicationPackage.APPLICATION_LANGUAGES__LANGUAGES);
 		}
-		return messages;
+		return languages;
 	}
 
 	/**
@@ -169,8 +170,8 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MessagePackage.MESSAGES_GROUP__MESSAGES:
-				return ((InternalEList<?>)getMessages()).basicRemove(otherEnd, msgs);
+			case ApplicationPackage.APPLICATION_LANGUAGES__LANGUAGES:
+				return ((InternalEList<?>)getLanguages()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -183,12 +184,12 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MessagePackage.MESSAGES_GROUP__UID:
+			case ApplicationPackage.APPLICATION_LANGUAGES__UID:
 				return getUid();
-			case MessagePackage.MESSAGES_GROUP__NAME:
+			case ApplicationPackage.APPLICATION_LANGUAGES__NAME:
 				return getName();
-			case MessagePackage.MESSAGES_GROUP__MESSAGES:
-				return getMessages();
+			case ApplicationPackage.APPLICATION_LANGUAGES__LANGUAGES:
+				return getLanguages();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,15 +203,15 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MessagePackage.MESSAGES_GROUP__UID:
+			case ApplicationPackage.APPLICATION_LANGUAGES__UID:
 				setUid((String)newValue);
 				return;
-			case MessagePackage.MESSAGES_GROUP__NAME:
+			case ApplicationPackage.APPLICATION_LANGUAGES__NAME:
 				setName((String)newValue);
 				return;
-			case MessagePackage.MESSAGES_GROUP__MESSAGES:
-				getMessages().clear();
-				getMessages().addAll((Collection<? extends Messages>)newValue);
+			case ApplicationPackage.APPLICATION_LANGUAGES__LANGUAGES:
+				getLanguages().clear();
+				getLanguages().addAll((Collection<? extends Language>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -224,14 +225,14 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MessagePackage.MESSAGES_GROUP__UID:
+			case ApplicationPackage.APPLICATION_LANGUAGES__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case MessagePackage.MESSAGES_GROUP__NAME:
+			case ApplicationPackage.APPLICATION_LANGUAGES__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case MessagePackage.MESSAGES_GROUP__MESSAGES:
-				getMessages().clear();
+			case ApplicationPackage.APPLICATION_LANGUAGES__LANGUAGES:
+				getLanguages().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -245,12 +246,12 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MessagePackage.MESSAGES_GROUP__UID:
+			case ApplicationPackage.APPLICATION_LANGUAGES__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case MessagePackage.MESSAGES_GROUP__NAME:
+			case ApplicationPackage.APPLICATION_LANGUAGES__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case MessagePackage.MESSAGES_GROUP__MESSAGES:
-				return messages != null && !messages.isEmpty();
+			case ApplicationPackage.APPLICATION_LANGUAGES__LANGUAGES:
+				return languages != null && !languages.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -273,4 +274,4 @@ public class MessagesGroupImpl extends MinimalEObjectImpl.Container implements M
 		return result.toString();
 	}
 
-} //MessagesGroupImpl
+} //ApplicationLanguagesImpl

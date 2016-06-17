@@ -2,7 +2,6 @@
  */
 package tura.application;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link tura.application.ApplicationMessageLibraries#getUid <em>Uid</em>}</li>
  *   <li>{@link tura.application.ApplicationMessageLibraries#getName <em>Name</em>}</li>
  *   <li>{@link tura.application.ApplicationMessageLibraries#getMessageLibraries <em>Message Libraries</em>}</li>
+ *   <li>{@link tura.application.ApplicationMessageLibraries#getApplicationLanguages <em>Application Languages</em>}</li>
  * </ul>
  *
  * @see tura.application.ApplicationPackage#getApplicationMessageLibraries()
@@ -77,19 +77,55 @@ public interface ApplicationMessageLibraries extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Message Libraries</b></em>' containment reference list.
-	 * The list contents are of type {@link tura.application.ApplicationMessageLibrary}.
+	 * Returns the value of the '<em><b>Message Libraries</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Message Libraries</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Message Libraries</em>' containment reference list.
+	 * @return the value of the '<em>Message Libraries</em>' containment reference.
+	 * @see #setMessageLibraries(ApplicationMessageLibrary)
 	 * @see tura.application.ApplicationPackage#getApplicationMessageLibraries_MessageLibraries()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ApplicationMessageLibrary> getMessageLibraries();
+	ApplicationMessageLibrary getMessageLibraries();
+
+	/**
+	 * Sets the value of the '{@link tura.application.ApplicationMessageLibraries#getMessageLibraries <em>Message Libraries</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Message Libraries</em>' containment reference.
+	 * @see #getMessageLibraries()
+	 * @generated
+	 */
+	void setMessageLibraries(ApplicationMessageLibrary value);
+
+	/**
+	 * Returns the value of the '<em><b>Application Languages</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Application Languages</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Application Languages</em>' containment reference.
+	 * @see #setApplicationLanguages(ApplicationLanguages)
+	 * @see tura.application.ApplicationPackage#getApplicationMessageLibraries_ApplicationLanguages()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ApplicationLanguages getApplicationLanguages();
+
+	/**
+	 * Sets the value of the '{@link tura.application.ApplicationMessageLibraries#getApplicationLanguages <em>Application Languages</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Application Languages</em>' containment reference.
+	 * @see #getApplicationLanguages()
+	 * @generated
+	 */
+	void setApplicationLanguages(ApplicationLanguages value);
 
 } // ApplicationMessageLibraries

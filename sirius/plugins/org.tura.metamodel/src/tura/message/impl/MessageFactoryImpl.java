@@ -56,9 +56,6 @@ public class MessageFactoryImpl extends EFactoryImpl implements MessageFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case MessagePackage.MESSAGES_REPOSITORY: return createMessagesRepository();
-			case MessagePackage.MESSAGES_GROUP: return createMessagesGroup();
-			case MessagePackage.MESSAGES: return createMessages();
 			case MessagePackage.MESSAGE_LIBRARY: return createMessageLibrary();
 			case MessagePackage.LANGUAGE_REF: return createLanguageRef();
 			case MessagePackage.MESSAGE: return createMessage();
@@ -67,36 +64,6 @@ public class MessageFactoryImpl extends EFactoryImpl implements MessageFactory {
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MessagesRepository createMessagesRepository() {
-		MessagesRepositoryImpl messagesRepository = new MessagesRepositoryImpl();
-		return messagesRepository;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MessagesGroup createMessagesGroup() {
-		MessagesGroupImpl messagesGroup = new MessagesGroupImpl();
-		return messagesGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Messages createMessages() {
-		MessagesImpl messages = new MessagesImpl();
-		return messages;
 	}
 
 	/**

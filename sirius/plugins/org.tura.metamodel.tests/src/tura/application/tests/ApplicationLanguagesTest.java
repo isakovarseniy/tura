@@ -1,29 +1,29 @@
 /**
  */
-package tura.message.tests;
+package tura.application.tests;
 
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
-import tura.message.MessageFactory;
-import tura.message.MessagesGroup;
+import tura.application.ApplicationFactory;
+import tura.application.ApplicationLanguages;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Messages Group</b></em>'.
+ * A test case for the model object '<em><b>Languages</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class MessagesGroupTest extends TestCase {
+public class ApplicationLanguagesTest extends TestCase {
 
 	/**
-	 * The fixture for this Messages Group test case.
+	 * The fixture for this Languages test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MessagesGroup fixture = null;
+	protected ApplicationLanguages fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class MessagesGroupTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(MessagesGroupTest.class);
+		TestRunner.run(ApplicationLanguagesTest.class);
 	}
 
 	/**
-	 * Constructs a new Messages Group test case with the given name.
+	 * Constructs a new Languages test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MessagesGroupTest(String name) {
+	public ApplicationLanguagesTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Messages Group test case.
+	 * Sets the fixture for this Languages test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(MessagesGroup fixture) {
+	protected void setFixture(ApplicationLanguages fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Messages Group test case.
+	 * Returns the fixture for this Languages test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MessagesGroup getFixture() {
+	protected ApplicationLanguages getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class MessagesGroupTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(MessageFactory.eINSTANCE.createMessagesGroup());
+		setFixture(ApplicationFactory.eINSTANCE.createApplicationLanguages());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class MessagesGroupTest extends TestCase {
 		setFixture(null);
 	}
 
-} //MessagesGroupTest
+} //ApplicationLanguagesTest

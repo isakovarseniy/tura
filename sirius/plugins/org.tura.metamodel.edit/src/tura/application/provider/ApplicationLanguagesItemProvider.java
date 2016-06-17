@@ -1,6 +1,6 @@
 /**
  */
-package tura.message.provider;
+package tura.application.provider;
 
 
 import java.util.Collection;
@@ -24,19 +24,20 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import tura.application.ApplicationLanguages;
+import tura.application.ApplicationPackage;
+
 import tura.domain.provider.DomainEditPlugin;
 
 import tura.message.MessageFactory;
-import tura.message.MessagePackage;
-import tura.message.Messages;
 
 /**
- * This is the item provider adapter for a {@link tura.message.Messages} object.
+ * This is the item provider adapter for a {@link tura.application.ApplicationLanguages} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MessagesItemProvider 
+public class ApplicationLanguagesItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -50,7 +51,7 @@ public class MessagesItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MessagesItemProvider(AdapterFactory adapterFactory) {
+	public ApplicationLanguagesItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,6 +67,7 @@ public class MessagesItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,9 +83,31 @@ public class MessagesItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Messages_uid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Messages_uid_feature", "_UI_Messages_type"),
-				 MessagePackage.Literals.MESSAGES__UID,
+				 getString("_UI_ApplicationLanguages_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationLanguages_uid_feature", "_UI_ApplicationLanguages_type"),
+				 ApplicationPackage.Literals.APPLICATION_LANGUAGES__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ApplicationLanguages_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationLanguages_name_feature", "_UI_ApplicationLanguages_type"),
+				 ApplicationPackage.Literals.APPLICATION_LANGUAGES__NAME,
 				 true,
 				 false,
 				 false,
@@ -104,8 +128,7 @@ public class MessagesItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MessagePackage.Literals.MESSAGES__MESSAGE_LIBRARIES);
-			childrenFeatures.add(MessagePackage.Literals.MESSAGES__LANGUAGES);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_LANGUAGES__LANGUAGES);
 		}
 		return childrenFeatures;
 	}
@@ -124,14 +147,14 @@ public class MessagesItemProvider
 	}
 
 	/**
-	 * This returns Messages.gif.
+	 * This returns ApplicationLanguages.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Messages"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationLanguages"));
 	}
 
 	/**
@@ -142,10 +165,10 @@ public class MessagesItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Messages)object).getUid();
+		String label = ((ApplicationLanguages)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Messages_type") :
-			getString("_UI_Messages_type") + " " + label;
+			getString("_UI_ApplicationLanguages_type") :
+			getString("_UI_ApplicationLanguages_type") + " " + label;
 	}
 	
 
@@ -160,12 +183,12 @@ public class MessagesItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Messages.class)) {
-			case MessagePackage.MESSAGES__UID:
+		switch (notification.getFeatureID(ApplicationLanguages.class)) {
+			case ApplicationPackage.APPLICATION_LANGUAGES__UID:
+			case ApplicationPackage.APPLICATION_LANGUAGES__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case MessagePackage.MESSAGES__MESSAGE_LIBRARIES:
-			case MessagePackage.MESSAGES__LANGUAGES:
+			case ApplicationPackage.APPLICATION_LANGUAGES__LANGUAGES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -185,12 +208,7 @@ public class MessagesItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MessagePackage.Literals.MESSAGES__MESSAGE_LIBRARIES,
-				 MessageFactory.eINSTANCE.createMessageLibrary()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MessagePackage.Literals.MESSAGES__LANGUAGES,
+				(ApplicationPackage.Literals.APPLICATION_LANGUAGES__LANGUAGES,
 				 MessageFactory.eINSTANCE.createLanguage()));
 	}
 

@@ -70,18 +70,6 @@ public class MessageAdapterFactory extends AdapterFactoryImpl {
 	protected MessageSwitch<Adapter> modelSwitch =
 		new MessageSwitch<Adapter>() {
 			@Override
-			public Adapter caseMessagesRepository(MessagesRepository object) {
-				return createMessagesRepositoryAdapter();
-			}
-			@Override
-			public Adapter caseMessagesGroup(MessagesGroup object) {
-				return createMessagesGroupAdapter();
-			}
-			@Override
-			public Adapter caseMessages(Messages object) {
-				return createMessagesAdapter();
-			}
-			@Override
 			public Adapter caseMessageLibrary(MessageLibrary object) {
 				return createMessageLibraryAdapter();
 			}
@@ -124,48 +112,6 @@ public class MessageAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link tura.message.MessagesRepository <em>Messages Repository</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see tura.message.MessagesRepository
-	 * @generated
-	 */
-	public Adapter createMessagesRepositoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link tura.message.MessagesGroup <em>Messages Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see tura.message.MessagesGroup
-	 * @generated
-	 */
-	public Adapter createMessagesGroupAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link tura.message.Messages <em>Messages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see tura.message.Messages
-	 * @generated
-	 */
-	public Adapter createMessagesAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link tura.message.MessageLibrary <em>Library</em>}'.

@@ -14,6 +14,7 @@ import tura.application.ApplicationFactory;
 import tura.application.ApplicationGroup;
 import tura.application.ApplicationInfrastructureLayer;
 import tura.application.ApplicationInfrastructureLayers;
+import tura.application.ApplicationLanguages;
 import tura.application.ApplicationMapper;
 import tura.application.ApplicationMappers;
 import tura.application.ApplicationMessageLibraries;
@@ -113,6 +114,13 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 	 * @generated
 	 */
 	private EClass applicationMessageLibrariesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass applicationLanguagesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -526,6 +534,51 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getApplicationMessageLibraries_ApplicationLanguages() {
+		return (EReference)applicationMessageLibrariesEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getApplicationLanguages() {
+		return applicationLanguagesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplicationLanguages_Uid() {
+		return (EAttribute)applicationLanguagesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplicationLanguages_Name() {
+		return (EAttribute)applicationLanguagesEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApplicationLanguages_Languages() {
+		return (EReference)applicationLanguagesEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getApplicationMessageLibrary() {
 		return applicationMessageLibraryEClass;
 	}
@@ -553,7 +606,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationMessageLibrary_Messages() {
+	public EReference getApplicationMessageLibrary_Libraries() {
 		return (EReference)applicationMessageLibraryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -975,11 +1028,17 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 		createEAttribute(applicationMessageLibrariesEClass, APPLICATION_MESSAGE_LIBRARIES__UID);
 		createEAttribute(applicationMessageLibrariesEClass, APPLICATION_MESSAGE_LIBRARIES__NAME);
 		createEReference(applicationMessageLibrariesEClass, APPLICATION_MESSAGE_LIBRARIES__MESSAGE_LIBRARIES);
+		createEReference(applicationMessageLibrariesEClass, APPLICATION_MESSAGE_LIBRARIES__APPLICATION_LANGUAGES);
+
+		applicationLanguagesEClass = createEClass(APPLICATION_LANGUAGES);
+		createEAttribute(applicationLanguagesEClass, APPLICATION_LANGUAGES__UID);
+		createEAttribute(applicationLanguagesEClass, APPLICATION_LANGUAGES__NAME);
+		createEReference(applicationLanguagesEClass, APPLICATION_LANGUAGES__LANGUAGES);
 
 		applicationMessageLibraryEClass = createEClass(APPLICATION_MESSAGE_LIBRARY);
 		createEAttribute(applicationMessageLibraryEClass, APPLICATION_MESSAGE_LIBRARY__UID);
 		createEAttribute(applicationMessageLibraryEClass, APPLICATION_MESSAGE_LIBRARY__NAME);
-		createEReference(applicationMessageLibraryEClass, APPLICATION_MESSAGE_LIBRARY__MESSAGES);
+		createEReference(applicationMessageLibraryEClass, APPLICATION_MESSAGE_LIBRARY__LIBRARIES);
 
 		applicationRealmsEClass = createEClass(APPLICATION_REALMS);
 		createEAttribute(applicationRealmsEClass, APPLICATION_REALMS__UID);
@@ -1100,12 +1159,18 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 		initEClass(applicationMessageLibrariesEClass, ApplicationMessageLibraries.class, "ApplicationMessageLibraries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationMessageLibraries_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationMessageLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplicationMessageLibraries_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationMessageLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getApplicationMessageLibraries_MessageLibraries(), this.getApplicationMessageLibrary(), null, "messageLibraries", null, 0, -1, ApplicationMessageLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationMessageLibraries_MessageLibraries(), this.getApplicationMessageLibrary(), null, "messageLibraries", null, 0, 1, ApplicationMessageLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationMessageLibraries_ApplicationLanguages(), this.getApplicationLanguages(), null, "applicationLanguages", null, 0, 1, ApplicationMessageLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(applicationLanguagesEClass, ApplicationLanguages.class, "ApplicationLanguages", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getApplicationLanguages_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationLanguages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplicationLanguages_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationLanguages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationLanguages_Languages(), theMessagePackage.getLanguage(), null, "languages", null, 0, -1, ApplicationLanguages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationMessageLibraryEClass, ApplicationMessageLibrary.class, "ApplicationMessageLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationMessageLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationMessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplicationMessageLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationMessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getApplicationMessageLibrary_Messages(), theMessagePackage.getMessages(), null, "messages", null, 0, 1, ApplicationMessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationMessageLibrary_Libraries(), theMessagePackage.getMessageLibrary(), null, "libraries", null, 0, -1, ApplicationMessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationRealmsEClass, ApplicationRealms.class, "ApplicationRealms", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationRealms_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationRealms.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

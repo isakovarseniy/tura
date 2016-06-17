@@ -221,11 +221,17 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMessageLibraries/uid"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMessageLibraries/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationMessageLibraries/messageLibraries"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationMessageLibraries/applicationLanguages"/>
+      </genClasses>
+      <genClasses ecoreClass="application.ecore#//application/ApplicationLanguages">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationLanguages/uid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationLanguages/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationLanguages/languages"/>
       </genClasses>
       <genClasses ecoreClass="application.ecore#//application/ApplicationMessageLibrary">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMessageLibrary/uid"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationMessageLibrary/name"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationMessageLibrary/messages"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//application/ApplicationMessageLibrary/libraries"/>
       </genClasses>
       <genClasses ecoreClass="application.ecore#//application/ApplicationRealms">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute application.ecore#//application/ApplicationRealms/uid"/>
@@ -376,21 +382,6 @@
   </genPackages>
   <genPackages prefix="Tura" disposableProviderFactory="true" ecorePackage="messages.ecore#/">
     <nestedGenPackages prefix="Message" disposableProviderFactory="true" ecorePackage="messages.ecore#//message">
-      <genClasses ecoreClass="messages.ecore#//message/MessagesRepository">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessagesRepository/uid"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessagesRepository/name"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/MessagesRepository/messages"/>
-      </genClasses>
-      <genClasses ecoreClass="messages.ecore#//message/MessagesGroup">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessagesGroup/uid"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessagesGroup/name"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/MessagesGroup/messages"/>
-      </genClasses>
-      <genClasses ecoreClass="messages.ecore#//message/Messages">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Messages/uid"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/Messages/messageLibraries"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/Messages/languages"/>
-      </genClasses>
       <genClasses ecoreClass="messages.ecore#//message/MessageLibrary">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessageLibrary/uid"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessageLibrary/name"/>
