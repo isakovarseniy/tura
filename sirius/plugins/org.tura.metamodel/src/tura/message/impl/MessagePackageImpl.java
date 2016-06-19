@@ -38,7 +38,6 @@ import tura.mapper.MapperPackage;
 import tura.mapper.impl.MapperPackageImpl;
 
 import tura.message.Language;
-import tura.message.LanguageRef;
 import tura.message.Message;
 import tura.message.MessageFactory;
 import tura.message.MessageLibrary;
@@ -74,13 +73,6 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * @generated
 	 */
 	private EClass messageLibraryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass languageRefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -249,33 +241,6 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLanguageRef() {
-		return languageRefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLanguageRef_Uid() {
-		return (EAttribute)languageRefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getLanguageRef_Lang() {
-		return (EReference)languageRefEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMessage() {
 		return messageEClass;
 	}
@@ -422,10 +387,6 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		createEReference(messageLibraryEClass, MESSAGE_LIBRARY__LIB_LANGUAGES);
 		createEReference(messageLibraryEClass, MESSAGE_LIBRARY__MESSAGES);
 
-		languageRefEClass = createEClass(LANGUAGE_REF);
-		createEAttribute(languageRefEClass, LANGUAGE_REF__UID);
-		createEReference(languageRefEClass, LANGUAGE_REF__LANG);
-
 		messageEClass = createEClass(MESSAGE);
 		createEAttribute(messageEClass, MESSAGE__UID);
 		createEAttribute(messageEClass, MESSAGE__NAME);
@@ -480,12 +441,8 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		initEClass(messageLibraryEClass, MessageLibrary.class, "MessageLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMessageLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMessageLibrary_LibLanguages(), this.getLanguageRef(), null, "libLanguages", null, 0, -1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMessageLibrary_LibLanguages(), this.getLanguage(), null, "libLanguages", null, 0, -1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMessageLibrary_Messages(), this.getMessage(), null, "messages", null, 0, -1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(languageRefEClass, LanguageRef.class, "LanguageRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLanguageRef_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, LanguageRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLanguageRef_Lang(), this.getLanguage(), null, "lang", null, 0, 1, LanguageRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMessage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -495,7 +452,7 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		initEClass(translationEClass, Translation.class, "Translation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTranslation_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTranslation_Translation(), ecorePackage.getEString(), "translation", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTranslation_Lang(), this.getLanguageRef(), null, "lang", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTranslation_Lang(), this.getLanguage(), null, "lang", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(languageEClass, Language.class, "Language", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLanguage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -95,29 +95,6 @@ public class MessageItemProviderAdapterFactory extends MessageAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link tura.message.LanguageRef} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LanguageRefItemProvider languageRefItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link tura.message.LanguageRef}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLanguageRefAdapter() {
-		if (languageRefItemProvider == null) {
-			languageRefItemProvider = new LanguageRefItemProvider(this);
-		}
-
-		return languageRefItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link tura.message.Message} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -286,7 +263,6 @@ public class MessageItemProviderAdapterFactory extends MessageAdapterFactory imp
 	 */
 	public void dispose() {
 		if (messageLibraryItemProvider != null) messageLibraryItemProvider.dispose();
-		if (languageRefItemProvider != null) languageRefItemProvider.dispose();
 		if (messageItemProvider != null) messageItemProvider.dispose();
 		if (translationItemProvider != null) translationItemProvider.dispose();
 		if (languageItemProvider != null) languageItemProvider.dispose();

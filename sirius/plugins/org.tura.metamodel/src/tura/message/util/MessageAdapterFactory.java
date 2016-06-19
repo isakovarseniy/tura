@@ -74,10 +74,6 @@ public class MessageAdapterFactory extends AdapterFactoryImpl {
 				return createMessageLibraryAdapter();
 			}
 			@Override
-			public Adapter caseLanguageRef(LanguageRef object) {
-				return createLanguageRefAdapter();
-			}
-			@Override
 			public Adapter caseMessage(Message object) {
 				return createMessageAdapter();
 			}
@@ -124,20 +120,6 @@ public class MessageAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMessageLibraryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link tura.message.LanguageRef <em>Language Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see tura.message.LanguageRef
-	 * @generated
-	 */
-	public Adapter createLanguageRefAdapter() {
 		return null;
 	}
 

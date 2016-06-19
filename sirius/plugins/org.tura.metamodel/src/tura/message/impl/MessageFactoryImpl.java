@@ -57,7 +57,6 @@ public class MessageFactoryImpl extends EFactoryImpl implements MessageFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case MessagePackage.MESSAGE_LIBRARY: return createMessageLibrary();
-			case MessagePackage.LANGUAGE_REF: return createLanguageRef();
 			case MessagePackage.MESSAGE: return createMessage();
 			case MessagePackage.TRANSLATION: return createTranslation();
 			case MessagePackage.LANGUAGE: return createLanguage();
@@ -74,16 +73,6 @@ public class MessageFactoryImpl extends EFactoryImpl implements MessageFactory {
 	public MessageLibrary createMessageLibrary() {
 		MessageLibraryImpl messageLibrary = new MessageLibraryImpl();
 		return messageLibrary;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LanguageRef createLanguageRef() {
-		LanguageRefImpl languageRef = new LanguageRefImpl();
-		return languageRef;
 	}
 
 	/**

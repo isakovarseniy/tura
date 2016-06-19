@@ -79,20 +79,20 @@ public interface MessageLibrary extends Categorized {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Lib Languages</b></em>' containment reference list.
-	 * The list contents are of type {@link tura.message.LanguageRef}.
+	 * Returns the value of the '<em><b>Lib Languages</b></em>' reference list.
+	 * The list contents are of type {@link tura.message.Language}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Lib Languages</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lib Languages</em>' containment reference list.
+	 * @return the value of the '<em>Lib Languages</em>' reference list.
 	 * @see tura.message.MessagePackage#getMessageLibrary_LibLanguages()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	EList<LanguageRef> getLibLanguages();
+	EList<Language> getLibLanguages();
 
 	/**
 	 * Returns the value of the '<em><b>Messages</b></em>' containment reference list.

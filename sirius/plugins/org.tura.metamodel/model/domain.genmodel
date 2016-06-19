@@ -385,13 +385,9 @@
       <genClasses ecoreClass="messages.ecore#//message/MessageLibrary">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessageLibrary/uid"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/MessageLibrary/name"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/MessageLibrary/libLanguages"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/MessageLibrary/messages"/>
-      </genClasses>
-      <genClasses ecoreClass="messages.ecore#//message/LanguageRef">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/LanguageRef/uid"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference messages.ecore#//message/LanguageRef/lang"/>
+            ecoreFeature="ecore:EReference messages.ecore#//message/MessageLibrary/libLanguages"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference messages.ecore#//message/MessageLibrary/messages"/>
       </genClasses>
       <genClasses ecoreClass="messages.ecore#//message/Message">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute messages.ecore#//message/Message/uid"/>

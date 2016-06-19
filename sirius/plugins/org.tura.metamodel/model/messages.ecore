@@ -7,14 +7,9 @@
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="libLanguages" upperBound="-1"
-          eType="#//message/LanguageRef" containment="true"/>
+          eType="#//message/Language"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="messages" upperBound="-1"
           eType="#//message/Message" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LanguageRef">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="lang" eType="#//message/Language"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Message">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -27,7 +22,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="lang" eType="#//message/LanguageRef"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lang" eType="#//message/Language"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Language">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

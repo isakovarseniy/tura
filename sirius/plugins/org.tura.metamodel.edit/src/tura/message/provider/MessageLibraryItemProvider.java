@@ -56,6 +56,7 @@ public class MessageLibraryItemProvider extends CategorizedItemProvider {
 
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addLibLanguagesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -105,6 +106,28 @@ public class MessageLibraryItemProvider extends CategorizedItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Lib Languages feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLibLanguagesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MessageLibrary_libLanguages_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MessageLibrary_libLanguages_feature", "_UI_MessageLibrary_type"),
+				 MessagePackage.Literals.MESSAGE_LIBRARY__LIB_LANGUAGES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -116,7 +139,6 @@ public class MessageLibraryItemProvider extends CategorizedItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MessagePackage.Literals.MESSAGE_LIBRARY__LIB_LANGUAGES);
 			childrenFeatures.add(MessagePackage.Literals.MESSAGE_LIBRARY__MESSAGES);
 		}
 		return childrenFeatures;
@@ -177,7 +199,6 @@ public class MessageLibraryItemProvider extends CategorizedItemProvider {
 			case MessagePackage.MESSAGE_LIBRARY__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case MessagePackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
 			case MessagePackage.MESSAGE_LIBRARY__MESSAGES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -195,11 +216,6 @@ public class MessageLibraryItemProvider extends CategorizedItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MessagePackage.Literals.MESSAGE_LIBRARY__LIB_LANGUAGES,
-				 MessageFactory.eINSTANCE.createLanguageRef()));
 
 		newChildDescriptors.add
 			(createChildParameter

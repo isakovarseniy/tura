@@ -96,7 +96,7 @@ public interface MessagePackage extends EPackage {
 	int MESSAGE_LIBRARY__NAME = CommonPackage.CATEGORIZED_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Lib Languages</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Lib Languages</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -132,52 +132,6 @@ public interface MessagePackage extends EPackage {
 	int MESSAGE_LIBRARY_OPERATION_COUNT = CommonPackage.CATEGORIZED_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link tura.message.impl.LanguageRefImpl <em>Language Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see tura.message.impl.LanguageRefImpl
-	 * @see tura.message.impl.MessagePackageImpl#getLanguageRef()
-	 * @generated
-	 */
-	int LANGUAGE_REF = 1;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LANGUAGE_REF__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Lang</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LANGUAGE_REF__LANG = 1;
-
-	/**
-	 * The number of structural features of the '<em>Language Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LANGUAGE_REF_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Language Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LANGUAGE_REF_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link tura.message.impl.MessageImpl <em>Message</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,7 +139,7 @@ public interface MessagePackage extends EPackage {
 	 * @see tura.message.impl.MessagePackageImpl#getMessage()
 	 * @generated
 	 */
-	int MESSAGE = 2;
+	int MESSAGE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -240,7 +194,7 @@ public interface MessagePackage extends EPackage {
 	 * @see tura.message.impl.MessagePackageImpl#getTranslation()
 	 * @generated
 	 */
-	int TRANSLATION = 3;
+	int TRANSLATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -295,7 +249,7 @@ public interface MessagePackage extends EPackage {
 	 * @see tura.message.impl.MessagePackageImpl#getLanguage()
 	 * @generated
 	 */
-	int LANGUAGE = 4;
+	int LANGUAGE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -385,10 +339,10 @@ public interface MessagePackage extends EPackage {
 	EAttribute getMessageLibrary_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link tura.message.MessageLibrary#getLibLanguages <em>Lib Languages</em>}'.
+	 * Returns the meta object for the reference list '{@link tura.message.MessageLibrary#getLibLanguages <em>Lib Languages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Lib Languages</em>'.
+	 * @return the meta object for the reference list '<em>Lib Languages</em>'.
 	 * @see tura.message.MessageLibrary#getLibLanguages()
 	 * @see #getMessageLibrary()
 	 * @generated
@@ -405,38 +359,6 @@ public interface MessagePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMessageLibrary_Messages();
-
-	/**
-	 * Returns the meta object for class '{@link tura.message.LanguageRef <em>Language Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Language Ref</em>'.
-	 * @see tura.message.LanguageRef
-	 * @generated
-	 */
-	EClass getLanguageRef();
-
-	/**
-	 * Returns the meta object for the attribute '{@link tura.message.LanguageRef#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see tura.message.LanguageRef#getUid()
-	 * @see #getLanguageRef()
-	 * @generated
-	 */
-	EAttribute getLanguageRef_Uid();
-
-	/**
-	 * Returns the meta object for the reference '{@link tura.message.LanguageRef#getLang <em>Lang</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Lang</em>'.
-	 * @see tura.message.LanguageRef#getLang()
-	 * @see #getLanguageRef()
-	 * @generated
-	 */
-	EReference getLanguageRef_Lang();
 
 	/**
 	 * Returns the meta object for class '{@link tura.message.Message <em>Message</em>}'.
@@ -628,7 +550,7 @@ public interface MessagePackage extends EPackage {
 		EAttribute MESSAGE_LIBRARY__NAME = eINSTANCE.getMessageLibrary_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Lib Languages</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Lib Languages</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -642,32 +564,6 @@ public interface MessagePackage extends EPackage {
 		 * @generated
 		 */
 		EReference MESSAGE_LIBRARY__MESSAGES = eINSTANCE.getMessageLibrary_Messages();
-
-		/**
-		 * The meta object literal for the '{@link tura.message.impl.LanguageRefImpl <em>Language Ref</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see tura.message.impl.LanguageRefImpl
-		 * @see tura.message.impl.MessagePackageImpl#getLanguageRef()
-		 * @generated
-		 */
-		EClass LANGUAGE_REF = eINSTANCE.getLanguageRef();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LANGUAGE_REF__UID = eINSTANCE.getLanguageRef_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Lang</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LANGUAGE_REF__LANG = eINSTANCE.getLanguageRef_Lang();
 
 		/**
 		 * The meta object literal for the '{@link tura.message.impl.MessageImpl <em>Message</em>}' class.

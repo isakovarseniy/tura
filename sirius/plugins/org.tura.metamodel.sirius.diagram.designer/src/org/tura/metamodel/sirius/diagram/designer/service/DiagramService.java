@@ -14,7 +14,9 @@ import tura.domain.DomainArtifacts;
 import tura.domain.DomainTypes;
 import tura.domain.DomainTypesRepository;
 import tura.message.Language;
+import tura.message.Message;
 import tura.message.MessageLibrary;
+import tura.message.Translation;
 import tura.type.TypeGroup;
 import tura.application.ApplicationLanguages;
 import tura.application.ApplicationMessageLibrary;
@@ -62,4 +64,15 @@ public class DiagramService {
 		return "Library "+ ((ApplicationMessageLibrary)(lib.eContainer())).getLibraries().size();
 	}
 	
+
+	public String generateName(Message message ){
+		return "Key  "+ ((MessageLibrary)(message.eContainer())).getMessages().size();
+	}
+
+
+	public String generateName(Translation translation ){
+		return "Translation  "+ ((Message)(translation.eContainer())).getTranslatioins().size();
+	}
+
+
 }

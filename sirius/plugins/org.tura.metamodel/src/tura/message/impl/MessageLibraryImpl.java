@@ -15,11 +15,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import tura.common.impl.CategorizedImpl;
 
-import tura.message.LanguageRef;
+import tura.message.Language;
 import tura.message.Message;
 import tura.message.MessageLibrary;
 import tura.message.MessagePackage;
@@ -82,14 +83,14 @@ public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrar
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getLibLanguages() <em>Lib Languages</em>}' containment reference list.
+	 * The cached value of the '{@link #getLibLanguages() <em>Lib Languages</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLibLanguages()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<LanguageRef> libLanguages;
+	protected EList<Language> libLanguages;
 
 	/**
 	 * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference list.
@@ -167,9 +168,9 @@ public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<LanguageRef> getLibLanguages() {
+	public EList<Language> getLibLanguages() {
 		if (libLanguages == null) {
-			libLanguages = new EObjectContainmentEList<LanguageRef>(LanguageRef.class, this, MessagePackage.MESSAGE_LIBRARY__LIB_LANGUAGES);
+			libLanguages = new EObjectResolvingEList<Language>(Language.class, this, MessagePackage.MESSAGE_LIBRARY__LIB_LANGUAGES);
 		}
 		return libLanguages;
 	}
@@ -194,8 +195,6 @@ public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrar
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MessagePackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
-				return ((InternalEList<?>)getLibLanguages()).basicRemove(otherEnd, msgs);
 			case MessagePackage.MESSAGE_LIBRARY__MESSAGES:
 				return ((InternalEList<?>)getMessages()).basicRemove(otherEnd, msgs);
 		}
@@ -239,7 +238,7 @@ public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrar
 				return;
 			case MessagePackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
 				getLibLanguages().clear();
-				getLibLanguages().addAll((Collection<? extends LanguageRef>)newValue);
+				getLibLanguages().addAll((Collection<? extends Language>)newValue);
 				return;
 			case MessagePackage.MESSAGE_LIBRARY__MESSAGES:
 				getMessages().clear();

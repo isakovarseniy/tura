@@ -84,12 +84,12 @@ public interface Translation extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Lang</em>' reference.
-	 * @see #setLang(LanguageRef)
+	 * @see #setLang(Language)
 	 * @see tura.message.MessagePackage#getTranslation_Lang()
 	 * @model
 	 * @generated
 	 */
-	LanguageRef getLang();
+	Language getLang();
 
 	/**
 	 * Sets the value of the '{@link tura.message.Translation#getLang <em>Lang</em>}' reference.
@@ -99,6 +99,6 @@ public interface Translation extends EObject {
 	 * @see #getLang()
 	 * @generated
 	 */
-	void setLang(LanguageRef value);
+	void setLang(Language value);
 
 } // Translation

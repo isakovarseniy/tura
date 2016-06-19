@@ -10,16 +10,10 @@ package message{
 		class MessageLibrary extends tura.common.Categorized{
 		    id attr EString uid;
 		    attr EString name;
-		    val LanguageRef[*] libLanguages;
+		    ref Language[*] libLanguages;
 		    val Message[*] messages ;
 		
 		}
-		
-		class LanguageRef{
-		    id attr EString uid;
-		    ref Language lang; 
-		}
-		
 		
 		class Message{
 		    id attr EString uid;
@@ -30,7 +24,7 @@ package message{
 		class Translation{
 		    id attr EString uid;
 		    attr EString translation;
-		    ref LanguageRef lang;
+		    ref Language lang;
 		}
 		
 		

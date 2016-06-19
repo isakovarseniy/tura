@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import tura.message.LanguageRef;
+import tura.message.Language;
 import tura.message.MessagePackage;
 import tura.message.Translation;
 
@@ -78,7 +78,7 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 	 * @generated
 	 * @ordered
 	 */
-	protected LanguageRef lang;
+	protected Language lang;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,10 +146,10 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LanguageRef getLang() {
+	public Language getLang() {
 		if (lang != null && lang.eIsProxy()) {
 			InternalEObject oldLang = (InternalEObject)lang;
-			lang = (LanguageRef)eResolveProxy(oldLang);
+			lang = (Language)eResolveProxy(oldLang);
 			if (lang != oldLang) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MessagePackage.TRANSLATION__LANG, oldLang, lang));
@@ -163,7 +163,7 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LanguageRef basicGetLang() {
+	public Language basicGetLang() {
 		return lang;
 	}
 
@@ -172,8 +172,8 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLang(LanguageRef newLang) {
-		LanguageRef oldLang = lang;
+	public void setLang(Language newLang) {
+		Language oldLang = lang;
 		lang = newLang;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MessagePackage.TRANSLATION__LANG, oldLang, lang));
@@ -213,7 +213,7 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 				setTranslation((String)newValue);
 				return;
 			case MessagePackage.TRANSLATION__LANG:
-				setLang((LanguageRef)newValue);
+				setLang((Language)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -234,7 +234,7 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 				setTranslation(TRANSLATION_EDEFAULT);
 				return;
 			case MessagePackage.TRANSLATION__LANG:
-				setLang((LanguageRef)null);
+				setLang((Language)null);
 				return;
 		}
 		super.eUnset(featureID);
