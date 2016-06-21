@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tura.domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tura.domain="http://tura.org/2016/v2/domain">
+  <domainArtifacts>
+    <domainArtifact uid="8c6e20f4-46c7-4fd1-b50c-3ad6922cb6e8" name="Domain Artifact1">
+      <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Artifact package1"/>
+    </domainArtifact>
+  </domainArtifacts>
+  <domainTypes>
+    <typesRepository uid="d94d5825-1d58-44cd-87db-8a56b4554da2" name="Domain Repository1">
+      <repositoryPackages uid="3d4e4d41-f88c-42f4-9c45-fed193491810" name="Type package1"/>
+    </typesRepository>
+  </domainTypes>
+  <domainApplications>
+    <applications uid="dd9a03ec-7974-4324-b247-0405080b3944" name="Domain Application1">
+      <applicationPackages uid="e0a49a0b-9961-4803-9c0c-efb84da14715" name="Application package1">
+        <applications uid="6dbe9372-c514-4152-8d84-c8ac1223c2f7" name="Application1">
+          <applicationRecipes uid="773bc6f0-3025-4807-b123-f84c91d9f335" name="Recipes"/>
+          <applicationMappers uid="a00090a3-4951-4fc2-a358-1c649e91a854" name="Mappers"/>
+          <applicationUILayer uid="2f3c70d8-7e8f-474c-8ef1-c3ddea9c65e8" name="UILayer"/>
+          <applicationInfrastructureLayer uid="8ab26c82-632a-4279-86a5-f3ef1ad651c7" name="Infrastructure"/>
+          <applicationStyle uid="8d0a3826-f0d9-435f-a0bc-ad850460c3b9" name="Style Libraries"/>
+          <applicationRole uid="19048840-af48-4798-a6a7-b171f7d1a9ed" name="Security"/>
+          <applicationMessages uid="839f02b9-22c9-4c47-abd9-495a167fc15d" name="Application message libraries">
+            <messageLibraries uid="42709504-6bab-4ef1-8090-e2f7498c506a" name="Message libraries">
+              <libraries uid="00cc660b-4e02-4ae6-8cb0-8f7342417334" name="Library 1"/>
+            </messageLibraries>
+            <applicationLanguages uid="697ce488-936c-4f2c-8093-0117b7137501" name="Languages">
+              <languages uid="67dcba92-1d36-4cb2-8f10-54c3038f1d72" lang="English" code="en" defaultLang="true"/>
+              <languages uid="23496e18-85c3-4c3f-9a6d-aa2bfed485f5" lang="France" code="fr"/>
+            </applicationLanguages>
+          </applicationMessages>
+        </applications>
+      </applicationPackages>
+    </applications>
+  </domainApplications>
+</tura.domain:Domain>

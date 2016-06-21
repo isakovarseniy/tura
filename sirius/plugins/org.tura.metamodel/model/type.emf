@@ -1,116 +1,113 @@
-@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
-package tura;
+@namespace(uri="http://tura.org/2016/v2/type", prefix="tura.type")
+package type;
 
 import "platform:/resource/org.tura.metamodel/model/common.ecore";
 import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 
-@namespace(uri="http://tura.org/2016/v2/type", prefix="tura.type")
-package type{
 	
-	class TypeGroup{
-	    id attr EString uid;
-	   attr EString name;
-       val TypeElement[*]  types;
-       val Relationship[*] relationships;
-	}
+class TypeGroup{
+    id attr EString uid;
+   attr EString name;
+   val TypeElement[*]  types;
+   val Relationship[*] relationships;
+}
+
+class TypeElement{
+    id attr EString uid;
+   attr EString name; 
+}
+
+class Relationship  extends common.Categorized{
+    id attr EString uid;
+    ref TypeElement source;
+    ref TypeElement target;
+}
+
+class References extends Relationship{
 	
-	class TypeElement{
-	    id attr EString uid;
-	   attr EString name; 
-	}
-	
-	class Relationship  extends tura.common.Categorized{
-	    id attr EString uid;
-	    ref TypeElement source;
-	    ref TypeElement target;
-	}
+}
 
-	class References extends Relationship{
-		
-	}
+class Generalization extends Relationship{
+}
 
-	class Generalization extends Relationship{
-	}
+enum RelationType{
+    One2One;
+    One2Many;
+    Many2Many;
+}
 
-	enum RelationType{
-	    One2One;
-	    One2Many;
-	    Many2Many;
-	}
-
-	class TypePointer{
-	  ref TypeElement typeRef;
+class TypePointer{
+  ref TypeElement typeRef;
 	}
 
    class PackagePointer{
-        ref TypeGroup packageRef;
+    ref TypeGroup packageRef;
    }
 
 
 	class Assosiation extends Relationship{
-	   attr RelationType type;
-	   val Link[*]  links; 
-	   attr EString sourceOperation;
-	   attr EString targetOperation;
-	   val TypePointer many2manyHelper;
-	}
-
-
-	class Link{
-	    id attr EString uid;
-	    ref Attribute masterField;
-	    ref Attribute detailField;
-	}	
-
-	class Attribute extends  TypePointer, tura.common.Categorized{
-	    id attr EString uid;
-	   attr EString name;
-	   attr EBoolean pk;
-	}
-	
-	class Operation extends tura.permission.Secured, tura.common.Categorized{
-	    id attr EString uid;
-	   attr EString name;
-	   ref Type parent;
-	   val Parameter[*]  parameters;
-	   val ReturnValue returnValue;
-	} 
-	
-	class Primitive extends TypeElement{
-	}
-
-
-	class Type extends TypeElement , tura.common.Categorized{
-	   val Attribute[*] attributes;
-	   val Operation[*] operations;
-	}
-
-	class TypeReference extends TypeElement , TypePointer{
-	 }
-
-
-	class Parameter extends  TypePointer{
-	    id attr EString uid;
-	   attr EString name;
-	   attr EInt order;
-	}
-
-	class ReturnValue extends TypePointer{
-	    id attr EString uid;
-	}
-
-	class Enumarator extends TypeElement{
-	   val EnumAttribute[*]  values;
-	}
-
-	class EnumAttribute extends  tura.common.Categorized{
-	    id attr EString uid;
-	   ref Enumarator parent;
-	   attr EString name;
-	   attr EString  value;
-	}
-	
-	class MethodPointer extends TypePointer{
-	    ref Operation methodRef;
-	}	
+   attr RelationType type;
+   val Link[*]  links; 
+   attr EString sourceOperation;
+   attr EString targetOperation;
+   val TypePointer many2manyHelper;
 }
+
+
+class Link{
+    id attr EString uid;
+    ref Attribute masterField;
+    ref Attribute detailField;
+}	
+
+class Attribute extends  TypePointer, common.Categorized{
+    id attr EString uid;
+   attr EString name;
+   attr EBoolean pk;
+}
+
+class Operation extends permission.Secured, common.Categorized{
+    id attr EString uid;
+   attr EString name;
+   ref Type parent;
+   val Parameter[*]  parameters;
+   val ReturnValue returnValue;
+} 
+
+class Primitive extends TypeElement{
+}
+
+
+class Type extends TypeElement , common.Categorized{
+   val Attribute[*] attributes;
+   val Operation[*] operations;
+}
+
+class TypeReference extends TypeElement , TypePointer{
+ }
+
+
+class Parameter extends  TypePointer{
+    id attr EString uid;
+   attr EString name;
+   attr EInt order;
+}
+
+class ReturnValue extends TypePointer{
+    id attr EString uid;
+}
+
+class Enumarator extends TypeElement{
+   val EnumAttribute[*]  values;
+}
+
+class EnumAttribute extends  common.Categorized{
+    id attr EString uid;
+   ref Enumarator parent;
+   attr EString name;
+   attr EString  value;
+}
+
+class MethodPointer extends TypePointer{
+    ref Operation methodRef;
+}	

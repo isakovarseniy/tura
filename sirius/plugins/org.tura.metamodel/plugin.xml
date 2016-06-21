@@ -10,96 +10,84 @@
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/domain"
-            class="tura.domain.DomainPackage"
-            genModel="model/domain.genmodel"/>
+            class="domain.DomainPackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/artifact"
-            class="tura.artifact.ArtifactPackage"
-            genModel="model/domain.genmodel"/>
+            class="artifact.ArtifactPackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/type"
-            class="tura.type.TypePackage"
-            genModel="model/domain.genmodel"/>
+            class="type.TypePackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/application"
-            class="tura.application.ApplicationPackage"
-            genModel="model/domain.genmodel"/>
+            class="application.ApplicationPackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/common"
-            class="tura.common.CommonPackage"
-            genModel="model/domain.genmodel"/>
+            class="common.CommonPackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/permission"
-            class="tura.permission.PermissionPackage"
-            genModel="model/domain.genmodel"/>
+            class="permission.PermissionPackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/infrastructure"
-            class="tura.infrastructure.InfrastructurePackage"
-            genModel="model/domain.genmodel"/>
+            class="infrastructure.InfrastructurePackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/message"
-            class="tura.message.MessagePackage"
-            genModel="model/domain.genmodel"/>
+            class="message.MessagePackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/style"
-            class="tura.style.StylePackage"
-            genModel="model/domain.genmodel"/>
+            class="style.StylePackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/form"
-            class="tura.form.FormPackage"
-            genModel="model/domain.genmodel"/>
+            class="form.FormPackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/recipe"
-            class="tura.recipe.RecipePackage"
-            genModel="model/domain.genmodel"/>
+            class="recipe.RecipePackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
             uri="http://tura.org/2016/v2/mapper"
-            class="tura.mapper.MapperPackage"
-            genModel="model/domain.genmodel"/>
+            class="mapper.MapperPackage"/>
    </extension>
 
 </plugin>

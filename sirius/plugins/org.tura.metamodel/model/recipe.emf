@@ -1,168 +1,165 @@
-@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
-package tura;
+@namespace(uri="http://tura.org/2016/v2/recipe", prefix="tura.recipe")
+package recipe;
 
 import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/mapper.ecore";
 
-@namespace(uri="http://tura.org/2016/v2/recipe", prefix="tura.recipe")
-package recipe{
-	
-	class Recipes{
-	    id attr EString uid;
-	  val Recipe recipe;
-	  val Configuration[*] configurations;
-	  val Infrastructure[*] infrastructures;
-	  val DeploymentSequence deployment;
-	  val ConfigExtension[*] configExtension;
-	}
-	
-	
-	class Recipe extends UsingMappers{
-	    id attr EString uid;
-	  attr EString name;
-	  val Ingredient[*] ingredients;
-	  ref Infrastructure[*] infrastructures;
-	  ref DeploymentSequence deployment;
-	}
-	
-	class ConfigExtension {
-	    id attr EString uid;
-	    ref Configuration source;
-	    ref Configuration target;
-	}
-	
-	
-	class DeploymentSequence{
-	    id attr EString uid;
-	   attr EString name;
-	   val DeploymentComponents deploymentComponents;
-	}
-	
-	class DeploymentComponents{
-	    id attr EString uid;
-	    val DeploymentComponent[*] deplymentStep;   
-	    val DeploymentStarStep startSeq;
-	    
-	}
-	
-	class DeploymentComponent{
-	    id attr EString uid;
-	    attr EString name;
-	    ref ModelMapper mapper;
-	    ref DeploymentComponent deploymentComponentLink;
-	}
-	
-	class DeploymentStarStep{
-	    id attr EString uid;
-	    attr EString name;
-	   ref DeploymentComponent firstStep;
-	}
-	
-	
-	
-	class UsingMappers{
-	  ref tura.mapper.Mappers[*] mappers;
-	}
-	
-	//Value of laers must be 2^n
-	enum PlatformLayers{
-	   ServiceLayer = 1;
-	   UILayer = 2;
-	}
-	
-	
-	class Ingredient extends UsingMappers {
-	  id attr EString uid;
-	  attr EString name;
-	  val Component[*] components;
-	  attr PlatformLayers layer;
-	}
-	
-	class Component {
-	    id attr EString uid;
-	   attr EString name;
-	   val ModelMapper[*] mappers;
-	   attr EString componentRoot;
-	}
-	
-	class JavaComponent extends Component{
-	   attr EString artifactId;
-	   attr EString groupId;
-	   attr EString version;
-	   attr EString basePackage;   
-	}
-	
-	
-	class Infrastructure{
-	  id attr EString uid;
-	  ref Recipe  recipe;
-	  attr EString name;
-	  ref Configuration recipeConfig;
-	}
-	
-	class Configuration{
-	    id attr EString uid;
-	   attr EString name;
-	   ref Infrastructure infrastructure;
-	   val Property[*] properties; 
-	   val HashProperty[*] hashProperties; 
-	}
-	
-	class ModelMapper extends ArtifactRef{
-	   attr EString name;
-	   attr EString artifactRoot;
-	   val MappingSpecifier[*] specifiers;
-	    val Query[*] queries;
-	    attr EString artifactExecutionString;
-	}
-	
-	class Property{
-	    id attr EString uid;
-	    ref tura.artifact.ConfigVariable confVarRef;
-	    attr EString value;
-	    attr EString fakeName;
-	}
-	
-	
-	@gmf.node(label="fakeName",border.color="0,0,0",color="255,239,222")
-	class HashProperty{
-	    id attr EString uid;
-	    ref tura.artifact.ConfigHash confHashRef;
-	    val KeyValuePair[*] hash;
-	    attr EString fakeName;
-	}
-	
-	
-	class KeyValuePair{
-	    id attr EString uid;
-	    attr EString key;
-	    attr EString value;
-	}
-	
-	class MappingSpecifier{
-	    id attr EString uid;
-	   ref tura.artifact.Technology specifierRef;
-	   ref tura.artifact.Option valueRef;
-	}
-	
-	@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
-	class Query{
-	    id attr EString uid;
-	   ref tura.artifact.ModelQuery modelQuery;
-	   attr EString name;
-	   ref tura.artifact.ModelQuery queryRef;
-	   val QueryVariable[*] variables;
-	}
-	
-	class QueryVariable{
-	    id attr EString uid;
-	   ref tura.artifact.QueryParameter queryParamRef;
-	   attr EString value;
-	}
-	
-	class ArtifactRef{
-	    id attr EString uid;
-	   ref tura.artifact.Artifact artifactRef;
-	}
 
+class Recipes{
+    id attr EString uid;
+  val Recipe recipe;
+  val Configuration[*] configurations;
+  val Infrastructure[*] infrastructures;
+  val DeploymentSequence deployment;
+  val ConfigExtension[*] configExtension;
 }
+
+
+class Recipe extends UsingMappers{
+    id attr EString uid;
+  attr EString name;
+  val Ingredient[*] ingredients;
+  ref Infrastructure[*] infrastructures;
+  ref DeploymentSequence deployment;
+}
+
+class ConfigExtension {
+    id attr EString uid;
+    ref Configuration source;
+    ref Configuration target;
+}
+
+
+class DeploymentSequence{
+    id attr EString uid;
+   attr EString name;
+   val DeploymentComponents deploymentComponents;
+}
+
+class DeploymentComponents{
+    id attr EString uid;
+    val DeploymentComponent[*] deplymentStep;   
+    val DeploymentStarStep startSeq;
+    
+}
+
+class DeploymentComponent{
+    id attr EString uid;
+    attr EString name;
+    ref ModelMapper mapper;
+    ref DeploymentComponent deploymentComponentLink;
+}
+
+class DeploymentStarStep{
+    id attr EString uid;
+    attr EString name;
+   ref DeploymentComponent firstStep;
+}
+
+
+
+class UsingMappers{
+  ref mapper.Mappers[*] mappers;
+}
+
+//Value of laers must be 2^n
+enum PlatformLayers{
+   ServiceLayer = 1;
+   UILayer = 2;
+}
+
+
+class Ingredient extends UsingMappers {
+  id attr EString uid;
+  attr EString name;
+  val Component[*] components;
+  attr PlatformLayers layer;
+}
+
+class Component {
+    id attr EString uid;
+   attr EString name;
+   val ModelMapper[*] mappers;
+   attr EString componentRoot;
+}
+
+class JavaComponent extends Component{
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString basePackage;   
+}
+
+
+class Infrastructure{
+  id attr EString uid;
+  ref Recipe  recipe;
+  attr EString name;
+  ref Configuration recipeConfig;
+}
+
+class Configuration{
+    id attr EString uid;
+   attr EString name;
+   ref Infrastructure infrastructure;
+   val Property[*] properties; 
+   val HashProperty[*] hashProperties; 
+}
+
+class ModelMapper extends ArtifactRef{
+   attr EString name;
+   attr EString artifactRoot;
+   val MappingSpecifier[*] specifiers;
+    val Query[*] queries;
+    attr EString artifactExecutionString;
+}
+
+class Property{
+    id attr EString uid;
+    ref artifact.ConfigVariable confVarRef;
+    attr EString value;
+    attr EString fakeName;
+}
+
+
+@gmf.node(label="fakeName",border.color="0,0,0",color="255,239,222")
+class HashProperty{
+    id attr EString uid;
+    ref artifact.ConfigHash confHashRef;
+    val KeyValuePair[*] hash;
+    attr EString fakeName;
+}
+
+
+class KeyValuePair{
+    id attr EString uid;
+    attr EString key;
+    attr EString value;
+}
+
+class MappingSpecifier{
+    id attr EString uid;
+   ref artifact.Technology specifierRef;
+   ref artifact.Option valueRef;
+}
+
+@gmf.node(label="name",border.color="0,0,0",color="241,238,203")
+class Query{
+    id attr EString uid;
+   ref artifact.ModelQuery modelQuery;
+   attr EString name;
+   ref artifact.ModelQuery queryRef;
+   val QueryVariable[*] variables;
+}
+
+class QueryVariable{
+    id attr EString uid;
+   ref artifact.QueryParameter queryParamRef;
+   attr EString value;
+}
+
+class ArtifactRef{
+    id attr EString uid;
+   ref artifact.Artifact artifactRef;
+}
+

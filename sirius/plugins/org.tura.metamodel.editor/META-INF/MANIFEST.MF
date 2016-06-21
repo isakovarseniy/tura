@@ -4,22 +4,22 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.tura.metamodel.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: tura.domain.presentation.DomainEditorPlugin$Implementation
+Bundle-Activator: domain.presentation.DomainEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: tura.application.presentation,
- tura.artifact.presentation,
- tura.common.presentation,
- tura.domain.presentation,
- tura.form.presentation,
- tura.infrastructure.presentation,
- tura.mapper.presentation,
- tura.message.presentation,
- tura.permission.presentation,
- tura.recipe.presentation,
- tura.style.presentation,
- tura.type.presentation
+Export-Package: application.presentation,
+ artifact.presentation,
+ common.presentation,
+ domain.presentation,
+ form.presentation,
+ infrastructure.presentation,
+ mapper.presentation,
+ message.presentation,
+ permission.presentation,
+ recipe.presentation,
+ style.presentation,
+ type.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.tura.metamodel.edit;visibility:=reexport,

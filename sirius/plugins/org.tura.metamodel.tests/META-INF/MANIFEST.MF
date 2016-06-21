@@ -7,18 +7,18 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: tura.application.tests,
- tura.artifact.tests,
- tura.common.tests,
- tura.domain.tests,
- tura.form.tests,
- tura.infrastructure.tests,
- tura.mapper.tests,
- tura.message.tests,
- tura.permission.tests,
- tura.recipe.tests,
- tura.style.tests,
- tura.type.tests
+Export-Package: application.tests,
+ artifact.tests,
+ common.tests,
+ domain.tests,
+ form.tests,
+ infrastructure.tests,
+ mapper.tests,
+ message.tests,
+ permission.tests,
+ recipe.tests,
+ style.tests,
+ type.tests
 Require-Bundle: org.eclipse.core.runtime,
  org.tura.metamodel;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,

@@ -4,22 +4,22 @@ import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
 
-import tura.application.Application;
-import tura.application.ApplicationGroup;
-import tura.artifact.ArtifactGroup;
-import tura.domain.DomainApplication;
-import tura.domain.DomainApplications;
-import tura.domain.DomainArtifact;
-import tura.domain.DomainArtifacts;
-import tura.domain.DomainTypes;
-import tura.domain.DomainTypesRepository;
-import tura.message.Language;
-import tura.message.Message;
-import tura.message.MessageLibrary;
-import tura.message.Translation;
-import tura.type.TypeGroup;
-import tura.application.ApplicationLanguages;
-import tura.application.ApplicationMessageLibrary;
+import application.Application;
+import application.ApplicationGroup;
+import artifact.ArtifactGroup;
+import domain.DomainApplication;
+import domain.DomainApplications;
+import domain.DomainArtifact;
+import domain.DomainArtifacts;
+import domain.DomainTypes;
+import domain.DomainTypesRepository;
+import message.Language;
+import message.Message;
+import message.MessageLibrary;
+import message.Translation;
+import type.TypeGroup;
+import application.ApplicationLanguages;
+import application.ApplicationMessageLibrary;
 
 public class DiagramService {
 

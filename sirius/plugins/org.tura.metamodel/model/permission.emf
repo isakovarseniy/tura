@@ -1,46 +1,40 @@
-@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
-package tura;
-
-
 @namespace(uri="http://tura.org/2016/v2/permission", prefix="tura.permission")
-package permission{
+package permission;
 	
+class Roles{
+    id attr EString uid;
+    val Role[*] roles;
+    val Group[*] groups;
+}
 
-	class Roles{
-	    id attr EString uid;
-	    val Role[*] roles;
-	    val Group[*] groups;
-	}
-
-    class SecurityEntity{
-    	
-    }
-
-	class Role extends SecurityEntity{
-	    id attr EString uid;
-	    attr EString name;
-	}
-
-	class Group extends SecurityEntity{
-	    id attr EString uid;
-	    attr EString name;
-	   ref Group[*] group2Group;
-	   ref Role[*] group2Role;
-	}
-
-
-	class Secured{
-		val GrantAccess[*] grants;
-	}	
-	
-	class GrantAccess {
-	    id attr EString uid;
-		ref Role roleRef;
-	}
-	
-	class SecurityEntityPointer{
-		ref SecurityEntity securityEntity;
-	}
+class SecurityEntity{
 	
 }
+
+class Role extends SecurityEntity{
+    id attr EString uid;
+    attr EString name;
+}
+
+class Group extends SecurityEntity{
+    id attr EString uid;
+    attr EString name;
+   ref Group[*] group2Group;
+   ref Role[*] group2Role;
+}
+
+
+class Secured{
+	val GrantAccess[*] grants;
+}	
+
+class GrantAccess {
+    id attr EString uid;
+	ref Role roleRef;
+}
+
+class SecurityEntityPointer{
+	ref SecurityEntity securityEntity;
+}
+
 

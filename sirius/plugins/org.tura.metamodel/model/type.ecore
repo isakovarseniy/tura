@@ -1,102 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tura" nsURI="http://tura.org/2016/v2/tura" nsPrefix="tura">
-  <eSubpackages name="type" nsURI="http://tura.org/2016/v2/type" nsPrefix="tura.type">
-    <eClassifiers xsi:type="ecore:EClass" name="TypeGroup">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-          eType="#//type/TypeElement" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relationships" upperBound="-1"
-          eType="#//type/Relationship" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TypeElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="common.ecore#//common/Categorized">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//type/TypeElement"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//type/TypeElement"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="References" eSuperTypes="#//type/Relationship"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Generalization" eSuperTypes="#//type/Relationship"/>
-    <eClassifiers xsi:type="ecore:EEnum" name="RelationType">
-      <eLiterals name="One2One"/>
-      <eLiterals name="One2Many" value="1"/>
-      <eLiterals name="Many2Many" value="2"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TypePointer">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="#//type/TypeElement"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PackagePointer">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="packageRef" eType="#//type/TypeGroup"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Assosiation" eSuperTypes="#//type/Relationship">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//type/RelationType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
-          eType="#//type/Link" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceOperation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetOperation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="many2manyHelper" eType="#//type/TypePointer"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Link">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="masterField" eType="#//type/Attribute"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="detailField" eType="#//type/Attribute"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//type/TypePointer common.ecore#//common/Categorized">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pk" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="permission.ecore#//permission/Secured common.ecore#//common/Categorized">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//type/Type"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-          eType="#//type/Parameter" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//type/ReturnValue"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Primitive" eSuperTypes="#//type/TypeElement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//type/TypeElement common.ecore#//common/Categorized">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-          eType="#//type/Attribute" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
-          eType="#//type/Operation" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TypeReference" eSuperTypes="#//type/TypeElement #//type/TypePointer"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//type/TypePointer">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" eSuperTypes="#//type/TypePointer">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Enumarator" eSuperTypes="#//type/TypeElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-          eType="#//type/EnumAttribute" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EnumAttribute" eSuperTypes="common.ecore#//common/Categorized">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//type/Enumarator"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MethodPointer" eSuperTypes="#//type/TypePointer">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="methodRef" eType="#//type/Operation"/>
-    </eClassifiers>
-  </eSubpackages>
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="type" nsURI="http://tura.org/2016/v2/type" nsPrefix="tura.type">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+        eType="#//TypeElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationships" upperBound="-1"
+        eType="#//Relationship" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="common.ecore#//Categorized">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//TypeElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TypeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="References" eSuperTypes="#//Relationship"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Generalization" eSuperTypes="#//Relationship"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="RelationType">
+    <eLiterals name="One2One"/>
+    <eLiterals name="One2Many" value="1"/>
+    <eLiterals name="Many2Many" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypePointer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="#//TypeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackagePointer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packageRef" eType="#//TypeGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assosiation" eSuperTypes="#//Relationship">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RelationType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="#//Link" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceOperation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetOperation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="many2manyHelper" eType="#//TypePointer"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterField" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="detailField" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//TypePointer common.ecore#//Categorized">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pk" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="permission.ecore#//Secured common.ecore#//Categorized">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//ReturnValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Primitive" eSuperTypes="#//TypeElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//TypeElement common.ecore#//Categorized">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+        eType="#//Operation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeReference" eSuperTypes="#//TypeElement #//TypePointer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//TypePointer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" eSuperTypes="#//TypePointer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enumarator" eSuperTypes="#//TypeElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//EnumAttribute" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumAttribute" eSuperTypes="common.ecore#//Categorized">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Enumarator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodPointer" eSuperTypes="#//TypePointer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodRef" eType="#//Operation"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -10,7 +10,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/domain"
-            class="tura.domain.provider.DomainItemProviderAdapterFactory"
+            class="domain.provider.DomainItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -23,7 +23,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/artifact"
-            class="tura.artifact.provider.ArtifactItemProviderAdapterFactory"
+            class="artifact.provider.ArtifactItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -36,7 +36,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/type"
-            class="tura.type.provider.TypeItemProviderAdapterFactory"
+            class="type.provider.TypeItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -49,7 +49,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/application"
-            class="tura.application.provider.ApplicationItemProviderAdapterFactory"
+            class="application.provider.ApplicationItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -62,7 +62,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/common"
-            class="tura.common.provider.CommonItemProviderAdapterFactory"
+            class="common.provider.CommonItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -75,7 +75,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/permission"
-            class="tura.permission.provider.PermissionItemProviderAdapterFactory"
+            class="permission.provider.PermissionItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -88,7 +88,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/infrastructure"
-            class="tura.infrastructure.provider.InfrastructureItemProviderAdapterFactory"
+            class="infrastructure.provider.InfrastructureItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -101,7 +101,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/message"
-            class="tura.message.provider.MessageItemProviderAdapterFactory"
+            class="message.provider.MessageItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -114,7 +114,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/style"
-            class="tura.style.provider.StyleItemProviderAdapterFactory"
+            class="style.provider.StyleItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -127,7 +127,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/form"
-            class="tura.form.provider.FormItemProviderAdapterFactory"
+            class="form.provider.FormItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -140,7 +140,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/recipe"
-            class="tura.recipe.provider.RecipeItemProviderAdapterFactory"
+            class="recipe.provider.RecipeItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -153,7 +153,7 @@
       <!-- @generated domain -->
       <factory
             uri="http://tura.org/2016/v2/mapper"
-            class="tura.mapper.provider.MapperItemProviderAdapterFactory"
+            class="mapper.provider.MapperItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

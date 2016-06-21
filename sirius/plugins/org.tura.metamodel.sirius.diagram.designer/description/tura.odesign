@@ -4,20 +4,20 @@
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Message Library" domainClass="message.MessageLibrary">
       <ownedLineMappings name="Key" domainClass="message.Message" semanticCandidatesExpression="feature:messages">
         <defaultForeground>
-          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
         <defaultBackground>
-          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultBackground>
         <ownedSubLines name="Language" domainClass="message.Translation" semanticCandidatesExpression="feature:translatioins">
           <defaultForeground>
-            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </defaultForeground>
           <defaultBackground>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultBackground>
         </ownedSubLines>
-        <create name="Create translation">
+        <create name="Create translation" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Message%20Library']/@ownedLineMappings[name='Key']/@ownedSubLines[name='Language']">
           <variables name="root" documentation="The semantic element of the table."/>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="container" documentation="The semantic element corresponding to the view container."/>
@@ -29,7 +29,7 @@
           </firstModelOperation>
         </create>
       </ownedLineMappings>
-      <ownedCreateLine name="Create Key">
+      <ownedCreateLine name="Create Key" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Message%20Library']/@ownedLineMappings[name='Key']">
         <variables name="root" documentation="The semantic element of the table."/>
         <variables name="element" documentation="The currently edited element."/>
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
@@ -42,28 +42,28 @@
       </ownedCreateLine>
       <ownedColumnMappings name="Translatioin" featureName="translation">
         <defaultForeground>
-          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
         <defaultBackground>
-          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultBackground>
       </ownedColumnMappings>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:TreeDescription" name="Domain tree" domainClass="domain.Domain">
       <subItemMappings name="Domain artifacts" domainClass="domain.DomainArtifacts" semanticCandidatesExpression="feature:domainArtifacts">
         <defaultStyle labelSize="12" labelExpression="Domain Artifacts">
-          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultStyle>
         <subItemMappings name="Domain artifact" domainClass="domain.DomainArtifact" semanticCandidatesExpression="feature:domainArtifact">
           <defaultStyle labelSize="12">
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
           <subItemMappings name="Artifact groups" domainClass="artifact.ArtifactGroup" semanticCandidatesExpression="feature:artifactPackages">
             <defaultStyle labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
           </subItemMappings>
           <create name="Create Artifact package" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20artifacts']/@subItemMappings[name='Domain%20artifact']">
@@ -92,80 +92,80 @@
       </subItemMappings>
       <subItemMappings name="Domain applications" domainClass="domain.DomainApplications" semanticCandidatesExpression="feature:domainApplications">
         <defaultStyle labelSize="12" labelExpression="Domain applications">
-          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultStyle>
         <subItemMappings name="Domain application" domainClass="domain.DomainApplication" semanticCandidatesExpression="feature:applications">
           <defaultStyle labelSize="12">
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
           <subItemMappings name="Application groups" domainClass="application.ApplicationGroup" semanticCandidatesExpression="feature:applicationPackages">
             <defaultStyle labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
             <subItemMappings name="Application" domainClass="application.Application" semanticCandidatesExpression="feature:applications">
               <defaultStyle labelSize="12">
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </defaultStyle>
               <subItemMappings name="ApplicationRecipes" domainClass="application.ApplicationRecipes" semanticCandidatesExpression="feature:applicationRecipes">
                 <defaultStyle labelSize="12" labelExpression="Application recipes">
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </defaultStyle>
                 <subItemMappings name="Application Recipe" domainClass="application.ApplicationRecipe" semanticCandidatesExpression="feature:recipes">
                   <defaultStyle labelSize="12">
-                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                   </defaultStyle>
                 </subItemMappings>
               </subItemMappings>
               <subItemMappings name="Application mappers" domainClass="application.ApplicationMappers" semanticCandidatesExpression="feature:applicationMappers">
                 <defaultStyle labelSize="12" labelExpression="Application mappers">
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </defaultStyle>
               </subItemMappings>
               <subItemMappings name="Application ui layer" domainClass="application.ApplicationUILayer" semanticCandidatesExpression="feature:applicationUILayer">
                 <defaultStyle labelSize="12" labelExpression="Application ui layer">
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </defaultStyle>
               </subItemMappings>
               <subItemMappings name="Application infrastructure" domainClass="application.ApplicationInfrastructureLayers" semanticCandidatesExpression="feature:applicationInfrastructureLayer">
                 <defaultStyle labelSize="12" labelExpression="Application infrastructure">
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </defaultStyle>
               </subItemMappings>
               <subItemMappings name="Application styles" domainClass="application.ApplicationStyleLibraries" semanticCandidatesExpression="feature:applicationStyle">
                 <defaultStyle labelSize="12" labelExpression="Application styles">
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </defaultStyle>
               </subItemMappings>
               <subItemMappings name="Application security" domainClass="application.ApplicationRealms" semanticCandidatesExpression="feature:applicationRole">
                 <defaultStyle labelSize="12" labelExpression="Application security">
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </defaultStyle>
               </subItemMappings>
               <subItemMappings name="Application messages" domainClass="application.ApplicationMessageLibraries" semanticCandidatesExpression="feature:applicationMessages">
                 <defaultStyle labelSize="12" labelExpression="Application messages">
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </defaultStyle>
                 <subItemMappings name="Message libraries" domainClass="application.ApplicationMessageLibrary" semanticCandidatesExpression="feature:messageLibraries">
                   <defaultStyle labelSize="12" labelExpression="Message libraries">
-                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                   </defaultStyle>
                   <subItemMappings name="Message library" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@ownedRepresentationCreationDescriptions[name='Create%20Message%20Library']" domainClass="message.MessageLibrary" semanticCandidatesExpression="feature:libraries">
                     <defaultStyle labelSize="12">
-                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                     </defaultStyle>
                   </subItemMappings>
                   <create name="Create Message librariy" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20messages']/@subItemMappings[name='Message%20libraries']">
@@ -182,13 +182,13 @@
                 </subItemMappings>
                 <subItemMappings name="Application languages" domainClass="application.ApplicationLanguages" semanticCandidatesExpression="feature:applicationLanguages">
                   <defaultStyle labelSize="12" labelExpression="Application languages">
-                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                   </defaultStyle>
                   <subItemMappings name="Language" domainClass="message.Language" semanticCandidatesExpression="feature:languages">
                     <defaultStyle labelSize="12" labelExpression="feature:lang">
-                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                     </defaultStyle>
                   </subItemMappings>
                   <create name="Create Language" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20messages']/@subItemMappings[name='Application%20languages']">
@@ -279,18 +279,18 @@
       </subItemMappings>
       <subItemMappings name="Domain types" domainClass="domain.DomainTypes" semanticCandidatesExpression="feature:domainTypes">
         <defaultStyle labelSize="12" labelExpression="Domain types">
-          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultStyle>
         <subItemMappings name="Domain type's repository" domainClass="domain.DomainTypesRepository" semanticCandidatesExpression="feature:typesRepository">
           <defaultStyle labelSize="12">
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
           <subItemMappings name="Type group" domainClass="type.TypeGroup" semanticCandidatesExpression="feature:repositoryPackages">
             <defaultStyle labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
           </subItemMappings>
           <create name="Create Type package" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20types']/@subItemMappings[name='Domain%20type%27s%20repository']">

@@ -24,9 +24,9 @@ import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeContaine
 import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartmentEditPart;
 
-import tura.form.FormPackage;
-import tura.form.HTMLLayerHolder;
-import tura.form.Orderable;
+import form.FormPackage;
+import form.HTMLLayerHolder;
+import form.Orderable;
 
 
 public class TuraContainerViewNodeContainerCompartmentEditPart

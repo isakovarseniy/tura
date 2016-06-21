@@ -1,65 +1,61 @@
-@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
-package tura;
-
 @namespace(uri="http://tura.org/2016/v2/infrastructure", prefix="tura.infrastructure")
-package infrastructure{
+package infrastructure;
 
-	class EnterpriseInfrastructure{
-	    id attr EString uid;
-	    val Datacenter[*] datacenters;
-	    val InfrastructureConnection[*] infrastructureConnections;
-	}
-	
-	
-	class Datacenter {
-	    id attr EString uid;
-	    val Subsystem[*] subsystems;
-	   attr EString name;
-	}
-	
-	class Subsystem{
-	    id attr EString uid;
-	    attr EString name;
-	    val InfrastructureLayer[*] infrastructureLayer;
-	}
-	
-	class InfrastructureLayer {
-	     id attr EString uid;
-	     attr EString name;
-	     val InfrastructureComponent[*]  infrastructureComponent;
-	}
-	
-	
-	class InfrastructureConnection{
-	    id attr EString uid;
-	   ref InfrastructureComponent master;
-	   ref InfrastructureComponent detail;
-	}
-	
-	
-	class InfrastructureComponent{
-	     id attr EString uid;
-	     attr EString name;
-	}
-	
-	class Server extends InfrastructureComponent{
-	   
-	   
-	}
-	
-	class Router extends InfrastructureComponent{
-	   
-	}
-	
-	class Hub extends InfrastructureComponent{
-	   
-	}
-	
-	class Storage extends InfrastructureComponent{
-	   
-	}
-	
-	class ServerClaster extends InfrastructureComponent{
-	  val Server[*] servers;
-	}
+class EnterpriseInfrastructure{
+    id attr EString uid;
+    val Datacenter[*] datacenters;
+    val InfrastructureConnection[*] infrastructureConnections;
+}
+
+
+class Datacenter {
+    id attr EString uid;
+    val Subsystem[*] subsystems;
+   attr EString name;
+}
+
+class Subsystem{
+    id attr EString uid;
+    attr EString name;
+    val InfrastructureLayer[*] infrastructureLayer;
+}
+
+class InfrastructureLayer {
+     id attr EString uid;
+     attr EString name;
+     val InfrastructureComponent[*]  infrastructureComponent;
+}
+
+
+class InfrastructureConnection{
+    id attr EString uid;
+   ref InfrastructureComponent master;
+   ref InfrastructureComponent detail;
+}
+
+
+class InfrastructureComponent{
+     id attr EString uid;
+     attr EString name;
+}
+
+class Server extends InfrastructureComponent{
+   
+   
+}
+
+class Router extends InfrastructureComponent{
+   
+}
+
+class Hub extends InfrastructureComponent{
+   
+}
+
+class Storage extends InfrastructureComponent{
+   
+}
+
+class ServerClaster extends InfrastructureComponent{
+  val Server[*] servers;
 }

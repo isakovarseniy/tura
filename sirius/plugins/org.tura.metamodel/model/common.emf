@@ -1,25 +1,22 @@
-@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
-package tura;
-
-	@namespace(uri="http://tura.org/2016/v2/common", prefix="tura.common")
-	package common{
-		
-		
-		class Categorized{
-		    val Classifier[*] classifiers;
-		}
-		
-		class Classifier{
-		    id attr EString uid;
-		    ref GenerationHint hint;
-		    attr EString details;
-		}
+@namespace(uri="http://tura.org/2016/v2/common", prefix="tura.common")
+package common;
 	
-		class GenerationHint{
-		
-		   id attr EString uid;
-		  attr EString name;
-		  attr EString applyedClass; 
-		}
-		
+	
+	class Categorized{
+	    val Classifier[*] classifiers;
 	}
+	
+	class Classifier{
+	    id attr EString uid;
+	    ref GenerationHint hint;
+	    attr EString details;
+	}
+
+	class GenerationHint{
+	
+	   id attr EString uid;
+	  attr EString name;
+	  attr EString applyedClass; 
+	}
+	
+

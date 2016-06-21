@@ -1,82 +1,77 @@
-@namespace(uri="http://tura.org/2016/v2/tura", prefix="tura")
-package tura;
-
-
 @namespace(uri="http://tura.org/2016/v2/artifact", prefix="tura.artifact")
-package artifact{
+package artifact;
 	
-		class ArtifactGroup{
-		    id attr EString uid;
-	        attr EString name;
-		   val Artifact[*] artifacts;
-		
-		}
-		
-		class Artifact{
-		    id attr EString uid;
-		   attr EString name;
-		   attr EString description;
-		   
-		   // Variables resolved by configuration of recipe (for example server IP)  
-		   val   ConfigVariable[*]#parent configVariables;
-		   
-		   val   ConfigHash[*]#parent configHashes;
-		
-		   // Variables to query model ( for example FormName or service name)
-		   val   ModelQuery[*]#parent modelQuery;
-		   
-		   //For navigation in the template (for example choosing specific technologies EclipseLink vs Hibernate)
-		   val   Technology[*]   technologies;
-		
-		   //Hint to help template generate specific code
-		   val   GenerationHint[*] hints;
-		
-		
-		   attr EString template;
-		}
-		
-		class GenerationHint{
-		
-		   id attr EString uid;
-		  attr EString name;
-		  attr EString applyedClass; 
-		}
-		
-		class ConfigVariable{
-		   id attr EString uid;
-		  attr EString name;
-		}
-		
-		class ConfigHash{
-		   id attr EString uid;
-		  attr EString name;
-		   ref Artifact#configHashes parent;
-		}
-		
-		
-		class ModelQuery{
-		    id attr EString uid;
-		   attr EString name;
-		   attr EString query;
-		   val  QueryParameter[*] parameters;  
-		
-		}
-		
-		class QueryParameter{
-		    id attr EString uid;
-		   attr EString name;
-		}
-		
-		class Technology{
-		    id attr EString uid;
-		   attr EString name;
-		   val  Option[1..*] options;  
-		}
-		
-		class Option{
-		    id attr EString uid;
-		   attr EString value;
-		}
+class ArtifactGroup{
+    id attr EString uid;
+    attr EString name;
+   val Artifact[*] artifacts;
 
-	}
+}
+
+class Artifact{
+    id attr EString uid;
+   attr EString name;
+   attr EString description;
+   
+   // Variables resolved by configuration of recipe (for example server IP)  
+   val   ConfigVariable[*]#parent configVariables;
+   
+   val   ConfigHash[*]#parent configHashes;
+
+   // Variables to query model ( for example FormName or service name)
+   val   ModelQuery[*]#parent modelQuery;
+   
+   //For navigation in the template (for example choosing specific technologies EclipseLink vs Hibernate)
+   val   Technology[*]   technologies;
+
+   //Hint to help template generate specific code
+   val   GenerationHint[*] hints;
+
+
+   attr EString template;
+}
+
+class GenerationHint{
+
+   id attr EString uid;
+  attr EString name;
+  attr EString applyedClass; 
+}
+
+class ConfigVariable{
+   id attr EString uid;
+  attr EString name;
+}
+
+class ConfigHash{
+   id attr EString uid;
+  attr EString name;
+   ref Artifact#configHashes parent;
+}
+
+
+class ModelQuery{
+    id attr EString uid;
+   attr EString name;
+   attr EString query;
+   val  QueryParameter[*] parameters;  
+
+}
+
+class QueryParameter{
+    id attr EString uid;
+   attr EString name;
+}
+
+class Technology{
+    id attr EString uid;
+   attr EString name;
+   val  Option[1..*] options;  
+}
+
+class Option{
+    id attr EString uid;
+   attr EString value;
+}
+
 
