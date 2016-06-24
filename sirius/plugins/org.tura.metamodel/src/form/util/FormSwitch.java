@@ -251,7 +251,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTrigger(viewPortTrigger);
 				if (result == null) result = caseMethodPointer(viewPortTrigger);
 				if (result == null) result = caseContextParameters(viewPortTrigger);
-				if (result == null) result = caseTypePointer(viewPortTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -795,7 +794,6 @@ public class FormSwitch<T> extends Switch<T> {
 				T result = caseTrigger(trigger);
 				if (result == null) result = caseMethodPointer(trigger);
 				if (result == null) result = caseContextParameters(trigger);
-				if (result == null) result = caseTypePointer(trigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -805,7 +803,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTrigger(preFormTrigger);
 				if (result == null) result = caseMethodPointer(preFormTrigger);
 				if (result == null) result = caseContextParameters(preFormTrigger);
-				if (result == null) result = caseTypePointer(preFormTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -815,7 +812,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTrigger(preQueryTrigger);
 				if (result == null) result = caseMethodPointer(preQueryTrigger);
 				if (result == null) result = caseContextParameters(preQueryTrigger);
-				if (result == null) result = caseTypePointer(preQueryTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -825,7 +821,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTrigger(postQueryTrigger);
 				if (result == null) result = caseMethodPointer(postQueryTrigger);
 				if (result == null) result = caseContextParameters(postQueryTrigger);
-				if (result == null) result = caseTypePointer(postQueryTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -835,7 +830,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTrigger(preInsertTrigger);
 				if (result == null) result = caseMethodPointer(preInsertTrigger);
 				if (result == null) result = caseContextParameters(preInsertTrigger);
-				if (result == null) result = caseTypePointer(preInsertTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -845,7 +839,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTrigger(preDeleteTrigger);
 				if (result == null) result = caseMethodPointer(preDeleteTrigger);
 				if (result == null) result = caseContextParameters(preDeleteTrigger);
-				if (result == null) result = caseTypePointer(preDeleteTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -855,7 +848,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTrigger(postCreateTrigger);
 				if (result == null) result = caseMethodPointer(postCreateTrigger);
 				if (result == null) result = caseContextParameters(postCreateTrigger);
-				if (result == null) result = caseTypePointer(postCreateTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -865,7 +857,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTrigger(preUpdateTrigger);
 				if (result == null) result = caseMethodPointer(preUpdateTrigger);
 				if (result == null) result = caseContextParameters(preUpdateTrigger);
-				if (result == null) result = caseTypePointer(preUpdateTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -882,7 +873,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseProxiesList(createTrigger);
 				if (result == null) result = caseMethodPointer(createTrigger);
 				if (result == null) result = caseContextParameters(createTrigger);
-				if (result == null) result = caseTypePointer(createTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -893,7 +883,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseProxiesList(insertTrigger);
 				if (result == null) result = caseMethodPointer(insertTrigger);
 				if (result == null) result = caseContextParameters(insertTrigger);
-				if (result == null) result = caseTypePointer(insertTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -904,7 +893,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseProxiesList(updateTrigger);
 				if (result == null) result = caseMethodPointer(updateTrigger);
 				if (result == null) result = caseContextParameters(updateTrigger);
-				if (result == null) result = caseTypePointer(updateTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -915,7 +903,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseProxiesList(deleteTrigger);
 				if (result == null) result = caseMethodPointer(deleteTrigger);
 				if (result == null) result = caseContextParameters(deleteTrigger);
-				if (result == null) result = caseTypePointer(deleteTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -926,7 +913,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseProxiesList(searchTrigger);
 				if (result == null) result = caseMethodPointer(searchTrigger);
 				if (result == null) result = caseContextParameters(searchTrigger);
-				if (result == null) result = caseTypePointer(searchTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

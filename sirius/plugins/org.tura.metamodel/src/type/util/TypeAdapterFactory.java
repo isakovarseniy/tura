@@ -76,6 +76,10 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 				return createTypeGroupAdapter();
 			}
 			@Override
+			public Adapter casePrimitivesGroup(PrimitivesGroup object) {
+				return createPrimitivesGroupAdapter();
+			}
+			@Override
 			public Adapter caseTypeElement(TypeElement object) {
 				return createTypeElementAdapter();
 			}
@@ -186,6 +190,20 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link type.PrimitivesGroup <em>Primitives Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see type.PrimitivesGroup
+	 * @generated
+	 */
+	public Adapter createPrimitivesGroupAdapter() {
 		return null;
 	}
 

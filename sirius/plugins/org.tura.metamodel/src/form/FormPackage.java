@@ -1395,15 +1395,6 @@ public interface FormPackage extends EPackage {
 	int TRIGGER = 72;
 
 	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIGGER__TYPE_REF = TypePackage.METHOD_POINTER__TYPE_REF;
-
-	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1439,15 +1430,6 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	int VIEW_PORT_TRIGGER = 20;
-
-	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_PORT_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6361,15 +6343,6 @@ public interface FormPackage extends EPackage {
 	int PRE_FORM_TRIGGER = 73;
 
 	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRE_FORM_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6414,15 +6387,6 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	int PRE_QUERY_TRIGGER = 74;
-
-	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRE_QUERY_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6471,15 +6435,6 @@ public interface FormPackage extends EPackage {
 	int POST_QUERY_TRIGGER = 75;
 
 	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POST_QUERY_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6524,15 +6479,6 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	int PRE_INSERT_TRIGGER = 76;
-
-	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRE_INSERT_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6581,15 +6527,6 @@ public interface FormPackage extends EPackage {
 	int PRE_DELETE_TRIGGER = 77;
 
 	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRE_DELETE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6636,15 +6573,6 @@ public interface FormPackage extends EPackage {
 	int POST_CREATE_TRIGGER = 78;
 
 	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POST_CREATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6689,15 +6617,6 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	int PRE_UPDATE_TRIGGER = 79;
-
-	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRE_UPDATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6774,15 +6693,6 @@ public interface FormPackage extends EPackage {
 	int CREATE_TRIGGER = 81;
 
 	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CREATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6836,15 +6746,6 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	int INSERT_TRIGGER = 82;
-
-	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSERT_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6902,15 +6803,6 @@ public interface FormPackage extends EPackage {
 	int UPDATE_TRIGGER = 83;
 
 	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UPDATE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6966,15 +6858,6 @@ public interface FormPackage extends EPackage {
 	int DELETE_TRIGGER = 84;
 
 	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELETE_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
-
-	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7028,15 +6911,6 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	int SEARCH_TRIGGER = 85;
-
-	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEARCH_TRIGGER__TYPE_REF = TRIGGER__TYPE_REF;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.

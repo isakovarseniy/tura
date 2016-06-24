@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tura.domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tura.domain="http://tura.org/2016/v2/domain">
+<tura.domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tura.domain="http://tura.org/2016/v2/domain" xmlns:tura.type="http://tura.org/2016/v2/type">
   <domainArtifacts>
     <domainArtifact uid="8c6e20f4-46c7-4fd1-b50c-3ad6922cb6e8" name="Domain Artifact1">
       <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Artifact package1"/>
     </domainArtifact>
   </domainArtifacts>
-  <domainTypes>
+  <domainTypes uid="b822d574-687e-4cb3-a6e5-bc4f4fedc3ee" name="Primitives">
     <typesRepository uid="d94d5825-1d58-44cd-87db-8a56b4554da2" name="Domain Repository1">
-      <repositoryPackages uid="3d4e4d41-f88c-42f4-9c45-fed193491810" name="Type package1"/>
+      <repositoryPackages uid="3d4e4d41-f88c-42f4-9c45-fed193491810" name="Type package1">
+        <types xsi:type="tura.type:Type" uid="" name="wwwwwww">
+          <attributes name="attr1"/>
+          <operations name="opr1"/>
+        </types>
+        <types xsi:type="tura.type:Type" name="hjkhkj">
+          <operations name="qweqwe"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="" name="2131">
+          <operations name="fr"/>
+        </types>
+        <relationships xsi:type="tura.type:Assosiation"/>
+        <relationships xsi:type="tura.type:Assosiation"/>
+        <relationships xsi:type="tura.type:Assosiation" source="//@domainTypes/@typesRepository.0/@repositoryPackages.0/@types.1" type="One2Many" sourceOperation=""/>
+        <relationships xsi:type="tura.type:Assosiation" source="//@domainTypes/@typesRepository.0/@repositoryPackages.0/@types.1" target=""/>
+        <relationships xsi:type="tura.type:Assosiation" source="" target="//@domainTypes/@typesRepository.0/@repositoryPackages.0/@types.1"/>
+      </repositoryPackages>
     </typesRepository>
+    <primitives>
+      <primitives uid="7ea9309e-d499-4adf-b14f-85d6392ca38c" name="String"/>
+    </primitives>
   </domainTypes>
   <domainApplications>
     <applications uid="dd9a03ec-7974-4324-b247-0405080b3944" name="Domain Application1">
@@ -22,11 +41,21 @@
           <applicationRole uid="19048840-af48-4798-a6a7-b171f7d1a9ed" name="Security"/>
           <applicationMessages uid="839f02b9-22c9-4c47-abd9-495a167fc15d" name="Application message libraries">
             <messageLibraries uid="42709504-6bab-4ef1-8090-e2f7498c506a" name="Message libraries">
-              <libraries uid="00cc660b-4e02-4ae6-8cb0-8f7342417334" name="Library 1"/>
+              <libraries uid="00cc660b-4e02-4ae6-8cb0-8f7342417334" name="Library 1">
+                <messages uid="546e2e00-144c-4547-b331-9abd4ee33cf6" name="Key  1">
+                  <translatioins uid="e3aa86c9-2495-4fac-93c3-955bfa6b84a3" translation="Translation  1"/>
+                  <translatioins uid="ff5bfd73-5e40-4942-9409-1381727ab532" translation="Translation  2"/>
+                </messages>
+                <messages uid="cc96e9a7-ea7e-4836-a96f-0b00d767dcc4" name="Key  2"/>
+                <messages uid="c9f9c7fa-32a3-49fc-a55e-303834c3ce3a" name="Key  3"/>
+                <messages uid="7653f174-73fe-488d-a2b3-0add76ad7d2d" name="Key  4"/>
+                <messages uid="72eeeebf-e4c6-4b37-b79f-0613e980956d" name="Key  5"/>
+              </libraries>
             </messageLibraries>
             <applicationLanguages uid="697ce488-936c-4f2c-8093-0117b7137501" name="Languages">
               <languages uid="67dcba92-1d36-4cb2-8f10-54c3038f1d72" lang="English" code="en" defaultLang="true"/>
               <languages uid="23496e18-85c3-4c3f-9a6d-aa2bfed485f5" lang="France" code="fr"/>
+              <languages uid="feb191aa-7a09-4d02-8102-d628390d4fd5" lang="Russian"/>
             </applicationLanguages>
           </applicationMessages>
         </applications>

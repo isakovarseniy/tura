@@ -31,6 +31,15 @@ public interface TypeFactory extends EFactory {
 	TypeGroup createTypeGroup();
 
 	/**
+	 * Returns a new object of class '<em>Primitives Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Primitives Group</em>'.
+	 * @generated
+	 */
+	PrimitivesGroup createPrimitivesGroup();
+
+	/**
 	 * Returns a new object of class '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

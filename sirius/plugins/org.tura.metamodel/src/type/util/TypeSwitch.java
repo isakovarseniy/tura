@@ -76,6 +76,12 @@ public class TypeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case TypePackage.PRIMITIVES_GROUP: {
+				PrimitivesGroup primitivesGroup = (PrimitivesGroup)theEObject;
+				T result = casePrimitivesGroup(primitivesGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case TypePackage.TYPE_ELEMENT: {
 				TypeElement typeElement = (TypeElement)theEObject;
 				T result = caseTypeElement(typeElement);
@@ -201,7 +207,6 @@ public class TypeSwitch<T> extends Switch<T> {
 			case TypePackage.METHOD_POINTER: {
 				MethodPointer methodPointer = (MethodPointer)theEObject;
 				T result = caseMethodPointer(methodPointer);
-				if (result == null) result = caseTypePointer(methodPointer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -221,6 +226,21 @@ public class TypeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypeGroup(TypeGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Primitives Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Primitives Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePrimitivesGroup(PrimitivesGroup object) {
 		return null;
 	}
 

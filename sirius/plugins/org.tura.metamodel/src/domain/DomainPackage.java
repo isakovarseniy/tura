@@ -240,13 +240,22 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_TYPES__TYPES_REPOSITORY = 2;
 
 	/**
+	 * The feature id for the '<em><b>Primitives</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TYPES__PRIMITIVES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Types</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_TYPES_FEATURE_COUNT = 3;
+	int DOMAIN_TYPES_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.DomainTypesRepositoryImpl <em>Types Repository</em>}' class.
@@ -571,6 +580,17 @@ public interface DomainPackage extends EPackage {
 	EReference getDomainTypes_TypesRepository();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link domain.DomainTypes#getPrimitives <em>Primitives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Primitives</em>'.
+	 * @see domain.DomainTypes#getPrimitives()
+	 * @see #getDomainTypes()
+	 * @generated
+	 */
+	EReference getDomainTypes_Primitives();
+
+	/**
 	 * Returns the meta object for class '{@link domain.DomainTypesRepository <em>Types Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -864,6 +884,14 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOMAIN_TYPES__TYPES_REPOSITORY = eINSTANCE.getDomainTypes_TypesRepository();
+
+		/**
+		 * The meta object literal for the '<em><b>Primitives</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN_TYPES__PRIMITIVES = eINSTANCE.getDomainTypes_Primitives();
 
 		/**
 		 * The meta object literal for the '{@link domain.impl.DomainTypesRepositoryImpl <em>Types Repository</em>}' class.

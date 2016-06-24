@@ -65,6 +65,7 @@ import type.Operation;
 import type.PackagePointer;
 import type.Parameter;
 import type.Primitive;
+import type.PrimitivesGroup;
 import type.References;
 import type.RelationType;
 import type.Relationship;
@@ -90,6 +91,13 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * @generated
 	 */
 	private EClass typeGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass primitivesGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -363,6 +371,24 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 */
 	public EReference getTypeGroup_Relationships() {
 		return (EReference)typeGroupEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPrimitivesGroup() {
+		return primitivesGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPrimitivesGroup_Primitives() {
+		return (EReference)primitivesGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -885,6 +911,9 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		createEReference(typeGroupEClass, TYPE_GROUP__TYPES);
 		createEReference(typeGroupEClass, TYPE_GROUP__RELATIONSHIPS);
 
+		primitivesGroupEClass = createEClass(PRIMITIVES_GROUP);
+		createEReference(primitivesGroupEClass, PRIMITIVES_GROUP__PRIMITIVES);
+
 		typeElementEClass = createEClass(TYPE_ELEMENT);
 		createEAttribute(typeElementEClass, TYPE_ELEMENT__UID);
 		createEAttribute(typeElementEClass, TYPE_ELEMENT__NAME);
@@ -1009,7 +1038,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		returnValueEClass.getESuperTypes().add(this.getTypePointer());
 		enumaratorEClass.getESuperTypes().add(this.getTypeElement());
 		enumAttributeEClass.getESuperTypes().add(theCommonPackage.getCategorized());
-		methodPointerEClass.getESuperTypes().add(this.getTypePointer());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(typeGroupEClass, TypeGroup.class, "TypeGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1017,6 +1045,9 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		initEAttribute(getTypeGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, TypeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeGroup_Types(), this.getTypeElement(), null, "types", null, 0, -1, TypeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeGroup_Relationships(), this.getRelationship(), null, "relationships", null, 0, -1, TypeGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(primitivesGroupEClass, PrimitivesGroup.class, "PrimitivesGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPrimitivesGroup_Primitives(), this.getPrimitive(), null, "primitives", null, 0, -1, PrimitivesGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeElementEClass, TypeElement.class, "TypeElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypeElement_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

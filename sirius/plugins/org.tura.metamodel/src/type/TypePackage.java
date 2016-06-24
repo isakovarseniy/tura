@@ -116,6 +116,34 @@ public interface TypePackage extends EPackage {
 	int TYPE_GROUP_FEATURE_COUNT = 4;
 
 	/**
+	 * The meta object id for the '{@link type.impl.PrimitivesGroupImpl <em>Primitives Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see type.impl.PrimitivesGroupImpl
+	 * @see type.impl.TypePackageImpl#getPrimitivesGroup()
+	 * @generated
+	 */
+	int PRIMITIVES_GROUP = 1;
+
+	/**
+	 * The feature id for the '<em><b>Primitives</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVES_GROUP__PRIMITIVES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Primitives Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVES_GROUP_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link type.impl.TypeElementImpl <em>Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,7 +151,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getTypeElement()
 	 * @generated
 	 */
-	int TYPE_ELEMENT = 1;
+	int TYPE_ELEMENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -160,7 +188,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getRelationship()
 	 * @generated
 	 */
-	int RELATIONSHIP = 2;
+	int RELATIONSHIP = 3;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -215,7 +243,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getReferences()
 	 * @generated
 	 */
-	int REFERENCES = 3;
+	int REFERENCES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -270,7 +298,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getGeneralization()
 	 * @generated
 	 */
-	int GENERALIZATION = 4;
+	int GENERALIZATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -325,7 +353,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getTypePointer()
 	 * @generated
 	 */
-	int TYPE_POINTER = 5;
+	int TYPE_POINTER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -353,7 +381,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getPackagePointer()
 	 * @generated
 	 */
-	int PACKAGE_POINTER = 6;
+	int PACKAGE_POINTER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
@@ -381,7 +409,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getAssosiation()
 	 * @generated
 	 */
-	int ASSOSIATION = 7;
+	int ASSOSIATION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -481,7 +509,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getLink()
 	 * @generated
 	 */
-	int LINK = 8;
+	int LINK = 9;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -527,7 +555,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 9;
+	int ATTRIBUTE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -591,7 +619,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 10;
+	int OPERATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Grants</b></em>' containment reference list.
@@ -673,7 +701,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getPrimitive()
 	 * @generated
 	 */
-	int PRIMITIVE = 11;
+	int PRIMITIVE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -710,7 +738,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 12;
+	int TYPE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -774,7 +802,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getTypeReference()
 	 * @generated
 	 */
-	int TYPE_REFERENCE = 13;
+	int TYPE_REFERENCE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -820,7 +848,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 14;
+	int PARAMETER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -875,7 +903,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getReturnValue()
 	 * @generated
 	 */
-	int RETURN_VALUE = 15;
+	int RETURN_VALUE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -912,7 +940,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getEnumarator()
 	 * @generated
 	 */
-	int ENUMARATOR = 16;
+	int ENUMARATOR = 17;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -958,7 +986,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getEnumAttribute()
 	 * @generated
 	 */
-	int ENUM_ATTRIBUTE = 17;
+	int ENUM_ATTRIBUTE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -1022,16 +1050,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getMethodPointer()
 	 * @generated
 	 */
-	int METHOD_POINTER = 18;
-
-	/**
-	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD_POINTER__TYPE_REF = TYPE_POINTER__TYPE_REF;
+	int METHOD_POINTER = 19;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -1040,7 +1059,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_POINTER__METHOD_REF = TYPE_POINTER_FEATURE_COUNT + 0;
+	int METHOD_POINTER__METHOD_REF = 0;
 
 	/**
 	 * The number of structural features of the '<em>Method Pointer</em>' class.
@@ -1049,7 +1068,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_POINTER_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
+	int METHOD_POINTER_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link type.RelationType <em>Relation Type</em>}' enum.
@@ -1059,7 +1078,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getRelationType()
 	 * @generated
 	 */
-	int RELATION_TYPE = 19;
+	int RELATION_TYPE = 20;
 
 
 	/**
@@ -1115,6 +1134,27 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTypeGroup_Relationships();
+
+	/**
+	 * Returns the meta object for class '{@link type.PrimitivesGroup <em>Primitives Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Primitives Group</em>'.
+	 * @see type.PrimitivesGroup
+	 * @generated
+	 */
+	EClass getPrimitivesGroup();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link type.PrimitivesGroup#getPrimitives <em>Primitives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Primitives</em>'.
+	 * @see type.PrimitivesGroup#getPrimitives()
+	 * @see #getPrimitivesGroup()
+	 * @generated
+	 */
+	EReference getPrimitivesGroup_Primitives();
 
 	/**
 	 * Returns the meta object for class '{@link type.TypeElement <em>Element</em>}'.
@@ -1754,6 +1794,24 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TYPE_GROUP__RELATIONSHIPS = eINSTANCE.getTypeGroup_Relationships();
+
+		/**
+		 * The meta object literal for the '{@link type.impl.PrimitivesGroupImpl <em>Primitives Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see type.impl.PrimitivesGroupImpl
+		 * @see type.impl.TypePackageImpl#getPrimitivesGroup()
+		 * @generated
+		 */
+		EClass PRIMITIVES_GROUP = eINSTANCE.getPrimitivesGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Primitives</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRIMITIVES_GROUP__PRIMITIVES = eINSTANCE.getPrimitivesGroup_Primitives();
 
 		/**
 		 * The meta object literal for the '{@link type.impl.TypeElementImpl <em>Element</em>}' class.

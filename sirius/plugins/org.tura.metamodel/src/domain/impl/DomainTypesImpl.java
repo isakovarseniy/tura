@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import type.PrimitivesGroup;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link domain.impl.DomainTypesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DomainTypesImpl#getName <em>Name</em>}</li>
  *   <li>{@link domain.impl.DomainTypesImpl#getTypesRepository <em>Types Repository</em>}</li>
+ *   <li>{@link domain.impl.DomainTypesImpl#getPrimitives <em>Primitives</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +89,16 @@ public class DomainTypesImpl extends EObjectImpl implements DomainTypes {
 	 * @ordered
 	 */
 	protected EList<DomainTypesRepository> typesRepository;
+
+	/**
+	 * The cached value of the '{@link #getPrimitives() <em>Primitives</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrimitives()
+	 * @generated
+	 * @ordered
+	 */
+	protected PrimitivesGroup primitives;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,11 +178,56 @@ public class DomainTypesImpl extends EObjectImpl implements DomainTypes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PrimitivesGroup getPrimitives() {
+		return primitives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrimitives(PrimitivesGroup newPrimitives, NotificationChain msgs) {
+		PrimitivesGroup oldPrimitives = primitives;
+		primitives = newPrimitives;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_TYPES__PRIMITIVES, oldPrimitives, newPrimitives);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrimitives(PrimitivesGroup newPrimitives) {
+		if (newPrimitives != primitives) {
+			NotificationChain msgs = null;
+			if (primitives != null)
+				msgs = ((InternalEObject)primitives).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN_TYPES__PRIMITIVES, null, msgs);
+			if (newPrimitives != null)
+				msgs = ((InternalEObject)newPrimitives).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN_TYPES__PRIMITIVES, null, msgs);
+			msgs = basicSetPrimitives(newPrimitives, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_TYPES__PRIMITIVES, newPrimitives, newPrimitives));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DomainPackage.DOMAIN_TYPES__TYPES_REPOSITORY:
 				return ((InternalEList<?>)getTypesRepository()).basicRemove(otherEnd, msgs);
+			case DomainPackage.DOMAIN_TYPES__PRIMITIVES:
+				return basicSetPrimitives(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -189,6 +246,8 @@ public class DomainTypesImpl extends EObjectImpl implements DomainTypes {
 				return getName();
 			case DomainPackage.DOMAIN_TYPES__TYPES_REPOSITORY:
 				return getTypesRepository();
+			case DomainPackage.DOMAIN_TYPES__PRIMITIVES:
+				return getPrimitives();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -212,6 +271,9 @@ public class DomainTypesImpl extends EObjectImpl implements DomainTypes {
 				getTypesRepository().clear();
 				getTypesRepository().addAll((Collection<? extends DomainTypesRepository>)newValue);
 				return;
+			case DomainPackage.DOMAIN_TYPES__PRIMITIVES:
+				setPrimitives((PrimitivesGroup)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -233,6 +295,9 @@ public class DomainTypesImpl extends EObjectImpl implements DomainTypes {
 			case DomainPackage.DOMAIN_TYPES__TYPES_REPOSITORY:
 				getTypesRepository().clear();
 				return;
+			case DomainPackage.DOMAIN_TYPES__PRIMITIVES:
+				setPrimitives((PrimitivesGroup)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,6 +316,8 @@ public class DomainTypesImpl extends EObjectImpl implements DomainTypes {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DomainPackage.DOMAIN_TYPES__TYPES_REPOSITORY:
 				return typesRepository != null && !typesRepository.isEmpty();
+			case DomainPackage.DOMAIN_TYPES__PRIMITIVES:
+				return primitives != null;
 		}
 		return super.eIsSet(featureID);
 	}

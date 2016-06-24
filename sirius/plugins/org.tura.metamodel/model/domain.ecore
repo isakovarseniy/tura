@@ -35,6 +35,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typesRepository" upperBound="-1"
         eType="#//DomainTypesRepository" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primitives" eType="ecore:EClass type.ecore#//PrimitivesGroup"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainTypesRepository">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

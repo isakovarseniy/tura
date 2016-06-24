@@ -6,24 +6,24 @@ import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
-import type.MethodPointer;
+import type.PrimitivesGroup;
 import type.TypeFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Method Pointer</b></em>'.
+ * A test case for the model object '<em><b>Primitives Group</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class MethodPointerTest extends TestCase {
+public class PrimitivesGroupTest extends TestCase {
 
 	/**
-	 * The fixture for this Method Pointer test case.
+	 * The fixture for this Primitives Group test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MethodPointer fixture = null;
+	protected PrimitivesGroup fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class MethodPointerTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(MethodPointerTest.class);
+		TestRunner.run(PrimitivesGroupTest.class);
 	}
 
 	/**
-	 * Constructs a new Method Pointer test case with the given name.
+	 * Constructs a new Primitives Group test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MethodPointerTest(String name) {
+	public PrimitivesGroupTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Method Pointer test case.
+	 * Sets the fixture for this Primitives Group test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(MethodPointer fixture) {
+	protected void setFixture(PrimitivesGroup fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Method Pointer test case.
+	 * Returns the fixture for this Primitives Group test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MethodPointer getFixture() {
+	protected PrimitivesGroup getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class MethodPointerTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(TypeFactory.eINSTANCE.createMethodPointer());
+		setFixture(TypeFactory.eINSTANCE.createPrimitivesGroup());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class MethodPointerTest extends TestCase {
 		setFixture(null);
 	}
 
-} //MethodPointerTest
+} //PrimitivesGroupTest

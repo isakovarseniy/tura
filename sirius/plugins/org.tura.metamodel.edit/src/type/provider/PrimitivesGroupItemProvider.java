@@ -1,11 +1,9 @@
 /**
  */
-package domain.provider;
+package type.provider;
 
 
-import domain.DomainFactory;
-import domain.DomainPackage;
-import domain.DomainTypes;
+import domain.provider.DomainEditPlugin;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,25 +15,26 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import type.PrimitivesGroup;
 import type.TypeFactory;
+import type.TypePackage;
 
 /**
- * This is the item provider adapter for a {@link domain.DomainTypes} object.
+ * This is the item provider adapter for a {@link type.PrimitivesGroup} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DomainTypesItemProvider 
+public class PrimitivesGroupItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -49,7 +48,7 @@ public class DomainTypesItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DomainTypesItemProvider(AdapterFactory adapterFactory) {
+	public PrimitivesGroupItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,54 +63,8 @@ public class DomainTypesItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addUidPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Uid feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUidPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DomainTypes_uid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DomainTypes_uid_feature", "_UI_DomainTypes_type"),
-				 DomainPackage.Literals.DOMAIN_TYPES__UID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DomainTypes_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DomainTypes_name_feature", "_UI_DomainTypes_type"),
-				 DomainPackage.Literals.DOMAIN_TYPES__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -126,8 +79,7 @@ public class DomainTypesItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DomainPackage.Literals.DOMAIN_TYPES__TYPES_REPOSITORY);
-			childrenFeatures.add(DomainPackage.Literals.DOMAIN_TYPES__PRIMITIVES);
+			childrenFeatures.add(TypePackage.Literals.PRIMITIVES_GROUP__PRIMITIVES);
 		}
 		return childrenFeatures;
 	}
@@ -146,14 +98,14 @@ public class DomainTypesItemProvider
 	}
 
 	/**
-	 * This returns DomainTypes.gif.
+	 * This returns PrimitivesGroup.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DomainTypes"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimitivesGroup"));
 	}
 
 	/**
@@ -164,10 +116,7 @@ public class DomainTypesItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DomainTypes)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DomainTypes_type") :
-			getString("_UI_DomainTypes_type") + " " + label;
+		return getString("_UI_PrimitivesGroup_type");
 	}
 	
 
@@ -182,13 +131,8 @@ public class DomainTypesItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DomainTypes.class)) {
-			case DomainPackage.DOMAIN_TYPES__UID:
-			case DomainPackage.DOMAIN_TYPES__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case DomainPackage.DOMAIN_TYPES__TYPES_REPOSITORY:
-			case DomainPackage.DOMAIN_TYPES__PRIMITIVES:
+		switch (notification.getFeatureID(PrimitivesGroup.class)) {
+			case TypePackage.PRIMITIVES_GROUP__PRIMITIVES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -208,13 +152,8 @@ public class DomainTypesItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DomainPackage.Literals.DOMAIN_TYPES__TYPES_REPOSITORY,
-				 DomainFactory.eINSTANCE.createDomainTypesRepository()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DomainPackage.Literals.DOMAIN_TYPES__PRIMITIVES,
-				 TypeFactory.eINSTANCE.createPrimitivesGroup()));
+				(TypePackage.Literals.PRIMITIVES_GROUP__PRIMITIVES,
+				 TypeFactory.eINSTANCE.createPrimitive()));
 	}
 
 	/**

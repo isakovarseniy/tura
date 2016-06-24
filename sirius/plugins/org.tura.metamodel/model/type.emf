@@ -12,6 +12,11 @@ class TypeGroup{
    val Relationship[*] relationships;
 }
 
+
+class PrimitivesGroup{
+	val Primitive[*] primitives;
+}
+
 class TypeElement{
     id attr EString uid;
    attr EString name; 
@@ -40,12 +45,11 @@ class TypePointer{
   ref TypeElement typeRef;
 	}
 
-   class PackagePointer{
-    ref TypeGroup packageRef;
-   }
+class PackagePointer{
+   ref TypeGroup packageRef;
+}
 
-
-	class Assosiation extends Relationship{
+class Assosiation extends Relationship{
    attr RelationType type;
    val Link[*]  links; 
    attr EString sourceOperation;
@@ -108,6 +112,6 @@ class EnumAttribute extends  common.Categorized{
    attr EString  value;
 }
 
-class MethodPointer extends TypePointer{
+class MethodPointer {
     ref Operation methodRef;
 }	

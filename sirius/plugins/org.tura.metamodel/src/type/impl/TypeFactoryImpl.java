@@ -58,6 +58,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case TypePackage.TYPE_GROUP: return createTypeGroup();
+			case TypePackage.PRIMITIVES_GROUP: return createPrimitivesGroup();
 			case TypePackage.TYPE_ELEMENT: return createTypeElement();
 			case TypePackage.RELATIONSHIP: return createRelationship();
 			case TypePackage.REFERENCES: return createReferences();
@@ -119,6 +120,16 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	public TypeGroup createTypeGroup() {
 		TypeGroupImpl typeGroup = new TypeGroupImpl();
 		return typeGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PrimitivesGroup createPrimitivesGroup() {
+		PrimitivesGroupImpl primitivesGroup = new PrimitivesGroupImpl();
+		return primitivesGroup;
 	}
 
 	/**

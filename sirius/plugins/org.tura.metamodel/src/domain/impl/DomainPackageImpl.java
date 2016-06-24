@@ -373,6 +373,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDomainTypes_Primitives() {
+		return (EReference)domainTypesEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDomainTypesRepository() {
 		return domainTypesRepositoryEClass;
 	}
@@ -524,6 +533,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(domainTypesEClass, DOMAIN_TYPES__UID);
 		createEAttribute(domainTypesEClass, DOMAIN_TYPES__NAME);
 		createEReference(domainTypesEClass, DOMAIN_TYPES__TYPES_REPOSITORY);
+		createEReference(domainTypesEClass, DOMAIN_TYPES__PRIMITIVES);
 
 		domainTypesRepositoryEClass = createEClass(DOMAIN_TYPES_REPOSITORY);
 		createEAttribute(domainTypesRepositoryEClass, DOMAIN_TYPES_REPOSITORY__UID);
@@ -596,6 +606,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getDomainTypes_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDomainTypes_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomainTypes_TypesRepository(), this.getDomainTypesRepository(), null, "typesRepository", null, 0, -1, DomainTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainTypes_Primitives(), theTypePackage.getPrimitivesGroup(), null, "primitives", null, 0, 1, DomainTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(domainTypesRepositoryEClass, DomainTypesRepository.class, "DomainTypesRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDomainTypesRepository_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainTypesRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

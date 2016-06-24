@@ -5,6 +5,7 @@ package domain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+import type.PrimitivesGroup;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.DomainTypes#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.DomainTypes#getName <em>Name</em>}</li>
  *   <li>{@link domain.DomainTypes#getTypesRepository <em>Types Repository</em>}</li>
+ *   <li>{@link domain.DomainTypes#getPrimitives <em>Primitives</em>}</li>
  * </ul>
  *
  * @see domain.DomainPackage#getDomainTypes()
@@ -92,5 +94,31 @@ public interface DomainTypes extends EObject {
 	 * @generated
 	 */
 	EList<DomainTypesRepository> getTypesRepository();
+
+	/**
+	 * Returns the value of the '<em><b>Primitives</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Primitives</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Primitives</em>' containment reference.
+	 * @see #setPrimitives(PrimitivesGroup)
+	 * @see domain.DomainPackage#getDomainTypes_Primitives()
+	 * @model containment="true"
+	 * @generated
+	 */
+	PrimitivesGroup getPrimitives();
+
+	/**
+	 * Sets the value of the '{@link domain.DomainTypes#getPrimitives <em>Primitives</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Primitives</em>' containment reference.
+	 * @see #getPrimitives()
+	 * @generated
+	 */
+	void setPrimitives(PrimitivesGroup value);
 
 } // DomainTypes

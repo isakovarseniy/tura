@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import type.MethodPointer;
 import type.Operation;
 import type.TypePackage;
@@ -26,7 +27,7 @@ import type.TypePackage;
  *
  * @generated
  */
-public class MethodPointerImpl extends TypePointerImpl implements MethodPointer {
+public class MethodPointerImpl extends EObjectImpl implements MethodPointer {
 	/**
 	 * The cached value of the '{@link #getMethodRef() <em>Method Ref</em>}' reference.
 	 * <!-- begin-user-doc -->

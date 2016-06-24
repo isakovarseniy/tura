@@ -245,76 +245,6 @@ public class DataControlItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createViewPortTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createPREFormTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createPREQueryTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createPREInsertTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createPREDeleteTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createPREUpdateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createCreateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createInsertTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createUpdateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createDeleteTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 FormFactory.eINSTANCE.createSearchTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
 				 FormFactory.eINSTANCE.createFormVariable()));
 
 		newChildDescriptors.add
@@ -346,11 +276,6 @@ public class DataControlItemProvider
 			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
 				 TypeFactory.eINSTANCE.createReturnValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 TypeFactory.eINSTANCE.createMethodPointer()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -531,8 +456,9 @@ public class DataControlItemProvider
 
 		boolean qualify =
 			childFeature == FormPackage.Literals.DATA_CONTROL__BASE_TYPE ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH ||
+			childFeature == FormPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS ||
 			childFeature == FormPackage.Literals.DATA_CONTROL__PRE_QUERY_TRIGGER ||
+			childFeature == FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH ||
 			childFeature == FormPackage.Literals.DATA_CONTROL__POST_QUERY_TRIGGER ||
 			childFeature == FormPackage.Literals.DATA_CONTROL__PRE_INSERT_TRIGGER ||
 			childFeature == FormPackage.Literals.DATA_CONTROL__PRE_DELETE_TRIGGER ||
@@ -542,8 +468,7 @@ public class DataControlItemProvider
 			childFeature == FormPackage.Literals.DATA_CONTROL__INSERT ||
 			childFeature == FormPackage.Literals.DATA_CONTROL__UPDATE ||
 			childFeature == FormPackage.Literals.DATA_CONTROL__REMOVE ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__SEARCH ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS;
+			childFeature == FormPackage.Literals.DATA_CONTROL__SEARCH;
 
 		if (qualify) {
 			return getString

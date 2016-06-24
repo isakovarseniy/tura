@@ -2,6 +2,8 @@
  */
 package type;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +21,7 @@ package type;
  * @model
  * @generated
  */
-public interface MethodPointer extends TypePointer {
+public interface MethodPointer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Method Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->

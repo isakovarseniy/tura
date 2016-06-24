@@ -33,6 +33,7 @@ class DomainTypes{
     id attr EString uid;
    attr EString name;  
    val DomainTypesRepository[*] typesRepository;
+   val type.PrimitivesGroup primitives;
 }
 
 class DomainTypesRepository{

@@ -94,6 +94,29 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link type.PrimitivesGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PrimitivesGroupItemProvider primitivesGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link type.PrimitivesGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPrimitivesGroupAdapter() {
+		if (primitivesGroupItemProvider == null) {
+			primitivesGroupItemProvider = new PrimitivesGroupItemProvider(this);
+		}
+
+		return primitivesGroupItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link type.TypeElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

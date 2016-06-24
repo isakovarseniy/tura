@@ -176,76 +176,6 @@ public class InsertTriggerItemProvider extends TriggerItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createViewPortTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createPREFormTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createPREQueryTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createPOSTQueryTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createPREInsertTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createPREDeleteTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createPOSTCreateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createPREUpdateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createCreateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createInsertTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createUpdateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createDeleteTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createSearchTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
 				 FormFactory.eINSTANCE.createFormVariable()));
 
 		newChildDescriptors.add
@@ -277,11 +207,6 @@ public class InsertTriggerItemProvider extends TriggerItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
 				 TypeFactory.eINSTANCE.createReturnValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 TypeFactory.eINSTANCE.createMethodPointer()));
 
 		newChildDescriptors.add
 			(createChildParameter
