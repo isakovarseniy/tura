@@ -230,7 +230,7 @@ public class TypeGroupItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TypePackage.Literals.TYPE_GROUP__TYPES,
-				 TypeFactory.eINSTANCE.createEnumarator()));
+				 TypeFactory.eINSTANCE.createEnumerator()));
 
 		newChildDescriptors.add
 			(createChildParameter

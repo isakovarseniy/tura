@@ -462,26 +462,26 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link type.Enumarator} instances.
+	 * This keeps track of the one adapter used for all {@link type.Enumerator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EnumaratorItemProvider enumaratorItemProvider;
+	protected EnumeratorItemProvider enumeratorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link type.Enumarator}.
+	 * This creates an adapter for a {@link type.Enumerator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createEnumaratorAdapter() {
-		if (enumaratorItemProvider == null) {
-			enumaratorItemProvider = new EnumaratorItemProvider(this);
+	public Adapter createEnumeratorAdapter() {
+		if (enumeratorItemProvider == null) {
+			enumeratorItemProvider = new EnumeratorItemProvider(this);
 		}
 
-		return enumaratorItemProvider;
+		return enumeratorItemProvider;
 	}
 
 	/**

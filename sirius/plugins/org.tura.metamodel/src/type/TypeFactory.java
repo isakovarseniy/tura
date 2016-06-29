@@ -175,13 +175,13 @@ public interface TypeFactory extends EFactory {
 	ReturnValue createReturnValue();
 
 	/**
-	 * Returns a new object of class '<em>Enumarator</em>'.
+	 * Returns a new object of class '<em>Enumerator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enumarator</em>'.
+	 * @return a new object of class '<em>Enumerator</em>'.
 	 * @generated
 	 */
-	Enumarator createEnumarator();
+	Enumerator createEnumerator();
 
 	/**
 	 * Returns a new object of class '<em>Enum Attribute</em>'.

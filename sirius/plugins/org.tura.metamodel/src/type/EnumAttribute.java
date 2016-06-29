@@ -14,7 +14,6 @@ import common.Categorized;
  * </p>
  * <ul>
  *   <li>{@link type.EnumAttribute#getUid <em>Uid</em>}</li>
- *   <li>{@link type.EnumAttribute#getParent <em>Parent</em>}</li>
  *   <li>{@link type.EnumAttribute#getName <em>Name</em>}</li>
  *   <li>{@link type.EnumAttribute#getValue <em>Value</em>}</li>
  * </ul>
@@ -49,32 +48,6 @@ public interface EnumAttribute extends Categorized {
 	 * @generated
 	 */
 	void setUid(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' reference.
-	 * @see #setParent(Enumarator)
-	 * @see type.TypePackage#getEnumAttribute_Parent()
-	 * @model
-	 * @generated
-	 */
-	Enumarator getParent();
-
-	/**
-	 * Sets the value of the '{@link type.EnumAttribute#getParent <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' reference.
-	 * @see #getParent()
-	 * @generated
-	 */
-	void setParent(Enumarator value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

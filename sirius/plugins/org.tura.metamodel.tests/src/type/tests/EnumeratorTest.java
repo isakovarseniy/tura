@@ -4,16 +4,16 @@ package type.tests;
 
 import junit.textui.TestRunner;
 
-import type.Enumarator;
+import type.Enumerator;
 import type.TypeFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Enumarator</b></em>'.
+ * A test case for the model object '<em><b>Enumerator</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumaratorTest extends TypeElementTest {
+public class EnumeratorTest extends TypeElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class EnumaratorTest extends TypeElementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(EnumaratorTest.class);
+		TestRunner.run(EnumeratorTest.class);
 	}
 
 	/**
-	 * Constructs a new Enumarator test case with the given name.
+	 * Constructs a new Enumerator test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnumaratorTest(String name) {
+	public EnumeratorTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Enumarator test case.
+	 * Returns the fixture for this Enumerator test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected Enumarator getFixture() {
-		return (Enumarator)fixture;
+	protected Enumerator getFixture() {
+		return (Enumerator)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class EnumaratorTest extends TypeElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(TypeFactory.eINSTANCE.createEnumarator());
+		setFixture(TypeFactory.eINSTANCE.createEnumerator());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class EnumaratorTest extends TypeElementTest {
 		setFixture(null);
 	}
 
-} //EnumaratorTest
+} //EnumeratorTest

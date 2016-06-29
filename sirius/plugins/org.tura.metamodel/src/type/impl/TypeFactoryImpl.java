@@ -74,7 +74,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 			case TypePackage.TYPE_REFERENCE: return createTypeReference();
 			case TypePackage.PARAMETER: return createParameter();
 			case TypePackage.RETURN_VALUE: return createReturnValue();
-			case TypePackage.ENUMARATOR: return createEnumarator();
+			case TypePackage.ENUMERATOR: return createEnumerator();
 			case TypePackage.ENUM_ATTRIBUTE: return createEnumAttribute();
 			case TypePackage.METHOD_POINTER: return createMethodPointer();
 			default:
@@ -287,9 +287,9 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Enumarator createEnumarator() {
-		EnumaratorImpl enumarator = new EnumaratorImpl();
-		return enumarator;
+	public Enumerator createEnumerator() {
+		EnumeratorImpl enumerator = new EnumeratorImpl();
+		return enumerator;
 	}
 
 	/**

@@ -58,6 +58,7 @@ import type.Assosiation;
 import type.Attribute;
 import type.EnumAttribute;
 import type.Enumarator;
+import type.Enumerator;
 import type.Generalization;
 import type.Link;
 import type.MethodPointer;
@@ -209,7 +210,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass enumaratorEClass = null;
+	private EClass enumeratorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -792,8 +793,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEnumarator() {
-		return enumaratorEClass;
+	public EClass getEnumerator() {
+		return enumeratorEClass;
 	}
 
 	/**
@@ -801,8 +802,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEnumarator_Values() {
-		return (EReference)enumaratorEClass.getEStructuralFeatures().get(0);
+	public EReference getEnumerator_Values() {
+		return (EReference)enumeratorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -828,17 +829,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEnumAttribute_Parent() {
-		return (EReference)enumAttributeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getEnumAttribute_Name() {
-		return (EAttribute)enumAttributeEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)enumAttributeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -847,7 +839,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * @generated
 	 */
 	public EAttribute getEnumAttribute_Value() {
-		return (EAttribute)enumAttributeEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)enumAttributeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -973,12 +965,11 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		returnValueEClass = createEClass(RETURN_VALUE);
 		createEAttribute(returnValueEClass, RETURN_VALUE__UID);
 
-		enumaratorEClass = createEClass(ENUMARATOR);
-		createEReference(enumaratorEClass, ENUMARATOR__VALUES);
+		enumeratorEClass = createEClass(ENUMERATOR);
+		createEReference(enumeratorEClass, ENUMERATOR__VALUES);
 
 		enumAttributeEClass = createEClass(ENUM_ATTRIBUTE);
 		createEAttribute(enumAttributeEClass, ENUM_ATTRIBUTE__UID);
-		createEReference(enumAttributeEClass, ENUM_ATTRIBUTE__PARENT);
 		createEAttribute(enumAttributeEClass, ENUM_ATTRIBUTE__NAME);
 		createEAttribute(enumAttributeEClass, ENUM_ATTRIBUTE__VALUE);
 
@@ -1036,7 +1027,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		typeReferenceEClass.getESuperTypes().add(this.getTypePointer());
 		parameterEClass.getESuperTypes().add(this.getTypePointer());
 		returnValueEClass.getESuperTypes().add(this.getTypePointer());
-		enumaratorEClass.getESuperTypes().add(this.getTypeElement());
+		enumeratorEClass.getESuperTypes().add(this.getTypeElement());
 		enumAttributeEClass.getESuperTypes().add(theCommonPackage.getCategorized());
 
 		// Initialize classes and features; add operations and parameters
@@ -1108,12 +1099,11 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		initEClass(returnValueEClass, ReturnValue.class, "ReturnValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReturnValue_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ReturnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(enumaratorEClass, Enumarator.class, "Enumarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumarator_Values(), this.getEnumAttribute(), null, "values", null, 0, -1, Enumarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(enumeratorEClass, Enumerator.class, "Enumerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEnumerator_Values(), this.getEnumAttribute(), null, "values", null, 0, -1, Enumerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumAttributeEClass, EnumAttribute.class, "EnumAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnumAttribute_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnumAttribute_Parent(), this.getEnumarator(), null, "parent", null, 0, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnumAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnumAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

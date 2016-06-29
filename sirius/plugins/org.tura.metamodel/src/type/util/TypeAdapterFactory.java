@@ -140,8 +140,8 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 				return createReturnValueAdapter();
 			}
 			@Override
-			public Adapter caseEnumarator(Enumarator object) {
-				return createEnumaratorAdapter();
+			public Adapter caseEnumerator(Enumerator object) {
+				return createEnumeratorAdapter();
 			}
 			@Override
 			public Adapter caseEnumAttribute(EnumAttribute object) {
@@ -418,16 +418,16 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link type.Enumarator <em>Enumarator</em>}'.
+	 * Creates a new adapter for an object of class '{@link type.Enumerator <em>Enumerator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see type.Enumarator
+	 * @see type.Enumerator
 	 * @generated
 	 */
-	public Adapter createEnumaratorAdapter() {
+	public Adapter createEnumeratorAdapter() {
 		return null;
 	}
 

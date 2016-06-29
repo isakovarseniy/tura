@@ -933,14 +933,14 @@ public interface TypePackage extends EPackage {
 	int RETURN_VALUE_FEATURE_COUNT = TYPE_POINTER_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link type.impl.EnumaratorImpl <em>Enumarator</em>}' class.
+	 * The meta object id for the '{@link type.impl.EnumeratorImpl <em>Enumerator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see type.impl.EnumaratorImpl
-	 * @see type.impl.TypePackageImpl#getEnumarator()
+	 * @see type.impl.EnumeratorImpl
+	 * @see type.impl.TypePackageImpl#getEnumerator()
 	 * @generated
 	 */
-	int ENUMARATOR = 17;
+	int ENUMERATOR = 17;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -949,7 +949,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMARATOR__UID = TYPE_ELEMENT__UID;
+	int ENUMERATOR__UID = TYPE_ELEMENT__UID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -958,7 +958,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMARATOR__NAME = TYPE_ELEMENT__NAME;
+	int ENUMERATOR__NAME = TYPE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -967,16 +967,16 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMARATOR__VALUES = TYPE_ELEMENT_FEATURE_COUNT + 0;
+	int ENUMERATOR__VALUES = TYPE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Enumarator</em>' class.
+	 * The number of structural features of the '<em>Enumerator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMARATOR_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 1;
+	int ENUMERATOR_FEATURE_COUNT = TYPE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link type.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
@@ -1007,22 +1007,13 @@ public interface TypePackage extends EPackage {
 	int ENUM_ATTRIBUTE__UID = CommonPackage.CATEGORIZED_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_ATTRIBUTE__PARENT = CommonPackage.CATEGORIZED_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE__NAME = CommonPackage.CATEGORIZED_FEATURE_COUNT + 2;
+	int ENUM_ATTRIBUTE__NAME = CommonPackage.CATEGORIZED_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1031,7 +1022,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE__VALUE = CommonPackage.CATEGORIZED_FEATURE_COUNT + 3;
+	int ENUM_ATTRIBUTE__VALUE = CommonPackage.CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Enum Attribute</em>' class.
@@ -1040,7 +1031,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE_FEATURE_COUNT = CommonPackage.CATEGORIZED_FEATURE_COUNT + 4;
+	int ENUM_ATTRIBUTE_FEATURE_COUNT = CommonPackage.CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link type.impl.MethodPointerImpl <em>Method Pointer</em>}' class.
@@ -1626,25 +1617,25 @@ public interface TypePackage extends EPackage {
 	EAttribute getReturnValue_Uid();
 
 	/**
-	 * Returns the meta object for class '{@link type.Enumarator <em>Enumarator</em>}'.
+	 * Returns the meta object for class '{@link type.Enumerator <em>Enumerator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Enumarator</em>'.
-	 * @see type.Enumarator
+	 * @return the meta object for class '<em>Enumerator</em>'.
+	 * @see type.Enumerator
 	 * @generated
 	 */
-	EClass getEnumarator();
+	EClass getEnumerator();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link type.Enumarator#getValues <em>Values</em>}'.
+	 * Returns the meta object for the containment reference list '{@link type.Enumerator#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Values</em>'.
-	 * @see type.Enumarator#getValues()
-	 * @see #getEnumarator()
+	 * @see type.Enumerator#getValues()
+	 * @see #getEnumerator()
 	 * @generated
 	 */
-	EReference getEnumarator_Values();
+	EReference getEnumerator_Values();
 
 	/**
 	 * Returns the meta object for class '{@link type.EnumAttribute <em>Enum Attribute</em>}'.
@@ -1666,17 +1657,6 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEnumAttribute_Uid();
-
-	/**
-	 * Returns the meta object for the reference '{@link type.EnumAttribute#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent</em>'.
-	 * @see type.EnumAttribute#getParent()
-	 * @see #getEnumAttribute()
-	 * @generated
-	 */
-	EReference getEnumAttribute_Parent();
 
 	/**
 	 * Returns the meta object for the attribute '{@link type.EnumAttribute#getName <em>Name</em>}'.
@@ -2196,14 +2176,14 @@ public interface TypePackage extends EPackage {
 		EAttribute RETURN_VALUE__UID = eINSTANCE.getReturnValue_Uid();
 
 		/**
-		 * The meta object literal for the '{@link type.impl.EnumaratorImpl <em>Enumarator</em>}' class.
+		 * The meta object literal for the '{@link type.impl.EnumeratorImpl <em>Enumerator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see type.impl.EnumaratorImpl
-		 * @see type.impl.TypePackageImpl#getEnumarator()
+		 * @see type.impl.EnumeratorImpl
+		 * @see type.impl.TypePackageImpl#getEnumerator()
 		 * @generated
 		 */
-		EClass ENUMARATOR = eINSTANCE.getEnumarator();
+		EClass ENUMERATOR = eINSTANCE.getEnumerator();
 
 		/**
 		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
@@ -2211,7 +2191,7 @@ public interface TypePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMARATOR__VALUES = eINSTANCE.getEnumarator_Values();
+		EReference ENUMERATOR__VALUES = eINSTANCE.getEnumerator_Values();
 
 		/**
 		 * The meta object literal for the '{@link type.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
@@ -2230,14 +2210,6 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENUM_ATTRIBUTE__UID = eINSTANCE.getEnumAttribute_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENUM_ATTRIBUTE__PARENT = eINSTANCE.getEnumAttribute_Parent();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

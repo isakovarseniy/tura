@@ -2,31 +2,46 @@
 <tura.domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tura.domain="http://tura.org/2016/v2/domain" xmlns:tura.type="http://tura.org/2016/v2/type">
   <domainArtifacts>
     <domainArtifact uid="8c6e20f4-46c7-4fd1-b50c-3ad6922cb6e8" name="Domain Artifact1">
-      <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Artifact package1"/>
+      <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Artifact package1">
+        <artifacts uid="286f5f16-4c6c-4a09-a69f-fb43c250e3e4" name="dasdasd" description="q1">
+          <modelQuery uid="dc22f168-f169-4c8a-b09a-70130a43180c" name="asdasdadsrrrrr"/>
+          <modelQuery uid="69e139c9-62e6-47c5-bf4a-2f7bb1f199a6" name="q3"/>
+          <modelQuery uid="e612ad8c-95ae-472d-8637-a72939d0cf11" name="q2"/>
+          <hints uid="9486bfe0-c99a-4e8e-9db9-873bab45c285" name="asasdasd\dasdas"/>
+          <hints uid="5d7a2f1e-5702-4918-a8ca-99609d1ac3c3" name="asdasd"/>
+        </artifacts>
+      </artifactPackages>
     </domainArtifact>
   </domainArtifacts>
-  <domainTypes uid="b822d574-687e-4cb3-a6e5-bc4f4fedc3ee" name="Primitives">
-    <typesRepository uid="d94d5825-1d58-44cd-87db-8a56b4554da2" name="Domain Repository1">
-      <repositoryPackages uid="3d4e4d41-f88c-42f4-9c45-fed193491810" name="Type package1">
-        <types xsi:type="tura.type:Type" uid="" name="wwwwwww">
-          <attributes name="attr1"/>
-          <operations name="opr1"/>
+  <domainTypes uid="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" name="Primitives">
+    <typesRepository uid="923b1494-89cc-4956-a3da-af3d9cbe6e46" name="Domain Repository1">
+      <repositoryPackages uid="2be392a0-795a-4751-9883-491c90520d9e" name="Type package1">
+        <types xsi:type="tura.type:Type" uid="8f1e281e-f64f-4992-bb3e-7bd82b6ad240" name="rrrrr">
+          <attributes uid="c8ae17b4-8c17-49d8-91fd-983d8c1202bf" name="n,n,mn,"/>
         </types>
-        <types xsi:type="tura.type:Type" name="hjkhkj">
-          <operations name="qweqwe"/>
-        </types>
-        <types xsi:type="tura.type:Type" uid="" name="2131">
-          <operations name="fr"/>
-        </types>
-        <relationships xsi:type="tura.type:Assosiation"/>
-        <relationships xsi:type="tura.type:Assosiation"/>
-        <relationships xsi:type="tura.type:Assosiation" source="//@domainTypes/@typesRepository.0/@repositoryPackages.0/@types.1" type="One2Many" sourceOperation=""/>
-        <relationships xsi:type="tura.type:Assosiation" source="//@domainTypes/@typesRepository.0/@repositoryPackages.0/@types.1" target=""/>
-        <relationships xsi:type="tura.type:Assosiation" source="" target="//@domainTypes/@typesRepository.0/@repositoryPackages.0/@types.1"/>
       </repositoryPackages>
     </typesRepository>
     <primitives>
-      <primitives uid="7ea9309e-d499-4adf-b14f-85d6392ca38c" name="String"/>
+      <primitives uid="1dab40f4-4049-480e-a206-023fd51fae31" name="String"/>
+      <primitives uid="033cb09a-3c47-4f0f-90be-40f38ffc7912" name="Boolean"/>
+      <primitives uid="5fd6634a-776a-45c2-8fd5-b62451018ea7" name="Decimal"/>
+      <primitives uid="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" name="Float"/>
+      <primitives uid="5352d67e-39ad-4a53-8f0e-d20ad0956dd7" name="Double"/>
+      <primitives uid="495962a2-c43a-4b55-a761-7c56a0a4ad95" name="Duration"/>
+      <primitives uid="34c48c99-ae87-45aa-8d4a-35589c5a1765" name="DateTime"/>
+      <primitives uid="010bc563-1441-4dad-a928-e09fec333478" name="Time"/>
+      <primitives uid="4d35b84f-9048-432a-906c-b088dc045328" name="Date"/>
+      <primitives uid="263b680c-08c2-417d-b08e-643210d4b4bf" name="GYearMonth"/>
+      <primitives uid="98d14be1-0e9e-4c3a-a553-6c3768f8dcbf" name="GYear"/>
+      <primitives uid="62bcca2d-dd64-4c41-a016-ecccdfb10749" name="GMonthDay"/>
+      <primitives uid="ecda2c32-12aa-4a7d-8e01-252ab7bb386c" name="GDay"/>
+      <primitives uid="2190e75c-a9a8-4352-a049-ef292ec37fb7" name="GMonth"/>
+      <primitives uid="f85bdb4b-52d6-4713-ad99-21bceea0a324" name="HexBinary"/>
+      <primitives uid="5e878a6a-0b54-4ff9-b307-766b77213a92" name="Base64Binary"/>
+      <primitives uid="a943b86a-3c64-4611-8d20-5aba3fd98b09" name="Integer"/>
+      <primitives uid="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" name="Long"/>
+      <primitives uid="90154483-0d93-42be-9927-d6a360feb0ba" name="Void"/>
+      <primitives uid="6b00860c-a27c-4215-8b9f-4b34ba75986f" name="Null"/>
     </primitives>
   </domainTypes>
   <domainApplications>

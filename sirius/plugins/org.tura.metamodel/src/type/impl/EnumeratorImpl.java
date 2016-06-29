@@ -15,23 +15,23 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import type.EnumAttribute;
-import type.Enumarator;
+import type.Enumerator;
 import type.TypePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Enumarator</b></em>'.
+ * An implementation of the model object '<em><b>Enumerator</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link type.impl.EnumaratorImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link type.impl.EnumeratorImpl#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EnumaratorImpl extends TypeElementImpl implements Enumarator {
+public class EnumeratorImpl extends TypeElementImpl implements Enumerator {
 	/**
 	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -47,7 +47,7 @@ public class EnumaratorImpl extends TypeElementImpl implements Enumarator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EnumaratorImpl() {
+	protected EnumeratorImpl() {
 		super();
 	}
 
@@ -58,7 +58,7 @@ public class EnumaratorImpl extends TypeElementImpl implements Enumarator {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TypePackage.Literals.ENUMARATOR;
+		return TypePackage.Literals.ENUMERATOR;
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class EnumaratorImpl extends TypeElementImpl implements Enumarator {
 	 */
 	public EList<EnumAttribute> getValues() {
 		if (values == null) {
-			values = new EObjectContainmentEList<EnumAttribute>(EnumAttribute.class, this, TypePackage.ENUMARATOR__VALUES);
+			values = new EObjectContainmentEList<EnumAttribute>(EnumAttribute.class, this, TypePackage.ENUMERATOR__VALUES);
 		}
 		return values;
 	}
@@ -81,7 +81,7 @@ public class EnumaratorImpl extends TypeElementImpl implements Enumarator {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypePackage.ENUMARATOR__VALUES:
+			case TypePackage.ENUMERATOR__VALUES:
 				return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -95,7 +95,7 @@ public class EnumaratorImpl extends TypeElementImpl implements Enumarator {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TypePackage.ENUMARATOR__VALUES:
+			case TypePackage.ENUMERATOR__VALUES:
 				return getValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -110,7 +110,7 @@ public class EnumaratorImpl extends TypeElementImpl implements Enumarator {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TypePackage.ENUMARATOR__VALUES:
+			case TypePackage.ENUMERATOR__VALUES:
 				getValues().clear();
 				getValues().addAll((Collection<? extends EnumAttribute>)newValue);
 				return;
@@ -126,7 +126,7 @@ public class EnumaratorImpl extends TypeElementImpl implements Enumarator {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TypePackage.ENUMARATOR__VALUES:
+			case TypePackage.ENUMERATOR__VALUES:
 				getValues().clear();
 				return;
 		}
@@ -141,10 +141,10 @@ public class EnumaratorImpl extends TypeElementImpl implements Enumarator {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TypePackage.ENUMARATOR__VALUES:
+			case TypePackage.ENUMERATOR__VALUES:
 				return values != null && !values.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //EnumaratorImpl
+} //EnumeratorImpl

@@ -190,10 +190,10 @@ public class TypeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TypePackage.ENUMARATOR: {
-				Enumarator enumarator = (Enumarator)theEObject;
-				T result = caseEnumarator(enumarator);
-				if (result == null) result = caseTypeElement(enumarator);
+			case TypePackage.ENUMERATOR: {
+				Enumerator enumerator = (Enumerator)theEObject;
+				T result = caseEnumerator(enumerator);
+				if (result == null) result = caseTypeElement(enumerator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -470,17 +470,17 @@ public class TypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Enumarator</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Enumerator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Enumarator</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Enumerator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEnumarator(Enumarator object) {
+	public T caseEnumerator(Enumerator object) {
 		return null;
 	}
 

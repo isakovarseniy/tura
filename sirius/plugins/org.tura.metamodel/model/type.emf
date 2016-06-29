@@ -101,13 +101,12 @@ class ReturnValue extends TypePointer{
     id attr EString uid;
 }
 
-class Enumarator extends TypeElement{
+class Enumerator extends TypeElement{
    val EnumAttribute[*]  values;
 }
 
 class EnumAttribute extends  common.Categorized{
     id attr EString uid;
-   ref Enumarator parent;
    attr EString name;
    attr EString  value;
 }

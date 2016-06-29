@@ -14,24 +14,24 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import type.Enumarator;
+import type.Enumerator;
 import type.TypeFactory;
 import type.TypePackage;
 
 /**
- * This is the item provider adapter for a {@link type.Enumarator} object.
+ * This is the item provider adapter for a {@link type.Enumerator} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumaratorItemProvider extends TypeElementItemProvider {
+public class EnumeratorItemProvider extends TypeElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnumaratorItemProvider(AdapterFactory adapterFactory) {
+	public EnumeratorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,7 +62,7 @@ public class EnumaratorItemProvider extends TypeElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TypePackage.Literals.ENUMARATOR__VALUES);
+			childrenFeatures.add(TypePackage.Literals.ENUMERATOR__VALUES);
 		}
 		return childrenFeatures;
 	}
@@ -81,14 +81,14 @@ public class EnumaratorItemProvider extends TypeElementItemProvider {
 	}
 
 	/**
-	 * This returns Enumarator.gif.
+	 * This returns Enumerator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Enumarator"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Enumerator"));
 	}
 
 	/**
@@ -99,10 +99,10 @@ public class EnumaratorItemProvider extends TypeElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Enumarator)object).getName();
+		String label = ((Enumerator)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Enumarator_type") :
-			getString("_UI_Enumarator_type") + " " + label;
+			getString("_UI_Enumerator_type") :
+			getString("_UI_Enumerator_type") + " " + label;
 	}
 	
 
@@ -117,8 +117,8 @@ public class EnumaratorItemProvider extends TypeElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Enumarator.class)) {
-			case TypePackage.ENUMARATOR__VALUES:
+		switch (notification.getFeatureID(Enumerator.class)) {
+			case TypePackage.ENUMERATOR__VALUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,7 +138,7 @@ public class EnumaratorItemProvider extends TypeElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TypePackage.Literals.ENUMARATOR__VALUES,
+				(TypePackage.Literals.ENUMERATOR__VALUES,
 				 TypeFactory.eINSTANCE.createEnumAttribute()));
 	}
 

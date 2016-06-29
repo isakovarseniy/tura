@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import type.EnumAttribute;
 import type.Enumarator;
+import type.Enumerator;
 import type.TypePackage;
 
 /**
@@ -24,7 +25,6 @@ import type.TypePackage;
  * </p>
  * <ul>
  *   <li>{@link type.impl.EnumAttributeImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link type.impl.EnumAttributeImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link type.impl.EnumAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link type.impl.EnumAttributeImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -51,16 +51,6 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParent()
-	 * @generated
-	 * @ordered
-	 */
-	protected Enumarator parent;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -147,44 +137,6 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Enumarator getParent() {
-		if (parent != null && parent.eIsProxy()) {
-			InternalEObject oldParent = (InternalEObject)parent;
-			parent = (Enumarator)eResolveProxy(oldParent);
-			if (parent != oldParent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypePackage.ENUM_ATTRIBUTE__PARENT, oldParent, parent));
-			}
-		}
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Enumarator basicGetParent() {
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(Enumarator newParent) {
-		Enumarator oldParent = parent;
-		parent = newParent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.ENUM_ATTRIBUTE__PARENT, oldParent, parent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
 		return name;
 	}
@@ -232,9 +184,6 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 		switch (featureID) {
 			case TypePackage.ENUM_ATTRIBUTE__UID:
 				return getUid();
-			case TypePackage.ENUM_ATTRIBUTE__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
 			case TypePackage.ENUM_ATTRIBUTE__NAME:
 				return getName();
 			case TypePackage.ENUM_ATTRIBUTE__VALUE:
@@ -253,9 +202,6 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 		switch (featureID) {
 			case TypePackage.ENUM_ATTRIBUTE__UID:
 				setUid((String)newValue);
-				return;
-			case TypePackage.ENUM_ATTRIBUTE__PARENT:
-				setParent((Enumarator)newValue);
 				return;
 			case TypePackage.ENUM_ATTRIBUTE__NAME:
 				setName((String)newValue);
@@ -278,9 +224,6 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 			case TypePackage.ENUM_ATTRIBUTE__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case TypePackage.ENUM_ATTRIBUTE__PARENT:
-				setParent((Enumarator)null);
-				return;
 			case TypePackage.ENUM_ATTRIBUTE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -301,8 +244,6 @@ public class EnumAttributeImpl extends CategorizedImpl implements EnumAttribute 
 		switch (featureID) {
 			case TypePackage.ENUM_ATTRIBUTE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case TypePackage.ENUM_ATTRIBUTE__PARENT:
-				return parent != null;
 			case TypePackage.ENUM_ATTRIBUTE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TypePackage.ENUM_ATTRIBUTE__VALUE:
