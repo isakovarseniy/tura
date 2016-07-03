@@ -5,6 +5,8 @@ class Roles{
     id attr EString uid;
     val Role[*] roles;
     val Group[*] groups;
+    val Group2Group[*] group2Groups;
+    val Group2Role[*] group2Roles;
 }
 
 class SecurityEntity{
@@ -19,8 +21,21 @@ class Role extends SecurityEntity{
 class Group extends SecurityEntity{
     id attr EString uid;
     attr EString name;
-   ref Group[*] group2Group;
-   ref Role[*] group2Role;
+}
+
+
+class Group2Group {
+    id attr EString uid;
+   ref Group source;
+   ref Group target;
+	
+}
+
+class Group2Role {
+    id attr EString uid;
+   ref Group source;
+   ref Role target;
+	
 }
 
 

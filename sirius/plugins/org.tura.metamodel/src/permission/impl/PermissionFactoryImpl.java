@@ -60,6 +60,8 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 			case PermissionPackage.SECURITY_ENTITY: return createSecurityEntity();
 			case PermissionPackage.ROLE: return createRole();
 			case PermissionPackage.GROUP: return createGroup();
+			case PermissionPackage.GROUP2_GROUP: return createGroup2Group();
+			case PermissionPackage.GROUP2_ROLE: return createGroup2Role();
 			case PermissionPackage.SECURED: return createSecured();
 			case PermissionPackage.GRANT_ACCESS: return createGrantAccess();
 			case PermissionPackage.SECURITY_ENTITY_POINTER: return createSecurityEntityPointer();
@@ -106,6 +108,26 @@ public class PermissionFactoryImpl extends EFactoryImpl implements PermissionFac
 	public Group createGroup() {
 		GroupImpl group = new GroupImpl();
 		return group;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Group2Group createGroup2Group() {
+		Group2GroupImpl group2Group = new Group2GroupImpl();
+		return group2Group;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Group2Role createGroup2Role() {
+		Group2RoleImpl group2Role = new Group2RoleImpl();
+		return group2Role;
 	}
 
 	/**

@@ -15,8 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link permission.Group#getUid <em>Uid</em>}</li>
  *   <li>{@link permission.Group#getName <em>Name</em>}</li>
- *   <li>{@link permission.Group#getGroup2Group <em>Group2 Group</em>}</li>
- *   <li>{@link permission.Group#getGroup2Role <em>Group2 Role</em>}</li>
  * </ul>
  *
  * @see permission.PermissionPackage#getGroup()
@@ -75,37 +73,5 @@ public interface Group extends SecurityEntity {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Group2 Group</b></em>' reference list.
-	 * The list contents are of type {@link permission.Group}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Group2 Group</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group2 Group</em>' reference list.
-	 * @see permission.PermissionPackage#getGroup_Group2Group()
-	 * @model
-	 * @generated
-	 */
-	EList<Group> getGroup2Group();
-
-	/**
-	 * Returns the value of the '<em><b>Group2 Role</b></em>' reference list.
-	 * The list contents are of type {@link permission.Role}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Group2 Role</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group2 Role</em>' reference list.
-	 * @see permission.PermissionPackage#getGroup_Group2Role()
-	 * @model
-	 * @generated
-	 */
-	EList<Role> getGroup2Role();
 
 } // Group

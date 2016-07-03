@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link permission.Roles#getUid <em>Uid</em>}</li>
  *   <li>{@link permission.Roles#getRoles <em>Roles</em>}</li>
  *   <li>{@link permission.Roles#getGroups <em>Groups</em>}</li>
+ *   <li>{@link permission.Roles#getGroup2Groups <em>Group2 Groups</em>}</li>
+ *   <li>{@link permission.Roles#getGroup2Roles <em>Group2 Roles</em>}</li>
  * </ul>
  *
  * @see permission.PermissionPackage#getRoles()
@@ -82,5 +84,37 @@ public interface Roles extends EObject {
 	 * @generated
 	 */
 	EList<Group> getGroups();
+
+	/**
+	 * Returns the value of the '<em><b>Group2 Groups</b></em>' containment reference list.
+	 * The list contents are of type {@link permission.Group2Group}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Group2 Groups</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Group2 Groups</em>' containment reference list.
+	 * @see permission.PermissionPackage#getRoles_Group2Groups()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Group2Group> getGroup2Groups();
+
+	/**
+	 * Returns the value of the '<em><b>Group2 Roles</b></em>' containment reference list.
+	 * The list contents are of type {@link permission.Group2Role}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Group2 Roles</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Group2 Roles</em>' containment reference list.
+	 * @see permission.PermissionPackage#getRoles_Group2Roles()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Group2Role> getGroup2Roles();
 
 } // Roles

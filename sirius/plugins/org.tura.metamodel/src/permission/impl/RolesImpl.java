@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import permission.Group;
+import permission.Group2Group;
+import permission.Group2Role;
 import permission.PermissionPackage;
 import permission.Role;
 import permission.Roles;
@@ -34,6 +36,8 @@ import permission.Roles;
  *   <li>{@link permission.impl.RolesImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link permission.impl.RolesImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link permission.impl.RolesImpl#getGroups <em>Groups</em>}</li>
+ *   <li>{@link permission.impl.RolesImpl#getGroup2Groups <em>Group2 Groups</em>}</li>
+ *   <li>{@link permission.impl.RolesImpl#getGroup2Roles <em>Group2 Roles</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +82,26 @@ public class RolesImpl extends EObjectImpl implements Roles {
 	 * @ordered
 	 */
 	protected EList<Group> groups;
+
+	/**
+	 * The cached value of the '{@link #getGroup2Groups() <em>Group2 Groups</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGroup2Groups()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Group2Group> group2Groups;
+
+	/**
+	 * The cached value of the '{@link #getGroup2Roles() <em>Group2 Roles</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGroup2Roles()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Group2Role> group2Roles;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +172,30 @@ public class RolesImpl extends EObjectImpl implements Roles {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Group2Group> getGroup2Groups() {
+		if (group2Groups == null) {
+			group2Groups = new EObjectContainmentEList<Group2Group>(Group2Group.class, this, PermissionPackage.ROLES__GROUP2_GROUPS);
+		}
+		return group2Groups;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Group2Role> getGroup2Roles() {
+		if (group2Roles == null) {
+			group2Roles = new EObjectContainmentEList<Group2Role>(Group2Role.class, this, PermissionPackage.ROLES__GROUP2_ROLES);
+		}
+		return group2Roles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -155,6 +203,10 @@ public class RolesImpl extends EObjectImpl implements Roles {
 				return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
 			case PermissionPackage.ROLES__GROUPS:
 				return ((InternalEList<?>)getGroups()).basicRemove(otherEnd, msgs);
+			case PermissionPackage.ROLES__GROUP2_GROUPS:
+				return ((InternalEList<?>)getGroup2Groups()).basicRemove(otherEnd, msgs);
+			case PermissionPackage.ROLES__GROUP2_ROLES:
+				return ((InternalEList<?>)getGroup2Roles()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -173,6 +225,10 @@ public class RolesImpl extends EObjectImpl implements Roles {
 				return getRoles();
 			case PermissionPackage.ROLES__GROUPS:
 				return getGroups();
+			case PermissionPackage.ROLES__GROUP2_GROUPS:
+				return getGroup2Groups();
+			case PermissionPackage.ROLES__GROUP2_ROLES:
+				return getGroup2Roles();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -197,6 +253,14 @@ public class RolesImpl extends EObjectImpl implements Roles {
 				getGroups().clear();
 				getGroups().addAll((Collection<? extends Group>)newValue);
 				return;
+			case PermissionPackage.ROLES__GROUP2_GROUPS:
+				getGroup2Groups().clear();
+				getGroup2Groups().addAll((Collection<? extends Group2Group>)newValue);
+				return;
+			case PermissionPackage.ROLES__GROUP2_ROLES:
+				getGroup2Roles().clear();
+				getGroup2Roles().addAll((Collection<? extends Group2Role>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -218,6 +282,12 @@ public class RolesImpl extends EObjectImpl implements Roles {
 			case PermissionPackage.ROLES__GROUPS:
 				getGroups().clear();
 				return;
+			case PermissionPackage.ROLES__GROUP2_GROUPS:
+				getGroup2Groups().clear();
+				return;
+			case PermissionPackage.ROLES__GROUP2_ROLES:
+				getGroup2Roles().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -236,6 +306,10 @@ public class RolesImpl extends EObjectImpl implements Roles {
 				return roles != null && !roles.isEmpty();
 			case PermissionPackage.ROLES__GROUPS:
 				return groups != null && !groups.isEmpty();
+			case PermissionPackage.ROLES__GROUP2_GROUPS:
+				return group2Groups != null && !group2Groups.isEmpty();
+			case PermissionPackage.ROLES__GROUP2_ROLES:
+				return group2Roles != null && !group2Roles.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

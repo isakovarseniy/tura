@@ -93,13 +93,31 @@ public interface PermissionPackage extends EPackage {
 	int ROLES__GROUPS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Group2 Groups</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLES__GROUP2_GROUPS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Group2 Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLES__GROUP2_ROLES = 4;
+
+	/**
 	 * The number of structural features of the '<em>Roles</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROLES_FEATURE_COUNT = 3;
+	int ROLES_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link permission.impl.SecurityEntityImpl <em>Security Entity</em>}' class.
@@ -186,31 +204,105 @@ public interface PermissionPackage extends EPackage {
 	int GROUP__NAME = SECURITY_ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Group2 Group</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__GROUP2_GROUP = SECURITY_ENTITY_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Group2 Role</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__GROUP2_ROLE = SECURITY_ENTITY_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FEATURE_COUNT = SECURITY_ENTITY_FEATURE_COUNT + 4;
+	int GROUP_FEATURE_COUNT = SECURITY_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link permission.impl.Group2GroupImpl <em>Group2 Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see permission.impl.Group2GroupImpl
+	 * @see permission.impl.PermissionPackageImpl#getGroup2Group()
+	 * @generated
+	 */
+	int GROUP2_GROUP = 4;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP2_GROUP__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP2_GROUP__SOURCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP2_GROUP__TARGET = 2;
+
+	/**
+	 * The number of structural features of the '<em>Group2 Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP2_GROUP_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link permission.impl.Group2RoleImpl <em>Group2 Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see permission.impl.Group2RoleImpl
+	 * @see permission.impl.PermissionPackageImpl#getGroup2Role()
+	 * @generated
+	 */
+	int GROUP2_ROLE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP2_ROLE__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP2_ROLE__SOURCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP2_ROLE__TARGET = 2;
+
+	/**
+	 * The number of structural features of the '<em>Group2 Role</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP2_ROLE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link permission.impl.SecuredImpl <em>Secured</em>}' class.
@@ -220,7 +312,7 @@ public interface PermissionPackage extends EPackage {
 	 * @see permission.impl.PermissionPackageImpl#getSecured()
 	 * @generated
 	 */
-	int SECURED = 4;
+	int SECURED = 6;
 
 	/**
 	 * The feature id for the '<em><b>Grants</b></em>' containment reference list.
@@ -248,7 +340,7 @@ public interface PermissionPackage extends EPackage {
 	 * @see permission.impl.PermissionPackageImpl#getGrantAccess()
 	 * @generated
 	 */
-	int GRANT_ACCESS = 5;
+	int GRANT_ACCESS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -285,7 +377,7 @@ public interface PermissionPackage extends EPackage {
 	 * @see permission.impl.PermissionPackageImpl#getSecurityEntityPointer()
 	 * @generated
 	 */
-	int SECURITY_ENTITY_POINTER = 6;
+	int SECURITY_ENTITY_POINTER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Security Entity</b></em>' reference.
@@ -348,6 +440,28 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRoles_Groups();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link permission.Roles#getGroup2Groups <em>Group2 Groups</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Group2 Groups</em>'.
+	 * @see permission.Roles#getGroup2Groups()
+	 * @see #getRoles()
+	 * @generated
+	 */
+	EReference getRoles_Group2Groups();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link permission.Roles#getGroup2Roles <em>Group2 Roles</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Group2 Roles</em>'.
+	 * @see permission.Roles#getGroup2Roles()
+	 * @see #getRoles()
+	 * @generated
+	 */
+	EReference getRoles_Group2Roles();
 
 	/**
 	 * Returns the meta object for class '{@link permission.SecurityEntity <em>Security Entity</em>}'.
@@ -424,26 +538,90 @@ public interface PermissionPackage extends EPackage {
 	EAttribute getGroup_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link permission.Group#getGroup2Group <em>Group2 Group</em>}'.
+	 * Returns the meta object for class '{@link permission.Group2Group <em>Group2 Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Group2 Group</em>'.
-	 * @see permission.Group#getGroup2Group()
-	 * @see #getGroup()
+	 * @return the meta object for class '<em>Group2 Group</em>'.
+	 * @see permission.Group2Group
 	 * @generated
 	 */
-	EReference getGroup_Group2Group();
+	EClass getGroup2Group();
 
 	/**
-	 * Returns the meta object for the reference list '{@link permission.Group#getGroup2Role <em>Group2 Role</em>}'.
+	 * Returns the meta object for the attribute '{@link permission.Group2Group#getUid <em>Uid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Group2 Role</em>'.
-	 * @see permission.Group#getGroup2Role()
-	 * @see #getGroup()
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see permission.Group2Group#getUid()
+	 * @see #getGroup2Group()
 	 * @generated
 	 */
-	EReference getGroup_Group2Role();
+	EAttribute getGroup2Group_Uid();
+
+	/**
+	 * Returns the meta object for the reference '{@link permission.Group2Group#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see permission.Group2Group#getSource()
+	 * @see #getGroup2Group()
+	 * @generated
+	 */
+	EReference getGroup2Group_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link permission.Group2Group#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see permission.Group2Group#getTarget()
+	 * @see #getGroup2Group()
+	 * @generated
+	 */
+	EReference getGroup2Group_Target();
+
+	/**
+	 * Returns the meta object for class '{@link permission.Group2Role <em>Group2 Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Group2 Role</em>'.
+	 * @see permission.Group2Role
+	 * @generated
+	 */
+	EClass getGroup2Role();
+
+	/**
+	 * Returns the meta object for the attribute '{@link permission.Group2Role#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see permission.Group2Role#getUid()
+	 * @see #getGroup2Role()
+	 * @generated
+	 */
+	EAttribute getGroup2Role_Uid();
+
+	/**
+	 * Returns the meta object for the reference '{@link permission.Group2Role#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see permission.Group2Role#getSource()
+	 * @see #getGroup2Role()
+	 * @generated
+	 */
+	EReference getGroup2Role_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link permission.Group2Role#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see permission.Group2Role#getTarget()
+	 * @see #getGroup2Role()
+	 * @generated
+	 */
+	EReference getGroup2Role_Target();
 
 	/**
 	 * Returns the meta object for class '{@link permission.Secured <em>Secured</em>}'.
@@ -576,6 +754,22 @@ public interface PermissionPackage extends EPackage {
 		EReference ROLES__GROUPS = eINSTANCE.getRoles_Groups();
 
 		/**
+		 * The meta object literal for the '<em><b>Group2 Groups</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROLES__GROUP2_GROUPS = eINSTANCE.getRoles_Group2Groups();
+
+		/**
+		 * The meta object literal for the '<em><b>Group2 Roles</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROLES__GROUP2_ROLES = eINSTANCE.getRoles_Group2Roles();
+
+		/**
 		 * The meta object literal for the '{@link permission.impl.SecurityEntityImpl <em>Security Entity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -638,20 +832,72 @@ public interface PermissionPackage extends EPackage {
 		EAttribute GROUP__NAME = eINSTANCE.getGroup_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Group2 Group</b></em>' reference list feature.
+		 * The meta object literal for the '{@link permission.impl.Group2GroupImpl <em>Group2 Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see permission.impl.Group2GroupImpl
+		 * @see permission.impl.PermissionPackageImpl#getGroup2Group()
 		 * @generated
 		 */
-		EReference GROUP__GROUP2_GROUP = eINSTANCE.getGroup_Group2Group();
+		EClass GROUP2_GROUP = eINSTANCE.getGroup2Group();
 
 		/**
-		 * The meta object literal for the '<em><b>Group2 Role</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GROUP__GROUP2_ROLE = eINSTANCE.getGroup_Group2Role();
+		EAttribute GROUP2_GROUP__UID = eINSTANCE.getGroup2Group_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GROUP2_GROUP__SOURCE = eINSTANCE.getGroup2Group_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GROUP2_GROUP__TARGET = eINSTANCE.getGroup2Group_Target();
+
+		/**
+		 * The meta object literal for the '{@link permission.impl.Group2RoleImpl <em>Group2 Role</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see permission.impl.Group2RoleImpl
+		 * @see permission.impl.PermissionPackageImpl#getGroup2Role()
+		 * @generated
+		 */
+		EClass GROUP2_ROLE = eINSTANCE.getGroup2Role();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GROUP2_ROLE__UID = eINSTANCE.getGroup2Role_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GROUP2_ROLE__SOURCE = eINSTANCE.getGroup2Role_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GROUP2_ROLE__TARGET = eINSTANCE.getGroup2Role_Target();
 
 		/**
 		 * The meta object literal for the '{@link permission.impl.SecuredImpl <em>Secured</em>}' class.

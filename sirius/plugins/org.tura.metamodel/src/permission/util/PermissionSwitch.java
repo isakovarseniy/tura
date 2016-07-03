@@ -92,6 +92,18 @@ public class PermissionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PermissionPackage.GROUP2_GROUP: {
+				Group2Group group2Group = (Group2Group)theEObject;
+				T result = caseGroup2Group(group2Group);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PermissionPackage.GROUP2_ROLE: {
+				Group2Role group2Role = (Group2Role)theEObject;
+				T result = caseGroup2Role(group2Role);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PermissionPackage.SECURED: {
 				Secured secured = (Secured)theEObject;
 				T result = caseSecured(secured);
@@ -171,6 +183,36 @@ public class PermissionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGroup(Group object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Group2 Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Group2 Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGroup2Group(Group2Group object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Group2 Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Group2 Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGroup2Role(Group2Role object) {
 		return null;
 	}
 

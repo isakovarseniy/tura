@@ -84,6 +84,14 @@ public class PermissionAdapterFactory extends AdapterFactoryImpl {
 				return createGroupAdapter();
 			}
 			@Override
+			public Adapter caseGroup2Group(Group2Group object) {
+				return createGroup2GroupAdapter();
+			}
+			@Override
+			public Adapter caseGroup2Role(Group2Role object) {
+				return createGroup2RoleAdapter();
+			}
+			@Override
 			public Adapter caseSecured(Secured object) {
 				return createSecuredAdapter();
 			}
@@ -168,6 +176,34 @@ public class PermissionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link permission.Group2Group <em>Group2 Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see permission.Group2Group
+	 * @generated
+	 */
+	public Adapter createGroup2GroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link permission.Group2Role <em>Group2 Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see permission.Group2Role
+	 * @generated
+	 */
+	public Adapter createGroup2RoleAdapter() {
 		return null;
 	}
 

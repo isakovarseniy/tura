@@ -8,6 +8,10 @@
         eType="#//Role" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
         eType="#//Group" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group2Groups" upperBound="-1"
+        eType="#//Group2Group" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group2Roles" upperBound="-1"
+        eType="#//Group2Role" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SecurityEntity"/>
   <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//SecurityEntity">
@@ -19,10 +23,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group2Group" upperBound="-1"
-        eType="#//Group"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group2Role" upperBound="-1"
-        eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Group2Group">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Group"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Group"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Group2Role">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Group"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Role"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Secured">
     <eStructuralFeatures xsi:type="ecore:EReference" name="grants" upperBound="-1"

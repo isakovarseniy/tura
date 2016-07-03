@@ -58,6 +58,24 @@ public interface PermissionFactory extends EFactory {
 	Group createGroup();
 
 	/**
+	 * Returns a new object of class '<em>Group2 Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Group2 Group</em>'.
+	 * @generated
+	 */
+	Group2Group createGroup2Group();
+
+	/**
+	 * Returns a new object of class '<em>Group2 Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Group2 Role</em>'.
+	 * @generated
+	 */
+	Group2Role createGroup2Role();
+
+	/**
 	 * Returns a new object of class '<em>Secured</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

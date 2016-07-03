@@ -43,6 +43,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import permission.GrantAccess;
 import permission.Group;
+import permission.Group2Group;
+import permission.Group2Role;
 import permission.PermissionFactory;
 import permission.PermissionPackage;
 import permission.Role;
@@ -97,6 +99,20 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * @generated
 	 */
 	private EClass groupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass group2GroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass group2RoleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -256,6 +272,24 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRoles_Group2Groups() {
+		return (EReference)rolesEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRoles_Group2Roles() {
+		return (EReference)rolesEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSecurityEntity() {
 		return securityEntityEClass;
 	}
@@ -319,8 +353,8 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGroup_Group2Group() {
-		return (EReference)groupEClass.getEStructuralFeatures().get(2);
+	public EClass getGroup2Group() {
+		return group2GroupEClass;
 	}
 
 	/**
@@ -328,8 +362,62 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGroup_Group2Role() {
-		return (EReference)groupEClass.getEStructuralFeatures().get(3);
+	public EAttribute getGroup2Group_Uid() {
+		return (EAttribute)group2GroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGroup2Group_Source() {
+		return (EReference)group2GroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGroup2Group_Target() {
+		return (EReference)group2GroupEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGroup2Role() {
+		return group2RoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGroup2Role_Uid() {
+		return (EAttribute)group2RoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGroup2Role_Source() {
+		return (EReference)group2RoleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGroup2Role_Target() {
+		return (EReference)group2RoleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -427,6 +515,8 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		createEAttribute(rolesEClass, ROLES__UID);
 		createEReference(rolesEClass, ROLES__ROLES);
 		createEReference(rolesEClass, ROLES__GROUPS);
+		createEReference(rolesEClass, ROLES__GROUP2_GROUPS);
+		createEReference(rolesEClass, ROLES__GROUP2_ROLES);
 
 		securityEntityEClass = createEClass(SECURITY_ENTITY);
 
@@ -437,8 +527,16 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		groupEClass = createEClass(GROUP);
 		createEAttribute(groupEClass, GROUP__UID);
 		createEAttribute(groupEClass, GROUP__NAME);
-		createEReference(groupEClass, GROUP__GROUP2_GROUP);
-		createEReference(groupEClass, GROUP__GROUP2_ROLE);
+
+		group2GroupEClass = createEClass(GROUP2_GROUP);
+		createEAttribute(group2GroupEClass, GROUP2_GROUP__UID);
+		createEReference(group2GroupEClass, GROUP2_GROUP__SOURCE);
+		createEReference(group2GroupEClass, GROUP2_GROUP__TARGET);
+
+		group2RoleEClass = createEClass(GROUP2_ROLE);
+		createEAttribute(group2RoleEClass, GROUP2_ROLE__UID);
+		createEReference(group2RoleEClass, GROUP2_ROLE__SOURCE);
+		createEReference(group2RoleEClass, GROUP2_ROLE__TARGET);
 
 		securedEClass = createEClass(SECURED);
 		createEReference(securedEClass, SECURED__GRANTS);
@@ -487,6 +585,8 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		initEAttribute(getRoles_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoles_Roles(), this.getRole(), null, "roles", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoles_Groups(), this.getGroup(), null, "groups", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoles_Group2Groups(), this.getGroup2Group(), null, "group2Groups", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoles_Group2Roles(), this.getGroup2Role(), null, "group2Roles", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityEntityEClass, SecurityEntity.class, "SecurityEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -497,8 +597,16 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGroup_Group2Group(), this.getGroup(), null, "group2Group", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGroup_Group2Role(), this.getRole(), null, "group2Role", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(group2GroupEClass, Group2Group.class, "Group2Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGroup2Group_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Group2Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroup2Group_Source(), this.getGroup(), null, "source", null, 0, 1, Group2Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroup2Group_Target(), this.getGroup(), null, "target", null, 0, 1, Group2Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(group2RoleEClass, Group2Role.class, "Group2Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGroup2Role_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Group2Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroup2Role_Source(), this.getGroup(), null, "source", null, 0, 1, Group2Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroup2Role_Target(), this.getRole(), null, "target", null, 0, 1, Group2Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securedEClass, Secured.class, "Secured", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSecured_Grants(), this.getGrantAccess(), null, "grants", null, 0, -1, Secured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

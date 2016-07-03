@@ -28,8 +28,6 @@ import permission.Role;
  * <ul>
  *   <li>{@link permission.impl.GroupImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link permission.impl.GroupImpl#getName <em>Name</em>}</li>
- *   <li>{@link permission.impl.GroupImpl#getGroup2Group <em>Group2 Group</em>}</li>
- *   <li>{@link permission.impl.GroupImpl#getGroup2Role <em>Group2 Role</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,26 +72,6 @@ public class GroupImpl extends SecurityEntityImpl implements Group {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getGroup2Group() <em>Group2 Group</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGroup2Group()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Group> group2Group;
-
-	/**
-	 * The cached value of the '{@link #getGroup2Role() <em>Group2 Role</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGroup2Role()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Role> group2Role;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,30 +139,6 @@ public class GroupImpl extends SecurityEntityImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Group> getGroup2Group() {
-		if (group2Group == null) {
-			group2Group = new EObjectResolvingEList<Group>(Group.class, this, PermissionPackage.GROUP__GROUP2_GROUP);
-		}
-		return group2Group;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Role> getGroup2Role() {
-		if (group2Role == null) {
-			group2Role = new EObjectResolvingEList<Role>(Role.class, this, PermissionPackage.GROUP__GROUP2_ROLE);
-		}
-		return group2Role;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -192,10 +146,6 @@ public class GroupImpl extends SecurityEntityImpl implements Group {
 				return getUid();
 			case PermissionPackage.GROUP__NAME:
 				return getName();
-			case PermissionPackage.GROUP__GROUP2_GROUP:
-				return getGroup2Group();
-			case PermissionPackage.GROUP__GROUP2_ROLE:
-				return getGroup2Role();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,14 +165,6 @@ public class GroupImpl extends SecurityEntityImpl implements Group {
 			case PermissionPackage.GROUP__NAME:
 				setName((String)newValue);
 				return;
-			case PermissionPackage.GROUP__GROUP2_GROUP:
-				getGroup2Group().clear();
-				getGroup2Group().addAll((Collection<? extends Group>)newValue);
-				return;
-			case PermissionPackage.GROUP__GROUP2_ROLE:
-				getGroup2Role().clear();
-				getGroup2Role().addAll((Collection<? extends Role>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -241,12 +183,6 @@ public class GroupImpl extends SecurityEntityImpl implements Group {
 			case PermissionPackage.GROUP__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case PermissionPackage.GROUP__GROUP2_GROUP:
-				getGroup2Group().clear();
-				return;
-			case PermissionPackage.GROUP__GROUP2_ROLE:
-				getGroup2Role().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -263,10 +199,6 @@ public class GroupImpl extends SecurityEntityImpl implements Group {
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case PermissionPackage.GROUP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case PermissionPackage.GROUP__GROUP2_GROUP:
-				return group2Group != null && !group2Group.isEmpty();
-			case PermissionPackage.GROUP__GROUP2_ROLE:
-				return group2Role != null && !group2Role.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
