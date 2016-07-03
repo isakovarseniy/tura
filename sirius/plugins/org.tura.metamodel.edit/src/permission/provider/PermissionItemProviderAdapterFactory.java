@@ -163,6 +163,52 @@ public class PermissionItemProviderAdapterFactory extends PermissionAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link permission.Group2Group} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Group2GroupItemProvider group2GroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link permission.Group2Group}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGroup2GroupAdapter() {
+		if (group2GroupItemProvider == null) {
+			group2GroupItemProvider = new Group2GroupItemProvider(this);
+		}
+
+		return group2GroupItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link permission.Group2Role} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Group2RoleItemProvider group2RoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link permission.Group2Role}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGroup2RoleAdapter() {
+		if (group2RoleItemProvider == null) {
+			group2RoleItemProvider = new Group2RoleItemProvider(this);
+		}
+
+		return group2RoleItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link permission.Secured} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -106,6 +106,8 @@ public class RolesItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PermissionPackage.Literals.ROLES__ROLES);
 			childrenFeatures.add(PermissionPackage.Literals.ROLES__GROUPS);
+			childrenFeatures.add(PermissionPackage.Literals.ROLES__GROUP2_GROUPS);
+			childrenFeatures.add(PermissionPackage.Literals.ROLES__GROUP2_ROLES);
 		}
 		return childrenFeatures;
 	}
@@ -166,6 +168,8 @@ public class RolesItemProvider
 				return;
 			case PermissionPackage.ROLES__ROLES:
 			case PermissionPackage.ROLES__GROUPS:
+			case PermissionPackage.ROLES__GROUP2_GROUPS:
+			case PermissionPackage.ROLES__GROUP2_ROLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -192,6 +196,16 @@ public class RolesItemProvider
 			(createChildParameter
 				(PermissionPackage.Literals.ROLES__GROUPS,
 				 PermissionFactory.eINSTANCE.createGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PermissionPackage.Literals.ROLES__GROUP2_GROUPS,
+				 PermissionFactory.eINSTANCE.createGroup2Group()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PermissionPackage.Literals.ROLES__GROUP2_ROLES,
+				 PermissionFactory.eINSTANCE.createGroup2Role()));
 	}
 
 	/**
