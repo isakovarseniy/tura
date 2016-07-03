@@ -20,6 +20,8 @@ import message.Translation;
 import type.TypeGroup;
 import application.ApplicationLanguages;
 import application.ApplicationMessageLibrary;
+import application.ApplicationRealm;
+import application.ApplicationRealms;
 
 public class DiagramService {
 
@@ -74,5 +76,9 @@ public class DiagramService {
 		return "Translation  "+ ((Message)(translation.eContainer())).getTranslatioins().size();
 	}
 
+	public String generateName(ApplicationRealm realm ){
+		return "Security rules set  "+ ((ApplicationRealms)(realm.eContainer())).getRealms().size();
+	}
 
+	
 }
