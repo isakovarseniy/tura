@@ -276,13 +276,13 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_INFRASTRUCTURE_LAYER__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Infarastructure</b></em>' containment reference.
+	 * The feature id for the '<em><b>Infarastructures</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURE = 2;
+	int APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Infrastructure Layer</em>' class.
@@ -1129,15 +1129,15 @@ public interface ApplicationPackage extends EPackage {
 	EAttribute getApplicationInfrastructureLayer_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link application.ApplicationInfrastructureLayer#getInfarastructure <em>Infarastructure</em>}'.
+	 * Returns the meta object for the containment reference list '{@link application.ApplicationInfrastructureLayer#getInfarastructures <em>Infarastructures</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Infarastructure</em>'.
-	 * @see application.ApplicationInfrastructureLayer#getInfarastructure()
+	 * @return the meta object for the containment reference list '<em>Infarastructures</em>'.
+	 * @see application.ApplicationInfrastructureLayer#getInfarastructures()
 	 * @see #getApplicationInfrastructureLayer()
 	 * @generated
 	 */
-	EReference getApplicationInfrastructureLayer_Infarastructure();
+	EReference getApplicationInfrastructureLayer_Infarastructures();
 
 	/**
 	 * Returns the meta object for class '{@link application.ApplicationMessageLibraries <em>Message Libraries</em>}'.
@@ -1908,12 +1908,12 @@ public interface ApplicationPackage extends EPackage {
 		EAttribute APPLICATION_INFRASTRUCTURE_LAYER__NAME = eINSTANCE.getApplicationInfrastructureLayer_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Infarastructure</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Infarastructures</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURE = eINSTANCE.getApplicationInfrastructureLayer_Infarastructure();
+		EReference APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURES = eINSTANCE.getApplicationInfrastructureLayer_Infarastructures();
 
 		/**
 		 * The meta object literal for the '{@link application.impl.ApplicationMessageLibrariesImpl <em>Message Libraries</em>}' class.

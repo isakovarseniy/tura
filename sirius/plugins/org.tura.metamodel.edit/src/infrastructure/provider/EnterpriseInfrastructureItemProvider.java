@@ -66,6 +66,7 @@ public class EnterpriseInfrastructureItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,6 +85,28 @@ public class EnterpriseInfrastructureItemProvider
 				 getString("_UI_EnterpriseInfrastructure_uid_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EnterpriseInfrastructure_uid_feature", "_UI_EnterpriseInfrastructure_type"),
 				 InfrastructurePackage.Literals.ENTERPRISE_INFRASTRUCTURE__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnterpriseInfrastructure_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnterpriseInfrastructure_name_feature", "_UI_EnterpriseInfrastructure_type"),
+				 InfrastructurePackage.Literals.ENTERPRISE_INFRASTRUCTURE__NAME,
 				 true,
 				 false,
 				 false,
@@ -142,7 +165,7 @@ public class EnterpriseInfrastructureItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EnterpriseInfrastructure)object).getUid();
+		String label = ((EnterpriseInfrastructure)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_EnterpriseInfrastructure_type") :
 			getString("_UI_EnterpriseInfrastructure_type") + " " + label;
@@ -162,6 +185,7 @@ public class EnterpriseInfrastructureItemProvider
 
 		switch (notification.getFeatureID(EnterpriseInfrastructure.class)) {
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__UID:
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:

@@ -1,20 +1,23 @@
 @namespace(uri="http://tura.org/2016/v2/infrastructure", prefix="tura.infrastructure")
 package infrastructure;
 
+import "platform:/resource/org.tura.metamodel/model/common.ecore";
+
 class EnterpriseInfrastructure{
     id attr EString uid;
+    attr EString name;
     val Datacenter[*] datacenters;
     val InfrastructureConnection[*] infrastructureConnections;
 }
 
 
-class Datacenter {
+class Datacenter extends common.HTMLLayerHolder{
     id attr EString uid;
     val Subsystem[*] subsystems;
    attr EString name;
 }
 
-class Subsystem{
+class Subsystem {
     id attr EString uid;
     attr EString name;
     val InfrastructureLayer[*] infrastructureLayer;

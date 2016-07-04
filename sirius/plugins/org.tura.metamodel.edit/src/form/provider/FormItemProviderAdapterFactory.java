@@ -186,29 +186,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link form.HTMLLayerHolder} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected HTMLLayerHolderItemProvider htmlLayerHolderItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.HTMLLayerHolder}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createHTMLLayerHolderAdapter() {
-		if (htmlLayerHolderItemProvider == null) {
-			htmlLayerHolderItemProvider = new HTMLLayerHolderItemProvider(this);
-		}
-
-		return htmlLayerHolderItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link form.Orderable} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

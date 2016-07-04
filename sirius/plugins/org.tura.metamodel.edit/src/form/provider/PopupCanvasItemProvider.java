@@ -71,7 +71,7 @@ public class PopupCanvasItemProvider extends CanvasFrameItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_HTMLLayerHolder_columns_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
-				 FormPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
+				 CommonPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
 				 true,
 				 false,
 				 false,

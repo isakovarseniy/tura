@@ -489,7 +489,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationInfrastructureLayer_Infarastructure() {
+	public EReference getApplicationInfrastructureLayer_Infarastructures() {
 		return (EReference)applicationInfrastructureLayerEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1022,7 +1022,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 		applicationInfrastructureLayerEClass = createEClass(APPLICATION_INFRASTRUCTURE_LAYER);
 		createEAttribute(applicationInfrastructureLayerEClass, APPLICATION_INFRASTRUCTURE_LAYER__UID);
 		createEAttribute(applicationInfrastructureLayerEClass, APPLICATION_INFRASTRUCTURE_LAYER__NAME);
-		createEReference(applicationInfrastructureLayerEClass, APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURE);
+		createEReference(applicationInfrastructureLayerEClass, APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURES);
 
 		applicationMessageLibrariesEClass = createEClass(APPLICATION_MESSAGE_LIBRARIES);
 		createEAttribute(applicationMessageLibrariesEClass, APPLICATION_MESSAGE_LIBRARIES__UID);
@@ -1154,7 +1154,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 		initEClass(applicationInfrastructureLayerEClass, ApplicationInfrastructureLayer.class, "ApplicationInfrastructureLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationInfrastructureLayer_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationInfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplicationInfrastructureLayer_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationInfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getApplicationInfrastructureLayer_Infarastructure(), theInfrastructurePackage.getEnterpriseInfrastructure(), null, "infarastructure", null, 0, 1, ApplicationInfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationInfrastructureLayer_Infarastructures(), theInfrastructurePackage.getEnterpriseInfrastructure(), null, "infarastructures", null, 0, -1, ApplicationInfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationMessageLibrariesEClass, ApplicationMessageLibraries.class, "ApplicationMessageLibraries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationMessageLibraries_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationMessageLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -62,7 +62,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.FORM_PARAMETER: return createFormParameter();
 			case FormPackage.FORM_VIEW: return createFormView();
 			case FormPackage.VIEWS: return createViews();
-			case FormPackage.HTML_LAYER_HOLDER: return createHTMLLayerHolder();
 			case FormPackage.ORDERABLE: return createOrderable();
 			case FormPackage.MULTI_LANG_LABEL: return createMultiLangLabel();
 			case FormPackage.CANVAS_FRAME: return createCanvasFrame();
@@ -243,16 +242,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public Views createViews() {
 		ViewsImpl views = new ViewsImpl();
 		return views;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HTMLLayerHolder createHTMLLayerHolder() {
-		HTMLLayerHolderImpl htmlLayerHolder = new HTMLLayerHolderImpl();
-		return htmlLayerHolder;
 	}
 
 	/**

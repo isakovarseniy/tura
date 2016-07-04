@@ -4,6 +4,7 @@ package application;
 
 import infrastructure.EnterpriseInfrastructure;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link application.ApplicationInfrastructureLayer#getUid <em>Uid</em>}</li>
  *   <li>{@link application.ApplicationInfrastructureLayer#getName <em>Name</em>}</li>
- *   <li>{@link application.ApplicationInfrastructureLayer#getInfarastructure <em>Infarastructure</em>}</li>
+ *   <li>{@link application.ApplicationInfrastructureLayer#getInfarastructures <em>Infarastructures</em>}</li>
  * </ul>
  *
  * @see application.ApplicationPackage#getApplicationInfrastructureLayer()
@@ -78,29 +79,19 @@ public interface ApplicationInfrastructureLayer extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Infarastructure</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Infarastructures</b></em>' containment reference list.
+	 * The list contents are of type {@link infrastructure.EnterpriseInfrastructure}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Infarastructure</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Infarastructures</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Infarastructure</em>' containment reference.
-	 * @see #setInfarastructure(EnterpriseInfrastructure)
-	 * @see application.ApplicationPackage#getApplicationInfrastructureLayer_Infarastructure()
+	 * @return the value of the '<em>Infarastructures</em>' containment reference list.
+	 * @see application.ApplicationPackage#getApplicationInfrastructureLayer_Infarastructures()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EnterpriseInfrastructure getInfarastructure();
-
-	/**
-	 * Sets the value of the '{@link application.ApplicationInfrastructureLayer#getInfarastructure <em>Infarastructure</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Infarastructure</em>' containment reference.
-	 * @see #getInfarastructure()
-	 * @generated
-	 */
-	void setInfarastructure(EnterpriseInfrastructure value);
+	EList<EnterpriseInfrastructure> getInfarastructures();
 
 } // ApplicationInfrastructureLayer

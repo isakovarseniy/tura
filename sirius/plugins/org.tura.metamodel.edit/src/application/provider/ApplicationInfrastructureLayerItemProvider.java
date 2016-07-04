@@ -128,7 +128,7 @@ public class ApplicationInfrastructureLayerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURE);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURES);
 		}
 		return childrenFeatures;
 	}
@@ -188,7 +188,7 @@ public class ApplicationInfrastructureLayerItemProvider
 			case ApplicationPackage.APPLICATION_INFRASTRUCTURE_LAYER__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ApplicationPackage.APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURE:
+			case ApplicationPackage.APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -208,7 +208,7 @@ public class ApplicationInfrastructureLayerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ApplicationPackage.Literals.APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURE,
+				(ApplicationPackage.Literals.APPLICATION_INFRASTRUCTURE_LAYER__INFARASTRUCTURES,
 				 InfrastructureFactory.eINSTANCE.createEnterpriseInfrastructure()));
 	}
 

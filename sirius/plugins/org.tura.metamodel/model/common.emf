@@ -19,4 +19,11 @@ package common;
 	  attr EString applyedClass; 
 	}
 	
+class HTMLLayerHolder{
+   attr EInt columns = 1;
+}
 
+
+class Orderable{
+  attr EInt order; 
+}

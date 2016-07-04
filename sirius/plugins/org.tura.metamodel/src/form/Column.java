@@ -3,6 +3,7 @@
 package form;
 
 import common.Categorized;
+import common.HTMLLayerHolder;
 
 /**
  * <!-- begin-user-doc -->

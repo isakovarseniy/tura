@@ -2,6 +2,8 @@
  */
 package infrastructure;
 
+import common.CommonPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -75,13 +77,22 @@ public interface InfrastructurePackage extends EPackage {
 	int ENTERPRISE_INFRASTRUCTURE__UID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTERPRISE_INFRASTRUCTURE__NAME = 1;
+
+	/**
 	 * The feature id for the '<em><b>Datacenters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTERPRISE_INFRASTRUCTURE__DATACENTERS = 1;
+	int ENTERPRISE_INFRASTRUCTURE__DATACENTERS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Infrastructure Connections</b></em>' containment reference list.
@@ -90,7 +101,7 @@ public interface InfrastructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS = 2;
+	int ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Enterprise Infrastructure</em>' class.
@@ -99,7 +110,7 @@ public interface InfrastructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTERPRISE_INFRASTRUCTURE_FEATURE_COUNT = 3;
+	int ENTERPRISE_INFRASTRUCTURE_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link infrastructure.impl.DatacenterImpl <em>Datacenter</em>}' class.
@@ -112,13 +123,22 @@ public interface InfrastructurePackage extends EPackage {
 	int DATACENTER = 1;
 
 	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATACENTER__COLUMNS = CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATACENTER__UID = 0;
+	int DATACENTER__UID = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Subsystems</b></em>' containment reference list.
@@ -127,7 +147,7 @@ public interface InfrastructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATACENTER__SUBSYSTEMS = 1;
+	int DATACENTER__SUBSYSTEMS = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -136,7 +156,7 @@ public interface InfrastructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATACENTER__NAME = 2;
+	int DATACENTER__NAME = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Datacenter</em>' class.
@@ -145,7 +165,7 @@ public interface InfrastructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATACENTER_FEATURE_COUNT = 3;
+	int DATACENTER_FEATURE_COUNT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link infrastructure.impl.SubsystemImpl <em>Subsystem</em>}' class.
@@ -539,6 +559,17 @@ public interface InfrastructurePackage extends EPackage {
 	EAttribute getEnterpriseInfrastructure_Uid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link infrastructure.EnterpriseInfrastructure#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see infrastructure.EnterpriseInfrastructure#getName()
+	 * @see #getEnterpriseInfrastructure()
+	 * @generated
+	 */
+	EAttribute getEnterpriseInfrastructure_Name();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link infrastructure.EnterpriseInfrastructure#getDatacenters <em>Datacenters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -864,6 +895,14 @@ public interface InfrastructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENTERPRISE_INFRASTRUCTURE__UID = eINSTANCE.getEnterpriseInfrastructure_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTERPRISE_INFRASTRUCTURE__NAME = eINSTANCE.getEnterpriseInfrastructure_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Datacenters</b></em>' containment reference list feature.

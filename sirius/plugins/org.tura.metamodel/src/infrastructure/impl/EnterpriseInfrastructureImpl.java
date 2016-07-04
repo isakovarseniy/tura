@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link infrastructure.impl.EnterpriseInfrastructureImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link infrastructure.impl.EnterpriseInfrastructureImpl#getName <em>Name</em>}</li>
  *   <li>{@link infrastructure.impl.EnterpriseInfrastructureImpl#getDatacenters <em>Datacenters</em>}</li>
  *   <li>{@link infrastructure.impl.EnterpriseInfrastructureImpl#getInfrastructureConnections <em>Infrastructure Connections</em>}</li>
  * </ul>
@@ -58,6 +59,26 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDatacenters() <em>Datacenters</em>}' containment reference list.
@@ -124,6 +145,27 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Datacenter> getDatacenters() {
 		if (datacenters == null) {
 			datacenters = new EObjectContainmentEList<Datacenter>(Datacenter.class, this, InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS);
@@ -169,6 +211,8 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
 		switch (featureID) {
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__UID:
 				return getUid();
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__NAME:
+				return getName();
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
 				return getDatacenters();
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
@@ -188,6 +232,9 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
 		switch (featureID) {
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__UID:
 				setUid((String)newValue);
+				return;
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__NAME:
+				setName((String)newValue);
 				return;
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
 				getDatacenters().clear();
@@ -212,6 +259,9 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
 				getDatacenters().clear();
 				return;
@@ -232,6 +282,8 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
 		switch (featureID) {
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__DATACENTERS:
 				return datacenters != null && !datacenters.isEmpty();
 			case InfrastructurePackage.ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS:
@@ -252,6 +304,8 @@ public class EnterpriseInfrastructureImpl extends EObjectImpl implements Enterpr
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

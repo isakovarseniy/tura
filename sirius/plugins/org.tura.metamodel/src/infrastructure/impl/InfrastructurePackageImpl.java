@@ -270,8 +270,17 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEnterpriseInfrastructure_Name() {
+		return (EAttribute)enterpriseInfrastructureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getEnterpriseInfrastructure_Datacenters() {
-		return (EReference)enterpriseInfrastructureEClass.getEStructuralFeatures().get(1);
+		return (EReference)enterpriseInfrastructureEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -280,7 +289,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * @generated
 	 */
 	public EReference getEnterpriseInfrastructure_InfrastructureConnections() {
-		return (EReference)enterpriseInfrastructureEClass.getEStructuralFeatures().get(2);
+		return (EReference)enterpriseInfrastructureEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -538,6 +547,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 		// Create classes and their features
 		enterpriseInfrastructureEClass = createEClass(ENTERPRISE_INFRASTRUCTURE);
 		createEAttribute(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__UID);
+		createEAttribute(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__NAME);
 		createEReference(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__DATACENTERS);
 		createEReference(enterpriseInfrastructureEClass, ENTERPRISE_INFRASTRUCTURE__INFRASTRUCTURE_CONNECTIONS);
 
@@ -600,11 +610,15 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		datacenterEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		serverEClass.getESuperTypes().add(this.getInfrastructureComponent());
 		routerEClass.getESuperTypes().add(this.getInfrastructureComponent());
 		hubEClass.getESuperTypes().add(this.getInfrastructureComponent());
@@ -614,6 +628,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 		// Initialize classes and features; add operations and parameters
 		initEClass(enterpriseInfrastructureEClass, EnterpriseInfrastructure.class, "EnterpriseInfrastructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnterpriseInfrastructure_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEnterpriseInfrastructure_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnterpriseInfrastructure_Datacenters(), this.getDatacenter(), null, "datacenters", null, 0, -1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnterpriseInfrastructure_InfrastructureConnections(), this.getInfrastructureConnection(), null, "infrastructureConnections", null, 0, -1, EnterpriseInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

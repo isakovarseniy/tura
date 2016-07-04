@@ -43,7 +43,7 @@ class ApplicationInfrastructureLayers{
 class ApplicationInfrastructureLayer{
     id attr EString uid;
    attr EString name;
-   val infrastructure.EnterpriseInfrastructure infarastructure;
+   val infrastructure.EnterpriseInfrastructure[*] infarastructures;
 }
 	
 	

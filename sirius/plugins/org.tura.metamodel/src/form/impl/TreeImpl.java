@@ -2,10 +2,12 @@
  */
 package form.impl;
 
+import common.CommonPackage;
+import common.HTMLLayerHolder;
+
 import form.Column;
 import form.Context;
 import form.FormPackage;
-import form.HTMLLayerHolder;
 import form.MultiLangLabel;
 import form.Tree;
 
@@ -398,7 +400,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.TREE__COLUMNS: return FormPackage.HTML_LAYER_HOLDER__COLUMNS;
+				case FormPackage.TREE__COLUMNS: return CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
 				default: return -1;
 			}
 		}
@@ -420,7 +422,7 @@ public class TreeImpl extends SourcesPointerImpl implements Tree {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
-				case FormPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.TREE__COLUMNS;
+				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.TREE__COLUMNS;
 				default: return -1;
 			}
 		}

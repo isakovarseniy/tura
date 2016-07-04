@@ -3,6 +3,7 @@
 package infrastructure.provider;
 
 
+import common.provider.HTMLLayerHolderItemProvider;
 import domain.provider.DomainEditPlugin;
 
 import infrastructure.Datacenter;
@@ -37,13 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DatacenterItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends HTMLLayerHolderItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

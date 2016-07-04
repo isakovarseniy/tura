@@ -49,6 +49,24 @@ public interface CommonFactory extends EFactory {
 	GenerationHint createGenerationHint();
 
 	/**
+	 * Returns a new object of class '<em>HTML Layer Holder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>HTML Layer Holder</em>'.
+	 * @generated
+	 */
+	HTMLLayerHolder createHTMLLayerHolder();
+
+	/**
+	 * Returns a new object of class '<em>Orderable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Orderable</em>'.
+	 * @generated
+	 */
+	Orderable createOrderable();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

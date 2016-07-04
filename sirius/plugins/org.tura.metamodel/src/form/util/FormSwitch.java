@@ -3,6 +3,7 @@
 package form.util;
 
 import common.Categorized;
+import common.HTMLLayerHolder;
 
 import form.*;
 
@@ -101,12 +102,6 @@ public class FormSwitch<T> extends Switch<T> {
 			case FormPackage.VIEWS: {
 				Views views = (Views)theEObject;
 				T result = caseViews(views);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FormPackage.HTML_LAYER_HOLDER: {
-				HTMLLayerHolder htmlLayerHolder = (HTMLLayerHolder)theEObject;
-				T result = caseHTMLLayerHolder(htmlLayerHolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1048,21 +1043,6 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseViews(Views object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>HTML Layer Holder</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>HTML Layer Holder</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseHTMLLayerHolder(HTMLLayerHolder object) {
 		return null;
 	}
 
@@ -2413,6 +2393,21 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypePointer(TypePointer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>HTML Layer Holder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>HTML Layer Holder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHTMLLayerHolder(HTMLLayerHolder object) {
 		return null;
 	}
 

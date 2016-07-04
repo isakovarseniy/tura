@@ -2,6 +2,7 @@
  */
 package infrastructure.tests;
 
+import common.tests.HTMLLayerHolderTest;
 import infrastructure.Datacenter;
 import infrastructure.InfrastructureFactory;
 
@@ -15,15 +16,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DatacenterTest extends TestCase {
-
-	/**
-	 * The fixture for this Datacenter test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Datacenter fixture = null;
+public class DatacenterTest extends HTMLLayerHolderTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +38,14 @@ public class DatacenterTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Datacenter test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Datacenter fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Datacenter test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Datacenter getFixture() {
-		return fixture;
+		return (Datacenter)fixture;
 	}
 
 	/**

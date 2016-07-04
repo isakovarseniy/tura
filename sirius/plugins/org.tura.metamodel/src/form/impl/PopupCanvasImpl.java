@@ -5,13 +5,13 @@ package form.impl;
 import common.Categorized;
 import common.Classifier;
 import common.CommonPackage;
+import common.HTMLLayerHolder;
 
 import form.Context;
 import form.DefaultCavas;
 import form.FlexField;
 import form.FlexFields;
 import form.FormPackage;
-import form.HTMLLayerHolder;
 import form.MultiLangLabel;
 import form.PopupCanvas;
 import form.ViewElement;
@@ -464,7 +464,7 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.POPUP_CANVAS__COLUMNS: return FormPackage.HTML_LAYER_HOLDER__COLUMNS;
+				case FormPackage.POPUP_CANVAS__COLUMNS: return CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
 				default: return -1;
 			}
 		}
@@ -510,7 +510,7 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
-				case FormPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.POPUP_CANVAS__COLUMNS;
+				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.POPUP_CANVAS__COLUMNS;
 				default: return -1;
 			}
 		}
