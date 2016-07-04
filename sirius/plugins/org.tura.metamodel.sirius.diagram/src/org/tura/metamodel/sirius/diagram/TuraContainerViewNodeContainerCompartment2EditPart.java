@@ -7,12 +7,17 @@ import java.util.List;
 import org.eclipse.draw2d.FigureListener;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutManager;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartListener;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.figures.ShapeCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeContainerSpec;
@@ -20,7 +25,7 @@ import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartment2EditPart;
 
 import form.FormPackage;
-import form.HTMLLayerHolder;
+import common.HTMLLayerHolder;
 import form.Orderable;
 
 
@@ -97,18 +102,53 @@ public class TuraContainerViewNodeContainerCompartment2EditPart extends DNodeCon
 	
 	@Override
 	protected LayoutManager getLayoutManager() {
-		
+
 		HTMLLikeLayout layout = new HTMLLikeLayout();
 
 		NodeImpl node = (NodeImpl) this.getModel();
-		DNodeContainerSpec  spec = (DNodeContainerSpec) node.getElement();
+		DNodeContainerSpec spec = (DNodeContainerSpec) node.getElement();
 		EObject model = spec.getTarget();
 
-		if (model instanceof HTMLLayerHolder){
+		if (model instanceof HTMLLayerHolder) {
 			layout.setColumns(((HTMLLayerHolder) model).getColumns());
+			model.eAdapters().add(new Adapter() {
+
+				@Override
+				public void notifyChanged(Notification event) {
+					if (event.getNotifier() instanceof HTMLLayerHolder && event.getFeature() instanceof EAttribute) {
+						EAttribute eAttribute = (EAttribute) event.getFeature();
+						if (eAttribute.getName().equalsIgnoreCase("columns")) {
+							ShapeCompartmentFigure figure = (ShapeCompartmentFigure) getFigure();
+							HTMLLikeLayout layout = (HTMLLikeLayout) figure.getContentPane().getLayoutManager();
+							layout.setColumns(event.getNewIntValue());
+							figure.getContentPane().revalidate();
+							figure.getUpdateManager().performUpdate();
+						}
+
+					}
+				}
+
+				@Override
+				public Notifier getTarget() {
+					return null;
+				}
+
+				@Override
+				public void setTarget(Notifier newTarget) {
+
+				}
+
+				@Override
+				public boolean isAdapterForType(Object type) {
+					if (type instanceof HTMLLayerHolder)
+						return true;
+					else
+						return false;
+				}
+
+			});
 			return layout;
-		}
-		else{
+		} else {
 			return super.getLayoutManager();
 		}
 	}
