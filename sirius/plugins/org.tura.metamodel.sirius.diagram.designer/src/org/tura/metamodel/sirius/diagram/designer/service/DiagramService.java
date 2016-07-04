@@ -6,6 +6,8 @@ import org.eclipse.emf.ecore.EObject;
 
 import application.Application;
 import application.ApplicationGroup;
+import application.ApplicationInfrastructureLayer;
+import application.ApplicationInfrastructureLayers;
 import artifact.ArtifactGroup;
 import domain.DomainApplication;
 import domain.DomainApplications;
@@ -13,6 +15,7 @@ import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainTypes;
 import domain.DomainTypesRepository;
+import infrastructure.EnterpriseInfrastructure;
 import message.Language;
 import message.Message;
 import message.MessageLibrary;
@@ -76,9 +79,18 @@ public class DiagramService {
 		return "Translation  "+ ((Message)(translation.eContainer())).getTranslatioins().size();
 	}
 
+	public String generateName(ApplicationInfrastructureLayer layer ){
+		return "Infrastructure Environment  "+ ((ApplicationInfrastructureLayers)(layer.eContainer())).getInfarastructureLayers().size();
+	}
+
 	public String generateName(ApplicationRealm realm ){
 		return "Security rules set  "+ ((ApplicationRealms)(realm.eContainer())).getRealms().size();
 	}
-
 	
+
+	public String generateName(EnterpriseInfrastructure infra ){
+		return "Infrastructure layer  "+ ((ApplicationInfrastructureLayer)(infra.eContainer())).getInfarastructures().size();
+	}
+
+
 }
