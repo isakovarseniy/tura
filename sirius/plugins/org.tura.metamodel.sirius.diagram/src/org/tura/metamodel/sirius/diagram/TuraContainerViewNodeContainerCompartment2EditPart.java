@@ -25,7 +25,7 @@ import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartment2EditPart;
 
 import form.FormPackage;
-import common.HTMLLayerHolder;
+import form.HTMLLayerHolder;
 import form.Orderable;
 
 
