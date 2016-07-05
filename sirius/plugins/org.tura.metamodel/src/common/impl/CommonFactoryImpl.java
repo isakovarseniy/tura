@@ -59,8 +59,6 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 			case CommonPackage.CATEGORIZED: return createCategorized();
 			case CommonPackage.CLASSIFIER: return createClassifier();
 			case CommonPackage.GENERATION_HINT: return createGenerationHint();
-			case CommonPackage.HTML_LAYER_HOLDER: return createHTMLLayerHolder();
-			case CommonPackage.ORDERABLE: return createOrderable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -94,26 +92,6 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	public GenerationHint createGenerationHint() {
 		GenerationHintImpl generationHint = new GenerationHintImpl();
 		return generationHint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HTMLLayerHolder createHTMLLayerHolder() {
-		HTMLLayerHolderImpl htmlLayerHolder = new HTMLLayerHolderImpl();
-		return htmlLayerHolder;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Orderable createOrderable() {
-		OrderableImpl orderable = new OrderableImpl();
-		return orderable;
 	}
 
 	/**

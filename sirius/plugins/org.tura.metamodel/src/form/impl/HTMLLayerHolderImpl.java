@@ -1,9 +1,9 @@
 /**
  */
-package common.impl;
+package form.impl;
 
-import common.CommonPackage;
-import common.HTMLLayerHolder;
+import form.FormPackage;
+import form.HTMLLayerHolder;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link common.impl.HTMLLayerHolderImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link form.impl.HTMLLayerHolderImpl#getColumns <em>Columns</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,7 +62,7 @@ public class HTMLLayerHolderImpl extends EObjectImpl implements HTMLLayerHolder 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CommonPackage.Literals.HTML_LAYER_HOLDER;
+		return FormPackage.Literals.HTML_LAYER_HOLDER;
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class HTMLLayerHolderImpl extends EObjectImpl implements HTMLLayerHolder 
 		int oldColumns = columns;
 		columns = newColumns;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.HTML_LAYER_HOLDER__COLUMNS, oldColumns, columns));
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.HTML_LAYER_HOLDER__COLUMNS, oldColumns, columns));
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class HTMLLayerHolderImpl extends EObjectImpl implements HTMLLayerHolder 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CommonPackage.HTML_LAYER_HOLDER__COLUMNS:
+			case FormPackage.HTML_LAYER_HOLDER__COLUMNS:
 				return getColumns();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -108,7 +108,7 @@ public class HTMLLayerHolderImpl extends EObjectImpl implements HTMLLayerHolder 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CommonPackage.HTML_LAYER_HOLDER__COLUMNS:
+			case FormPackage.HTML_LAYER_HOLDER__COLUMNS:
 				setColumns((Integer)newValue);
 				return;
 		}
@@ -123,7 +123,7 @@ public class HTMLLayerHolderImpl extends EObjectImpl implements HTMLLayerHolder 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CommonPackage.HTML_LAYER_HOLDER__COLUMNS:
+			case FormPackage.HTML_LAYER_HOLDER__COLUMNS:
 				setColumns(COLUMNS_EDEFAULT);
 				return;
 		}
@@ -138,7 +138,7 @@ public class HTMLLayerHolderImpl extends EObjectImpl implements HTMLLayerHolder 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CommonPackage.HTML_LAYER_HOLDER__COLUMNS:
+			case FormPackage.HTML_LAYER_HOLDER__COLUMNS:
 				return columns != COLUMNS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

@@ -63,8 +63,8 @@ public class InfrastructureConnectionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
-			addMasterPropertyDescriptor(object);
-			addDetailPropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,19 +92,19 @@ public class InfrastructureConnectionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Master feature.
+	 * This adds a property descriptor for the Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMasterPropertyDescriptor(Object object) {
+	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InfrastructureConnection_master_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureConnection_master_feature", "_UI_InfrastructureConnection_type"),
-				 InfrastructurePackage.Literals.INFRASTRUCTURE_CONNECTION__MASTER,
+				 getString("_UI_InfrastructureConnection_source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureConnection_source_feature", "_UI_InfrastructureConnection_type"),
+				 InfrastructurePackage.Literals.INFRASTRUCTURE_CONNECTION__SOURCE,
 				 true,
 				 false,
 				 true,
@@ -114,19 +114,19 @@ public class InfrastructureConnectionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Detail feature.
+	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDetailPropertyDescriptor(Object object) {
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InfrastructureConnection_detail_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureConnection_detail_feature", "_UI_InfrastructureConnection_type"),
-				 InfrastructurePackage.Literals.INFRASTRUCTURE_CONNECTION__DETAIL,
+				 getString("_UI_InfrastructureConnection_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureConnection_target_feature", "_UI_InfrastructureConnection_type"),
+				 InfrastructurePackage.Literals.INFRASTRUCTURE_CONNECTION__TARGET,
 				 true,
 				 false,
 				 true,

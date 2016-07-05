@@ -3,7 +3,6 @@
 package form;
 
 import common.Categorized;
-import common.HTMLLayerHolder;
 
 import org.eclipse.emf.common.util.EList;
 

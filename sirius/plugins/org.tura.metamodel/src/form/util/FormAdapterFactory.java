@@ -3,7 +3,6 @@
 package form.util;
 
 import common.Categorized;
-import common.HTMLLayerHolder;
 
 import form.*;
 
@@ -94,6 +93,10 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseViews(Views object) {
 				return createViewsAdapter();
+			}
+			@Override
+			public Adapter caseHTMLLayerHolder(HTMLLayerHolder object) {
+				return createHTMLLayerHolderAdapter();
 			}
 			@Override
 			public Adapter caseOrderable(Orderable object) {
@@ -456,10 +459,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createTypePointerAdapter();
 			}
 			@Override
-			public Adapter caseHTMLLayerHolder(HTMLLayerHolder object) {
-				return createHTMLLayerHolderAdapter();
-			}
-			@Override
 			public Adapter caseCategorized(Categorized object) {
 				return createCategorizedAdapter();
 			}
@@ -558,6 +557,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.HTMLLayerHolder <em>HTML Layer Holder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.HTMLLayerHolder
+	 * @generated
+	 */
+	public Adapter createHTMLLayerHolderAdapter() {
 		return null;
 	}
 
@@ -1818,20 +1831,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypePointerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link common.HTMLLayerHolder <em>HTML Layer Holder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see common.HTMLLayerHolder
-	 * @generated
-	 */
-	public Adapter createHTMLLayerHolderAdapter() {
 		return null;
 	}
 

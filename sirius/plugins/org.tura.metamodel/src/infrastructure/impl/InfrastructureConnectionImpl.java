@@ -23,8 +23,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link infrastructure.impl.InfrastructureConnectionImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link infrastructure.impl.InfrastructureConnectionImpl#getMaster <em>Master</em>}</li>
- *   <li>{@link infrastructure.impl.InfrastructureConnectionImpl#getDetail <em>Detail</em>}</li>
+ *   <li>{@link infrastructure.impl.InfrastructureConnectionImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link infrastructure.impl.InfrastructureConnectionImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,24 +51,24 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 	protected String uid = UID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMaster() <em>Master</em>}' reference.
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMaster()
+	 * @see #getSource()
 	 * @generated
 	 * @ordered
 	 */
-	protected InfrastructureComponent master;
+	protected InfrastructureComponent source;
 
 	/**
-	 * The cached value of the '{@link #getDetail() <em>Detail</em>}' reference.
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDetail()
+	 * @see #getTarget()
 	 * @generated
 	 * @ordered
 	 */
-	protected InfrastructureComponent detail;
+	protected InfrastructureComponent target;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,16 +115,16 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InfrastructureComponent getMaster() {
-		if (master != null && master.eIsProxy()) {
-			InternalEObject oldMaster = (InternalEObject)master;
-			master = (InfrastructureComponent)eResolveProxy(oldMaster);
-			if (master != oldMaster) {
+	public InfrastructureComponent getSource() {
+		if (source != null && source.eIsProxy()) {
+			InternalEObject oldSource = (InternalEObject)source;
+			source = (InfrastructureComponent)eResolveProxy(oldSource);
+			if (source != oldSource) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InfrastructurePackage.INFRASTRUCTURE_CONNECTION__MASTER, oldMaster, master));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InfrastructurePackage.INFRASTRUCTURE_CONNECTION__SOURCE, oldSource, source));
 			}
 		}
-		return master;
+		return source;
 	}
 
 	/**
@@ -132,8 +132,8 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InfrastructureComponent basicGetMaster() {
-		return master;
+	public InfrastructureComponent basicGetSource() {
+		return source;
 	}
 
 	/**
@@ -141,11 +141,11 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaster(InfrastructureComponent newMaster) {
-		InfrastructureComponent oldMaster = master;
-		master = newMaster;
+	public void setSource(InfrastructureComponent newSource) {
+		InfrastructureComponent oldSource = source;
+		source = newSource;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InfrastructurePackage.INFRASTRUCTURE_CONNECTION__MASTER, oldMaster, master));
+			eNotify(new ENotificationImpl(this, Notification.SET, InfrastructurePackage.INFRASTRUCTURE_CONNECTION__SOURCE, oldSource, source));
 	}
 
 	/**
@@ -153,16 +153,16 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InfrastructureComponent getDetail() {
-		if (detail != null && detail.eIsProxy()) {
-			InternalEObject oldDetail = (InternalEObject)detail;
-			detail = (InfrastructureComponent)eResolveProxy(oldDetail);
-			if (detail != oldDetail) {
+	public InfrastructureComponent getTarget() {
+		if (target != null && target.eIsProxy()) {
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (InfrastructureComponent)eResolveProxy(oldTarget);
+			if (target != oldTarget) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InfrastructurePackage.INFRASTRUCTURE_CONNECTION__DETAIL, oldDetail, detail));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InfrastructurePackage.INFRASTRUCTURE_CONNECTION__TARGET, oldTarget, target));
 			}
 		}
-		return detail;
+		return target;
 	}
 
 	/**
@@ -170,8 +170,8 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InfrastructureComponent basicGetDetail() {
-		return detail;
+	public InfrastructureComponent basicGetTarget() {
+		return target;
 	}
 
 	/**
@@ -179,11 +179,11 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDetail(InfrastructureComponent newDetail) {
-		InfrastructureComponent oldDetail = detail;
-		detail = newDetail;
+	public void setTarget(InfrastructureComponent newTarget) {
+		InfrastructureComponent oldTarget = target;
+		target = newTarget;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InfrastructurePackage.INFRASTRUCTURE_CONNECTION__DETAIL, oldDetail, detail));
+			eNotify(new ENotificationImpl(this, Notification.SET, InfrastructurePackage.INFRASTRUCTURE_CONNECTION__TARGET, oldTarget, target));
 	}
 
 	/**
@@ -196,12 +196,12 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 		switch (featureID) {
 			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__UID:
 				return getUid();
-			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__MASTER:
-				if (resolve) return getMaster();
-				return basicGetMaster();
-			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__DETAIL:
-				if (resolve) return getDetail();
-				return basicGetDetail();
+			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__SOURCE:
+				if (resolve) return getSource();
+				return basicGetSource();
+			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,11 +217,11 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__UID:
 				setUid((String)newValue);
 				return;
-			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__MASTER:
-				setMaster((InfrastructureComponent)newValue);
+			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__SOURCE:
+				setSource((InfrastructureComponent)newValue);
 				return;
-			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__DETAIL:
-				setDetail((InfrastructureComponent)newValue);
+			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__TARGET:
+				setTarget((InfrastructureComponent)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,11 +238,11 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__MASTER:
-				setMaster((InfrastructureComponent)null);
+			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__SOURCE:
+				setSource((InfrastructureComponent)null);
 				return;
-			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__DETAIL:
-				setDetail((InfrastructureComponent)null);
+			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__TARGET:
+				setTarget((InfrastructureComponent)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -258,10 +258,10 @@ public class InfrastructureConnectionImpl extends EObjectImpl implements Infrast
 		switch (featureID) {
 			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__MASTER:
-				return master != null;
-			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__DETAIL:
-				return detail != null;
+			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__SOURCE:
+				return source != null;
+			case InfrastructurePackage.INFRASTRUCTURE_CONNECTION__TARGET:
+				return target != null;
 		}
 		return super.eIsSet(featureID);
 	}

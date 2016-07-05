@@ -140,52 +140,6 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link common.HTMLLayerHolder} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected HTMLLayerHolderItemProvider htmlLayerHolderItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link common.HTMLLayerHolder}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createHTMLLayerHolderAdapter() {
-		if (htmlLayerHolderItemProvider == null) {
-			htmlLayerHolderItemProvider = new HTMLLayerHolderItemProvider(this);
-		}
-
-		return htmlLayerHolderItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link common.Orderable} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OrderableItemProvider orderableItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link common.Orderable}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOrderableAdapter() {
-		if (orderableItemProvider == null) {
-			orderableItemProvider = new OrderableItemProvider(this);
-		}
-
-		return orderableItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link infrastructure.InfrastructureConnection#getUid <em>Uid</em>}</li>
- *   <li>{@link infrastructure.InfrastructureConnection#getMaster <em>Master</em>}</li>
- *   <li>{@link infrastructure.InfrastructureConnection#getDetail <em>Detail</em>}</li>
+ *   <li>{@link infrastructure.InfrastructureConnection#getSource <em>Source</em>}</li>
+ *   <li>{@link infrastructure.InfrastructureConnection#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @see infrastructure.InfrastructurePackage#getInfrastructureConnection()
@@ -50,55 +50,55 @@ public interface InfrastructureConnection extends EObject {
 	void setUid(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Master</b></em>' reference.
+	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Master</em>' reference isn't clear,
+	 * If the meaning of the '<em>Source</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Master</em>' reference.
-	 * @see #setMaster(InfrastructureComponent)
-	 * @see infrastructure.InfrastructurePackage#getInfrastructureConnection_Master()
+	 * @return the value of the '<em>Source</em>' reference.
+	 * @see #setSource(InfrastructureComponent)
+	 * @see infrastructure.InfrastructurePackage#getInfrastructureConnection_Source()
 	 * @model
 	 * @generated
 	 */
-	InfrastructureComponent getMaster();
+	InfrastructureComponent getSource();
 
 	/**
-	 * Sets the value of the '{@link infrastructure.InfrastructureConnection#getMaster <em>Master</em>}' reference.
+	 * Sets the value of the '{@link infrastructure.InfrastructureConnection#getSource <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Master</em>' reference.
-	 * @see #getMaster()
+	 * @param value the new value of the '<em>Source</em>' reference.
+	 * @see #getSource()
 	 * @generated
 	 */
-	void setMaster(InfrastructureComponent value);
+	void setSource(InfrastructureComponent value);
 
 	/**
-	 * Returns the value of the '<em><b>Detail</b></em>' reference.
+	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Detail</em>' reference isn't clear,
+	 * If the meaning of the '<em>Target</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Detail</em>' reference.
-	 * @see #setDetail(InfrastructureComponent)
-	 * @see infrastructure.InfrastructurePackage#getInfrastructureConnection_Detail()
+	 * @return the value of the '<em>Target</em>' reference.
+	 * @see #setTarget(InfrastructureComponent)
+	 * @see infrastructure.InfrastructurePackage#getInfrastructureConnection_Target()
 	 * @model
 	 * @generated
 	 */
-	InfrastructureComponent getDetail();
+	InfrastructureComponent getTarget();
 
 	/**
-	 * Sets the value of the '{@link infrastructure.InfrastructureConnection#getDetail <em>Detail</em>}' reference.
+	 * Sets the value of the '{@link infrastructure.InfrastructureConnection#getTarget <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Detail</em>' reference.
-	 * @see #getDetail()
+	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @see #getTarget()
 	 * @generated
 	 */
-	void setDetail(InfrastructureComponent value);
+	void setTarget(InfrastructureComponent value);
 
 } // InfrastructureConnection

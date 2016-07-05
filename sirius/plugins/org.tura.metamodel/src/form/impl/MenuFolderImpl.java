@@ -6,8 +6,6 @@ import common.Categorized;
 import common.Classifier;
 import common.CommonPackage;
 
-import common.impl.HTMLLayerHolderImpl;
-
 import form.Context;
 import form.EnabledUIItem;
 import form.FormPackage;

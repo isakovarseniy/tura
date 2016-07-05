@@ -1,12 +1,12 @@
 /**
  */
-package common.provider;
+package form.provider;
 
-
-import common.CommonPackage;
-import common.Orderable;
 
 import domain.provider.DomainEditPlugin;
+
+import form.FormPackage;
+import form.HTMLLayerHolder;
 
 import java.util.Collection;
 import java.util.List;
@@ -28,12 +28,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link common.Orderable} object.
+ * This is the item provider adapter for a {@link form.HTMLLayerHolder} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OrderableItemProvider 
+public class HTMLLayerHolderItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +47,7 @@ public class OrderableItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OrderableItemProvider(AdapterFactory adapterFactory) {
+	public HTMLLayerHolderItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,25 +62,25 @@ public class OrderableItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOrderPropertyDescriptor(object);
+			addColumnsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Order feature.
+	 * This adds a property descriptor for the Columns feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOrderPropertyDescriptor(Object object) {
+	protected void addColumnsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Orderable_order_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Orderable_order_feature", "_UI_Orderable_type"),
-				 CommonPackage.Literals.ORDERABLE__ORDER,
+				 getString("_UI_HTMLLayerHolder_columns_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
+				 FormPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
 				 true,
 				 false,
 				 false,
@@ -90,14 +90,14 @@ public class OrderableItemProvider
 	}
 
 	/**
-	 * This returns Orderable.gif.
+	 * This returns HTMLLayerHolder.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Orderable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/HTMLLayerHolder"));
 	}
 
 	/**
@@ -108,8 +108,8 @@ public class OrderableItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Orderable orderable = (Orderable)object;
-		return getString("_UI_Orderable_type") + " " + orderable.getOrder();
+		HTMLLayerHolder htmlLayerHolder = (HTMLLayerHolder)object;
+		return getString("_UI_HTMLLayerHolder_type") + " " + htmlLayerHolder.getColumns();
 	}
 	
 
@@ -124,8 +124,8 @@ public class OrderableItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Orderable.class)) {
-			case CommonPackage.ORDERABLE__ORDER:
+		switch (notification.getFeatureID(HTMLLayerHolder.class)) {
+			case FormPackage.HTML_LAYER_HOLDER__COLUMNS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

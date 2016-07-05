@@ -2,8 +2,6 @@
  */
 package infrastructure.util;
 
-import common.HTMLLayerHolder;
-
 import infrastructure.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -77,7 +75,6 @@ public class InfrastructureSwitch<T> extends Switch<T> {
 			case InfrastructurePackage.DATACENTER: {
 				Datacenter datacenter = (Datacenter)theEObject;
 				T result = caseDatacenter(datacenter);
-				if (result == null) result = caseHTMLLayerHolder(datacenter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -306,21 +303,6 @@ public class InfrastructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseServerClaster(ServerClaster object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>HTML Layer Holder</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>HTML Layer Holder</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseHTMLLayerHolder(HTMLLayerHolder object) {
 		return null;
 	}
 

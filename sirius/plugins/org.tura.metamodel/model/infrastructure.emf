@@ -11,7 +11,7 @@ class EnterpriseInfrastructure{
 }
 
 
-class Datacenter extends common.HTMLLayerHolder{
+class Datacenter {
     id attr EString uid;
     val Subsystem[*] subsystems;
    attr EString name;
@@ -32,8 +32,8 @@ class InfrastructureLayer {
 
 class InfrastructureConnection{
     id attr EString uid;
-   ref InfrastructureComponent master;
-   ref InfrastructureComponent detail;
+   ref InfrastructureComponent source;
+   ref InfrastructureComponent target;
 }
 
 

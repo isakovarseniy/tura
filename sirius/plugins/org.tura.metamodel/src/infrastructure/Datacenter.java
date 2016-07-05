@@ -2,9 +2,9 @@
  */
 package infrastructure;
 
-import common.HTMLLayerHolder;
-
 import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Datacenter extends HTMLLayerHolder {
+public interface Datacenter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

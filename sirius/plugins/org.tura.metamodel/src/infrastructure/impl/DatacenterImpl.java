@@ -2,8 +2,6 @@
  */
 package infrastructure.impl;
 
-import common.impl.HTMLLayerHolderImpl;
-
 import infrastructure.Datacenter;
 import infrastructure.InfrastructurePackage;
 import infrastructure.Subsystem;
@@ -19,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -38,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DatacenterImpl extends HTMLLayerHolderImpl implements Datacenter {
+public class DatacenterImpl extends EObjectImpl implements Datacenter {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->

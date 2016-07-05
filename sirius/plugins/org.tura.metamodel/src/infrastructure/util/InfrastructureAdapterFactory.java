@@ -2,8 +2,6 @@
  */
 package infrastructure.util;
 
-import common.HTMLLayerHolder;
-
 import infrastructure.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -112,10 +110,6 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseServerClaster(ServerClaster object) {
 				return createServerClasterAdapter();
-			}
-			@Override
-			public Adapter caseHTMLLayerHolder(HTMLLayerHolder object) {
-				return createHTMLLayerHolderAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -288,20 +282,6 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createServerClasterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link common.HTMLLayerHolder <em>HTML Layer Holder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see common.HTMLLayerHolder
-	 * @generated
-	 */
-	public Adapter createHTMLLayerHolderAdapter() {
 		return null;
 	}
 

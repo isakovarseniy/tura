@@ -11,7 +11,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureConnections"
         upperBound="-1" eType="#//InfrastructureConnection" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Datacenter" eSuperTypes="common.ecore#//HTMLLayerHolder">
+  <eClassifiers xsi:type="ecore:EClass" name="Datacenter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subsystems" upperBound="-1"
@@ -35,8 +35,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="InfrastructureConnection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="master" eType="#//InfrastructureComponent"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="detail" eType="#//InfrastructureComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//InfrastructureComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//InfrastructureComponent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InfrastructureComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

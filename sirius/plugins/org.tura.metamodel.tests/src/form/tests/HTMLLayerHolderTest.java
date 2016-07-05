@@ -1,9 +1,9 @@
 /**
  */
-package common.tests;
+package form.tests;
 
-import common.CommonFactory;
-import common.HTMLLayerHolder;
+import form.FormFactory;
+import form.HTMLLayerHolder;
 
 import junit.framework.TestCase;
 
@@ -72,7 +72,7 @@ public class HTMLLayerHolderTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CommonFactory.eINSTANCE.createHTMLLayerHolder());
+		setFixture(FormFactory.eINSTANCE.createHTMLLayerHolder());
 	}
 
 	/**

@@ -2,8 +2,6 @@
  */
 package infrastructure;
 
-import common.CommonPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -123,22 +121,13 @@ public interface InfrastructurePackage extends EPackage {
 	int DATACENTER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATACENTER__COLUMNS = CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
-
-	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATACENTER__UID = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
+	int DATACENTER__UID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Subsystems</b></em>' containment reference list.
@@ -147,7 +136,7 @@ public interface InfrastructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATACENTER__SUBSYSTEMS = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
+	int DATACENTER__SUBSYSTEMS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -156,7 +145,7 @@ public interface InfrastructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATACENTER__NAME = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
+	int DATACENTER__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Datacenter</em>' class.
@@ -165,7 +154,7 @@ public interface InfrastructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATACENTER_FEATURE_COUNT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
+	int DATACENTER_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link infrastructure.impl.SubsystemImpl <em>Subsystem</em>}' class.
@@ -279,22 +268,22 @@ public interface InfrastructurePackage extends EPackage {
 	int INFRASTRUCTURE_CONNECTION__UID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Master</b></em>' reference.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_CONNECTION__MASTER = 1;
+	int INFRASTRUCTURE_CONNECTION__SOURCE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Detail</b></em>' reference.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_CONNECTION__DETAIL = 2;
+	int INFRASTRUCTURE_CONNECTION__TARGET = 2;
 
 	/**
 	 * The number of structural features of the '<em>Connection</em>' class.
@@ -742,26 +731,26 @@ public interface InfrastructurePackage extends EPackage {
 	EAttribute getInfrastructureConnection_Uid();
 
 	/**
-	 * Returns the meta object for the reference '{@link infrastructure.InfrastructureConnection#getMaster <em>Master</em>}'.
+	 * Returns the meta object for the reference '{@link infrastructure.InfrastructureConnection#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Master</em>'.
-	 * @see infrastructure.InfrastructureConnection#getMaster()
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see infrastructure.InfrastructureConnection#getSource()
 	 * @see #getInfrastructureConnection()
 	 * @generated
 	 */
-	EReference getInfrastructureConnection_Master();
+	EReference getInfrastructureConnection_Source();
 
 	/**
-	 * Returns the meta object for the reference '{@link infrastructure.InfrastructureConnection#getDetail <em>Detail</em>}'.
+	 * Returns the meta object for the reference '{@link infrastructure.InfrastructureConnection#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Detail</em>'.
-	 * @see infrastructure.InfrastructureConnection#getDetail()
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see infrastructure.InfrastructureConnection#getTarget()
 	 * @see #getInfrastructureConnection()
 	 * @generated
 	 */
-	EReference getInfrastructureConnection_Detail();
+	EReference getInfrastructureConnection_Target();
 
 	/**
 	 * Returns the meta object for class '{@link infrastructure.InfrastructureComponent <em>Component</em>}'.
@@ -1041,20 +1030,20 @@ public interface InfrastructurePackage extends EPackage {
 		EAttribute INFRASTRUCTURE_CONNECTION__UID = eINSTANCE.getInfrastructureConnection_Uid();
 
 		/**
-		 * The meta object literal for the '<em><b>Master</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INFRASTRUCTURE_CONNECTION__MASTER = eINSTANCE.getInfrastructureConnection_Master();
+		EReference INFRASTRUCTURE_CONNECTION__SOURCE = eINSTANCE.getInfrastructureConnection_Source();
 
 		/**
-		 * The meta object literal for the '<em><b>Detail</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INFRASTRUCTURE_CONNECTION__DETAIL = eINSTANCE.getInfrastructureConnection_Detail();
+		EReference INFRASTRUCTURE_CONNECTION__TARGET = eINSTANCE.getInfrastructureConnection_Target();
 
 		/**
 		 * The meta object literal for the '{@link infrastructure.impl.InfrastructureComponentImpl <em>Component</em>}' class.

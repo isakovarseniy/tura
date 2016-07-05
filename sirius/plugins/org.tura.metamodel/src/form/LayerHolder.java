@@ -2,7 +2,6 @@
  */
 package form;
 
-import common.HTMLLayerHolder;
 
 /**
  * <!-- begin-user-doc -->

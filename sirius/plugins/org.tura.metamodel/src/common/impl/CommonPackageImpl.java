@@ -16,8 +16,6 @@ import common.CommonFactory;
 import common.CommonPackage;
 import common.GenerationHint;
 
-import common.HTMLLayerHolder;
-import common.Orderable;
 import domain.DomainPackage;
 
 import domain.impl.DomainPackageImpl;
@@ -88,20 +86,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	private EClass generationHintEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass htmlLayerHolderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass orderableEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -294,42 +278,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getHTMLLayerHolder() {
-		return htmlLayerHolderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHTMLLayerHolder_Columns() {
-		return (EAttribute)htmlLayerHolderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOrderable() {
-		return orderableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOrderable_Order() {
-		return (EAttribute)orderableEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CommonFactory getCommonFactory() {
 		return (CommonFactory)getEFactoryInstance();
 	}
@@ -365,12 +313,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		createEAttribute(generationHintEClass, GENERATION_HINT__UID);
 		createEAttribute(generationHintEClass, GENERATION_HINT__NAME);
 		createEAttribute(generationHintEClass, GENERATION_HINT__APPLYED_CLASS);
-
-		htmlLayerHolderEClass = createEClass(HTML_LAYER_HOLDER);
-		createEAttribute(htmlLayerHolderEClass, HTML_LAYER_HOLDER__COLUMNS);
-
-		orderableEClass = createEClass(ORDERABLE);
-		createEAttribute(orderableEClass, ORDERABLE__ORDER);
 	}
 
 	/**
@@ -415,12 +357,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEAttribute(getGenerationHint_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerationHint_Name(), ecorePackage.getEString(), "name", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerationHint_ApplyedClass(), ecorePackage.getEString(), "applyedClass", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(htmlLayerHolderEClass, HTMLLayerHolder.class, "HTMLLayerHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getHTMLLayerHolder_Columns(), ecorePackage.getEInt(), "columns", "1", 0, 1, HTMLLayerHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(orderableEClass, Orderable.class, "Orderable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOrderable_Order(), ecorePackage.getEInt(), "order", null, 0, 1, Orderable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

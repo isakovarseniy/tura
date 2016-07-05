@@ -2,11 +2,9 @@
  */
 package form.impl;
 
-import common.CommonPackage;
-import common.HTMLLayerHolder;
-
 import form.ChildrenHolder;
 import form.FormPackage;
+import form.HTMLLayerHolder;
 import form.LayerHolder;
 import form.Uielement;
 
@@ -221,7 +219,7 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 		}
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.LAYER_HOLDER__COLUMNS: return CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
+				case FormPackage.LAYER_HOLDER__COLUMNS: return FormPackage.HTML_LAYER_HOLDER__COLUMNS;
 				default: return -1;
 			}
 		}
@@ -243,7 +241,7 @@ public class LayerHolderImpl extends UielementImpl implements LayerHolder {
 		}
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.LAYER_HOLDER__COLUMNS;
+				case FormPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.LAYER_HOLDER__COLUMNS;
 				default: return -1;
 			}
 		}

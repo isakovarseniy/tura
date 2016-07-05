@@ -80,14 +80,6 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 				return createGenerationHintAdapter();
 			}
 			@Override
-			public Adapter caseHTMLLayerHolder(HTMLLayerHolder object) {
-				return createHTMLLayerHolderAdapter();
-			}
-			@Override
-			public Adapter caseOrderable(Orderable object) {
-				return createOrderableAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -146,34 +138,6 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGenerationHintAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link common.HTMLLayerHolder <em>HTML Layer Holder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see common.HTMLLayerHolder
-	 * @generated
-	 */
-	public Adapter createHTMLLayerHolderAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link common.Orderable <em>Orderable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see common.Orderable
-	 * @generated
-	 */
-	public Adapter createOrderableAdapter() {
 		return null;
 	}
 

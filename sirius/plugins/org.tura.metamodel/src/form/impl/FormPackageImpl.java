@@ -52,6 +52,7 @@ import form.FormParameter;
 import form.FormVariable;
 import form.FormView;
 import form.Formatable;
+import form.HTMLLayerHolder;
 import form.Image;
 import form.InputElement;
 import form.InputText;
@@ -195,6 +196,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass viewsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass htmlLayerHolderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1141,6 +1149,24 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EReference getViews_Menus() {
 		return (EReference)viewsEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHTMLLayerHolder() {
+		return htmlLayerHolderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHTMLLayerHolder_Columns() {
+		return (EAttribute)htmlLayerHolderEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3548,6 +3574,9 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEReference(viewsEClass, VIEWS__TAB_PAGES_INHERITANCES);
 		createEReference(viewsEClass, VIEWS__MENUS);
 
+		htmlLayerHolderEClass = createEClass(HTML_LAYER_HOLDER);
+		createEAttribute(htmlLayerHolderEClass, HTML_LAYER_HOLDER__COLUMNS);
+
 		orderableEClass = createEClass(ORDERABLE);
 		createEAttribute(orderableEClass, ORDERABLE__ORDER);
 
@@ -3936,7 +3965,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		// Add supertypes to classes
 		formParameterEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 		canvasFrameEClass.getESuperTypes().add(this.getStyleElement());
-		viewPortHolderEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		viewPortHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		viewElementEClass.getESuperTypes().add(this.getStyleElement());
 		viewElementEClass.getESuperTypes().add(theCommonPackage.getCategorized());
 		viewElementEClass.getESuperTypes().add(this.getNickNamed());
@@ -3990,7 +4019,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		optionSelectionEClass.getESuperTypes().add(this.getInputElement());
 		layerHolderEClass.getESuperTypes().add(this.getUielement());
 		layerHolderEClass.getESuperTypes().add(this.getChildrenHolder());
-		layerHolderEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		layerHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		inputTextEClass.getESuperTypes().add(this.getInputElement());
 		inputTextEClass.getESuperTypes().add(this.getFormatable());
 		passwordEClass.getESuperTypes().add(this.getInputElement());
@@ -4012,10 +4041,10 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		columnEClass.getESuperTypes().add(this.getStyleElement());
 		columnEClass.getESuperTypes().add(this.getMultiLangLabel());
 		columnEClass.getESuperTypes().add(theCommonPackage.getCategorized());
-		columnEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		columnEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		columnEClass.getESuperTypes().add(this.getOrderable());
 		tableEClass.getESuperTypes().add(this.getSourcesPointer());
-		tableEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		tableEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		tableEClass.getESuperTypes().add(this.getMultiLangLabel());
 		menuEClass.getESuperTypes().add(this.getUielement());
 		menuElementEClass.getESuperTypes().add(this.getMultiLangLabel());
@@ -4023,7 +4052,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		menuElementEClass.getESuperTypes().add(theCommonPackage.getCategorized());
 		menuElementEClass.getESuperTypes().add(this.getEnabledUIItem());
 		menuElementEClass.getESuperTypes().add(this.getOrderable());
-		menuFolderEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		menuFolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		menuFolderEClass.getESuperTypes().add(this.getEnabledUIItem());
 		menuFolderEClass.getESuperTypes().add(theCommonPackage.getCategorized());
 		menuFolderEClass.getESuperTypes().add(this.getStyleElement());
@@ -4038,7 +4067,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		subMenuEClass.getESuperTypes().add(this.getItemIcon());
 		menuSeparatorEClass.getESuperTypes().add(this.getMenuElement());
 		treeEClass.getESuperTypes().add(this.getSourcesPointer());
-		treeEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		treeEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		treeEClass.getESuperTypes().add(this.getMultiLangLabel());
 		triggerEClass.getESuperTypes().add(theTypePackage.getMethodPointer());
 		triggerEClass.getESuperTypes().add(this.getContextParameters());
@@ -4090,6 +4119,9 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getViews_ViewInheritances(), this.getViewInheritance(), null, "viewInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViews_TabPagesInheritances(), this.getTabPagesInheritance(), null, "tabPagesInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViews_Menus(), this.getMenuDefinition(), null, "menus", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(htmlLayerHolderEClass, HTMLLayerHolder.class, "HTMLLayerHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHTMLLayerHolder_Columns(), ecorePackage.getEInt(), "columns", "1", 0, 1, HTMLLayerHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orderableEClass, Orderable.class, "Orderable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrderable_Order(), ecorePackage.getEInt(), "order", null, 0, 1, Orderable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

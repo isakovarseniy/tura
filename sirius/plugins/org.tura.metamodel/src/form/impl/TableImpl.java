@@ -2,12 +2,10 @@
  */
 package form.impl;
 
-import common.CommonPackage;
-import common.HTMLLayerHolder;
-
 import form.Column;
 import form.Context;
 import form.FormPackage;
+import form.HTMLLayerHolder;
 import form.MultiLangLabel;
 import form.Table;
 
@@ -386,7 +384,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.TABLE__COLUMNS: return CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
+				case FormPackage.TABLE__COLUMNS: return FormPackage.HTML_LAYER_HOLDER__COLUMNS;
 				default: return -1;
 			}
 		}
@@ -408,7 +406,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.TABLE__COLUMNS;
+				case FormPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.TABLE__COLUMNS;
 				default: return -1;
 			}
 		}

@@ -67,6 +67,15 @@ public interface FormFactory extends EFactory {
 	Views createViews();
 
 	/**
+	 * Returns a new object of class '<em>HTML Layer Holder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>HTML Layer Holder</em>'.
+	 * @generated
+	 */
+	HTMLLayerHolder createHTMLLayerHolder();
+
+	/**
 	 * Returns a new object of class '<em>Orderable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3,23 +3,18 @@
 package form.provider;
 
 
-import common.provider.HTMLLayerHolderItemProvider;
-import domain.provider.DomainEditPlugin;
-import form.FormFactory;
-import form.FormPackage;
-import form.ViewPortHolder;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import form.FormFactory;
+import form.FormPackage;
+import form.ViewPortHolder;
 
 /**
  * This is the item provider adapter for a {@link form.ViewPortHolder} object.
@@ -151,17 +146,6 @@ public class ViewPortHolderItemProvider extends HTMLLayerHolderItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.VIEW_PORT_HOLDER__VIEW_ELEMENT,
 				 FormFactory.eINSTANCE.createViewArea()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return DomainEditPlugin.INSTANCE;
 	}
 
 }

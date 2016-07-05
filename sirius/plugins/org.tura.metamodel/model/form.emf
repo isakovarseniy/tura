@@ -11,6 +11,9 @@ class UIPackage{
     val Form[*] forms;
 }
 
+
+
+
 class Form{
     id attr EString uid;
    attr EString name;
@@ -42,6 +45,9 @@ class Views{
 
 
 
+class HTMLLayerHolder{
+   attr EInt columns = 1;
+}
 
 class Orderable{
   attr EInt order; 
@@ -70,7 +76,7 @@ class CanvasFrame extends StyleElement{
    attr EString name;
 }
 
-class ViewPortHolder extends common.HTMLLayerHolder{
+class ViewPortHolder extends HTMLLayerHolder{
    @gmf.compartment
    val ViewElement[*] viewElement;
 }
@@ -285,7 +291,7 @@ class OptionSelection extends InputElement {
    ref DataControl optionCastDataControl;
 }
 
-class LayerHolder extends Uielement , ChildrenHolder, common.HTMLLayerHolder{
+class LayerHolder extends Uielement , ChildrenHolder, HTMLLayerHolder{
    
 }
 
@@ -335,13 +341,13 @@ class Button extends Uielement,MultiLangLabel,ItemIcon{
    attr EString label;
 }
 
-class Column extends StyleElement,MultiLangLabel, common.Categorized,common.HTMLLayerHolder,Orderable{
+class Column extends StyleElement,MultiLangLabel, common.Categorized,HTMLLayerHolder,Orderable{
     id attr EString uid;
    attr EString label;
    val Uielement element;   
 }
 
-class Table extends SourcesPointer,common.HTMLLayerHolder,MultiLangLabel{
+class Table extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
    attr EString label;
    attr EInt rowNumber;
     val Column[*] cols;
@@ -374,7 +380,7 @@ class MenuElement extends MultiLangLabel,StyleElement,common.Categorized,Enabled
 }
 
 
-class MenuFolder extends common.HTMLLayerHolder,EnabledUIItem,common.Categorized,StyleElement,MultiLangLabel,ItemIcon{
+class MenuFolder extends HTMLLayerHolder,EnabledUIItem,common.Categorized,StyleElement,MultiLangLabel,ItemIcon{
     id attr EString uid;
     attr EString name;
     attr EBoolean extensionPoint;
@@ -400,7 +406,7 @@ class MenuSeparator extends MenuElement{
 }
 
 
-class Tree extends SourcesPointer,common.HTMLLayerHolder,MultiLangLabel{
+class Tree extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
    attr EString label;
    val Context image;
     val Column[*] cols;

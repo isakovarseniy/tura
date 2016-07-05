@@ -2,8 +2,6 @@
  */
 package form.impl;
 
-import common.impl.HTMLLayerHolderImpl;
-
 import form.FormPackage;
 import form.ViewElement;
 import form.ViewPortHolder;

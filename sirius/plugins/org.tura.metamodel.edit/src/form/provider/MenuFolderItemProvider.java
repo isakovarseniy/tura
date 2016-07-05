@@ -3,28 +3,22 @@
 package form.provider;
 
 
-import common.CommonFactory;
-import common.CommonPackage;
-
-import common.provider.HTMLLayerHolderItemProvider;
-import domain.provider.DomainEditPlugin;
-import form.FormFactory;
-import form.FormPackage;
-import form.MenuFolder;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import common.CommonFactory;
+import common.CommonPackage;
+import form.FormFactory;
+import form.FormPackage;
+import form.MenuFolder;
 
 /**
  * This is the item provider adapter for a {@link form.MenuFolder} object.
@@ -329,17 +323,6 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return DomainEditPlugin.INSTANCE;
 	}
 
 }

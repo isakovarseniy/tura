@@ -423,7 +423,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInfrastructureConnection_Master() {
+	public EReference getInfrastructureConnection_Source() {
 		return (EReference)infrastructureConnectionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -432,7 +432,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInfrastructureConnection_Detail() {
+	public EReference getInfrastructureConnection_Target() {
 		return (EReference)infrastructureConnectionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -568,8 +568,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
 		infrastructureConnectionEClass = createEClass(INFRASTRUCTURE_CONNECTION);
 		createEAttribute(infrastructureConnectionEClass, INFRASTRUCTURE_CONNECTION__UID);
-		createEReference(infrastructureConnectionEClass, INFRASTRUCTURE_CONNECTION__MASTER);
-		createEReference(infrastructureConnectionEClass, INFRASTRUCTURE_CONNECTION__DETAIL);
+		createEReference(infrastructureConnectionEClass, INFRASTRUCTURE_CONNECTION__SOURCE);
+		createEReference(infrastructureConnectionEClass, INFRASTRUCTURE_CONNECTION__TARGET);
 
 		infrastructureComponentEClass = createEClass(INFRASTRUCTURE_COMPONENT);
 		createEAttribute(infrastructureComponentEClass, INFRASTRUCTURE_COMPONENT__UID);
@@ -610,15 +610,11 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
-
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		datacenterEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		serverEClass.getESuperTypes().add(this.getInfrastructureComponent());
 		routerEClass.getESuperTypes().add(this.getInfrastructureComponent());
 		hubEClass.getESuperTypes().add(this.getInfrastructureComponent());
@@ -649,8 +645,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
 		initEClass(infrastructureConnectionEClass, InfrastructureConnection.class, "InfrastructureConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInfrastructureConnection_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, InfrastructureConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInfrastructureConnection_Master(), this.getInfrastructureComponent(), null, "master", null, 0, 1, InfrastructureConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInfrastructureConnection_Detail(), this.getInfrastructureComponent(), null, "detail", null, 0, 1, InfrastructureConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInfrastructureConnection_Source(), this.getInfrastructureComponent(), null, "source", null, 0, 1, InfrastructureConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInfrastructureConnection_Target(), this.getInfrastructureComponent(), null, "target", null, 0, 1, InfrastructureConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(infrastructureComponentEClass, InfrastructureComponent.class, "InfrastructureComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInfrastructureComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, InfrastructureComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -5,11 +5,11 @@ package form.impl;
 import common.Categorized;
 import common.Classifier;
 import common.CommonPackage;
-import common.HTMLLayerHolder;
 
 import form.Column;
 import form.Context;
 import form.FormPackage;
+import form.HTMLLayerHolder;
 import form.MultiLangLabel;
 import form.Orderable;
 import form.Uielement;
@@ -519,7 +519,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 		}
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.COLUMN__COLUMNS: return CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
+				case FormPackage.COLUMN__COLUMNS: return FormPackage.HTML_LAYER_HOLDER__COLUMNS;
 				default: return -1;
 			}
 		}
@@ -553,7 +553,7 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 		}
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.COLUMN__COLUMNS;
+				case FormPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.COLUMN__COLUMNS;
 				default: return -1;
 			}
 		}

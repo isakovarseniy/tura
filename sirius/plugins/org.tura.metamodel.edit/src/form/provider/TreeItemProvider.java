@@ -68,7 +68,7 @@ public class TreeItemProvider extends SourcesPointerItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_HTMLLayerHolder_columns_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
-				 CommonPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
+				 FormPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
 				 true,
 				 false,
 				 false,

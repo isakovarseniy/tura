@@ -1,6 +1,6 @@
 /**
  */
-package common;
+package form;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link common.HTMLLayerHolder#getColumns <em>Columns</em>}</li>
+ *   <li>{@link form.HTMLLayerHolder#getColumns <em>Columns</em>}</li>
  * </ul>
  *
- * @see common.CommonPackage#getHTMLLayerHolder()
+ * @see form.FormPackage#getHTMLLayerHolder()
  * @model
  * @generated
  */
@@ -32,14 +32,14 @@ public interface HTMLLayerHolder extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Columns</em>' attribute.
 	 * @see #setColumns(int)
-	 * @see common.CommonPackage#getHTMLLayerHolder_Columns()
+	 * @see form.FormPackage#getHTMLLayerHolder_Columns()
 	 * @model default="1"
 	 * @generated
 	 */
 	int getColumns();
 
 	/**
-	 * Sets the value of the '{@link common.HTMLLayerHolder#getColumns <em>Columns</em>}' attribute.
+	 * Sets the value of the '{@link form.HTMLLayerHolder#getColumns <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Columns</em>' attribute.

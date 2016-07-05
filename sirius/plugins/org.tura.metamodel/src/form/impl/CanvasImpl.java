@@ -5,12 +5,12 @@ package form.impl;
 import common.Categorized;
 import common.Classifier;
 import common.CommonPackage;
-import common.HTMLLayerHolder;
 
 import form.Canvas;
 import form.Context;
 import form.DefaultCavas;
 import form.FormPackage;
+import form.HTMLLayerHolder;
 import form.MultiLangLabel;
 import form.ViewElement;
 import form.ViewPortHolder;
@@ -374,7 +374,7 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.CANVAS__COLUMNS: return CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
+				case FormPackage.CANVAS__COLUMNS: return FormPackage.HTML_LAYER_HOLDER__COLUMNS;
 				default: return -1;
 			}
 		}
@@ -414,7 +414,7 @@ public class CanvasImpl extends CanvasFrameImpl implements Canvas {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.CANVAS__COLUMNS;
+				case FormPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.CANVAS__COLUMNS;
 				default: return -1;
 			}
 		}
