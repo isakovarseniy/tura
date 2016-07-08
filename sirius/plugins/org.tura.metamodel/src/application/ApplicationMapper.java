@@ -4,6 +4,7 @@ package application;
 
 import mapper.Mappers;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -78,29 +79,19 @@ public interface ApplicationMapper extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Mapper</b></em>' reference.
+	 * Returns the value of the '<em><b>Mapper</b></em>' containment reference list.
+	 * The list contents are of type {@link mapper.Mappers}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Mapper</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mapper</em>' reference.
-	 * @see #setMapper(Mappers)
+	 * @return the value of the '<em>Mapper</em>' containment reference list.
 	 * @see application.ApplicationPackage#getApplicationMapper_Mapper()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Mappers getMapper();
-
-	/**
-	 * Sets the value of the '{@link application.ApplicationMapper#getMapper <em>Mapper</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mapper</em>' reference.
-	 * @see #getMapper()
-	 * @generated
-	 */
-	void setMapper(Mappers value);
+	EList<Mappers> getMapper();
 
 } // ApplicationMapper

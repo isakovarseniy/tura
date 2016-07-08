@@ -7,11 +7,16 @@ import "platform:/resource/org.tura.metamodel/model/mapper.ecore";
 
 class Recipes{
     id attr EString uid;
+  attr  EString name;
   val Recipe recipe;
   val Configuration[*] configurations;
   val Infrastructure[*] infrastructures;
   val DeploymentSequence deployment;
-  val ConfigExtension[*] configExtension;
+  val ConfigExtension[*] configExtensions;
+  val Recipe2Infrastructure[*] recipe2Infrastructures;
+  val Infrastructure2Configuration[*] infrastructure2Configurations;
+
+
 }
 
 
@@ -28,6 +33,21 @@ class ConfigExtension {
     ref Configuration source;
     ref Configuration target;
 }
+
+
+class Recipe2Infrastructure{
+    id attr EString uid;
+    ref Recipe source;
+    ref Infrastructure target;
+}
+
+
+class Infrastructure2Configuration{
+    id attr EString uid;
+    ref Infrastructure source;
+    ref Configuration target;
+}
+
 
 
 class DeploymentSequence{

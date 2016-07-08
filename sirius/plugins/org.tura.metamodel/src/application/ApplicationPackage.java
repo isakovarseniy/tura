@@ -791,7 +791,7 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_RECIPE__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Recipes</b></em>' containment reference.
+	 * The feature id for the '<em><b>Recipes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -883,7 +883,7 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_MAPPER__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Mapper</b></em>' reference.
+	 * The feature id for the '<em><b>Mapper</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1613,10 +1613,10 @@ public interface ApplicationPackage extends EPackage {
 	EAttribute getApplicationRecipe_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link application.ApplicationRecipe#getRecipes <em>Recipes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link application.ApplicationRecipe#getRecipes <em>Recipes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Recipes</em>'.
+	 * @return the meta object for the containment reference list '<em>Recipes</em>'.
 	 * @see application.ApplicationRecipe#getRecipes()
 	 * @see #getApplicationRecipe()
 	 * @generated
@@ -1699,10 +1699,10 @@ public interface ApplicationPackage extends EPackage {
 	EAttribute getApplicationMapper_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link application.ApplicationMapper#getMapper <em>Mapper</em>}'.
+	 * Returns the meta object for the containment reference list '{@link application.ApplicationMapper#getMapper <em>Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Mapper</em>'.
+	 * @return the meta object for the containment reference list '<em>Mapper</em>'.
 	 * @see application.ApplicationMapper#getMapper()
 	 * @see #getApplicationMapper()
 	 * @generated
@@ -2290,7 +2290,7 @@ public interface ApplicationPackage extends EPackage {
 		EAttribute APPLICATION_RECIPE__NAME = eINSTANCE.getApplicationRecipe_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Recipes</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Recipes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2358,7 +2358,7 @@ public interface ApplicationPackage extends EPackage {
 		EAttribute APPLICATION_MAPPER__NAME = eINSTANCE.getApplicationMapper_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Mapper</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Mapper</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

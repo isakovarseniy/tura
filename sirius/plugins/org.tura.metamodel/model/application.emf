@@ -118,7 +118,7 @@ class ApplicationRecipes {
 class ApplicationRecipe{
     id attr EString uid;
    attr EString name;
-   val recipe.Recipe recipes;
+   val recipe.Recipes[*] recipes;
 }
 
 class ApplicationMappers {
@@ -130,5 +130,5 @@ class ApplicationMappers {
 class ApplicationMapper{
     id attr EString uid;
    attr EString name;
-   ref mapper.Mappers mapper; 
+   val mapper.Mappers[*] mapper; 
 }

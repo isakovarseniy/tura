@@ -66,6 +66,7 @@ public class RecipesItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,6 +94,28 @@ public class RecipesItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Recipes_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Recipes_name_feature", "_UI_Recipes_type"),
+				 RecipePackage.Literals.RECIPES__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -108,7 +131,9 @@ public class RecipesItemProvider
 			childrenFeatures.add(RecipePackage.Literals.RECIPES__CONFIGURATIONS);
 			childrenFeatures.add(RecipePackage.Literals.RECIPES__INFRASTRUCTURES);
 			childrenFeatures.add(RecipePackage.Literals.RECIPES__DEPLOYMENT);
-			childrenFeatures.add(RecipePackage.Literals.RECIPES__CONFIG_EXTENSION);
+			childrenFeatures.add(RecipePackage.Literals.RECIPES__CONFIG_EXTENSIONS);
+			childrenFeatures.add(RecipePackage.Literals.RECIPES__RECIPE2_INFRASTRUCTURES);
+			childrenFeatures.add(RecipePackage.Literals.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -145,7 +170,7 @@ public class RecipesItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Recipes)object).getUid();
+		String label = ((Recipes)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Recipes_type") :
 			getString("_UI_Recipes_type") + " " + label;
@@ -165,13 +190,16 @@ public class RecipesItemProvider
 
 		switch (notification.getFeatureID(Recipes.class)) {
 			case RecipePackage.RECIPES__UID:
+			case RecipePackage.RECIPES__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RecipePackage.RECIPES__RECIPE:
 			case RecipePackage.RECIPES__CONFIGURATIONS:
 			case RecipePackage.RECIPES__INFRASTRUCTURES:
 			case RecipePackage.RECIPES__DEPLOYMENT:
-			case RecipePackage.RECIPES__CONFIG_EXTENSION:
+			case RecipePackage.RECIPES__CONFIG_EXTENSIONS:
+			case RecipePackage.RECIPES__RECIPE2_INFRASTRUCTURES:
+			case RecipePackage.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -211,8 +239,18 @@ public class RecipesItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RecipePackage.Literals.RECIPES__CONFIG_EXTENSION,
+				(RecipePackage.Literals.RECIPES__CONFIG_EXTENSIONS,
 				 RecipeFactory.eINSTANCE.createConfigExtension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RecipePackage.Literals.RECIPES__RECIPE2_INFRASTRUCTURES,
+				 RecipeFactory.eINSTANCE.createRecipe2Infrastructure()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RecipePackage.Literals.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS,
+				 RecipeFactory.eINSTANCE.createInfrastructure2Configuration()));
 	}
 
 	/**

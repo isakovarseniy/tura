@@ -5,15 +5,20 @@ package application.impl;
 import application.ApplicationMapper;
 import application.ApplicationPackage;
 
+import java.util.Collection;
 import mapper.Mappers;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,14 +77,14 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMapper() <em>Mapper</em>}' reference.
+	 * The cached value of the '{@link #getMapper() <em>Mapper</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMapper()
 	 * @generated
 	 * @ordered
 	 */
-	protected Mappers mapper;
+	protected EList<Mappers> mapper;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,14 +152,9 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Mappers getMapper() {
-		if (mapper != null && mapper.eIsProxy()) {
-			InternalEObject oldMapper = (InternalEObject)mapper;
-			mapper = (Mappers)eResolveProxy(oldMapper);
-			if (mapper != oldMapper) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ApplicationPackage.APPLICATION_MAPPER__MAPPER, oldMapper, mapper));
-			}
+	public EList<Mappers> getMapper() {
+		if (mapper == null) {
+			mapper = new EObjectContainmentEList<Mappers>(Mappers.class, this, ApplicationPackage.APPLICATION_MAPPER__MAPPER);
 		}
 		return mapper;
 	}
@@ -164,20 +164,13 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Mappers basicGetMapper() {
-		return mapper;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMapper(Mappers newMapper) {
-		Mappers oldMapper = mapper;
-		mapper = newMapper;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_MAPPER__MAPPER, oldMapper, mapper));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ApplicationPackage.APPLICATION_MAPPER__MAPPER:
+				return ((InternalEList<?>)getMapper()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -193,8 +186,7 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 			case ApplicationPackage.APPLICATION_MAPPER__NAME:
 				return getName();
 			case ApplicationPackage.APPLICATION_MAPPER__MAPPER:
-				if (resolve) return getMapper();
-				return basicGetMapper();
+				return getMapper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,6 +196,7 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -214,7 +207,8 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 				setName((String)newValue);
 				return;
 			case ApplicationPackage.APPLICATION_MAPPER__MAPPER:
-				setMapper((Mappers)newValue);
+				getMapper().clear();
+				getMapper().addAll((Collection<? extends Mappers>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -235,7 +229,7 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 				setName(NAME_EDEFAULT);
 				return;
 			case ApplicationPackage.APPLICATION_MAPPER__MAPPER:
-				setMapper((Mappers)null);
+				getMapper().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -254,7 +248,7 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 			case ApplicationPackage.APPLICATION_MAPPER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ApplicationPackage.APPLICATION_MAPPER__MAPPER:
-				return mapper != null;
+				return mapper != null && !mapper.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

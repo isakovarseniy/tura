@@ -117,8 +117,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recipes" eType="ecore:EClass recipe.ecore#//Recipe"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipes" upperBound="-1"
+        eType="ecore:EClass recipe.ecore#//Recipes" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationMappers">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -131,6 +131,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" eType="ecore:EClass mapper.ecore#//Mappers"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" upperBound="-1"
+        eType="ecore:EClass mapper.ecore#//Mappers" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

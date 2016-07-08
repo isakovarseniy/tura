@@ -49,6 +49,24 @@ public interface RecipeFactory extends EFactory {
 	ConfigExtension createConfigExtension();
 
 	/**
+	 * Returns a new object of class '<em>Recipe2 Infrastructure</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Recipe2 Infrastructure</em>'.
+	 * @generated
+	 */
+	Recipe2Infrastructure createRecipe2Infrastructure();
+
+	/**
+	 * Returns a new object of class '<em>Infrastructure2 Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Infrastructure2 Configuration</em>'.
+	 * @generated
+	 */
+	Infrastructure2Configuration createInfrastructure2Configuration();
+
+	/**
 	 * Returns a new object of class '<em>Deployment Sequence</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

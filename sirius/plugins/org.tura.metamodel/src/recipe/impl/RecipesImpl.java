@@ -22,7 +22,9 @@ import recipe.ConfigExtension;
 import recipe.Configuration;
 import recipe.DeploymentSequence;
 import recipe.Infrastructure;
+import recipe.Infrastructure2Configuration;
 import recipe.Recipe;
+import recipe.Recipe2Infrastructure;
 import recipe.RecipePackage;
 import recipe.Recipes;
 
@@ -35,11 +37,14 @@ import recipe.Recipes;
  * </p>
  * <ul>
  *   <li>{@link recipe.impl.RecipesImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link recipe.impl.RecipesImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.RecipesImpl#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link recipe.impl.RecipesImpl#getConfigurations <em>Configurations</em>}</li>
  *   <li>{@link recipe.impl.RecipesImpl#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link recipe.impl.RecipesImpl#getDeployment <em>Deployment</em>}</li>
- *   <li>{@link recipe.impl.RecipesImpl#getConfigExtension <em>Config Extension</em>}</li>
+ *   <li>{@link recipe.impl.RecipesImpl#getConfigExtensions <em>Config Extensions</em>}</li>
+ *   <li>{@link recipe.impl.RecipesImpl#getRecipe2Infrastructures <em>Recipe2 Infrastructures</em>}</li>
+ *   <li>{@link recipe.impl.RecipesImpl#getInfrastructure2Configurations <em>Infrastructure2 Configurations</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,6 +69,26 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRecipe() <em>Recipe</em>}' containment reference.
@@ -106,14 +131,34 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	protected DeploymentSequence deployment;
 
 	/**
-	 * The cached value of the '{@link #getConfigExtension() <em>Config Extension</em>}' containment reference list.
+	 * The cached value of the '{@link #getConfigExtensions() <em>Config Extensions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConfigExtension()
+	 * @see #getConfigExtensions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ConfigExtension> configExtension;
+	protected EList<ConfigExtension> configExtensions;
+
+	/**
+	 * The cached value of the '{@link #getRecipe2Infrastructures() <em>Recipe2 Infrastructures</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecipe2Infrastructures()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Recipe2Infrastructure> recipe2Infrastructures;
+
+	/**
+	 * The cached value of the '{@link #getInfrastructure2Configurations() <em>Infrastructure2 Configurations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInfrastructure2Configurations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Infrastructure2Configuration> infrastructure2Configurations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,6 +198,27 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.RECIPES__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.RECIPES__NAME, oldName, name));
 	}
 
 	/**
@@ -270,11 +336,35 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConfigExtension> getConfigExtension() {
-		if (configExtension == null) {
-			configExtension = new EObjectContainmentEList<ConfigExtension>(ConfigExtension.class, this, RecipePackage.RECIPES__CONFIG_EXTENSION);
+	public EList<ConfigExtension> getConfigExtensions() {
+		if (configExtensions == null) {
+			configExtensions = new EObjectContainmentEList<ConfigExtension>(ConfigExtension.class, this, RecipePackage.RECIPES__CONFIG_EXTENSIONS);
 		}
-		return configExtension;
+		return configExtensions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Recipe2Infrastructure> getRecipe2Infrastructures() {
+		if (recipe2Infrastructures == null) {
+			recipe2Infrastructures = new EObjectContainmentEList<Recipe2Infrastructure>(Recipe2Infrastructure.class, this, RecipePackage.RECIPES__RECIPE2_INFRASTRUCTURES);
+		}
+		return recipe2Infrastructures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Infrastructure2Configuration> getInfrastructure2Configurations() {
+		if (infrastructure2Configurations == null) {
+			infrastructure2Configurations = new EObjectContainmentEList<Infrastructure2Configuration>(Infrastructure2Configuration.class, this, RecipePackage.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS);
+		}
+		return infrastructure2Configurations;
 	}
 
 	/**
@@ -293,8 +383,12 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 				return ((InternalEList<?>)getInfrastructures()).basicRemove(otherEnd, msgs);
 			case RecipePackage.RECIPES__DEPLOYMENT:
 				return basicSetDeployment(null, msgs);
-			case RecipePackage.RECIPES__CONFIG_EXTENSION:
-				return ((InternalEList<?>)getConfigExtension()).basicRemove(otherEnd, msgs);
+			case RecipePackage.RECIPES__CONFIG_EXTENSIONS:
+				return ((InternalEList<?>)getConfigExtensions()).basicRemove(otherEnd, msgs);
+			case RecipePackage.RECIPES__RECIPE2_INFRASTRUCTURES:
+				return ((InternalEList<?>)getRecipe2Infrastructures()).basicRemove(otherEnd, msgs);
+			case RecipePackage.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS:
+				return ((InternalEList<?>)getInfrastructure2Configurations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -309,6 +403,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 		switch (featureID) {
 			case RecipePackage.RECIPES__UID:
 				return getUid();
+			case RecipePackage.RECIPES__NAME:
+				return getName();
 			case RecipePackage.RECIPES__RECIPE:
 				return getRecipe();
 			case RecipePackage.RECIPES__CONFIGURATIONS:
@@ -317,8 +413,12 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 				return getInfrastructures();
 			case RecipePackage.RECIPES__DEPLOYMENT:
 				return getDeployment();
-			case RecipePackage.RECIPES__CONFIG_EXTENSION:
-				return getConfigExtension();
+			case RecipePackage.RECIPES__CONFIG_EXTENSIONS:
+				return getConfigExtensions();
+			case RecipePackage.RECIPES__RECIPE2_INFRASTRUCTURES:
+				return getRecipe2Infrastructures();
+			case RecipePackage.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS:
+				return getInfrastructure2Configurations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -335,6 +435,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 			case RecipePackage.RECIPES__UID:
 				setUid((String)newValue);
 				return;
+			case RecipePackage.RECIPES__NAME:
+				setName((String)newValue);
+				return;
 			case RecipePackage.RECIPES__RECIPE:
 				setRecipe((Recipe)newValue);
 				return;
@@ -349,9 +452,17 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 			case RecipePackage.RECIPES__DEPLOYMENT:
 				setDeployment((DeploymentSequence)newValue);
 				return;
-			case RecipePackage.RECIPES__CONFIG_EXTENSION:
-				getConfigExtension().clear();
-				getConfigExtension().addAll((Collection<? extends ConfigExtension>)newValue);
+			case RecipePackage.RECIPES__CONFIG_EXTENSIONS:
+				getConfigExtensions().clear();
+				getConfigExtensions().addAll((Collection<? extends ConfigExtension>)newValue);
+				return;
+			case RecipePackage.RECIPES__RECIPE2_INFRASTRUCTURES:
+				getRecipe2Infrastructures().clear();
+				getRecipe2Infrastructures().addAll((Collection<? extends Recipe2Infrastructure>)newValue);
+				return;
+			case RecipePackage.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS:
+				getInfrastructure2Configurations().clear();
+				getInfrastructure2Configurations().addAll((Collection<? extends Infrastructure2Configuration>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -368,6 +479,9 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 			case RecipePackage.RECIPES__UID:
 				setUid(UID_EDEFAULT);
 				return;
+			case RecipePackage.RECIPES__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case RecipePackage.RECIPES__RECIPE:
 				setRecipe((Recipe)null);
 				return;
@@ -380,8 +494,14 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 			case RecipePackage.RECIPES__DEPLOYMENT:
 				setDeployment((DeploymentSequence)null);
 				return;
-			case RecipePackage.RECIPES__CONFIG_EXTENSION:
-				getConfigExtension().clear();
+			case RecipePackage.RECIPES__CONFIG_EXTENSIONS:
+				getConfigExtensions().clear();
+				return;
+			case RecipePackage.RECIPES__RECIPE2_INFRASTRUCTURES:
+				getRecipe2Infrastructures().clear();
+				return;
+			case RecipePackage.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS:
+				getInfrastructure2Configurations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -397,6 +517,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 		switch (featureID) {
 			case RecipePackage.RECIPES__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+			case RecipePackage.RECIPES__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RecipePackage.RECIPES__RECIPE:
 				return recipe != null;
 			case RecipePackage.RECIPES__CONFIGURATIONS:
@@ -405,8 +527,12 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 				return infrastructures != null && !infrastructures.isEmpty();
 			case RecipePackage.RECIPES__DEPLOYMENT:
 				return deployment != null;
-			case RecipePackage.RECIPES__CONFIG_EXTENSION:
-				return configExtension != null && !configExtension.isEmpty();
+			case RecipePackage.RECIPES__CONFIG_EXTENSIONS:
+				return configExtensions != null && !configExtensions.isEmpty();
+			case RecipePackage.RECIPES__RECIPE2_INFRASTRUCTURES:
+				return recipe2Infrastructures != null && !recipe2Infrastructures.isEmpty();
+			case RecipePackage.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS:
+				return infrastructure2Configurations != null && !infrastructure2Configurations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -423,6 +549,8 @@ public class RecipesImpl extends EObjectImpl implements Recipes {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

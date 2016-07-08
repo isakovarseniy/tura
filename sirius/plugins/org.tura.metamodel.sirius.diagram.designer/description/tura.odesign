@@ -844,6 +844,366 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Recipe diagram" domainClass="recipe.Recipes">
+      <defaultLayer name="Default">
+        <nodeMappings name="Infrastructure" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Infrastructure%20edit%20label']" semanticCandidatesExpression="feature:infrastructures" domainClass="recipe.Infrastructure">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="ConfigExtension" semanticCandidatesExpression="aql:self.configExtensions" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Configuration']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Configuration']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="recipe.ConfigExtension" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20ConfigExtension'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20ConfigExtension'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20ConfigExtension'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20ConfigExtension']">
+          <style targetArrow="InputFillClosedArrow">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Recipe2Infrastructure" semanticCandidatesExpression="aql:self.recipe2Infrastructures" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@nodeMappings[name='Infrastructure']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="recipe.Recipe2Infrastructure" useDomainElement="true">
+          <style targetArrow="InputFillClosedArrow">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Infrastructure2Configuration" semanticCandidatesExpression="aql:self.infrastructure2Configurations" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@nodeMappings[name='Infrastructure']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Configuration']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="recipe.Infrastructure2Configuration" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20Infrastructure2Configuration'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20Infrastructure2Configuration']">
+          <style targetArrow="InputFillClosedArrow">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Recipe" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Recipe%20edit%20label']" semanticCandidatesExpression="aql:self.recipe" domainClass="recipe.Recipe" childrenPresentation="VerticalStack">
+          <subContainerMappings name="Ingredients" semanticCandidatesExpression="var:self" domainClass="recipe.Recipe" childrenPresentation="VerticalStack">
+            <subContainerMappings name="Ingredient" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Ingredient%20edit%20label']" semanticCandidatesExpression="feature:ingredients" domainClass="recipe.Ingredient" childrenPresentation="VerticalStack">
+              <subContainerMappings name="JavaComponent" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='JavaComponent%20edit%20label']" semanticCandidatesExpression="feature:components" domainClass="recipe.JavaComponent" childrenPresentation="HorizontalStack">
+                <subContainerMappings name="ModelMappers" semanticCandidatesExpression="var:self" domainClass="recipe.JavaComponent" childrenPresentation="HorizontalStack">
+                  <subContainerMappings name="ModelMapper" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ModelMapper%20edit%20label']" semanticCandidatesExpression="feature:mappers" domainClass="recipe.ModelMapper" childrenPresentation="VerticalStack">
+                    <subContainerMappings name="Queries" semanticCandidatesExpression="var:self" domainClass="recipe.ModelMapper" childrenPresentation="List">
+                      <subNodeMappings name="Query" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Query%20edit%20label']" semanticCandidatesExpression="feature:queries" domainClass="recipe.Query">
+                        <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+                          <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                          <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+                        </style>
+                      </subNodeMappings>
+                      <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="Queries" hideLabelByDefault="true">
+                        <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                        <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                        <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                        <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+                      </style>
+                    </subContainerMappings>
+                    <style xsi:type="style:FlatContainerStyleDescription" labelSize="12">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                      <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+                    </style>
+                  </subContainerMappings>
+                  <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="Ingredients" hideLabelByDefault="true">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+                  </style>
+                </subContainerMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" labelSize="12">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subContainerMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" labelSize="12">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="Ingredients" hideLabelByDefault="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Configuration" semanticCandidatesExpression="aql:self.configurations" domainClass="recipe.Configuration" childrenPresentation="VerticalStack">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="Configuration">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Nodes">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Recipe" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="recipe.Recipe" referenceName="recipe">
+                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="Recipe edit label">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Ingredient" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredients']/@subContainerMappings[name='Ingredient']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="recipe.Ingredient" referenceName="ingredients">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="Ingredient edit label">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="JavaComponent" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredients']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="recipe.JavaComponent" referenceName="components">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="JavaComponent edit label">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ModelMapper" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredients']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMappers']/@subContainerMappings[name='ModelMapper']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="recipe.ModelMapper" referenceName="mappers">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="ModelMapper edit label">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Query" nodeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredients']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMappers']/@subContainerMappings[name='ModelMapper']/@subContainerMappings[name='Queries']/@subNodeMappings[name='Query']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="recipe.Query" referenceName="queries">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="Query edit label">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Infrastructure" nodeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@nodeMappings[name='Infrastructure']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="recipe.Infrastructure" referenceName="infrastructures">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="Infrastructure edit label">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Configuration" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Configuration']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="recipe.Configuration" referenceName="configurations">
+                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Connection">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="ConfigExtension" edgeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@edgeMappings[name='ConfigExtension']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="recipe.ConfigExtension" referenceName="configExtensions">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect target ConfigExtension">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect source ConfigExtension" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Recipe2Infrastructure" edgeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@edgeMappings[name='Recipe2Infrastructure']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="recipe.Recipe2Infrastructure" referenceName="recipe2Infrastructures">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect target ConfigExtension">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect source ConfigExtension" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Infrastructure2Configuration" edgeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@edgeMappings[name='Infrastructure2Configuration']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="recipe.Infrastructure2Configuration" referenceName="infrastructure2Configurations">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect target Infrastructure2Configuration">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect source Infrastructure2Configuration" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:TreeDescription" name="Domain tree" domainClass="domain.Domain">
       <subItemMappings name="Domain artifacts" domainClass="domain.DomainArtifacts" semanticCandidatesExpression="feature:domainArtifacts">
         <defaultStyle labelSize="12" labelExpression="Domain Artifacts">
@@ -915,7 +1275,35 @@
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
                   </defaultStyle>
+                  <subItemMappings name="Recipe" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@ownedRepresentationCreationDescriptions[name='Create%20Recipe%20diagram']" domainClass="recipe.Recipes" semanticCandidatesExpression="feature:recipes">
+                    <defaultStyle labelSize="12">
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                    </defaultStyle>
+                  </subItemMappings>
+                  <create name="Create Application recipe" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='ApplicationRecipes']/@subItemMappings[name='Application%20Recipe']">
+                    <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="recipe.Recipes" referenceName="recipes">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+                      </subModelOperations>
+                    </firstModelOperation>
+                    <variables name="root" documentation="The semantic element of the tree."/>
+                    <variables name="element" documentation="The currently edited element."/>
+                    <variables name="container" documentation="The semantic element corresponding to the view container."/>
+                  </create>
                 </subItemMappings>
+                <create name="Create Application recipes package" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='ApplicationRecipes']">
+                  <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationRecipe" referenceName="recipes">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+                    </subModelOperations>
+                  </firstModelOperation>
+                  <variables name="root" documentation="The semantic element of the tree."/>
+                  <variables name="element" documentation="The currently edited element."/>
+                  <variables name="container" documentation="The semantic element corresponding to the view container."/>
+                </create>
               </subItemMappings>
               <subItemMappings name="Application mappers" domainClass="application.ApplicationMappers" semanticCandidatesExpression="feature:applicationMappers">
                 <defaultStyle labelSize="12" labelExpression="Application mappers">
@@ -1285,6 +1673,11 @@
         </create>
       </subItemMappings>
       <ownedRepresentationCreationDescriptions xsi:type="tool_1:DiagramCreationDescription" name="Create Artifact package" diagramDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']">
+        <initialOperation/>
+        <containerViewVariable name="containerView"/>
+        <representationNameVariable name="diagramName"/>
+      </ownedRepresentationCreationDescriptions>
+      <ownedRepresentationCreationDescriptions xsi:type="tool_1:DiagramCreationDescription" name="Create Recipe diagram" diagramDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']">
         <initialOperation/>
         <containerViewVariable name="containerView"/>
         <representationNameVariable name="diagramName"/>

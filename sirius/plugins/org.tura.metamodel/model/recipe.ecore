@@ -4,6 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Recipes">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" eType="#//Recipe"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
@@ -12,8 +13,12 @@
         eType="#//Infrastructure" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" eType="#//DeploymentSequence"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configExtension" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configExtensions" upperBound="-1"
         eType="#//ConfigExtension" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipe2Infrastructures"
+        upperBound="-1" eType="#//Recipe2Infrastructure" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructure2Configurations"
+        upperBound="-1" eType="#//Infrastructure2Configuration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//UsingMappers">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -29,6 +34,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Configuration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Configuration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Recipe2Infrastructure">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Recipe"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Infrastructure"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Infrastructure2Configuration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Infrastructure"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Configuration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeploymentSequence">

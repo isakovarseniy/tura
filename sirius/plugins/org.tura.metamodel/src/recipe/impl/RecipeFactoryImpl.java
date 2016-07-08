@@ -60,6 +60,8 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 			case RecipePackage.RECIPES: return createRecipes();
 			case RecipePackage.RECIPE: return createRecipe();
 			case RecipePackage.CONFIG_EXTENSION: return createConfigExtension();
+			case RecipePackage.RECIPE2_INFRASTRUCTURE: return createRecipe2Infrastructure();
+			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION: return createInfrastructure2Configuration();
 			case RecipePackage.DEPLOYMENT_SEQUENCE: return createDeploymentSequence();
 			case RecipePackage.DEPLOYMENT_COMPONENTS: return createDeploymentComponents();
 			case RecipePackage.DEPLOYMENT_COMPONENT: return createDeploymentComponent();
@@ -141,6 +143,26 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	public ConfigExtension createConfigExtension() {
 		ConfigExtensionImpl configExtension = new ConfigExtensionImpl();
 		return configExtension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Recipe2Infrastructure createRecipe2Infrastructure() {
+		Recipe2InfrastructureImpl recipe2Infrastructure = new Recipe2InfrastructureImpl();
+		return recipe2Infrastructure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Infrastructure2Configuration createInfrastructure2Configuration() {
+		Infrastructure2ConfigurationImpl infrastructure2Configuration = new Infrastructure2ConfigurationImpl();
+		return infrastructure2Configuration;
 	}
 
 	/**

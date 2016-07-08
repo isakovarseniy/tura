@@ -1,10 +1,7 @@
 /**
  */
-package application.provider;
+package recipe.provider;
 
-
-import application.ApplicationPackage;
-import application.ApplicationRecipe;
 
 import domain.provider.DomainEditPlugin;
 
@@ -15,8 +12,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -29,15 +24,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import recipe.RecipeFactory;
+import recipe.Recipe2Infrastructure;
+import recipe.RecipePackage;
 
 /**
- * This is the item provider adapter for a {@link application.ApplicationRecipe} object.
+ * This is the item provider adapter for a {@link recipe.Recipe2Infrastructure} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationRecipeItemProvider 
+public class Recipe2InfrastructureItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -51,7 +47,7 @@ public class ApplicationRecipeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ApplicationRecipeItemProvider(AdapterFactory adapterFactory) {
+	public Recipe2InfrastructureItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -67,7 +63,8 @@ public class ApplicationRecipeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,9 +80,9 @@ public class ApplicationRecipeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ApplicationRecipe_uid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationRecipe_uid_feature", "_UI_ApplicationRecipe_type"),
-				 ApplicationPackage.Literals.APPLICATION_RECIPE__UID,
+				 getString("_UI_Recipe2Infrastructure_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Recipe2Infrastructure_uid_feature", "_UI_Recipe2Infrastructure_type"),
+				 RecipePackage.Literals.RECIPE2_INFRASTRUCTURE__UID,
 				 true,
 				 false,
 				 false,
@@ -95,66 +92,58 @@ public class ApplicationRecipeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ApplicationRecipe_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationRecipe_name_feature", "_UI_ApplicationRecipe_type"),
-				 ApplicationPackage.Literals.APPLICATION_RECIPE__NAME,
+				 getString("_UI_Recipe2Infrastructure_source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Recipe2Infrastructure_source_feature", "_UI_Recipe2Infrastructure_type"),
+				 RecipePackage.Literals.RECIPE2_INFRASTRUCTURE__SOURCE,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_RECIPE__RECIPES);
-		}
-		return childrenFeatures;
+	protected void addTargetPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Recipe2Infrastructure_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Recipe2Infrastructure_target_feature", "_UI_Recipe2Infrastructure_type"),
+				 RecipePackage.Literals.RECIPE2_INFRASTRUCTURE__TARGET,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns ApplicationRecipe.gif.
+	 * This returns Recipe2Infrastructure.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationRecipe"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Recipe2Infrastructure"));
 	}
 
 	/**
@@ -165,10 +154,10 @@ public class ApplicationRecipeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ApplicationRecipe)object).getName();
+		String label = ((Recipe2Infrastructure)object).getUid();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ApplicationRecipe_type") :
-			getString("_UI_ApplicationRecipe_type") + " " + label;
+			getString("_UI_Recipe2Infrastructure_type") :
+			getString("_UI_Recipe2Infrastructure_type") + " " + label;
 	}
 	
 
@@ -183,13 +172,9 @@ public class ApplicationRecipeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ApplicationRecipe.class)) {
-			case ApplicationPackage.APPLICATION_RECIPE__UID:
-			case ApplicationPackage.APPLICATION_RECIPE__NAME:
+		switch (notification.getFeatureID(Recipe2Infrastructure.class)) {
+			case RecipePackage.RECIPE2_INFRASTRUCTURE__UID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ApplicationPackage.APPLICATION_RECIPE__RECIPES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -205,11 +190,6 @@ public class ApplicationRecipeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ApplicationPackage.Literals.APPLICATION_RECIPE__RECIPES,
-				 RecipeFactory.eINSTANCE.createRecipes()));
 	}
 
 	/**

@@ -5,16 +5,21 @@ package application.impl;
 import application.ApplicationPackage;
 import application.ApplicationRecipe;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import recipe.Recipe;
+import recipe.Recipes;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,14 +78,14 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRecipes() <em>Recipes</em>}' containment reference.
+	 * The cached value of the '{@link #getRecipes() <em>Recipes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRecipes()
 	 * @generated
 	 * @ordered
 	 */
-	protected Recipe recipes;
+	protected EList<Recipes> recipes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,42 +153,11 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Recipe getRecipes() {
+	public EList<Recipes> getRecipes() {
+		if (recipes == null) {
+			recipes = new EObjectContainmentEList<Recipes>(Recipes.class, this, ApplicationPackage.APPLICATION_RECIPE__RECIPES);
+		}
 		return recipes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRecipes(Recipe newRecipes, NotificationChain msgs) {
-		Recipe oldRecipes = recipes;
-		recipes = newRecipes;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_RECIPE__RECIPES, oldRecipes, newRecipes);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRecipes(Recipe newRecipes) {
-		if (newRecipes != recipes) {
-			NotificationChain msgs = null;
-			if (recipes != null)
-				msgs = ((InternalEObject)recipes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_RECIPE__RECIPES, null, msgs);
-			if (newRecipes != null)
-				msgs = ((InternalEObject)newRecipes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_RECIPE__RECIPES, null, msgs);
-			msgs = basicSetRecipes(newRecipes, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_RECIPE__RECIPES, newRecipes, newRecipes));
 	}
 
 	/**
@@ -195,7 +169,7 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ApplicationPackage.APPLICATION_RECIPE__RECIPES:
-				return basicSetRecipes(null, msgs);
+				return ((InternalEList<?>)getRecipes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -223,6 +197,7 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -233,7 +208,8 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
 				setName((String)newValue);
 				return;
 			case ApplicationPackage.APPLICATION_RECIPE__RECIPES:
-				setRecipes((Recipe)newValue);
+				getRecipes().clear();
+				getRecipes().addAll((Collection<? extends Recipes>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -254,7 +230,7 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
 				setName(NAME_EDEFAULT);
 				return;
 			case ApplicationPackage.APPLICATION_RECIPE__RECIPES:
-				setRecipes((Recipe)null);
+				getRecipes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -273,7 +249,7 @@ public class ApplicationRecipeImpl extends EObjectImpl implements ApplicationRec
 			case ApplicationPackage.APPLICATION_RECIPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ApplicationPackage.APPLICATION_RECIPE__RECIPES:
-				return recipes != null;
+				return recipes != null && !recipes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

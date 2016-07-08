@@ -20,11 +20,14 @@ import message.Language;
 import message.Message;
 import message.MessageLibrary;
 import message.Translation;
+import recipe.Recipes;
 import type.TypeGroup;
 import application.ApplicationLanguages;
 import application.ApplicationMessageLibrary;
 import application.ApplicationRealm;
 import application.ApplicationRealms;
+import application.ApplicationRecipe;
+import application.ApplicationRecipes;
 
 public class DiagramService {
 
@@ -92,5 +95,14 @@ public class DiagramService {
 		return "Infrastructure layer  "+ ((ApplicationInfrastructureLayer)(infra.eContainer())).getInfarastructures().size();
 	}
 
+	public String generateName(ApplicationRecipe recipe ){
+		return "Application recipes  package"+ ((ApplicationRecipes)(recipe.eContainer())).getRecipes().size();
+	}
 
+	public String generateName(Recipes recipe ){
+		return "Recipe "+ ((ApplicationRecipe)(recipe.eContainer())).getRecipes().size();
+	}
+
+	
+	
 }

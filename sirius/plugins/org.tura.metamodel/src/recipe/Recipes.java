@@ -16,11 +16,14 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link recipe.Recipes#getUid <em>Uid</em>}</li>
+ *   <li>{@link recipe.Recipes#getName <em>Name</em>}</li>
  *   <li>{@link recipe.Recipes#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link recipe.Recipes#getConfigurations <em>Configurations</em>}</li>
  *   <li>{@link recipe.Recipes#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link recipe.Recipes#getDeployment <em>Deployment</em>}</li>
- *   <li>{@link recipe.Recipes#getConfigExtension <em>Config Extension</em>}</li>
+ *   <li>{@link recipe.Recipes#getConfigExtensions <em>Config Extensions</em>}</li>
+ *   <li>{@link recipe.Recipes#getRecipe2Infrastructures <em>Recipe2 Infrastructures</em>}</li>
+ *   <li>{@link recipe.Recipes#getInfrastructure2Configurations <em>Infrastructure2 Configurations</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getRecipes()
@@ -53,6 +56,32 @@ public interface Recipes extends EObject {
 	 * @generated
 	 */
 	void setUid(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see recipe.RecipePackage#getRecipes_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link recipe.Recipes#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Recipe</b></em>' containment reference.
@@ -139,19 +168,51 @@ public interface Recipes extends EObject {
 	void setDeployment(DeploymentSequence value);
 
 	/**
-	 * Returns the value of the '<em><b>Config Extension</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Config Extensions</b></em>' containment reference list.
 	 * The list contents are of type {@link recipe.ConfigExtension}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Config Extension</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Config Extensions</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Config Extension</em>' containment reference list.
-	 * @see recipe.RecipePackage#getRecipes_ConfigExtension()
+	 * @return the value of the '<em>Config Extensions</em>' containment reference list.
+	 * @see recipe.RecipePackage#getRecipes_ConfigExtensions()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ConfigExtension> getConfigExtension();
+	EList<ConfigExtension> getConfigExtensions();
+
+	/**
+	 * Returns the value of the '<em><b>Recipe2 Infrastructures</b></em>' containment reference list.
+	 * The list contents are of type {@link recipe.Recipe2Infrastructure}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Recipe2 Infrastructures</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Recipe2 Infrastructures</em>' containment reference list.
+	 * @see recipe.RecipePackage#getRecipes_Recipe2Infrastructures()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Recipe2Infrastructure> getRecipe2Infrastructures();
+
+	/**
+	 * Returns the value of the '<em><b>Infrastructure2 Configurations</b></em>' containment reference list.
+	 * The list contents are of type {@link recipe.Infrastructure2Configuration}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Infrastructure2 Configurations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Infrastructure2 Configurations</em>' containment reference list.
+	 * @see recipe.RecipePackage#getRecipes_Infrastructure2Configurations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Infrastructure2Configuration> getInfrastructure2Configurations();
 
 } // Recipes

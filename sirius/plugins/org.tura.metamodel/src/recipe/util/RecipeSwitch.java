@@ -85,6 +85,18 @@ public class RecipeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RecipePackage.RECIPE2_INFRASTRUCTURE: {
+				Recipe2Infrastructure recipe2Infrastructure = (Recipe2Infrastructure)theEObject;
+				T result = caseRecipe2Infrastructure(recipe2Infrastructure);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION: {
+				Infrastructure2Configuration infrastructure2Configuration = (Infrastructure2Configuration)theEObject;
+				T result = caseInfrastructure2Configuration(infrastructure2Configuration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RecipePackage.DEPLOYMENT_SEQUENCE: {
 				DeploymentSequence deploymentSequence = (DeploymentSequence)theEObject;
 				T result = caseDeploymentSequence(deploymentSequence);
@@ -242,6 +254,36 @@ public class RecipeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConfigExtension(ConfigExtension object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Recipe2 Infrastructure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Recipe2 Infrastructure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRecipe2Infrastructure(Recipe2Infrastructure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Infrastructure2 Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Infrastructure2 Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInfrastructure2Configuration(Infrastructure2Configuration object) {
 		return null;
 	}
 

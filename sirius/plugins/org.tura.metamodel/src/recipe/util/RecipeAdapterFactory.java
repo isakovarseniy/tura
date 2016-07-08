@@ -80,6 +80,14 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 				return createConfigExtensionAdapter();
 			}
 			@Override
+			public Adapter caseRecipe2Infrastructure(Recipe2Infrastructure object) {
+				return createRecipe2InfrastructureAdapter();
+			}
+			@Override
+			public Adapter caseInfrastructure2Configuration(Infrastructure2Configuration object) {
+				return createInfrastructure2ConfigurationAdapter();
+			}
+			@Override
 			public Adapter caseDeploymentSequence(DeploymentSequence object) {
 				return createDeploymentSequenceAdapter();
 			}
@@ -210,6 +218,34 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConfigExtensionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link recipe.Recipe2Infrastructure <em>Recipe2 Infrastructure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see recipe.Recipe2Infrastructure
+	 * @generated
+	 */
+	public Adapter createRecipe2InfrastructureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link recipe.Infrastructure2Configuration <em>Infrastructure2 Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see recipe.Infrastructure2Configuration
+	 * @generated
+	 */
+	public Adapter createInfrastructure2ConfigurationAdapter() {
 		return null;
 	}
 

@@ -140,6 +140,52 @@ public class RecipeItemProviderAdapterFactory extends RecipeAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link recipe.Recipe2Infrastructure} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Recipe2InfrastructureItemProvider recipe2InfrastructureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link recipe.Recipe2Infrastructure}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRecipe2InfrastructureAdapter() {
+		if (recipe2InfrastructureItemProvider == null) {
+			recipe2InfrastructureItemProvider = new Recipe2InfrastructureItemProvider(this);
+		}
+
+		return recipe2InfrastructureItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link recipe.Infrastructure2Configuration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Infrastructure2ConfigurationItemProvider infrastructure2ConfigurationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link recipe.Infrastructure2Configuration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInfrastructure2ConfigurationAdapter() {
+		if (infrastructure2ConfigurationItemProvider == null) {
+			infrastructure2ConfigurationItemProvider = new Infrastructure2ConfigurationItemProvider(this);
+		}
+
+		return infrastructure2ConfigurationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link recipe.DeploymentSequence} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
