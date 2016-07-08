@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tura.domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tura.domain="http://tura.org/2016/v2/domain" xmlns:tura.type="http://tura.org/2016/v2/type">
+<tura.domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tura.domain="http://tura.org/2016/v2/domain" xmlns:tura.infrastructure="http://tura.org/2016/v2/infrastructure" xmlns:tura.recipe="http://tura.org/2016/v2/recipe" xmlns:tura.type="http://tura.org/2016/v2/type">
   <domainArtifacts>
     <domainArtifact uid="8c6e20f4-46c7-4fd1-b50c-3ad6922cb6e8" name="Domain Artifact1">
       <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Artifact package1">
@@ -7,6 +7,8 @@
           <modelQuery uid="dc22f168-f169-4c8a-b09a-70130a43180c" name="asdasdadsrrrrr"/>
           <modelQuery uid="69e139c9-62e6-47c5-bf4a-2f7bb1f199a6" name="q3"/>
           <modelQuery uid="e612ad8c-95ae-472d-8637-a72939d0cf11" name="q2"/>
+          <modelQuery uid="d1de6077-5d14-4b58-97da-fcd2a37d3f0f" name="ewwqe"/>
+          <modelQuery uid="7629cbe4-fcca-4939-ad0f-d6754fb7c235" name="sadasD"/>
           <hints uid="9486bfe0-c99a-4e8e-9db9-873bab45c285" name="asasdasd\dasdas"/>
           <hints uid="5d7a2f1e-5702-4918-a8ca-99609d1ac3c3" name="asdasd"/>
         </artifacts>
@@ -18,6 +20,8 @@
       <repositoryPackages uid="2be392a0-795a-4751-9883-491c90520d9e" name="Type package1">
         <types xsi:type="tura.type:Type" uid="8f1e281e-f64f-4992-bb3e-7bd82b6ad240" name="rrrrr">
           <attributes uid="c8ae17b4-8c17-49d8-91fd-983d8c1202bf" name="n,n,mn,"/>
+          <operations uid="c2b0afd9-deec-437e-897f-e9e991b80ef2" name="asdasdasd"/>
+          <operations uid="ae4eef87-9db0-4422-86d1-048678dde6c1" name="asdasdasd"/>
         </types>
       </repositoryPackages>
     </typesRepository>
@@ -48,12 +52,114 @@
     <applications uid="dd9a03ec-7974-4324-b247-0405080b3944" name="Domain Application1">
       <applicationPackages uid="e0a49a0b-9961-4803-9c0c-efb84da14715" name="Application package1">
         <applications uid="6dbe9372-c514-4152-8d84-c8ac1223c2f7" name="Application1">
-          <applicationRecipes uid="773bc6f0-3025-4807-b123-f84c91d9f335" name="Recipes"/>
+          <applicationRecipes uid="df503cbb-5ff4-4931-a503-0ba1035b4410">
+            <recipes uid="ff616d96-1997-4684-87cb-cbc57b8dec63" name="Application recipes  package1">
+              <recipes uid="3179836b-f84e-49fd-b423-452592f0ed87" name="Recipe 1">
+                <recipe uid="a53513af-bf77-49c6-baba-aff5ad83a8eb" name="Recipe">
+                  <ingredients uid="79003a1c-ed2f-454d-85f9-48cacba976f4" name="Ingredient 1">
+                    <components xsi:type="tura.recipe:JavaComponent" uid="abb5c51f-48fb-4e23-ac5b-5395fd679204" name="Java component 1">
+                      <mappers uid="ed5de964-e740-4dee-ac74-5a6d695f1bf6" name="Model mapper 1" artifactRoot="">
+                        <queries uid="6942f882-f597-44c3-9a67-ef94f9bd917c" name="Query1"/>
+                        <queries uid="43f2d8e9-0985-4a08-a7a1-6358351f386c" name="Query 2"/>
+                        <queries uid="41038e0f-1d08-49a1-a00e-d6090e233a77" name="Query 3"/>
+                      </mappers>
+                      <mappers uid="bafcda71-e9fb-46ea-9274-08c6f4d41404" name="Model mapper 2"/>
+                      <mappers uid="bf34c444-e149-44b5-a10c-a1dff11a97ed" name="Model mapper 3"/>
+                      <mappers uid="792f1c5f-6f1a-4e21-b541-ac4239993d9b" name="Model Mapper 7"/>
+                    </components>
+                    <components xsi:type="tura.recipe:JavaComponent" uid="5b41bbee-c78e-40f6-9dbe-fb3a9ed0ef2c" name="Java component 2">
+                      <mappers uid="5303a710-3250-4828-9757-88d80bec3926" name="Model Mapper 4"/>
+                      <mappers uid="fe744d66-0897-45c3-be40-3abbf53b4393" name="Model mapper 5"/>
+                      <mappers uid="6ba04eb3-3f9b-4a8d-bb87-19c4155e86e2" name="Model Mapper 6"/>
+                    </components>
+                  </ingredients>
+                  <ingredients uid="76496306-0c11-4b40-90f8-a6e7e9291354" name="Ingredient 2">
+                    <components xsi:type="tura.recipe:JavaComponent" uid="3cfd888b-22ce-4c8a-8259-364be4d745a3" name="Model mapper 8"/>
+                  </ingredients>
+                </recipe>
+                <configurations uid="41b58e36-cca1-458a-8f45-d88154c8aa1e"/>
+                <configurations uid="8a3affb8-c67c-42b2-8e59-2fedbf2213dc"/>
+                <configurations uid="49b45bbe-82bb-42a9-a023-a693c5d4d782"/>
+                <infrastructures uid="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3" name="Development"/>
+                <infrastructures uid="04dedfd4-c909-42cf-81f5-1898ace8d9e4" name="Production"/>
+                <configExtensions uid="f8c68b40-d2aa-407d-9f91-e10b8065adb3" source="41b58e36-cca1-458a-8f45-d88154c8aa1e" target="49b45bbe-82bb-42a9-a023-a693c5d4d782"/>
+                <configExtensions uid="5850c798-5c94-4559-a8ed-14b0d9f2806b" source="8a3affb8-c67c-42b2-8e59-2fedbf2213dc" target="49b45bbe-82bb-42a9-a023-a693c5d4d782"/>
+                <recipe2Infrastructures uid="9faa75b4-6a88-49c6-9d80-f37b56751c1e" source="a53513af-bf77-49c6-baba-aff5ad83a8eb" target="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3"/>
+                <recipe2Infrastructures uid="708316d2-8d3c-44aa-8338-a0ac77c8fe84" source="a53513af-bf77-49c6-baba-aff5ad83a8eb" target="04dedfd4-c909-42cf-81f5-1898ace8d9e4"/>
+                <infrastructure2Configurations uid="f0f5db58-2a78-4b8a-b625-e657043db63e" source="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3" target="41b58e36-cca1-458a-8f45-d88154c8aa1e"/>
+                <infrastructure2Configurations uid="757ffe47-5bfc-486d-8993-0538497a407f" source="04dedfd4-c909-42cf-81f5-1898ace8d9e4" target="8a3affb8-c67c-42b2-8e59-2fedbf2213dc"/>
+              </recipes>
+            </recipes>
+          </applicationRecipes>
           <applicationMappers uid="a00090a3-4951-4fc2-a358-1c649e91a854" name="Mappers"/>
           <applicationUILayer uid="2f3c70d8-7e8f-474c-8ef1-c3ddea9c65e8" name="UILayer"/>
-          <applicationInfrastructureLayer uid="8ab26c82-632a-4279-86a5-f3ef1ad651c7" name="Infrastructure"/>
+          <applicationInfrastructureLayer uid="4cd91421-4343-42c1-a582-989c36062b1f">
+            <infarastructureLayers uid="68fd7a9c-d837-401a-935c-e287a3ef9a47" name="Dev">
+              <infarastructures uid="5736e0e8-2da4-417a-8b29-7280ad0cd08d" name="DB"/>
+              <infarastructures uid="75a117eb-de61-4f87-925f-7904624477a7" name="App servers">
+                <datacenters uid="5b6ec26c-0520-4126-906e-b6e3ae650d2f" name="Data Center">
+                  <subsystems uid="f132d1f9-f266-4781-8e73-5ac778e5e8bb" name="Sub system 1">
+                    <infrastructureLayer uid="4a912a06-0cc0-41cc-8cc7-2769f8496b77" name="layer1">
+                      <infrastructureComponent xsi:type="tura.infrastructure:Server" uid="06bb99d0-0117-4ff7-b725-43b8f4bfd521" name="server 1"/>
+                      <infrastructureComponent xsi:type="tura.infrastructure:Server" uid="dd07e35f-77ae-490e-b4be-42cc5893a7d7"/>
+                      <infrastructureComponent xsi:type="tura.infrastructure:Server" uid="a8897246-3140-4835-8712-6895bd39d9db"/>
+                    </infrastructureLayer>
+                    <infrastructureLayer uid="3e9b4cec-82f2-492a-8e82-f33fd0c7e35d" name="Layer 2">
+                      <infrastructureComponent xsi:type="tura.infrastructure:Server" uid="7fafe8be-7b09-4623-a041-a99dc68f9bdf" name="asdasdas"/>
+                    </infrastructureLayer>
+                    <infrastructureLayer uid="a3f3abfd-2d88-451a-a57d-df366c590ad6"/>
+                  </subsystems>
+                  <subsystems uid="b13fc020-7ccf-4496-99f5-7d2fdd846c8e" name="Sub system 2">
+                    <infrastructureLayer uid="6bb88504-8007-4637-8a43-7db3ec25df45">
+                      <infrastructureComponent xsi:type="tura.infrastructure:Server" uid="91f84f03-d2bb-4165-8379-19a3c9e9e462"/>
+                      <infrastructureComponent xsi:type="tura.infrastructure:Router" uid="0d9b9bb4-3d5a-4975-a066-d328bfb2028d"/>
+                      <infrastructureComponent xsi:type="tura.infrastructure:Storage" uid="f7912cee-b5f0-404b-8183-d95404927e62"/>
+                    </infrastructureLayer>
+                  </subsystems>
+                  <subsystems uid="53ae20f3-a927-40b7-8e15-c672878cf6ee" name="Subsystem 3">
+                    <infrastructureLayer uid="1649ee1b-11c0-4214-bfdc-628afba9ac60" name="Application Layer">
+                      <infrastructureComponent xsi:type="tura.infrastructure:Server" uid="90254869-26f1-4e69-8a67-89ff2e1776f7"/>
+                      <infrastructureComponent xsi:type="tura.infrastructure:Hub" uid="ce9592d7-6075-43cf-b382-e316a46c531f"/>
+                    </infrastructureLayer>
+                  </subsystems>
+                </datacenters>
+                <datacenters uid="c4b43f27-399e-489a-a899-ac8dfcee7575" name="Data center 2">
+                  <subsystems uid="137125db-90b8-4e4d-bf0a-f8042cae5688" name="Storage">
+                    <infrastructureLayer uid="0688d177-54d6-4fbd-9640-ad31748b4294" name="Data base layer">
+                      <infrastructureComponent xsi:type="tura.infrastructure:Server" uid="bb7d9d24-f1c8-4efd-885e-ca24b85b6de9"/>
+                    </infrastructureLayer>
+                    <infrastructureLayer uid="ab07a8f0-7b31-4ded-a258-b259981201af" name="Application server layer">
+                      <infrastructureComponent xsi:type="tura.infrastructure:Server" uid="c8049917-fe1f-48db-b9d5-d39fd99f9b90"/>
+                    </infrastructureLayer>
+                  </subsystems>
+                </datacenters>
+                <infrastructureConnections uid="5eab652b-3a45-47f6-a27e-76534501bbb0" source="f7912cee-b5f0-404b-8183-d95404927e62" target="7fafe8be-7b09-4623-a041-a99dc68f9bdf"/>
+                <infrastructureConnections uid="acbfe898-aeba-4e9f-9603-3569d9dfff01" source="dd07e35f-77ae-490e-b4be-42cc5893a7d7" target="a8897246-3140-4835-8712-6895bd39d9db"/>
+                <infrastructureConnections uid="ecba3c76-12e7-4409-9efd-d46479c71435" source="0d9b9bb4-3d5a-4975-a066-d328bfb2028d" target="f7912cee-b5f0-404b-8183-d95404927e62"/>
+                <infrastructureConnections uid="2dc6c120-93b7-497a-8d34-040304c51bb0" source="0d9b9bb4-3d5a-4975-a066-d328bfb2028d" target="91f84f03-d2bb-4165-8379-19a3c9e9e462"/>
+                <infrastructureConnections uid="fbfe9854-1faa-4066-b996-94b0a911db56" source="a8897246-3140-4835-8712-6895bd39d9db" target="90254869-26f1-4e69-8a67-89ff2e1776f7"/>
+                <infrastructureConnections uid="24e0838b-973f-4455-acd0-1349a1be3c56" source="ce9592d7-6075-43cf-b382-e316a46c531f" target="bb7d9d24-f1c8-4efd-885e-ca24b85b6de9"/>
+              </infarastructures>
+            </infarastructureLayers>
+          </applicationInfrastructureLayer>
           <applicationStyle uid="8d0a3826-f0d9-435f-a0bc-ad850460c3b9" name="Style Libraries"/>
-          <applicationRole uid="19048840-af48-4798-a6a7-b171f7d1a9ed" name="Security"/>
+          <applicationRole uid="19048840-af48-4798-a6a7-b171f7d1a9ed" name="Security">
+            <realms uid="b77cee47-5d52-4e0a-9205-eba9a56dbb7e" name="Security rules set  1">
+              <roles uid="359173c3-2eb7-4f12-9a3b-e899eaee383a">
+                <roles uid="a19bfff8-f519-4aba-9245-d6206f593f2f" name="sdasdasdasd"/>
+                <roles uid="6ad34243-f4da-494d-8b83-f8a7fb34b6a5" name="dada"/>
+                <roles uid="d6dc5ded-c206-4360-82b6-95735a432f85"/>
+                <roles uid="96ce539e-2f49-4202-af06-d071a82ef9cd"/>
+                <groups uid="f4e193b2-ace4-453a-9663-5c9154dd7abb" name="qqqq"/>
+                <groups uid="76bc68f3-646e-4a37-9b65-89482339f189" name="asdasdas"/>
+                <groups uid="f7d2eff6-a162-4c7a-8da1-65ff5d090d91"/>
+                <group2Groups uid="2796d885-a233-4bd9-9bd7-dc4dbff4d1bc" source="f7d2eff6-a162-4c7a-8da1-65ff5d090d91" target="f4e193b2-ace4-453a-9663-5c9154dd7abb"/>
+                <group2Roles uid="473ae3b8-749c-49a1-a004-138ba60ef3cd" source="f4e193b2-ace4-453a-9663-5c9154dd7abb" target="d6dc5ded-c206-4360-82b6-95735a432f85"/>
+                <group2Roles uid="29d1ce27-5fa1-4ce3-a860-60afe2f821e6" source="76bc68f3-646e-4a37-9b65-89482339f189" target="a19bfff8-f519-4aba-9245-d6206f593f2f"/>
+                <group2Roles uid="d032b4e5-cd19-44e2-9fa6-3ecc4b73a2d9" source="76bc68f3-646e-4a37-9b65-89482339f189" target="6ad34243-f4da-494d-8b83-f8a7fb34b6a5"/>
+              </roles>
+            </realms>
+          </applicationRole>
           <applicationMessages uid="839f02b9-22c9-4c47-abd9-495a167fc15d" name="Application message libraries">
             <messageLibraries uid="42709504-6bab-4ef1-8090-e2f7498c506a" name="Message libraries">
               <libraries uid="00cc660b-4e02-4ae6-8cb0-8f7342417334" name="Library 1">
