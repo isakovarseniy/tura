@@ -1204,6 +1204,31 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Style library" domainClass="application.ApplicationStyle">
+      <subItemMappings name="Style library" domainClass="style.StyleLibrary" semanticCandidatesExpression="feature:libraries">
+        <defaultStyle labelSize="12">
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+        </defaultStyle>
+        <subItemMappings name="Style set" domainClass="style.StyleSet" semanticCandidatesExpression="feature:styles">
+          <defaultStyle labelSize="12">
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+        </subItemMappings>
+        <create name="Create style" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Style%20library']/@subItemMappings[name='Style%20library']">
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="style.StyleSet" referenceName="styles">
+              <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+              <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <variables name="root" documentation="The semantic element of the tree."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        </create>
+      </subItemMappings>
+    </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:TreeDescription" name="Domain tree" domainClass="domain.Domain">
       <subItemMappings name="Domain artifacts" domainClass="domain.DomainArtifacts" semanticCandidatesExpression="feature:domainArtifacts">
         <defaultStyle labelSize="12" labelExpression="Domain Artifacts">
@@ -1362,34 +1387,11 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
                 </defaultStyle>
-                <subItemMappings name="Style libraies package" domainClass="application.ApplicationStyle" semanticCandidatesExpression="feature:styleLibraries">
+                <subItemMappings name="Style libraies package" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@ownedRepresentationCreationDescriptions[name='Create%20Style%20library']" domainClass="application.ApplicationStyle" semanticCandidatesExpression="feature:styleLibraries">
                   <defaultStyle labelSize="12">
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
                   </defaultStyle>
-                  <subItemMappings name="Style library" domainClass="style.StyleLibrary" semanticCandidatesExpression="feature:libraries">
-                    <defaultStyle labelSize="12">
-                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-                    </defaultStyle>
-                    <subItemMappings name="Style set" domainClass="style.StyleSet" semanticCandidatesExpression="feature:styles">
-                      <defaultStyle labelSize="12">
-                        <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                        <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-                      </defaultStyle>
-                    </subItemMappings>
-                    <create name="Create style" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20styles']/@subItemMappings[name='Style%20libraies%20package']/@subItemMappings[name='Style%20library']">
-                      <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
-                        <subModelOperations xsi:type="tool:CreateInstance" typeName="style.StyleSet" referenceName="styles">
-                          <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
-                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
-                        </subModelOperations>
-                      </firstModelOperation>
-                      <variables name="root" documentation="The semantic element of the tree."/>
-                      <variables name="element" documentation="The currently edited element."/>
-                      <variables name="container" documentation="The semantic element corresponding to the view container."/>
-                    </create>
-                  </subItemMappings>
                   <create name="Create Style library" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20styles']/@subItemMappings[name='Style%20libraies%20package']">
                     <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
                       <subModelOperations xsi:type="tool:CreateInstance" typeName="style.StyleLibrary" referenceName="libraries">
@@ -1735,6 +1737,10 @@
       </ownedRepresentationCreationDescriptions>
       <ownedRepresentationCreationDescriptions xsi:type="tool_1:DiagramCreationDescription" name="Create Infrastructure diagram" diagramDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']">
         <initialOperation/>
+        <containerViewVariable name="containerView"/>
+        <representationNameVariable name="diagramName"/>
+      </ownedRepresentationCreationDescriptions>
+      <ownedRepresentationCreationDescriptions xsi:type="description_3:TreeCreationDescription" name="Create Style library" treeDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Style%20library']">
         <containerViewVariable name="containerView"/>
         <representationNameVariable name="diagramName"/>
       </ownedRepresentationCreationDescriptions>

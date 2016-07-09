@@ -122,7 +122,7 @@
     </ownedRepresentations>
     <ownedRepresentations xmi:type="table:DTable" xmi:id="_50YGYDdWEeanjfmRRxJFPQ" name="new Message Library" headerColumnWidth="253">
       <target xmi:type="tura.message:MessageLibrary" href="model/hr.domain#00cc660b-4e02-4ae6-8cb0-8f7342417334"/>
-      <lines xmi:type="table:DLine" xmi:id="_ElQ2EDdXEeanjfmRRxJFPQ" label="Message Key  1">
+      <lines xmi:type="table:DLine" xmi:id="_ElQ2EDdXEeanjfmRRxJFPQ" label="Message Key  1" collapsed="true">
         <target xmi:type="tura.message:Message" href="model/hr.domain#546e2e00-144c-4547-b331-9abd4ee33cf6"/>
         <lines xmi:type="table:DLine" xmi:id="_pkhPwDdaEeanjfmRRxJFPQ" label="Translation e3aa86c9-2495-4fac-93c3-955bfa6b84a3">
           <target xmi:type="tura.message:Translation" href="model/hr.domain#e3aa86c9-2495-4fac-93c3-955bfa6b84a3"/>
@@ -2813,12 +2813,18 @@
             <target xmi:type="tura.application:ApplicationGroup" href="model/hr.domain#e0a49a0b-9961-4803-9c0c-efb84da14715"/>
             <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_p7EYsEVqEeahjNCp_DEDLg" name="Application1" expanded="true">
               <target xmi:type="tura.application:Application" href="model/hr.domain#6dbe9372-c514-4152-8d84-c8ac1223c2f7"/>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qBP5MEVqEeahjNCp_DEDLg" name="Application recipes">
+              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qBP5MEVqEeahjNCp_DEDLg" name="Application recipes" expanded="true">
                 <target xmi:type="tura.application:ApplicationRecipes" href="model/hr.domain#df503cbb-5ff4-4931-a503-0ba1035b4410"/>
-                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4ssEVqEeahjNCp_DEDLg">
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4ssEVqEeahjNCp_DEDLg" name="Application recipes  package1">
                   <target xmi:type="tura.application:ApplicationRecipe" href="model/hr.domain#ff616d96-1997-4684-87cb-cbc57b8dec63"/>
+                  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_HzrCUEV6EeahjNCp_DEDLg" name="Recipe 1">
+                    <target xmi:type="tura.recipe:Recipes" href="model/hr.domain#3179836b-f84e-49fd-b423-452592f0ed87"/>
+                    <semanticElements xmi:type="tura.recipe:Recipes" href="model/hr.domain#3179836b-f84e-49fd-b423-452592f0ed87"/>
+                    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_HzrCUUV6EeahjNCp_DEDLg" labelSize="12"/>
+                    <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='ApplicationRecipes']/@subItemMappings[name='Application%20Recipe']/@subItemMappings[name='Recipe']"/>
+                  </ownedTreeItems>
                   <semanticElements xmi:type="tura.application:ApplicationRecipe" href="model/hr.domain#ff616d96-1997-4684-87cb-cbc57b8dec63"/>
-                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH4ssUVqEeahjNCp_DEDLg" labelColor="209,209,209" backgroundColor="209,209,209"/>
+                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH4ssUVqEeahjNCp_DEDLg" labelSize="12"/>
                   <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='ApplicationRecipes']/@subItemMappings[name='Application%20Recipe']"/>
                 </ownedTreeItems>
                 <semanticElements xmi:type="tura.application:ApplicationRecipes" href="model/hr.domain#df503cbb-5ff4-4931-a503-0ba1035b4410"/>
@@ -2839,32 +2845,32 @@
               </ownedTreeItems>
               <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH3ekkVqEeahjNCp_DEDLg" name="Application infrastructure environment">
                 <target xmi:type="tura.application:ApplicationInfrastructureLayers" href="model/hr.domain#4cd91421-4343-42c1-a582-989c36062b1f"/>
-                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4sskVqEeahjNCp_DEDLg">
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4sskVqEeahjNCp_DEDLg" name="Dev" expanded="true">
                   <target xmi:type="tura.application:ApplicationInfrastructureLayer" href="model/hr.domain#68fd7a9c-d837-401a-935c-e287a3ef9a47"/>
+                  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_87taQEV5EeahjNCp_DEDLg" name="DB">
+                    <target xmi:type="tura.infrastructure:EnterpriseInfrastructure" href="model/hr.domain#5736e0e8-2da4-417a-8b29-7280ad0cd08d"/>
+                    <semanticElements xmi:type="tura.infrastructure:EnterpriseInfrastructure" href="model/hr.domain#5736e0e8-2da4-417a-8b29-7280ad0cd08d"/>
+                    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_87taQUV5EeahjNCp_DEDLg" labelSize="12"/>
+                    <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20infrastructure%20environment']/@subItemMappings[name='Application%20Infrastructure%20Layer']/@subItemMappings[name='Infrastructure%20Layer']"/>
+                  </ownedTreeItems>
+                  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_9Hd-UEV5EeahjNCp_DEDLg" name="App servers">
+                    <target xmi:type="tura.infrastructure:EnterpriseInfrastructure" href="model/hr.domain#75a117eb-de61-4f87-925f-7904624477a7"/>
+                    <semanticElements xmi:type="tura.infrastructure:EnterpriseInfrastructure" href="model/hr.domain#75a117eb-de61-4f87-925f-7904624477a7"/>
+                    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_9Hd-UUV5EeahjNCp_DEDLg" labelSize="12"/>
+                    <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20infrastructure%20environment']/@subItemMappings[name='Application%20Infrastructure%20Layer']/@subItemMappings[name='Infrastructure%20Layer']"/>
+                  </ownedTreeItems>
                   <semanticElements xmi:type="tura.application:ApplicationInfrastructureLayer" href="model/hr.domain#68fd7a9c-d837-401a-935c-e287a3ef9a47"/>
-                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH4ss0VqEeahjNCp_DEDLg" labelColor="209,209,209" backgroundColor="209,209,209"/>
+                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH4ss0VqEeahjNCp_DEDLg" labelSize="12"/>
                   <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20infrastructure%20environment']/@subItemMappings[name='Application%20Infrastructure%20Layer']"/>
                 </ownedTreeItems>
                 <semanticElements xmi:type="tura.application:ApplicationInfrastructureLayers" href="model/hr.domain#4cd91421-4343-42c1-a582-989c36062b1f"/>
                 <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH3ek0VqEeahjNCp_DEDLg" labelSize="12"/>
                 <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20infrastructure%20environment']"/>
               </ownedTreeItems>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH3elEVqEeahjNCp_DEDLg" name="Application styles" expanded="true">
+              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH3elEVqEeahjNCp_DEDLg" name="Application styles">
                 <target xmi:type="tura.application:ApplicationStyleLibraries" href="model/hr.domain#8d0a3826-f0d9-435f-a0bc-ad850460c3b9"/>
                 <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4stEVqEeahjNCp_DEDLg" name="Style libraies package 1" expanded="true">
                   <target xmi:type="tura.application:ApplicationStyle" href="model/hr.domain#5088d112-328b-4451-b9c4-97aa08277435"/>
-                  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qgZTUEVqEeahjNCp_DEDLg" name="Style library  1" expanded="true">
-                    <target xmi:type="tura.style:StyleLibrary" href="model/hr.domain#2cca6686-3847-4989-9ff1-0042e2182d33"/>
-                    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_Ll0F8EV0EeahjNCp_DEDLg" name="Style 1">
-                      <target xmi:type="tura.style:StyleSet" href="model/hr.domain#304a6294-adf2-43ee-9a5f-4ed1d7448b61"/>
-                      <semanticElements xmi:type="tura.style:StyleSet" href="model/hr.domain#304a6294-adf2-43ee-9a5f-4ed1d7448b61"/>
-                      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_Ll0F8UV0EeahjNCp_DEDLg" labelSize="12"/>
-                      <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20styles']/@subItemMappings[name='Style%20libraies%20package']/@subItemMappings[name='Style%20library']/@subItemMappings[name='Style%20set']"/>
-                    </ownedTreeItems>
-                    <semanticElements xmi:type="tura.style:StyleLibrary" href="model/hr.domain#2cca6686-3847-4989-9ff1-0042e2182d33"/>
-                    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qgZTUUVqEeahjNCp_DEDLg" labelSize="12"/>
-                    <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20styles']/@subItemMappings[name='Style%20libraies%20package']/@subItemMappings[name='Style%20library']"/>
-                  </ownedTreeItems>
                   <semanticElements xmi:type="tura.application:ApplicationStyle" href="model/hr.domain#5088d112-328b-4451-b9c4-97aa08277435"/>
                   <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH4stUVqEeahjNCp_DEDLg" labelSize="12"/>
                   <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20styles']/@subItemMappings[name='Style%20libraies%20package']"/>
@@ -2875,10 +2881,10 @@
               </ownedTreeItems>
               <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4FoEVqEeahjNCp_DEDLg" name="Application security">
                 <target xmi:type="tura.application:ApplicationRealms" href="model/hr.domain#19048840-af48-4798-a6a7-b171f7d1a9ed"/>
-                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH5TwEVqEeahjNCp_DEDLg">
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH5TwEVqEeahjNCp_DEDLg" name="Security rules set  1">
                   <target xmi:type="tura.application:ApplicationRealm" href="model/hr.domain#b77cee47-5d52-4e0a-9205-eba9a56dbb7e"/>
                   <semanticElements xmi:type="tura.application:ApplicationRealm" href="model/hr.domain#b77cee47-5d52-4e0a-9205-eba9a56dbb7e"/>
-                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH5TwUVqEeahjNCp_DEDLg" labelColor="209,209,209" backgroundColor="209,209,209"/>
+                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH5TwUVqEeahjNCp_DEDLg" labelSize="12"/>
                   <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20security']/@subItemMappings[name='Security%20rules%20set']"/>
                 </ownedTreeItems>
                 <semanticElements xmi:type="tura.application:ApplicationRealms" href="model/hr.domain#19048840-af48-4798-a6a7-b171f7d1a9ed"/>
@@ -2887,11 +2893,41 @@
               </ownedTreeItems>
               <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4FokVqEeahjNCp_DEDLg" name="Application messages">
                 <target xmi:type="tura.application:ApplicationMessageLibraries" href="model/hr.domain#839f02b9-22c9-4c47-abd9-495a167fc15d"/>
-                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH5TwkVqEeahjNCp_DEDLg">
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH5TwkVqEeahjNCp_DEDLg" name="Message libraries" expanded="true">
                   <target xmi:type="tura.application:ApplicationMessageLibrary" href="model/hr.domain#42709504-6bab-4ef1-8090-e2f7498c506a"/>
+                  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_AHKCkEV6EeahjNCp_DEDLg" name="Library 1">
+                    <target xmi:type="tura.message:MessageLibrary" href="model/hr.domain#00cc660b-4e02-4ae6-8cb0-8f7342417334"/>
+                    <semanticElements xmi:type="tura.message:MessageLibrary" href="model/hr.domain#00cc660b-4e02-4ae6-8cb0-8f7342417334"/>
+                    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_AHKCkUV6EeahjNCp_DEDLg" labelSize="12"/>
+                    <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20messages']/@subItemMappings[name='Message%20libraries']/@subItemMappings[name='Message%20library']"/>
+                  </ownedTreeItems>
                   <semanticElements xmi:type="tura.application:ApplicationMessageLibrary" href="model/hr.domain#42709504-6bab-4ef1-8090-e2f7498c506a"/>
-                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH5Tw0VqEeahjNCp_DEDLg" labelColor="209,209,209" backgroundColor="209,209,209"/>
+                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH5Tw0VqEeahjNCp_DEDLg" labelSize="12"/>
                   <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20messages']/@subItemMappings[name='Message%20libraries']"/>
+                </ownedTreeItems>
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_AHJbgEV6EeahjNCp_DEDLg" name="Application languages">
+                  <target xmi:type="tura.application:ApplicationLanguages" href="model/hr.domain#697ce488-936c-4f2c-8093-0117b7137501"/>
+                  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_AHKCkkV6EeahjNCp_DEDLg" name="English">
+                    <target xmi:type="tura.message:Language" href="model/hr.domain#67dcba92-1d36-4cb2-8f10-54c3038f1d72"/>
+                    <semanticElements xmi:type="tura.message:Language" href="model/hr.domain#67dcba92-1d36-4cb2-8f10-54c3038f1d72"/>
+                    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_AHKCk0V6EeahjNCp_DEDLg" labelSize="12"/>
+                    <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20messages']/@subItemMappings[name='Application%20languages']/@subItemMappings[name='Language']"/>
+                  </ownedTreeItems>
+                  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_AeT-UEV6EeahjNCp_DEDLg" name="France">
+                    <target xmi:type="tura.message:Language" href="model/hr.domain#23496e18-85c3-4c3f-9a6d-aa2bfed485f5"/>
+                    <semanticElements xmi:type="tura.message:Language" href="model/hr.domain#23496e18-85c3-4c3f-9a6d-aa2bfed485f5"/>
+                    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_AeT-UUV6EeahjNCp_DEDLg" labelSize="12"/>
+                    <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20messages']/@subItemMappings[name='Application%20languages']/@subItemMappings[name='Language']"/>
+                  </ownedTreeItems>
+                  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_AeUlYEV6EeahjNCp_DEDLg" name="Russian">
+                    <target xmi:type="tura.message:Language" href="model/hr.domain#feb191aa-7a09-4d02-8102-d628390d4fd5"/>
+                    <semanticElements xmi:type="tura.message:Language" href="model/hr.domain#feb191aa-7a09-4d02-8102-d628390d4fd5"/>
+                    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_AeUlYUV6EeahjNCp_DEDLg" labelSize="12"/>
+                    <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20messages']/@subItemMappings[name='Application%20languages']/@subItemMappings[name='Language']"/>
+                  </ownedTreeItems>
+                  <semanticElements xmi:type="tura.application:ApplicationLanguages" href="model/hr.domain#697ce488-936c-4f2c-8093-0117b7137501"/>
+                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_AHJbgUV6EeahjNCp_DEDLg" labelSize="12"/>
+                  <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20messages']/@subItemMappings[name='Application%20languages']"/>
                 </ownedTreeItems>
                 <semanticElements xmi:type="tura.application:ApplicationMessageLibraries" href="model/hr.domain#839f02b9-22c9-4c47-abd9-495a167fc15d"/>
                 <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH4Fo0VqEeahjNCp_DEDLg" labelSize="12"/>
@@ -2915,12 +2951,12 @@
       </ownedTreeItems>
       <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_o_F4qUVqEeahjNCp_DEDLg" name="Domain types">
         <target xmi:type="tura.domain:DomainTypes" href="model/hr.domain#6af7c3d0-ec17-4bb6-9717-f73c2e984ce7"/>
-        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_o_F4qkVqEeahjNCp_DEDLg" name="Domain Repository1">
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_o_F4qkVqEeahjNCp_DEDLg" name="Domain Repository1" expanded="true">
           <target xmi:type="tura.domain:DomainTypesRepository" href="model/hr.domain#923b1494-89cc-4956-a3da-af3d9cbe6e46"/>
-          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_KUKYMEVxEeahjNCp_DEDLg">
+          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_KUKYMEVxEeahjNCp_DEDLg" name="Type package1">
             <target xmi:type="tura.type:TypeGroup" href="model/hr.domain#2be392a0-795a-4751-9883-491c90520d9e"/>
             <semanticElements xmi:type="tura.type:TypeGroup" href="model/hr.domain#2be392a0-795a-4751-9883-491c90520d9e"/>
-            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_KUKYMUVxEeahjNCp_DEDLg" labelColor="209,209,209" backgroundColor="209,209,209"/>
+            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_KUKYMUVxEeahjNCp_DEDLg" labelSize="12"/>
             <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20types']/@subItemMappings[name='Domain%20type%27s%20repository']/@subItemMappings[name='Type%20group']"/>
           </ownedTreeItems>
           <semanticElements xmi:type="tura.domain:DomainTypesRepository" href="model/hr.domain#923b1494-89cc-4956-a3da-af3d9cbe6e46"/>
@@ -3058,6 +3094,40 @@
         <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20types']"/>
       </ownedTreeItems>
       <description xmi:type="description_3:TreeDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']"/>
+    </ownedRepresentations>
+    <ownedRepresentations xmi:type="tree:DTree" xmi:id="_delFAEV5EeahjNCp_DEDLg" name="new Create Style library">
+      <target xmi:type="tura.application:ApplicationStyle" href="model/hr.domain#5088d112-328b-4451-b9c4-97aa08277435"/>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_delFAUV5EeahjNCp_DEDLg" name="Style library  1">
+        <target xmi:type="tura.style:StyleLibrary" href="model/hr.domain#2cca6686-3847-4989-9ff1-0042e2182d33"/>
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_delFAkV5EeahjNCp_DEDLg" name="Style 1">
+          <target xmi:type="tura.style:StyleSet" href="model/hr.domain#304a6294-adf2-43ee-9a5f-4ed1d7448b61"/>
+          <semanticElements xmi:type="tura.style:StyleSet" href="model/hr.domain#304a6294-adf2-43ee-9a5f-4ed1d7448b61"/>
+          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_delFA0V5EeahjNCp_DEDLg" labelSize="12"/>
+          <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Style%20library']/@subItemMappings[name='Style%20library']/@subItemMappings[name='Style%20set']"/>
+        </ownedTreeItems>
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_fbjvEEV5EeahjNCp_DEDLg" name="Style 2">
+          <target xmi:type="tura.style:StyleSet" href="model/hr.domain#44aa274e-b795-48e6-8fce-a0a996078602"/>
+          <semanticElements xmi:type="tura.style:StyleSet" href="model/hr.domain#44aa274e-b795-48e6-8fce-a0a996078602"/>
+          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_fbjvEUV5EeahjNCp_DEDLg" labelSize="12"/>
+          <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Style%20library']/@subItemMappings[name='Style%20library']/@subItemMappings[name='Style%20set']"/>
+        </ownedTreeItems>
+        <semanticElements xmi:type="tura.style:StyleLibrary" href="model/hr.domain#2cca6686-3847-4989-9ff1-0042e2182d33"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_delFBEV5EeahjNCp_DEDLg" labelSize="12"/>
+        <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Style%20library']/@subItemMappings[name='Style%20library']"/>
+      </ownedTreeItems>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_35NwwEV5EeahjNCp_DEDLg" name="Style library  2">
+        <target xmi:type="tura.style:StyleLibrary" href="model/hr.domain#973addd3-f590-4271-ad52-e037b8c73dc0"/>
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_62okIEV5EeahjNCp_DEDLg" name="Style 1">
+          <target xmi:type="tura.style:StyleSet" href="model/hr.domain#cb3b4610-4960-4542-9848-ce68b65e8e7c"/>
+          <semanticElements xmi:type="tura.style:StyleSet" href="model/hr.domain#cb3b4610-4960-4542-9848-ce68b65e8e7c"/>
+          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_62okIUV5EeahjNCp_DEDLg" labelSize="12"/>
+          <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Style%20library']/@subItemMappings[name='Style%20library']/@subItemMappings[name='Style%20set']"/>
+        </ownedTreeItems>
+        <semanticElements xmi:type="tura.style:StyleLibrary" href="model/hr.domain#973addd3-f590-4271-ad52-e037b8c73dc0"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_35NwwUV5EeahjNCp_DEDLg" labelSize="12"/>
+        <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Style%20library']/@subItemMappings[name='Style%20library']"/>
+      </ownedTreeItems>
+      <description xmi:type="description_3:TreeDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Style%20library']"/>
     </ownedRepresentations>
     <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']"/>
   </ownedViews>
