@@ -22,15 +22,6 @@ public interface StyleFactory extends EFactory {
 	StyleFactory eINSTANCE = style.impl.StyleFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Styles</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Styles</em>'.
-	 * @generated
-	 */
-	Styles createStyles();
-
-	/**
 	 * Returns a new object of class '<em>Library</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

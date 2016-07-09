@@ -128,7 +128,7 @@ public class ApplicationStyleItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_STYLE__STYLES_PACKAGE);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_STYLE__LIBRARIES);
 		}
 		return childrenFeatures;
 	}
@@ -188,7 +188,7 @@ public class ApplicationStyleItemProvider
 			case ApplicationPackage.APPLICATION_STYLE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ApplicationPackage.APPLICATION_STYLE__STYLES_PACKAGE:
+			case ApplicationPackage.APPLICATION_STYLE__LIBRARIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -208,8 +208,8 @@ public class ApplicationStyleItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ApplicationPackage.Literals.APPLICATION_STYLE__STYLES_PACKAGE,
-				 StyleFactory.eINSTANCE.createStyles()));
+				(ApplicationPackage.Literals.APPLICATION_STYLE__LIBRARIES,
+				 StyleFactory.eINSTANCE.createStyleLibrary()));
 	}
 
 	/**

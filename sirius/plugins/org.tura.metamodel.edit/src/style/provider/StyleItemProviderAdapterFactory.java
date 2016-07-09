@@ -71,29 +71,6 @@ public class StyleItemProviderAdapterFactory extends StyleAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link style.Styles} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StylesItemProvider stylesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link style.Styles}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStylesAdapter() {
-		if (stylesItemProvider == null) {
-			stylesItemProvider = new StylesItemProvider(this);
-		}
-
-		return stylesItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link style.StyleLibrary} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

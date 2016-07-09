@@ -68,10 +68,6 @@ public class StyleAdapterFactory extends AdapterFactoryImpl {
 	protected StyleSwitch<Adapter> modelSwitch =
 		new StyleSwitch<Adapter>() {
 			@Override
-			public Adapter caseStyles(Styles object) {
-				return createStylesAdapter();
-			}
-			@Override
 			public Adapter caseStyleLibrary(StyleLibrary object) {
 				return createStyleLibraryAdapter();
 			}
@@ -102,20 +98,6 @@ public class StyleAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link style.Styles <em>Styles</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see style.Styles
-	 * @generated
-	 */
-	public Adapter createStylesAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link style.StyleLibrary <em>Library</em>}'.

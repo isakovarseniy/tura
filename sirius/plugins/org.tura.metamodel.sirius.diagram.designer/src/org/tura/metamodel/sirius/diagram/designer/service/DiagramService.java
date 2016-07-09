@@ -21,6 +21,8 @@ import message.Message;
 import message.MessageLibrary;
 import message.Translation;
 import recipe.Recipes;
+import style.StyleLibrary;
+import style.StyleSet;
 import type.TypeGroup;
 import application.ApplicationLanguages;
 import application.ApplicationMessageLibrary;
@@ -28,6 +30,8 @@ import application.ApplicationRealm;
 import application.ApplicationRealms;
 import application.ApplicationRecipe;
 import application.ApplicationRecipes;
+import application.ApplicationStyle;
+import application.ApplicationStyleLibraries;
 
 public class DiagramService {
 
@@ -103,6 +107,16 @@ public class DiagramService {
 		return "Recipe "+ ((ApplicationRecipe)(recipe.eContainer())).getRecipes().size();
 	}
 
-	
+	public String generateName(ApplicationStyle style ){
+		return "Style libraies package "+ ((ApplicationStyleLibraries)(style.eContainer())).getStyleLibraries().size();
+	}
+
+	public String generateName(StyleLibrary style ){
+		return "Style library  "+ ((ApplicationStyle)(style.eContainer())).getLibraries().size();
+	}
+		
+	public String generateName(StyleSet style ){
+		return "Style "+ ((StyleLibrary)(style.eContainer())).getStyles().size();
+	}
 	
 }

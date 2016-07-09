@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import style.StyleLibrary;
 import style.Styles;
 
 /**
@@ -33,7 +34,7 @@ import style.Styles;
  * <ul>
  *   <li>{@link application.impl.ApplicationStyleImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link application.impl.ApplicationStyleImpl#getName <em>Name</em>}</li>
- *   <li>{@link application.impl.ApplicationStyleImpl#getStylesPackage <em>Styles Package</em>}</li>
+ *   <li>{@link application.impl.ApplicationStyleImpl#getLibraries <em>Libraries</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,14 +81,14 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStylesPackage() <em>Styles Package</em>}' containment reference list.
+	 * The cached value of the '{@link #getLibraries() <em>Libraries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStylesPackage()
+	 * @see #getLibraries()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Styles> stylesPackage;
+	protected EList<StyleLibrary> libraries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,11 +156,11 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Styles> getStylesPackage() {
-		if (stylesPackage == null) {
-			stylesPackage = new EObjectContainmentEList<Styles>(Styles.class, this, ApplicationPackage.APPLICATION_STYLE__STYLES_PACKAGE);
+	public EList<StyleLibrary> getLibraries() {
+		if (libraries == null) {
+			libraries = new EObjectContainmentEList<StyleLibrary>(StyleLibrary.class, this, ApplicationPackage.APPLICATION_STYLE__LIBRARIES);
 		}
-		return stylesPackage;
+		return libraries;
 	}
 
 	/**
@@ -170,8 +171,8 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ApplicationPackage.APPLICATION_STYLE__STYLES_PACKAGE:
-				return ((InternalEList<?>)getStylesPackage()).basicRemove(otherEnd, msgs);
+			case ApplicationPackage.APPLICATION_STYLE__LIBRARIES:
+				return ((InternalEList<?>)getLibraries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -188,8 +189,8 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 				return getUid();
 			case ApplicationPackage.APPLICATION_STYLE__NAME:
 				return getName();
-			case ApplicationPackage.APPLICATION_STYLE__STYLES_PACKAGE:
-				return getStylesPackage();
+			case ApplicationPackage.APPLICATION_STYLE__LIBRARIES:
+				return getLibraries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -209,9 +210,9 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 			case ApplicationPackage.APPLICATION_STYLE__NAME:
 				setName((String)newValue);
 				return;
-			case ApplicationPackage.APPLICATION_STYLE__STYLES_PACKAGE:
-				getStylesPackage().clear();
-				getStylesPackage().addAll((Collection<? extends Styles>)newValue);
+			case ApplicationPackage.APPLICATION_STYLE__LIBRARIES:
+				getLibraries().clear();
+				getLibraries().addAll((Collection<? extends StyleLibrary>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -231,8 +232,8 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 			case ApplicationPackage.APPLICATION_STYLE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ApplicationPackage.APPLICATION_STYLE__STYLES_PACKAGE:
-				getStylesPackage().clear();
+			case ApplicationPackage.APPLICATION_STYLE__LIBRARIES:
+				getLibraries().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -250,8 +251,8 @@ public class ApplicationStyleImpl extends EObjectImpl implements ApplicationStyl
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case ApplicationPackage.APPLICATION_STYLE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ApplicationPackage.APPLICATION_STYLE__STYLES_PACKAGE:
-				return stylesPackage != null && !stylesPackage.isEmpty();
+			case ApplicationPackage.APPLICATION_STYLE__LIBRARIES:
+				return libraries != null && !libraries.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

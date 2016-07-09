@@ -607,13 +607,13 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_STYLE__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Styles Package</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Libraries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_STYLE__STYLES_PACKAGE = 2;
+	int APPLICATION_STYLE__LIBRARIES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Style</em>' class.
@@ -1441,15 +1441,15 @@ public interface ApplicationPackage extends EPackage {
 	EAttribute getApplicationStyle_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link application.ApplicationStyle#getStylesPackage <em>Styles Package</em>}'.
+	 * Returns the meta object for the containment reference list '{@link application.ApplicationStyle#getLibraries <em>Libraries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Styles Package</em>'.
-	 * @see application.ApplicationStyle#getStylesPackage()
+	 * @return the meta object for the containment reference list '<em>Libraries</em>'.
+	 * @see application.ApplicationStyle#getLibraries()
 	 * @see #getApplicationStyle()
 	 * @generated
 	 */
-	EReference getApplicationStyle_StylesPackage();
+	EReference getApplicationStyle_Libraries();
 
 	/**
 	 * Returns the meta object for class '{@link application.ApplicationUILayer <em>UI Layer</em>}'.
@@ -2154,12 +2154,12 @@ public interface ApplicationPackage extends EPackage {
 		EAttribute APPLICATION_STYLE__NAME = eINSTANCE.getApplicationStyle_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Styles Package</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Libraries</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference APPLICATION_STYLE__STYLES_PACKAGE = eINSTANCE.getApplicationStyle_StylesPackage();
+		EReference APPLICATION_STYLE__LIBRARIES = eINSTANCE.getApplicationStyle_Libraries();
 
 		/**
 		 * The meta object literal for the '{@link application.impl.ApplicationUILayerImpl <em>UI Layer</em>}' class.

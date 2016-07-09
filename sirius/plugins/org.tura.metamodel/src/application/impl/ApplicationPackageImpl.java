@@ -750,7 +750,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationStyle_StylesPackage() {
+	public EReference getApplicationStyle_Libraries() {
 		return (EReference)applicationStyleEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1058,7 +1058,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 		applicationStyleEClass = createEClass(APPLICATION_STYLE);
 		createEAttribute(applicationStyleEClass, APPLICATION_STYLE__UID);
 		createEAttribute(applicationStyleEClass, APPLICATION_STYLE__NAME);
-		createEReference(applicationStyleEClass, APPLICATION_STYLE__STYLES_PACKAGE);
+		createEReference(applicationStyleEClass, APPLICATION_STYLE__LIBRARIES);
 
 		applicationUILayerEClass = createEClass(APPLICATION_UI_LAYER);
 		createEAttribute(applicationUILayerEClass, APPLICATION_UI_LAYER__UID);
@@ -1190,7 +1190,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 		initEClass(applicationStyleEClass, ApplicationStyle.class, "ApplicationStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationStyle_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplicationStyle_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getApplicationStyle_StylesPackage(), theStylePackage.getStyles(), null, "stylesPackage", null, 0, -1, ApplicationStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationStyle_Libraries(), theStylePackage.getStyleLibrary(), null, "libraries", null, 0, -1, ApplicationStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationUILayerEClass, ApplicationUILayer.class, "ApplicationUILayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationUILayer_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationUILayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

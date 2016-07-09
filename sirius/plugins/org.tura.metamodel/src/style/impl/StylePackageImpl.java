@@ -54,7 +54,6 @@ import style.StyleLibrary;
 import style.StylePackage;
 import style.StylePointer;
 import style.StyleSet;
-import style.Styles;
 
 import type.TypePackage;
 
@@ -67,13 +66,6 @@ import type.impl.TypePackageImpl;
  * @generated
  */
 public class StylePackageImpl extends EPackageImpl implements StylePackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass stylesEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,33 +188,6 @@ public class StylePackageImpl extends EPackageImpl implements StylePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStyles() {
-		return stylesEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyles_Uid() {
-		return (EAttribute)stylesEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStyles_Libraries() {
-		return (EReference)stylesEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getStyleLibrary() {
 		return styleLibraryEClass;
 	}
@@ -327,10 +292,6 @@ public class StylePackageImpl extends EPackageImpl implements StylePackage {
 		isCreated = true;
 
 		// Create classes and their features
-		stylesEClass = createEClass(STYLES);
-		createEAttribute(stylesEClass, STYLES__UID);
-		createEReference(stylesEClass, STYLES__LIBRARIES);
-
 		styleLibraryEClass = createEClass(STYLE_LIBRARY);
 		createEAttribute(styleLibraryEClass, STYLE_LIBRARY__UID);
 		createEAttribute(styleLibraryEClass, STYLE_LIBRARY__NAME);
@@ -374,10 +335,6 @@ public class StylePackageImpl extends EPackageImpl implements StylePackage {
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(stylesEClass, Styles.class, "Styles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStyles_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Styles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStyles_Libraries(), this.getStyleLibrary(), null, "libraries", null, 0, -1, Styles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(styleLibraryEClass, StyleLibrary.class, "StyleLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStyleLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, StyleLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStyleLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, StyleLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

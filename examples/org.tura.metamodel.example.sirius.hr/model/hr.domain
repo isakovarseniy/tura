@@ -142,7 +142,13 @@
               </infarastructures>
             </infarastructureLayers>
           </applicationInfrastructureLayer>
-          <applicationStyle uid="8d0a3826-f0d9-435f-a0bc-ad850460c3b9" name="Style Libraries"/>
+          <applicationStyle uid="8d0a3826-f0d9-435f-a0bc-ad850460c3b9" name="Style Libraries">
+            <styleLibraries uid="5088d112-328b-4451-b9c4-97aa08277435" name="Style libraies package 1">
+              <libraries uid="2cca6686-3847-4989-9ff1-0042e2182d33" name="Style library  1">
+                <styles uid="304a6294-adf2-43ee-9a5f-4ed1d7448b61" name="Style 1"/>
+              </libraries>
+            </styleLibraries>
+          </applicationStyle>
           <applicationRole uid="19048840-af48-4798-a6a7-b171f7d1a9ed" name="Security">
             <realms uid="b77cee47-5d52-4e0a-9205-eba9a56dbb7e" name="Security rules set  1">
               <roles uid="359173c3-2eb7-4f12-9a3b-e899eaee383a">

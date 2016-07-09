@@ -56,23 +56,12 @@ public class StyleFactoryImpl extends EFactoryImpl implements StyleFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case StylePackage.STYLES: return createStyles();
 			case StylePackage.STYLE_LIBRARY: return createStyleLibrary();
 			case StylePackage.STYLE_SET: return createStyleSet();
 			case StylePackage.STYLE_POINTER: return createStylePointer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Styles createStyles() {
-		StylesImpl styles = new StylesImpl();
-		return styles;
 	}
 
 	/**

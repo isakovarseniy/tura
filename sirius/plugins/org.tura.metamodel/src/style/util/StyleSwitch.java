@@ -66,12 +66,6 @@ public class StyleSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case StylePackage.STYLES: {
-				Styles styles = (Styles)theEObject;
-				T result = caseStyles(styles);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case StylePackage.STYLE_LIBRARY: {
 				StyleLibrary styleLibrary = (StyleLibrary)theEObject;
 				T result = caseStyleLibrary(styleLibrary);
@@ -92,21 +86,6 @@ public class StyleSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Styles</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Styles</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStyles(Styles object) {
-		return null;
 	}
 
 	/**

@@ -92,7 +92,7 @@ class ApplicationStyleLibraries {
 class ApplicationStyle {
     id attr EString uid;
    attr EString name;
-   val style.Styles[*] stylesPackage;
+   val style.StyleLibrary[*] libraries;
 }
 
 

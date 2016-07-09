@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import style.StyleFactory;
+import style.StyleLibrary;
 import style.StylePackage;
-import style.Styles;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public class StyleExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.style"));
-				Styles root = StyleFactory.eINSTANCE.createStyles();
+				StyleLibrary root = StyleFactory.eINSTANCE.createStyleLibrary();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

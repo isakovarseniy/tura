@@ -56,43 +56,6 @@ public interface StylePackage extends EPackage {
 	StylePackage eINSTANCE = style.impl.StylePackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link style.impl.StylesImpl <em>Styles</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see style.impl.StylesImpl
-	 * @see style.impl.StylePackageImpl#getStyles()
-	 * @generated
-	 */
-	int STYLES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLES__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Libraries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLES__LIBRARIES = 1;
-
-	/**
-	 * The number of structural features of the '<em>Styles</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLES_FEATURE_COUNT = 2;
-
-	/**
 	 * The meta object id for the '{@link style.impl.StyleLibraryImpl <em>Library</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,7 +63,7 @@ public interface StylePackage extends EPackage {
 	 * @see style.impl.StylePackageImpl#getStyleLibrary()
 	 * @generated
 	 */
-	int STYLE_LIBRARY = 1;
+	int STYLE_LIBRARY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -146,7 +109,7 @@ public interface StylePackage extends EPackage {
 	 * @see style.impl.StylePackageImpl#getStyleSet()
 	 * @generated
 	 */
-	int STYLE_SET = 2;
+	int STYLE_SET = 1;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -183,7 +146,7 @@ public interface StylePackage extends EPackage {
 	 * @see style.impl.StylePackageImpl#getStylePointer()
 	 * @generated
 	 */
-	int STYLE_POINTER = 3;
+	int STYLE_POINTER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Style Library</b></em>' reference.
@@ -203,38 +166,6 @@ public interface StylePackage extends EPackage {
 	 */
 	int STYLE_POINTER_FEATURE_COUNT = 1;
 
-
-	/**
-	 * Returns the meta object for class '{@link style.Styles <em>Styles</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Styles</em>'.
-	 * @see style.Styles
-	 * @generated
-	 */
-	EClass getStyles();
-
-	/**
-	 * Returns the meta object for the attribute '{@link style.Styles#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see style.Styles#getUid()
-	 * @see #getStyles()
-	 * @generated
-	 */
-	EAttribute getStyles_Uid();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link style.Styles#getLibraries <em>Libraries</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Libraries</em>'.
-	 * @see style.Styles#getLibraries()
-	 * @see #getStyles()
-	 * @generated
-	 */
-	EReference getStyles_Libraries();
 
 	/**
 	 * Returns the meta object for class '{@link style.StyleLibrary <em>Library</em>}'.
@@ -354,32 +285,6 @@ public interface StylePackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link style.impl.StylesImpl <em>Styles</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see style.impl.StylesImpl
-		 * @see style.impl.StylePackageImpl#getStyles()
-		 * @generated
-		 */
-		EClass STYLES = eINSTANCE.getStyles();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STYLES__UID = eINSTANCE.getStyles_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Libraries</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STYLES__LIBRARIES = eINSTANCE.getStyles_Libraries();
-
 		/**
 		 * The meta object literal for the '{@link style.impl.StyleLibraryImpl <em>Library</em>}' class.
 		 * <!-- begin-user-doc -->
