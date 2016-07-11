@@ -822,7 +822,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationUIPackage_Uipackage() {
+	public EReference getApplicationUIPackage_Forms() {
 		return (EReference)applicationUIPackageEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1068,7 +1068,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 		applicationUIPackageEClass = createEClass(APPLICATION_UI_PACKAGE);
 		createEAttribute(applicationUIPackageEClass, APPLICATION_UI_PACKAGE__UID);
 		createEAttribute(applicationUIPackageEClass, APPLICATION_UI_PACKAGE__NAME);
-		createEReference(applicationUIPackageEClass, APPLICATION_UI_PACKAGE__UIPACKAGE);
+		createEReference(applicationUIPackageEClass, APPLICATION_UI_PACKAGE__FORMS);
 
 		applicationRecipesEClass = createEClass(APPLICATION_RECIPES);
 		createEAttribute(applicationRecipesEClass, APPLICATION_RECIPES__UID);
@@ -1200,7 +1200,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements ApplicationP
 		initEClass(applicationUIPackageEClass, ApplicationUIPackage.class, "ApplicationUIPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationUIPackage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationUIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplicationUIPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationUIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getApplicationUIPackage_Uipackage(), theFormPackage.getUIPackage(), null, "uipackage", null, 0, 1, ApplicationUIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationUIPackage_Forms(), theFormPackage.getForm(), null, "forms", null, 0, -1, ApplicationUIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationRecipesEClass, ApplicationRecipes.class, "ApplicationRecipes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationRecipes_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ApplicationRecipes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

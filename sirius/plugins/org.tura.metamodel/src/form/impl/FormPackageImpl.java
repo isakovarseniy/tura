@@ -167,13 +167,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass uiPackageEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass formEClass = null;
 
 	/**
@@ -942,33 +935,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(FormPackage.eNS_URI, theFormPackage);
 		return theFormPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUIPackage() {
-		return uiPackageEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUIPackage_Uid() {
-		return (EAttribute)uiPackageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUIPackage_Forms() {
-		return (EReference)uiPackageEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3546,10 +3512,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		uiPackageEClass = createEClass(UI_PACKAGE);
-		createEAttribute(uiPackageEClass, UI_PACKAGE__UID);
-		createEReference(uiPackageEClass, UI_PACKAGE__FORMS);
-
 		formEClass = createEClass(FORM);
 		createEAttribute(formEClass, FORM__UID);
 		createEAttribute(formEClass, FORM__NAME);
@@ -4092,10 +4054,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		artificialFieldEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(uiPackageEClass, UIPackage.class, "UIPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUIPackage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, UIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUIPackage_Forms(), this.getForm(), null, "forms", null, 0, -1, UIPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getForm_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_Name(), ecorePackage.getEString(), "name", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

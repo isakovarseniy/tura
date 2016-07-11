@@ -75,10 +75,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	protected FormSwitch<Adapter> modelSwitch =
 		new FormSwitch<Adapter>() {
 			@Override
-			public Adapter caseUIPackage(UIPackage object) {
-				return createUIPackageAdapter();
-			}
-			@Override
 			public Adapter caseForm(Form object) {
 				return createFormAdapter();
 			}
@@ -489,20 +485,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link form.UIPackage <em>UI Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see form.UIPackage
-	 * @generated
-	 */
-	public Adapter createUIPackageAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link form.Form <em>Form</em>}'.

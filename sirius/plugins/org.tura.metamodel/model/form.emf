@@ -6,13 +6,6 @@ import "platform:/resource/org.tura.metamodel/model/common.ecore";
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
 import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 
-class UIPackage{
-    id attr EString uid;
-    val Form[*] forms;
-}
-
-
-
 
 class Form{
     id attr EString uid;
@@ -492,9 +485,7 @@ class SearchTrigger  extends Trigger, ProxiesList {
 class Root{
     id attr EString uid;
    attr EString name;
-   @gmf.compartment(layout="list")
    val PREFormTrigger preFormTrigger;
-   @gmf.compartment(layout="list")
    val FormVariable[*] variables;
 }
 

@@ -2,6 +2,7 @@
  */
 package form.tests;
 
+import form.Form;
 import form.FormFactory;
 import form.FormPackage;
 import form.UIPackage;
@@ -60,7 +61,7 @@ public class FormExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.form"));
-				UIPackage root = FormFactory.eINSTANCE.createUIPackage();
+				Form root = FormFactory.eINSTANCE.createForm();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

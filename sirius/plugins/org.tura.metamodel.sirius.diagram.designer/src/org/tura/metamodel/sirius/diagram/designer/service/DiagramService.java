@@ -15,6 +15,8 @@ import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainTypes;
 import domain.DomainTypesRepository;
+import form.Form;
+import form.FormParameter;
 import infrastructure.EnterpriseInfrastructure;
 import message.Language;
 import message.Message;
@@ -32,6 +34,8 @@ import application.ApplicationRecipe;
 import application.ApplicationRecipes;
 import application.ApplicationStyle;
 import application.ApplicationStyleLibraries;
+import application.ApplicationUILayer;
+import application.ApplicationUIPackage;
 
 public class DiagramService {
 
@@ -118,5 +122,18 @@ public class DiagramService {
 	public String generateName(StyleSet style ){
 		return "Style "+ ((StyleLibrary)(style.eContainer())).getStyles().size();
 	}
+
+	public String generateName(ApplicationUIPackage uipackage ){
+		return "UI Package "+ ((ApplicationUILayer)(uipackage.eContainer())).getApplicationUIPackages().size();
+	}
+	
+	public String generateName(Form form ){
+		return "Form "+ ((ApplicationUIPackage)(form.eContainer())).getForms().size();
+	}
+
+	public String generateName(FormParameter param ){
+		return "Form parameter"+ ((Form)(param.eContainer())).getParameters().size();
+	}
+	
 	
 }

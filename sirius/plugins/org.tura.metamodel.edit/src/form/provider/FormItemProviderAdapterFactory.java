@@ -71,29 +71,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link form.UIPackage} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UIPackageItemProvider uiPackageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.UIPackage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createUIPackageAdapter() {
-		if (uiPackageItemProvider == null) {
-			uiPackageItemProvider = new UIPackageItemProvider(this);
-		}
-
-		return uiPackageItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link form.Form} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

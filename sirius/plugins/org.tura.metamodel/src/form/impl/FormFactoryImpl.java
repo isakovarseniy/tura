@@ -57,7 +57,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case FormPackage.UI_PACKAGE: return createUIPackage();
 			case FormPackage.FORM: return createForm();
 			case FormPackage.FORM_PARAMETER: return createFormParameter();
 			case FormPackage.FORM_VIEW: return createFormView();
@@ -193,16 +192,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UIPackage createUIPackage() {
-		UIPackageImpl uiPackage = new UIPackageImpl();
-		return uiPackage;
 	}
 
 	/**

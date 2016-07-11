@@ -73,12 +73,6 @@ public class FormSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case FormPackage.UI_PACKAGE: {
-				UIPackage uiPackage = (UIPackage)theEObject;
-				T result = caseUIPackage(uiPackage);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FormPackage.FORM: {
 				Form form = (Form)theEObject;
 				T result = caseForm(form);
@@ -974,21 +968,6 @@ public class FormSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>UI Package</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>UI Package</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUIPackage(UIPackage object) {
-		return null;
 	}
 
 	/**

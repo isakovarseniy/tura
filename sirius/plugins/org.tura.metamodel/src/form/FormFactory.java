@@ -22,15 +22,6 @@ public interface FormFactory extends EFactory {
 	FormFactory eINSTANCE = form.impl.FormFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>UI Package</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>UI Package</em>'.
-	 * @generated
-	 */
-	UIPackage createUIPackage();
-
-	/**
 	 * Returns a new object of class '<em>Form</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

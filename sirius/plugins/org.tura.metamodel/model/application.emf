@@ -105,7 +105,7 @@ class ApplicationUILayer {
 class ApplicationUIPackage{
     id attr EString uid;
    attr EString name;
-   val form.UIPackage uipackage;
+   val form.Form[*] forms;
 }
 
 

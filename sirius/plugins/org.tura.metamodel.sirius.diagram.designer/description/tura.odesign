@@ -1341,6 +1341,77 @@
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
                 </defaultStyle>
+                <subItemMappings name="Application UI packages" domainClass="application.ApplicationUIPackage" semanticCandidatesExpression="feature:applicationUIPackages">
+                  <defaultStyle labelSize="12">
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                  </defaultStyle>
+                  <subItemMappings name="Forms" domainClass="form.Form" semanticCandidatesExpression="feature:forms">
+                    <defaultStyle labelSize="12">
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                    </defaultStyle>
+                    <subItemMappings name="View" domainClass="form.FormView" semanticCandidatesExpression="feature:view">
+                      <defaultStyle labelSize="12" labelExpression="View">
+                        <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                        <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                      </defaultStyle>
+                    </subItemMappings>
+                    <subItemMappings name="Data controls" domainClass="form.FormDataControls" semanticCandidatesExpression="feature:datacontrols">
+                      <defaultStyle labelSize="12" labelExpression="Data controls">
+                        <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                        <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                      </defaultStyle>
+                    </subItemMappings>
+                    <subItemMappings name="Paremeter" domainClass="form.FormParameter" semanticCandidatesExpression="feature:parameters">
+                      <defaultStyle labelSize="12">
+                        <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                        <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+                      </defaultStyle>
+                    </subItemMappings>
+                    <create name="Create form parameter " mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20ui%20layer']/@subItemMappings[name='Application%20UI%20packages']/@subItemMappings[name='Forms']">
+                      <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="form.FormParameter" referenceName="parameters">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+                        </subModelOperations>
+                      </firstModelOperation>
+                      <variables name="root" documentation="The semantic element of the tree."/>
+                      <variables name="element" documentation="The currently edited element."/>
+                      <variables name="container" documentation="The semantic element corresponding to the view container."/>
+                    </create>
+                  </subItemMappings>
+                  <create name="Create Form" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20ui%20layer']/@subItemMappings[name='Application%20UI%20packages']">
+                    <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Form" referenceName="forms">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance">
+                          <subModelOperations xsi:type="tool:CreateInstance" typeName="form.FormView" referenceName="view" variableName="instance1">
+                            <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                          </subModelOperations>
+                          <subModelOperations xsi:type="tool:CreateInstance" typeName="form.FormDataControls" referenceName="datacontrols" variableName="instance2">
+                            <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </firstModelOperation>
+                    <variables name="root" documentation="The semantic element of the tree."/>
+                    <variables name="element" documentation="The currently edited element."/>
+                    <variables name="container" documentation="The semantic element corresponding to the view container."/>
+                  </create>
+                </subItemMappings>
+                <create name="Create Application UI package" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20ui%20layer']">
+                  <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="application.ApplicationUIPackage" referenceName="applicationUIPackages">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
+                    </subModelOperations>
+                  </firstModelOperation>
+                  <variables name="root" documentation="The semantic element of the tree."/>
+                  <variables name="element" documentation="The currently edited element."/>
+                  <variables name="container" documentation="The semantic element corresponding to the view container."/>
+                </create>
               </subItemMappings>
               <subItemMappings name="Application infrastructure environment" domainClass="application.ApplicationInfrastructureLayers" semanticCandidatesExpression="feature:applicationInfrastructureLayer">
                 <defaultStyle labelSize="12" labelExpression="Application infrastructure environment">

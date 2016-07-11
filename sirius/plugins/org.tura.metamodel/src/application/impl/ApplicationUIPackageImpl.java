@@ -5,16 +5,21 @@ package application.impl;
 import application.ApplicationPackage;
 import application.ApplicationUIPackage;
 
+import form.Form;
 import form.UIPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +31,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link application.impl.ApplicationUIPackageImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link application.impl.ApplicationUIPackageImpl#getName <em>Name</em>}</li>
- *   <li>{@link application.impl.ApplicationUIPackageImpl#getUipackage <em>Uipackage</em>}</li>
+ *   <li>{@link application.impl.ApplicationUIPackageImpl#getForms <em>Forms</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,14 +78,14 @@ public class ApplicationUIPackageImpl extends EObjectImpl implements Application
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getUipackage() <em>Uipackage</em>}' containment reference.
+	 * The cached value of the '{@link #getForms() <em>Forms</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUipackage()
+	 * @see #getForms()
 	 * @generated
 	 * @ordered
 	 */
-	protected UIPackage uipackage;
+	protected EList<Form> forms;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,42 +153,11 @@ public class ApplicationUIPackageImpl extends EObjectImpl implements Application
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UIPackage getUipackage() {
-		return uipackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUipackage(UIPackage newUipackage, NotificationChain msgs) {
-		UIPackage oldUipackage = uipackage;
-		uipackage = newUipackage;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_UI_PACKAGE__UIPACKAGE, oldUipackage, newUipackage);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Form> getForms() {
+		if (forms == null) {
+			forms = new EObjectContainmentEList<Form>(Form.class, this, ApplicationPackage.APPLICATION_UI_PACKAGE__FORMS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUipackage(UIPackage newUipackage) {
-		if (newUipackage != uipackage) {
-			NotificationChain msgs = null;
-			if (uipackage != null)
-				msgs = ((InternalEObject)uipackage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_UI_PACKAGE__UIPACKAGE, null, msgs);
-			if (newUipackage != null)
-				msgs = ((InternalEObject)newUipackage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_UI_PACKAGE__UIPACKAGE, null, msgs);
-			msgs = basicSetUipackage(newUipackage, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_UI_PACKAGE__UIPACKAGE, newUipackage, newUipackage));
+		return forms;
 	}
 
 	/**
@@ -194,8 +168,8 @@ public class ApplicationUIPackageImpl extends EObjectImpl implements Application
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ApplicationPackage.APPLICATION_UI_PACKAGE__UIPACKAGE:
-				return basicSetUipackage(null, msgs);
+			case ApplicationPackage.APPLICATION_UI_PACKAGE__FORMS:
+				return ((InternalEList<?>)getForms()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -212,8 +186,8 @@ public class ApplicationUIPackageImpl extends EObjectImpl implements Application
 				return getUid();
 			case ApplicationPackage.APPLICATION_UI_PACKAGE__NAME:
 				return getName();
-			case ApplicationPackage.APPLICATION_UI_PACKAGE__UIPACKAGE:
-				return getUipackage();
+			case ApplicationPackage.APPLICATION_UI_PACKAGE__FORMS:
+				return getForms();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -223,6 +197,7 @@ public class ApplicationUIPackageImpl extends EObjectImpl implements Application
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -232,8 +207,9 @@ public class ApplicationUIPackageImpl extends EObjectImpl implements Application
 			case ApplicationPackage.APPLICATION_UI_PACKAGE__NAME:
 				setName((String)newValue);
 				return;
-			case ApplicationPackage.APPLICATION_UI_PACKAGE__UIPACKAGE:
-				setUipackage((UIPackage)newValue);
+			case ApplicationPackage.APPLICATION_UI_PACKAGE__FORMS:
+				getForms().clear();
+				getForms().addAll((Collection<? extends Form>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -253,8 +229,8 @@ public class ApplicationUIPackageImpl extends EObjectImpl implements Application
 			case ApplicationPackage.APPLICATION_UI_PACKAGE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ApplicationPackage.APPLICATION_UI_PACKAGE__UIPACKAGE:
-				setUipackage((UIPackage)null);
+			case ApplicationPackage.APPLICATION_UI_PACKAGE__FORMS:
+				getForms().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -272,8 +248,8 @@ public class ApplicationUIPackageImpl extends EObjectImpl implements Application
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case ApplicationPackage.APPLICATION_UI_PACKAGE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ApplicationPackage.APPLICATION_UI_PACKAGE__UIPACKAGE:
-				return uipackage != null;
+			case ApplicationPackage.APPLICATION_UI_PACKAGE__FORMS:
+				return forms != null && !forms.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

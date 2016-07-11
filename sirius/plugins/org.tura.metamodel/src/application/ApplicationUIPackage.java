@@ -2,8 +2,10 @@
  */
 package application;
 
+import form.Form;
 import form.UIPackage;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link application.ApplicationUIPackage#getUid <em>Uid</em>}</li>
  *   <li>{@link application.ApplicationUIPackage#getName <em>Name</em>}</li>
- *   <li>{@link application.ApplicationUIPackage#getUipackage <em>Uipackage</em>}</li>
+ *   <li>{@link application.ApplicationUIPackage#getForms <em>Forms</em>}</li>
  * </ul>
  *
  * @see application.ApplicationPackage#getApplicationUIPackage()
@@ -78,29 +80,19 @@ public interface ApplicationUIPackage extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Uipackage</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Forms</b></em>' containment reference list.
+	 * The list contents are of type {@link form.Form}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Uipackage</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Forms</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Uipackage</em>' containment reference.
-	 * @see #setUipackage(UIPackage)
-	 * @see application.ApplicationPackage#getApplicationUIPackage_Uipackage()
+	 * @return the value of the '<em>Forms</em>' containment reference list.
+	 * @see application.ApplicationPackage#getApplicationUIPackage_Forms()
 	 * @model containment="true"
 	 * @generated
 	 */
-	UIPackage getUipackage();
-
-	/**
-	 * Sets the value of the '{@link application.ApplicationUIPackage#getUipackage <em>Uipackage</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uipackage</em>' containment reference.
-	 * @see #getUipackage()
-	 * @generated
-	 */
-	void setUipackage(UIPackage value);
+	EList<Form> getForms();
 
 } // ApplicationUIPackage

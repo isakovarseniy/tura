@@ -699,13 +699,13 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_UI_PACKAGE__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Uipackage</b></em>' containment reference.
+	 * The feature id for the '<em><b>Forms</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_UI_PACKAGE__UIPACKAGE = 2;
+	int APPLICATION_UI_PACKAGE__FORMS = 2;
 
 	/**
 	 * The number of structural features of the '<em>UI Package</em>' class.
@@ -1527,15 +1527,15 @@ public interface ApplicationPackage extends EPackage {
 	EAttribute getApplicationUIPackage_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link application.ApplicationUIPackage#getUipackage <em>Uipackage</em>}'.
+	 * Returns the meta object for the containment reference list '{@link application.ApplicationUIPackage#getForms <em>Forms</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Uipackage</em>'.
-	 * @see application.ApplicationUIPackage#getUipackage()
+	 * @return the meta object for the containment reference list '<em>Forms</em>'.
+	 * @see application.ApplicationUIPackage#getForms()
 	 * @see #getApplicationUIPackage()
 	 * @generated
 	 */
-	EReference getApplicationUIPackage_Uipackage();
+	EReference getApplicationUIPackage_Forms();
 
 	/**
 	 * Returns the meta object for class '{@link application.ApplicationRecipes <em>Recipes</em>}'.
@@ -2222,12 +2222,12 @@ public interface ApplicationPackage extends EPackage {
 		EAttribute APPLICATION_UI_PACKAGE__NAME = eINSTANCE.getApplicationUIPackage_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Uipackage</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Forms</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference APPLICATION_UI_PACKAGE__UIPACKAGE = eINSTANCE.getApplicationUIPackage_Uipackage();
+		EReference APPLICATION_UI_PACKAGE__FORMS = eINSTANCE.getApplicationUIPackage_Forms();
 
 		/**
 		 * The meta object literal for the '{@link application.impl.ApplicationRecipesImpl <em>Recipes</em>}' class.

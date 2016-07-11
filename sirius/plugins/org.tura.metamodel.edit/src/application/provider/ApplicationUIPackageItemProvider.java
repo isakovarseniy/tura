@@ -128,7 +128,7 @@ public class ApplicationUIPackageItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_UI_PACKAGE__UIPACKAGE);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_UI_PACKAGE__FORMS);
 		}
 		return childrenFeatures;
 	}
@@ -188,7 +188,7 @@ public class ApplicationUIPackageItemProvider
 			case ApplicationPackage.APPLICATION_UI_PACKAGE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ApplicationPackage.APPLICATION_UI_PACKAGE__UIPACKAGE:
+			case ApplicationPackage.APPLICATION_UI_PACKAGE__FORMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -208,8 +208,8 @@ public class ApplicationUIPackageItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ApplicationPackage.Literals.APPLICATION_UI_PACKAGE__UIPACKAGE,
-				 FormFactory.eINSTANCE.createUIPackage()));
+				(ApplicationPackage.Literals.APPLICATION_UI_PACKAGE__FORMS,
+				 FormFactory.eINSTANCE.createForm()));
 	}
 
 	/**

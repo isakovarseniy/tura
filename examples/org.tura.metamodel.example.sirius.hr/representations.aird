@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xmlns:tura.application="http://tura.org/2016/v2/application" xmlns:tura.artifact="http://tura.org/2016/v2/artifact" xmlns:tura.domain="http://tura.org/2016/v2/domain" xmlns:tura.infrastructure="http://tura.org/2016/v2/infrastructure" xmlns:tura.message="http://tura.org/2016/v2/message" xmlns:tura.permission="http://tura.org/2016/v2/permission" xmlns:tura.recipe="http://tura.org/2016/v2/recipe" xmlns:tura.style="http://tura.org/2016/v2/style" xmlns:tura.type="http://tura.org/2016/v2/type" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_oSOF4DDBEeadHuqaRMRVpw" selectedViews="_vLjVMDDBEeadHuqaRMRVpw" version="10.1.0.201509162000">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xmlns:tura.application="http://tura.org/2016/v2/application" xmlns:tura.artifact="http://tura.org/2016/v2/artifact" xmlns:tura.domain="http://tura.org/2016/v2/domain" xmlns:tura.form="http://tura.org/2016/v2/form" xmlns:tura.infrastructure="http://tura.org/2016/v2/infrastructure" xmlns:tura.message="http://tura.org/2016/v2/message" xmlns:tura.permission="http://tura.org/2016/v2/permission" xmlns:tura.recipe="http://tura.org/2016/v2/recipe" xmlns:tura.style="http://tura.org/2016/v2/style" xmlns:tura.type="http://tura.org/2016/v2/type" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_oSOF4DDBEeadHuqaRMRVpw" selectedViews="_vLjVMDDBEeadHuqaRMRVpw" version="10.1.0.201509162000">
   <semanticResources>model/hr.domain</semanticResources>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_vLjVMDDBEeadHuqaRMRVpw">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_MPIl0DQHEeauXai_VimCJg" name="Message libraries">
@@ -2328,38 +2328,38 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_SlHR40SZEeav3ctB0quL_g"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_SlGq0USZEeav3ctB0quL_g" fontName=".SF NS Text" fontHeight="12"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SlGq0kSZEeav3ctB0quL_g" x="369" y="270"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SlGq0kSZEeav3ctB0quL_g" x="396" y="270"/>
           </children>
           <styles xmi:type="notation:DiagramStyle" xmi:id="_mfWFUkSREeav3ctB0quL_g"/>
           <edges xmi:type="notation:Edge" xmi:id="_La_QsESdEeafvPY5jcdr2g" type="4001" element="_Lab3EESdEeafvPY5jcdr2g" source="_HWnZIESZEeav3ctB0quL_g" target="_SlGq0ESZEeav3ctB0quL_g">
             <children xmi:type="notation:Node" xmi:id="_LbHzkESdEeafvPY5jcdr2g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LbHzkUSdEeafvPY5jcdr2g" y="-10"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LbHzkUSdEeafvPY5jcdr2g" x="-1" y="-11"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_LbIaoESdEeafvPY5jcdr2g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LbIaoUSdEeafvPY5jcdr2g" y="10"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LbIaoUSdEeafvPY5jcdr2g" x="2" y="9"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_LbJBsESdEeafvPY5jcdr2g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LbJBsUSdEeafvPY5jcdr2g" y="10"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LbJBsUSdEeafvPY5jcdr2g" x="1" y="10"/>
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_La_QsUSdEeafvPY5jcdr2g"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_La_QskSdEeafvPY5jcdr2g" fontName=".SF NS Text" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_La_Qs0SdEeafvPY5jcdr2g" points="[0, 0, -104, 148]$[104, -148, 0, 0]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_La_Qs0SdEeafvPY5jcdr2g" points="[0, 0, -131, 148]$[131, -148, 0, 0]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LbJowESdEeafvPY5jcdr2g" id="(0.5,0.0)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LbJowUSdEeafvPY5jcdr2g" id="(0.36,1.0)"/>
           </edges>
           <edges xmi:type="notation:Edge" xmi:id="_Mc2WUESdEeafvPY5jcdr2g" type="4001" element="_McctsESdEeafvPY5jcdr2g" source="_Ry3VkESZEeav3ctB0quL_g" target="_SlGq0ESZEeav3ctB0quL_g">
             <children xmi:type="notation:Node" xmi:id="_Mc29YESdEeafvPY5jcdr2g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Mc29YUSdEeafvPY5jcdr2g" y="-10"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Mc29YUSdEeafvPY5jcdr2g" x="-2" y="-10"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_Mc29YkSdEeafvPY5jcdr2g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Mc29Y0SdEeafvPY5jcdr2g" y="10"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Mc29Y0SdEeafvPY5jcdr2g" x="2" y="9"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_Mc29ZESdEeafvPY5jcdr2g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Mc29ZUSdEeafvPY5jcdr2g" y="10"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Mc29ZUSdEeafvPY5jcdr2g" x="1" y="10"/>
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_Mc2WUUSdEeafvPY5jcdr2g"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_Mc2WUkSdEeafvPY5jcdr2g" fontName=".SF NS Text" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Mc2WU0SdEeafvPY5jcdr2g" points="[0, 0, 144, 148]$[-144, -148, 0, 0]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Mc2WU0SdEeafvPY5jcdr2g" points="[0, 0, 117, 148]$[-117, -148, 0, 0]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Mc29ZkSdEeafvPY5jcdr2g" id="(0.45,0.0)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Mc29Z0SdEeafvPY5jcdr2g" id="(0.63,1.0)"/>
           </edges>
@@ -2815,7 +2815,7 @@
               <target xmi:type="tura.application:Application" href="model/hr.domain#6dbe9372-c514-4152-8d84-c8ac1223c2f7"/>
               <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qBP5MEVqEeahjNCp_DEDLg" name="Application recipes" expanded="true">
                 <target xmi:type="tura.application:ApplicationRecipes" href="model/hr.domain#df503cbb-5ff4-4931-a503-0ba1035b4410"/>
-                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4ssEVqEeahjNCp_DEDLg" name="Application recipes  package1">
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4ssEVqEeahjNCp_DEDLg" name="Application recipes  package1" expanded="true">
                   <target xmi:type="tura.application:ApplicationRecipe" href="model/hr.domain#ff616d96-1997-4684-87cb-cbc57b8dec63"/>
                   <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_HzrCUEV6EeahjNCp_DEDLg" name="Recipe 1">
                     <target xmi:type="tura.recipe:Recipes" href="model/hr.domain#3179836b-f84e-49fd-b423-452592f0ed87"/>
@@ -2837,8 +2837,32 @@
                 <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH23gUVqEeahjNCp_DEDLg" labelSize="12"/>
                 <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20mappers']"/>
               </ownedTreeItems>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH3ekEVqEeahjNCp_DEDLg" name="Application ui layer">
+              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH3ekEVqEeahjNCp_DEDLg" name="Application ui layer" expanded="true">
                 <target xmi:type="tura.application:ApplicationUILayer" href="model/hr.domain#2f3c70d8-7e8f-474c-8ef1-c3ddea9c65e8"/>
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_k9D6kEb_EeaEDrZLd8a2aQ" name="UI Package 1" expanded="true">
+                  <target xmi:type="tura.application:ApplicationUIPackage" href="model/hr.domain#0afdb0d2-d857-440e-a514-4b937d79a247"/>
+                  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_QJNUUEcDEeaEDrZLd8a2aQ" name="Form 1" expanded="true">
+                    <target xmi:type="tura.form:Form" href="model/hr.domain#d618a968-9ea3-49d5-843e-6cad8b8535d5"/>
+                    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_MyjsIEcEEeaEDrZLd8a2aQ" name="View">
+                      <target xmi:type="tura.form:FormView" href="model/hr.domain#dccc7a60-4850-4cc1-a2f2-374aad93b9d6"/>
+                      <semanticElements xmi:type="tura.form:FormView" href="model/hr.domain#dccc7a60-4850-4cc1-a2f2-374aad93b9d6"/>
+                      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_MyjsIUcEEeaEDrZLd8a2aQ" labelSize="12"/>
+                      <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20ui%20layer']/@subItemMappings[name='Application%20UI%20packages']/@subItemMappings[name='Forms']/@subItemMappings[name='View']"/>
+                    </ownedTreeItems>
+                    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_NPYyEEcEEeaEDrZLd8a2aQ" name="Data controls">
+                      <target xmi:type="tura.form:FormDataControls" href="model/hr.domain#e26b8e3a-b00e-4135-96f7-818108fc76db"/>
+                      <semanticElements xmi:type="tura.form:FormDataControls" href="model/hr.domain#e26b8e3a-b00e-4135-96f7-818108fc76db"/>
+                      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_NPYyEUcEEeaEDrZLd8a2aQ" labelSize="12"/>
+                      <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20ui%20layer']/@subItemMappings[name='Application%20UI%20packages']/@subItemMappings[name='Forms']/@subItemMappings[name='Data%20controls']"/>
+                    </ownedTreeItems>
+                    <semanticElements xmi:type="tura.form:Form" href="model/hr.domain#d618a968-9ea3-49d5-843e-6cad8b8535d5"/>
+                    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_QJNUUUcDEeaEDrZLd8a2aQ" labelSize="12"/>
+                    <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20ui%20layer']/@subItemMappings[name='Application%20UI%20packages']/@subItemMappings[name='Forms']"/>
+                  </ownedTreeItems>
+                  <semanticElements xmi:type="tura.application:ApplicationUIPackage" href="model/hr.domain#0afdb0d2-d857-440e-a514-4b937d79a247"/>
+                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_k9D6kUb_EeaEDrZLd8a2aQ" labelSize="12"/>
+                  <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20ui%20layer']/@subItemMappings[name='Application%20UI%20packages']"/>
+                </ownedTreeItems>
                 <semanticElements xmi:type="tura.application:ApplicationUILayer" href="model/hr.domain#2f3c70d8-7e8f-474c-8ef1-c3ddea9c65e8"/>
                 <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH3ekUVqEeahjNCp_DEDLg" labelSize="12"/>
                 <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20ui%20layer']"/>
@@ -2867,7 +2891,7 @@
                 <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH3ek0VqEeahjNCp_DEDLg" labelSize="12"/>
                 <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20infrastructure%20environment']"/>
               </ownedTreeItems>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH3elEVqEeahjNCp_DEDLg" name="Application styles">
+              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH3elEVqEeahjNCp_DEDLg" name="Application styles" expanded="true">
                 <target xmi:type="tura.application:ApplicationStyleLibraries" href="model/hr.domain#8d0a3826-f0d9-435f-a0bc-ad850460c3b9"/>
                 <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4stEVqEeahjNCp_DEDLg" name="Style libraies package 1" expanded="true">
                   <target xmi:type="tura.application:ApplicationStyle" href="model/hr.domain#5088d112-328b-4451-b9c4-97aa08277435"/>
@@ -2879,7 +2903,7 @@
                 <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH3elUVqEeahjNCp_DEDLg" labelSize="12"/>
                 <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20styles']"/>
               </ownedTreeItems>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4FoEVqEeahjNCp_DEDLg" name="Application security">
+              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4FoEVqEeahjNCp_DEDLg" name="Application security" expanded="true">
                 <target xmi:type="tura.application:ApplicationRealms" href="model/hr.domain#19048840-af48-4798-a6a7-b171f7d1a9ed"/>
                 <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH5TwEVqEeahjNCp_DEDLg" name="Security rules set  1">
                   <target xmi:type="tura.application:ApplicationRealm" href="model/hr.domain#b77cee47-5d52-4e0a-9205-eba9a56dbb7e"/>
@@ -2891,7 +2915,7 @@
                 <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_qH4FoUVqEeahjNCp_DEDLg" labelSize="12"/>
                 <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20security']"/>
               </ownedTreeItems>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4FokVqEeahjNCp_DEDLg" name="Application messages">
+              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH4FokVqEeahjNCp_DEDLg" name="Application messages" expanded="true">
                 <target xmi:type="tura.application:ApplicationMessageLibraries" href="model/hr.domain#839f02b9-22c9-4c47-abd9-495a167fc15d"/>
                 <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_qH5TwkVqEeahjNCp_DEDLg" name="Message libraries" expanded="true">
                   <target xmi:type="tura.application:ApplicationMessageLibrary" href="model/hr.domain#42709504-6bab-4ef1-8090-e2f7498c506a"/>
@@ -2963,7 +2987,7 @@
           <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_o_F4q0VqEeahjNCp_DEDLg" labelSize="12"/>
           <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20types']/@subItemMappings[name='Domain%20type%27s%20repository']"/>
         </ownedTreeItems>
-        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_KUJxIEVxEeahjNCp_DEDLg" name="Primitive package">
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_KUJxIEVxEeahjNCp_DEDLg" name="Primitive package" expanded="true">
           <target xmi:type="tura.type:PrimitivesGroup" href="model/hr.domain#//@domainTypes/@primitives"/>
           <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_KUK_QEVxEeahjNCp_DEDLg" name="String">
             <target xmi:type="tura.type:Primitive" href="model/hr.domain#1dab40f4-4049-480e-a206-023fd51fae31"/>
@@ -3097,7 +3121,7 @@
     </ownedRepresentations>
     <ownedRepresentations xmi:type="tree:DTree" xmi:id="_delFAEV5EeahjNCp_DEDLg" name="new Create Style library">
       <target xmi:type="tura.application:ApplicationStyle" href="model/hr.domain#5088d112-328b-4451-b9c4-97aa08277435"/>
-      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_delFAUV5EeahjNCp_DEDLg" name="Style library  1">
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_delFAUV5EeahjNCp_DEDLg" name="Style library  1" expanded="true">
         <target xmi:type="tura.style:StyleLibrary" href="model/hr.domain#2cca6686-3847-4989-9ff1-0042e2182d33"/>
         <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_delFAkV5EeahjNCp_DEDLg" name="Style 1">
           <target xmi:type="tura.style:StyleSet" href="model/hr.domain#304a6294-adf2-43ee-9a5f-4ed1d7448b61"/>
@@ -3115,7 +3139,7 @@
         <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_delFBEV5EeahjNCp_DEDLg" labelSize="12"/>
         <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Style%20library']/@subItemMappings[name='Style%20library']"/>
       </ownedTreeItems>
-      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_35NwwEV5EeahjNCp_DEDLg" name="Style library  2">
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_35NwwEV5EeahjNCp_DEDLg" name="Style library  2" expanded="true">
         <target xmi:type="tura.style:StyleLibrary" href="model/hr.domain#973addd3-f590-4271-ad52-e037b8c73dc0"/>
         <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_62okIEV5EeahjNCp_DEDLg" name="Style 1">
           <target xmi:type="tura.style:StyleSet" href="model/hr.domain#cb3b4610-4960-4542-9848-ce68b65e8e7c"/>

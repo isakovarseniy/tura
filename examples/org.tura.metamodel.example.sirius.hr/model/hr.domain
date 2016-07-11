@@ -92,7 +92,14 @@
             </recipes>
           </applicationRecipes>
           <applicationMappers uid="a00090a3-4951-4fc2-a358-1c649e91a854" name="Mappers"/>
-          <applicationUILayer uid="2f3c70d8-7e8f-474c-8ef1-c3ddea9c65e8" name="UILayer"/>
+          <applicationUILayer uid="2f3c70d8-7e8f-474c-8ef1-c3ddea9c65e8" name="UILayer">
+            <applicationUIPackages uid="0afdb0d2-d857-440e-a514-4b937d79a247" name="UI Package 1">
+              <forms uid="d618a968-9ea3-49d5-843e-6cad8b8535d5" name="Form 1">
+                <view uid="dccc7a60-4850-4cc1-a2f2-374aad93b9d6"/>
+                <datacontrols uid="e26b8e3a-b00e-4135-96f7-818108fc76db"/>
+              </forms>
+            </applicationUIPackages>
+          </applicationUILayer>
           <applicationInfrastructureLayer uid="4cd91421-4343-42c1-a582-989c36062b1f">
             <infarastructureLayers uid="68fd7a9c-d837-401a-935c-e287a3ef9a47" name="Dev">
               <infarastructures uid="5736e0e8-2da4-417a-8b29-7280ad0cd08d" name="DB"/>
