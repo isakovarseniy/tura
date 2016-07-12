@@ -88,12 +88,12 @@ public interface Form extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>View</em>' containment reference.
-	 * @see #setView(FormView)
+	 * @see #setView(Views)
 	 * @see form.FormPackage#getForm_View()
 	 * @model containment="true"
 	 * @generated
 	 */
-	FormView getView();
+	Views getView();
 
 	/**
 	 * Sets the value of the '{@link form.Form#getView <em>View</em>}' containment reference.
@@ -103,7 +103,7 @@ public interface Form extends EObject {
 	 * @see #getView()
 	 * @generated
 	 */
-	void setView(FormView value);
+	void setView(Views value);
 
 	/**
 	 * Returns the value of the '<em><b>Datacontrols</b></em>' containment reference.
@@ -114,12 +114,12 @@ public interface Form extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Datacontrols</em>' containment reference.
-	 * @see #setDatacontrols(FormDataControls)
+	 * @see #setDatacontrols(Controls)
 	 * @see form.FormPackage#getForm_Datacontrols()
 	 * @model containment="true"
 	 * @generated
 	 */
-	FormDataControls getDatacontrols();
+	Controls getDatacontrols();
 
 	/**
 	 * Sets the value of the '{@link form.Form#getDatacontrols <em>Datacontrols</em>}' containment reference.
@@ -129,7 +129,7 @@ public interface Form extends EObject {
 	 * @see #getDatacontrols()
 	 * @generated
 	 */
-	void setDatacontrols(FormDataControls value);
+	void setDatacontrols(Controls value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.

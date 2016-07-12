@@ -212,12 +212,12 @@ public class FormItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.FORM__VIEW,
-				 FormFactory.eINSTANCE.createFormView()));
+				 FormFactory.eINSTANCE.createViews()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.FORM__DATACONTROLS,
-				 FormFactory.eINSTANCE.createFormDataControls()));
+				 FormFactory.eINSTANCE.createControls()));
 
 		newChildDescriptors.add
 			(createChildParameter

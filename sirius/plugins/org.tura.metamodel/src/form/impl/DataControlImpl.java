@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -50,7 +51,6 @@ import type.TypePointer;
  *   <li>{@link form.impl.DataControlImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getName <em>Name</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getBaseType <em>Base Type</em>}</li>
- *   <li>{@link form.impl.DataControlImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getPreQueryTrigger <em>Pre Query Trigger</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getPostQueryTrigger <em>Post Query Trigger</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getPreInsertTrigger <em>Pre Insert Trigger</em>}</li>
@@ -362,47 +362,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.DATA_CONTROL__BASE_TYPE, newBaseType, newBaseType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Controls getParent() {
-		if (eContainerFeatureID() != FormPackage.DATA_CONTROL__PARENT) return null;
-		return (Controls)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParent(Controls newParent, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParent, FormPackage.DATA_CONTROL__PARENT, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(Controls newParent) {
-		if (newParent != eInternalContainer() || (eContainerFeatureID() != FormPackage.DATA_CONTROL__PARENT && newParent != null)) {
-			if (EcoreUtil.isAncestor(this, newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, FormPackage.CONTROLS__CONTROLS, Controls.class, msgs);
-			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.DATA_CONTROL__PARENT, newParent, newParent));
 	}
 
 	/**
@@ -885,7 +844,7 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	 */
 	public EList<ArtificialField> getArtificialFields() {
 		if (artificialFields == null) {
-			artificialFields = new EObjectContainmentWithInverseEList<ArtificialField>(ArtificialField.class, this, FormPackage.DATA_CONTROL__ARTIFICIAL_FIELDS, FormPackage.ARTIFICIAL_FIELD__PARENT);
+			artificialFields = new EObjectContainmentEList<ArtificialField>(ArtificialField.class, this, FormPackage.DATA_CONTROL__ARTIFICIAL_FIELDS);
 		}
 		return artificialFields;
 	}
@@ -981,32 +940,11 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FormPackage.DATA_CONTROL__PARENT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetParent((Controls)otherEnd, msgs);
-			case FormPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getArtificialFields()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FormPackage.DATA_CONTROL__BASE_TYPE:
 				return basicSetBaseType(null, msgs);
-			case FormPackage.DATA_CONTROL__PARENT:
-				return basicSetParent(null, msgs);
 			case FormPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
 				return basicSetPreQueryTrigger(null, msgs);
 			case FormPackage.DATA_CONTROL__POST_QUERY_TRIGGER:
@@ -1045,20 +983,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case FormPackage.DATA_CONTROL__PARENT:
-				return eInternalContainer().eInverseRemove(this, FormPackage.CONTROLS__CONTROLS, Controls.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FormPackage.DATA_CONTROL__UID:
@@ -1067,8 +991,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return getName();
 			case FormPackage.DATA_CONTROL__BASE_TYPE:
 				return getBaseType();
-			case FormPackage.DATA_CONTROL__PARENT:
-				return getParent();
 			case FormPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
 				return getPreQueryTrigger();
 			case FormPackage.DATA_CONTROL__POST_QUERY_TRIGGER:
@@ -1118,9 +1040,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return;
 			case FormPackage.DATA_CONTROL__BASE_TYPE:
 				setBaseType((TypePointer)newValue);
-				return;
-			case FormPackage.DATA_CONTROL__PARENT:
-				setParent((Controls)newValue);
 				return;
 			case FormPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
 				setPreQueryTrigger((PREQueryTrigger)newValue);
@@ -1186,9 +1105,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 			case FormPackage.DATA_CONTROL__BASE_TYPE:
 				setBaseType((TypePointer)null);
 				return;
-			case FormPackage.DATA_CONTROL__PARENT:
-				setParent((Controls)null);
-				return;
 			case FormPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
 				setPreQueryTrigger((PREQueryTrigger)null);
 				return;
@@ -1249,8 +1165,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case FormPackage.DATA_CONTROL__BASE_TYPE:
 				return baseType != null;
-			case FormPackage.DATA_CONTROL__PARENT:
-				return getParent() != null;
 			case FormPackage.DATA_CONTROL__PRE_QUERY_TRIGGER:
 				return preQueryTrigger != null;
 			case FormPackage.DATA_CONTROL__POST_QUERY_TRIGGER:

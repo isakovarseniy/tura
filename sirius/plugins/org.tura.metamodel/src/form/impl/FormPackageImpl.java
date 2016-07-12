@@ -181,13 +181,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass formViewEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass viewsEClass = null;
 
 	/**
@@ -315,13 +308,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass tabPagesInheritanceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass formDataControlsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1023,42 +1009,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getFormView() {
-		return formViewEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormView_Uid() {
-		return (EAttribute)formViewEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormView_Name() {
-		return (EAttribute)formViewEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormView_View() {
-		return (EReference)formViewEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getViews() {
 		return viewsEClass;
 	}
@@ -1077,7 +1027,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getViews_Parent() {
+	public EReference getViews_Canvases() {
 		return (EReference)viewsEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1086,7 +1036,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getViews_Canvases() {
+	public EReference getViews_ViewInheritances() {
 		return (EReference)viewsEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1095,7 +1045,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getViews_ViewInheritances() {
+	public EReference getViews_TabPagesInheritances() {
 		return (EReference)viewsEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1104,17 +1054,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getViews_TabPagesInheritances() {
-		return (EReference)viewsEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getViews_Menus() {
-		return (EReference)viewsEClass.getEStructuralFeatures().get(5);
+		return (EReference)viewsEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1502,42 +1443,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EReference getTabPagesInheritance_Target() {
 		return (EReference)tabPagesInheritanceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFormDataControls() {
-		return formDataControlsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormDataControls_Uid() {
-		return (EAttribute)formDataControlsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormDataControls_Name() {
-		return (EAttribute)formDataControlsEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFormDataControls_FormControl() {
-		return (EReference)formDataControlsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2679,7 +2584,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getControls_Parent() {
+	public EReference getControls_Root() {
 		return (EReference)controlsEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2688,7 +2593,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getControls_Root() {
+	public EReference getControls_Controls() {
 		return (EReference)controlsEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2697,7 +2602,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getControls_Controls() {
+	public EReference getControls_Relations() {
 		return (EReference)controlsEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -2706,17 +2611,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getControls_Relations() {
-		return (EReference)controlsEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getControls_Dependencies() {
-		return (EReference)controlsEClass.getEStructuralFeatures().get(5);
+		return (EReference)controlsEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3084,7 +2980,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_Parent() {
+	public EReference getDataControl_PreQueryTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -3093,7 +2989,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_PreQueryTrigger() {
+	public EReference getDataControl_PostQueryTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -3102,7 +2998,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_PostQueryTrigger() {
+	public EReference getDataControl_PreInsertTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -3111,7 +3007,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_PreInsertTrigger() {
+	public EReference getDataControl_PreDeleteTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -3120,7 +3016,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_PreDeleteTrigger() {
+	public EReference getDataControl_PostCreateTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -3129,7 +3025,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_PostCreateTrigger() {
+	public EReference getDataControl_PreUpdateTrigger() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -3138,7 +3034,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_PreUpdateTrigger() {
+	public EReference getDataControl_Create() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -3147,7 +3043,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_Create() {
+	public EReference getDataControl_Insert() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -3156,7 +3052,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_Insert() {
+	public EReference getDataControl_Update() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -3165,7 +3061,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_Update() {
+	public EReference getDataControl_Remove() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -3174,7 +3070,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_Remove() {
+	public EReference getDataControl_Search() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -3183,7 +3079,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_Search() {
+	public EReference getDataControl_ArtificialFields() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -3192,7 +3088,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_ArtificialFields() {
+	public EReference getDataControl_DefaultSearch() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -3201,17 +3097,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_DefaultSearch() {
-		return (EReference)dataControlEClass.getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDataControl_DefaultOrderBy() {
-		return (EReference)dataControlEClass.getEStructuralFeatures().get(17);
+		return (EReference)dataControlEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -3417,15 +3304,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtificialField_Parent() {
-		return (EReference)artificialFieldEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getLink() {
 		return linkEClass;
 	}
@@ -3523,14 +3401,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEAttribute(formParameterEClass, FORM_PARAMETER__UID);
 		createEAttribute(formParameterEClass, FORM_PARAMETER__NAME);
 
-		formViewEClass = createEClass(FORM_VIEW);
-		createEAttribute(formViewEClass, FORM_VIEW__UID);
-		createEAttribute(formViewEClass, FORM_VIEW__NAME);
-		createEReference(formViewEClass, FORM_VIEW__VIEW);
-
 		viewsEClass = createEClass(VIEWS);
 		createEAttribute(viewsEClass, VIEWS__UID);
-		createEReference(viewsEClass, VIEWS__PARENT);
 		createEReference(viewsEClass, VIEWS__CANVASES);
 		createEReference(viewsEClass, VIEWS__VIEW_INHERITANCES);
 		createEReference(viewsEClass, VIEWS__TAB_PAGES_INHERITANCES);
@@ -3596,11 +3468,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEAttribute(tabPagesInheritanceEClass, TAB_PAGES_INHERITANCE__UID);
 		createEReference(tabPagesInheritanceEClass, TAB_PAGES_INHERITANCE__SOURCE);
 		createEReference(tabPagesInheritanceEClass, TAB_PAGES_INHERITANCE__TARGET);
-
-		formDataControlsEClass = createEClass(FORM_DATA_CONTROLS);
-		createEAttribute(formDataControlsEClass, FORM_DATA_CONTROLS__UID);
-		createEAttribute(formDataControlsEClass, FORM_DATA_CONTROLS__NAME);
-		createEReference(formDataControlsEClass, FORM_DATA_CONTROLS__FORM_CONTROL);
 
 		canvasViewEClass = createEClass(CANVAS_VIEW);
 		createEAttribute(canvasViewEClass, CANVAS_VIEW__UID);
@@ -3775,7 +3642,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		controlsEClass = createEClass(CONTROLS);
 		createEAttribute(controlsEClass, CONTROLS__UID);
-		createEReference(controlsEClass, CONTROLS__PARENT);
 		createEReference(controlsEClass, CONTROLS__ROOT);
 		createEReference(controlsEClass, CONTROLS__CONTROLS);
 		createEReference(controlsEClass, CONTROLS__RELATIONS);
@@ -3837,7 +3703,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEAttribute(dataControlEClass, DATA_CONTROL__UID);
 		createEAttribute(dataControlEClass, DATA_CONTROL__NAME);
 		createEReference(dataControlEClass, DATA_CONTROL__BASE_TYPE);
-		createEReference(dataControlEClass, DATA_CONTROL__PARENT);
 		createEReference(dataControlEClass, DATA_CONTROL__PRE_QUERY_TRIGGER);
 		createEReference(dataControlEClass, DATA_CONTROL__POST_QUERY_TRIGGER);
 		createEReference(dataControlEClass, DATA_CONTROL__PRE_INSERT_TRIGGER);
@@ -3879,7 +3744,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		artificialFieldEClass = createEClass(ARTIFICIAL_FIELD);
 		createEAttribute(artificialFieldEClass, ARTIFICIAL_FIELD__UID);
 		createEAttribute(artificialFieldEClass, ARTIFICIAL_FIELD__NAME);
-		createEReference(artificialFieldEClass, ARTIFICIAL_FIELD__PARENT);
 
 		linkEClass = createEClass(LINK);
 		createEAttribute(linkEClass, LINK__UID);
@@ -4057,22 +3921,16 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getForm_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_Name(), ecorePackage.getEString(), "name", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getForm_View(), this.getFormView(), null, "view", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getForm_Datacontrols(), this.getFormDataControls(), null, "datacontrols", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getForm_View(), this.getViews(), null, "view", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getForm_Datacontrols(), this.getControls(), null, "datacontrols", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getForm_Parameters(), this.getFormParameter(), null, "parameters", null, 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formParameterEClass, FormParameter.class, "FormParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFormParameter_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, FormParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(formViewEClass, FormView.class, "FormView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFormView_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, FormView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFormView_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFormView_View(), this.getViews(), null, "view", null, 0, 1, FormView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(viewsEClass, Views.class, "Views", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getViews_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getViews_Parent(), this.getFormView(), null, "parent", null, 0, 1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViews_Canvases(), this.getCanvasFrame(), null, "canvases", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViews_ViewInheritances(), this.getViewInheritance(), null, "viewInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViews_TabPagesInheritances(), this.getTabPagesInheritance(), null, "tabPagesInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4138,11 +3996,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEAttribute(getTabPagesInheritance_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TabPagesInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTabPagesInheritance_Source(), this.getTabCanvas(), null, "source", null, 0, 1, TabPagesInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTabPagesInheritance_Target(), this.getTabPage(), null, "target", null, 0, 1, TabPagesInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(formDataControlsEClass, FormDataControls.class, "FormDataControls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFormDataControls_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, FormDataControls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFormDataControls_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormDataControls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFormDataControls_FormControl(), this.getControls(), this.getControls_Parent(), "formControl", null, 0, 1, FormDataControls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(canvasViewEClass, CanvasView.class, "CanvasView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCanvasView_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4317,9 +4170,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		initEClass(controlsEClass, Controls.class, "Controls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getControls_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getControls_Parent(), this.getFormDataControls(), this.getFormDataControls_FormControl(), "parent", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getControls_Root(), this.getRoot(), null, "root", null, 0, 1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getControls_Controls(), this.getDataControl(), this.getDataControl_Parent(), "controls", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControls_Controls(), this.getDataControl(), null, "controls", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getControls_Relations(), this.getRelation(), null, "relations", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getControls_Dependencies(), this.getDependency(), null, "dependencies", null, 0, -1, Controls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4379,7 +4231,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEAttribute(getDataControl_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataControl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_BaseType(), theTypePackage.getTypePointer(), null, "baseType", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataControl_Parent(), this.getControls(), this.getControls_Controls(), "parent", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PreQueryTrigger(), this.getPREQueryTrigger(), null, "preQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PostQueryTrigger(), this.getPOSTQueryTrigger(), null, "postQueryTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PreInsertTrigger(), this.getPREInsertTrigger(), null, "preInsertTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4391,7 +4242,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getDataControl_Update(), this.getUpdateTrigger(), null, "update", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_Remove(), this.getDeleteTrigger(), null, "remove", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_Search(), this.getSearchTrigger(), null, "search", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataControl_ArtificialFields(), this.getArtificialField(), this.getArtificialField_Parent(), "artificialFields", null, 0, -1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataControl_ArtificialFields(), this.getArtificialField(), null, "artificialFields", null, 0, -1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_DefaultSearch(), this.getContextParameters(), null, "defaultSearch", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_DefaultOrderBy(), this.getOrders(), null, "defaultOrderBy", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4421,7 +4272,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(artificialFieldEClass, ArtificialField.class, "ArtificialField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtificialField_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtificialField_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArtificialField_Parent(), this.getDataControl(), this.getDataControl_ArtificialFields(), "parent", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLink_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4467,18 +4317,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		  (getViewPortHolder_ViewElement(), 
 		   source, 
 		   new String[] {
-		   });	
-		addAnnotation
-		  (getRoot_PreFormTrigger(), 
-		   source, 
-		   new String[] {
-			 "layout", "list"
-		   });	
-		addAnnotation
-		  (getRoot_Variables(), 
-		   source, 
-		   new String[] {
-			 "layout", "list"
 		   });
 	}
 

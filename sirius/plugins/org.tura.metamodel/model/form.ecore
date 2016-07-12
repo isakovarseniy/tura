@@ -5,9 +5,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//FormView"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//Views"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="datacontrols" eType="#//FormDataControls"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datacontrols" eType="#//Controls"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//FormParameter" containment="true"/>
@@ -17,17 +17,9 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FormView">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//Views"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Views">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//FormView"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="canvases" upperBound="-1"
         eType="#//CanvasFrame" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewInheritances" upperBound="-1"
@@ -126,13 +118,6 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//TabCanvas"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TabPage"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FormDataControls">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="formControl" eType="#//Controls"
-        eOpposite="#//Controls/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CanvasView">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -336,11 +321,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Controls">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//FormDataControls"
-        eOpposite="#//FormDataControls/formControl"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//Root" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
-        eType="#//DataControl" containment="true" eOpposite="#//DataControl/parent"/>
+        eType="#//DataControl" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
         eType="#//Relation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
@@ -404,17 +387,9 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preFormTrigger" eType="#//PREFormTrigger"
-        containment="true">
-      <eAnnotations source="gmf.compartment">
-        <details key="layout" value="list"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-        eType="#//FormVariable" containment="true">
-      <eAnnotations source="gmf.compartment">
-        <details key="layout" value="list"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        eType="#//FormVariable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FormVariable" eSuperTypes="type.ecore#//TypePointer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -428,8 +403,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="ecore:EClass type.ecore#//TypePointer"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Controls"
-        eOpposite="#//Controls/controls"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preQueryTrigger" eType="#//PREQueryTrigger"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postQueryTrigger" eType="#//POSTQueryTrigger"
@@ -453,7 +426,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="search" eType="#//SearchTrigger"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="artificialFields" upperBound="-1"
-        eType="#//ArtificialField" containment="true" eOpposite="#//ArtificialField/parent"/>
+        eType="#//ArtificialField" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultSearch" eType="#//ContextParameters"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOrderBy" eType="#//Orders"
@@ -492,8 +465,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DataControl"
-        eOpposite="#//DataControl/artificialFields"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Link">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

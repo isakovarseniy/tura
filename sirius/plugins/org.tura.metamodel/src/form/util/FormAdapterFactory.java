@@ -83,10 +83,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createFormParameterAdapter();
 			}
 			@Override
-			public Adapter caseFormView(FormView object) {
-				return createFormViewAdapter();
-			}
-			@Override
 			public Adapter caseViews(Views object) {
 				return createViewsAdapter();
 			}
@@ -161,10 +157,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTabPagesInheritance(TabPagesInheritance object) {
 				return createTabPagesInheritanceAdapter();
-			}
-			@Override
-			public Adapter caseFormDataControls(FormDataControls object) {
-				return createFormDataControlsAdapter();
 			}
 			@Override
 			public Adapter caseCanvasView(CanvasView object) {
@@ -515,20 +507,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link form.FormView <em>View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see form.FormView
-	 * @generated
-	 */
-	public Adapter createFormViewAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link form.Views <em>Views</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -791,20 +769,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTabPagesInheritanceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link form.FormDataControls <em>Data Controls</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see form.FormDataControls
-	 * @generated
-	 */
-	public Adapter createFormDataControlsAdapter() {
 		return null;
 	}
 

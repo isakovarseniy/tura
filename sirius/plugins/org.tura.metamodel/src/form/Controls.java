@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link form.Controls#getUid <em>Uid</em>}</li>
- *   <li>{@link form.Controls#getParent <em>Parent</em>}</li>
  *   <li>{@link form.Controls#getRoot <em>Root</em>}</li>
  *   <li>{@link form.Controls#getControls <em>Controls</em>}</li>
  *   <li>{@link form.Controls#getRelations <em>Relations</em>}</li>
@@ -55,34 +54,6 @@ public interface Controls extends EObject {
 	void setUid(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link form.FormDataControls#getFormControl <em>Form Control</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' reference.
-	 * @see #setParent(FormDataControls)
-	 * @see form.FormPackage#getControls_Parent()
-	 * @see form.FormDataControls#getFormControl
-	 * @model opposite="formControl"
-	 * @generated
-	 */
-	FormDataControls getParent();
-
-	/**
-	 * Sets the value of the '{@link form.Controls#getParent <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' reference.
-	 * @see #getParent()
-	 * @generated
-	 */
-	void setParent(FormDataControls value);
-
-	/**
 	 * Returns the value of the '<em><b>Root</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -111,7 +82,6 @@ public interface Controls extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Controls</b></em>' containment reference list.
 	 * The list contents are of type {@link form.DataControl}.
-	 * It is bidirectional and its opposite is '{@link form.DataControl#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Controls</em>' containment reference list isn't clear,
@@ -120,8 +90,7 @@ public interface Controls extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Controls</em>' containment reference list.
 	 * @see form.FormPackage#getControls_Controls()
-	 * @see form.DataControl#getParent
-	 * @model opposite="parent" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<DataControl> getControls();

@@ -40,15 +40,6 @@ public interface FormFactory extends EFactory {
 	FormParameter createFormParameter();
 
 	/**
-	 * Returns a new object of class '<em>View</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>View</em>'.
-	 * @generated
-	 */
-	FormView createFormView();
-
-	/**
 	 * Returns a new object of class '<em>Views</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,15 +209,6 @@ public interface FormFactory extends EFactory {
 	 * @generated
 	 */
 	TabPagesInheritance createTabPagesInheritance();
-
-	/**
-	 * Returns a new object of class '<em>Data Controls</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Controls</em>'.
-	 * @generated
-	 */
-	FormDataControls createFormDataControls();
 
 	/**
 	 * Returns a new object of class '<em>Canvas View</em>'.

@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link form.Views#getUid <em>Uid</em>}</li>
- *   <li>{@link form.Views#getParent <em>Parent</em>}</li>
  *   <li>{@link form.Views#getCanvases <em>Canvases</em>}</li>
  *   <li>{@link form.Views#getViewInheritances <em>View Inheritances</em>}</li>
  *   <li>{@link form.Views#getTabPagesInheritances <em>Tab Pages Inheritances</em>}</li>
@@ -53,32 +52,6 @@ public interface Views extends EObject {
 	 * @generated
 	 */
 	void setUid(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' reference.
-	 * @see #setParent(FormView)
-	 * @see form.FormPackage#getViews_Parent()
-	 * @model
-	 * @generated
-	 */
-	FormView getParent();
-
-	/**
-	 * Sets the value of the '{@link form.Views#getParent <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' reference.
-	 * @see #getParent()
-	 * @generated
-	 */
-	void setParent(FormView value);
 
 	/**
 	 * Returns the value of the '<em><b>Canvases</b></em>' containment reference list.

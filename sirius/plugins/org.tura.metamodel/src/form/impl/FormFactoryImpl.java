@@ -59,7 +59,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 		switch (eClass.getClassifierID()) {
 			case FormPackage.FORM: return createForm();
 			case FormPackage.FORM_PARAMETER: return createFormParameter();
-			case FormPackage.FORM_VIEW: return createFormView();
 			case FormPackage.VIEWS: return createViews();
 			case FormPackage.HTML_LAYER_HOLDER: return createHTMLLayerHolder();
 			case FormPackage.ORDERABLE: return createOrderable();
@@ -79,7 +78,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.VIEW_PORT_TRIGGER: return createViewPortTrigger();
 			case FormPackage.VIEW_INHERITANCE: return createViewInheritance();
 			case FormPackage.TAB_PAGES_INHERITANCE: return createTabPagesInheritance();
-			case FormPackage.FORM_DATA_CONTROLS: return createFormDataControls();
 			case FormPackage.CANVAS_VIEW: return createCanvasView();
 			case FormPackage.LINK_TO_MESSAGE: return createLinkToMessage();
 			case FormPackage.LINK_TO_LABEL: return createLinkToLabel();
@@ -212,16 +210,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public FormParameter createFormParameter() {
 		FormParameterImpl formParameter = new FormParameterImpl();
 		return formParameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FormView createFormView() {
-		FormViewImpl formView = new FormViewImpl();
-		return formView;
 	}
 
 	/**
@@ -412,16 +400,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public TabPagesInheritance createTabPagesInheritance() {
 		TabPagesInheritanceImpl tabPagesInheritance = new TabPagesInheritanceImpl();
 		return tabPagesInheritance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FormDataControls createFormDataControls() {
-		FormDataControlsImpl formDataControls = new FormDataControlsImpl();
-		return formDataControls;
 	}
 
 	/**

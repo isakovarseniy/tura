@@ -10,8 +10,8 @@ import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 class Form{
     id attr EString uid;
    attr EString name;
-   val FormView view;
-   val FormDataControls datacontrols;
+   val Views view;
+   val Controls datacontrols;
    val FormParameter[*] parameters;
    
 }
@@ -21,15 +21,9 @@ class FormParameter extends type.TypePointer{
    attr EString name;
 }
 
-class FormView{
-    id attr EString uid;
-   attr EString name;
-   val Views view;
-}
 
 class Views{
     id attr EString uid;
-   ref FormView parent; 
    val CanvasFrame[*]  canvases;
    val ViewInheritance[*] viewInheritances;
    val TabPagesInheritance[*] tabPagesInheritances;
@@ -142,12 +136,6 @@ class TabPagesInheritance{
     id attr EString uid;
    ref TabCanvas source;
    ref TabPage target;
-}
-
-class FormDataControls{
-    id attr EString uid;
-   attr EString name;
-   ref Controls#parent formControl;
 }
 
 
@@ -409,9 +397,8 @@ class Tree extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
 
 class Controls{
     id attr EString uid;
-    ref FormDataControls#formControl parent; 
     val Root root;
-    val DataControl [*]#parent controls;
+    val DataControl [*] controls;
     val Relation[*] relations;
     val Dependency[*] dependencies;
 }
@@ -500,7 +487,6 @@ class DataControl {
     id attr EString uid;
    attr EString name;
    val type.TypePointer baseType;
-   ref Controls#controls parent;
    val PREQueryTrigger preQueryTrigger;
    val POSTQueryTrigger postQueryTrigger;
    val PREInsertTrigger preInsertTrigger;
@@ -512,7 +498,7 @@ class DataControl {
    val UpdateTrigger update;
    val DeleteTrigger remove;
    val SearchTrigger search;
-   val ArtificialField[*]#parent artificialFields;   
+   val ArtificialField[*] artificialFields;   
    val ContextParameters defaultSearch;
    val Orders defaultOrderBy;
     
@@ -549,8 +535,6 @@ class Dependency{
 class ArtificialField extends type.TypePointer{
     id attr EString uid;
    attr EString name;
-   ref DataControl#artificialFields parent; 
-   
 }
 
 class Link{

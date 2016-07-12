@@ -90,7 +90,6 @@ public interface Root extends EObject {
 	 * @see #setPreFormTrigger(PREFormTrigger)
 	 * @see form.FormPackage#getRoot_PreFormTrigger()
 	 * @model containment="true"
-	 *        annotation="gmf.compartment layout='list'"
 	 * @generated
 	 */
 	PREFormTrigger getPreFormTrigger();
@@ -117,7 +116,6 @@ public interface Root extends EObject {
 	 * @return the value of the '<em>Variables</em>' containment reference list.
 	 * @see form.FormPackage#getRoot_Variables()
 	 * @model containment="true"
-	 *        annotation="gmf.compartment layout='list'"
 	 * @generated
 	 */
 	EList<FormVariable> getVariables();

@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link form.impl.ViewsImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link form.impl.ViewsImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link form.impl.ViewsImpl#getCanvases <em>Canvases</em>}</li>
  *   <li>{@link form.impl.ViewsImpl#getViewInheritances <em>View Inheritances</em>}</li>
  *   <li>{@link form.impl.ViewsImpl#getTabPagesInheritances <em>Tab Pages Inheritances</em>}</li>
@@ -64,16 +63,6 @@ public class ViewsImpl extends EObjectImpl implements Views {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParent()
-	 * @generated
-	 * @ordered
-	 */
-	protected FormView parent;
 
 	/**
 	 * The cached value of the '{@link #getCanvases() <em>Canvases</em>}' containment reference list.
@@ -160,44 +149,6 @@ public class ViewsImpl extends EObjectImpl implements Views {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FormView getParent() {
-		if (parent != null && parent.eIsProxy()) {
-			InternalEObject oldParent = (InternalEObject)parent;
-			parent = (FormView)eResolveProxy(oldParent);
-			if (parent != oldParent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormPackage.VIEWS__PARENT, oldParent, parent));
-			}
-		}
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FormView basicGetParent() {
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(FormView newParent) {
-		FormView oldParent = parent;
-		parent = newParent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.VIEWS__PARENT, oldParent, parent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<CanvasFrame> getCanvases() {
 		if (canvases == null) {
 			canvases = new EObjectContainmentEList<CanvasFrame>(CanvasFrame.class, this, FormPackage.VIEWS__CANVASES);
@@ -271,9 +222,6 @@ public class ViewsImpl extends EObjectImpl implements Views {
 		switch (featureID) {
 			case FormPackage.VIEWS__UID:
 				return getUid();
-			case FormPackage.VIEWS__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
 			case FormPackage.VIEWS__CANVASES:
 				return getCanvases();
 			case FormPackage.VIEWS__VIEW_INHERITANCES:
@@ -297,9 +245,6 @@ public class ViewsImpl extends EObjectImpl implements Views {
 		switch (featureID) {
 			case FormPackage.VIEWS__UID:
 				setUid((String)newValue);
-				return;
-			case FormPackage.VIEWS__PARENT:
-				setParent((FormView)newValue);
 				return;
 			case FormPackage.VIEWS__CANVASES:
 				getCanvases().clear();
@@ -332,9 +277,6 @@ public class ViewsImpl extends EObjectImpl implements Views {
 			case FormPackage.VIEWS__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case FormPackage.VIEWS__PARENT:
-				setParent((FormView)null);
-				return;
 			case FormPackage.VIEWS__CANVASES:
 				getCanvases().clear();
 				return;
@@ -361,8 +303,6 @@ public class ViewsImpl extends EObjectImpl implements Views {
 		switch (featureID) {
 			case FormPackage.VIEWS__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case FormPackage.VIEWS__PARENT:
-				return parent != null;
 			case FormPackage.VIEWS__CANVASES:
 				return canvases != null && !canvases.isEmpty();
 			case FormPackage.VIEWS__VIEW_INHERITANCES:

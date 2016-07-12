@@ -86,12 +86,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FormPackage.FORM_VIEW: {
-				FormView formView = (FormView)theEObject;
-				T result = caseFormView(formView);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FormPackage.VIEWS: {
 				Views views = (Views)theEObject;
 				T result = caseViews(views);
@@ -257,12 +251,6 @@ public class FormSwitch<T> extends Switch<T> {
 			case FormPackage.TAB_PAGES_INHERITANCE: {
 				TabPagesInheritance tabPagesInheritance = (TabPagesInheritance)theEObject;
 				T result = caseTabPagesInheritance(tabPagesInheritance);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FormPackage.FORM_DATA_CONTROLS: {
-				FormDataControls formDataControls = (FormDataControls)theEObject;
-				T result = caseFormDataControls(formDataControls);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1001,21 +989,6 @@ public class FormSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>View</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>View</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFormView(FormView object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Views</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1297,21 +1270,6 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTabPagesInheritance(TabPagesInheritance object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Controls</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Controls</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFormDataControls(FormDataControls object) {
 		return null;
 	}
 

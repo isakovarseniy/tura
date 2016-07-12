@@ -2,12 +2,14 @@
  */
 package form.impl;
 
+import form.Controls;
 import form.Form;
 import form.FormDataControls;
 import form.FormPackage;
 import form.FormParameter;
 import form.FormView;
 
+import form.Views;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -90,7 +92,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * @generated
 	 * @ordered
 	 */
-	protected FormView view;
+	protected Views view;
 
 	/**
 	 * The cached value of the '{@link #getDatacontrols() <em>Datacontrols</em>}' containment reference.
@@ -100,7 +102,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * @generated
 	 * @ordered
 	 */
-	protected FormDataControls datacontrols;
+	protected Controls datacontrols;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
@@ -178,7 +180,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FormView getView() {
+	public Views getView() {
 		return view;
 	}
 
@@ -187,8 +189,8 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetView(FormView newView, NotificationChain msgs) {
-		FormView oldView = view;
+	public NotificationChain basicSetView(Views newView, NotificationChain msgs) {
+		Views oldView = view;
 		view = newView;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.FORM__VIEW, oldView, newView);
@@ -202,7 +204,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setView(FormView newView) {
+	public void setView(Views newView) {
 		if (newView != view) {
 			NotificationChain msgs = null;
 			if (view != null)
@@ -221,7 +223,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FormDataControls getDatacontrols() {
+	public Controls getDatacontrols() {
 		return datacontrols;
 	}
 
@@ -230,8 +232,8 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDatacontrols(FormDataControls newDatacontrols, NotificationChain msgs) {
-		FormDataControls oldDatacontrols = datacontrols;
+	public NotificationChain basicSetDatacontrols(Controls newDatacontrols, NotificationChain msgs) {
+		Controls oldDatacontrols = datacontrols;
 		datacontrols = newDatacontrols;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.FORM__DATACONTROLS, oldDatacontrols, newDatacontrols);
@@ -245,7 +247,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDatacontrols(FormDataControls newDatacontrols) {
+	public void setDatacontrols(Controls newDatacontrols) {
 		if (newDatacontrols != datacontrols) {
 			NotificationChain msgs = null;
 			if (datacontrols != null)
@@ -327,10 +329,10 @@ public class FormImpl extends EObjectImpl implements Form {
 				setName((String)newValue);
 				return;
 			case FormPackage.FORM__VIEW:
-				setView((FormView)newValue);
+				setView((Views)newValue);
 				return;
 			case FormPackage.FORM__DATACONTROLS:
-				setDatacontrols((FormDataControls)newValue);
+				setDatacontrols((Controls)newValue);
 				return;
 			case FormPackage.FORM__PARAMETERS:
 				getParameters().clear();
@@ -355,10 +357,10 @@ public class FormImpl extends EObjectImpl implements Form {
 				setName(NAME_EDEFAULT);
 				return;
 			case FormPackage.FORM__VIEW:
-				setView((FormView)null);
+				setView((Views)null);
 				return;
 			case FormPackage.FORM__DATACONTROLS:
-				setDatacontrols((FormDataControls)null);
+				setDatacontrols((Controls)null);
 				return;
 			case FormPackage.FORM__PARAMETERS:
 				getParameters().clear();

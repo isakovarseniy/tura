@@ -117,29 +117,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link form.FormView} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FormViewItemProvider formViewItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.FormView}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFormViewAdapter() {
-		if (formViewItemProvider == null) {
-			formViewItemProvider = new FormViewItemProvider(this);
-		}
-
-		return formViewItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link form.Views} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -574,29 +551,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 		}
 
 		return tabPagesInheritanceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link form.FormDataControls} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FormDataControlsItemProvider formDataControlsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.FormDataControls}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFormDataControlsAdapter() {
-		if (formDataControlsItemProvider == null) {
-			formDataControlsItemProvider = new FormDataControlsItemProvider(this);
-		}
-
-		return formDataControlsItemProvider;
 	}
 
 	/**

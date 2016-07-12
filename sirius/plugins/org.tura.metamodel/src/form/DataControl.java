@@ -20,7 +20,6 @@ import type.TypePointer;
  *   <li>{@link form.DataControl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.DataControl#getName <em>Name</em>}</li>
  *   <li>{@link form.DataControl#getBaseType <em>Base Type</em>}</li>
- *   <li>{@link form.DataControl#getParent <em>Parent</em>}</li>
  *   <li>{@link form.DataControl#getPreQueryTrigger <em>Pre Query Trigger</em>}</li>
  *   <li>{@link form.DataControl#getPostQueryTrigger <em>Post Query Trigger</em>}</li>
  *   <li>{@link form.DataControl#getPreInsertTrigger <em>Pre Insert Trigger</em>}</li>
@@ -119,34 +118,6 @@ public interface DataControl extends EObject {
 	 * @generated
 	 */
 	void setBaseType(TypePointer value);
-
-	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link form.Controls#getControls <em>Controls</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' container reference.
-	 * @see #setParent(Controls)
-	 * @see form.FormPackage#getDataControl_Parent()
-	 * @see form.Controls#getControls
-	 * @model opposite="controls" transient="false"
-	 * @generated
-	 */
-	Controls getParent();
-
-	/**
-	 * Sets the value of the '{@link form.DataControl#getParent <em>Parent</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' container reference.
-	 * @see #getParent()
-	 * @generated
-	 */
-	void setParent(Controls value);
 
 	/**
 	 * Returns the value of the '<em><b>Pre Query Trigger</b></em>' containment reference.
@@ -437,7 +408,6 @@ public interface DataControl extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Artificial Fields</b></em>' containment reference list.
 	 * The list contents are of type {@link form.ArtificialField}.
-	 * It is bidirectional and its opposite is '{@link form.ArtificialField#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Artificial Fields</em>' containment reference list isn't clear,
@@ -446,8 +416,7 @@ public interface DataControl extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Artificial Fields</em>' containment reference list.
 	 * @see form.FormPackage#getDataControl_ArtificialFields()
-	 * @see form.ArtificialField#getParent
-	 * @model opposite="parent" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ArtificialField> getArtificialFields();

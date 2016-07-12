@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link form.impl.ControlsImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link form.impl.ControlsImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link form.impl.ControlsImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link form.impl.ControlsImpl#getControls <em>Controls</em>}</li>
  *   <li>{@link form.impl.ControlsImpl#getRelations <em>Relations</em>}</li>
@@ -65,16 +64,6 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParent()
-	 * @generated
-	 * @ordered
-	 */
-	protected FormDataControls parent;
 
 	/**
 	 * The cached value of the '{@link #getRoot() <em>Root</em>}' containment reference.
@@ -161,66 +150,6 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FormDataControls getParent() {
-		if (parent != null && parent.eIsProxy()) {
-			InternalEObject oldParent = (InternalEObject)parent;
-			parent = (FormDataControls)eResolveProxy(oldParent);
-			if (parent != oldParent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormPackage.CONTROLS__PARENT, oldParent, parent));
-			}
-		}
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FormDataControls basicGetParent() {
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParent(FormDataControls newParent, NotificationChain msgs) {
-		FormDataControls oldParent = parent;
-		parent = newParent;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.CONTROLS__PARENT, oldParent, newParent);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(FormDataControls newParent) {
-		if (newParent != parent) {
-			NotificationChain msgs = null;
-			if (parent != null)
-				msgs = ((InternalEObject)parent).eInverseRemove(this, FormPackage.FORM_DATA_CONTROLS__FORM_CONTROL, FormDataControls.class, msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, FormPackage.FORM_DATA_CONTROLS__FORM_CONTROL, FormDataControls.class, msgs);
-			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.CONTROLS__PARENT, newParent, newParent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Root getRoot() {
 		return root;
 	}
@@ -266,7 +195,7 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 */
 	public EList<DataControl> getControls() {
 		if (controls == null) {
-			controls = new EObjectContainmentWithInverseEList<DataControl>(DataControl.class, this, FormPackage.CONTROLS__CONTROLS, FormPackage.DATA_CONTROL__PARENT);
+			controls = new EObjectContainmentEList<DataControl>(DataControl.class, this, FormPackage.CONTROLS__CONTROLS);
 		}
 		return controls;
 	}
@@ -300,30 +229,9 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FormPackage.CONTROLS__PARENT:
-				if (parent != null)
-					msgs = ((InternalEObject)parent).eInverseRemove(this, FormPackage.FORM_DATA_CONTROLS__FORM_CONTROL, FormDataControls.class, msgs);
-				return basicSetParent((FormDataControls)otherEnd, msgs);
-			case FormPackage.CONTROLS__CONTROLS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getControls()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FormPackage.CONTROLS__PARENT:
-				return basicSetParent(null, msgs);
 			case FormPackage.CONTROLS__ROOT:
 				return basicSetRoot(null, msgs);
 			case FormPackage.CONTROLS__CONTROLS:
@@ -346,9 +254,6 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 		switch (featureID) {
 			case FormPackage.CONTROLS__UID:
 				return getUid();
-			case FormPackage.CONTROLS__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
 			case FormPackage.CONTROLS__ROOT:
 				return getRoot();
 			case FormPackage.CONTROLS__CONTROLS:
@@ -372,9 +277,6 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 		switch (featureID) {
 			case FormPackage.CONTROLS__UID:
 				setUid((String)newValue);
-				return;
-			case FormPackage.CONTROLS__PARENT:
-				setParent((FormDataControls)newValue);
 				return;
 			case FormPackage.CONTROLS__ROOT:
 				setRoot((Root)newValue);
@@ -406,9 +308,6 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 			case FormPackage.CONTROLS__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case FormPackage.CONTROLS__PARENT:
-				setParent((FormDataControls)null);
-				return;
 			case FormPackage.CONTROLS__ROOT:
 				setRoot((Root)null);
 				return;
@@ -435,8 +334,6 @@ public class ControlsImpl extends EObjectImpl implements Controls {
 		switch (featureID) {
 			case FormPackage.CONTROLS__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case FormPackage.CONTROLS__PARENT:
-				return parent != null;
 			case FormPackage.CONTROLS__ROOT:
 				return root != null;
 			case FormPackage.CONTROLS__CONTROLS:

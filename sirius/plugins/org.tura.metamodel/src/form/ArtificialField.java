@@ -15,7 +15,6 @@ import type.TypePointer;
  * <ul>
  *   <li>{@link form.ArtificialField#getUid <em>Uid</em>}</li>
  *   <li>{@link form.ArtificialField#getName <em>Name</em>}</li>
- *   <li>{@link form.ArtificialField#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getArtificialField()
@@ -74,33 +73,5 @@ public interface ArtificialField extends TypePointer {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link form.DataControl#getArtificialFields <em>Artificial Fields</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' container reference.
-	 * @see #setParent(DataControl)
-	 * @see form.FormPackage#getArtificialField_Parent()
-	 * @see form.DataControl#getArtificialFields
-	 * @model opposite="artificialFields" transient="false"
-	 * @generated
-	 */
-	DataControl getParent();
-
-	/**
-	 * Sets the value of the '{@link form.ArtificialField#getParent <em>Parent</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' container reference.
-	 * @see #getParent()
-	 * @generated
-	 */
-	void setParent(DataControl value);
 
 } // ArtificialField

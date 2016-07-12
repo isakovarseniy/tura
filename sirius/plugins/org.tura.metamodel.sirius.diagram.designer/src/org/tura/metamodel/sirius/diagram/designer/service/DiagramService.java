@@ -15,6 +15,8 @@ import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainTypes;
 import domain.DomainTypesRepository;
+import form.ArtificialField;
+import form.DataControl;
 import form.Form;
 import form.FormParameter;
 import infrastructure.EnterpriseInfrastructure;
@@ -135,5 +137,8 @@ public class DiagramService {
 		return "Form parameter"+ ((Form)(param.eContainer())).getParameters().size();
 	}
 	
+	public String generateName(ArtificialField param ){
+		return "Artificial field"+ ((DataControl)(param.eContainer())).getArtificialFields().size();
+	}
 	
 }
