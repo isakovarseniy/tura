@@ -1231,6 +1231,34 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Data Control" domainClass="form.Controls">
       <defaultLayer name="Default">
+        <edgeMappings name="Relation" semanticCandidatesExpression="feature:relations" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="feature:detail" sourceFinderExpression="feature:master" domainClass="form.Relation" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20detail%20Relation'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20master%20Relation']">
+          <style targetArrow="InputFillClosedArrow">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Dependency" semanticCandidatesExpression="feature:dependencies" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="feature:detail" sourceFinderExpression="feature:master" domainClass="form.Dependency" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20detail%20Dependency'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20master%20Dependency']">
+          <style targetArrow="InputFillClosedArrow">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <containerMappings name="DataControl" semanticCandidatesExpression="aql:self.controls" domainClass="form.DataControl" childrenPresentation="VerticalStack">
           <subContainerMappings name="PREQueryTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="PREQueryTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='PREQueryTrigger%20edit%20label']" semanticCandidatesExpression="feature:preQueryTrigger" domainClass="form.PREQueryTrigger">
@@ -1417,6 +1445,44 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_green']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Root" semanticCandidatesExpression="aql:self.root" domainClass="form.Root" childrenPresentation="VerticalStack">
+          <subContainerMappings name="PREFormTriggers" semanticCandidatesExpression="var:self" domainClass="form.Root" childrenPresentation="List">
+            <subNodeMappings name="PREFormTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='PREFormTrigger%20edit%20label']" semanticCandidatesExpression="feature:preFormTrigger" domainClass="form.PREFormTrigger">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" hideLabelByDefault="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="FormVariables" semanticCandidatesExpression="var:self" domainClass="form.Root" childrenPresentation="List">
+            <subNodeMappings name="FormVariable" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='FormVariable%20edit%20label']" semanticCandidatesExpression="feature:variables" domainClass="form.FormVariable">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="FormVariables" hideLabelByDefault="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="Root">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
           </style>
         </containerMappings>
         <toolSections name="Nodes">
@@ -1639,6 +1705,139 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Root" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='Root']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="form.Root" referenceName="root">
+                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="Datacenter edit label">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="PREFormTrigger" nodeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='Root']/@subContainerMappings[name='PREFormTriggers']/@subNodeMappings[name='PREFormTrigger']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="form.PREFormTrigger" referenceName="preFormTrigger">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="PREFormTrigger edit label">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="FormVariable" nodeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='Root']/@subContainerMappings[name='FormVariables']/@subNodeMappings[name='FormVariable']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="form.FormVariable" referenceName="variables">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="FormVariable edit label">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Connections">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Relation" edgeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@edgeMappings[name='Relation']">
+            <sourceVariable name="master"/>
+            <targetVariable name="detail"/>
+            <sourceViewVariable name="masterView"/>
+            <targetViewVariable name="detailView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Relation" referenceName="relations">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="master" valueExpression="var:master"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="detail" valueExpression="var:detail"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect detail Relation">
+            <source name="master"/>
+            <target name="detail"/>
+            <sourceView name="masterView"/>
+            <targetView name="detailView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="detail" valueExpression="var:detail"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect master Relation" reconnectionKind="RECONNECT_SOURCE">
+            <source name="master"/>
+            <target name="detail"/>
+            <sourceView name="masterView"/>
+            <targetView name="detailView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="master" valueExpression="var:detail"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Dependency" edgeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@edgeMappings[name='Dependency']">
+            <sourceVariable name="master"/>
+            <targetVariable name="detail"/>
+            <sourceViewVariable name="masterView"/>
+            <targetViewVariable name="detailView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Dependency" referenceName="dependencies">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="master" valueExpression="var:master"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="detail" valueExpression="var:detail"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect detail Dependency">
+            <source name="master"/>
+            <target name="detail"/>
+            <sourceView name="masterView"/>
+            <targetView name="detailView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="detail" valueExpression="var:detail"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect master Dependency" reconnectionKind="RECONNECT_SOURCE">
+            <source name="master"/>
+            <target name="detail"/>
+            <sourceView name="masterView"/>
+            <targetView name="detailView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="master" valueExpression="var:detail"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
           </ownedTools>
         </toolSections>
       </defaultLayer>

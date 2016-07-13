@@ -97,6 +97,11 @@
               <forms uid="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" name="Form 1">
                 <view uid="32d7b5bf-2b6a-4a1d-9bf5-76f35f51938a"/>
                 <datacontrols uid="6bb23934-e207-455b-b45a-cf5b70139b85">
+                  <root uid="3f85e1a6-865a-405b-9680-f78b4c01d188">
+                    <preFormTrigger uid="c861c625-4436-40b0-86c8-491fbae9dacd"/>
+                    <variables uid="5698d27f-dba3-4461-9299-7a93ce82f16c"/>
+                    <variables uid="72419647-e9c5-4ee8-81ac-a4797d004c20"/>
+                  </root>
                   <controls uid="18e9d3f7-efd6-48a6-b913-1d7762d97f6b" name="Departments">
                     <preQueryTrigger uid="69e0e131-cbbd-49aa-8dfa-e12e2efb9e94"/>
                     <postQueryTrigger uid="ab954a09-4a6f-40ec-a1a9-01b0a140a729"/>
@@ -113,6 +118,10 @@
                     <artificialFields uid="ae734022-c07f-4fbc-89c2-1c93c66b3d57" name="param2"/>
                     <artificialFields uid="8a6952d8-83a2-4e7e-a56f-c39eaad5ab84" name="Artificial field3"/>
                   </controls>
+                  <controls uid="0acaa2b7-92bc-4466-b760-a7070718c96e"/>
+                  <relations uid="99137b8a-ab4c-41fa-b23e-5990e65b5045" master="18e9d3f7-efd6-48a6-b913-1d7762d97f6b" detail="0acaa2b7-92bc-4466-b760-a7070718c96e"/>
+                  <relations uid="fcd2d19c-2b4c-41fb-bb64-b745c6a7d5e9" master="18e9d3f7-efd6-48a6-b913-1d7762d97f6b" detail="0acaa2b7-92bc-4466-b760-a7070718c96e"/>
+                  <dependencies uid="ec746f78-9f1b-4c48-a10e-c0f4867285e9" master="18e9d3f7-efd6-48a6-b913-1d7762d97f6b" detail="0acaa2b7-92bc-4466-b760-a7070718c96e"/>
                 </datacontrols>
               </forms>
             </applicationUIPackages>
