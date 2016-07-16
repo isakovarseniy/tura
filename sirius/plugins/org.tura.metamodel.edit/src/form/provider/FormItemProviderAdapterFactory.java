@@ -554,29 +554,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link form.CanvasView} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CanvasViewItemProvider canvasViewItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.CanvasView}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCanvasViewAdapter() {
-		if (canvasViewItemProvider == null) {
-			canvasViewItemProvider = new CanvasViewItemProvider(this);
-		}
-
-		return canvasViewItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link form.LinkToMessage} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

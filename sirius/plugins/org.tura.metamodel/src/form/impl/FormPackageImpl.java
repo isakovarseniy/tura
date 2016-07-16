@@ -314,13 +314,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass canvasViewEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass linkToMessageEClass = null;
 
 	/**
@@ -1351,8 +1344,26 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getViewArea_CanvasView() {
+	public EReference getViewArea_BaseCanvas() {
 		return (EReference)viewAreaEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getViewArea_LinkToLabels() {
+		return (EReference)viewAreaEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getViewArea_LinkToMessages() {
+		return (EReference)viewAreaEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1443,60 +1454,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EReference getTabPagesInheritance_Target() {
 		return (EReference)tabPagesInheritanceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCanvasView() {
-		return canvasViewEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCanvasView_Uid() {
-		return (EAttribute)canvasViewEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCanvasView_Parent() {
-		return (EReference)canvasViewEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCanvasView_BaseCanvas() {
-		return (EReference)canvasViewEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCanvasView_LinkToLabels() {
-		return (EReference)canvasViewEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCanvasView_LinkToMessages() {
-		return (EReference)canvasViewEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3454,7 +3411,9 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		viewAreaEClass = createEClass(VIEW_AREA);
 		createEAttribute(viewAreaEClass, VIEW_AREA__UID);
 		createEAttribute(viewAreaEClass, VIEW_AREA__NAME);
-		createEReference(viewAreaEClass, VIEW_AREA__CANVAS_VIEW);
+		createEReference(viewAreaEClass, VIEW_AREA__BASE_CANVAS);
+		createEReference(viewAreaEClass, VIEW_AREA__LINK_TO_LABELS);
+		createEReference(viewAreaEClass, VIEW_AREA__LINK_TO_MESSAGES);
 
 		viewPortTriggerEClass = createEClass(VIEW_PORT_TRIGGER);
 		createEAttribute(viewPortTriggerEClass, VIEW_PORT_TRIGGER__UID);
@@ -3468,13 +3427,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEAttribute(tabPagesInheritanceEClass, TAB_PAGES_INHERITANCE__UID);
 		createEReference(tabPagesInheritanceEClass, TAB_PAGES_INHERITANCE__SOURCE);
 		createEReference(tabPagesInheritanceEClass, TAB_PAGES_INHERITANCE__TARGET);
-
-		canvasViewEClass = createEClass(CANVAS_VIEW);
-		createEAttribute(canvasViewEClass, CANVAS_VIEW__UID);
-		createEReference(canvasViewEClass, CANVAS_VIEW__PARENT);
-		createEReference(canvasViewEClass, CANVAS_VIEW__BASE_CANVAS);
-		createEReference(canvasViewEClass, CANVAS_VIEW__LINK_TO_LABELS);
-		createEReference(canvasViewEClass, CANVAS_VIEW__LINK_TO_MESSAGES);
 
 		linkToMessageEClass = createEClass(LINK_TO_MESSAGE);
 		createEAttribute(linkToMessageEClass, LINK_TO_MESSAGE__UID);
@@ -3982,7 +3934,9 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(viewAreaEClass, ViewArea.class, "ViewArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getViewArea_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ViewArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getViewArea_Name(), ecorePackage.getEString(), "name", null, 0, 1, ViewArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getViewArea_CanvasView(), this.getCanvasView(), this.getCanvasView_Parent(), "canvasView", null, 0, 1, ViewArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getViewArea_BaseCanvas(), this.getLayerHolder(), null, "baseCanvas", null, 0, 1, ViewArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getViewArea_LinkToLabels(), this.getLinkToLabel(), null, "linkToLabels", null, 0, -1, ViewArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getViewArea_LinkToMessages(), this.getLinkToMessage(), null, "linkToMessages", null, 0, -1, ViewArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewPortTriggerEClass, ViewPortTrigger.class, "ViewPortTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getViewPortTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ViewPortTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3996,13 +3950,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEAttribute(getTabPagesInheritance_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TabPagesInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTabPagesInheritance_Source(), this.getTabCanvas(), null, "source", null, 0, 1, TabPagesInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTabPagesInheritance_Target(), this.getTabPage(), null, "target", null, 0, 1, TabPagesInheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(canvasViewEClass, CanvasView.class, "CanvasView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCanvasView_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCanvasView_Parent(), this.getViewArea(), this.getViewArea_CanvasView(), "parent", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCanvasView_BaseCanvas(), this.getLayerHolder(), null, "baseCanvas", null, 0, 1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCanvasView_LinkToLabels(), this.getLinkToLabel(), null, "linkToLabels", null, 0, -1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCanvasView_LinkToMessages(), this.getLinkToMessage(), null, "linkToMessages", null, 0, -1, CanvasView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkToMessageEClass, LinkToMessage.class, "LinkToMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLinkToMessage_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, LinkToMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

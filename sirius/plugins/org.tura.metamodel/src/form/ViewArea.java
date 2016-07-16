@@ -2,6 +2,8 @@
  */
 package form;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +16,9 @@ package form;
  * <ul>
  *   <li>{@link form.ViewArea#getUid <em>Uid</em>}</li>
  *   <li>{@link form.ViewArea#getName <em>Name</em>}</li>
- *   <li>{@link form.ViewArea#getCanvasView <em>Canvas View</em>}</li>
+ *   <li>{@link form.ViewArea#getBaseCanvas <em>Base Canvas</em>}</li>
+ *   <li>{@link form.ViewArea#getLinkToLabels <em>Link To Labels</em>}</li>
+ *   <li>{@link form.ViewArea#getLinkToMessages <em>Link To Messages</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getViewArea()
@@ -75,31 +79,61 @@ public interface ViewArea extends ViewElement, Orderable {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Canvas View</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link form.CanvasView#getParent <em>Parent</em>}'.
+	 * Returns the value of the '<em><b>Base Canvas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Canvas View</em>' reference isn't clear,
+	 * If the meaning of the '<em>Base Canvas</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Canvas View</em>' reference.
-	 * @see #setCanvasView(CanvasView)
-	 * @see form.FormPackage#getViewArea_CanvasView()
-	 * @see form.CanvasView#getParent
-	 * @model opposite="parent"
+	 * @return the value of the '<em>Base Canvas</em>' containment reference.
+	 * @see #setBaseCanvas(LayerHolder)
+	 * @see form.FormPackage#getViewArea_BaseCanvas()
+	 * @model containment="true"
 	 * @generated
 	 */
-	CanvasView getCanvasView();
+	LayerHolder getBaseCanvas();
 
 	/**
-	 * Sets the value of the '{@link form.ViewArea#getCanvasView <em>Canvas View</em>}' reference.
+	 * Sets the value of the '{@link form.ViewArea#getBaseCanvas <em>Base Canvas</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Canvas View</em>' reference.
-	 * @see #getCanvasView()
+	 * @param value the new value of the '<em>Base Canvas</em>' containment reference.
+	 * @see #getBaseCanvas()
 	 * @generated
 	 */
-	void setCanvasView(CanvasView value);
+	void setBaseCanvas(LayerHolder value);
+
+	/**
+	 * Returns the value of the '<em><b>Link To Labels</b></em>' containment reference list.
+	 * The list contents are of type {@link form.LinkToLabel}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Link To Labels</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Link To Labels</em>' containment reference list.
+	 * @see form.FormPackage#getViewArea_LinkToLabels()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<LinkToLabel> getLinkToLabels();
+
+	/**
+	 * Returns the value of the '<em><b>Link To Messages</b></em>' containment reference list.
+	 * The list contents are of type {@link form.LinkToMessage}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Link To Messages</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Link To Messages</em>' containment reference list.
+	 * @see form.FormPackage#getViewArea_LinkToMessages()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<LinkToMessage> getLinkToMessages();
 
 } // ViewArea

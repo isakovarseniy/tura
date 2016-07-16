@@ -4,16 +4,23 @@ package form.impl;
 
 import form.CanvasView;
 import form.FormPackage;
+import form.LayerHolder;
+import form.LinkToLabel;
+import form.LinkToMessage;
 import form.Orderable;
 import form.ViewArea;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +33,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link form.impl.ViewAreaImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link form.impl.ViewAreaImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.ViewAreaImpl#getName <em>Name</em>}</li>
- *   <li>{@link form.impl.ViewAreaImpl#getCanvasView <em>Canvas View</em>}</li>
+ *   <li>{@link form.impl.ViewAreaImpl#getBaseCanvas <em>Base Canvas</em>}</li>
+ *   <li>{@link form.impl.ViewAreaImpl#getLinkToLabels <em>Link To Labels</em>}</li>
+ *   <li>{@link form.impl.ViewAreaImpl#getLinkToMessages <em>Link To Messages</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,14 +102,34 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCanvasView() <em>Canvas View</em>}' reference.
+	 * The cached value of the '{@link #getBaseCanvas() <em>Base Canvas</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCanvasView()
+	 * @see #getBaseCanvas()
 	 * @generated
 	 * @ordered
 	 */
-	protected CanvasView canvasView;
+	protected LayerHolder baseCanvas;
+
+	/**
+	 * The cached value of the '{@link #getLinkToLabels() <em>Link To Labels</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinkToLabels()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LinkToLabel> linkToLabels;
+
+	/**
+	 * The cached value of the '{@link #getLinkToMessages() <em>Link To Messages</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinkToMessages()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LinkToMessage> linkToMessages;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,16 +218,8 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CanvasView getCanvasView() {
-		if (canvasView != null && canvasView.eIsProxy()) {
-			InternalEObject oldCanvasView = (InternalEObject)canvasView;
-			canvasView = (CanvasView)eResolveProxy(oldCanvasView);
-			if (canvasView != oldCanvasView) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormPackage.VIEW_AREA__CANVAS_VIEW, oldCanvasView, canvasView));
-			}
-		}
-		return canvasView;
+	public LayerHolder getBaseCanvas() {
+		return baseCanvas;
 	}
 
 	/**
@@ -206,20 +227,11 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CanvasView basicGetCanvasView() {
-		return canvasView;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCanvasView(CanvasView newCanvasView, NotificationChain msgs) {
-		CanvasView oldCanvasView = canvasView;
-		canvasView = newCanvasView;
+	public NotificationChain basicSetBaseCanvas(LayerHolder newBaseCanvas, NotificationChain msgs) {
+		LayerHolder oldBaseCanvas = baseCanvas;
+		baseCanvas = newBaseCanvas;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.VIEW_AREA__CANVAS_VIEW, oldCanvasView, newCanvasView);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.VIEW_AREA__BASE_CANVAS, oldBaseCanvas, newBaseCanvas);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -230,18 +242,18 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCanvasView(CanvasView newCanvasView) {
-		if (newCanvasView != canvasView) {
+	public void setBaseCanvas(LayerHolder newBaseCanvas) {
+		if (newBaseCanvas != baseCanvas) {
 			NotificationChain msgs = null;
-			if (canvasView != null)
-				msgs = ((InternalEObject)canvasView).eInverseRemove(this, FormPackage.CANVAS_VIEW__PARENT, CanvasView.class, msgs);
-			if (newCanvasView != null)
-				msgs = ((InternalEObject)newCanvasView).eInverseAdd(this, FormPackage.CANVAS_VIEW__PARENT, CanvasView.class, msgs);
-			msgs = basicSetCanvasView(newCanvasView, msgs);
+			if (baseCanvas != null)
+				msgs = ((InternalEObject)baseCanvas).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FormPackage.VIEW_AREA__BASE_CANVAS, null, msgs);
+			if (newBaseCanvas != null)
+				msgs = ((InternalEObject)newBaseCanvas).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FormPackage.VIEW_AREA__BASE_CANVAS, null, msgs);
+			msgs = basicSetBaseCanvas(newBaseCanvas, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.VIEW_AREA__CANVAS_VIEW, newCanvasView, newCanvasView));
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.VIEW_AREA__BASE_CANVAS, newBaseCanvas, newBaseCanvas));
 	}
 
 	/**
@@ -249,15 +261,23 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FormPackage.VIEW_AREA__CANVAS_VIEW:
-				if (canvasView != null)
-					msgs = ((InternalEObject)canvasView).eInverseRemove(this, FormPackage.CANVAS_VIEW__PARENT, CanvasView.class, msgs);
-				return basicSetCanvasView((CanvasView)otherEnd, msgs);
+	public EList<LinkToLabel> getLinkToLabels() {
+		if (linkToLabels == null) {
+			linkToLabels = new EObjectContainmentEList<LinkToLabel>(LinkToLabel.class, this, FormPackage.VIEW_AREA__LINK_TO_LABELS);
 		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+		return linkToLabels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<LinkToMessage> getLinkToMessages() {
+		if (linkToMessages == null) {
+			linkToMessages = new EObjectContainmentEList<LinkToMessage>(LinkToMessage.class, this, FormPackage.VIEW_AREA__LINK_TO_MESSAGES);
+		}
+		return linkToMessages;
 	}
 
 	/**
@@ -268,8 +288,12 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FormPackage.VIEW_AREA__CANVAS_VIEW:
-				return basicSetCanvasView(null, msgs);
+			case FormPackage.VIEW_AREA__BASE_CANVAS:
+				return basicSetBaseCanvas(null, msgs);
+			case FormPackage.VIEW_AREA__LINK_TO_LABELS:
+				return ((InternalEList<?>)getLinkToLabels()).basicRemove(otherEnd, msgs);
+			case FormPackage.VIEW_AREA__LINK_TO_MESSAGES:
+				return ((InternalEList<?>)getLinkToMessages()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -288,9 +312,12 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 				return getUid();
 			case FormPackage.VIEW_AREA__NAME:
 				return getName();
-			case FormPackage.VIEW_AREA__CANVAS_VIEW:
-				if (resolve) return getCanvasView();
-				return basicGetCanvasView();
+			case FormPackage.VIEW_AREA__BASE_CANVAS:
+				return getBaseCanvas();
+			case FormPackage.VIEW_AREA__LINK_TO_LABELS:
+				return getLinkToLabels();
+			case FormPackage.VIEW_AREA__LINK_TO_MESSAGES:
+				return getLinkToMessages();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -300,6 +327,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -312,8 +340,16 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 			case FormPackage.VIEW_AREA__NAME:
 				setName((String)newValue);
 				return;
-			case FormPackage.VIEW_AREA__CANVAS_VIEW:
-				setCanvasView((CanvasView)newValue);
+			case FormPackage.VIEW_AREA__BASE_CANVAS:
+				setBaseCanvas((LayerHolder)newValue);
+				return;
+			case FormPackage.VIEW_AREA__LINK_TO_LABELS:
+				getLinkToLabels().clear();
+				getLinkToLabels().addAll((Collection<? extends LinkToLabel>)newValue);
+				return;
+			case FormPackage.VIEW_AREA__LINK_TO_MESSAGES:
+				getLinkToMessages().clear();
+				getLinkToMessages().addAll((Collection<? extends LinkToMessage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -336,8 +372,14 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 			case FormPackage.VIEW_AREA__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case FormPackage.VIEW_AREA__CANVAS_VIEW:
-				setCanvasView((CanvasView)null);
+			case FormPackage.VIEW_AREA__BASE_CANVAS:
+				setBaseCanvas((LayerHolder)null);
+				return;
+			case FormPackage.VIEW_AREA__LINK_TO_LABELS:
+				getLinkToLabels().clear();
+				return;
+			case FormPackage.VIEW_AREA__LINK_TO_MESSAGES:
+				getLinkToMessages().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -357,8 +399,12 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case FormPackage.VIEW_AREA__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case FormPackage.VIEW_AREA__CANVAS_VIEW:
-				return canvasView != null;
+			case FormPackage.VIEW_AREA__BASE_CANVAS:
+				return baseCanvas != null;
+			case FormPackage.VIEW_AREA__LINK_TO_LABELS:
+				return linkToLabels != null && !linkToLabels.isEmpty();
+			case FormPackage.VIEW_AREA__LINK_TO_MESSAGES:
+				return linkToMessages != null && !linkToMessages.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

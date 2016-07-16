@@ -106,10 +106,21 @@
                       <viewPortTrigger uid="b34c4f69-8d28-4d60-947d-f2a05701b1c5"/>
                     </viewElement>
                   </canvases>
-                  <canvases xsi:type="tura.form:PopupCanvas" uid="cbb8bf7e-2d52-4dd8-830f-547f923c1398" columns="3">
+                  <canvases xsi:type="tura.form:PopupCanvas" uid="cbb8bf7e-2d52-4dd8-830f-547f923c1398" columns="2">
                     <viewElement xsi:type="tura.form:ViewPort" order="1" uid="7ce03e1d-3a28-4aa9-a38d-a10a2c74ccd3"/>
                     <viewElement xsi:type="tura.form:ViewPort" order="2" uid="85af4c4e-96a5-4d4d-b0ee-43cdc7a5f94a"/>
-                    <viewElement xsi:type="tura.form:ViewArea" uid="28fc5b33-dd67-41d3-9d29-abb43517c284"/>
+                    <viewElement xsi:type="tura.form:ViewArea" uid="ff98438d-8247-436c-9a2a-61654f481014" name="asdkjlaskdjalskd">
+                      <baseCanvas columns="2">
+                        <children xsi:type="tura.form:Button" order="1" uid="f9c8348f-4484-40a3-b7dd-8c6dd6b0c200" label="qweqweqwe"/>
+                        <children xsi:type="tura.form:CheckBox" order="2" uid="8f3d9719-5891-4f98-b039-a285f310b1c7"/>
+                        <children xsi:type="tura.form:Date" uid="5e893811-268e-4cc7-ba27-65a06855d8b2"/>
+                        <children xsi:type="tura.form:DropDownSelection" order="4" uid="a19ca148-81a6-4d6c-8386-e394498acdc2"/>
+                        <children xsi:type="tura.form:Image" order="3" uid="01316c01-5058-41fe-9dd6-96ffcb2f646e"/>
+                        <children xsi:type="tura.form:InputText" order="5" uid="9978fae4-6fdf-4d57-af38-a0da1eea5290"/>
+                        <children xsi:type="tura.form:OutputText" order="6" uid="c9595751-79bb-470b-8b35-a31a76d29905"/>
+                        <children xsi:type="tura.form:Password" order="7" uid="b446e1d3-714e-4bcb-8deb-467a684f4dad"/>
+                      </baseCanvas>
+                    </viewElement>
                     <viewElement xsi:type="tura.form:ViewPort" order="3" uid="a7222041-fa8e-43fe-891e-4995a778444d">
                       <viewPortTrigger uid="dd3d4078-06bf-4b7e-aea5-e076d263db1a"/>
                     </viewElement>
@@ -120,7 +131,7 @@
                     <viewElement xsi:type="tura.form:ViewPort" uid="b24ecd7d-0b41-4ee6-a8a6-47d3125beb6f"/>
                   </canvases>
                   <canvases xsi:type="tura.form:TabPage" uid="16cc3803-3d90-48d6-ae6f-90eced839ea1">
-                    <viewElement xsi:type="tura.form:ViewArea" uid="fca763b8-f850-4fc6-b637-9d4703c981a0"/>
+                    <viewElement xsi:type="tura.form:ViewArea" uid="fca763b8-f850-4fc6-b637-9d4703c981a0" name="dasdas"/>
                   </canvases>
                   <canvases xsi:type="tura.form:TabCanvas" uid="960dbea2-8976-4a06-962d-95f54683b311" name="qweqweqwe"/>
                   <viewInheritances uid="31a9d295-a194-46ec-afca-1c670ab64375" source="85af4c4e-96a5-4d4d-b0ee-43cdc7a5f94a" target="00368d54-56f7-44f1-8e66-f9213cfe0a4c"/>

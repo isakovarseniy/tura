@@ -116,7 +116,9 @@ class ViewPort extends ViewElement,Orderable{
 class ViewArea extends ViewElement,Orderable{
     id attr EString uid;
    attr EString name;
-   ref CanvasView#parent canvasView;
+   val LayerHolder  baseCanvas; 
+   val LinkToLabel[*] linkToLabels;
+   val LinkToMessage[*] linkToMessages;
 }
 
 
@@ -139,13 +141,6 @@ class TabPagesInheritance{
 }
 
 
-class CanvasView{
-    id attr EString uid;
-   ref ViewArea#canvasView parent;
-   val LayerHolder  baseCanvas; 
-   val LinkToLabel[*] linkToLabels;
-   val LinkToMessage[*] linkToMessages;
-}
 
 
 class LinkToMessage {

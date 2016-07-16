@@ -1,5 +1,6 @@
 package org.tura.metamodel.sirius.diagram.designer.service;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
@@ -8,6 +9,16 @@ import application.Application;
 import application.ApplicationGroup;
 import application.ApplicationInfrastructureLayer;
 import application.ApplicationInfrastructureLayers;
+import application.ApplicationLanguages;
+import application.ApplicationMessageLibrary;
+import application.ApplicationRealm;
+import application.ApplicationRealms;
+import application.ApplicationRecipe;
+import application.ApplicationRecipes;
+import application.ApplicationStyle;
+import application.ApplicationStyleLibraries;
+import application.ApplicationUILayer;
+import application.ApplicationUIPackage;
 import artifact.ArtifactGroup;
 import domain.DomainApplication;
 import domain.DomainApplications;
@@ -19,6 +30,7 @@ import form.ArtificialField;
 import form.DataControl;
 import form.Form;
 import form.FormParameter;
+import form.ViewArea;
 import infrastructure.EnterpriseInfrastructure;
 import message.Language;
 import message.Message;
@@ -28,19 +40,17 @@ import recipe.Recipes;
 import style.StyleLibrary;
 import style.StyleSet;
 import type.TypeGroup;
-import application.ApplicationLanguages;
-import application.ApplicationMessageLibrary;
-import application.ApplicationRealm;
-import application.ApplicationRealms;
-import application.ApplicationRecipe;
-import application.ApplicationRecipes;
-import application.ApplicationStyle;
-import application.ApplicationStyleLibraries;
-import application.ApplicationUILayer;
-import application.ApplicationUIPackage;
 
 public class DiagramService {
 
+	
+	public Object getCandidates(EObject eobject ){
+		if  (eobject instanceof ViewArea){
+			return ((ViewArea)eobject).getBaseCanvas();
+		}
+		return new ArrayList<EObject>();
+	}
+	
 	public String generateUID(EObject eobject ){
 		return UUID.randomUUID().toString();
 	}

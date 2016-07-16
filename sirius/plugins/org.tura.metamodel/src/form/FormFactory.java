@@ -211,15 +211,6 @@ public interface FormFactory extends EFactory {
 	TabPagesInheritance createTabPagesInheritance();
 
 	/**
-	 * Returns a new object of class '<em>Canvas View</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Canvas View</em>'.
-	 * @generated
-	 */
-	CanvasView createCanvasView();
-
-	/**
 	 * Returns a new object of class '<em>Link To Message</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

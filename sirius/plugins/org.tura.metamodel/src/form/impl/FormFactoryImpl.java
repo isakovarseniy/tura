@@ -78,7 +78,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.VIEW_PORT_TRIGGER: return createViewPortTrigger();
 			case FormPackage.VIEW_INHERITANCE: return createViewInheritance();
 			case FormPackage.TAB_PAGES_INHERITANCE: return createTabPagesInheritance();
-			case FormPackage.CANVAS_VIEW: return createCanvasView();
 			case FormPackage.LINK_TO_MESSAGE: return createLinkToMessage();
 			case FormPackage.LINK_TO_LABEL: return createLinkToLabel();
 			case FormPackage.CHILDREN_HOLDER: return createChildrenHolder();
@@ -400,16 +399,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public TabPagesInheritance createTabPagesInheritance() {
 		TabPagesInheritanceImpl tabPagesInheritance = new TabPagesInheritanceImpl();
 		return tabPagesInheritance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CanvasView createCanvasView() {
-		CanvasViewImpl canvasView = new CanvasViewImpl();
-		return canvasView;
 	}
 
 	/**

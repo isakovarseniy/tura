@@ -254,12 +254,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FormPackage.CANVAS_VIEW: {
-				CanvasView canvasView = (CanvasView)theEObject;
-				T result = caseCanvasView(canvasView);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FormPackage.LINK_TO_MESSAGE: {
 				LinkToMessage linkToMessage = (LinkToMessage)theEObject;
 				T result = caseLinkToMessage(linkToMessage);
@@ -1270,21 +1264,6 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTabPagesInheritance(TabPagesInheritance object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Canvas View</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Canvas View</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCanvasView(CanvasView object) {
 		return null;
 	}
 

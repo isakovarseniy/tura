@@ -159,10 +159,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createTabPagesInheritanceAdapter();
 			}
 			@Override
-			public Adapter caseCanvasView(CanvasView object) {
-				return createCanvasViewAdapter();
-			}
-			@Override
 			public Adapter caseLinkToMessage(LinkToMessage object) {
 				return createLinkToMessageAdapter();
 			}
@@ -769,20 +765,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTabPagesInheritanceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link form.CanvasView <em>Canvas View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see form.CanvasView
-	 * @generated
-	 */
-	public Adapter createCanvasViewAdapter() {
 		return null;
 	}
 
