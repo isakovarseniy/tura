@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link form.impl.TableImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link form.impl.TableImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link form.impl.TableImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link form.impl.TableImpl#getRowNumber <em>Row Number</em>}</li>
@@ -42,26 +41,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class TableImpl extends SourcesPointerImpl implements Table {
-	/**
-	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColumns()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int COLUMNS_EDEFAULT = 1;
-
-	/**
-	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColumns()
-	 * @generated
-	 * @ordered
-	 */
-	protected int columns = COLUMNS_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -139,27 +118,6 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	@Override
 	protected EClass eStaticClass() {
 		return FormPackage.Literals.TABLE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getColumns() {
-		return columns;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setColumns(int newColumns) {
-		int oldColumns = columns;
-		columns = newColumns;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.TABLE__COLUMNS, oldColumns, columns));
 	}
 
 	/**
@@ -283,8 +241,6 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FormPackage.TABLE__COLUMNS:
-				return getColumns();
 			case FormPackage.TABLE__MULTI_LANG_LABEL:
 				return getMultiLangLabel();
 			case FormPackage.TABLE__LABEL:
@@ -306,9 +262,6 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FormPackage.TABLE__COLUMNS:
-				setColumns((Integer)newValue);
-				return;
 			case FormPackage.TABLE__MULTI_LANG_LABEL:
 				setMultiLangLabel((Context)newValue);
 				return;
@@ -334,9 +287,6 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FormPackage.TABLE__COLUMNS:
-				setColumns(COLUMNS_EDEFAULT);
-				return;
 			case FormPackage.TABLE__MULTI_LANG_LABEL:
 				setMultiLangLabel((Context)null);
 				return;
@@ -361,8 +311,6 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FormPackage.TABLE__COLUMNS:
-				return columns != COLUMNS_EDEFAULT;
 			case FormPackage.TABLE__MULTI_LANG_LABEL:
 				return multiLangLabel != null;
 			case FormPackage.TABLE__LABEL:
@@ -382,12 +330,6 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == HTMLLayerHolder.class) {
-			switch (derivedFeatureID) {
-				case FormPackage.TABLE__COLUMNS: return FormPackage.HTML_LAYER_HOLDER__COLUMNS;
-				default: return -1;
-			}
-		}
 		if (baseClass == MultiLangLabel.class) {
 			switch (derivedFeatureID) {
 				case FormPackage.TABLE__MULTI_LANG_LABEL: return FormPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL;
@@ -404,12 +346,6 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == HTMLLayerHolder.class) {
-			switch (baseFeatureID) {
-				case FormPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.TABLE__COLUMNS;
-				default: return -1;
-			}
-		}
 		if (baseClass == MultiLangLabel.class) {
 			switch (baseFeatureID) {
 				case FormPackage.MULTI_LANG_LABEL__MULTI_LANG_LABEL: return FormPackage.TABLE__MULTI_LANG_LABEL;
@@ -429,9 +365,7 @@ public class TableImpl extends SourcesPointerImpl implements Table {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (columns: ");
-		result.append(columns);
-		result.append(", label: ");
+		result.append(" (label: ");
 		result.append(label);
 		result.append(", rowNumber: ");
 		result.append(rowNumber);

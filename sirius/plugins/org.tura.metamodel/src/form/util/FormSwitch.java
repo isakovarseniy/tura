@@ -622,7 +622,6 @@ public class FormSwitch<T> extends Switch<T> {
 				Table table = (Table)theEObject;
 				T result = caseTable(table);
 				if (result == null) result = caseSourcesPointer(table);
-				if (result == null) result = caseHTMLLayerHolder(table);
 				if (result == null) result = caseMultiLangLabel(table);
 				if (result == null) result = caseUielement(table);
 				if (result == null) result = caseStyleElement(table);
@@ -746,7 +745,6 @@ public class FormSwitch<T> extends Switch<T> {
 				Tree tree = (Tree)theEObject;
 				T result = caseTree(tree);
 				if (result == null) result = caseSourcesPointer(tree);
-				if (result == null) result = caseHTMLLayerHolder(tree);
 				if (result == null) result = caseMultiLangLabel(tree);
 				if (result == null) result = caseUielement(tree);
 				if (result == null) result = caseStyleElement(tree);

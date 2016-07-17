@@ -4949,22 +4949,13 @@ public interface FormPackage extends EPackage {
 	int TABLE__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
+	int TABLE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -4973,7 +4964,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 2;
+	int TABLE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Row Number</b></em>' attribute.
@@ -4982,7 +4973,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__ROW_NUMBER = SOURCES_POINTER_FEATURE_COUNT + 3;
+	int TABLE__ROW_NUMBER = SOURCES_POINTER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Cols</b></em>' containment reference list.
@@ -4991,7 +4982,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__COLS = SOURCES_POINTER_FEATURE_COUNT + 4;
+	int TABLE__COLS = SOURCES_POINTER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -5000,7 +4991,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
+	int TABLE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link form.impl.MenuImpl <em>Menu</em>}' class.
@@ -6022,22 +6013,13 @@ public interface FormPackage extends EPackage {
 	int TREE__SOURCE_CAST_DATA_CONTROL = SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE__COLUMNS = SOURCES_POINTER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TREE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
+	int TREE__MULTI_LANG_LABEL = SOURCES_POINTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -6046,7 +6028,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 2;
+	int TREE__LABEL = SOURCES_POINTER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Image</b></em>' containment reference.
@@ -6055,7 +6037,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE__IMAGE = SOURCES_POINTER_FEATURE_COUNT + 3;
+	int TREE__IMAGE = SOURCES_POINTER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Cols</b></em>' containment reference list.
@@ -6064,7 +6046,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE__COLS = SOURCES_POINTER_FEATURE_COUNT + 4;
+	int TREE__COLS = SOURCES_POINTER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Tree</em>' class.
@@ -6073,7 +6055,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 5;
+	int TREE_FEATURE_COUNT = SOURCES_POINTER_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link form.impl.ControlsImpl <em>Controls</em>}' class.

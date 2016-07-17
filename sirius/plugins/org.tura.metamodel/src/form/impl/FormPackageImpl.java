@@ -3822,7 +3822,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		columnEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		columnEClass.getESuperTypes().add(this.getOrderable());
 		tableEClass.getESuperTypes().add(this.getSourcesPointer());
-		tableEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		tableEClass.getESuperTypes().add(this.getMultiLangLabel());
 		menuEClass.getESuperTypes().add(this.getUielement());
 		menuElementEClass.getESuperTypes().add(this.getMultiLangLabel());
@@ -3845,7 +3844,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		subMenuEClass.getESuperTypes().add(this.getItemIcon());
 		menuSeparatorEClass.getESuperTypes().add(this.getMenuElement());
 		treeEClass.getESuperTypes().add(this.getSourcesPointer());
-		treeEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		treeEClass.getESuperTypes().add(this.getMultiLangLabel());
 		triggerEClass.getESuperTypes().add(theTypePackage.getMethodPointer());
 		triggerEClass.getESuperTypes().add(this.getContextParameters());

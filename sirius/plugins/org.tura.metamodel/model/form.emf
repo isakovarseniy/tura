@@ -323,7 +323,7 @@ class Column extends StyleElement,MultiLangLabel, common.Categorized,HTMLLayerHo
    val Uielement element;   
 }
 
-class Table extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
+class Table extends SourcesPointer,MultiLangLabel{
    attr EString label;
    attr EInt rowNumber;
     val Column[*] cols;
@@ -382,7 +382,7 @@ class MenuSeparator extends MenuElement{
 }
 
 
-class Tree extends SourcesPointer,HTMLLayerHolder,MultiLangLabel{
+class Tree extends SourcesPointer,MultiLangLabel{
    attr EString label;
    val Context image;
     val Column[*] cols;
