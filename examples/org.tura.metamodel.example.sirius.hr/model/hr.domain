@@ -110,26 +110,26 @@
                     <viewElement xsi:type="tura.form:ViewPort" order="1" uid="7ce03e1d-3a28-4aa9-a38d-a10a2c74ccd3"/>
                     <viewElement xsi:type="tura.form:ViewPort" order="2" uid="85af4c4e-96a5-4d4d-b0ee-43cdc7a5f94a"/>
                     <viewElement xsi:type="tura.form:ViewArea" uid="ff98438d-8247-436c-9a2a-61654f481014" name="asdkjlaskdjalskd">
-                      <baseCanvas columns="2">
-                        <children xsi:type="tura.form:Button" order="8" uid="f9c8348f-4484-40a3-b7dd-8c6dd6b0c200" label="qweqweqwe"/>
-                        <children xsi:type="tura.form:CheckBox" order="2" uid="8f3d9719-5891-4f98-b039-a285f310b1c7"/>
-                        <children xsi:type="tura.form:Date" order="6" uid="5e893811-268e-4cc7-ba27-65a06855d8b2"/>
-                        <children xsi:type="tura.form:DropDownSelection" order="1" uid="a19ca148-81a6-4d6c-8386-e394498acdc2"/>
+                      <baseCanvas columns="4">
+                        <children xsi:type="tura.form:Button" order="2" uid="f9c8348f-4484-40a3-b7dd-8c6dd6b0c200" label="qweqweqwe"/>
+                        <children xsi:type="tura.form:CheckBox" order="5" uid="8f3d9719-5891-4f98-b039-a285f310b1c7"/>
+                        <children xsi:type="tura.form:Date" uid="5e893811-268e-4cc7-ba27-65a06855d8b2"/>
+                        <children xsi:type="tura.form:DropDownSelection" order="10" uid="a19ca148-81a6-4d6c-8386-e394498acdc2"/>
                         <children xsi:type="tura.form:Image" order="3" uid="01316c01-5058-41fe-9dd6-96ffcb2f646e"/>
-                        <children xsi:type="tura.form:InputText" order="4" uid="9978fae4-6fdf-4d57-af38-a0da1eea5290"/>
+                        <children xsi:type="tura.form:InputText" order="8" uid="9978fae4-6fdf-4d57-af38-a0da1eea5290"/>
                         <children xsi:type="tura.form:OutputText" order="9" uid="c9595751-79bb-470b-8b35-a31a76d29905"/>
-                        <children xsi:type="tura.form:Password" order="7" uid="b446e1d3-714e-4bcb-8deb-467a684f4dad"/>
-                        <children xsi:type="tura.form:Label" order="11" uid="f75f4f1b-ab87-4e9c-b04f-086669aec55d" label="Label"/>
-                        <children xsi:type="tura.form:Table" uid="dbafda2c-67cc-425d-a358-380452be2fec">
+                        <children xsi:type="tura.form:Password" order="4" uid="b446e1d3-714e-4bcb-8deb-467a684f4dad"/>
+                        <children xsi:type="tura.form:Label" order="6" uid="f75f4f1b-ab87-4e9c-b04f-086669aec55d" label="Label"/>
+                        <children xsi:type="tura.form:Table" order="7" uid="dbafda2c-67cc-425d-a358-380452be2fec">
                           <cols uid="38e669a7-cb34-425b-a38f-597e20473f25" label="sdasdasd"/>
                           <cols order="1" uid="bb8b1abb-8388-4f5a-9855-0cc5a1178d58" label="asdasdasd"/>
                         </children>
-                        <children xsi:type="tura.form:Table" order="10" uid="16101821-2c77-4da9-a892-ed620bff28a6">
+                        <children xsi:type="tura.form:Table" order="1" uid="16101821-2c77-4da9-a892-ed620bff28a6">
                           <cols uid="f7665228-2752-4909-b5a0-3889329b1b82" label="qweqweqw"/>
                           <cols order="1" uid="8cddfa31-2341-4376-aef0-5f56b006e8b8"/>
                         </children>
                         <children xsi:type="tura.form:Tree" order="12" uid="850209fd-b9ee-4d53-b433-a5a8a833d2aa" label=",,m,m."/>
-                        <children xsi:type="tura.form:Menu" order="5" uid="db69240d-088c-42d6-86b2-4df1b67249c4"/>
+                        <children xsi:type="tura.form:Menu" order="11" uid="db69240d-088c-42d6-86b2-4df1b67249c4"/>
                         <children xsi:type="tura.form:MessageElement" order="13" uid="b4b29e91-4489-41e6-8bab-a509f33df270"/>
                       </baseCanvas>
                     </viewElement>

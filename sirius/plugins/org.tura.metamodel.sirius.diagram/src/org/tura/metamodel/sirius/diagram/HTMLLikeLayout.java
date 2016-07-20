@@ -1,11 +1,13 @@
 package org.tura.metamodel.sirius.diagram;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -76,6 +78,18 @@ public class HTMLLikeLayout extends FreeFormLayoutEx {
 		Collections.sort(children, new Order());
 	}
 
+	
+	private void firePropertyChange(IFigure fig,int order){
+		try{
+		    Method m = Figure.class.getDeclaredMethod("firePropertyChange", String.class,Object.class,Object.class);
+		    m.setAccessible(true);
+		    m.invoke(fig, "order", -1,order);
+		    
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 	protected Dimension calculateLayout(IFigure parent) {
 
 		removeConstraints(parent);
@@ -83,6 +97,11 @@ public class HTMLLikeLayout extends FreeFormLayoutEx {
 		List<IFigure> children = getChildren(parent);
 
 		Collections.sort(children, new Order());
+		int order = 0;
+		for (IFigure fig: children){
+			firePropertyChange(fig,order);
+			order++;
+		}
 
 		ArrayList<ArrayList<IFigure>> grid = new ArrayList<ArrayList<IFigure>>();
 

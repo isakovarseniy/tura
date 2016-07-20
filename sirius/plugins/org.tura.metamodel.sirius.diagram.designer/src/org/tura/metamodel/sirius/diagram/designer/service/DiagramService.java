@@ -27,9 +27,11 @@ import domain.DomainArtifacts;
 import domain.DomainTypes;
 import domain.DomainTypesRepository;
 import form.ArtificialField;
+import form.Column;
 import form.DataControl;
 import form.Form;
 import form.FormParameter;
+import form.LayerHolder;
 import form.ViewArea;
 import infrastructure.EnterpriseInfrastructure;
 import message.Language;
@@ -48,6 +50,14 @@ public class DiagramService {
 		if  (eobject instanceof ViewArea){
 			return ((ViewArea)eobject).getBaseCanvas();
 		}
+		if  (eobject instanceof LayerHolder){
+			return ((LayerHolder)eobject).getChildren();
+		}
+
+		if  (eobject instanceof Column){
+			return ((Column)eobject).getElement();
+		}
+		
 		return new ArrayList<EObject>();
 	}
 	

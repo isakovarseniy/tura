@@ -1,11 +1,8 @@
 package org.tura.metamodel.sirius.diagram;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
-import org.eclipse.draw2d.FigureListener;
-import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -37,55 +34,40 @@ public class TuraContainerViewNodeContainerCompartmentEditPart
 	}
 
     private EditPartListener editpartListener = new EditPartListener.Stub() {
+     class OrderModifier implements PropertyChangeListener{
+ 
+    	 private EditPart editPart;
+    	 OrderModifier(EditPart editPart){
+    		 this.editPart = editPart;
+    	 }
+    	 
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+     		EObject obj = null;
+     		if ( ((View) editPart.getModel()).getElement() instanceof DNodeContainerSpec){
+     			obj =((DNodeContainerSpec) (((View) editPart.getModel()).getElement())).getTarget();
+     		}
+     		if ( ((View) editPart.getModel()).getElement() instanceof DNodeSpec){
+     			obj =((DNodeSpec) (((View) editPart.getModel()).getElement())).getTarget();
+     		}
+			if (obj instanceof Orderable) {
+				EditingDomain editingDomain = getEditingDomain();
+				editingDomain.getCommandStack().execute(
+						SetCommand.create(editingDomain, obj,
+								FormPackage.eINSTANCE
+										.getOrderable_Order(), evt.getNewValue()));
 
-        private FigureListener childFigureListener = new FigureListener() {
-
-            public void figureMoved(IFigure source) {
-            	@SuppressWarnings("unchecked")
-				List<GraphicalEditPart >   ls  = getChildren();
-            	ArrayList<IFigure> children = new ArrayList<>();
-            	HashMap<IFigure, GraphicalEditPart> hash = new HashMap<>();
-            	for (GraphicalEditPart editPart : ls){
-            		hash.put(editPart.getFigure(), editPart);
-            		children.add(editPart.getFigure());
-            	}
-            	new HTMLLikeLayout().sort(children);
-            	Integer order = 0;
-            	for (IFigure fig : children){
-            		GraphicalEditPart editPart = hash.get(fig);
-            		EObject obj = null;
-               		if ( ((View) editPart.getModel()).getElement() instanceof DNodeContainerSpec){
-            			obj =((DNodeContainerSpec) (((View) editPart.getModel()).getElement())).getTarget();
-            		}
-            		if ( ((View) editPart.getModel()).getElement() instanceof DNodeSpec){
-            			obj =((DNodeSpec) (((View) editPart.getModel()).getElement())).getTarget();
-            		}
-     				if (obj instanceof Orderable) {
-    					EditingDomain editingDomain = getEditingDomain();
-    					editingDomain.getCommandStack().execute(
-    							SetCommand.create(editingDomain, obj,
-    									FormPackage.eINSTANCE
-    											.getOrderable_Order(), order));
-
-    				}
-     				order++;
-            			
-            	}
-            }
-        };
-
+			}
+			}
+		}
         public void childAdded(EditPart child, int index) {
-            ((GraphicalEditPart) child).getFigure().addFigureListener(
-                childFigureListener);
+           ((GraphicalEditPart) child).getFigure().addPropertyChangeListener("order", new OrderModifier(child));
         }
 
         public void removingChild(EditPart child, int index) {
-            ((GraphicalEditPart) child).getFigure().removeFigureListener(
-                childFigureListener);
-
         }
-
-    };
+        
+     };
 	
 	
     @Override
