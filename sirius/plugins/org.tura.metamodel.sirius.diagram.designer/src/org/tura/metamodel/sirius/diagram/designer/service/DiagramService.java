@@ -46,6 +46,16 @@ import type.TypeGroup;
 public class DiagramService {
 
 	
+	
+	public Object getContextForLink( EObject eobject ){
+		EObject obj = eobject.eContainer();
+		if (obj instanceof ViewArea){
+			return obj;
+		}else{
+			return getContextForLink(obj);
+		}
+	}	
+
 	public Object getCandidates(EObject eobject ){
 		if  (eobject instanceof ViewArea){
 			return ((ViewArea)eobject).getBaseCanvas();
