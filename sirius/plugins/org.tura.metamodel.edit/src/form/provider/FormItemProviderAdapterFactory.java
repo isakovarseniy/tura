@@ -1382,29 +1382,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link form.MenuView} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MenuViewItemProvider menuViewItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.MenuView}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMenuViewAdapter() {
-		if (menuViewItemProvider == null) {
-			menuViewItemProvider = new MenuViewItemProvider(this);
-		}
-
-		return menuViewItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link form.MenuHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

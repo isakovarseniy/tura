@@ -90,7 +90,7 @@ class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,common.Categorize
 class MenuDefinition extends StyleElement,common.Categorized {
     id attr EString uid;
    attr EString name;
-   ref MenuView#parent menuView;
+   val MenuFolder[*] menuFolders; 
 }
 
 enum Orientation{
@@ -332,13 +332,6 @@ class Table extends SourcesPointer,MultiLangLabel{
 class Menu extends Uielement{
 }
 
-
-
-class MenuView{
-    id attr EString uid;
-   ref MenuDefinition#menuView parent;
-   val MenuFolder[*] menuFolders; 
-}
 
 
 class MenuHolder {

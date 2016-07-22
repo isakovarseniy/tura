@@ -76,8 +76,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menuView" eType="#//MenuView"
-        eOpposite="#//MenuView/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menuFolders" upperBound="-1"
+        eType="#//MenuFolder" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Orientation">
     <eLiterals name="Top"/>
@@ -265,14 +265,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//Uielement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuView">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//MenuDefinition"
-        eOpposite="#//MenuDefinition/menuView"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menuFolders" upperBound="-1"
-        eType="#//MenuFolder" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MenuHolder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="menu" eType="#//MenuFolder"/>
   </eClassifiers>

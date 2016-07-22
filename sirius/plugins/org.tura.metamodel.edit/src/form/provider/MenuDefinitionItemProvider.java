@@ -6,6 +6,7 @@ package form.provider;
 import common.CommonFactory;
 import common.CommonPackage;
 
+import form.FormFactory;
 import form.FormPackage;
 import form.MenuDefinition;
 
@@ -52,7 +53,6 @@ public class MenuDefinitionItemProvider extends StyleElementItemProvider {
 
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addMenuViewPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -102,28 +102,6 @@ public class MenuDefinitionItemProvider extends StyleElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Menu View feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMenuViewPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MenuDefinition_menuView_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MenuDefinition_menuView_feature", "_UI_MenuDefinition_type"),
-				 FormPackage.Literals.MENU_DEFINITION__MENU_VIEW,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -136,6 +114,7 @@ public class MenuDefinitionItemProvider extends StyleElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(FormPackage.Literals.MENU_DEFINITION__MENU_FOLDERS);
 		}
 		return childrenFeatures;
 	}
@@ -196,6 +175,7 @@ public class MenuDefinitionItemProvider extends StyleElementItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormPackage.MENU_DEFINITION__CLASSIFIERS:
+			case FormPackage.MENU_DEFINITION__MENU_FOLDERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -217,6 +197,11 @@ public class MenuDefinitionItemProvider extends StyleElementItemProvider {
 			(createChildParameter
 				(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS,
 				 CommonFactory.eINSTANCE.createClassifier()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.MENU_DEFINITION__MENU_FOLDERS,
+				 FormFactory.eINSTANCE.createMenuFolder()));
 	}
 
 }

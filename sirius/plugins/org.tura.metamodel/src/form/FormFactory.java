@@ -535,15 +535,6 @@ public interface FormFactory extends EFactory {
 	Menu createMenu();
 
 	/**
-	 * Returns a new object of class '<em>Menu View</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Menu View</em>'.
-	 * @generated
-	 */
-	MenuView createMenuView();
-
-	/**
 	 * Returns a new object of class '<em>Menu Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3,6 +3,7 @@
 package form;
 
 import common.Categorized;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +16,7 @@ import common.Categorized;
  * <ul>
  *   <li>{@link form.MenuDefinition#getUid <em>Uid</em>}</li>
  *   <li>{@link form.MenuDefinition#getName <em>Name</em>}</li>
- *   <li>{@link form.MenuDefinition#getMenuView <em>Menu View</em>}</li>
+ *   <li>{@link form.MenuDefinition#getMenuFolders <em>Menu Folders</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getMenuDefinition()
@@ -76,31 +77,19 @@ public interface MenuDefinition extends StyleElement, Categorized {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Menu View</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link form.MenuView#getParent <em>Parent</em>}'.
+	 * Returns the value of the '<em><b>Menu Folders</b></em>' containment reference list.
+	 * The list contents are of type {@link form.MenuFolder}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Menu View</em>' reference isn't clear,
+	 * If the meaning of the '<em>Menu Folders</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Menu View</em>' reference.
-	 * @see #setMenuView(MenuView)
-	 * @see form.FormPackage#getMenuDefinition_MenuView()
-	 * @see form.MenuView#getParent
-	 * @model opposite="parent"
+	 * @return the value of the '<em>Menu Folders</em>' containment reference list.
+	 * @see form.FormPackage#getMenuDefinition_MenuFolders()
+	 * @model containment="true"
 	 * @generated
 	 */
-	MenuView getMenuView();
-
-	/**
-	 * Sets the value of the '{@link form.MenuDefinition#getMenuView <em>Menu View</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Menu View</em>' reference.
-	 * @see #getMenuView()
-	 * @generated
-	 */
-	void setMenuView(MenuView value);
+	EList<MenuFolder> getMenuFolders();
 
 } // MenuDefinition

@@ -8,6 +8,7 @@ import common.CommonPackage;
 
 import form.FormPackage;
 import form.MenuDefinition;
+import form.MenuFolder;
 import form.MenuView;
 
 import java.util.Collection;
@@ -36,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.MenuDefinitionImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link form.impl.MenuDefinitionImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.MenuDefinitionImpl#getName <em>Name</em>}</li>
- *   <li>{@link form.impl.MenuDefinitionImpl#getMenuView <em>Menu View</em>}</li>
+ *   <li>{@link form.impl.MenuDefinitionImpl#getMenuFolders <em>Menu Folders</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,14 +94,14 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMenuView() <em>Menu View</em>}' reference.
+	 * The cached value of the '{@link #getMenuFolders() <em>Menu Folders</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMenuView()
+	 * @see #getMenuFolders()
 	 * @generated
 	 * @ordered
 	 */
-	protected MenuView menuView;
+	protected EList<MenuFolder> menuFolders;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,75 +181,11 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MenuView getMenuView() {
-		if (menuView != null && menuView.eIsProxy()) {
-			InternalEObject oldMenuView = (InternalEObject)menuView;
-			menuView = (MenuView)eResolveProxy(oldMenuView);
-			if (menuView != oldMenuView) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormPackage.MENU_DEFINITION__MENU_VIEW, oldMenuView, menuView));
-			}
+	public EList<MenuFolder> getMenuFolders() {
+		if (menuFolders == null) {
+			menuFolders = new EObjectContainmentEList<MenuFolder>(MenuFolder.class, this, FormPackage.MENU_DEFINITION__MENU_FOLDERS);
 		}
-		return menuView;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MenuView basicGetMenuView() {
-		return menuView;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMenuView(MenuView newMenuView, NotificationChain msgs) {
-		MenuView oldMenuView = menuView;
-		menuView = newMenuView;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.MENU_DEFINITION__MENU_VIEW, oldMenuView, newMenuView);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMenuView(MenuView newMenuView) {
-		if (newMenuView != menuView) {
-			NotificationChain msgs = null;
-			if (menuView != null)
-				msgs = ((InternalEObject)menuView).eInverseRemove(this, FormPackage.MENU_VIEW__PARENT, MenuView.class, msgs);
-			if (newMenuView != null)
-				msgs = ((InternalEObject)newMenuView).eInverseAdd(this, FormPackage.MENU_VIEW__PARENT, MenuView.class, msgs);
-			msgs = basicSetMenuView(newMenuView, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.MENU_DEFINITION__MENU_VIEW, newMenuView, newMenuView));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FormPackage.MENU_DEFINITION__MENU_VIEW:
-				if (menuView != null)
-					msgs = ((InternalEObject)menuView).eInverseRemove(this, FormPackage.MENU_VIEW__PARENT, MenuView.class, msgs);
-				return basicSetMenuView((MenuView)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+		return menuFolders;
 	}
 
 	/**
@@ -261,8 +198,8 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 		switch (featureID) {
 			case FormPackage.MENU_DEFINITION__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
-			case FormPackage.MENU_DEFINITION__MENU_VIEW:
-				return basicSetMenuView(null, msgs);
+			case FormPackage.MENU_DEFINITION__MENU_FOLDERS:
+				return ((InternalEList<?>)getMenuFolders()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -281,9 +218,8 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 				return getUid();
 			case FormPackage.MENU_DEFINITION__NAME:
 				return getName();
-			case FormPackage.MENU_DEFINITION__MENU_VIEW:
-				if (resolve) return getMenuView();
-				return basicGetMenuView();
+			case FormPackage.MENU_DEFINITION__MENU_FOLDERS:
+				return getMenuFolders();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -307,8 +243,9 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 			case FormPackage.MENU_DEFINITION__NAME:
 				setName((String)newValue);
 				return;
-			case FormPackage.MENU_DEFINITION__MENU_VIEW:
-				setMenuView((MenuView)newValue);
+			case FormPackage.MENU_DEFINITION__MENU_FOLDERS:
+				getMenuFolders().clear();
+				getMenuFolders().addAll((Collection<? extends MenuFolder>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -331,8 +268,8 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 			case FormPackage.MENU_DEFINITION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case FormPackage.MENU_DEFINITION__MENU_VIEW:
-				setMenuView((MenuView)null);
+			case FormPackage.MENU_DEFINITION__MENU_FOLDERS:
+				getMenuFolders().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -352,8 +289,8 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case FormPackage.MENU_DEFINITION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case FormPackage.MENU_DEFINITION__MENU_VIEW:
-				return menuView != null;
+			case FormPackage.MENU_DEFINITION__MENU_FOLDERS:
+				return menuFolders != null && !menuFolders.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

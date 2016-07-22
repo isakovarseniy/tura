@@ -566,13 +566,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass menuViewEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass menuHolderEClass = null;
 
 	/**
@@ -1245,7 +1238,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMenuDefinition_MenuView() {
+	public EReference getMenuDefinition_MenuFolders() {
 		return (EReference)menuDefinitionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2273,42 +2266,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EClass getMenu() {
 		return menuEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMenuView() {
-		return menuViewEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMenuView_Uid() {
-		return (EAttribute)menuViewEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMenuView_Parent() {
-		return (EReference)menuViewEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMenuView_MenuFolders() {
-		return (EReference)menuViewEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3396,7 +3353,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		menuDefinitionEClass = createEClass(MENU_DEFINITION);
 		createEAttribute(menuDefinitionEClass, MENU_DEFINITION__UID);
 		createEAttribute(menuDefinitionEClass, MENU_DEFINITION__NAME);
-		createEReference(menuDefinitionEClass, MENU_DEFINITION__MENU_VIEW);
+		createEReference(menuDefinitionEClass, MENU_DEFINITION__MENU_FOLDERS);
 
 		tabCanvasEClass = createEClass(TAB_CANVAS);
 		createEAttribute(tabCanvasEClass, TAB_CANVAS__ORIENTATION);
@@ -3554,11 +3511,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEReference(tableEClass, TABLE__COLS);
 
 		menuEClass = createEClass(MENU);
-
-		menuViewEClass = createEClass(MENU_VIEW);
-		createEAttribute(menuViewEClass, MENU_VIEW__UID);
-		createEReference(menuViewEClass, MENU_VIEW__PARENT);
-		createEReference(menuViewEClass, MENU_VIEW__MENU_FOLDERS);
 
 		menuHolderEClass = createEClass(MENU_HOLDER);
 		createEReference(menuHolderEClass, MENU_HOLDER__MENU);
@@ -3917,7 +3869,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(menuDefinitionEClass, MenuDefinition.class, "MenuDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMenuDefinition_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMenuDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMenuDefinition_MenuView(), this.getMenuView(), this.getMenuView_Parent(), "menuView", null, 0, 1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuDefinition_MenuFolders(), this.getMenuFolder(), null, "menuFolders", null, 0, -1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tabCanvasEClass, TabCanvas.class, "TabCanvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTabCanvas_Orientation(), this.getOrientation(), "orientation", null, 0, 1, TabCanvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4075,11 +4027,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getTable_Cols(), this.getColumn(), null, "cols", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(menuViewEClass, MenuView.class, "MenuView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMenuView_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MenuView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMenuView_Parent(), this.getMenuDefinition(), this.getMenuDefinition_MenuView(), "parent", null, 0, 1, MenuView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMenuView_MenuFolders(), this.getMenuFolder(), null, "menuFolders", null, 0, -1, MenuView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuHolderEClass, MenuHolder.class, "MenuHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMenuHolder_Menu(), this.getMenuFolder(), null, "menu", null, 0, 1, MenuHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
