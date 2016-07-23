@@ -911,13 +911,22 @@ public interface FormPackage extends EPackage {
 	int MENU_DEFINITION__MENU_FOLDERS = STYLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>To Sub Menu</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_DEFINITION__TO_SUB_MENU = STYLE_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Menu Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_DEFINITION_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 4;
+	int MENU_DEFINITION_FEATURE_COUNT = STYLE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link form.impl.TabCanvasImpl <em>Tab Canvas</em>}' class.
@@ -1318,7 +1327,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTrigger()
 	 * @generated
 	 */
-	int TRIGGER = 67;
+	int TRIGGER = 68;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -5704,22 +5713,59 @@ public interface FormPackage extends EPackage {
 	int SUB_MENU__ICON = MENU_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>To Submenu</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUB_MENU__TO_SUBMENU = MENU_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Sub Menu</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_MENU_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 2;
+	int SUB_MENU_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link form.impl.ToSubmenuImpl <em>To Submenu</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.ToSubmenuImpl
+	 * @see form.impl.FormPackageImpl#getToSubmenu()
+	 * @generated
+	 */
+	int TO_SUBMENU = 64;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_SUBMENU__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_SUBMENU__SOURCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_SUBMENU__TARGET = 2;
+
+	/**
+	 * The number of structural features of the '<em>To Submenu</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_SUBMENU_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link form.impl.MenuSeparatorImpl <em>Menu Separator</em>}' class.
@@ -5729,7 +5775,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuSeparator()
 	 * @generated
 	 */
-	int MENU_SEPARATOR = 64;
+	int MENU_SEPARATOR = 65;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5820,7 +5866,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 65;
+	int TREE = 66;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -6019,7 +6065,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getControls()
 	 * @generated
 	 */
-	int CONTROLS = 66;
+	int CONTROLS = 67;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6083,7 +6129,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREFormTrigger()
 	 * @generated
 	 */
-	int PRE_FORM_TRIGGER = 68;
+	int PRE_FORM_TRIGGER = 69;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6129,7 +6175,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREQueryTrigger()
 	 * @generated
 	 */
-	int PRE_QUERY_TRIGGER = 69;
+	int PRE_QUERY_TRIGGER = 70;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6175,7 +6221,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTQueryTrigger()
 	 * @generated
 	 */
-	int POST_QUERY_TRIGGER = 70;
+	int POST_QUERY_TRIGGER = 71;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6221,7 +6267,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREInsertTrigger()
 	 * @generated
 	 */
-	int PRE_INSERT_TRIGGER = 71;
+	int PRE_INSERT_TRIGGER = 72;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6267,7 +6313,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREDeleteTrigger()
 	 * @generated
 	 */
-	int PRE_DELETE_TRIGGER = 72;
+	int PRE_DELETE_TRIGGER = 73;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6313,7 +6359,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTCreateTrigger()
 	 * @generated
 	 */
-	int POST_CREATE_TRIGGER = 73;
+	int POST_CREATE_TRIGGER = 74;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6359,7 +6405,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREUpdateTrigger()
 	 * @generated
 	 */
-	int PRE_UPDATE_TRIGGER = 74;
+	int PRE_UPDATE_TRIGGER = 75;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6405,7 +6451,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getProxiesList()
 	 * @generated
 	 */
-	int PROXIES_LIST = 75;
+	int PROXIES_LIST = 76;
 
 	/**
 	 * The feature id for the '<em><b>Type Pointers</b></em>' containment reference list.
@@ -6433,7 +6479,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCreateTrigger()
 	 * @generated
 	 */
-	int CREATE_TRIGGER = 76;
+	int CREATE_TRIGGER = 77;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6488,7 +6534,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInsertTrigger()
 	 * @generated
 	 */
-	int INSERT_TRIGGER = 77;
+	int INSERT_TRIGGER = 78;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6543,7 +6589,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getUpdateTrigger()
 	 * @generated
 	 */
-	int UPDATE_TRIGGER = 78;
+	int UPDATE_TRIGGER = 79;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6598,7 +6644,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDeleteTrigger()
 	 * @generated
 	 */
-	int DELETE_TRIGGER = 79;
+	int DELETE_TRIGGER = 80;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6653,7 +6699,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSearchTrigger()
 	 * @generated
 	 */
-	int SEARCH_TRIGGER = 80;
+	int SEARCH_TRIGGER = 81;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6708,7 +6754,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRoot()
 	 * @generated
 	 */
-	int ROOT = 81;
+	int ROOT = 82;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6763,7 +6809,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFormVariable()
 	 * @generated
 	 */
-	int FORM_VARIABLE = 82;
+	int FORM_VARIABLE = 83;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -6818,7 +6864,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataControl()
 	 * @generated
 	 */
-	int DATA_CONTROL = 83;
+	int DATA_CONTROL = 84;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6990,7 +7036,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 84;
+	int ORDERS = 85;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7027,7 +7073,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 85;
+	int ORDER_BY = 86;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7073,7 +7119,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 86;
+	int RELATION = 87;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7146,7 +7192,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 87;
+	int DEPENDENCY = 88;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7201,7 +7247,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 88;
+	int ARTIFICIAL_FIELD = 89;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -7247,7 +7293,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLink()
 	 * @generated
 	 */
-	int LINK = 89;
+	int LINK = 90;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7293,7 +7339,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 90;
+	int COMPARATOR = 91;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -7303,7 +7349,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 91;
+	int ORDER = 92;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -7313,7 +7359,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 92;
+	int ORIENTATION = 93;
 
 
 	/**
@@ -7708,6 +7754,17 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMenuDefinition_MenuFolders();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link form.MenuDefinition#getToSubMenu <em>To Sub Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>To Sub Menu</em>'.
+	 * @see form.MenuDefinition#getToSubMenu()
+	 * @see #getMenuDefinition()
+	 * @generated
+	 */
+	EReference getMenuDefinition_ToSubMenu();
 
 	/**
 	 * Returns the meta object for class '{@link form.TabCanvas <em>Tab Canvas</em>}'.
@@ -9101,15 +9158,47 @@ public interface FormPackage extends EPackage {
 	EClass getSubMenu();
 
 	/**
-	 * Returns the meta object for the reference '{@link form.SubMenu#getToSubmenu <em>To Submenu</em>}'.
+	 * Returns the meta object for class '{@link form.ToSubmenu <em>To Submenu</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To Submenu</em>'.
-	 * @see form.SubMenu#getToSubmenu()
-	 * @see #getSubMenu()
+	 * @return the meta object for class '<em>To Submenu</em>'.
+	 * @see form.ToSubmenu
 	 * @generated
 	 */
-	EReference getSubMenu_ToSubmenu();
+	EClass getToSubmenu();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.ToSubmenu#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see form.ToSubmenu#getUid()
+	 * @see #getToSubmenu()
+	 * @generated
+	 */
+	EAttribute getToSubmenu_Uid();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.ToSubmenu#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see form.ToSubmenu#getSource()
+	 * @see #getToSubmenu()
+	 * @generated
+	 */
+	EReference getToSubmenu_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.ToSubmenu#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see form.ToSubmenu#getTarget()
+	 * @see #getToSubmenu()
+	 * @generated
+	 */
+	EReference getToSubmenu_Target();
 
 	/**
 	 * Returns the meta object for class '{@link form.MenuSeparator <em>Menu Separator</em>}'.
@@ -10463,6 +10552,14 @@ public interface FormPackage extends EPackage {
 		EReference MENU_DEFINITION__MENU_FOLDERS = eINSTANCE.getMenuDefinition_MenuFolders();
 
 		/**
+		 * The meta object literal for the '<em><b>To Sub Menu</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_DEFINITION__TO_SUB_MENU = eINSTANCE.getMenuDefinition_ToSubMenu();
+
+		/**
 		 * The meta object literal for the '{@link form.impl.TabCanvasImpl <em>Tab Canvas</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11611,12 +11708,38 @@ public interface FormPackage extends EPackage {
 		EClass SUB_MENU = eINSTANCE.getSubMenu();
 
 		/**
-		 * The meta object literal for the '<em><b>To Submenu</b></em>' reference feature.
+		 * The meta object literal for the '{@link form.impl.ToSubmenuImpl <em>To Submenu</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.ToSubmenuImpl
+		 * @see form.impl.FormPackageImpl#getToSubmenu()
+		 * @generated
+		 */
+		EClass TO_SUBMENU = eINSTANCE.getToSubmenu();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SUB_MENU__TO_SUBMENU = eINSTANCE.getSubMenu_ToSubmenu();
+		EAttribute TO_SUBMENU__UID = eINSTANCE.getToSubmenu_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TO_SUBMENU__SOURCE = eINSTANCE.getToSubmenu_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TO_SUBMENU__TARGET = eINSTANCE.getToSubmenu_Target();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.MenuSeparatorImpl <em>Menu Separator</em>}' class.

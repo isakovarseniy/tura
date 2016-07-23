@@ -91,6 +91,7 @@ class MenuDefinition extends StyleElement,common.Categorized {
     id attr EString uid;
    attr EString name;
    val MenuFolder[*] menuFolders; 
+   val ToSubmenu[*] toSubMenu;
 }
 
 enum Orientation{
@@ -368,7 +369,13 @@ class MenuExtensionPoint extends MenuElement,MenuExtensionRef{
 
 
 class SubMenu extends MenuElement,ItemIcon{
-	ref MenuFolder toSubmenu;
+}
+
+
+class ToSubmenu {
+    id attr EString uid;
+   ref SubMenu source;
+   ref MenuFolder target;
 }
 
 class MenuSeparator extends MenuElement{
@@ -378,7 +385,7 @@ class MenuSeparator extends MenuElement{
 class Tree extends SourcesPointer,MultiLangLabel{
    attr EString label;
    val Context image;
-    val Column[*] cols;
+   val Column[*] cols;
 }
 
 

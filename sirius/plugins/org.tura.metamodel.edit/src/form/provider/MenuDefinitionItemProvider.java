@@ -115,6 +115,7 @@ public class MenuDefinitionItemProvider extends StyleElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(FormPackage.Literals.MENU_DEFINITION__MENU_FOLDERS);
+			childrenFeatures.add(FormPackage.Literals.MENU_DEFINITION__TO_SUB_MENU);
 		}
 		return childrenFeatures;
 	}
@@ -176,6 +177,7 @@ public class MenuDefinitionItemProvider extends StyleElementItemProvider {
 				return;
 			case FormPackage.MENU_DEFINITION__CLASSIFIERS:
 			case FormPackage.MENU_DEFINITION__MENU_FOLDERS:
+			case FormPackage.MENU_DEFINITION__TO_SUB_MENU:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -202,6 +204,11 @@ public class MenuDefinitionItemProvider extends StyleElementItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.MENU_DEFINITION__MENU_FOLDERS,
 				 FormFactory.eINSTANCE.createMenuFolder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.MENU_DEFINITION__TO_SUB_MENU,
+				 FormFactory.eINSTANCE.createToSubmenu()));
 	}
 
 }

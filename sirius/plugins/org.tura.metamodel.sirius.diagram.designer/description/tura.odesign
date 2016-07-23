@@ -1844,7 +1844,21 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Menu Definition" domainClass="form.MenuDefinition">
       <defaultLayer name="Default">
-        <containerMappings name="MenuFolder" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='MenuFolder%20edit%20label']" semanticCandidatesExpression="feature:menuFolders" domainClass="form.MenuFolder" childrenPresentation="List">
+        <edgeMappings name="ToSubmenu" semanticCandidatesExpression="aql:self.toSubMenu" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@containerMappings[name='MenuFolder']/@subNodeMappings[name='SubMenu']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@containerMappings[name='MenuFolder']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="form.ToSubmenu" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20ToSubmenu'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20ToSubmenu']">
+          <style targetArrow="InputFillClosedArrow">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="MenuFolder" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='MenuFolder%20edit%20label']" semanticCandidatesExpression="feature:menuFolders" domainClass="form.MenuFolder">
           <subNodeMappings name="MenuItem" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='MenuItem%20edit%20label']" semanticCandidatesExpression="feature:menuElements" domainClass="form.MenuItem">
             <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
@@ -1878,6 +1892,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_green']"/>
+            <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
           </style>
         </containerMappings>
         <toolSections name="Nodes">
@@ -1963,6 +1978,51 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Connections">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="ToSubmenu" edgeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@edgeMappings[name='ToSubmenu']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.eContainer().eContainer()">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:roles">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.ToSubmenu" referenceName="toSubMenu">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect target ToSubmenu">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconect source ToSubmenu" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
           </ownedTools>
         </toolSections>
       </defaultLayer>

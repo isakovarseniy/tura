@@ -331,6 +331,10 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createSubMenuAdapter();
 			}
 			@Override
+			public Adapter caseToSubmenu(ToSubmenu object) {
+				return createToSubmenuAdapter();
+			}
+			@Override
 			public Adapter caseMenuSeparator(MenuSeparator object) {
 				return createMenuSeparatorAdapter();
 			}
@@ -1363,6 +1367,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSubMenuAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.ToSubmenu <em>To Submenu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.ToSubmenu
+	 * @generated
+	 */
+	public Adapter createToSubmenuAdapter() {
 		return null;
 	}
 

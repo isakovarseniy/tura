@@ -598,6 +598,15 @@ public interface FormFactory extends EFactory {
 	SubMenu createSubMenu();
 
 	/**
+	 * Returns a new object of class '<em>To Submenu</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>To Submenu</em>'.
+	 * @generated
+	 */
+	ToSubmenu createToSubmenu();
+
+	/**
 	 * Returns a new object of class '<em>Menu Separator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

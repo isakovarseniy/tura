@@ -1543,6 +1543,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.ToSubmenu} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ToSubmenuItemProvider toSubmenuItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.ToSubmenu}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createToSubmenuAdapter() {
+		if (toSubmenuItemProvider == null) {
+			toSubmenuItemProvider = new ToSubmenuItemProvider(this);
+		}
+
+		return toSubmenuItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.MenuSeparator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

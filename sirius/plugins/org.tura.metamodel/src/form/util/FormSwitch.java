@@ -723,6 +723,12 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FormPackage.TO_SUBMENU: {
+				ToSubmenu toSubmenu = (ToSubmenu)theEObject;
+				T result = caseToSubmenu(toSubmenu);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FormPackage.MENU_SEPARATOR: {
 				MenuSeparator menuSeparator = (MenuSeparator)theEObject;
 				T result = caseMenuSeparator(menuSeparator);
@@ -1901,6 +1907,21 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSubMenu(SubMenu object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>To Submenu</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>To Submenu</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseToSubmenu(ToSubmenu object) {
 		return null;
 	}
 

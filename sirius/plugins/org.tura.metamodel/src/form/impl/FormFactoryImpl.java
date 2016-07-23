@@ -121,6 +121,7 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.MENU_ITEM: return createMenuItem();
 			case FormPackage.MENU_EXTENSION_POINT: return createMenuExtensionPoint();
 			case FormPackage.SUB_MENU: return createSubMenu();
+			case FormPackage.TO_SUBMENU: return createToSubmenu();
 			case FormPackage.MENU_SEPARATOR: return createMenuSeparator();
 			case FormPackage.TREE: return createTree();
 			case FormPackage.CONTROLS: return createControls();
@@ -828,6 +829,16 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public SubMenu createSubMenu() {
 		SubMenuImpl subMenu = new SubMenuImpl();
 		return subMenu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ToSubmenu createToSubmenu() {
+		ToSubmenuImpl toSubmenu = new ToSubmenuImpl();
+		return toSubmenu;
 	}
 
 	/**

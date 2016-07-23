@@ -47,31 +47,8 @@ public class SubMenuItemProvider extends MenuElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addToSubmenuPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the To Submenu feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addToSubmenuPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SubMenu_toSubmenu_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SubMenu_toSubmenu_feature", "_UI_SubMenu_type"),
-				 FormPackage.Literals.SUB_MENU__TO_SUBMENU,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

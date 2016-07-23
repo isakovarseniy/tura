@@ -181,12 +181,13 @@
                   <tabPagesInheritances uid="34e7240b-6c9c-4dbc-a31c-bd4edb4951cb" source="960dbea2-8976-4a06-962d-95f54683b311" target="79f8202c-9739-42e6-8c04-7db10d6efd13"/>
                   <menus uid="d1577e05-5724-4666-96a0-802b0b82049e" name="menu">
                     <menuFolders uid="2329deff-d1ec-4bfa-b3dc-98eb63ecc2a0" name="m,n,mn,m">
-                      <menuElements xsi:type="tura.form:MenuItem" uid="4c4bc949-be3b-41bd-abe9-f03a9c140b58" name="kjlkjlk"/>
+                      <menuElements xsi:type="tura.form:MenuItem" order="1" uid="4c4bc949-be3b-41bd-abe9-f03a9c140b58" name="kjlkjlk"/>
                       <menuElements xsi:type="tura.form:MenuItem" uid="67ab1932-01cb-44d9-b1c8-8cb9338d7da1" name=",mn,mn,m"/>
-                      <menuElements xsi:type="tura.form:SubMenu" uid="c6c8ad61-cfca-4a71-952f-6065d8587c64" name="mnbmn"/>
-                      <menuElements xsi:type="tura.form:MenuExtensionPoint" uid="00c214d9-e96d-4425-94f1-870d32c4a5e3" name="ext"/>
+                      <menuElements xsi:type="tura.form:SubMenu" order="2" uid="c6c8ad61-cfca-4a71-952f-6065d8587c64" name="mnbmn"/>
+                      <menuElements xsi:type="tura.form:MenuExtensionPoint" order="3" uid="00c214d9-e96d-4425-94f1-870d32c4a5e3" name="ext"/>
                     </menuFolders>
                     <menuFolders uid="b1197f88-4452-4be8-b3d1-68066b6be44b"/>
+                    <toSubMenu uid="e6a34b12-cc8b-47f1-aa36-1acfab266422" source="c6c8ad61-cfca-4a71-952f-6065d8587c64" target="b1197f88-4452-4be8-b3d1-68066b6be44b"/>
                   </menus>
                 </view>
                 <datacontrols uid="6bb23934-e207-455b-b45a-cf5b70139b85">

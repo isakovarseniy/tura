@@ -78,6 +78,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="menuFolders" upperBound="-1"
         eType="#//MenuFolder" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toSubMenu" upperBound="-1"
+        eType="#//ToSubmenu" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Orientation">
     <eLiterals name="Top"/>
@@ -291,8 +293,12 @@
         eType="#//AreaRef" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionPoint" eSuperTypes="#//MenuElement #//MenuExtensionRef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SubMenu" eSuperTypes="#//MenuElement #//ItemIcon">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toSubmenu" eType="#//MenuFolder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SubMenu" eSuperTypes="#//MenuElement #//ItemIcon"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ToSubmenu">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//SubMenu"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//MenuFolder"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MenuSeparator" eSuperTypes="#//MenuElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//SourcesPointer #//MultiLangLabel">

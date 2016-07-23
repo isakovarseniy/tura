@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link form.MenuDefinition#getUid <em>Uid</em>}</li>
  *   <li>{@link form.MenuDefinition#getName <em>Name</em>}</li>
  *   <li>{@link form.MenuDefinition#getMenuFolders <em>Menu Folders</em>}</li>
+ *   <li>{@link form.MenuDefinition#getToSubMenu <em>To Sub Menu</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getMenuDefinition()
@@ -91,5 +92,21 @@ public interface MenuDefinition extends StyleElement, Categorized {
 	 * @generated
 	 */
 	EList<MenuFolder> getMenuFolders();
+
+	/**
+	 * Returns the value of the '<em><b>To Sub Menu</b></em>' containment reference list.
+	 * The list contents are of type {@link form.ToSubmenu}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>To Sub Menu</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>To Sub Menu</em>' containment reference list.
+	 * @see form.FormPackage#getMenuDefinition_ToSubMenu()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ToSubmenu> getToSubMenu();
 
 } // MenuDefinition

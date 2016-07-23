@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link form.impl.SubMenuImpl#getIcon <em>Icon</em>}</li>
- *   <li>{@link form.impl.SubMenuImpl#getToSubmenu <em>To Submenu</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,16 +39,6 @@ public class SubMenuImpl extends MenuElementImpl implements SubMenu {
 	 * @ordered
 	 */
 	protected Context icon;
-
-	/**
-	 * The cached value of the '{@link #getToSubmenu() <em>To Submenu</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getToSubmenu()
-	 * @generated
-	 * @ordered
-	 */
-	protected MenuFolder toSubmenu;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,44 +107,6 @@ public class SubMenuImpl extends MenuElementImpl implements SubMenu {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MenuFolder getToSubmenu() {
-		if (toSubmenu != null && toSubmenu.eIsProxy()) {
-			InternalEObject oldToSubmenu = (InternalEObject)toSubmenu;
-			toSubmenu = (MenuFolder)eResolveProxy(oldToSubmenu);
-			if (toSubmenu != oldToSubmenu) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormPackage.SUB_MENU__TO_SUBMENU, oldToSubmenu, toSubmenu));
-			}
-		}
-		return toSubmenu;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MenuFolder basicGetToSubmenu() {
-		return toSubmenu;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setToSubmenu(MenuFolder newToSubmenu) {
-		MenuFolder oldToSubmenu = toSubmenu;
-		toSubmenu = newToSubmenu;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.SUB_MENU__TO_SUBMENU, oldToSubmenu, toSubmenu));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -175,9 +126,6 @@ public class SubMenuImpl extends MenuElementImpl implements SubMenu {
 		switch (featureID) {
 			case FormPackage.SUB_MENU__ICON:
 				return getIcon();
-			case FormPackage.SUB_MENU__TO_SUBMENU:
-				if (resolve) return getToSubmenu();
-				return basicGetToSubmenu();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -192,9 +140,6 @@ public class SubMenuImpl extends MenuElementImpl implements SubMenu {
 		switch (featureID) {
 			case FormPackage.SUB_MENU__ICON:
 				setIcon((Context)newValue);
-				return;
-			case FormPackage.SUB_MENU__TO_SUBMENU:
-				setToSubmenu((MenuFolder)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -211,9 +156,6 @@ public class SubMenuImpl extends MenuElementImpl implements SubMenu {
 			case FormPackage.SUB_MENU__ICON:
 				setIcon((Context)null);
 				return;
-			case FormPackage.SUB_MENU__TO_SUBMENU:
-				setToSubmenu((MenuFolder)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -228,8 +170,6 @@ public class SubMenuImpl extends MenuElementImpl implements SubMenu {
 		switch (featureID) {
 			case FormPackage.SUB_MENU__ICON:
 				return icon != null;
-			case FormPackage.SUB_MENU__TO_SUBMENU:
-				return toSubmenu != null;
 		}
 		return super.eIsSet(featureID);
 	}

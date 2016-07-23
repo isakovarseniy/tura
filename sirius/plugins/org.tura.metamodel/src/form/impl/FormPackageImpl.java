@@ -105,6 +105,7 @@ import form.TabCanvas;
 import form.TabPage;
 import form.TabPagesInheritance;
 import form.Table;
+import form.ToSubmenu;
 import form.Tree;
 import form.Trigger;
 import form.UIPackage;
@@ -609,6 +610,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass subMenuEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass toSubmenuEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1240,6 +1248,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EReference getMenuDefinition_MenuFolders() {
 		return (EReference)menuDefinitionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMenuDefinition_ToSubMenu() {
+		return (EReference)menuDefinitionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2426,8 +2443,35 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSubMenu_ToSubmenu() {
-		return (EReference)subMenuEClass.getEStructuralFeatures().get(0);
+	public EClass getToSubmenu() {
+		return toSubmenuEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getToSubmenu_Uid() {
+		return (EAttribute)toSubmenuEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getToSubmenu_Source() {
+		return (EReference)toSubmenuEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getToSubmenu_Target() {
+		return (EReference)toSubmenuEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3354,6 +3398,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEAttribute(menuDefinitionEClass, MENU_DEFINITION__UID);
 		createEAttribute(menuDefinitionEClass, MENU_DEFINITION__NAME);
 		createEReference(menuDefinitionEClass, MENU_DEFINITION__MENU_FOLDERS);
+		createEReference(menuDefinitionEClass, MENU_DEFINITION__TO_SUB_MENU);
 
 		tabCanvasEClass = createEClass(TAB_CANVAS);
 		createEAttribute(tabCanvasEClass, TAB_CANVAS__ORIENTATION);
@@ -3535,7 +3580,11 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		menuExtensionPointEClass = createEClass(MENU_EXTENSION_POINT);
 
 		subMenuEClass = createEClass(SUB_MENU);
-		createEReference(subMenuEClass, SUB_MENU__TO_SUBMENU);
+
+		toSubmenuEClass = createEClass(TO_SUBMENU);
+		createEAttribute(toSubmenuEClass, TO_SUBMENU__UID);
+		createEReference(toSubmenuEClass, TO_SUBMENU__SOURCE);
+		createEReference(toSubmenuEClass, TO_SUBMENU__TARGET);
 
 		menuSeparatorEClass = createEClass(MENU_SEPARATOR);
 
@@ -3870,6 +3919,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEAttribute(getMenuDefinition_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMenuDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMenuDefinition_MenuFolders(), this.getMenuFolder(), null, "menuFolders", null, 0, -1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuDefinition_ToSubMenu(), this.getToSubmenu(), null, "toSubMenu", null, 0, -1, MenuDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tabCanvasEClass, TabCanvas.class, "TabCanvas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTabCanvas_Orientation(), this.getOrientation(), "orientation", null, 0, 1, TabCanvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4051,7 +4101,11 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(menuExtensionPointEClass, MenuExtensionPoint.class, "MenuExtensionPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(subMenuEClass, SubMenu.class, "SubMenu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSubMenu_ToSubmenu(), this.getMenuFolder(), null, "toSubmenu", null, 0, 1, SubMenu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(toSubmenuEClass, ToSubmenu.class, "ToSubmenu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getToSubmenu_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ToSubmenu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getToSubmenu_Source(), this.getSubMenu(), null, "source", null, 0, 1, ToSubmenu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getToSubmenu_Target(), this.getMenuFolder(), null, "target", null, 0, 1, ToSubmenu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuSeparatorEClass, MenuSeparator.class, "MenuSeparator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
