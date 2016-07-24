@@ -48,6 +48,7 @@ public class CSSMapperItemProvider extends MapperItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addStyleLibraryPropertyDescriptor(object);
+			addUidPropertyDescriptor(object);
 			addLibraryUrlPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -71,6 +72,28 @@ public class CSSMapperItemProvider extends MapperItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Uid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CSSMapper_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CSSMapper_uid_feature", "_UI_CSSMapper_type"),
+				 MapperPackage.Literals.CSS_MAPPER__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -116,10 +139,8 @@ public class CSSMapperItemProvider extends MapperItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CSSMapper)object).getUid();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CSSMapper_type") :
-			getString("_UI_CSSMapper_type") + " " + label;
+		CSSMapper cssMapper = (CSSMapper)object;
+		return getString("_UI_CSSMapper_type") + " " + cssMapper.isServiceLayer();
 	}
 	
 
@@ -135,6 +156,7 @@ public class CSSMapperItemProvider extends MapperItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CSSMapper.class)) {
+			case MapperPackage.CSS_MAPPER__UID:
 			case MapperPackage.CSS_MAPPER__LIBRARY_URL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

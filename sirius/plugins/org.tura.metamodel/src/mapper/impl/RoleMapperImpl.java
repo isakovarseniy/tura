@@ -25,6 +25,7 @@ import permission.SecurityEntityPointer;
  * </p>
  * <ul>
  *   <li>{@link mapper.impl.RoleMapperImpl#getSecurityEntity <em>Security Entity</em>}</li>
+ *   <li>{@link mapper.impl.RoleMapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link mapper.impl.RoleMapperImpl#getLocalRoleName <em>Local Role Name</em>}</li>
  *   <li>{@link mapper.impl.RoleMapperImpl#getGlobalRoleName <em>Global Role Name</em>}</li>
  * </ul>
@@ -41,6 +42,26 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 	 * @ordered
 	 */
 	protected SecurityEntity securityEntity;
+
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String UID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uid = UID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLocalRoleName() <em>Local Role Name</em>}' attribute.
@@ -144,6 +165,27 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUid(String newUid) {
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.ROLE_MAPPER__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getLocalRoleName() {
 		return localRoleName;
 	}
@@ -192,6 +234,8 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 			case MapperPackage.ROLE_MAPPER__SECURITY_ENTITY:
 				if (resolve) return getSecurityEntity();
 				return basicGetSecurityEntity();
+			case MapperPackage.ROLE_MAPPER__UID:
+				return getUid();
 			case MapperPackage.ROLE_MAPPER__LOCAL_ROLE_NAME:
 				return getLocalRoleName();
 			case MapperPackage.ROLE_MAPPER__GLOBAL_ROLE_NAME:
@@ -210,6 +254,9 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 		switch (featureID) {
 			case MapperPackage.ROLE_MAPPER__SECURITY_ENTITY:
 				setSecurityEntity((SecurityEntity)newValue);
+				return;
+			case MapperPackage.ROLE_MAPPER__UID:
+				setUid((String)newValue);
 				return;
 			case MapperPackage.ROLE_MAPPER__LOCAL_ROLE_NAME:
 				setLocalRoleName((String)newValue);
@@ -232,6 +279,9 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 			case MapperPackage.ROLE_MAPPER__SECURITY_ENTITY:
 				setSecurityEntity((SecurityEntity)null);
 				return;
+			case MapperPackage.ROLE_MAPPER__UID:
+				setUid(UID_EDEFAULT);
+				return;
 			case MapperPackage.ROLE_MAPPER__LOCAL_ROLE_NAME:
 				setLocalRoleName(LOCAL_ROLE_NAME_EDEFAULT);
 				return;
@@ -252,6 +302,8 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 		switch (featureID) {
 			case MapperPackage.ROLE_MAPPER__SECURITY_ENTITY:
 				return securityEntity != null;
+			case MapperPackage.ROLE_MAPPER__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case MapperPackage.ROLE_MAPPER__LOCAL_ROLE_NAME:
 				return LOCAL_ROLE_NAME_EDEFAULT == null ? localRoleName != null : !LOCAL_ROLE_NAME_EDEFAULT.equals(localRoleName);
 			case MapperPackage.ROLE_MAPPER__GLOBAL_ROLE_NAME:
@@ -302,7 +354,9 @@ public class RoleMapperImpl extends MapperImpl implements RoleMapper {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (localRoleName: ");
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", localRoleName: ");
 		result.append(localRoleName);
 		result.append(", globalRoleName: ");
 		result.append(globalRoleName);

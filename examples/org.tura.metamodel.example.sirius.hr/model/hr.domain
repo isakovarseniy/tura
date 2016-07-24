@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tura.domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tura.domain="http://tura.org/2016/v2/domain" xmlns:tura.form="http://tura.org/2016/v2/form" xmlns:tura.infrastructure="http://tura.org/2016/v2/infrastructure" xmlns:tura.recipe="http://tura.org/2016/v2/recipe" xmlns:tura.type="http://tura.org/2016/v2/type">
+<tura.domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tura.domain="http://tura.org/2016/v2/domain" xmlns:tura.form="http://tura.org/2016/v2/form" xmlns:tura.infrastructure="http://tura.org/2016/v2/infrastructure" xmlns:tura.mapper="http://tura.org/2016/v2/mapper" xmlns:tura.recipe="http://tura.org/2016/v2/recipe" xmlns:tura.type="http://tura.org/2016/v2/type">
   <domainArtifacts>
     <domainArtifact uid="8c6e20f4-46c7-4fd1-b50c-3ad6922cb6e8" name="Domain Artifact1">
       <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Artifact package1">
@@ -91,7 +91,20 @@
               </recipes>
             </recipes>
           </applicationRecipes>
-          <applicationMappers uid="a00090a3-4951-4fc2-a358-1c649e91a854" name="Mappers"/>
+          <applicationMappers uid="0cf8dece-306e-4a11-a093-c6a0b9c250be">
+            <mappers uid="ae6c399e-7bdc-4c5b-a263-722db7c0d441" name="Mapping package1">
+              <mapper uid="249a029a-06a1-44ce-aa66-d2601577b229">
+                <mappers xsi:type="tura.mapper:JavaMapper" uid="d9c7b013-2353-4295-a234-04b9e3ea9718"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uid="bfdf4db4-051d-42cc-b153-24d43fbca12b"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uid="5760b6ff-4e57-44a6-98a3-8af9be797dec"/>
+                <mappers xsi:type="tura.mapper:JavaPackageMapper" uid="7a33c4e7-1ff9-48e2-9f83-824c41df9025"/>
+                <mappers xsi:type="tura.mapper:JavaScriptMapper" uid="b609ebb0-0532-4b1f-8668-2e76e97720ca"/>
+                <mappers xsi:type="tura.mapper:CSSMapper" uid="74484cf3-1d0c-48ad-b683-d1b87d897a6c"/>
+                <mappers xsi:type="tura.mapper:RoleMapper" uid="c2e618aa-713e-4121-b88c-37d04131eea1"/>
+                <mappers xsi:type="tura.mapper:JavaScriptMapper" uid="e6ae78d1-9fb8-446a-9818-ad9b25fdd954"/>
+              </mapper>
+            </mappers>
+          </applicationMappers>
           <applicationUILayer uid="2f3c70d8-7e8f-474c-8ef1-c3ddea9c65e8" name="UILayer">
             <applicationUIPackages uid="0afdb0d2-d857-440e-a514-4b937d79a247" name="UI Package 1">
               <forms uid="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" name="Form 1">

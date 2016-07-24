@@ -19,12 +19,33 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link mapper.impl.JavaScriptMapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link mapper.impl.JavaScriptMapperImpl#getLibraryUrl <em>Library Url</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMapper {
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String UID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uid = UID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,6 +90,27 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUid(String newUid) {
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_SCRIPT_MAPPER__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getLibraryUrl() {
 		return libraryUrl;
 	}
@@ -93,6 +135,8 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MapperPackage.JAVA_SCRIPT_MAPPER__UID:
+				return getUid();
 			case MapperPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
 				return getLibraryUrl();
 		}
@@ -107,6 +151,9 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MapperPackage.JAVA_SCRIPT_MAPPER__UID:
+				setUid((String)newValue);
+				return;
 			case MapperPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
 				setLibraryUrl((String)newValue);
 				return;
@@ -122,6 +169,9 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case MapperPackage.JAVA_SCRIPT_MAPPER__UID:
+				setUid(UID_EDEFAULT);
+				return;
 			case MapperPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
 				setLibraryUrl(LIBRARY_URL_EDEFAULT);
 				return;
@@ -137,6 +187,8 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case MapperPackage.JAVA_SCRIPT_MAPPER__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case MapperPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
 				return LIBRARY_URL_EDEFAULT == null ? libraryUrl != null : !LIBRARY_URL_EDEFAULT.equals(libraryUrl);
 		}
@@ -153,7 +205,9 @@ public class JavaScriptMapperImpl extends TypeMapperImpl implements JavaScriptMa
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (libraryUrl: ");
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", libraryUrl: ");
 		result.append(libraryUrl);
 		result.append(')');
 		return result.toString();

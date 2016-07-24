@@ -12,7 +12,6 @@ class Mappers{
 }
 
 class Mapper {
-    id attr EString uid;
     attr boolean serviceLayer;
     attr boolean uiLayer;
 }
@@ -26,6 +25,7 @@ class PackageMapper extends Mapper,type.PackagePointer{
 }
 
 class JavaMapper extends TypeMapper{
+    id attr EString uid;
    attr EString mappedToPackageName;
    attr EString mappedToClassName;
    attr EString artifactId;
@@ -37,6 +37,7 @@ class JavaMapper extends TypeMapper{
 
 
 class JavaPackageMapper extends PackageMapper {
+    id attr EString uid;
    attr EString mappedToPackageName;
    attr EString artifactId;
    attr EString groupId;
@@ -47,14 +48,17 @@ class JavaPackageMapper extends PackageMapper {
 
 
 class JavaScriptMapper extends TypeMapper{
+    id attr EString uid;
    attr EString libraryUrl;
 }
 
 class CSSMapper extends Mapper, style.StylePointer{
+     id attr EString uid;
    attr EString libraryUrl;
 }
 
 class RoleMapper extends Mapper,permission.SecurityEntityPointer{
+    id attr EString uid;
      attr EString localRoleName;
      attr EString globalRoleName;
 }

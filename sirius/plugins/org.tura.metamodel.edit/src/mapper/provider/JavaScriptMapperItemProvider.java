@@ -45,9 +45,32 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addUidPropertyDescriptor(object);
 			addLibraryUrlPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Uid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaScriptMapper_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_uid_feature", "_UI_JavaScriptMapper_type"),
+				 MapperPackage.Literals.JAVA_SCRIPT_MAPPER__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -91,10 +114,8 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((JavaScriptMapper)object).getUid();
-		return label == null || label.length() == 0 ?
-			getString("_UI_JavaScriptMapper_type") :
-			getString("_UI_JavaScriptMapper_type") + " " + label;
+		JavaScriptMapper javaScriptMapper = (JavaScriptMapper)object;
+		return getString("_UI_JavaScriptMapper_type") + " " + javaScriptMapper.isServiceLayer();
 	}
 	
 
@@ -110,6 +131,7 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JavaScriptMapper.class)) {
+			case MapperPackage.JAVA_SCRIPT_MAPPER__UID:
 			case MapperPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

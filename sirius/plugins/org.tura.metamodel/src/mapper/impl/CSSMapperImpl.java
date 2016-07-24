@@ -25,6 +25,7 @@ import style.StylePointer;
  * </p>
  * <ul>
  *   <li>{@link mapper.impl.CSSMapperImpl#getStyleLibrary <em>Style Library</em>}</li>
+ *   <li>{@link mapper.impl.CSSMapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link mapper.impl.CSSMapperImpl#getLibraryUrl <em>Library Url</em>}</li>
  * </ul>
  *
@@ -40,6 +41,26 @@ public class CSSMapperImpl extends MapperImpl implements CSSMapper {
 	 * @ordered
 	 */
 	protected StyleLibrary styleLibrary;
+
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String UID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uid = UID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLibraryUrl() <em>Library Url</em>}' attribute.
@@ -123,6 +144,27 @@ public class CSSMapperImpl extends MapperImpl implements CSSMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUid(String newUid) {
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.CSS_MAPPER__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getLibraryUrl() {
 		return libraryUrl;
 	}
@@ -150,6 +192,8 @@ public class CSSMapperImpl extends MapperImpl implements CSSMapper {
 			case MapperPackage.CSS_MAPPER__STYLE_LIBRARY:
 				if (resolve) return getStyleLibrary();
 				return basicGetStyleLibrary();
+			case MapperPackage.CSS_MAPPER__UID:
+				return getUid();
 			case MapperPackage.CSS_MAPPER__LIBRARY_URL:
 				return getLibraryUrl();
 		}
@@ -166,6 +210,9 @@ public class CSSMapperImpl extends MapperImpl implements CSSMapper {
 		switch (featureID) {
 			case MapperPackage.CSS_MAPPER__STYLE_LIBRARY:
 				setStyleLibrary((StyleLibrary)newValue);
+				return;
+			case MapperPackage.CSS_MAPPER__UID:
+				setUid((String)newValue);
 				return;
 			case MapperPackage.CSS_MAPPER__LIBRARY_URL:
 				setLibraryUrl((String)newValue);
@@ -185,6 +232,9 @@ public class CSSMapperImpl extends MapperImpl implements CSSMapper {
 			case MapperPackage.CSS_MAPPER__STYLE_LIBRARY:
 				setStyleLibrary((StyleLibrary)null);
 				return;
+			case MapperPackage.CSS_MAPPER__UID:
+				setUid(UID_EDEFAULT);
+				return;
 			case MapperPackage.CSS_MAPPER__LIBRARY_URL:
 				setLibraryUrl(LIBRARY_URL_EDEFAULT);
 				return;
@@ -202,6 +252,8 @@ public class CSSMapperImpl extends MapperImpl implements CSSMapper {
 		switch (featureID) {
 			case MapperPackage.CSS_MAPPER__STYLE_LIBRARY:
 				return styleLibrary != null;
+			case MapperPackage.CSS_MAPPER__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case MapperPackage.CSS_MAPPER__LIBRARY_URL:
 				return LIBRARY_URL_EDEFAULT == null ? libraryUrl != null : !LIBRARY_URL_EDEFAULT.equals(libraryUrl);
 		}
@@ -250,7 +302,9 @@ public class CSSMapperImpl extends MapperImpl implements CSSMapper {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (libraryUrl: ");
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", libraryUrl: ");
 		result.append(libraryUrl);
 		result.append(')');
 		return result.toString();

@@ -62,33 +62,10 @@ public class MapperItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addUidPropertyDescriptor(object);
 			addServiceLayerPropertyDescriptor(object);
 			addUiLayerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Uid feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUidPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Mapper_uid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Mapper_uid_feature", "_UI_Mapper_type"),
-				 MapperPackage.Literals.MAPPER__UID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -154,10 +131,8 @@ public class MapperItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Mapper)object).getUid();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Mapper_type") :
-			getString("_UI_Mapper_type") + " " + label;
+		Mapper mapper = (Mapper)object;
+		return getString("_UI_Mapper_type") + " " + mapper.isServiceLayer();
 	}
 	
 
@@ -173,7 +148,6 @@ public class MapperItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Mapper.class)) {
-			case MapperPackage.MAPPER__UID:
 			case MapperPackage.MAPPER__SERVICE_LAYER:
 			case MapperPackage.MAPPER__UI_LAYER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

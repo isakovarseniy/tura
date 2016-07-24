@@ -48,6 +48,7 @@ public class RoleMapperItemProvider extends MapperItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addSecurityEntityPropertyDescriptor(object);
+			addUidPropertyDescriptor(object);
 			addLocalRoleNamePropertyDescriptor(object);
 			addGlobalRoleNamePropertyDescriptor(object);
 		}
@@ -72,6 +73,28 @@ public class RoleMapperItemProvider extends MapperItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Uid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RoleMapper_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RoleMapper_uid_feature", "_UI_RoleMapper_type"),
+				 MapperPackage.Literals.ROLE_MAPPER__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -158,6 +181,7 @@ public class RoleMapperItemProvider extends MapperItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RoleMapper.class)) {
+			case MapperPackage.ROLE_MAPPER__UID:
 			case MapperPackage.ROLE_MAPPER__LOCAL_ROLE_NAME:
 			case MapperPackage.ROLE_MAPPER__GLOBAL_ROLE_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

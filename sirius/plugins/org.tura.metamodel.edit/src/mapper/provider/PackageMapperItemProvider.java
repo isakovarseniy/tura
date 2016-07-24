@@ -90,10 +90,8 @@ public class PackageMapperItemProvider extends MapperItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PackageMapper)object).getUid();
-		return label == null || label.length() == 0 ?
-			getString("_UI_PackageMapper_type") :
-			getString("_UI_PackageMapper_type") + " " + label;
+		PackageMapper packageMapper = (PackageMapper)object;
+		return getString("_UI_PackageMapper_type") + " " + packageMapper.isServiceLayer();
 	}
 	
 

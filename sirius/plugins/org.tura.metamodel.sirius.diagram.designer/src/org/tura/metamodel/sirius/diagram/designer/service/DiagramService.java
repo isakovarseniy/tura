@@ -10,6 +10,8 @@ import application.ApplicationGroup;
 import application.ApplicationInfrastructureLayer;
 import application.ApplicationInfrastructureLayers;
 import application.ApplicationLanguages;
+import application.ApplicationMapper;
+import application.ApplicationMappers;
 import application.ApplicationMessageLibrary;
 import application.ApplicationRealm;
 import application.ApplicationRealms;
@@ -171,4 +173,7 @@ public class DiagramService {
 		return "Artificial field"+ ((DataControl)(param.eContainer())).getArtificialFields().size();
 	}
 	
+	public String generateName(ApplicationMapper param ){
+		return "Mapping package"+ ((ApplicationMappers)(param.eContainer())).getMappers().size();
+	}
 }

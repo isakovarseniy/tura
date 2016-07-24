@@ -45,6 +45,7 @@ public class JavaPackageMapperItemProvider extends PackageMapperItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addUidPropertyDescriptor(object);
 			addMappedToPackageNamePropertyDescriptor(object);
 			addArtifactIdPropertyDescriptor(object);
 			addGroupIdPropertyDescriptor(object);
@@ -53,6 +54,28 @@ public class JavaPackageMapperItemProvider extends PackageMapperItemProvider {
 			addArtifactTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Uid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaPackageMapper_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaPackageMapper_uid_feature", "_UI_JavaPackageMapper_type"),
+				 MapperPackage.Literals.JAVA_PACKAGE_MAPPER__UID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -225,6 +248,7 @@ public class JavaPackageMapperItemProvider extends PackageMapperItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JavaPackageMapper.class)) {
+			case MapperPackage.JAVA_PACKAGE_MAPPER__UID:
 			case MapperPackage.JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME:
 			case MapperPackage.JAVA_PACKAGE_MAPPER__ARTIFACT_ID:
 			case MapperPackage.JAVA_PACKAGE_MAPPER__GROUP_ID:

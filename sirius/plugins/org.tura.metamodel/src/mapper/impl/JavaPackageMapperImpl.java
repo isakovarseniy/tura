@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link mapper.impl.JavaPackageMapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link mapper.impl.JavaPackageMapperImpl#getMappedToPackageName <em>Mapped To Package Name</em>}</li>
  *   <li>{@link mapper.impl.JavaPackageMapperImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link mapper.impl.JavaPackageMapperImpl#getGroupId <em>Group Id</em>}</li>
@@ -30,6 +31,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class JavaPackageMapperImpl extends PackageMapperImpl implements JavaPackageMapper {
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String UID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uid = UID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getMappedToPackageName() <em>Mapped To Package Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -174,6 +195,27 @@ public class JavaPackageMapperImpl extends PackageMapperImpl implements JavaPack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUid(String newUid) {
+		String oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_PACKAGE_MAPPER__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getMappedToPackageName() {
 		return mappedToPackageName;
 	}
@@ -303,6 +345,8 @@ public class JavaPackageMapperImpl extends PackageMapperImpl implements JavaPack
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MapperPackage.JAVA_PACKAGE_MAPPER__UID:
+				return getUid();
 			case MapperPackage.JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME:
 				return getMappedToPackageName();
 			case MapperPackage.JAVA_PACKAGE_MAPPER__ARTIFACT_ID:
@@ -327,6 +371,9 @@ public class JavaPackageMapperImpl extends PackageMapperImpl implements JavaPack
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MapperPackage.JAVA_PACKAGE_MAPPER__UID:
+				setUid((String)newValue);
+				return;
 			case MapperPackage.JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME:
 				setMappedToPackageName((String)newValue);
 				return;
@@ -357,6 +404,9 @@ public class JavaPackageMapperImpl extends PackageMapperImpl implements JavaPack
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case MapperPackage.JAVA_PACKAGE_MAPPER__UID:
+				setUid(UID_EDEFAULT);
+				return;
 			case MapperPackage.JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME:
 				setMappedToPackageName(MAPPED_TO_PACKAGE_NAME_EDEFAULT);
 				return;
@@ -387,6 +437,8 @@ public class JavaPackageMapperImpl extends PackageMapperImpl implements JavaPack
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case MapperPackage.JAVA_PACKAGE_MAPPER__UID:
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case MapperPackage.JAVA_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME:
 				return MAPPED_TO_PACKAGE_NAME_EDEFAULT == null ? mappedToPackageName != null : !MAPPED_TO_PACKAGE_NAME_EDEFAULT.equals(mappedToPackageName);
 			case MapperPackage.JAVA_PACKAGE_MAPPER__ARTIFACT_ID:
@@ -413,7 +465,9 @@ public class JavaPackageMapperImpl extends PackageMapperImpl implements JavaPack
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (mappedToPackageName: ");
+		result.append(" (uid: ");
+		result.append(uid);
+		result.append(", mappedToPackageName: ");
 		result.append(mappedToPackageName);
 		result.append(", artifactId: ");
 		result.append(artifactId);

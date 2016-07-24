@@ -8,10 +8,4 @@
     </component>
   </extension>
   
-  <extension   point="org.eclipse.sirius.externalJavaAction">
-      <javaActions   actionClass="org.eclipse.sirius.ui.tools.internal.actions.creation.CreateRepresentationAction"
-                       id="ExternalJava">
-        </javaActions>
-</extension>
-  
 </plugin>

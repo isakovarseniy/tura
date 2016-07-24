@@ -12,6 +12,7 @@ package mapper;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link mapper.JavaMapper#getUid <em>Uid</em>}</li>
  *   <li>{@link mapper.JavaMapper#getMappedToPackageName <em>Mapped To Package Name</em>}</li>
  *   <li>{@link mapper.JavaMapper#getMappedToClassName <em>Mapped To Class Name</em>}</li>
  *   <li>{@link mapper.JavaMapper#getArtifactId <em>Artifact Id</em>}</li>
@@ -26,6 +27,32 @@ package mapper;
  * @generated
  */
 public interface JavaMapper extends TypeMapper {
+	/**
+	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Uid</em>' attribute.
+	 * @see #setUid(String)
+	 * @see mapper.MapperPackage#getJavaMapper_Uid()
+	 * @model id="true"
+	 * @generated
+	 */
+	String getUid();
+
+	/**
+	 * Sets the value of the '{@link mapper.JavaMapper#getUid <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Uid</em>' attribute.
+	 * @see #getUid()
+	 * @generated
+	 */
+	void setUid(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Mapped To Package Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

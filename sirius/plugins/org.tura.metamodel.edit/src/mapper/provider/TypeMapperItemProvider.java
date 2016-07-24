@@ -90,10 +90,8 @@ public class TypeMapperItemProvider extends MapperItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TypeMapper)object).getUid();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TypeMapper_type") :
-			getString("_UI_TypeMapper_type") + " " + label;
+		TypeMapper typeMapper = (TypeMapper)object;
+		return getString("_UI_TypeMapper_type") + " " + typeMapper.isServiceLayer();
 	}
 	
 
