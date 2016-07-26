@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link artifact.impl.GenerationHintImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link artifact.impl.GenerationHintImpl#getName <em>Name</em>}</li>
- *   <li>{@link artifact.impl.GenerationHintImpl#getApplyedClass <em>Applyed Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,26 +66,6 @@ public class GenerationHintImpl extends EObjectImpl implements GenerationHint {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getApplyedClass() <em>Applyed Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApplyedClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String APPLYED_CLASS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getApplyedClass() <em>Applyed Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApplyedClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected String applyedClass = APPLYED_CLASS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,27 +133,6 @@ public class GenerationHintImpl extends EObjectImpl implements GenerationHint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getApplyedClass() {
-		return applyedClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setApplyedClass(String newApplyedClass) {
-		String oldApplyedClass = applyedClass;
-		applyedClass = newApplyedClass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.GENERATION_HINT__APPLYED_CLASS, oldApplyedClass, applyedClass));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -182,8 +140,6 @@ public class GenerationHintImpl extends EObjectImpl implements GenerationHint {
 				return getUid();
 			case ArtifactPackage.GENERATION_HINT__NAME:
 				return getName();
-			case ArtifactPackage.GENERATION_HINT__APPLYED_CLASS:
-				return getApplyedClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,9 +157,6 @@ public class GenerationHintImpl extends EObjectImpl implements GenerationHint {
 				return;
 			case ArtifactPackage.GENERATION_HINT__NAME:
 				setName((String)newValue);
-				return;
-			case ArtifactPackage.GENERATION_HINT__APPLYED_CLASS:
-				setApplyedClass((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,9 +176,6 @@ public class GenerationHintImpl extends EObjectImpl implements GenerationHint {
 			case ArtifactPackage.GENERATION_HINT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ArtifactPackage.GENERATION_HINT__APPLYED_CLASS:
-				setApplyedClass(APPLYED_CLASS_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -242,8 +192,6 @@ public class GenerationHintImpl extends EObjectImpl implements GenerationHint {
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case ArtifactPackage.GENERATION_HINT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ArtifactPackage.GENERATION_HINT__APPLYED_CLASS:
-				return APPLYED_CLASS_EDEFAULT == null ? applyedClass != null : !APPLYED_CLASS_EDEFAULT.equals(applyedClass);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -262,8 +210,6 @@ public class GenerationHintImpl extends EObjectImpl implements GenerationHint {
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", applyedClass: ");
-		result.append(applyedClass);
 		result.append(')');
 		return result.toString();
 	}

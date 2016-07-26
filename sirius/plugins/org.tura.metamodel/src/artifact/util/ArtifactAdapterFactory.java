@@ -72,6 +72,10 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 				return createArtifactGroupAdapter();
 			}
 			@Override
+			public Adapter caseTechLeaf(TechLeaf object) {
+				return createTechLeafAdapter();
+			}
+			@Override
 			public Adapter caseArtifact(Artifact object) {
 				return createArtifactAdapter();
 			}
@@ -134,6 +138,20 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArtifactGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.TechLeaf <em>Tech Leaf</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.TechLeaf
+	 * @generated
+	 */
+	public Adapter createTechLeafAdapter() {
 		return null;
 	}
 

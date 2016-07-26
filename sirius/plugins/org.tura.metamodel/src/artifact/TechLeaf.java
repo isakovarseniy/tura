@@ -1,32 +1,32 @@
 /**
  */
-package domain;
+package artifact;
 
-import artifact.TechLeaf;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Artifacts</b></em>'.
+ * A representation of the model object '<em><b>Tech Leaf</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link domain.DomainArtifacts#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.DomainArtifacts#getName <em>Name</em>}</li>
- *   <li>{@link domain.DomainArtifacts#getDomainArtifact <em>Domain Artifact</em>}</li>
- *   <li>{@link domain.DomainArtifacts#getTechLeafs <em>Tech Leafs</em>}</li>
+ *   <li>{@link artifact.TechLeaf#getUid <em>Uid</em>}</li>
+ *   <li>{@link artifact.TechLeaf#getName <em>Name</em>}</li>
+ *   <li>{@link artifact.TechLeaf#getHints <em>Hints</em>}</li>
+ *   <li>{@link artifact.TechLeaf#getConfigVariables <em>Config Variables</em>}</li>
+ *   <li>{@link artifact.TechLeaf#getTechLeafs <em>Tech Leafs</em>}</li>
  * </ul>
  *
- * @see domain.DomainPackage#getDomainArtifacts()
- * @model annotation="gmf.node label='name'"
+ * @see artifact.ArtifactPackage#getTechLeaf()
+ * @model
  * @generated
  */
-public interface DomainArtifacts extends EObject {
+public interface TechLeaf extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -37,14 +37,14 @@ public interface DomainArtifacts extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
 	 * @see #setUid(String)
-	 * @see domain.DomainPackage#getDomainArtifacts_Uid()
+	 * @see artifact.ArtifactPackage#getTechLeaf_Uid()
 	 * @model id="true"
 	 * @generated
 	 */
 	String getUid();
 
 	/**
-	 * Sets the value of the '{@link domain.DomainArtifacts#getUid <em>Uid</em>}' attribute.
+	 * Sets the value of the '{@link artifact.TechLeaf#getUid <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Uid</em>' attribute.
@@ -63,14 +63,14 @@ public interface DomainArtifacts extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see domain.DomainPackage#getDomainArtifacts_Name()
+	 * @see artifact.ArtifactPackage#getTechLeaf_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link domain.DomainArtifacts#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link artifact.TechLeaf#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -80,20 +80,36 @@ public interface DomainArtifacts extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Domain Artifact</b></em>' containment reference list.
-	 * The list contents are of type {@link domain.DomainArtifact}.
+	 * Returns the value of the '<em><b>Hints</b></em>' containment reference list.
+	 * The list contents are of type {@link artifact.GenerationHint}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Domain Artifact</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Hints</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Domain Artifact</em>' containment reference list.
-	 * @see domain.DomainPackage#getDomainArtifacts_DomainArtifact()
+	 * @return the value of the '<em>Hints</em>' containment reference list.
+	 * @see artifact.ArtifactPackage#getTechLeaf_Hints()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DomainArtifact> getDomainArtifact();
+	EList<GenerationHint> getHints();
+
+	/**
+	 * Returns the value of the '<em><b>Config Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link artifact.ConfigVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Config Variables</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Variables</em>' containment reference list.
+	 * @see artifact.ArtifactPackage#getTechLeaf_ConfigVariables()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ConfigVariable> getConfigVariables();
 
 	/**
 	 * Returns the value of the '<em><b>Tech Leafs</b></em>' containment reference list.
@@ -105,10 +121,10 @@ public interface DomainArtifacts extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tech Leafs</em>' containment reference list.
-	 * @see domain.DomainPackage#getDomainArtifacts_TechLeafs()
+	 * @see artifact.ArtifactPackage#getTechLeaf_TechLeafs()
 	 * @model containment="true"
 	 * @generated
 	 */
 	EList<TechLeaf> getTechLeafs();
 
-} // DomainArtifacts
+} // TechLeaf

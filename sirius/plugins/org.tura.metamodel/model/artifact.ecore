@@ -8,28 +8,38 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
         eType="#//Artifact" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TechLeaf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hints" upperBound="-1"
+        eType="#//GenerationHint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configVariables" upperBound="-1"
+        eType="#//ConfigVariable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="techLeafs" upperBound="-1"
+        eType="#//TechLeaf" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifact">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configVariables" upperBound="-1"
-        eType="#//ConfigVariable" containment="true"/>
+        eType="#//ConfigVariable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configHashes" upperBound="-1"
-        eType="#//ConfigHash" containment="true" eOpposite="#//ConfigHash/parent"/>
+        eType="#//ConfigHash" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelQuery" upperBound="-1"
         eType="#//ModelQuery" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="technologies" upperBound="-1"
         eType="#//Technology" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hints" upperBound="-1"
-        eType="#//GenerationHint" containment="true"/>
+        eType="#//GenerationHint"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="template" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenerationHint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="applyedClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -40,8 +50,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Artifact"
-        eOpposite="#//Artifact/configHashes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelQuery">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

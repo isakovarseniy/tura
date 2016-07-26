@@ -110,7 +110,7 @@ public interface Artifact extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Config Variables</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Config Variables</b></em>' reference list.
 	 * The list contents are of type {@link artifact.ConfigVariable}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -118,9 +118,9 @@ public interface Artifact extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Config Variables</em>' containment reference list.
+	 * @return the value of the '<em>Config Variables</em>' reference list.
 	 * @see artifact.ArtifactPackage#getArtifact_ConfigVariables()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<ConfigVariable> getConfigVariables();
@@ -128,7 +128,6 @@ public interface Artifact extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Config Hashes</b></em>' containment reference list.
 	 * The list contents are of type {@link artifact.ConfigHash}.
-	 * It is bidirectional and its opposite is '{@link artifact.ConfigHash#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Config Hashes</em>' containment reference list isn't clear,
@@ -137,8 +136,7 @@ public interface Artifact extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Config Hashes</em>' containment reference list.
 	 * @see artifact.ArtifactPackage#getArtifact_ConfigHashes()
-	 * @see artifact.ConfigHash#getParent
-	 * @model opposite="parent" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ConfigHash> getConfigHashes();
@@ -176,7 +174,7 @@ public interface Artifact extends EObject {
 	EList<Technology> getTechnologies();
 
 	/**
-	 * Returns the value of the '<em><b>Hints</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Hints</b></em>' reference list.
 	 * The list contents are of type {@link artifact.GenerationHint}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -184,9 +182,9 @@ public interface Artifact extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hints</em>' containment reference list.
+	 * @return the value of the '<em>Hints</em>' reference list.
 	 * @see artifact.ArtifactPackage#getArtifact_Hints()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<GenerationHint> getHints();

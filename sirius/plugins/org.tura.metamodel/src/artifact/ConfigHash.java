@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link artifact.ConfigHash#getUid <em>Uid</em>}</li>
  *   <li>{@link artifact.ConfigHash#getName <em>Name</em>}</li>
- *   <li>{@link artifact.ConfigHash#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @see artifact.ArtifactPackage#getConfigHash()
@@ -74,33 +73,5 @@ public interface ConfigHash extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link artifact.Artifact#getConfigHashes <em>Config Hashes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' container reference.
-	 * @see #setParent(Artifact)
-	 * @see artifact.ArtifactPackage#getConfigHash_Parent()
-	 * @see artifact.Artifact#getConfigHashes
-	 * @model opposite="configHashes" transient="false"
-	 * @generated
-	 */
-	Artifact getParent();
-
-	/**
-	 * Sets the value of the '{@link artifact.ConfigHash#getParent <em>Parent</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' container reference.
-	 * @see #getParent()
-	 * @generated
-	 */
-	void setParent(Artifact value);
 
 } // ConfigHash

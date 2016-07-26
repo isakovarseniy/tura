@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link artifact.GenerationHint#getUid <em>Uid</em>}</li>
  *   <li>{@link artifact.GenerationHint#getName <em>Name</em>}</li>
- *   <li>{@link artifact.GenerationHint#getApplyedClass <em>Applyed Class</em>}</li>
  * </ul>
  *
  * @see artifact.ArtifactPackage#getGenerationHint()
@@ -74,31 +73,5 @@ public interface GenerationHint extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Applyed Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Applyed Class</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Applyed Class</em>' attribute.
-	 * @see #setApplyedClass(String)
-	 * @see artifact.ArtifactPackage#getGenerationHint_ApplyedClass()
-	 * @model
-	 * @generated
-	 */
-	String getApplyedClass();
-
-	/**
-	 * Sets the value of the '{@link artifact.GenerationHint#getApplyedClass <em>Applyed Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Applyed Class</em>' attribute.
-	 * @see #getApplyedClass()
-	 * @generated
-	 */
-	void setApplyedClass(String value);
 
 } // GenerationHint

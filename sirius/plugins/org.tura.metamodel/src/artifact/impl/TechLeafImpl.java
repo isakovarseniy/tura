@@ -1,11 +1,11 @@
 /**
  */
-package domain.impl;
+package artifact.impl;
 
+import artifact.ArtifactPackage;
+import artifact.ConfigVariable;
+import artifact.GenerationHint;
 import artifact.TechLeaf;
-import domain.DomainArtifact;
-import domain.DomainArtifacts;
-import domain.DomainPackage;
 
 import java.util.Collection;
 
@@ -25,21 +25,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Artifacts</b></em>'.
+ * An implementation of the model object '<em><b>Tech Leaf</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link domain.impl.DomainArtifactsImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link domain.impl.DomainArtifactsImpl#getName <em>Name</em>}</li>
- *   <li>{@link domain.impl.DomainArtifactsImpl#getDomainArtifact <em>Domain Artifact</em>}</li>
- *   <li>{@link domain.impl.DomainArtifactsImpl#getTechLeafs <em>Tech Leafs</em>}</li>
+ *   <li>{@link artifact.impl.TechLeafImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link artifact.impl.TechLeafImpl#getName <em>Name</em>}</li>
+ *   <li>{@link artifact.impl.TechLeafImpl#getHints <em>Hints</em>}</li>
+ *   <li>{@link artifact.impl.TechLeafImpl#getConfigVariables <em>Config Variables</em>}</li>
+ *   <li>{@link artifact.impl.TechLeafImpl#getTechLeafs <em>Tech Leafs</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts {
+public class TechLeafImpl extends EObjectImpl implements TechLeaf {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,14 +82,24 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDomainArtifact() <em>Domain Artifact</em>}' containment reference list.
+	 * The cached value of the '{@link #getHints() <em>Hints</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDomainArtifact()
+	 * @see #getHints()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DomainArtifact> domainArtifact;
+	protected EList<GenerationHint> hints;
+
+	/**
+	 * The cached value of the '{@link #getConfigVariables() <em>Config Variables</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigVariables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConfigVariable> configVariables;
 
 	/**
 	 * The cached value of the '{@link #getTechLeafs() <em>Tech Leafs</em>}' containment reference list.
@@ -105,7 +116,7 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DomainArtifactsImpl() {
+	protected TechLeafImpl() {
 		super();
 	}
 
@@ -116,7 +127,7 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DomainPackage.Literals.DOMAIN_ARTIFACTS;
+		return ArtifactPackage.Literals.TECH_LEAF;
 	}
 
 	/**
@@ -137,7 +148,7 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACTS__UID, oldUid, uid));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.TECH_LEAF__UID, oldUid, uid));
 	}
 
 	/**
@@ -158,7 +169,7 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN_ARTIFACTS__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.TECH_LEAF__NAME, oldName, name));
 	}
 
 	/**
@@ -166,11 +177,23 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DomainArtifact> getDomainArtifact() {
-		if (domainArtifact == null) {
-			domainArtifact = new EObjectContainmentEList<DomainArtifact>(DomainArtifact.class, this, DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT);
+	public EList<GenerationHint> getHints() {
+		if (hints == null) {
+			hints = new EObjectContainmentEList<GenerationHint>(GenerationHint.class, this, ArtifactPackage.TECH_LEAF__HINTS);
 		}
-		return domainArtifact;
+		return hints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ConfigVariable> getConfigVariables() {
+		if (configVariables == null) {
+			configVariables = new EObjectContainmentEList<ConfigVariable>(ConfigVariable.class, this, ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES);
+		}
+		return configVariables;
 	}
 
 	/**
@@ -180,7 +203,7 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 	 */
 	public EList<TechLeaf> getTechLeafs() {
 		if (techLeafs == null) {
-			techLeafs = new EObjectContainmentEList<TechLeaf>(TechLeaf.class, this, DomainPackage.DOMAIN_ARTIFACTS__TECH_LEAFS);
+			techLeafs = new EObjectContainmentEList<TechLeaf>(TechLeaf.class, this, ArtifactPackage.TECH_LEAF__TECH_LEAFS);
 		}
 		return techLeafs;
 	}
@@ -193,9 +216,11 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT:
-				return ((InternalEList<?>)getDomainArtifact()).basicRemove(otherEnd, msgs);
-			case DomainPackage.DOMAIN_ARTIFACTS__TECH_LEAFS:
+			case ArtifactPackage.TECH_LEAF__HINTS:
+				return ((InternalEList<?>)getHints()).basicRemove(otherEnd, msgs);
+			case ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES:
+				return ((InternalEList<?>)getConfigVariables()).basicRemove(otherEnd, msgs);
+			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				return ((InternalEList<?>)getTechLeafs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -209,13 +234,15 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DomainPackage.DOMAIN_ARTIFACTS__UID:
+			case ArtifactPackage.TECH_LEAF__UID:
 				return getUid();
-			case DomainPackage.DOMAIN_ARTIFACTS__NAME:
+			case ArtifactPackage.TECH_LEAF__NAME:
 				return getName();
-			case DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT:
-				return getDomainArtifact();
-			case DomainPackage.DOMAIN_ARTIFACTS__TECH_LEAFS:
+			case ArtifactPackage.TECH_LEAF__HINTS:
+				return getHints();
+			case ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES:
+				return getConfigVariables();
+			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				return getTechLeafs();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -230,17 +257,21 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DomainPackage.DOMAIN_ARTIFACTS__UID:
+			case ArtifactPackage.TECH_LEAF__UID:
 				setUid((String)newValue);
 				return;
-			case DomainPackage.DOMAIN_ARTIFACTS__NAME:
+			case ArtifactPackage.TECH_LEAF__NAME:
 				setName((String)newValue);
 				return;
-			case DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT:
-				getDomainArtifact().clear();
-				getDomainArtifact().addAll((Collection<? extends DomainArtifact>)newValue);
+			case ArtifactPackage.TECH_LEAF__HINTS:
+				getHints().clear();
+				getHints().addAll((Collection<? extends GenerationHint>)newValue);
 				return;
-			case DomainPackage.DOMAIN_ARTIFACTS__TECH_LEAFS:
+			case ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES:
+				getConfigVariables().clear();
+				getConfigVariables().addAll((Collection<? extends ConfigVariable>)newValue);
+				return;
+			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				getTechLeafs().clear();
 				getTechLeafs().addAll((Collection<? extends TechLeaf>)newValue);
 				return;
@@ -256,16 +287,19 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DomainPackage.DOMAIN_ARTIFACTS__UID:
+			case ArtifactPackage.TECH_LEAF__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case DomainPackage.DOMAIN_ARTIFACTS__NAME:
+			case ArtifactPackage.TECH_LEAF__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT:
-				getDomainArtifact().clear();
+			case ArtifactPackage.TECH_LEAF__HINTS:
+				getHints().clear();
 				return;
-			case DomainPackage.DOMAIN_ARTIFACTS__TECH_LEAFS:
+			case ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES:
+				getConfigVariables().clear();
+				return;
+			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				getTechLeafs().clear();
 				return;
 		}
@@ -280,13 +314,15 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DomainPackage.DOMAIN_ARTIFACTS__UID:
+			case ArtifactPackage.TECH_LEAF__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case DomainPackage.DOMAIN_ARTIFACTS__NAME:
+			case ArtifactPackage.TECH_LEAF__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT:
-				return domainArtifact != null && !domainArtifact.isEmpty();
-			case DomainPackage.DOMAIN_ARTIFACTS__TECH_LEAFS:
+			case ArtifactPackage.TECH_LEAF__HINTS:
+				return hints != null && !hints.isEmpty();
+			case ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES:
+				return configVariables != null && !configVariables.isEmpty();
+			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				return techLeafs != null && !techLeafs.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -310,4 +346,4 @@ public class DomainArtifactsImpl extends EObjectImpl implements DomainArtifacts 
 		return result.toString();
 	}
 
-} //DomainArtifactsImpl
+} //TechLeafImpl

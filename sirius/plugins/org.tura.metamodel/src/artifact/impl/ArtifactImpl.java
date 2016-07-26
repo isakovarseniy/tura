@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -110,7 +111,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConfigVariables() <em>Config Variables</em>}' containment reference list.
+	 * The cached value of the '{@link #getConfigVariables() <em>Config Variables</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConfigVariables()
@@ -150,7 +151,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	protected EList<Technology> technologies;
 
 	/**
-	 * The cached value of the '{@link #getHints() <em>Hints</em>}' containment reference list.
+	 * The cached value of the '{@link #getHints() <em>Hints</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getHints()
@@ -268,7 +269,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 */
 	public EList<ConfigVariable> getConfigVariables() {
 		if (configVariables == null) {
-			configVariables = new EObjectContainmentEList<ConfigVariable>(ConfigVariable.class, this, ArtifactPackage.ARTIFACT__CONFIG_VARIABLES);
+			configVariables = new EObjectResolvingEList<ConfigVariable>(ConfigVariable.class, this, ArtifactPackage.ARTIFACT__CONFIG_VARIABLES);
 		}
 		return configVariables;
 	}
@@ -280,7 +281,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 */
 	public EList<ConfigHash> getConfigHashes() {
 		if (configHashes == null) {
-			configHashes = new EObjectContainmentWithInverseEList<ConfigHash>(ConfigHash.class, this, ArtifactPackage.ARTIFACT__CONFIG_HASHES, ArtifactPackage.CONFIG_HASH__PARENT);
+			configHashes = new EObjectContainmentEList<ConfigHash>(ConfigHash.class, this, ArtifactPackage.ARTIFACT__CONFIG_HASHES);
 		}
 		return configHashes;
 	}
@@ -316,7 +317,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 */
 	public EList<GenerationHint> getHints() {
 		if (hints == null) {
-			hints = new EObjectContainmentEList<GenerationHint>(GenerationHint.class, this, ArtifactPackage.ARTIFACT__HINTS);
+			hints = new EObjectResolvingEList<GenerationHint>(GenerationHint.class, this, ArtifactPackage.ARTIFACT__HINTS);
 		}
 		return hints;
 	}
@@ -347,34 +348,15 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ArtifactPackage.ARTIFACT__CONFIG_HASHES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConfigHashes()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ArtifactPackage.ARTIFACT__CONFIG_VARIABLES:
-				return ((InternalEList<?>)getConfigVariables()).basicRemove(otherEnd, msgs);
 			case ArtifactPackage.ARTIFACT__CONFIG_HASHES:
 				return ((InternalEList<?>)getConfigHashes()).basicRemove(otherEnd, msgs);
 			case ArtifactPackage.ARTIFACT__MODEL_QUERY:
 				return ((InternalEList<?>)getModelQuery()).basicRemove(otherEnd, msgs);
 			case ArtifactPackage.ARTIFACT__TECHNOLOGIES:
 				return ((InternalEList<?>)getTechnologies()).basicRemove(otherEnd, msgs);
-			case ArtifactPackage.ARTIFACT__HINTS:
-				return ((InternalEList<?>)getHints()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

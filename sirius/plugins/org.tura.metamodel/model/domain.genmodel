@@ -15,6 +15,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifacts/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifacts/domainArtifact"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainArtifacts/techLeafs"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainArtifact">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainArtifact/uid"/>

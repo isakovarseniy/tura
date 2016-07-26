@@ -31,6 +31,15 @@ public interface ArtifactFactory extends EFactory {
 	ArtifactGroup createArtifactGroup();
 
 	/**
+	 * Returns a new object of class '<em>Tech Leaf</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tech Leaf</em>'.
+	 * @generated
+	 */
+	TechLeaf createTechLeaf();
+
+	/**
 	 * Returns a new object of class '<em>Artifact</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

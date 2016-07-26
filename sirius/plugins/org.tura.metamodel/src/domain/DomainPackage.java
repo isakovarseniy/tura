@@ -148,13 +148,22 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Tech Leafs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_ARTIFACTS__TECH_LEAFS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Artifacts</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_ARTIFACTS_FEATURE_COUNT = 3;
+	int DOMAIN_ARTIFACTS_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.DomainArtifactImpl <em>Artifact</em>}' class.
@@ -494,6 +503,17 @@ public interface DomainPackage extends EPackage {
 	EReference getDomainArtifacts_DomainArtifact();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link domain.DomainArtifacts#getTechLeafs <em>Tech Leafs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tech Leafs</em>'.
+	 * @see domain.DomainArtifacts#getTechLeafs()
+	 * @see #getDomainArtifacts()
+	 * @generated
+	 */
+	EReference getDomainArtifacts_TechLeafs();
+
+	/**
 	 * Returns the meta object for class '{@link domain.DomainArtifact <em>Artifact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -816,6 +836,14 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT = eINSTANCE.getDomainArtifacts_DomainArtifact();
+
+		/**
+		 * The meta object literal for the '<em><b>Tech Leafs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN_ARTIFACTS__TECH_LEAFS = eINSTANCE.getDomainArtifacts_TechLeafs();
 
 		/**
 		 * The meta object literal for the '{@link domain.impl.DomainArtifactImpl <em>Artifact</em>}' class.

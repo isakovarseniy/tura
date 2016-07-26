@@ -8,34 +8,41 @@ class ArtifactGroup{
 
 }
 
+
+class TechLeaf{
+    id attr EString uid;
+    attr EString name;
+   val  GenerationHint[*] hints;
+   val  ConfigVariable[*] configVariables;
+   val TechLeaf[*] techLeafs;
+}
+
 class Artifact{
     id attr EString uid;
    attr EString name;
    attr EString description;
    
    // Variables resolved by configuration of recipe (for example server IP)  
-   val   ConfigVariable[*]#parent configVariables;
+   ref   ConfigVariable[*] configVariables;
    
-   val   ConfigHash[*]#parent configHashes;
+   val   ConfigHash[*] configHashes;
 
    // Variables to query model ( for example FormName or service name)
-   val   ModelQuery[*]#parent modelQuery;
+   val   ModelQuery[*]modelQuery;
    
    //For navigation in the template (for example choosing specific technologies EclipseLink vs Hibernate)
    val   Technology[*]   technologies;
 
    //Hint to help template generate specific code
-   val   GenerationHint[*] hints;
+   ref   GenerationHint[*] hints;
 
 
    attr EString template;
 }
 
 class GenerationHint{
-
    id attr EString uid;
   attr EString name;
-  attr EString applyedClass; 
 }
 
 class ConfigVariable{
@@ -46,7 +53,6 @@ class ConfigVariable{
 class ConfigHash{
    id attr EString uid;
   attr EString name;
-   ref Artifact#configHashes parent;
 }
 
 

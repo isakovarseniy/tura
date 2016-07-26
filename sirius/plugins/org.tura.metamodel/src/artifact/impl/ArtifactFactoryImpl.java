@@ -57,6 +57,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ArtifactPackage.ARTIFACT_GROUP: return createArtifactGroup();
+			case ArtifactPackage.TECH_LEAF: return createTechLeaf();
 			case ArtifactPackage.ARTIFACT: return createArtifact();
 			case ArtifactPackage.GENERATION_HINT: return createGenerationHint();
 			case ArtifactPackage.CONFIG_VARIABLE: return createConfigVariable();
@@ -78,6 +79,16 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	public ArtifactGroup createArtifactGroup() {
 		ArtifactGroupImpl artifactGroup = new ArtifactGroupImpl();
 		return artifactGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TechLeaf createTechLeaf() {
+		TechLeafImpl techLeaf = new TechLeafImpl();
+		return techLeaf;
 	}
 
 	/**

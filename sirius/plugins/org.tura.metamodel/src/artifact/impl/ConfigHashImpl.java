@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link artifact.impl.ConfigHashImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link artifact.impl.ConfigHashImpl#getName <em>Name</em>}</li>
- *   <li>{@link artifact.impl.ConfigHashImpl#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @generated
@@ -139,91 +138,6 @@ public class ConfigHashImpl extends EObjectImpl implements ConfigHash {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Artifact getParent() {
-		if (eContainerFeatureID() != ArtifactPackage.CONFIG_HASH__PARENT) return null;
-		return (Artifact)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParent(Artifact newParent, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParent, ArtifactPackage.CONFIG_HASH__PARENT, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(Artifact newParent) {
-		if (newParent != eInternalContainer() || (eContainerFeatureID() != ArtifactPackage.CONFIG_HASH__PARENT && newParent != null)) {
-			if (EcoreUtil.isAncestor(this, newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, ArtifactPackage.ARTIFACT__CONFIG_HASHES, Artifact.class, msgs);
-			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.CONFIG_HASH__PARENT, newParent, newParent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ArtifactPackage.CONFIG_HASH__PARENT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetParent((Artifact)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ArtifactPackage.CONFIG_HASH__PARENT:
-				return basicSetParent(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case ArtifactPackage.CONFIG_HASH__PARENT:
-				return eInternalContainer().eInverseRemove(this, ArtifactPackage.ARTIFACT__CONFIG_HASHES, Artifact.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -231,8 +145,6 @@ public class ConfigHashImpl extends EObjectImpl implements ConfigHash {
 				return getUid();
 			case ArtifactPackage.CONFIG_HASH__NAME:
 				return getName();
-			case ArtifactPackage.CONFIG_HASH__PARENT:
-				return getParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,9 +162,6 @@ public class ConfigHashImpl extends EObjectImpl implements ConfigHash {
 				return;
 			case ArtifactPackage.CONFIG_HASH__NAME:
 				setName((String)newValue);
-				return;
-			case ArtifactPackage.CONFIG_HASH__PARENT:
-				setParent((Artifact)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -272,9 +181,6 @@ public class ConfigHashImpl extends EObjectImpl implements ConfigHash {
 			case ArtifactPackage.CONFIG_HASH__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ArtifactPackage.CONFIG_HASH__PARENT:
-				setParent((Artifact)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -291,8 +197,6 @@ public class ConfigHashImpl extends EObjectImpl implements ConfigHash {
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case ArtifactPackage.CONFIG_HASH__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ArtifactPackage.CONFIG_HASH__PARENT:
-				return getParent() != null;
 		}
 		return super.eIsSet(featureID);
 	}

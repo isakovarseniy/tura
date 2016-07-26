@@ -3,6 +3,7 @@
 package domain.provider;
 
 
+import artifact.ArtifactFactory;
 import domain.DomainArtifacts;
 import domain.DomainFactory;
 import domain.DomainPackage;
@@ -126,6 +127,7 @@ public class DomainArtifactsItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT);
+			childrenFeatures.add(DomainPackage.Literals.DOMAIN_ARTIFACTS__TECH_LEAFS);
 		}
 		return childrenFeatures;
 	}
@@ -186,6 +188,7 @@ public class DomainArtifactsItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DomainPackage.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT:
+			case DomainPackage.DOMAIN_ARTIFACTS__TECH_LEAFS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -207,6 +210,11 @@ public class DomainArtifactsItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT,
 				 DomainFactory.eINSTANCE.createDomainArtifact()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DOMAIN_ARTIFACTS__TECH_LEAFS,
+				 ArtifactFactory.eINSTANCE.createTechLeaf()));
 	}
 
 	/**

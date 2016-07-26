@@ -12,7 +12,7 @@
  -->
 <project default="main">
 	
-	<target name="main" depends="common,permission,artifact,type,domain,style,infrastructure,messages,mapper,recipe,form,application,domain,genmodel,copy-icons">
+	<target name="main" depends="common,permission,artifact,type,domain,style,infrastructure,messages,mapper,recipe,form,application,domain,genmodel">
 	</target>
 	
 
@@ -72,9 +72,4 @@
 		</epsilon.eugenia>
 	</target>	
 
-	<target name="copy-icons">
-		<copy todir="../org.tura.metamodel.edit/icons/full/obj16">
-			<fileset dir="icons"/>
-		</copy>
-     </target>
 </project>

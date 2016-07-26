@@ -20,6 +20,7 @@ class DomainArtifacts {
     id attr EString uid;
     attr EString name;  
     val DomainArtifact[*] domainArtifact;
+    val artifact.TechLeaf[*] techLeafs;
 }
 
 class DomainArtifact{

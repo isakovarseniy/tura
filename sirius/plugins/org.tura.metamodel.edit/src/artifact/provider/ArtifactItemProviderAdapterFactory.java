@@ -94,6 +94,29 @@ public class ArtifactItemProviderAdapterFactory extends ArtifactAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link artifact.TechLeaf} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TechLeafItemProvider techLeafItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link artifact.TechLeaf}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTechLeafAdapter() {
+		if (techLeafItemProvider == null) {
+			techLeafItemProvider = new TechLeafItemProvider(this);
+		}
+
+		return techLeafItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link artifact.Artifact} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

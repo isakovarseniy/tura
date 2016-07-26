@@ -9,11 +9,19 @@
           <modelQuery uid="e612ad8c-95ae-472d-8637-a72939d0cf11" name="q2"/>
           <modelQuery uid="d1de6077-5d14-4b58-97da-fcd2a37d3f0f" name="ewwqe"/>
           <modelQuery uid="7629cbe4-fcca-4939-ad0f-d6754fb7c235" name="sadasD"/>
-          <hints uid="9486bfe0-c99a-4e8e-9db9-873bab45c285" name="asasdasd\dasdas"/>
-          <hints uid="5d7a2f1e-5702-4918-a8ca-99609d1ac3c3" name="asdasd"/>
         </artifacts>
       </artifactPackages>
     </domainArtifact>
+    <techLeafs uid="52052d1c-7313-4684-a8bd-c62091140f59" name="qq1">
+      <hints uid="ad6697cc-6bc4-403f-9f35-1fa59f4813a2" name="fsdfsdf"/>
+      <configVariables uid="27d4df70-cdb5-4564-b2cf-9208e8d66081" name="asdasd"/>
+      <techLeafs uid="058abeb0-a846-4174-8936-b19d84f545d8" name="q2">
+        <hints uid="235084b1-5c6e-4ee0-b8cb-8d2539b3b6f5" name="wwwww"/>
+        <hints uid="d8279e6d-a625-44ae-ac13-2a62854a5dce" name="sdfsdfsd"/>
+        <configVariables uid="43127d25-c5fe-453d-90a2-c248e0e7d7d1" name="adsdasd"/>
+        <techLeafs uid="f83e3a3a-93ae-4406-9dfc-07d5976407f2" name="asdasdasdasd"/>
+      </techLeafs>
+    </techLeafs>
   </domainArtifacts>
   <domainTypes uid="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" name="Primitives">
     <typesRepository uid="923b1494-89cc-4956-a3da-af3d9cbe6e46" name="Domain Repository1">
@@ -89,7 +97,9 @@
                 <infrastructure2Configurations uid="f0f5db58-2a78-4b8a-b625-e657043db63e" source="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3" target="41b58e36-cca1-458a-8f45-d88154c8aa1e"/>
                 <infrastructure2Configurations uid="757ffe47-5bfc-486d-8993-0538497a407f" source="04dedfd4-c909-42cf-81f5-1898ace8d9e4" target="8a3affb8-c67c-42b2-8e59-2fedbf2213dc"/>
               </recipes>
+              <recipes uid="561df30a-5e25-4918-a009-9ba745f5bb66" name="Recipe 2"/>
             </recipes>
+            <recipes uid="a1b10eb6-b808-4453-b15a-0bf4ffb8b04c" name="Application recipes  package2"/>
           </applicationRecipes>
           <applicationMappers uid="0cf8dece-306e-4a11-a093-c6a0b9c250be">
             <mappers uid="ae6c399e-7bdc-4c5b-a263-722db7c0d441" name="Mapping package1">

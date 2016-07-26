@@ -72,6 +72,12 @@ public class ArtifactSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ArtifactPackage.TECH_LEAF: {
+				TechLeaf techLeaf = (TechLeaf)theEObject;
+				T result = caseTechLeaf(techLeaf);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ArtifactPackage.ARTIFACT: {
 				Artifact artifact = (Artifact)theEObject;
 				T result = caseArtifact(artifact);
@@ -136,6 +142,21 @@ public class ArtifactSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseArtifactGroup(ArtifactGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tech Leaf</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tech Leaf</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTechLeaf(TechLeaf object) {
 		return null;
 	}
 

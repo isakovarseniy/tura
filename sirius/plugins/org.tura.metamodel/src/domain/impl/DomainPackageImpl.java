@@ -301,6 +301,15 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDomainArtifacts_TechLeafs() {
+		return (EReference)domainArtifactsEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDomainArtifact() {
 		return domainArtifactEClass;
 	}
@@ -523,6 +532,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__UID);
 		createEAttribute(domainArtifactsEClass, DOMAIN_ARTIFACTS__NAME);
 		createEReference(domainArtifactsEClass, DOMAIN_ARTIFACTS__DOMAIN_ARTIFACT);
+		createEReference(domainArtifactsEClass, DOMAIN_ARTIFACTS__TECH_LEAFS);
 
 		domainArtifactEClass = createEClass(DOMAIN_ARTIFACT);
 		createEAttribute(domainArtifactEClass, DOMAIN_ARTIFACT__UID);
@@ -596,6 +606,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getDomainArtifacts_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDomainArtifacts_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomainArtifacts_DomainArtifact(), this.getDomainArtifact(), null, "domainArtifact", null, 0, -1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainArtifacts_TechLeafs(), theArtifactPackage.getTechLeaf(), null, "techLeafs", null, 0, -1, DomainArtifacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(domainArtifactEClass, DomainArtifact.class, "DomainArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDomainArtifact_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

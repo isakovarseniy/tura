@@ -16,6 +16,7 @@ import artifact.GenerationHint;
 import artifact.ModelQuery;
 import artifact.Option;
 import artifact.QueryParameter;
+import artifact.TechLeaf;
 import artifact.Technology;
 
 import common.CommonPackage;
@@ -78,6 +79,13 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * @generated
 	 */
 	private EClass artifactGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass techLeafEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,6 +280,60 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTechLeaf() {
+		return techLeafEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTechLeaf_Uid() {
+		return (EAttribute)techLeafEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTechLeaf_Name() {
+		return (EAttribute)techLeafEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTechLeaf_Hints() {
+		return (EReference)techLeafEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTechLeaf_ConfigVariables() {
+		return (EReference)techLeafEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTechLeaf_TechLeafs() {
+		return (EReference)techLeafEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getArtifact() {
 		return artifactEClass;
 	}
@@ -389,15 +451,6 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGenerationHint_ApplyedClass() {
-		return (EAttribute)generationHintEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getConfigVariable() {
 		return configVariableEClass;
 	}
@@ -445,15 +498,6 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 */
 	public EAttribute getConfigHash_Name() {
 		return (EAttribute)configHashEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConfigHash_Parent() {
-		return (EReference)configHashEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -624,6 +668,13 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		createEAttribute(artifactGroupEClass, ARTIFACT_GROUP__NAME);
 		createEReference(artifactGroupEClass, ARTIFACT_GROUP__ARTIFACTS);
 
+		techLeafEClass = createEClass(TECH_LEAF);
+		createEAttribute(techLeafEClass, TECH_LEAF__UID);
+		createEAttribute(techLeafEClass, TECH_LEAF__NAME);
+		createEReference(techLeafEClass, TECH_LEAF__HINTS);
+		createEReference(techLeafEClass, TECH_LEAF__CONFIG_VARIABLES);
+		createEReference(techLeafEClass, TECH_LEAF__TECH_LEAFS);
+
 		artifactEClass = createEClass(ARTIFACT);
 		createEAttribute(artifactEClass, ARTIFACT__UID);
 		createEAttribute(artifactEClass, ARTIFACT__NAME);
@@ -638,7 +689,6 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		generationHintEClass = createEClass(GENERATION_HINT);
 		createEAttribute(generationHintEClass, GENERATION_HINT__UID);
 		createEAttribute(generationHintEClass, GENERATION_HINT__NAME);
-		createEAttribute(generationHintEClass, GENERATION_HINT__APPLYED_CLASS);
 
 		configVariableEClass = createEClass(CONFIG_VARIABLE);
 		createEAttribute(configVariableEClass, CONFIG_VARIABLE__UID);
@@ -647,7 +697,6 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		configHashEClass = createEClass(CONFIG_HASH);
 		createEAttribute(configHashEClass, CONFIG_HASH__UID);
 		createEAttribute(configHashEClass, CONFIG_HASH__NAME);
-		createEReference(configHashEClass, CONFIG_HASH__PARENT);
 
 		modelQueryEClass = createEClass(MODEL_QUERY);
 		createEAttribute(modelQueryEClass, MODEL_QUERY__UID);
@@ -704,21 +753,27 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		initEAttribute(getArtifactGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArtifactGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifactGroup_Artifacts(), this.getArtifact(), null, "artifacts", null, 0, -1, ArtifactGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(techLeafEClass, TechLeaf.class, "TechLeaf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTechLeaf_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, TechLeaf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTechLeaf_Name(), ecorePackage.getEString(), "name", null, 0, 1, TechLeaf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTechLeaf_Hints(), this.getGenerationHint(), null, "hints", null, 0, -1, TechLeaf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTechLeaf_ConfigVariables(), this.getConfigVariable(), null, "configVariables", null, 0, -1, TechLeaf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTechLeaf_TechLeafs(), this.getTechLeaf(), null, "techLeafs", null, 0, -1, TechLeaf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifact_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtifact_Description(), ecorePackage.getEString(), "description", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArtifact_ConfigVariables(), this.getConfigVariable(), null, "configVariables", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArtifact_ConfigHashes(), this.getConfigHash(), this.getConfigHash_Parent(), "configHashes", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_ConfigVariables(), this.getConfigVariable(), null, "configVariables", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_ConfigHashes(), this.getConfigHash(), null, "configHashes", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_ModelQuery(), this.getModelQuery(), null, "modelQuery", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Technologies(), this.getTechnology(), null, "technologies", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArtifact_Hints(), this.getGenerationHint(), null, "hints", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_Hints(), this.getGenerationHint(), null, "hints", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtifact_Template(), ecorePackage.getEString(), "template", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(generationHintEClass, GenerationHint.class, "GenerationHint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGenerationHint_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerationHint_Name(), ecorePackage.getEString(), "name", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenerationHint_ApplyedClass(), ecorePackage.getEString(), "applyedClass", null, 0, 1, GenerationHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configVariableEClass, ConfigVariable.class, "ConfigVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfigVariable_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -727,7 +782,6 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		initEClass(configHashEClass, ConfigHash.class, "ConfigHash", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfigHash_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ConfigHash.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigHash_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConfigHash.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfigHash_Parent(), this.getArtifact(), this.getArtifact_ConfigHashes(), "parent", null, 0, 1, ConfigHash.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelQueryEClass, ModelQuery.class, "ModelQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelQuery_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ModelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
