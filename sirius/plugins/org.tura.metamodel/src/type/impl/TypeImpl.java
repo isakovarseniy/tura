@@ -2,9 +2,9 @@
  */
 package type.impl;
 
-import common.Categorized;
-import common.Classifier;
-import common.CommonPackage;
+import artifact.ArtifactPackage;
+import artifact.Categorized;
+import artifact.Classifier;
 
 import java.util.Collection;
 
@@ -233,7 +233,7 @@ public class TypeImpl extends TypeElementImpl implements Type {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Categorized.class) {
 			switch (derivedFeatureID) {
-				case TypePackage.TYPE__CLASSIFIERS: return CommonPackage.CATEGORIZED__CLASSIFIERS;
+				case TypePackage.TYPE__CLASSIFIERS: return ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 				default: return -1;
 			}
 		}
@@ -249,7 +249,7 @@ public class TypeImpl extends TypeElementImpl implements Type {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.CATEGORIZED__CLASSIFIERS: return TypePackage.TYPE__CLASSIFIERS;
+				case ArtifactPackage.CATEGORIZED__CLASSIFIERS: return TypePackage.TYPE__CLASSIFIERS;
 				default: return -1;
 			}
 		}

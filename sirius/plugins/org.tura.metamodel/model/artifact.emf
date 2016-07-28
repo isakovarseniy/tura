@@ -80,4 +80,12 @@ class Option{
    attr EString value;
 }
 
+class Categorized{
+    val Classifier[*] classifiers;
+}
 
+class Classifier{
+    id attr EString uid;
+    ref GenerationHint hint;
+    attr EString details;
+}

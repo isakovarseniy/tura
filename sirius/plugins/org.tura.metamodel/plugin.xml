@@ -37,13 +37,6 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated domain -->
       <package
-            uri="http://tura.org/2016/v2/common"
-            class="common.CommonPackage"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated domain -->
-      <package
             uri="http://tura.org/2016/v2/permission"
             class="permission.PermissionPackage"/>
    </extension>

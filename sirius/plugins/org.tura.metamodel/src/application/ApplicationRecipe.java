@@ -3,9 +3,9 @@
 package application;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
-import recipe.Recipe;
 import recipe.Recipes;
 
 /**
@@ -84,7 +84,7 @@ public interface ApplicationRecipe extends EObject {
 	 * The list contents are of type {@link recipe.Recipes}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Recipes</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Recipes</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

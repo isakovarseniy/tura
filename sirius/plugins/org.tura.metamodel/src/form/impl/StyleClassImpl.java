@@ -2,7 +2,7 @@
  */
 package form.impl;
 
-import common.Classifier;
+import artifact.Classifier;
 
 import form.FormPackage;
 import form.StyleClass;

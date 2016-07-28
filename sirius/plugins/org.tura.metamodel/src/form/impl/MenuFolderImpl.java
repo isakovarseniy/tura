@@ -2,9 +2,9 @@
  */
 package form.impl;
 
-import common.Categorized;
-import common.Classifier;
-import common.CommonPackage;
+import artifact.ArtifactPackage;
+import artifact.Categorized;
+import artifact.Classifier;
 
 import form.Context;
 import form.EnabledUIItem;
@@ -667,7 +667,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 		}
 		if (baseClass == Categorized.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.MENU_FOLDER__CLASSIFIERS: return CommonPackage.CATEGORIZED__CLASSIFIERS;
+				case FormPackage.MENU_FOLDER__CLASSIFIERS: return ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 				default: return -1;
 			}
 		}
@@ -708,7 +708,7 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 		}
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.MENU_FOLDER__CLASSIFIERS;
+				case ArtifactPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.MENU_FOLDER__CLASSIFIERS;
 				default: return -1;
 			}
 		}

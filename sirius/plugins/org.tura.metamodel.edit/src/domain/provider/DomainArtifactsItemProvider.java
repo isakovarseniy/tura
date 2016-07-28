@@ -4,6 +4,7 @@ package domain.provider;
 
 
 import artifact.ArtifactFactory;
+
 import domain.DomainArtifacts;
 import domain.DomainFactory;
 import domain.DomainPackage;

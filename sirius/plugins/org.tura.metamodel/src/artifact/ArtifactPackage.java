@@ -551,6 +551,80 @@ public interface ArtifactPackage extends EPackage {
 	 */
 	int OPTION_FEATURE_COUNT = 2;
 
+	/**
+	 * The meta object id for the '{@link artifact.impl.CategorizedImpl <em>Categorized</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see artifact.impl.CategorizedImpl
+	 * @see artifact.impl.ArtifactPackageImpl#getCategorized()
+	 * @generated
+	 */
+	int CATEGORIZED = 10;
+
+	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZED__CLASSIFIERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Categorized</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZED_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link artifact.impl.ClassifierImpl <em>Classifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see artifact.impl.ClassifierImpl
+	 * @see artifact.impl.ArtifactPackageImpl#getClassifier()
+	 * @generated
+	 */
+	int CLASSIFIER = 11;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Hint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER__HINT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Details</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER__DETAILS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Classifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_FEATURE_COUNT = 3;
+
 
 	/**
 	 * Returns the meta object for class '{@link artifact.ArtifactGroup <em>Group</em>}'.
@@ -1027,6 +1101,70 @@ public interface ArtifactPackage extends EPackage {
 	EAttribute getOption_Value();
 
 	/**
+	 * Returns the meta object for class '{@link artifact.Categorized <em>Categorized</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Categorized</em>'.
+	 * @see artifact.Categorized
+	 * @generated
+	 */
+	EClass getCategorized();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link artifact.Categorized#getClassifiers <em>Classifiers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Classifiers</em>'.
+	 * @see artifact.Categorized#getClassifiers()
+	 * @see #getCategorized()
+	 * @generated
+	 */
+	EReference getCategorized_Classifiers();
+
+	/**
+	 * Returns the meta object for class '{@link artifact.Classifier <em>Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Classifier</em>'.
+	 * @see artifact.Classifier
+	 * @generated
+	 */
+	EClass getClassifier();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.Classifier#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see artifact.Classifier#getUid()
+	 * @see #getClassifier()
+	 * @generated
+	 */
+	EAttribute getClassifier_Uid();
+
+	/**
+	 * Returns the meta object for the reference '{@link artifact.Classifier#getHint <em>Hint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Hint</em>'.
+	 * @see artifact.Classifier#getHint()
+	 * @see #getClassifier()
+	 * @generated
+	 */
+	EReference getClassifier_Hint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.Classifier#getDetails <em>Details</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Details</em>'.
+	 * @see artifact.Classifier#getDetails()
+	 * @see #getClassifier()
+	 * @generated
+	 */
+	EAttribute getClassifier_Details();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1419,6 +1557,58 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPTION__VALUE = eINSTANCE.getOption_Value();
+
+		/**
+		 * The meta object literal for the '{@link artifact.impl.CategorizedImpl <em>Categorized</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see artifact.impl.CategorizedImpl
+		 * @see artifact.impl.ArtifactPackageImpl#getCategorized()
+		 * @generated
+		 */
+		EClass CATEGORIZED = eINSTANCE.getCategorized();
+
+		/**
+		 * The meta object literal for the '<em><b>Classifiers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORIZED__CLASSIFIERS = eINSTANCE.getCategorized_Classifiers();
+
+		/**
+		 * The meta object literal for the '{@link artifact.impl.ClassifierImpl <em>Classifier</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see artifact.impl.ClassifierImpl
+		 * @see artifact.impl.ArtifactPackageImpl#getClassifier()
+		 * @generated
+		 */
+		EClass CLASSIFIER = eINSTANCE.getClassifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASSIFIER__UID = eINSTANCE.getClassifier_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Hint</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASSIFIER__HINT = eINSTANCE.getClassifier_Hint();
+
+		/**
+		 * The meta object literal for the '<em><b>Details</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASSIFIER__DETAILS = eINSTANCE.getClassifier_Details();
 
 	}
 

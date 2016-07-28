@@ -2,9 +2,9 @@
  */
 package form.impl;
 
-import common.Categorized;
-import common.Classifier;
-import common.CommonPackage;
+import artifact.ArtifactPackage;
+import artifact.Categorized;
+import artifact.Classifier;
 
 import form.FormPackage;
 import form.NickNamed;
@@ -215,7 +215,7 @@ public class ViewElementImpl extends StyleElementImpl implements ViewElement {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Categorized.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.VIEW_ELEMENT__CLASSIFIERS: return CommonPackage.CATEGORIZED__CLASSIFIERS;
+				case FormPackage.VIEW_ELEMENT__CLASSIFIERS: return ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 				default: return -1;
 			}
 		}
@@ -237,7 +237,7 @@ public class ViewElementImpl extends StyleElementImpl implements ViewElement {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.VIEW_ELEMENT__CLASSIFIERS;
+				case ArtifactPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.VIEW_ELEMENT__CLASSIFIERS;
 				default: return -1;
 			}
 		}

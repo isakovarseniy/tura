@@ -2,7 +2,7 @@
  */
 package message.tests;
 
-import common.tests.CategorizedTest;
+import artifact.tests.CategorizedTest;
 
 import junit.textui.TestRunner;
 

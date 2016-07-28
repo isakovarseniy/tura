@@ -2,7 +2,7 @@
  */
 package form;
 
-import common.Categorized;
+import artifact.Categorized;
 
 /**
  * <!-- begin-user-doc -->

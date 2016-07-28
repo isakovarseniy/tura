@@ -3,8 +3,8 @@
 package type.provider;
 
 
-import common.CommonFactory;
-import common.CommonPackage;
+import artifact.ArtifactFactory;
+import artifact.ArtifactPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -135,7 +135,7 @@ public class AttributeItemProvider extends TypePointerItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 		}
 		return childrenFeatures;
 	}
@@ -216,8 +216,8 @@ public class AttributeItemProvider extends TypePointerItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS,
-				 CommonFactory.eINSTANCE.createClassifier()));
+				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 ArtifactFactory.eINSTANCE.createClassifier()));
 	}
 
 }

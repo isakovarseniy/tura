@@ -2,7 +2,7 @@
  */
 package type;
 
-import common.CommonPackage;
+import artifact.ArtifactPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -197,7 +197,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP__CLASSIFIERS = CommonPackage.CATEGORIZED__CLASSIFIERS;
+	int RELATIONSHIP__CLASSIFIERS = ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -206,7 +206,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP__UID = CommonPackage.CATEGORIZED_FEATURE_COUNT + 0;
+	int RELATIONSHIP__UID = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -215,7 +215,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP__SOURCE = CommonPackage.CATEGORIZED_FEATURE_COUNT + 1;
+	int RELATIONSHIP__SOURCE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -224,7 +224,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP__TARGET = CommonPackage.CATEGORIZED_FEATURE_COUNT + 2;
+	int RELATIONSHIP__TARGET = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Relationship</em>' class.
@@ -233,7 +233,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP_FEATURE_COUNT = CommonPackage.CATEGORIZED_FEATURE_COUNT + 3;
+	int RELATIONSHIP_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link type.impl.ReferencesImpl <em>References</em>}' class.
@@ -995,7 +995,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE__CLASSIFIERS = CommonPackage.CATEGORIZED__CLASSIFIERS;
+	int ENUM_ATTRIBUTE__CLASSIFIERS = ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1004,7 +1004,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE__UID = CommonPackage.CATEGORIZED_FEATURE_COUNT + 0;
+	int ENUM_ATTRIBUTE__UID = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1013,7 +1013,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE__NAME = CommonPackage.CATEGORIZED_FEATURE_COUNT + 1;
+	int ENUM_ATTRIBUTE__NAME = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1022,7 +1022,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE__VALUE = CommonPackage.CATEGORIZED_FEATURE_COUNT + 2;
+	int ENUM_ATTRIBUTE__VALUE = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Enum Attribute</em>' class.
@@ -1031,7 +1031,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_ATTRIBUTE_FEATURE_COUNT = CommonPackage.CATEGORIZED_FEATURE_COUNT + 3;
+	int ENUM_ATTRIBUTE_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link type.impl.MethodPointerImpl <em>Method Pointer</em>}' class.

@@ -5,7 +5,6 @@ package form.impl;
 import form.Column;
 import form.Context;
 import form.FormPackage;
-import form.HTMLLayerHolder;
 import form.MultiLangLabel;
 import form.Tree;
 

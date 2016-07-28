@@ -160,8 +160,6 @@ import application.provider.ApplicationItemProviderAdapterFactory;
 
 import artifact.provider.ArtifactItemProviderAdapterFactory;
 
-import common.provider.CommonItemProviderAdapterFactory;
-
 import form.provider.FormItemProviderAdapterFactory;
 
 import infrastructure.provider.InfrastructureItemProviderAdapterFactory;
@@ -727,7 +725,6 @@ public class DomainEditor
 		adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CommonItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PermissionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new InfrastructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MessageItemProviderAdapterFactory());

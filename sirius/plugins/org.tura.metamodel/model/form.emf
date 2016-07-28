@@ -2,7 +2,7 @@
 package form;
 
 
-import "platform:/resource/org.tura.metamodel/model/common.ecore";
+import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
 import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 
@@ -72,22 +72,22 @@ class DefaultCavas{
    attr boolean defaultCanvas;
 }
 
-class ViewElement extends StyleElement, common.Categorized,NickNamed {
+class ViewElement extends StyleElement, artifact.Categorized,NickNamed {
 
 }
 
 
-class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,common.Categorized, FlexFields {
+class PopupCanvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,artifact.Categorized, FlexFields {
    attr boolean modal;
 }
 
-class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,common.Categorized {
+class Canvas extends CanvasFrame,ViewPortHolder,DefaultCavas, MultiLangLabel,artifact.Categorized {
 }
 
-class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,common.Categorized ,permission.Secured{
+class Window extends CanvasFrame,ViewPortHolder,MultiLangLabel,artifact.Categorized ,permission.Secured{
 }
 
-class MenuDefinition extends StyleElement,common.Categorized {
+class MenuDefinition extends StyleElement,artifact.Categorized {
     id attr EString uid;
    attr EString name;
    val MenuFolder[*] menuFolders; 
@@ -101,11 +101,11 @@ enum Orientation{
 	Right;
 }
 
-class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel,common.Categorized {
+class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel,artifact.Categorized {
   attr Orientation orientation ;
 }
 
-class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,common.Categorized,Orderable {
+class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,artifact.Categorized,Orderable {
 }
 
 class ViewPort extends ViewElement,Orderable{
@@ -198,7 +198,7 @@ class StyleElement{
 }
 
 class StyleClass extends ContextValue{
-    val common.Classifier classifier;
+    val artifact.Classifier classifier;
 
 }
 
@@ -215,7 +215,7 @@ class FlexFields {
 }
 
 
-class FlexField extends Context , common.Categorized{
+class FlexField extends Context , artifact.Categorized{
 }
 
 
@@ -223,7 +223,7 @@ class EnabledUIItem{
     val Context enabled;
 }
 
-class Uielement extends StyleElement,NickNamed,common.Categorized, Orderable, EnabledUIItem,FlexFields,MenuHolder{
+class Uielement extends StyleElement,NickNamed,artifact.Categorized, Orderable, EnabledUIItem,FlexFields,MenuHolder{
     id attr EString uid;
     val Context required;
     val Context readOnly;
@@ -318,7 +318,7 @@ class Button extends Uielement,MultiLangLabel,ItemIcon{
    attr EString label;
 }
 
-class Column extends StyleElement,MultiLangLabel, common.Categorized,HTMLLayerHolder,Orderable{
+class Column extends StyleElement,MultiLangLabel, artifact.Categorized,HTMLLayerHolder,Orderable{
     id attr EString uid;
    attr EString label;
    val Uielement element;   
@@ -344,13 +344,13 @@ class MenuExtensionRef{
 }
 
 
-class MenuElement extends MultiLangLabel,StyleElement,common.Categorized,EnabledUIItem,Orderable{
+class MenuElement extends MultiLangLabel,StyleElement,artifact.Categorized,EnabledUIItem,Orderable{
     id attr EString uid;
     attr EString name;
 }
 
 
-class MenuFolder extends HTMLLayerHolder,EnabledUIItem,common.Categorized,StyleElement,MultiLangLabel,ItemIcon{
+class MenuFolder extends HTMLLayerHolder,EnabledUIItem,artifact.Categorized,StyleElement,MultiLangLabel,ItemIcon{
     id attr EString uid;
     attr EString name;
     attr EBoolean extensionPoint;

@@ -3,6 +3,7 @@
 package domain;
 
 import artifact.TechLeaf;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;

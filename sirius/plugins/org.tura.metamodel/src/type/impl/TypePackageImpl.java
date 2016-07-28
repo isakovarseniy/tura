@@ -10,10 +10,6 @@ import artifact.ArtifactPackage;
 
 import artifact.impl.ArtifactPackageImpl;
 
-import common.CommonPackage;
-
-import common.impl.CommonPackageImpl;
-
 import domain.DomainPackage;
 
 import domain.impl.DomainPackageImpl;
@@ -57,7 +53,6 @@ import style.impl.StylePackageImpl;
 import type.Assosiation;
 import type.Attribute;
 import type.EnumAttribute;
-import type.Enumarator;
 import type.Enumerator;
 import type.Generalization;
 import type.Link;
@@ -283,7 +278,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
 		ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
-		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) instanceof PermissionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) : PermissionPackage.eINSTANCE);
 		InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) instanceof InfrastructurePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) : InfrastructurePackage.eINSTANCE);
 		MessagePackageImpl theMessagePackage = (MessagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) instanceof MessagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) : MessagePackage.eINSTANCE);
@@ -297,7 +291,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		theDomainPackage.createPackageContents();
 		theArtifactPackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
-		theCommonPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theInfrastructurePackage.createPackageContents();
 		theMessagePackage.createPackageContents();
@@ -311,7 +304,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		theDomainPackage.initializePackageContents();
 		theArtifactPackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
-		theCommonPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theInfrastructurePackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
@@ -1004,7 +996,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
+		ArtifactPackage theArtifactPackage = (ArtifactPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI);
 		PermissionPackage thePermissionPackage = (PermissionPackage)EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI);
 
 		// Create type parameters
@@ -1012,23 +1004,23 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		relationshipEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		relationshipEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		referencesEClass.getESuperTypes().add(this.getRelationship());
 		generalizationEClass.getESuperTypes().add(this.getRelationship());
 		assosiationEClass.getESuperTypes().add(this.getRelationship());
 		attributeEClass.getESuperTypes().add(this.getTypePointer());
-		attributeEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		attributeEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		operationEClass.getESuperTypes().add(thePermissionPackage.getSecured());
-		operationEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		operationEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		primitiveEClass.getESuperTypes().add(this.getTypeElement());
 		typeEClass.getESuperTypes().add(this.getTypeElement());
-		typeEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		typeEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		typeReferenceEClass.getESuperTypes().add(this.getTypeElement());
 		typeReferenceEClass.getESuperTypes().add(this.getTypePointer());
 		parameterEClass.getESuperTypes().add(this.getTypePointer());
 		returnValueEClass.getESuperTypes().add(this.getTypePointer());
 		enumeratorEClass.getESuperTypes().add(this.getTypeElement());
-		enumAttributeEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		enumAttributeEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(typeGroupEClass, TypeGroup.class, "TypeGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

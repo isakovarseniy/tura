@@ -2,9 +2,9 @@
  */
 package type.impl;
 
-import common.Categorized;
-import common.Classifier;
-import common.CommonPackage;
+import artifact.ArtifactPackage;
+import artifact.Categorized;
+import artifact.Classifier;
 
 import java.util.Collection;
 
@@ -433,7 +433,7 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Categorized.class) {
 			switch (derivedFeatureID) {
-				case TypePackage.OPERATION__CLASSIFIERS: return CommonPackage.CATEGORIZED__CLASSIFIERS;
+				case TypePackage.OPERATION__CLASSIFIERS: return ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 				default: return -1;
 			}
 		}
@@ -449,7 +449,7 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.CATEGORIZED__CLASSIFIERS: return TypePackage.OPERATION__CLASSIFIERS;
+				case ArtifactPackage.CATEGORIZED__CLASSIFIERS: return TypePackage.OPERATION__CLASSIFIERS;
 				default: return -1;
 			}
 		}

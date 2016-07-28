@@ -66,6 +66,8 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 			case ArtifactPackage.QUERY_PARAMETER: return createQueryParameter();
 			case ArtifactPackage.TECHNOLOGY: return createTechnology();
 			case ArtifactPackage.OPTION: return createOption();
+			case ArtifactPackage.CATEGORIZED: return createCategorized();
+			case ArtifactPackage.CLASSIFIER: return createClassifier();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -169,6 +171,26 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	public Option createOption() {
 		OptionImpl option = new OptionImpl();
 		return option;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Categorized createCategorized() {
+		CategorizedImpl categorized = new CategorizedImpl();
+		return categorized;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Classifier createClassifier() {
+		ClassifierImpl classifier = new ClassifierImpl();
+		return classifier;
 	}
 
 	/**

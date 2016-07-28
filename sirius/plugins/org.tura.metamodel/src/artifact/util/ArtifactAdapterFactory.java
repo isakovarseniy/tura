@@ -108,6 +108,14 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 				return createOptionAdapter();
 			}
 			@Override
+			public Adapter caseCategorized(Categorized object) {
+				return createCategorizedAdapter();
+			}
+			@Override
+			public Adapter caseClassifier(Classifier object) {
+				return createClassifierAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -264,6 +272,34 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.Categorized <em>Categorized</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.Categorized
+	 * @generated
+	 */
+	public Adapter createCategorizedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.Classifier <em>Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.Classifier
+	 * @generated
+	 */
+	public Adapter createClassifierAdapter() {
 		return null;
 	}
 

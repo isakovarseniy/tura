@@ -114,7 +114,7 @@ public interface Artifact extends EObject {
 	 * The list contents are of type {@link artifact.ConfigVariable}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Config Variables</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Config Variables</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -178,7 +178,7 @@ public interface Artifact extends EObject {
 	 * The list contents are of type {@link artifact.GenerationHint}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Hints</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Hints</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

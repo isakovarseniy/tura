@@ -5,7 +5,6 @@ package form.impl;
 import form.Context;
 import form.FormPackage;
 import form.ItemIcon;
-import form.MenuFolder;
 import form.SubMenu;
 
 import org.eclipse.emf.common.notify.Notification;

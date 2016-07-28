@@ -10,6 +10,8 @@ import artifact.Artifact;
 import artifact.ArtifactFactory;
 import artifact.ArtifactGroup;
 import artifact.ArtifactPackage;
+import artifact.Categorized;
+import artifact.Classifier;
 import artifact.ConfigHash;
 import artifact.ConfigVariable;
 import artifact.GenerationHint;
@@ -18,10 +20,6 @@ import artifact.Option;
 import artifact.QueryParameter;
 import artifact.TechLeaf;
 import artifact.Technology;
-
-import common.CommonPackage;
-
-import common.impl.CommonPackageImpl;
 
 import domain.DomainPackage;
 
@@ -144,6 +142,20 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	private EClass optionEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass categorizedEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classifierEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -193,7 +205,6 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		DomainPackageImpl theDomainPackage = (DomainPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) instanceof DomainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DomainPackage.eNS_URI) : DomainPackage.eINSTANCE);
 		TypePackageImpl theTypePackage = (TypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) instanceof TypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) : TypePackage.eINSTANCE);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
-		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) instanceof PermissionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) : PermissionPackage.eINSTANCE);
 		InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) instanceof InfrastructurePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) : InfrastructurePackage.eINSTANCE);
 		MessagePackageImpl theMessagePackage = (MessagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) instanceof MessagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) : MessagePackage.eINSTANCE);
@@ -207,7 +218,6 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		theDomainPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
-		theCommonPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theInfrastructurePackage.createPackageContents();
 		theMessagePackage.createPackageContents();
@@ -221,7 +231,6 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		theDomainPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
-		theCommonPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theInfrastructurePackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
@@ -640,6 +649,60 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCategorized() {
+		return categorizedEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCategorized_Classifiers() {
+		return (EReference)categorizedEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getClassifier() {
+		return classifierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getClassifier_Uid() {
+		return (EAttribute)classifierEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClassifier_Hint() {
+		return (EReference)classifierEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getClassifier_Details() {
+		return (EAttribute)classifierEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ArtifactFactory getArtifactFactory() {
 		return (ArtifactFactory)getEFactoryInstance();
 	}
@@ -716,6 +779,14 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		optionEClass = createEClass(OPTION);
 		createEAttribute(optionEClass, OPTION__UID);
 		createEAttribute(optionEClass, OPTION__VALUE);
+
+		categorizedEClass = createEClass(CATEGORIZED);
+		createEReference(categorizedEClass, CATEGORIZED__CLASSIFIERS);
+
+		classifierEClass = createEClass(CLASSIFIER);
+		createEAttribute(classifierEClass, CLASSIFIER__UID);
+		createEReference(classifierEClass, CLASSIFIER__HINT);
+		createEAttribute(classifierEClass, CLASSIFIER__DETAILS);
 	}
 
 	/**
@@ -801,6 +872,14 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOption_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOption_Value(), ecorePackage.getEString(), "value", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(categorizedEClass, Categorized.class, "Categorized", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCategorized_Classifiers(), this.getClassifier(), null, "classifiers", null, 0, -1, Categorized.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(classifierEClass, Classifier.class, "Classifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getClassifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClassifier_Hint(), this.getGenerationHint(), null, "hint", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClassifier_Details(), ecorePackage.getEString(), "details", null, 0, 1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

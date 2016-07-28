@@ -2,7 +2,7 @@
  */
 package form.util;
 
-import common.Categorized;
+import artifact.Categorized;
 
 import form.*;
 

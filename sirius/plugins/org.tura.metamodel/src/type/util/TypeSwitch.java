@@ -2,7 +2,7 @@
  */
 package type.util;
 
-import common.Categorized;
+import artifact.Categorized;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;

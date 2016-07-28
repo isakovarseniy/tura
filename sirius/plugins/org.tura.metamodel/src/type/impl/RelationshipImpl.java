@@ -2,7 +2,7 @@
  */
 package type.impl;
 
-import common.impl.CategorizedImpl;
+import artifact.impl.CategorizedImpl;
 
 import org.eclipse.emf.common.notify.Notification;
 

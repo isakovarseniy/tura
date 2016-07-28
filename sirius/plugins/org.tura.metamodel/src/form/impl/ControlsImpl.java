@@ -5,7 +5,6 @@ package form.impl;
 import form.Controls;
 import form.DataControl;
 import form.Dependency;
-import form.FormDataControls;
 import form.FormPackage;
 import form.Relation;
 import form.Root;
@@ -24,7 +23,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**

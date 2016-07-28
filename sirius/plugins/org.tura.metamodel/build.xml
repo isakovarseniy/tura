@@ -12,13 +12,11 @@
  -->
 <project default="main">
 	
-	<target name="main" depends="common,permission,artifact,type,domain,style,infrastructure,messages,mapper,recipe,form,application,domain,genmodel">
+	<target name="main" depends="permission,artifact,type,domain,style,infrastructure,messages,mapper,recipe,form,application,domain,genmodel">
 	</target>
 	
 
-	<target name="common">
-		<epsilon.eugenia   src="model/common.emf" laststep="ecore" />		
-	</target>	
+
 	
 	<target name="permission">
 		<epsilon.eugenia   src="model/permission.emf" laststep="ecore" />		

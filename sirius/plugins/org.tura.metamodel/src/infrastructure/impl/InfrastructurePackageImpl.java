@@ -10,10 +10,6 @@ import artifact.ArtifactPackage;
 
 import artifact.impl.ArtifactPackageImpl;
 
-import common.CommonPackage;
-
-import common.impl.CommonPackageImpl;
-
 import domain.DomainPackage;
 
 import domain.impl.DomainPackageImpl;
@@ -202,7 +198,6 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 		ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
 		TypePackageImpl theTypePackage = (TypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) instanceof TypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) : TypePackage.eINSTANCE);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
-		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) instanceof PermissionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) : PermissionPackage.eINSTANCE);
 		MessagePackageImpl theMessagePackage = (MessagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) instanceof MessagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) : MessagePackage.eINSTANCE);
 		StylePackageImpl theStylePackage = (StylePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) instanceof StylePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) : StylePackage.eINSTANCE);
@@ -216,7 +211,6 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 		theArtifactPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
-		theCommonPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theMessagePackage.createPackageContents();
 		theStylePackage.createPackageContents();
@@ -230,7 +224,6 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 		theArtifactPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
-		theCommonPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
 		theStylePackage.initializePackageContents();

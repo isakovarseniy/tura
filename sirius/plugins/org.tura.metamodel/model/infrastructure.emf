@@ -1,8 +1,6 @@
 @namespace(uri="http://tura.org/2016/v2/infrastructure", prefix="tura.infrastructure")
 package infrastructure;
 
-import "platform:/resource/org.tura.metamodel/model/common.ecore";
-
 class EnterpriseInfrastructure{
     id attr EString uid;
     attr EString name;

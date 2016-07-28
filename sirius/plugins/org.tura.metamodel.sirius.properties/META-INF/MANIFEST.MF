@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Properties
+Bundle-SymbolicName: org.tura.metamodel.sirius.properties; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.tura.metamodel.sirius.properties.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.views.properties.tabbed,
+ org.eclipse.gmf.runtime.diagram.ui,
+ org.tura.metamodel;bundle-version="1.0.0",
+ org.tura.metamodel.commons;bundle-version="4.0.0",
+ org.eclipse.jface,
+ org.eclipse.equinox.registry,
+ org.eclipse.sirius.diagram
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

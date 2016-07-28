@@ -2,7 +2,7 @@
  */
 package message.util;
 
-import common.Categorized;
+import artifact.Categorized;
 
 import message.*;
 

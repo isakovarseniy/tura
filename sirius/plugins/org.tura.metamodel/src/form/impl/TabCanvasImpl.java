@@ -2,9 +2,9 @@
  */
 package form.impl;
 
-import common.Categorized;
-import common.Classifier;
-import common.CommonPackage;
+import artifact.ArtifactPackage;
+import artifact.Categorized;
+import artifact.Classifier;
 
 import form.Context;
 import form.DefaultCavas;
@@ -348,7 +348,7 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 		}
 		if (baseClass == Categorized.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.TAB_CANVAS__CLASSIFIERS: return CommonPackage.CATEGORIZED__CLASSIFIERS;
+				case FormPackage.TAB_CANVAS__CLASSIFIERS: return ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 				default: return -1;
 			}
 		}
@@ -376,7 +376,7 @@ public class TabCanvasImpl extends CanvasFrameImpl implements TabCanvas {
 		}
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.TAB_CANVAS__CLASSIFIERS;
+				case ArtifactPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.TAB_CANVAS__CLASSIFIERS;
 				default: return -1;
 			}
 		}

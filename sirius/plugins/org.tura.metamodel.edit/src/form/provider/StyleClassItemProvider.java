@@ -3,7 +3,7 @@
 package form.provider;
 
 
-import common.CommonFactory;
+import artifact.ArtifactFactory;
 
 import form.FormPackage;
 import form.StyleClass;
@@ -140,7 +140,7 @@ public class StyleClassItemProvider extends ContextValueItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.STYLE_CLASS__CLASSIFIER,
-				 CommonFactory.eINSTANCE.createClassifier()));
+				 ArtifactFactory.eINSTANCE.createClassifier()));
 	}
 
 }

@@ -2,7 +2,7 @@
  */
 package message.impl;
 
-import common.impl.CategorizedImpl;
+import artifact.impl.CategorizedImpl;
 
 import java.util.Collection;
 

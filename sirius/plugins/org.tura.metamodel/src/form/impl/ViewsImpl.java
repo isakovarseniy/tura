@@ -4,7 +4,6 @@ package form.impl;
 
 import form.CanvasFrame;
 import form.FormPackage;
-import form.FormView;
 import form.MenuDefinition;
 import form.TabPagesInheritance;
 import form.ViewInheritance;

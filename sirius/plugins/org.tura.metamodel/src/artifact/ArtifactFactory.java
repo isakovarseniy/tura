@@ -112,6 +112,24 @@ public interface ArtifactFactory extends EFactory {
 	Option createOption();
 
 	/**
+	 * Returns a new object of class '<em>Categorized</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Categorized</em>'.
+	 * @generated
+	 */
+	Categorized createCategorized();
+
+	/**
+	 * Returns a new object of class '<em>Classifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Classifier</em>'.
+	 * @generated
+	 */
+	Classifier createClassifier();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

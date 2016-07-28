@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import style.StyleLibrary;
-import style.Styles;
 
 /**
  * <!-- begin-user-doc -->

@@ -3,8 +3,8 @@
 package form.provider;
 
 
-import common.CommonFactory;
-import common.CommonPackage;
+import artifact.ArtifactFactory;
+import artifact.ArtifactPackage;
 
 import form.FlexField;
 import form.FormPackage;
@@ -64,7 +64,7 @@ public class FlexFieldItemProvider extends ContextItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 		}
 		return childrenFeatures;
 	}
@@ -140,8 +140,8 @@ public class FlexFieldItemProvider extends ContextItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS,
-				 CommonFactory.eINSTANCE.createClassifier()));
+				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 ArtifactFactory.eINSTANCE.createClassifier()));
 	}
 
 }

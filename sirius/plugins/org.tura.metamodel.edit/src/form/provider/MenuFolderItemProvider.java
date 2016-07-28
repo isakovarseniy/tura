@@ -3,22 +3,25 @@
 package form.provider;
 
 
+import artifact.ArtifactFactory;
+import artifact.ArtifactPackage;
+
+import form.FormFactory;
+import form.FormPackage;
+import form.MenuFolder;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import common.CommonFactory;
-import common.CommonPackage;
-import form.FormFactory;
-import form.FormPackage;
-import form.MenuFolder;
 
 /**
  * This is the item provider adapter for a {@link form.MenuFolder} object.
@@ -134,7 +137,7 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FormPackage.Literals.ENABLED_UI_ITEM__ENABLED);
-			childrenFeatures.add(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE);
 			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE_CLASS);
 			childrenFeatures.add(FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
@@ -236,8 +239,8 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS,
-				 CommonFactory.eINSTANCE.createClassifier()));
+				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 ArtifactFactory.eINSTANCE.createClassifier()));
 
 		newChildDescriptors.add
 			(createChildParameter

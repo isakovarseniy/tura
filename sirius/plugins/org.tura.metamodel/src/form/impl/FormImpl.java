@@ -4,12 +4,10 @@ package form.impl;
 
 import form.Controls;
 import form.Form;
-import form.FormDataControls;
 import form.FormPackage;
 import form.FormParameter;
-import form.FormView;
-
 import form.Views;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

@@ -2,16 +2,15 @@
  */
 package form.impl;
 
-import common.Categorized;
-import common.Classifier;
-import common.CommonPackage;
+import artifact.ArtifactPackage;
+import artifact.Categorized;
+import artifact.Classifier;
 
 import form.FormPackage;
 import form.MenuDefinition;
 import form.MenuFolder;
-import form.MenuView;
-
 import form.ToSubmenu;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -341,7 +340,7 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Categorized.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.MENU_DEFINITION__CLASSIFIERS: return CommonPackage.CATEGORIZED__CLASSIFIERS;
+				case FormPackage.MENU_DEFINITION__CLASSIFIERS: return ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 				default: return -1;
 			}
 		}
@@ -357,7 +356,7 @@ public class MenuDefinitionImpl extends StyleElementImpl implements MenuDefiniti
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.MENU_DEFINITION__CLASSIFIERS;
+				case ArtifactPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.MENU_DEFINITION__CLASSIFIERS;
 				default: return -1;
 			}
 		}

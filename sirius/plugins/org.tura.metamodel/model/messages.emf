@@ -1,9 +1,9 @@
 @namespace(uri="http://tura.org/2016/v2/message", prefix="tura.message")
 package message;
 		
-import "platform:/resource/org.tura.metamodel/model/common.ecore";
+import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 		
-class MessageLibrary extends common.Categorized{
+class MessageLibrary extends artifact.Categorized{
     id attr EString uid;
     attr EString name;
     ref Language[*] libLanguages;

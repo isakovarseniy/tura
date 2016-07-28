@@ -4,7 +4,6 @@ package form.impl;
 
 import form.ArtificialField;
 import form.ContextParameters;
-import form.Controls;
 import form.CreateTrigger;
 import form.DataControl;
 import form.DeleteTrigger;
@@ -34,8 +33,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import type.TypePointer;

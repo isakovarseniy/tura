@@ -1,7 +1,7 @@
 @namespace(uri="http://tura.org/2016/v2/type", prefix="tura.type")
 package type;
 
-import "platform:/resource/org.tura.metamodel/model/common.ecore";
+import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/permission.ecore";
 
 	
@@ -22,7 +22,7 @@ class TypeElement{
    attr EString name; 
 }
 
-class Relationship  extends common.Categorized{
+class Relationship  extends artifact.Categorized{
     id attr EString uid;
     ref TypeElement source;
     ref TypeElement target;
@@ -64,16 +64,15 @@ class Link{
     ref Attribute detailField;
 }	
 
-class Attribute extends  TypePointer, common.Categorized{
+class Attribute extends  TypePointer, artifact.Categorized{
     id attr EString uid;
    attr EString name;
    attr EBoolean pk;
 }
 
-class Operation extends permission.Secured, common.Categorized{
+class Operation extends permission.Secured, artifact.Categorized{
     id attr EString uid;
    attr EString name;
-   ref Type parent;
    val Parameter[*]  parameters;
    val ReturnValue returnValue;
 } 
@@ -82,7 +81,7 @@ class Primitive extends TypeElement{
 }
 
 
-class Type extends TypeElement , common.Categorized{
+class Type extends TypeElement , artifact.Categorized{
    val Attribute[*] attributes;
    val Operation[*] operations;
 }
@@ -105,7 +104,7 @@ class Enumerator extends TypeElement{
    val EnumAttribute[*]  values;
 }
 
-class EnumAttribute extends  common.Categorized{
+class EnumAttribute extends  artifact.Categorized{
     id attr EString uid;
    attr EString name;
    attr EString  value;

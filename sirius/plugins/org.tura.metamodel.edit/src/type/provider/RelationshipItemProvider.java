@@ -3,7 +3,7 @@
 package type.provider;
 
 
-import common.provider.CategorizedItemProvider;
+import artifact.provider.CategorizedItemProvider;
 
 import domain.provider.DomainEditPlugin;
 

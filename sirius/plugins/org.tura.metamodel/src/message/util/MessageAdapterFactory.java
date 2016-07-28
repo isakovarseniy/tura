@@ -2,7 +2,7 @@
  */
 package message.util;
 
-import common.Categorized;
+import artifact.Categorized;
 
 import message.*;
 
@@ -166,13 +166,13 @@ public class MessageAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link common.Categorized <em>Categorized</em>}'.
+	 * Creates a new adapter for an object of class '{@link artifact.Categorized <em>Categorized</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see common.Categorized
+	 * @see artifact.Categorized
 	 * @generated
 	 */
 	public Adapter createCategorizedAdapter() {

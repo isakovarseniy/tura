@@ -2,7 +2,7 @@
  */
 package form;
 
-import common.Classifier;
+import artifact.Classifier;
 
 /**
  * <!-- begin-user-doc -->

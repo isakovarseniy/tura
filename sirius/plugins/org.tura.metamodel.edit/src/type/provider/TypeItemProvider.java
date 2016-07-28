@@ -3,8 +3,8 @@
 package type.provider;
 
 
-import common.CommonFactory;
-import common.CommonPackage;
+import artifact.ArtifactFactory;
+import artifact.ArtifactPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -65,7 +65,7 @@ public class TypeItemProvider extends TypeElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(TypePackage.Literals.TYPE__ATTRIBUTES);
 			childrenFeatures.add(TypePackage.Literals.TYPE__OPERATIONS);
 		}
@@ -145,8 +145,8 @@ public class TypeItemProvider extends TypeElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS,
-				 CommonFactory.eINSTANCE.createClassifier()));
+				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 ArtifactFactory.eINSTANCE.createClassifier()));
 
 		newChildDescriptors.add
 			(createChildParameter

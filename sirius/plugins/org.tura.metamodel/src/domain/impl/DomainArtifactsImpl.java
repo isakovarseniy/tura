@@ -3,6 +3,7 @@
 package domain.impl;
 
 import artifact.TechLeaf;
+
 import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainPackage;

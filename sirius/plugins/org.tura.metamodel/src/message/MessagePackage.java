@@ -2,7 +2,7 @@
  */
 package message;
 
-import common.CommonPackage;
+import artifact.ArtifactPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -74,7 +74,7 @@ public interface MessagePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY__CLASSIFIERS = CommonPackage.CATEGORIZED__CLASSIFIERS;
+	int MESSAGE_LIBRARY__CLASSIFIERS = ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -83,7 +83,7 @@ public interface MessagePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY__UID = CommonPackage.CATEGORIZED_FEATURE_COUNT + 0;
+	int MESSAGE_LIBRARY__UID = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -92,7 +92,7 @@ public interface MessagePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY__NAME = CommonPackage.CATEGORIZED_FEATURE_COUNT + 1;
+	int MESSAGE_LIBRARY__NAME = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Lib Languages</b></em>' reference list.
@@ -101,7 +101,7 @@ public interface MessagePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY__LIB_LANGUAGES = CommonPackage.CATEGORIZED_FEATURE_COUNT + 2;
+	int MESSAGE_LIBRARY__LIB_LANGUAGES = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list.
@@ -110,7 +110,7 @@ public interface MessagePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY__MESSAGES = CommonPackage.CATEGORIZED_FEATURE_COUNT + 3;
+	int MESSAGE_LIBRARY__MESSAGES = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Library</em>' class.
@@ -119,7 +119,7 @@ public interface MessagePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY_FEATURE_COUNT = CommonPackage.CATEGORIZED_FEATURE_COUNT + 4;
+	int MESSAGE_LIBRARY_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link message.impl.MessageImpl <em>Message</em>}' class.

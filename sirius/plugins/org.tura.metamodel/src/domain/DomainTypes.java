@@ -5,6 +5,7 @@ package domain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+
 import type.PrimitivesGroup;
 
 /**

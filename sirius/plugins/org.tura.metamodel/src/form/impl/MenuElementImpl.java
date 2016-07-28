@@ -2,9 +2,9 @@
  */
 package form.impl;
 
-import common.Categorized;
-import common.Classifier;
-import common.CommonPackage;
+import artifact.ArtifactPackage;
+import artifact.Categorized;
+import artifact.Classifier;
 
 import form.Context;
 import form.EnabledUIItem;
@@ -498,7 +498,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		}
 		if (baseClass == Categorized.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.MENU_ELEMENT__CLASSIFIERS: return CommonPackage.CATEGORIZED__CLASSIFIERS;
+				case FormPackage.MENU_ELEMENT__CLASSIFIERS: return ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 				default: return -1;
 			}
 		}
@@ -533,7 +533,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		}
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.MENU_ELEMENT__CLASSIFIERS;
+				case ArtifactPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.MENU_ELEMENT__CLASSIFIERS;
 				default: return -1;
 			}
 		}

@@ -3,8 +3,8 @@
 package form.provider;
 
 
-import common.CommonFactory;
-import common.CommonPackage;
+import artifact.ArtifactFactory;
+import artifact.ArtifactPackage;
 
 import form.FormFactory;
 import form.FormPackage;
@@ -159,7 +159,7 @@ public class UielementItemProvider extends StyleElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(FormPackage.Literals.ENABLED_UI_ITEM__ENABLED);
 			childrenFeatures.add(FormPackage.Literals.FLEX_FIELDS__FIELDS);
 			childrenFeatures.add(FormPackage.Literals.UIELEMENT__REQUIRED);
@@ -250,8 +250,8 @@ public class UielementItemProvider extends StyleElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS,
-				 CommonFactory.eINSTANCE.createClassifier()));
+				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 ArtifactFactory.eINSTANCE.createClassifier()));
 
 		newChildDescriptors.add
 			(createChildParameter

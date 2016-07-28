@@ -158,8 +158,6 @@ import artifact.provider.ArtifactItemProviderAdapterFactory;
 
 import application.provider.ApplicationItemProviderAdapterFactory;
 
-import common.provider.CommonItemProviderAdapterFactory;
-
 import domain.presentation.DomainEditorPlugin;
 
 import domain.provider.DomainItemProviderAdapterFactory;
@@ -729,7 +727,6 @@ public class ArtifactEditor
 		adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CommonItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PermissionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new InfrastructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MessageItemProviderAdapterFactory());

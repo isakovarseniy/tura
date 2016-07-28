@@ -2,18 +2,15 @@
  */
 package type.impl;
 
-import common.impl.CategorizedImpl;
+import artifact.impl.CategorizedImpl;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import type.EnumAttribute;
-import type.Enumarator;
-import type.Enumerator;
 import type.TypePackage;
 
 /**

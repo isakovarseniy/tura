@@ -3,18 +3,20 @@
 package form.provider;
 
 
+import form.FormFactory;
+import form.FormPackage;
+import form.ViewPortHolder;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import form.FormFactory;
-import form.FormPackage;
-import form.ViewPortHolder;
 
 /**
  * This is the item provider adapter for a {@link form.ViewPortHolder} object.

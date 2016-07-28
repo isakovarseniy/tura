@@ -1,0 +1,75 @@
+package org.tura.metamodel.commons.properties.selections.adapters;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.tura.metamodel.commons.Helper;
+import org.tura.metamodel.commons.Util;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.ui.model.IWorkbenchAdapter;
+import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeAttribute;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeMethod;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
+
+import type.Attribute;
+import type.Operation;
+import type.TypeElement;
+
+public class TreeDataControlProvider implements IWorkbenchAdapter,
+		IReturnTypeProvider {
+
+	@Override
+	public Object getReturnType(Object o) {
+//Must return null !!!!!!!!!!		
+		return null;
+	}
+
+	@Override
+	public Object[] getChildren(Object o) {
+		ArrayList<Object> ls = new ArrayList<>();
+		try {
+			TreeDataControl tdc = (TreeDataControl) o;
+			QueryHelper qh = new QueryHelper();
+			qh.getTreeLeafs(ls, tdc.getDc());
+			TypeElement ctr = qh.findTreeDataControlType(tdc.getDc());
+
+			HashMap<String, Operation> operations = new HashMap<>();
+			HashMap<String, Attribute> attributes = new HashMap<>();
+			(new Helper()).addOperations(operations, attributes, ctr);
+
+			for (Attribute attr : attributes.values()) {
+				if (attr.getName() != null)
+					ls.add(new DataControlFakeAttribute(attr.getName(), attr
+							.getTypeRef(), tdc.getDc()));
+			}
+
+			for (Operation opr : operations.values()) {
+				if (opr.getReturnValue() != null)
+					ls.add(new DataControlFakeMethod(opr.getName(), opr
+							.getReturnValue().getTypeRef(), tdc.getDc()));
+			}
+
+		} catch (Exception e) {
+			return new Object[] {};
+		}
+		return ls.toArray();
+	}
+
+	@Override
+	public ImageDescriptor getImageDescriptor(Object object) {
+		return null;
+	}
+
+	@Override
+	public String getLabel(Object o) {
+		TreeDataControl tdc = (TreeDataControl) o;
+		return "Tree" + Util.mergeAndCapitalize(tdc.getDc().getName());
+	}
+
+	@Override
+	public Object getParent(Object o) {
+		return null;
+	}
+
+}

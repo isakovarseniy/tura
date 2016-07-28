@@ -1,0 +1,38 @@
+<!--
+    Tura - application generation platform
+   
+    Copyright (c) 2012, 2015, Arseniy Isakov
+     
+    This project includes software developed by Arseniy Isakov
+    http://sourceforge.net/p/tura/wiki/Home/
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+ -->
+<plugin>
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.eclipse.sirius.diagram.ui">
+
+       <propertyTab
+             category="domain"
+             id="tab.artifact.ModelQuery.QueryParameter"
+             label="Query parameters"/>
+
+      </propertyTabs>
+   </extension>
+ 
+ <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+      <propertySection
+            class="org.tura.metamodel.sirius.properties.selections.grid.impl.QueryParameterPropertySelection"
+            filter="org.tura.metamodel.sirius.properties.selections.filter.QueryPropertySectionFilter"
+            id="artifact.ModelQuery.QueryParameter"
+            tab="tab.artifact.ModelQuery.QueryParameter">
+      </propertySection>
+   </propertySections>
+</extension>
+ 
+</plugin>

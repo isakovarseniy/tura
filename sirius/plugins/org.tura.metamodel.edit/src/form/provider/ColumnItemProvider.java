@@ -3,8 +3,8 @@
 package form.provider;
 
 
-import common.CommonFactory;
-import common.CommonPackage;
+import artifact.ArtifactFactory;
+import artifact.ArtifactPackage;
 
 import form.Column;
 import form.FormFactory;
@@ -160,7 +160,7 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
-			childrenFeatures.add(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS);
+			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(FormPackage.Literals.COLUMN__ELEMENT);
 		}
 		return childrenFeatures;
@@ -253,8 +253,8 @@ public class ColumnItemProvider extends StyleElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CommonPackage.Literals.CATEGORIZED__CLASSIFIERS,
-				 CommonFactory.eINSTANCE.createClassifier()));
+				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 ArtifactFactory.eINSTANCE.createClassifier()));
 
 		newChildDescriptors.add
 			(createChildParameter

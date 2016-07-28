@@ -14,5 +14,4 @@ package form;
  * @generated
  */
 public interface SubMenu extends MenuElement, ItemIcon {
-
 } // SubMenu

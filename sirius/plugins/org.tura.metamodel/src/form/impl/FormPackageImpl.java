@@ -10,10 +10,6 @@ import artifact.ArtifactPackage;
 
 import artifact.impl.ArtifactPackageImpl;
 
-import common.CommonPackage;
-
-import common.impl.CommonPackageImpl;
-
 import domain.DomainPackage;
 
 import domain.impl.DomainPackageImpl;
@@ -23,7 +19,6 @@ import form.ArtificialField;
 import form.Button;
 import form.Canvas;
 import form.CanvasFrame;
-import form.CanvasView;
 import form.CheckBox;
 import form.ChildrenHolder;
 import form.Column;
@@ -45,12 +40,10 @@ import form.ExpressionPart;
 import form.FlexField;
 import form.FlexFields;
 import form.Form;
-import form.FormDataControls;
 import form.FormFactory;
 import form.FormPackage;
 import form.FormParameter;
 import form.FormVariable;
-import form.FormView;
 import form.Formatable;
 import form.HTMLLayerHolder;
 import form.Image;
@@ -72,7 +65,6 @@ import form.MenuFolder;
 import form.MenuHolder;
 import form.MenuItem;
 import form.MenuSeparator;
-import form.MenuView;
 import form.MessageElement;
 import form.MultiLangLabel;
 import form.NickNamed;
@@ -108,7 +100,6 @@ import form.Table;
 import form.ToSubmenu;
 import form.Tree;
 import form.Trigger;
-import form.UIPackage;
 import form.Uielement;
 import form.UpdateTrigger;
 import form.ViewArea;
@@ -872,7 +863,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
 		TypePackageImpl theTypePackage = (TypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) instanceof TypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) : TypePackage.eINSTANCE);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
-		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) instanceof PermissionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) : PermissionPackage.eINSTANCE);
 		InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) instanceof InfrastructurePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) : InfrastructurePackage.eINSTANCE);
 		MessagePackageImpl theMessagePackage = (MessagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) instanceof MessagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) : MessagePackage.eINSTANCE);
@@ -886,7 +876,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		theArtifactPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
-		theCommonPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theInfrastructurePackage.createPackageContents();
 		theMessagePackage.createPackageContents();
@@ -900,7 +889,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		theArtifactPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
-		theCommonPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theInfrastructurePackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
@@ -3734,7 +3722,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		// Obtain other dependent packages
 		TypePackage theTypePackage = (TypePackage)EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI);
-		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
+		ArtifactPackage theArtifactPackage = (ArtifactPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI);
 		PermissionPackage thePermissionPackage = (PermissionPackage)EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI);
 
 		// Create type parameters
@@ -3746,34 +3734,34 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		canvasFrameEClass.getESuperTypes().add(this.getStyleElement());
 		viewPortHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		viewElementEClass.getESuperTypes().add(this.getStyleElement());
-		viewElementEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		viewElementEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		viewElementEClass.getESuperTypes().add(this.getNickNamed());
 		popupCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
 		popupCanvasEClass.getESuperTypes().add(this.getViewPortHolder());
 		popupCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
 		popupCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
-		popupCanvasEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		popupCanvasEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		popupCanvasEClass.getESuperTypes().add(this.getFlexFields());
 		canvasEClass.getESuperTypes().add(this.getCanvasFrame());
 		canvasEClass.getESuperTypes().add(this.getViewPortHolder());
 		canvasEClass.getESuperTypes().add(this.getDefaultCavas());
 		canvasEClass.getESuperTypes().add(this.getMultiLangLabel());
-		canvasEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		canvasEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		windowEClass.getESuperTypes().add(this.getCanvasFrame());
 		windowEClass.getESuperTypes().add(this.getViewPortHolder());
 		windowEClass.getESuperTypes().add(this.getMultiLangLabel());
-		windowEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		windowEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		windowEClass.getESuperTypes().add(thePermissionPackage.getSecured());
 		menuDefinitionEClass.getESuperTypes().add(this.getStyleElement());
-		menuDefinitionEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		menuDefinitionEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		tabCanvasEClass.getESuperTypes().add(this.getCanvasFrame());
 		tabCanvasEClass.getESuperTypes().add(this.getDefaultCavas());
 		tabCanvasEClass.getESuperTypes().add(this.getMultiLangLabel());
-		tabCanvasEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		tabCanvasEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		tabPageEClass.getESuperTypes().add(this.getCanvasFrame());
 		tabPageEClass.getESuperTypes().add(this.getViewPortHolder());
 		tabPageEClass.getESuperTypes().add(this.getMultiLangLabel());
-		tabPageEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		tabPageEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		tabPageEClass.getESuperTypes().add(this.getOrderable());
 		viewPortEClass.getESuperTypes().add(this.getViewElement());
 		viewPortEClass.getESuperTypes().add(this.getOrderable());
@@ -3784,10 +3772,10 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		contextEClass.getESuperTypes().add(this.getContextParameters());
 		styleClassEClass.getESuperTypes().add(this.getContextValue());
 		flexFieldEClass.getESuperTypes().add(this.getContext());
-		flexFieldEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		flexFieldEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		uielementEClass.getESuperTypes().add(this.getStyleElement());
 		uielementEClass.getESuperTypes().add(this.getNickNamed());
-		uielementEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		uielementEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		uielementEClass.getESuperTypes().add(this.getOrderable());
 		uielementEClass.getESuperTypes().add(this.getEnabledUIItem());
 		uielementEClass.getESuperTypes().add(this.getFlexFields());
@@ -3819,7 +3807,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		buttonEClass.getESuperTypes().add(this.getItemIcon());
 		columnEClass.getESuperTypes().add(this.getStyleElement());
 		columnEClass.getESuperTypes().add(this.getMultiLangLabel());
-		columnEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		columnEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		columnEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		columnEClass.getESuperTypes().add(this.getOrderable());
 		tableEClass.getESuperTypes().add(this.getSourcesPointer());
@@ -3827,12 +3815,12 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		menuEClass.getESuperTypes().add(this.getUielement());
 		menuElementEClass.getESuperTypes().add(this.getMultiLangLabel());
 		menuElementEClass.getESuperTypes().add(this.getStyleElement());
-		menuElementEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		menuElementEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		menuElementEClass.getESuperTypes().add(this.getEnabledUIItem());
 		menuElementEClass.getESuperTypes().add(this.getOrderable());
 		menuFolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		menuFolderEClass.getESuperTypes().add(this.getEnabledUIItem());
-		menuFolderEClass.getESuperTypes().add(theCommonPackage.getCategorized());
+		menuFolderEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		menuFolderEClass.getESuperTypes().add(this.getStyleElement());
 		menuFolderEClass.getESuperTypes().add(this.getMultiLangLabel());
 		menuFolderEClass.getESuperTypes().add(this.getItemIcon());
@@ -3992,7 +3980,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getStyleElement_StyleClass(), this.getStyleClass(), null, "styleClass", null, 0, -1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(styleClassEClass, StyleClass.class, "StyleClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStyleClass_Classifier(), theCommonPackage.getClassifier(), null, "classifier", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStyleClass_Classifier(), theArtifactPackage.getClassifier(), null, "classifier", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nickNamedEClass, NickNamed.class, "NickNamed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNickNamed_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1, NickNamed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

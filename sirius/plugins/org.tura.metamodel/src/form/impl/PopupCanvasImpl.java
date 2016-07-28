@@ -2,9 +2,9 @@
  */
 package form.impl;
 
-import common.Categorized;
-import common.Classifier;
-import common.CommonPackage;
+import artifact.ArtifactPackage;
+import artifact.Categorized;
+import artifact.Classifier;
 
 import form.Context;
 import form.DefaultCavas;
@@ -488,7 +488,7 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 		}
 		if (baseClass == Categorized.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.POPUP_CANVAS__CLASSIFIERS: return CommonPackage.CATEGORIZED__CLASSIFIERS;
+				case FormPackage.POPUP_CANVAS__CLASSIFIERS: return ArtifactPackage.CATEGORIZED__CLASSIFIERS;
 				default: return -1;
 			}
 		}
@@ -534,7 +534,7 @@ public class PopupCanvasImpl extends CanvasFrameImpl implements PopupCanvas {
 		}
 		if (baseClass == Categorized.class) {
 			switch (baseFeatureID) {
-				case CommonPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.POPUP_CANVAS__CLASSIFIERS;
+				case ArtifactPackage.CATEGORIZED__CLASSIFIERS: return FormPackage.POPUP_CANVAS__CLASSIFIERS;
 				default: return -1;
 			}
 		}
