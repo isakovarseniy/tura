@@ -7,6 +7,7 @@ import artifact.ArtifactPackage;
 import artifact.ConfigHash;
 import artifact.ConfigVariable;
 import artifact.GenerationHint;
+import artifact.GenerationHintWithNickName;
 import artifact.ModelQuery;
 import artifact.Technology;
 
@@ -120,7 +121,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	protected EList<ConfigVariable> configVariables;
 
 	/**
-	 * The cached value of the '{@link #getConfigHashes() <em>Config Hashes</em>}' containment reference list.
+	 * The cached value of the '{@link #getConfigHashes() <em>Config Hashes</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConfigHashes()
@@ -150,14 +151,14 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	protected EList<Technology> technologies;
 
 	/**
-	 * The cached value of the '{@link #getHints() <em>Hints</em>}' reference list.
+	 * The cached value of the '{@link #getHints() <em>Hints</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getHints()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GenerationHint> hints;
+	protected EList<GenerationHintWithNickName> hints;
 
 	/**
 	 * The default value of the '{@link #getTemplate() <em>Template</em>}' attribute.
@@ -280,7 +281,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 */
 	public EList<ConfigHash> getConfigHashes() {
 		if (configHashes == null) {
-			configHashes = new EObjectContainmentEList<ConfigHash>(ConfigHash.class, this, ArtifactPackage.ARTIFACT__CONFIG_HASHES);
+			configHashes = new EObjectResolvingEList<ConfigHash>(ConfigHash.class, this, ArtifactPackage.ARTIFACT__CONFIG_HASHES);
 		}
 		return configHashes;
 	}
@@ -314,9 +315,9 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GenerationHint> getHints() {
+	public EList<GenerationHintWithNickName> getHints() {
 		if (hints == null) {
-			hints = new EObjectResolvingEList<GenerationHint>(GenerationHint.class, this, ArtifactPackage.ARTIFACT__HINTS);
+			hints = new EObjectContainmentEList<GenerationHintWithNickName>(GenerationHintWithNickName.class, this, ArtifactPackage.ARTIFACT__HINTS);
 		}
 		return hints;
 	}
@@ -350,12 +351,12 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ArtifactPackage.ARTIFACT__CONFIG_HASHES:
-				return ((InternalEList<?>)getConfigHashes()).basicRemove(otherEnd, msgs);
 			case ArtifactPackage.ARTIFACT__MODEL_QUERY:
 				return ((InternalEList<?>)getModelQuery()).basicRemove(otherEnd, msgs);
 			case ArtifactPackage.ARTIFACT__TECHNOLOGIES:
 				return ((InternalEList<?>)getTechnologies()).basicRemove(otherEnd, msgs);
+			case ArtifactPackage.ARTIFACT__HINTS:
+				return ((InternalEList<?>)getHints()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -426,7 +427,7 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 				return;
 			case ArtifactPackage.ARTIFACT__HINTS:
 				getHints().clear();
-				getHints().addAll((Collection<? extends GenerationHint>)newValue);
+				getHints().addAll((Collection<? extends GenerationHintWithNickName>)newValue);
 				return;
 			case ArtifactPackage.ARTIFACT__TEMPLATE:
 				setTemplate((String)newValue);

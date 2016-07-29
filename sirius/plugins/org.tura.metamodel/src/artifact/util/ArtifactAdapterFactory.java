@@ -80,6 +80,10 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 				return createArtifactAdapter();
 			}
 			@Override
+			public Adapter caseGenerationHintWithNickName(GenerationHintWithNickName object) {
+				return createGenerationHintWithNickNameAdapter();
+			}
+			@Override
 			public Adapter caseGenerationHint(GenerationHint object) {
 				return createGenerationHintAdapter();
 			}
@@ -174,6 +178,20 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArtifactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.GenerationHintWithNickName <em>Generation Hint With Nick Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.GenerationHintWithNickName
+	 * @generated
+	 */
+	public Adapter createGenerationHintWithNickNameAdapter() {
 		return null;
 	}
 

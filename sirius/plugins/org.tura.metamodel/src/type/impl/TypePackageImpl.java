@@ -659,7 +659,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_Parent() {
+	public EReference getOperation_Parameters() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -668,17 +668,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_Parameters() {
-		return (EReference)operationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getOperation_ReturnValue() {
-		return (EReference)operationEClass.getEStructuralFeatures().get(4);
+		return (EReference)operationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -937,7 +928,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		operationEClass = createEClass(OPERATION);
 		createEAttribute(operationEClass, OPERATION__UID);
 		createEAttribute(operationEClass, OPERATION__NAME);
-		createEReference(operationEClass, OPERATION__PARENT);
 		createEReference(operationEClass, OPERATION__PARAMETERS);
 		createEReference(operationEClass, OPERATION__RETURN_VALUE);
 
@@ -1071,7 +1061,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOperation_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_Parent(), this.getType(), null, "parent", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_ReturnValue(), this.getReturnValue(), null, "returnValue", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

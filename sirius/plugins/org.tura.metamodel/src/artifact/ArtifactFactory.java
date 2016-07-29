@@ -49,6 +49,15 @@ public interface ArtifactFactory extends EFactory {
 	Artifact createArtifact();
 
 	/**
+	 * Returns a new object of class '<em>Generation Hint With Nick Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generation Hint With Nick Name</em>'.
+	 * @generated
+	 */
+	GenerationHintWithNickName createGenerationHintWithNickName();
+
+	/**
 	 * Returns a new object of class '<em>Generation Hint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -63,7 +63,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//ReturnValue"

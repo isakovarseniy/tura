@@ -16,9 +16,9 @@ public class DomainArtifactsProvider  implements IWorkbenchAdapter ,IReturnTypeP
 
 	@Override
 	public Object[] getChildren(Object o) {
-		domain.DomainArtifacts p = (DomainArtifacts) o;
+		DomainArtifacts p = (DomainArtifacts) o;
 		ArrayList<Object> ls = new ArrayList<>();
-		ls.addAll(p.getDomainArtifact());
+		ls.addAll(p.getTechLeafs());
 
 		return ls.toArray();
 	}

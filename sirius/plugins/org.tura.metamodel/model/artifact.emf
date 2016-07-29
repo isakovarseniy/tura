@@ -14,6 +14,7 @@ class TechLeaf{
     attr EString name;
    val  GenerationHint[*] hints;
    val  ConfigVariable[*] configVariables;
+   val  ConfigHash[*] configHashes;
    val TechLeaf[*] techLeafs;
 }
 
@@ -25,7 +26,7 @@ class Artifact{
    // Variables resolved by configuration of recipe (for example server IP)  
    ref   ConfigVariable[*] configVariables;
    
-   val   ConfigHash[*] configHashes;
+   ref   ConfigHash[*] configHashes;
 
    // Variables to query model ( for example FormName or service name)
    val   ModelQuery[*]modelQuery;
@@ -34,10 +35,18 @@ class Artifact{
    val   Technology[*]   technologies;
 
    //Hint to help template generate specific code
-   ref   GenerationHint[*] hints;
+   val   GenerationHintWithNickName[*] hints;
 
 
    attr EString template;
+}
+
+
+
+class GenerationHintWithNickName{
+   id attr EString uid;
+   attr EString name;
+   ref   GenerationHint hint;
 }
 
 class GenerationHint{

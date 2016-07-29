@@ -21,18 +21,38 @@
              id="tab.artifact.ModelQuery.QueryParameter"
              label="Query parameters"/>
 
+       <propertyTab
+             category="domain"
+             id="tab.artifact.Artifact.GenerationHintsNickName"
+             label="Hints"/>
+
       </propertyTabs>
+
+      
    </extension>
  
- <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
-      <propertySection
-            class="org.tura.metamodel.sirius.properties.selections.grid.impl.QueryParameterPropertySelection"
-            filter="org.tura.metamodel.sirius.properties.selections.filter.QueryPropertySectionFilter"
-            id="artifact.ModelQuery.QueryParameter"
-            tab="tab.artifact.ModelQuery.QueryParameter">
-      </propertySection>
-   </propertySections>
-</extension>
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.QueryParameterPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.QueryParameterSectionFilter"
+	            id="artifact.ModelQuery.QueryParameter"
+	            tab="tab.artifact.ModelQuery.QueryParameter">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.GenerationHintsPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.GenerationHintSectionFilter"
+	            id="artifact.Artifact.GenerationHintsNickName"
+	            tab="tab.artifact.Artifact.GenerationHintsNickName">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
  
 </plugin>

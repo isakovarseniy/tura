@@ -47,7 +47,7 @@
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
 
-      <factory  adaptableType="domain.DataControl"
+      <factory  adaptableType="form.DataControl"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
@@ -58,59 +58,46 @@
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
-      <factory  adaptableType="domain.TypeElement"
+      <factory  adaptableType="type.TypeElement"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
-     <factory  adaptableType="domain.Attribute"
+     <factory  adaptableType="type.Attribute"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
-     <factory  adaptableType="domain.Operation"
-             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
-                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
-      </factory>
-     <factory  adaptableType="domain.Types"
-             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
-                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
-      </factory>
-     <factory  adaptableType="domain.Package"
-             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
-                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
-      </factory>
-     <factory  adaptableType="domain.Role"
-             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
-                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
-      </factory>
-     <factory  adaptableType="domain.Group"
+     <factory  adaptableType="type.Operation"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
 
-     <factory  adaptableType="domain.MessageLibrary"
+     <factory  adaptableType="permission.Role"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>
+      
+     <factory  adaptableType="permission.Group"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
 
-     <factory  adaptableType="domain.Message"
+     <factory  adaptableType="message.MessageLibrary"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
 
-     <factory  adaptableType="domain.Messages"
+     <factory  adaptableType="message.Message"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
+
 
 
      <factory  adaptableType="domain.DomainArtifacts"
@@ -125,13 +112,13 @@
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
 
-     <factory  adaptableType="domain.Artifact"
+     <factory  adaptableType="artifact.Artifact"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>
 
-     <factory  adaptableType="domain.GenerationHint"
+     <factory  adaptableType="artifact.GenerationHint"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
@@ -161,51 +148,33 @@
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>      
 
-      <factory  adaptableType="domain.ArtificialField"
+      <factory  adaptableType="form.ArtificialField"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>      
 
-      <factory  adaptableType="domain.Roles"
+      <factory  adaptableType="permission.Roles"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>      
 
 
-      <factory  adaptableType="domain.ApplicationStyle"
+      <factory  adaptableType="style.StyleLibrary"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>    
 
-      <factory  adaptableType="domain.StylesPackage"
-             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
-                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
-      </factory>    
-
-      <factory  adaptableType="domain.StyleLibrary"
-             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
-                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
-      </factory>    
-
-      <factory  adaptableType="domain.StyleSet"
+      <factory  adaptableType="style.StyleSet"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>    
 
 
-      <factory  adaptableType="domain.Root"
-             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
-                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
-                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
-      </factory>    
-
-      <factory  adaptableType="domain.FormVariable"
+      <factory  adaptableType="form.FormVariable"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
@@ -223,25 +192,63 @@
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>    
 
-      <factory  adaptableType="domain.ApplicationUIPackage"
+      <factory  adaptableType="application.ApplicationUIPackage"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>    
 
-      <factory  adaptableType="domain.Form"
+      <factory  adaptableType="form.Form"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>    
 
 
-     <factory  adaptableType="domain.Window"
+     <factory  adaptableType="form.Window"
              class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
                  <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
                  <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
       </factory>    
 
+
+     <factory  adaptableType="artifact.TechLeaf"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+
+     <factory  adaptableType="org.tura.metamodel.commons.properties.selections.adapters.helper.ConfigurationHashesHolder"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+
+
+     <factory  adaptableType="org.tura.metamodel.commons.properties.selections.adapters.helper.ConfigurationVariablesHolder"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+
+     <factory  adaptableType="org.tura.metamodel.commons.properties.selections.adapters.helper.GenerationHintsHolder"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+
+
+     <factory  adaptableType="artifact.ConfigVariable"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
+
+     <factory  adaptableType="artifact.ConfigHash"
+             class="org.tura.metamodel.commons.properties.selections.adapters.TreeProviderAdapterFactory">
+                 <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/> 
+                 <adapter type="org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider"/> 
+      </factory>    
 
 </extension>
 </plugin>

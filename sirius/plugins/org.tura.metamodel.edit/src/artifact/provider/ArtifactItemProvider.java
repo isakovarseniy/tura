@@ -69,7 +69,7 @@ public class ArtifactItemProvider
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addConfigVariablesPropertyDescriptor(object);
-			addHintsPropertyDescriptor(object);
+			addConfigHashesPropertyDescriptor(object);
 			addTemplatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -164,19 +164,19 @@ public class ArtifactItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Hints feature.
+	 * This adds a property descriptor for the Config Hashes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHintsPropertyDescriptor(Object object) {
+	protected void addConfigHashesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Artifact_hints_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_hints_feature", "_UI_Artifact_type"),
-				 ArtifactPackage.Literals.ARTIFACT__HINTS,
+				 getString("_UI_Artifact_configHashes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_configHashes_feature", "_UI_Artifact_type"),
+				 ArtifactPackage.Literals.ARTIFACT__CONFIG_HASHES,
 				 true,
 				 false,
 				 true,
@@ -219,9 +219,9 @@ public class ArtifactItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ArtifactPackage.Literals.ARTIFACT__CONFIG_HASHES);
 			childrenFeatures.add(ArtifactPackage.Literals.ARTIFACT__MODEL_QUERY);
 			childrenFeatures.add(ArtifactPackage.Literals.ARTIFACT__TECHNOLOGIES);
+			childrenFeatures.add(ArtifactPackage.Literals.ARTIFACT__HINTS);
 		}
 		return childrenFeatures;
 	}
@@ -283,9 +283,9 @@ public class ArtifactItemProvider
 			case ArtifactPackage.ARTIFACT__TEMPLATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ArtifactPackage.ARTIFACT__CONFIG_HASHES:
 			case ArtifactPackage.ARTIFACT__MODEL_QUERY:
 			case ArtifactPackage.ARTIFACT__TECHNOLOGIES:
+			case ArtifactPackage.ARTIFACT__HINTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -305,11 +305,6 @@ public class ArtifactItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ArtifactPackage.Literals.ARTIFACT__CONFIG_HASHES,
-				 ArtifactFactory.eINSTANCE.createConfigHash()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(ArtifactPackage.Literals.ARTIFACT__MODEL_QUERY,
 				 ArtifactFactory.eINSTANCE.createModelQuery()));
 
@@ -317,6 +312,11 @@ public class ArtifactItemProvider
 			(createChildParameter
 				(ArtifactPackage.Literals.ARTIFACT__TECHNOLOGIES,
 				 ArtifactFactory.eINSTANCE.createTechnology()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactPackage.Literals.ARTIFACT__HINTS,
+				 ArtifactFactory.eINSTANCE.createGenerationHintWithNickName()));
 	}
 
 	/**

@@ -140,6 +140,29 @@ public class ArtifactItemProviderAdapterFactory extends ArtifactAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link artifact.GenerationHintWithNickName} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenerationHintWithNickNameItemProvider generationHintWithNickNameItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link artifact.GenerationHintWithNickName}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenerationHintWithNickNameAdapter() {
+		if (generationHintWithNickNameItemProvider == null) {
+			generationHintWithNickNameItemProvider = new GenerationHintWithNickNameItemProvider(this);
+		}
+
+		return generationHintWithNickNameItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link artifact.GenerationHint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

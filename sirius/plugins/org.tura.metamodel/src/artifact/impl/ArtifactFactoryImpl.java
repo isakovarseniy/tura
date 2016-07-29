@@ -59,6 +59,7 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 			case ArtifactPackage.ARTIFACT_GROUP: return createArtifactGroup();
 			case ArtifactPackage.TECH_LEAF: return createTechLeaf();
 			case ArtifactPackage.ARTIFACT: return createArtifact();
+			case ArtifactPackage.GENERATION_HINT_WITH_NICK_NAME: return createGenerationHintWithNickName();
 			case ArtifactPackage.GENERATION_HINT: return createGenerationHint();
 			case ArtifactPackage.CONFIG_VARIABLE: return createConfigVariable();
 			case ArtifactPackage.CONFIG_HASH: return createConfigHash();
@@ -101,6 +102,16 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	public Artifact createArtifact() {
 		ArtifactImpl artifact = new ArtifactImpl();
 		return artifact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenerationHintWithNickName createGenerationHintWithNickName() {
+		GenerationHintWithNickNameImpl generationHintWithNickName = new GenerationHintWithNickNameImpl();
+		return generationHintWithNickName;
 	}
 
 	/**

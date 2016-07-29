@@ -16,6 +16,8 @@
         eType="#//GenerationHint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configVariables" upperBound="-1"
         eType="#//ConfigVariable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configHashes" upperBound="-1"
+        eType="#//ConfigHash" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="techLeafs" upperBound="-1"
         eType="#//TechLeaf" containment="true"/>
   </eClassifiers>
@@ -27,14 +29,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="configVariables" upperBound="-1"
         eType="#//ConfigVariable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configHashes" upperBound="-1"
-        eType="#//ConfigHash" containment="true"/>
+        eType="#//ConfigHash"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelQuery" upperBound="-1"
         eType="#//ModelQuery" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="technologies" upperBound="-1"
         eType="#//Technology" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hints" upperBound="-1"
-        eType="#//GenerationHint"/>
+        eType="#//GenerationHintWithNickName" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="template" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GenerationHintWithNickName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hint" eType="#//GenerationHint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenerationHint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

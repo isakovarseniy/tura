@@ -4,10 +4,13 @@ package org.tura.metamodel.commons.properties.selections.adapters;
 
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.ui.model.IWorkbenchAdapter;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.ConfigurationHashesHolder;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.ConfigurationVariablesHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeAttribute;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeMethod;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.ExtendedType;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.GenerationHintsHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
@@ -16,7 +19,10 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerH
 import application.ApplicationStyle;
 import application.ApplicationUIPackage;
 import artifact.Artifact;
+import artifact.ConfigHash;
+import artifact.ConfigVariable;
 import artifact.GenerationHint;
+import artifact.TechLeaf;
 import domain.DomainApplication;
 import domain.DomainApplications;
 import domain.DomainArtifact;
@@ -76,8 +82,12 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private ApplicationUIPackageProvider applicationUIPackageProvider;
 	private FormProvider formProvider;
 	private WindowProvider windowProvider;
-	
-	
+	private TechLeafProvider techLeafProvider;
+	private ConfigurationHashesHolderProvider configurationHashesHolderProvider;
+	private ConfigurationVariablesHolderProvider configurationVariablesHolderProvider;
+	private GenerationHintsHolderProvider generationHintsHolderProvider;
+	private ConfigurationVariableProvider configVariableProvider;
+	private ConfigurationHashProvider configHashProvider;
 	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -135,8 +145,6 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getRolesProvider();
 			if (adaptableObject instanceof ApplicationStyle)
 				return getApplicationStyleProvider();
-//			if (adaptableObject instanceof StylesPackage)
-//				return getStylesPackageProvider();
 			if (adaptableObject instanceof StyleLibrary)
 				return getStyleLibraryProvider();
 			if (adaptableObject instanceof StyleSet)
@@ -155,10 +163,29 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getApplicationUIPackageProvider();
 			if (adaptableObject instanceof Window)
 				return getWindowProvider();
+			if (adaptableObject instanceof TechLeaf)
+				return getTechLeafProvider();
+			if (adaptableObject instanceof ConfigurationHashesHolder)
+				return getConfigurationHashesHolderProvider();
+			if (adaptableObject instanceof ConfigurationVariablesHolder)
+				return getConfigurationVariablesHolderProvider();
+			if (adaptableObject instanceof GenerationHintsHolder)
+				return getGenerationHintsHolderProvider();
+			if (adaptableObject instanceof ConfigVariable)
+				return getConfigVariableProvider();
+			if (adaptableObject instanceof ConfigHash)
+				return getConfigHashProvider();
+		
 		}
 		return null;
 	}
 
+	protected WindowProvider getWindowProvider() {
+		if (windowProvider == null)
+			windowProvider = new WindowProvider();
+		return windowProvider;
+	}
+	
 	protected TreeDataControlProvider getTreeDataControlProvider() {
 		if (treeDataControlProvider == null)
 			treeDataControlProvider = new TreeDataControlProvider();
@@ -299,8 +326,6 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		return applicationStyleProvider;		
 	}
 	
-	
-
 	protected StyleLibraryProvider getStyleLibraryProvider(){
 		if (styleLibraryProvider == null)
 			styleLibraryProvider = new StyleLibraryProvider();
@@ -345,10 +370,40 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			applicationUIPackageProvider = new ApplicationUIPackageProvider();
 		return applicationUIPackageProvider;		
 	}
-	protected WindowProvider getWindowProvider(){
-		if (windowProvider == null)
-			windowProvider = new WindowProvider();
-		return windowProvider;		
+	protected TechLeafProvider getTechLeafProvider(){
+		if (techLeafProvider == null)
+			techLeafProvider = new TechLeafProvider();
+		return techLeafProvider;		
 	}
+	
+	protected ConfigurationHashesHolderProvider getConfigurationHashesHolderProvider(){
+		if (configurationHashesHolderProvider == null)
+			configurationHashesHolderProvider = new ConfigurationHashesHolderProvider();
+		return configurationHashesHolderProvider;		
+	}
+	protected ConfigurationVariablesHolderProvider getConfigurationVariablesHolderProvider(){
+		if (configurationVariablesHolderProvider == null)
+			configurationVariablesHolderProvider = new ConfigurationVariablesHolderProvider();
+		return configurationVariablesHolderProvider;		
+	}
+	protected GenerationHintsHolderProvider getGenerationHintsHolderProvider(){
+		if (generationHintsHolderProvider == null)
+			generationHintsHolderProvider = new GenerationHintsHolderProvider();
+		return generationHintsHolderProvider;		
+	}
+	protected ConfigurationVariableProvider getConfigVariableProvider(){
+		if (configVariableProvider == null)
+			configVariableProvider = new ConfigurationVariableProvider();
+		return configVariableProvider;		
+	}
+	protected ConfigurationHashProvider getConfigHashProvider(){
+		if (configHashProvider == null)
+			configHashProvider = new ConfigurationHashProvider();
+		return configHashProvider;		
+	}
+	
+	
+	
+	
 	
 }

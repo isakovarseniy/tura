@@ -658,22 +658,13 @@ public interface TypePackage extends EPackage {
 	int OPERATION__NAME = PermissionPackage.SECURED_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__PARENT = PermissionPackage.SECURED_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__PARAMETERS = PermissionPackage.SECURED_FEATURE_COUNT + 4;
+	int OPERATION__PARAMETERS = PermissionPackage.SECURED_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Return Value</b></em>' containment reference.
@@ -682,7 +673,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__RETURN_VALUE = PermissionPackage.SECURED_FEATURE_COUNT + 5;
+	int OPERATION__RETURN_VALUE = PermissionPackage.SECURED_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -691,7 +682,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = PermissionPackage.SECURED_FEATURE_COUNT + 6;
+	int OPERATION_FEATURE_COUNT = PermissionPackage.SECURED_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link type.impl.PrimitiveImpl <em>Primitive</em>}' class.
@@ -1468,17 +1459,6 @@ public interface TypePackage extends EPackage {
 	EAttribute getOperation_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link type.Operation#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent</em>'.
-	 * @see type.Operation#getParent()
-	 * @see #getOperation()
-	 * @generated
-	 */
-	EReference getOperation_Parent();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link type.Operation#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2052,14 +2032,6 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPERATION__NAME = eINSTANCE.getOperation_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPERATION__PARENT = eINSTANCE.getOperation_Parent();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.

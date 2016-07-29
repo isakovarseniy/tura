@@ -3,6 +3,7 @@
 package artifact.impl;
 
 import artifact.ArtifactPackage;
+import artifact.ConfigHash;
 import artifact.ConfigVariable;
 import artifact.GenerationHint;
 import artifact.TechLeaf;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link artifact.impl.TechLeafImpl#getName <em>Name</em>}</li>
  *   <li>{@link artifact.impl.TechLeafImpl#getHints <em>Hints</em>}</li>
  *   <li>{@link artifact.impl.TechLeafImpl#getConfigVariables <em>Config Variables</em>}</li>
+ *   <li>{@link artifact.impl.TechLeafImpl#getConfigHashes <em>Config Hashes</em>}</li>
  *   <li>{@link artifact.impl.TechLeafImpl#getTechLeafs <em>Tech Leafs</em>}</li>
  * </ul>
  *
@@ -100,6 +102,16 @@ public class TechLeafImpl extends EObjectImpl implements TechLeaf {
 	 * @ordered
 	 */
 	protected EList<ConfigVariable> configVariables;
+
+	/**
+	 * The cached value of the '{@link #getConfigHashes() <em>Config Hashes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigHashes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConfigHash> configHashes;
 
 	/**
 	 * The cached value of the '{@link #getTechLeafs() <em>Tech Leafs</em>}' containment reference list.
@@ -201,6 +213,18 @@ public class TechLeafImpl extends EObjectImpl implements TechLeaf {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ConfigHash> getConfigHashes() {
+		if (configHashes == null) {
+			configHashes = new EObjectContainmentEList<ConfigHash>(ConfigHash.class, this, ArtifactPackage.TECH_LEAF__CONFIG_HASHES);
+		}
+		return configHashes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<TechLeaf> getTechLeafs() {
 		if (techLeafs == null) {
 			techLeafs = new EObjectContainmentEList<TechLeaf>(TechLeaf.class, this, ArtifactPackage.TECH_LEAF__TECH_LEAFS);
@@ -220,6 +244,8 @@ public class TechLeafImpl extends EObjectImpl implements TechLeaf {
 				return ((InternalEList<?>)getHints()).basicRemove(otherEnd, msgs);
 			case ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES:
 				return ((InternalEList<?>)getConfigVariables()).basicRemove(otherEnd, msgs);
+			case ArtifactPackage.TECH_LEAF__CONFIG_HASHES:
+				return ((InternalEList<?>)getConfigHashes()).basicRemove(otherEnd, msgs);
 			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				return ((InternalEList<?>)getTechLeafs()).basicRemove(otherEnd, msgs);
 		}
@@ -242,6 +268,8 @@ public class TechLeafImpl extends EObjectImpl implements TechLeaf {
 				return getHints();
 			case ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES:
 				return getConfigVariables();
+			case ArtifactPackage.TECH_LEAF__CONFIG_HASHES:
+				return getConfigHashes();
 			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				return getTechLeafs();
 		}
@@ -271,6 +299,10 @@ public class TechLeafImpl extends EObjectImpl implements TechLeaf {
 				getConfigVariables().clear();
 				getConfigVariables().addAll((Collection<? extends ConfigVariable>)newValue);
 				return;
+			case ArtifactPackage.TECH_LEAF__CONFIG_HASHES:
+				getConfigHashes().clear();
+				getConfigHashes().addAll((Collection<? extends ConfigHash>)newValue);
+				return;
 			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				getTechLeafs().clear();
 				getTechLeafs().addAll((Collection<? extends TechLeaf>)newValue);
@@ -299,6 +331,9 @@ public class TechLeafImpl extends EObjectImpl implements TechLeaf {
 			case ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES:
 				getConfigVariables().clear();
 				return;
+			case ArtifactPackage.TECH_LEAF__CONFIG_HASHES:
+				getConfigHashes().clear();
+				return;
 			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				getTechLeafs().clear();
 				return;
@@ -322,6 +357,8 @@ public class TechLeafImpl extends EObjectImpl implements TechLeaf {
 				return hints != null && !hints.isEmpty();
 			case ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES:
 				return configVariables != null && !configVariables.isEmpty();
+			case ArtifactPackage.TECH_LEAF__CONFIG_HASHES:
+				return configHashes != null && !configHashes.isEmpty();
 			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				return techLeafs != null && !techLeafs.isEmpty();
 		}

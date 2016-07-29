@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link artifact.TechLeaf#getName <em>Name</em>}</li>
  *   <li>{@link artifact.TechLeaf#getHints <em>Hints</em>}</li>
  *   <li>{@link artifact.TechLeaf#getConfigVariables <em>Config Variables</em>}</li>
+ *   <li>{@link artifact.TechLeaf#getConfigHashes <em>Config Hashes</em>}</li>
  *   <li>{@link artifact.TechLeaf#getTechLeafs <em>Tech Leafs</em>}</li>
  * </ul>
  *
@@ -110,6 +111,22 @@ public interface TechLeaf extends EObject {
 	 * @generated
 	 */
 	EList<ConfigVariable> getConfigVariables();
+
+	/**
+	 * Returns the value of the '<em><b>Config Hashes</b></em>' containment reference list.
+	 * The list contents are of type {@link artifact.ConfigHash}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Config Hashes</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Hashes</em>' containment reference list.
+	 * @see artifact.ArtifactPackage#getTechLeaf_ConfigHashes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ConfigHash> getConfigHashes();
 
 	/**
 	 * Returns the value of the '<em><b>Tech Leafs</b></em>' containment reference list.

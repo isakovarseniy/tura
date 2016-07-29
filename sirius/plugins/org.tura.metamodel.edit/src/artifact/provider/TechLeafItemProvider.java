@@ -129,6 +129,7 @@ public class TechLeafItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ArtifactPackage.Literals.TECH_LEAF__HINTS);
 			childrenFeatures.add(ArtifactPackage.Literals.TECH_LEAF__CONFIG_VARIABLES);
+			childrenFeatures.add(ArtifactPackage.Literals.TECH_LEAF__CONFIG_HASHES);
 			childrenFeatures.add(ArtifactPackage.Literals.TECH_LEAF__TECH_LEAFS);
 		}
 		return childrenFeatures;
@@ -191,6 +192,7 @@ public class TechLeafItemProvider
 				return;
 			case ArtifactPackage.TECH_LEAF__HINTS:
 			case ArtifactPackage.TECH_LEAF__CONFIG_VARIABLES:
+			case ArtifactPackage.TECH_LEAF__CONFIG_HASHES:
 			case ArtifactPackage.TECH_LEAF__TECH_LEAFS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -218,6 +220,11 @@ public class TechLeafItemProvider
 			(createChildParameter
 				(ArtifactPackage.Literals.TECH_LEAF__CONFIG_VARIABLES,
 				 ArtifactFactory.eINSTANCE.createConfigVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactPackage.Literals.TECH_LEAF__CONFIG_HASHES,
+				 ArtifactFactory.eINSTANCE.createConfigHash()));
 
 		newChildDescriptors.add
 			(createChildParameter

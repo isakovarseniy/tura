@@ -6,9 +6,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IFilter;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
-import artifact.ModelQuery;
+import artifact.Artifact;
 
-public class QueryPropertySectionFilter implements IFilter {
+public class GenerationHintSectionFilter implements IFilter {
 
 	@Override
 	public boolean select(Object toTest) {
@@ -18,7 +18,7 @@ public class QueryPropertySectionFilter implements IFilter {
 			DRepresentationElement obj = (DRepresentationElement) ((View) editPart.getModel()).getElement();
 			EObject element = obj.getTarget();
 
-			if (element instanceof ModelQuery) {
+			if (element instanceof Artifact) {
 				return true;
 			}
 		}

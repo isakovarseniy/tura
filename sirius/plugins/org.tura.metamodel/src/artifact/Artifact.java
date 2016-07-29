@@ -126,7 +126,7 @@ public interface Artifact extends EObject {
 	EList<ConfigVariable> getConfigVariables();
 
 	/**
-	 * Returns the value of the '<em><b>Config Hashes</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Config Hashes</b></em>' reference list.
 	 * The list contents are of type {@link artifact.ConfigHash}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -134,9 +134,9 @@ public interface Artifact extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Config Hashes</em>' containment reference list.
+	 * @return the value of the '<em>Config Hashes</em>' reference list.
 	 * @see artifact.ArtifactPackage#getArtifact_ConfigHashes()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<ConfigHash> getConfigHashes();
@@ -174,20 +174,20 @@ public interface Artifact extends EObject {
 	EList<Technology> getTechnologies();
 
 	/**
-	 * Returns the value of the '<em><b>Hints</b></em>' reference list.
-	 * The list contents are of type {@link artifact.GenerationHint}.
+	 * Returns the value of the '<em><b>Hints</b></em>' containment reference list.
+	 * The list contents are of type {@link artifact.GenerationHintWithNickName}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Hints</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hints</em>' reference list.
+	 * @return the value of the '<em>Hints</em>' containment reference list.
 	 * @see artifact.ArtifactPackage#getArtifact_Hints()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<GenerationHint> getHints();
+	EList<GenerationHintWithNickName> getHints();
 
 	/**
 	 * Returns the value of the '<em><b>Template</b></em>' attribute.

@@ -19,7 +19,6 @@ import permission.Secured;
  * <ul>
  *   <li>{@link type.Operation#getUid <em>Uid</em>}</li>
  *   <li>{@link type.Operation#getName <em>Name</em>}</li>
- *   <li>{@link type.Operation#getParent <em>Parent</em>}</li>
  *   <li>{@link type.Operation#getParameters <em>Parameters</em>}</li>
  *   <li>{@link type.Operation#getReturnValue <em>Return Value</em>}</li>
  * </ul>
@@ -80,32 +79,6 @@ public interface Operation extends Secured, Categorized {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' reference.
-	 * @see #setParent(Type)
-	 * @see type.TypePackage#getOperation_Parent()
-	 * @model
-	 * @generated
-	 */
-	Type getParent();
-
-	/**
-	 * Sets the value of the '{@link type.Operation#getParent <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' reference.
-	 * @see #getParent()
-	 * @generated
-	 */
-	void setParent(Type value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.

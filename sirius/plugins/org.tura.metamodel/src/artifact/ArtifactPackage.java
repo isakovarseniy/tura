@@ -148,13 +148,22 @@ public interface ArtifactPackage extends EPackage {
 	int TECH_LEAF__CONFIG_VARIABLES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Config Hashes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECH_LEAF__CONFIG_HASHES = 4;
+
+	/**
 	 * The feature id for the '<em><b>Tech Leafs</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TECH_LEAF__TECH_LEAFS = 4;
+	int TECH_LEAF__TECH_LEAFS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Tech Leaf</em>' class.
@@ -163,7 +172,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECH_LEAF_FEATURE_COUNT = 5;
+	int TECH_LEAF_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link artifact.impl.ArtifactImpl <em>Artifact</em>}' class.
@@ -212,7 +221,7 @@ public interface ArtifactPackage extends EPackage {
 	int ARTIFACT__CONFIG_VARIABLES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Config Hashes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Config Hashes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -239,7 +248,7 @@ public interface ArtifactPackage extends EPackage {
 	int ARTIFACT__TECHNOLOGIES = 6;
 
 	/**
-	 * The feature id for the '<em><b>Hints</b></em>' reference list.
+	 * The feature id for the '<em><b>Hints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -266,6 +275,52 @@ public interface ArtifactPackage extends EPackage {
 	int ARTIFACT_FEATURE_COUNT = 9;
 
 	/**
+	 * The meta object id for the '{@link artifact.impl.GenerationHintWithNickNameImpl <em>Generation Hint With Nick Name</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see artifact.impl.GenerationHintWithNickNameImpl
+	 * @see artifact.impl.ArtifactPackageImpl#getGenerationHintWithNickName()
+	 * @generated
+	 */
+	int GENERATION_HINT_WITH_NICK_NAME = 3;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATION_HINT_WITH_NICK_NAME__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATION_HINT_WITH_NICK_NAME__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Hint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATION_HINT_WITH_NICK_NAME__HINT = 2;
+
+	/**
+	 * The number of structural features of the '<em>Generation Hint With Nick Name</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATION_HINT_WITH_NICK_NAME_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link artifact.impl.GenerationHintImpl <em>Generation Hint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -273,7 +328,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getGenerationHint()
 	 * @generated
 	 */
-	int GENERATION_HINT = 3;
+	int GENERATION_HINT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -310,7 +365,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getConfigVariable()
 	 * @generated
 	 */
-	int CONFIG_VARIABLE = 4;
+	int CONFIG_VARIABLE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -347,7 +402,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getConfigHash()
 	 * @generated
 	 */
-	int CONFIG_HASH = 5;
+	int CONFIG_HASH = 6;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -384,7 +439,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getModelQuery()
 	 * @generated
 	 */
-	int MODEL_QUERY = 6;
+	int MODEL_QUERY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -439,7 +494,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getQueryParameter()
 	 * @generated
 	 */
-	int QUERY_PARAMETER = 7;
+	int QUERY_PARAMETER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -476,7 +531,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getTechnology()
 	 * @generated
 	 */
-	int TECHNOLOGY = 8;
+	int TECHNOLOGY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -522,7 +577,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getOption()
 	 * @generated
 	 */
-	int OPTION = 9;
+	int OPTION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -559,7 +614,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getCategorized()
 	 * @generated
 	 */
-	int CATEGORIZED = 10;
+	int CATEGORIZED = 11;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -587,7 +642,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getClassifier()
 	 * @generated
 	 */
-	int CLASSIFIER = 11;
+	int CLASSIFIER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -724,6 +779,17 @@ public interface ArtifactPackage extends EPackage {
 	EReference getTechLeaf_ConfigVariables();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link artifact.TechLeaf#getConfigHashes <em>Config Hashes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Config Hashes</em>'.
+	 * @see artifact.TechLeaf#getConfigHashes()
+	 * @see #getTechLeaf()
+	 * @generated
+	 */
+	EReference getTechLeaf_ConfigHashes();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link artifact.TechLeaf#getTechLeafs <em>Tech Leafs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -789,10 +855,10 @@ public interface ArtifactPackage extends EPackage {
 	EReference getArtifact_ConfigVariables();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link artifact.Artifact#getConfigHashes <em>Config Hashes</em>}'.
+	 * Returns the meta object for the reference list '{@link artifact.Artifact#getConfigHashes <em>Config Hashes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Config Hashes</em>'.
+	 * @return the meta object for the reference list '<em>Config Hashes</em>'.
 	 * @see artifact.Artifact#getConfigHashes()
 	 * @see #getArtifact()
 	 * @generated
@@ -822,10 +888,10 @@ public interface ArtifactPackage extends EPackage {
 	EReference getArtifact_Technologies();
 
 	/**
-	 * Returns the meta object for the reference list '{@link artifact.Artifact#getHints <em>Hints</em>}'.
+	 * Returns the meta object for the containment reference list '{@link artifact.Artifact#getHints <em>Hints</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Hints</em>'.
+	 * @return the meta object for the containment reference list '<em>Hints</em>'.
 	 * @see artifact.Artifact#getHints()
 	 * @see #getArtifact()
 	 * @generated
@@ -842,6 +908,49 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getArtifact_Template();
+
+	/**
+	 * Returns the meta object for class '{@link artifact.GenerationHintWithNickName <em>Generation Hint With Nick Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Generation Hint With Nick Name</em>'.
+	 * @see artifact.GenerationHintWithNickName
+	 * @generated
+	 */
+	EClass getGenerationHintWithNickName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.GenerationHintWithNickName#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see artifact.GenerationHintWithNickName#getUid()
+	 * @see #getGenerationHintWithNickName()
+	 * @generated
+	 */
+	EAttribute getGenerationHintWithNickName_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.GenerationHintWithNickName#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see artifact.GenerationHintWithNickName#getName()
+	 * @see #getGenerationHintWithNickName()
+	 * @generated
+	 */
+	EAttribute getGenerationHintWithNickName_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link artifact.GenerationHintWithNickName#getHint <em>Hint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Hint</em>'.
+	 * @see artifact.GenerationHintWithNickName#getHint()
+	 * @see #getGenerationHintWithNickName()
+	 * @generated
+	 */
+	EReference getGenerationHintWithNickName_Hint();
 
 	/**
 	 * Returns the meta object for class '{@link artifact.GenerationHint <em>Generation Hint</em>}'.
@@ -1263,6 +1372,14 @@ public interface ArtifactPackage extends EPackage {
 		EReference TECH_LEAF__CONFIG_VARIABLES = eINSTANCE.getTechLeaf_ConfigVariables();
 
 		/**
+		 * The meta object literal for the '<em><b>Config Hashes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TECH_LEAF__CONFIG_HASHES = eINSTANCE.getTechLeaf_ConfigHashes();
+
+		/**
 		 * The meta object literal for the '<em><b>Tech Leafs</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1313,7 +1430,7 @@ public interface ArtifactPackage extends EPackage {
 		EReference ARTIFACT__CONFIG_VARIABLES = eINSTANCE.getArtifact_ConfigVariables();
 
 		/**
-		 * The meta object literal for the '<em><b>Config Hashes</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Config Hashes</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1337,7 +1454,7 @@ public interface ArtifactPackage extends EPackage {
 		EReference ARTIFACT__TECHNOLOGIES = eINSTANCE.getArtifact_Technologies();
 
 		/**
-		 * The meta object literal for the '<em><b>Hints</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Hints</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1351,6 +1468,40 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ARTIFACT__TEMPLATE = eINSTANCE.getArtifact_Template();
+
+		/**
+		 * The meta object literal for the '{@link artifact.impl.GenerationHintWithNickNameImpl <em>Generation Hint With Nick Name</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see artifact.impl.GenerationHintWithNickNameImpl
+		 * @see artifact.impl.ArtifactPackageImpl#getGenerationHintWithNickName()
+		 * @generated
+		 */
+		EClass GENERATION_HINT_WITH_NICK_NAME = eINSTANCE.getGenerationHintWithNickName();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATION_HINT_WITH_NICK_NAME__UID = eINSTANCE.getGenerationHintWithNickName_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATION_HINT_WITH_NICK_NAME__NAME = eINSTANCE.getGenerationHintWithNickName_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Hint</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERATION_HINT_WITH_NICK_NAME__HINT = eINSTANCE.getGenerationHintWithNickName_Hint();
 
 		/**
 		 * The meta object literal for the '{@link artifact.impl.GenerationHintImpl <em>Generation Hint</em>}' class.

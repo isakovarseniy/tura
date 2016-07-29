@@ -40,7 +40,6 @@ import type.TypePackage;
  *   <li>{@link type.impl.OperationImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link type.impl.OperationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link type.impl.OperationImpl#getName <em>Name</em>}</li>
- *   <li>{@link type.impl.OperationImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link type.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link type.impl.OperationImpl#getReturnValue <em>Return Value</em>}</li>
  * </ul>
@@ -97,16 +96,6 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParent()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type parent;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
@@ -206,44 +195,6 @@ public class OperationImpl extends SecuredImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type getParent() {
-		if (parent != null && parent.eIsProxy()) {
-			InternalEObject oldParent = (InternalEObject)parent;
-			parent = (Type)eResolveProxy(oldParent);
-			if (parent != oldParent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypePackage.OPERATION__PARENT, oldParent, parent));
-			}
-		}
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type basicGetParent() {
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(Type newParent) {
-		Type oldParent = parent;
-		parent = newParent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.OPERATION__PARENT, oldParent, parent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Parameter> getParameters() {
 		if (parameters == null) {
 			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, TypePackage.OPERATION__PARAMETERS);
@@ -326,9 +277,6 @@ public class OperationImpl extends SecuredImpl implements Operation {
 				return getUid();
 			case TypePackage.OPERATION__NAME:
 				return getName();
-			case TypePackage.OPERATION__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
 			case TypePackage.OPERATION__PARAMETERS:
 				return getParameters();
 			case TypePackage.OPERATION__RETURN_VALUE:
@@ -355,9 +303,6 @@ public class OperationImpl extends SecuredImpl implements Operation {
 				return;
 			case TypePackage.OPERATION__NAME:
 				setName((String)newValue);
-				return;
-			case TypePackage.OPERATION__PARENT:
-				setParent((Type)newValue);
 				return;
 			case TypePackage.OPERATION__PARAMETERS:
 				getParameters().clear();
@@ -387,9 +332,6 @@ public class OperationImpl extends SecuredImpl implements Operation {
 			case TypePackage.OPERATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case TypePackage.OPERATION__PARENT:
-				setParent((Type)null);
-				return;
 			case TypePackage.OPERATION__PARAMETERS:
 				getParameters().clear();
 				return;
@@ -414,8 +356,6 @@ public class OperationImpl extends SecuredImpl implements Operation {
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case TypePackage.OPERATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case TypePackage.OPERATION__PARENT:
-				return parent != null;
 			case TypePackage.OPERATION__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case TypePackage.OPERATION__RETURN_VALUE:
