@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,7 +34,6 @@ import recipe.RecipePackage;
  * </p>
  * <ul>
  *   <li>{@link recipe.impl.QueryImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link recipe.impl.QueryImpl#getModelQuery <em>Model Query</em>}</li>
  *   <li>{@link recipe.impl.QueryImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.QueryImpl#getQueryRef <em>Query Ref</em>}</li>
  *   <li>{@link recipe.impl.QueryImpl#getVariables <em>Variables</em>}</li>
@@ -61,16 +61,6 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getModelQuery() <em>Model Query</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModelQuery()
-	 * @generated
-	 * @ordered
-	 */
-	protected ModelQuery modelQuery;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -150,44 +140,6 @@ public class QueryImpl extends EObjectImpl implements Query {
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.QUERY__UID, oldUid, uid));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelQuery getModelQuery() {
-		if (modelQuery != null && modelQuery.eIsProxy()) {
-			InternalEObject oldModelQuery = (InternalEObject)modelQuery;
-			modelQuery = (ModelQuery)eResolveProxy(oldModelQuery);
-			if (modelQuery != oldModelQuery) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecipePackage.QUERY__MODEL_QUERY, oldModelQuery, modelQuery));
-			}
-		}
-		return modelQuery;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelQuery basicGetModelQuery() {
-		return modelQuery;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setModelQuery(ModelQuery newModelQuery) {
-		ModelQuery oldModelQuery = modelQuery;
-		modelQuery = newModelQuery;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.QUERY__MODEL_QUERY, oldModelQuery, modelQuery));
 	}
 
 	/**
@@ -285,9 +237,6 @@ public class QueryImpl extends EObjectImpl implements Query {
 		switch (featureID) {
 			case RecipePackage.QUERY__UID:
 				return getUid();
-			case RecipePackage.QUERY__MODEL_QUERY:
-				if (resolve) return getModelQuery();
-				return basicGetModelQuery();
 			case RecipePackage.QUERY__NAME:
 				return getName();
 			case RecipePackage.QUERY__QUERY_REF:
@@ -310,9 +259,6 @@ public class QueryImpl extends EObjectImpl implements Query {
 		switch (featureID) {
 			case RecipePackage.QUERY__UID:
 				setUid((String)newValue);
-				return;
-			case RecipePackage.QUERY__MODEL_QUERY:
-				setModelQuery((ModelQuery)newValue);
 				return;
 			case RecipePackage.QUERY__NAME:
 				setName((String)newValue);
@@ -339,9 +285,6 @@ public class QueryImpl extends EObjectImpl implements Query {
 			case RecipePackage.QUERY__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case RecipePackage.QUERY__MODEL_QUERY:
-				setModelQuery((ModelQuery)null);
-				return;
 			case RecipePackage.QUERY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -365,8 +308,6 @@ public class QueryImpl extends EObjectImpl implements Query {
 		switch (featureID) {
 			case RecipePackage.QUERY__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case RecipePackage.QUERY__MODEL_QUERY:
-				return modelQuery != null;
 			case RecipePackage.QUERY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RecipePackage.QUERY__QUERY_REF:

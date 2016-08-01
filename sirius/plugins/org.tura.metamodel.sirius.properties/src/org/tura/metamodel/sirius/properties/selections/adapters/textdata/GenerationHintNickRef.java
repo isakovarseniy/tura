@@ -19,7 +19,7 @@ import artifact.ArtifactPackage;
 import artifact.GenerationHintWithNickName;
 import artifact.TechLeaf;
 
-public class GenerationHintNickNameRef  implements TextDataAdapter {
+public class GenerationHintNickRef  implements TextDataAdapter {
 
 	@Override
 	public Object getFeatureValue(Object eObject, EStructuralFeature feature) {

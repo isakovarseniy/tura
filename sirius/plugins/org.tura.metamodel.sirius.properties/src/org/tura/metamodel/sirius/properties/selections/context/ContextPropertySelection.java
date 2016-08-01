@@ -24,14 +24,8 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
-import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.ITreeContentProvider;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreePath;
-import org.eclipse.jface.viewers.TreeSelection;
-import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
@@ -44,10 +38,8 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.model.BaseWorkbenchContentProvider;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
@@ -57,6 +49,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerHolder;
 import org.tura.metamodel.sirius.properties.TextChangeHelper;
 import org.tura.metamodel.sirius.properties.selections.AbstractTuraPropertySection;
+import org.tura.metamodel.sirius.properties.selections.PathTreeSelectionDialog;
 
 import form.Context;
 import form.ContextParameters;
@@ -75,7 +68,7 @@ public abstract class ContextPropertySelection extends
 	protected CLabel nameLabel;
 	protected Text text1;
 	protected CLabel nameLabel1;
-	private TreePath[] treePath;
+	protected TreePath[] treePath;
 
 	private String MESSAGE = "is constant";
 
@@ -272,6 +265,7 @@ public abstract class ContextPropertySelection extends
 		dialog.setMessage("");
 		dialog.setInput(getContextRoot());
 		if (dialog.open() == Window.OK) {
+			treePath = dialog.getTreePath();
 			if (treePath != null && treePath.length > 0) {
 				if (validateSelection(treePath[0])) {
 					EditingDomain editingDomain = ((DiagramEditor) getPart())
@@ -418,27 +412,5 @@ public abstract class ContextPropertySelection extends
 
 	protected abstract void showError();
 
-	class PathTreeSelectionDialog extends ElementTreeSelectionDialog {
-
-		public PathTreeSelectionDialog(Shell parent,
-				ILabelProvider labelProvider,
-				ITreeContentProvider contentProvider) {
-			super(parent, labelProvider, contentProvider);
-		}
-
-		protected TreeViewer createTreeViewer(Composite parent) {
-			TreeViewer viewer = super.createTreeViewer(parent);
-
-			viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-				public void selectionChanged(SelectionChangedEvent event) {
-					treePath = ((TreeSelection) event.getSelection())
-							.getPaths();
-					updateOKStatus();
-				}
-			});
-
-			return viewer;
-		}
-	}
 
 }

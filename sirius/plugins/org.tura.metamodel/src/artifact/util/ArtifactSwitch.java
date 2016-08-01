@@ -90,6 +90,18 @@ public class ArtifactSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME: {
+				ConfigVariableWithNickName configVariableWithNickName = (ConfigVariableWithNickName)theEObject;
+				T result = caseConfigVariableWithNickName(configVariableWithNickName);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME: {
+				ConfigHashWithNickName configHashWithNickName = (ConfigHashWithNickName)theEObject;
+				T result = caseConfigHashWithNickName(configHashWithNickName);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ArtifactPackage.GENERATION_HINT: {
 				GenerationHint generationHint = (GenerationHint)theEObject;
 				T result = caseGenerationHint(generationHint);
@@ -205,6 +217,36 @@ public class ArtifactSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGenerationHintWithNickName(GenerationHintWithNickName object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Config Variable With Nick Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Config Variable With Nick Name</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfigVariableWithNickName(ConfigVariableWithNickName object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Config Hash With Nick Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Config Hash With Nick Name</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfigHashWithNickName(ConfigHashWithNickName object) {
 		return null;
 	}
 

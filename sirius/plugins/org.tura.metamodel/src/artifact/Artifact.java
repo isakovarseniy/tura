@@ -110,36 +110,36 @@ public interface Artifact extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Config Variables</b></em>' reference list.
-	 * The list contents are of type {@link artifact.ConfigVariable}.
+	 * Returns the value of the '<em><b>Config Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link artifact.ConfigVariableWithNickName}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Config Variables</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Config Variables</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Config Variables</em>' reference list.
+	 * @return the value of the '<em>Config Variables</em>' containment reference list.
 	 * @see artifact.ArtifactPackage#getArtifact_ConfigVariables()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ConfigVariable> getConfigVariables();
+	EList<ConfigVariableWithNickName> getConfigVariables();
 
 	/**
-	 * Returns the value of the '<em><b>Config Hashes</b></em>' reference list.
-	 * The list contents are of type {@link artifact.ConfigHash}.
+	 * Returns the value of the '<em><b>Config Hashes</b></em>' containment reference list.
+	 * The list contents are of type {@link artifact.ConfigHashWithNickName}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Config Hashes</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Config Hashes</em>' reference list.
+	 * @return the value of the '<em>Config Hashes</em>' containment reference list.
 	 * @see artifact.ArtifactPackage#getArtifact_ConfigHashes()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ConfigHash> getConfigHashes();
+	EList<ConfigHashWithNickName> getConfigHashes();
 
 	/**
 	 * Returns the value of the '<em><b>Model Query</b></em>' containment reference list.
@@ -178,7 +178,7 @@ public interface Artifact extends EObject {
 	 * The list contents are of type {@link artifact.GenerationHintWithNickName}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Hints</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Hints</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

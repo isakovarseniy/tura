@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -212,7 +213,7 @@ public interface ArtifactPackage extends EPackage {
 	int ARTIFACT__DESCRIPTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Config Variables</b></em>' reference list.
+	 * The feature id for the '<em><b>Config Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -221,7 +222,7 @@ public interface ArtifactPackage extends EPackage {
 	int ARTIFACT__CONFIG_VARIABLES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Config Hashes</b></em>' reference list.
+	 * The feature id for the '<em><b>Config Hashes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -321,6 +322,98 @@ public interface ArtifactPackage extends EPackage {
 	int GENERATION_HINT_WITH_NICK_NAME_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link artifact.impl.ConfigVariableWithNickNameImpl <em>Config Variable With Nick Name</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see artifact.impl.ConfigVariableWithNickNameImpl
+	 * @see artifact.impl.ArtifactPackageImpl#getConfigVariableWithNickName()
+	 * @generated
+	 */
+	int CONFIG_VARIABLE_WITH_NICK_NAME = 4;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_VARIABLE_WITH_NICK_NAME__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_VARIABLE_WITH_NICK_NAME__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Var</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_VARIABLE_WITH_NICK_NAME__VAR = 2;
+
+	/**
+	 * The number of structural features of the '<em>Config Variable With Nick Name</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_VARIABLE_WITH_NICK_NAME_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link artifact.impl.ConfigHashWithNickNameImpl <em>Config Hash With Nick Name</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see artifact.impl.ConfigHashWithNickNameImpl
+	 * @see artifact.impl.ArtifactPackageImpl#getConfigHashWithNickName()
+	 * @generated
+	 */
+	int CONFIG_HASH_WITH_NICK_NAME = 5;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_HASH_WITH_NICK_NAME__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_HASH_WITH_NICK_NAME__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Hash</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_HASH_WITH_NICK_NAME__HASH = 2;
+
+	/**
+	 * The number of structural features of the '<em>Config Hash With Nick Name</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_HASH_WITH_NICK_NAME_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link artifact.impl.GenerationHintImpl <em>Generation Hint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -328,7 +421,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getGenerationHint()
 	 * @generated
 	 */
-	int GENERATION_HINT = 4;
+	int GENERATION_HINT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -365,7 +458,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getConfigVariable()
 	 * @generated
 	 */
-	int CONFIG_VARIABLE = 5;
+	int CONFIG_VARIABLE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -402,7 +495,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getConfigHash()
 	 * @generated
 	 */
-	int CONFIG_HASH = 6;
+	int CONFIG_HASH = 8;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -439,7 +532,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getModelQuery()
 	 * @generated
 	 */
-	int MODEL_QUERY = 7;
+	int MODEL_QUERY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -494,7 +587,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getQueryParameter()
 	 * @generated
 	 */
-	int QUERY_PARAMETER = 8;
+	int QUERY_PARAMETER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -531,7 +624,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getTechnology()
 	 * @generated
 	 */
-	int TECHNOLOGY = 9;
+	int TECHNOLOGY = 11;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -577,7 +670,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getOption()
 	 * @generated
 	 */
-	int OPTION = 10;
+	int OPTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -589,7 +682,7 @@ public interface ArtifactPackage extends EPackage {
 	int OPTION__UID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -614,7 +707,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getCategorized()
 	 * @generated
 	 */
-	int CATEGORIZED = 11;
+	int CATEGORIZED = 13;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -642,7 +735,7 @@ public interface ArtifactPackage extends EPackage {
 	 * @see artifact.impl.ArtifactPackageImpl#getClassifier()
 	 * @generated
 	 */
-	int CLASSIFIER = 12;
+	int CLASSIFIER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -679,7 +772,6 @@ public interface ArtifactPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASSIFIER_FEATURE_COUNT = 3;
-
 
 	/**
 	 * Returns the meta object for class '{@link artifact.ArtifactGroup <em>Group</em>}'.
@@ -844,10 +936,10 @@ public interface ArtifactPackage extends EPackage {
 	EAttribute getArtifact_Description();
 
 	/**
-	 * Returns the meta object for the reference list '{@link artifact.Artifact#getConfigVariables <em>Config Variables</em>}'.
+	 * Returns the meta object for the containment reference list '{@link artifact.Artifact#getConfigVariables <em>Config Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Config Variables</em>'.
+	 * @return the meta object for the containment reference list '<em>Config Variables</em>'.
 	 * @see artifact.Artifact#getConfigVariables()
 	 * @see #getArtifact()
 	 * @generated
@@ -855,10 +947,10 @@ public interface ArtifactPackage extends EPackage {
 	EReference getArtifact_ConfigVariables();
 
 	/**
-	 * Returns the meta object for the reference list '{@link artifact.Artifact#getConfigHashes <em>Config Hashes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link artifact.Artifact#getConfigHashes <em>Config Hashes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Config Hashes</em>'.
+	 * @return the meta object for the containment reference list '<em>Config Hashes</em>'.
 	 * @see artifact.Artifact#getConfigHashes()
 	 * @see #getArtifact()
 	 * @generated
@@ -951,6 +1043,92 @@ public interface ArtifactPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGenerationHintWithNickName_Hint();
+
+	/**
+	 * Returns the meta object for class '{@link artifact.ConfigVariableWithNickName <em>Config Variable With Nick Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Config Variable With Nick Name</em>'.
+	 * @see artifact.ConfigVariableWithNickName
+	 * @generated
+	 */
+	EClass getConfigVariableWithNickName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.ConfigVariableWithNickName#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see artifact.ConfigVariableWithNickName#getUid()
+	 * @see #getConfigVariableWithNickName()
+	 * @generated
+	 */
+	EAttribute getConfigVariableWithNickName_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.ConfigVariableWithNickName#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see artifact.ConfigVariableWithNickName#getName()
+	 * @see #getConfigVariableWithNickName()
+	 * @generated
+	 */
+	EAttribute getConfigVariableWithNickName_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link artifact.ConfigVariableWithNickName#getVar <em>Var</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Var</em>'.
+	 * @see artifact.ConfigVariableWithNickName#getVar()
+	 * @see #getConfigVariableWithNickName()
+	 * @generated
+	 */
+	EReference getConfigVariableWithNickName_Var();
+
+	/**
+	 * Returns the meta object for class '{@link artifact.ConfigHashWithNickName <em>Config Hash With Nick Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Config Hash With Nick Name</em>'.
+	 * @see artifact.ConfigHashWithNickName
+	 * @generated
+	 */
+	EClass getConfigHashWithNickName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.ConfigHashWithNickName#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see artifact.ConfigHashWithNickName#getUid()
+	 * @see #getConfigHashWithNickName()
+	 * @generated
+	 */
+	EAttribute getConfigHashWithNickName_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link artifact.ConfigHashWithNickName#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see artifact.ConfigHashWithNickName#getName()
+	 * @see #getConfigHashWithNickName()
+	 * @generated
+	 */
+	EAttribute getConfigHashWithNickName_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link artifact.ConfigHashWithNickName#getHash <em>Hash</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Hash</em>'.
+	 * @see artifact.ConfigHashWithNickName#getHash()
+	 * @see #getConfigHashWithNickName()
+	 * @generated
+	 */
+	EReference getConfigHashWithNickName_Hash();
 
 	/**
 	 * Returns the meta object for class '{@link artifact.GenerationHint <em>Generation Hint</em>}'.
@@ -1199,15 +1377,15 @@ public interface ArtifactPackage extends EPackage {
 	EAttribute getOption_Uid();
 
 	/**
-	 * Returns the meta object for the attribute '{@link artifact.Option#getValue <em>Value</em>}'.
+	 * Returns the meta object for the reference '{@link artifact.Option#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @return the meta object for the reference '<em>Value</em>'.
 	 * @see artifact.Option#getValue()
 	 * @see #getOption()
 	 * @generated
 	 */
-	EAttribute getOption_Value();
+	EReference getOption_Value();
 
 	/**
 	 * Returns the meta object for class '{@link artifact.Categorized <em>Categorized</em>}'.
@@ -1288,6 +1466,7 @@ public interface ArtifactPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -1422,7 +1601,7 @@ public interface ArtifactPackage extends EPackage {
 		EAttribute ARTIFACT__DESCRIPTION = eINSTANCE.getArtifact_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Config Variables</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Config Variables</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1430,7 +1609,7 @@ public interface ArtifactPackage extends EPackage {
 		EReference ARTIFACT__CONFIG_VARIABLES = eINSTANCE.getArtifact_ConfigVariables();
 
 		/**
-		 * The meta object literal for the '<em><b>Config Hashes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Config Hashes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1502,6 +1681,74 @@ public interface ArtifactPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GENERATION_HINT_WITH_NICK_NAME__HINT = eINSTANCE.getGenerationHintWithNickName_Hint();
+
+		/**
+		 * The meta object literal for the '{@link artifact.impl.ConfigVariableWithNickNameImpl <em>Config Variable With Nick Name</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see artifact.impl.ConfigVariableWithNickNameImpl
+		 * @see artifact.impl.ArtifactPackageImpl#getConfigVariableWithNickName()
+		 * @generated
+		 */
+		EClass CONFIG_VARIABLE_WITH_NICK_NAME = eINSTANCE.getConfigVariableWithNickName();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_VARIABLE_WITH_NICK_NAME__UID = eINSTANCE.getConfigVariableWithNickName_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_VARIABLE_WITH_NICK_NAME__NAME = eINSTANCE.getConfigVariableWithNickName_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Var</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFIG_VARIABLE_WITH_NICK_NAME__VAR = eINSTANCE.getConfigVariableWithNickName_Var();
+
+		/**
+		 * The meta object literal for the '{@link artifact.impl.ConfigHashWithNickNameImpl <em>Config Hash With Nick Name</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see artifact.impl.ConfigHashWithNickNameImpl
+		 * @see artifact.impl.ArtifactPackageImpl#getConfigHashWithNickName()
+		 * @generated
+		 */
+		EClass CONFIG_HASH_WITH_NICK_NAME = eINSTANCE.getConfigHashWithNickName();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_HASH_WITH_NICK_NAME__UID = eINSTANCE.getConfigHashWithNickName_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_HASH_WITH_NICK_NAME__NAME = eINSTANCE.getConfigHashWithNickName_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Hash</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFIG_HASH_WITH_NICK_NAME__HASH = eINSTANCE.getConfigHashWithNickName_Hash();
 
 		/**
 		 * The meta object literal for the '{@link artifact.impl.GenerationHintImpl <em>Generation Hint</em>}' class.
@@ -1702,12 +1949,12 @@ public interface ArtifactPackage extends EPackage {
 		EAttribute OPTION__UID = eINSTANCE.getOption_Uid();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OPTION__VALUE = eINSTANCE.getOption_Value();
+		EReference OPTION__VALUE = eINSTANCE.getOption_Value();
 
 		/**
 		 * The meta object literal for the '{@link artifact.impl.CategorizedImpl <em>Categorized</em>}' class.

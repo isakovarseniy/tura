@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link recipe.ModelMapper#getName <em>Name</em>}</li>
  *   <li>{@link recipe.ModelMapper#getArtifactRoot <em>Artifact Root</em>}</li>
- *   <li>{@link recipe.ModelMapper#getSpecifiers <em>Specifiers</em>}</li>
+ *   <li>{@link recipe.ModelMapper#getTechnologies <em>Technologies</em>}</li>
  *   <li>{@link recipe.ModelMapper#getQueries <em>Queries</em>}</li>
  *   <li>{@link recipe.ModelMapper#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
  * </ul>
@@ -78,20 +78,20 @@ public interface ModelMapper extends ArtifactRef {
 	void setArtifactRoot(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Specifiers</b></em>' containment reference list.
-	 * The list contents are of type {@link recipe.MappingSpecifier}.
+	 * Returns the value of the '<em><b>Technologies</b></em>' containment reference list.
+	 * The list contents are of type {@link recipe.MappingTecnologiy}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Specifiers</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Technologies</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specifiers</em>' containment reference list.
-	 * @see recipe.RecipePackage#getModelMapper_Specifiers()
+	 * @return the value of the '<em>Technologies</em>' containment reference list.
+	 * @see recipe.RecipePackage#getModelMapper_Technologies()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<MappingSpecifier> getSpecifiers();
+	EList<MappingTecnologiy> getTechnologies();
 
 	/**
 	 * Returns the value of the '<em><b>Queries</b></em>' containment reference list.

@@ -1,7 +1,10 @@
 /**
  */
-package recipe.provider;
+package artifact.provider;
 
+
+import artifact.ArtifactPackage;
+import artifact.ConfigVariableWithNickName;
 
 import domain.provider.DomainEditPlugin;
 
@@ -24,16 +27,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import recipe.MappingSpecifier;
-import recipe.RecipePackage;
-
 /**
- * This is the item provider adapter for a {@link recipe.MappingSpecifier} object.
+ * This is the item provider adapter for a {@link artifact.ConfigVariableWithNickName} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MappingSpecifierItemProvider 
+public class ConfigVariableWithNickNameItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +47,7 @@ public class MappingSpecifierItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MappingSpecifierItemProvider(AdapterFactory adapterFactory) {
+	public ConfigVariableWithNickNameItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,8 +63,8 @@ public class MappingSpecifierItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
-			addSpecifierRefPropertyDescriptor(object);
-			addValueRefPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addVarPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,9 +80,9 @@ public class MappingSpecifierItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MappingSpecifier_uid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappingSpecifier_uid_feature", "_UI_MappingSpecifier_type"),
-				 RecipePackage.Literals.MAPPING_SPECIFIER__UID,
+				 getString("_UI_ConfigVariableWithNickName_uid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigVariableWithNickName_uid_feature", "_UI_ConfigVariableWithNickName_type"),
+				 ArtifactPackage.Literals.CONFIG_VARIABLE_WITH_NICK_NAME__UID,
 				 true,
 				 false,
 				 false,
@@ -92,19 +92,41 @@ public class MappingSpecifierItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Specifier Ref feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSpecifierRefPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MappingSpecifier_specifierRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappingSpecifier_specifierRef_feature", "_UI_MappingSpecifier_type"),
-				 RecipePackage.Literals.MAPPING_SPECIFIER__SPECIFIER_REF,
+				 getString("_UI_ConfigVariableWithNickName_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigVariableWithNickName_name_feature", "_UI_ConfigVariableWithNickName_type"),
+				 ArtifactPackage.Literals.CONFIG_VARIABLE_WITH_NICK_NAME__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Var feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVarPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConfigVariableWithNickName_var_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigVariableWithNickName_var_feature", "_UI_ConfigVariableWithNickName_type"),
+				 ArtifactPackage.Literals.CONFIG_VARIABLE_WITH_NICK_NAME__VAR,
 				 true,
 				 false,
 				 true,
@@ -114,36 +136,14 @@ public class MappingSpecifierItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Value Ref feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValueRefPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MappingSpecifier_valueRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappingSpecifier_valueRef_feature", "_UI_MappingSpecifier_type"),
-				 RecipePackage.Literals.MAPPING_SPECIFIER__VALUE_REF,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns MappingSpecifier.gif.
+	 * This returns ConfigVariableWithNickName.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MappingSpecifier"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ConfigVariableWithNickName"));
 	}
 
 	/**
@@ -154,10 +154,10 @@ public class MappingSpecifierItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MappingSpecifier)object).getUid();
+		String label = ((ConfigVariableWithNickName)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_MappingSpecifier_type") :
-			getString("_UI_MappingSpecifier_type") + " " + label;
+			getString("_UI_ConfigVariableWithNickName_type") :
+			getString("_UI_ConfigVariableWithNickName_type") + " " + label;
 	}
 	
 
@@ -172,8 +172,9 @@ public class MappingSpecifierItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MappingSpecifier.class)) {
-			case RecipePackage.MAPPING_SPECIFIER__UID:
+		switch (notification.getFeatureID(ConfigVariableWithNickName.class)) {
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__UID:
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

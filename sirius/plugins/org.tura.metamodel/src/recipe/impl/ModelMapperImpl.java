@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import recipe.MappingSpecifier;
+import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.Query;
 import recipe.RecipePackage;
@@ -32,7 +32,7 @@ import recipe.RecipePackage;
  * <ul>
  *   <li>{@link recipe.impl.ModelMapperImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactRoot <em>Artifact Root</em>}</li>
- *   <li>{@link recipe.impl.ModelMapperImpl#getSpecifiers <em>Specifiers</em>}</li>
+ *   <li>{@link recipe.impl.ModelMapperImpl#getTechnologies <em>Technologies</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getQueries <em>Queries</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
  * </ul>
@@ -81,14 +81,14 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	protected String artifactRoot = ARTIFACT_ROOT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSpecifiers() <em>Specifiers</em>}' containment reference list.
+	 * The cached value of the '{@link #getTechnologies() <em>Technologies</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecifiers()
+	 * @see #getTechnologies()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MappingSpecifier> specifiers;
+	protected EList<MappingTecnologiy> technologies;
 
 	/**
 	 * The cached value of the '{@link #getQueries() <em>Queries</em>}' containment reference list.
@@ -186,11 +186,11 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MappingSpecifier> getSpecifiers() {
-		if (specifiers == null) {
-			specifiers = new EObjectContainmentEList<MappingSpecifier>(MappingSpecifier.class, this, RecipePackage.MODEL_MAPPER__SPECIFIERS);
+	public EList<MappingTecnologiy> getTechnologies() {
+		if (technologies == null) {
+			technologies = new EObjectContainmentEList<MappingTecnologiy>(MappingTecnologiy.class, this, RecipePackage.MODEL_MAPPER__TECHNOLOGIES);
 		}
-		return specifiers;
+		return technologies;
 	}
 
 	/**
@@ -234,8 +234,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RecipePackage.MODEL_MAPPER__SPECIFIERS:
-				return ((InternalEList<?>)getSpecifiers()).basicRemove(otherEnd, msgs);
+			case RecipePackage.MODEL_MAPPER__TECHNOLOGIES:
+				return ((InternalEList<?>)getTechnologies()).basicRemove(otherEnd, msgs);
 			case RecipePackage.MODEL_MAPPER__QUERIES:
 				return ((InternalEList<?>)getQueries()).basicRemove(otherEnd, msgs);
 		}
@@ -254,8 +254,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				return getName();
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
 				return getArtifactRoot();
-			case RecipePackage.MODEL_MAPPER__SPECIFIERS:
-				return getSpecifiers();
+			case RecipePackage.MODEL_MAPPER__TECHNOLOGIES:
+				return getTechnologies();
 			case RecipePackage.MODEL_MAPPER__QUERIES:
 				return getQueries();
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
@@ -279,9 +279,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
 				setArtifactRoot((String)newValue);
 				return;
-			case RecipePackage.MODEL_MAPPER__SPECIFIERS:
-				getSpecifiers().clear();
-				getSpecifiers().addAll((Collection<? extends MappingSpecifier>)newValue);
+			case RecipePackage.MODEL_MAPPER__TECHNOLOGIES:
+				getTechnologies().clear();
+				getTechnologies().addAll((Collection<? extends MappingTecnologiy>)newValue);
 				return;
 			case RecipePackage.MODEL_MAPPER__QUERIES:
 				getQueries().clear();
@@ -308,8 +308,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
 				setArtifactRoot(ARTIFACT_ROOT_EDEFAULT);
 				return;
-			case RecipePackage.MODEL_MAPPER__SPECIFIERS:
-				getSpecifiers().clear();
+			case RecipePackage.MODEL_MAPPER__TECHNOLOGIES:
+				getTechnologies().clear();
 				return;
 			case RecipePackage.MODEL_MAPPER__QUERIES:
 				getQueries().clear();
@@ -333,8 +333,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
 				return ARTIFACT_ROOT_EDEFAULT == null ? artifactRoot != null : !ARTIFACT_ROOT_EDEFAULT.equals(artifactRoot);
-			case RecipePackage.MODEL_MAPPER__SPECIFIERS:
-				return specifiers != null && !specifiers.isEmpty();
+			case RecipePackage.MODEL_MAPPER__TECHNOLOGIES:
+				return technologies != null && !technologies.isEmpty();
 			case RecipePackage.MODEL_MAPPER__QUERIES:
 				return queries != null && !queries.isEmpty();
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:

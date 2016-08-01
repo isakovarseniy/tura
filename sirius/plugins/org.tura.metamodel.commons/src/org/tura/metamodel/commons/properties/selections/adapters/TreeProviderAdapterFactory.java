@@ -9,6 +9,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.Configur
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeAttribute;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlFakeMethod;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DomainArtifactsHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.ExtendedType;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.GenerationHintsHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
@@ -19,6 +20,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerH
 import application.ApplicationStyle;
 import application.ApplicationUIPackage;
 import artifact.Artifact;
+import artifact.ArtifactGroup;
 import artifact.ConfigHash;
 import artifact.ConfigVariable;
 import artifact.GenerationHint;
@@ -88,6 +90,8 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private GenerationHintsHolderProvider generationHintsHolderProvider;
 	private ConfigurationVariableProvider configVariableProvider;
 	private ConfigurationHashProvider configHashProvider;
+	private DomainArtifactsHolderProvider domainArtifactsHolderProvider;
+	private ArtifactGroupProvider artifactGroupProvider;
 	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -175,7 +179,12 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getConfigVariableProvider();
 			if (adaptableObject instanceof ConfigHash)
 				return getConfigHashProvider();
-		
+			if (adaptableObject instanceof DomainArtifactsHolder)
+				return getDomainArtifactsHolderProvider();
+			if (adaptableObject instanceof ArtifactGroup)
+				return getArtifactGroupProvider();
+			
+			
 		}
 		return null;
 	}
@@ -402,8 +411,16 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		return configHashProvider;		
 	}
 	
+	protected DomainArtifactsHolderProvider getDomainArtifactsHolderProvider(){
+		if (domainArtifactsHolderProvider == null)
+			domainArtifactsHolderProvider = new DomainArtifactsHolderProvider();
+		return domainArtifactsHolderProvider;		
+	}
 	
-	
-	
+	protected ArtifactGroupProvider getArtifactGroupProvider(){
+		if (artifactGroupProvider == null)
+			artifactGroupProvider = new ArtifactGroupProvider();
+		return artifactGroupProvider;		
+	}
 	
 }

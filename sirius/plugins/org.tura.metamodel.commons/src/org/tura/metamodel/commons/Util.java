@@ -47,7 +47,7 @@ import mapper.Mapper;
 import mapper.PackageMapper;
 import mapper.TypeMapper;
 import recipe.Ingredient;
-import recipe.MappingSpecifier;
+import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.Query;
 import recipe.QueryVariable;
@@ -457,21 +457,21 @@ public class Util {
 	}
 
 	public static void populateTechnologies(EglTemplate template,ModelMapper mapper) {
-		if (mapper == null || mapper.getSpecifiers() == null)
+		if (mapper == null || mapper.getTechnologies() == null)
 			return;
 		
-		for (MappingSpecifier tech : mapper.getSpecifiers()) {
-			template.populate(tech.getSpecifierRef().getName()
+		for (MappingTecnologiy tech : mapper.getTechnologies()) {
+			template.populate(tech.getTechRef().getName()
 					.replace(' ', '_'), tech.getValueRef().getValue());
 		}
 	}
 
 	public static void populateTechnologies(Map<String, Object> hash,ModelMapper mapper) {
-		if (mapper == null || mapper.getSpecifiers() == null)
+		if (mapper == null || mapper.getTechnologies() == null)
 			return;
 
-		for (MappingSpecifier tech : mapper.getSpecifiers()) {
-			hash.put(tech.getSpecifierRef().getName().replace(' ', '_'), tech
+		for (MappingTecnologiy tech : mapper.getTechnologies()) {
+			hash.put(tech.getTechRef().getName().replace(' ', '_'), tech
 					.getValueRef().getValue());
 		}
 	}

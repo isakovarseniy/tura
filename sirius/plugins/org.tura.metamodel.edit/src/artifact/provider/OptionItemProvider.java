@@ -106,8 +106,8 @@ public class OptionItemProvider
 				 ArtifactPackage.Literals.OPTION__VALUE,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -151,7 +151,6 @@ public class OptionItemProvider
 
 		switch (notification.getFeatureID(Option.class)) {
 			case ArtifactPackage.OPTION__UID:
-			case ArtifactPackage.OPTION__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

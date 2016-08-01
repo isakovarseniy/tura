@@ -60,6 +60,8 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 			case ArtifactPackage.TECH_LEAF: return createTechLeaf();
 			case ArtifactPackage.ARTIFACT: return createArtifact();
 			case ArtifactPackage.GENERATION_HINT_WITH_NICK_NAME: return createGenerationHintWithNickName();
+			case ArtifactPackage.CONFIG_VARIABLE_WITH_NICK_NAME: return createConfigVariableWithNickName();
+			case ArtifactPackage.CONFIG_HASH_WITH_NICK_NAME: return createConfigHashWithNickName();
 			case ArtifactPackage.GENERATION_HINT: return createGenerationHint();
 			case ArtifactPackage.CONFIG_VARIABLE: return createConfigVariable();
 			case ArtifactPackage.CONFIG_HASH: return createConfigHash();
@@ -112,6 +114,26 @@ public class ArtifactFactoryImpl extends EFactoryImpl implements ArtifactFactory
 	public GenerationHintWithNickName createGenerationHintWithNickName() {
 		GenerationHintWithNickNameImpl generationHintWithNickName = new GenerationHintWithNickNameImpl();
 		return generationHintWithNickName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConfigVariableWithNickName createConfigVariableWithNickName() {
+		ConfigVariableWithNickNameImpl configVariableWithNickName = new ConfigVariableWithNickNameImpl();
+		return configVariableWithNickName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConfigHashWithNickName createConfigHashWithNickName() {
+		ConfigHashWithNickNameImpl configHashWithNickName = new ConfigHashWithNickNameImpl();
+		return configHashWithNickName;
 	}
 
 	/**

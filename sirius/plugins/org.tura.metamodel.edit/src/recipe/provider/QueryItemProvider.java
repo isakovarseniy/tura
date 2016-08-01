@@ -66,7 +66,6 @@ public class QueryItemProvider
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
-			addModelQueryPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addQueryRefPropertyDescriptor(object);
 		}
@@ -91,28 +90,6 @@ public class QueryItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Model Query feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addModelQueryPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Query_modelQuery_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Query_modelQuery_feature", "_UI_Query_type"),
-				 RecipePackage.Literals.QUERY__MODEL_QUERY,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

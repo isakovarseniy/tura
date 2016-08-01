@@ -84,6 +84,14 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 				return createGenerationHintWithNickNameAdapter();
 			}
 			@Override
+			public Adapter caseConfigVariableWithNickName(ConfigVariableWithNickName object) {
+				return createConfigVariableWithNickNameAdapter();
+			}
+			@Override
+			public Adapter caseConfigHashWithNickName(ConfigHashWithNickName object) {
+				return createConfigHashWithNickNameAdapter();
+			}
+			@Override
 			public Adapter caseGenerationHint(GenerationHint object) {
 				return createGenerationHintAdapter();
 			}
@@ -192,6 +200,34 @@ public class ArtifactAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGenerationHintWithNickNameAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.ConfigVariableWithNickName <em>Config Variable With Nick Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.ConfigVariableWithNickName
+	 * @generated
+	 */
+	public Adapter createConfigVariableWithNickNameAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.ConfigHashWithNickName <em>Config Hash With Nick Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.ConfigHashWithNickName
+	 * @generated
+	 */
+	public Adapter createConfigHashWithNickNameAdapter() {
 		return null;
 	}
 

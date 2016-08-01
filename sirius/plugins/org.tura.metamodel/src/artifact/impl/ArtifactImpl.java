@@ -4,9 +4,8 @@ package artifact.impl;
 
 import artifact.Artifact;
 import artifact.ArtifactPackage;
-import artifact.ConfigHash;
-import artifact.ConfigVariable;
-import artifact.GenerationHint;
+import artifact.ConfigHashWithNickName;
+import artifact.ConfigVariableWithNickName;
 import artifact.GenerationHintWithNickName;
 import artifact.ModelQuery;
 import artifact.Technology;
@@ -23,9 +22,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -111,24 +110,24 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConfigVariables() <em>Config Variables</em>}' reference list.
+	 * The cached value of the '{@link #getConfigVariables() <em>Config Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConfigVariables()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ConfigVariable> configVariables;
+	protected EList<ConfigVariableWithNickName> configVariables;
 
 	/**
-	 * The cached value of the '{@link #getConfigHashes() <em>Config Hashes</em>}' reference list.
+	 * The cached value of the '{@link #getConfigHashes() <em>Config Hashes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConfigHashes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ConfigHash> configHashes;
+	protected EList<ConfigHashWithNickName> configHashes;
 
 	/**
 	 * The cached value of the '{@link #getModelQuery() <em>Model Query</em>}' containment reference list.
@@ -267,9 +266,9 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConfigVariable> getConfigVariables() {
+	public EList<ConfigVariableWithNickName> getConfigVariables() {
 		if (configVariables == null) {
-			configVariables = new EObjectResolvingEList<ConfigVariable>(ConfigVariable.class, this, ArtifactPackage.ARTIFACT__CONFIG_VARIABLES);
+			configVariables = new EObjectContainmentEList<ConfigVariableWithNickName>(ConfigVariableWithNickName.class, this, ArtifactPackage.ARTIFACT__CONFIG_VARIABLES);
 		}
 		return configVariables;
 	}
@@ -279,9 +278,9 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConfigHash> getConfigHashes() {
+	public EList<ConfigHashWithNickName> getConfigHashes() {
 		if (configHashes == null) {
-			configHashes = new EObjectResolvingEList<ConfigHash>(ConfigHash.class, this, ArtifactPackage.ARTIFACT__CONFIG_HASHES);
+			configHashes = new EObjectContainmentEList<ConfigHashWithNickName>(ConfigHashWithNickName.class, this, ArtifactPackage.ARTIFACT__CONFIG_HASHES);
 		}
 		return configHashes;
 	}
@@ -351,6 +350,10 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ArtifactPackage.ARTIFACT__CONFIG_VARIABLES:
+				return ((InternalEList<?>)getConfigVariables()).basicRemove(otherEnd, msgs);
+			case ArtifactPackage.ARTIFACT__CONFIG_HASHES:
+				return ((InternalEList<?>)getConfigHashes()).basicRemove(otherEnd, msgs);
 			case ArtifactPackage.ARTIFACT__MODEL_QUERY:
 				return ((InternalEList<?>)getModelQuery()).basicRemove(otherEnd, msgs);
 			case ArtifactPackage.ARTIFACT__TECHNOLOGIES:
@@ -411,11 +414,11 @@ public class ArtifactImpl extends EObjectImpl implements Artifact {
 				return;
 			case ArtifactPackage.ARTIFACT__CONFIG_VARIABLES:
 				getConfigVariables().clear();
-				getConfigVariables().addAll((Collection<? extends ConfigVariable>)newValue);
+				getConfigVariables().addAll((Collection<? extends ConfigVariableWithNickName>)newValue);
 				return;
 			case ArtifactPackage.ARTIFACT__CONFIG_HASHES:
 				getConfigHashes().clear();
-				getConfigHashes().addAll((Collection<? extends ConfigHash>)newValue);
+				getConfigHashes().addAll((Collection<? extends ConfigHashWithNickName>)newValue);
 				return;
 			case ArtifactPackage.ARTIFACT__MODEL_QUERY:
 				getModelQuery().clear();

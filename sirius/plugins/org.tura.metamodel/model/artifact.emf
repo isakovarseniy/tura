@@ -24,9 +24,9 @@ class Artifact{
    attr EString description;
    
    // Variables resolved by configuration of recipe (for example server IP)  
-   ref   ConfigVariable[*] configVariables;
+   val   ConfigVariableWithNickName[*] configVariables;
    
-   ref   ConfigHash[*] configHashes;
+   val   ConfigHashWithNickName[*] configHashes;
 
    // Variables to query model ( for example FormName or service name)
    val   ModelQuery[*]modelQuery;
@@ -47,6 +47,18 @@ class GenerationHintWithNickName{
    id attr EString uid;
    attr EString name;
    ref   GenerationHint hint;
+}
+
+class ConfigVariableWithNickName{
+   id attr EString uid;
+   attr EString name;
+   ref   ConfigVariable var;
+}
+
+class ConfigHashWithNickName{
+   id attr EString uid;
+   attr EString name;
+   ref   ConfigHash hash;	
 }
 
 class GenerationHint{
@@ -86,7 +98,7 @@ class Technology{
 
 class Option{
     id attr EString uid;
-   attr EString value;
+   ref TechLeaf value;
 }
 
 class Categorized{

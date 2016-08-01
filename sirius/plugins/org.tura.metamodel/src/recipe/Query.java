@@ -18,14 +18,13 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link recipe.Query#getUid <em>Uid</em>}</li>
- *   <li>{@link recipe.Query#getModelQuery <em>Model Query</em>}</li>
  *   <li>{@link recipe.Query#getName <em>Name</em>}</li>
  *   <li>{@link recipe.Query#getQueryRef <em>Query Ref</em>}</li>
  *   <li>{@link recipe.Query#getVariables <em>Variables</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getQuery()
- * @model annotation="gmf.node label='name' border.color='0,0,0' color='241,238,203'"
+ * @model
  * @generated
  */
 public interface Query extends EObject {
@@ -54,32 +53,6 @@ public interface Query extends EObject {
 	 * @generated
 	 */
 	void setUid(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Model Query</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Model Query</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model Query</em>' reference.
-	 * @see #setModelQuery(ModelQuery)
-	 * @see recipe.RecipePackage#getQuery_ModelQuery()
-	 * @model
-	 * @generated
-	 */
-	ModelQuery getModelQuery();
-
-	/**
-	 * Sets the value of the '{@link recipe.Query#getModelQuery <em>Model Query</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model Query</em>' reference.
-	 * @see #getModelQuery()
-	 * @generated
-	 */
-	void setModelQuery(ModelQuery value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

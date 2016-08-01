@@ -144,8 +144,8 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 				return createKeyValuePairAdapter();
 			}
 			@Override
-			public Adapter caseMappingSpecifier(MappingSpecifier object) {
-				return createMappingSpecifierAdapter();
+			public Adapter caseMappingTecnologiy(MappingTecnologiy object) {
+				return createMappingTecnologiyAdapter();
 			}
 			@Override
 			public Adapter caseQuery(Query object) {
@@ -446,16 +446,16 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link recipe.MappingSpecifier <em>Mapping Specifier</em>}'.
+	 * Creates a new adapter for an object of class '{@link recipe.MappingTecnologiy <em>Mapping Tecnologiy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see recipe.MappingSpecifier
+	 * @see recipe.MappingTecnologiy
 	 * @generated
 	 */
-	public Adapter createMappingSpecifierAdapter() {
+	public Adapter createMappingTecnologiyAdapter() {
 		return null;
 	}
 

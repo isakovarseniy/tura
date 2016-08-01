@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -268,7 +269,6 @@ public interface MessagePackage extends EPackage {
 	 */
 	int LANGUAGE_FEATURE_COUNT = 4;
 
-
 	/**
 	 * Returns the meta object for class '{@link message.MessageLibrary <em>Library</em>}'.
 	 * <!-- begin-user-doc -->
@@ -478,6 +478,7 @@ public interface MessagePackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

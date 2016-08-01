@@ -68,8 +68,6 @@ public class ArtifactItemProvider
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addConfigVariablesPropertyDescriptor(object);
-			addConfigHashesPropertyDescriptor(object);
 			addTemplatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -142,50 +140,6 @@ public class ArtifactItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Config Variables feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConfigVariablesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Artifact_configVariables_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_configVariables_feature", "_UI_Artifact_type"),
-				 ArtifactPackage.Literals.ARTIFACT__CONFIG_VARIABLES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Config Hashes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConfigHashesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Artifact_configHashes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_configHashes_feature", "_UI_Artifact_type"),
-				 ArtifactPackage.Literals.ARTIFACT__CONFIG_HASHES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Template feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,6 +173,8 @@ public class ArtifactItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(ArtifactPackage.Literals.ARTIFACT__CONFIG_VARIABLES);
+			childrenFeatures.add(ArtifactPackage.Literals.ARTIFACT__CONFIG_HASHES);
 			childrenFeatures.add(ArtifactPackage.Literals.ARTIFACT__MODEL_QUERY);
 			childrenFeatures.add(ArtifactPackage.Literals.ARTIFACT__TECHNOLOGIES);
 			childrenFeatures.add(ArtifactPackage.Literals.ARTIFACT__HINTS);
@@ -283,6 +239,8 @@ public class ArtifactItemProvider
 			case ArtifactPackage.ARTIFACT__TEMPLATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case ArtifactPackage.ARTIFACT__CONFIG_VARIABLES:
+			case ArtifactPackage.ARTIFACT__CONFIG_HASHES:
 			case ArtifactPackage.ARTIFACT__MODEL_QUERY:
 			case ArtifactPackage.ARTIFACT__TECHNOLOGIES:
 			case ArtifactPackage.ARTIFACT__HINTS:
@@ -302,6 +260,16 @@ public class ArtifactItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactPackage.Literals.ARTIFACT__CONFIG_VARIABLES,
+				 ArtifactFactory.eINSTANCE.createConfigVariableWithNickName()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactPackage.Literals.ARTIFACT__CONFIG_HASHES,
+				 ArtifactFactory.eINSTANCE.createConfigHashWithNickName()));
 
 		newChildDescriptors.add
 			(createChildParameter

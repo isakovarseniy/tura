@@ -12,26 +12,27 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import recipe.MappingSpecifier;
+import recipe.MappingTecnologiy;
 import recipe.RecipePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Mapping Specifier</b></em>'.
+ * An implementation of the model object '<em><b>Mapping Tecnologiy</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link recipe.impl.MappingSpecifierImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link recipe.impl.MappingSpecifierImpl#getSpecifierRef <em>Specifier Ref</em>}</li>
- *   <li>{@link recipe.impl.MappingSpecifierImpl#getValueRef <em>Value Ref</em>}</li>
+ *   <li>{@link recipe.impl.MappingTecnologiyImpl#getUid <em>Uid</em>}</li>
+ *   <li>{@link recipe.impl.MappingTecnologiyImpl#getTechRef <em>Tech Ref</em>}</li>
+ *   <li>{@link recipe.impl.MappingTecnologiyImpl#getValueRef <em>Value Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifier {
+public class MappingTecnologiyImpl extends EObjectImpl implements MappingTecnologiy {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,14 +54,14 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 	protected String uid = UID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSpecifierRef() <em>Specifier Ref</em>}' reference.
+	 * The cached value of the '{@link #getTechRef() <em>Tech Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecifierRef()
+	 * @see #getTechRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected Technology specifierRef;
+	protected Technology techRef;
 
 	/**
 	 * The cached value of the '{@link #getValueRef() <em>Value Ref</em>}' reference.
@@ -77,7 +78,7 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MappingSpecifierImpl() {
+	protected MappingTecnologiyImpl() {
 		super();
 	}
 
@@ -88,7 +89,7 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RecipePackage.Literals.MAPPING_SPECIFIER;
+		return RecipePackage.Literals.MAPPING_TECNOLOGIY;
 	}
 
 	/**
@@ -109,7 +110,7 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MAPPING_SPECIFIER__UID, oldUid, uid));
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MAPPING_TECNOLOGIY__UID, oldUid, uid));
 	}
 
 	/**
@@ -117,16 +118,16 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Technology getSpecifierRef() {
-		if (specifierRef != null && specifierRef.eIsProxy()) {
-			InternalEObject oldSpecifierRef = (InternalEObject)specifierRef;
-			specifierRef = (Technology)eResolveProxy(oldSpecifierRef);
-			if (specifierRef != oldSpecifierRef) {
+	public Technology getTechRef() {
+		if (techRef != null && techRef.eIsProxy()) {
+			InternalEObject oldTechRef = (InternalEObject)techRef;
+			techRef = (Technology)eResolveProxy(oldTechRef);
+			if (techRef != oldTechRef) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecipePackage.MAPPING_SPECIFIER__SPECIFIER_REF, oldSpecifierRef, specifierRef));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecipePackage.MAPPING_TECNOLOGIY__TECH_REF, oldTechRef, techRef));
 			}
 		}
-		return specifierRef;
+		return techRef;
 	}
 
 	/**
@@ -134,8 +135,8 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Technology basicGetSpecifierRef() {
-		return specifierRef;
+	public Technology basicGetTechRef() {
+		return techRef;
 	}
 
 	/**
@@ -143,11 +144,11 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSpecifierRef(Technology newSpecifierRef) {
-		Technology oldSpecifierRef = specifierRef;
-		specifierRef = newSpecifierRef;
+	public void setTechRef(Technology newTechRef) {
+		Technology oldTechRef = techRef;
+		techRef = newTechRef;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MAPPING_SPECIFIER__SPECIFIER_REF, oldSpecifierRef, specifierRef));
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MAPPING_TECNOLOGIY__TECH_REF, oldTechRef, techRef));
 	}
 
 	/**
@@ -161,7 +162,7 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 			valueRef = (Option)eResolveProxy(oldValueRef);
 			if (valueRef != oldValueRef) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecipePackage.MAPPING_SPECIFIER__VALUE_REF, oldValueRef, valueRef));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecipePackage.MAPPING_TECNOLOGIY__VALUE_REF, oldValueRef, valueRef));
 			}
 		}
 		return valueRef;
@@ -185,7 +186,7 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 		Option oldValueRef = valueRef;
 		valueRef = newValueRef;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MAPPING_SPECIFIER__VALUE_REF, oldValueRef, valueRef));
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MAPPING_TECNOLOGIY__VALUE_REF, oldValueRef, valueRef));
 	}
 
 	/**
@@ -196,12 +197,12 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RecipePackage.MAPPING_SPECIFIER__UID:
+			case RecipePackage.MAPPING_TECNOLOGIY__UID:
 				return getUid();
-			case RecipePackage.MAPPING_SPECIFIER__SPECIFIER_REF:
-				if (resolve) return getSpecifierRef();
-				return basicGetSpecifierRef();
-			case RecipePackage.MAPPING_SPECIFIER__VALUE_REF:
+			case RecipePackage.MAPPING_TECNOLOGIY__TECH_REF:
+				if (resolve) return getTechRef();
+				return basicGetTechRef();
+			case RecipePackage.MAPPING_TECNOLOGIY__VALUE_REF:
 				if (resolve) return getValueRef();
 				return basicGetValueRef();
 		}
@@ -216,13 +217,13 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RecipePackage.MAPPING_SPECIFIER__UID:
+			case RecipePackage.MAPPING_TECNOLOGIY__UID:
 				setUid((String)newValue);
 				return;
-			case RecipePackage.MAPPING_SPECIFIER__SPECIFIER_REF:
-				setSpecifierRef((Technology)newValue);
+			case RecipePackage.MAPPING_TECNOLOGIY__TECH_REF:
+				setTechRef((Technology)newValue);
 				return;
-			case RecipePackage.MAPPING_SPECIFIER__VALUE_REF:
+			case RecipePackage.MAPPING_TECNOLOGIY__VALUE_REF:
 				setValueRef((Option)newValue);
 				return;
 		}
@@ -237,13 +238,13 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RecipePackage.MAPPING_SPECIFIER__UID:
+			case RecipePackage.MAPPING_TECNOLOGIY__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case RecipePackage.MAPPING_SPECIFIER__SPECIFIER_REF:
-				setSpecifierRef((Technology)null);
+			case RecipePackage.MAPPING_TECNOLOGIY__TECH_REF:
+				setTechRef((Technology)null);
 				return;
-			case RecipePackage.MAPPING_SPECIFIER__VALUE_REF:
+			case RecipePackage.MAPPING_TECNOLOGIY__VALUE_REF:
 				setValueRef((Option)null);
 				return;
 		}
@@ -258,11 +259,11 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RecipePackage.MAPPING_SPECIFIER__UID:
+			case RecipePackage.MAPPING_TECNOLOGIY__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case RecipePackage.MAPPING_SPECIFIER__SPECIFIER_REF:
-				return specifierRef != null;
-			case RecipePackage.MAPPING_SPECIFIER__VALUE_REF:
+			case RecipePackage.MAPPING_TECNOLOGIY__TECH_REF:
+				return techRef != null;
+			case RecipePackage.MAPPING_TECNOLOGIY__VALUE_REF:
 				return valueRef != null;
 		}
 		return super.eIsSet(featureID);
@@ -284,4 +285,4 @@ public class MappingSpecifierImpl extends EObjectImpl implements MappingSpecifie
 		return result.toString();
 	}
 
-} //MappingSpecifierImpl
+} //MappingTecnologiyImpl

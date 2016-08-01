@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
+import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -508,26 +509,26 @@ public class RecipeItemProviderAdapterFactory extends RecipeAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link recipe.MappingSpecifier} instances.
+	 * This keeps track of the one adapter used for all {@link recipe.MappingTecnologiy} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MappingSpecifierItemProvider mappingSpecifierItemProvider;
+	protected MappingTecnologiyItemProvider mappingTecnologiyItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link recipe.MappingSpecifier}.
+	 * This creates an adapter for a {@link recipe.MappingTecnologiy}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createMappingSpecifierAdapter() {
-		if (mappingSpecifierItemProvider == null) {
-			mappingSpecifierItemProvider = new MappingSpecifierItemProvider(this);
+	public Adapter createMappingTecnologiyAdapter() {
+		if (mappingTecnologiyItemProvider == null) {
+			mappingTecnologiyItemProvider = new MappingTecnologiyItemProvider(this);
 		}
 
-		return mappingSpecifierItemProvider;
+		return mappingTecnologiyItemProvider;
 	}
 
 	/**

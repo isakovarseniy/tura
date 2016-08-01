@@ -76,7 +76,7 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 			case RecipePackage.PROPERTY: return createProperty();
 			case RecipePackage.HASH_PROPERTY: return createHashProperty();
 			case RecipePackage.KEY_VALUE_PAIR: return createKeyValuePair();
-			case RecipePackage.MAPPING_SPECIFIER: return createMappingSpecifier();
+			case RecipePackage.MAPPING_TECNOLOGIY: return createMappingTecnologiy();
 			case RecipePackage.QUERY: return createQuery();
 			case RecipePackage.QUERY_VARIABLE: return createQueryVariable();
 			case RecipePackage.ARTIFACT_REF: return createArtifactRef();
@@ -310,9 +310,9 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MappingSpecifier createMappingSpecifier() {
-		MappingSpecifierImpl mappingSpecifier = new MappingSpecifierImpl();
-		return mappingSpecifier;
+	public MappingTecnologiy createMappingTecnologiy() {
+		MappingTecnologiyImpl mappingTecnologiy = new MappingTecnologiyImpl();
+		return mappingTecnologiy;
 	}
 
 	/**

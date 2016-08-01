@@ -4,13 +4,16 @@ package artifact.impl;
 
 import artifact.ArtifactPackage;
 import artifact.Option;
+import artifact.TechLeaf;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,24 +51,14 @@ public class OptionImpl extends EObjectImpl implements Option {
 	protected String uid = UID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected String value = VALUE_EDEFAULT;
+	protected TechLeaf value;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,7 +105,15 @@ public class OptionImpl extends EObjectImpl implements Option {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
+	public TechLeaf getValue() {
+		if (value != null && value.eIsProxy()) {
+			InternalEObject oldValue = (InternalEObject)value;
+			value = (TechLeaf)eResolveProxy(oldValue);
+			if (value != oldValue) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArtifactPackage.OPTION__VALUE, oldValue, value));
+			}
+		}
 		return value;
 	}
 
@@ -121,8 +122,17 @@ public class OptionImpl extends EObjectImpl implements Option {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
+	public TechLeaf basicGetValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(TechLeaf newValue) {
+		TechLeaf oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactPackage.OPTION__VALUE, oldValue, value));
@@ -139,7 +149,8 @@ public class OptionImpl extends EObjectImpl implements Option {
 			case ArtifactPackage.OPTION__UID:
 				return getUid();
 			case ArtifactPackage.OPTION__VALUE:
-				return getValue();
+				if (resolve) return getValue();
+				return basicGetValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,7 +167,7 @@ public class OptionImpl extends EObjectImpl implements Option {
 				setUid((String)newValue);
 				return;
 			case ArtifactPackage.OPTION__VALUE:
-				setValue((String)newValue);
+				setValue((TechLeaf)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,7 +185,7 @@ public class OptionImpl extends EObjectImpl implements Option {
 				setUid(UID_EDEFAULT);
 				return;
 			case ArtifactPackage.OPTION__VALUE:
-				setValue(VALUE_EDEFAULT);
+				setValue((TechLeaf)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -191,7 +202,7 @@ public class OptionImpl extends EObjectImpl implements Option {
 			case ArtifactPackage.OPTION__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case ArtifactPackage.OPTION__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+				return value != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -208,8 +219,6 @@ public class OptionImpl extends EObjectImpl implements Option {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
-		result.append(", value: ");
-		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

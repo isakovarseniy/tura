@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -525,7 +526,6 @@ public interface InfrastructurePackage extends EPackage {
 	 */
 	int SERVER_CLASTER_FEATURE_COUNT = INFRASTRUCTURE_COMPONENT_FEATURE_COUNT + 1;
 
-
 	/**
 	 * Returns the meta object for class '{@link infrastructure.EnterpriseInfrastructure <em>Enterprise Infrastructure</em>}'.
 	 * <!-- begin-user-doc -->
@@ -860,6 +860,7 @@ public interface InfrastructurePackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

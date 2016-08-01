@@ -58,6 +58,24 @@ public interface ArtifactFactory extends EFactory {
 	GenerationHintWithNickName createGenerationHintWithNickName();
 
 	/**
+	 * Returns a new object of class '<em>Config Variable With Nick Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Config Variable With Nick Name</em>'.
+	 * @generated
+	 */
+	ConfigVariableWithNickName createConfigVariableWithNickName();
+
+	/**
+	 * Returns a new object of class '<em>Config Hash With Nick Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Config Hash With Nick Name</em>'.
+	 * @generated
+	 */
+	ConfigHashWithNickName createConfigHashWithNickName();
+
+	/**
 	 * Returns a new object of class '<em>Generation Hint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

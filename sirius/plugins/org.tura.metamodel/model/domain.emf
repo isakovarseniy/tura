@@ -5,7 +5,7 @@ import "platform:/resource/org.tura.metamodel/model/application.ecore";
 import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
 
-
+//do not remove
 @gmf.diagram
 class Domain{
   id attr EString uid;
@@ -14,6 +14,8 @@ class Domain{
   val DomainApplications[1] domainApplications;
 
 }
+
+//do not remove
 @gmf.node(label="name")
 class DomainArtifacts {
     id attr EString uid;

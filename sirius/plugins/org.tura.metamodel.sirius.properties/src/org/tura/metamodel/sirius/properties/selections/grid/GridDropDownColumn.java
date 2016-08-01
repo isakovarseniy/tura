@@ -133,6 +133,10 @@ public abstract class GridDropDownColumn implements GridColumn {
 		this.dataAdapter = dataAdapter;
 	}
 
+	public DropDownDataAdapter getDataAdapter(){
+		return dataAdapter;
+	}
+	
 	public void setColumnName(String columnName) {
 		this.columnName = columnName;
 	}

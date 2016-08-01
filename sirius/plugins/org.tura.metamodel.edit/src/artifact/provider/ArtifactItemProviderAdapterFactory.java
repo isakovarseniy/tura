@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
+import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -160,6 +161,52 @@ public class ArtifactItemProviderAdapterFactory extends ArtifactAdapterFactory i
 		}
 
 		return generationHintWithNickNameItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link artifact.ConfigVariableWithNickName} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfigVariableWithNickNameItemProvider configVariableWithNickNameItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link artifact.ConfigVariableWithNickName}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfigVariableWithNickNameAdapter() {
+		if (configVariableWithNickNameItemProvider == null) {
+			configVariableWithNickNameItemProvider = new ConfigVariableWithNickNameItemProvider(this);
+		}
+
+		return configVariableWithNickNameItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link artifact.ConfigHashWithNickName} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfigHashWithNickNameItemProvider configHashWithNickNameItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link artifact.ConfigHashWithNickName}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfigHashWithNickNameAdapter() {
+		if (configHashWithNickNameItemProvider == null) {
+			configHashWithNickNameItemProvider = new ConfigHashWithNickNameItemProvider(this);
+		}
+
+		return configHashWithNickNameItemProvider;
 	}
 
 	/**

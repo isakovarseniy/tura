@@ -127,8 +127,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ModelMapper" eSuperTypes="#//ArtifactRef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="specifiers" upperBound="-1"
-        eType="#//MappingSpecifier" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="technologies" upperBound="-1"
+        eType="#//MappingTecnologiy" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="queries" upperBound="-1"
         eType="#//Query" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactExecutionString"
@@ -142,11 +142,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HashProperty">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="fakeName"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="255,239,222"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="confHashRef" eType="ecore:EClass artifact.ecore#//ConfigHash"/>
@@ -160,21 +155,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MappingSpecifier">
+  <eClassifiers xsi:type="ecore:EClass" name="MappingTecnologiy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="specifierRef" eType="ecore:EClass artifact.ecore#//Technology"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="techRef" eType="ecore:EClass artifact.ecore#//Technology"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueRef" eType="ecore:EClass artifact.ecore#//Option"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Query">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="name"/>
-      <details key="border.color" value="0,0,0"/>
-      <details key="color" value="241,238,203"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelQuery" eType="ecore:EClass artifact.ecore#//ModelQuery"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="queryRef" eType="ecore:EClass artifact.ecore#//ModelQuery"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"

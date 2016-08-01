@@ -1,29 +1,29 @@
 /**
  */
-package recipe.tests;
+package artifact.tests;
+
+import artifact.ArtifactFactory;
+import artifact.ConfigHashWithNickName;
 
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
-import recipe.MappingSpecifier;
-import recipe.RecipeFactory;
-
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Mapping Specifier</b></em>'.
+ * A test case for the model object '<em><b>Config Hash With Nick Name</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class MappingSpecifierTest extends TestCase {
+public class ConfigHashWithNickNameTest extends TestCase {
 
 	/**
-	 * The fixture for this Mapping Specifier test case.
+	 * The fixture for this Config Hash With Nick Name test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MappingSpecifier fixture = null;
+	protected ConfigHashWithNickName fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class MappingSpecifierTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(MappingSpecifierTest.class);
+		TestRunner.run(ConfigHashWithNickNameTest.class);
 	}
 
 	/**
-	 * Constructs a new Mapping Specifier test case with the given name.
+	 * Constructs a new Config Hash With Nick Name test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MappingSpecifierTest(String name) {
+	public ConfigHashWithNickNameTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Mapping Specifier test case.
+	 * Sets the fixture for this Config Hash With Nick Name test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(MappingSpecifier fixture) {
+	protected void setFixture(ConfigHashWithNickName fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Mapping Specifier test case.
+	 * Returns the fixture for this Config Hash With Nick Name test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MappingSpecifier getFixture() {
+	protected ConfigHashWithNickName getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class MappingSpecifierTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(RecipeFactory.eINSTANCE.createMappingSpecifier());
+		setFixture(ArtifactFactory.eINSTANCE.createConfigHashWithNickName());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class MappingSpecifierTest extends TestCase {
 		setFixture(null);
 	}
 
-} //MappingSpecifierTest
+} //ConfigHashWithNickNameTest

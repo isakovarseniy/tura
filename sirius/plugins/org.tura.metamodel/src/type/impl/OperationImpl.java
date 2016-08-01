@@ -26,7 +26,6 @@ import permission.impl.SecuredImpl;
 import type.Operation;
 import type.Parameter;
 import type.ReturnValue;
-import type.Type;
 import type.TypePackage;
 
 /**

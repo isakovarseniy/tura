@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -649,7 +650,6 @@ public interface MapperPackage extends EPackage {
 	 */
 	int ROLE_MAPPER_FEATURE_COUNT = MAPPER_FEATURE_COUNT + 4;
 
-
 	/**
 	 * Returns the meta object for class '{@link mapper.Mappers <em>Mappers</em>}'.
 	 * <!-- begin-user-doc -->
@@ -1041,6 +1041,7 @@ public interface MapperPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

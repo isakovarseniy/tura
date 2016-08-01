@@ -15,7 +15,7 @@ public class TechLeafProvider  implements IWorkbenchAdapter ,IReturnTypeProvider
 
 	@Override
 	public Object getReturnType(Object o) {
-		return null;
+		return o;
 	}
 
 	@Override

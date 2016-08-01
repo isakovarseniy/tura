@@ -20,6 +20,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
+import artifact.Technology;
 import domain.DomainArtifacts;
 import form.CanvasFrame;
 import form.ContextParameter;
@@ -33,6 +34,7 @@ import form.NickNamed;
 import form.Uielement;
 import form.Views;
 import recipe.Configuration;
+import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import type.Generalization;
 import type.Operation;
@@ -407,74 +409,47 @@ public class QueryHelper {
 
 	}
 
-	public Object[] findMappingSpecifiers(ModelMapper eObject, EObject types) throws Exception {
-		throw new RuntimeException();
-
-		// Object[] result = new Object[2];
-		//
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper =
-		// ocl.createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// Collection<domain.MappingSpecifier> map = eObject.getSpecifiers();
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
-		// + eObject.getDomainArtifactRef().getUid()
-		// +
-		// "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact)
-		// and r.oclAsType(domain::Artifact).uid ='"
-		// + eObject.getArtifactRef().getUid()
-		// + "').oclAsType(domain::Artifact).specifiers");
-		//
-		// Collection<domain.Specifier> map1 = (Collection<domain.Specifier>)
-		// ocl
-		// .evaluate(types, query);
-		//
-		// ArrayList<domain.MappingSpecifier> removeSpecifiers = new
-		// ArrayList<domain.MappingSpecifier>();
-		// for (Iterator<domain.MappingSpecifier> itr1 = map.iterator(); itr1
-		// .hasNext();) {
-		// domain.MappingSpecifier ms = itr1.next();
-		// boolean isRemove = true;
-		// for (Iterator<domain.Specifier> itr2 = map1.iterator(); itr2
-		// .hasNext();) {
-		// domain.Specifier sp = itr2.next();
-		// if ((ms.getSpecifierRef() != null)
-		// && (sp.getUid().equals(ms.getSpecifierRef().getUid())))
-		// isRemove = false;
-		// }
-		// if (isRemove)
-		// removeSpecifiers.add(ms);
-		// }
-		//
-		// ArrayList<domain.Specifier> addSpecifiers = new
-		// ArrayList<domain.Specifier>();
-		// for (Iterator<domain.Specifier> itr1 = map1.iterator();
-		// itr1.hasNext();) {
-		// domain.Specifier ms = itr1.next();
-		// boolean isAdd = false;
-		// if (map.size() == 0)
-		// isAdd = true;
-		// else {
-		// isAdd = true;
-		// for (Iterator<domain.MappingSpecifier> itr2 = map.iterator(); itr2
-		// .hasNext();) {
-		// domain.MappingSpecifier sp = itr2.next();
-		// if ((sp.getSpecifierRef() != null)
-		// && (sp.getSpecifierRef().getUid().equals(ms
-		// .getUid())))
-		// isAdd = false;
-		// }
-		// }
-		// if (isAdd)
-		// addSpecifiers.add(ms);
-		// }
-		//
-		// result[0] = addSpecifiers;
-		// result[1] = removeSpecifiers;
-		// return result;
+	public Object[] findMappingTechnologies(ModelMapper eObject, EObject types) throws Exception {
+		
+		 Object[] result = new Object[2];
+		
+		 Collection<MappingTecnologiy> map = eObject.getTechnologies();
+		 String query = "artifact::Artifact.allInstances()->select(r|r.uid='"+ eObject.getArtifactRef().getUid()+"').oclAsType(artifact::Artifact).technologies";
+		
+		 @SuppressWarnings("unchecked")
+		 Collection<Technology> map1 = (Collection<Technology>)internalEvaluate(eObject, query);
+		
+		 ArrayList<MappingTecnologiy> removeSpecifiers = new ArrayList<MappingTecnologiy>();
+		 for (MappingTecnologiy ms : map) {
+			 boolean isRemove = true;
+			 for (Technology sp : map1) {
+		       if ((ms.getTechRef() != null) && (sp.getUid().equals(ms.getTechRef().getUid())))
+		          isRemove = false;
+			  }
+  		     if (isRemove){
+		      removeSpecifiers.add(ms);
+  		     }
+		 }
+		
+		 ArrayList<Technology> addSpecifiers = new ArrayList<Technology>();
+		 for (Technology  ms : map1) {
+			 boolean isAdd = false;
+			 if (map.size() == 0){
+		        isAdd = true;
+			 }else {
+				isAdd = true;
+		        for (MappingTecnologiy sp : map) {
+				 if ((sp.getTechRef() != null) && (sp.getTechRef().getUid().equals(ms.getUid())))
+				   isAdd = false;
+				 }
+		    }
+			if (isAdd)
+			  addSpecifiers.add(ms);
+			}
+		
+		 result[0] = addSpecifiers;
+		 result[1] = removeSpecifiers;
+		 return result;
 	}
 
 	public Object[] findMappingVariable(recipe.Query eObject, EObject types) throws Exception {

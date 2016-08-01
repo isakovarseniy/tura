@@ -193,13 +193,13 @@ public interface RecipeFactory extends EFactory {
 	KeyValuePair createKeyValuePair();
 
 	/**
-	 * Returns a new object of class '<em>Mapping Specifier</em>'.
+	 * Returns a new object of class '<em>Mapping Tecnologiy</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mapping Specifier</em>'.
+	 * @return a new object of class '<em>Mapping Tecnologiy</em>'.
 	 * @generated
 	 */
-	MappingSpecifier createMappingSpecifier();
+	MappingTecnologiy createMappingTecnologiy();
 
 	/**
 	 * Returns a new object of class '<em>Query</em>'.

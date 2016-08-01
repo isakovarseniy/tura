@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -1001,13 +1002,13 @@ public interface RecipePackage extends EPackage {
 	int MODEL_MAPPER__ARTIFACT_ROOT = ARTIFACT_REF_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Specifiers</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Technologies</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__SPECIFIERS = ARTIFACT_REF_FEATURE_COUNT + 2;
+	int MODEL_MAPPER__TECHNOLOGIES = ARTIFACT_REF_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Queries</b></em>' containment reference list.
@@ -1193,14 +1194,14 @@ public interface RecipePackage extends EPackage {
 	int KEY_VALUE_PAIR_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link recipe.impl.MappingSpecifierImpl <em>Mapping Specifier</em>}' class.
+	 * The meta object id for the '{@link recipe.impl.MappingTecnologiyImpl <em>Mapping Tecnologiy</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see recipe.impl.MappingSpecifierImpl
-	 * @see recipe.impl.RecipePackageImpl#getMappingSpecifier()
+	 * @see recipe.impl.MappingTecnologiyImpl
+	 * @see recipe.impl.RecipePackageImpl#getMappingTecnologiy()
 	 * @generated
 	 */
-	int MAPPING_SPECIFIER = 19;
+	int MAPPING_TECNOLOGIY = 19;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1209,16 +1210,16 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_SPECIFIER__UID = 0;
+	int MAPPING_TECNOLOGIY__UID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Specifier Ref</b></em>' reference.
+	 * The feature id for the '<em><b>Tech Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_SPECIFIER__SPECIFIER_REF = 1;
+	int MAPPING_TECNOLOGIY__TECH_REF = 1;
 
 	/**
 	 * The feature id for the '<em><b>Value Ref</b></em>' reference.
@@ -1227,16 +1228,16 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_SPECIFIER__VALUE_REF = 2;
+	int MAPPING_TECNOLOGIY__VALUE_REF = 2;
 
 	/**
-	 * The number of structural features of the '<em>Mapping Specifier</em>' class.
+	 * The number of structural features of the '<em>Mapping Tecnologiy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_SPECIFIER_FEATURE_COUNT = 3;
+	int MAPPING_TECNOLOGIY_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.QueryImpl <em>Query</em>}' class.
@@ -1258,22 +1259,13 @@ public interface RecipePackage extends EPackage {
 	int QUERY__UID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Model Query</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUERY__MODEL_QUERY = 1;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__NAME = 2;
+	int QUERY__NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Query Ref</b></em>' reference.
@@ -1282,7 +1274,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__QUERY_REF = 3;
+	int QUERY__QUERY_REF = 2;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -1291,7 +1283,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__VARIABLES = 4;
+	int QUERY__VARIABLES = 3;
 
 	/**
 	 * The number of structural features of the '<em>Query</em>' class.
@@ -1300,7 +1292,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_FEATURE_COUNT = 5;
+	int QUERY_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.QueryVariableImpl <em>Query Variable</em>}' class.
@@ -2180,15 +2172,15 @@ public interface RecipePackage extends EPackage {
 	EAttribute getModelMapper_ArtifactRoot();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link recipe.ModelMapper#getSpecifiers <em>Specifiers</em>}'.
+	 * Returns the meta object for the containment reference list '{@link recipe.ModelMapper#getTechnologies <em>Technologies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Specifiers</em>'.
-	 * @see recipe.ModelMapper#getSpecifiers()
+	 * @return the meta object for the containment reference list '<em>Technologies</em>'.
+	 * @see recipe.ModelMapper#getTechnologies()
 	 * @see #getModelMapper()
 	 * @generated
 	 */
-	EReference getModelMapper_Specifiers();
+	EReference getModelMapper_Technologies();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link recipe.ModelMapper#getQueries <em>Queries</em>}'.
@@ -2364,47 +2356,47 @@ public interface RecipePackage extends EPackage {
 	EAttribute getKeyValuePair_Value();
 
 	/**
-	 * Returns the meta object for class '{@link recipe.MappingSpecifier <em>Mapping Specifier</em>}'.
+	 * Returns the meta object for class '{@link recipe.MappingTecnologiy <em>Mapping Tecnologiy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mapping Specifier</em>'.
-	 * @see recipe.MappingSpecifier
+	 * @return the meta object for class '<em>Mapping Tecnologiy</em>'.
+	 * @see recipe.MappingTecnologiy
 	 * @generated
 	 */
-	EClass getMappingSpecifier();
+	EClass getMappingTecnologiy();
 
 	/**
-	 * Returns the meta object for the attribute '{@link recipe.MappingSpecifier#getUid <em>Uid</em>}'.
+	 * Returns the meta object for the attribute '{@link recipe.MappingTecnologiy#getUid <em>Uid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see recipe.MappingSpecifier#getUid()
-	 * @see #getMappingSpecifier()
+	 * @see recipe.MappingTecnologiy#getUid()
+	 * @see #getMappingTecnologiy()
 	 * @generated
 	 */
-	EAttribute getMappingSpecifier_Uid();
+	EAttribute getMappingTecnologiy_Uid();
 
 	/**
-	 * Returns the meta object for the reference '{@link recipe.MappingSpecifier#getSpecifierRef <em>Specifier Ref</em>}'.
+	 * Returns the meta object for the reference '{@link recipe.MappingTecnologiy#getTechRef <em>Tech Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Specifier Ref</em>'.
-	 * @see recipe.MappingSpecifier#getSpecifierRef()
-	 * @see #getMappingSpecifier()
+	 * @return the meta object for the reference '<em>Tech Ref</em>'.
+	 * @see recipe.MappingTecnologiy#getTechRef()
+	 * @see #getMappingTecnologiy()
 	 * @generated
 	 */
-	EReference getMappingSpecifier_SpecifierRef();
+	EReference getMappingTecnologiy_TechRef();
 
 	/**
-	 * Returns the meta object for the reference '{@link recipe.MappingSpecifier#getValueRef <em>Value Ref</em>}'.
+	 * Returns the meta object for the reference '{@link recipe.MappingTecnologiy#getValueRef <em>Value Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Value Ref</em>'.
-	 * @see recipe.MappingSpecifier#getValueRef()
-	 * @see #getMappingSpecifier()
+	 * @see recipe.MappingTecnologiy#getValueRef()
+	 * @see #getMappingTecnologiy()
 	 * @generated
 	 */
-	EReference getMappingSpecifier_ValueRef();
+	EReference getMappingTecnologiy_ValueRef();
 
 	/**
 	 * Returns the meta object for class '{@link recipe.Query <em>Query</em>}'.
@@ -2426,17 +2418,6 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getQuery_Uid();
-
-	/**
-	 * Returns the meta object for the reference '{@link recipe.Query#getModelQuery <em>Model Query</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Model Query</em>'.
-	 * @see recipe.Query#getModelQuery()
-	 * @see #getQuery()
-	 * @generated
-	 */
-	EReference getQuery_ModelQuery();
 
 	/**
 	 * Returns the meta object for the attribute '{@link recipe.Query#getName <em>Name</em>}'.
@@ -2571,6 +2552,7 @@ public interface RecipePackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -3219,12 +3201,12 @@ public interface RecipePackage extends EPackage {
 		EAttribute MODEL_MAPPER__ARTIFACT_ROOT = eINSTANCE.getModelMapper_ArtifactRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Specifiers</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Technologies</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL_MAPPER__SPECIFIERS = eINSTANCE.getModelMapper_Specifiers();
+		EReference MODEL_MAPPER__TECHNOLOGIES = eINSTANCE.getModelMapper_Technologies();
 
 		/**
 		 * The meta object literal for the '<em><b>Queries</b></em>' containment reference list feature.
@@ -3361,14 +3343,14 @@ public interface RecipePackage extends EPackage {
 		EAttribute KEY_VALUE_PAIR__VALUE = eINSTANCE.getKeyValuePair_Value();
 
 		/**
-		 * The meta object literal for the '{@link recipe.impl.MappingSpecifierImpl <em>Mapping Specifier</em>}' class.
+		 * The meta object literal for the '{@link recipe.impl.MappingTecnologiyImpl <em>Mapping Tecnologiy</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see recipe.impl.MappingSpecifierImpl
-		 * @see recipe.impl.RecipePackageImpl#getMappingSpecifier()
+		 * @see recipe.impl.MappingTecnologiyImpl
+		 * @see recipe.impl.RecipePackageImpl#getMappingTecnologiy()
 		 * @generated
 		 */
-		EClass MAPPING_SPECIFIER = eINSTANCE.getMappingSpecifier();
+		EClass MAPPING_TECNOLOGIY = eINSTANCE.getMappingTecnologiy();
 
 		/**
 		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
@@ -3376,15 +3358,15 @@ public interface RecipePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MAPPING_SPECIFIER__UID = eINSTANCE.getMappingSpecifier_Uid();
+		EAttribute MAPPING_TECNOLOGIY__UID = eINSTANCE.getMappingTecnologiy_Uid();
 
 		/**
-		 * The meta object literal for the '<em><b>Specifier Ref</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Tech Ref</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MAPPING_SPECIFIER__SPECIFIER_REF = eINSTANCE.getMappingSpecifier_SpecifierRef();
+		EReference MAPPING_TECNOLOGIY__TECH_REF = eINSTANCE.getMappingTecnologiy_TechRef();
 
 		/**
 		 * The meta object literal for the '<em><b>Value Ref</b></em>' reference feature.
@@ -3392,7 +3374,7 @@ public interface RecipePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MAPPING_SPECIFIER__VALUE_REF = eINSTANCE.getMappingSpecifier_ValueRef();
+		EReference MAPPING_TECNOLOGIY__VALUE_REF = eINSTANCE.getMappingTecnologiy_ValueRef();
 
 		/**
 		 * The meta object literal for the '{@link recipe.impl.QueryImpl <em>Query</em>}' class.
@@ -3411,14 +3393,6 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUERY__UID = eINSTANCE.getQuery_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Model Query</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference QUERY__MODEL_QUERY = eINSTANCE.getQuery_ModelQuery();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

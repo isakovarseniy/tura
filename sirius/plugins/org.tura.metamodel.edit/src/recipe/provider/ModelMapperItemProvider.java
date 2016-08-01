@@ -133,7 +133,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RecipePackage.Literals.MODEL_MAPPER__SPECIFIERS);
+			childrenFeatures.add(RecipePackage.Literals.MODEL_MAPPER__TECHNOLOGIES);
 			childrenFeatures.add(RecipePackage.Literals.MODEL_MAPPER__QUERIES);
 		}
 		return childrenFeatures;
@@ -195,7 +195,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case RecipePackage.MODEL_MAPPER__SPECIFIERS:
+			case RecipePackage.MODEL_MAPPER__TECHNOLOGIES:
 			case RecipePackage.MODEL_MAPPER__QUERIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -216,8 +216,8 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RecipePackage.Literals.MODEL_MAPPER__SPECIFIERS,
-				 RecipeFactory.eINSTANCE.createMappingSpecifier()));
+				(RecipePackage.Literals.MODEL_MAPPER__TECHNOLOGIES,
+				 RecipeFactory.eINSTANCE.createMappingTecnologiy()));
 
 		newChildDescriptors.add
 			(createChildParameter

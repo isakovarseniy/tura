@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see recipe.RecipePackage#getHashProperty()
- * @model annotation="gmf.node label='fakeName' border.color='0,0,0' color='255,239,222'"
+ * @model
  * @generated
  */
 public interface HashProperty extends EObject {

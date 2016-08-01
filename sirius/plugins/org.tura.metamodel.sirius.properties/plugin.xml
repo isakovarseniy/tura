@@ -21,10 +21,33 @@
              id="tab.artifact.ModelQuery.QueryParameter"
              label="Query parameters"/>
 
+
+       <propertyTab
+             category="domain"
+             id="tab.artifact.Technology.Options"
+             label="Tech options"/>
+
        <propertyTab
              category="domain"
              id="tab.artifact.Artifact.GenerationHintsNickName"
              label="Hints"/>
+
+       <propertyTab
+             category="domain"
+             id="tab.artifact.Artifact.ConfigVariablesNickName"
+             label="Variables"/>
+
+
+       <propertyTab
+             category="domain"
+             id="tab.artifact.Artifact.ConfigHashesNickName"
+             label="Hashes"/>
+
+       <propertyTab
+             category="domain"
+             id="tab.recipe.ModelMapper.Artifact"
+             label="Artifact"/>
+
 
       </propertyTabs>
 
@@ -54,5 +77,64 @@
 	   </propertySections>
 	</extension>
 
- 
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ConfigVariablePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.GenerationHintSectionFilter"
+	            id="artifact.Artifact.ConfigVariablesNickName"
+	            tab="tab.artifact.Artifact.ConfigVariablesNickName">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ConfigHashPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.GenerationHintSectionFilter"
+	            id="artifact.Artifact.ConfigHashesNickName"
+	            tab="tab.artifact.Artifact.ConfigHashesNickName">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.TechologyPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.TechologySectionFilter"
+	            id="artifact.Technology.Options"
+	            tab="tab.artifact.Technology.Options">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+	
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.ArtifactPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ModelMapperSectionFilter"
+	            id="recipe.ModelMapper.ArtifactRef"
+	            tab="tab.recipe.ModelMapper.Artifact">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.MappingTechnologiesPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ModelMapperSectionFilter"
+	            id="recipe.ModelMapper.MappingTechnologies"
+	            tab="tab.recipe.ModelMapper.Artifact"
+	            afterSection="recipe.ModelMapper.ArtifactRef">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+
+	
 </plugin>

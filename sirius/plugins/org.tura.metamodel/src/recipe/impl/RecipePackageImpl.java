@@ -56,7 +56,7 @@ import recipe.Infrastructure2Configuration;
 import recipe.Ingredient;
 import recipe.JavaComponent;
 import recipe.KeyValuePair;
-import recipe.MappingSpecifier;
+import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.PlatformLayers;
 import recipe.Property;
@@ -222,7 +222,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass mappingSpecifierEClass = null;
+	private EClass mappingTecnologiyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1034,7 +1034,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModelMapper_Specifiers() {
+	public EReference getModelMapper_Technologies() {
 		return (EReference)modelMapperEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1187,8 +1187,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMappingSpecifier() {
-		return mappingSpecifierEClass;
+	public EClass getMappingTecnologiy() {
+		return mappingTecnologiyEClass;
 	}
 
 	/**
@@ -1196,8 +1196,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMappingSpecifier_Uid() {
-		return (EAttribute)mappingSpecifierEClass.getEStructuralFeatures().get(0);
+	public EAttribute getMappingTecnologiy_Uid() {
+		return (EAttribute)mappingTecnologiyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1205,8 +1205,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMappingSpecifier_SpecifierRef() {
-		return (EReference)mappingSpecifierEClass.getEStructuralFeatures().get(1);
+	public EReference getMappingTecnologiy_TechRef() {
+		return (EReference)mappingTecnologiyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1214,8 +1214,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMappingSpecifier_ValueRef() {
-		return (EReference)mappingSpecifierEClass.getEStructuralFeatures().get(2);
+	public EReference getMappingTecnologiy_ValueRef() {
+		return (EReference)mappingTecnologiyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1241,17 +1241,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuery_ModelQuery() {
-		return (EReference)queryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getQuery_Name() {
-		return (EAttribute)queryEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)queryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1260,7 +1251,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	public EReference getQuery_QueryRef() {
-		return (EReference)queryEClass.getEStructuralFeatures().get(3);
+		return (EReference)queryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1269,7 +1260,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	public EReference getQuery_Variables() {
-		return (EReference)queryEClass.getEStructuralFeatures().get(4);
+		return (EReference)queryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1463,7 +1454,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		modelMapperEClass = createEClass(MODEL_MAPPER);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__NAME);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__ARTIFACT_ROOT);
-		createEReference(modelMapperEClass, MODEL_MAPPER__SPECIFIERS);
+		createEReference(modelMapperEClass, MODEL_MAPPER__TECHNOLOGIES);
 		createEReference(modelMapperEClass, MODEL_MAPPER__QUERIES);
 		createEAttribute(modelMapperEClass, MODEL_MAPPER__ARTIFACT_EXECUTION_STRING);
 
@@ -1484,14 +1475,13 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__KEY);
 		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__VALUE);
 
-		mappingSpecifierEClass = createEClass(MAPPING_SPECIFIER);
-		createEAttribute(mappingSpecifierEClass, MAPPING_SPECIFIER__UID);
-		createEReference(mappingSpecifierEClass, MAPPING_SPECIFIER__SPECIFIER_REF);
-		createEReference(mappingSpecifierEClass, MAPPING_SPECIFIER__VALUE_REF);
+		mappingTecnologiyEClass = createEClass(MAPPING_TECNOLOGIY);
+		createEAttribute(mappingTecnologiyEClass, MAPPING_TECNOLOGIY__UID);
+		createEReference(mappingTecnologiyEClass, MAPPING_TECNOLOGIY__TECH_REF);
+		createEReference(mappingTecnologiyEClass, MAPPING_TECNOLOGIY__VALUE_REF);
 
 		queryEClass = createEClass(QUERY);
 		createEAttribute(queryEClass, QUERY__UID);
-		createEReference(queryEClass, QUERY__MODEL_QUERY);
 		createEAttribute(queryEClass, QUERY__NAME);
 		createEReference(queryEClass, QUERY__QUERY_REF);
 		createEReference(queryEClass, QUERY__VARIABLES);
@@ -1638,7 +1628,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEClass(modelMapperEClass, ModelMapper.class, "ModelMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelMapper_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelMapper_ArtifactRoot(), ecorePackage.getEString(), "artifactRoot", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelMapper_Specifiers(), this.getMappingSpecifier(), null, "specifiers", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelMapper_Technologies(), this.getMappingTecnologiy(), null, "technologies", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelMapper_Queries(), this.getQuery(), null, "queries", null, 0, -1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelMapper_ArtifactExecutionString(), ecorePackage.getEString(), "artifactExecutionString", null, 0, 1, ModelMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1659,14 +1649,13 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getKeyValuePair_Key(), ecorePackage.getEString(), "key", null, 0, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKeyValuePair_Value(), ecorePackage.getEString(), "value", null, 0, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(mappingSpecifierEClass, MappingSpecifier.class, "MappingSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMappingSpecifier_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMappingSpecifier_SpecifierRef(), theArtifactPackage.getTechnology(), null, "specifierRef", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMappingSpecifier_ValueRef(), theArtifactPackage.getOption(), null, "valueRef", null, 0, 1, MappingSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(mappingTecnologiyEClass, MappingTecnologiy.class, "MappingTecnologiy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMappingTecnologiy_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MappingTecnologiy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMappingTecnologiy_TechRef(), theArtifactPackage.getTechnology(), null, "techRef", null, 0, 1, MappingTecnologiy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMappingTecnologiy_ValueRef(), theArtifactPackage.getOption(), null, "valueRef", null, 0, 1, MappingTecnologiy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuery_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuery_ModelQuery(), theArtifactPackage.getModelQuery(), null, "modelQuery", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_Name(), ecorePackage.getEString(), "name", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQuery_QueryRef(), theArtifactPackage.getModelQuery(), null, "queryRef", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQuery_Variables(), this.getQueryVariable(), null, "variables", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1687,36 +1676,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// gmf.node
-		createGmfAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>gmf.node</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createGmfAnnotations() {
-		String source = "gmf.node";	
-		addAnnotation
-		  (hashPropertyEClass, 
-		   source, 
-		   new String[] {
-			 "label", "fakeName",
-			 "border.color", "0,0,0",
-			 "color", "255,239,222"
-		   });	
-		addAnnotation
-		  (queryEClass, 
-		   source, 
-		   new String[] {
-			 "label", "name",
-			 "border.color", "0,0,0",
-			 "color", "241,238,203"
-		   });
 	}
 
 } //RecipePackageImpl
