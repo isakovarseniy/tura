@@ -16,8 +16,7 @@ public class ConfigVariableNickRef  implements TextDataAdapter {
 		ConfigVariableWithNickName opt = (ConfigVariableWithNickName) eObject;
 		if (opt.getVar() == null || opt.getVar().getName() == null)
 			return "";
-		return ((TechLeaf) (opt.getVar().eContainer())).getName() + ":" + opt.getVar().getName();
-		
+		return getName(opt);
 	}
 
 	@Override
@@ -25,4 +24,13 @@ public class ConfigVariableNickRef  implements TextDataAdapter {
 		return ArtifactPackage.eINSTANCE.getConfigVariableWithNickName_Var();
 	}
 
+	private String getName(ConfigVariableWithNickName opt){
+		  if (opt.getVar().eContainer() instanceof TechLeaf){
+				return ((TechLeaf) (opt.getVar().eContainer())).getName() + ":" + opt.getVar().getName();
+		  }else{
+				return  opt.getVar().getName();
+		  }
+	}
+			
+	
 }

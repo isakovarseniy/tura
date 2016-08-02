@@ -48,6 +48,11 @@
              id="tab.recipe.ModelMapper.Artifact"
              label="Artifact"/>
 
+       <propertyTab
+             category="domain"
+             id="tab.recipe.Query"
+             label="Query"/>
+
 
       </propertyTabs>
 
@@ -135,6 +140,27 @@
 	   </propertySections>
 	</extension>
 
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.QueryPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.QuerySectionFilter"
+	            id="recipe.Query"
+	            tab="tab.recipe.Query">
+	      </propertySection>
+	   </propertySections>
+	</extension>
 
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.QueryVariablePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.QuerySectionFilter"
+	            id="recipe.QueryVariables"
+	            tab="tab.recipe.Query"
+	            afterSection="recipe.Query">
+	      </propertySection>
+	   </propertySections>
+	</extension>
 	
 </plugin>

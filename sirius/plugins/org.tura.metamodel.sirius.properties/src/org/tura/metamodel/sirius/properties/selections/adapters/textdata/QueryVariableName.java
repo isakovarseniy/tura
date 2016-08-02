@@ -16,36 +16,20 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.sirius.properties.selections.TextDataAdapter;
 
 import artifact.ArtifactPackage;
-import artifact.GenerationHintWithNickName;
-import artifact.TechLeaf;
+import recipe.QueryVariable;
 
-public class GenerationHintNickRef  implements TextDataAdapter {
+public class QueryVariableName implements TextDataAdapter {
 
 	@Override
 	public Object getFeatureValue(Object eObject, EStructuralFeature feature) {
-		if (eObject == null)
-			return "";
-		GenerationHintWithNickName opt = (GenerationHintWithNickName) eObject;
-		if (opt.getHint() == null || opt.getHint().getName() == null)
-			return "";
-		return getName(opt);
-		
+		QueryVariable opt1 = (QueryVariable) eObject;
+		if (opt1.getQueryParamRef() == null) return null;
+		return opt1.getQueryParamRef().getName();
 	}
 
 	@Override
 	public EStructuralFeature getFeature() {
-		return ArtifactPackage.eINSTANCE.getGenerationHintWithNickName_Hint();
+		return ArtifactPackage.eINSTANCE.getQueryParameter_Name();
 	}
 
-	private String getName(GenerationHintWithNickName opt){
-		  if (opt.getHint().eContainer() instanceof TechLeaf){
-				return ((TechLeaf) (opt.getHint().eContainer())).getName() + ":" + opt.getHint().getName();
-		  }else{
-				return  opt.getHint().getName();
-		  }
-	}
-			
-	
-	
-	
 }

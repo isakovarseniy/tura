@@ -20,6 +20,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
+import artifact.QueryParameter;
 import artifact.Technology;
 import domain.DomainArtifacts;
 import form.CanvasFrame;
@@ -36,6 +37,7 @@ import form.Views;
 import recipe.Configuration;
 import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
+import recipe.QueryVariable;
 import type.Generalization;
 import type.Operation;
 import type.Parameter;
@@ -410,130 +412,107 @@ public class QueryHelper {
 	}
 
 	public Object[] findMappingTechnologies(ModelMapper eObject, EObject types) throws Exception {
-		
-		 Object[] result = new Object[2];
-		
-		 Collection<MappingTecnologiy> map = eObject.getTechnologies();
-		 String query = "artifact::Artifact.allInstances()->select(r|r.uid='"+ eObject.getArtifactRef().getUid()+"').oclAsType(artifact::Artifact).technologies";
-		
-		 @SuppressWarnings("unchecked")
-		 Collection<Technology> map1 = (Collection<Technology>)internalEvaluate(eObject, query);
-		
-		 ArrayList<MappingTecnologiy> removeSpecifiers = new ArrayList<MappingTecnologiy>();
-		 for (MappingTecnologiy ms : map) {
-			 boolean isRemove = true;
-			 for (Technology sp : map1) {
-		       if ((ms.getTechRef() != null) && (sp.getUid().equals(ms.getTechRef().getUid())))
-		          isRemove = false;
-			  }
-  		     if (isRemove){
-		      removeSpecifiers.add(ms);
-  		     }
-		 }
-		
-		 ArrayList<Technology> addSpecifiers = new ArrayList<Technology>();
-		 for (Technology  ms : map1) {
-			 boolean isAdd = false;
-			 if (map.size() == 0){
-		        isAdd = true;
-			 }else {
-				isAdd = true;
-		        for (MappingTecnologiy sp : map) {
-				 if ((sp.getTechRef() != null) && (sp.getTechRef().getUid().equals(ms.getUid())))
-				   isAdd = false;
-				 }
-		    }
-			if (isAdd)
-			  addSpecifiers.add(ms);
+
+		Object[] result = new Object[2];
+
+		Collection<MappingTecnologiy> map = eObject.getTechnologies();
+		String query = "artifact::Artifact.allInstances()->select(r|r.uid='" + eObject.getArtifactRef().getUid()
+				+ "').oclAsType(artifact::Artifact).technologies";
+
+		@SuppressWarnings("unchecked")
+		Collection<Technology> map1 = (Collection<Technology>) internalEvaluate(eObject, query);
+
+		ArrayList<MappingTecnologiy> removeSpecifiers = new ArrayList<MappingTecnologiy>();
+		for (MappingTecnologiy ms : map) {
+			boolean isRemove = true;
+			for (Technology sp : map1) {
+				if ((ms.getTechRef() != null) && (sp.getUid().equals(ms.getTechRef().getUid())))
+					isRemove = false;
 			}
-		
-		 result[0] = addSpecifiers;
-		 result[1] = removeSpecifiers;
-		 return result;
+			if (isRemove) {
+				removeSpecifiers.add(ms);
+			}
+		}
+
+		ArrayList<Technology> addSpecifiers = new ArrayList<Technology>();
+		for (Technology ms : map1) {
+			boolean isAdd = false;
+			if (map.size() == 0) {
+				isAdd = true;
+			} else {
+				isAdd = true;
+				for (MappingTecnologiy sp : map) {
+					if ((sp.getTechRef() != null) && (sp.getTechRef().getUid().equals(ms.getUid())))
+						isAdd = false;
+				}
+			}
+			if (isAdd)
+				addSpecifiers.add(ms);
+		}
+
+		result[0] = addSpecifiers;
+		result[1] = removeSpecifiers;
+		return result;
 	}
 
 	public Object[] findMappingVariable(recipe.Query eObject, EObject types) throws Exception {
-		throw new RuntimeException();
 
-		// ArrayList<domain.QueryParameter> addVariables = new
-		// ArrayList<domain.QueryParameter>();
-		// ArrayList<domain.QueryVariable> removeVariables = new
-		// ArrayList<domain.QueryVariable>();
-		// if ((eObject.getQueryRef() != null)
-		// && ((domain.ModelMapper) (((domain.Query) eObject).eContainer()))
-		// .getDomainArtifactRef() != null
-		// && ((domain.ModelMapper) (((domain.Query) eObject).eContainer()))
-		// .getArtifactRef() != null) {
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// Collection<domain.QueryVariable> map = ((domain.Query) eObject)
-		// .getVariables();
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::DomainArtifact.allInstances()->select(r|r.oclAsType(domain::DomainArtifact).uid='"
-		// + ((domain.ModelMapper) (((domain.Query) eObject)
-		// .eContainer())).getDomainArtifactRef()
-		// .getUid()
-		// +
-		// "').oclAsType(domain::DomainArtifact).artifact.artifacts->select(r|r.oclIsKindOf(domain::Artifact)
-		// and r.oclAsType(domain::Artifact).uid ='"
-		// + ((domain.ModelMapper) (((domain.Query) eObject)
-		// .eContainer())).getArtifactRef().getUid()
-		// +
-		// "').oclAsType(domain::Artifact).modelQuery->select(r|r.oclAsType(domain::ModelQuery).uid=
-		// '"
-		// + eObject.getQueryRef().getUid() + "').parameters");
-		//
-		// Collection<domain.QueryParameter> map1 =
-		// (Collection<domain.QueryParameter>) ocl
-		// .evaluate(types, query);
-		//
-		// for (Iterator<domain.QueryVariable> itr1 = map.iterator(); itr1
-		// .hasNext();) {
-		// domain.QueryVariable ms = itr1.next();
-		// boolean isRemove = true;
-		// for (Iterator<domain.QueryParameter> itr2 = map1.iterator(); itr2
-		// .hasNext();) {
-		// domain.QueryParameter sp = itr2.next();
-		// if ((ms.getQueryParamRef() != null)
-		// && (sp.getUid().equals(ms.getQueryParamRef()
-		// .getUid())))
-		// isRemove = false;
-		// }
-		// if (isRemove)
-		// removeVariables.add(ms);
-		// }
-		//
-		// for (Iterator<domain.QueryParameter> itr1 = map1.iterator(); itr1
-		// .hasNext();) {
-		// domain.QueryParameter ms = itr1.next();
-		// boolean isAdd = false;
-		// if (map.size() == 0)
-		// isAdd = true;
-		// else {
-		// isAdd = true;
-		// for (Iterator<domain.QueryVariable> itr2 = map.iterator(); itr2
-		// .hasNext();) {
-		// domain.QueryVariable sp = itr2.next();
-		// if ((sp.getQueryParamRef() != null)
-		// && (sp.getQueryParamRef().getUid().equals(ms
-		// .getUid())))
-		// isAdd = false;
-		// }
-		// }
-		// if (isAdd)
-		// addVariables.add(ms);
-		// }
-		// }
-		// Object[] result = new Object[2];
-		// result[0] = addVariables;
-		// result[1] = removeVariables;
-		// return result;
-
+		 ArrayList<QueryParameter> addVariables = new ArrayList<QueryParameter>();
+		 ArrayList<QueryVariable> removeVariables = new ArrayList<QueryVariable>();
+		 
+		 if ( eObject.getQueryRef() != null ){
+			 
+			 Collection<QueryParameter> map1 = eObject.getQueryRef().getParameters();
+			 Collection<QueryVariable> map =  eObject.getVariables();
+			 
+			 for (QueryVariable ms :  map) {
+				 boolean isRemove = true;
+				 for (QueryParameter sp : map1) {
+				    if ((ms.getQueryParamRef() != null)&& (sp.getUid().equals(ms.getQueryParamRef().getUid()))){
+				        isRemove = false;
+				    }
+				 }
+				 if (isRemove){
+				     removeVariables.add(ms);
+				 }
+			 }
+		 
+		 for (QueryVariable ms : map) {
+		    boolean isRemove = true;
+		    for (QueryParameter sp : map1) {
+		      if ((ms.getQueryParamRef() != null)&& (sp.getUid().equals(ms.getQueryParamRef().getUid()))){
+		 		 isRemove = false;
+		      }
+		    }
+			if (isRemove){
+			      removeVariables.add(ms);
+			}
+		 }
+		
+		 for (QueryParameter ms : map1) {
+		    boolean isAdd = false;
+		    if (map.size() == 0){
+		    	isAdd = true;
+		    }else {
+		     isAdd = true;
+		      for (QueryVariable sp : map) {
+		          if ((sp.getQueryParamRef() != null)&& (sp.getQueryParamRef().getUid().equals(ms.getUid()))){
+		             isAdd = false;
+		          }
+		      }
+		    }
+		    if (isAdd){
+		      addVariables.add(ms);
+		    }
+		   }
+		 }
+		 Object[] result = new Object[2];
+		 result[0] = addVariables;
+		 result[1] = removeVariables;
+		 return result;
 	}
+
+
 
 	// public Set<ApplicationMapper> findAvailableMappersForRecipe(Recipe
 	// recipe) {

@@ -16,7 +16,7 @@ public class OptionRef implements TextDataAdapter {
 		Option opt = (Option) eObject;
 		if (opt.getValue() == null || opt.getValue().getName() == null)
 			return "";
-		return ((TechLeaf) (opt.getValue().eContainer())).getName() + ":" + opt.getValue().getName();
+		return getName(opt);
 		
 	}
 
@@ -25,4 +25,13 @@ public class OptionRef implements TextDataAdapter {
 		return ArtifactPackage.eINSTANCE.getOption_Value();
 	}
 
+	public String getName(Option opt){
+		  if (opt.getValue().eContainer() instanceof TechLeaf){
+			  return ((TechLeaf) (opt.getValue().eContainer())).getName() + ":" + opt.getValue().getName();
+		  }else{
+				return  opt.getValue().getName();
+		  }
+		
+	}
+	
 }

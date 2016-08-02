@@ -23,6 +23,11 @@ public class Bus {
 	public void addEventListner( EventListener listener){
 		listeners.add(listener);
 	}
+
+	public void removeEventListner( EventListener listener){
+		listeners.remove(listener);
+	}
+	
 	
 	public void notify(Event event){
 		for (EventListener listener : listeners){

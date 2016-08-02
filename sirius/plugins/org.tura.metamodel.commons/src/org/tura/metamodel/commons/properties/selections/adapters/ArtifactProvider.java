@@ -1,7 +1,5 @@
 package org.tura.metamodel.commons.properties.selections.adapters;
 
-import java.util.ArrayList;
-
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 
@@ -16,11 +14,7 @@ public class ArtifactProvider  implements IWorkbenchAdapter ,IReturnTypeProvider
 
 	@Override
 	public Object[] getChildren(Object o) {
-		Artifact p = (Artifact) o;
-		ArrayList<Object> ls = new ArrayList<>();
-		ls.addAll(p.getHints());
-
-		return ls.toArray();
+		return new Object[]{};
 	}
 
 	@Override

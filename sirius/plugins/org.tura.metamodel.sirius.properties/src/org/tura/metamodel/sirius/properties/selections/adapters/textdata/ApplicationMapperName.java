@@ -15,37 +15,18 @@ package org.tura.metamodel.sirius.properties.selections.adapters.textdata;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.sirius.properties.selections.TextDataAdapter;
 
-import artifact.ArtifactPackage;
-import artifact.GenerationHintWithNickName;
-import artifact.TechLeaf;
+import application.ApplicationMapper;
 
-public class GenerationHintNickRef  implements TextDataAdapter {
+public class ApplicationMapperName  implements TextDataAdapter {
 
 	@Override
 	public Object getFeatureValue(Object eObject, EStructuralFeature feature) {
-		if (eObject == null)
-			return "";
-		GenerationHintWithNickName opt = (GenerationHintWithNickName) eObject;
-		if (opt.getHint() == null || opt.getHint().getName() == null)
-			return "";
-		return getName(opt);
-		
+		return ((ApplicationMapper) eObject).getName();		
 	}
 
 	@Override
 	public EStructuralFeature getFeature() {
-		return ArtifactPackage.eINSTANCE.getGenerationHintWithNickName_Hint();
+		return null;
 	}
 
-	private String getName(GenerationHintWithNickName opt){
-		  if (opt.getHint().eContainer() instanceof TechLeaf){
-				return ((TechLeaf) (opt.getHint().eContainer())).getName() + ":" + opt.getHint().getName();
-		  }else{
-				return  opt.getHint().getName();
-		  }
-	}
-			
-	
-	
-	
 }

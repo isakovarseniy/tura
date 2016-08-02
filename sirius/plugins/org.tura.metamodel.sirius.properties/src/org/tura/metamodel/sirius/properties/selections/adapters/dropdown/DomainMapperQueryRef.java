@@ -14,56 +14,27 @@ package org.tura.metamodel.sirius.properties.selections.adapters.dropdown;
 
 import java.util.Map;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.sirius.properties.selections.DropDownDataAdapter;
 
-import artifact.Option;
-import artifact.TechLeaf;
-import recipe.MappingTecnologiy;
+import recipe.Query;
 import recipe.RecipePackage;
 
-public class MappingTechnologyTechRef implements DropDownDataAdapter {
+public class DomainMapperQueryRef implements DropDownDataAdapter {
 
 	@Override
 	public EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] { RecipePackage.eINSTANCE.getMappingTecnologiy_ValueRef() };
+		return new EStructuralFeature[] { RecipePackage.eINSTANCE.getQuery_QueryRef() };
 	}
 
 	@Override
 	public String getFeatureAsText(Object eObject) {
-		if (eObject instanceof MappingTecnologiy){
-			if (((MappingTecnologiy) eObject).getValueRef() != null){
-				TechLeaf leaf = ((MappingTecnologiy) eObject).getValueRef().getValue();
-				return getName(leaf);
-			}
-			else{
-				return "";
-			}
-		}
-		if (eObject instanceof Option){
-				TechLeaf leaf = ((Option) eObject).getValue();
-				return getName(leaf);
-		}
-		return null;
-	
+		if (((Query) eObject).getQueryRef() != null)
+			return ((Query) eObject).getQueryRef().getName();
+		else
+			return "";
 	}
 
-	private String getName(TechLeaf leaf){
-		if (leaf.eContainer() instanceof TechLeaf){
-			return ((TechLeaf) (leaf.eContainer())).getName() + ":" + leaf.getName();
-		}else{
-			return leaf.getName();
-		}
-	}
-	
-	
-	@Override
-	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
-		return ((EObject)eObject).eGet(feature);
-	}
-
-	
 	@Override
 	public Object getSelectedFeatureValue(Object eObject, Map<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
@@ -72,25 +43,33 @@ public class MappingTechnologyTechRef implements DropDownDataAdapter {
 
 	@Override
 	public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
-		if (((MappingTecnologiy) eObject).getValueRef() == null)
+		if (((Query) eObject).getQueryRef() == null)
 			return false;
-		if (((MappingTecnologiy) eObject).getValueRef() == null)
+
+		if (((Query) eObject).getQueryRef().getName() == null)
 			return false;
-		return values.get(key).equals(((MappingTecnologiy) eObject).getValueRef());
+
+		return values.get(key).equals(((Query) eObject).getQueryRef().getName());
 	}
 
+	@Override
 	public Object[] getWatchPointObject(Object eObject) {
 		return new Object[] {};
 	}
 
+	@Override
 	public EStructuralFeature[] getWatchPointFeature() {
 		return new EStructuralFeature[] {};
 	}
 
+	@Override
 	public Class<?> getExpectedClass() {
 		return null;
 	}
 
-
+	@Override
+	public Object getCurrentFeatureValue(Object eObject, EStructuralFeature feature) {
+		return null;
+	}
 
 }

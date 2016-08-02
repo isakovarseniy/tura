@@ -5,7 +5,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.DomainAr
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot;
 import org.tura.metamodel.sirius.properties.selections.TextDataAdapter;
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.ModelMapperArtifactName;
-import org.tura.metamodel.sirius.properties.selections.event.ArtifactChangeEvent;
+import org.tura.metamodel.sirius.properties.selections.events.ModelMapperArtifactChangeEvent;
 import org.tura.metamodel.sirius.properties.selections.events.Bus;
 import org.tura.metamodel.sirius.properties.selections.tree.TreePropertySelectioin;
 
@@ -36,7 +36,7 @@ public class ArtifactPropertySelection extends TreePropertySelectioin{
 	}
 
 	public void afterUpdate(){
-		Bus.getInstance().notify(new ArtifactChangeEvent());
+		Bus.getInstance().notify(new ModelMapperArtifactChangeEvent());
 	}
 	
 	@Override

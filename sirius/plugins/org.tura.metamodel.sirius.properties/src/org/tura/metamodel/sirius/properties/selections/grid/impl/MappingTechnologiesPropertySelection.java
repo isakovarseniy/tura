@@ -31,7 +31,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.MappingTechnologyTechRef;
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.MappingTechnologyName;
-import org.tura.metamodel.sirius.properties.selections.event.ArtifactChangeEvent;
+import org.tura.metamodel.sirius.properties.selections.events.ModelMapperArtifactChangeEvent;
 import org.tura.metamodel.sirius.properties.selections.events.Bus;
 import org.tura.metamodel.sirius.properties.selections.events.Event;
 import org.tura.metamodel.sirius.properties.selections.events.EventListener;
@@ -157,12 +157,17 @@ public class MappingTechnologiesPropertySelection extends GridProperty {
 
 		@Override
 		public void handleEvent(Event event) {
-			if (event instanceof ArtifactChangeEvent) {
+			if (event instanceof ModelMapperArtifactChangeEvent) {
 				ds.cleanList();
 				ds.getRows();
 				refresh();
 			}
 		}
+	}
+	
+	@Override
+	public void dispose(){
+		Bus.getInstance().removeEventListner(listener);
 	}
 
 }

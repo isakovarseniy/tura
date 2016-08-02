@@ -16,7 +16,7 @@ public class ConfigHashNickRef implements TextDataAdapter {
 		ConfigHashWithNickName opt = (ConfigHashWithNickName) eObject;
 		if (opt.getHash() == null || opt.getHash().getName() == null)
 			return "";
-		return ((TechLeaf) (opt.getHash().eContainer())).getName() + ":" + opt.getHash().getName();
+		return getName(opt);
 		
 	}
 
@@ -25,4 +25,12 @@ public class ConfigHashNickRef implements TextDataAdapter {
 		return ArtifactPackage.eINSTANCE.getConfigHashWithNickName_Hash();
 	}
 
+	private String getName(ConfigHashWithNickName opt){
+	  if (opt.getHash().eContainer() instanceof TechLeaf){
+			return ((TechLeaf) (opt.getHash().eContainer())).getName() + ":" + opt.getHash().getName();
+	  }else{
+			return  opt.getHash().getName();
+	  }
+	}
+	
 }
