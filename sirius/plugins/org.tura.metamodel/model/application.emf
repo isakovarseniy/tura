@@ -130,5 +130,5 @@ class ApplicationMappers {
 class ApplicationMapper{
     id attr EString uid;
    attr EString name;
-   val mapper.Mappers[*] mapper; 
+   val mapper.Mappers mapper; 
 }

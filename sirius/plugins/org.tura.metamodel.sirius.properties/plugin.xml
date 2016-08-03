@@ -53,6 +53,11 @@
              id="tab.recipe.Query"
              label="Query"/>
 
+      <propertyTab
+             category="domain"
+             id="tab.recipe.Mappers"
+             label="Mappers"/>
+
 
       </propertyTabs>
 
@@ -162,5 +167,18 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>
+
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.MappersListPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.MappersSectionFilter"
+	            id="recipe.Mappers"
+	            tab="tab.recipe.Mappers">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+
 	
 </plugin>

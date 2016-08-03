@@ -16,12 +16,13 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.sirius.properties.selections.TextDataAdapter;
 
 import application.ApplicationMapper;
+import mapper.Mappers;
 
 public class ApplicationMapperName  implements TextDataAdapter {
 
 	@Override
 	public Object getFeatureValue(Object eObject, EStructuralFeature feature) {
-		return ((ApplicationMapper) eObject).getName();		
+		return ( (ApplicationMapper) ((((Mappers) eObject)).eContainer())).getName();		
 	}
 
 	@Override

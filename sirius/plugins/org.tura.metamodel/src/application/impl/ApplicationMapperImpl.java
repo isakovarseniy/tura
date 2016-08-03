@@ -81,14 +81,14 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMapper() <em>Mapper</em>}' containment reference list.
+	 * The cached value of the '{@link #getMapper() <em>Mapper</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMapper()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Mappers> mapper;
+	protected Mappers mapper;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,11 +156,42 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Mappers> getMapper() {
-		if (mapper == null) {
-			mapper = new EObjectContainmentEList<Mappers>(Mappers.class, this, ApplicationPackage.APPLICATION_MAPPER__MAPPER);
-		}
+	public Mappers getMapper() {
 		return mapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMapper(Mappers newMapper, NotificationChain msgs) {
+		Mappers oldMapper = mapper;
+		mapper = newMapper;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_MAPPER__MAPPER, oldMapper, newMapper);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMapper(Mappers newMapper) {
+		if (newMapper != mapper) {
+			NotificationChain msgs = null;
+			if (mapper != null)
+				msgs = ((InternalEObject)mapper).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_MAPPER__MAPPER, null, msgs);
+			if (newMapper != null)
+				msgs = ((InternalEObject)newMapper).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplicationPackage.APPLICATION_MAPPER__MAPPER, null, msgs);
+			msgs = basicSetMapper(newMapper, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ApplicationPackage.APPLICATION_MAPPER__MAPPER, newMapper, newMapper));
 	}
 
 	/**
@@ -172,7 +203,7 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ApplicationPackage.APPLICATION_MAPPER__MAPPER:
-				return ((InternalEList<?>)getMapper()).basicRemove(otherEnd, msgs);
+				return basicSetMapper(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -211,8 +242,7 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 				setName((String)newValue);
 				return;
 			case ApplicationPackage.APPLICATION_MAPPER__MAPPER:
-				getMapper().clear();
-				getMapper().addAll((Collection<? extends Mappers>)newValue);
+				setMapper((Mappers)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,7 +263,7 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 				setName(NAME_EDEFAULT);
 				return;
 			case ApplicationPackage.APPLICATION_MAPPER__MAPPER:
-				getMapper().clear();
+				setMapper((Mappers)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -252,7 +282,7 @@ public class ApplicationMapperImpl extends EObjectImpl implements ApplicationMap
 			case ApplicationPackage.APPLICATION_MAPPER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ApplicationPackage.APPLICATION_MAPPER__MAPPER:
-				return mapper != null && !mapper.isEmpty();
+				return mapper != null;
 		}
 		return super.eIsSet(featureID);
 	}

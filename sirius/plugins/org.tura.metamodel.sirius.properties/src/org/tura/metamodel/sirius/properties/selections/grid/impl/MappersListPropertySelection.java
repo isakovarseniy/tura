@@ -15,7 +15,6 @@ package org.tura.metamodel.sirius.properties.selections.grid.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -30,15 +29,16 @@ import org.tura.metamodel.sirius.properties.selections.grid.GridColumn;
 import org.tura.metamodel.sirius.properties.selections.grid.GridProperty;
 import org.tura.metamodel.sirius.properties.selections.grid.GridTextColumn;
 
-public class AbstractMappersListPropertySelection extends GridProperty {
+public class MappersListPropertySelection extends GridProperty {
 
 	private List<GridColumn> columnList;
 
-	@Override
-	public EObject getModel() {
-		return getEObject();
+	
+	public MappersListPropertySelection() {
+		ds = new MappersListDS(this);
 	}
-
+	
+	
 	@Override
 	public List<GridColumn> getColumns() {
 		if (columnList == null) {
