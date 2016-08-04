@@ -35,7 +35,6 @@ import recipe.RecipePackage;
  * <ul>
  *   <li>{@link recipe.impl.ConfigurationImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.ConfigurationImpl#getName <em>Name</em>}</li>
- *   <li>{@link recipe.impl.ConfigurationImpl#getInfrastructure <em>Infrastructure</em>}</li>
  *   <li>{@link recipe.impl.ConfigurationImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link recipe.impl.ConfigurationImpl#getHashProperties <em>Hash Properties</em>}</li>
  * </ul>
@@ -82,16 +81,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getInfrastructure() <em>Infrastructure</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInfrastructure()
-	 * @generated
-	 * @ordered
-	 */
-	protected Infrastructure infrastructure;
 
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
@@ -179,44 +168,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Infrastructure getInfrastructure() {
-		if (infrastructure != null && infrastructure.eIsProxy()) {
-			InternalEObject oldInfrastructure = (InternalEObject)infrastructure;
-			infrastructure = (Infrastructure)eResolveProxy(oldInfrastructure);
-			if (infrastructure != oldInfrastructure) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecipePackage.CONFIGURATION__INFRASTRUCTURE, oldInfrastructure, infrastructure));
-			}
-		}
-		return infrastructure;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Infrastructure basicGetInfrastructure() {
-		return infrastructure;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInfrastructure(Infrastructure newInfrastructure) {
-		Infrastructure oldInfrastructure = infrastructure;
-		infrastructure = newInfrastructure;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.CONFIGURATION__INFRASTRUCTURE, oldInfrastructure, infrastructure));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Property> getProperties() {
 		if (properties == null) {
 			properties = new EObjectContainmentEList<Property>(Property.class, this, RecipePackage.CONFIGURATION__PROPERTIES);
@@ -264,9 +215,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return getUid();
 			case RecipePackage.CONFIGURATION__NAME:
 				return getName();
-			case RecipePackage.CONFIGURATION__INFRASTRUCTURE:
-				if (resolve) return getInfrastructure();
-				return basicGetInfrastructure();
 			case RecipePackage.CONFIGURATION__PROPERTIES:
 				return getProperties();
 			case RecipePackage.CONFIGURATION__HASH_PROPERTIES:
@@ -289,9 +237,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return;
 			case RecipePackage.CONFIGURATION__NAME:
 				setName((String)newValue);
-				return;
-			case RecipePackage.CONFIGURATION__INFRASTRUCTURE:
-				setInfrastructure((Infrastructure)newValue);
 				return;
 			case RecipePackage.CONFIGURATION__PROPERTIES:
 				getProperties().clear();
@@ -319,9 +264,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			case RecipePackage.CONFIGURATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case RecipePackage.CONFIGURATION__INFRASTRUCTURE:
-				setInfrastructure((Infrastructure)null);
-				return;
 			case RecipePackage.CONFIGURATION__PROPERTIES:
 				getProperties().clear();
 				return;
@@ -344,8 +286,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case RecipePackage.CONFIGURATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case RecipePackage.CONFIGURATION__INFRASTRUCTURE:
-				return infrastructure != null;
 			case RecipePackage.CONFIGURATION__PROPERTIES:
 				return properties != null && !properties.isEmpty();
 			case RecipePackage.CONFIGURATION__HASH_PROPERTIES:

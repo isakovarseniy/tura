@@ -12,6 +12,24 @@
  -->
 <plugin>
 
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.ConfigVariablesAction"
+            id="org.tura.metamodel.sirius.diagram.actions.ConfigVariablesActionID">
+      </javaActions>
+   </extension>
+
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.ConfigHashVariablesAction"
+            id="org.tura.metamodel.sirius.diagram.actions.ConfigHashVariablesActionID">
+      </javaActions>
+   </extension>
+
+
     <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
       <?gmfgen generated="true"?>   
       <propertyTabs contributorId="org.eclipse.sirius.diagram.ui">

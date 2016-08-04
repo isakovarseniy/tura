@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link recipe.Infrastructure#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.Infrastructure#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link recipe.Infrastructure#getName <em>Name</em>}</li>
- *   <li>{@link recipe.Infrastructure#getRecipeConfig <em>Recipe Config</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getInfrastructure()
@@ -101,31 +100,5 @@ public interface Infrastructure extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Recipe Config</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Recipe Config</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Recipe Config</em>' reference.
-	 * @see #setRecipeConfig(Configuration)
-	 * @see recipe.RecipePackage#getInfrastructure_RecipeConfig()
-	 * @model
-	 * @generated
-	 */
-	Configuration getRecipeConfig();
-
-	/**
-	 * Sets the value of the '{@link recipe.Infrastructure#getRecipeConfig <em>Recipe Config</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Recipe Config</em>' reference.
-	 * @see #getRecipeConfig()
-	 * @generated
-	 */
-	void setRecipeConfig(Configuration value);
 
 } // Infrastructure

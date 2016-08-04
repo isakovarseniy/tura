@@ -4,6 +4,7 @@ package recipe.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -27,7 +28,6 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.InfrastructureImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.InfrastructureImpl#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link recipe.impl.InfrastructureImpl#getName <em>Name</em>}</li>
- *   <li>{@link recipe.impl.InfrastructureImpl#getRecipeConfig <em>Recipe Config</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,16 +82,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getRecipeConfig() <em>Recipe Config</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRecipeConfig()
-	 * @generated
-	 * @ordered
-	 */
-	protected Configuration recipeConfig;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,44 +187,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Configuration getRecipeConfig() {
-		if (recipeConfig != null && recipeConfig.eIsProxy()) {
-			InternalEObject oldRecipeConfig = (InternalEObject)recipeConfig;
-			recipeConfig = (Configuration)eResolveProxy(oldRecipeConfig);
-			if (recipeConfig != oldRecipeConfig) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecipePackage.INFRASTRUCTURE__RECIPE_CONFIG, oldRecipeConfig, recipeConfig));
-			}
-		}
-		return recipeConfig;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Configuration basicGetRecipeConfig() {
-		return recipeConfig;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRecipeConfig(Configuration newRecipeConfig) {
-		Configuration oldRecipeConfig = recipeConfig;
-		recipeConfig = newRecipeConfig;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.INFRASTRUCTURE__RECIPE_CONFIG, oldRecipeConfig, recipeConfig));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -245,9 +197,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 				return basicGetRecipe();
 			case RecipePackage.INFRASTRUCTURE__NAME:
 				return getName();
-			case RecipePackage.INFRASTRUCTURE__RECIPE_CONFIG:
-				if (resolve) return getRecipeConfig();
-				return basicGetRecipeConfig();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,9 +217,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 				return;
 			case RecipePackage.INFRASTRUCTURE__NAME:
 				setName((String)newValue);
-				return;
-			case RecipePackage.INFRASTRUCTURE__RECIPE_CONFIG:
-				setRecipeConfig((Configuration)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -293,9 +239,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 			case RecipePackage.INFRASTRUCTURE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case RecipePackage.INFRASTRUCTURE__RECIPE_CONFIG:
-				setRecipeConfig((Configuration)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -314,8 +257,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 				return recipe != null;
 			case RecipePackage.INFRASTRUCTURE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case RecipePackage.INFRASTRUCTURE__RECIPE_CONFIG:
-				return recipeConfig != null;
 		}
 		return super.eIsSet(featureID);
 	}

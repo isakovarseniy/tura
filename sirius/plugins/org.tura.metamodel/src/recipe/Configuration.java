@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link recipe.Configuration#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.Configuration#getName <em>Name</em>}</li>
- *   <li>{@link recipe.Configuration#getInfrastructure <em>Infrastructure</em>}</li>
  *   <li>{@link recipe.Configuration#getProperties <em>Properties</em>}</li>
  *   <li>{@link recipe.Configuration#getHashProperties <em>Hash Properties</em>}</li>
  * </ul>
@@ -78,32 +77,6 @@ public interface Configuration extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Infrastructure</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Infrastructure</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Infrastructure</em>' reference.
-	 * @see #setInfrastructure(Infrastructure)
-	 * @see recipe.RecipePackage#getConfiguration_Infrastructure()
-	 * @model
-	 * @generated
-	 */
-	Infrastructure getInfrastructure();
-
-	/**
-	 * Sets the value of the '{@link recipe.Configuration#getInfrastructure <em>Infrastructure</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Infrastructure</em>' reference.
-	 * @see #getInfrastructure()
-	 * @generated
-	 */
-	void setInfrastructure(Infrastructure value);
 
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.

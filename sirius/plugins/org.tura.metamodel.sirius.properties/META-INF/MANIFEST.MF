@@ -12,7 +12,8 @@ Require-Bundle: org.eclipse.ui,
  org.tura.metamodel.commons;bundle-version="4.0.0",
  org.eclipse.jface,
  org.eclipse.equinox.registry,
- org.eclipse.sirius.diagram
+ org.eclipse.sirius.diagram,
+ org.eclipse.sirius
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.epsilon.common.dt.util

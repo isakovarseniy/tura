@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link recipe.Property#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.Property#getConfVarRef <em>Conf Var Ref</em>}</li>
  *   <li>{@link recipe.Property#getValue <em>Value</em>}</li>
- *   <li>{@link recipe.Property#getFakeName <em>Fake Name</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getProperty()
@@ -103,31 +102,5 @@ public interface Property extends EObject {
 	 * @generated
 	 */
 	void setValue(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Fake Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Fake Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fake Name</em>' attribute.
-	 * @see #setFakeName(String)
-	 * @see recipe.RecipePackage#getProperty_FakeName()
-	 * @model
-	 * @generated
-	 */
-	String getFakeName();
-
-	/**
-	 * Sets the value of the '{@link recipe.Property#getFakeName <em>Fake Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Fake Name</em>' attribute.
-	 * @see #getFakeName()
-	 * @generated
-	 */
-	void setFakeName(String value);
 
 } // Property

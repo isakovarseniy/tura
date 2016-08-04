@@ -40,6 +40,7 @@ import message.Language;
 import message.Message;
 import message.MessageLibrary;
 import message.Translation;
+import recipe.Configuration;
 import recipe.Recipes;
 import style.StyleLibrary;
 import style.StyleSet;
@@ -58,6 +59,17 @@ public class DiagramService {
 		}
 	}	
 
+	public boolean enableContextMenuForConfiguration( EObject eobject ){
+		if (eobject instanceof Configuration){
+			return true;
+		}else{
+			return false;
+		}
+	}	
+
+	
+	
+	
 	public Object getCandidates(EObject eobject ){
 		if  (eobject instanceof ViewArea){
 			return ((ViewArea)eobject).getBaseCanvas();

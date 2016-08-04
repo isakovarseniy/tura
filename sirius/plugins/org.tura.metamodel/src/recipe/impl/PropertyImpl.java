@@ -27,7 +27,6 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.PropertyImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.PropertyImpl#getConfVarRef <em>Conf Var Ref</em>}</li>
  *   <li>{@link recipe.impl.PropertyImpl#getValue <em>Value</em>}</li>
- *   <li>{@link recipe.impl.PropertyImpl#getFakeName <em>Fake Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,26 +81,6 @@ public class PropertyImpl extends EObjectImpl implements Property {
 	 * @ordered
 	 */
 	protected String value = VALUE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getFakeName() <em>Fake Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFakeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String FAKE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFakeName() <em>Fake Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFakeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String fakeName = FAKE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,27 +186,6 @@ public class PropertyImpl extends EObjectImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFakeName() {
-		return fakeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFakeName(String newFakeName) {
-		String oldFakeName = fakeName;
-		fakeName = newFakeName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.PROPERTY__FAKE_NAME, oldFakeName, fakeName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -238,8 +196,6 @@ public class PropertyImpl extends EObjectImpl implements Property {
 				return basicGetConfVarRef();
 			case RecipePackage.PROPERTY__VALUE:
 				return getValue();
-			case RecipePackage.PROPERTY__FAKE_NAME:
-				return getFakeName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -260,9 +216,6 @@ public class PropertyImpl extends EObjectImpl implements Property {
 				return;
 			case RecipePackage.PROPERTY__VALUE:
 				setValue((String)newValue);
-				return;
-			case RecipePackage.PROPERTY__FAKE_NAME:
-				setFakeName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -285,9 +238,6 @@ public class PropertyImpl extends EObjectImpl implements Property {
 			case RecipePackage.PROPERTY__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case RecipePackage.PROPERTY__FAKE_NAME:
-				setFakeName(FAKE_NAME_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -306,8 +256,6 @@ public class PropertyImpl extends EObjectImpl implements Property {
 				return confVarRef != null;
 			case RecipePackage.PROPERTY__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-			case RecipePackage.PROPERTY__FAKE_NAME:
-				return FAKE_NAME_EDEFAULT == null ? fakeName != null : !FAKE_NAME_EDEFAULT.equals(fakeName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -326,8 +274,6 @@ public class PropertyImpl extends EObjectImpl implements Property {
 		result.append(uid);
 		result.append(", value: ");
 		result.append(value);
-		result.append(", fakeName: ");
-		result.append(fakeName);
 		result.append(')');
 		return result.toString();
 	}

@@ -34,10 +34,15 @@ import form.MenuItem;
 import form.NickNamed;
 import form.Uielement;
 import form.Views;
+import recipe.ConfigExtension;
 import recipe.Configuration;
+import recipe.Infrastructure;
 import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.QueryVariable;
+import recipe.Recipe;
+import recipe.Recipe2Infrastructure;
+import recipe.impl.Infrastructure2ConfigurationImpl;
 import type.Generalization;
 import type.Operation;
 import type.Parameter;
@@ -178,80 +183,86 @@ public class QueryHelper {
 		// }
 	}
 
+	@SuppressWarnings("unchecked")
 	public Configuration getConfigExtensionUp(Configuration config) throws Exception {
-		throw new RuntimeException();
-		//
-		// if (getConfigExtensionGard(config))
-		// throw new Exception(
-		// "Configuration cannot be sources for more then 1 configuration
-		// tree");
-		//
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper =
-		// ocl.createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::ConfigExtension.allInstances()->select(r|r.source.uid
-		// ='"
-		// + config.getUid() + "')");
-		//
-		// Collection<domain.ConfigExtension> map =
-		// (Collection<domain.ConfigExtension>) ocl
-		// .evaluate(config, query);
-		// if ((map != null) && (map.size() != 0))
-		// return map.iterator().next().getTarget();
-		// else
-		// return null;
+		
+		 if (getConfigExtensionGard(config)) {
+			 throw new Exception("Configuration cannot be sources for more then 1 configuration tree");
+		 }
+		
+		 String query = "recipe::ConfigExtension.allInstances()->select(r|r.source.uid ='"+ config.getUid() + "')";
+		 
+		 Collection<ConfigExtension> map =(Collection<ConfigExtension>) internalEvaluate(config, query);
+		 if ((map != null) && (map.size() != 0))
+		      return map.iterator().next().getTarget();
+		 else
+		    return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Configuration getConfigExtensionDown(Configuration config) throws Exception {
-		throw new RuntimeException();
+		
+		 if (getConfigExtensionGard(config)){
+			    return null;
+			 }
+			
+		 String query = "recipe::ConfigExtension.allInstances()->select(r|r.target.uid ='"+ config.getUid() + "')";
 
-		// if (getConfigExtensionGard(config))
-		// return null;
-		//
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper =
-		// ocl.createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::ConfigExtension.allInstances()->select(r|r.target.uid
-		// ='"
-		// + config.getUid() + "')");
-		//
-		// Collection<domain.ConfigExtension> map =
-		// (Collection<domain.ConfigExtension>) ocl
-		// .evaluate(config, query);
-		// if ((map != null) && (map.size() != 0))
-		// return map.iterator().next().getSource();
-		// else
-		// return null;
+		 Collection<ConfigExtension> map =(Collection<ConfigExtension>) internalEvaluate(config, query);
+		 if ((map != null) && (map.size() != 0))
+		      return map.iterator().next().getSource();
+		 else
+		    return null;
+
 	}
 
+	@SuppressWarnings("unchecked")
 	public boolean getConfigExtensionGard(Configuration config) throws Exception {
-		throw new RuntimeException();
-		//
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper =
-		// ocl.createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::ConfigExtension.allInstances()->select(r|r.source.uid
-		// ='"
-		// + config.getUid() + "')");
-		//
-		// Collection<domain.ConfigExtension> map =
-		// (Collection<domain.ConfigExtension>) ocl
-		// .evaluate(config, query);
-		// if ((map != null) && (map.size() > 1))
-		// return true;
-		// else
-		// return false;
+
+		 String query = "recipe::ConfigExtension.allInstances()->select(r|r.source.uid='"+ config.getUid() + "')";
+		
+		 Collection<ConfigExtension> map =(Collection<ConfigExtension>) internalEvaluate (config, query);
+		 if ((map != null) && (map.size() > 1)){
+		    return true;
+		 }else {
+		    return false;
+		 }
 	}
 
+	@SuppressWarnings("unchecked")
+	public Infrastructure findInfrastructure(Configuration config) throws Exception {
+
+		 String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.target.uid='"+ config.getUid() + "')";
+
+		 Collection<Infrastructure2ConfigurationImpl> map =(Collection<Infrastructure2ConfigurationImpl>) internalEvaluate(config, query);
+		 if ((map != null) && (map.size() != 0)){
+			 EObject obj = map.iterator().next().getSource();
+			 if (obj instanceof Infrastructure){
+				 return (Infrastructure) obj;
+			 }else{
+				 return null;
+			 }
+		 }
+		 else
+		    return null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Recipe findRecipe(Infrastructure infra) throws Exception {
+
+		 String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.target.uid='"+ infra.getUid() + "')";
+
+		 Collection<Recipe2Infrastructure> map =(Collection<Recipe2Infrastructure>) internalEvaluate(infra, query);
+		 if ((map != null) && (map.size() != 0)){
+			 Recipe recipe = ((Recipe2Infrastructure) (map.iterator().next())).getSource();
+			 return recipe;
+		 }
+		 else
+		    return null;
+	}
+	
+	
+	
 	public List<?> getControlsList(DiagramImpl root) throws Exception {
 
 		// Form frm = getForm(root);

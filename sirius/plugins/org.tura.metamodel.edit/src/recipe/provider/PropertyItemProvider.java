@@ -65,7 +65,6 @@ public class PropertyItemProvider
 			addUidPropertyDescriptor(object);
 			addConfVarRefPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
-			addFakeNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -137,28 +136,6 @@ public class PropertyItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Fake Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFakeNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_fakeName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_fakeName_feature", "_UI_Property_type"),
-				 RecipePackage.Literals.PROPERTY__FAKE_NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns Property.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,7 +154,7 @@ public class PropertyItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Property)object).getFakeName();
+		String label = ((Property)object).getUid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Property_type") :
 			getString("_UI_Property_type") + " " + label;
@@ -198,7 +175,6 @@ public class PropertyItemProvider
 		switch (notification.getFeatureID(Property.class)) {
 			case RecipePackage.PROPERTY__UID:
 			case RecipePackage.PROPERTY__VALUE:
-			case RecipePackage.PROPERTY__FAKE_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

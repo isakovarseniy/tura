@@ -837,22 +837,13 @@ public interface RecipePackage extends EPackage {
 	int INFRASTRUCTURE__NAME = 2;
 
 	/**
-	 * The feature id for the '<em><b>Recipe Config</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFRASTRUCTURE__RECIPE_CONFIG = 3;
-
-	/**
 	 * The number of structural features of the '<em>Infrastructure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_FEATURE_COUNT = 4;
+	int INFRASTRUCTURE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -883,22 +874,13 @@ public interface RecipePackage extends EPackage {
 	int CONFIGURATION__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Infrastructure</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__INFRASTRUCTURE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__PROPERTIES = 3;
+	int CONFIGURATION__PROPERTIES = 2;
 
 	/**
 	 * The feature id for the '<em><b>Hash Properties</b></em>' containment reference list.
@@ -907,7 +889,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__HASH_PROPERTIES = 4;
+	int CONFIGURATION__HASH_PROPERTIES = 3;
 
 	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
@@ -916,7 +898,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = 5;
+	int CONFIGURATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ArtifactRefImpl <em>Artifact Ref</em>}' class.
@@ -1075,22 +1057,13 @@ public interface RecipePackage extends EPackage {
 	int PROPERTY__VALUE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Fake Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__FAKE_NAME = 3;
-
-	/**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = 4;
+	int PROPERTY_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.HashPropertyImpl <em>Hash Property</em>}' class.
@@ -2064,17 +2037,6 @@ public interface RecipePackage extends EPackage {
 	EAttribute getInfrastructure_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link recipe.Infrastructure#getRecipeConfig <em>Recipe Config</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Recipe Config</em>'.
-	 * @see recipe.Infrastructure#getRecipeConfig()
-	 * @see #getInfrastructure()
-	 * @generated
-	 */
-	EReference getInfrastructure_RecipeConfig();
-
-	/**
 	 * Returns the meta object for class '{@link recipe.Configuration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2105,17 +2067,6 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConfiguration_Name();
-
-	/**
-	 * Returns the meta object for the reference '{@link recipe.Configuration#getInfrastructure <em>Infrastructure</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Infrastructure</em>'.
-	 * @see recipe.Configuration#getInfrastructure()
-	 * @see #getConfiguration()
-	 * @generated
-	 */
-	EReference getConfiguration_Infrastructure();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link recipe.Configuration#getProperties <em>Properties</em>}'.
@@ -2246,17 +2197,6 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProperty_Value();
-
-	/**
-	 * Returns the meta object for the attribute '{@link recipe.Property#getFakeName <em>Fake Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fake Name</em>'.
-	 * @see recipe.Property#getFakeName()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EAttribute getProperty_FakeName();
 
 	/**
 	 * Returns the meta object for class '{@link recipe.HashProperty <em>Hash Property</em>}'.
@@ -3117,14 +3057,6 @@ public interface RecipePackage extends EPackage {
 		EAttribute INFRASTRUCTURE__NAME = eINSTANCE.getInfrastructure_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Recipe Config</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INFRASTRUCTURE__RECIPE_CONFIG = eINSTANCE.getInfrastructure_RecipeConfig();
-
-		/**
 		 * The meta object literal for the '{@link recipe.impl.ConfigurationImpl <em>Configuration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3149,14 +3081,6 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONFIGURATION__NAME = eINSTANCE.getConfiguration_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Infrastructure</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONFIGURATION__INFRASTRUCTURE = eINSTANCE.getConfiguration_Infrastructure();
 
 		/**
 		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
@@ -3257,14 +3181,6 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Fake Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROPERTY__FAKE_NAME = eINSTANCE.getProperty_FakeName();
 
 		/**
 		 * The meta object literal for the '{@link recipe.impl.HashPropertyImpl <em>Hash Property</em>}' class.

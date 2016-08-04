@@ -115,13 +115,11 @@ class Infrastructure{
   id attr EString uid;
   ref Recipe  recipe;
   attr EString name;
-  ref Configuration recipeConfig;
 }
 
 class Configuration{
     id attr EString uid;
    attr EString name;
-   ref Infrastructure infrastructure;
    val Property[*] properties; 
    val HashProperty[*] hashProperties; 
 }
@@ -138,7 +136,6 @@ class Property{
     id attr EString uid;
     ref artifact.ConfigVariable confVarRef;
     attr EString value;
-    attr EString fakeName;
 }
 
 

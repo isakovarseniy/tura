@@ -944,15 +944,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInfrastructure_RecipeConfig() {
-		return (EReference)infrastructureEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getConfiguration() {
 		return configurationEClass;
 	}
@@ -980,7 +971,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConfiguration_Infrastructure() {
+	public EReference getConfiguration_Properties() {
 		return (EReference)configurationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -989,17 +980,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConfiguration_Properties() {
-		return (EReference)configurationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getConfiguration_HashProperties() {
-		return (EReference)configurationEClass.getEStructuralFeatures().get(4);
+		return (EReference)configurationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1090,15 +1072,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 */
 	public EAttribute getProperty_Value() {
 		return (EAttribute)propertyEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProperty_FakeName() {
-		return (EAttribute)propertyEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1442,12 +1415,10 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__UID);
 		createEReference(infrastructureEClass, INFRASTRUCTURE__RECIPE);
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__NAME);
-		createEReference(infrastructureEClass, INFRASTRUCTURE__RECIPE_CONFIG);
 
 		configurationEClass = createEClass(CONFIGURATION);
 		createEAttribute(configurationEClass, CONFIGURATION__UID);
 		createEAttribute(configurationEClass, CONFIGURATION__NAME);
-		createEReference(configurationEClass, CONFIGURATION__INFRASTRUCTURE);
 		createEReference(configurationEClass, CONFIGURATION__PROPERTIES);
 		createEReference(configurationEClass, CONFIGURATION__HASH_PROPERTIES);
 
@@ -1462,7 +1433,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(propertyEClass, PROPERTY__UID);
 		createEReference(propertyEClass, PROPERTY__CONF_VAR_REF);
 		createEAttribute(propertyEClass, PROPERTY__VALUE);
-		createEAttribute(propertyEClass, PROPERTY__FAKE_NAME);
 
 		hashPropertyEClass = createEClass(HASH_PROPERTY);
 		createEAttribute(hashPropertyEClass, HASH_PROPERTY__UID);
@@ -1616,12 +1586,10 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getInfrastructure_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInfrastructure_Recipe(), this.getRecipe(), null, "recipe", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInfrastructure_Name(), ecorePackage.getEString(), "name", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInfrastructure_RecipeConfig(), this.getConfiguration(), null, "recipeConfig", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfiguration_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfiguration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfiguration_Infrastructure(), this.getInfrastructure(), null, "infrastructure", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Properties(), this.getProperty(), null, "properties", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_HashProperties(), this.getHashProperty(), null, "hashProperties", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1636,7 +1604,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getProperty_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProperty_ConfVarRef(), theArtifactPackage.getConfigVariable(), null, "confVarRef", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProperty_FakeName(), ecorePackage.getEString(), "fakeName", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(hashPropertyEClass, HashProperty.class, "HashProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHashProperty_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, HashProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

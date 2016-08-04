@@ -67,7 +67,6 @@ public class ConfigurationItemProvider
 
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addInfrastructurePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,28 +111,6 @@ public class ConfigurationItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Infrastructure feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInfrastructurePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Configuration_infrastructure_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Configuration_infrastructure_feature", "_UI_Configuration_type"),
-				 RecipePackage.Literals.CONFIGURATION__INFRASTRUCTURE,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
