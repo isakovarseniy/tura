@@ -36,7 +36,6 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.HashPropertyImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.HashPropertyImpl#getConfHashRef <em>Conf Hash Ref</em>}</li>
  *   <li>{@link recipe.impl.HashPropertyImpl#getHash <em>Hash</em>}</li>
- *   <li>{@link recipe.impl.HashPropertyImpl#getFakeName <em>Fake Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,26 +80,6 @@ public class HashPropertyImpl extends EObjectImpl implements HashProperty {
 	 * @ordered
 	 */
 	protected EList<KeyValuePair> hash;
-
-	/**
-	 * The default value of the '{@link #getFakeName() <em>Fake Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFakeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String FAKE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFakeName() <em>Fake Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFakeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String fakeName = FAKE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,27 +176,6 @@ public class HashPropertyImpl extends EObjectImpl implements HashProperty {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFakeName() {
-		return fakeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFakeName(String newFakeName) {
-		String oldFakeName = fakeName;
-		fakeName = newFakeName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.HASH_PROPERTY__FAKE_NAME, oldFakeName, fakeName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -242,8 +200,6 @@ public class HashPropertyImpl extends EObjectImpl implements HashProperty {
 				return basicGetConfHashRef();
 			case RecipePackage.HASH_PROPERTY__HASH:
 				return getHash();
-			case RecipePackage.HASH_PROPERTY__FAKE_NAME:
-				return getFakeName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -267,9 +223,6 @@ public class HashPropertyImpl extends EObjectImpl implements HashProperty {
 				getHash().clear();
 				getHash().addAll((Collection<? extends KeyValuePair>)newValue);
 				return;
-			case RecipePackage.HASH_PROPERTY__FAKE_NAME:
-				setFakeName((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -291,9 +244,6 @@ public class HashPropertyImpl extends EObjectImpl implements HashProperty {
 			case RecipePackage.HASH_PROPERTY__HASH:
 				getHash().clear();
 				return;
-			case RecipePackage.HASH_PROPERTY__FAKE_NAME:
-				setFakeName(FAKE_NAME_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -312,8 +262,6 @@ public class HashPropertyImpl extends EObjectImpl implements HashProperty {
 				return confHashRef != null;
 			case RecipePackage.HASH_PROPERTY__HASH:
 				return hash != null && !hash.isEmpty();
-			case RecipePackage.HASH_PROPERTY__FAKE_NAME:
-				return FAKE_NAME_EDEFAULT == null ? fakeName != null : !FAKE_NAME_EDEFAULT.equals(fakeName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -330,8 +278,6 @@ public class HashPropertyImpl extends EObjectImpl implements HashProperty {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
-		result.append(", fakeName: ");
-		result.append(fakeName);
 		result.append(')');
 		return result.toString();
 	}

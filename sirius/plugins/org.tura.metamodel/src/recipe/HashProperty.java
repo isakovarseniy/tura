@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link recipe.HashProperty#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.HashProperty#getConfHashRef <em>Conf Hash Ref</em>}</li>
  *   <li>{@link recipe.HashProperty#getHash <em>Hash</em>}</li>
- *   <li>{@link recipe.HashProperty#getFakeName <em>Fake Name</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getHashProperty()
@@ -95,31 +94,5 @@ public interface HashProperty extends EObject {
 	 * @generated
 	 */
 	EList<KeyValuePair> getHash();
-
-	/**
-	 * Returns the value of the '<em><b>Fake Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Fake Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fake Name</em>' attribute.
-	 * @see #setFakeName(String)
-	 * @see recipe.RecipePackage#getHashProperty_FakeName()
-	 * @model
-	 * @generated
-	 */
-	String getFakeName();
-
-	/**
-	 * Sets the value of the '{@link recipe.HashProperty#getFakeName <em>Fake Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Fake Name</em>' attribute.
-	 * @see #getFakeName()
-	 * @generated
-	 */
-	void setFakeName(String value);
 
 } // HashProperty

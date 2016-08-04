@@ -989,6 +989,36 @@
           </style>
         </containerMappings>
         <containerMappings name="Configuration" semanticCandidatesExpression="aql:self.configurations" domainClass="recipe.Configuration" childrenPresentation="VerticalStack">
+          <subContainerMappings name="Configuratioin Variables" semanticCandidatesExpression="var:self" domainClass="recipe.Configuration" childrenPresentation="List">
+            <subNodeMappings name="Configuratioin Variable" semanticCandidatesExpression="feature:properties" domainClass="recipe.Property">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.confVarRef.name" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="Config variables">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="Hash Variables" semanticCandidatesExpression="var:self" domainClass="recipe.Configuration" childrenPresentation="List">
+            <subNodeMappings name="Hash Variable" semanticCandidatesExpression="feature:hashProperties" domainClass="recipe.HashProperty">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.confHashRef.name" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="Hash variables">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </subContainerMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="Configuration">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>

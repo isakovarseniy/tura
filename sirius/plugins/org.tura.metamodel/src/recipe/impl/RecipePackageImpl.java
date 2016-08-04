@@ -1115,15 +1115,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHashProperty_FakeName() {
-		return (EAttribute)hashPropertyEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getKeyValuePair() {
 		return keyValuePairEClass;
 	}
@@ -1438,7 +1429,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(hashPropertyEClass, HASH_PROPERTY__UID);
 		createEReference(hashPropertyEClass, HASH_PROPERTY__CONF_HASH_REF);
 		createEReference(hashPropertyEClass, HASH_PROPERTY__HASH);
-		createEAttribute(hashPropertyEClass, HASH_PROPERTY__FAKE_NAME);
 
 		keyValuePairEClass = createEClass(KEY_VALUE_PAIR);
 		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__UID);
@@ -1609,7 +1599,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getHashProperty_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, HashProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHashProperty_ConfHashRef(), theArtifactPackage.getConfigHash(), null, "confHashRef", null, 0, 1, HashProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHashProperty_Hash(), this.getKeyValuePair(), null, "hash", null, 0, -1, HashProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHashProperty_FakeName(), ecorePackage.getEString(), "fakeName", null, 0, 1, HashProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(keyValuePairEClass, KeyValuePair.class, "KeyValuePair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKeyValuePair_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

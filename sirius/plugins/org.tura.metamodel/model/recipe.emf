@@ -16,7 +16,6 @@ class Recipes{
   val Recipe2Infrastructure[*] recipe2Infrastructures;
   val Infrastructure2Configuration[*] infrastructure2Configurations;
 
-
 }
 
 
@@ -143,7 +142,6 @@ class HashProperty{
     id attr EString uid;
     ref artifact.ConfigHash confHashRef;
     val KeyValuePair[*] hash;
-    attr EString fakeName;
 }
 
 

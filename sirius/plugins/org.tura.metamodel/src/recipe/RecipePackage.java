@@ -1103,22 +1103,13 @@ public interface RecipePackage extends EPackage {
 	int HASH_PROPERTY__HASH = 2;
 
 	/**
-	 * The feature id for the '<em><b>Fake Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HASH_PROPERTY__FAKE_NAME = 3;
-
-	/**
 	 * The number of structural features of the '<em>Hash Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HASH_PROPERTY_FEATURE_COUNT = 4;
+	int HASH_PROPERTY_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.KeyValuePairImpl <em>Key Value Pair</em>}' class.
@@ -2242,17 +2233,6 @@ public interface RecipePackage extends EPackage {
 	EReference getHashProperty_Hash();
 
 	/**
-	 * Returns the meta object for the attribute '{@link recipe.HashProperty#getFakeName <em>Fake Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fake Name</em>'.
-	 * @see recipe.HashProperty#getFakeName()
-	 * @see #getHashProperty()
-	 * @generated
-	 */
-	EAttribute getHashProperty_FakeName();
-
-	/**
 	 * Returns the meta object for class '{@link recipe.KeyValuePair <em>Key Value Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3215,14 +3195,6 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EReference HASH_PROPERTY__HASH = eINSTANCE.getHashProperty_Hash();
-
-		/**
-		 * The meta object literal for the '<em><b>Fake Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HASH_PROPERTY__FAKE_NAME = eINSTANCE.getHashProperty_FakeName();
 
 		/**
 		 * The meta object literal for the '{@link recipe.impl.KeyValuePairImpl <em>Key Value Pair</em>}' class.

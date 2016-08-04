@@ -144,7 +144,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="confHashRef" eType="ecore:EClass artifact.ecore#//ConfigHash"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hash" upperBound="-1" eType="#//KeyValuePair"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fakeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KeyValuePair">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

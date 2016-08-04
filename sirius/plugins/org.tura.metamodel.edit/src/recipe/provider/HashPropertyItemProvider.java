@@ -67,7 +67,6 @@ public class HashPropertyItemProvider
 
 			addUidPropertyDescriptor(object);
 			addConfHashRefPropertyDescriptor(object);
-			addFakeNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,28 +111,6 @@ public class HashPropertyItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Fake Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFakeNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_HashProperty_fakeName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HashProperty_fakeName_feature", "_UI_HashProperty_type"),
-				 RecipePackage.Literals.HASH_PROPERTY__FAKE_NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -187,7 +164,7 @@ public class HashPropertyItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((HashProperty)object).getFakeName();
+		String label = ((HashProperty)object).getUid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_HashProperty_type") :
 			getString("_UI_HashProperty_type") + " " + label;
@@ -207,7 +184,6 @@ public class HashPropertyItemProvider
 
 		switch (notification.getFeatureID(HashProperty.class)) {
 			case RecipePackage.HASH_PROPERTY__UID:
-			case RecipePackage.HASH_PROPERTY__FAKE_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RecipePackage.HASH_PROPERTY__HASH:
