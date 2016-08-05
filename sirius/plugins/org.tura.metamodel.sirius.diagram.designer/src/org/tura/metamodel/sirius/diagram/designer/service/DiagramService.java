@@ -41,6 +41,7 @@ import message.Message;
 import message.MessageLibrary;
 import message.Translation;
 import recipe.Configuration;
+import recipe.ModelMapper;
 import recipe.Recipes;
 import style.StyleLibrary;
 import style.StyleSet;
@@ -67,7 +68,14 @@ public class DiagramService {
 		}
 	}	
 
-	
+	public boolean enableContextMenuForModelMapper( EObject eobject ){
+		if (eobject instanceof ModelMapper){
+			return true;
+		}else{
+			return false;
+		}
+	}	
+
 	
 	
 	public Object getCandidates(EObject eobject ){

@@ -11,8 +11,6 @@
         eType="#//Configuration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructures" upperBound="-1"
         eType="#//Infrastructure" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" eType="#//DeploymentSequence"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configExtensions" upperBound="-1"
         eType="#//ConfigExtension" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recipe2Infrastructures"
@@ -28,7 +26,10 @@
         eType="#//Ingredient" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructures" upperBound="-1"
         eType="#//Infrastructure"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" eType="#//DeploymentSequence"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deplymentStep" upperBound="-1"
+        eType="#//DeploymentComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startSeq" eType="#//DeploymentStarStep"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigExtension">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -47,21 +48,6 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Infrastructure"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Configuration"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeploymentSequence">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentComponents" eType="#//DeploymentComponents"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeploymentComponents">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deplymentStep" upperBound="-1"
-        eType="#//DeploymentComponent" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="startSeq" eType="#//DeploymentStarStep"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeploymentComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

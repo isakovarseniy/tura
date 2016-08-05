@@ -18,7 +18,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import recipe.DeploymentComponent;
 import recipe.DeploymentSequence;
+import recipe.DeploymentStarStep;
 import recipe.Infrastructure;
 import recipe.Ingredient;
 import recipe.Recipe;
@@ -36,7 +38,8 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.RecipeImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.RecipeImpl#getIngredients <em>Ingredients</em>}</li>
  *   <li>{@link recipe.impl.RecipeImpl#getInfrastructures <em>Infrastructures</em>}</li>
- *   <li>{@link recipe.impl.RecipeImpl#getDeployment <em>Deployment</em>}</li>
+ *   <li>{@link recipe.impl.RecipeImpl#getDeplymentStep <em>Deplyment Step</em>}</li>
+ *   <li>{@link recipe.impl.RecipeImpl#getStartSeq <em>Start Seq</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,14 +106,24 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	protected EList<Infrastructure> infrastructures;
 
 	/**
-	 * The cached value of the '{@link #getDeployment() <em>Deployment</em>}' reference.
+	 * The cached value of the '{@link #getDeplymentStep() <em>Deplyment Step</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDeployment()
+	 * @see #getDeplymentStep()
 	 * @generated
 	 * @ordered
 	 */
-	protected DeploymentSequence deployment;
+	protected EList<DeploymentComponent> deplymentStep;
+
+	/**
+	 * The cached value of the '{@link #getStartSeq() <em>Start Seq</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartSeq()
+	 * @generated
+	 * @ordered
+	 */
+	protected DeploymentStarStep startSeq;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -202,16 +215,11 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeploymentSequence getDeployment() {
-		if (deployment != null && deployment.eIsProxy()) {
-			InternalEObject oldDeployment = (InternalEObject)deployment;
-			deployment = (DeploymentSequence)eResolveProxy(oldDeployment);
-			if (deployment != oldDeployment) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecipePackage.RECIPE__DEPLOYMENT, oldDeployment, deployment));
-			}
+	public EList<DeploymentComponent> getDeplymentStep() {
+		if (deplymentStep == null) {
+			deplymentStep = new EObjectContainmentEList<DeploymentComponent>(DeploymentComponent.class, this, RecipePackage.RECIPE__DEPLYMENT_STEP);
 		}
-		return deployment;
+		return deplymentStep;
 	}
 
 	/**
@@ -219,8 +227,8 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeploymentSequence basicGetDeployment() {
-		return deployment;
+	public DeploymentStarStep getStartSeq() {
+		return startSeq;
 	}
 
 	/**
@@ -228,11 +236,33 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDeployment(DeploymentSequence newDeployment) {
-		DeploymentSequence oldDeployment = deployment;
-		deployment = newDeployment;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.RECIPE__DEPLOYMENT, oldDeployment, deployment));
+	public NotificationChain basicSetStartSeq(DeploymentStarStep newStartSeq, NotificationChain msgs) {
+		DeploymentStarStep oldStartSeq = startSeq;
+		startSeq = newStartSeq;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RecipePackage.RECIPE__START_SEQ, oldStartSeq, newStartSeq);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStartSeq(DeploymentStarStep newStartSeq) {
+		if (newStartSeq != startSeq) {
+			NotificationChain msgs = null;
+			if (startSeq != null)
+				msgs = ((InternalEObject)startSeq).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RecipePackage.RECIPE__START_SEQ, null, msgs);
+			if (newStartSeq != null)
+				msgs = ((InternalEObject)newStartSeq).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RecipePackage.RECIPE__START_SEQ, null, msgs);
+			msgs = basicSetStartSeq(newStartSeq, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.RECIPE__START_SEQ, newStartSeq, newStartSeq));
 	}
 
 	/**
@@ -245,6 +275,10 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 		switch (featureID) {
 			case RecipePackage.RECIPE__INGREDIENTS:
 				return ((InternalEList<?>)getIngredients()).basicRemove(otherEnd, msgs);
+			case RecipePackage.RECIPE__DEPLYMENT_STEP:
+				return ((InternalEList<?>)getDeplymentStep()).basicRemove(otherEnd, msgs);
+			case RecipePackage.RECIPE__START_SEQ:
+				return basicSetStartSeq(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -265,9 +299,10 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 				return getIngredients();
 			case RecipePackage.RECIPE__INFRASTRUCTURES:
 				return getInfrastructures();
-			case RecipePackage.RECIPE__DEPLOYMENT:
-				if (resolve) return getDeployment();
-				return basicGetDeployment();
+			case RecipePackage.RECIPE__DEPLYMENT_STEP:
+				return getDeplymentStep();
+			case RecipePackage.RECIPE__START_SEQ:
+				return getStartSeq();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -295,8 +330,12 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 				getInfrastructures().clear();
 				getInfrastructures().addAll((Collection<? extends Infrastructure>)newValue);
 				return;
-			case RecipePackage.RECIPE__DEPLOYMENT:
-				setDeployment((DeploymentSequence)newValue);
+			case RecipePackage.RECIPE__DEPLYMENT_STEP:
+				getDeplymentStep().clear();
+				getDeplymentStep().addAll((Collection<? extends DeploymentComponent>)newValue);
+				return;
+			case RecipePackage.RECIPE__START_SEQ:
+				setStartSeq((DeploymentStarStep)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -322,8 +361,11 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 			case RecipePackage.RECIPE__INFRASTRUCTURES:
 				getInfrastructures().clear();
 				return;
-			case RecipePackage.RECIPE__DEPLOYMENT:
-				setDeployment((DeploymentSequence)null);
+			case RecipePackage.RECIPE__DEPLYMENT_STEP:
+				getDeplymentStep().clear();
+				return;
+			case RecipePackage.RECIPE__START_SEQ:
+				setStartSeq((DeploymentStarStep)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -345,8 +387,10 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 				return ingredients != null && !ingredients.isEmpty();
 			case RecipePackage.RECIPE__INFRASTRUCTURES:
 				return infrastructures != null && !infrastructures.isEmpty();
-			case RecipePackage.RECIPE__DEPLOYMENT:
-				return deployment != null;
+			case RecipePackage.RECIPE__DEPLYMENT_STEP:
+				return deplymentStep != null && !deplymentStep.isEmpty();
+			case RecipePackage.RECIPE__START_SEQ:
+				return startSeq != null;
 		}
 		return super.eIsSet(featureID);
 	}

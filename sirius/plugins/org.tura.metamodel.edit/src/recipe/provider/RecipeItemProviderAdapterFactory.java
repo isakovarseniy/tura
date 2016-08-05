@@ -187,52 +187,6 @@ public class RecipeItemProviderAdapterFactory extends RecipeAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link recipe.DeploymentSequence} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DeploymentSequenceItemProvider deploymentSequenceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link recipe.DeploymentSequence}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDeploymentSequenceAdapter() {
-		if (deploymentSequenceItemProvider == null) {
-			deploymentSequenceItemProvider = new DeploymentSequenceItemProvider(this);
-		}
-
-		return deploymentSequenceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link recipe.DeploymentComponents} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DeploymentComponentsItemProvider deploymentComponentsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link recipe.DeploymentComponents}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDeploymentComponentsAdapter() {
-		if (deploymentComponentsItemProvider == null) {
-			deploymentComponentsItemProvider = new DeploymentComponentsItemProvider(this);
-		}
-
-		return deploymentComponentsItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link recipe.DeploymentComponent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

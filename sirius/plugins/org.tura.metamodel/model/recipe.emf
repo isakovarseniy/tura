@@ -11,7 +11,6 @@ class Recipes{
   val Recipe recipe;
   val Configuration[*] configurations;
   val Infrastructure[*] infrastructures;
-  val DeploymentSequence deployment;
   val ConfigExtension[*] configExtensions;
   val Recipe2Infrastructure[*] recipe2Infrastructures;
   val Infrastructure2Configuration[*] infrastructure2Configurations;
@@ -20,11 +19,12 @@ class Recipes{
 
 
 class Recipe extends UsingMappers{
-    id attr EString uid;
+  id attr EString uid;
   attr EString name;
   val Ingredient[*] ingredients;
   ref Infrastructure[*] infrastructures;
-  ref DeploymentSequence deployment;
+  val DeploymentComponent[*] deplymentStep;   
+  val DeploymentStarStep startSeq;
 }
 
 class ConfigExtension {
@@ -48,19 +48,6 @@ class Infrastructure2Configuration{
 }
 
 
-
-class DeploymentSequence{
-    id attr EString uid;
-   attr EString name;
-   val DeploymentComponents deploymentComponents;
-}
-
-class DeploymentComponents{
-    id attr EString uid;
-    val DeploymentComponent[*] deplymentStep;   
-    val DeploymentStarStep startSeq;
-    
-}
 
 class DeploymentComponent{
     id attr EString uid;

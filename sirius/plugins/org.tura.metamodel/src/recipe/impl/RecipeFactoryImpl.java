@@ -62,8 +62,6 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 			case RecipePackage.CONFIG_EXTENSION: return createConfigExtension();
 			case RecipePackage.RECIPE2_INFRASTRUCTURE: return createRecipe2Infrastructure();
 			case RecipePackage.INFRASTRUCTURE2_CONFIGURATION: return createInfrastructure2Configuration();
-			case RecipePackage.DEPLOYMENT_SEQUENCE: return createDeploymentSequence();
-			case RecipePackage.DEPLOYMENT_COMPONENTS: return createDeploymentComponents();
 			case RecipePackage.DEPLOYMENT_COMPONENT: return createDeploymentComponent();
 			case RecipePackage.DEPLOYMENT_STAR_STEP: return createDeploymentStarStep();
 			case RecipePackage.USING_MAPPERS: return createUsingMappers();
@@ -163,26 +161,6 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory {
 	public Infrastructure2Configuration createInfrastructure2Configuration() {
 		Infrastructure2ConfigurationImpl infrastructure2Configuration = new Infrastructure2ConfigurationImpl();
 		return infrastructure2Configuration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeploymentSequence createDeploymentSequence() {
-		DeploymentSequenceImpl deploymentSequence = new DeploymentSequenceImpl();
-		return deploymentSequence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeploymentComponents createDeploymentComponents() {
-		DeploymentComponentsImpl deploymentComponents = new DeploymentComponentsImpl();
-		return deploymentComponents;
 	}
 
 	/**

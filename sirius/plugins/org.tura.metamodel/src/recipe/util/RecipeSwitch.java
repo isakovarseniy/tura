@@ -97,18 +97,6 @@ public class RecipeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RecipePackage.DEPLOYMENT_SEQUENCE: {
-				DeploymentSequence deploymentSequence = (DeploymentSequence)theEObject;
-				T result = caseDeploymentSequence(deploymentSequence);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RecipePackage.DEPLOYMENT_COMPONENTS: {
-				DeploymentComponents deploymentComponents = (DeploymentComponents)theEObject;
-				T result = caseDeploymentComponents(deploymentComponents);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RecipePackage.DEPLOYMENT_COMPONENT: {
 				DeploymentComponent deploymentComponent = (DeploymentComponent)theEObject;
 				T result = caseDeploymentComponent(deploymentComponent);
@@ -284,36 +272,6 @@ public class RecipeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInfrastructure2Configuration(Infrastructure2Configuration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Deployment Sequence</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Deployment Sequence</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDeploymentSequence(DeploymentSequence object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Deployment Components</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Deployment Components</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDeploymentComponents(DeploymentComponents object) {
 		return null;
 	}
 

@@ -17,7 +17,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link recipe.Recipe#getName <em>Name</em>}</li>
  *   <li>{@link recipe.Recipe#getIngredients <em>Ingredients</em>}</li>
  *   <li>{@link recipe.Recipe#getInfrastructures <em>Infrastructures</em>}</li>
- *   <li>{@link recipe.Recipe#getDeployment <em>Deployment</em>}</li>
+ *   <li>{@link recipe.Recipe#getDeplymentStep <em>Deplyment Step</em>}</li>
+ *   <li>{@link recipe.Recipe#getStartSeq <em>Start Seq</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getRecipe()
@@ -110,29 +111,45 @@ public interface Recipe extends UsingMappers {
 	EList<Infrastructure> getInfrastructures();
 
 	/**
-	 * Returns the value of the '<em><b>Deployment</b></em>' reference.
+	 * Returns the value of the '<em><b>Deplyment Step</b></em>' containment reference list.
+	 * The list contents are of type {@link recipe.DeploymentComponent}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Deployment</em>' reference isn't clear,
+	 * If the meaning of the '<em>Deplyment Step</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Deployment</em>' reference.
-	 * @see #setDeployment(DeploymentSequence)
-	 * @see recipe.RecipePackage#getRecipe_Deployment()
-	 * @model
+	 * @return the value of the '<em>Deplyment Step</em>' containment reference list.
+	 * @see recipe.RecipePackage#getRecipe_DeplymentStep()
+	 * @model containment="true"
 	 * @generated
 	 */
-	DeploymentSequence getDeployment();
+	EList<DeploymentComponent> getDeplymentStep();
 
 	/**
-	 * Sets the value of the '{@link recipe.Recipe#getDeployment <em>Deployment</em>}' reference.
+	 * Returns the value of the '<em><b>Start Seq</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Start Seq</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Deployment</em>' reference.
-	 * @see #getDeployment()
+	 * @return the value of the '<em>Start Seq</em>' containment reference.
+	 * @see #setStartSeq(DeploymentStarStep)
+	 * @see recipe.RecipePackage#getRecipe_StartSeq()
+	 * @model containment="true"
 	 * @generated
 	 */
-	void setDeployment(DeploymentSequence value);
+	DeploymentStarStep getStartSeq();
+
+	/**
+	 * Sets the value of the '{@link recipe.Recipe#getStartSeq <em>Start Seq</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start Seq</em>' containment reference.
+	 * @see #getStartSeq()
+	 * @generated
+	 */
+	void setStartSeq(DeploymentStarStep value);
 
 } // Recipe

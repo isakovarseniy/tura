@@ -88,14 +88,6 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 				return createInfrastructure2ConfigurationAdapter();
 			}
 			@Override
-			public Adapter caseDeploymentSequence(DeploymentSequence object) {
-				return createDeploymentSequenceAdapter();
-			}
-			@Override
-			public Adapter caseDeploymentComponents(DeploymentComponents object) {
-				return createDeploymentComponentsAdapter();
-			}
-			@Override
 			public Adapter caseDeploymentComponent(DeploymentComponent object) {
 				return createDeploymentComponentAdapter();
 			}
@@ -246,34 +238,6 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInfrastructure2ConfigurationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link recipe.DeploymentSequence <em>Deployment Sequence</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see recipe.DeploymentSequence
-	 * @generated
-	 */
-	public Adapter createDeploymentSequenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link recipe.DeploymentComponents <em>Deployment Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see recipe.DeploymentComponents
-	 * @generated
-	 */
-	public Adapter createDeploymentComponentsAdapter() {
 		return null;
 	}
 

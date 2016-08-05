@@ -113,22 +113,13 @@ public interface RecipePackage extends EPackage {
 	int RECIPES__INFRASTRUCTURES = 4;
 
 	/**
-	 * The feature id for the '<em><b>Deployment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECIPES__DEPLOYMENT = 5;
-
-	/**
 	 * The feature id for the '<em><b>Config Extensions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPES__CONFIG_EXTENSIONS = 6;
+	int RECIPES__CONFIG_EXTENSIONS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Recipe2 Infrastructures</b></em>' containment reference list.
@@ -137,7 +128,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPES__RECIPE2_INFRASTRUCTURES = 7;
+	int RECIPES__RECIPE2_INFRASTRUCTURES = 6;
 
 	/**
 	 * The feature id for the '<em><b>Infrastructure2 Configurations</b></em>' containment reference list.
@@ -146,7 +137,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPES__INFRASTRUCTURE2_CONFIGURATIONS = 8;
+	int RECIPES__INFRASTRUCTURE2_CONFIGURATIONS = 7;
 
 	/**
 	 * The number of structural features of the '<em>Recipes</em>' class.
@@ -155,7 +146,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPES_FEATURE_COUNT = 9;
+	int RECIPES_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.UsingMappersImpl <em>Using Mappers</em>}' class.
@@ -165,7 +156,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getUsingMappers()
 	 * @generated
 	 */
-	int USING_MAPPERS = 9;
+	int USING_MAPPERS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -241,13 +232,22 @@ public interface RecipePackage extends EPackage {
 	int RECIPE__INFRASTRUCTURES = USING_MAPPERS_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Deployment</b></em>' reference.
+	 * The feature id for the '<em><b>Deplyment Step</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE__DEPLOYMENT = USING_MAPPERS_FEATURE_COUNT + 4;
+	int RECIPE__DEPLYMENT_STEP = USING_MAPPERS_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Start Seq</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPE__START_SEQ = USING_MAPPERS_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Recipe</em>' class.
@@ -256,7 +256,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 5;
+	int RECIPE_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ConfigExtensionImpl <em>Config Extension</em>}' class.
@@ -397,98 +397,6 @@ public interface RecipePackage extends EPackage {
 	int INFRASTRUCTURE2_CONFIGURATION_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link recipe.impl.DeploymentSequenceImpl <em>Deployment Sequence</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see recipe.impl.DeploymentSequenceImpl
-	 * @see recipe.impl.RecipePackageImpl#getDeploymentSequence()
-	 * @generated
-	 */
-	int DEPLOYMENT_SEQUENCE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_SEQUENCE__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_SEQUENCE__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Deployment Components</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_SEQUENCE__DEPLOYMENT_COMPONENTS = 2;
-
-	/**
-	 * The number of structural features of the '<em>Deployment Sequence</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_SEQUENCE_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link recipe.impl.DeploymentComponentsImpl <em>Deployment Components</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see recipe.impl.DeploymentComponentsImpl
-	 * @see recipe.impl.RecipePackageImpl#getDeploymentComponents()
-	 * @generated
-	 */
-	int DEPLOYMENT_COMPONENTS = 6;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_COMPONENTS__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Deplyment Step</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_COMPONENTS__DEPLYMENT_STEP = 1;
-
-	/**
-	 * The feature id for the '<em><b>Start Seq</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_COMPONENTS__START_SEQ = 2;
-
-	/**
-	 * The number of structural features of the '<em>Deployment Components</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_COMPONENTS_FEATURE_COUNT = 3;
-
-	/**
 	 * The meta object id for the '{@link recipe.impl.DeploymentComponentImpl <em>Deployment Component</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -496,7 +404,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getDeploymentComponent()
 	 * @generated
 	 */
-	int DEPLOYMENT_COMPONENT = 7;
+	int DEPLOYMENT_COMPONENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -551,7 +459,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getDeploymentStarStep()
 	 * @generated
 	 */
-	int DEPLOYMENT_STAR_STEP = 8;
+	int DEPLOYMENT_STAR_STEP = 6;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -597,7 +505,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getIngredient()
 	 * @generated
 	 */
-	int INGREDIENT = 10;
+	int INGREDIENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Mappers</b></em>' reference list.
@@ -661,7 +569,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getComponent()
 	 * @generated
 	 */
-	int COMPONENT = 11;
+	int COMPONENT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -716,7 +624,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getJavaComponent()
 	 * @generated
 	 */
-	int JAVA_COMPONENT = 12;
+	int JAVA_COMPONENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -807,7 +715,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getInfrastructure()
 	 * @generated
 	 */
-	int INFRASTRUCTURE = 13;
+	int INFRASTRUCTURE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -853,7 +761,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getConfiguration()
 	 * @generated
 	 */
-	int CONFIGURATION = 14;
+	int CONFIGURATION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -908,7 +816,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getArtifactRef()
 	 * @generated
 	 */
-	int ARTIFACT_REF = 22;
+	int ARTIFACT_REF = 20;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -945,7 +853,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getModelMapper()
 	 * @generated
 	 */
-	int MODEL_MAPPER = 15;
+	int MODEL_MAPPER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1027,7 +935,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 16;
+	int PROPERTY = 14;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1073,7 +981,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getHashProperty()
 	 * @generated
 	 */
-	int HASH_PROPERTY = 17;
+	int HASH_PROPERTY = 15;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1119,7 +1027,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getKeyValuePair()
 	 * @generated
 	 */
-	int KEY_VALUE_PAIR = 18;
+	int KEY_VALUE_PAIR = 16;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1165,7 +1073,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getMappingTecnologiy()
 	 * @generated
 	 */
-	int MAPPING_TECNOLOGIY = 19;
+	int MAPPING_TECNOLOGIY = 17;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1211,7 +1119,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getQuery()
 	 * @generated
 	 */
-	int QUERY = 20;
+	int QUERY = 18;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1266,7 +1174,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getQueryVariable()
 	 * @generated
 	 */
-	int QUERY_VARIABLE = 21;
+	int QUERY_VARIABLE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1312,7 +1220,7 @@ public interface RecipePackage extends EPackage {
 	 * @see recipe.impl.RecipePackageImpl#getPlatformLayers()
 	 * @generated
 	 */
-	int PLATFORM_LAYERS = 23;
+	int PLATFORM_LAYERS = 21;
 
 
 	/**
@@ -1379,17 +1287,6 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRecipes_Infrastructures();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link recipe.Recipes#getDeployment <em>Deployment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Deployment</em>'.
-	 * @see recipe.Recipes#getDeployment()
-	 * @see #getRecipes()
-	 * @generated
-	 */
-	EReference getRecipes_Deployment();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link recipe.Recipes#getConfigExtensions <em>Config Extensions</em>}'.
@@ -1479,15 +1376,26 @@ public interface RecipePackage extends EPackage {
 	EReference getRecipe_Infrastructures();
 
 	/**
-	 * Returns the meta object for the reference '{@link recipe.Recipe#getDeployment <em>Deployment</em>}'.
+	 * Returns the meta object for the containment reference list '{@link recipe.Recipe#getDeplymentStep <em>Deplyment Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Deployment</em>'.
-	 * @see recipe.Recipe#getDeployment()
+	 * @return the meta object for the containment reference list '<em>Deplyment Step</em>'.
+	 * @see recipe.Recipe#getDeplymentStep()
 	 * @see #getRecipe()
 	 * @generated
 	 */
-	EReference getRecipe_Deployment();
+	EReference getRecipe_DeplymentStep();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link recipe.Recipe#getStartSeq <em>Start Seq</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Start Seq</em>'.
+	 * @see recipe.Recipe#getStartSeq()
+	 * @see #getRecipe()
+	 * @generated
+	 */
+	EReference getRecipe_StartSeq();
 
 	/**
 	 * Returns the meta object for class '{@link recipe.ConfigExtension <em>Config Extension</em>}'.
@@ -1617,92 +1525,6 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInfrastructure2Configuration_Target();
-
-	/**
-	 * Returns the meta object for class '{@link recipe.DeploymentSequence <em>Deployment Sequence</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Deployment Sequence</em>'.
-	 * @see recipe.DeploymentSequence
-	 * @generated
-	 */
-	EClass getDeploymentSequence();
-
-	/**
-	 * Returns the meta object for the attribute '{@link recipe.DeploymentSequence#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see recipe.DeploymentSequence#getUid()
-	 * @see #getDeploymentSequence()
-	 * @generated
-	 */
-	EAttribute getDeploymentSequence_Uid();
-
-	/**
-	 * Returns the meta object for the attribute '{@link recipe.DeploymentSequence#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see recipe.DeploymentSequence#getName()
-	 * @see #getDeploymentSequence()
-	 * @generated
-	 */
-	EAttribute getDeploymentSequence_Name();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link recipe.DeploymentSequence#getDeploymentComponents <em>Deployment Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Deployment Components</em>'.
-	 * @see recipe.DeploymentSequence#getDeploymentComponents()
-	 * @see #getDeploymentSequence()
-	 * @generated
-	 */
-	EReference getDeploymentSequence_DeploymentComponents();
-
-	/**
-	 * Returns the meta object for class '{@link recipe.DeploymentComponents <em>Deployment Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Deployment Components</em>'.
-	 * @see recipe.DeploymentComponents
-	 * @generated
-	 */
-	EClass getDeploymentComponents();
-
-	/**
-	 * Returns the meta object for the attribute '{@link recipe.DeploymentComponents#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see recipe.DeploymentComponents#getUid()
-	 * @see #getDeploymentComponents()
-	 * @generated
-	 */
-	EAttribute getDeploymentComponents_Uid();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link recipe.DeploymentComponents#getDeplymentStep <em>Deplyment Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Deplyment Step</em>'.
-	 * @see recipe.DeploymentComponents#getDeplymentStep()
-	 * @see #getDeploymentComponents()
-	 * @generated
-	 */
-	EReference getDeploymentComponents_DeplymentStep();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link recipe.DeploymentComponents#getStartSeq <em>Start Seq</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Start Seq</em>'.
-	 * @see recipe.DeploymentComponents#getStartSeq()
-	 * @see #getDeploymentComponents()
-	 * @generated
-	 */
-	EReference getDeploymentComponents_StartSeq();
 
 	/**
 	 * Returns the meta object for class '{@link recipe.DeploymentComponent <em>Deployment Component</em>}'.
@@ -2531,14 +2353,6 @@ public interface RecipePackage extends EPackage {
 		EReference RECIPES__INFRASTRUCTURES = eINSTANCE.getRecipes_Infrastructures();
 
 		/**
-		 * The meta object literal for the '<em><b>Deployment</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RECIPES__DEPLOYMENT = eINSTANCE.getRecipes_Deployment();
-
-		/**
 		 * The meta object literal for the '<em><b>Config Extensions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2605,12 +2419,20 @@ public interface RecipePackage extends EPackage {
 		EReference RECIPE__INFRASTRUCTURES = eINSTANCE.getRecipe_Infrastructures();
 
 		/**
-		 * The meta object literal for the '<em><b>Deployment</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Deplyment Step</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RECIPE__DEPLOYMENT = eINSTANCE.getRecipe_Deployment();
+		EReference RECIPE__DEPLYMENT_STEP = eINSTANCE.getRecipe_DeplymentStep();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Seq</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RECIPE__START_SEQ = eINSTANCE.getRecipe_StartSeq();
 
 		/**
 		 * The meta object literal for the '{@link recipe.impl.ConfigExtensionImpl <em>Config Extension</em>}' class.
@@ -2713,74 +2535,6 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EReference INFRASTRUCTURE2_CONFIGURATION__TARGET = eINSTANCE.getInfrastructure2Configuration_Target();
-
-		/**
-		 * The meta object literal for the '{@link recipe.impl.DeploymentSequenceImpl <em>Deployment Sequence</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see recipe.impl.DeploymentSequenceImpl
-		 * @see recipe.impl.RecipePackageImpl#getDeploymentSequence()
-		 * @generated
-		 */
-		EClass DEPLOYMENT_SEQUENCE = eINSTANCE.getDeploymentSequence();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DEPLOYMENT_SEQUENCE__UID = eINSTANCE.getDeploymentSequence_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DEPLOYMENT_SEQUENCE__NAME = eINSTANCE.getDeploymentSequence_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Deployment Components</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEPLOYMENT_SEQUENCE__DEPLOYMENT_COMPONENTS = eINSTANCE.getDeploymentSequence_DeploymentComponents();
-
-		/**
-		 * The meta object literal for the '{@link recipe.impl.DeploymentComponentsImpl <em>Deployment Components</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see recipe.impl.DeploymentComponentsImpl
-		 * @see recipe.impl.RecipePackageImpl#getDeploymentComponents()
-		 * @generated
-		 */
-		EClass DEPLOYMENT_COMPONENTS = eINSTANCE.getDeploymentComponents();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DEPLOYMENT_COMPONENTS__UID = eINSTANCE.getDeploymentComponents_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Deplyment Step</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEPLOYMENT_COMPONENTS__DEPLYMENT_STEP = eINSTANCE.getDeploymentComponents_DeplymentStep();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Seq</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEPLOYMENT_COMPONENTS__START_SEQ = eINSTANCE.getDeploymentComponents_StartSeq();
 
 		/**
 		 * The meta object literal for the '{@link recipe.impl.DeploymentComponentImpl <em>Deployment Component</em>}' class.

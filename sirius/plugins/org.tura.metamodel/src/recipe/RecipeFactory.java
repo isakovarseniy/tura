@@ -67,24 +67,6 @@ public interface RecipeFactory extends EFactory {
 	Infrastructure2Configuration createInfrastructure2Configuration();
 
 	/**
-	 * Returns a new object of class '<em>Deployment Sequence</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Deployment Sequence</em>'.
-	 * @generated
-	 */
-	DeploymentSequence createDeploymentSequence();
-
-	/**
-	 * Returns a new object of class '<em>Deployment Components</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Deployment Components</em>'.
-	 * @generated
-	 */
-	DeploymentComponents createDeploymentComponents();
-
-	/**
 	 * Returns a new object of class '<em>Deployment Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

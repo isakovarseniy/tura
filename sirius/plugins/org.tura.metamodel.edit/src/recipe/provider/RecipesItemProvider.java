@@ -130,7 +130,6 @@ public class RecipesItemProvider
 			childrenFeatures.add(RecipePackage.Literals.RECIPES__RECIPE);
 			childrenFeatures.add(RecipePackage.Literals.RECIPES__CONFIGURATIONS);
 			childrenFeatures.add(RecipePackage.Literals.RECIPES__INFRASTRUCTURES);
-			childrenFeatures.add(RecipePackage.Literals.RECIPES__DEPLOYMENT);
 			childrenFeatures.add(RecipePackage.Literals.RECIPES__CONFIG_EXTENSIONS);
 			childrenFeatures.add(RecipePackage.Literals.RECIPES__RECIPE2_INFRASTRUCTURES);
 			childrenFeatures.add(RecipePackage.Literals.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS);
@@ -196,7 +195,6 @@ public class RecipesItemProvider
 			case RecipePackage.RECIPES__RECIPE:
 			case RecipePackage.RECIPES__CONFIGURATIONS:
 			case RecipePackage.RECIPES__INFRASTRUCTURES:
-			case RecipePackage.RECIPES__DEPLOYMENT:
 			case RecipePackage.RECIPES__CONFIG_EXTENSIONS:
 			case RecipePackage.RECIPES__RECIPE2_INFRASTRUCTURES:
 			case RecipePackage.RECIPES__INFRASTRUCTURE2_CONFIGURATIONS:
@@ -231,11 +229,6 @@ public class RecipesItemProvider
 			(createChildParameter
 				(RecipePackage.Literals.RECIPES__INFRASTRUCTURES,
 				 RecipeFactory.eINSTANCE.createInfrastructure()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RecipePackage.Literals.RECIPES__DEPLOYMENT,
-				 RecipeFactory.eINSTANCE.createDeploymentSequence()));
 
 		newChildDescriptors.add
 			(createChildParameter

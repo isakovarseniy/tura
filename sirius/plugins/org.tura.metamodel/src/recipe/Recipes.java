@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link recipe.Recipes#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link recipe.Recipes#getConfigurations <em>Configurations</em>}</li>
  *   <li>{@link recipe.Recipes#getInfrastructures <em>Infrastructures</em>}</li>
- *   <li>{@link recipe.Recipes#getDeployment <em>Deployment</em>}</li>
  *   <li>{@link recipe.Recipes#getConfigExtensions <em>Config Extensions</em>}</li>
  *   <li>{@link recipe.Recipes#getRecipe2Infrastructures <em>Recipe2 Infrastructures</em>}</li>
  *   <li>{@link recipe.Recipes#getInfrastructure2Configurations <em>Infrastructure2 Configurations</em>}</li>
@@ -140,32 +139,6 @@ public interface Recipes extends EObject {
 	 * @generated
 	 */
 	EList<Infrastructure> getInfrastructures();
-
-	/**
-	 * Returns the value of the '<em><b>Deployment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Deployment</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Deployment</em>' containment reference.
-	 * @see #setDeployment(DeploymentSequence)
-	 * @see recipe.RecipePackage#getRecipes_Deployment()
-	 * @model containment="true"
-	 * @generated
-	 */
-	DeploymentSequence getDeployment();
-
-	/**
-	 * Sets the value of the '{@link recipe.Recipes#getDeployment <em>Deployment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Deployment</em>' containment reference.
-	 * @see #getDeployment()
-	 * @generated
-	 */
-	void setDeployment(DeploymentSequence value);
 
 	/**
 	 * Returns the value of the '<em><b>Config Extensions</b></em>' containment reference list.

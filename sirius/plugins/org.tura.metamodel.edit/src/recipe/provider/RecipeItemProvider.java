@@ -51,7 +51,6 @@ public class RecipeItemProvider extends UsingMappersItemProvider {
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addInfrastructuresPropertyDescriptor(object);
-			addDeploymentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -123,28 +122,6 @@ public class RecipeItemProvider extends UsingMappersItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Deployment feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDeploymentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Recipe_deployment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Recipe_deployment_feature", "_UI_Recipe_type"),
-				 RecipePackage.Literals.RECIPE__DEPLOYMENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -157,6 +134,8 @@ public class RecipeItemProvider extends UsingMappersItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RecipePackage.Literals.RECIPE__INGREDIENTS);
+			childrenFeatures.add(RecipePackage.Literals.RECIPE__DEPLYMENT_STEP);
+			childrenFeatures.add(RecipePackage.Literals.RECIPE__START_SEQ);
 		}
 		return childrenFeatures;
 	}
@@ -217,6 +196,8 @@ public class RecipeItemProvider extends UsingMappersItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RecipePackage.RECIPE__INGREDIENTS:
+			case RecipePackage.RECIPE__DEPLYMENT_STEP:
+			case RecipePackage.RECIPE__START_SEQ:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -238,6 +219,16 @@ public class RecipeItemProvider extends UsingMappersItemProvider {
 			(createChildParameter
 				(RecipePackage.Literals.RECIPE__INGREDIENTS,
 				 RecipeFactory.eINSTANCE.createIngredient()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RecipePackage.Literals.RECIPE__DEPLYMENT_STEP,
+				 RecipeFactory.eINSTANCE.createDeploymentComponent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RecipePackage.Literals.RECIPE__START_SEQ,
+				 RecipeFactory.eINSTANCE.createDeploymentStarStep()));
 	}
 
 }
