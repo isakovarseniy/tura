@@ -53,7 +53,9 @@ public abstract class TreePropertySelectioin extends AbstractTuraPropertySection
 	
 	protected abstract TextDataAdapter getDataAdapter();
 	
-	protected abstract Class<?> getComaringClass();	
+	protected Class<?> getComaringClass(	){
+		return null;
+	}
 	
 	public void createControls(Composite parent,TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
@@ -160,7 +162,7 @@ public abstract class TreePropertySelectioin extends AbstractTuraPropertySection
 		if (type == null)
 			return false;
 
-		if (getComaringClass().isAssignableFrom(type.getClass()) )
+		if (checkType(obj) )
 			return true;
 		return false;
 
@@ -169,6 +171,11 @@ public abstract class TreePropertySelectioin extends AbstractTuraPropertySection
 	public void afterUpdate(){
 		
 	}
+	
+	protected boolean checkType(Object type){
+		return getComaringClass().isAssignableFrom(type.getClass());
+	}
+	
 	
 	@Override
 	public EObject getModel() {

@@ -22,7 +22,9 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeData
 
 import artifact.QueryParameter;
 import artifact.Technology;
+import domain.DomainApplications;
 import domain.DomainArtifacts;
+import domain.DomainTypes;
 import form.CanvasFrame;
 import form.ContextParameter;
 import form.ContextParameters;
@@ -48,7 +50,6 @@ import type.Operation;
 import type.Parameter;
 import type.Type;
 import type.TypeElement;
-import type.TypeGroup;
 
 public class QueryHelper {
 
@@ -83,13 +84,15 @@ public class QueryHelper {
 	}
 
 	public Object getApplicationRoles(DiagramImpl root) {
-		// domain.Form frm = getForm(root);
-		// domain.Application app = ((domain.UIPackage) frm.eContainer())
-		// .getParent().getParent().getParent();
-		// if (app.getApplicationRole() != null)
-		// return app.getApplicationRole().getRoles();
 		throw new RuntimeException();
-		// return null;
+		
+//		Collection<DomainArtifacts> map = (Collection<DomainArtifacts>) internalEvaluate(obj,
+//				"domain::DomainArtifacts.allInstances()");
+//
+//		if (map != null && map.size() != 0) {
+//			return (DomainArtifacts) map.toArray()[0];
+//		}
+//		return null;
 	}
 
 	//
@@ -305,6 +308,20 @@ public class QueryHelper {
 		throw new RuntimeException();
 	}
 
+	@SuppressWarnings("unchecked")
+	public Object getDomainApplications(EObject root) throws Exception {
+		 String query = "domain::DomainApplications.allInstances()";
+
+		 Collection<DomainApplications> map =(Collection<DomainApplications>) internalEvaluate(root, query);
+		 if ((map != null) && (map.size() != 0)){
+			 DomainApplications domainApplications = ((DomainApplications) (map.iterator().next()));
+			 return domainApplications;
+		 }
+		 else
+		    return null;
+	}
+	
+	
 	public Collection<TreeDataControl> findTreeRootControls(Form frm) throws Exception {
 
 		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
@@ -751,24 +768,17 @@ public class QueryHelper {
 		// return rows;
 	}
 
-	public TypeGroup getTypesRepository(EObject obj) throws Exception {
-		throw new RuntimeException();
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper =
-		// ocl.createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Types.allInstances()");
-		//
-		// Collection<domain.Types> map = (Collection<domain.Types>)
-		// ocl.evaluate(
-		// obj, query);
-		// if (map != null && map.size() != 0)
-		// return (Types) map.toArray()[0];
-		//
-		// return null;
-		//
+	@SuppressWarnings("unchecked")
+	public DomainTypes getTypesRepository(EObject obj) throws Exception {
+		
+		Collection<DomainTypes> map = (Collection<DomainTypes>) internalEvaluate(obj, "domain::DomainTypes.allInstances()");
+		
+		 if ((map != null) && (map.size() != 0)){
+			 DomainTypes domainTypes = ((DomainTypes) (map.iterator().next()));
+			 return domainTypes;
+		 }
+		 else
+		    return null;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -1551,7 +1561,7 @@ public class QueryHelper {
 	public Collection<Generalization> getTypeExtension(Type type) {
 		try {
 
-			String query = "domain::Generalization.allInstances()->select(r|r.oclAsType(domain::Generalization).source.uid ='"
+			String query = "type::Generalization.allInstances()->select(r|r.oclAsType(type::Generalization).source.uid ='"
 					+ type.getUid() + "')";
 
 			@SuppressWarnings("unchecked")

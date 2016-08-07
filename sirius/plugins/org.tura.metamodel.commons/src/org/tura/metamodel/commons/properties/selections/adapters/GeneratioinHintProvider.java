@@ -9,7 +9,7 @@ public class GeneratioinHintProvider  implements IWorkbenchAdapter ,IReturnTypeP
 
 	@Override
 	public Object getReturnType(Object o) {
-		return null;
+		return o;
 	}
 
 	@Override

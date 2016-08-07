@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
+import org.tura.metamodel.sirius.properties.selections.adapters.textdata.TypePointerTypeName;
 
 import application.Application;
 import application.ApplicationGroup;
@@ -46,9 +47,17 @@ import recipe.Recipes;
 import style.StyleLibrary;
 import style.StyleSet;
 import type.TypeGroup;
+import type.TypeReference;
 
 public class DiagramService {
 
+	
+	public String getTypeReferenceName(TypeReference typeRef){
+		if (typeRef.getTypeRef() != null){
+			return (String) new TypePointerTypeName().getFeatureValue(typeRef, null);
+		}
+		return "Ref : null";
+	}
 	
 	
 	public Object getContextForLink( EObject eobject ){

@@ -17,6 +17,10 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerHolder;
 
+import application.Application;
+import application.ApplicationGroup;
+import application.ApplicationRealm;
+import application.ApplicationRealms;
 import application.ApplicationStyle;
 import application.ApplicationUIPackage;
 import artifact.Artifact;
@@ -29,6 +33,8 @@ import domain.DomainApplication;
 import domain.DomainApplications;
 import domain.DomainArtifact;
 import domain.DomainArtifacts;
+import domain.DomainTypes;
+import domain.DomainTypesRepository;
 import form.ArtificialField;
 import form.DataControl;
 import form.Form;
@@ -44,7 +50,9 @@ import style.StyleLibrary;
 import style.StyleSet;
 import type.Attribute;
 import type.Operation;
+import type.PrimitivesGroup;
 import type.TypeElement;
+import type.TypeGroup;
 
 public class TreeProviderAdapterFactory implements IAdapterFactory {
 
@@ -92,6 +100,15 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private ConfigurationHashProvider configHashProvider;
 	private DomainArtifactsHolderProvider domainArtifactsHolderProvider;
 	private ArtifactGroupProvider artifactGroupProvider;
+	private PrimitivesGroupProvider primitivesGroupProvider;
+	private DomainTypesProvider domainTypesProvider;
+	private TypeGroupProvider typeGroupProvider;
+	private DomainTypesRepositoryProvider domainTypesRepositoryProvider;
+	private ApplicationGroupProvider applicationGroupProvider;
+	private ApplicationProvider applicationProvider;
+	private ApplicationRealmProvider applicationRealmProvider;
+	private ApplicationRealmsProvider applicationRealmsProvider;
+	
 	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -183,6 +200,23 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getDomainArtifactsHolderProvider();
 			if (adaptableObject instanceof ArtifactGroup)
 				return getArtifactGroupProvider();
+			if (adaptableObject instanceof PrimitivesGroup)
+				return getPrimitivesGroupProvider();
+			if (adaptableObject instanceof DomainTypes)
+				return getDomainTypesProvider();
+			if (adaptableObject instanceof TypeGroup)
+				return getTypeGroupProvider();
+			if (adaptableObject instanceof DomainTypesRepository)
+				return getDomainTypesRepositoryProvider();
+			if (adaptableObject instanceof ApplicationGroup)
+				return getApplicationGroupProvider();
+			if (adaptableObject instanceof Application)
+				return getApplicationProvider();
+			if (adaptableObject instanceof ApplicationRealm)
+				return getApplicationRealmProvider();
+			if (adaptableObject instanceof ApplicationRealms)
+				return getApplicationRealmsProvider();
+	
 			
 			
 		}
@@ -422,5 +456,57 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 			artifactGroupProvider = new ArtifactGroupProvider();
 		return artifactGroupProvider;		
 	}
+	
+	protected PrimitivesGroupProvider getPrimitivesGroupProvider(){
+		if (primitivesGroupProvider == null)
+			primitivesGroupProvider = new PrimitivesGroupProvider();
+		return primitivesGroupProvider;		
+	}
+	
+	protected DomainTypesProvider getDomainTypesProvider(){
+		if (domainTypesProvider == null)
+			domainTypesProvider = new DomainTypesProvider();
+		return domainTypesProvider;		
+	}
+	
+	protected TypeGroupProvider getTypeGroupProvider(){
+		if (typeGroupProvider == null)
+			typeGroupProvider = new TypeGroupProvider();
+		return typeGroupProvider;		
+	}
+		
+	protected DomainTypesRepositoryProvider getDomainTypesRepositoryProvider(){
+		if (domainTypesRepositoryProvider == null)
+			domainTypesRepositoryProvider = new DomainTypesRepositoryProvider();
+		return domainTypesRepositoryProvider;		
+	}
+
+
+	protected ApplicationGroupProvider getApplicationGroupProvider(){
+		if (applicationGroupProvider == null)
+			applicationGroupProvider = new ApplicationGroupProvider();
+		return applicationGroupProvider;		
+	}
+
+	protected ApplicationProvider getApplicationProvider(){
+		if (applicationProvider == null)
+			applicationProvider = new ApplicationProvider();
+		return applicationProvider;		
+	}
+	
+	protected ApplicationRealmProvider getApplicationRealmProvider(){
+		if (applicationRealmProvider == null)
+			applicationRealmProvider = new ApplicationRealmProvider();
+		return applicationRealmProvider;		
+	}
+	
+	protected ApplicationRealmsProvider getApplicationRealmsProvider(){
+		if (applicationRealmsProvider == null)
+			applicationRealmsProvider = new ApplicationRealmsProvider();
+		return applicationRealmsProvider;		
+	}
+
+	
+	
 	
 }

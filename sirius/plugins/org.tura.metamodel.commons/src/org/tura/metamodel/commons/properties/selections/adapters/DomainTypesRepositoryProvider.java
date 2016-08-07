@@ -5,26 +5,25 @@ import java.util.ArrayList;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 
-public class DomainApplicationsProvider  implements IWorkbenchAdapter ,IReturnTypeProvider{
+import domain.DomainTypesRepository;
+
+public class DomainTypesRepositoryProvider implements IWorkbenchAdapter, IReturnTypeProvider {
 
 	@Override
 	public Object getReturnType(Object o) {
 		return null;
 	}
-	
-	
+
 	@Override
 	public Object[] getChildren(Object o) {
-		domain.DomainApplications ar = ((domain.DomainApplications) o);
-		if (ar == null || ar.getApplications() == null )
-			return new Object[]{};
-			
+		DomainTypesRepository t = ((DomainTypesRepository) o);
+
 		ArrayList<Object> ls = new ArrayList<>();
-		ls.addAll(ar.getApplications());
+		ls.addAll(t.getRepositoryPackages());
 
 		return ls.toArray();
-	}	
-	
+	}
+
 	@Override
 	public ImageDescriptor getImageDescriptor(Object object) {
 		return null;
@@ -32,13 +31,13 @@ public class DomainApplicationsProvider  implements IWorkbenchAdapter ,IReturnTy
 
 	@Override
 	public String getLabel(Object o) {
-		return "Applications";	}
+		DomainTypesRepository t = ((DomainTypesRepository) o);
+		return t.getName();
+	}
 
 	@Override
 	public Object getParent(Object o) {
 		return null;
 	}
-	
-	
-	
+
 }

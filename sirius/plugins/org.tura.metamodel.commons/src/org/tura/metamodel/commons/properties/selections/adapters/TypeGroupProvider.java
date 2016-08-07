@@ -9,7 +9,7 @@ import type.TypeElement;
 import type.TypeGroup;
 import type.TypeReference;
 
-public class PackageProvider implements IWorkbenchAdapter  ,IReturnTypeProvider{
+public class TypeGroupProvider implements IWorkbenchAdapter  ,IReturnTypeProvider{
 
 	@Override
 	public Object[] getChildren(Object o) {

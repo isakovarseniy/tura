@@ -90,6 +90,30 @@
              id="tab.recipe.HashConfig"
              label="Hash config"/>
 
+     <propertyTab
+             category="domain"
+             id="tab.type.TypePointer"
+             label="Type"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.type.Operation"
+             label="Operation"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.artifact.Categorized"
+             label="Categorized"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.permission.Secured"
+             label="Permission"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.type.Assosiation"
+             label="Master - Detail"/>
 
       </propertyTabs>
 
@@ -223,5 +247,73 @@
 	   </propertySections>
 	</extension>
 
+	
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.TypePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.TypePointerSectionFilter"
+	            id="type.TypePointer"
+	            tab="tab.type.TypePointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.OperationReturnTypePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.OperationSectionFilter"
+	            id="type.Operation"
+	            tab="tab.type.Operation">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ParametersPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.OperationSectionFilter"
+	            id="type.Operation.Parameters"
+	            tab="tab.type.Operation"
+	            afterSection="type.Operation">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.CategorizedPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.CategorizedSectionFilter"
+	            id="artifact.Categorized"
+	            tab="tab.artifact.Categorized">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RolesPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.PermissionSectionFilter"
+	            id="permission.Secured"
+	            tab="tab.permission.Secured">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.AssosiationMasterDetailPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.AssosiationSectionFilter"
+	            id="type.Assosiation"
+	            tab="tab.type.Assosiation">
+	      </propertySection>
+	   </propertySections>
+	</extension>
 	
 </plugin>

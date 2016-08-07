@@ -4,33 +4,67 @@
     <domainArtifact uid="8c6e20f4-46c7-4fd1-b50c-3ad6922cb6e8" name="Domain Artifact1">
       <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Artifact package1">
         <artifacts uid="286f5f16-4c6c-4a09-a69f-fb43c250e3e4" name="dasdasd" description="q1">
-          <modelQuery uid="dc22f168-f169-4c8a-b09a-70130a43180c" name="asdasdadsrrrrr"/>
+          <configVariables uid="f5476b6e-8c76-4a35-85dc-604ca856e880" name="asdasd" var="27d4df70-cdb5-4564-b2cf-9208e8d66081"/>
+          <configVariables uid="d7c1abc2-32b9-4be9-9cf9-2d9b6dc88a5d" name="a1111sdasd" var="43127d25-c5fe-453d-90a2-c248e0e7d7d1"/>
+          <configHashes uid="94d9296f-13a4-4cb3-bfa0-08ca327516de" name="asdasdasdasd" hash="d4aa4965-e5b4-4e67-9b4e-f1a336a65f05"/>
+          <modelQuery uid="dc22f168-f169-4c8a-b09a-70130a43180c" name="asdasdadsrrrrr">
+            <parameters uid="0dd5a2ba-1c65-422f-8514-4b0507000708" name="asdasd"/>
+          </modelQuery>
           <modelQuery uid="69e139c9-62e6-47c5-bf4a-2f7bb1f199a6" name="q3"/>
-          <modelQuery uid="e612ad8c-95ae-472d-8637-a72939d0cf11" name="q2"/>
+          <modelQuery uid="e612ad8c-95ae-472d-8637-a72939d0cf11" name="q2">
+            <parameters uid="0831b865-1142-4a61-ae80-650dfc50b2cc" name="sadasdas"/>
+          </modelQuery>
           <modelQuery uid="d1de6077-5d14-4b58-97da-fcd2a37d3f0f" name="ewwqe"/>
           <modelQuery uid="7629cbe4-fcca-4939-ad0f-d6754fb7c235" name="sadasD"/>
+          <technologies uid="4ce1ecb9-5d39-44fe-9aaa-7a32391000f8" name="Jpa persistance">
+            <options uid="4450628d-9690-4484-b38e-993c8d960960" value="058abeb0-a846-4174-8936-b19d84f545d8"/>
+            <options uid="c695d2e2-1728-4bde-ac43-5be039292e38" value="f26bba7d-e822-4809-ab5c-a3ec5771471b"/>
+          </technologies>
+          <hints uid="8cc4494b-000c-422c-932d-5577ec587524" name="mbmnb,mn" hint="ad6697cc-6bc4-403f-9f35-1fa59f4813a2"/>
         </artifacts>
+        <artifacts uid="880949d7-5902-48b1-ae35-df5687fe4d71" name="asdasdasd"/>
       </artifactPackages>
     </domainArtifact>
-    <techLeafs uid="52052d1c-7313-4684-a8bd-c62091140f59" name="qq1">
+    <techLeafs uid="52052d1c-7313-4684-a8bd-c62091140f59" name="JEE">
       <hints uid="ad6697cc-6bc4-403f-9f35-1fa59f4813a2" name="fsdfsdf"/>
       <configVariables uid="27d4df70-cdb5-4564-b2cf-9208e8d66081" name="asdasd"/>
-      <techLeafs uid="058abeb0-a846-4174-8936-b19d84f545d8" name="q2">
-        <hints uid="235084b1-5c6e-4ee0-b8cb-8d2539b3b6f5" name="wwwww"/>
+      <configHashes uid="d4aa4965-e5b4-4e67-9b4e-f1a336a65f05" name="asdasdasdasd"/>
+      <techLeafs uid="058abeb0-a846-4174-8936-b19d84f545d8" name="SDASDASD">
+        <hints uid="235084b1-5c6e-4ee0-b8cb-8d2539b3b6f5" name="wwwweeeeeew"/>
         <hints uid="d8279e6d-a625-44ae-ac13-2a62854a5dce" name="sdfsdfsd"/>
-        <configVariables uid="43127d25-c5fe-453d-90a2-c248e0e7d7d1" name="adsdasd"/>
-        <techLeafs uid="f83e3a3a-93ae-4406-9dfc-07d5976407f2" name="asdasdasdasd"/>
+        <configVariables uid="43127d25-c5fe-453d-90a2-c248e0e7d7d1" name="a1111sdasd"/>
+        <techLeafs uid="f83e3a3a-93ae-4406-9dfc-07d5976407f2" name="asdas22222"/>
       </techLeafs>
     </techLeafs>
+    <techLeafs uid="f26bba7d-e822-4809-ab5c-a3ec5771471b" name="JavaScript"/>
   </domainArtifacts>
   <domainTypes uid="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" name="Primitives">
     <typesRepository uid="923b1494-89cc-4956-a3da-af3d9cbe6e46" name="Domain Repository1">
       <repositoryPackages uid="2be392a0-795a-4751-9883-491c90520d9e" name="Type package1">
         <types xsi:type="tura.type:Type" uid="8f1e281e-f64f-4992-bb3e-7bd82b6ad240" name="rrrrr">
-          <attributes uid="c8ae17b4-8c17-49d8-91fd-983d8c1202bf" name="n,n,mn,"/>
-          <operations uid="c2b0afd9-deec-437e-897f-e9e991b80ef2" name="asdasdasd"/>
-          <operations uid="ae4eef87-9db0-4422-86d1-048678dde6c1" name="asdasdasd"/>
+          <attributes typeRef="8f1e281e-f64f-4992-bb3e-7bd82b6ad240" uid="c8ae17b4-8c17-49d8-91fd-983d8c1202bf" name="n,n,mn,"/>
+          <operations uid="c2b0afd9-deec-437e-897f-e9e991b80ef2" name="asdasdasd">
+            <classifiers uid="fe861e2d-3ba7-4d52-9e22-77d3c971512a" hint="ad6697cc-6bc4-403f-9f35-1fa59f4813a2"/>
+            <classifiers uid="1944df7e-5814-4cdd-a0da-099f046cc2e0" hint="235084b1-5c6e-4ee0-b8cb-8d2539b3b6f5"/>
+            <parameters typeRef="8f1e281e-f64f-4992-bb3e-7bd82b6ad240" uid="d184ce40-ee1f-4309-b678-5bd5faf9f956" name="erwerwr" order="1"/>
+            <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="bc2b8fa4-cf49-4f40-ad7b-64fc055676f6" name="fdgdfg"/>
+            <returnValue typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912"/>
+          </operations>
+          <operations uid="ae4eef87-9db0-4422-86d1-048678dde6c1" name="asdasdasd">
+            <grants uid="c155f491-9cc9-4d1d-8f7f-a59f470bd22d" roleRef="6ad34243-f4da-494d-8b83-f8a7fb34b6a5"/>
+            <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9b414f04-9569-47c3-afec-a9fdd438f728" name="weqwe"/>
+            <returnValue typeRef="8f1e281e-f64f-4992-bb3e-7bd82b6ad240"/>
+          </operations>
         </types>
+        <types xsi:type="tura.type:TypeReference" uid="691495cf-06a1-4df0-8fd5-87eec2145fad" typeRef="1dab40f4-4049-480e-a206-023fd51fae31"/>
+        <types xsi:type="tura.type:TypeReference" uid="afd4d39e-2cda-4aa7-8749-fad44f055dc0"/>
+        <types xsi:type="tura.type:Type" uid="8e2ed330-4b75-447a-992c-75c46b590ba0"/>
+        <types xsi:type="tura.type:Enumerator" uid="7d9045b8-1c09-4963-b8fc-c6c16e52b718" name="emun">
+          <values uid="d4538b1b-dd18-4401-94b1-e058f2a84aa8" name="attrib1"/>
+        </types>
+        <relationships xsi:type="tura.type:Assosiation" uid="bca78920-d1d9-410d-8bf6-4fe885a66bb6" source="8f1e281e-f64f-4992-bb3e-7bd82b6ad240" target="8e2ed330-4b75-447a-992c-75c46b590ba0">
+          <links uid="4aa54173-75fb-479c-9b2e-094eb12edd54" masterField="c8ae17b4-8c17-49d8-91fd-983d8c1202bf"/>
+        </relationships>
       </repositoryPackages>
     </typesRepository>
     <primitives>
@@ -66,8 +100,11 @@
                 <recipe uid="a53513af-bf77-49c6-baba-aff5ad83a8eb" name="Recipe">
                   <ingredients uid="79003a1c-ed2f-454d-85f9-48cacba976f4" name="Ingredient 1">
                     <components xsi:type="tura.recipe:JavaComponent" uid="abb5c51f-48fb-4e23-ac5b-5395fd679204" name="Java component 1">
-                      <mappers uid="ed5de964-e740-4dee-ac74-5a6d695f1bf6" name="Model mapper 1" artifactRoot="">
-                        <queries uid="6942f882-f597-44c3-9a67-ef94f9bd917c" name="Query1"/>
+                      <mappers uid="ed5de964-e740-4dee-ac74-5a6d695f1bf6" artifactRef="286f5f16-4c6c-4a09-a69f-fb43c250e3e4" name="Model mapper 1" artifactRoot="">
+                        <technologies techRef="4ce1ecb9-5d39-44fe-9aaa-7a32391000f8" valueRef="4450628d-9690-4484-b38e-993c8d960960"/>
+                        <queries uid="6942f882-f597-44c3-9a67-ef94f9bd917c" name="Query1" queryRef="dc22f168-f169-4c8a-b09a-70130a43180c">
+                          <variables queryParamRef="0dd5a2ba-1c65-422f-8514-4b0507000708"/>
+                        </queries>
                         <queries uid="43f2d8e9-0985-4a08-a7a1-6358351f386c" name="Query 2"/>
                         <queries uid="41038e0f-1d08-49a1-a00e-d6090e233a77" name="Query 3"/>
                       </mappers>
@@ -84,18 +121,29 @@
                   <ingredients uid="76496306-0c11-4b40-90f8-a6e7e9291354" name="Ingredient 2">
                     <components xsi:type="tura.recipe:JavaComponent" uid="3cfd888b-22ce-4c8a-8259-364be4d745a3" name="Model mapper 8"/>
                   </ingredients>
+                  <deplymentStep mapper="ed5de964-e740-4dee-ac74-5a6d695f1bf6" deploymentComponentLink="//@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.2"/>
+                  <deplymentStep mapper="bafcda71-e9fb-46ea-9274-08c6f4d41404" deploymentComponentLink="//@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.0"/>
+                  <deplymentStep mapper="bf34c444-e149-44b5-a10c-a1dff11a97ed"/>
+                  <startSeq uid="c119506d-ef2f-4d81-a1dc-3a7f8854cc48" firstStep="//@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.1"/>
                 </recipe>
-                <configurations uid="41b58e36-cca1-458a-8f45-d88154c8aa1e"/>
-                <configurations uid="8a3affb8-c67c-42b2-8e59-2fedbf2213dc"/>
-                <configurations uid="49b45bbe-82bb-42a9-a023-a693c5d4d782"/>
+                <configurations uid="41b58e36-cca1-458a-8f45-d88154c8aa1e" name="qwerty">
+                  <properties confVarRef="27d4df70-cdb5-4564-b2cf-9208e8d66081" value=""/>
+                </configurations>
+                <configurations uid="8a3affb8-c67c-42b2-8e59-2fedbf2213dc" name="qwerty"/>
+                <configurations uid="49b45bbe-82bb-42a9-a023-a693c5d4d782">
+                  <properties confVarRef="43127d25-c5fe-453d-90a2-c248e0e7d7d1"/>
+                  <hashProperties confHashRef="d4aa4965-e5b4-4e67-9b4e-f1a336a65f05">
+                    <hash uid="7dfdb5e2-425b-45cf-9879-2f72a175f24e" key="adasdasd" value="asdasdasd"/>
+                  </hashProperties>
+                </configurations>
                 <infrastructures uid="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3" name="Development"/>
                 <infrastructures uid="04dedfd4-c909-42cf-81f5-1898ace8d9e4" name="Production"/>
                 <configExtensions uid="f8c68b40-d2aa-407d-9f91-e10b8065adb3" source="41b58e36-cca1-458a-8f45-d88154c8aa1e" target="49b45bbe-82bb-42a9-a023-a693c5d4d782"/>
                 <configExtensions uid="5850c798-5c94-4559-a8ed-14b0d9f2806b" source="8a3affb8-c67c-42b2-8e59-2fedbf2213dc" target="49b45bbe-82bb-42a9-a023-a693c5d4d782"/>
                 <recipe2Infrastructures uid="9faa75b4-6a88-49c6-9d80-f37b56751c1e" source="a53513af-bf77-49c6-baba-aff5ad83a8eb" target="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3"/>
                 <recipe2Infrastructures uid="708316d2-8d3c-44aa-8338-a0ac77c8fe84" source="a53513af-bf77-49c6-baba-aff5ad83a8eb" target="04dedfd4-c909-42cf-81f5-1898ace8d9e4"/>
-                <infrastructure2Configurations uid="f0f5db58-2a78-4b8a-b625-e657043db63e" source="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3" target="41b58e36-cca1-458a-8f45-d88154c8aa1e"/>
-                <infrastructure2Configurations uid="757ffe47-5bfc-486d-8993-0538497a407f" source="04dedfd4-c909-42cf-81f5-1898ace8d9e4" target="8a3affb8-c67c-42b2-8e59-2fedbf2213dc"/>
+                <infrastructure2Configurations uid="87f876ed-62b9-4f6c-9d53-713fc7681b68" source="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3" target="41b58e36-cca1-458a-8f45-d88154c8aa1e"/>
+                <infrastructure2Configurations uid="5aa5342d-53be-4bce-b1dc-ec86602ae796" source="04dedfd4-c909-42cf-81f5-1898ace8d9e4" target="8a3affb8-c67c-42b2-8e59-2fedbf2213dc"/>
               </recipes>
               <recipes uid="561df30a-5e25-4918-a009-9ba745f5bb66" name="Recipe 2"/>
             </recipes>
