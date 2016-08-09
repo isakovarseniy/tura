@@ -153,13 +153,30 @@ public class DiagramService {
 	
 
 	public String generateName(Message message ){
-		return "Key  "+ ((MessageLibrary)(message.eContainer())).getMessages().size();
+		if (message.getName() == null){
+		    return "Key  "+ ((MessageLibrary)(message.eContainer())).getMessages().size();
+		}else{
+			return message.getName();
+		}
 	}
 
 
 	public String generateName(Translation translation ){
-		return "Translation  "+ ((Message)(translation.eContainer())).getTranslatioins().size();
+		if (translation.getLang() == null){
+		     return "Translation  "+ ((Message)(translation.eContainer())).getTranslatioins().size();
+		}else{
+			return translation.getLang().getLang();
+		}
 	}
+	
+	public String getLangName(Translation translation ){
+		if (translation.getLang() == null){
+		     return "Translation  "+ ((Message)(translation.eContainer())).getTranslatioins().size();
+		}else{
+			return translation.getLang().getLang();
+		}
+	}	
+	
 
 	public String generateName(ApplicationInfrastructureLayer layer ){
 		return "Infrastructure Environment  "+ ((ApplicationInfrastructureLayers)(layer.eContainer())).getInfarastructureLayers().size();

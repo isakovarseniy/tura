@@ -2,14 +2,14 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="tura" version="10.1.3.201511131800">
   <ownedViewpoints name="Domain tree" modelFileExtension="domain">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Message Library" domainClass="message.MessageLibrary">
-      <ownedLineMappings name="Key" domainClass="message.Message" semanticCandidatesExpression="feature:messages">
+      <ownedLineMappings name="Key" domainClass="message.Message" semanticCandidatesExpression="feature:messages" headerLabelExpression="service:generateName">
         <defaultForeground>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
         </defaultForeground>
         <defaultBackground>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
         </defaultBackground>
-        <ownedSubLines name="Language" domainClass="message.Translation" semanticCandidatesExpression="feature:translatioins">
+        <ownedSubLines name="Language" domainClass="message.Translation" semanticCandidatesExpression="feature:translatioins" headerLabelExpression="service:getLangName">
           <defaultForeground>
             <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
           </defaultForeground>
