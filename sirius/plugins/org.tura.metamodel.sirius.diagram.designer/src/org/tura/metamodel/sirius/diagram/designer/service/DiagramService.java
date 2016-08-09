@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
+import org.tura.metamodel.sirius.properties.selections.adapters.textdata.GrantAccessRoleRef;
+import org.tura.metamodel.sirius.properties.selections.adapters.textdata.StylePointerLibraryName;
+import org.tura.metamodel.sirius.properties.selections.adapters.textdata.TypeGroupPointerName;
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.TypePointerTypeName;
 
 import application.Application;
@@ -37,6 +40,11 @@ import form.FormParameter;
 import form.LayerHolder;
 import form.ViewArea;
 import infrastructure.EnterpriseInfrastructure;
+import mapper.CSSMapper;
+import mapper.JavaMapper;
+import mapper.JavaPackageMapper;
+import mapper.JavaScriptMapper;
+import mapper.RoleMapper;
 import message.Language;
 import message.Message;
 import message.MessageLibrary;
@@ -205,4 +213,28 @@ public class DiagramService {
 	public String generateName(ApplicationMapper param ){
 		return "Mapping package"+ ((ApplicationMappers)(param.eContainer())).getMappers().size();
 	}
+
+
+	public String generateName(JavaMapper mapper ){
+		return "Java type mapper for "+ new TypePointerTypeName().getFeatureValue(mapper, null);
+	}
+
+	public String generateName(JavaScriptMapper mapper ){
+		return "Java script mapper for "+ new TypePointerTypeName().getFeatureValue(mapper, null);
+	}
+
+	public String generateName(JavaPackageMapper mapper ){
+		return "Java package mapper for "+ new TypeGroupPointerName().getFeatureValue(mapper, null);
+	}
+	
+	public String generateName(CSSMapper mapper ){
+		return "CSS mapper for  "+ new StylePointerLibraryName().getFeatureValue(mapper, null);
+	}
+	
+	public String generateName(RoleMapper mapper ){
+		return "Role mapper for "+ new GrantAccessRoleRef().getFeatureValue(mapper, null);
+	}
+	
+	
+	
 }

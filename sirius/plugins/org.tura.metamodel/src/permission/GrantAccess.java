@@ -14,14 +14,13 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link permission.GrantAccess#getUid <em>Uid</em>}</li>
- *   <li>{@link permission.GrantAccess#getRoleRef <em>Role Ref</em>}</li>
  * </ul>
  *
  * @see permission.PermissionPackage#getGrantAccess()
  * @model
  * @generated
  */
-public interface GrantAccess extends EObject {
+public interface GrantAccess extends SecurityEntityPointer {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -47,31 +46,5 @@ public interface GrantAccess extends EObject {
 	 * @generated
 	 */
 	void setUid(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Role Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Role Ref</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Role Ref</em>' reference.
-	 * @see #setRoleRef(Role)
-	 * @see permission.PermissionPackage#getGrantAccess_RoleRef()
-	 * @model
-	 * @generated
-	 */
-	Role getRoleRef();
-
-	/**
-	 * Sets the value of the '{@link permission.GrantAccess#getRoleRef <em>Role Ref</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Role Ref</em>' reference.
-	 * @see #getRoleRef()
-	 * @generated
-	 */
-	void setRoleRef(Role value);
 
 } // GrantAccess

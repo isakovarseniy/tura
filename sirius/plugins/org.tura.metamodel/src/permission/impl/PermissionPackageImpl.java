@@ -292,6 +292,15 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSecurityEntity_Name() {
+		return (EAttribute)securityEntityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRole() {
 		return roleEClass;
 	}
@@ -310,15 +319,6 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRole_Name() {
-		return (EAttribute)roleEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getGroup() {
 		return groupEClass;
 	}
@@ -330,15 +330,6 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 */
 	public EAttribute getGroup_Uid() {
 		return (EAttribute)groupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGroup_Name() {
-		return (EAttribute)groupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -454,15 +445,6 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGrantAccess_RoleRef() {
-		return (EReference)grantAccessEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSecurityEntityPointer() {
 		return securityEntityPointerEClass;
 	}
@@ -512,14 +494,13 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		createEReference(rolesEClass, ROLES__GROUP2_ROLES);
 
 		securityEntityEClass = createEClass(SECURITY_ENTITY);
+		createEAttribute(securityEntityEClass, SECURITY_ENTITY__NAME);
 
 		roleEClass = createEClass(ROLE);
 		createEAttribute(roleEClass, ROLE__UID);
-		createEAttribute(roleEClass, ROLE__NAME);
 
 		groupEClass = createEClass(GROUP);
 		createEAttribute(groupEClass, GROUP__UID);
-		createEAttribute(groupEClass, GROUP__NAME);
 
 		group2GroupEClass = createEClass(GROUP2_GROUP);
 		createEAttribute(group2GroupEClass, GROUP2_GROUP__UID);
@@ -536,7 +517,6 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 
 		grantAccessEClass = createEClass(GRANT_ACCESS);
 		createEAttribute(grantAccessEClass, GRANT_ACCESS__UID);
-		createEReference(grantAccessEClass, GRANT_ACCESS__ROLE_REF);
 
 		securityEntityPointerEClass = createEClass(SECURITY_ENTITY_POINTER);
 		createEReference(securityEntityPointerEClass, SECURITY_ENTITY_POINTER__SECURITY_ENTITY);
@@ -572,6 +552,7 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		// Add supertypes to classes
 		roleEClass.getESuperTypes().add(this.getSecurityEntity());
 		groupEClass.getESuperTypes().add(this.getSecurityEntity());
+		grantAccessEClass.getESuperTypes().add(this.getSecurityEntityPointer());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(rolesEClass, Roles.class, "Roles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -582,14 +563,13 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 		initEReference(getRoles_Group2Roles(), this.getGroup2Role(), null, "group2Roles", null, 0, -1, Roles.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityEntityEClass, SecurityEntity.class, "SecurityEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSecurityEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, SecurityEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRole_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(group2GroupEClass, Group2Group.class, "Group2Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup2Group_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Group2Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -606,7 +586,6 @@ public class PermissionPackageImpl extends EPackageImpl implements PermissionPac
 
 		initEClass(grantAccessEClass, GrantAccess.class, "GrantAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGrantAccess_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, GrantAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGrantAccess_RoleRef(), this.getRole(), null, "roleRef", null, 0, 1, GrantAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityEntityPointerEClass, SecurityEntityPointer.class, "SecurityEntityPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSecurityEntityPointer_SecurityEntity(), this.getSecurityEntity(), null, "securityEntity", null, 0, 1, SecurityEntityPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

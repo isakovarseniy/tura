@@ -24,12 +24,11 @@ import permission.Role;
  * </p>
  * <ul>
  *   <li>{@link permission.impl.GrantAccessImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link permission.impl.GrantAccessImpl#getRoleRef <em>Role Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GrantAccessImpl extends EObjectImpl implements GrantAccess {
+public class GrantAccessImpl extends SecurityEntityPointerImpl implements GrantAccess {
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -49,16 +48,6 @@ public class GrantAccessImpl extends EObjectImpl implements GrantAccess {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getRoleRef() <em>Role Ref</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoleRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected Role roleRef;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,52 +94,11 @@ public class GrantAccessImpl extends EObjectImpl implements GrantAccess {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Role getRoleRef() {
-		if (roleRef != null && roleRef.eIsProxy()) {
-			InternalEObject oldRoleRef = (InternalEObject)roleRef;
-			roleRef = (Role)eResolveProxy(oldRoleRef);
-			if (roleRef != oldRoleRef) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PermissionPackage.GRANT_ACCESS__ROLE_REF, oldRoleRef, roleRef));
-			}
-		}
-		return roleRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Role basicGetRoleRef() {
-		return roleRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRoleRef(Role newRoleRef) {
-		Role oldRoleRef = roleRef;
-		roleRef = newRoleRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermissionPackage.GRANT_ACCESS__ROLE_REF, oldRoleRef, roleRef));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PermissionPackage.GRANT_ACCESS__UID:
 				return getUid();
-			case PermissionPackage.GRANT_ACCESS__ROLE_REF:
-				if (resolve) return getRoleRef();
-				return basicGetRoleRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,9 +113,6 @@ public class GrantAccessImpl extends EObjectImpl implements GrantAccess {
 		switch (featureID) {
 			case PermissionPackage.GRANT_ACCESS__UID:
 				setUid((String)newValue);
-				return;
-			case PermissionPackage.GRANT_ACCESS__ROLE_REF:
-				setRoleRef((Role)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -184,9 +129,6 @@ public class GrantAccessImpl extends EObjectImpl implements GrantAccess {
 			case PermissionPackage.GRANT_ACCESS__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case PermissionPackage.GRANT_ACCESS__ROLE_REF:
-				setRoleRef((Role)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -201,8 +143,6 @@ public class GrantAccessImpl extends EObjectImpl implements GrantAccess {
 		switch (featureID) {
 			case PermissionPackage.GRANT_ACCESS__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case PermissionPackage.GRANT_ACCESS__ROLE_REF:
-				return roleRef != null;
 		}
 		return super.eIsSet(featureID);
 	}

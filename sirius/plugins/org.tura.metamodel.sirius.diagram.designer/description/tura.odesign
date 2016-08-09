@@ -2244,7 +2244,7 @@
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
         </defaultStyle>
         <subItemMappings name="Java type mapper" domainClass="mapper.JavaMapper" semanticCandidatesExpression="feature:mappers">
-          <defaultStyle labelSize="12" labelExpression="Java type mapper for ">
+          <defaultStyle labelSize="12" labelExpression="service:generateName">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
           </defaultStyle>
@@ -2266,7 +2266,7 @@
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
         </defaultStyle>
         <subItemMappings name="Java package mapper" domainClass="mapper.JavaPackageMapper" semanticCandidatesExpression="feature:mappers">
-          <defaultStyle labelSize="12" labelExpression="Java package mapper for ">
+          <defaultStyle labelSize="12" labelExpression="service:generateName">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
           </defaultStyle>
@@ -2288,7 +2288,7 @@
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
         </defaultStyle>
         <subItemMappings name="Java Script mapper" domainClass="mapper.JavaScriptMapper" semanticCandidatesExpression="feature:mappers">
-          <defaultStyle labelSize="12" labelExpression="Java script mapper for ">
+          <defaultStyle labelSize="12" labelExpression="service:generateName">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
           </defaultStyle>
@@ -2310,7 +2310,7 @@
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
         </defaultStyle>
         <subItemMappings name="CSS mapper" domainClass="mapper.CSSMapper" semanticCandidatesExpression="feature:mappers">
-          <defaultStyle labelSize="12" labelExpression="CSS mapper for ">
+          <defaultStyle labelSize="12" labelExpression="service:generateName">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
           </defaultStyle>
@@ -2332,7 +2332,7 @@
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
         </defaultStyle>
         <subItemMappings name="Role mapper" domainClass="mapper.RoleMapper" semanticCandidatesExpression="feature:mappers">
-          <defaultStyle labelSize="12" labelExpression="Role mapper for ">
+          <defaultStyle labelSize="12" labelExpression="service:generateName">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
           </defaultStyle>

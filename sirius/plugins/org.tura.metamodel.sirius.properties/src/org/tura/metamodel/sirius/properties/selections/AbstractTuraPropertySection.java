@@ -110,17 +110,20 @@ public abstract class AbstractTuraPropertySection extends
 			return;
 		}
 		eObjectList = ((IStructuredSelection) selection).toList();
-		editPart =  (IGraphicalEditPart) ((IStructuredSelection) selection).getFirstElement();
-
-		if (editPart.getModel() instanceof ShapeImpl )
-		     eObject  = ((ShapeImpl) editPart.getModel()).basicGetElement();
-		if (editPart.getModel() instanceof NodeImpl )
-		     eObject  = ((NodeImpl) editPart.getModel()).basicGetElement();
-		if (editPart.getModel() instanceof ConnectorImpl )
-		     eObject  = ((ConnectorImpl) editPart.getModel()).basicGetElement();
-		if (editPart.getModel() instanceof EdgeImpl )
-		     eObject  = ((EdgeImpl) editPart.getModel()).basicGetElement();
-
+		if (((IStructuredSelection) selection).getFirstElement()  instanceof IGraphicalEditPart){
+				editPart =  (IGraphicalEditPart) ((IStructuredSelection) selection).getFirstElement();
+		
+				if (editPart.getModel() instanceof ShapeImpl )
+				     eObject  = ((ShapeImpl) editPart.getModel()).basicGetElement();
+				if (editPart.getModel() instanceof NodeImpl )
+				     eObject  = ((NodeImpl) editPart.getModel()).basicGetElement();
+				if (editPart.getModel() instanceof ConnectorImpl )
+				     eObject  = ((ConnectorImpl) editPart.getModel()).basicGetElement();
+				if (editPart.getModel() instanceof EdgeImpl )
+				     eObject  = ((EdgeImpl) editPart.getModel()).basicGetElement();
+		}else{
+			eObject = (EObject) ((IStructuredSelection) selection).getFirstElement();
+		}
 	}
 	
 	

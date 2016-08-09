@@ -4,8 +4,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.sirius.properties.selections.TextDataAdapter;
 
 import application.ApplicationRealm;
-import permission.GrantAccess;
 import permission.PermissionPackage;
+import permission.SecurityEntityPointer;
 
 public class GrantAccessRoleRef  implements TextDataAdapter {
 
@@ -13,16 +13,16 @@ public class GrantAccessRoleRef  implements TextDataAdapter {
 	public Object getFeatureValue(Object eObject, EStructuralFeature feature) {
 		if (eObject == null)
 			return "";
-		GrantAccess opt = (GrantAccess) eObject;
-		if (opt.getRoleRef() == null || opt.getRoleRef().getName() == null)
+		SecurityEntityPointer opt = (SecurityEntityPointer) eObject;
+		if (opt.getSecurityEntity() == null || opt.getSecurityEntity().getName() == null)
 			return "";
 
-		return ((ApplicationRealm) (opt.getRoleRef().eContainer().eContainer())).getName() + ":" + opt.getRoleRef().getName();
+		return ((ApplicationRealm) (opt.getSecurityEntity().eContainer().eContainer())).getName() + ":" + opt.getSecurityEntity().getName();
 	}
 
 	@Override
 	public EStructuralFeature getFeature() {
-		return PermissionPackage.eINSTANCE.getGrantAccess_RoleRef();
+		return PermissionPackage.eINSTANCE.getSecurityEntityPointer_SecurityEntity();
 	}
 
 }

@@ -113,6 +113,7 @@ public class PermissionSwitch<T> extends Switch<T> {
 			case PermissionPackage.GRANT_ACCESS: {
 				GrantAccess grantAccess = (GrantAccess)theEObject;
 				T result = caseGrantAccess(grantAccess);
+				if (result == null) result = caseSecurityEntityPointer(grantAccess);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

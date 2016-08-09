@@ -6,10 +6,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.window.Window;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
@@ -133,7 +134,8 @@ public abstract class TreePropertySelectioin extends AbstractTuraPropertySection
 				TreePath path = treePath[0];
 				if (validateSelection(path)) {
 
-					EditingDomain editingDomain = ((DiagramEditor) this.getPart()).getEditingDomain();
+					Session session = SessionManager.INSTANCE.getSession(getModel());
+					EditingDomain editingDomain = session.getTransactionalEditingDomain();
 					EStructuralFeature feature = getDataAdapter().getFeature();
 					Command setCommand = SetCommand.create(editingDomain, getModel(), feature, path.getLastSegment());
 					editingDomain.getCommandStack().execute(setCommand);

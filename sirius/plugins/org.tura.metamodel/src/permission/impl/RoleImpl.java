@@ -20,7 +20,6 @@ import permission.Role;
  * </p>
  * <ul>
  *   <li>{@link permission.impl.RoleImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link permission.impl.RoleImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,26 +44,6 @@ public class RoleImpl extends SecurityEntityImpl implements Role {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,34 +90,11 @@ public class RoleImpl extends SecurityEntityImpl implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermissionPackage.ROLE__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PermissionPackage.ROLE__UID:
 				return getUid();
-			case PermissionPackage.ROLE__NAME:
-				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,9 +109,6 @@ public class RoleImpl extends SecurityEntityImpl implements Role {
 		switch (featureID) {
 			case PermissionPackage.ROLE__UID:
 				setUid((String)newValue);
-				return;
-			case PermissionPackage.ROLE__NAME:
-				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -172,9 +125,6 @@ public class RoleImpl extends SecurityEntityImpl implements Role {
 			case PermissionPackage.ROLE__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case PermissionPackage.ROLE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -189,8 +139,6 @@ public class RoleImpl extends SecurityEntityImpl implements Role {
 		switch (featureID) {
 			case PermissionPackage.ROLE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case PermissionPackage.ROLE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -207,8 +155,6 @@ public class RoleImpl extends SecurityEntityImpl implements Role {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
-		result.append(", name: ");
-		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

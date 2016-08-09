@@ -39,6 +39,83 @@
 
 
 
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabstree">
+     <propertyTabs contributorId="org.eclipse.sirius.tree.ui.EditorID">
+          <propertyTab
+             category="default"
+             id="tab.tree.type.TypePointer"
+             label="Type"/>
+             
+          <propertyTab
+             category="default"
+             id="tab.tree.type.TypeGroup"
+             label="Package"/>
+             
+
+          <propertyTab
+             category="default"
+             id="tab.tree.permission.SecurityEntityPointer"
+             label="Permission"/>
+
+
+          <propertyTab
+             category="default"
+             id="tab.tree.style.StyleLibrary"
+             label="Style lib"/>
+
+
+      </propertyTabs>
+
+   </extension>
+   
+   
+  	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.tree.ui.EditorID">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.StyleLibraryPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.StyleLibraryPointerTreeFilter"
+	            id="tree.style.StyleLibrary"
+	            tab="tab.tree.style.StyleLibrary">
+	      </propertySection>
+	   </propertySections>
+	</extension>   
+   
+  	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.tree.ui.EditorID">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.SecuredElementPointerSelecton"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.SecuredElementPointerTreeFilter"
+	            id="tree.permission.SecurityEntityPointer"
+	            tab="tab.tree.permission.SecurityEntityPointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+   
+   
+   
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.tree.ui.EditorID">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.TypePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.TypePointerSectionTreeFilter"
+	            id="tree.tree.TypePointer"
+	            tab="tab.tree.type.TypePointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.tree.ui.EditorID">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.TypeGroupPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.TypeGroupPointerSelectionTreeFilter"
+	            id="tree.type.TypeGroup"
+	            tab="tab.tree.type.TypeGroup">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+	
     <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
       <?gmfgen generated="true"?>   
       <propertyTabs contributorId="org.eclipse.sirius.diagram.ui">

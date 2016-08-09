@@ -43,7 +43,7 @@ public class TypeGroupProvider implements IWorkbenchAdapter  ,IReturnTypeProvide
 
 	@Override
 	public Object getReturnType(Object o) {
-		return null;
+		return o;
 	}
 
 }

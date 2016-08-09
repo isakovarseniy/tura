@@ -1,20 +1,26 @@
 package org.tura.metamodel.commons.properties.selections.adapters;
 
+import java.util.ArrayList;
+
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 
-import style.StyleSet;
+import application.ApplicationStyleLibraries;
 
-public class StyleSetProvider implements IWorkbenchAdapter, IReturnTypeProvider {
+public class ApplicationStyleLibrariesProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 
 	@Override
 	public Object getReturnType(Object o) {
-		return o;
+		return null;
 	}
 
 	@Override
 	public Object[] getChildren(Object o) {
-		return new Object[]{};
+		ApplicationStyleLibraries p = (ApplicationStyleLibraries) o;
+		ArrayList<Object> ls = new ArrayList<>();
+		ls.addAll(p.getStyleLibraries());
+
+		return ls.toArray();
 	}
 
 	@Override
@@ -24,8 +30,7 @@ public class StyleSetProvider implements IWorkbenchAdapter, IReturnTypeProvider 
 
 	@Override
 	public String getLabel(Object o) {
-		StyleSet opr = (StyleSet) o;
-		return opr.getName();
+		return "Application Style Libraries";
 	}
 
 	@Override

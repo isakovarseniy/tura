@@ -10,17 +10,16 @@ class Roles{
 }
 
 class SecurityEntity{
+    attr EString name;
 	
 }
 
 class Role extends SecurityEntity{
     id attr EString uid;
-    attr EString name;
 }
 
 class Group extends SecurityEntity{
     id attr EString uid;
-    attr EString name;
 }
 
 
@@ -43,9 +42,8 @@ class Secured{
 	val GrantAccess[*] grants;
 }	
 
-class GrantAccess {
+class GrantAccess extends SecurityEntityPointer{
     id attr EString uid;
-	ref Role roleRef;
 }
 
 class SecurityEntityPointer{

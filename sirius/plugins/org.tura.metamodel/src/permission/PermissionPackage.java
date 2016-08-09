@@ -131,13 +131,22 @@ public interface PermissionPackage extends EPackage {
 	int SECURITY_ENTITY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_ENTITY__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>Security Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_ENTITY_FEATURE_COUNT = 0;
+	int SECURITY_ENTITY_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link permission.impl.RoleImpl <em>Role</em>}' class.
@@ -150,6 +159,15 @@ public interface PermissionPackage extends EPackage {
 	int ROLE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__NAME = SECURITY_ENTITY__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,22 +177,13 @@ public interface PermissionPackage extends EPackage {
 	int ROLE__UID = SECURITY_ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE__NAME = SECURITY_ENTITY_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Role</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_FEATURE_COUNT = SECURITY_ENTITY_FEATURE_COUNT + 2;
+	int ROLE_FEATURE_COUNT = SECURITY_ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link permission.impl.GroupImpl <em>Group</em>}' class.
@@ -187,6 +196,15 @@ public interface PermissionPackage extends EPackage {
 	int GROUP = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__NAME = SECURITY_ENTITY__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,22 +214,13 @@ public interface PermissionPackage extends EPackage {
 	int GROUP__UID = SECURITY_ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__NAME = SECURITY_ENTITY_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FEATURE_COUNT = SECURITY_ENTITY_FEATURE_COUNT + 2;
+	int GROUP_FEATURE_COUNT = SECURITY_ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link permission.impl.Group2GroupImpl <em>Group2 Group</em>}' class.
@@ -344,33 +353,6 @@ public interface PermissionPackage extends EPackage {
 	int GRANT_ACCESS = 7;
 
 	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRANT_ACCESS__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Role Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRANT_ACCESS__ROLE_REF = 1;
-
-	/**
-	 * The number of structural features of the '<em>Grant Access</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRANT_ACCESS_FEATURE_COUNT = 2;
-
-	/**
 	 * The meta object id for the '{@link permission.impl.SecurityEntityPointerImpl <em>Security Entity Pointer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -397,6 +379,33 @@ public interface PermissionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SECURITY_ENTITY_POINTER_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Security Entity</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRANT_ACCESS__SECURITY_ENTITY = SECURITY_ENTITY_POINTER__SECURITY_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRANT_ACCESS__UID = SECURITY_ENTITY_POINTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Grant Access</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRANT_ACCESS_FEATURE_COUNT = SECURITY_ENTITY_POINTER_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link permission.Roles <em>Roles</em>}'.
@@ -474,6 +483,17 @@ public interface PermissionPackage extends EPackage {
 	EClass getSecurityEntity();
 
 	/**
+	 * Returns the meta object for the attribute '{@link permission.SecurityEntity#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see permission.SecurityEntity#getName()
+	 * @see #getSecurityEntity()
+	 * @generated
+	 */
+	EAttribute getSecurityEntity_Name();
+
+	/**
 	 * Returns the meta object for class '{@link permission.Role <em>Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -495,17 +515,6 @@ public interface PermissionPackage extends EPackage {
 	EAttribute getRole_Uid();
 
 	/**
-	 * Returns the meta object for the attribute '{@link permission.Role#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see permission.Role#getName()
-	 * @see #getRole()
-	 * @generated
-	 */
-	EAttribute getRole_Name();
-
-	/**
 	 * Returns the meta object for class '{@link permission.Group <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -525,17 +534,6 @@ public interface PermissionPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGroup_Uid();
-
-	/**
-	 * Returns the meta object for the attribute '{@link permission.Group#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see permission.Group#getName()
-	 * @see #getGroup()
-	 * @generated
-	 */
-	EAttribute getGroup_Name();
 
 	/**
 	 * Returns the meta object for class '{@link permission.Group2Group <em>Group2 Group</em>}'.
@@ -666,17 +664,6 @@ public interface PermissionPackage extends EPackage {
 	EAttribute getGrantAccess_Uid();
 
 	/**
-	 * Returns the meta object for the reference '{@link permission.GrantAccess#getRoleRef <em>Role Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Role Ref</em>'.
-	 * @see permission.GrantAccess#getRoleRef()
-	 * @see #getGrantAccess()
-	 * @generated
-	 */
-	EReference getGrantAccess_RoleRef();
-
-	/**
 	 * Returns the meta object for class '{@link permission.SecurityEntityPointer <em>Security Entity Pointer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -781,6 +768,14 @@ public interface PermissionPackage extends EPackage {
 		EClass SECURITY_ENTITY = eINSTANCE.getSecurityEntity();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_ENTITY__NAME = eINSTANCE.getSecurityEntity_Name();
+
+		/**
 		 * The meta object literal for the '{@link permission.impl.RoleImpl <em>Role</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -799,14 +794,6 @@ public interface PermissionPackage extends EPackage {
 		EAttribute ROLE__UID = eINSTANCE.getRole_Uid();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROLE__NAME = eINSTANCE.getRole_Name();
-
-		/**
 		 * The meta object literal for the '{@link permission.impl.GroupImpl <em>Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -823,14 +810,6 @@ public interface PermissionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GROUP__UID = eINSTANCE.getGroup_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GROUP__NAME = eINSTANCE.getGroup_Name();
 
 		/**
 		 * The meta object literal for the '{@link permission.impl.Group2GroupImpl <em>Group2 Group</em>}' class.
@@ -935,14 +914,6 @@ public interface PermissionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GRANT_ACCESS__UID = eINSTANCE.getGrantAccess_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Role Ref</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GRANT_ACCESS__ROLE_REF = eINSTANCE.getGrantAccess_RoleRef();
 
 		/**
 		 * The meta object literal for the '{@link permission.impl.SecurityEntityPointerImpl <em>Security Entity Pointer</em>}' class.

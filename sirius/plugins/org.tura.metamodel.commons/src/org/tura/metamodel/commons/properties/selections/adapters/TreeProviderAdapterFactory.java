@@ -22,6 +22,7 @@ import application.ApplicationGroup;
 import application.ApplicationRealm;
 import application.ApplicationRealms;
 import application.ApplicationStyle;
+import application.ApplicationStyleLibraries;
 import application.ApplicationUIPackage;
 import artifact.Artifact;
 import artifact.ArtifactGroup;
@@ -108,7 +109,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private ApplicationProvider applicationProvider;
 	private ApplicationRealmProvider applicationRealmProvider;
 	private ApplicationRealmsProvider applicationRealmsProvider;
-	
+	private ApplicationStyleLibrariesProvider applicationStyleLibrariesProvider;
 	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -216,8 +217,10 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getApplicationRealmProvider();
 			if (adaptableObject instanceof ApplicationRealms)
 				return getApplicationRealmsProvider();
+			if (adaptableObject instanceof ApplicationStyleLibraries)
+				return getApplicationStyleLibrariesProvider();
 	
-			
+						
 			
 		}
 		return null;
@@ -506,7 +509,12 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		return applicationRealmsProvider;		
 	}
 
-	
-	
+
+	protected ApplicationStyleLibrariesProvider getApplicationStyleLibrariesProvider(){
+		if (applicationStyleLibrariesProvider == null)
+			applicationStyleLibrariesProvider = new ApplicationStyleLibrariesProvider();
+		return applicationStyleLibrariesProvider;		
+	}
+
 	
 }

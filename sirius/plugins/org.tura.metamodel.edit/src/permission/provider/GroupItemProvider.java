@@ -46,7 +46,6 @@ public class GroupItemProvider extends SecurityEntityItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addUidPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -65,28 +64,6 @@ public class GroupItemProvider extends SecurityEntityItemProvider {
 				 getString("_UI_Group_uid_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Group_uid_feature", "_UI_Group_type"),
 				 PermissionPackage.Literals.GROUP__UID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Group_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Group_name_feature", "_UI_Group_type"),
-				 PermissionPackage.Literals.GROUP__NAME,
 				 true,
 				 false,
 				 false,
@@ -134,7 +111,6 @@ public class GroupItemProvider extends SecurityEntityItemProvider {
 
 		switch (notification.getFeatureID(Group.class)) {
 			case PermissionPackage.GROUP__UID:
-			case PermissionPackage.GROUP__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -15,15 +15,7 @@ import permission.PermissionFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GrantAccessTest extends TestCase {
-
-	/**
-	 * The fixture for this Grant Access test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GrantAccess fixture = null;
+public class GrantAccessTest extends SecurityEntityPointerTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +37,14 @@ public class GrantAccessTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Grant Access test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(GrantAccess fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Grant Access test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected GrantAccess getFixture() {
-		return fixture;
+		return (GrantAccess)fixture;
 	}
 
 	/**

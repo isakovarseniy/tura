@@ -2,7 +2,6 @@ package org.tura.metamodel.commons.properties.selections.adapters;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
-import org.tura.metamodel.commons.QueryHelper;
 
 import permission.Role;
 
@@ -31,7 +30,7 @@ public class RoleProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 
 	@Override
 	public Object getReturnType(Object o) {
-		return new QueryHelper().findStringType(o);
+		return o;
 	}
 
 }

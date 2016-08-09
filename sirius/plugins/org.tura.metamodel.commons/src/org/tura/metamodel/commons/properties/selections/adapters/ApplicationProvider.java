@@ -19,6 +19,7 @@ public class ApplicationProvider implements IWorkbenchAdapter ,IReturnTypeProvid
 		Application p = (Application) o;
 		ArrayList<Object> ls = new ArrayList<>();
 		ls.add(p.getApplicationRole());
+		ls.add(p.getApplicationStyle());
 
 		return ls.toArray();
 	}

@@ -13,7 +13,7 @@ public class StyleLibraryProvider implements IWorkbenchAdapter,
 
 	@Override
 	public Object getReturnType(Object o) {
-		return null;
+		return o;
 	}
 
 	@Override
