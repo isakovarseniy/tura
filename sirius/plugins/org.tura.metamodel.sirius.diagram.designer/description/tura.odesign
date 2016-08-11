@@ -1334,7 +1334,7 @@
         <containerMappings name="DataControl" semanticCandidatesExpression="aql:self.controls" domainClass="form.DataControl" childrenPresentation="VerticalStack">
           <subContainerMappings name="PREQueryTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="PREQueryTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='PREQueryTrigger%20edit%20label']" semanticCandidatesExpression="feature:preQueryTrigger" domainClass="form.PREQueryTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1349,7 +1349,7 @@
           </subContainerMappings>
           <subContainerMappings name="POSTQueryTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="POSTQueryTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='POSTQueryTrigger%20edit%20label']" semanticCandidatesExpression="feature:postQueryTrigger" domainClass="form.POSTQueryTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1364,7 +1364,7 @@
           </subContainerMappings>
           <subContainerMappings name="PREInsertTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="PREInsertTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='PREInsertTrigger%20edit%20label']" semanticCandidatesExpression="feature:preInsertTrigger" domainClass="form.PREInsertTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1379,7 +1379,7 @@
           </subContainerMappings>
           <subContainerMappings name="PREDeleteTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="PREDeleteTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='PREDeleteTrigger%20edit%20label']" semanticCandidatesExpression="feature:preDeleteTrigger" domainClass="form.PREDeleteTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1394,7 +1394,7 @@
           </subContainerMappings>
           <subContainerMappings name="POSTCreateTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="POSTCreateTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='POSTCreateTrigger%20edit%20label']" semanticCandidatesExpression="feature:postCreateTrigger" domainClass="form.POSTCreateTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1409,7 +1409,7 @@
           </subContainerMappings>
           <subContainerMappings name="PREUpdateTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="PREUpdateTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='PREUpdateTrigger%20edit%20label']" semanticCandidatesExpression="feature:preUpdateTrigger" domainClass="form.PREUpdateTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1424,7 +1424,7 @@
           </subContainerMappings>
           <subContainerMappings name="CreateTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="CreateTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateTrigger%20edit%20label']" semanticCandidatesExpression="feature:create" domainClass="form.CreateTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1439,7 +1439,7 @@
           </subContainerMappings>
           <subContainerMappings name="InsertTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="InsertTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='InsertTrigger%20edit%20label']" semanticCandidatesExpression="feature:insert" domainClass="form.InsertTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1454,7 +1454,7 @@
           </subContainerMappings>
           <subContainerMappings name="UpdateTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="UpdateTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='UpdateTrigger%20edit%20label']" semanticCandidatesExpression="feature:update" domainClass="form.UpdateTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1469,7 +1469,7 @@
           </subContainerMappings>
           <subContainerMappings name="DeleteTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="DeleteTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteTrigger%20edit%20label']" semanticCandidatesExpression="feature:remove" domainClass="form.DeleteTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1484,7 +1484,7 @@
           </subContainerMappings>
           <subContainerMappings name="SearchTriggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="SearchTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='SearchTrigger%20edit%20label']" semanticCandidatesExpression="feature:search" domainClass="form.SearchTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1522,7 +1522,7 @@
         <containerMappings name="Root" semanticCandidatesExpression="aql:self.root" domainClass="form.Root" childrenPresentation="VerticalStack">
           <subContainerMappings name="PREFormTriggers" semanticCandidatesExpression="var:self" domainClass="form.Root" childrenPresentation="List">
             <subNodeMappings name="PREFormTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='PREFormTrigger%20edit%20label']" semanticCandidatesExpression="feature:preFormTrigger" domainClass="form.PREFormTrigger">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>

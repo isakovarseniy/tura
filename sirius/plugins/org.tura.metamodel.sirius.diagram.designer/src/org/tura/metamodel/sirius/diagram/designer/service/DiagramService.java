@@ -34,10 +34,22 @@ import domain.DomainTypes;
 import domain.DomainTypesRepository;
 import form.ArtificialField;
 import form.Column;
+import form.CreateTrigger;
 import form.DataControl;
+import form.DeleteTrigger;
 import form.Form;
 import form.FormParameter;
+import form.InsertTrigger;
 import form.LayerHolder;
+import form.POSTCreateTrigger;
+import form.POSTQueryTrigger;
+import form.PREDeleteTrigger;
+import form.PREFormTrigger;
+import form.PREInsertTrigger;
+import form.PREQueryTrigger;
+import form.PREUpdateTrigger;
+import form.SearchTrigger;
+import form.UpdateTrigger;
 import form.ViewArea;
 import infrastructure.EnterpriseInfrastructure;
 import mapper.CSSMapper;
@@ -252,6 +264,88 @@ public class DiagramService {
 		return "Role mapper for "+ new GrantAccessRoleRef().getFeatureValue(mapper, null);
 	}
 	
+	public String generateName(CreateTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "create  -  n/a";
+		}
+		return "create - "+trigger.getMethodRef().getName()+"()";
+	}
 	
+	public String generateName(UpdateTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "update  -  n/a";
+		}
+		return "update - "+trigger.getMethodRef().getName()+"()";
+	}
+	
+	public String generateName(DeleteTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "remove  -  n/a";
+		}
+		return "remove - "+trigger.getMethodRef().getName()+"()";
+	}
+	
+	public String generateName(InsertTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "insert  -  n/a";
+		}
+		return "insert - "+trigger.getMethodRef().getName()+"()";
+	}
+
+	public String generateName(SearchTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "search  -  n/a";
+		}
+		return "search - "+trigger.getMethodRef().getName()+"()";
+	}
+	
+	public String generateName(PREInsertTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "pre-insert  -  n/a";
+		}
+		return "pre-insert - "+trigger.getMethodRef().getName()+"()";
+	}
+	
+	public String generateName(PREDeleteTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "pre-remove  -  n/a";
+		}
+		return "pre-remove - "+trigger.getMethodRef().getName()+"()";
+	}
+	
+	public String generateName(PREUpdateTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "pre-update  -  n/a";
+		}
+		return "pre-update - "+trigger.getMethodRef().getName()+"()";
+	}
+
+	public String generateName(PREQueryTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "pre-query  -  n/a";
+		}
+		return "pre-query - "+trigger.getMethodRef().getName()+"()";
+	}
+	
+	public String generateName(POSTQueryTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "post-query  -  n/a";
+		}
+		return "post-query - "+trigger.getMethodRef().getName()+"()";
+	}
+	
+	public String generateName(POSTCreateTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "post-create  -  n/a";
+		}
+		return "post-create - "+trigger.getMethodRef().getName()+"()";
+	}
+	
+	public String generateName(PREFormTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "pre-form  -  n/a";
+		}
+		return "pre-form - "+trigger.getMethodRef().getName()+"()";
+	}
 	
 }
