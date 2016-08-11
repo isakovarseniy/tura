@@ -2,12 +2,16 @@ package org.tura.metamodel.commons;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
@@ -28,8 +32,11 @@ import domain.DomainTypes;
 import form.CanvasFrame;
 import form.ContextParameter;
 import form.ContextParameters;
+import form.ContextValue;
 import form.DataControl;
 import form.Form;
+import form.FormFactory;
+import form.FormPackage;
 import form.MenuExtensionRef;
 import form.MenuFolder;
 import form.MenuItem;
@@ -666,106 +673,70 @@ public class QueryHelper {
 	// }
 	//
 	public List<Object> findTriggerParameters(Operation method, ContextParameters trg, EObject types,
-			EditingDomain editingDomain) throws ParserException {
+			EditingDomain editingDomain) throws Exception {
 
-		throw new RuntimeException();
+		
+		 ArrayList<ContextParameter> removeParameters = new ArrayList<ContextParameter>();
+		 ArrayList<ContextParameter> addParameters = new ArrayList<ContextParameter>();
+		
+		 Collection<Parameter> map = method.getParameters();
+		
+		 ArrayList<Parameter> parameters = new ArrayList<Parameter>();
+		 parameters.addAll(map);
+		 
+		 Collections.sort(parameters, new ParameterComparator());
+		
+		 ArrayList<ContextParameter> trgParameters = new ArrayList<ContextParameter>();
+		 trgParameters.addAll(trg.getParameters());
+		
+		 Collections.sort(trgParameters, new ContextParameterComparator());
+		
+		boolean renewParameters = false;
+		if (trgParameters.size() != parameters.size()) {
+			removeParameters.addAll(trgParameters);
+			renewParameters = true;
+		 } else {
+		
+			for (int i = 0; i < trgParameters.size(); i++) {
+				ContextParameter trgParam = trgParameters.get(i);
+				Parameter param = parameters.get(i);
+				if (trgParam.getRefObj() == null
+						|| !((Parameter) trgParam.getRefObj()).getUid().equals(param.getUid())) {
+					removeParameters.addAll(trgParameters);
+					renewParameters = true;
+					break;
+				}
+			}
+		 }
+		if (renewParameters) {
+			for (int i = 0; i < parameters.size(); i++) {
+				ContextParameter trgParam = FormFactory.eINSTANCE.createContextParameter();
+				trgParam.setRefObj(parameters.get(i));
+				trgParam.setUid(UUID.randomUUID().toString());
+				addParameters.add(trgParam);
+				ContextValue value = FormFactory.eINSTANCE.createContextValue();
+				value.setUid(UUID.randomUUID().toString());
+				trgParam.setValue(value);
+			}
+		}
+		if (removeParameters.size() != 0) {
+			editingDomain.getCommandStack().execute(RemoveCommand.create(editingDomain, trg,
+					FormPackage.eINSTANCE.getContextParameters_Parameters(), removeParameters));
+		}
+		
+		if (addParameters.size() != 0) {
+			editingDomain.getCommandStack().execute(AddCommand.create(editingDomain, trg,
+					FormPackage.eINSTANCE.getContextParameters_Parameters(), addParameters));
+		}
+		
+		 trgParameters = new ArrayList<ContextParameter>();
+		 trgParameters.addAll(trg.getParameters());
 
-		//
-		// ArrayList<domain.ContextParameter> removeParameters = new
-		// ArrayList<domain.ContextParameter>();
-		// ArrayList<domain.ContextParameter> addParameters = new
-		// ArrayList<domain.ContextParameter>();
-		//
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper =
-		// ocl.createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Operation.allInstances()->select(r|r.oclAsType(domain::Operation).uid
-		// ='"
-		// + method.getUid()
-		// + "').oclAsType(domain::Operation).parameters");
-		//
-		// Collection<domain.Parameter> map = (Collection<Parameter>) ocl
-		// .evaluate(types, query);
-		//
-		// ArrayList<domain.Parameter> parameters = new
-		// ArrayList<domain.Parameter>();
-		// for (Iterator<domain.Parameter> i = map.iterator(); i.hasNext();) {
-		// domain.Parameter p = i.next();
-		// parameters.add(p);
-		// }
-		// Collections.sort(parameters, new ParameterComparator());
-		//
-		// ArrayList<domain.ContextParameter> trgParameters = new
-		// ArrayList<domain.ContextParameter>();
-		// for (Iterator<domain.ContextParameter> i = trg.getParameters()
-		// .iterator(); i.hasNext();) {
-		// domain.ContextParameter p = i.next();
-		// trgParameters.add(p);
-		// }
-		//
-		// Collections.sort(trgParameters, new ContextParameterComparator());
-		//
-		// boolean renewParameters = false;
-		// if (trgParameters.size() != parameters.size()) {
-		// removeParameters.addAll(trgParameters);
-		// renewParameters = true;
-		// } else {
-		//
-		// for (int i = 0; i < trgParameters.size(); i++) {
-		// ContextParameter trgParam = trgParameters.get(i);
-		// domain.Parameter param = parameters.get(i);
-		// if (trgParam.getRefObj() == null
-		// || !((domain.Parameter) trgParam.getRefObj()).getUid()
-		// .equals(param.getUid())) {
-		// removeParameters.addAll(trgParameters);
-		// renewParameters = true;
-		// break;
-		// }
-		// }
-		// }
-		// if (renewParameters) {
-		// for (int i = 0; i < parameters.size(); i++) {
-		// ContextParameter trgParam = DomainFactory.eINSTANCE
-		// .createContextParameter();
-		// trgParam.setRefObj(parameters.get(i));
-		// trgParam.setUid(UUID.randomUUID().toString());
-		// addParameters.add(trgParam);
-		// ContextValue value = DomainFactory.eINSTANCE
-		// .createContextValue();
-		// value.setUid(UUID.randomUUID().toString());
-		// trgParam.setValue(value);
-		// }
-		// }
-		// if (removeParameters.size() != 0) {
-		// editingDomain.getCommandStack().execute(
-		// RemoveCommand.create(editingDomain, trg,
-		// DomainPackage.eINSTANCE
-		// .getContextParameters_Parameters(),
-		// removeParameters));
-		// }
-		//
-		// if (addParameters.size() != 0) {
-		// editingDomain.getCommandStack().execute(
-		// AddCommand.create(editingDomain, trg,
-		// DomainPackage.eINSTANCE
-		// .getContextParameters_Parameters(),
-		// addParameters));
-		// }
-		//
-		// trgParameters = new ArrayList<domain.ContextParameter>();
-		// for (Iterator<domain.ContextParameter> i = trg.getParameters()
-		// .iterator(); i.hasNext();) {
-		// domain.ContextParameter p = i.next();
-		// trgParameters.add(p);
-		// }
-		// Collections.sort(trgParameters, new ContextParameterComparator());
-		//
-		// ArrayList<Object> rows = new ArrayList<>();
-		// rows.addAll(trgParameters);
-		// return rows;
+		 Collections.sort(trgParameters, new ContextParameterComparator());
+		
+		 ArrayList<Object> rows = new ArrayList<>();
+		 rows.addAll(trgParameters);
+		 return rows;
 	}
 
 	@SuppressWarnings("unchecked")
