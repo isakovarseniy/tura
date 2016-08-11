@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
@@ -46,7 +47,8 @@ public abstract class ContextParameterPropertySelection extends ContextValueProp
 
 	@Override
 	public EObject getModel() {
-		return getEObject();
+		DRepresentationElement element = (DRepresentationElement) getEObject();
+		return element.getTarget();
 	}
 
 	public ContextParameterPropertySelection() {

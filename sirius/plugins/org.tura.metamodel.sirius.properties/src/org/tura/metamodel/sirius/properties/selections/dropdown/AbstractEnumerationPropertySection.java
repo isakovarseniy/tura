@@ -21,8 +21,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
@@ -130,7 +131,8 @@ public abstract class AbstractEnumerationPropertySection extends AbstractTuraPro
 		if (!equals) {
 			updated = true;
 
-			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
+			Session session = SessionManager.INSTANCE.getSession(getModel());
+			EditingDomain editingDomain = session.getTransactionalEditingDomain();
 			CompoundCommand compoundCommand = new CompoundCommand();
 			EStructuralFeature[] features = getFeature();
 			if (features != null) {

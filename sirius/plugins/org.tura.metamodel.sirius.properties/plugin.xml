@@ -38,6 +38,28 @@
    </extension>
 
 
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabstable">
+     <propertyTabs contributorId="org.eclipse.sirius.table.ui.EditorID">
+          <propertyTab
+             category="default"
+             id="tab.table.mesage.Translation"
+             label="Language"/>
+             
+      </propertyTabs>
+
+   </extension>
+
+  	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.table.ui.EditorID">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.LanguagePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.TranslationTableFilter"
+	            id="table.mesage.Translation"
+	            tab="tab.table.mesage.Translation">
+	      </propertySection>
+	   </propertySections>
+	</extension>  
+
 
     <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabstree">
      <propertyTabs contributorId="org.eclipse.sirius.tree.ui.EditorID">
@@ -191,6 +213,23 @@
              category="domain"
              id="tab.type.Assosiation"
              label="Master - Detail"/>
+
+
+    <propertyTab
+             category="domain"
+             id="tab.form.Trigger"
+             label="Trigger"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.form.Trigger.Services"
+             label="Services"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.form.FormVariable"
+             label="Mapping parameters"/>
+
 
       </propertyTabs>
 
@@ -389,6 +428,52 @@
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.AssosiationSectionFilter"
 	            id="type.Assosiation"
 	            tab="tab.type.Assosiation">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+	
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.MethodPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.TriggerSectionFilter"
+	            id="form.Trigger"
+	            tab="tab.form.Trigger">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.TriggerContextParameterPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.TriggerSectionFilter"
+	            id="form.TriggerParameters"
+	            tab="tab.form.Trigger"
+	            afterSection="form.Trigger">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ServicesPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.TriggerSectionFilter"
+	            id="form.Trigger.Services"
+	            tab="tab.form.Trigger.Services">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.FormParametersPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.FormVariableSectionFilter"
+	            id="form.FormVariable"
+	            tab="tab.form.FormVariable">
 	      </propertySection>
 	   </propertySections>
 	</extension>
