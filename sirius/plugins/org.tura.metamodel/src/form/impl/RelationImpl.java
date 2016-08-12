@@ -2,27 +2,21 @@
  */
 package form.impl;
 
-import form.DataControl;
-import form.FormPackage;
-import form.Link;
-import form.Relation;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import form.DataControl;
+import form.FormPackage;
+import form.Relation;
 
 /**
  * <!-- begin-user-doc -->
@@ -131,7 +125,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Link> links;
+	protected EList<type.Link> links;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -296,9 +290,9 @@ public class RelationImpl extends EObjectImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Link> getLinks() {
+	public EList<type.Link> getLinks() {
 		if (links == null) {
-			links = new EObjectContainmentEList<Link>(Link.class, this, FormPackage.RELATION__LINKS);
+			links = new EObjectContainmentEList<type.Link>(type.Link.class, this, FormPackage.RELATION__LINKS);
 		}
 		return links;
 	}
@@ -369,7 +363,7 @@ public class RelationImpl extends EObjectImpl implements Relation {
 				return;
 			case FormPackage.RELATION__LINKS:
 				getLinks().clear();
-				getLinks().addAll((Collection<? extends Link>)newValue);
+				getLinks().addAll((Collection<? extends type.Link>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

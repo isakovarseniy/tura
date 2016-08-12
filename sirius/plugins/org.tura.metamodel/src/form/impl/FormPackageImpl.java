@@ -2,18 +2,19 @@
  */
 package form.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import application.ApplicationPackage;
-
 import application.impl.ApplicationPackageImpl;
-
 import artifact.ArtifactPackage;
-
 import artifact.impl.ArtifactPackageImpl;
-
 import domain.DomainPackage;
-
 import domain.impl.DomainPackageImpl;
-
 import form.AreaRef;
 import form.ArtificialField;
 import form.Button;
@@ -53,7 +54,6 @@ import form.InsertTrigger;
 import form.ItemIcon;
 import form.Label;
 import form.LayerHolder;
-import form.Link;
 import form.LinkToLabel;
 import form.LinkToMessage;
 import form.Menu;
@@ -110,41 +110,19 @@ import form.ViewPortHolder;
 import form.ViewPortTrigger;
 import form.Views;
 import form.Window;
-
 import infrastructure.InfrastructurePackage;
-
 import infrastructure.impl.InfrastructurePackageImpl;
-
 import mapper.MapperPackage;
-
 import mapper.impl.MapperPackageImpl;
-
 import message.MessagePackage;
-
 import message.impl.MessagePackageImpl;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import permission.PermissionPackage;
-
 import permission.impl.PermissionPackageImpl;
-
 import recipe.RecipePackage;
-
 import recipe.impl.RecipePackageImpl;
-
 import style.StylePackage;
-
 import style.impl.StylePackageImpl;
-
 import type.TypePackage;
-
 import type.impl.TypePackageImpl;
 
 /**
@@ -783,13 +761,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass artificialFieldEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass linkEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3250,42 +3221,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLink() {
-		return linkEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLink_Uid() {
-		return (EAttribute)linkEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getLink_MasterField() {
-		return (EReference)linkEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getLink_DetailField() {
-		return (EReference)linkEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getComparator() {
 		return comparatorEEnum;
 	}
@@ -3685,11 +3620,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		artificialFieldEClass = createEClass(ARTIFICIAL_FIELD);
 		createEAttribute(artificialFieldEClass, ARTIFICIAL_FIELD__UID);
 		createEAttribute(artificialFieldEClass, ARTIFICIAL_FIELD__NAME);
-
-		linkEClass = createEClass(LINK);
-		createEAttribute(linkEClass, LINK__UID);
-		createEReference(linkEClass, LINK__MASTER_FIELD);
-		createEReference(linkEClass, LINK__DETAIL_FIELD);
 
 		// Create enums
 		comparatorEEnum = createEEnum(COMPARATOR);
@@ -4195,7 +4125,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getRelation_Master(), this.getDataControl(), null, "master", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_Detail(), this.getDataControl(), null, "detail", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRelation_IsTree(), ecorePackage.getEBoolean(), "isTree", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelation_Links(), this.getLink(), null, "links", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelation_Links(), theTypePackage.getLink(), null, "links", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDependency_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4206,11 +4136,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(artificialFieldEClass, ArtificialField.class, "ArtificialField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtificialField_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtificialField_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArtificialField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLink_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLink_MasterField(), theTypePackage.getAttribute(), null, "masterField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLink_DetailField(), theTypePackage.getAttribute(), null, "detailField", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparatorEEnum, Comparator.class, "Comparator");

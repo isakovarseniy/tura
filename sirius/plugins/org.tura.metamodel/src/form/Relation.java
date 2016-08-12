@@ -5,6 +5,7 @@ package form;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+import type.Link;
 
 /**
  * <!-- begin-user-doc -->
@@ -160,7 +161,7 @@ public interface Relation extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Links</b></em>' containment reference list.
-	 * The list contents are of type {@link form.Link}.
+	 * The list contents are of type {@link type.Link}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Links</em>' containment reference list isn't clear,

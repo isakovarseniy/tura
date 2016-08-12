@@ -230,6 +230,27 @@
              id="tab.form.FormVariable"
              label="Mapping parameters"/>
 
+    <propertyTab
+             category="domain"
+             id="tab.form.DataContorol.baseType"
+             label="Base type"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.form.DataContorol.DefaultSearch"
+             label="Default search"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.form.DataContorol.OrderBy"
+             label="Order By"/>
+
+
+    <propertyTab
+             category="domain"
+             id="tab.form.Relation"
+             label="Relation"/>
+
 
       </propertyTabs>
 
@@ -460,7 +481,7 @@
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
 	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ServicesPropertySelection"
-	            filter="org.tura.metamodel.sirius.properties.selections.filter.TriggerSectionFilter"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ServicesSectionFilter"
 	            id="form.Trigger.Services"
 	            tab="tab.form.Trigger.Services">
 	      </propertySection>
@@ -477,5 +498,51 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>
+
+	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.BaseClassTypeNamepropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.DataControlSectionFilter"
+	            id="form.DataContorol.baseType"
+	            tab="tab.form.DataContorol.baseType">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.DefaultSearchPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.DataControlSectionFilter"
+	            id="form.DataContorol.DefaultSearch"
+	            tab="tab.form.DataContorol.DefaultSearch">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.DefaultOrderByPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.DataControlSectionFilter"
+	            id="form.DataContorol.OrderBy"
+	            tab="tab.form.DataContorol.OrderBy">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RelationPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.RelationSectionFilter"
+	            id="form.Relation"
+	            tab="tab.form.Relation">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+
 	
 </plugin>

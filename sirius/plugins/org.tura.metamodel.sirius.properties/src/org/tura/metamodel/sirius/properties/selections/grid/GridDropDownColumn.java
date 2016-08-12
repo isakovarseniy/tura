@@ -126,6 +126,10 @@ public abstract class GridDropDownColumn implements GridColumn {
 
 	@Override
 	public boolean isModify(Object element, String property) {
+		if (options == null || options.isEmpty()){
+			return false;
+		}
+			
 		return true;
 	}
 

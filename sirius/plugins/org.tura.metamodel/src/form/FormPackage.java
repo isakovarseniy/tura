@@ -7287,52 +7287,6 @@ public interface FormPackage extends EPackage {
 	int ARTIFICIAL_FIELD_FEATURE_COUNT = TypePackage.TYPE_POINTER_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link form.impl.LinkImpl <em>Link</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see form.impl.LinkImpl
-	 * @see form.impl.FormPackageImpl#getLink()
-	 * @generated
-	 */
-	int LINK = 90;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINK__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Master Field</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINK__MASTER_FIELD = 1;
-
-	/**
-	 * The feature id for the '<em><b>Detail Field</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINK__DETAIL_FIELD = 2;
-
-	/**
-	 * The number of structural features of the '<em>Link</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINK_FEATURE_COUNT = 3;
-
-	/**
 	 * The meta object id for the '{@link form.Comparator <em>Comparator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7340,7 +7294,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 91;
+	int COMPARATOR = 90;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -7350,7 +7304,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 92;
+	int ORDER = 91;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -7360,7 +7314,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 93;
+	int ORIENTATION = 92;
 
 
 	/**
@@ -10134,49 +10088,6 @@ public interface FormPackage extends EPackage {
 	EAttribute getArtificialField_Name();
 
 	/**
-	 * Returns the meta object for class '{@link form.Link <em>Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Link</em>'.
-	 * @see form.Link
-	 * @generated
-	 */
-	EClass getLink();
-
-	/**
-	 * Returns the meta object for the attribute '{@link form.Link#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see form.Link#getUid()
-	 * @see #getLink()
-	 * @generated
-	 */
-	EAttribute getLink_Uid();
-
-	/**
-	 * Returns the meta object for the reference '{@link form.Link#getMasterField <em>Master Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Master Field</em>'.
-	 * @see form.Link#getMasterField()
-	 * @see #getLink()
-	 * @generated
-	 */
-	EReference getLink_MasterField();
-
-	/**
-	 * Returns the meta object for the reference '{@link form.Link#getDetailField <em>Detail Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Detail Field</em>'.
-	 * @see form.Link#getDetailField()
-	 * @see #getLink()
-	 * @generated
-	 */
-	EReference getLink_DetailField();
-
-	/**
 	 * Returns the meta object for enum '{@link form.Comparator <em>Comparator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12488,40 +12399,6 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ARTIFICIAL_FIELD__NAME = eINSTANCE.getArtificialField_Name();
-
-		/**
-		 * The meta object literal for the '{@link form.impl.LinkImpl <em>Link</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see form.impl.LinkImpl
-		 * @see form.impl.FormPackageImpl#getLink()
-		 * @generated
-		 */
-		EClass LINK = eINSTANCE.getLink();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LINK__UID = eINSTANCE.getLink_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Master Field</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LINK__MASTER_FIELD = eINSTANCE.getLink_MasterField();
-
-		/**
-		 * The meta object literal for the '<em><b>Detail Field</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LINK__DETAIL_FIELD = eINSTANCE.getLink_DetailField();
 
 		/**
 		 * The meta object literal for the '{@link form.Comparator <em>Comparator</em>}' enum.

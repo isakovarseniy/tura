@@ -29,6 +29,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import type.TypeFactory;
 
 /**
  * This is the item provider adapter for a {@link form.Relation} object.
@@ -278,7 +279,7 @@ public class RelationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.RELATION__LINKS,
-				 FormFactory.eINSTANCE.createLink()));
+				 TypeFactory.eINSTANCE.createLink()));
 	}
 
 	/**

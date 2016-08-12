@@ -36,7 +36,6 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeData
 import form.ArtificialField;
 import form.DataControl;
 import form.Form;
-import form.Link;
 import form.Table;
 import form.Tree;
 import freemarker.template.Configuration;
@@ -52,6 +51,7 @@ import recipe.ModelMapper;
 import recipe.Query;
 import recipe.QueryVariable;
 import type.Attribute;
+import type.Link;
 import type.TypeElement;
 import type.TypeGroup;
 
@@ -80,7 +80,10 @@ public class Util {
 	}
 
 	public static TypeElement getBase(DataControl dc) {
-		return dc.getBaseType().getTypeRef();
+		if (dc.getBaseType() != null){
+		    return dc.getBaseType().getTypeRef();
+		}
+		return null;
 	}
 
 	public static boolean ifDataControlIsTreeRoot(DataControl dc,DiagramImpl diagram) throws Exception {

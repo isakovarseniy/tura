@@ -516,7 +516,7 @@ class Relation{
    ref DataControl master;
    ref DataControl detail;
    attr EBoolean isTree;
-   val Link[*] links;  
+   val type.Link[*] links;  
 }
 
 class Dependency{
@@ -532,9 +532,5 @@ class ArtificialField extends type.TypePointer{
    attr EString name;
 }
 
-class Link{
-    id attr EString uid;
-    ref type.Attribute masterField;
-    ref type.Attribute detailField;
-}
+
 

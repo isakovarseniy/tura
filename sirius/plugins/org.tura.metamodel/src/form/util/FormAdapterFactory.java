@@ -435,10 +435,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createArtificialFieldAdapter();
 			}
 			@Override
-			public Adapter caseLink(Link object) {
-				return createLinkAdapter();
-			}
-			@Override
 			public Adapter caseTypePointer(TypePointer object) {
 				return createTypePointerAdapter();
 			}
@@ -1731,20 +1727,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArtificialFieldAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link form.Link <em>Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see form.Link
-	 * @generated
-	 */
-	public Adapter createLinkAdapter() {
 		return null;
 	}
 

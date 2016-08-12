@@ -147,7 +147,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.RELATION: return createRelation();
 			case FormPackage.DEPENDENCY: return createDependency();
 			case FormPackage.ARTIFICIAL_FIELD: return createArtificialField();
-			case FormPackage.LINK: return createLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1089,16 +1088,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public ArtificialField createArtificialField() {
 		ArtificialFieldImpl artificialField = new ArtificialFieldImpl();
 		return artificialField;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Link createLink() {
-		LinkImpl link = new LinkImpl();
-		return link;
 	}
 
 	/**
