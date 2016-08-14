@@ -52,4 +52,9 @@ public class RolesProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 		return null;
 	}
 
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
 }

@@ -15,8 +15,7 @@ import form.DataControl;
 import type.Attribute;
 import type.Operation;
 
-public class DataControlProvider implements IWorkbenchAdapter,
-		IReturnTypeProvider {
+public class DataControlProvider implements IWorkbenchAdapter,IReturnTypeProvider {
 
 	@Override
 	public Object[] getChildren(Object o) {
@@ -109,5 +108,10 @@ public class DataControlProvider implements IWorkbenchAdapter,
 	public Object getReturnType(Object o) {
 		return new QueryHelper().findDataControlType(o);
 	}
+	
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
 
 }

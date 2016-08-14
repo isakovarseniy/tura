@@ -20,6 +20,8 @@ Import-Package: domain,
  org.eclipse.emf.edit.provider,
  org.eclipse.emf.edit.ui.provider,
  org.eclipse.gmf.runtime.diagram.ui.layout,
+ org.eclipse.sirius.diagram.business.internal.metamodel.spec;version="3.1.0",
+ org.eclipse.sirius.diagram.impl;version="3.1.0",
  org.eclipse.sirius.viewpoint.description;version="3.0.0",
  org.eclipse.ui.ide,
  org.eclipse.ui.views.properties,
@@ -36,7 +38,8 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.103.0",
  org.tura.metamodel;bundle-version="1.0.0",
  org.eclipse.epsilon.common.dt;bundle-version="1.0.0",
  org.eclipse.epsilon.egl.engine;bundle-version="1.0.0",
- org.tura.metamodel.commons.preferences;bundle-version="1.0.0"
+ org.tura.metamodel.commons.preferences;bundle-version="1.0.0",
+ org.eclipse.sirius
 Bundle-ClassPath: .,
  lib/freemarker-2.3.20.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

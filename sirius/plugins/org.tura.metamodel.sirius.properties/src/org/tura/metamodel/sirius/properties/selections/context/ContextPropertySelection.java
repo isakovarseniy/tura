@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.window.Window;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -405,6 +406,13 @@ public abstract class ContextPropertySelection extends
 								.getContextParameters_Parameters(), model
 								.getParameters()));
 	}
+	
+	@Override
+	public EObject getModel() {
+		DRepresentationElement element = (DRepresentationElement) getEObject();
+		return element.getTarget();
+	}
+	
 
 	protected abstract TreeRoot getContextRoot();
 

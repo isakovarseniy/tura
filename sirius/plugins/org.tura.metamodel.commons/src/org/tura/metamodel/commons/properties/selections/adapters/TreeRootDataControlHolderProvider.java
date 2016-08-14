@@ -32,4 +32,10 @@ public class TreeRootDataControlHolderProvider implements IWorkbenchAdapter  ,IR
 		return null;
 	}
 
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	
 }

@@ -13,6 +13,11 @@ public class PrimitivesGroupProvider implements IWorkbenchAdapter, IReturnTypePr
 	public Object getReturnType(Object o) {
 		return null;
 	}
+	
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
 
 	@Override
 	public Object[] getChildren(Object o) {

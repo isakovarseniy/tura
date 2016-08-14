@@ -11,6 +11,11 @@ public class StyleSetProvider implements IWorkbenchAdapter, IReturnTypeProvider 
 	public Object getReturnType(Object o) {
 		return o;
 	}
+	
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
 
 	@Override
 	public Object[] getChildren(Object o) {

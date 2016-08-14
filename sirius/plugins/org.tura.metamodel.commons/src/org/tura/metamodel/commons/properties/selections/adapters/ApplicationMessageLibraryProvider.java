@@ -5,17 +5,15 @@ import java.util.ArrayList;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 
-import style.StyleLibrary;
-import style.StyleSet;
+import application.ApplicationMessageLibrary;
 
-public class StyleLibraryProvider implements IWorkbenchAdapter,
-		IReturnTypeProvider {
+public class ApplicationMessageLibraryProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 
 	@Override
 	public Object getReturnType(Object o) {
-		return o;
+		return null;
 	}
-	
+
 	@Override
 	public Object getApplicationType(Object o) {
 		return null;
@@ -23,15 +21,9 @@ public class StyleLibraryProvider implements IWorkbenchAdapter,
 	
 	@Override
 	public Object[] getChildren(Object o) {
-		StyleLibrary ar = ((StyleLibrary) o);
-		if (ar == null || ar.getStyles() == null)
-			return new Object[] {};
-
+		ApplicationMessageLibrary p = (ApplicationMessageLibrary) o;
 		ArrayList<Object> ls = new ArrayList<>();
-		for (StyleSet set : ar.getStyles()) {
-			if (set.getName() != null)
-				ls.add(set);
-		}
+		ls.addAll(p.getLibraries());
 
 		return ls.toArray();
 	}
@@ -43,13 +35,14 @@ public class StyleLibraryProvider implements IWorkbenchAdapter,
 
 	@Override
 	public String getLabel(Object o) {
-		StyleLibrary ar = ((StyleLibrary) o);
-		return ar.getName();
+		return "Application Message Libraries";
 	}
 
 	@Override
 	public Object getParent(Object o) {
 		return null;
 	}
+
+
 
 }

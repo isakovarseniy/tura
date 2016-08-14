@@ -14,6 +14,11 @@ public class FormVariablesProvider implements IWorkbenchAdapter  ,IReturnTypePro
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	@Override
 	public ImageDescriptor getImageDescriptor(Object object) {
 		return null;
 	}

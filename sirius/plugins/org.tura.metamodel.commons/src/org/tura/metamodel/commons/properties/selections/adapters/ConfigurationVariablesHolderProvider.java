@@ -14,6 +14,11 @@ public class ConfigurationVariablesHolderProvider  implements IWorkbenchAdapter 
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		ConfigurationVariablesHolder p = (ConfigurationVariablesHolder) o;
 		ArrayList<Object> ls = new ArrayList<>();

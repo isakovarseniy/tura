@@ -15,6 +15,12 @@ public class ApplicationRealmProvider implements IWorkbenchAdapter ,IReturnTypeP
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		ApplicationRealm p = (ApplicationRealm) o;
 		ArrayList<Object> ls = new ArrayList<>();

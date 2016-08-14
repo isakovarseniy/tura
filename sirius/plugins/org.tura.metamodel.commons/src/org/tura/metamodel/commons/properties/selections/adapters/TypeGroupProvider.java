@@ -46,4 +46,10 @@ public class TypeGroupProvider implements IWorkbenchAdapter  ,IReturnTypeProvide
 		return o;
 	}
 
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	
 }

@@ -14,6 +14,11 @@ public class ConfigurationHashesHolderProvider  implements IWorkbenchAdapter ,IR
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		ConfigurationHashesHolder p = (ConfigurationHashesHolder) o;
 		ArrayList<Object> ls = new ArrayList<>();

@@ -19,6 +19,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TriggerH
 
 import application.Application;
 import application.ApplicationGroup;
+import application.ApplicationMessageLibrary;
 import application.ApplicationRealm;
 import application.ApplicationRealms;
 import application.ApplicationStyle;
@@ -110,6 +111,7 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 	private ApplicationRealmProvider applicationRealmProvider;
 	private ApplicationRealmsProvider applicationRealmsProvider;
 	private ApplicationStyleLibrariesProvider applicationStyleLibrariesProvider;
+	private ApplicationMessageLibraryProvider applicationMessageLibraryProvider;
 	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -219,8 +221,10 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 				return getApplicationRealmsProvider();
 			if (adaptableObject instanceof ApplicationStyleLibraries)
 				return getApplicationStyleLibrariesProvider();
+			if (adaptableObject instanceof ApplicationMessageLibrary)
+				return getApplicationMessageLibraryProvider();
 	
-						
+								
 			
 		}
 		return null;
@@ -516,5 +520,12 @@ public class TreeProviderAdapterFactory implements IAdapterFactory {
 		return applicationStyleLibrariesProvider;		
 	}
 
+	protected ApplicationMessageLibraryProvider getApplicationMessageLibraryProvider(){
+		if (applicationMessageLibraryProvider == null)
+			applicationMessageLibraryProvider = new ApplicationMessageLibraryProvider();
+		return applicationMessageLibraryProvider;		
+	}
+	
+	
 	
 }

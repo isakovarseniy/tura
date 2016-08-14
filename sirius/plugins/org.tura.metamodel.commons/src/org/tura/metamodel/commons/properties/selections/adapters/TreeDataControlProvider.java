@@ -26,6 +26,12 @@ public class TreeDataControlProvider implements IWorkbenchAdapter,
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		ArrayList<Object> ls = new ArrayList<>();
 		try {

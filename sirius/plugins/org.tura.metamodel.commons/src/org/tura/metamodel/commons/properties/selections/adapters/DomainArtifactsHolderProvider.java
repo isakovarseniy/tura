@@ -14,6 +14,11 @@ public class DomainArtifactsHolderProvider  implements IWorkbenchAdapter ,IRetur
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		DomainArtifactsHolder p = (DomainArtifactsHolder) o;
 		ArrayList<Object> ls = new ArrayList<>();

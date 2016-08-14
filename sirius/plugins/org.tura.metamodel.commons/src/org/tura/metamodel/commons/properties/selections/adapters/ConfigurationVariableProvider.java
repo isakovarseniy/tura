@@ -13,6 +13,11 @@ public class ConfigurationVariableProvider implements IWorkbenchAdapter ,IReturn
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		return new Object[]{};
 	}

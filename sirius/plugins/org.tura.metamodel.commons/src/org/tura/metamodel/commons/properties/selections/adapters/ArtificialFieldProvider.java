@@ -13,9 +13,14 @@ public class ArtificialFieldProvider implements IWorkbenchAdapter ,IReturnTypePr
 
 	@Override
 	public Object getReturnType(Object o) {
-		return ((ArtificialField) o).getTypeRef();
+		return null;
 	}
 
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
 	@Override
 	public Object[] getChildren(Object o) {
 		ArrayList<Object> ls = new ArrayList<>();

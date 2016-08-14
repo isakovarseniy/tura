@@ -15,6 +15,11 @@ public class ApplicationGroupProvider implements IWorkbenchAdapter ,IReturnTypeP
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		ApplicationGroup p = (ApplicationGroup) o;
 		ArrayList<Object> ls = new ArrayList<>();
@@ -38,5 +43,7 @@ public class ApplicationGroupProvider implements IWorkbenchAdapter ,IReturnTypeP
 	public Object getParent(Object o) {
 		return null;
 	}
+
+
 
 }

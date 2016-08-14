@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,8 +23,12 @@ import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.expressions.OCLExpression;
 import org.eclipse.ocl.helper.OCLHelper;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.DataControlHolder;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
+import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
 
+import application.Application;
 import artifact.QueryParameter;
 import artifact.Technology;
 import domain.DomainApplications;
@@ -60,6 +65,11 @@ import type.TypeElement;
 
 public class QueryHelper {
 
+	private static String BASE_REPOSITORY = "Base Repository";
+	private static String MODEL_PACKAGE = "Model types";
+	private static String MESSAGE_TYPE = "Message";
+	private static String DATA_CONTROL="Data control";
+
 	/** The OCL object. */
 	private OCL<?, EClassifier, ?, ?, ?, ?, ?, ?, ?, Constraint, EClass, EObject> ocl;
 
@@ -92,27 +102,26 @@ public class QueryHelper {
 
 	public Object getApplicationRoles(DiagramImpl root) {
 		throw new RuntimeException();
-		
-//		Collection<DomainArtifacts> map = (Collection<DomainArtifacts>) internalEvaluate(obj,
-//				"domain::DomainArtifacts.allInstances()");
-//
-//		if (map != null && map.size() != 0) {
-//			return (DomainArtifacts) map.toArray()[0];
-//		}
-//		return null;
+
+		// Collection<DomainArtifacts> map = (Collection<DomainArtifacts>)
+		// internalEvaluate(obj,
+		// "domain::DomainArtifacts.allInstances()");
+		//
+		// if (map != null && map.size() != 0) {
+		// return (DomainArtifacts) map.toArray()[0];
+		// }
+		// return null;
 	}
 
 	//
 	public Object getMessages(DiagramImpl root) {
-		// domain.Form frm = getForm(root);
-		//
-		// domain.Application app = ((domain.UIPackage) (frm.eContainer()))
-		// .getParent().getParent().getParent();
-		// if (app.getApplicationMessages() != null)
-		// return app.getApplicationMessages().getMessages();
-		//
-		// return null;
-		throw new RuntimeException();
+		Form frm = getForm(root);
+		
+		 Application app = ((Application) (frm.eContainer().eContainer().eContainer() ));
+		 if (app.getApplicationMessages() != null){
+		    return app.getApplicationMessages().getMessageLibraries();
+		 }
+		 return null;
 	}
 
 	//
@@ -134,14 +143,15 @@ public class QueryHelper {
 	}
 
 	public Form getForm(DiagramImpl root) {
-		throw new RuntimeException();
-		// domain.Form frm = null;
-		//
-		// if (root.getElement() instanceof domain.Controls) {
-		// frm = (Form) ((domain.Controls) root.getElement()).getParent()
-		// .eContainer();
-		// }
-		//
+		Form frm = null;
+
+		DSemanticDecorator element = (DSemanticDecorator) root.getElement();
+		EObject obj = element.getTarget();
+
+		if (obj instanceof Views) {
+			frm = (Form) ((Views) obj).eContainer();
+		}
+
 		// if (root.getElement() instanceof domain.MenuView) {
 		// domain.Views views = (Views) (((domain.MenuView) root.getElement())
 		// .getParent().eContainer());
@@ -162,8 +172,8 @@ public class QueryHelper {
 		// domain.Views views = (Views) root.getElement();
 		// frm = (domain.Form) (views.getParent().eContainer());
 		// }
-		//
-		// return frm;
+
+		return frm;
 	}
 
 	// @SuppressWarnings({ "unchecked", "rawtypes" })
@@ -195,116 +205,109 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Configuration getConfigExtensionUp(Configuration config) throws Exception {
-		
-		 if (getConfigExtensionGard(config)) {
-			 throw new Exception("Configuration cannot be sources for more then 1 configuration tree");
-		 }
-		
-		 String query = "recipe::ConfigExtension.allInstances()->select(r|r.source.uid ='"+ config.getUid() + "')";
-		 
-		 Collection<ConfigExtension> map =(Collection<ConfigExtension>) internalEvaluate(config, query);
-		 if ((map != null) && (map.size() != 0))
-		      return map.iterator().next().getTarget();
-		 else
-		    return null;
+
+		if (getConfigExtensionGard(config)) {
+			throw new Exception("Configuration cannot be sources for more then 1 configuration tree");
+		}
+
+		String query = "recipe::ConfigExtension.allInstances()->select(r|r.source.uid ='" + config.getUid() + "')";
+
+		Collection<ConfigExtension> map = (Collection<ConfigExtension>) internalEvaluate(config, query);
+		if ((map != null) && (map.size() != 0))
+			return map.iterator().next().getTarget();
+		else
+			return null;
 	}
 
 	@SuppressWarnings("unchecked")
 	public Configuration getConfigExtensionDown(Configuration config) throws Exception {
-		
-		 if (getConfigExtensionGard(config)){
-			    return null;
-			 }
-			
-		 String query = "recipe::ConfigExtension.allInstances()->select(r|r.target.uid ='"+ config.getUid() + "')";
 
-		 Collection<ConfigExtension> map =(Collection<ConfigExtension>) internalEvaluate(config, query);
-		 if ((map != null) && (map.size() != 0))
-		      return map.iterator().next().getSource();
-		 else
-		    return null;
+		if (getConfigExtensionGard(config)) {
+			return null;
+		}
+
+		String query = "recipe::ConfigExtension.allInstances()->select(r|r.target.uid ='" + config.getUid() + "')";
+
+		Collection<ConfigExtension> map = (Collection<ConfigExtension>) internalEvaluate(config, query);
+		if ((map != null) && (map.size() != 0))
+			return map.iterator().next().getSource();
+		else
+			return null;
 
 	}
 
 	@SuppressWarnings("unchecked")
 	public boolean getConfigExtensionGard(Configuration config) throws Exception {
 
-		 String query = "recipe::ConfigExtension.allInstances()->select(r|r.source.uid='"+ config.getUid() + "')";
-		
-		 Collection<ConfigExtension> map =(Collection<ConfigExtension>) internalEvaluate (config, query);
-		 if ((map != null) && (map.size() > 1)){
-		    return true;
-		 }else {
-		    return false;
-		 }
+		String query = "recipe::ConfigExtension.allInstances()->select(r|r.source.uid='" + config.getUid() + "')";
+
+		Collection<ConfigExtension> map = (Collection<ConfigExtension>) internalEvaluate(config, query);
+		if ((map != null) && (map.size() > 1)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@SuppressWarnings("unchecked")
 	public Infrastructure findInfrastructure(Configuration config) throws Exception {
 
-		 String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.target.uid='"+ config.getUid() + "')";
+		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.target.uid='" + config.getUid()
+				+ "')";
 
-		 Collection<Infrastructure2ConfigurationImpl> map =(Collection<Infrastructure2ConfigurationImpl>) internalEvaluate(config, query);
-		 if ((map != null) && (map.size() != 0)){
-			 EObject obj = map.iterator().next().getSource();
-			 if (obj instanceof Infrastructure){
-				 return (Infrastructure) obj;
-			 }else{
-				 return null;
-			 }
-		 }
-		 else
-		    return null;
+		Collection<Infrastructure2ConfigurationImpl> map = (Collection<Infrastructure2ConfigurationImpl>) internalEvaluate(
+				config, query);
+		if ((map != null) && (map.size() != 0)) {
+			EObject obj = map.iterator().next().getSource();
+			if (obj instanceof Infrastructure) {
+				return (Infrastructure) obj;
+			} else {
+				return null;
+			}
+		} else
+			return null;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public Recipe findRecipe(Infrastructure infra) throws Exception {
 
-		 String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.target.uid='"+ infra.getUid() + "')";
+		String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.target.uid='" + infra.getUid() + "')";
 
-		 Collection<Recipe2Infrastructure> map =(Collection<Recipe2Infrastructure>) internalEvaluate(infra, query);
-		 if ((map != null) && (map.size() != 0)){
-			 Recipe recipe = ((Recipe2Infrastructure) (map.iterator().next())).getSource();
-			 return recipe;
-		 }
-		 else
-		    return null;
+		Collection<Recipe2Infrastructure> map = (Collection<Recipe2Infrastructure>) internalEvaluate(infra, query);
+		if ((map != null) && (map.size() != 0)) {
+			Recipe recipe = ((Recipe2Infrastructure) (map.iterator().next())).getSource();
+			return recipe;
+		} else
+			return null;
 	}
-	
-	
-	
+
 	public List<?> getControlsList(DiagramImpl root) throws Exception {
 
-		// Form frm = getForm(root);
-		//
-		// return getControlsList(frm);
-
-		throw new RuntimeException();
-
+		Form frm = getForm(root);
+		return getControlsList(frm);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<?> getControlsList(Form frm) throws Exception {
-		throw new RuntimeException();
 
-		// ArrayList ls = new ArrayList();
-		//
-		// TreeRootDataControlHolder th = new TreeRootDataControlHolder();
-		// th.getControls().addAll(findTreeRootControls(frm));
-		// ls.add(th);
-		//
-		// DataControlHolder dh = new DataControlHolder();
-		// dh.getControls().addAll(findMasterControls(frm));
-		// dh.getControls().addAll(findDetailAndDependencyControls(frm));
-		// ls.add(dh);
-		//
-		// return ls;
+		ArrayList ls = new ArrayList();
+
+		TreeRootDataControlHolder th = new TreeRootDataControlHolder();
+		th.getControls().addAll(findTreeRootControls(frm));
+		ls.add(th);
+
+		DataControlHolder dh = new DataControlHolder();
+		dh.getControls().addAll(findMasterControls(frm));
+		dh.getControls().addAll(findDetailAndDependencyControls(frm));
+		ls.add(dh);
+
+		return ls;
 
 	}
 
 	public Object getRootControl(DiagramImpl root) throws Exception {
-		// domain.Form frm = getForm(root);
-		// return frm.getDatacontrols().getFormControl().getRoot();
-		throw new RuntimeException();
+		Form frm = getForm(root);
+		return frm.getDatacontrols().getRoot();
 	}
 
 	public Object getDomainApplications(DiagramImpl root) {
@@ -317,132 +320,88 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Object getDomainApplications(EObject root) throws Exception {
-		 String query = "domain::DomainApplications.allInstances()";
+		String query = "domain::DomainApplications.allInstances()";
 
-		 Collection<DomainApplications> map =(Collection<DomainApplications>) internalEvaluate(root, query);
-		 if ((map != null) && (map.size() != 0)){
-			 DomainApplications domainApplications = ((DomainApplications) (map.iterator().next()));
-			 return domainApplications;
-		 }
-		 else
-		    return null;
+		Collection<DomainApplications> map = (Collection<DomainApplications>) internalEvaluate(root, query);
+		if ((map != null) && (map.size() != 0)) {
+			DomainApplications domainApplications = ((DomainApplications) (map.iterator().next()));
+			return domainApplications;
+		} else
+			return null;
 	}
-	
-	
+
+	@SuppressWarnings("unchecked")
 	public Collection<TreeDataControl> findTreeRootControls(Form frm) throws Exception {
-
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper =
-		// ocl.createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Relation.allInstances()->select(r|r.isTree=true
-		// and
-		// r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid
-		// = '"
-		// + frm.getDatacontrols().getFormControl().getUid()
-		// +
-		// "')->collect(w|w.master)->reject(q|domain::Relation.allInstances()->select(r|r.isTree=true
-		// and
-		// r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid
-		// = '"
-		// + frm.getDatacontrols().getFormControl().getUid()
-		// + "')->collect(w|w.detail)->includes(q))");
-		//
-		// Collection<domain.DataControl> map = (Collection<domain.DataControl>)
-		// ocl
-		// .evaluate(frm, query);
-		//
-		// // Remove duplication
-		// HashMap<String, domain.DataControl> hash = new HashMap<>();
-		// for (domain.DataControl dc : map)
-		// hash.put(dc.getUid(), dc);
-		//
-		// query = helper
-		// .createQuery("domain::Relation.allInstances()->select(r|r.isTree=true
-		// and r.master=r.detail and
-		// r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid
-		// = '"
-		// + frm.getDatacontrols().getFormControl().getUid()
-		// +
-		// "')->collect(w|w.master)->reject(q|domain::Relation.allInstances()->select(r|r.isTree=true
-		// and r.master <> r.detail and
-		// r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid
-		// = '"
-		// + frm.getDatacontrols().getFormControl().getUid()
-		// + "')->collect(w|w.detail)->includes(q))");
-		//
-		// Collection<domain.DataControl> map1 =
-		// (Collection<domain.DataControl>) ocl
-		// .evaluate(frm, query);
-		//
-		// ArrayList<TreeDataControl> ls = new ArrayList<>();
-		// for (domain.DataControl dc : hash.values())
-		// ls.add(new TreeDataControl(dc));
-		// for (domain.DataControl dc : map1)
-		// ls.add(new TreeDataControl(dc));
-		//
-		// return ls;
-		throw new RuntimeException();
+		
+		String query = "form::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+		 + frm.getDatacontrols().getUid()
+		 +"')->collect(w|w.master)->reject(q|form::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+		 + frm.getDatacontrols().getUid()
+		 + "')->collect(w|w.detail)->includes(q))";
+		
+		 Collection<DataControl> map = (Collection<DataControl>)internalEvaluate(frm, query);
+		
+		 // Remove duplication
+		 HashMap<String, DataControl> hash = new HashMap<>();
+		 for (DataControl dc : map){
+		    hash.put(dc.getUid(), dc);
+		 }
+		
+		 
+		 query = "form::Relation.allInstances()->select(r|r.isTree=true and r.master=r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+		 + frm.getDatacontrols().getUid()
+		 +"')->collect(w|w.master)->reject(q|form::Relation.allInstances()->select(r|r.isTree=true and r.master <> r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+		 + frm.getDatacontrols().getUid()
+		 + "')->collect(w|w.detail)->includes(q))";
+		
+		 Collection<DataControl> map1 = (Collection<DataControl>) internalEvaluate(frm, query);
+		
+		 ArrayList<TreeDataControl> ls = new ArrayList<>();
+		 for (DataControl dc : hash.values()){
+		    ls.add(new TreeDataControl(dc));
+		 }
+		 for (DataControl dc : map1){
+		   ls.add(new TreeDataControl(dc));
+		 }
+		
+		 return ls;
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public Collection<DataControl> findMasterControls(Form frm) throws Exception {
-		throw new RuntimeException();
 
-		//
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper =
-		// ocl.createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::DataControl.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid
-		// = '"
-		// + frm.getDatacontrols().getFormControl().getUid()
-		// + "'
-		// )->reject(q|domain::Relation.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid
-		// = '"
-		// + frm.getDatacontrols().getFormControl().getUid()
-		// + "' )->collect(w|w.detail)->includes(q))");
-		//
-		// Collection<domain.DataControl> map =
-		// ((Collection<domain.DataControl>) ocl
-		// .evaluate(frm, query));
-		//
-		// for (TreeDataControl obj : findTreeRootControls(frm))
-		// map.remove(obj.getDc());
-		//
-		// return map;
+		 String query = "form::DataControl.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+		 + frm.getDatacontrols().getUid()
+		 + "')->reject(q|form::Relation.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+		 + frm.getDatacontrols().getUid()
+		 + "' )->collect(w|w.detail)->includes(q))";
+
+		 Collection<DataControl> map =((Collection<DataControl>) internalEvaluate(frm, query));
+		
+		 for (TreeDataControl obj : findTreeRootControls(frm)){
+		    map.remove(obj.getDc());
+		 }
+		
+		 return map;
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public Collection<DataControl> findDetailAndDependencyControls(Form frm) throws Exception {
+		
+		String query = "form::Relation.allInstances()->select(r|r.isTree=false and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid = '"
+				 + frm.getDatacontrols().getUid()
+				 + "')->collect(w|w.detail)";
 
-		throw new RuntimeException();
+		 Collection<DataControl> map = (Collection<DataControl>)internalEvaluate(frm, query);
 
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper =
-		// ocl.createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Relation.allInstances()->select(r|r.isTree=false
-		// and
-		// r.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Controls).uid
-		// = '"
-		// + frm.getDatacontrols().getFormControl().getUid()
-		// + "')->collect(w|w.detail)");
-		//
-		// Collection<domain.DataControl> map = (Collection<domain.DataControl>)
-		// ocl
-		// .evaluate(frm, query);
-		//
-		// for (TreeDataControl obj : findTreeRootControls(frm))
-		// map.remove(obj.getDc());
-		//
-		// return map;
+		
+		 for (TreeDataControl obj : findTreeRootControls(frm)){
+		    map.remove(obj.getDc());
+		 }
+		
+		 return map;
 
 	}
 
@@ -492,62 +451,60 @@ public class QueryHelper {
 
 	public Object[] findMappingVariable(recipe.Query eObject, EObject types) throws Exception {
 
-		 ArrayList<QueryParameter> addVariables = new ArrayList<QueryParameter>();
-		 ArrayList<QueryVariable> removeVariables = new ArrayList<QueryVariable>();
-		 
-		 if ( eObject.getQueryRef() != null ){
-			 
-			 Collection<QueryParameter> map1 = eObject.getQueryRef().getParameters();
-			 Collection<QueryVariable> map =  eObject.getVariables();
-			 
-			 for (QueryVariable ms :  map) {
-				 boolean isRemove = true;
-				 for (QueryParameter sp : map1) {
-				    if ((ms.getQueryParamRef() != null)&& (sp.getUid().equals(ms.getQueryParamRef().getUid()))){
-				        isRemove = false;
-				    }
-				 }
-				 if (isRemove){
-				     removeVariables.add(ms);
-				 }
-			 }
-		 
-		 for (QueryVariable ms : map) {
-		    boolean isRemove = true;
-		    for (QueryParameter sp : map1) {
-		      if ((ms.getQueryParamRef() != null)&& (sp.getUid().equals(ms.getQueryParamRef().getUid()))){
-		 		 isRemove = false;
-		      }
-		    }
-			if (isRemove){
-			      removeVariables.add(ms);
+		ArrayList<QueryParameter> addVariables = new ArrayList<QueryParameter>();
+		ArrayList<QueryVariable> removeVariables = new ArrayList<QueryVariable>();
+
+		if (eObject.getQueryRef() != null) {
+
+			Collection<QueryParameter> map1 = eObject.getQueryRef().getParameters();
+			Collection<QueryVariable> map = eObject.getVariables();
+
+			for (QueryVariable ms : map) {
+				boolean isRemove = true;
+				for (QueryParameter sp : map1) {
+					if ((ms.getQueryParamRef() != null) && (sp.getUid().equals(ms.getQueryParamRef().getUid()))) {
+						isRemove = false;
+					}
+				}
+				if (isRemove) {
+					removeVariables.add(ms);
+				}
 			}
-		 }
-		
-		 for (QueryParameter ms : map1) {
-		    boolean isAdd = false;
-		    if (map.size() == 0){
-		    	isAdd = true;
-		    }else {
-		     isAdd = true;
-		      for (QueryVariable sp : map) {
-		          if ((sp.getQueryParamRef() != null)&& (sp.getQueryParamRef().getUid().equals(ms.getUid()))){
-		             isAdd = false;
-		          }
-		      }
-		    }
-		    if (isAdd){
-		      addVariables.add(ms);
-		    }
-		   }
-		 }
-		 Object[] result = new Object[2];
-		 result[0] = addVariables;
-		 result[1] = removeVariables;
-		 return result;
+
+			for (QueryVariable ms : map) {
+				boolean isRemove = true;
+				for (QueryParameter sp : map1) {
+					if ((ms.getQueryParamRef() != null) && (sp.getUid().equals(ms.getQueryParamRef().getUid()))) {
+						isRemove = false;
+					}
+				}
+				if (isRemove) {
+					removeVariables.add(ms);
+				}
+			}
+
+			for (QueryParameter ms : map1) {
+				boolean isAdd = false;
+				if (map.size() == 0) {
+					isAdd = true;
+				} else {
+					isAdd = true;
+					for (QueryVariable sp : map) {
+						if ((sp.getQueryParamRef() != null) && (sp.getQueryParamRef().getUid().equals(ms.getUid()))) {
+							isAdd = false;
+						}
+					}
+				}
+				if (isAdd) {
+					addVariables.add(ms);
+				}
+			}
+		}
+		Object[] result = new Object[2];
+		result[0] = addVariables;
+		result[1] = removeVariables;
+		return result;
 	}
-
-
 
 	// public Set<ApplicationMapper> findAvailableMappersForRecipe(Recipe
 	// recipe) {
@@ -675,28 +632,27 @@ public class QueryHelper {
 	public List<Object> findTriggerParameters(Operation method, ContextParameters trg, EObject types,
 			EditingDomain editingDomain) throws Exception {
 
-		
-		 ArrayList<ContextParameter> removeParameters = new ArrayList<ContextParameter>();
-		 ArrayList<ContextParameter> addParameters = new ArrayList<ContextParameter>();
-		
-		 Collection<Parameter> map = method.getParameters();
-		
-		 ArrayList<Parameter> parameters = new ArrayList<Parameter>();
-		 parameters.addAll(map);
-		 
-		 Collections.sort(parameters, new ParameterComparator());
-		
-		 ArrayList<ContextParameter> trgParameters = new ArrayList<ContextParameter>();
-		 trgParameters.addAll(trg.getParameters());
-		
-		 Collections.sort(trgParameters, new ContextParameterComparator());
-		
+		ArrayList<ContextParameter> removeParameters = new ArrayList<ContextParameter>();
+		ArrayList<ContextParameter> addParameters = new ArrayList<ContextParameter>();
+
+		Collection<Parameter> map = method.getParameters();
+
+		ArrayList<Parameter> parameters = new ArrayList<Parameter>();
+		parameters.addAll(map);
+
+		Collections.sort(parameters, new ParameterComparator());
+
+		ArrayList<ContextParameter> trgParameters = new ArrayList<ContextParameter>();
+		trgParameters.addAll(trg.getParameters());
+
+		Collections.sort(trgParameters, new ContextParameterComparator());
+
 		boolean renewParameters = false;
 		if (trgParameters.size() != parameters.size()) {
 			removeParameters.addAll(trgParameters);
 			renewParameters = true;
-		 } else {
-		
+		} else {
+
 			for (int i = 0; i < trgParameters.size(); i++) {
 				ContextParameter trgParam = trgParameters.get(i);
 				Parameter param = parameters.get(i);
@@ -707,7 +663,7 @@ public class QueryHelper {
 					break;
 				}
 			}
-		 }
+		}
 		if (renewParameters) {
 			for (int i = 0; i < parameters.size(); i++) {
 				ContextParameter trgParam = FormFactory.eINSTANCE.createContextParameter();
@@ -723,40 +679,59 @@ public class QueryHelper {
 			editingDomain.getCommandStack().execute(RemoveCommand.create(editingDomain, trg,
 					FormPackage.eINSTANCE.getContextParameters_Parameters(), removeParameters));
 		}
-		
+
 		if (addParameters.size() != 0) {
 			editingDomain.getCommandStack().execute(AddCommand.create(editingDomain, trg,
 					FormPackage.eINSTANCE.getContextParameters_Parameters(), addParameters));
 		}
-		
-		 trgParameters = new ArrayList<ContextParameter>();
-		 trgParameters.addAll(trg.getParameters());
 
-		 Collections.sort(trgParameters, new ContextParameterComparator());
-		
-		 ArrayList<Object> rows = new ArrayList<>();
-		 rows.addAll(trgParameters);
-		 return rows;
+		trgParameters = new ArrayList<ContextParameter>();
+		trgParameters.addAll(trg.getParameters());
+
+		Collections.sort(trgParameters, new ContextParameterComparator());
+
+		ArrayList<Object> rows = new ArrayList<>();
+		rows.addAll(trgParameters);
+		return rows;
 	}
 
 	@SuppressWarnings("unchecked")
 	public DomainTypes getTypesRepository(EObject obj) throws Exception {
+
+		Collection<DomainTypes> map = (Collection<DomainTypes>) internalEvaluate(obj,
+				"domain::DomainTypes.allInstances()");
+
+		if ((map != null) && (map.size() != 0)) {
+			DomainTypes domainTypes = ((DomainTypes) (map.iterator().next()));
+			return domainTypes;
+		} else
+			return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	private TypeElement findModelType(EObject context, String typeRepositoryName, String packageName, String typeName)throws Exception{
+		String query = "domain::DomainTypes.allInstances().typesRepository->select(r|r.name='" + typeRepositoryName
+				+ "').repositoryPackages->select(p|p.name='" + packageName + "').types->select(t|t.name='"
+				+ typeName + "')";
+
+		Collection<TypeElement> map = (Collection<TypeElement>) internalEvaluate(context, query);
+
+		if ((map != null) && (map.size() != 0)) {
+			TypeElement type = ((TypeElement) (map.iterator().next()));
+			return type;
+		} else
+			return null;
 		
-		Collection<DomainTypes> map = (Collection<DomainTypes>) internalEvaluate(obj, "domain::DomainTypes.allInstances()");
-		
-		 if ((map != null) && (map.size() != 0)){
-			 DomainTypes domainTypes = ((DomainTypes) (map.iterator().next()));
-			 return domainTypes;
-		 }
-		 else
-		    return null;
+	}
+	
+	public TypeElement findMessageType(EObject obj) throws Exception {
+		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, MESSAGE_TYPE);
 	}
 
 	@SuppressWarnings("unchecked")
 	public DomainArtifacts getDomainArtifact(EObject obj) throws Exception {
 
-		Collection<DomainArtifacts> map = (Collection<DomainArtifacts>) internalEvaluate(obj,
-				"domain::DomainArtifacts.allInstances()");
+		Collection<DomainArtifacts> map = (Collection<DomainArtifacts>) internalEvaluate(obj,"domain::DomainArtifacts.allInstances()");
 
 		if (map != null && map.size() != 0) {
 			return (DomainArtifacts) map.toArray()[0];
@@ -766,12 +741,10 @@ public class QueryHelper {
 	}
 
 	class ParameterComparator implements Comparator<Parameter> {
-
 		@Override
 		public int compare(Parameter o1, Parameter o2) {
 			return new Integer(o1.getOrder()).compareTo(new Integer(o2.getOrder()));
 		}
-
 	}
 
 	class ContextParameterComparator implements Comparator<ContextParameter> {
@@ -1006,65 +979,21 @@ public class QueryHelper {
 	}
 
 	public TypeElement findBaseType(Object obj) {
-		throw new RuntimeException();
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
-		// + InitDiagram.BASE_PACKAGE
-		// + "').oclAsType(domain::Package)."
-		// + "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and
-		// r.oclAsType(domain::Type).name = 'BaseType') )");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.TypeElement> map = (Collection<domain.TypeElement>)
-		// ocl
-		// .evaluate(obj, query);
-		//
-		// if (map.size() != 0)
-		// return map.iterator().next();
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// }
-		// return null;
+		 try {
+		     Util.getBase((DataControl) obj);
+		 } catch (Exception e) {
+			   LogUtil.log(e);
+			 }
+			 return null;
 	}
 
 	public TypeElement findDataControlType(Object obj) {
-		throw new RuntimeException();
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
-		// + InitDiagram.BASE_PACKAGE
-		// + "').oclAsType(domain::Package)."
-		// + "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and
-		// r.oclAsType(domain::Type).name = 'Data control') )");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.TypeElement> map = (Collection<domain.TypeElement>)
-		// ocl
-		// .evaluate(obj, query);
-		//
-		// if (map.size() != 0)
-		// return map.iterator().next();
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// }
-		// return null;
+		 try {
+				return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, DATA_CONTROL);
+		 } catch (Exception e) {
+		   LogUtil.log(e);
+		 }
+		 return null;
 	}
 
 	public TypeElement findTreeDataControlType(Object obj) {

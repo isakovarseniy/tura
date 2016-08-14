@@ -15,6 +15,12 @@ public class ApplicationStyleProvider implements IWorkbenchAdapter ,IReturnTypeP
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		ApplicationStyle ar = ((ApplicationStyle) o);
 		if (ar == null || ar.getLibraries() == null )

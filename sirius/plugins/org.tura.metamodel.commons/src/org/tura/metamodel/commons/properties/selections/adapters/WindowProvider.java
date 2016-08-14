@@ -2,7 +2,6 @@ package org.tura.metamodel.commons.properties.selections.adapters;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.model.IWorkbenchAdapter;
-import org.tura.metamodel.commons.QueryHelper;
 
 import form.Window;
 
@@ -10,7 +9,13 @@ public class WindowProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 
 	@Override
 	public Object getReturnType(Object o) {
-		return new QueryHelper().findStringType(o);
+		return null;
+	}
+	
+	
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
 	}
 	
 	
@@ -33,5 +38,7 @@ public class WindowProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 	public Object getParent(Object o) {
 		return null;
 	}
+	
+	
 	
 }

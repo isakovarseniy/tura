@@ -12,6 +12,10 @@ public class DomainApplicationsProvider  implements IWorkbenchAdapter ,IReturnTy
 		return null;
 	}
 	
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
 	
 	@Override
 	public Object[] getChildren(Object o) {

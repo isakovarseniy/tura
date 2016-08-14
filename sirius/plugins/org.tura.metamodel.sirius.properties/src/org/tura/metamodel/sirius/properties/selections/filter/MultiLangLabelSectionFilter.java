@@ -6,9 +6,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IFilter;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
-import recipe.ModelMapper;
+import form.MultiLangLabel;
 
-public class ModelMapperSectionFilter implements IFilter{
+public class MultiLangLabelSectionFilter implements IFilter{
 
 	
 	@Override
@@ -19,11 +19,12 @@ public class ModelMapperSectionFilter implements IFilter{
 			DRepresentationElement obj = (DRepresentationElement) ((View) editPart.getModel()).getElement();
 			EObject element = obj.getTarget();
 
-			if (element instanceof ModelMapper) {
+			if (element instanceof MultiLangLabel) {
 				return true;
 			}
 		}
 		return false;
 	}
+	
 	
 }

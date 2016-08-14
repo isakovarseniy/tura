@@ -8,10 +8,14 @@ public class DataControlFakeAttributeProvider implements IWorkbenchAdapter ,IRet
 
 	@Override
 	public Object getReturnType(Object o) {
-		DataControlFakeAttribute attr = (DataControlFakeAttribute) o;
-		return attr.getType();
+		return null;
 	}
 
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
 	@Override
 	public Object[] getChildren(Object o) {
 		return new Object[]{};

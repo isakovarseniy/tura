@@ -32,4 +32,11 @@ public class DataControlHolderProvider implements IWorkbenchAdapter  ,IReturnTyp
 		return null;
 	}
 
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	
+	
 }

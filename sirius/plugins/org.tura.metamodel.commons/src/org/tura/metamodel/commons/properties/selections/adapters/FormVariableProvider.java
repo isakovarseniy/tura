@@ -12,6 +12,7 @@ public class FormVariableProvider implements IWorkbenchAdapter  ,IReturnTypeProv
 		return new Object[]{};
 	}
 
+	
 	@Override
 	public ImageDescriptor getImageDescriptor(Object object) {
 		return null;
@@ -30,9 +31,12 @@ public class FormVariableProvider implements IWorkbenchAdapter  ,IReturnTypeProv
 
 	@Override
 	public Object getReturnType(Object o) {
-		FormVariable v = (FormVariable) o;
-		return v.getTypeRef();
+		return null;
 	}
 	
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
 	
 }

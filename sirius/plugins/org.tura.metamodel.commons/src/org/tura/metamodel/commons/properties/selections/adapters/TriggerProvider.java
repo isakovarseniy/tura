@@ -46,5 +46,10 @@ public class TriggerProvider implements IWorkbenchAdapter  ,IReturnTypeProvider 
 	public Object getReturnType(Object o) {
 		return null;
 	}
-
+	
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}
+	
 }

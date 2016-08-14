@@ -15,6 +15,11 @@ public class ExtendedTypeProvider implements IWorkbenchAdapter ,IReturnTypeProvi
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		ExtendedType ex = (ExtendedType) o;
 		TypeElementProvider provider = new TypeElementProvider();

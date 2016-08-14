@@ -15,6 +15,11 @@ public class DomainArtifactProvider   implements IWorkbenchAdapter ,IReturnTypeP
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		DomainArtifact p = (DomainArtifact) o;
 		ArrayList<Object> ls = new ArrayList<>();

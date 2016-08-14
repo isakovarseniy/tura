@@ -60,4 +60,9 @@ public class TypeElementProvider implements IWorkbenchAdapter  ,IReturnTypeProvi
 		return o;
 	}
 
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
 }

@@ -15,6 +15,11 @@ public class ArtifactGroupProvider  implements IWorkbenchAdapter ,IReturnTypePro
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+
+	@Override
 	public Object[] getChildren(Object o) {
 		ArtifactGroup p = (ArtifactGroup) o;
 		ArrayList<Object> ls = new ArrayList<>();

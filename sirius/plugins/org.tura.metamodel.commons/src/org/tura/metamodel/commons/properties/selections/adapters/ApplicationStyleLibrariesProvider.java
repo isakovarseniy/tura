@@ -15,6 +15,12 @@ public class ApplicationStyleLibrariesProvider implements IWorkbenchAdapter ,IRe
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		ApplicationStyleLibraries p = (ApplicationStyleLibraries) o;
 		ArrayList<Object> ls = new ArrayList<>();

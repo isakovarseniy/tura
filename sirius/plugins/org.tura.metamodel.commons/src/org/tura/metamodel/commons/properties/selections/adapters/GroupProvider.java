@@ -11,6 +11,11 @@ public class GroupProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 	public Object[] getChildren(Object o) {
 		return new Object[]{};
 	}
+	
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
 
 	@Override
 	public ImageDescriptor getImageDescriptor(Object object) {

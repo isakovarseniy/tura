@@ -43,7 +43,11 @@ public class AttributeProvider implements IWorkbenchAdapter, IReturnTypeProvider
 
 	@Override
 	public Object getReturnType(Object o) {
-		return ((Attribute) o).getTypeRef();
+		return null;
 	}
 
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
 }

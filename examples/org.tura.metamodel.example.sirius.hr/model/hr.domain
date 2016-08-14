@@ -51,12 +51,12 @@
             <returnValue typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912"/>
           </operations>
           <operations uid="ae4eef87-9db0-4422-86d1-048678dde6c1" name="asdasdasd">
-            <grants uid="c155f491-9cc9-4d1d-8f7f-a59f470bd22d" roleRef="6ad34243-f4da-494d-8b83-f8a7fb34b6a5"/>
+            <grants securityEntity="a19bfff8-f519-4aba-9245-d6206f593f2f" uid="c155f491-9cc9-4d1d-8f7f-a59f470bd22d"/>
             <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9b414f04-9569-47c3-afec-a9fdd438f728" name="weqwe"/>
             <returnValue typeRef="8f1e281e-f64f-4992-bb3e-7bd82b6ad240"/>
           </operations>
         </types>
-        <types xsi:type="tura.type:TypeReference" uid="691495cf-06a1-4df0-8fd5-87eec2145fad" typeRef="1dab40f4-4049-480e-a206-023fd51fae31"/>
+        <types xsi:type="tura.type:TypeReference" uid="691495cf-06a1-4df0-8fd5-87eec2145fad" typeRef="010bc563-1441-4dad-a928-e09fec333478"/>
         <types xsi:type="tura.type:TypeReference" uid="afd4d39e-2cda-4aa7-8749-fad44f055dc0"/>
         <types xsi:type="tura.type:Type" uid="8e2ed330-4b75-447a-992c-75c46b590ba0"/>
         <types xsi:type="tura.type:Enumerator" uid="7d9045b8-1c09-4963-b8fc-c6c16e52b718" name="emun">
@@ -65,6 +65,28 @@
         <relationships xsi:type="tura.type:Assosiation" uid="bca78920-d1d9-410d-8bf6-4fe885a66bb6" source="8f1e281e-f64f-4992-bb3e-7bd82b6ad240" target="8e2ed330-4b75-447a-992c-75c46b590ba0">
           <links uid="4aa54173-75fb-479c-9b2e-094eb12edd54" masterField="c8ae17b4-8c17-49d8-91fd-983d8c1202bf"/>
         </relationships>
+      </repositoryPackages>
+    </typesRepository>
+    <typesRepository uid="95a185f5-86d1-42f5-a3e4-4fc7645a0820" name="Base Repository">
+      <repositoryPackages uid="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" name="Model types">
+        <types xsi:type="tura.type:Type" uid="8b43de37-71cd-4579-a7d3-3478be2846f8" name="Message"/>
+        <types xsi:type="tura.type:Type" uid="47959024-ed5d-4135-aaf9-a81d05fefc13" name="Data control">
+          <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="a6fc83f4-1d6d-4783-83af-c32014cb412b" name="startIndex"/>
+          <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="2b3798f6-1108-48fd-9800-1f78d6af7dcc" name="endIndex"/>
+          <attributes typeRef="35f1cd61-8994-4cd3-ac93-fcf57cfcf441" uid="f1d265d0-24de-4aa5-91e4-0cbac4380394" name="searchCriteria"/>
+          <attributes typeRef="c349ec60-4840-4dc9-918c-03ce34d8177e" uid="fa8ab232-6aa9-4a56-a082-f9a18ddc3264" name="orderCriteria"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="6a621b53-4bee-4700-a46d-a061291e72f3" name="General data control">
+          <operations uid="1a56b9c3-f571-43a7-9263-380a520ee3ba" name="currentObject">
+            <returnValue typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d"/>
+          </operations>
+        </types>
+        <types xsi:type="tura.type:Type" uid="4d408999-e499-4951-9cbe-8e747fbbe1fc" name="Tree data control"/>
+        <types xsi:type="tura.type:Type" uid="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" name="Base type"/>
+        <types xsi:type="tura.type:Type" uid="35f1cd61-8994-4cd3-ac93-fcf57cfcf441" name="Search criteria"/>
+        <types xsi:type="tura.type:Type" uid="c349ec60-4840-4dc9-918c-03ce34d8177e" name="Order criteria"/>
+        <relationships xsi:type="tura.type:Generalization" uid="34cce173-066e-4d60-8ae5-a0d2651232d3" source="47959024-ed5d-4135-aaf9-a81d05fefc13" target="6a621b53-4bee-4700-a46d-a061291e72f3"/>
+        <relationships xsi:type="tura.type:Generalization" uid="47b39317-6948-4dc4-9666-1ad1d89c5b30" source="4d408999-e499-4951-9cbe-8e747fbbe1fc" target="6a621b53-4bee-4700-a46d-a061291e72f3"/>
       </repositoryPackages>
     </typesRepository>
     <primitives>
@@ -152,13 +174,13 @@
           <applicationMappers uid="0cf8dece-306e-4a11-a093-c6a0b9c250be">
             <mappers uid="ae6c399e-7bdc-4c5b-a263-722db7c0d441" name="Mapping package1">
               <mapper uid="249a029a-06a1-44ce-aa66-d2601577b229">
-                <mappers xsi:type="tura.mapper:JavaMapper" uid="d9c7b013-2353-4295-a234-04b9e3ea9718"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d9c7b013-2353-4295-a234-04b9e3ea9718"/>
                 <mappers xsi:type="tura.mapper:JavaMapper" uid="bfdf4db4-051d-42cc-b153-24d43fbca12b"/>
                 <mappers xsi:type="tura.mapper:JavaMapper" uid="5760b6ff-4e57-44a6-98a3-8af9be797dec"/>
-                <mappers xsi:type="tura.mapper:JavaPackageMapper" uid="7a33c4e7-1ff9-48e2-9f83-824c41df9025"/>
-                <mappers xsi:type="tura.mapper:JavaScriptMapper" uid="b609ebb0-0532-4b1f-8668-2e76e97720ca"/>
-                <mappers xsi:type="tura.mapper:CSSMapper" uid="74484cf3-1d0c-48ad-b683-d1b87d897a6c"/>
-                <mappers xsi:type="tura.mapper:RoleMapper" uid="c2e618aa-713e-4121-b88c-37d04131eea1"/>
+                <mappers xsi:type="tura.mapper:JavaPackageMapper" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="7a33c4e7-1ff9-48e2-9f83-824c41df9025"/>
+                <mappers xsi:type="tura.mapper:JavaScriptMapper" typeRef="8f1e281e-f64f-4992-bb3e-7bd82b6ad240" uid="b609ebb0-0532-4b1f-8668-2e76e97720ca"/>
+                <mappers xsi:type="tura.mapper:CSSMapper" styleLibrary="2cca6686-3847-4989-9ff1-0042e2182d33" uid="74484cf3-1d0c-48ad-b683-d1b87d897a6c"/>
+                <mappers xsi:type="tura.mapper:RoleMapper" securityEntity="6ad34243-f4da-494d-8b83-f8a7fb34b6a5" uid="c2e618aa-713e-4121-b88c-37d04131eea1"/>
                 <mappers xsi:type="tura.mapper:JavaScriptMapper" uid="e6ae78d1-9fb8-446a-9818-ad9b25fdd954"/>
               </mapper>
             </mappers>
@@ -176,6 +198,7 @@
                     <viewElement xsi:type="tura.form:ViewPort" uid="293d46ad-8f55-4d30-9203-a65d93427c82">
                       <viewPortTrigger uid="b34c4f69-8d28-4d60-947d-f2a05701b1c5"/>
                     </viewElement>
+                    <multiLangLabel uid="21e814ab-2fd3-4ada-a325-57feb6652cfc"/>
                   </canvases>
                   <canvases xsi:type="tura.form:PopupCanvas" uid="cbb8bf7e-2d52-4dd8-830f-547f923c1398" columns="2">
                     <viewElement xsi:type="tura.form:ViewPort" order="1" uid="7ce03e1d-3a28-4aa9-a38d-a10a2c74ccd3"/>
@@ -236,6 +259,11 @@
                     <viewElement xsi:type="tura.form:ViewPort" order="3" uid="a7222041-fa8e-43fe-891e-4995a778444d">
                       <viewPortTrigger uid="dd3d4078-06bf-4b7e-aea5-e076d263db1a"/>
                     </viewElement>
+                    <multiLangLabel uid="9446e581-f8e8-4f60-8cc2-32bfd81678cd" value="Application Message Libraries.Library 1.ADD_BUTTON">
+                      <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                      <expression objRef="00cc660b-4e02-4ae6-8cb0-8f7342417334" order="1" expressionType="MessageLibraryImpl"/>
+                      <expression objRef="546e2e00-144c-4547-b331-9abd4ee33cf6" order="2" expressionType="MessageImpl"/>
+                    </multiLangLabel>
                   </canvases>
                   <canvases xsi:type="tura.form:TabPage" uid="79f8202c-9739-42e6-8c04-7db10d6efd13" columns="2">
                     <viewElement xsi:type="tura.form:ViewArea" order="1" uid="6a91b8ff-063f-42d1-ae91-a29eb14be289"/>
@@ -264,33 +292,51 @@
                 <datacontrols uid="6bb23934-e207-455b-b45a-cf5b70139b85">
                   <root uid="3f85e1a6-865a-405b-9680-f78b4c01d188">
                     <preFormTrigger uid="c861c625-4436-40b0-86c8-491fbae9dacd"/>
-                    <variables uid="5698d27f-dba3-4461-9299-7a93ce82f16c"/>
+                    <variables typeRef="5352d67e-39ad-4a53-8f0e-d20ad0956dd7" uid="5698d27f-dba3-4461-9299-7a93ce82f16c" name="qw" paramRef="8083352b-0796-4e55-8a19-29bb2427ed58"/>
                     <variables uid="72419647-e9c5-4ee8-81ac-a4797d004c20"/>
                   </root>
                   <controls uid="18e9d3f7-efd6-48a6-b913-1d7762d97f6b" name="Departments">
+                    <baseType typeRef="8f1e281e-f64f-4992-bb3e-7bd82b6ad240"/>
                     <preQueryTrigger uid="69e0e131-cbbd-49aa-8dfa-e12e2efb9e94"/>
                     <postQueryTrigger uid="ab954a09-4a6f-40ec-a1a9-01b0a140a729"/>
                     <preInsertTrigger uid="fc6668ce-906b-4d35-9152-7a3efb992ee3"/>
                     <preDeleteTrigger uid="b1c68e94-fb7b-4207-bd9a-f7058ff99646"/>
                     <postCreateTrigger uid="8717be09-2ca9-464c-a611-5dcc78125fa1"/>
                     <preUpdateTrigger uid="7987e1fb-888c-461a-8acc-82ec690261d0"/>
-                    <create uid="5fdb8102-71ec-48c5-9f62-16a4bf6f159a"/>
+                    <create methodRef="ae4eef87-9db0-4422-86d1-048678dde6c1" uid="5fdb8102-71ec-48c5-9f62-16a4bf6f159a">
+                      <parameters uid="54643b7f-81b7-4cd7-aa13-1e4721be882f" refObj="9b414f04-9569-47c3-afec-a9fdd438f728">
+                        <value uid="47b43b6e-19b8-4a4e-8e95-ac47af3498f0"/>
+                      </parameters>
+                      <typePointers typeRef="8f1e281e-f64f-4992-bb3e-7bd82b6ad240"/>
+                    </create>
                     <insert uid="5771ca2e-d94d-4429-9185-cd5d5d7e4778"/>
                     <update uid="891f145b-f4d4-41a5-9d96-9a5df196e09b"/>
                     <remove uid="1124a694-0d00-4b90-a829-330eb7144881"/>
                     <search uid="7705c7ee-2115-4352-95e1-11ef88dbe7a0"/>
                     <artificialFields uid="f565adcb-4d55-44aa-93d6-73221c9b9b48" name="param1"/>
                     <artificialFields uid="ae734022-c07f-4fbc-89c2-1c93c66b3d57" name="param2"/>
-                    <artificialFields uid="8a6952d8-83a2-4e7e-a56f-c39eaad5ab84" name="Artificial field3"/>
+                    <artificialFields typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="8a6952d8-83a2-4e7e-a56f-c39eaad5ab84" name="Artificial field3"/>
+                    <defaultSearch/>
+                    <defaultOrderBy>
+                      <orderRules uid="a32b86ce-baa3-4e42-9514-528b9e1ded9a" refObj="c8ae17b4-8c17-49d8-91fd-983d8c1202bf"/>
+                    </defaultOrderBy>
                   </controls>
-                  <controls uid="0acaa2b7-92bc-4466-b760-a7070718c96e"/>
+                  <controls uid="0acaa2b7-92bc-4466-b760-a7070718c96e">
+                    <baseType typeRef="8f1e281e-f64f-4992-bb3e-7bd82b6ad240"/>
+                    <defaultOrderBy/>
+                  </controls>
                   <controls uid="4b2d14ba-7328-4318-8012-45b2e27b7a0a">
                     <preQueryTrigger uid="eb5fc908-1643-4a8c-b17c-3bbde69a16d5"/>
+                    <defaultSearch/>
+                    <defaultOrderBy/>
                   </controls>
                   <relations uid="99137b8a-ab4c-41fa-b23e-5990e65b5045" master="18e9d3f7-efd6-48a6-b913-1d7762d97f6b" detail="0acaa2b7-92bc-4466-b760-a7070718c96e"/>
-                  <relations uid="fcd2d19c-2b4c-41fb-bb64-b745c6a7d5e9" master="18e9d3f7-efd6-48a6-b913-1d7762d97f6b" detail="0acaa2b7-92bc-4466-b760-a7070718c96e"/>
+                  <relations uid="fcd2d19c-2b4c-41fb-bb64-b745c6a7d5e9" master="18e9d3f7-efd6-48a6-b913-1d7762d97f6b" detail="0acaa2b7-92bc-4466-b760-a7070718c96e">
+                    <links uid="6864a8d7-7da6-44a5-8a40-c0d53667cc29" masterField="c8ae17b4-8c17-49d8-91fd-983d8c1202bf" detailField="c8ae17b4-8c17-49d8-91fd-983d8c1202bf"/>
+                  </relations>
                   <dependencies uid="ec746f78-9f1b-4c48-a10e-c0f4867285e9" master="18e9d3f7-efd6-48a6-b913-1d7762d97f6b" detail="0acaa2b7-92bc-4466-b760-a7070718c96e"/>
                 </datacontrols>
+                <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8083352b-0796-4e55-8a19-29bb2427ed58" name="Form parameter1"/>
               </forms>
             </applicationUIPackages>
           </applicationUILayer>
@@ -357,12 +403,12 @@
           <applicationRole uid="19048840-af48-4798-a6a7-b171f7d1a9ed" name="Security">
             <realms uid="b77cee47-5d52-4e0a-9205-eba9a56dbb7e" name="Security rules set  1">
               <roles uid="359173c3-2eb7-4f12-9a3b-e899eaee383a">
-                <roles uid="a19bfff8-f519-4aba-9245-d6206f593f2f" name="sdasdasdasd"/>
-                <roles uid="6ad34243-f4da-494d-8b83-f8a7fb34b6a5" name="dada"/>
+                <roles name="sdasdasdasd" uid="a19bfff8-f519-4aba-9245-d6206f593f2f"/>
+                <roles name="dada" uid="6ad34243-f4da-494d-8b83-f8a7fb34b6a5"/>
                 <roles uid="d6dc5ded-c206-4360-82b6-95735a432f85"/>
                 <roles uid="96ce539e-2f49-4202-af06-d071a82ef9cd"/>
-                <groups uid="f4e193b2-ace4-453a-9663-5c9154dd7abb" name="qqqq"/>
-                <groups uid="76bc68f3-646e-4a37-9b65-89482339f189" name="asdasdas"/>
+                <groups name="qqqq" uid="f4e193b2-ace4-453a-9663-5c9154dd7abb"/>
+                <groups name="asdasdas" uid="76bc68f3-646e-4a37-9b65-89482339f189"/>
                 <groups uid="f7d2eff6-a162-4c7a-8da1-65ff5d090d91"/>
                 <group2Groups uid="2796d885-a233-4bd9-9bd7-dc4dbff4d1bc" source="f7d2eff6-a162-4c7a-8da1-65ff5d090d91" target="f4e193b2-ace4-453a-9663-5c9154dd7abb"/>
                 <group2Roles uid="473ae3b8-749c-49a1-a004-138ba60ef3cd" source="f4e193b2-ace4-453a-9663-5c9154dd7abb" target="d6dc5ded-c206-4360-82b6-95735a432f85"/>
@@ -374,14 +420,18 @@
           <applicationMessages uid="839f02b9-22c9-4c47-abd9-495a167fc15d" name="Application message libraries">
             <messageLibraries uid="42709504-6bab-4ef1-8090-e2f7498c506a" name="Message libraries">
               <libraries uid="00cc660b-4e02-4ae6-8cb0-8f7342417334" name="Library 1">
-                <messages uid="546e2e00-144c-4547-b331-9abd4ee33cf6" name="Key  1">
-                  <translatioins uid="e3aa86c9-2495-4fac-93c3-955bfa6b84a3" translation="Translation  1"/>
-                  <translatioins uid="ff5bfd73-5e40-4942-9409-1381727ab532" translation="Translation  2"/>
+                <messages uid="546e2e00-144c-4547-b331-9abd4ee33cf6" name="ADD_BUTTON">
+                  <translatioins uid="e3aa86c9-2495-4fac-93c3-955bfa6b84a3" translation="Add" lang="feb191aa-7a09-4d02-8102-d628390d4fd5"/>
+                  <translatioins uid="ff5bfd73-5e40-4942-9409-1381727ab532" translation="Добавить" lang="feb191aa-7a09-4d02-8102-d628390d4fd5"/>
+                  <translatioins uid="29f217ea-0cf5-4ee2-8237-00364d27a3d9" translation="qweqerr" lang="67dcba92-1d36-4cb2-8f10-54c3038f1d72"/>
                 </messages>
                 <messages uid="cc96e9a7-ea7e-4836-a96f-0b00d767dcc4" name="Key  2"/>
                 <messages uid="c9f9c7fa-32a3-49fc-a55e-303834c3ce3a" name="Key  3"/>
                 <messages uid="7653f174-73fe-488d-a2b3-0add76ad7d2d" name="Key  4"/>
                 <messages uid="72eeeebf-e4c6-4b37-b79f-0613e980956d" name="Key  5"/>
+                <messages uid="f65bc37e-9a0c-48aa-9fa8-c84861f47a33" name="DELETE_BUTTON">
+                  <translatioins uid="710b31bc-2ae6-4519-a381-0ced102a7305" translation="asdasd" lang="23496e18-85c3-4c3f-9a6d-aa2bfed485f5"/>
+                </messages>
               </libraries>
             </messageLibraries>
             <applicationLanguages uid="697ce488-936c-4f2c-8093-0117b7137501" name="Languages">

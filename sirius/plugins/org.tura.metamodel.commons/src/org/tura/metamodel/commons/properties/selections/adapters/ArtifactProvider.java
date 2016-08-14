@@ -13,6 +13,11 @@ public class ArtifactProvider  implements IWorkbenchAdapter ,IReturnTypeProvider
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		return new Object[]{};
 	}

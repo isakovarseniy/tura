@@ -14,6 +14,11 @@ public class GenerationHintsHolderProvider  implements IWorkbenchAdapter ,IRetur
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		GenerationHintsHolder p = (GenerationHintsHolder) o;
 		ArrayList<Object> ls = new ArrayList<>();

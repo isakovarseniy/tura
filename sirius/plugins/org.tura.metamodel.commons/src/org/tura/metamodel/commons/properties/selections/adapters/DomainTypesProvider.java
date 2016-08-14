@@ -15,6 +15,11 @@ public class DomainTypesProvider implements IWorkbenchAdapter, IReturnTypeProvid
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		DomainTypes t = ((DomainTypes) o);
 

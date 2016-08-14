@@ -15,6 +15,11 @@ public class ApplicationProvider implements IWorkbenchAdapter ,IReturnTypeProvid
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		Application p = (Application) o;
 		ArrayList<Object> ls = new ArrayList<>();

@@ -33,4 +33,10 @@ public class RoleProvider implements IWorkbenchAdapter ,IReturnTypeProvider{
 		return o;
 	}
 
+	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	
 }

@@ -19,6 +19,12 @@ public class TechLeafProvider  implements IWorkbenchAdapter ,IReturnTypeProvider
 	}
 
 	@Override
+	public Object getApplicationType(Object o) {
+		return null;
+	}	
+	
+	
+	@Override
 	public Object[] getChildren(Object o) {
 		TechLeaf p = (TechLeaf) o;
 		ArrayList<Object> ls = new ArrayList<>();
