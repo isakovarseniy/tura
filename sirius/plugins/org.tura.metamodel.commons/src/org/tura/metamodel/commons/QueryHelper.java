@@ -69,6 +69,7 @@ public class QueryHelper {
 	private static String MODEL_PACKAGE = "Model types";
 	private static String MESSAGE_TYPE = "Message";
 	private static String DATA_CONTROL="Data control";
+	private static String STYLE_TYPE ="Style";
 
 	/** The OCL object. */
 	private OCL<?, EClassifier, ?, ?, ?, ?, ?, ?, ?, Constraint, EClass, EObject> ocl;
@@ -101,16 +102,13 @@ public class QueryHelper {
 	}
 
 	public Object getApplicationRoles(DiagramImpl root) {
-		throw new RuntimeException();
-
-		// Collection<DomainArtifacts> map = (Collection<DomainArtifacts>)
-		// internalEvaluate(obj,
-		// "domain::DomainArtifacts.allInstances()");
-		//
-		// if (map != null && map.size() != 0) {
-		// return (DomainArtifacts) map.toArray()[0];
-		// }
-		// return null;
+		Form frm = getForm(root);
+		
+		 Application app = ((Application) (frm.eContainer().eContainer().eContainer() ));
+		 if (app.getApplicationRole() != null){
+		    return app.getApplicationRole();
+		 }
+		 return null;
 	}
 
 	//
@@ -126,15 +124,13 @@ public class QueryHelper {
 
 	//
 	public Object getApplicationStyle(DiagramImpl root) {
-		// domain.Form frm = getForm(root);
-		//
-		// domain.Application app = ((domain.UIPackage) (frm.eContainer()))
-		// .getParent().getParent().getParent();
-		// if (app.getApplicationStyle() != null)
-		// return app.getApplicationStyle();
-		//
-		// return null;
-		throw new RuntimeException();
+		Form frm = getForm(root);
+
+		 Application app = ((Application) (frm.eContainer().eContainer().eContainer() ));
+		 if (app.getApplicationStyle() != null){
+		    return app.getApplicationStyle();
+		 }
+		 return null;
 	}
 
 	public Form getForm(DataControl dc) {
@@ -728,6 +724,12 @@ public class QueryHelper {
 		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, MESSAGE_TYPE);
 	}
 
+
+	public TypeElement findStyleType(EObject obj) throws Exception {
+		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, STYLE_TYPE);
+	}
+	
+	
 	@SuppressWarnings("unchecked")
 	public DomainArtifacts getDomainArtifact(EObject obj) throws Exception {
 

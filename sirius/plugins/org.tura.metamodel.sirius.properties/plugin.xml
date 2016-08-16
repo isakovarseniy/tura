@@ -258,6 +258,13 @@
              label="MultiLangLabel"/>
 
 
+    <propertyTab
+             category="domain"
+             id="tab.form.Style"
+             label="Style"/>
+
+
+
       </propertyTabs>
 
       
@@ -561,6 +568,34 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>
+	
+
+	
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.StyleClassPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.StyleClassSectionFilter"
+	            id="form.Style"
+	            tab="tab.form.Style">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.context.impl.StylePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.StyleClassSectionFilter"
+	            id="form.Style"
+	            tab="tab.form.Style">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+	
+StylePropertySelection	
 	
 	
 </plugin>

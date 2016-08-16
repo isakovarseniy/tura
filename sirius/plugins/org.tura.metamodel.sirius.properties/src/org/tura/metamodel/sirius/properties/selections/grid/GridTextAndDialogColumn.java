@@ -88,14 +88,15 @@ public abstract class GridTextAndDialogColumn implements GridColumn {
 		TableItem item = (TableItem) element;
 
 		Object data = modelConverter( item.getData());
-		Object obj = ((TreePath) value).getLastSegment();
-		if (checkType(data, obj)) {
-
-			EditingDomain editingDomain = ((DiagramEditor) this.property.getPart()).getEditingDomain();
-			EStructuralFeature feature = dataAdapter.getFeature();
-			Command setCommand = SetCommand.create(editingDomain, data, feature, obj);
-			editingDomain.getCommandStack().execute(setCommand);
-
+		if (value instanceof TreePath ){
+		  Object obj = ((TreePath) value).getLastSegment();
+			if ( checkType(data, obj)) {
+	
+				EditingDomain editingDomain = ((DiagramEditor) this.property.getPart()).getEditingDomain();
+				EStructuralFeature feature = dataAdapter.getFeature();
+				Command setCommand = SetCommand.create(editingDomain, data, feature, obj);
+				editingDomain.getCommandStack().execute(setCommand);
+			}
 		}
 	}
 

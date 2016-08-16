@@ -51,6 +51,7 @@ import form.PREUpdateTrigger;
 import form.SearchTrigger;
 import form.UpdateTrigger;
 import form.ViewArea;
+import form.ViewPortTrigger;
 import infrastructure.EnterpriseInfrastructure;
 import mapper.CSSMapper;
 import mapper.JavaMapper;
@@ -347,5 +348,13 @@ public class DiagramService {
 		}
 		return "pre-form - "+trigger.getMethodRef().getName()+"()";
 	}
+
+	public String generateName(ViewPortTrigger trigger ){
+		if (trigger.getMethodRef() == null){
+			return "viewport  -  n/a";
+		}
+		return "viewport - "+trigger.getMethodRef().getName()+"()";
+	}
+	
 	
 }

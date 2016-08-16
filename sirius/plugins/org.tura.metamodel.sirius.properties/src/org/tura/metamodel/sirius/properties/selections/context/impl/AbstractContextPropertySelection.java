@@ -53,6 +53,12 @@ public abstract class AbstractContextPropertySelection extends ContextPropertySe
 				rootOfTree.addChild(obj);
 			}
 			
+			obj = new QueryHelper().getApplicationStyle(root);
+
+			if (obj != null) {
+				rootOfTree.addChild(obj);
+			}
+
 		} catch (Exception e) {
 
 			e.printStackTrace();

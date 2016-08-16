@@ -2545,7 +2545,7 @@
             <subContainerMappings name="ViewPort0" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewPort%20edit%20label']" semanticCandidatesExpression="aql:self.viewElement" domainClass="form.ViewPort" childrenPresentation="VerticalStack">
               <subContainerMappings name="ViewPortTriggers0" semanticCandidatesExpression="var:self" domainClass="form.ViewPort" childrenPresentation="List">
                 <subNodeMappings name="ViewPortTrigger0" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewPortTrigger%20edit%20label']" semanticCandidatesExpression="feature:viewPortTrigger" domainClass="form.ViewPortTrigger">
-                  <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+                  <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -2591,7 +2591,7 @@
             <subContainerMappings name="ViewPort1" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewPort%20edit%20label']" semanticCandidatesExpression="aql:self.viewElement" domainClass="form.ViewPort" childrenPresentation="VerticalStack">
               <subContainerMappings name="ViewPortTriggers1" semanticCandidatesExpression="var:self" domainClass="form.ViewPort" childrenPresentation="List">
                 <subNodeMappings name="ViewPortTrigger1" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewPortTrigger%20edit%20label']" semanticCandidatesExpression="feature:viewPortTrigger" domainClass="form.ViewPortTrigger">
-                  <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+                  <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -2637,7 +2637,7 @@
             <subContainerMappings name="ViewPort2" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewPort%20edit%20label']" semanticCandidatesExpression="aql:self.viewElement" domainClass="form.ViewPort" childrenPresentation="VerticalStack">
               <subContainerMappings name="ViewPortTriggers2" semanticCandidatesExpression="var:self" domainClass="form.ViewPort" childrenPresentation="List">
                 <subNodeMappings name="ViewPortTrigger2" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewPortTrigger%20edit%20label']" semanticCandidatesExpression="feature:viewPortTrigger" domainClass="form.ViewPortTrigger">
-                  <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+                  <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -2683,7 +2683,7 @@
             <subContainerMappings name="ViewPort3" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewPort%20edit%20label']" semanticCandidatesExpression="aql:self.viewElement" domainClass="form.ViewPort" childrenPresentation="VerticalStack">
               <subContainerMappings name="ViewPortTriggers3" semanticCandidatesExpression="var:self" domainClass="form.ViewPort" childrenPresentation="List">
                 <subNodeMappings name="ViewPortTrigger3" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewPortTrigger%20edit%20label']" semanticCandidatesExpression="feature:viewPortTrigger" domainClass="form.ViewPortTrigger">
-                  <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
+                  <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>

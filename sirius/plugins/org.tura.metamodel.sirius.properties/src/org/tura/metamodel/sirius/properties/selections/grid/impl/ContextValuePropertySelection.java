@@ -255,13 +255,7 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 	public void updateExpressionValue(EditingDomain editingDomain, ContextValue ctxv, TreePath path, Object model) {
 
 		Object obj = path.getLastSegment();
-
-		IReturnTypeProvider provider = (IReturnTypeProvider) Platform.getAdapterManager().getAdapter(obj,
-				IReturnTypeProvider.class);
-
-		TypeElement type = null;
-		if (provider != null && provider.getReturnType(obj) != null)
-			type = (TypeElement) provider.getReturnType(obj);
+		TypeElement type = getType(obj);
 
 		if (type == null || !checkType(ctxv, type,model)) {
 			showError("Choosen type missmarch of parameter type");
@@ -274,6 +268,17 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 
 	}
 
+	protected TypeElement getType(Object obj){
+		IReturnTypeProvider provider = (IReturnTypeProvider) Platform.getAdapterManager().getAdapter(obj,
+				IReturnTypeProvider.class);
+
+		TypeElement type = null;
+		if (provider != null && provider.getReturnType(obj) != null)
+			type = (TypeElement) provider.getReturnType(obj);
+		
+		return type;
+
+	}
 
 	protected List<ExpressionPart> buildExpressionList(TreePath path) {
 		ArrayList<ExpressionPart> ls = new ArrayList<>();
