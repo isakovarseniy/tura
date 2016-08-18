@@ -620,5 +620,19 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>	
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.FlexFieldCategorizedPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.FlexFieldsSectionFilter"
+	            id="form.FlexField.Categorized"
+	            tab="tab.form.FlexField"
+	            afterSection="form.FlexField.Parameters">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
 	
 </plugin>
