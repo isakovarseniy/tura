@@ -226,7 +226,7 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 			for (Object obj : new QueryHelper().getControlsList(root))
 				rootOfTree.addChild(obj);
 
-			Object obj = new QueryHelper().getTypesRepository(root.getElement());
+			Object obj = new QueryHelper().getTypesRepository(getModel());
 			if (obj != null)
 				rootOfTree.addChild(obj);
 
@@ -244,7 +244,6 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 				rootOfTree.addChild(obj);
 			}
 			
-			
 		} catch (Exception e) {
 			// ignore
 		}
@@ -252,6 +251,11 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 		return rootOfTree;
 	}
 
+	
+	public void afterUpdate(){
+	}	
+	
+	
 	public void updateExpressionValue(EditingDomain editingDomain, ContextValue ctxv, TreePath path, Object model) {
 
 		Object obj = path.getLastSegment();
@@ -265,6 +269,7 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 		removeExpession(editingDomain, ctxv);
 		updateExpession(editingDomain, ctxv, buildExpressionList(path));
 		updateConstantValue(editingDomain, ctxv, buildExpression(path));
+		afterUpdate();
 
 	}
 
@@ -314,7 +319,7 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 		return value;
 	}
 
-	private void updateConstantValue(EditingDomain editingDomain, ContextValue param, String value) {
+	protected void updateConstantValue(EditingDomain editingDomain, ContextValue param, String value) {
 		String valueString = null;
 		if (value != null)
 			valueString = ((String) value).trim();
@@ -323,7 +328,6 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 		editingDomain.getCommandStack().execute(
 				SetCommand.create(editingDomain, param, FormPackage.eINSTANCE.getContextValue_Value(),
 						valueString));
-
 	}
 
 	public void updateExpession(EditingDomain editingDomain, ContextValue param, List<ExpressionPart> ls) {
@@ -344,7 +348,7 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 
 	}
 
-	private void removeExpession(EditingDomain editingDomain, ContextValue ctxv) {
+	protected void removeExpession(EditingDomain editingDomain, ContextValue ctxv) {
 		if ( ctxv.getExpression() != null && ctxv.getExpression().size() != 0) {
 			editingDomain.getCommandStack().execute(
 					RemoveCommand.create(editingDomain, ctxv,

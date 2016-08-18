@@ -263,6 +263,10 @@
              id="tab.form.Style"
              label="Style"/>
 
+    <propertyTab
+             category="domain"
+             id="tab.form.FlexField"
+             label="Flex field"/>
 
 
       </propertyTabs>
@@ -594,8 +598,27 @@
 	   </propertySections>
 	</extension>	
 
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.FlexFieldsPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.FlexFieldsSectionFilter"
+	            id="form.FlexField"
+	            tab="tab.form.FlexField">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
 	
-StylePropertySelection	
-	
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.FlexFieldsContextParameterPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.FlexFieldsSectionFilter"
+	            id="form.FlexField.Parameters"
+	            tab="tab.form.FlexField"
+	            afterSection="form.FlexField">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
 	
 </plugin>

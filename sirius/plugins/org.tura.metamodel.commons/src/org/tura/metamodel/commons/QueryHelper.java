@@ -70,6 +70,8 @@ public class QueryHelper {
 	private static String MESSAGE_TYPE = "Message";
 	private static String DATA_CONTROL="Data control";
 	private static String STYLE_TYPE ="Style";
+	private static String GROUP_TYPE="Group";
+	private static String ROLE_TYPE="Role";
 
 	/** The OCL object. */
 	private OCL<?, EClassifier, ?, ?, ?, ?, ?, ?, ?, Constraint, EClass, EObject> ocl;
@@ -727,6 +729,14 @@ public class QueryHelper {
 
 	public TypeElement findStyleType(EObject obj) throws Exception {
 		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, STYLE_TYPE);
+	}
+	
+	public TypeElement findRoleType(EObject obj) throws Exception {
+		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, ROLE_TYPE);
+	}
+
+	public TypeElement findGroupType(EObject obj) throws Exception {
+		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, GROUP_TYPE);
 	}
 	
 	
