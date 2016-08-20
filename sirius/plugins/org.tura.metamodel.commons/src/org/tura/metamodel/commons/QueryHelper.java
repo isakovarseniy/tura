@@ -76,6 +76,7 @@ public class QueryHelper {
 	private static String STYLE_TYPE ="Style";
 	private static String GROUP_TYPE="Group";
 	private static String ROLE_TYPE="Role";
+	private static String ICON_TYPE="Icon";
 
 	/** The OCL object. */
 	private OCL<?, EClassifier, ?, ?, ?, ?, ?, ?, ?, Constraint, EClass, EObject> ocl;
@@ -769,6 +770,12 @@ public class QueryHelper {
 	public TypeElement findGroupType(EObject obj) throws Exception {
 		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, GROUP_TYPE);
 	}
+	
+	public TypeElement findIconType(EObject obj) throws Exception {
+		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, ICON_TYPE);
+	}
+
+	
 	
 	
 	@SuppressWarnings("unchecked")

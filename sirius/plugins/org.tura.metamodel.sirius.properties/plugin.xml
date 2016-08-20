@@ -274,6 +274,21 @@
              id="tab.form.Enabled"
              label="Enabled"/>
 
+    <propertyTab
+             category="domain"
+             id="tab.form.ReadOnly"
+             label="Read only"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.form.Required"
+             label="Required"/>
+
+
+    <propertyTab
+             category="domain"
+             id="tab.form.Icon"
+             label="Icon"/>
 
 
       </propertyTabs>
@@ -680,6 +695,79 @@
 	   </propertySections>
 	</extension>	
 
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.context.impl.ReadOnlyPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.UIElementSectionFilter"
+	            id="form.ReadOnly"
+	            tab="tab.form.ReadOnly">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
 
-	
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ReadOnlyPropertyContextParameters"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.UIElementSectionFilter"
+	            id="form.ReadOnly.parameters"
+	            tab="tab.form.ReadOnly"
+	            afterSection="form.ReadOnly">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.context.impl.RequiredPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.UIElementSectionFilter"
+	            id="form.Required"
+	            tab="tab.form.Required">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RequiredPropertyContextParameters"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.UIElementSectionFilter"
+	            id="form.Required.parameters"
+	            tab="tab.form.Required"
+	            afterSection="form.Required">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.context.impl.ItemIconPropertySelectioin"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ItemIconSectionFilter"
+	            id="form.Icon"
+	            tab="tab.form.Icon">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ItemIconPropertyContextParameters"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ItemIconSectionFilter"
+	            id="form.Icon.parameters"
+	            tab="tab.form.Icon"
+	            afterSection="form.Icon">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
+
 </plugin>
