@@ -292,15 +292,6 @@ public interface FormFactory extends EFactory {
 	StyleElement createStyleElement();
 
 	/**
-	 * Returns a new object of class '<em>Style Class</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Style Class</em>'.
-	 * @generated
-	 */
-	StyleClass createStyleClass();
-
-	/**
 	 * Returns a new object of class '<em>Nick Named</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

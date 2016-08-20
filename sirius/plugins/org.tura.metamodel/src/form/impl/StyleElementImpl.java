@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link form.impl.StyleElementImpl#getStyle <em>Style</em>}</li>
- *   <li>{@link form.impl.StyleElementImpl#getStyleClass <em>Style Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,16 +47,6 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement {
 	 * @ordered
 	 */
 	protected Context style;
-
-	/**
-	 * The cached value of the '{@link #getStyleClass() <em>Style Class</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStyleClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<StyleClass> styleClass;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,25 +115,11 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<StyleClass> getStyleClass() {
-		if (styleClass == null) {
-			styleClass = new EObjectContainmentEList<StyleClass>(StyleClass.class, this, FormPackage.STYLE_ELEMENT__STYLE_CLASS);
-		}
-		return styleClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FormPackage.STYLE_ELEMENT__STYLE:
 				return basicSetStyle(null, msgs);
-			case FormPackage.STYLE_ELEMENT__STYLE_CLASS:
-				return ((InternalEList<?>)getStyleClass()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -159,8 +134,6 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement {
 		switch (featureID) {
 			case FormPackage.STYLE_ELEMENT__STYLE:
 				return getStyle();
-			case FormPackage.STYLE_ELEMENT__STYLE_CLASS:
-				return getStyleClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -177,10 +150,6 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement {
 			case FormPackage.STYLE_ELEMENT__STYLE:
 				setStyle((Context)newValue);
 				return;
-			case FormPackage.STYLE_ELEMENT__STYLE_CLASS:
-				getStyleClass().clear();
-				getStyleClass().addAll((Collection<? extends StyleClass>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -196,9 +165,6 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement {
 			case FormPackage.STYLE_ELEMENT__STYLE:
 				setStyle((Context)null);
 				return;
-			case FormPackage.STYLE_ELEMENT__STYLE_CLASS:
-				getStyleClass().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -213,8 +179,6 @@ public class StyleElementImpl extends EObjectImpl implements StyleElement {
 		switch (featureID) {
 			case FormPackage.STYLE_ELEMENT__STYLE:
 				return style != null;
-			case FormPackage.STYLE_ELEMENT__STYLE_CLASS:
-				return styleClass != null && !styleClass.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

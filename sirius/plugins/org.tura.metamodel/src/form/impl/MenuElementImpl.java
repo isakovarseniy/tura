@@ -38,7 +38,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link form.impl.MenuElementImpl#getStyle <em>Style</em>}</li>
- *   <li>{@link form.impl.MenuElementImpl#getStyleClass <em>Style Class</em>}</li>
  *   <li>{@link form.impl.MenuElementImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link form.impl.MenuElementImpl#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link form.impl.MenuElementImpl#getOrder <em>Order</em>}</li>
@@ -58,16 +57,6 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * @ordered
 	 */
 	protected Context style;
-
-	/**
-	 * The cached value of the '{@link #getStyleClass() <em>Style Class</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStyleClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<StyleClass> styleClass;
 
 	/**
 	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
@@ -216,18 +205,6 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<StyleClass> getStyleClass() {
-		if (styleClass == null) {
-			styleClass = new EObjectContainmentEList<StyleClass>(StyleClass.class, this, FormPackage.MENU_ELEMENT__STYLE_CLASS);
-		}
-		return styleClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Classifier> getClassifiers() {
 		if (classifiers == null) {
 			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, FormPackage.MENU_ELEMENT__CLASSIFIERS);
@@ -351,8 +328,6 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		switch (featureID) {
 			case FormPackage.MENU_ELEMENT__STYLE:
 				return basicSetStyle(null, msgs);
-			case FormPackage.MENU_ELEMENT__STYLE_CLASS:
-				return ((InternalEList<?>)getStyleClass()).basicRemove(otherEnd, msgs);
 			case FormPackage.MENU_ELEMENT__CLASSIFIERS:
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
 			case FormPackage.MENU_ELEMENT__ENABLED:
@@ -371,8 +346,6 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		switch (featureID) {
 			case FormPackage.MENU_ELEMENT__STYLE:
 				return getStyle();
-			case FormPackage.MENU_ELEMENT__STYLE_CLASS:
-				return getStyleClass();
 			case FormPackage.MENU_ELEMENT__CLASSIFIERS:
 				return getClassifiers();
 			case FormPackage.MENU_ELEMENT__ENABLED:
@@ -398,10 +371,6 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		switch (featureID) {
 			case FormPackage.MENU_ELEMENT__STYLE:
 				setStyle((Context)newValue);
-				return;
-			case FormPackage.MENU_ELEMENT__STYLE_CLASS:
-				getStyleClass().clear();
-				getStyleClass().addAll((Collection<? extends StyleClass>)newValue);
 				return;
 			case FormPackage.MENU_ELEMENT__CLASSIFIERS:
 				getClassifiers().clear();
@@ -434,9 +403,6 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 			case FormPackage.MENU_ELEMENT__STYLE:
 				setStyle((Context)null);
 				return;
-			case FormPackage.MENU_ELEMENT__STYLE_CLASS:
-				getStyleClass().clear();
-				return;
 			case FormPackage.MENU_ELEMENT__CLASSIFIERS:
 				getClassifiers().clear();
 				return;
@@ -466,8 +432,6 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		switch (featureID) {
 			case FormPackage.MENU_ELEMENT__STYLE:
 				return style != null;
-			case FormPackage.MENU_ELEMENT__STYLE_CLASS:
-				return styleClass != null && !styleClass.isEmpty();
 			case FormPackage.MENU_ELEMENT__CLASSIFIERS:
 				return classifiers != null && !classifiers.isEmpty();
 			case FormPackage.MENU_ELEMENT__ENABLED:
@@ -492,7 +456,6 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		if (baseClass == StyleElement.class) {
 			switch (derivedFeatureID) {
 				case FormPackage.MENU_ELEMENT__STYLE: return FormPackage.STYLE_ELEMENT__STYLE;
-				case FormPackage.MENU_ELEMENT__STYLE_CLASS: return FormPackage.STYLE_ELEMENT__STYLE_CLASS;
 				default: return -1;
 			}
 		}
@@ -527,7 +490,6 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		if (baseClass == StyleElement.class) {
 			switch (baseFeatureID) {
 				case FormPackage.STYLE_ELEMENT__STYLE: return FormPackage.MENU_ELEMENT__STYLE;
-				case FormPackage.STYLE_ELEMENT__STYLE_CLASS: return FormPackage.MENU_ELEMENT__STYLE_CLASS;
 				default: return -1;
 			}
 		}

@@ -762,29 +762,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link form.StyleClass} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StyleClassItemProvider styleClassItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.StyleClass}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStyleClassAdapter() {
-		if (styleClassItemProvider == null) {
-			styleClassItemProvider = new StyleClassItemProvider(this);
-		}
-
-		return styleClassItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link form.NickNamed} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -137,7 +137,6 @@ public class MenuElementItemProvider extends MultiLangLabelItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE);
-			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE_CLASS);
 			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(FormPackage.Literals.ENABLED_UI_ITEM__ENABLED);
 		}
@@ -201,7 +200,6 @@ public class MenuElementItemProvider extends MultiLangLabelItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormPackage.MENU_ELEMENT__STYLE:
-			case FormPackage.MENU_ELEMENT__STYLE_CLASS:
 			case FormPackage.MENU_ELEMENT__CLASSIFIERS:
 			case FormPackage.MENU_ELEMENT__ENABLED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -230,11 +228,6 @@ public class MenuElementItemProvider extends MultiLangLabelItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.STYLE_ELEMENT__STYLE,
 				 FormFactory.eINSTANCE.createFlexField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
-				 FormFactory.eINSTANCE.createStyleClass()));
 
 		newChildDescriptors.add
 			(createChildParameter

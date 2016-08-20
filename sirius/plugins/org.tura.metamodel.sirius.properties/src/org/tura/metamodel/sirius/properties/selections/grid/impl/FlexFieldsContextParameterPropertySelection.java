@@ -24,11 +24,8 @@ import org.tura.metamodel.sirius.properties.selections.events.FlexFieldChangeEve
 import org.tura.metamodel.sirius.properties.selections.grid.DataSource;
 
 import form.ContextParameter;
-import form.ContextValue;
-import form.ExpressionPart;
 import form.FlexField;
 import form.FlexFields;
-import type.Operation;
 import type.Parameter;
 import type.TypeElement;
 
@@ -42,7 +39,6 @@ public class FlexFieldsContextParameterPropertySelection extends ContextParamete
 	public void createControls(Composite parent,
 			final TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
-		enableParametersEntry();
 		Bus.getInstance().addEventListner(listener);
 		
 	}
@@ -71,23 +67,6 @@ public class FlexFieldsContextParameterPropertySelection extends ContextParamete
 		return new FlexFieldParameterDS(this);
 	}
 
-	private void enableParametersEntry() {
-		try {
-		    ContextValue cnt = (ContextValue) getModel();
-			this.table.setVisible(false);
-			if (model != null && !cnt.isConstant()) {
-				if (cnt.getExpression() != null && cnt.getExpression().size() != 0) {
-					ExpressionPart eobj = cnt.getExpression().get(cnt.getExpression().size() - 1);
-					if (eobj.getObjRef() != null&& eobj.getObjRef() instanceof Operation) {
-						this.table.setVisible(true);
-					}
-				}
-			}
-
-		} catch (org.eclipse.swt.SWTException e) {
-		}
-	}
-
 	
 	private class SelectionListener implements EventListener {
 
@@ -97,7 +76,6 @@ public class FlexFieldsContextParameterPropertySelection extends ContextParamete
 				model = (FlexField) ((FlexFieldChangeEvent)event).getModel();
 				ds.cleanList();
 				ds.getRows();
-				enableParametersEntry();
 				refresh();
 				
 			}

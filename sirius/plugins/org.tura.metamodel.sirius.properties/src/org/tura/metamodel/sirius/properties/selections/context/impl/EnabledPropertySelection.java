@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Tura - application generation platform
- *
- * Copyright (c) 2012, 2015, Arseniy Isakov
- *  
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *******************************************************************************/
 package org.tura.metamodel.sirius.properties.selections.context.impl;
 
 import java.util.UUID;
@@ -22,49 +10,46 @@ import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.sirius.properties.selections.events.Bus;
 import org.tura.metamodel.sirius.properties.selections.events.RecordChangeEvent;
 
+import form.EnabledUIItem;
 import form.FormFactory;
 import form.FormPackage;
-import form.StyleElement;
 import type.TypeElement;
 
-public class StylePropertySelection extends AbstractContextPropertySelection{
+public class EnabledPropertySelection extends AbstractContextPropertySelection{
 
-	public String getLabelText() {
-		return "Style";//$NON-NLS-1$
-	}
-	
 	protected TypeElement getTargetType() throws Exception {
-		return new QueryHelper().findStyleType(getModel());
+		return new QueryHelper().findBooleanType(getModel());
 	}
-	
-	
+
+	@Override
+	public String getLabelText() {
+		return "Enabled: ";
+	}
+
 	@Override
 	public EObject getModel() {
 
-		StyleElement el = ((StyleElement) super.getModel());
-		if (el.getStyle() == null) {
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
+		EnabledUIItem el = (EnabledUIItem) super.getModel();
+		if (el.getEnabled() == null) {
+
+			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, el,
-							FormPackage.eINSTANCE.getStyleElement_Style(),FormFactory.eINSTANCE.createContext()));
+							FormPackage.eINSTANCE.getEnabledUIItem_Enabled(),
+							FormFactory.eINSTANCE.createContext()));
+
 		}
 
-		if (el.getStyle().getUid() == null) {
-
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
+		if (el.getEnabled().getUid() == null) {
+			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 			editingDomain.getCommandStack().execute(
-					SetCommand.create(editingDomain, el.getStyle(),
+					SetCommand.create(editingDomain, el.getEnabled(),
 							FormPackage.eINSTANCE.getContextValue_Uid(), UUID.randomUUID().toString()));
-
 		}
-
-
-		return el.getStyle();
+		return el.getEnabled();
 
 	}
-	
+
 	protected boolean checkType(Object type){
 		TypeElement  modelType = (TypeElement) type;
 		TypeElement targetType = null;

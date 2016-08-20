@@ -87,7 +87,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.CONTEXT_PARAMETERS: return createContextParameters();
 			case FormPackage.CONTEXT: return createContext();
 			case FormPackage.STYLE_ELEMENT: return createStyleElement();
-			case FormPackage.STYLE_CLASS: return createStyleClass();
 			case FormPackage.NICK_NAMED: return createNickNamed();
 			case FormPackage.FLEX_FIELDS: return createFlexFields();
 			case FormPackage.FLEX_FIELD: return createFlexField();
@@ -488,16 +487,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public StyleElement createStyleElement() {
 		StyleElementImpl styleElement = new StyleElementImpl();
 		return styleElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StyleClass createStyleClass() {
-		StyleClassImpl styleClass = new StyleClassImpl();
-		return styleClass;
 	}
 
 	/**

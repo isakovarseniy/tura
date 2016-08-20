@@ -7,6 +7,8 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.tura.metamodel.commons.QueryHelper;
+import org.tura.metamodel.sirius.properties.selections.events.Bus;
+import org.tura.metamodel.sirius.properties.selections.events.RecordChangeEvent;
 
 import form.FormFactory;
 import form.FormPackage;
@@ -68,5 +70,8 @@ public class MultiLangLabelPropertySelection extends AbstractContextPropertySele
 		}
 	}
 	
-	
+	@Override
+	protected void afterUpdate(){
+		Bus.getInstance().notify(new RecordChangeEvent());
+     }
 }

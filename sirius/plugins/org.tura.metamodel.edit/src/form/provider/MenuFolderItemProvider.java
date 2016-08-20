@@ -139,7 +139,6 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 			childrenFeatures.add(FormPackage.Literals.ENABLED_UI_ITEM__ENABLED);
 			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE);
-			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE_CLASS);
 			childrenFeatures.add(FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
 			childrenFeatures.add(FormPackage.Literals.ITEM_ICON__ICON);
 			childrenFeatures.add(FormPackage.Literals.MENU_FOLDER__MENU_ELEMENTS);
@@ -206,7 +205,6 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 			case FormPackage.MENU_FOLDER__ENABLED:
 			case FormPackage.MENU_FOLDER__CLASSIFIERS:
 			case FormPackage.MENU_FOLDER__STYLE:
-			case FormPackage.MENU_FOLDER__STYLE_CLASS:
 			case FormPackage.MENU_FOLDER__MULTI_LANG_LABEL:
 			case FormPackage.MENU_FOLDER__ICON:
 			case FormPackage.MENU_FOLDER__MENU_ELEMENTS:
@@ -251,11 +249,6 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.STYLE_ELEMENT__STYLE,
 				 FormFactory.eINSTANCE.createFlexField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
-				 FormFactory.eINSTANCE.createStyleClass()));
 
 		newChildDescriptors.add
 			(createChildParameter

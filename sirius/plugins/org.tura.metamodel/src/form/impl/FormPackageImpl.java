@@ -347,13 +347,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass styleClassEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass nickNamedEClass = null;
 
 	/**
@@ -1693,33 +1686,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EReference getStyleElement_Style() {
 		return (EReference)styleElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStyleElement_StyleClass() {
-		return (EReference)styleElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getStyleClass() {
-		return styleClassEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStyleClass_Classifier() {
-		return (EReference)styleClassEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3391,10 +3357,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		styleElementEClass = createEClass(STYLE_ELEMENT);
 		createEReference(styleElementEClass, STYLE_ELEMENT__STYLE);
-		createEReference(styleElementEClass, STYLE_ELEMENT__STYLE_CLASS);
-
-		styleClassEClass = createEClass(STYLE_CLASS);
-		createEReference(styleClassEClass, STYLE_CLASS__CLASSIFIER);
 
 		nickNamedEClass = createEClass(NICK_NAMED);
 		createEAttribute(nickNamedEClass, NICK_NAMED__NICKNAME);
@@ -3700,7 +3662,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		viewPortTriggerEClass.getESuperTypes().add(this.getTrigger());
 		contextEClass.getESuperTypes().add(this.getContextValue());
 		contextEClass.getESuperTypes().add(this.getContextParameters());
-		styleClassEClass.getESuperTypes().add(this.getContextValue());
 		flexFieldEClass.getESuperTypes().add(this.getContext());
 		flexFieldEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		uielementEClass.getESuperTypes().add(this.getStyleElement());
@@ -3907,10 +3868,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		initEClass(styleElementEClass, StyleElement.class, "StyleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStyleElement_Style(), this.getContext(), null, "style", null, 0, 1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStyleElement_StyleClass(), this.getStyleClass(), null, "styleClass", null, 0, -1, StyleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(styleClassEClass, StyleClass.class, "StyleClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStyleClass_Classifier(), theArtifactPackage.getClassifier(), null, "classifier", null, 0, 1, StyleClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nickNamedEClass, NickNamed.class, "NickNamed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNickNamed_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1, NickNamed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

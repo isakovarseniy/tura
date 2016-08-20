@@ -42,7 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.MenuFolderImpl#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link form.impl.MenuFolderImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link form.impl.MenuFolderImpl#getStyle <em>Style</em>}</li>
- *   <li>{@link form.impl.MenuFolderImpl#getStyleClass <em>Style Class</em>}</li>
  *   <li>{@link form.impl.MenuFolderImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link form.impl.MenuFolderImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link form.impl.MenuFolderImpl#getUid <em>Uid</em>}</li>
@@ -83,16 +82,6 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * @ordered
 	 */
 	protected Context style;
-
-	/**
-	 * The cached value of the '{@link #getStyleClass() <em>Style Class</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStyleClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<StyleClass> styleClass;
 
 	/**
 	 * The cached value of the '{@link #getMultiLangLabel() <em>Multi Lang Label</em>}' containment reference.
@@ -306,18 +295,6 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<StyleClass> getStyleClass() {
-		if (styleClass == null) {
-			styleClass = new EObjectContainmentEList<StyleClass>(StyleClass.class, this, FormPackage.MENU_FOLDER__STYLE_CLASS);
-		}
-		return styleClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Context getMultiLangLabel() {
 		return multiLangLabel;
 	}
@@ -488,8 +465,6 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
 			case FormPackage.MENU_FOLDER__STYLE:
 				return basicSetStyle(null, msgs);
-			case FormPackage.MENU_FOLDER__STYLE_CLASS:
-				return ((InternalEList<?>)getStyleClass()).basicRemove(otherEnd, msgs);
 			case FormPackage.MENU_FOLDER__MULTI_LANG_LABEL:
 				return basicSetMultiLangLabel(null, msgs);
 			case FormPackage.MENU_FOLDER__ICON:
@@ -514,8 +489,6 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return getClassifiers();
 			case FormPackage.MENU_FOLDER__STYLE:
 				return getStyle();
-			case FormPackage.MENU_FOLDER__STYLE_CLASS:
-				return getStyleClass();
 			case FormPackage.MENU_FOLDER__MULTI_LANG_LABEL:
 				return getMultiLangLabel();
 			case FormPackage.MENU_FOLDER__ICON:
@@ -550,10 +523,6 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return;
 			case FormPackage.MENU_FOLDER__STYLE:
 				setStyle((Context)newValue);
-				return;
-			case FormPackage.MENU_FOLDER__STYLE_CLASS:
-				getStyleClass().clear();
-				getStyleClass().addAll((Collection<? extends StyleClass>)newValue);
 				return;
 			case FormPackage.MENU_FOLDER__MULTI_LANG_LABEL:
 				setMultiLangLabel((Context)newValue);
@@ -595,9 +564,6 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 			case FormPackage.MENU_FOLDER__STYLE:
 				setStyle((Context)null);
 				return;
-			case FormPackage.MENU_FOLDER__STYLE_CLASS:
-				getStyleClass().clear();
-				return;
 			case FormPackage.MENU_FOLDER__MULTI_LANG_LABEL:
 				setMultiLangLabel((Context)null);
 				return;
@@ -634,8 +600,6 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return classifiers != null && !classifiers.isEmpty();
 			case FormPackage.MENU_FOLDER__STYLE:
 				return style != null;
-			case FormPackage.MENU_FOLDER__STYLE_CLASS:
-				return styleClass != null && !styleClass.isEmpty();
 			case FormPackage.MENU_FOLDER__MULTI_LANG_LABEL:
 				return multiLangLabel != null;
 			case FormPackage.MENU_FOLDER__ICON:
@@ -674,7 +638,6 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 		if (baseClass == StyleElement.class) {
 			switch (derivedFeatureID) {
 				case FormPackage.MENU_FOLDER__STYLE: return FormPackage.STYLE_ELEMENT__STYLE;
-				case FormPackage.MENU_FOLDER__STYLE_CLASS: return FormPackage.STYLE_ELEMENT__STYLE_CLASS;
 				default: return -1;
 			}
 		}
@@ -715,7 +678,6 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 		if (baseClass == StyleElement.class) {
 			switch (baseFeatureID) {
 				case FormPackage.STYLE_ELEMENT__STYLE: return FormPackage.MENU_FOLDER__STYLE;
-				case FormPackage.STYLE_ELEMENT__STYLE_CLASS: return FormPackage.MENU_FOLDER__STYLE_CLASS;
 				default: return -1;
 			}
 		}

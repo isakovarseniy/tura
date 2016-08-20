@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link form.StyleElement#getStyle <em>Style</em>}</li>
- *   <li>{@link form.StyleElement#getStyleClass <em>Style Class</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getStyleElement()
@@ -49,21 +48,5 @@ public interface StyleElement extends EObject {
 	 * @generated
 	 */
 	void setStyle(Context value);
-
-	/**
-	 * Returns the value of the '<em><b>Style Class</b></em>' containment reference list.
-	 * The list contents are of type {@link form.StyleClass}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Style Class</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Style Class</em>' containment reference list.
-	 * @see form.FormPackage#getStyleElement_StyleClass()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<StyleClass> getStyleClass();
 
 } // StyleElement

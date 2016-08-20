@@ -31,6 +31,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot
 import application.Application;
 import artifact.QueryParameter;
 import artifact.Technology;
+import domain.Domain;
 import domain.DomainApplications;
 import domain.DomainArtifacts;
 import domain.DomainTypes;
@@ -47,6 +48,7 @@ import form.MenuFolder;
 import form.MenuItem;
 import form.NickNamed;
 import form.Uielement;
+import form.ViewArea;
 import form.Views;
 import recipe.ConfigExtension;
 import recipe.Configuration;
@@ -60,6 +62,8 @@ import recipe.impl.Infrastructure2ConfigurationImpl;
 import type.Generalization;
 import type.Operation;
 import type.Parameter;
+import type.Primitive;
+import type.PrimitivesGroup;
 import type.Type;
 import type.TypeElement;
 
@@ -150,6 +154,11 @@ public class QueryHelper {
 			frm = (Form) ((Views) obj).eContainer();
 		}
 
+		if (obj instanceof ViewArea) {
+			frm = (Form) ((ViewArea) obj).eContainer().eContainer().eContainer();
+		}
+		
+		
 		// if (root.getElement() instanceof domain.MenuView) {
 		// domain.Views views = (Views) (((domain.MenuView) root.getElement())
 		// .getParent().eContainer());
@@ -722,6 +731,28 @@ public class QueryHelper {
 		
 	}
 	
+	@SuppressWarnings("unchecked")
+	private Primitive findPrimitive(EObject context , String typeName )throws Exception {
+		String query ="domain::Domain.allInstances()";
+		Collection<Domain> map = (Collection<Domain>) internalEvaluate(context, query);
+		if ((map != null) && (map.size() != 0)) {
+			Domain domain = ((Domain) (map.iterator().next()));
+			PrimitivesGroup grp =   domain.getDomainTypes().getPrimitives();
+
+			 query = "type::Primitive.allInstances()->select(r|r.name='" + typeName+ "')";
+
+			Collection<Primitive> map1 = (Collection<Primitive>) internalEvaluate(grp, query);
+
+			if ((map1 != null) && (map1.size() != 0)) {
+				Primitive type = ((Primitive) (map1.iterator().next()));
+				return type;
+			} else
+				return null;
+		} else
+			return null;
+		
+	}
+	
 	public TypeElement findMessageType(EObject obj) throws Exception {
 		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, MESSAGE_TYPE);
 	}
@@ -962,31 +993,12 @@ public class QueryHelper {
 	}
 
 	public TypeElement findBooleanType(Object obj) {
-		throw new RuntimeException();
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name
-		// = 'Boolean' and r.oclAsType(domain::Primitive).parent.parent.name ='"
-		// + InitDiagram.PRIVATE_PACKAGE + "')");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
-		// .evaluate(obj, query);
-		//
-		// if (map.size() != 0)
-		// return map.iterator().next();
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// }
-		// return null;
+		 try {
+				return findPrimitive((EObject) obj, "Boolean");
+		 } catch (Exception e) {
+		   LogUtil.log(e);
+		 }
+		 return null;
 
 	}
 

@@ -195,10 +195,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createStyleElementAdapter();
 			}
 			@Override
-			public Adapter caseStyleClass(StyleClass object) {
-				return createStyleClassAdapter();
-			}
-			@Override
 			public Adapter caseNickNamed(NickNamed object) {
 				return createNickNamedAdapter();
 			}
@@ -887,20 +883,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStyleElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link form.StyleClass <em>Style Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see form.StyleClass
-	 * @generated
-	 */
-	public Adapter createStyleClassAdapter() {
 		return null;
 	}
 

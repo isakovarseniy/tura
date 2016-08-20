@@ -45,6 +45,9 @@ public class OperationProvider implements IWorkbenchAdapter ,IReturnTypeProvider
 
 	@Override
 	public Object getApplicationType(Object o) {
+		if (((Operation) o).getReturnValue() != null) {
+			return ((Operation) o).getReturnValue().getTypeRef();
+		}
 		return null;
 	}	
 	

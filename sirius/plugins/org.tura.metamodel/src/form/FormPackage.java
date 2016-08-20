@@ -337,22 +337,13 @@ public interface FormPackage extends EPackage {
 	int STYLE_ELEMENT__STYLE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLE_ELEMENT__STYLE_CLASS = 1;
-
-	/**
 	 * The number of structural features of the '<em>Style Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STYLE_ELEMENT_FEATURE_COUNT = 2;
+	int STYLE_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link form.impl.CanvasFrameImpl <em>Canvas Frame</em>}' class.
@@ -372,15 +363,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int CANVAS_FRAME__STYLE = STYLE_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CANVAS_FRAME__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -494,15 +476,6 @@ public interface FormPackage extends EPackage {
 	int VIEW_ELEMENT__STYLE = STYLE_ELEMENT__STYLE;
 
 	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_ELEMENT__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
-
-	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -547,15 +520,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int POPUP_CANVAS__STYLE = CANVAS_FRAME__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POPUP_CANVAS__STYLE_CLASS = CANVAS_FRAME__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -667,15 +631,6 @@ public interface FormPackage extends EPackage {
 	int CANVAS__STYLE = CANVAS_FRAME__STYLE;
 
 	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CANVAS__STYLE_CLASS = CANVAS_FRAME__STYLE_CLASS;
-
-	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -765,15 +720,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int WINDOW__STYLE = CANVAS_FRAME__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WINDOW__STYLE_CLASS = CANVAS_FRAME__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -867,15 +813,6 @@ public interface FormPackage extends EPackage {
 	int MENU_DEFINITION__STYLE = STYLE_ELEMENT__STYLE;
 
 	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU_DEFINITION__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
-
-	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -947,15 +884,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int TAB_CANVAS__STYLE = CANVAS_FRAME__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAB_CANVAS__STYLE_CLASS = CANVAS_FRAME__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1038,15 +966,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int TAB_PAGE__STYLE = CANVAS_FRAME__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAB_PAGE__STYLE_CLASS = CANVAS_FRAME__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1140,15 +1059,6 @@ public interface FormPackage extends EPackage {
 	int VIEW_PORT__STYLE = VIEW_ELEMENT__STYLE;
 
 	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_PORT__STYLE_CLASS = VIEW_ELEMENT__STYLE_CLASS;
-
-	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1229,15 +1139,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIEW_AREA__STYLE = VIEW_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_AREA__STYLE_CLASS = VIEW_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -1328,7 +1229,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTrigger()
 	 * @generated
 	 */
-	int TRIGGER = 68;
+	int TRIGGER = 67;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -1873,70 +1774,6 @@ public interface FormPackage extends EPackage {
 	int CONTEXT_FEATURE_COUNT = CONTEXT_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link form.impl.StyleClassImpl <em>Style Class</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see form.impl.StyleClassImpl
-	 * @see form.impl.FormPackageImpl#getStyleClass()
-	 * @generated
-	 */
-	int STYLE_CLASS = 30;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLE_CLASS__UID = CONTEXT_VALUE__UID;
-
-	/**
-	 * The feature id for the '<em><b>Constant</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLE_CLASS__CONSTANT = CONTEXT_VALUE__CONSTANT;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLE_CLASS__VALUE = CONTEXT_VALUE__VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLE_CLASS__EXPRESSION = CONTEXT_VALUE__EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Classifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLE_CLASS__CLASSIFIER = CONTEXT_VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Style Class</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLE_CLASS_FEATURE_COUNT = CONTEXT_VALUE_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link form.impl.NickNamedImpl <em>Nick Named</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1944,7 +1781,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getNickNamed()
 	 * @generated
 	 */
-	int NICK_NAMED = 31;
+	int NICK_NAMED = 30;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -1972,7 +1809,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFlexFields()
 	 * @generated
 	 */
-	int FLEX_FIELDS = 32;
+	int FLEX_FIELDS = 31;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -2000,7 +1837,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFlexField()
 	 * @generated
 	 */
-	int FLEX_FIELD = 33;
+	int FLEX_FIELD = 32;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -2073,7 +1910,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getEnabledUIItem()
 	 * @generated
 	 */
-	int ENABLED_UI_ITEM = 34;
+	int ENABLED_UI_ITEM = 33;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -2101,7 +1938,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getUielement()
 	 * @generated
 	 */
-	int UIELEMENT = 35;
+	int UIELEMENT = 34;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2111,15 +1948,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int UIELEMENT__STYLE = STYLE_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UIELEMENT__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -2228,7 +2056,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getItemIcon()
 	 * @generated
 	 */
-	int ITEM_ICON = 36;
+	int ITEM_ICON = 35;
 
 	/**
 	 * The feature id for the '<em><b>Icon</b></em>' containment reference.
@@ -2256,7 +2084,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getAreaRef()
 	 * @generated
 	 */
-	int AREA_REF = 37;
+	int AREA_REF = 36;
 
 	/**
 	 * The feature id for the '<em><b>Area</b></em>' reference.
@@ -2293,7 +2121,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFormatable()
 	 * @generated
 	 */
-	int FORMATABLE = 38;
+	int FORMATABLE = 37;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -2321,7 +2149,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSourcesPointer()
 	 * @generated
 	 */
-	int SOURCES_POINTER = 39;
+	int SOURCES_POINTER = 38;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2331,15 +2159,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCES_POINTER__STYLE = UIELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCES_POINTER__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -2484,7 +2303,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInputElement()
 	 * @generated
 	 */
-	int INPUT_ELEMENT = 40;
+	int INPUT_ELEMENT = 39;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2494,15 +2313,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_ELEMENT__STYLE = SOURCES_POINTER__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_ELEMENT__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -2647,7 +2457,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSelection()
 	 * @generated
 	 */
-	int SELECTION = 41;
+	int SELECTION = 40;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2657,15 +2467,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int SELECTION__STYLE = STYLE_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECTION__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Display Option Pointer</b></em>' reference.
@@ -2702,7 +2503,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOptionSelection()
 	 * @generated
 	 */
-	int OPTION_SELECTION = 42;
+	int OPTION_SELECTION = 41;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2712,15 +2513,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPTION_SELECTION__STYLE = INPUT_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_SELECTION__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -2892,7 +2684,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLayerHolder()
 	 * @generated
 	 */
-	int LAYER_HOLDER = 43;
+	int LAYER_HOLDER = 42;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2902,15 +2694,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int LAYER_HOLDER__STYLE = UIELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LAYER_HOLDER__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -3037,7 +2820,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInputText()
 	 * @generated
 	 */
-	int INPUT_TEXT = 44;
+	int INPUT_TEXT = 43;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3047,15 +2830,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_TEXT__STYLE = INPUT_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_TEXT__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -3209,7 +2983,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPassword()
 	 * @generated
 	 */
-	int PASSWORD = 45;
+	int PASSWORD = 44;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3219,15 +2993,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int PASSWORD__STYLE = INPUT_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PASSWORD__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -3381,7 +3146,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 46;
+	int LABEL = 45;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3391,15 +3156,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int LABEL__STYLE = UIELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -3526,7 +3282,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMessageElement()
 	 * @generated
 	 */
-	int MESSAGE_ELEMENT = 47;
+	int MESSAGE_ELEMENT = 46;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3536,15 +3292,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int MESSAGE_ELEMENT__STYLE = UIELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGE_ELEMENT__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -3671,7 +3418,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOutputText()
 	 * @generated
 	 */
-	int OUTPUT_TEXT = 48;
+	int OUTPUT_TEXT = 47;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3681,15 +3428,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT_TEXT__STYLE = INPUT_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_TEXT__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -3843,7 +3581,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCheckBox()
 	 * @generated
 	 */
-	int CHECK_BOX = 49;
+	int CHECK_BOX = 48;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3853,15 +3591,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHECK_BOX__STYLE = INPUT_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHECK_BOX__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -4006,7 +3735,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDropDownSelection()
 	 * @generated
 	 */
-	int DROP_DOWN_SELECTION = 50;
+	int DROP_DOWN_SELECTION = 49;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4016,15 +3745,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int DROP_DOWN_SELECTION__STYLE = OPTION_SELECTION__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_DOWN_SELECTION__STYLE_CLASS = OPTION_SELECTION__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -4223,7 +3943,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getImage()
 	 * @generated
 	 */
-	int IMAGE = 51;
+	int IMAGE = 50;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4233,15 +3953,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMAGE__STYLE = INPUT_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -4386,7 +4097,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 52;
+	int DATE = 51;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4396,15 +4107,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE__STYLE = INPUT_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__STYLE_CLASS = INPUT_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -4558,7 +4260,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getButton()
 	 * @generated
 	 */
-	int BUTTON = 53;
+	int BUTTON = 52;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4568,15 +4270,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUTTON__STYLE = UIELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -4712,7 +4405,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getColumn()
 	 * @generated
 	 */
-	int COLUMN = 54;
+	int COLUMN = 53;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4722,15 +4415,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMN__STYLE = STYLE_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMN__STYLE_CLASS = STYLE_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -4812,7 +4496,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 55;
+	int TABLE = 54;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4822,15 +4506,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE__STYLE = SOURCES_POINTER__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -5011,7 +4686,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenu()
 	 * @generated
 	 */
-	int MENU = 56;
+	int MENU = 55;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -5021,15 +4696,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int MENU__STYLE = UIELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU__STYLE_CLASS = UIELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -5138,7 +4804,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuHolder()
 	 * @generated
 	 */
-	int MENU_HOLDER = 57;
+	int MENU_HOLDER = 56;
 
 	/**
 	 * The feature id for the '<em><b>Menu</b></em>' reference.
@@ -5166,7 +4832,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuExtensionRef()
 	 * @generated
 	 */
-	int MENU_EXTENSION_REF = 58;
+	int MENU_EXTENSION_REF = 57;
 
 	/**
 	 * The feature id for the '<em><b>Extension Ref</b></em>' reference.
@@ -5194,7 +4860,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuElement()
 	 * @generated
 	 */
-	int MENU_ELEMENT = 59;
+	int MENU_ELEMENT = 58;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5215,22 +4881,13 @@ public interface FormPackage extends EPackage {
 	int MENU_ELEMENT__STYLE = MULTI_LANG_LABEL_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU_ELEMENT__STYLE_CLASS = MULTI_LANG_LABEL_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ELEMENT__CLASSIFIERS = MULTI_LANG_LABEL_FEATURE_COUNT + 2;
+	int MENU_ELEMENT__CLASSIFIERS = MULTI_LANG_LABEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' containment reference.
@@ -5239,7 +4896,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ELEMENT__ENABLED = MULTI_LANG_LABEL_FEATURE_COUNT + 3;
+	int MENU_ELEMENT__ENABLED = MULTI_LANG_LABEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Order</b></em>' attribute.
@@ -5248,7 +4905,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ELEMENT__ORDER = MULTI_LANG_LABEL_FEATURE_COUNT + 4;
+	int MENU_ELEMENT__ORDER = MULTI_LANG_LABEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5257,7 +4914,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ELEMENT__UID = MULTI_LANG_LABEL_FEATURE_COUNT + 5;
+	int MENU_ELEMENT__UID = MULTI_LANG_LABEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5266,7 +4923,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ELEMENT__NAME = MULTI_LANG_LABEL_FEATURE_COUNT + 6;
+	int MENU_ELEMENT__NAME = MULTI_LANG_LABEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Menu Element</em>' class.
@@ -5275,7 +4932,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ELEMENT_FEATURE_COUNT = MULTI_LANG_LABEL_FEATURE_COUNT + 7;
+	int MENU_ELEMENT_FEATURE_COUNT = MULTI_LANG_LABEL_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link form.impl.MenuFolderImpl <em>Menu Folder</em>}' class.
@@ -5285,7 +4942,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuFolder()
 	 * @generated
 	 */
-	int MENU_FOLDER = 60;
+	int MENU_FOLDER = 59;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -5324,22 +4981,13 @@ public interface FormPackage extends EPackage {
 	int MENU_FOLDER__STYLE = HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU_FOLDER__STYLE_CLASS = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__MULTI_LANG_LABEL = HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
+	int MENU_FOLDER__MULTI_LANG_LABEL = HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Icon</b></em>' containment reference.
@@ -5348,7 +4996,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__ICON = HTML_LAYER_HOLDER_FEATURE_COUNT + 5;
+	int MENU_FOLDER__ICON = HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5357,7 +5005,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 6;
+	int MENU_FOLDER__UID = HTML_LAYER_HOLDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5366,7 +5014,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 7;
+	int MENU_FOLDER__NAME = HTML_LAYER_HOLDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Extension Point</b></em>' attribute.
@@ -5375,7 +5023,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__EXTENSION_POINT = HTML_LAYER_HOLDER_FEATURE_COUNT + 8;
+	int MENU_FOLDER__EXTENSION_POINT = HTML_LAYER_HOLDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Menu Elements</b></em>' containment reference list.
@@ -5384,7 +5032,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__MENU_ELEMENTS = HTML_LAYER_HOLDER_FEATURE_COUNT + 9;
+	int MENU_FOLDER__MENU_ELEMENTS = HTML_LAYER_HOLDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Menu Folder</em>' class.
@@ -5393,7 +5041,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 10;
+	int MENU_FOLDER_FEATURE_COUNT = HTML_LAYER_HOLDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link form.impl.MenuItemImpl <em>Menu Item</em>}' class.
@@ -5403,7 +5051,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuItem()
 	 * @generated
 	 */
-	int MENU_ITEM = 61;
+	int MENU_ITEM = 60;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5422,15 +5070,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int MENU_ITEM__STYLE = MENU_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU_ITEM__STYLE_CLASS = MENU_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -5530,7 +5169,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuExtensionPoint()
 	 * @generated
 	 */
-	int MENU_EXTENSION_POINT = 62;
+	int MENU_EXTENSION_POINT = 61;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5549,15 +5188,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int MENU_EXTENSION_POINT__STYLE = MENU_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU_EXTENSION_POINT__STYLE_CLASS = MENU_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -5630,7 +5260,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSubMenu()
 	 * @generated
 	 */
-	int SUB_MENU = 63;
+	int SUB_MENU = 62;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5649,15 +5279,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int SUB_MENU__STYLE = MENU_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUB_MENU__STYLE_CLASS = MENU_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -5730,7 +5351,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getToSubmenu()
 	 * @generated
 	 */
-	int TO_SUBMENU = 64;
+	int TO_SUBMENU = 63;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5776,7 +5397,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuSeparator()
 	 * @generated
 	 */
-	int MENU_SEPARATOR = 65;
+	int MENU_SEPARATOR = 64;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5795,15 +5416,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int MENU_SEPARATOR__STYLE = MENU_ELEMENT__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU_SEPARATOR__STYLE_CLASS = MENU_ELEMENT__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -5867,7 +5479,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 66;
+	int TREE = 65;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -5877,15 +5489,6 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int TREE__STYLE = SOURCES_POINTER__STYLE;
-
-	/**
-	 * The feature id for the '<em><b>Style Class</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE__STYLE_CLASS = SOURCES_POINTER__STYLE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -6066,7 +5669,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getControls()
 	 * @generated
 	 */
-	int CONTROLS = 67;
+	int CONTROLS = 66;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6130,7 +5733,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREFormTrigger()
 	 * @generated
 	 */
-	int PRE_FORM_TRIGGER = 69;
+	int PRE_FORM_TRIGGER = 68;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6176,7 +5779,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREQueryTrigger()
 	 * @generated
 	 */
-	int PRE_QUERY_TRIGGER = 70;
+	int PRE_QUERY_TRIGGER = 69;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6222,7 +5825,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTQueryTrigger()
 	 * @generated
 	 */
-	int POST_QUERY_TRIGGER = 71;
+	int POST_QUERY_TRIGGER = 70;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6268,7 +5871,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREInsertTrigger()
 	 * @generated
 	 */
-	int PRE_INSERT_TRIGGER = 72;
+	int PRE_INSERT_TRIGGER = 71;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6314,7 +5917,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREDeleteTrigger()
 	 * @generated
 	 */
-	int PRE_DELETE_TRIGGER = 73;
+	int PRE_DELETE_TRIGGER = 72;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6360,7 +5963,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTCreateTrigger()
 	 * @generated
 	 */
-	int POST_CREATE_TRIGGER = 74;
+	int POST_CREATE_TRIGGER = 73;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6406,7 +6009,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREUpdateTrigger()
 	 * @generated
 	 */
-	int PRE_UPDATE_TRIGGER = 75;
+	int PRE_UPDATE_TRIGGER = 74;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6452,7 +6055,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getProxiesList()
 	 * @generated
 	 */
-	int PROXIES_LIST = 76;
+	int PROXIES_LIST = 75;
 
 	/**
 	 * The feature id for the '<em><b>Type Pointers</b></em>' containment reference list.
@@ -6480,7 +6083,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCreateTrigger()
 	 * @generated
 	 */
-	int CREATE_TRIGGER = 77;
+	int CREATE_TRIGGER = 76;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6535,7 +6138,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInsertTrigger()
 	 * @generated
 	 */
-	int INSERT_TRIGGER = 78;
+	int INSERT_TRIGGER = 77;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6590,7 +6193,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getUpdateTrigger()
 	 * @generated
 	 */
-	int UPDATE_TRIGGER = 79;
+	int UPDATE_TRIGGER = 78;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6645,7 +6248,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDeleteTrigger()
 	 * @generated
 	 */
-	int DELETE_TRIGGER = 80;
+	int DELETE_TRIGGER = 79;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6700,7 +6303,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSearchTrigger()
 	 * @generated
 	 */
-	int SEARCH_TRIGGER = 81;
+	int SEARCH_TRIGGER = 80;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6755,7 +6358,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRoot()
 	 * @generated
 	 */
-	int ROOT = 82;
+	int ROOT = 81;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6810,7 +6413,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFormVariable()
 	 * @generated
 	 */
-	int FORM_VARIABLE = 83;
+	int FORM_VARIABLE = 82;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -6865,7 +6468,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataControl()
 	 * @generated
 	 */
-	int DATA_CONTROL = 84;
+	int DATA_CONTROL = 83;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7037,7 +6640,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 85;
+	int ORDERS = 84;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7074,7 +6677,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 86;
+	int ORDER_BY = 85;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7120,7 +6723,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 87;
+	int RELATION = 86;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7193,7 +6796,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 88;
+	int DEPENDENCY = 87;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7248,7 +6851,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 89;
+	int ARTIFICIAL_FIELD = 88;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -7294,7 +6897,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 90;
+	int COMPARATOR = 89;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -7304,7 +6907,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 91;
+	int ORDER = 90;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -7314,7 +6917,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 92;
+	int ORIENTATION = 91;
 
 
 	/**
@@ -8287,38 +7890,6 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStyleElement_Style();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link form.StyleElement#getStyleClass <em>Style Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Style Class</em>'.
-	 * @see form.StyleElement#getStyleClass()
-	 * @see #getStyleElement()
-	 * @generated
-	 */
-	EReference getStyleElement_StyleClass();
-
-	/**
-	 * Returns the meta object for class '{@link form.StyleClass <em>Style Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Style Class</em>'.
-	 * @see form.StyleClass
-	 * @generated
-	 */
-	EClass getStyleClass();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link form.StyleClass#getClassifier <em>Classifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Classifier</em>'.
-	 * @see form.StyleClass#getClassifier()
-	 * @see #getStyleClass()
-	 * @generated
-	 */
-	EReference getStyleClass_Classifier();
 
 	/**
 	 * Returns the meta object for class '{@link form.NickNamed <em>Nick Named</em>}'.
@@ -10927,32 +10498,6 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STYLE_ELEMENT__STYLE = eINSTANCE.getStyleElement_Style();
-
-		/**
-		 * The meta object literal for the '<em><b>Style Class</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STYLE_ELEMENT__STYLE_CLASS = eINSTANCE.getStyleElement_StyleClass();
-
-		/**
-		 * The meta object literal for the '{@link form.impl.StyleClassImpl <em>Style Class</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see form.impl.StyleClassImpl
-		 * @see form.impl.FormPackageImpl#getStyleClass()
-		 * @generated
-		 */
-		EClass STYLE_CLASS = eINSTANCE.getStyleClass();
-
-		/**
-		 * The meta object literal for the '<em><b>Classifier</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STYLE_CLASS__CLASSIFIER = eINSTANCE.getStyleClass_Classifier();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.NickNamedImpl <em>Nick Named</em>}' class.

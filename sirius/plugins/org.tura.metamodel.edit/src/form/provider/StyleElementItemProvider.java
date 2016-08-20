@@ -80,7 +80,6 @@ public class StyleElementItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE);
-			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE_CLASS);
 		}
 		return childrenFeatures;
 	}
@@ -134,7 +133,6 @@ public class StyleElementItemProvider
 
 		switch (notification.getFeatureID(StyleElement.class)) {
 			case FormPackage.STYLE_ELEMENT__STYLE:
-			case FormPackage.STYLE_ELEMENT__STYLE_CLASS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -161,11 +159,6 @@ public class StyleElementItemProvider
 			(createChildParameter
 				(FormPackage.Literals.STYLE_ELEMENT__STYLE,
 				 FormFactory.eINSTANCE.createFlexField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.STYLE_ELEMENT__STYLE_CLASS,
-				 FormFactory.eINSTANCE.createStyleClass()));
 	}
 
 	/**

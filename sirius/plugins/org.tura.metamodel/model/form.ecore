@@ -172,12 +172,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="StyleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Context"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styleClass" upperBound="-1"
-        eType="#//StyleClass" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StyleClass" eSuperTypes="#//ContextValue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" eType="ecore:EClass artifact.ecore#//Classifier"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NickNamed">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

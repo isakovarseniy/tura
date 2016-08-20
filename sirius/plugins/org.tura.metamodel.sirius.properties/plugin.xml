@@ -269,6 +269,13 @@
              label="Flex field"/>
 
 
+    <propertyTab
+             category="domain"
+             id="tab.form.Enabled"
+             label="Enabled"/>
+
+
+
       </propertyTabs>
 
       
@@ -573,19 +580,19 @@
 	   </propertySections>
 	</extension>
 	
-
 	
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.StyleClassPropertySelection"
-	            filter="org.tura.metamodel.sirius.properties.selections.filter.StyleClassSectionFilter"
-	            id="form.Style"
-	            tab="tab.form.Style">
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.MultiLangLabelPropertyContextParameters"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.MultiLangLabelSectionFilter"
+	            id="form.MultiLangLabel.parameters"
+	            tab="tab.form.MultiLangLabel"
+	            afterSection="form.MultiLangLabel">
 	      </propertySection>
 	   </propertySections>
 	</extension>	
-
+	
 
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
@@ -597,6 +604,20 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>	
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.StylePropertyContextParameters"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.StyleClassSectionFilter"
+	            id="form.Style.parameters"
+	            tab="tab.form.Style"
+	            afterSection="form.Style">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
 
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
@@ -629,6 +650,32 @@
 	            id="form.FlexField.Categorized"
 	            tab="tab.form.FlexField"
 	            afterSection="form.FlexField.Parameters">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.context.impl.EnabledPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.EnabledSectionFilter"
+	            id="form.Enabled"
+	            tab="tab.form.Enabled">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.EnabledPropertyContextParameters"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.EnabledSectionFilter"
+	            id="form.Enabled.parameters"
+	            tab="tab.form.Enabled"
+	            afterSection="form.Enabled">
 	      </propertySection>
 	   </propertySections>
 	</extension>	

@@ -241,11 +241,6 @@ public class ContextParameterItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.CONTEXT_PARAMETER__VALUE,
-				 FormFactory.eINSTANCE.createStyleClass()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.CONTEXT_PARAMETER__VALUE,
 				 FormFactory.eINSTANCE.createFlexField()));
 	}
 

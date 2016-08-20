@@ -191,15 +191,9 @@ class Context extends ContextValue, ContextParameters{
 }
 
 
-
+//To define stye classes use flex fields
 class StyleElement{
     val Context style;
-    val StyleClass[*] styleClass;
-}
-
-class StyleClass extends ContextValue{
-    val artifact.Classifier classifier;
-
 }
 
 

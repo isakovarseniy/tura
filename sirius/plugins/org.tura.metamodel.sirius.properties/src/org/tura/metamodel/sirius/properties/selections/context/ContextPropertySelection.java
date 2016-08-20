@@ -59,8 +59,7 @@ import form.ExpressionPart;
 import form.FormFactory;
 import form.FormPackage;
 
-public abstract class ContextPropertySelection extends
-		AbstractTuraPropertySection {
+public abstract class ContextPropertySelection extends  AbstractTuraPropertySection {
 
 	protected Button btnConfirm;
 	protected Button btnDialog;
@@ -279,6 +278,7 @@ public abstract class ContextPropertySelection extends
 							buildExpressionList(treePath[0]));
 					refresh();
 					handleModified();
+					afterUpdate();
 
 				} else {
 					showError();
@@ -302,6 +302,7 @@ public abstract class ContextPropertySelection extends
 		updateConstantValue(editingDomain, (ContextValue) getModel(), null);
 		removeExpession(editingDomain, (ContextValue) getModel());
 		removeParameters(editingDomain, (ContextParameters) getModel());
+		afterUpdate();
 
 		this.propertySheetPage.refresh();
 
@@ -413,6 +414,9 @@ public abstract class ContextPropertySelection extends
 		return element.getTarget();
 	}
 	
+	protected void afterUpdate(){
+		
+	}
 
 	protected abstract TreeRoot getContextRoot();
 

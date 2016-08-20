@@ -16,6 +16,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.TreePath;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.swt.widgets.Display;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.properties.selections.adapters.IReturnTypeProvider;
@@ -30,6 +31,7 @@ public abstract class AbstractContextPropertySelection extends ContextPropertySe
 
 		TreeRoot rootOfTree = new TreeRoot();
 		DiagramImpl root = (DiagramImpl) this.getEditPart().getRoot().getContents().getModel();
+		DSemanticDiagram element = (DSemanticDiagram) root.getElement();
 
 		try {
 			for (Object obj : new QueryHelper().getControlsList(root)){
@@ -38,7 +40,7 @@ public abstract class AbstractContextPropertySelection extends ContextPropertySe
 				}
 			}
 
-			Object obj = new QueryHelper().getTypesRepository(root.getElement());
+			Object obj = new QueryHelper().getTypesRepository(element.getTarget());
 			if (obj != null){
 			    rootOfTree.addChild(obj);
 			}

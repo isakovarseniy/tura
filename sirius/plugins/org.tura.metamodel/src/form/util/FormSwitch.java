@@ -310,13 +310,6 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FormPackage.STYLE_CLASS: {
-				StyleClass styleClass = (StyleClass)theEObject;
-				T result = caseStyleClass(styleClass);
-				if (result == null) result = caseContextValue(styleClass);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FormPackage.NICK_NAMED: {
 				NickNamed nickNamed = (NickNamed)theEObject;
 				T result = caseNickNamed(nickNamed);
@@ -1391,21 +1384,6 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStyleElement(StyleElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Style Class</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Style Class</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStyleClass(StyleClass object) {
 		return null;
 	}
 
