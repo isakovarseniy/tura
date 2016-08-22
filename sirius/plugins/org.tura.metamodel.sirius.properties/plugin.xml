@@ -291,6 +291,18 @@
              label="Icon"/>
 
 
+    <propertyTab
+             category="domain"
+             id="tab.form.SourcePointer"
+             label="Source pointer"/>
+
+
+    <propertyTab
+             category="domain"
+             id="tab.form.DropDown"
+             label="Options"/>
+
+
       </propertyTabs>
 
       
@@ -767,6 +779,101 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>	
+
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.ValuePointerAttributePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ValuePointerSectionFilter"
+	            id="form.SourcePointer.ValuePointer"
+	            tab="tab.form.SourcePointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.ValuePointerAttributePropertySelectionExternalIterator"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ValuePointerExternalSectionFilter"
+	            id="form.SourcePointer.External.ValuePointer"
+	            tab="tab.form.SourcePointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+	
+	
+	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.SourceCastPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ValuePointerSectionFilter"
+	            id="form.SourcePointer.Cast"
+	            tab="tab.form.SourcePointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.SourceCastPropertySelectionExternalIterator"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ValuePointerExternalSectionFilter"
+	            id="form.SourcePointer.External.Cast"
+	            tab="tab.form.SourcePointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+	
+	
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.SourcesPointerDataControlPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.SourcesPointerSectionFilter"
+	            id="form.SourcePointer"
+	            tab="tab.form.SourcePointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.OptionsPointerDataControlPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.DropDownSectionFilter"
+	            id="form.DropDown.Options.DataControl"
+	            tab="tab.form.DropDown">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.OptionsCastDataControlPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.DropDownSectionFilter"
+	            id="form.DropDown.Options.Cast"
+	            tab="tab.form.DropDown"
+	            afterSection="form.DropDown.Options.DataControl">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.ValueOptionPointerAttributePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.DropDownSectionFilter"
+	            id="form.DropDown.Options.Value"
+	            tab="tab.form.DropDown"
+	            afterSection="form.DropDown.Options.Cast">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+	
 
 
 

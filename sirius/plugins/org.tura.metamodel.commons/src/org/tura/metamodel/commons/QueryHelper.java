@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -809,74 +810,46 @@ public class QueryHelper {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public void getInheritTypes(List<Type> typesTree, Type type) {
-		throw new RuntimeException();
+		try {
 
-		//
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::Type)
-		// and "
-		// + "r.oclAsType(domain::TypeExtension).target.uid ='"
-		// + type.getUid() + "')");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.TypeExtension> map =
-		// (Collection<domain.TypeExtension>) ocl
-		// .evaluate(type, query);
-		//
-		// query = helper
-		// .createQuery("domain::TypeExtension.allInstances()->select(r|r.oclAsType(domain::TypeExtension).target.oclIsKindOf(domain::TypeReference)
-		// "
-		// + "and "
-		// +
-		// "r.oclAsType(domain::TypeExtension).target.oclAsType(domain::TypeReference).typeRef.uid
-		// = '"
-		// + type.getUid() + "')");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.TypeExtension> map1 =
-		// (Collection<domain.TypeExtension>) ocl
-		// .evaluate(type, query);
-		//
-		// HashMap<String, domain.TypeElement> joinmap = new HashMap<String,
-		// domain.TypeElement>();
-		//
-		// if (map != null) {
-		// for (Iterator<domain.TypeExtension> itr = map.iterator(); itr
-		// .hasNext();) {
-		// domain.TypeElement el = itr.next().getSource();
-		// joinmap.put(el.getUid(), el);
-		// }
-		// }
-		//
-		// if (map1 != null) {
-		// for (Iterator<domain.TypeExtension> itr = map1.iterator(); itr
-		// .hasNext();) {
-		// domain.TypeElement el = itr.next().getSource();
-		// joinmap.put(el.getUid(), el);
-		// }
-		// }
-		//
-		// for (Iterator<domain.TypeElement> itr = joinmap.values().iterator();
-		// itr
-		// .hasNext();) {
-		// domain.TypeElement t = itr.next();
-		// typesTree.add((Type) t);
-		// getInheritTypes(typesTree, (Type) t);
-		// }
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// }
-		//
+			String query = "type::Generalization.allInstances()->select(r|r.oclAsType(type::Generalization).target.oclIsKindOf(type::Type) and "
+					+ "r.oclAsType(type::Generalization).target.uid ='" + type.getUid() + "')";
+
+			Collection<Generalization> map = (Collection<Generalization>) internalEvaluate(type, query);
+
+			query = "type::Generalization.allInstances()->select(r|r.oclAsType(type::Generalization).target.oclIsKindOf(type::TypeReference)"
+					+ " and r.oclAsType(type::Generalization).target.oclAsType(type::TypeReference).typeRef.uid= '"
+					+ type.getUid() + "')";
+
+			Collection<Generalization> map1 = (Collection<Generalization>) internalEvaluate(type, query);
+
+			HashMap<String, TypeElement> joinmap = new HashMap<String, TypeElement>();
+
+			if (map != null) {
+				for (Iterator<Generalization> itr = map.iterator(); itr.hasNext();) {
+					TypeElement el = itr.next().getSource();
+					joinmap.put(el.getUid(), el);
+				}
+			}
+
+			if (map1 != null) {
+				for (Iterator<Generalization> itr = map1.iterator(); itr.hasNext();) {
+					TypeElement el = itr.next().getSource();
+					joinmap.put(el.getUid(), el);
+				}
+			}
+
+			for (TypeElement t : joinmap.values()) {
+				typesTree.add((Type) t);
+				getInheritTypes(typesTree, (Type) t);
+			}
+
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+
 	}
 
 	public TypeElement findNullType(Object obj) {
