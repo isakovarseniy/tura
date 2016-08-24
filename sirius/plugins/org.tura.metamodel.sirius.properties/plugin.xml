@@ -302,6 +302,16 @@
              id="tab.form.DropDown"
              label="Options"/>
 
+    <propertyTab
+             category="domain"
+             id="tab.form.UIelement.RefreshArias"
+             label="Refresh arias"/>
+
+    <propertyTab
+             category="domain"
+             id="tab.form.Menu"
+             label="Menu"/>
+
 
       </propertyTabs>
 
@@ -874,6 +884,43 @@
 	   </propertySections>
 	</extension>	
 	
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.UielementOnEventRefreshAreaPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.UIElementSectionFilter"
+	            id="form.UIelement.RefreshArias"
+	            tab="tab.form.UIelement.RefreshArias">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.MenuItemOnEventRefreshAreaPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.MenuItemSectionFilter"
+	            id="form.MenuItem.RefreshArias"
+	            tab="tab.form.UIelement.RefreshArias">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
+
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.MenuPointerPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.MenuSectionFilter"
+	            id="form.Menu"
+	            tab="tab.form.Menu">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
 
 
 

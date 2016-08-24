@@ -30,12 +30,14 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeData
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
 
 import application.Application;
+import application.ApplicationUILayer;
 import artifact.QueryParameter;
 import artifact.Technology;
 import domain.Domain;
 import domain.DomainApplications;
 import domain.DomainArtifacts;
 import domain.DomainTypes;
+import form.AreaRef;
 import form.CanvasFrame;
 import form.ContextParameter;
 import form.ContextParameters;
@@ -44,6 +46,8 @@ import form.DataControl;
 import form.Form;
 import form.FormFactory;
 import form.FormPackage;
+import form.LayerHolder;
+import form.MenuDefinition;
 import form.MenuExtensionRef;
 import form.MenuFolder;
 import form.MenuItem;
@@ -1093,189 +1097,120 @@ public class QueryHelper {
 
 	public Object[] findRefreshedAeas(MenuItem obj) throws Exception {
 
-		throw new RuntimeException();
-
-		// EObject root = obj;
-		// do {
-		// root = root.eContainer();
-		// if (root == null)
-		// throw new Exception("UI element container is null");
-		// } while (!(root instanceof domain.MenuView));
-		//
-		// domain.Views views = (Views) ((domain.MenuView) root).getParent()
-		// .eContainer();
-		//
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid
-		// = '"
-		// + views.getUid()
-		// +
-		// "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::ViewArea))");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl
-		// .evaluate(obj, query);
-		//
-		// query = helper
-		// .createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid
-		// = '"
-		// + views.getUid()
-		// +
-		// "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::NickNamed)
-		// and q.oclAsType(domain::NickNamed).nickname <> null and
-		// q.oclAsType(domain::NickNamed).nickname <> '')");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.NickNamed> map1 = (Collection<domain.NickNamed>)
-		// ocl
-		// .evaluate(obj, query);
-		//
-		// ArrayList<domain.NickNamed> nickNamed = new
-		// ArrayList<domain.NickNamed>();
-		// ArrayList<domain.AreaRef> remove = new ArrayList<domain.AreaRef>();
-		//
-		// if (map.size() != 0) {
-		// for (Iterator<domain.ViewArea> itr = map.iterator(); itr
-		// .hasNext();) {
-		// domain.ViewArea viewarea = itr.next();
-		// if (viewarea.getCanvasView() != null)
-		// findNick(nickNamed, viewarea.getCanvasView()
-		// .getBaseCanvas(), null);
-		// }
-		// }
-		// nickNamed.addAll(map1);
-		//
-		// for (domain.AreaRef ref : obj.getRefreshAreas()) {
-		//
-		// if (ref.getArea() == null
-		// || ref.getArea().getNickname() == null
-		// || "".equals(ref.getArea().getNickname()))
-		// remove.add(ref);
-		// }
-		// return new Object[] { nickNamed, remove };
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// return new Object[] { null, null };
-		// }
-		//
-		//
+		 EObject root = obj;
+		 do {
+			 root = root.eContainer();
+			 if (root == null){
+			 throw new Exception("UI element container is null");
+			 }
+		 } while (!(root instanceof MenuDefinition));
+		
+		Views views = (Views) ((MenuDefinition) root).eContainer();
+		return findRefreshedAeas(views,obj);
+		
 	}
 
 	public Object[] findRefreshedAeas(Uielement obj) throws Exception {
-		throw new RuntimeException();
 
-		// EObject root = obj;
-		// do {
-		// root = root.eContainer();
-		// if (root == null)
-		// throw new Exception("UI element container is null");
-		// } while (!(root instanceof domain.CanvasView));
-		//
-		// domain.Views views = (Views) ((domain.CanvasView) root).getParent()
-		// .eContainer().eContainer();
-		//
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid
-		// = '"
-		// + views.getUid()
-		// +
-		// "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::ViewArea))");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl
-		// .evaluate(obj, query);
-		//
-		// query = helper
-		// .createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid
-		// = '"
-		// + views.getUid()
-		// +
-		// "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::NickNamed)
-		// and q.oclAsType(domain::NickNamed).nickname <> null and
-		// q.oclAsType(domain::NickNamed).nickname <> '')");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.NickNamed> map1 = (Collection<domain.NickNamed>)
-		// ocl
-		// .evaluate(obj, query);
-		//
-		// ArrayList<domain.NickNamed> nickNamed = new
-		// ArrayList<domain.NickNamed>();
-		// ArrayList<domain.AreaRef> remove = new ArrayList<domain.AreaRef>();
-		//
-		// if (map.size() != 0) {
-		// for (Iterator<domain.ViewArea> itr = map.iterator(); itr
-		// .hasNext();) {
-		// domain.ViewArea viewarea = itr.next();
-		// if (viewarea.getCanvasView() != null)
-		// findNick(nickNamed, viewarea.getCanvasView()
-		// .getBaseCanvas(), obj);
-		// }
-		// }
-		// nickNamed.addAll(map1);
-		//
-		// for (domain.AreaRef ref : obj.getRefreshAreas()) {
-		//
-		// if (ref.getArea() == null
-		// || ref.getArea().getNickname() == null
-		// || "".equals(ref.getArea().getNickname()))
-		// remove.add(ref);
-		// }
-		// return new Object[] { nickNamed, remove };
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// return new Object[] { null, null };
-		// }
-		//
+		EObject root = obj;
+		do {
+			root = root.eContainer();
+			if (root == null) {
+				throw new Exception("UI element container is null");
+			}
+		} while (!(root instanceof ViewArea));
+
+		
+		Views views = (Views) ((ViewArea) root).eContainer().eContainer();
+		
+		return findRefreshedAeas(views,obj);
+
 	}
 
-	// private void findNick(List<domain.NickNamed> list,
-	// domain.LayerHolder holder, domain.Uielement exception) {
-	//
-	// if (holder.getNickname() != null && !"".equals(holder.getNickname())) {
-	// if (exception != null && exception.getUid() != holder.getUid())
-	// list.add(holder);
-	// if (exception == null)
-	// list.add(holder);
-	// }
-	//
-	// for (Iterator<domain.Uielement> itr = holder.getChildren().iterator();
-	// itr
-	// .hasNext();) {
-	//
-	// domain.Uielement el = itr.next();
-	// if (el instanceof domain.LayerHolder) {
-	// findNick(list, (domain.LayerHolder) el, exception);
-	// continue;
-	// }
-	//
-	// if (el.getNickname() != null && !"".equals(el.getNickname())) {
-	// if (exception != null && exception.getUid() != el.getUid())
-	// list.add(el);
-	// if (exception == null)
-	// list.add(el);
-	// }
-	// }
-	// }
-	//
+	@SuppressWarnings("unchecked")
+	public Object[] findRefreshedAeas(Views views,EObject obj) throws Exception {
+		try {
+			String query = "form::Views.allInstances()->select(r|r.oclAsType(form::Views).uid = '" + views.getUid()
+					+ "').canvases->select(c|c.oclIsKindOf(form::ViewPortHolder))->collect(v|v.oclAsType(form::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(form::ViewArea))";
+
+			Collection<ViewArea> map = (Collection<ViewArea>) internalEvaluate(obj, query);
+
+			query = "form::Views.allInstances()->select(r|r.oclAsType(form::Views).uid = '" + views.getUid()
+					+ "').canvases->select(c|c.oclIsKindOf(form::ViewPortHolder))->collect(v|v.oclAsType(form::ViewPortHolder).viewElement)->"
+					+ "select(q|q.oclIsKindOf(form::NickNamed) and q.oclAsType(form::NickNamed).nickname <> null and q.oclAsType(form::NickNamed).nickname <> '')";
+
+			Collection<NickNamed> map1 = (Collection<NickNamed>) internalEvaluate(obj, query);
+
+			ArrayList<NickNamed> nickNamed = new ArrayList<NickNamed>();
+			ArrayList<AreaRef> remove = new ArrayList<AreaRef>();
+
+			if (map.size() != 0) {
+				for (ViewArea viewarea : map) {
+					if (viewarea.getBaseCanvas() != null){
+						findNick(nickNamed, viewarea.getBaseCanvas(), obj);
+					}
+				}
+			}
+			nickNamed.addAll(map1);
+
+			List<AreaRef> list = null;
+			if (obj instanceof Uielement){
+				list = ((Uielement)obj).getRefreshAreas();
+			}
+
+			if (obj instanceof MenuItem){
+				list = ((MenuItem)obj).getRefreshAreas();
+			}
+			
+			for (AreaRef ref : list) {
+				if (ref.getArea() == null || ref.getArea().getNickname() == null|| "".equals(ref.getArea().getNickname())){
+					remove.add(ref);
+				}
+			}
+			return new Object[] { nickNamed, remove };
+
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return new Object[] { null, null };
+		}
+
+	
+	}	
+	
+	private void findNick(List<NickNamed> list, LayerHolder holder, EObject exception) {
+		
+		String uuid = null;
+		if (exception instanceof Uielement){
+			uuid = ((Uielement)exception).getUid();
+		}
+
+		if (exception instanceof MenuItem){
+			uuid = ((MenuItem)exception).getUid();
+		}
+		
+		
+		if (holder.getNickname() != null && !"".equals(holder.getNickname())) {
+			if (exception != null && uuid != holder.getUid())
+				list.add(holder);
+			if (exception == null)
+				list.add(holder);
+		}
+
+		for (Uielement el  : holder.getChildren()) {
+			if (el instanceof LayerHolder) {
+				findNick(list, (LayerHolder) el, exception);
+				continue;
+			}
+
+			if (el.getNickname() != null && !"".equals(el.getNickname())) {
+				if (exception != null && uuid != el.getUid())
+					list.add(el);
+				if (exception == null)
+					list.add(el);
+			}
+		}
+	}
+
 	// private void findUIElement(List<domain.Uielement> list,
 	// domain.LayerHolder holder) {
 	// list.add(holder);
@@ -1298,70 +1233,44 @@ public class QueryHelper {
 	//
 	//
 	public List<MenuFolder> findMenus(Form frm) {
-		throw new RuntimeException();
 
-		// domain.ApplicationUILayer app = ((domain.UIPackage)
-		// (frm.eContainer()))
-		// .getParent().getParent();
-		//
-		// try {
-		//
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::ApplicationUILayer.allInstances()->select(q|q.uid='"+app.getUid()+"')"
-		// + "
-		// ->collect(v|v.oclAsType(domain::ApplicationUILayer).applicationUIPackages"
-		// + "
-		// ->collect(w|w.oclAsType(domain::ApplicationUIPackage).uipackage.forms"
-		// + " ->collect(f|f.oclAsType(domain::Form).view.view.menus)"
-		// + "
-		// ->collect(fl|fl.oclAsType(domain::MenuDefinition).menuView.menuFolders"
-		// + " ->select(mf|mf.oclIsKindOf(domain::MenuFolder)))))"
-		// + "
-		// ->reject(qwe|domain::ApplicationUILayer.allInstances()->select(q|q.uid='"+app.getUid()+"')"
-		// + "
-		// ->collect(v|v.oclAsType(domain::ApplicationUILayer).applicationUIPackages"
-		// + "
-		// ->collect(w|w.oclAsType(domain::ApplicationUIPackage).uipackage.forms"
-		// + " ->collect(f|f.oclAsType(domain::Form).view.view.menus)"
-		// + "
-		// ->collect(fl|fl.oclAsType(domain::MenuDefinition).menuView.menuFolders"
-		// + " ->collect(mf|mf.oclAsType(domain::MenuFolder).menuElements"
-		// + " ->select(e|e.oclIsKindOf(domain::SubMenu) and
-		// e.oclAsType(domain::SubMenu).toSubmenu <> null )"
-		// + " ->collect(e|e.oclAsType(domain::SubMenu).toSubmenu ) ))))"
-		// + " ->includes(qwe))");
-		//
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.MenuFolder> map = (Collection<domain.MenuFolder>)
-		// ocl
-		// .evaluate(frm, query);
-		//
-		// ArrayList<domain.MenuFolder> list = new
-		// ArrayList<domain.MenuFolder>();
-		//
-		// if (map.size() != 0) {
-		// for (domain.MenuFolder point : map) {
-		// if (point.getName() != null && !point.getName().trim().equals(""))
-		// list.add(point);
-		// }
-		// }
-		// return list;
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// return new ArrayList<domain.MenuFolder>();
-		// }
-		//
-		//
-		//
+		ApplicationUILayer app = (ApplicationUILayer) frm.eContainer().eContainer();
+
+		try {
+
+			String query = "application::ApplicationUILayer.allInstances()->select(q|q.uid='" + app.getUid() + "')"
+					+ "->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages"
+					+ "->collect(w|w.oclAsType(application::ApplicationUIPackage).forms"
+					+ " ->collect(f|f.oclAsType(form::Form).view.menus)"
+					+ "->collect(fl|fl.oclAsType(form::MenuDefinition).menuFolders"
+					+ " ->select(mf|mf.oclIsKindOf(form::MenuFolder)))))"
+					+ "->reject(qwe|application::ApplicationUILayer.allInstances()->select(q|q.uid='" + app.getUid() + "')"
+					+ "->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages"
+					+ "->collect(w|w.oclAsType(application::ApplicationUIPackage).forms"
+					+ " ->collect(f|f.oclAsType(form::Form).view.menus)"
+					+ "->collect(fl|fl.oclAsType(form::MenuDefinition).menuFolders"
+					+ " ->collect(mf|mf.oclAsType(form::MenuFolder).menuElements"
+					+ "->select(e|e.oclIsKindOf(form::SubMenu) and e.oclAsType(form::SubMenu).toSubMenu <> null )"
+					+ " ->collect(e|e.oclAsType(form::SubMenu).toSubMenu ) ))))->includes(qwe))";
+
+			@SuppressWarnings("unchecked")
+			Collection<MenuFolder> map = (Collection<MenuFolder>) internalEvaluate(app, query);
+
+			ArrayList<MenuFolder> list = new ArrayList<MenuFolder>();
+
+			if (map.size() != 0) {
+				for (MenuFolder point : map) {
+					if (point.getName() != null && !point.getName().trim().equals(""))
+						list.add(point);
+				}
+			}
+			return list;
+
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return new ArrayList<MenuFolder>();
+		}
+
 	}
 
 	public List<MenuFolder> findExtensionPoints(MenuExtensionRef ref) {
