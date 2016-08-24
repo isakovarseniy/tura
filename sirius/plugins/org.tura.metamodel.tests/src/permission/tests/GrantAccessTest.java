@@ -2,10 +2,7 @@
  */
 package permission.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import permission.GrantAccess;
 import permission.PermissionFactory;
 

@@ -2,11 +2,9 @@
  */
 package application;
 
-import mapper.Mappers;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+
+import mapper.Mappers;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,16 +2,13 @@
  */
 package infrastructure.impl;
 
-import infrastructure.InfrastructureComponent;
-import infrastructure.InfrastructurePackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import infrastructure.InfrastructureComponent;
+import infrastructure.InfrastructurePackage;
 
 /**
  * <!-- begin-user-doc -->

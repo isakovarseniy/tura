@@ -90,7 +90,6 @@ import form.Root;
 import form.SearchTrigger;
 import form.Selection;
 import form.SourcesPointer;
-import form.StyleClass;
 import form.StyleElement;
 import form.SubMenu;
 import form.TabCanvas;

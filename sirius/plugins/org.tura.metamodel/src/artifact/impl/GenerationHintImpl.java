@@ -2,16 +2,13 @@
  */
 package artifact.impl;
 
-import artifact.ArtifactPackage;
-import artifact.GenerationHint;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import artifact.ArtifactPackage;
+import artifact.GenerationHint;
 
 /**
  * <!-- begin-user-doc -->

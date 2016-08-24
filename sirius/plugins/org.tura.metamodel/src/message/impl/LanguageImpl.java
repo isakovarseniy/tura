@@ -2,16 +2,13 @@
  */
 package message.impl;
 
-import message.Language;
-import message.MessagePackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import message.Language;
+import message.MessagePackage;
 
 /**
  * <!-- begin-user-doc -->

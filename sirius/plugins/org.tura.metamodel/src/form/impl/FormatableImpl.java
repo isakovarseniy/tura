@@ -2,16 +2,13 @@
  */
 package form.impl;
 
-import form.FormPackage;
-import form.Formatable;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import form.FormPackage;
+import form.Formatable;
 
 /**
  * <!-- begin-user-doc -->

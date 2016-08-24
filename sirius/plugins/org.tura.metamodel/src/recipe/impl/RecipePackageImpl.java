@@ -2,53 +2,34 @@
  */
 package recipe.impl;
 
-import application.ApplicationPackage;
-
-import application.impl.ApplicationPackageImpl;
-
-import artifact.ArtifactPackage;
-
-import artifact.impl.ArtifactPackageImpl;
-
-import domain.DomainPackage;
-
-import domain.impl.DomainPackageImpl;
-
-import form.FormPackage;
-
-import form.impl.FormPackageImpl;
-
-import infrastructure.InfrastructurePackage;
-
-import infrastructure.impl.InfrastructurePackageImpl;
-
-import mapper.MapperPackage;
-
-import mapper.impl.MapperPackageImpl;
-
-import message.MessagePackage;
-
-import message.impl.MessagePackageImpl;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import application.ApplicationPackage;
+import application.impl.ApplicationPackageImpl;
+import artifact.ArtifactPackage;
+import artifact.impl.ArtifactPackageImpl;
+import domain.DomainPackage;
+import domain.impl.DomainPackageImpl;
+import form.FormPackage;
+import form.impl.FormPackageImpl;
+import infrastructure.InfrastructurePackage;
+import infrastructure.impl.InfrastructurePackageImpl;
+import mapper.MapperPackage;
+import mapper.impl.MapperPackageImpl;
+import message.MessagePackage;
+import message.impl.MessagePackageImpl;
 import permission.PermissionPackage;
-
 import permission.impl.PermissionPackageImpl;
-
 import recipe.ArtifactRef;
 import recipe.Component;
 import recipe.ConfigExtension;
 import recipe.Configuration;
 import recipe.DeploymentComponent;
-import recipe.DeploymentComponents;
-import recipe.DeploymentSequence;
 import recipe.DeploymentStarStep;
 import recipe.HashProperty;
 import recipe.Infrastructure;
@@ -68,13 +49,9 @@ import recipe.RecipeFactory;
 import recipe.RecipePackage;
 import recipe.Recipes;
 import recipe.UsingMappers;
-
 import style.StylePackage;
-
 import style.impl.StylePackageImpl;
-
 import type.TypePackage;
-
 import type.impl.TypePackageImpl;
 
 /**

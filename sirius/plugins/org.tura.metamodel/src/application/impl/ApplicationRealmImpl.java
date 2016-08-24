@@ -2,19 +2,15 @@
  */
 package application.impl;
 
-import application.ApplicationPackage;
-import application.ApplicationRealm;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import application.ApplicationPackage;
+import application.ApplicationRealm;
 import permission.Roles;
 
 /**
