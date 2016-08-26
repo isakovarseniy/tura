@@ -3,6 +3,7 @@ package org.tura.metamodel.sirius.diagram.designer.service;
 import java.util.ArrayList;
 import java.util.UUID;
 
+
 import org.eclipse.emf.ecore.EObject;
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.GrantAccessRoleRef;
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.StylePointerLibraryName;
@@ -67,8 +68,10 @@ import recipe.ModelMapper;
 import recipe.Recipes;
 import style.StyleLibrary;
 import style.StyleSet;
+import type.Assosiation;
 import type.TypeGroup;
 import type.TypeReference;
+import type.RelationType;
 
 public class DiagramService {
 
@@ -79,7 +82,6 @@ public class DiagramService {
 		}
 		return "Ref : null";
 	}
-	
 	
 	public Object getContextForLink( EObject eobject ){
 		EObject obj = eobject.eContainer();
@@ -106,7 +108,6 @@ public class DiagramService {
 		}
 	}	
 
-	
 	
 	public Object getCandidates(EObject eobject ){
 		if  (eobject instanceof ViewArea){
@@ -356,5 +357,23 @@ public class DiagramService {
 		return "viewport - "+trigger.getMethodRef().getName()+"()";
 	}
 	
-	
+	public String generateSourceName(Assosiation assosiation ){
+		if (assosiation.getType().equals(RelationType.MANY2_MANY)){
+			return "1..n";
+		}else{
+			return "1";
+		}
+	}	
+
+	public String generateTargetName(Assosiation assosiation ){
+		if (assosiation.getType().equals(RelationType.ONE2_ONE)){
+			return "1";
+		}else{
+			return "1..n";
+		}
+	}	
+
+
 }
+
+

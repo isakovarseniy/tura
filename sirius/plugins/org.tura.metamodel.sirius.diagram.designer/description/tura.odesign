@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="tura" version="10.1.3.201511131800">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="tura" version="10.1.3.201511131800">
   <ownedViewpoints name="Domain tree" modelFileExtension="domain">
+    <validationSet>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Type name validation" level="ERROR" message="Type name cannot be empty " targetClass="type.Type">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Type name repetition validation" level="ERROR" message="Type cannot have same name " targetClass="type.Type">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(type::TypeGroup).types->select(q|q.oclAsType(type::TypeElement).name = self.name)->size()=1"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Enumerator name validation" level="ERROR" message="Enumerator name cannot be empty " targetClass="type.Enumerator">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Enumerator name repetition validation" level="ERROR" message="Enumerator cannot have same name " targetClass="type.Enumerator">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(type::TypeGroup).types->select(q|q.oclAsType(type::TypeElement).name = self.name)->size()=1"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="TypeReference typeRef validation" level="ERROR" message="TypeReference typeRef cannot be empty " targetClass="type.TypeReference">
+        <audits auditExpression="aql:self.typeRef &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Attribute name validation" level="ERROR" message="Attribute name cannot be empty " targetClass="type.Attribute">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Attribute type validation" level="ERROR" message="Attribute type cannot be empty " targetClass="type.Attribute">
+        <audits auditExpression="aql:self.typeRef &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Attribute name repetition validation" level="ERROR" message="Attributes cannot have same name " targetClass="type.Attribute">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(type::Type).attributes->select(q|q.oclAsType(type::Attribute).name = self.name)->size()=1"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumAttribute name validation" level="ERROR" message="EnumAttribute name cannot be empty " targetClass="type.EnumAttribute">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Operation name validation" level="ERROR" message="Operation name cannot be empty " targetClass="type.Operation">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Operation return type  validation" level="ERROR" message="Operation return type cannot be empty " targetClass="type.Operation">
+        <audits auditExpression="aql:self.returnValue &lt;> null"/>
+      </ownedRules>
+    </validationSet>
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Message Library" domainClass="message.MessageLibrary">
       <ownedLineMappings name="Key" domainClass="message.Message" semanticCandidatesExpression="feature:messages" headerLabelExpression="service:generateName">
         <defaultForeground>
@@ -49,7 +84,7 @@
         </defaultBackground>
       </ownedColumnMappings>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Type package" domainClass="type.TypeGroup">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Type package" titleExpression="aql:self.name" domainClass="type.TypeGroup">
       <defaultLayer name="Default">
         <nodeMappings name="TypeReference" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.0/@ownedTools[name='TypeReference%20edit%20label']" semanticCandidatesExpression="feature:types" domainClass="type.TypeReference">
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="service:getTypeReferenceName" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
@@ -61,13 +96,13 @@
         <edgeMappings name="Assosiation" semanticCandidatesExpression="feature:relationships" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@nodeMappings[name='TypeReference']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@nodeMappings[name='TypeReference']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="type.Assosiation" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20Assosiation'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20Assosiation']">
           <style targetArrow="InputFillClosedArrow">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
-            <beginLabelStyleDescription>
+            <beginLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:generateSourceName">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             </beginLabelStyleDescription>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
-            <endLabelStyleDescription>
+            <endLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:generateTargetName">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             </endLabelStyleDescription>
           </style>
@@ -333,7 +368,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Artifact package" domainClass="artifact.ArtifactGroup">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Artifact package" titleExpression="aql:self.name" domainClass="artifact.ArtifactGroup">
       <defaultLayer name="Default">
         <containerMappings name="Artifact" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@toolSections.0/@ownedTools[name='Artifact%20edit%20label']" semanticCandidatesExpression="aql:self.artifacts" domainClass="artifact.Artifact" childrenPresentation="VerticalStack">
           <subContainerMappings name="ModelQueryes" semanticCandidatesExpression="var:self" domainClass="artifact.Artifact" childrenPresentation="List">
@@ -456,7 +491,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Security rules set" domainClass="permission.Roles">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Security rules set" titleExpression="aql:self.name" domainClass="permission.Roles">
       <defaultLayer name="Default">
         <nodeMappings name="Role" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Security%20rules%20set']/@defaultLayer/@toolSections.0/@ownedTools[name='Roles%20edit%20label']" semanticCandidatesExpression="aql:self.roles.roles" domainClass="permission.Role">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name" labelAlignment="LEFT" sizeComputationExpression="-1" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/role.png">
@@ -628,7 +663,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Infrastructure diagram" domainClass="infrastructure.EnterpriseInfrastructure">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Infrastructure diagram" titleExpression="aql:self.name" domainClass="infrastructure.EnterpriseInfrastructure">
       <defaultLayer name="Default">
         <edgeMappings name="InfrastructureConnection" semanticCandidatesExpression="aql:self.infrastructureConnections" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']/@defaultLayer/@containerMappings[name='Datacenter']/@subContainerMappings[name='Subsystems']/@subContainerMappings[name='Subsystem']/@subContainerMappings[name='InfrastructureLayers']/@subContainerMappings[name='InfrastructureLayer']/@subNodeMappings[name='Router'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']/@defaultLayer/@containerMappings[name='Datacenter']/@subContainerMappings[name='Subsystems']/@subContainerMappings[name='Subsystem']/@subContainerMappings[name='InfrastructureLayers']/@subContainerMappings[name='InfrastructureLayer']/@subNodeMappings[name='Server'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']/@defaultLayer/@containerMappings[name='Datacenter']/@subContainerMappings[name='Subsystems']/@subContainerMappings[name='Subsystem']/@subContainerMappings[name='InfrastructureLayers']/@subContainerMappings[name='InfrastructureLayer']/@subNodeMappings[name='Storage'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']/@defaultLayer/@containerMappings[name='Datacenter']/@subContainerMappings[name='Subsystems']/@subContainerMappings[name='Subsystem']/@subContainerMappings[name='InfrastructureLayers']/@subContainerMappings[name='InfrastructureLayer']/@subNodeMappings[name='Hub']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']/@defaultLayer/@containerMappings[name='Datacenter']/@subContainerMappings[name='Subsystems']/@subContainerMappings[name='Subsystem']/@subContainerMappings[name='InfrastructureLayers']/@subContainerMappings[name='InfrastructureLayer']/@subNodeMappings[name='Router'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']/@defaultLayer/@containerMappings[name='Datacenter']/@subContainerMappings[name='Subsystems']/@subContainerMappings[name='Subsystem']/@subContainerMappings[name='InfrastructureLayers']/@subContainerMappings[name='InfrastructureLayer']/@subNodeMappings[name='Server'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']/@defaultLayer/@containerMappings[name='Datacenter']/@subContainerMappings[name='Subsystems']/@subContainerMappings[name='Subsystem']/@subContainerMappings[name='InfrastructureLayers']/@subContainerMappings[name='InfrastructureLayer']/@subNodeMappings[name='Storage'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']/@defaultLayer/@containerMappings[name='Datacenter']/@subContainerMappings[name='Subsystems']/@subContainerMappings[name='Subsystem']/@subContainerMappings[name='InfrastructureLayers']/@subContainerMappings[name='InfrastructureLayer']/@subNodeMappings[name='Hub']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="infrastructure.InfrastructureConnection" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20InfrastructureConnection'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Infrastructure%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20InfrastructureConnection']">
           <style targetArrow="InputFillClosedArrow">
@@ -874,7 +909,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Recipe diagram" domainClass="recipe.Recipes">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Recipe diagram" titleExpression="aql:self.name" domainClass="recipe.Recipes">
       <defaultLayer name="Default">
         <nodeMappings name="Infrastructure" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Infrastructure%20edit%20label']" semanticCandidatesExpression="feature:infrastructures" domainClass="recipe.Infrastructure">
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelPosition="node" resizeKind="NSEW">
@@ -1301,7 +1336,7 @@
         </create>
       </subItemMappings>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Data Control" domainClass="form.Controls">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Data Control" titleExpression="aql:self.name" domainClass="form.Controls">
       <defaultLayer name="Default">
         <edgeMappings name="Relation" semanticCandidatesExpression="feature:relations" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="feature:detail" sourceFinderExpression="feature:master" domainClass="form.Relation" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20detail%20Relation'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20master%20Relation']">
           <style targetArrow="InputFillClosedArrow">
@@ -1914,7 +1949,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Menu Definition" domainClass="form.MenuDefinition">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Menu Definition" titleExpression="aql:self.name" domainClass="form.MenuDefinition">
       <defaultLayer name="Default">
         <edgeMappings name="ToSubmenu" semanticCandidatesExpression="aql:self.toSubMenu" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@containerMappings[name='MenuFolder']/@subNodeMappings[name='SubMenu']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@containerMappings[name='MenuFolder']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="form.ToSubmenu" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20ToSubmenu'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20ToSubmenu']">
           <style targetArrow="InputFillClosedArrow">
@@ -2099,7 +2134,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Deployment sequence" domainClass="recipe.Recipe">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Deployment sequence" titleExpression="aql:self.name" domainClass="recipe.Recipe">
       <defaultLayer name="Default">
         <nodeMappings name="DeploymentStarStep" semanticCandidatesExpression="feature:startSeq" domainClass="recipe.DeploymentStarStep">
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="First step" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
@@ -2489,7 +2524,7 @@
         </create>
       </subItemMappings>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Views diagram" domainClass="form.Views">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Views diagram" titleExpression="aql:self.name" domainClass="form.Views">
       <defaultLayer name="Default">
         <nodeMappings name="TabCanvas" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='TabCanvas%20edit%20label']" semanticCandidatesExpression="aql:self.canvases" domainClass="form.TabCanvas">
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
@@ -2962,7 +2997,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Canvas diagram" domainClass="form.ViewArea">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Canvas diagram" titleExpression="aql:self.name" domainClass="form.ViewArea">
       <defaultLayer name="Default">
         <edgeMappings name="LinkToLabel" semanticCandidatesExpression="feature:linkToLabels" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='CheckBox0'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='Date0'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='DropDownSelection0'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='InputText0'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='Password0'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='LayerHolderinTableColumn']/@subNodeMappings[name='CheckBox1'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='LayerHolderinTableColumn']/@subNodeMappings[name='Date1'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='LayerHolderinTableColumn']/@subNodeMappings[name='DropDownSelection1'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='LayerHolderinTableColumn']/@subNodeMappings[name='InputText1'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='LayerHolderinTableColumn']/@subNodeMappings[name='Password1'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subNodeMappings[name='CheckBox2'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subNodeMappings[name='Date2'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subNodeMappings[name='DropDownSelection2'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subNodeMappings[name='InputText2'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subNodeMappings[name='Password2'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subContainerMappings[name='LayerHolderinTreeColumn']/@subNodeMappings[name='CheckBox3'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subContainerMappings[name='LayerHolderinTreeColumn']/@subNodeMappings[name='Date3'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subContainerMappings[name='LayerHolderinTreeColumn']/@subNodeMappings[name='DropDownSelection3'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subContainerMappings[name='LayerHolderinTreeColumn']/@subNodeMappings[name='InputText3'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subContainerMappings[name='LayerHolderinTreeColumn']/@subNodeMappings[name='Password3'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subNodeMappings[name='CheckBox4'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subNodeMappings[name='Date4'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subNodeMappings[name='DropDownSelection4'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subNodeMappings[name='InputText4'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subNodeMappings[name='Password4']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='Label0'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='LayerHolderinTableColumn']/@subNodeMappings[name='Label1'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subNodeMappings[name='Label2'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subContainerMappings[name='LayerHolderinTreeColumn']/@subNodeMappings[name='Label3'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subNodeMappings[name='Label4']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="form.LinkToLabel" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20LinkToLabel'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20LinkToLabel']">
           <style targetArrow="InputFillClosedArrow">
