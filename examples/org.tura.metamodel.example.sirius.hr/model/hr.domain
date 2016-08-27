@@ -31,7 +31,7 @@
       </techLeafs>
     </techLeafs>
     <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="Java">
-      <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Inheritance"/>
+      <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Implements"/>
     </techLeafs>
   </domainArtifacts>
   <domainTypes uid="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" name="Primitives">
@@ -85,7 +85,7 @@
           <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="f6a899c6-94d9-449e-8918-281310a16583" name="City"/>
           <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="87a1e862-4b41-47ba-bfe4-7847e2b1c337" name="Street"/>
         </types>
-        <types xsi:type="tura.type:TypeReference" uid="cdeba6f2-8884-4de8-bb0d-def699e5c556"/>
+        <types xsi:type="tura.type:TypeReference" uid="cdeba6f2-8884-4de8-bb0d-def699e5c556" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d"/>
         <relationships xsi:type="tura.type:Assosiation" uid="bca78920-d1d9-410d-8bf6-4fe885a66bb6">
           <links uid="4aa54173-75fb-479c-9b2e-094eb12edd54"/>
         </relationships>
@@ -116,15 +116,223 @@
           </operations>
         </types>
         <types xsi:type="tura.type:Type" uid="4d408999-e499-4951-9cbe-8e747fbbe1fc" name="Tree data control"/>
-        <types xsi:type="tura.type:Type" uid="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" name="Base type"/>
+        <types xsi:type="tura.type:Type" uid="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" name="Base type">
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="96d9355b-421b-4812-98f4-d9d9acf40e7b" name="objId"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="b29cd180-b3a7-416b-b572-ff1acb86e080" name="parentId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="fb2638e3-2e6e-47d1-8a6e-1237e8472b12" name="objType"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="6d639722-b948-4e45-a29b-71ec6e58e823" name="objStatus"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="294a1c17-2c5b-472a-953a-d4135957e954" name="createDate"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="51c5e61d-44b3-4872-bb98-401db962063a" name="updateDate"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="f9b81e89-a73a-4cc2-9995-129df5ee0a18" name="actionDate"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="935b9766-ce62-4779-af01-d32269ce3fd1" name="expiredDate"/>
+        </types>
         <types xsi:type="tura.type:Type" uid="35f1cd61-8994-4cd3-ac93-fcf57cfcf441" name="Search criteria"/>
         <types xsi:type="tura.type:Type" uid="c349ec60-4840-4dc9-918c-03ce34d8177e" name="Order criteria"/>
         <types xsi:type="tura.type:Type" uid="af833f7a-deb1-4318-bdee-c54a889293cc" name="Style"/>
         <types xsi:type="tura.type:Type" uid="31b79724-028a-4868-900f-e445787d71b0" name="Role"/>
         <types xsi:type="tura.type:Type" uid="ccc916c0-f673-4f45-9787-9039f7e1feb2" name="Group"/>
         <types xsi:type="tura.type:Type" uid="1f89709f-1e36-477c-9078-89be7546fd21" name="Icon"/>
+        <types xsi:type="tura.type:Type" uid="ad731dee-d456-4391-8fa2-0f5cd4ce694d" name="Persistence Base type implementation">
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="d601838d-38ef-4f6a-bc2e-a4e2beed9a74" name="objId"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="f24a4b0c-5d64-4f02-b71c-aa2bb44ddbe8" name="parentId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="fdb421ed-5d7d-4cd8-8725-bdb8b5cffe2f" name="objType"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8e19ec74-4154-40cf-900d-0c1c6af399dd" name="objStatus"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="57ef5f0a-d322-491d-912f-a988ed14f056" name="createDate"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="94585655-0a85-43de-b5b1-a57c65b8f7fc" name="updateDate"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="a3586088-d053-4d7f-96eb-883bad5ad12e" name="actionDate"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="67f05beb-e315-42f3-86f7-cbaf9274caf3" name="expiredDate"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="ca9619bb-716a-48ac-9b6c-2f4a6b468793" name="Domain Base Type Implementation">
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="45663c4f-6197-405b-b179-ee71b777aea6" name="objId"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="0b0d15f9-4954-4a20-ac33-0d422cdff66e" name="parentId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="935afbc0-2405-42c1-97ef-f148bf4cfe80" name="objType"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="4eec4ccd-0c8b-4d5b-876a-67f481a6f5cf" name="objStatus"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="98052b8d-e50b-40f3-9453-aa8b92bbeb6e" name="createDate"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="1ae3e726-d123-4011-b31a-1ac2a0f649c8" name="updateDate"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="373fccd8-dc02-4463-bd6f-16531ff887a6" name="actionDate"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="1d7799a0-d243-4408-83e3-4f068cdda4e2" name="expiredDate"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="8b94b9cd-b404-4243-bc7b-bf085d4163bd" name="Image"/>
         <relationships xsi:type="tura.type:Generalization" uid="34cce173-066e-4d60-8ae5-a0d2651232d3" source="47959024-ed5d-4135-aaf9-a81d05fefc13" target="6a621b53-4bee-4700-a46d-a061291e72f3"/>
         <relationships xsi:type="tura.type:Generalization" uid="47b39317-6948-4dc4-9666-1ad1d89c5b30" source="4d408999-e499-4951-9cbe-8e747fbbe1fc" target="6a621b53-4bee-4700-a46d-a061291e72f3"/>
+        <relationships xsi:type="tura.type:Generalization" uid="bac855b2-52cc-4e25-8fa0-01f6baf395d8" source="ad731dee-d456-4391-8fa2-0f5cd4ce694d" target="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d">
+          <classifiers uid="78fa7f57-f45c-46be-9b96-43fbf56d8b81" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+        <relationships xsi:type="tura.type:Generalization" uid="4a2a4e9d-b628-43bb-a6eb-a9ca957d71ec" source="ca9619bb-716a-48ac-9b6c-2f4a6b468793" target="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d">
+          <classifiers uid="0ff2e637-7b33-460c-ab0f-dee9499e1444" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+      </repositoryPackages>
+    </typesRepository>
+    <typesRepository uid="217f0220-cbd9-4502-9710-2fb1b26cc74c" name="HR domain">
+      <repositoryPackages uid="6110560a-e781-4602-99ca-45ed91722414" name="Model Interface">
+        <types xsi:type="tura.type:TypeReference" uid="bd682c64-f18e-41f2-a757-e8313d641f29" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d"/>
+        <types xsi:type="tura.type:Type" uid="63741959-d017-485d-9f05-6900553841d8" name="Country type">
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="eeeec2b4-b252-47c8-92b1-9bd0ba1c000a" name="name"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="31870394-1bfa-438e-b57a-df34481cbaa3" name="State type">
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="fae0e8ad-bca5-41af-adeb-fb6750f3111c" name="name"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="adf61d26-a067-4bab-a585-9efefc1bed1c" name="City type">
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="f7d7a189-c1df-4985-ba31-f7c5e8b7f5bd" name="name"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="6bcd9fb4-d240-4a86-8c40-01a35fe01033" name="Street type">
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="743de011-6792-4604-8de1-1371b0732c66" name="name"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="bba5bca8-79c4-4856-a307-acc056d2ba90" name="Department Type">
+          <classifiers uid="b9b520b4-f3c1-4b0d-bce3-f446a5895730" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="b96d6b76-ea4c-4d7a-8d7b-386d3cae8422" name="departmentId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="5ad949b9-3af6-4e6a-974c-f7da0be99fa8" name="departmentName"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="142ad506-a76e-427e-8a6e-734e7c37600c" name="managerId"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="c9eb541a-14db-421c-9dbf-d6eb9b34785c" name="locationId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="a09358c9-d420-4cb7-a8c3-b059aab20d1a" name="description"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="a560547a-2981-4fc4-9431-70d493884454" name="File type">
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="21709c07-c822-4471-85ea-d871a6976e0a" name="fileName"/>
+          <attributes typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="7886cb19-e4cd-4207-ad31-b841da5c546f" name="directory"/>
+          <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="f3245cf5-812e-49f8-bc6e-6971ef034e75" name="size"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="ca608f61-e259-4b5e-a97a-cf2de1c74ae8" name="Department2Entity">
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="7611dd7e-100b-4380-b36c-27e103569514" name="departmentRef"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="62fec7f1-c18c-49ce-bd33-ae71172ea7f2" name="entityRef"/>
+          <attributes typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="57fd78ea-c787-497a-b2db-3e60c616dff6" name="boolVal"/>
+          <attributes typeRef="8b94b9cd-b404-4243-bc7b-bf085d4163bd" uid="5a4df57a-e7ca-4d2f-b3fb-cf48ecaa1e04" name="image"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="290e5b93-8e34-478f-8794-fdeb922c9298" name="Employee Type">
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="22181c6d-5909-480a-88af-ac6a1d693885" name="employeeId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="2a951adc-c89f-4d84-a59c-ffeba113f873" name="firstName"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="78e626ed-6b8d-48e1-806b-08569246191e" name="lastName"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="0d1a1c4b-7908-4ab5-bb47-4f9237b9488b" name="email"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="0cd27d7a-d841-4c34-8734-a7b9d500d26d" name="phoneNumber"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="82f29c2a-a8af-41e7-92d0-527945ce135b" name="hireDate"/>
+          <attributes typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="a618cf17-3af5-4040-8c7c-a2ab2c4f310d" name="salary"/>
+          <attributes typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="a4112a0f-5198-4766-8498-bf7379eacfff" name="commissionPct"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="fc8396fd-13cc-4504-b14a-9336bcd2e56f" name="managerId"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="21abd538-7703-4f1f-a6dc-785a7c1e1a40" name="departmentId"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="5a5a623b-9030-4f4f-8085-23b0796478e6" name="Vehicle Type">
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="597d910d-f340-45a8-a89c-3e36aa1f8d50" name="vehicleMaker"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="f632bfe1-270e-4277-b8e7-a95fa28e47ae" name="plateNumber"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="8fc713c5-d6ba-46ac-9609-2560bab34bbd" name="User type">
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="eab39822-a254-4dbb-9cb4-7cf67c037fe0" name="username"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="89c74a3d-e2d0-4627-8f5f-1bd94a132c48" name="password"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="24bfd56d-56ab-467f-afb3-c27050fa7d16" name="Company type">
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="57928b1d-0626-45dc-8b7d-08905ac1e947" name="companyName"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="9ad0a7c2-79c4-45a8-817f-91f22b01487b" name="countryId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="f922f7f8-6826-42cd-87b6-c62a7dc280d8" name="description"/>
+        </types>
+        <relationships xsi:type="tura.type:Generalization" uid="ac634e50-c86c-444a-b5b2-3d3c0db9c393" source="63741959-d017-485d-9f05-6900553841d8" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+          <classifiers uid="9a51bca6-943a-4b0b-8816-c4494b923958" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+        <relationships xsi:type="tura.type:Generalization" uid="bd1e74e4-3a5e-4b52-a77a-90db9838c0cd" source="31870394-1bfa-438e-b57a-df34481cbaa3" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+          <classifiers uid="a7ce0c7a-7c93-4c8e-9396-2d4afd78ff3d" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+        <relationships xsi:type="tura.type:Generalization" uid="f3c0dfed-c29f-4fdb-a5d2-0a88eef310fc" source="adf61d26-a067-4bab-a585-9efefc1bed1c" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+          <classifiers uid="b5deafd6-9d0f-4c15-8bab-c6f8191e6a74" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+        <relationships xsi:type="tura.type:Generalization" uid="546f16f7-5818-463a-b399-51bf6a2bef81" source="6bcd9fb4-d240-4a86-8c40-01a35fe01033" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+          <classifiers uid="f460d88f-6afb-4e60-8102-b2efa4a0eeb7" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+        <relationships xsi:type="tura.type:Generalization" uid="e156fdd2-217a-4ffb-b5c5-189fe9edfd9e" source="bba5bca8-79c4-4856-a307-acc056d2ba90" target="bd682c64-f18e-41f2-a757-e8313d641f29"/>
+        <relationships xsi:type="tura.type:Generalization" uid="80b55e14-28d9-4e78-b88d-d3698aa02c4a" source="a560547a-2981-4fc4-9431-70d493884454" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+          <classifiers uid="29f17db9-bb95-4378-90d1-069a51db0a64" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+        <relationships xsi:type="tura.type:Generalization" uid="ba66bf8e-e3de-458f-92b5-878756becf0a" source="ca608f61-e259-4b5e-a97a-cf2de1c74ae8" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+          <classifiers uid="190036dd-4433-464a-82c0-1fa95fd32988" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+        <relationships xsi:type="tura.type:Generalization" uid="f9426c90-dc9b-401d-ade6-6e62e9f15dda" source="290e5b93-8e34-478f-8794-fdeb922c9298" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+          <classifiers uid="e52d1471-4619-42de-ab6c-9bb464b36ed3" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+        <relationships xsi:type="tura.type:Generalization" uid="416c80e1-7ef9-4e07-8334-5a18b7133d5e" source="5a5a623b-9030-4f4f-8085-23b0796478e6" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+          <classifiers uid="29ff93b8-9974-418f-8cc9-cac0a9e9ee60" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+        <relationships xsi:type="tura.type:Generalization" uid="c65e7f44-5869-4a11-84aa-cd368ffc99e1" source="8fc713c5-d6ba-46ac-9609-2560bab34bbd" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+          <classifiers uid="00557250-4e7a-46cd-bb20-4940ff90007f" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+        <relationships xsi:type="tura.type:Generalization" uid="3cf6ee29-fc41-4ed7-b11e-ef7ad43da367" source="24bfd56d-56ab-467f-afb3-c27050fa7d16" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+          <classifiers uid="8dbf1b69-a857-4177-97fb-ad5572f84310" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+        </relationships>
+      </repositoryPackages>
+      <repositoryPackages uid="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" name="Simple  persistens model">
+        <types xsi:type="tura.type:TypeReference" uid="53e0fd02-695a-45a2-93d3-a6ffaefb63a6" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d"/>
+        <types xsi:type="tura.type:Type" uid="6b919be3-0a0e-4498-bad8-51b552e6735e" name="Company JPA">
+          <classifiers uid="95838735-b5ac-4e47-9f08-7ffdaed40b10" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="29fd8b61-9165-4be9-9ff4-9e443732683d" name="company Name"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="7ec3b7f6-4116-44ce-a8b4-d8705ae8fd64" name="countryId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ce8bf78d-797c-4e63-8781-e7a7304998c0" name="description"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="e525818e-2007-4be5-b4a4-1d23601af882" name="Country JPA">
+          <classifiers uid="747ad00d-9677-43db-8459-98b4ae08d97b" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="428efc7e-b92b-4ffa-a88b-4935ac2f1e0e" name="name"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="a911628a-e1e0-4c5e-b944-ad8afdbb0922" name="State JPA">
+          <classifiers uid="2d9dd501-2455-4f3b-9819-3a875247338f" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="fe91a575-6e63-4f4a-89e0-6dca5d7d6889" name="name"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="3565a03e-d7f5-45d4-993d-9b0cf9e54a6d" name="City JPA">
+          <classifiers uid="6bf46b01-5834-4d24-b2cd-76f39603e00c" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="f412a882-fe66-4b26-a376-bc810e21f6a8" name="name"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="0c1b69eb-a885-40b5-95e7-d9d26a2fd027" name="Street JPA">
+          <classifiers uid="0879b20b-c5a5-4c01-a6da-ef87b75f168d" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="78f49db8-5138-4aac-b01a-760dbf6244cc" name="name"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="28492da3-72a0-467d-86e2-d0611c481dd2" name="Department JPA">
+          <classifiers uid="473339d7-a920-4fd2-9682-bc5c9951012f" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="f90b4097-09f1-4bb7-9219-d3ae1b23b3da" name="departmentId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="71580147-10ff-4069-bf87-c7b7347a19f3" name="departmentName"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="c6ba2aca-b027-4cf7-8ea7-e0a4dbd6f495" name="managerId"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="669bd393-5a9e-469d-aec0-3a164f2a643c" name="locationId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="e8e1a14d-3c6d-4a44-b57d-8bd0629657c0" name="description"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="69bbe149-4dd7-4ea8-b2f4-0ed92c07cd0b" name="File JPA">
+          <classifiers uid="57d293d8-7059-4771-ac41-9635d5d10530" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="e1b200e3-76d2-4a4f-b6e5-1b93b283fb8a" name="fileName"/>
+          <attributes typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="fcec291f-2e2b-4e31-b2f3-105eb03e2be2" name="directory"/>
+          <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="43e0fe67-28d4-4c97-8a9b-735e17554429" name="size"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="0f154b86-4959-4c65-9dd9-6635bbd35132" name="Dept2Emp JPA">
+          <classifiers uid="7b738c6b-b86a-43c4-bfe4-fd1167dc89a1" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="b13b09e6-20a4-4046-9d81-63642f0679e8" name="departmentRef"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="e52abb52-559c-4762-857c-89c74eb439ee" name="entityRef"/>
+          <attributes typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="beabeced-64d7-4b08-a6fd-b91927411884" name="boolVal"/>
+          <attributes typeRef="8b94b9cd-b404-4243-bc7b-bf085d4163bd" uid="e0cf9921-012f-4b38-b9cc-7ab6afcd551b" name="image"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="a3c99caa-a56f-4e05-b1b4-045ec986dd64" name="Employee JPA">
+          <classifiers uid="3ffa02cb-5c87-4cdd-b39d-8bc28744372d" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="a8a3f144-210b-4a2c-805c-e03e07c35022" name="employeeId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="234f30f1-a5f1-4ee6-9e20-f7f0ac88cd9e" name="firstName"/>
+          <attributes uid="b0b7031f-8f86-4a22-8fad-44d326c634fb" name="lastName"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="2e084337-64a0-4e15-a7af-c71f86931084" name="email"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="925a16cc-ca95-49fa-ad4a-0f90dc1a2162" name="phoneNumber"/>
+          <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="3d0a8bd3-351a-4fae-beae-8bde678e4693" name="hireDate"/>
+          <attributes typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="45174719-5d7b-4ad5-9b7e-4649edab159d" name="salary"/>
+          <attributes typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="49e6dd0d-7d2f-44bf-85c9-95a7a9ba6154" name="commissionPct"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="196d2168-671c-405a-9edb-03a6ad69025c" name="managerId"/>
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="979d21a5-99b7-4c62-a5d3-25230d1474c9" name="departmentId"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="7a203464-3438-448c-b80f-e9e5a23b295b" name="Vehicle JPA">
+          <classifiers uid="ccb9ab27-d481-4db5-9f5c-9a2b4455a132" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="774cbe20-132e-41a2-80d1-2eaa6068c549" name="vehicleMaker"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="48550683-19a2-4c2d-b6cd-e3b8b1d5e695" name="plateNumber"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="cb6d6071-cf77-4f0b-b12f-4fe5eb4c7aba" name="User JPA">
+          <classifiers uid="024934f3-32ac-4128-ba3b-f36f451a7266" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9c31a0a1-b781-4089-bf92-096440ef6ed6" name="user name"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="6f080c7e-b31b-4d2a-a4a7-3e99739ae1df" name="password"/>
+        </types>
+        <relationships xsi:type="tura.type:Generalization" uid="df256c56-a52a-4e20-b899-c7ccaea2cb0d" source="6b919be3-0a0e-4498-bad8-51b552e6735e" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+        <relationships xsi:type="tura.type:Generalization" uid="ded11f76-fb21-45ea-a936-d3eb6eec0561" source="e525818e-2007-4be5-b4a4-1d23601af882" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+        <relationships xsi:type="tura.type:Generalization" uid="9c6f0647-f093-4264-bab4-5614618e0931" source="a911628a-e1e0-4c5e-b944-ad8afdbb0922" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+        <relationships xsi:type="tura.type:Generalization" uid="41e69371-b05e-4cfc-98b6-5407ea61f02c" source="3565a03e-d7f5-45d4-993d-9b0cf9e54a6d" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+        <relationships xsi:type="tura.type:Generalization" uid="dc5bf04e-af77-407e-9ca4-311256060410" source="0c1b69eb-a885-40b5-95e7-d9d26a2fd027" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+        <relationships xsi:type="tura.type:Generalization" uid="65f0554e-b29b-4983-9cb8-d5eb0e06c4a7" source="28492da3-72a0-467d-86e2-d0611c481dd2" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+        <relationships xsi:type="tura.type:Generalization" uid="f7a0e8a2-7913-458c-b4f1-878c4ae17bc0" source="69bbe149-4dd7-4ea8-b2f4-0ed92c07cd0b" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+        <relationships xsi:type="tura.type:Generalization" uid="0d2945b1-31bd-464a-8fb5-3319312e3f3e" source="0f154b86-4959-4c65-9dd9-6635bbd35132" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+        <relationships xsi:type="tura.type:Generalization" uid="1f97195e-77a1-40f2-bce7-c62de80b0917" source="a3c99caa-a56f-4e05-b1b4-045ec986dd64" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+        <relationships xsi:type="tura.type:Generalization" uid="5192ce5b-6ff6-4c7a-a298-f78b474f5af7" source="7a203464-3438-448c-b80f-e9e5a23b295b" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+        <relationships xsi:type="tura.type:Generalization" uid="f008f812-bca7-4e7c-84ad-e20e11fbcf8a" source="cb6d6071-cf77-4f0b-b12f-4fe5eb4c7aba" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
       </repositoryPackages>
     </typesRepository>
     <primitives>
