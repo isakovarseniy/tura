@@ -36,7 +36,7 @@
         <audits auditExpression="aql:self.returnValue &lt;> null"/>
       </ownedRules>
     </validationSet>
-    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Message Library" domainClass="message.MessageLibrary">
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Message Library" titleExpression="aql:self.name" domainClass="message.MessageLibrary">
       <ownedLineMappings name="Key" domainClass="message.Message" semanticCandidatesExpression="feature:messages" headerLabelExpression="service:generateName">
         <defaultForeground>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
