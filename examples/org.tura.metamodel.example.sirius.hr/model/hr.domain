@@ -103,6 +103,21 @@
         </relationships>
         <relationships xsi:type="tura.type:Generalization" uid="febc1035-cfab-48ba-bc64-354a0dab8dc6" source="339783fc-a290-4f05-9413-182f7d6ffb7f" target="cdeba6f2-8884-4de8-bb0d-def699e5c556"/>
       </repositoryPackages>
+      <repositoryPackages uid="606e5926-7b6c-4685-a788-3a4d4aa4b932" name="Domain model test package">
+        <types xsi:type="tura.type:Type" uid="f05f5088-03b8-4044-9388-1ac846647766" name="Client">
+          <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="a9458493-cb62-4c4d-b856-6a7640ea2c92" name="clientId"/>
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="757871e8-e167-42aa-9b7c-446c85a2ea18" name="name"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="85e19240-5760-4c0b-a33f-9af9af6eb9f1" name="Phone">
+          <attributes uid="52414133-d9be-4c23-aa0a-52407b55254a" name="phone"/>
+        </types>
+        <types xsi:type="tura.type:Type" uid="224a7cd4-297b-4cfe-bc8c-b8507cad5fdc" name="Mail Address">
+          <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="7eec6ddc-73af-4de2-be43-ad47b1add7b4" name="address"/>
+        </types>
+        <relationships xsi:type="tura.type:Assosiation" uid="c148e229-dac2-4c79-8bac-0bb5e992d327" source="f05f5088-03b8-4044-9388-1ac846647766" target="85e19240-5760-4c0b-a33f-9af9af6eb9f1" type="One2Many"/>
+        <relationships xsi:type="tura.type:Assosiation" uid="ef815803-5284-4773-bcca-97f0b931a839" source="f05f5088-03b8-4044-9388-1ac846647766" target="224a7cd4-297b-4cfe-bc8c-b8507cad5fdc" sourceOperation="home address"/>
+        <relationships xsi:type="tura.type:Assosiation" uid="5f5f0d6e-d285-4d04-887a-eb7c35019d61" source="f05f5088-03b8-4044-9388-1ac846647766" target="224a7cd4-297b-4cfe-bc8c-b8507cad5fdc" sourceOperation="business address"/>
+      </repositoryPackages>
     </typesRepository>
     <typesRepository uid="95a185f5-86d1-42f5-a3e4-4fc7645a0820" name="Base Repository">
       <repositoryPackages uid="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" name="Model types">
@@ -156,6 +171,66 @@
           <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="1d7799a0-d243-4408-83e3-4f068cdda4e2" name="expiredDate"/>
         </types>
         <types xsi:type="tura.type:Type" uid="8b94b9cd-b404-4243-bc7b-bf085d4163bd" name="Image"/>
+        <types xsi:type="tura.type:Type" uid="c7cbdc97-34fe-4c48-a68d-a67919710bd8" name="List of Base type"/>
+        <types xsi:type="tura.type:Type" uid="2d431588-3969-41d6-b777-f5ee90351cc7" name="Selenium"/>
+        <types xsi:type="tura.type:Type" uid="f849503c-d8bc-47e1-9836-8682dda8072e" name="Selenium for primefaces"/>
+        <types xsi:type="tura.type:Type" uid="629dd1ab-7e77-4d67-9101-9e7c72a4177b" name="System library">
+          <operations uid="4f88f255-7515-4b96-b2f6-1ef5c1c9cea9" name="Create row">
+            <parameters typeRef="6a621b53-4bee-4700-a46d-a061291e72f3" uid="ffbf2ffc-c794-4a8e-8f1b-d1ee27264bdd" name="Data control"/>
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+          <operations uid="8e7160fd-8788-4628-8827-f85f225c1d25" name="Remove row">
+            <parameters typeRef="6a621b53-4bee-4700-a46d-a061291e72f3" uid="6997df5d-8142-4865-8f05-eb26b15f2d1b" name="Data Control"/>
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+          <operations uid="c3ecfd49-644c-47fa-9ce9-f15c79972e8b" name="Chenge lang">
+            <parameters typeRef="5752f30f-2e05-4204-a7a7-9f0cfe79d39e" uid="d6c7c9eb-f334-4f69-9769-5e281c58a1cf" name="lang"/>
+            <returnValue typeRef="6a621b53-4bee-4700-a46d-a061291e72f3"/>
+          </operations>
+        </types>
+        <types xsi:type="tura.type:Type" uid="5752f30f-2e05-4204-a7a7-9f0cfe79d39e" name="Language"/>
+        <types xsi:type="tura.type:Type" uid="74f6e110-73a0-4c30-bc42-426cde36ac40" name="Client System library">
+          <operations uid="0d9b1157-d2a5-4b83-ba2d-c1c1f2cd571d" name="Test JS">
+            <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="23b89608-a156-456c-9d49-5f303eed63c9" name="label"/>
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+          <operations uid="1f152769-4c90-481d-bfe0-c851d94321d3" name="showpopup">
+            <parameters typeRef="847ad35e-4f3c-4d4c-8203-8d93a6d2a4f2" uid="72c3e078-79be-43ac-a141-48c48b00328e" name="popupCanvasVar"/>
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+          <operations uid="05035e68-79b1-4a23-b176-702abf865bf0" name="hidepopup">
+            <parameters typeRef="847ad35e-4f3c-4d4c-8203-8d93a6d2a4f2" uid="ca9eff87-9431-4b7a-abaf-e28b116a5c37" name="popupCanvasVar"/>
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+          <operations uid="27737770-bae5-4fe7-9611-5a1e013ff4cf" name="add Row">
+            <parameters typeRef="47959024-ed5d-4135-aaf9-a81d05fefc13" uid="39ed0849-eb33-4adf-ae55-b645dc31e7f3" name="data control"/>
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+          <operations uid="32c66146-19ce-4681-bd9b-beb028feaa4b" name="removeRow">
+            <parameters typeRef="47959024-ed5d-4135-aaf9-a81d05fefc13" uid="ba3fadd8-34c8-4494-b67d-9ab18822905b" name="data control"/>
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+          <operations uid="12d27ed6-861f-421d-8a46-2c15869e91cd" name="hidepopupOnSuccess">
+            <parameters typeRef="847ad35e-4f3c-4d4c-8203-8d93a6d2a4f2" uid="3b389a53-0e59-4404-9127-7a1fb96b6bf9" name="popupCanvasVar"/>
+            <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="1f1bc3c6-1100-4896-9c7e-3b9d674a228e" name="jsfargs" order="1"/>
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+        </types>
+        <types xsi:type="tura.type:Type" uid="847ad35e-4f3c-4d4c-8203-8d93a6d2a4f2" name="Canvas"/>
+        <types xsi:type="tura.type:Type" uid="1d17cd28-17dc-4964-bb46-63e1a4003517" name="Authentication manager">
+          <operations uid="eb251e35-a3d2-47a4-85d7-40f832c0378d" name="login">
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+          <operations uid="d34be448-861c-419b-848c-dc3cb0bbddae" name="logout">
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+          <operations uid="cae89484-476f-4488-90ef-579d06b0e0bc" name="isLoginError">
+            <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+          </operations>
+          <operations uid="1526bf54-983a-439c-b677-503c90fc1543" name="isUserInRole">
+            <returnValue typeRef="31b79724-028a-4868-900f-e445787d71b0"/>
+          </operations>
+        </types>
         <relationships xsi:type="tura.type:Generalization" uid="34cce173-066e-4d60-8ae5-a0d2651232d3" source="47959024-ed5d-4135-aaf9-a81d05fefc13" target="6a621b53-4bee-4700-a46d-a061291e72f3"/>
         <relationships xsi:type="tura.type:Generalization" uid="47b39317-6948-4dc4-9666-1ad1d89c5b30" source="4d408999-e499-4951-9cbe-8e747fbbe1fc" target="6a621b53-4bee-4700-a46d-a061291e72f3"/>
         <relationships xsi:type="tura.type:Generalization" uid="bac855b2-52cc-4e25-8fa0-01f6baf395d8" source="ad731dee-d456-4391-8fa2-0f5cd4ce694d" target="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d">
@@ -669,16 +744,81 @@
             <recipes uid="a1b10eb6-b808-4453-b15a-0bf4ffb8b04c" name="Application recipes  package2"/>
           </applicationRecipes>
           <applicationMappers uid="0cf8dece-306e-4a11-a093-c6a0b9c250be">
-            <mappers uid="ae6c399e-7bdc-4c5b-a263-722db7c0d441" name="Mapping package1">
-              <mapper uid="249a029a-06a1-44ce-aa66-d2601577b229">
-                <mappers xsi:type="tura.mapper:JavaMapper" typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d9c7b013-2353-4295-a234-04b9e3ea9718"/>
-                <mappers xsi:type="tura.mapper:JavaMapper" uid="bfdf4db4-051d-42cc-b153-24d43fbca12b"/>
-                <mappers xsi:type="tura.mapper:JavaMapper" uid="5760b6ff-4e57-44a6-98a3-8af9be797dec"/>
-                <mappers xsi:type="tura.mapper:JavaPackageMapper" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="7a33c4e7-1ff9-48e2-9f83-824c41df9025"/>
-                <mappers xsi:type="tura.mapper:JavaScriptMapper" uid="b609ebb0-0532-4b1f-8668-2e76e97720ca"/>
-                <mappers xsi:type="tura.mapper:CSSMapper" styleLibrary="2cca6686-3847-4989-9ff1-0042e2182d33" uid="74484cf3-1d0c-48ad-b683-d1b87d897a6c"/>
-                <mappers xsi:type="tura.mapper:RoleMapper" uid="c2e618aa-713e-4121-b88c-37d04131eea1"/>
-                <mappers xsi:type="tura.mapper:JavaScriptMapper" uid="e6ae78d1-9fb8-446a-9818-ad9b25fdd954"/>
+            <mappers uid="979a1600-5460-4d07-9d79-c27ccbc57132" name="Primitives mapper">
+              <mapper uid="c54eedbc-d293-4191-b916-900a5168677a">
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="7c24aab9-9095-4ba3-8620-33893f286f21" mappedToPackageName="java.lang" mappedToClassName="String"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="98a1dccd-a6b8-40ad-b185-d8a03a78d7dd" mappedToPackageName="java.lang" mappedToClassName="Boolean"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="5fd6634a-776a-45c2-8fd5-b62451018ea7" uid="b02df6e7-0818-4568-b65e-ad42edcbc038" mappedToPackageName="java.lang" mappedToClassName="BigDecimal"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="a95ea838-4049-4cde-a899-1609f7117324" mappedToPackageName="java.lang" mappedToClassName="Float"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="5352d67e-39ad-4a53-8f0e-d20ad0956dd7" uid="681d804c-b435-4a8f-9e36-788de584ee45" mappedToPackageName="java.lang" mappedToClassName="Double"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="34c48c99-ae87-45aa-8d4a-35589c5a1765" uid="c32cebd4-5071-4234-98e8-6762514e197e" mappedToPackageName="java.util" mappedToClassName="Data"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="bdbd54de-188e-45a2-84d0-4fae002216c1" mappedToPackageName="java.util" mappedToClassName="Data"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="5e6e7b83-a42e-4918-802c-df7976db0979" mappedToPackageName="java.lang" mappedToClassName="Integer"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="912c2c5e-ccfc-4fbb-b4fa-f887e1cce7f7" mappedToPackageName="java.lang" mappedToClassName="Long"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="f85bdb4b-52d6-4713-ad99-21bceea0a324" uid="6fe4a4be-cea9-4677-8c89-dc62ab6501c4" mappedToClassName="byte[]"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="90154483-0d93-42be-9927-d6a360feb0ba" uid="a66b11f9-6268-4ab4-b28c-b3b27691f10f" mappedToClassName="void"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" uid="d8f7d87e-30e5-41d7-9bea-77f9998e9971" mappedToClassName="null"/>
+              </mapper>
+            </mappers>
+            <mappers uid="eba346fd-4dfb-49f9-a3b1-ae331ac72dcc" name="Domain model interface mapping">
+              <mapper uid="6efca180-cd81-4fb5-b991-399346567070">
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="63741959-d017-485d-9f05-6900553841d8" uid="74f13bd1-d4f3-44de-a9d3-485d5c99da77" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="CountryDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="31870394-1bfa-438e-b57a-df34481cbaa3" uid="8724f8bb-cc16-4871-beb8-def150073552" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="StateDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="adf61d26-a067-4bab-a585-9efefc1bed1c" uid="9f5744ff-5a27-4b11-947b-845f66d1d53d" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="CityDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="6bcd9fb4-d240-4a86-8c40-01a35fe01033" uid="b7d0cec7-ea8a-4c83-985f-e5bcfdec04da" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="StreetDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="bba5bca8-79c4-4856-a307-acc056d2ba90" uid="3123bf7b-51bb-4878-9965-0bcd39859080" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="DepartmentsDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="a560547a-2981-4fc4-9431-70d493884454" uid="91232e70-1f2b-4543-b0c0-193d14c6532a" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="FileDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="ca608f61-e259-4b5e-a97a-cf2de1c74ae8" uid="21cb3a76-40f8-44b0-92a6-ad40b41140a5" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="Department2EntityDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="290e5b93-8e34-478f-8794-fdeb922c9298" uid="dd9fd4e9-9b95-4b46-ba38-94c3bc0a4cdf" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="EmployeesDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="5a5a623b-9030-4f4f-8085-23b0796478e6" uid="d029824d-75bb-4c6c-9848-abb9f972c3b9" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="VehicleDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="8fc713c5-d6ba-46ac-9609-2560bab34bbd" uid="ac1eb8a4-6b80-4058-8b14-0ae50198c1ae" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="UserDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="24bfd56d-56ab-467f-afb3-c27050fa7d16" uid="555803df-44e2-45ba-9680-c66a963b7e64" mappedToPackageName="org.elsoft.platform.hr.objects" mappedToClassName="CompanyDAO" artifactId="hr-domain-objects-interface" groupId="org.tura.example.service" version="1.0"/>
+              </mapper>
+            </mappers>
+            <mappers uid="917f5699-1513-44ea-b39c-02bd6f6a1311" name="Test packages mapper">
+              <mapper uid="21d8af7b-7dbd-451d-a8e7-ee9d696646a4">
+                <mappers xsi:type="tura.mapper:JavaPackageMapper" serviceLayer="true" packageRef="606e5926-7b6c-4685-a788-3a4d4aa4b932" uid="3ca4c08a-e2d2-4530-8dfe-7273335adfd3" mappedToPackageName="org.tura.domain.test" artifactId="domain-test-objects" groupId="org.tura.domain.test" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaPackageMapper" serviceLayer="true" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="d583fa8b-059b-45eb-a6e5-39f3c3625018" mappedToPackageName="org.tura.jpa.test" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0"/>
+              </mapper>
+            </mappers>
+            <mappers uid="1de43906-7f41-46a6-a3df-49089f334ac2" name="HR model mapping">
+              <mapper uid="f222b58b-cd61-4fe3-9a57-98f09aafac20">
+                <mappers xsi:type="tura.mapper:JavaPackageMapper" serviceLayer="true" uiLayer="true" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="af1b2ab6-8e62-439f-a6d8-1a4a057afdf8" mappedToPackageName="org.elsoft.platform.hr.objects.jpa.simple.model" artifactId="hr-jpa-simple-objects-model" groupId="org.tura.example.service" version="1.0"/>
+                <mappers xsi:type="tura.mapper:JavaPackageMapper" serviceLayer="true" uiLayer="true" packageRef="cd8eaef8-59ae-4578-8813-7456662e94d9" uid="46474441-2cb3-4e1a-ba7c-14ae7c62f99f" artifactId="hr-domain-complex-objects-model" groupId="org.tura.example.service" version="1.0" libraryName="org.elsoft.platform.hr.objects.complex.model"/>
+                <mappers xsi:type="tura.mapper:JavaPackageMapper" serviceLayer="true" uiLayer="true" packageRef="a9ba33ab-86a9-4c30-ac66-ea59dc68f3fb" uid="79573990-3fef-4b16-a68a-71ac9237dce2" mappedToPackageName="org.elsoft.platform.hr.objects.simple.model" artifactId="hr-domain-simple-objects-model" groupId="org.tura.example.service" version="1.0"/>
+              </mapper>
+            </mappers>
+            <mappers uid="0a60b0d3-0018-4642-a2d7-477a0ccb5b2c" name="Data control commands mapping">
+              <mapper uid="af4ffe3b-0786-4855-81cb-e5712863f276">
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="0bc393ed-37a8-4b8c-afd2-1d7151d417c7" uid="c4dea937-b888-4435-b930-3715b01c5038" mappedToPackageName="java.util" mappedToClassName="List"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" typeRef="b88f6082-11a8-41d4-aba6-a8f51101c7ee" uid="71ad446e-a2b1-4a34-b3e7-9a507676108f" mappedToPackageName="java.util" mappedToClassName="List"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="0b15e255-6c03-447d-baec-bac82427d639" uid="8360be6b-4660-4335-8a33-eaa286634e0f" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="SearchCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="45e54a84-60e2-47e4-8159-5c815a3c346e" uid="9dd83f36-fe0f-4148-ae5a-628304b48938" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="CreateCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="71922925-c8d3-4273-b2ee-441e832f13f1" uid="962edff2-f153-4a8c-a82f-9a6246a5d536" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="InsertCommandTuraService" artifactId="tura-service-compressor" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="69fbd42d-c1db-4cbf-bc53-b8acbf706aab" uid="e11402e9-63c8-451e-acce-642111fcce86" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="UpdateCommandTuraService" artifactId="tura-service-compressor" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="d77c4aa4-e9dc-4927-a271-3140e44a17b6" uid="4d582471-714c-43f5-a43f-c0a82aedf8b7" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="DeleteCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="d6536d41-d96c-4705-bae0-3894f139173f" uid="ebbd3afb-787c-43a7-8d23-cd92252be3d7" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="NestedInsertCommand" artifactId="tura-nested-data" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="31c900f6-c0fd-47cf-9962-6274ff75d977" uid="a60ad7aa-57f3-40ed-8c45-8345de408495" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="NestedDeleteCommand" artifactId="tura-nested-data" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="61b019ba-b211-4733-b119-4263553e0ede" uid="5ba9eca6-5a15-4a54-953e-205e6b3c9e9a" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="NestedUpdateCommand" artifactId="tura-nested-data" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="255e2310-14c5-421e-ab1b-681f46c9ee33" uid="6357e305-e5f4-4f25-a298-d2f854dfd927" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="NestedSearchCommand" artifactId="tura-nested-data" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
+              </mapper>
+            </mappers>
+            <mappers uid="f65c8bf9-c033-4281-b8ee-918b9882f067" name="HR control app mappings">
+              <mapper uid="9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec">
+                <mappers xsi:type="tura.mapper:RoleMapper" uiLayer="true" securityEntity="b21bfadc-260c-4f5c-a655-076b3a71bf78" uid="7dc58b54-3593-4f41-8ddf-f114f80fb483" localRoleName="power_user" globalRoleName="manager"/>
+                <mappers xsi:type="tura.mapper:CSSMapper" styleLibrary="973addd3-f590-4271-ad52-e037b8c73dc0" uid="d5496c74-2a82-4e72-8cde-067e6b123f45" libraryUrl="hrcontrol-style.css"/>
+              </mapper>
+            </mappers>
+            <mappers uid="0cb562ff-4a44-4888-b2ae-67706c3c792f" name="Base package mapping">
+              <mapper uid="d618d7da-b15b-4395-ae4c-40f5c49e29a3">
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="6a621b53-4bee-4700-a46d-a061291e72f3" uid="26759455-0258-4183-b63f-bc46036dcede" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="IDataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="47959024-ed5d-4135-aaf9-a81d05fefc13" uid="285ee7ec-ba72-4625-a2ad-19b0aecc6d05" mappedToPackageName="org.tura.platform.datacontrol" mappedToClassName="DataControl" artifactId="core" groupId="org.tura.platform.datacontrol" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" typeRef="c7cbdc97-34fe-4c48-a68d-a67919710bd8" uid="f2bc6a22-d724-4a44-838c-8bb1e83d2f7a" mappedToPackageName="java.util" mappedToClassName="List&lt;org.tura.platform.persistence.TuraObject>"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="f849503c-d8bc-47e1-9836-8682dda8072e" uid="0fcd753e-0fa3-42be-b294-9e0f26d3c936" mappedToPackageName="org.tura.platform.selenium.primefaces" mappedToClassName="ButtonPrimeFaces" artifactId="primefaces-selenium" groupId="org.tura.platform" version="2.0" libraryName=""/>
+                <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="2d431588-3969-41d6-b777-f5ee90351cc7" uid="90630644-61ea-479b-8757-c587aed1a8eb" mappedToPackageName="org.openqa.selenium" mappedToClassName="WebDriver" artifactId="selenium-java" groupId="org.seleniumhq.selenium" version="2.47.1"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" uid="59acb2af-4400-4248-90ec-4b5ed5303c46" mappedToPackageName="org.tura.platform.primefaces.lib" mappedToClassName="SystemLibrary" artifactId="primefaces-model" groupId="org.tura.platform" version="2.0"/>
+                <mappers xsi:type="tura.mapper:JavaScriptMapper" uiLayer="true" typeRef="74f6e110-73a0-4c30-bc42-426cde36ac40" uid="51e96293-ab38-4c47-adbd-0f9c0eac305b" libraryUrl="clientSystemLibrary.js"/>
+                <mappers xsi:type="tura.mapper:JavaMapper" typeRef="1d17cd28-17dc-4964-bb46-63e1a4003517" uid="e78e23cd-7fd8-4e4c-ae9b-464f4c5ed7ac" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager"/>
               </mapper>
             </mappers>
           </applicationMappers>
@@ -704,8 +844,8 @@
                     <style uid="6184f6dd-7f70-4243-a0a1-435f06439c84" value="Application Style Libraries.Application styles.Style library  1.Style 1">
                       <expression objRef="8d0a3826-f0d9-435f-a0bc-ad850460c3b9" expressionType="ApplicationStyleLibrariesImpl"/>
                       <expression objRef="5088d112-328b-4451-b9c4-97aa08277435" order="1" expressionType="ApplicationStyleImpl"/>
-                      <expression objRef="2cca6686-3847-4989-9ff1-0042e2182d33" order="2" expressionType="StyleLibraryImpl"/>
-                      <expression objRef="304a6294-adf2-43ee-9a5f-4ed1d7448b61" order="3" expressionType="StyleSetImpl"/>
+                      <expression order="2" expressionType="StyleLibraryImpl"/>
+                      <expression order="3" expressionType="StyleSetImpl"/>
                     </style>
                     <viewElement xsi:type="tura.form:ViewPort" order="1" uid="7ce03e1d-3a28-4aa9-a38d-a10a2c74ccd3">
                       <viewPortTrigger uid="7ef79cda-7415-4872-b101-cf7a53c55a1f">
@@ -998,19 +1138,31 @@
             </infarastructureLayers>
           </applicationInfrastructureLayer>
           <applicationStyle uid="8d0a3826-f0d9-435f-a0bc-ad850460c3b9" name="Style Libraries">
-            <styleLibraries uid="5088d112-328b-4451-b9c4-97aa08277435" name="Style libraies package 1">
-              <libraries uid="2cca6686-3847-4989-9ff1-0042e2182d33" name="Style library  1">
-                <styles uid="304a6294-adf2-43ee-9a5f-4ed1d7448b61" name="Style 1"/>
-                <styles uid="44aa274e-b795-48e6-8fce-a0a996078602" name="Style 2"/>
-              </libraries>
-              <libraries uid="973addd3-f590-4271-ad52-e037b8c73dc0" name="Style library  2">
-                <styles uid="cb3b4610-4960-4542-9848-ce68b65e8e7c" name="Style 1"/>
+            <styleLibraries uid="5088d112-328b-4451-b9c4-97aa08277435" name="HR Controller style libraries">
+              <libraries uid="973addd3-f590-4271-ad52-e037b8c73dc0" name="Common style">
+                <styles uid="cb3b4610-4960-4542-9848-ce68b65e8e7c" name="add-row-button"/>
+                <styles uid="58695ade-51e1-43a8-8585-294ea3da4cc3" name="remove-row-button"/>
+                <styles uid="83910761-470e-4949-9d18-031e8289c6d5" name="save-button"/>
+                <styles uid="60cd9d6b-b531-44d1-a164-901b4940f772" name="rallback-button"/>
+                <styles uid="27fadfa5-4ffe-4b74-a356-97ce64680580" name="vertical-align"/>
+                <styles uid="ddb220e9-8f12-4df1-890c-344a4145f495" name="form-parameter-button"/>
+                <styles uid="16f9939c-bdf7-442c-802a-f0039cb7bf7b" name="add-child-row-button"/>
+                <styles uid="3ae4d4de-56bc-41d2-b11c-b9246a1d6324" name="popup-details-button"/>
+                <styles uid="7ee9f4d7-a706-4d0b-8777-2b7c402c3b8f" name="ok-button"/>
+                <styles uid="df800eb4-42ee-4454-b865-c98e20037054" name="cancel-button"/>
+                <styles uid="50d4bad3-be2b-4e87-88ef-aa877e1f6dc5" name="canada-flag-button"/>
+                <styles uid="e7fac390-c4e8-43de-a3ad-3b8c4194d037" name="russia-flag-button"/>
+                <styles uid="331316f5-b5e4-4804-824e-1c419fcebe44" name="center"/>
+                <styles uid="6911bb31-7441-4f6b-979f-2c796bc2c32a" name="logout-button"/>
+                <styles uid="f54b2452-d2e2-48ee-a41a-cdc1ab0371a4" name="create-row-button"/>
               </libraries>
             </styleLibraries>
           </applicationStyle>
           <applicationRole uid="19048840-af48-4798-a6a7-b171f7d1a9ed" name="Security">
-            <realms uid="1cbada5a-078a-4f2b-abc0-9f8a1683b58e" name="Security rules set  1">
-              <roles uid="03d03473-57a4-4c7f-9df8-a9cd6a5f09b7"/>
+            <realms uid="d1c1020c-d7bc-4bad-826e-6f168660d3fd" name="Hr controller rule set">
+              <roles uid="77a7b3d7-cbf9-48db-b305-9089b1494165">
+                <roles name="admin" uid="b21bfadc-260c-4f5c-a655-076b3a71bf78"/>
+              </roles>
             </realms>
           </applicationRole>
           <applicationMessages uid="839f02b9-22c9-4c47-abd9-495a167fc15d" name="Application message libraries">

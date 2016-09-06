@@ -491,7 +491,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Security rules set" titleExpression="aql:self.name" domainClass="permission.Roles">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Security rules set" titleExpression="aql:self.name" domainClass="application.ApplicationRealm">
       <defaultLayer name="Default">
         <nodeMappings name="Role" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Security%20rules%20set']/@defaultLayer/@toolSections.0/@ownedTools[name='Roles%20edit%20label']" semanticCandidatesExpression="aql:self.roles.roles" domainClass="permission.Role">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name" labelAlignment="LEFT" sizeComputationExpression="-1" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/role.png">
@@ -1311,7 +1311,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Style library" domainClass="application.ApplicationStyle">
+    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Style library" titleExpression="aql:self.name" domainClass="application.ApplicationStyle">
       <subItemMappings name="Style library" domainClass="style.StyleLibrary" semanticCandidatesExpression="feature:libraries">
         <defaultStyle labelSize="12">
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
@@ -2272,7 +2272,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Mapping diagram" domainClass="application.ApplicationMapper">
+    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Mapping diagram" titleExpression="aql:self.name" domainClass="application.ApplicationMapper">
       <subItemMappings name="Java type mappers" domainClass="mapper.Mappers" semanticCandidatesExpression="feature:mapper">
         <defaultStyle labelSize="12" labelExpression="Java type mappers">
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
@@ -2384,7 +2384,7 @@
         </create>
       </subItemMappings>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Techologies diagram" domainClass="domain.DomainArtifacts">
+    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Technologies diagram" titleExpression="aql:self.name" domainClass="domain.DomainArtifacts">
       <subItemMappings name="Technologies tree" domainClass="domain.DomainArtifacts" semanticCandidatesExpression="var:self">
         <defaultStyle labelSize="12" labelExpression="Technologies tree">
           <labelFormat>bold</labelFormat>
@@ -2392,12 +2392,12 @@
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
         </defaultStyle>
-        <subItemMappings name="Technology" domainClass="artifact.TechLeaf" semanticCandidatesExpression="feature:techLeafs" reusedTreeItemMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']">
+        <subItemMappings name="Technology" domainClass="artifact.TechLeaf" semanticCandidatesExpression="feature:techLeafs" reusedTreeItemMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']">
           <defaultStyle labelSize="12">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='red']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
           </defaultStyle>
-          <directEdit name="Technology edit label" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']">
+          <directEdit name="Technology edit label" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']">
             <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
             </firstModelOperation>
@@ -2417,7 +2417,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='dark_chocolate']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
               </defaultStyle>
-              <directEdit name="Technology edit label" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Generation%20Hints']/@subItemMappings[name='Genration%20Hint']">
+              <directEdit name="Technology edit label" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Generation%20Hints']/@subItemMappings[name='Genration%20Hint']">
                 <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
                 </firstModelOperation>
@@ -2426,7 +2426,7 @@
                 <root name="root"/>
               </directEdit>
             </subItemMappings>
-            <create name="Create Generation Hint" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Generation%20Hints']">
+            <create name="Create Generation Hint" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Generation%20Hints']">
               <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="artifact.GenerationHint" referenceName="hints">
                   <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
@@ -2449,7 +2449,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='dark_green']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
               </defaultStyle>
-              <directEdit name="Technology edit label" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Configuration%20Variables']/@subItemMappings[name='Configuration%20Variable']">
+              <directEdit name="Technology edit label" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Configuration%20Variables']/@subItemMappings[name='Configuration%20Variable']">
                 <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
                 </firstModelOperation>
@@ -2458,7 +2458,7 @@
                 <root name="root"/>
               </directEdit>
             </subItemMappings>
-            <create name="Create Configuration Variable" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Configuration%20Variables']">
+            <create name="Create Configuration Variable" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Configuration%20Variables']">
               <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="artifact.ConfigVariable" referenceName="configVariables">
                   <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
@@ -2481,7 +2481,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='dark_blue']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
               </defaultStyle>
-              <directEdit name="Technology edit label" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Configuration%20Set']/@subItemMappings[name='Configuration%20Set']">
+              <directEdit name="Technology edit label" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Configuration%20Set']/@subItemMappings[name='Configuration%20Set']">
                 <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
                 </firstModelOperation>
@@ -2490,7 +2490,7 @@
                 <root name="root"/>
               </directEdit>
             </subItemMappings>
-            <create name="Create Configuration Set" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Configuration%20Set']">
+            <create name="Create Configuration Set" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Configuration%20Set']">
               <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="artifact.ConfigHash" referenceName="configHashes">
                   <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
@@ -2501,7 +2501,7 @@
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
           </subItemMappings>
-          <create name="Create Technology" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']">
+          <create name="Create Technology" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']">
             <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool:CreateInstance" typeName="artifact.TechLeaf" referenceName="techLeafs">
                 <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
@@ -2512,7 +2512,7 @@
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
           </create>
         </subItemMappings>
-        <create name="Create Technology" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']/@subItemMappings[name='Technologies%20tree']">
+        <create name="Create Technology" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']">
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
             <subModelOperations xsi:type="tool:CreateInstance" typeName="artifact.TechLeaf" referenceName="techLeafs">
               <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
@@ -3716,8 +3716,8 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Domain tree" domainClass="domain.Domain">
-      <subItemMappings name="Domain artifacts" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@ownedRepresentationCreationDescriptions[name='Create%20Techologies%20diagram']" domainClass="domain.DomainArtifacts" semanticCandidatesExpression="feature:domainArtifacts">
+    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Domain tree" titleExpression="aql:self.name" domainClass="domain.Domain">
+      <subItemMappings name="Domain artifacts" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@ownedRepresentationCreationDescriptions[name='Create%20Technologies%20diagram']" domainClass="domain.DomainArtifacts" semanticCandidatesExpression="feature:domainArtifacts">
         <defaultStyle labelSize="12" labelExpression="Domain Artifacts">
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
@@ -4305,7 +4305,7 @@
           <variables name="container" documentation="The semantic element corresponding to the view container."/>
         </create>
       </subItemMappings>
-      <ownedRepresentationCreationDescriptions xsi:type="description_3:TreeCreationDescription" name="Create Techologies diagram" treeDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Techologies%20diagram']">
+      <ownedRepresentationCreationDescriptions xsi:type="description_3:TreeCreationDescription" name="Create Technologies diagram" treeDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']">
         <containerViewVariable name="containerView"/>
         <representationNameVariable name="diagramName"/>
       </ownedRepresentationCreationDescriptions>

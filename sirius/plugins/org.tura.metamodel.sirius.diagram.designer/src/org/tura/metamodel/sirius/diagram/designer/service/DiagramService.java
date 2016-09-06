@@ -247,23 +247,23 @@ public class DiagramService {
 
 
 	public String generateName(JavaMapper mapper ){
-		return "Java type mapper for "+ new TypePointerTypeName().getFeatureValue(mapper, null);
+		return  (String) new TypePointerTypeName().getFeatureValue(mapper, null);
 	}
 
 	public String generateName(JavaScriptMapper mapper ){
-		return "Java script mapper for "+ new TypePointerTypeName().getFeatureValue(mapper, null);
+		return (String) new TypePointerTypeName().getFeatureValue(mapper, null);
 	}
 
 	public String generateName(JavaPackageMapper mapper ){
-		return "Java package mapper for "+ new TypeGroupPointerName().getFeatureValue(mapper, null);
+		return (String) new TypeGroupPointerName().getFeatureValue(mapper, null);
 	}
 	
 	public String generateName(CSSMapper mapper ){
-		return "CSS mapper for  "+ new StylePointerLibraryName().getFeatureValue(mapper, null);
+		return (String) new StylePointerLibraryName().getFeatureValue(mapper, null);
 	}
 	
 	public String generateName(RoleMapper mapper ){
-		return "Role mapper for "+ new GrantAccessRoleRef().getFeatureValue(mapper, null);
+		return (String) new GrantAccessRoleRef().getFeatureValue(mapper, null);
 	}
 	
 	public String generateName(CreateTrigger trigger ){
