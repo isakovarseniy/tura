@@ -1,0 +1,60 @@
+[%@template
+operation domain::InputText treeContext(hash,value) { 
+%]
+<p:inplace editor="true" event="dblclick">
+   [%=self.rw(hash,value)%]
+</p:inplace>      
+[%
+}
+
+@template
+operation domain::InputText tableContext(hash,value) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+<p:cellEditor>
+  <f:facet name="output">
+       <ui:fragment rendered="#{tura:fixRowSelection([%=util.bracketRemover(value)%])}">
+          <span style="display: inline-block; width: 100%; height: 100%">
+             [%=self.ro(hash,value)%]
+         </span>
+       </ui:fragment>
+       <ui:fragment rendered="#{!tura:fixRowSelection([%=util.bracketRemover(value)%])}">
+          <span style="display: inline-block; width: 100%; height: 100%;opacity:0 ">
+           .
+         </span>
+       </ui:fragment>
+  </f:facet>
+  <f:facet name="input">
+     [%=self.rw(hash,value)%]
+  </f:facet>
+</p:cellEditor>  
+[%   
+}
+
+@template
+operation domain::InputText noContext(hash,value) { 
+%]
+   [%=self.rw(hash,value)%]
+[%   
+}
+
+@template
+operation domain::InputText rw(hash,value) { 
+
+%]
+<p:inputText   [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]>
+   [%=self.validator(hash)%]
+   [%=self.convertor(hash)%]
+</p:inputText>
+[%
+}
+
+@template
+operation domain::InputText ro(hash,value) { 
+%]
+<h:outputText value="[%=value%]">
+   [%=self.readOnlyConverter(hash)%]
+</h:outputText>
+[%
+}
+%]

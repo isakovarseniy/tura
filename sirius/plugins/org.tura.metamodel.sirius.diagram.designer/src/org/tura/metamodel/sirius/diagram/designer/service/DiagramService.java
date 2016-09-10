@@ -100,6 +100,16 @@ public class DiagramService {
 		}
 	}	
 
+		
+	public boolean enableContextMenuForDatacontrol( EObject eobject ){
+		if (eobject instanceof DataControl){
+			return true;
+		}else{
+			return false;
+		}
+	}	
+	
+	
 	public boolean enableContextMenuForModelMapper( EObject eobject ){
 		if (eobject instanceof ModelMapper){
 			return true;

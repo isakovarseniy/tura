@@ -1,0 +1,25 @@
+operation domain::Role mappingRole2Role( recipe:Recipe, ingredient :Ingredient) { 
+
+    var appmappers =   new Native('java.util.ArrayList');  
+    var util = new Native('org.tura.metamodel.commons.Util');
+    
+    appmappers.addAll(recipe.mappers);
+    appmappers.addAll(ingredient.mappers);
+
+    for( appmapper in appmappers ){
+         var set = appmapper.mapper.mappers.select(r|r.isKindOf(domain::RoleMapper) and  r.role.uid= self.uid);
+          if ( set.size() <> 0 ){
+            for( s in set){
+             self.~localRoleName=s.localRoleName;
+             self.~globalRoleName=s.globalRoleName;
+             self.~mapper="Role2Role";
+             break;
+             }
+           }
+    }
+     if (self.~url = null ){
+         util.traceIfDebug ("StyleLibrary2CSS","Unable to findRole2Role mapper for role  \"" + self.name +"\" on layer \"" + ingredient.layer +"\"");
+     }
+    
+    
+}

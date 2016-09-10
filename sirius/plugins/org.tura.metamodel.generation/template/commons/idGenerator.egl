@@ -1,0 +1,35 @@
+[%
+
+@template
+operation domain::Uielement  mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+@template
+operation domain::ViewPort  mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+@template
+operation domain::CanvasFrame mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+@template
+operation domain::ViewArea mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+
+@template
+operation domain::FlexField mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+@template
+operation domain::Context mkuid(){
+%]tura[%=self.uid.replaceAll("\\-","_")%][%
+}
+
+
+%]

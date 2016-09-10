@@ -1,0 +1,18 @@
+[%@template
+operation domain::Menu draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+ 
+     var form = hash.get("form");
+     var menuReferences = hash.get("menuReferences");
+     var uipackage = hash.get("uipackage");
+     hash.get("menuReferences").add(self);
+ 
+     util.traceIfDebug("UI element","Menu start: "+self.uid);     
+     
+%]
+    <p:menubar model="#{menuProvider[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%].getModel('[%=self.mkuid()%]')}" />    
+[%
+     hash.put("context",null);
+     util.traceIfDebug("UI element","Menu end: "+self.uid);     
+}
+%]

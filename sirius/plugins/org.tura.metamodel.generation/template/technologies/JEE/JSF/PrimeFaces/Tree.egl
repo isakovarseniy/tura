@@ -1,0 +1,67 @@
+[%@template
+operation domain::Tree draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","Tree start: "+self.uid);     
+
+     hash.put("context","tree");
+     if ( self .cols <> null and self.cols.size() = 1){
+%]
+     [%=self.generateTreeBody(hash)%]     
+[%
+}
+     if ( self .cols <> null and self.cols.size() > 1){
+%]
+     [%=self.generateTreeTableBody(hash)%]     
+[%
+}
+     hash.put("context",null);
+     util.traceIfDebug("UI element","Tree end: "+self.uid);     
+}
+
+@template
+operation domain::Tree generateTreeBody(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+
+     hints.put("noCurlyBracket",true);
+     
+%]
+	<p:tree [%=self.mkUIDBinding()%] [%=self.styleAttributes(hash)%] [%=self.enabled(hash)%]
+		value="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).root}"
+		var="row" dynamic="true" cache="false" selectionMode="single"
+		selection="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).selectedNode}">
+
+		<p:ajax event="expand" 
+			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeExpand}" />
+
+		<p:ajax event="collapse"
+			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeCollapse}" />
+			
+		<p:ajax event="unselect" 
+			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeUnselect}" />
+
+
+		<p:ajax event="select" 
+			listener="#{viewmodel.getModel('[%=self.mkuid()%]','tree', [%=buildExpression(util.createArtificialContextValue(self.sourcePointer,self.sourcePointer.findTreeRoot(),null),hints,hash)%]).onNodeSelect}"  [%=self.refreshArias()%] />
+
+
+		<p:treeNode>
+[%
+                for (element in self.cols){
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
+%]				
+
+		</p:treeNode>
+	</p:tree>
+
+[%     
+}
+
+@template
+operation domain::Tree generateTreeTableBody(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+}
+%]

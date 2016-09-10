@@ -1,0 +1,48 @@
+[%@template
+operation domain::MessageElement draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","MessageElement start: "+self.uid);     
+     var hints = new Native('java.util.HashMap');
+
+     if (hash.get("context") == null ){
+      %] [%=self.noContext(hash,hints)%] [%           
+      }
+     else{
+          if (hash.get("context").equals("table") ){
+               %] [%=self.tableContext(hash,hints)%] [%           
+           }  
+          if (hash.get("context").equals("tree") ){
+               %] [%=self.treeContext(hash,hints)%] [%           
+          }     
+     }
+
+     util.traceIfDebug("UI element","MessageElement end: "+self.uid);     
+}
+
+
+@template
+operation domain::MessageElement treeContext(hash,hints) { 
+%]
+	<p:message  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />
+[%
+}
+
+@template
+operation domain::MessageElement tableContext(hash,hints) { 
+%]
+	<p:message  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />
+[%   
+}
+
+@template
+operation domain::MessageElement noContext(hash,hints) { 
+   var link = domain::LinkToMessage->allInstances()->select(r|r.target.uid=self.uid)->first();
+   var forRef = "";
+   if ( link <> null and  link.source <> null){
+      forRef="for=\""+link.source.mkuid()+"\"";
+   }
+%]
+	<p:message  [%=forRef%]  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />
+[%   
+}
+%]

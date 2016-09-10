@@ -1,0 +1,112 @@
+[%@template
+operation  domain::Window draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var webapp = hash.get("webapp");   
+     var form = hash.get("form");   
+     var uipackage = hash.get("uipackage");
+     
+     util.traceIfDebug("UI element","Window start: "+self.name);     
+     
+%]
+     [%=self.generateBody(hash)%]     
+[%
+     var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+     out.formatWith(x);
+     util.saveFile( webapp+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase(),  util.mergeAndCapitalize(self.name)+".xhtml",out.toString());   
+
+     util.traceIfDebug("UI element","Window end: "+self.name);     
+     
+}
+
+@template
+operation domain::Window generateBody(hash){
+
+     var form = hash.get("form");   
+     var recipe =  hash.get("recipe");
+     var ingredient  = hash.get("ingredient");
+     var hints = new Native('java.util.HashMap');
+
+     var title = buildExpression(self.multiLangLabel,hints,hash);
+        
+%]
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+		<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:tura="http://primefaces.platform.tura.org/functions"
+        xmlns:p="http://primefaces.org/ui">
+
+			<f:view contentType="text/html">
+				<h:head>
+					<title>
+						<ui:insert name="title">[%=title%]</ui:insert>
+					</title>
+					<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+				</h:head>
+
+				<h:body>
+				
+                   <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%] >
+					<h:form>
+[%
+                for (element in self.viewElement.sortBy(q|q.order)){
+                  var isForm = element.findClassifier('UIGeneration','JSF','separate.form');
+                  if (isForm){
+                  %]
+                  </h:form>
+                  <h:form>
+                  [%
+                  }
+                  
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
+%]					
+					      </h:form>
+                         </p:panelGrid>
+				</h:body>
+[%      
+     var scriptTriggers = hash.get("scriptTriggers");
+     var urlHash = new Native('java.util.HashMap');
+     for (trigger in scriptTriggers){
+         var action = trigger.expression.get( trigger.expression.size()-1);
+         var method = action.objRef;
+         var type = null;
+         if (method <> null)
+             type = action.objRef.eContainer();
+      
+           if (type <> null  and  type.~url.isDefined()){  
+              urlHash.put(type.~url,type.~url);
+       }
+     }
+        for (url in urlHash.values()){
+%]
+      <h:outputScript library="js" name="[%=url%]" targer="head"></h:outputScript>
+[% 
+ }    
+%]
+
+
+[%
+
+		var app = form.eContainer().getParent().getParent().getParent();
+		if (app.getApplicationStyle() <> null){
+            for (pkg in app.getApplicationStyle().stylesPackage ){
+               if (pkg.styles <> null ){
+                 for (lib in pkg.styles.libraries ){
+                 lib.mappingStyleLibrary2CSS(recipe, ingredient );
+                 if (lib.~url.isDefined()){
+              %]<h:outputStylesheet library="css" name="[%=lib.~url%]" targer="head"/>[%
+                  }
+                 }
+               }
+            }
+		}
+%]				
+			</f:view>
+		</html>
+[%
+}
+%]

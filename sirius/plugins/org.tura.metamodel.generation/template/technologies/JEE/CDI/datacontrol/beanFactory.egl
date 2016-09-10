@@ -1,0 +1,168 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Environment}.egl";
+${percent}${end}
+
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+import java.util.logging.Logger;
+import org.tura.platform.datacontrol.commons.TuraException;
+import javax.inject.Inject;
+
+@javax.inject.Named("beanFactory[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
+[%=datacontrol_scope()%]
+public class BeanFactory  implements IBeanFactory, java.io.Serializable {
+	private static final long serialVersionUID = 1L;
+
+    private int section;
+
+	@Inject
+	private transient Logger logger;
+	
+	
+	[%
+	var root = form.datacontrols.formControl.root;
+	if (root <> null){
+	   for ( frmvar in root.variables){
+	   %]
+	   private [%=frmvar.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(frmvar.name)%];
+	   [%
+	   }
+	}
+	%]
+	@Inject
+	@org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]") 
+	private javax.enterprise.inject.Instance<org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger> factoryInitializeTrigger;
+	[%
+	var root = form.datacontrols.formControl.root;
+	if (root <> null){
+	   for ( frmvar in root.variables){
+	   %]
+	   public [%=frmvar.typeRef.~fullName%] get[%=util.mergeAndCapitalize(frmvar.name)%](){
+	              return this.[%=util.mergeAndUnCapitalize(frmvar.name)%];
+	   }
+	   
+	   public  void set[%=util.mergeAndCapitalize(frmvar.name)%]( [%=frmvar.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(frmvar.name)%]){
+	              this.[%=util.mergeAndUnCapitalize(frmvar.name)%] = [%=util.mergeAndUnCapitalize(frmvar.name)%];
+	   }
+	   [%
+	   }
+	}
+	%]	
+	public void init() {
+    	if (section > 0)
+    		return;
+    	section++;
+		try {
+			org.tura.platform.datacontrol.command.base.FactoryInitializeTrigger trigger = factoryInitializeTrigger.get();
+			if (trigger != null)
+				trigger.execute(this);
+		} catch (TuraException e) {
+			logger.info(e.getMessage());
+		}	   
+    }
+
+    [%
+     var controls =  form.datacontrols.formControl.controls;
+     for (control in controls){
+       if (control.~masterControl = true){%]
+       	@javax.inject.Inject
+	   private javax.enterprise.inject.Instance<[%=typeName(control, component, form)%]> [%=propertyName(control)%]producer;
+       private [%=typeName(control, component, form)%] [%=propertyName(control)%];
+       [%}
+     }    
+    %]
+    
+ [%
+     for (control in controls){
+         var relations = domain::Relation.allInstances()->select(r|r.master= control);   
+         for ( relation in relations ){
+           if (relation.detail.~dependObject <>  null ){ %] 
+       	@javax.inject.Inject
+	   private javax.enterprise.inject.Instance<[%=typeName(relation.detail, component, form)%]> [%=propertyName(relation.detail)%]producer;
+       private [%=typeName(relation.detail, component, form)%] [%=propertyName(relation.detail)%];
+
+     [%}
+       }
+     } %]    
+    
+    [%
+     var controls =  form.datacontrols.formControl.controls;
+     for (control in controls){
+       if (control.~masterControl = true){%]
+          public    [%=typeName(control, component, form)%]  [%=methodName(control)%](){
+          init();
+               if ([%=propertyName(control)%] == null)
+                  [%=propertyName(control)%] = [%=propertyName(control)%]producer.get();
+               return [%=propertyName(control)%];
+         }
+       [%}
+     }    
+    %]
+    
+    
+[%
+     for (control in controls){
+         var relations = domain::Relation.allInstances()->select(r|r.master= control);   
+         for ( relation in relations ){
+         if (relation.isTree = false){%]
+          public    [%=typeName(relation.detail, component, form)%]  [%=methodName(relation.detail)%]() throws org.tura.platform.datacontrol.commons.TuraException{
+          init();
+       [%if (relation.detail.~dependObject =  null ){ %] 
+          try {
+               [%=typeName(relation.master, component, form)%] master =  [%=methodName(relation.master)%]();
+               return ( [%=typeName(relation.detail, component, form)%] )master.get[%=util.mergeAndCapitalize(relation.master.name)%]2[%=util.mergeAndCapitalize(relation.detail.name)%]();
+		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
+			   logger.info(e.getMessage());
+			   throw e;
+		     }
+         [%}%]
+
+       [%if (relation.detail.~dependObject <>  null ){ %] 
+          try {
+               if ([%=propertyName(relation.detail)%] == null){
+                  getTreeRoot[%=util.mergeAndCapitalize(relation.detail.~masterRoot.name)%]().getCurrentObject();
+                  [%=propertyName(relation.detail)%] = [%=propertyName(relation.detail)%]producer.get();
+               }
+               return [%=propertyName(relation.detail)%];
+		     } catch (org.tura.platform.datacontrol.commons.TuraException e) {
+   			   logger.info(e.getMessage());
+			   throw e;
+		     }
+         [%}%]
+          }
+          [%}
+         }
+     }    
+%]
+
+}
+
+[% @template
+operation methodName(dc:domain::DataControl) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+   get[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]
+ [%} 
+ 
+  @template
+operation typeName(dc:domain::DataControl, component:domain::Component, form:domain::Form) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var uipackage = form.eContainer().parent;
+     
+%]
+  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]DC 
+ [%} 
+ 
+ @template
+operation propertyName(dc:DataControl) {
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+   [%if (dc.~treeRoot=true){%]treeRoot[%=util.mergeAndCapitalize(dc.name)%][%} else {%][%=util.mergeAndUnCapitalize(dc.name)%][%}%]
+ [%} 
+ %]

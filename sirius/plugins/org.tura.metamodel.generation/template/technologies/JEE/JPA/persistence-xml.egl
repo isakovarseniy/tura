@@ -1,0 +1,39 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${JPA_implementation}.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Database_type}.egl";
+ ${percent}${end}
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"  version="2.1">
+
+	<persistence-unit name="[%=configuration.get("persistence_unit")%]"  [%if (isJTA.equals("NO")){%]transaction-type="RESOURCE_LOCAL"[%}%] >
+
+		<provider>[%=persistence_jpaprovider()%]</provider>
+		
+[%    if (Connection.equals("JNDI")){
+         var typeOfDataSource="jta-data-source"; 
+          if (isJTA.equals("NO"))
+            typeOfDataSource="non-jta-data-source"; %]
+		   <[%=typeOfDataSource%]>[%=configuration.get("jndi access string")%]</[%=typeOfDataSource%]>
+[%   } %]		
+[%
+        for (class in classes) {
+%]
+        <class>[%=class%]</class>
+[%       
+        }
+%]   
+		<class>org.tura.platform.object.persistence.ObjectsID</class>
+
+		[%=persistence_jpaproperties(Connection,configuration)%]
+
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,98 @@
+[% @template
+operation  service_producer_generation(hash) {
+
+     cdi_service_producer_generation(hash);
+
+  }
+
+ @template
+operation  datacontrolgeneration(hash) {
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+
+    var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+    var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+    
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var  component = hash.get("component");
+    var  model_mapper = hash.get("model_mapper");
+    var javaPath = hash.get("javaPath");
+    var resourcePath = hash.get("resourcePath");
+    var form = hash.get("form");    
+    var uipackage = hash.get("uipackage");    
+
+    
+    var buffer;
+    util.populateTechnologies(hash,model_mapper);
+
+     var controls =  form.datacontrols.formControl.controls;
+     for (control in controls){
+     
+         hash.put("control",control);
+    
+         var datacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/datacontrol.egl",hash,TemplateFactory);
+         datacontrol.setFormatter(f);
+         buffer = datacontrol.process();
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
+
+         var producercontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/triggerProducer.egl",hash,TemplateFactory);
+         producercontrol.setFormatter(f);
+         buffer = producercontrol.process();
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "TriggerProducer.java",buffer);   
+
+
+         var producercommand : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/commandProducer.egl",hash,TemplateFactory);
+         producercommand.setFormatter(f);
+         buffer = producercommand.process();
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "CommandProducer.java",buffer);   
+
+
+         if (control.~treeRoot <> null){
+
+            var treedatacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/treedatacontrol.egl",hash,TemplateFactory);
+            treedatacontrol.setFormatter(f);
+            buffer = treedatacontrol.process();
+            util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "TreeRoot"+util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
+       }
+    }
+
+
+    var beansxml : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);
+    beansxml.setFormatter(x);
+    buffer = beansxml.process();
+    util.saveFile( resourcePath+"/META-INF/"  , "beans.xml",buffer);   
+
+    var resolver : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/elresolver.egl",hash,TemplateFactory);
+    resolver.setFormatter(f);
+    buffer = resolver.process();
+    util.saveFile( javaPath+"/commons/datacontrol/"  , "ELResolverImpl.java",buffer);   
+
+    var entityproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/entityManagerProducer.egl",hash,TemplateFactory);
+    entityproducer.setFormatter(f);
+    buffer = entityproducer.process();
+    util.saveFile( javaPath+"/commons/producer/"  , "EntityManagerFactoryProducer.java",buffer);   
+
+
+    var trans : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/"+hash.get("Transaction")+".egl",hash,TemplateFactory);
+    buffer = trans.process();
+
+    var beanFactory : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/beanFactory.egl",hash,TemplateFactory);
+    beanFactory.setFormatter(f);
+    buffer = beanFactory.process();
+    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "BeanFactory.java",buffer);   
+
+
+      var logproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/loggerProducer.egl",hash,TemplateFactory);
+      logproducer.setFormatter(f);
+      var buffer = logproducer.process();
+      util.saveFile( javaPath+"/commons/producer/"  , "LoggerProducer.java",buffer);  
+
+      var factoryInitProducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/factoryInitProducer.egl",hash,TemplateFactory);
+      factoryInitProducer.setFormatter(f);
+      var buffer = factoryInitProducer.process();
+      util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , "FactoryInitializeTriggerProducer.java",buffer);  
+
+  }
+%]

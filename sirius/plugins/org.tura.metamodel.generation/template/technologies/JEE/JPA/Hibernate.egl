@@ -1,0 +1,27 @@
+[% @template
+operation  persistence_jpaproperties(Connection , configuration) {
+%]
+		<properties>
+[%    if (Connection.equals("JDBC")){%]
+			<property name="javax.persistence.jdbc.driver" value="[%=configuration.get("DataBase jdbc driver")%]" />
+			<property name="javax.persistence.jdbc.url" value="[%=configuration.get("DataBase jdbc url")%]" />
+			<property name="javax.persistence.jdbc.user" value="[%=configuration.get("DataBase user")%]" />
+			<property name="javax.persistence.jdbc.password" value="[%=configuration.get("DataBase password")%]" />
+			<property name = "hibernate.show_sql" value = "false" />
+
+[%   } %]		
+            <property name="hibernate.dialect" value="org.hibernate.dialect.[%=persistence_databasename()%]Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.default_schema" value="[%=configuration.get("DataBase schema")%]"/>
+			<property name = "hibernate.show_sql" value = "false" />
+		</properties>
+[%
+}
+
+ @template
+operation  persistence_jpaprovider() {
+%]
+org.hibernate.ejb.HibernatePersistence
+[%
+}
+%]

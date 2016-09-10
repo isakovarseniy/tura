@@ -1,0 +1,50 @@
+[%@template
+operation domain::Button draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","Button start: "+self.uid);     
+     
+     var recipe = hash.get("recipe");
+     var ingredient = hash.get("ingredient");
+     var form = hash.get("form");
+     var uipackage = hash.get("uipackage");
+     var hints = new Native('java.util.HashMap');
+     
+     var title =  " value=\"" + buildExpression(self.multiLangLabel,hints,hash) + "\" ";  
+     var icon = " icon=\""+buildExpression(self.icon,hints,hash)+"\" ";
+ 
+     var immediate = "";
+     var eventListener="";
+     if (self.findClassifier('UIGeneration','JSF','immediate')){
+        immediate = " immediate=\"true\"";
+     }
+
+ %]
+<p:commandButton  [%=immediate%]  [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%][%  
+       var expression = constructExpression(self,'trigger.onclick',hints, hash);
+       if (expression <> ""){
+       %] onclick="[%=expression%]"[%
+       }
+       expression = constructExpression(self,'trigger.oncomplete',hints, hash);
+       if (expression <> ""){
+       %] oncomplete="[%=expression%]"[%
+       }
+       for ( field in  self.fields){
+          if (field.classifiers.size() <> 0 )
+            continue;
+           hints.put("actionListener",true); 
+           %] actionListener="[%=buildExpression(field,hints,hash)%]"[%
+           hints.remove("actionListener"); 
+      }
+%] [%=icon%]    [%=self.refreshArias()%] >
+[%
+        for (param in self.findAllClassifiers('UIGeneration','JSF','parameter')){%]
+             [%=param.details%]        
+        [%
+        }
+%]
+</p:commandButton>
+ [%
+     util.traceIfDebug("UI element","Button end: "+self.uid);     
+ 
+}
+%]

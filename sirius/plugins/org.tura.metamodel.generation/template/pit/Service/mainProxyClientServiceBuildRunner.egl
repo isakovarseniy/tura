@@ -1,0 +1,24 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Service_implementation}/builder.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Builder_implementation}.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${OS}.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ ${percent}${end}
+
+ 
+[%
+ 
+      var hash = new Native('java.util.HashMap');
+ 
+      hash.put("recipe",recipe);
+      hash.put("ingredient",ingredient);
+      hash.put("component",component);
+      hash.put("model_mapper",model_mapper);
+      hash.put("configuration",configuration);
+ 
+      proxy_client_build_runner(hash);  
+ 
+%]

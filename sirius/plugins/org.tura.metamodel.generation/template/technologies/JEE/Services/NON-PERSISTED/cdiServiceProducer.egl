@@ -1,0 +1,14 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].commons.service;  
+
+
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
+@javax.enterprise.context.RequestScoped
+public class  [%=type.~class%]Service extends org.tura.platform.commons.jpa.NotPersistedObjectService{
+
+	private static final long serialVersionUID = 1L;
+
+}

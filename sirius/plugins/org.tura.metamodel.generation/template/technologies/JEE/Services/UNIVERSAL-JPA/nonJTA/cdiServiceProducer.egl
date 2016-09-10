@@ -1,0 +1,45 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].commons.service;  
+
+
+@javax.enterprise.inject.Alternative
+@javax.annotation.Priority(0)
+@javax.enterprise.context.RequestScoped
+public class  [%=type.~class%]Service extends org.tura.platform.services.JPAService{
+
+	private static final long serialVersionUID = 1L;
+
+    @javax.inject.Inject
+    private org.tura.example.ui.commons.producer.EntityManagerHelper emHelper;
+
+
+    @Override
+	public javax.persistence.EntityManager getEntityManager() {
+		return emHelper.getEntityManager();
+	}
+	
+    @Override
+	public org.tura.platform.object.TuraObject create(String objectClass) throws Exception {
+    	try{
+    		getEntityManager().getTransaction().begin();
+    		
+    		return super.create(objectClass);
+    	}finally{
+       		getEntityManager().getTransaction().commit();
+       	    		
+    	}
+    }    	
+    
+    @Override
+	public java.util.List<?> find(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria , Integer startIndex,Integer endIndex, String objectClass) throws Exception {
+    	try{
+    		return super.find(searchCriteria,orderCriteria, startIndex, endIndex, objectClass);
+    	}finally{
+    		emHelper.destroyEntityManager();
+    	}
+    	
+	}   	
+	
+}

@@ -1,0 +1,30 @@
+[% @template
+operation  mavenBuilder_mavenCleanInstall(configuration,path,hash) {
+%]
+#!/bin/sh
+
+export JAVA_HOME=`/usr/libexec/java_home -v [%=hash.get("Java")%]`
+
+cd "[%=path%]"
+"[%=configuration.get('Builder location')%]"/bin/mvn clean install
+[%
+}
+
+operation  os_batch_extension():String{
+             return "sh";
+}
+
+operation  os_shell_executor():String{
+             return "bash";
+}
+
+@template
+operation glassfishdeploy(configuration,path,archive,hash) {
+%]
+#!/bin/sh
+
+cd "[%=path%]"
+"[%=configuration.get('Application server home')%]"/bin/asadmin deploy  --force=true  ./[%=archive%]
+[%
+}
+%]

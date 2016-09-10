@@ -31,7 +31,9 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot
 
 import application.Application;
 import application.ApplicationUILayer;
+import artifact.GenerationHint;
 import artifact.QueryParameter;
+import artifact.TechLeaf;
 import artifact.Technology;
 import domain.Domain;
 import domain.DomainApplications;
@@ -71,6 +73,7 @@ import type.Primitive;
 import type.PrimitivesGroup;
 import type.Type;
 import type.TypeElement;
+import type.TypePackage;
 
 public class QueryHelper {
 
@@ -83,6 +86,9 @@ public class QueryHelper {
 	private static String ROLE_TYPE="Role";
 	private static String ICON_TYPE="Icon";
 
+	
+	private HintHelper hintHelper = new HintHelper();
+	
 	/** The OCL object. */
 	private OCL<?, EClassifier, ?, ?, ?, ?, ?, ?, ?, Constraint, EClass, EObject> ocl;
 
@@ -113,6 +119,17 @@ public class QueryHelper {
 
 	}
 
+	private Object internalEvaluate(final EObject context,  final EClass eclass,  final String expression) throws ParserException {
+		getOCLHelper().setContext(eclass);
+
+		final OCLExpression<EClassifier> query = getOCLHelper().createQuery(expression);
+		final Query<EClassifier, EClass, EObject> eval = getOCL().createQuery(query);
+
+		return eval.evaluate(context);
+
+	}
+	
+	
 	public Object getApplicationRoles(DiagramImpl root) {
 		Form frm = getForm(root);
 		
@@ -146,8 +163,7 @@ public class QueryHelper {
 	}
 
 	public Form getForm(DataControl dc) {
-		// return (Form) dc.getParent().getParent().eContainer();
-		throw new RuntimeException();
+		return (Form) dc.eContainer().eContainer();
 	}
 
 	public Form getForm(DiagramImpl root) {
@@ -1388,54 +1404,79 @@ public class QueryHelper {
 
 	}
 
-	public List<Type> queryTypesByHint(Object obj, String packageName, String artifactName, String hint,
-			String artifactLib) {
-		throw new RuntimeException();
+	
+	private String findHint(EObject obj,int level, String... hints  ){
+		try {
+			if (hints.length == 0)
+				return null;
+			
+			if (level == hints.length){
+				return ((TechLeaf)obj).getUid();
+			}
+			
+			String query = null;
+			if (level == 0 ){
+				query ="domain::DomainArtifacts.allInstances().techLeafs->select(q|q.name='"+hints[level]+"')";
+			}else{
+				if (level == hints.length-1 ){
+					   query ="artifact::TechLeaf.allInstances()->select(q|q.uid='"+((TechLeaf)obj).getUid()+"').oclAsType(artifact::TechLeaf).hints->select(q|q.name='"+hints[level]+"')";
+				}else{
+				   query ="artifact::TechLeaf.allInstances()->select(q|q.uid='"+((TechLeaf)obj).getUid()+"').oclAsType(artifact::TechLeaf).techLeafs->select(q|q.name='"+hints[level]+"')";
+				}
+			}
+			
+			@SuppressWarnings("unchecked")
+			Collection<EObject> list = (Collection<EObject>) internalEvaluate(obj, query);
+			if (list == null || list.size() == 0 ){
+				return null;
+			}
+			if (level == hints.length-1 ){
+				GenerationHint hint = (GenerationHint) list.iterator().next();
+				return hint.getUid();
+			}
+			
+			for (Iterator<EObject> itr = list.iterator(); itr.hasNext();){
+				EObject obj1 = itr.next();
+				String hint = findHint(obj1,++level, hints);
+				if (hint != null){
+					return hint;
+				}
+			}
+			return null;
+			
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return null;
+		}
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<Type> queryTypesByHint(Object obj, String key) {
+		String[] hints = hintHelper.get(key);
+		String hint = findHint((EObject)obj, 0, hints  );
+		if (hint == null){
+			return new ArrayList<Type>();
+		}
+		try {
+			String query = "type::Type.allInstances()->select(r|r.oclAsType(type::Type).classifiers->select(c|c.hint.uid='"+hint+"')->size()>0)";
+			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) obj,  TypePackage.Literals.TYPE  , query);
+			if (list == null || list.size() == 0 ){
+				return null;
+			}
+			ArrayList<Type> array = new ArrayList<Type>();
+			array.addAll((Collection<? extends Type>) list);
+			
+			return array;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return null;
+		}
 
-		// List<domain.Type> array = new ArrayList<domain.Type>();
-		//
-		// try {
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE
-		// .getEClassifier("Domain"));
-		//
-		//
-		// String
-		// query_str="domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='${Package
-		// name}').oclAsType(domain::Package).typedefinition.types->select(r|((r.oclIsKindOf(domain::Type
-		// ) )
-		// )).oclAsType(domain::Categorized).classifiers->select(c|c.hint.name='${Hint}'
-		// and
-		// c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).name
-		// = '${Artifact}' and
-		// c.hint.oclAsType(ecore::EObject).eContainer().oclAsType(domain::Artifact).parent.oclAsType(domain::Artifacts).parent.oclAsType(domain::DomainArtifact).name
-		// = '${ArtifactLib}'
-		// )->collect(c|c.oclAsType(ecore::EObject).eContainer())";
-		// query_str = query_str.replaceAll("\\$\\{Package name\\}",
-		// packageName).replaceAll("\\$\\{Artifact\\}",
-		// artifactName).replaceAll("\\$\\{Hint\\}",
-		// hint).replaceAll("\\$\\{ArtifactLib\\}", artifactLib);
-		//
-		// OCLExpression<EClassifier> query = helper.createQuery(query_str);
-		//
-		// Collection<domain.Type> map = (Collection<domain.Type>)
-		// ocl.evaluate(obj, query);
-		//
-		// array = new ArrayList<domain.Type>();
-		// array.addAll(map);
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// }
-		// return array;
-		//
 	}
 
 	public Object executeQuery(String strQuery, EObject eobj) throws ParserException {
 		return internalEvaluate(eobj, strQuery);
-
 	}
 
 }

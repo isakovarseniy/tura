@@ -1,0 +1,33 @@
+[%@template
+operation  domain::TabPage draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","TabPage start: "+self.name);     
+%]
+     [%=self.generateBody(hash)%]     
+[%
+     util.traceIfDebug("UI element","TabPage end: "+self.name);     
+}
+
+@template
+operation domain::TabPage generateBody(hash){
+     var hints = new Native('java.util.HashMap');
+     var title = buildExpression(self.multiLangLabel,hints,hash);
+        
+     if (title <> "" )
+        title = "title=\"" + title + "\"";
+     else
+        title="";   
+        
+%]
+<p:tab [%=title%] [%=self.mkUIDBinding()%]  [%=self.styleAttributes(hash)%]>
+[%
+                for (element in self.viewElement.sortBy(q|q.order)){
+%]                
+                    [%=element.draw(hash)%]
+[%
+                }  
+%]	
+</p:tab>
+[%
+}
+%]

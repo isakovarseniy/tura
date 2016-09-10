@@ -1862,6 +1862,9 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:PopupMenu" name="Configuration" precondition="service:enableContextMenuForDatacontrol">
+            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Data control with compressed commands" id="org.tura.metamodel.sirius.diagram.actions.DataControlCompressorCommandActionID"/>
+          </ownedTools>
         </toolSections>
         <toolSections name="Connections">
           <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Relation" edgeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@edgeMappings[name='Relation']">

@@ -1,0 +1,69 @@
+[%@template
+operation  method_definition( type , hash  ) {
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var skipVar  = hash.get("skipVar");
+    
+%]
+
+[%for ( field in type.attributes){
+     
+    field.typeRef.mappingType2Java(recipe,ingredient);
+    
+    if (not skipVar ){
+    %]
+	private [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%];
+	
+	[%}%]
+	
+	public void set[%=util.mergeAndCapitalize(field.name)%](  [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%])
+		[%=setMethod(util.mergeAndUnCapitalize(field.name))%]
+
+	public [%= field.typeRef.~fullName%] get[%=util.mergeAndCapitalize(field.name)%]()
+		[%=getMethod(util.mergeAndUnCapitalize(field.name))%]
+	
+[%}%]
+
+	[%
+	  var assosiations = domain::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+      for (rel in assosiations){
+        var target = rel.target;
+	    if (target.isKindOf(domain::TypeReference )){
+	         target = target.typeRef;
+	    }
+         var sourceMethodName = util.mergeAndCapitalize(target.name);
+
+         if (rel.sourceOperation.isDefined())
+             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
+         var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+      
+      
+    if ( not skipVar ){
+	  	     switch  (rel.type.toString()){
+	         case "One2One" : %] private [%=target.~fullName%]  [%=sourceProperty%];[%
+	         case "One2Many" : %]  private java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
+	         case "Many2Many" : %] private java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
+	         }
+         }
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public [%=target.~fullName%]  get[%=sourceMethodName%]()[%
+         case "One2Many" : %] public java.util.Collection<[%=target.~fullName%]>  get[%=sourceMethodName%]()[%
+         case "Many2Many" : %] public java.util.Collection<[%=target.~fullName%]>  get[%=sourceMethodName%]()[%
+         }                
+         %] [%=getMethod(util.mergeAndUnCapitalize(sourceProperty))%] [%
+         
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public  void set[%=sourceMethodName%]([%=target.~fullName%]  [%=sourceProperty%])[%
+         case "One2Many" : %] public  void  set[%=sourceMethodName%](java.util.Collection<[%=target.~fullName%]> [%=sourceProperty%])[%
+         case "Many2Many" : %] public  void  set[%=sourceMethodName%](java.util.Collection<[%=target.~fullName%]> [%=sourceProperty%])[%
+         }                
+         %] [%=setMethod(util.mergeAndUnCapitalize(sourceProperty))%] [%
+
+      }
+	%]
+
+[%
+}
+%]

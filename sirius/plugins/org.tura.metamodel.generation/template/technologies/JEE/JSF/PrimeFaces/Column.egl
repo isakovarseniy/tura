@@ -1,0 +1,47 @@
+[%@template
+operation domain::Column draw(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     util.traceIfDebug("UI element","Column start: "+self.uid);     
+%]
+     [%=self.generateBody(hash)%]     
+[%
+     util.traceIfDebug("UI element","Column end: "+self.uid);     
+}
+
+@template
+operation domain::Column generateBody(hash){
+     var hints = new Native('java.util.HashMap');
+
+     var title = buildExpression(self.multiLangLabel,hints,hash);
+     if (title <> "" )
+        title = "headerText=\"" + title + "\"";
+     else
+        title="";   
+        
+%]
+           <p:column [%=title%] [%=self.styleAttributes(hash)%]>
+[%      if ( "tree".equals(hash.get("context") ))  {%]
+                   [%=self.treecontext(hash)%]
+                   
+[%  }
+     if ( "table".equals(hash.get("context") ))  {  %]
+                   [%=self.tablecontext(hash)%]
+[% }%]                   
+            </p:column>   
+[%
+}
+
+@template
+operation domain::Column treecontext(hash){
+%]
+             [%=self.element.draw(hash)%]
+[%                    
+}
+
+@template
+operation domain::Column tablecontext(hash){
+%]
+                    [%=self.element.draw(hash)%]
+[%                    
+}
+%]

@@ -1,0 +1,279 @@
+[%@template
+operation   menuGenerator(hash) { 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var component = hash.get("component");
+     var form = hash.get("form");
+     var  javaPath =  hash.get("javaPath");  
+     var uipackage = hash.get("uipackage");
+     
+     for (menuDefinition in form.view.view.menus){
+        for (menu in menuDefinition.menuView.menuFolders){
+           for (item in menu.menuElements->select(q|q.isKindOf(domain::SubMenu)) ){
+             item.toSubmenu.~submenu=true;
+             item.toSubmenu.~label=item;
+           }
+           if (menu.extensionPoint ){
+                if (menu.findClassifier('UIGeneration','JSF','menu.global')){
+                   menu.~extpount = 'global';
+                }else{
+                   menu.~extpount = 'form';
+                }
+                
+           }
+       }
+      }  
+     
+     for (menuDefinition in form.view.view.menus){
+        for (menu in menuDefinition.menuView.menuFolders){
+           menu.menuProcessor(hash);
+        }
+    }
+  }
+  
+ @template 
+  operation domain:: MenuFolder menuProcessor(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     var component = hash.get("component");
+     var form = hash.get("form");
+     var  javaPath =  hash.get("javaPath");  
+     var uipackage = hash.get("uipackage");
+     hash.put("menu",self);
+
+      var type = "org.primefaces.model.menu.DefaultMenuModel";
+      var addOperation="addElement";
+      if (self.~submenu.isDefined()){
+           type = "org.primefaces.model.menu.DefaultSubMenu";
+      }else{
+          if (self.extensionPoint  ){
+            type = "java.util.ArrayList<org.primefaces.model.menu.MenuElement>";
+            addOperation="add";
+         }
+      }
+           
+        %]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].menu;
+        
+[%  if (self.~extpount.isDefined() and self.~extpount = 'global'){%] 
+         [%=globalHeader(hash)%] 
+[%   } else{
+     if (self.~extpount.isDefined() and self.~extpount = 'form'){%]
+         [%=formHeader(hash)%] 
+[%
+      }
+}
+%]   
+        public class [%=util.mergeAndCapitalize(self.name)%]Menu extends org.tura.platform.primefaces.menu.AbsractMenuProvider  implements java.io.Serializable{
+        
+        	private static final long serialVersionUID = 1L;
+        
+[%  if (self.~extpount.isDefined() and self.~extpount = 'global'){%] 
+         [%=globalConstractor(hash)%] 
+[%   } %]           
+        
+           public Object getMenu(org.tura.platform.datacontrol.ELResolver elResolver) throws org.tura.platform.datacontrol.commons.TuraException{
+             [%
+               %][%=type%] model = new [%=type%]();
+             [%if (self.~submenu.isDefined()){ %]
+               [%=setAttribute("model","Icon",buildExpression(self.icon,hints,hash))%]
+               [%=setAttribute("model","Label",buildExpression(self.~label.multiLangLabel,hints,hash))%]
+               [%}
+               if (self.extensionPoint = false  and type <> "org.primefaces.model.menu.DefaultMenuModel"){%]
+               [%=setAttribute("model","Style",self.style(hash))%]
+               [%=setAttribute("model","StyleClass",self.styleClass(hash))%]
+               
+             [%}
+                 for (item in self.menuElements){%]
+                   [%=item.addToModel(hash,addOperation)%]
+                [% }
+            %]
+              return model;
+           }
+        
+        }
+ [%       
+        var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
+        out.formatWith(f);
+        util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/menu/"  , util.mergeAndCapitalize(self.name) +"Menu.java",out.toString());  
+  }
+  
+@template  
+  operation domain::MenuItem addToModel(hash,addOperation){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+     var update = self.refreshAreas->select(r|r.group > 1);
+     var process = self.refreshAreas->select(r|r.group == 1)->sortBy(q|q.group);
+     
+  %]
+        org.primefaces.model.menu.DefaultMenuItem [%=util.mergeAndUnCapitalize(self.name)%] = new org.primefaces.model.menu.DefaultMenuItem((String)resolver("[%=buildExpression(self.multiLangLabel,hints,hash)%]",elResolver));
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Url",buildExpression(self.transition,hints,hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Icon",buildExpression(self.icon,hints,hash))%]
+
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Update",refreshAriasGroup(update))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Process",refreshAriasGroup(process))%]
+
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Style",self.style(hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"StyleClass",self.styleClass(hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Rendered",buildExpression(self.enabled,hints,hash),"Boolean")%]
+
+
+   [%
+       for ( field in  self.fields){
+          if (field.classifiers.size() <> 0 )
+            continue;
+           hints.put("actionListener",true); 
+           %] [%=util.mergeAndUnCapitalize(self.name)%].setCommand("[%=buildExpression(field,hints,hash)%]");[%
+           hints.remove("actionListener"); 
+      }   
+   
+   %]
+        model.[%=addOperation%]([%=util.mergeAndUnCapitalize(self.name)%]);
+[%  
+  }
+  
+  
+@template 
+operation setAttribute(variable , attribute, value,type){
+     var util = new Native('org.tura.metamodel.commons.Util');
+    if  (value <> ""){
+    %][%=variable%].set[%=attribute%](([%=type%])resolver("[%=value%]",elResolver));[%
+    }
+}  
+  
+  
+@template 
+operation setAttribute(variable , attribute, value){
+%][%=setAttribute(variable , attribute, value,"String")%][%
+}
+  
+@template  
+  operation domain::SubMenu addToModel(hash,addOperation){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var hints = new Native('java.util.HashMap');
+  %]
+        [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu [%=util.mergeAndUnCapitalize(self.name)%]  = new [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu();
+        org.primefaces.model.menu.DefaultSubMenu [%=util.mergeAndUnCapitalize(self.name)%]_submenu = (org.primefaces.model.menu.DefaultSubMenu)[%=util.mergeAndUnCapitalize(self.name)%].getMenu(elResolver);
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name)+"_submenu","Style",self.style(hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name)+"_submenu","StyleClass",self.styleClass(hash))%]
+        [%=setAttribute(util.mergeAndUnCapitalize(self.name)+"_submenu","Rendered",buildExpression(self.enabled,hints,hash),"Boolean")%]
+        
+        model.[%=addOperation%]([%=util.mergeAndUnCapitalize(self.name)%]_submenu);
+[%  
+  }
+  
+@template
+  operation domain::MenuSeparator addToModel(hash,addOperation){
+       var util = new Native('org.tura.metamodel.commons.Util');
+  %]
+     org.primefaces.model.menu.DefaultSeparator  [%=util.mergeAndUnCapitalize(self.name)%]  = new org.primefaces.model.menu.DefaultSeparator();
+     [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Style",self.style(hash))%]
+     [%=setAttribute(util.mergeAndUnCapitalize(self.name),"StyleClass",self.styleClass(hash))%]
+     model.[%=addOperation%]([%=util.mergeAndUnCapitalize(self.name)%]);
+  [%
+ }
+
+@template
+  operation domain::MenuExtensionPoint addToModel(hash,addOperation){
+     var  javaPath =  hash.get("javaPath");  
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+    var extension = self.extensionRef;
+    var form = extension.eContainer().parent.eContainer().parent.eContainer();
+    var uipackage = form.eContainer().parent;
+    var application = uipackage.eContainer().parent.parent;
+
+
+
+
+     if (extension.findClassifier('UIGeneration','JSF','menu.global')){%]
+       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.GlobalExtensionPointResolver.find("[%=util.mergeAndCapitalize(application.name)%]" , "[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(extension.name)%]",elResolver);
+     [%  
+     }else{%]
+       java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.FormsExtensionPointResolver.find("[%=util.mergeAndCapitalize(application.name)%]","[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(extension.name)%]",elResolver);
+     [%
+     }
+  %]
+        if ([%=util.mergeAndUnCapitalize(self.name)%] != null){
+        for (  org.primefaces.model.menu.MenuElement  item :  [%=util.mergeAndUnCapitalize(self.name)%] )
+           model.[%=addOperation%](item);
+        }   
+[%  
+  } 
+@template
+  operation globalHeader(hash){%]
+@javax.enterprise.context.ApplicationScoped
+@org.tura.platform.primefaces.menu.Eager
+  [%
+  }
+  
+@template
+  operation formHeader(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+    var menu = hash.get("menu");
+    
+    var form = hash.get("form");
+    var uipackage = hash.get("uipackage");
+    var application = uipackage.eContainer().parent.parent;
+      
+  %]
+@javax.enterprise.context.RequestScoped
+@org.tura.platform.primefaces.menu.Menu(value="[%=util.mergeAndCapitalize(application.name)%].[%=util.mergeAndCapitalize(uipackage.name)%].[%=util.mergeAndCapitalize(form.name)%].[%=util.mergeAndCapitalize(menu.name)%]")
+  [%
+  }
+@template
+  operation globalConstractor(hash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+    
+    var menu = hash.get("menu");
+    var form = hash.get("form");
+    var uipackage = hash.get("uipackage");
+    var application = uipackage.eContainer().parent.parent;
+     
+  
+  %]
+  
+  
+  	@javax.inject.Inject
+	private transient java.util.logging.Logger logger;
+  
+	@javax.annotation.PostConstruct
+	public void init() {
+	   String elements[] = new String[] { "[%=util.mergeAndCapitalize(application.name)%]", "[%=util.mergeAndCapitalize(uipackage.name)%]","[%=util.mergeAndCapitalize(form.name)%]" };
+		try {
+			javax.naming.Context ic = new javax.naming.InitialContext();
+			ic = (javax.naming.Context) ic.lookup("java:global");
+			for (String element : elements) {
+				try {
+					ic = ic.createSubcontext(element);
+				} catch (javax.naming.NameAlreadyBoundException e) {
+				}
+			}
+			ic.bind("[%=util.mergeAndCapitalize(menu.name)%]", this);
+		} catch (javax.naming.NamingException e) {
+			logger.info(e.getMessage());
+		}
+	}
+
+	@javax.annotation.PreDestroy
+	public void destroy() {
+		String path = "java:global/[%=util.mergeAndCapitalize(application.name)%]/[%=util.mergeAndCapitalize(uipackage.name)%]/[%=util.mergeAndCapitalize(form.name)%]";
+		try {
+			javax.naming.InitialContext ic = new javax.naming.InitialContext();
+			try {
+				ic.lookup(path);
+				ic.unbind("[%=util.mergeAndCapitalize(menu.name)%]");
+			} catch (javax.naming.NamingException ne) {
+			   logger.info(ne.getMessage());
+			}
+
+		} catch (javax.naming.NamingException e) {
+			logger.info(e.getMessage());
+		}
+
+	}
+  
+  
+  [%
+  }
+  
+ %]
