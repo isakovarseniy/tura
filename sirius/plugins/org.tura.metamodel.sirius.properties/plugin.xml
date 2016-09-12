@@ -37,6 +37,16 @@
       </javaActions>
    </extension>
 
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.DataControlNestedCommandAction"
+            id="org.tura.metamodel.sirius.diagram.actions.DataControlNestedCommandActionID">
+      </javaActions>
+   </extension>
+
+
     <extension
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions

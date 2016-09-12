@@ -1864,6 +1864,7 @@
           </ownedTools>
           <ownedTools xsi:type="tool:PopupMenu" name="Configuration" precondition="service:enableContextMenuForDatacontrol">
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Data control with compressed commands" id="org.tura.metamodel.sirius.diagram.actions.DataControlCompressorCommandActionID"/>
+            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Data control with nested commands" id="org.tura.metamodel.sirius.diagram.actions.DataControlNestedCommandActionID"/>
           </ownedTools>
         </toolSections>
         <toolSections name="Connections">

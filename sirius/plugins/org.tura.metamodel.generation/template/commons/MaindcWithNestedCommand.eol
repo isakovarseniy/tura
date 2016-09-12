@@ -7,8 +7,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/dcWithNe
       return;
    }
    
-   var commandList =queryHelper.queryTypesByHint(self,"DataControl command","Data control","datacontrol.command","UIGeneration");
-   var list = queryHelper.queryTypesByHint(self,"Nested DataControl command","Data control","datacontrol.command","UIGeneration");
+   var commandList =queryHelper.queryTypesByHint(self,"Model.Form.DataControl.Command");
+   var list = queryHelper.queryTypesByHint(self,"Model.Form.DataControl.NestedCommand");
    commandList.addAll(list);
    
     var form = queryHelper.getForm(self);

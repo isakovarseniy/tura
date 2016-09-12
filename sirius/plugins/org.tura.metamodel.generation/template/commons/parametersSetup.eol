@@ -1,14 +1,7 @@
 operation commonInit(dc,command,trigger,oprName){
    var uuid := Native('java.util.UUID');
-
-  trigger.packageRef=command.eContainer.parent;
-  trigger.typeRef = command;
   trigger.methodRef=command.operations->select(q|q.name=oprName).first();
   
-  trigger.fakePackageName=trigger.packageRef.name;
-  trigger.fakeTypeName=trigger.typeRef.name;
-  trigger.fakeMethod=trigger.methodRef.name;
-
 }
 
 
@@ -17,10 +10,10 @@ operation typeConstant( parameter , method) {
 
    var uuid := Native('java.util.UUID');
 
-   var ctxParam = new domain::ContextParameter; 
+   var ctxParam = new form::ContextParameter; 
    ctxParam.uid =  uuid.randomUUID().toString();
    ctxParam.refObj = parameter;
-   ctxParam.value =  new domain::ContextValue;
+   ctxParam.value =  new form::ContextValue;
    ctxParam.value.uid = uuid.randomUUID().toString();
    ctxParam.value.constant=true;
    ctxParam.value.value= method;
@@ -33,35 +26,44 @@ operation typeParam(type,parameter){
 
    var uuid := Native('java.util.UUID');
 
-   var ctxParam = new domain::ContextParameter; 
+   var ctxParam = new form::ContextParameter; 
    ctxParam.uid =  uuid.randomUUID().toString();
    ctxParam.refObj = parameter;
-   ctxParam.value =  new domain::ContextValue;
+   ctxParam.value =  new form::ContextValue;
    ctxParam.value.uid = uuid.randomUUID().toString();
    ctxParam.value.constant=false;
-   ctxParam.value.value="Packages."+type.parent.parent.name+"."+type.parent.parent.name+"::"+type.name;
+   ctxParam.value.value="Types repository."+type.eContainer().eContainer().name+"."+type.eContainer().name+"."+type.eContainer().name+"::"+type.name;
 
 
-   var expr = new domain::ExpressionPart;
+
+   var expr = new form::ExpressionPart;
    expr.uid =  uuid.randomUUID().toString();
-   expr.expressionType = "TypesImpl";
-   expr.objRef=type.parent.eContainer();
+   expr.expressionType = "DomainTypesImpl";
+   expr.objRef=type.eContainer().eContainer().eContainer();
    expr.order=0;
    ctxParam.value.expression.add(expr);
 
 
-   expr = new domain::ExpressionPart;
+   var expr = new form::ExpressionPart;
    expr.uid =  uuid.randomUUID().toString();
-   expr.expressionType = "PackageImpl";
-   expr.objRef=type.parent.parent;
+   expr.expressionType = "DomainTypesRepositoryImpl";
+   expr.objRef=type.eContainer().eContainer();
    expr.order=1;
    ctxParam.value.expression.add(expr);
 
-   expr = new domain::ExpressionPart;
+
+   expr = new form::ExpressionPart;
+   expr.uid =  uuid.randomUUID().toString();
+   expr.expressionType = "TypeGroupImpl";
+   expr.objRef=type.eContainer();
+   expr.order=2;
+   ctxParam.value.expression.add(expr);
+
+   expr = new form::ExpressionPart;
    expr.uid =  uuid.randomUUID().toString();
    expr.expressionType = "TypeImpl";
    expr.objRef=type;
-   expr.order=2;
+   expr.order=3;
    ctxParam.value.expression.add(expr);
 
 
@@ -69,30 +71,72 @@ operation typeParam(type,parameter){
 
 }
 
+
+operation primitiveTypeParam(type,parameter){
+
+   var uuid := Native('java.util.UUID');
+
+   var ctxParam = new form::ContextParameter; 
+   ctxParam.uid =  uuid.randomUUID().toString();
+   ctxParam.refObj = parameter;
+   ctxParam.value =  new form::ContextValue;
+   ctxParam.value.uid = uuid.randomUUID().toString();
+   ctxParam.value.constant=false;
+   ctxParam.value.value="Types repository.Primitive package"+"."+type.name;
+
+
+   var expr = new form::ExpressionPart;
+   expr.uid =  uuid.randomUUID().toString();
+   expr.expressionType = "DomainTypesImpl";
+   expr.order=0;
+   ctxParam.value.expression.add(expr);
+
+
+   var expr = new form::ExpressionPart;
+   expr.uid =  uuid.randomUUID().toString();
+   expr.expressionType = "PrimitivesGroupImpl";
+   expr.objRef=type.eContainer();
+   expr.order=1;
+   ctxParam.value.expression.add(expr);
+
+
+   expr = new form::ExpressionPart;
+   expr.uid =  uuid.randomUUID().toString();
+   expr.expressionType = "PrimitiveImpl";
+   expr.objRef=type;
+   expr.order=2;
+   ctxParam.value.expression.add(expr);
+
+   return ctxParam;
+
+}
+
+
+
 operation treeDataControl(treedc,dc,attribute,type,parameter){
    var uuid := Native('java.util.UUID');
 
-   var ctxParam = new domain::ContextParameter; 
+   var ctxParam = new form::ContextParameter; 
    ctxParam.uid =  uuid.randomUUID().toString();
    ctxParam.refObj = parameter;
-   ctxParam.value =  new domain::ContextValue;
+   ctxParam.value =  new form::ContextValue;
    ctxParam.value.uid = uuid.randomUUID().toString();
    ctxParam.value.constant=false;
    ctxParam.value.value="Tree data controls.Tree"+treedc.name+"."+dc.name+"."+attribute;
    
-   var expr = new domain::ExpressionPart;
+   var expr = new form::ExpressionPart;
    expr.uid =  uuid.randomUUID().toString();
    expr.expressionType = "TreeRootDataControlHolder";
    expr.order=0;
    ctxParam.value.expression.add(expr);
 
-   expr = new domain::ExpressionPart;
+   expr = new form::ExpressionPart;
    expr.uid =  uuid.randomUUID().toString();
    expr.expressionType = "TreeDataControl";
    expr.order=1;
    ctxParam.value.expression.add(expr);
    
-   expr = new domain::ExpressionPart;
+   expr = new form::ExpressionPart;
    expr.uid =  uuid.randomUUID().toString();
    expr.expressionType = "DataControlImpl";
    expr.objRef=dc;
@@ -100,7 +144,7 @@ operation treeDataControl(treedc,dc,attribute,type,parameter){
    ctxParam.value.expression.add(expr);
 
 
-   expr = new domain::ExpressionPart;
+   expr = new form::ExpressionPart;
    expr.uid =  uuid.randomUUID().toString();
    expr.expressionType = type;
    expr.order=3;
@@ -114,24 +158,23 @@ operation treeDataControl(treedc,dc,attribute,type,parameter){
 operation simpleDataControl(dc,attribute,type,parameter){
    var uuid := Native('java.util.UUID');
 
-   var ctxParam = new domain::ContextParameter; 
+   var ctxParam = new form::ContextParameter; 
    ctxParam.uid =  uuid.randomUUID().toString();
    ctxParam.refObj = parameter;
-   ctxParam.value =  new domain::ContextValue;
+   ctxParam.value =  new form::ContextValue;
    ctxParam.value.uid = uuid.randomUUID().toString();
    ctxParam.value.constant=false;
    ctxParam.value.value="Data controls."+dc.name+"."+attribute;
    
    
-   var expr = new domain::ExpressionPart;
+   var expr = new form::ExpressionPart;
    expr.uid =  uuid.randomUUID().toString();
    expr.expressionType = "DataControlHolder";
-   expr.objRef=dc.parent.eContainer();
    expr.order=0;
    ctxParam.value.expression.add(expr);
 
 
-   expr = new domain::ExpressionPart;
+   expr = new form::ExpressionPart;
    expr.uid =  uuid.randomUUID().toString();
    expr.expressionType = "DataControlImpl";
    expr.objRef=dc;
@@ -139,7 +182,7 @@ operation simpleDataControl(dc,attribute,type,parameter){
    ctxParam.value.expression.add(expr);
 
 
-   expr = new domain::ExpressionPart;
+   expr = new form::ExpressionPart;
    expr.uid =  uuid.randomUUID().toString();
    expr.expressionType = type;
    expr.order=2;

@@ -21,7 +21,7 @@ operation nestedCommandProcessor(dc,command){
 operation  createCommand(dc,command) { 
    var uuid := Native('java.util.UUID');
    
-   var trigger = new domain::CreateTrigger;
+   var trigger = new form::CreateTrigger;
    trigger.uid = uuid.randomUUID().toString();
    dc.create = trigger;
    commonInit(dc,command,trigger,"create");
@@ -41,7 +41,7 @@ operation  searchNestedCommand(dc,command) {
    var uuid := Native('java.util.UUID');
    var queryHelper := new Native('org.tura.metamodel.commons.QueryHelper');
    var nullType = queryHelper.findNullType(dc);
-   var trigger = new domain::SearchTrigger;
+   var trigger = new form::SearchTrigger;
    
    
    trigger.uid = uuid.randomUUID().toString();
@@ -56,16 +56,16 @@ operation  searchNestedCommand(dc,command) {
        var i = k.toString();
 	   if (treedc.~treeRoot.isDefined()){
 	      switch (i){
-		      case "0":   ctxParam =typeParam(nullType,parameter);
-		      case "1":   ctxParam =typeParam(nullType,parameter);
+		      case "0":   ctxParam =primitiveTypeParam(nullType,parameter);
+		      case "1":   ctxParam =primitiveTypeParam(nullType,parameter);
 		      case "2" :  ctxParam =treeDataControl(treedc,dc,"searchCriteria","DataControlFakeAttribute",parameter);
 		      case "3":   ctxParam =treeDataControl(treedc,dc,"orderCriteria","DataControlFakeAttribute",parameter);
 		      case "4":   ctxParam =typeParam(dc.baseType.typeRef,parameter);
 		  }  
 	   }else{
 	      switch (i){
-		      case "0":   ctxParam =typeParam(nullType,parameter);
-		      case "1":   ctxParam =typeParam(nullType,parameter);
+		      case "0":   ctxParam =primitiveTypeParam(nullType,parameter);
+		      case "1":   ctxParam =primitiveTypeParam(nullType,parameter);
 		      case "2" :  ctxParam =simpleDataControl(dc,"searchCriteria","DataControlFakeAttribute",parameter);
 		      case "3":   ctxParam =simpleDataControl(dc,"orderCriteria","DataControlFakeAttribute",parameter);
 		      case "4":   ctxParam =typeParam(dc.baseType.typeRef,parameter);
@@ -83,7 +83,7 @@ operation  updateNestedCommand(dc,command) {
    var queryHelper := new Native('org.tura.metamodel.commons.QueryHelper');
    var nullType = queryHelper.findNullType(dc);
 
-   var trigger = new domain::UpdateTrigger;
+   var trigger = new form::UpdateTrigger;
    trigger.uid = uuid.randomUUID().toString();
    dc.update = trigger;
 
@@ -97,16 +97,16 @@ operation  updateNestedCommand(dc,command) {
        var i = k.toString();
 		if (treedc.~treeRoot.isDefined()){
 		   switch (i){
-		          case "0":   ctxParam =typeParam(nullType,parameter);
-		          case "1":   ctxParam =typeParam(nullType,parameter);
-		          case "2":   ctxParam =typeParam(nullType,parameter);
+		          case "0":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "1":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "2":   ctxParam =primitiveTypeParam(nullType,parameter);
 			      case "3" :  ctxParam =treeDataControl(treedc,dc,"currentObject","DataControlFakeMethod",parameter);
 	        }
 		}else{
 		   switch (i){
-		          case "0":   ctxParam =typeParam(nullType,parameter);
-		          case "1":   ctxParam =typeParam(nullType,parameter);
-		          case "2":   ctxParam =typeParam(nullType,parameter);
+		          case "0":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "1":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "2":   ctxParam =primitiveTypeParam(nullType,parameter);
 			      case "3" :  ctxParam =simpleDataControl(dc,"currentObject","DataControlFakeMethod",parameter);
 	        }
 		}
@@ -124,7 +124,7 @@ operation  insertNestedCommand(dc,command) {
    var queryHelper := new Native('org.tura.metamodel.commons.QueryHelper');
    var nullType = queryHelper.findNullType(dc);
    
-   var trigger = new domain::InsertTrigger;
+   var trigger = new form::InsertTrigger;
    
    trigger.uid = uuid.randomUUID().toString();
    dc.insert = trigger;
@@ -139,16 +139,16 @@ operation  insertNestedCommand(dc,command) {
        var i = k.toString();
 		if (treedc.~treeRoot.isDefined()){
 		   switch (i){
-		          case "0":   ctxParam =typeParam(nullType,parameter);
-		          case "1":   ctxParam =typeParam(nullType,parameter);
-		          case "2":   ctxParam =typeParam(nullType,parameter);
+		          case "0":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "1":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "2":   ctxParam =primitiveTypeParam(nullType,parameter);
 			      case "3" :  ctxParam =treeDataControl(treedc,dc,"currentObject","DataControlFakeMethod",parameter);
 	        }
 		}else{
 		   switch (i){
-		          case "0":   ctxParam =typeParam(nullType,parameter);
-		          case "1":   ctxParam =typeParam(nullType,parameter);
-		          case "2":   ctxParam =typeParam(nullType,parameter);
+		          case "0":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "1":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "2":   ctxParam =primitiveTypeParam(nullType,parameter);
 			      case "3" :  ctxParam =simpleDataControl(dc,"currentObject","DataControlFakeMethod",parameter);
 	        }
 		}
@@ -166,7 +166,7 @@ operation  removeNestedCommand(dc,command) {
    var queryHelper := new Native('org.tura.metamodel.commons.QueryHelper');
    var nullType = queryHelper.findNullType(dc);
    
-   var trigger = new domain::DeleteTrigger;
+   var trigger = new form::DeleteTrigger;
    trigger.uid = uuid.randomUUID().toString();
    dc.remove = trigger;
    
@@ -178,16 +178,16 @@ operation  removeNestedCommand(dc,command) {
        var i = k.toString();
 		if (treedc.~treeRoot.isDefined()){
 		   switch (i){
-		          case "0":   ctxParam =typeParam(nullType,parameter);
-		          case "1":   ctxParam =typeParam(nullType,parameter);
-		          case "2":   ctxParam =typeParam(nullType,parameter);
+		          case "0":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "1":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "2":   ctxParam =primitiveTypeParam(nullType,parameter);
 			      case "3" :  ctxParam =treeDataControl(treedc,dc,"currentObject","DataControlFakeMethod",parameter);
 	        }
 		}else{
 		   switch (i){
-		          case "0":   ctxParam =typeParam(nullType,parameter);
-		          case "1":   ctxParam =typeParam(nullType,parameter);
-		          case "2":   ctxParam =typeParam(nullType,parameter);
+		          case "0":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "1":   ctxParam =primitiveTypeParam(nullType,parameter);
+		          case "2":   ctxParam =primitiveTypeParam(nullType,parameter);
 			      case "3" :  ctxParam =simpleDataControl(dc,"currentObject","DataControlFakeMethod",parameter);
 	        }
 		}

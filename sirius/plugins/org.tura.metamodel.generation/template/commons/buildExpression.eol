@@ -63,8 +63,8 @@ operation  buildExpression( contextValue,hints,inOutParams) : String {
      return  resultExpression.replaceAll(".<holder>","").replaceAll("<holder>","");
 }
 
-operation domain::DataControl findTreeRoot(  ) : domain::DataControl {
-      var masters =  domain::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->collect(w|w.master);
+operation form::DataControl findTreeRoot(  ) : form::DataControl {
+      var masters =  form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->collect(w|w.master);
       for ( master in masters ){
          if (master = self )
             return self;

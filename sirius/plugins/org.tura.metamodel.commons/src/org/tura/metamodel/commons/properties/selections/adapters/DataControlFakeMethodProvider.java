@@ -12,7 +12,8 @@ public class DataControlFakeMethodProvider  implements IWorkbenchAdapter ,IRetur
 
 	@Override
 	public Object getReturnType(Object o) {
-		return null;
+		DataControlFakeMethod a = (DataControlFakeMethod) o;
+		return a.getType();
 	}
 
 	@Override

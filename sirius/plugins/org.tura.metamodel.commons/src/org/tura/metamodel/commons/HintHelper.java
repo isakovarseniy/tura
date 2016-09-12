@@ -7,6 +7,7 @@ public class HintHelper {
     
     public HintHelper(){
     	hash.put("Model.Form.DataControl.Command", new String[]{"Model","Form","Data Control","command"});
+    	hash.put("Model.Form.DataControl.NestedCommand", new String[]{"Model","Form","Data Control","nested.command"});
     }
     
     public String[] get(String key){

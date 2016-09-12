@@ -44,10 +44,9 @@ operation  searchCommand(dc,command) {
    dc.search = trigger;
    
    commonInit(dc,command,trigger,"find");
-   
    var ctxParam = null;
    var k =0 ;
-	var treedc = dc.findTreeRoot();
+   var treedc = dc.findTreeRoot();
    for ( parameter in  trigger.methodRef.parameters){
        var i = k.toString();
 	   if (treedc.~treeRoot.isDefined()){

@@ -44,6 +44,7 @@ import form.CanvasFrame;
 import form.ContextParameter;
 import form.ContextParameters;
 import form.ContextValue;
+import form.Controls;
 import form.DataControl;
 import form.Form;
 import form.FormFactory;
@@ -81,6 +82,7 @@ public class QueryHelper {
 	private static String MODEL_PACKAGE = "Model types";
 	private static String MESSAGE_TYPE = "Message";
 	private static String DATA_CONTROL="Data control";
+	private static String TREE_DATA_CONTROL="Tree data control";
 	private static String STYLE_TYPE ="Style";
 	private static String GROUP_TYPE="Group";
 	private static String ROLE_TYPE="Role";
@@ -180,6 +182,9 @@ public class QueryHelper {
 			frm = (Form) ((ViewArea) obj).eContainer().eContainer().eContainer();
 		}
 		
+		if (obj instanceof Controls) {
+			frm = (Form) ((Controls) obj).eContainer();
+		}
 		
 		// if (root.getElement() instanceof domain.MenuView) {
 		// domain.Views views = (Views) (((domain.MenuView) root.getElement())
@@ -205,31 +210,19 @@ public class QueryHelper {
 		return frm;
 	}
 
-	// @SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "unchecked" })
 	public void getTreeLeafs(List<Object> ls, DataControl root) throws Exception {
-		throw new RuntimeException();
+		String query = "form::Relation.allInstances()->select(r|r.isTree=true and r.master.uid ='" + root.getUid()
+				+ "')->collect(r|r.detail)";
 
-		// ls.add(root);
-		//
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper =
-		// ocl.createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Relation.allInstances()->select(r|r.isTree=true
-		// and r.master.uid ='"
-		// + root.getUid() + "')->collect(r|r.detail)");
-		//
-		// Collection<domain.DataControl> map = (Collection<domain.DataControl>)
-		// ocl
-		// .evaluate(root, query);
-		//
-		// for (domain.DataControl dc : map) {
-		// if (!ls.contains(dc)) {
-		// getTreeLeafs(ls, dc);
-		// }
-		// }
+		ls.add(root);
+		Collection<DataControl> map = (Collection<DataControl>) internalEvaluate(root, query);
+
+		for (DataControl dc : map) {
+			if (!ls.contains(dc)) {
+				getTreeLeafs(ls, dc);
+			}
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -873,31 +866,12 @@ public class QueryHelper {
 	}
 
 	public TypeElement findNullType(Object obj) {
-		throw new RuntimeException();
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Primitive.allInstances()->select(r|r.oclAsType(domain::Primitive).name
-		// = 'Null' and r.oclAsType(domain::Primitive).parent.parent.name ='"
-		// + InitDiagram.PRIVATE_PACKAGE + "')");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.Primitive> map = (Collection<domain.Primitive>) ocl
-		// .evaluate(obj, query);
-		//
-		// if (map.size() != 0)
-		// return map.iterator().next();
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// }
-		// return null;
+		 try {
+				return findPrimitive((EObject) obj, "Null");
+		 } catch (Exception e) {
+		   LogUtil.log(e);
+		 }
+		 return null;
 	}
 
 	public TypeElement findSearchCriteriaType(Object obj) {
@@ -1021,34 +995,12 @@ public class QueryHelper {
 	}
 
 	public TypeElement findTreeDataControlType(Object obj) {
-		throw new RuntimeException();
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Package.allInstances()->select(r|r.oclAsType(domain::Package).name='"
-		// + InitDiagram.BASE_PACKAGE
-		// + "').oclAsType(domain::Package)."
-		// + "typedefinition.types->select(r|(r.oclIsKindOf(domain::Type) and
-		// r.oclAsType(domain::Type).name = 'Tree data control') )");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.TypeElement> map = (Collection<domain.TypeElement>)
-		// ocl
-		// .evaluate(obj, query);
-		//
-		// if (map.size() != 0)
-		// return map.iterator().next();
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// }
-		// return null;
+		 try {
+				return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, TREE_DATA_CONTROL);
+		 } catch (Exception e) {
+		   LogUtil.log(e);
+		 }
+		 return null;
 	}
 
 	public List<NickNamed> collectRefreshedAeas(Views views) throws Exception {
