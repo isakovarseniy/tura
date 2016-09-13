@@ -1095,7 +1095,6 @@
                     <root uid="3f85e1a6-865a-405b-9680-f78b4c01d188">
                       <preFormTrigger uid="c861c625-4436-40b0-86c8-491fbae9dacd"/>
                       <variables typeRef="5352d67e-39ad-4a53-8f0e-d20ad0956dd7" uid="5698d27f-dba3-4461-9299-7a93ce82f16c" name="qw" paramRef="8083352b-0796-4e55-8a19-29bb2427ed58"/>
-                      <variables uid="72419647-e9c5-4ee8-81ac-a4797d004c20"/>
                     </root>
                     <controls uid="18e9d3f7-efd6-48a6-b913-1d7762d97f6b" name="Departments">
                       <baseType typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d"/>
@@ -1321,6 +1320,7 @@
                           </value>
                         </parameters>
                       </search>
+                      <artificialFields uid="bcc21b3b-0e83-404c-b29f-a3a7d72be1a6" name="Artificial field1"/>
                       <defaultSearch/>
                       <defaultOrderBy/>
                     </controls>
@@ -1398,6 +1398,85 @@
                             <expression uid="9c48d516-6d37-444a-969c-db31d48e8c8e" objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
                             <expression uid="129a98ff-9c0b-4ae8-ab36-a158df0e4d70" objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
                             <expression uid="ed5f1e00-c885-43d0-870e-ada102c50275" objRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                    </controls>
+                    <controls uid="ecefaf37-4944-4322-882d-5d0a6655316d" name="dc">
+                      <baseType typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="8e8bf570-1e06-474d-9ed4-8c395ce52c76">
+                        <parameters uid="3daab042-66f1-427f-936e-c88dd0d78958" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="28d0fb76-a696-4eec-b370-49a9c223c0d3" value="Types repository.Base Repository.Model types.Model types::Base type">
+                            <expression uid="77d0986c-83c5-4282-8224-df729874e0a8" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="4e1aac69-fc89-4f1f-9703-13325e0dcb9c" objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="476d1e05-68de-48a4-847c-9e8e3c8c2a40" objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="06872f41-507c-49ff-a91f-eb30a097d657" objRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <insert methodRef="af699e3b-4d57-4649-8fa0-60f4e52abb98" uid="e6250e03-20ef-4062-80c1-8abb170c8972">
+                        <parameters uid="343de6c6-652a-40c3-bc02-f9d3d5a82409" refObj="ed121d61-27bb-42ab-9e84-2304521ab847">
+                          <value uid="ebe59432-c2d6-4606-ab9d-f3566af5faa1" value="Data controls.dc.currentObject">
+                            <expression uid="48ecb3b5-674d-42af-afc4-1c0bdb455175" expressionType="DataControlHolder"/>
+                            <expression uid="0489fffd-935b-4fa3-b8f2-a7316b3d2dc4" objRef="ecefaf37-4944-4322-882d-5d0a6655316d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="14dc00ef-c92f-45a8-93f0-a666d5d5a048" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </insert>
+                      <update methodRef="1a6374ef-6469-49b8-8eb0-760e6e273f23" uid="0b904c30-16ee-4ed4-8fd1-81e0c39ef333">
+                        <parameters uid="a308cbd6-849e-4309-91f6-0d223b9672ac" refObj="40b2187e-6059-4345-a69e-427102883a07">
+                          <value uid="1e31cd1d-7ae1-4e5b-a02a-1dfb81a08462" value="Data controls.dc.currentObject">
+                            <expression uid="f43e049d-0292-4c1e-9295-6135f006806d" expressionType="DataControlHolder"/>
+                            <expression uid="fb3de8ca-d6c3-4aa7-beb7-8fe02f8ee16b" objRef="ecefaf37-4944-4322-882d-5d0a6655316d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="7f1e84d4-a470-4c9f-8e73-77c3eeb9fe13" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </update>
+                      <remove methodRef="c3a41d83-bd58-49ce-a7f8-d2b2ebf8a97e" uid="d94c0152-b596-460f-8513-c59506f9a639">
+                        <parameters uid="4fa45a12-e88f-4aa0-aa0f-57ac5809f6a0" refObj="30e1a3a4-9359-41e3-828a-249d5ceeefb7">
+                          <value uid="1e77b6a9-78ed-44b8-901c-910052bb45b8" value="Data controls.dc.currentObject">
+                            <expression uid="b4581378-f350-4fc4-902d-df4c4fc9aef6" expressionType="DataControlHolder"/>
+                            <expression uid="475cb0c1-782a-4ba7-8875-b3ffe7e08570" objRef="ecefaf37-4944-4322-882d-5d0a6655316d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="3ae08cee-0da3-438f-8ccb-c6e7bf0f97f5" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </remove>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="75bf236f-79a7-402b-812a-efaae34ce5c6">
+                        <parameters uid="2701602d-5820-4b01-8ba8-54eabceaa8c7" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="730c80ef-0b67-479f-8fab-555f48863784" value="Data controls.dc.searchCriteria">
+                            <expression uid="32ad9c8d-3c21-427f-ae7a-2b6039a82578" expressionType="DataControlHolder"/>
+                            <expression uid="e3d06318-cdbf-4478-b1fa-7240735fcb85" objRef="ecefaf37-4944-4322-882d-5d0a6655316d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="ec2daa1e-ed57-4213-b480-210f22c9f37b" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="c47ab7d7-4a07-4e11-b654-f22841866791" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="6c480f2b-bae2-487b-9819-94d25bf67cd3" value="Data controls.dc.orderCriteria">
+                            <expression uid="4e331c1d-490e-4137-bd76-e46726504760" expressionType="DataControlHolder"/>
+                            <expression uid="a8715768-b01e-4cb2-8453-0aae76b420f4" objRef="ecefaf37-4944-4322-882d-5d0a6655316d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="d3445da7-7e88-480f-9706-348b36359547" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="92bd6fcc-0569-4372-a999-3edb140d8cea" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="4d4d1ac2-0ef4-4116-b2d8-fac46da2d87c" value="Data controls.dc.start Index">
+                            <expression uid="a5a50d2f-d032-434e-950e-0614d29992fe" expressionType="DataControlHolder"/>
+                            <expression uid="63a25cb7-383f-4ed1-a933-438294092a62" objRef="ecefaf37-4944-4322-882d-5d0a6655316d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="b39bb8a9-cf17-4078-90fa-48a667a7ee2e" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="bfdcb9b9-666f-4b6a-8b9e-8d0fc36548a8" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="8035897a-3213-430b-bc61-d790b9612678" value="Data controls.dc.end Index">
+                            <expression uid="c30568ac-7912-46d2-8edf-847f2c7a34d3" expressionType="DataControlHolder"/>
+                            <expression uid="e69e1abe-ccf1-44eb-b832-cc4581800e75" objRef="ecefaf37-4944-4322-882d-5d0a6655316d" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="1db8c128-a082-4db0-9ce7-296f078271fa" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="8fbcbaa7-167d-41bd-b96a-2c91a0dc738b" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="6e89a38d-d052-4db2-ac34-bcf5df068378" value="Types repository.Base Repository.Model types.Model types::Base type">
+                            <expression uid="a062e05f-a20d-417b-a1c1-1f96e8aae0c6" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="805d5efe-b81d-49a2-b750-a496d4660aba" objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="14a02442-1956-4019-93de-6a76f9195c54" objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="fb7279d0-43f6-44b4-be95-c1f391487655" objRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" order="3" expressionType="TypeImpl"/>
                           </value>
                         </parameters>
                       </search>

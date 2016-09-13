@@ -14,7 +14,7 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Enumerator name repetition validation" level="ERROR" message="Enumerator cannot have same name " targetClass="type.Enumerator">
         <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(type::TypeGroup).types->select(q|q.oclAsType(type::TypeElement).name = self.name)->size()=1"/>
       </ownedRules>
-      <ownedRules xsi:type="validation:SemanticValidationRule" name="TypeReference typeRef validation" level="ERROR" message="TypeReference typeRef cannot be empty " targetClass="type.TypeReference">
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="TypePointer typeRef validation" level="ERROR" message="TypePointer typeRef cannot be empty " targetClass="type.TypePointer">
         <audits auditExpression="aql:self.typeRef &lt;> null"/>
       </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Attribute name validation" level="ERROR" message="Attribute name cannot be empty " targetClass="type.Attribute">
@@ -34,6 +34,36 @@
       </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Operation return type  validation" level="ERROR" message="Operation return type cannot be empty " targetClass="type.Operation">
         <audits auditExpression="aql:self.returnValue &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="DataControl name validation" level="ERROR" message="DataControl name cannot be empty " targetClass="form.DataControl">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="DataControl name repetition validation" level="ERROR" message="form.DataControl cannot have same name " targetClass="form.DataControl">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).controls->select(q|q.oclAsType(form::DataControl).name = self.name)->size()=1"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Create method definition validation" level="ERROR" message="Create method  is not defined" targetClass="form.DataControl">
+        <audits auditExpression="aql:self.create &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Insert method definition validation" level="ERROR" message="Insert method  is not defined" targetClass="form.DataControl">
+        <audits auditExpression="aql:self.insert &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Update method definition validation" level="ERROR" message="Update method  is not defined" targetClass="form.DataControl">
+        <audits auditExpression="aql:self.update &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Delete method definition validation" level="ERROR" message="Delete method  is not defined" targetClass="form.DataControl">
+        <audits auditExpression="aql:self.remove &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Search method definition validation" level="ERROR" message="Search method  is not defined" targetClass="form.DataControl">
+        <audits auditExpression="aql:self.search &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Base type  definition validation" level="ERROR" message="Base type  is not defined" targetClass="form.DataControl">
+        <audits auditExpression="aql:self.baseType &lt;> null  and self.baseType.typeRef &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Artificial field name validation" level="ERROR" message="ArtificialField name cannot be empty " targetClass="form.ArtificialField">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Artificial name repetition validation" level="ERROR" message="form.ArtificialField cannot have same name " targetClass="form.ArtificialField">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(form::DataControl).artificialFields->select(q|q.oclAsType(form::ArtificialField).name = self.name)->size()=1"/>
       </ownedRules>
     </validationSet>
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Message Library" titleExpression="aql:self.name" domainClass="message.MessageLibrary">

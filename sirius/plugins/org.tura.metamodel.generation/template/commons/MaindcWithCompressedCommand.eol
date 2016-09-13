@@ -3,22 +3,22 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/dcWithCo
    var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
    var hintHelper = new Native('org.tura.metamodel.commons.HintHelper');
 
-   if (not self.baseType.isDefined()){
+   if (self.baseType.isDefined()  and self.baseType.typeRef <> null ){
+   
+	   var commandList =queryHelper.queryTypesByHint(self,"Model.Form.DataControl.Command");
+	   
+	    var form = queryHelper.getForm(self);
+	    var treeRoots =   queryHelper.findTreeRootControls(form);
+	    for ( tR in treeRoots ){
+	        var treeRoot = tR.getDc();
+	        treeRoot.~treeRoot=true;       
+	    }
+	   
+	   for( command in commandList ) {
+	       comperssorComandProcessor(self,command);
+	   }
+  }else{
       var util = new Native('org.tura.metamodel.commons.Util');
       util.message("Info","Base type is not defined");
       return;
-   }
-   
-   var commandList =queryHelper.queryTypesByHint(self,"Model.Form.DataControl.Command");
-   
-    var form = queryHelper.getForm(self);
-    var treeRoots =   queryHelper.findTreeRootControls(form);
-    for ( tR in treeRoots ){
-        var treeRoot = tR.getDc();
-        treeRoot.~treeRoot=true;       
-    }
-   
-   for( command in commandList ) {
-       comperssorComandProcessor(self,command);
-   }
-
+  }
