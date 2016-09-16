@@ -1383,7 +1383,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="Dependency" semanticCandidatesExpression="feature:dependencies" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="feature:detail" sourceFinderExpression="feature:master" domainClass="form.Dependency" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20detail%20Dependency'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20master%20Dependency']">
-          <style targetArrow="InputFillClosedArrow">
+          <style lineStyle="dash" targetArrow="InputFillClosedArrow">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
             <beginLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>

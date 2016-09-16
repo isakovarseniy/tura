@@ -87,6 +87,7 @@ public class QueryHelper {
 	private static String GROUP_TYPE="Group";
 	private static String ROLE_TYPE="Role";
 	private static String ICON_TYPE="Icon";
+	private static String BASE_TYPE="Base type";
 
 	
 	private HintHelper hintHelper = new HintHelper();
@@ -978,7 +979,7 @@ public class QueryHelper {
 
 	public TypeElement findBaseType(Object obj) {
 		 try {
-		     Util.getBase((DataControl) obj);
+				return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, BASE_TYPE);
 		 } catch (Exception e) {
 			   LogUtil.log(e);
 			 }
