@@ -65,6 +65,39 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Artificial name repetition validation" level="ERROR" message="form.ArtificialField cannot have same name " targetClass="form.ArtificialField">
         <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(form::DataControl).artificialFields->select(q|q.oclAsType(form::ArtificialField).name = self.name)->size()=1"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="CanvasFramel name validation" level="ERROR" message="Name cannot be empty " targetClass="form.CanvasFrame">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="CanvasFramel name repetition validation" level="ERROR" message="Name repetition problem" targetClass="form.CanvasFrame">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(form::Views).canvases->select(q|q.oclAsType(form::CanvasFrame).name = self.name)->size()=1"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="CanvasFramel multi connections validation" level="ERROR" message="Canvas cannot be connected to multiple ViewPort" targetClass="form.CanvasFrame">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(form::Views).viewInheritances->select(r|r.oclAsType(form::ViewInheritance).target.uid=self.oclAsType(form::CanvasFrame).uid)->size()&lt;2"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Canvas -  viewport connections validation" level="ERROR" message="Canvas is not connected to  ViewPort" targetClass="form.Canvas">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(form::Views).viewInheritances->select(r|r.oclAsType(form::ViewInheritance).target.uid=self.oclAsType(form::CanvasFrame).uid)->size()=1"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="TabPage connections validation" level="ERROR" message="TabPage is not connected to  TabCanvas" targetClass="form.TabPage">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(form::Views).tabPagesInheritances->select(r|r.oclAsType(form::TabPagesInheritance).target.uid=self.oclAsType(form::TabPage).uid)->size()=1"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="ViewPort name validation" level="ERROR" message="Name cannot be empty " targetClass="form.ViewPort">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="ViewPort name repetition validation" level="ERROR" message="Name repetition problem" targetClass="form.ViewPort">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().eContainer().oclAsType(form::Views).canvases->select(r|r.oclIsKindOf(form::ViewPortHolder) and r.oclAsType(form::ViewPortHolder).viewElement->select(q|q.oclIsTypeOf(form::ViewPort) and q.oclAsType(form::ViewPort).name &lt;> null and  q.oclAsType(form::ViewPort).uid &lt;> self.oclAsType(form::ViewPort).uid  and q.oclAsType(form::ViewPort).name=self.name)->size()> 0)->size()=0"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="ViewAria name validation" level="ERROR" message="Name cannot be empty " targetClass="form.ViewAria">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="ViewAria name repetition validation" level="ERROR" message="Name repetition problem" targetClass="form.ViewArea">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().eContainer().oclAsType(form::Views).canvases->select(r|r.oclIsKindOf(form::ViewPortHolder) and r.oclAsType(form::ViewPortHolder).viewElement->select(q|q.oclIsTypeOf(form::ViewArea) and q.oclAsType(form::ViewArea).name &lt;> null and  q.oclAsType(form::ViewArea).uid &lt;> self.oclAsType(form::ViewArea).uid  and q.oclAsType(form::ViewArea).name=self.name)->size()> 0)->size()=0"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="MenuDefinition name validation" level="ERROR" message="Name cannot be empty " targetClass="form.MenuDefinition">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="MenuDefinition name repetition validation" level="ERROR" message="Name repetition problem" targetClass="form.MenuDefinition">
+        <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(form::Views).menus->select(q|q.oclAsType(form::MenuDefinition).name = self.name)->size()=1"/>
+      </ownedRules>
     </validationSet>
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Message Library" titleExpression="aql:self.name" domainClass="message.MessageLibrary">
       <ownedLineMappings name="Key" domainClass="message.Message" semanticCandidatesExpression="feature:messages" headerLabelExpression="service:generateName">
@@ -2484,7 +2517,7 @@
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_blue']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="MenuDefinition" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Menu%20Definition']" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='MenuDefinition%20edit%20label']" semanticCandidatesExpression="aql:self.menus" domainClass="form.MenuDefinition">
@@ -2495,7 +2528,7 @@
           </style>
         </nodeMappings>
         <edgeMappings name="TabPagesInheritance" semanticCandidatesExpression="aql:self.tabPagesInheritances" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@nodeMappings[name='TabCanvas']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@containerMappings[name='TabPage']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="form.TabPagesInheritance" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20TabPagesInheritance'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20TabPagesInheritance']">
-          <style targetArrow="InputFillClosedArrow">
+          <style lineStyle="dash" targetArrow="InputFillClosedArrow">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
             <beginLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
@@ -2565,7 +2598,7 @@
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_green']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
           </style>
         </containerMappings>
         <containerMappings name="Canvas" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Canvas%20edit%20label']" semanticCandidatesExpression="aql:self.canvases" domainClass="form.Canvas" childrenPresentation="VerticalStack">
@@ -2703,7 +2736,7 @@
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_green']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
         <toolSections name="Nodes">
@@ -3339,7 +3372,7 @@
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_green']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
         <toolSections name="Nodes">
