@@ -132,7 +132,7 @@ public class ParametersPropertySelection extends GridProperty {
 
 		@Override
 		public void modify(Object element, Object value) {
-			if (element == null)
+			if (element == null || value instanceof String)
 				return;
 			super.modify(element, value);
 			TableItem item = (TableItem) element;

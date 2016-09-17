@@ -295,21 +295,30 @@
           <types xsi:type="tura.type:Type" uid="d6536d41-d96c-4705-bae0-3894f139173f" name="Nested Insert command">
             <classifiers uid="85bf2069-87d3-49c1-8841-87aa0f699c16" hint="625ac7d6-d94f-4fae-8cfe-cbe5be594cfe"/>
             <operations uid="6b5f05d7-e1c6-4afb-bb44-7fa2d8b4079d" name="insert">
-              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="664f1945-9403-451a-9fae-4ae48d114c71" name="object"/>
+              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="664f1945-9403-451a-9fae-4ae48d114c71" name="main object"/>
+              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="865102f4-14c0-41c3-bce0-545fcd01ce44" name="parent object" order="1"/>
+              <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ea0ed4f7-eed8-4d64-9c5b-e9ff46b45220" name="relation name" order="2"/>
+              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="a92fffac-3f01-441b-8df2-bc20f6fa725b" name="current object" order="3"/>
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
           </types>
           <types xsi:type="tura.type:Type" uid="31c900f6-c0fd-47cf-9962-6274ff75d977" name="Nested Delete command">
             <classifiers uid="c03c7b5d-65b7-4e1d-b115-d68cb9486c38" hint="625ac7d6-d94f-4fae-8cfe-cbe5be594cfe"/>
             <operations uid="089e1a76-211b-4613-bbf2-16ce397aa1c3" name="remove">
-              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="973ad07d-054c-4c17-b44f-2bb3c4b3429c" name="object"/>
+              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="973ad07d-054c-4c17-b44f-2bb3c4b3429c" name="main object"/>
+              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="749941ea-9382-40d3-93d7-0c7ebb8f312a" name="parent object" order="1"/>
+              <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8a430dfd-bdff-4551-ba7f-1277d33d848d" name="relation name" order="2"/>
+              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="eb44bae7-1dd3-45e5-a512-9d7847fb3868" name="current object" order="3"/>
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
           </types>
           <types xsi:type="tura.type:Type" uid="61b019ba-b211-4733-b119-4263553e0ede" name="Nested Update command">
             <classifiers uid="8d042568-d4ef-4053-91ec-762f37fcf39c" hint="625ac7d6-d94f-4fae-8cfe-cbe5be594cfe"/>
             <operations uid="5d3b61f9-edca-4bb6-9f38-9f54b377b9ae" name="update">
-              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="c697a761-673e-4244-9bb6-c9c755613ee2" name="object"/>
+              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="c697a761-673e-4244-9bb6-c9c755613ee2" name="main object"/>
+              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="b2e0b1b8-4715-406e-bc27-21a4aa15799f" name="parent object" order="1"/>
+              <parameters typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="4d22ddf7-ef45-4358-b9e5-0a4dbba91a2c" name="relation name" order="2"/>
+              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="bfcb50fc-2565-46ee-8c3b-f945f18960e2" name="current object" order="3"/>
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
           </types>
@@ -3212,6 +3221,1139 @@
                       <defaultSearch/>
                       <defaultOrderBy/>
                     </controls>
+                  </datacontrols>
+                </forms>
+              </applicationUIPackages>
+              <applicationUIPackages uid="b7631680-1c6c-4521-bae3-a95855c3820b" name="Nested form package">
+                <forms uid="679b6e78-b6ec-4d08-8a67-e26b9451c26b" name="HR controller">
+                  <view uid="e01d0504-f712-4719-89c1-6904c76fab94"/>
+                  <datacontrols uid="0da0244f-987a-4fdc-9c7a-f82fa5b6d679">
+                    <controls uid="dde88885-aa16-4614-98d3-6a7722185411" name="Company">
+                      <baseType typeRef="24bfd56d-56ab-467f-afb3-c27050fa7d16"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="606fe6f5-0f1a-48b8-972c-c8811e3d541c">
+                        <parameters uid="c436076d-a3e9-4389-9117-2f4b40e1d79b" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="d6b9694e-c0b5-4a50-80f2-1889b9f692cd" value="Types repository.HR domain.Model Interface.Model Interface::Company type">
+                            <expression uid="cfe1f08c-9382-4c85-8d7a-92dd771a67ba" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="f4e87c66-c252-452c-a561-51eb62d560d7" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="12c2824f-1d5f-4814-8b92-0ec5f1b7d5f3" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="b9a9e3fd-cbfc-4908-837f-d11f140743d9" objRef="24bfd56d-56ab-467f-afb3-c27050fa7d16" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
+                      </create>
+                      <insert methodRef="af699e3b-4d57-4649-8fa0-60f4e52abb98" uid="791c1b7e-5254-424c-b092-2389b5bc805f">
+                        <parameters uid="7d64c2f1-71ee-4f02-a7c1-494423b117b1" refObj="ed121d61-27bb-42ab-9e84-2304521ab847">
+                          <value uid="ab4a5df1-a2e8-4463-b718-68cf643d97ea" value="Data controls.Company.currentObject">
+                            <expression uid="427c6c00-1ac9-4520-82cd-9f5adaab03cf" expressionType="DataControlHolder"/>
+                            <expression uid="71049fa6-c9e2-4e95-a16c-6c39362780d4" objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="669a6022-7c26-4826-9b5d-08c179acedc3" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
+                      </insert>
+                      <update methodRef="1a6374ef-6469-49b8-8eb0-760e6e273f23" uid="2c8babc9-0785-42cd-8e84-d7b2a2ad9a6f">
+                        <parameters uid="b0b520f5-3c4d-46cb-a4ff-361556f42669" refObj="40b2187e-6059-4345-a69e-427102883a07">
+                          <value uid="83e37e26-d2c5-4e82-b897-d7c0a0d37f8b" value="Data controls.Company.currentObject">
+                            <expression uid="17882931-3e53-4e13-85b1-2e36d5cc78b8" expressionType="DataControlHolder"/>
+                            <expression uid="709b1eab-5956-49df-9819-f6ee86306542" objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="f55bf234-533e-4b2e-8d1f-f2b5d6459f44" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
+                      </update>
+                      <remove methodRef="c3a41d83-bd58-49ce-a7f8-d2b2ebf8a97e" uid="cad2c677-b36e-408e-ba84-1b225ff1cb74">
+                        <parameters uid="92df1bde-4ba0-4ebe-ac9e-98bcaab159f2" refObj="30e1a3a4-9359-41e3-828a-249d5ceeefb7">
+                          <value uid="6138a5e0-f9fe-4b89-98fd-9c697c7893d8" value="Data controls.Company.currentObject">
+                            <expression uid="5eaf9c74-d8e7-409b-86cd-064827af9ae9" expressionType="DataControlHolder"/>
+                            <expression uid="3d0b9f61-1e64-4185-b80f-6c844f6216fe" objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="2a14a4be-ed39-4c11-9f94-40f34f67a8ce" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
+                      </remove>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="e9ae61ec-901d-49bf-96d4-11e8ae9e3569">
+                        <parameters uid="53d8ed2a-165e-4718-a4ac-840f27cb60d7" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="d5676b64-3d66-47ae-bd8c-51b7fe14d4bc" value="Data controls.Company.searchCriteria">
+                            <expression uid="f42dbd9a-b9bb-4cda-bb0d-539995bb40d0" expressionType="DataControlHolder"/>
+                            <expression uid="3dbbe93d-c93c-4fa4-b037-79cd0df3a918" objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="af5fc623-8a68-492f-804f-c3da066035d2" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="690be6a4-46aa-4162-ae78-070592518da2" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="a7570a43-85dc-447a-8643-9e7db6550297" value="Data controls.Company.orderCriteria">
+                            <expression uid="a81ac411-5bf8-4354-ade5-e89dbd20aae0" expressionType="DataControlHolder"/>
+                            <expression uid="24b981e0-b5bb-4c4e-a244-06abe23934da" objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="e4696373-6887-4adb-9cba-a9d7bb907119" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="044e25a2-1933-434b-b3f0-f9138d9fb3a3" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="397fdb81-345d-41bc-9376-5521da468a2b" value="Data controls.Company.start Index">
+                            <expression uid="db922848-28c5-4717-ad9d-80ebc9ed7039" expressionType="DataControlHolder"/>
+                            <expression uid="3f796750-b72e-424c-b17c-036cef6735f7" objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="02075ff4-8198-4943-b1cb-5ea9b4685b46" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="fb3ab336-2d08-4912-ba8b-79d1f8834eae" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="d7ab2da7-405e-4ef3-b804-81dcc0ff5e99" value="Data controls.Company.end Index">
+                            <expression uid="ce90c0a8-bcc0-4465-b78e-82d1742d5247" expressionType="DataControlHolder"/>
+                            <expression uid="2a556922-64d6-4d2f-b97d-1fbee39e53b0" objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="d6554cab-31ac-4ccd-83b2-631cc88c726d" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="e599c0f9-61e4-4f4d-86c1-f46a8d1380ca" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="02278ddf-6099-48f0-8212-651862238421" value="Types repository.HR domain.Model Interface.Model Interface::Company type">
+                            <expression uid="de92196d-5bd4-4d57-8c7f-910625faff8e" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="fd34a7e8-e28d-447a-8ae0-24cd7d259cec" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="b9332aae-bb7b-43e9-9eac-92b1d5f12622" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="0fc858a6-61fb-4dd2-9b21-f4feb977db38" objRef="24bfd56d-56ab-467f-afb3-c27050fa7d16" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
+                      </search>
+                      <defaultOrderBy/>
+                    </controls>
+                    <controls uid="fca7e563-cd58-4fc8-b662-beb50df032df" name="Country">
+                      <baseType typeRef="63741959-d017-485d-9f05-6900553841d8"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="5ce91805-39c9-41c7-97a6-27c97a1ddc0e">
+                        <parameters uid="9affb920-ef32-4bfc-bba4-97eb84a3aedd" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="630d5df6-a218-4c0c-9242-2a1d3009a035" value="Types repository.HR domain.Model Interface.Model Interface::Country type">
+                            <expression uid="28b533b1-8813-4d0e-9385-adae11c47509" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="f1e64d70-fa33-4bfe-baad-08da9b8a8600" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="260dc629-b1c7-49de-91a3-0f407495ca24" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="7784936b-1585-4572-a51f-6ce698f98032" objRef="63741959-d017-485d-9f05-6900553841d8" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <insert methodRef="6b5f05d7-e1c6-4afb-bb44-7fa2d8b4079d" uid="3570113f-d833-4e5c-a8b4-125497893246">
+                        <parameters uid="9c7b853b-efe3-4d14-be84-a9f7c094dd67" refObj="664f1945-9403-451a-9fae-4ae48d114c71">
+                          <value uid="f8e4ed9a-21a9-48a9-9e3b-647a8eb4ba66" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="1974deae-7f6d-4e37-b0a2-d6eca3380be4" refObj="865102f4-14c0-41c3-bce0-545fcd01ce44">
+                          <value uid="f55de4b8-32af-4730-a0c1-6d6929be12ab" value="Types repository.Primitive package.Null">
+                            <expression uid="f20d55db-4b69-463e-afb9-fa4a40d718f8" expressionType="DomainTypesImpl"/>
+                            <expression uid="6a322fff-a677-4d5a-9fde-40f84b9c0688" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="f8658271-92d0-4eb7-88a0-f5a994948b03" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="5bbfdff9-198a-4df0-9b31-499d95bc229f" refObj="ea0ed4f7-eed8-4d64-9c5b-e9ff46b45220">
+                          <value uid="3f68f34e-88c7-4c2a-b19b-5a3b4cd41e46" constant="true" value="getCountryObject"/>
+                        </parameters>
+                        <parameters uid="a454b104-e70a-4ee3-9384-9e429153cde6" refObj="a92fffac-3f01-441b-8df2-bc20f6fa725b">
+                          <value uid="261a75a8-ed85-4d71-88af-36a7e07dfab8" value="Tree data controls.TreeCountry.Country.currentObject">
+                            <expression uid="57a6b17f-1864-4ff8-bf83-ec0527e1ac81" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="85dd6547-6b94-467d-b1bf-d2fe311020d2" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="d05db54a-850d-4a8d-b02e-c118561c683f" objRef="fca7e563-cd58-4fc8-b662-beb50df032df" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="d4cc679f-24f1-4964-aee6-c06de0d5db95" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </insert>
+                      <update methodRef="5d3b61f9-edca-4bb6-9f38-9f54b377b9ae" uid="4e00945c-1674-4f4e-9220-48ea3a73ce26">
+                        <parameters uid="8ab77673-656a-4d5d-a38f-370b5cef66a6" refObj="c697a761-673e-4244-9bb6-c9c755613ee2">
+                          <value uid="dd89ce55-4ba5-4469-94ec-1e9e63335054" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="a91300eb-7a91-449e-9804-c5be756e5c75" refObj="b2e0b1b8-4715-406e-bc27-21a4aa15799f">
+                          <value uid="500eacf5-840f-417c-aaba-0f64a243767e" value="Types repository.Primitive package.Null">
+                            <expression uid="27550a22-2168-4ed4-a4b0-79af7b27f9bb" expressionType="DomainTypesImpl"/>
+                            <expression uid="363bae60-3f2e-4d03-9a59-387e528d3bc0" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="1d438513-3da0-4bf0-b3c8-a95446d70046" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="24ae9c45-9e7e-4d73-b91d-75fb5e1360f2" refObj="4d22ddf7-ef45-4358-b9e5-0a4dbba91a2c">
+                          <value uid="bfb6ae6b-0c89-4fdd-801d-a36a07fde676" constant="true" value="getCountryObject"/>
+                        </parameters>
+                        <parameters uid="11ff7002-79cc-489f-8788-15f52778bb93" refObj="bfcb50fc-2565-46ee-8c3b-f945f18960e2">
+                          <value uid="624f0880-adcd-43fd-b9e0-a8f6560c02af" value="Tree data controls.TreeCountry.Country.currentObject">
+                            <expression uid="1a329888-d4da-486b-9ba9-7aff50c3bd19" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="c84f6dcc-b8f4-46d4-9d21-9e35a2dd40bd" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="076e0cd6-34c6-47d2-8f7a-a1d0f1140282" objRef="fca7e563-cd58-4fc8-b662-beb50df032df" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="37efe3f6-8b1f-4600-b3d3-903a2fb6ff69" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </update>
+                      <remove methodRef="089e1a76-211b-4613-bbf2-16ce397aa1c3" uid="b721ef86-0a46-4c3f-ab56-0bb2739570cb">
+                        <parameters uid="eabbd31a-f3a5-4507-870f-63e3c54c255c" refObj="973ad07d-054c-4c17-b44f-2bb3c4b3429c">
+                          <value uid="55c218da-c2d7-440a-bf9a-7b7939482a35" value="Data controls.Department.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="ff7161ba-4177-41ae-90e8-19395789a2d5" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="53156906-788f-4a63-93e3-90d02bfba069" refObj="749941ea-9382-40d3-93d7-0c7ebb8f312a">
+                          <value uid="a5e5ca5b-a0b6-4427-8270-36b3c8659876" value="Types repository.Primitive package.Null">
+                            <expression uid="2248f7b5-f711-4a38-8f33-14907e80dff8" expressionType="DomainTypesImpl"/>
+                            <expression uid="b898921e-942d-4b56-845b-eaab03b7582f" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="41f45495-f276-4759-b707-d5b0fa0b0438" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="4746c2f8-d812-42c2-b688-2c28570a102e" refObj="8a430dfd-bdff-4551-ba7f-1277d33d848d">
+                          <value uid="cd9d3b52-4872-4078-9a59-07eb2ebdde2f" constant="true" value="getCountryObject"/>
+                        </parameters>
+                        <parameters uid="965ee04a-2974-4476-bf4c-a67c96880e26" refObj="eb44bae7-1dd3-45e5-a512-9d7847fb3868">
+                          <value uid="3f9c9f7c-d028-42c6-9627-62708ac05351" value="Tree data controls.TreeCountry.Country.currentObject">
+                            <expression uid="3cd3ce54-2d60-483d-b130-56b2a8b7f77b" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="cf787718-d4b5-404c-8992-7b15e9d6ab69" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="5c776d15-481d-45f8-88f0-90a8d574ab96" objRef="fca7e563-cd58-4fc8-b662-beb50df032df" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="1ccc35fb-6653-4511-896c-2b82c6250e38" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </remove>
+                      <search methodRef="adec09de-9853-4819-9090-662eb6abb24b" uid="541d8b85-cd52-4d20-9241-295bf5ff2d24">
+                        <parameters uid="90338fb5-0929-470f-bf32-2688460ba11b" refObj="dc3c5570-0eda-48dc-ac11-6725f3fe423f">
+                          <value uid="971aad24-15e7-468e-8812-c64de6fed6b4" value="Types repository.Primitive package.Null">
+                            <expression uid="d00c528e-9a85-448f-9120-098ebd051c38" expressionType="DomainTypesImpl"/>
+                            <expression uid="2e2275c5-a8c3-4feb-8b5d-a8ca4f8c3e81" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="8d5f3512-d94c-4f08-96ac-9e6ee549de78" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="6751d3b2-c5be-4fb6-9581-2ee845f36c81" refObj="be8ecff3-fe34-4d93-be69-bae32ee14e3b">
+                          <value uid="a1af0759-6f09-4590-a747-5951f5e662ee" constant="true" value="getCountryObject"/>
+                        </parameters>
+                        <parameters uid="2d92deb5-0f3a-4910-b2bb-7c735d4b5571" refObj="5c3538c3-cf6f-4888-a13a-e4ac6c171855">
+                          <value uid="dca814de-cff3-4226-aefd-0280ef580e53" value="Tree data controls.TreeCountry.Country.searchCriteria">
+                            <expression uid="11fbf991-247a-42c8-8d3d-b0f0aa1baeaf" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="b3b35e79-e02c-4bd9-a9b4-a15ea35e0225" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="6f56cf7f-9d65-4e4b-8e19-19e90d37e324" objRef="fca7e563-cd58-4fc8-b662-beb50df032df" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="0fc374d7-8a64-4094-b325-06524335239f" order="3" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="dcbce9f5-5bfa-45e8-856c-98a604a90b7f" refObj="70d7e1af-5371-4ec0-b170-2309ab9d790e">
+                          <value uid="12e9695c-c4da-40b7-bd63-a7b94b6a0609" value="Tree data controls.TreeCountry.Country.orderCriteria">
+                            <expression uid="1ee6ed4c-d7f6-46a3-ac17-af363327c368" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="4290d73a-60ff-4e6c-852f-62556671d1ff" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="2882bc5b-1a1c-4371-9411-0dc19024476c" objRef="fca7e563-cd58-4fc8-b662-beb50df032df" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="70218763-ab9c-4d5d-a6c9-bcee91e65683" order="3" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="bab882a3-2f97-4bb8-a82a-726266162093" refObj="f450ad2e-ca99-4e46-b2dd-212e0518cd04">
+                          <value uid="5f65e090-a0f4-4c26-80c4-0cd49e942da1" value="Types repository.HR domain.Model Interface.Model Interface::Country type">
+                            <expression uid="0252b9b8-14cb-4290-956a-ff11e85deefe" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="0ab6d8eb-f90d-40f0-93c9-250fd08fbf19" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="39ba840d-41a1-465f-8682-773de828ec93" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="75549978-d972-4b0d-a6dd-96b69c368270" objRef="63741959-d017-485d-9f05-6900553841d8" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                    </controls>
+                    <controls uid="1015de95-3971-401b-9632-891ce9310757" name="State">
+                      <baseType typeRef="31870394-1bfa-438e-b57a-df34481cbaa3"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="d81da6cd-b6dd-4f2d-b8a6-0ea16e8898d0">
+                        <parameters uid="aed52cab-ae89-41c1-a1e3-3f68a5be1c9a" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="8537889d-850d-4d18-b9f4-8e2b6ac6dbfc" value="Types repository.HR domain.Model Interface.Model Interface::State type">
+                            <expression uid="3e5a4d99-76e9-4e9f-b3a7-ce27e1320dbd" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="5bb1e22b-9caf-44de-a378-8a9fccb82263" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="ab35f800-6e6a-4c6b-a035-ca7cca0e57d6" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="b3205001-ab1e-4557-8881-e351d707b41b" objRef="31870394-1bfa-438e-b57a-df34481cbaa3" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <insert methodRef="6b5f05d7-e1c6-4afb-bb44-7fa2d8b4079d" uid="9e9580eb-b01b-4d89-af20-a225dc954ead">
+                        <parameters uid="0cc680b3-01cd-4bf5-a4dc-cc2933bee47b" refObj="664f1945-9403-451a-9fae-4ae48d114c71">
+                          <value uid="e673c2b7-aef4-406d-83ed-fe362dcd7101" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="dc09f8fe-a189-4a55-a8f7-3097ee19b72a" refObj="865102f4-14c0-41c3-bce0-545fcd01ce44">
+                          <value uid="a7eab9aa-3d3a-499f-bf58-f01022eb32e6" value="Types repository.Primitive package.Null">
+                            <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="5349387a-29fa-4e57-8d94-23db7e107838" refObj="ea0ed4f7-eed8-4d64-9c5b-e9ff46b45220">
+                          <value uid="eb436bea-69e2-47f0-81c2-7559239ae847" constant="true" value="getStateObject"/>
+                        </parameters>
+                        <parameters uid="7c472a21-1e81-4902-bf6c-ffd9d9ab1647" refObj="a92fffac-3f01-441b-8df2-bc20f6fa725b">
+                          <value uid="d35f4f9e-e104-4f3a-b14c-81f3af1b4c7c" value="Tree data controls.TreeCountry.State.currentObject">
+                            <expression uid="4de05400-0f4c-49ce-81a6-cd633e8bb138" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="de6e2d05-c18e-48af-86e2-8e09211d4f59" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="bcabebde-a76c-4327-925e-90a1db585fd2" objRef="1015de95-3971-401b-9632-891ce9310757" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="73769368-77d2-4207-ade6-adeb901093cc" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </insert>
+                      <update methodRef="5d3b61f9-edca-4bb6-9f38-9f54b377b9ae" uid="b67b0047-f5c7-4451-b88b-dd233726d276">
+                        <parameters uid="5827e289-f618-45a0-9a5e-2ca6aca4d0d1" refObj="c697a761-673e-4244-9bb6-c9c755613ee2">
+                          <value uid="e852823d-7513-4671-94b4-8e43a5058615" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="59c17c14-2859-4e38-9a49-121e5b06c27e" refObj="b2e0b1b8-4715-406e-bc27-21a4aa15799f">
+                          <value uid="63b128aa-be3e-4d55-8349-caa0de98ee36" value="Types repository.Primitive package.Null">
+                            <expression uid="f4339777-2504-4b54-93f7-1e43e50a23c6" expressionType="DomainTypesImpl"/>
+                            <expression uid="f4666056-5350-4619-ad89-b177f942d51e" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="a2c11d8f-bf15-4a75-9e6d-b9a47c7cedaa" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="4c092b95-a950-4206-9c22-4709f74d14e8" refObj="4d22ddf7-ef45-4358-b9e5-0a4dbba91a2c">
+                          <value uid="1bf9d6f0-2f2a-4118-b699-833a3907d139" constant="true" value="getStateObject"/>
+                        </parameters>
+                        <parameters uid="660cd0bb-ea7a-4640-82b5-e94437c60ac1" refObj="bfcb50fc-2565-46ee-8c3b-f945f18960e2">
+                          <value uid="9cdf8c36-73dd-4791-8a08-0a52166baf1b" value="Tree data controls.TreeCountry.State.currentObject">
+                            <expression uid="c622f9d4-aff5-4fc9-88a9-899b89f18790" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="06000f90-0cac-4e52-9502-62c884dd9671" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="bdd011fe-604b-4b7d-be7b-ae80e91a2f9b" objRef="1015de95-3971-401b-9632-891ce9310757" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="fbee87db-c8b1-4090-a259-0e3101ce9bd5" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </update>
+                      <remove methodRef="089e1a76-211b-4613-bbf2-16ce397aa1c3" uid="816d8fbb-a7ee-4e82-a73c-a9dc83067e74">
+                        <parameters uid="b6d80c30-ab72-4632-a763-25b7b39a5bf4" refObj="973ad07d-054c-4c17-b44f-2bb3c4b3429c">
+                          <value uid="5ef77236-8182-46e8-9009-1f60d48f11f6" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="4dace755-da5d-47b3-9419-57bed5cbca23" refObj="749941ea-9382-40d3-93d7-0c7ebb8f312a">
+                          <value uid="d4053c92-24fb-4d47-947a-2f8e41edbba1" value="Types repository.Primitive package.Null">
+                            <expression uid="fa56ac9e-0b86-455b-8656-17826006faff" expressionType="DomainTypesImpl"/>
+                            <expression uid="691a1ff2-e6be-4495-b50a-61b48f615f74" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="70e4c15f-3e7d-46b4-9069-0b8c6b03f6da" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="77ba96d2-5fb3-4a08-b9d3-0c8cac9f576d" refObj="8a430dfd-bdff-4551-ba7f-1277d33d848d">
+                          <value uid="42e5254b-0088-429a-b6cd-f9d6223d0de1" constant="true" value="getStateObject"/>
+                        </parameters>
+                        <parameters uid="2cb758fe-5233-4427-9688-4c903ecd2dc0" refObj="eb44bae7-1dd3-45e5-a512-9d7847fb3868">
+                          <value uid="f644e1c4-5b9a-4ee9-bbb8-8ee4490d7348" value="Tree data controls.TreeCountry.State.currentObject">
+                            <expression uid="785111ac-5880-4215-baf9-4b8d4985e946" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="3c53c118-3ca9-4d06-bcb1-1963db949eee" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="cc4e6d7f-3872-4434-bc3f-08a6771a82b9" objRef="1015de95-3971-401b-9632-891ce9310757" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="0273030a-fa58-491b-841c-d7edcfce35f4" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </remove>
+                      <search methodRef="adec09de-9853-4819-9090-662eb6abb24b" uid="6ec78b71-784d-485d-ac63-3d64a3beeb6c">
+                        <parameters uid="9fcabb37-f6fe-446e-b9d6-a779312e3141" refObj="dc3c5570-0eda-48dc-ac11-6725f3fe423f">
+                          <value uid="33f6e75e-541f-40a9-a3cc-2db7cdcb5c85" value="Types repository.Primitive package.Null">
+                            <expression uid="25dee1d1-a957-4117-bdeb-da926ec68565" expressionType="DomainTypesImpl"/>
+                            <expression uid="cc31746a-88f6-4065-8d62-f6e467cf28b7" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="4cc9b53f-3e82-42d3-9ac8-3ce32bd76097" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="4b2cccb4-e8d8-43f9-a17b-57a642e13bda" refObj="be8ecff3-fe34-4d93-be69-bae32ee14e3b">
+                          <value uid="8f713b08-52e2-43d3-8f50-ed219d181d1f" constant="true" value="getStateObject"/>
+                        </parameters>
+                        <parameters uid="e4347957-c7a4-447c-9288-8673e477c533" refObj="5c3538c3-cf6f-4888-a13a-e4ac6c171855">
+                          <value uid="1a2ec99a-8c0e-4bf5-886d-1715d3ddd98e" value="Tree data controls.TreeCountry.State.searchCriteria">
+                            <expression uid="3f07b3bb-c2c5-4374-87c4-df64a5fec8c6" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="c79d1f82-b9af-4d07-9925-586a208af6f8" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="8a208e7b-1738-4154-9b6c-66bb4799d13d" objRef="1015de95-3971-401b-9632-891ce9310757" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="9d44b352-3230-4f26-bf72-c562e916d461" order="3" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="c1b8fd2f-f1fe-40e9-9b9e-d846eea5bfef" refObj="70d7e1af-5371-4ec0-b170-2309ab9d790e">
+                          <value uid="d2a8ce41-eae0-4141-be0f-46360c76b151" value="Tree data controls.TreeCountry.State.orderCriteria">
+                            <expression uid="85c07f83-0757-4833-b9da-47ef2e393167" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="91a42fc9-a881-4af8-a407-b154c5233600" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="d61b8038-3152-4011-a794-9f88cc22f973" objRef="1015de95-3971-401b-9632-891ce9310757" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="81efd47c-c2c3-4c3b-b8b1-398bff314425" order="3" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="42aae746-5eed-4731-a82c-e216bc55472a" refObj="f450ad2e-ca99-4e46-b2dd-212e0518cd04">
+                          <value uid="c6a91447-c3d3-4bf6-bf78-9c535cd35baa" value="Types repository.HR domain.Model Interface.Model Interface::State type">
+                            <expression uid="2de35ba5-2734-4261-b4f3-0f556af16075" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="681b6100-1b6b-4f08-bc93-f6ffc76f4cb5" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="760fadca-a8d6-4f71-a3d8-a5e64e44bf05" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="076921c2-224f-4c13-a609-ce0a56da8c61" objRef="31870394-1bfa-438e-b57a-df34481cbaa3" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                    </controls>
+                    <controls uid="607e5f47-1b43-4d19-9bfb-02afe6bdf845" name="City">
+                      <baseType typeRef="adf61d26-a067-4bab-a585-9efefc1bed1c"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="7643caf5-61f0-4ddc-a66e-ffb609512029">
+                        <parameters uid="4892a281-a5b3-420f-83ac-5c02d0a907ae" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="65c65471-ef0c-4bd9-9421-83beeb2a5e1b" value="Types repository.HR domain.Model Interface.Model Interface::City type">
+                            <expression uid="9ac5d2fe-3431-4315-a197-2dc64ff45cca" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="6ad0c36b-6c64-469e-982b-6e96cbc8eb77" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="7be48991-fdcc-4753-8e25-97f766fa9e85" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="9542b07b-e2fc-4cd1-a717-05fad3c99abc" objRef="adf61d26-a067-4bab-a585-9efefc1bed1c" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <insert methodRef="6b5f05d7-e1c6-4afb-bb44-7fa2d8b4079d" uid="76c2b96f-965d-4064-96a1-c94e37557e4a">
+                        <parameters uid="211be5c9-c1b1-49b8-b579-93bcf376e482" refObj="664f1945-9403-451a-9fae-4ae48d114c71">
+                          <value uid="a7696a16-189c-4257-bf9a-a68ff148efa1" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="7acd1bc8-0f52-4e0a-aa5e-7ba9a7e2f145" refObj="865102f4-14c0-41c3-bce0-545fcd01ce44">
+                          <value uid="bac70417-ae07-4992-86a0-b1f3e1682ab6" value="Types repository.Primitive package.Null">
+                            <expression uid="c2de492d-87ef-44a3-82bf-0a2543702dbd" expressionType="DomainTypesImpl"/>
+                            <expression uid="18d5e6ae-5f4b-4ed1-b07f-5fd3eb0b5069" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="e60606c6-90b3-4833-a453-ac3a13787045" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="e3dc3596-9984-46b6-9abc-15c5c7f4d8c6" refObj="ea0ed4f7-eed8-4d64-9c5b-e9ff46b45220">
+                          <value uid="f695a999-3eab-4e39-8f72-a0ae03b7ea07" constant="true" value="getCityObject"/>
+                        </parameters>
+                        <parameters uid="d07187b9-51e2-42b1-8b37-02de2b07108d" refObj="a92fffac-3f01-441b-8df2-bc20f6fa725b">
+                          <value uid="47252b0c-fadf-41ea-ad83-6aecf2c85872" value="Tree data controls.TreeCountry.City.currentObject">
+                            <expression uid="14b658ef-ad0d-4956-b418-4c5df9570a8c" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="088019df-f4c7-4de1-a378-1798e27c9ef0" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="c45cf908-9508-406b-adeb-a05fe55e6c04" objRef="607e5f47-1b43-4d19-9bfb-02afe6bdf845" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="6dc71063-07ba-4358-85f1-7b2448068477" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </insert>
+                      <update methodRef="5d3b61f9-edca-4bb6-9f38-9f54b377b9ae" uid="c3527f78-3aab-4353-932f-115bae939c76">
+                        <parameters uid="db42fd4b-59b8-4c04-8c1b-1f797a9554bf" refObj="c697a761-673e-4244-9bb6-c9c755613ee2">
+                          <value uid="d4b09f05-3121-4a9b-bdaf-da7ce3d16e7b" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="04385974-1b77-4d90-94ba-e86cd4504dd0" refObj="b2e0b1b8-4715-406e-bc27-21a4aa15799f">
+                          <value uid="61d975b9-4fa0-4d19-9cf3-d4bd352d987e" value="Types repository.Primitive package.Null">
+                            <expression uid="f8237367-23a0-4109-a2a0-0c7ee9487a85" expressionType="DomainTypesImpl"/>
+                            <expression uid="36c5c87b-e44f-4469-951e-89c12cd4788c" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="e5561134-dc80-46cc-ada8-d744c6fa3e6f" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="a724d668-162c-4379-adf8-5756dd882ddc" refObj="4d22ddf7-ef45-4358-b9e5-0a4dbba91a2c">
+                          <value uid="7e93e402-481e-4537-8070-b92e5d3466c2" constant="true" value="getCityObject"/>
+                        </parameters>
+                        <parameters uid="75622de6-6bad-409d-abe8-401c96f6a996" refObj="bfcb50fc-2565-46ee-8c3b-f945f18960e2">
+                          <value uid="82cc92d2-162b-4e10-bfec-be2c2b06b0c0" value="Tree data controls.TreeCountry.City.currentObject">
+                            <expression uid="9ae845c6-4a58-4bde-b673-efd6b75ae9b2" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="e86c7288-3c72-475b-9eaf-18ce705d16d2" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="822f7b6d-2e64-4f9c-a131-ddc11cb1a6d3" objRef="607e5f47-1b43-4d19-9bfb-02afe6bdf845" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="9e085b96-6633-45d4-b3a8-cad2d7c2dd9c" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </update>
+                      <remove methodRef="089e1a76-211b-4613-bbf2-16ce397aa1c3" uid="1dc2b8c3-e669-4c37-9a63-4c167722beab">
+                        <parameters uid="42ba1b01-1fef-4e68-affb-b38019d681b1" refObj="973ad07d-054c-4c17-b44f-2bb3c4b3429c">
+                          <value uid="238b9520-e373-4372-bce9-1c416e93092e" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="9847b527-c756-49ab-a596-0477b2c186db" refObj="749941ea-9382-40d3-93d7-0c7ebb8f312a">
+                          <value uid="68b1d4c1-44e4-4543-a983-b3c54640bb23" value="Types repository.Primitive package.Null">
+                            <expression uid="d91a6c56-9d78-4a95-8f41-e91bedb20d07" expressionType="DomainTypesImpl"/>
+                            <expression uid="348c5d5f-a462-4014-81ca-7c6608b52edb" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="619f05a1-3da6-4478-ac3d-125db7af8f55" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="d9058d21-5beb-49ec-98f8-84289e9bf7fc" refObj="8a430dfd-bdff-4551-ba7f-1277d33d848d">
+                          <value uid="68c672bc-d15b-42b9-9c04-7959db2d5d9d" constant="true" value="getCityObject"/>
+                        </parameters>
+                        <parameters uid="379a9df4-046c-4377-8828-bd2ab2876ab5" refObj="eb44bae7-1dd3-45e5-a512-9d7847fb3868">
+                          <value uid="64b95408-8ccf-44aa-ba4f-dd4ec11ef755" value="Tree data controls.TreeCountry.City.currentObject">
+                            <expression uid="8f52d4d9-d468-4e06-8129-34a52f82659b" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="fced85d1-0a0a-40d8-ad57-eaecb1d64b7a" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="33d0c656-21e9-4044-9889-c1d23c642fbc" objRef="607e5f47-1b43-4d19-9bfb-02afe6bdf845" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="3a951a26-55e1-40a7-9bb4-6afb24adfd36" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </remove>
+                      <search methodRef="adec09de-9853-4819-9090-662eb6abb24b" uid="9cac1866-17e3-4b91-ba0a-c031eac1186f">
+                        <parameters uid="42d5fde9-6e78-44e3-a14c-27e379d66574" refObj="dc3c5570-0eda-48dc-ac11-6725f3fe423f">
+                          <value uid="bc85fc5d-1ff0-4499-957c-769ff2de9c7b" value="Types repository.Primitive package.Null">
+                            <expression uid="9685c099-4e9a-470c-aa53-4ca5e0d325ae" expressionType="DomainTypesImpl"/>
+                            <expression uid="97440ea7-69de-45e3-a48f-62c48d0bf9d8" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="53bdd90a-4414-4d7c-9bee-bc758124ee98" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="7506280b-a0a9-41f0-9252-bc822bd26379" refObj="be8ecff3-fe34-4d93-be69-bae32ee14e3b">
+                          <value uid="2348a5f0-fc2b-409c-be8f-a863edcdaa1e" constant="true" value="getCityObject"/>
+                        </parameters>
+                        <parameters uid="4eb9e3a1-f5a0-4f26-9235-9951f3261720" refObj="5c3538c3-cf6f-4888-a13a-e4ac6c171855">
+                          <value uid="7a4bd7d4-7331-4266-bcdd-34d64f9b970d" value="Tree data controls.TreeCountry.City.searchCriteria">
+                            <expression uid="71eac762-078a-449f-8f9e-3a63dade4cf7" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="e63e3345-87c7-4be7-a0bb-2ee41de3b073" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="0159fe78-651b-4dda-8c12-b15810b6c594" objRef="607e5f47-1b43-4d19-9bfb-02afe6bdf845" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="4c68732a-ccc9-4db2-8def-1a0928e1f2a9" order="3" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="fc4622c8-cd25-4f57-9eae-1e12d187af35" refObj="70d7e1af-5371-4ec0-b170-2309ab9d790e">
+                          <value uid="a71e699b-a138-435c-a74c-733a6c4185f0" value="Tree data controls.TreeCountry.City.orderCriteria">
+                            <expression uid="ebe64d92-2c08-47c8-af6d-113f2e7df511" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="5502b6ea-3c3f-4666-9048-f6b16f1c7f60" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="cb7cb138-4d6a-41fe-9c2a-afe4287cbd6e" objRef="607e5f47-1b43-4d19-9bfb-02afe6bdf845" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="f9a2ad70-c565-4c9b-8bd7-9fb3ee684923" order="3" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="9b6cb22e-896b-4cec-bb02-4be5fca38a32" refObj="f450ad2e-ca99-4e46-b2dd-212e0518cd04">
+                          <value uid="9afd8dc6-8ded-47d0-9e4d-c08c02434562" value="Types repository.HR domain.Model Interface.Model Interface::City type">
+                            <expression uid="fe2a668d-676a-4a84-b310-72b00ea1576a" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="5527831a-2d56-4540-9297-d6cc2f8c0c85" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="36135623-14fa-4416-8fa7-939e086ca414" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="feefdca7-abef-4279-a9d5-7c5a2af8b866" objRef="adf61d26-a067-4bab-a585-9efefc1bed1c" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                    </controls>
+                    <controls uid="c64d53ca-ca4d-4cf3-8d88-25d00f37f205" name="Street">
+                      <baseType typeRef="6bcd9fb4-d240-4a86-8c40-01a35fe01033"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="b0d68d4e-048b-41b2-97a7-f3d21a2535d0">
+                        <parameters uid="e4e9de9c-75c0-44b9-93a0-861c0432c9c0" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="cddaf3b2-bbed-4766-ae1e-c66eaa89db8f" value="Types repository.HR domain.Model Interface.Model Interface::Street type">
+                            <expression uid="f5ec74c6-4fcd-4b0a-b5cf-f581557dbaca" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="88b5d457-7def-4a7d-ae00-9719cc586b7f" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="4144b5fc-0370-40d1-b27d-b912d6e16177" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="597bb75f-cccd-4cf2-a148-a0d3dc2cea23" objRef="6bcd9fb4-d240-4a86-8c40-01a35fe01033" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <insert methodRef="6b5f05d7-e1c6-4afb-bb44-7fa2d8b4079d" uid="6c9c4349-eabb-49e2-958e-62cb140735ea">
+                        <parameters uid="3107f51b-251e-4a4c-94d6-bf4f40810ff0" refObj="664f1945-9403-451a-9fae-4ae48d114c71">
+                          <value uid="04340f23-32c1-4042-b775-5a1a12fba294" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="72744e3a-4d73-4633-a435-94a7ece8f2f8" refObj="865102f4-14c0-41c3-bce0-545fcd01ce44">
+                          <value uid="9be72313-8ea6-4b84-8a39-361e362692c5" value="Types repository.Primitive package.Null">
+                            <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="21aca4bb-34e5-4267-a084-1c39b899ae1f" refObj="ea0ed4f7-eed8-4d64-9c5b-e9ff46b45220">
+                          <value uid="a136978f-a60c-4ad4-8bd5-2bb3a7ab83ca" constant="true" value="getStreetObject"/>
+                        </parameters>
+                        <parameters uid="71be5bdf-9720-4273-9801-640457a3b24b" refObj="a92fffac-3f01-441b-8df2-bc20f6fa725b">
+                          <value uid="ffae510a-6978-4a67-bc35-a82b1d940bfc" value="Tree data controls.TreeCountry.Street.currentObject">
+                            <expression uid="1bc27380-2499-4f03-bef2-9359dfc34735" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="70ef2ba4-a0a1-4b88-ab1d-316bbb1106b2" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="4c8f2e37-807a-40d4-963d-6daa1824732b" objRef="c64d53ca-ca4d-4cf3-8d88-25d00f37f205" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="d320054c-e9bc-4d2f-9187-914df5d46715" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </insert>
+                      <update methodRef="5d3b61f9-edca-4bb6-9f38-9f54b377b9ae" uid="4bc241fd-1fa8-4cb7-acb1-967984636bd5">
+                        <parameters uid="f1607340-b736-465f-bdfc-c9bb22e36d99" refObj="c697a761-673e-4244-9bb6-c9c755613ee2">
+                          <value uid="ddd07481-d715-4c07-8a66-c47d3cfad541" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="2d908379-1652-44aa-b9ae-111e748c2e31" refObj="b2e0b1b8-4715-406e-bc27-21a4aa15799f">
+                          <value uid="158d275e-410e-442d-9078-67be56844baa" value="Types repository.Primitive package.Null">
+                            <expression uid="7b2deb85-6fd1-415a-8ffb-ec666df0d124" expressionType="DomainTypesImpl"/>
+                            <expression uid="17450295-71db-4e17-b45a-ef2f3a7de611" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="60018fe4-07b4-4c4d-b26c-5c17fbcd8f50" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="f4fe44de-169a-4247-8622-b6a4a1b7b67a" refObj="4d22ddf7-ef45-4358-b9e5-0a4dbba91a2c">
+                          <value uid="c988e0ab-467b-4210-938e-8183d7e135bd" constant="true" value="getStreetObject"/>
+                        </parameters>
+                        <parameters uid="d41ea983-5a62-4748-99f7-aa033eac78bc" refObj="bfcb50fc-2565-46ee-8c3b-f945f18960e2">
+                          <value uid="141adcda-e6c5-40ff-bf90-b44ffa586de5" value="Tree data controls.TreeCountry.Street.currentObject">
+                            <expression uid="530d60c5-6b06-420e-ac35-ccc2fa46f4f9" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="69f6d85e-933c-4fcc-a499-6e9749c7bc25" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="749bdfe5-1994-41c1-9b6d-11effb7697a0" objRef="c64d53ca-ca4d-4cf3-8d88-25d00f37f205" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="e099b703-3a3c-408f-8092-9fb4483dfc02" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </update>
+                      <remove methodRef="089e1a76-211b-4613-bbf2-16ce397aa1c3" uid="2952c65e-95cc-4689-9cb6-ff6efcb4c96d">
+                        <parameters uid="c6092bb2-4f23-4f2a-85ee-4f381c601fa1" refObj="973ad07d-054c-4c17-b44f-2bb3c4b3429c">
+                          <value uid="9c163af5-eb55-4d63-82da-1a6b1ddade80" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="fa17f848-bd10-4232-ae67-bd4c5a673b0a" refObj="749941ea-9382-40d3-93d7-0c7ebb8f312a">
+                          <value uid="763e1f9f-1eea-4b78-9764-470364777b16" value="Types repository.Primitive package.Null">
+                            <expression uid="e9b2cea0-c528-42e8-b8cd-6a8a5f1ff9c6" expressionType="DomainTypesImpl"/>
+                            <expression uid="9b87e53e-7cc5-419e-831a-7f3af451c022" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="1b8825b3-972f-4862-9095-7f26a357a700" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="d7aa97c5-b2cd-4d4c-a6fe-9ba77edd4aa5" refObj="8a430dfd-bdff-4551-ba7f-1277d33d848d">
+                          <value uid="4edc968b-c96a-4a27-a923-794d4dfe22b1" constant="true" value="getStreetObject"/>
+                        </parameters>
+                        <parameters uid="f2d9a9ee-1743-47ec-bb70-44f3c14f6bd1" refObj="eb44bae7-1dd3-45e5-a512-9d7847fb3868">
+                          <value uid="fe3a4c8e-a94e-4237-bc33-e825ae3e909d" value="Tree data controls.TreeCountry.Street.currentObject">
+                            <expression uid="7ec1166a-32eb-420a-b0d7-dee0aff773aa" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="ea8bf864-ba03-4228-bf42-df3b51aec49d" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="466f643f-a3cc-4fed-80df-4ced5e555ee2" objRef="c64d53ca-ca4d-4cf3-8d88-25d00f37f205" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="66de05c9-e774-42a6-a7cd-3f6d7a702554" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </remove>
+                      <search methodRef="adec09de-9853-4819-9090-662eb6abb24b" uid="6aff00ee-f6ab-45a5-afa8-5c579cfd0a8c">
+                        <parameters uid="ad005e77-1107-4ece-904e-b78ebf1f9e69" refObj="dc3c5570-0eda-48dc-ac11-6725f3fe423f">
+                          <value uid="88917eff-3a97-4f6f-99eb-6dbd84f62ee0" value="Types repository.Primitive package.Null">
+                            <expression uid="8d4ba0d9-9b57-4172-9960-3920d333ca25" expressionType="DomainTypesImpl"/>
+                            <expression uid="dc6053e2-ad39-42e2-9b60-889693bcb6d5" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="f4ae0cd0-2d8e-4104-ac43-9d247f8f968e" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="2feae129-27a8-44c9-a1a8-3ebad33fd530" refObj="be8ecff3-fe34-4d93-be69-bae32ee14e3b">
+                          <value uid="bc6a5d6d-58ae-47b8-bf60-499019fdc7ff" constant="true" value="getStreetObject"/>
+                        </parameters>
+                        <parameters uid="b10a271e-bff4-4243-80c8-ccd961f70904" refObj="5c3538c3-cf6f-4888-a13a-e4ac6c171855">
+                          <value uid="bfe82e05-a39c-49bd-96af-7cb0a50e93eb" value="Tree data controls.TreeCountry.Street.searchCriteria">
+                            <expression uid="8abf2218-3bde-4f20-ba39-6f39c02c03b8" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="a7285662-3558-4f16-b0a5-045c735ff89b" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="ea2aba12-4b31-4849-8fcb-088391a61e35" objRef="c64d53ca-ca4d-4cf3-8d88-25d00f37f205" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="95ae05cb-0ba7-4a13-8507-d070f1059278" order="3" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="ef57506b-36ff-49be-848d-c302fe28a318" refObj="70d7e1af-5371-4ec0-b170-2309ab9d790e">
+                          <value uid="f74d76bc-b33e-4ae6-b804-58400bb52edd" value="Tree data controls.TreeCountry.Street.orderCriteria">
+                            <expression uid="c1029e66-8412-4097-837b-174e6d1e9b32" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="9d8e2347-7fc3-4684-8e98-efe4b3d8feca" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="3a9d5e31-0a2e-430b-b062-6cf53aaf8212" objRef="c64d53ca-ca4d-4cf3-8d88-25d00f37f205" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="bbd07faf-f464-4e23-abb9-863f916299da" order="3" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="39c48711-5524-4252-a223-0b1de9d072e0" refObj="f450ad2e-ca99-4e46-b2dd-212e0518cd04">
+                          <value uid="96e5dbcd-3945-4a72-b7b4-8fd3f08c7753" value="Types repository.HR domain.Model Interface.Model Interface::Street type">
+                            <expression uid="eb658850-42f0-4203-b5d6-efe7526a98fd" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="59d6745e-c091-4d22-832b-eb246b9e1766" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="1692fb1b-d0aa-4b06-a567-e9fd62a1f634" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="c700e15d-af6b-4c01-a9ab-8951e05d8628" objRef="6bcd9fb4-d240-4a86-8c40-01a35fe01033" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                    </controls>
+                    <controls uid="ff7161ba-4177-41ae-90e8-19395789a2d5" name="Department">
+                      <baseType typeRef="bba5bca8-79c4-4856-a307-acc056d2ba90"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="c6e763bc-b18d-4293-9ff2-0613d4a1a573">
+                        <parameters uid="16ff3c17-950a-46f1-9329-76b9f7f2abcc" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="4714c162-4b6c-488b-9dea-5e5d2526baff" value="Types repository.HR domain.Model Interface.Model Interface::Department Type">
+                            <expression uid="33c1c102-ef5c-4479-9361-10951abb57cc" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="8b54a79a-db10-4684-aaec-52b779480255" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="390e566d-5752-41c3-99a7-01ea31c2a937" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="976abca7-a802-4988-b1a2-fa54b93c321d" objRef="bba5bca8-79c4-4856-a307-acc056d2ba90" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <insert methodRef="6b5f05d7-e1c6-4afb-bb44-7fa2d8b4079d" uid="a24a3cde-2bf7-41ff-93c5-d9e80947d490">
+                        <parameters uid="06a20475-c9ec-4fc4-95e0-22cc591e24e0" refObj="664f1945-9403-451a-9fae-4ae48d114c71">
+                          <value uid="8b242239-7074-4d99-8a37-d192dc62e046" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="434d24d7-9d37-4a46-980f-83945e2e2c81" refObj="865102f4-14c0-41c3-bce0-545fcd01ce44">
+                          <value uid="29716583-b595-44e3-b8c7-0ba5b19353a0" value="Types repository.Primitive package.Null">
+                            <expression uid="f19b4bdd-0b27-4b40-957e-57e5a6472167" expressionType="DomainTypesImpl"/>
+                            <expression uid="4396f805-34b0-44d5-9485-9792c4b910c6" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="1ec36fbe-91ab-47b0-b720-73b7fbf590ce" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="635f59e7-708b-4e46-a4f3-398d22667db1" refObj="ea0ed4f7-eed8-4d64-9c5b-e9ff46b45220">
+                          <value uid="aadcf28f-2131-4839-a5e4-af2aaa265809" constant="true" value="getDepartmentsObject"/>
+                        </parameters>
+                        <parameters uid="62bb8e37-330e-4c7c-bcb0-aff15d2d80e3" refObj="a92fffac-3f01-441b-8df2-bc20f6fa725b">
+                          <value uid="08b0ee88-271f-43cc-ab04-71eedd4ab1ba" value="Data controls.Department.currentObject">
+                            <expression uid="eae21e39-a4c4-4feb-b14b-b547f30459f4" expressionType="DataControlHolder"/>
+                            <expression uid="184619b0-72f7-4e45-8f8e-28da34028fe7" objRef="ff7161ba-4177-41ae-90e8-19395789a2d5" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="3a35891a-91f9-4eae-895c-a98ff4d1fbb5" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </insert>
+                      <update methodRef="5d3b61f9-edca-4bb6-9f38-9f54b377b9ae" uid="611aa2de-a22a-42d2-8874-e08bc331e968">
+                        <parameters uid="7580a755-a474-4191-9f49-eac600be80ac" refObj="c697a761-673e-4244-9bb6-c9c755613ee2">
+                          <value uid="0cbd973b-040d-4fd3-b22d-bfd934eabfe8" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="708c1e5d-f882-44d2-a0d4-7314e8c73f90" refObj="b2e0b1b8-4715-406e-bc27-21a4aa15799f">
+                          <value uid="97801704-1096-4641-ad16-3ea92c630ab6" value="Types repository.Primitive package.Null">
+                            <expression uid="4d44bf25-41eb-4a12-9c0b-865f0cf1a81d" expressionType="DomainTypesImpl"/>
+                            <expression uid="dda8fb1f-7e92-43bf-8cd7-9e8812a8bb0a" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="73025cce-d939-4a5f-8fcc-976ae8ae3176" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="3c578257-91fc-4ca4-89b6-3dc03f1737c6" refObj="4d22ddf7-ef45-4358-b9e5-0a4dbba91a2c">
+                          <value uid="9001f5fc-00c6-4790-84c9-ac4cfeb304ac" constant="true" value="getDepartmentsObject"/>
+                        </parameters>
+                        <parameters uid="f1c3fe45-93d9-4f64-8099-205f759b1bb4" refObj="bfcb50fc-2565-46ee-8c3b-f945f18960e2">
+                          <value uid="ecaf6d65-e542-4b86-a760-7741688a464a" value="Data controls.Department.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="ff7161ba-4177-41ae-90e8-19395789a2d5" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </update>
+                      <remove methodRef="089e1a76-211b-4613-bbf2-16ce397aa1c3" uid="6a9e84a2-9149-4913-a3b6-9db60d30f1ff">
+                        <parameters uid="c74268ba-3837-4536-96b8-f700a2e28626" refObj="973ad07d-054c-4c17-b44f-2bb3c4b3429c">
+                          <value uid="301667e8-d553-49d2-939a-80f39862d4fa" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="b49dde75-5dae-4346-af6c-6a13f25b8621" refObj="749941ea-9382-40d3-93d7-0c7ebb8f312a">
+                          <value uid="6527e4af-b2c7-4c20-b74c-de455ec01aee" value="Types repository.Primitive package.Null">
+                            <expression uid="02cc59a9-e75d-4c8d-b909-6d71be2aeeba" expressionType="DomainTypesImpl"/>
+                            <expression uid="56abbeb3-21eb-4489-9129-f91d033aaae6" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="c4bf59e2-60ac-4e17-9e0f-8b84049ca494" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="333b3ebc-042d-45ed-bbff-1107a8c853d7" refObj="8a430dfd-bdff-4551-ba7f-1277d33d848d">
+                          <value uid="aadd1f4c-e65b-45c8-a00c-68fa794309b6" constant="true" value="getDepartmentsObject"/>
+                        </parameters>
+                        <parameters uid="98839180-8fa7-4386-a4f9-d8f0e16d9a90" refObj="eb44bae7-1dd3-45e5-a512-9d7847fb3868">
+                          <value uid="7599f9f3-fb70-4ade-81e0-612a6653cc2f" value="Data controls.Department.currentObject">
+                            <expression uid="379bd330-3aa9-4a8e-8b47-6adf74b8592e" expressionType="DataControlHolder"/>
+                            <expression uid="673921a3-d9ae-4e3e-8ee5-c2fc2cfff0b8" objRef="ff7161ba-4177-41ae-90e8-19395789a2d5" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="14ba24bd-e664-4348-9e82-8716a8ff4af7" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </remove>
+                      <search methodRef="adec09de-9853-4819-9090-662eb6abb24b" uid="c9e67352-5cc5-46eb-b72e-849fb611ed3e">
+                        <parameters uid="c152e1c2-8cd4-42a2-b5ef-f780b310de6e" refObj="dc3c5570-0eda-48dc-ac11-6725f3fe423f">
+                          <value uid="816eecf0-e88c-46f9-a07c-20eeb2934aca" value="Types repository.Primitive package.Null">
+                            <expression uid="88611dbf-f22a-4529-b063-505af739b3e6" expressionType="DomainTypesImpl"/>
+                            <expression uid="ffec782e-0706-44bf-87a5-5b11cacb623e" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="eb083f7d-eb82-49a7-ab04-41d0bc77b71d" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="c0d6f5e5-d11e-4d75-8310-6911fdc35ff1" refObj="be8ecff3-fe34-4d93-be69-bae32ee14e3b">
+                          <value uid="2c026368-94d7-4d16-aeae-9ffd6c7e95f7" constant="true" value="getDepartmentsObject"/>
+                        </parameters>
+                        <parameters uid="55d3fa38-9087-4834-9830-87a8a4b57911" refObj="5c3538c3-cf6f-4888-a13a-e4ac6c171855">
+                          <value uid="dbca53fc-2856-463c-9ea1-c74983cb6f3b" value="Data controls.Department.searchCriteria">
+                            <expression uid="1015d529-e78c-4a0d-b9df-abf390a85960" expressionType="DataControlHolder"/>
+                            <expression uid="671b7993-51b1-40b6-b9fa-403f806ff10a" objRef="ff7161ba-4177-41ae-90e8-19395789a2d5" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="b2fc3fc7-2cbc-4ef4-be07-b2aea520658c" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="127dd34b-7428-4bdc-9672-d15edf846b91" refObj="70d7e1af-5371-4ec0-b170-2309ab9d790e">
+                          <value uid="d64d8eb2-e924-455e-98f2-28caee121329" value="Data controls.Department.orderCriteria">
+                            <expression uid="f3be7af8-dd8d-4d4a-90d0-817abe6c6a3f" expressionType="DataControlHolder"/>
+                            <expression uid="39fa3f06-b563-43a6-9097-8cfe41ada515" objRef="ff7161ba-4177-41ae-90e8-19395789a2d5" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="cce36d68-2b8b-436e-9632-c307180f8bff" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="d36a7910-67b3-4df8-9ce6-174a916775b2" refObj="f450ad2e-ca99-4e46-b2dd-212e0518cd04">
+                          <value uid="ca7d1f2d-bf2a-472b-a430-3ab0cde052ab" value="Types repository.HR domain.Model Interface.Model Interface::Department Type">
+                            <expression uid="9bc578a8-4ab2-4057-9a4d-b24149efec22" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="acbbde36-7602-41ed-a288-584993f32470" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="925a616a-a3d1-42a3-941a-01c6d803357a" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="2a60edcf-8d6d-4f74-9389-be83eefcd0e4" objRef="bba5bca8-79c4-4856-a307-acc056d2ba90" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                    </controls>
+                    <controls uid="f694df01-48ab-4682-956c-827b21384d38" name="Vehicle">
+                      <baseType typeRef="5a5a623b-9030-4f4f-8085-23b0796478e6"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="24a5364b-5163-40c6-b54a-63a5cac5cd8a">
+                        <parameters uid="a563cba8-268e-45f3-b054-bba3ff9ba126" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="b27658fe-b648-4fac-a94b-97681a7e03f6" value="Types repository.HR domain.Model Interface.Model Interface::Vehicle Type">
+                            <expression uid="826354f9-62c8-4f01-a9bf-43512b49f4d3" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="3bd6b164-6a5d-4038-9b79-6b53569d5714" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="15cd67ca-0679-4d43-afcf-f532db8c0134" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="c4f77d92-7462-4444-96a6-5f18f923d6eb" objRef="5a5a623b-9030-4f4f-8085-23b0796478e6" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <insert methodRef="6b5f05d7-e1c6-4afb-bb44-7fa2d8b4079d" uid="60cbc0ae-475d-48bd-86c9-0fb97ad02066">
+                        <parameters uid="287ce5e0-40d8-42a7-87f7-666b4fbc93ee" refObj="664f1945-9403-451a-9fae-4ae48d114c71">
+                          <value uid="ed4e17bf-4b4e-42e4-941a-da4ea0220431" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="11d2f23e-f97e-454b-bf6f-0b4b93f3cf85" refObj="865102f4-14c0-41c3-bce0-545fcd01ce44">
+                          <value uid="93c52dd9-826e-48a2-8fdb-c225b1ba6bc3" value="Types repository.Primitive package.Null">
+                            <expression uid="cd77fccb-f9ed-4bdb-bc43-623c20189048" expressionType="DomainTypesImpl"/>
+                            <expression uid="ffbd4c3c-609f-471a-ac4d-e779db0571dd" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="f5e674af-30b3-4258-a811-68966916e72c" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="f964476b-5b7d-4ad8-a3c9-36290fcb9cc0" refObj="ea0ed4f7-eed8-4d64-9c5b-e9ff46b45220">
+                          <value uid="72c46c88-d034-4357-a7e3-cda9f3e901cc" constant="true" value="getVehicleObject"/>
+                        </parameters>
+                        <parameters uid="ee3df9b4-7970-4e56-9417-0b3bf6901c9b" refObj="a92fffac-3f01-441b-8df2-bc20f6fa725b">
+                          <value uid="575b2a87-1c40-4656-b401-be32f0c0704e" value="Data controls.Vehicle.currentObject">
+                            <expression uid="c8495d45-7014-47b0-b8ef-9c0dba0f88d8" expressionType="DataControlHolder"/>
+                            <expression uid="149058c4-6c1c-4b2e-aff4-e6a880c5cdd5" objRef="f694df01-48ab-4682-956c-827b21384d38" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="11b3f704-d2ca-41f5-9f10-95d36afe4e42" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </insert>
+                      <update methodRef="5d3b61f9-edca-4bb6-9f38-9f54b377b9ae" uid="db2df958-f663-40e2-a642-bb0101a887a4">
+                        <parameters uid="d7ea2729-bda7-46bf-b3f9-55ebfb67a058" refObj="c697a761-673e-4244-9bb6-c9c755613ee2">
+                          <value uid="4e201b86-148f-4098-8696-78acb12e6db4" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="eef76da3-90d8-4f8a-80e2-a32ea07cd905" refObj="b2e0b1b8-4715-406e-bc27-21a4aa15799f">
+                          <value uid="a554d6cf-f505-4d2e-ab6e-1d8a828d7099" value="Types repository.Primitive package.Null">
+                            <expression uid="9eedc9ea-8019-41b1-b85c-0be897ecc8d7" expressionType="DomainTypesImpl"/>
+                            <expression uid="5cd76bd1-e218-4e01-b8db-063b6d7f969a" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="ff97b79d-b285-4e1e-b17a-3d3740d025c2" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="abe55457-8a52-4a8f-8a4e-a3297e6a1d22" refObj="4d22ddf7-ef45-4358-b9e5-0a4dbba91a2c">
+                          <value uid="a52aae2b-fb61-4beb-94c1-1b2741eb1eaf" constant="true" value="getVehicleObject"/>
+                        </parameters>
+                        <parameters uid="72322214-45fe-491b-8973-5603995747e2" refObj="bfcb50fc-2565-46ee-8c3b-f945f18960e2">
+                          <value uid="aeb08aa2-ae08-434c-8301-26524c9591f9" value="Data controls.Vehicle.currentObject">
+                            <expression uid="196499bd-5592-4515-a5f3-d166ae3145c0" expressionType="DataControlHolder"/>
+                            <expression uid="875e23b7-be34-4ea6-8542-c20507835c5c" objRef="f694df01-48ab-4682-956c-827b21384d38" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="ca16c718-f63e-472b-a9db-ed3d25634b9e" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </update>
+                      <remove methodRef="089e1a76-211b-4613-bbf2-16ce397aa1c3" uid="d73d3bba-2b76-4a56-aeae-094069261616">
+                        <parameters uid="ab1fd72b-af7a-4282-91b3-0b5ab5e41b84" refObj="973ad07d-054c-4c17-b44f-2bb3c4b3429c">
+                          <value uid="8364d0ed-38d2-4f28-9f57-7f81166af3c0" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="0305b196-773c-4b7d-a7de-2acf7194617e" refObj="749941ea-9382-40d3-93d7-0c7ebb8f312a">
+                          <value uid="ea147c6a-a5a1-49af-adc1-e5a7483fa354" value="Types repository.Primitive package.Null">
+                            <expression uid="0dd7c9e9-2701-4649-a681-c5eb2680464e" expressionType="DomainTypesImpl"/>
+                            <expression uid="9f4cac15-3ebd-48e8-ab4f-ce46191f383a" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="2049f98c-e451-464d-b005-152603957ef4" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="6f30af2d-a43d-4adc-a01e-dc32d5199d35" refObj="8a430dfd-bdff-4551-ba7f-1277d33d848d">
+                          <value uid="a252bca0-90e3-4f1c-946e-86ab5eb54ea6" constant="true" value="getVehicleObject"/>
+                        </parameters>
+                        <parameters uid="0f2ee466-496b-4547-a6cb-bb14446c824f" refObj="eb44bae7-1dd3-45e5-a512-9d7847fb3868">
+                          <value uid="fb399893-f86b-4225-87f3-a3d38449765f" value="Data controls.Vehicle.currentObject">
+                            <expression uid="c3286528-1443-4b5b-a3ad-191846a0043b" expressionType="DataControlHolder"/>
+                            <expression uid="1f927f1a-dfa2-4e07-84cc-49efdc2fb931" objRef="f694df01-48ab-4682-956c-827b21384d38" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="d47603a1-5e0c-4d0a-a828-5c0df6a88e39" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </remove>
+                      <search methodRef="adec09de-9853-4819-9090-662eb6abb24b" uid="fe847b18-f1fe-445a-a2b0-3268dd9a806f">
+                        <parameters uid="569639ed-a1ba-4e80-b0f5-8e0302ca0967" refObj="dc3c5570-0eda-48dc-ac11-6725f3fe423f">
+                          <value uid="118cabd0-d6c1-47b1-9d04-13f6edc107d1" value="Types repository.Primitive package.Null">
+                            <expression uid="3d788b81-7130-482b-94d3-7becd9100e61" expressionType="DomainTypesImpl"/>
+                            <expression uid="dbcb0a2c-2071-4d02-9824-adb47c072cca" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="5602315e-18a2-4d96-b5bb-43725fe49af8" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="9d3e29c0-d527-469e-9ecd-aaeb0a1caeae" refObj="be8ecff3-fe34-4d93-be69-bae32ee14e3b">
+                          <value uid="234b85a2-ee14-4bea-82bc-bf66f4e4698a" constant="true" value="getVehicleObject"/>
+                        </parameters>
+                        <parameters uid="9954a714-6fa4-427e-b400-94f36e666621" refObj="5c3538c3-cf6f-4888-a13a-e4ac6c171855">
+                          <value uid="d675f561-a3aa-4544-8d1a-052271fadd91" value="Data controls.Vehicle.searchCriteria">
+                            <expression uid="604ecc9b-79f1-4e14-aef0-4b99921f6c79" expressionType="DataControlHolder"/>
+                            <expression uid="a39f040f-9d3d-4471-a96a-d907e306ef66" objRef="f694df01-48ab-4682-956c-827b21384d38" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="badd69b3-8222-40ac-9714-32fd7f87b758" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="0ce8ae68-eb2b-42f7-9c45-93226c1af8f5" refObj="70d7e1af-5371-4ec0-b170-2309ab9d790e">
+                          <value uid="683af69b-024a-4dfe-a3cd-d074b4952792" value="Data controls.Vehicle.orderCriteria">
+                            <expression uid="6578e7f2-b778-4a5e-9ed7-88974e14d404" expressionType="DataControlHolder"/>
+                            <expression uid="46b7e3f5-ba7f-4a88-8afe-2f8ec56d4de5" objRef="f694df01-48ab-4682-956c-827b21384d38" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="6c1b8553-8461-419e-b966-444ab57ef6d5" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="4e64a26a-b937-4aaf-a8f4-c62d70d948a8" refObj="f450ad2e-ca99-4e46-b2dd-212e0518cd04">
+                          <value uid="f881d745-c143-4c1f-aa79-515174750c25" value="Types repository.HR domain.Model Interface.Model Interface::Vehicle Type">
+                            <expression uid="036614a6-16da-4a5a-b07c-77c40467f96c" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="26dee515-acfd-45a6-a7fa-feeb27211dce" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="fbac58ee-ae39-428a-b5a0-8826112e82e9" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="aad9838e-b530-47a4-bf71-752c6820e976" objRef="5a5a623b-9030-4f4f-8085-23b0796478e6" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                    </controls>
+                    <controls uid="d0e9d7f2-261b-4985-ae7e-e26a30b4afe6" name="Employee">
+                      <baseType typeRef="290e5b93-8e34-478f-8794-fdeb922c9298"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="59db6850-d6eb-401e-ab7c-b43b690571ca">
+                        <parameters uid="79d7ee2d-801f-4711-a99f-5ccf7475f4c5" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="7775d172-f331-4099-b8c7-51bd4f8a6fe7" value="Types repository.HR domain.Model Interface.Model Interface::Employee Type">
+                            <expression uid="cc500b41-fed9-4b13-8e94-11e702b4d957" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="c8057b90-1715-4978-a332-20c22c9e215d" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="5be83860-81a3-4a43-9710-0711772b2586" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="c57ce25e-ef62-4432-a5cf-088b5f5aa201" objRef="290e5b93-8e34-478f-8794-fdeb922c9298" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <insert methodRef="6b5f05d7-e1c6-4afb-bb44-7fa2d8b4079d" uid="de7b6156-28fe-4143-8c22-b5b1f5cf8845">
+                        <parameters uid="27013692-17cc-4dd4-badc-dc74ab28df14" refObj="664f1945-9403-451a-9fae-4ae48d114c71">
+                          <value uid="7b1f0b1c-a41e-4e67-b2f5-e0fc1b36881a" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="7f14ff30-a261-4263-8d0b-dd2a05b5dd02" refObj="865102f4-14c0-41c3-bce0-545fcd01ce44">
+                          <value uid="d3225437-f631-402b-a255-78505c5530f7" value="Types repository.Primitive package.Null">
+                            <expression uid="0b9edf8f-7d48-438b-9f12-53cbbc8ac757" expressionType="DomainTypesImpl"/>
+                            <expression uid="fe104331-9e75-4f76-b221-79b639af1eff" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="375d6ff8-f7a2-4bf8-92a0-56454d69c940" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="86b86a50-ff3a-465c-8e6c-8da0bf7c56af" refObj="ea0ed4f7-eed8-4d64-9c5b-e9ff46b45220">
+                          <value uid="38780ce4-dff3-4147-9087-49e74f67ed7c" constant="true" value="getEmployeeObject"/>
+                        </parameters>
+                        <parameters uid="74f684c9-1bce-4195-9e5b-57914af28c03" refObj="a92fffac-3f01-441b-8df2-bc20f6fa725b">
+                          <value uid="9c7dd86c-4eb4-4238-83ae-8d29600ff785" value="Data controls.Employee.currentObject">
+                            <expression uid="41d3d6a2-f16e-422b-9636-85eb5c7dea0d" expressionType="DataControlHolder"/>
+                            <expression uid="b5833270-c494-4c44-9953-1e6ab070c0da" objRef="d0e9d7f2-261b-4985-ae7e-e26a30b4afe6" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="7d96b2f9-c452-46e9-ab29-d6495eae3720" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </insert>
+                      <update methodRef="5d3b61f9-edca-4bb6-9f38-9f54b377b9ae" uid="086d6b14-3824-4147-883c-5ad5aad8f47f">
+                        <parameters uid="5d6e941c-92f7-47b5-a894-686c5526462d" refObj="c697a761-673e-4244-9bb6-c9c755613ee2">
+                          <value uid="11b7e37e-6b12-4073-8de3-70ffce959539" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="ce18ed11-2e4b-4344-884b-79cf73865a8c" refObj="b2e0b1b8-4715-406e-bc27-21a4aa15799f">
+                          <value uid="31a46d9b-817c-4221-88f8-66bf10d49628" value="Types repository.Primitive package.Null">
+                            <expression uid="eb95d1e6-7be2-41f4-b10d-be9b00ba2ac6" expressionType="DomainTypesImpl"/>
+                            <expression uid="d2260a76-5c97-43b8-8113-ba287534c5bf" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="51ddeb8e-b125-456b-8a54-7f35c85662d4" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="ee55f5e5-c4aa-4fb8-8b0c-c666f2bd2042" refObj="4d22ddf7-ef45-4358-b9e5-0a4dbba91a2c">
+                          <value uid="f520411f-f3db-4f1d-aab6-e9a2d556c963" constant="true" value="getEmployeeObject"/>
+                        </parameters>
+                        <parameters uid="dd3bc0e0-19ba-4da9-82d4-062e3c1e9e72" refObj="bfcb50fc-2565-46ee-8c3b-f945f18960e2">
+                          <value uid="243c8b5d-9387-4ee8-9288-58d75ce3b1f7" value="Data controls.Employee.currentObject">
+                            <expression uid="92ff891a-e9a7-4e5e-99b1-32b5d21831e1" expressionType="DataControlHolder"/>
+                            <expression uid="7e3d9f21-265a-4d16-a1a6-ccd7323b2ff7" objRef="d0e9d7f2-261b-4985-ae7e-e26a30b4afe6" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="9051395c-df5d-4306-8a4d-d7ffca9ff361" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </update>
+                      <remove methodRef="089e1a76-211b-4613-bbf2-16ce397aa1c3" uid="1fb7c563-aef7-4be2-bd6a-e6cbbee7a479">
+                        <parameters uid="edb6a5a9-68f1-4472-890d-6e8337420858" refObj="973ad07d-054c-4c17-b44f-2bb3c4b3429c">
+                          <value uid="702429f6-598c-4ddd-8fa5-b7a2568907a0" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="b44090b7-8ec2-422a-96db-26158fe64590" refObj="749941ea-9382-40d3-93d7-0c7ebb8f312a">
+                          <value uid="7909666d-207b-49ab-8b53-bea14939f351" value="Types repository.Primitive package.Null">
+                            <expression uid="16366b04-0fa3-4561-84e3-4522907d44b9" expressionType="DomainTypesImpl"/>
+                            <expression uid="7fdc6912-b648-4fc9-a81f-3fbf964e9e36" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="a92840ee-5f65-40b8-8916-0324ca2f37b9" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="3bbbeeea-cb7c-406f-b9a6-f8f043bdd860" refObj="8a430dfd-bdff-4551-ba7f-1277d33d848d">
+                          <value uid="8fdb6fcd-0cfb-44b5-a819-a8c4abc40109" constant="true" value="getEmployeeObject"/>
+                        </parameters>
+                        <parameters uid="27141c80-16d4-4995-8e5d-0667a0404a5a" refObj="eb44bae7-1dd3-45e5-a512-9d7847fb3868">
+                          <value uid="2fa9adf1-1369-49b1-8e31-e0c5998088f9" value="Data controls.Employee.currentObject">
+                            <expression uid="fcdc9ebe-39fc-4cb2-93fa-d244e7483e1e" expressionType="DataControlHolder"/>
+                            <expression uid="35b5703b-aa37-4eed-8b32-b64f31d1e0cc" objRef="d0e9d7f2-261b-4985-ae7e-e26a30b4afe6" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="0c425d34-4338-43a0-b710-dcd5104c2bed" order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </remove>
+                      <search methodRef="adec09de-9853-4819-9090-662eb6abb24b" uid="31f0cb4b-e728-4149-a4f9-3b38b63ff111">
+                        <parameters uid="c1d62144-6980-4144-b201-90c9166aa0fb" refObj="dc3c5570-0eda-48dc-ac11-6725f3fe423f">
+                          <value uid="0d5c2d94-8775-466e-ad7b-940966064b98" value="Types repository.Primitive package.Null">
+                            <expression uid="e6331a77-d5f2-42c0-b506-19a27c8ac887" expressionType="DomainTypesImpl"/>
+                            <expression uid="807daf49-6209-48a0-8e45-1df447687d29" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="ede1f7d9-c3e6-44a5-b6af-51e72a12d71c" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="9bbe2c0c-ab91-4a10-8fe0-c50059f1f380" refObj="be8ecff3-fe34-4d93-be69-bae32ee14e3b">
+                          <value uid="67171247-d672-4177-9094-78d6b02952d1" constant="true" value="getEmployeeObject"/>
+                        </parameters>
+                        <parameters uid="fe3f222e-13f3-41c6-9c81-3718dce2205c" refObj="5c3538c3-cf6f-4888-a13a-e4ac6c171855">
+                          <value uid="cbb6e360-5813-4be7-988b-b392b5a414ac" value="Data controls.Employee.searchCriteria">
+                            <expression uid="3b94b485-dd29-4d5d-8bc5-428eedb1acff" expressionType="DataControlHolder"/>
+                            <expression uid="f2ea0585-2ae1-45bc-9c4a-0c091ae04527" objRef="d0e9d7f2-261b-4985-ae7e-e26a30b4afe6" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="02004f39-8a58-4f99-879a-e29c21c6e365" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="9a3b54f9-b9c6-4dec-a10a-ba86f921b478" refObj="70d7e1af-5371-4ec0-b170-2309ab9d790e">
+                          <value uid="98c77724-e839-4c58-a279-4c93ef645694" value="Data controls.Employee.orderCriteria">
+                            <expression uid="c943a20b-5031-42cd-a598-05b89328cf01" expressionType="DataControlHolder"/>
+                            <expression uid="a8c477b5-5423-4ff7-939d-bceddd1064a8" objRef="d0e9d7f2-261b-4985-ae7e-e26a30b4afe6" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="6d841a39-b0a8-44cb-8420-24623b5654b9" order="2" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="248bd158-df0b-4356-814a-69894edf02e1" refObj="f450ad2e-ca99-4e46-b2dd-212e0518cd04">
+                          <value uid="e97bf0a2-b544-482c-95ab-748e3eec148b" value="Types repository.HR domain.Model Interface.Model Interface::Employee Type">
+                            <expression uid="421177eb-6336-44fd-8024-6a732b8c832c" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="2c0fc908-7dce-4635-bb59-07ed230f954d" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="8a6e9090-d231-45e8-a612-bfaef1eff812" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="cd7a1a00-82c9-4fe6-a8a1-69f32f523543" objRef="290e5b93-8e34-478f-8794-fdeb922c9298" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                    </controls>
+                    <controls uid="76776f41-dbcb-44b0-b74c-44bf7348e103" name="Files">
+                      <baseType typeRef="a560547a-2981-4fc4-9431-70d493884454"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="17f3e373-20fa-4517-b663-e8c2e29ffcfd">
+                        <parameters uid="d40a58ab-ad0e-4cae-a0ea-2ced0605fedd" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="53fbb714-bf62-41fb-b544-0c848c77c1fd" value="Types repository.HR domain.Model Interface.Model Interface::File type">
+                            <expression uid="fb1cf98a-0d08-45c8-bf97-7e06436d2572" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="6953ccce-30a7-4ff0-a7a1-775d15b0ab2a" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="cd498549-cd0c-45d2-bb97-1a1adbc40cc8" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="950c6095-ec9d-4805-b9fb-0f6f85126026" objRef="a560547a-2981-4fc4-9431-70d493884454" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </create>
+                      <insert methodRef="6b5f05d7-e1c6-4afb-bb44-7fa2d8b4079d" uid="86f0628a-3239-448e-a1ce-816dc8637015">
+                        <parameters uid="45c6165a-f15c-47fb-8641-681d62154bfd" refObj="664f1945-9403-451a-9fae-4ae48d114c71">
+                          <value uid="0e315945-f29b-40ca-b144-af866ea36088" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="e9fc31a6-e5ec-42ca-963e-d7270aecea1f" refObj="865102f4-14c0-41c3-bce0-545fcd01ce44">
+                          <value uid="07569b20-d583-4aa2-81b7-93a9bdb87a7c" value="Types repository.Primitive package.Null">
+                            <expression uid="2e48230f-bd9d-4e42-9a07-4a7b8858e28f" expressionType="DomainTypesImpl"/>
+                            <expression uid="794bc9ab-0a8b-44a6-9bb4-dadf0bd83b85" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="365b648d-ff21-49b6-ada1-b2c1e7ea862d" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="5962d101-f823-4f94-99b5-dae0a7631174" refObj="ea0ed4f7-eed8-4d64-9c5b-e9ff46b45220">
+                          <value uid="aa70c664-ba67-4475-bb37-79643759b602" constant="true" value="getFileObject"/>
+                        </parameters>
+                        <parameters uid="c3ca0b54-cadd-4ee1-97f3-063e8a05d9e5" refObj="a92fffac-3f01-441b-8df2-bc20f6fa725b">
+                          <value uid="f71fd406-ad39-4a93-8a49-b793f0d6e790" value="Tree data controls.TreeFiles.Files.currentObject">
+                            <expression uid="129fa3eb-ecf0-4896-8482-e2f1d8397762" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="df2b64c8-7f9a-4f81-973a-fe053e70cee1" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="764366b3-8c51-4849-bd10-67d9bfe62852" objRef="76776f41-dbcb-44b0-b74c-44bf7348e103" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="32928985-d33e-433a-aae3-ef617959109a" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </insert>
+                      <update methodRef="5d3b61f9-edca-4bb6-9f38-9f54b377b9ae" uid="c1af9afb-19f0-4b0c-9312-b5f14f4113b5">
+                        <parameters uid="561ce364-1986-4232-81b2-601e5d613da5" refObj="c697a761-673e-4244-9bb6-c9c755613ee2">
+                          <value uid="da336e75-3efa-4275-8b35-7a4f7ee1e15e" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="7c1408b6-7187-4ffb-9f49-58849ffaedd0" refObj="b2e0b1b8-4715-406e-bc27-21a4aa15799f">
+                          <value uid="f09ce3ad-059a-45ef-8541-2060422fe4fb" value="Types repository.Primitive package.Null">
+                            <expression uid="b6ff9044-da17-4427-a5d2-dcb42cb5de57" expressionType="DomainTypesImpl"/>
+                            <expression uid="cf2851ec-1d2d-45cf-a48c-cae830a5e907" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="10b6dfa4-7563-4134-ae3a-2beedba9933d" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="c615b395-f697-41cf-bd53-d36be107e91b" refObj="4d22ddf7-ef45-4358-b9e5-0a4dbba91a2c">
+                          <value uid="b46bd293-1650-4f84-98a0-9d0fd6dfc3cb" constant="true" value="getFileObject"/>
+                        </parameters>
+                        <parameters uid="9f91a060-99f0-4e07-97c1-bdf84af5af28" refObj="bfcb50fc-2565-46ee-8c3b-f945f18960e2">
+                          <value uid="0244316a-3d03-41bd-8f03-484b0bed2c13" value="Tree data controls.TreeFiles.Files.currentObject">
+                            <expression uid="bfc2382f-7cbe-4162-a829-5edcac909dd6" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="4937393b-96c3-49b3-96a9-f9c69b0b420a" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="1df55490-bdd2-4059-a6b1-ecfadb788980" objRef="76776f41-dbcb-44b0-b74c-44bf7348e103" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="85a57176-4420-49d4-adae-266a3776d666" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </update>
+                      <remove methodRef="089e1a76-211b-4613-bbf2-16ce397aa1c3" uid="6f45822c-4975-4a1e-b941-00fbff4e1f75">
+                        <parameters uid="7c3faf95-0389-47b2-b727-1a6fdccb70d5" refObj="973ad07d-054c-4c17-b44f-2bb3c4b3429c">
+                          <value uid="7cfe65e2-151e-454e-be9c-82e0ed7a0995" value="Data controls.Company.currentObject">
+                            <expression expressionType="DataControlHolder"/>
+                            <expression objRef="dde88885-aa16-4614-98d3-6a7722185411" order="1" expressionType="DataControlImpl"/>
+                            <expression order="2" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="637aacce-4508-4010-bc1c-b281855cb366" refObj="749941ea-9382-40d3-93d7-0c7ebb8f312a">
+                          <value uid="55cdeed7-00be-4df2-96bb-354036ca4509" value="Types repository.Primitive package.Null">
+                            <expression uid="bad688cc-7cb1-4ee0-8870-ff62889f2aaf" expressionType="DomainTypesImpl"/>
+                            <expression uid="04b0648a-3a33-47e0-abea-5174a0073c00" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="ec992e1d-9120-404e-acf0-39be3325d73e" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="54126dd5-9145-4634-bbc6-e1d86f15bbc1" refObj="8a430dfd-bdff-4551-ba7f-1277d33d848d">
+                          <value uid="08d6a30d-2cbc-4c45-b092-159345c9bc16" constant="true" value="getFileObject"/>
+                        </parameters>
+                        <parameters uid="82bc2e4d-2124-4a18-9cad-87373975cb24" refObj="eb44bae7-1dd3-45e5-a512-9d7847fb3868">
+                          <value uid="ce289692-ec38-4ea8-8f19-625cb2876d1a" value="Tree data controls.TreeFiles.Files.currentObject">
+                            <expression uid="0ea6658a-0cab-42be-b47b-ba87f42e9c99" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="4b4fac4e-2ea1-40a2-8a38-946199b43adc" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="4f958cb5-8297-4467-a4be-f119c28468b2" objRef="76776f41-dbcb-44b0-b74c-44bf7348e103" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="a6078d82-f689-4e6a-ad29-c7ed11ffe5cc" order="3" expressionType="DataControlFakeMethod"/>
+                          </value>
+                        </parameters>
+                      </remove>
+                      <search methodRef="adec09de-9853-4819-9090-662eb6abb24b" uid="3849d6ac-21ea-4c6c-ab6c-e709615bc1e9">
+                        <parameters uid="d18cef6e-cf3b-40f8-9177-916d352b74db" refObj="dc3c5570-0eda-48dc-ac11-6725f3fe423f">
+                          <value uid="1bb7bcc9-ec39-44b9-9e10-a04789ca21ab" value="Types repository.Primitive package.Null">
+                            <expression uid="dfde609b-f08d-4b8c-9d9b-497e75bf5704" expressionType="DomainTypesImpl"/>
+                            <expression uid="fdfc2e83-f624-47b6-a648-66c5e9c58fe9" objRef="/0/@domainTypes/@primitives" order="1" expressionType="PrimitivesGroupImpl"/>
+                            <expression uid="a555b562-6e46-4758-8227-0b149af18430" objRef="6b00860c-a27c-4215-8b9f-4b34ba75986f" order="2" expressionType="PrimitiveImpl"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="b91525c6-0eec-499e-87ca-d85b6f6b0d65" refObj="be8ecff3-fe34-4d93-be69-bae32ee14e3b">
+                          <value uid="01b70500-08ff-4b50-9930-bb3dfccfb3e3" constant="true" value="getFileObject"/>
+                        </parameters>
+                        <parameters uid="65650b14-76bc-4b13-9de3-15499557e06b" refObj="5c3538c3-cf6f-4888-a13a-e4ac6c171855">
+                          <value uid="812b786f-e24a-4091-8b6f-078e62272aa5" value="Tree data controls.TreeFiles.Files.searchCriteria">
+                            <expression uid="fe024d03-c684-4ee1-acd0-2f5cb48f426f" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="4986a73d-6d1e-4915-a062-6cbeafc1089a" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="537cdccc-c8b0-4d18-8a6e-20dd53876a55" objRef="76776f41-dbcb-44b0-b74c-44bf7348e103" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="42f5b79d-e101-455e-ac79-19848538946c" order="3" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="85f25678-29e3-4a05-915d-f78389cabf60" refObj="70d7e1af-5371-4ec0-b170-2309ab9d790e">
+                          <value uid="293fe545-a75c-4945-94ed-a395b4bf9235" value="Tree data controls.TreeFiles.Files.orderCriteria">
+                            <expression uid="ec33f3b5-61e9-452b-8d94-0434e372fcb4" expressionType="TreeRootDataControlHolder"/>
+                            <expression uid="70e99c81-eda6-4ed7-9cc1-c50abba5ad12" order="1" expressionType="TreeDataControl"/>
+                            <expression uid="7d80dc4e-e06b-4d1c-ae5e-352132585ff3" objRef="76776f41-dbcb-44b0-b74c-44bf7348e103" order="2" expressionType="DataControlImpl"/>
+                            <expression uid="01bab53d-788d-468a-8f8e-dc1cfc9a7375" order="3" expressionType="DataControlFakeAttribute"/>
+                          </value>
+                        </parameters>
+                        <parameters uid="764ee07d-67a3-4846-bcf6-5c81e80739d1" refObj="f450ad2e-ca99-4e46-b2dd-212e0518cd04">
+                          <value uid="ef0e38da-4458-4918-b571-abdda6ee7797" value="Types repository.HR domain.Model Interface.Model Interface::File type">
+                            <expression uid="d74234c9-e2e8-4964-8525-6c0ef7ae23ed" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="0c5fa2ee-4c1b-4e01-8615-d3290c52f72b" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="1e77ec33-ab1b-489b-80b9-194cf77e7aeb" objRef="6110560a-e781-4602-99ca-45ed91722414" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="372b286d-213d-4b19-9876-b3fa4c234c4f" objRef="a560547a-2981-4fc4-9431-70d493884454" order="3" expressionType="TypeImpl"/>
+                          </value>
+                        </parameters>
+                      </search>
+                      <defaultOrderBy/>
+                    </controls>
+                    <relations uid="78b13f60-ffc9-4070-a090-da5f9542b59f" master="dde88885-aa16-4614-98d3-6a7722185411" detail="fca7e563-cd58-4fc8-b662-beb50df032df"/>
+                    <relations uid="599f5ed8-46f9-43fc-8566-f583a96d8afe" master="fca7e563-cd58-4fc8-b662-beb50df032df" detail="1015de95-3971-401b-9632-891ce9310757" isTree="true"/>
+                    <relations uid="5ca61cb1-9c41-434e-8574-cf4ebc7fd8d1" master="1015de95-3971-401b-9632-891ce9310757" detail="607e5f47-1b43-4d19-9bfb-02afe6bdf845" isTree="true"/>
+                    <relations uid="93315adc-75c7-4fe9-bfc6-d7bab067869e" master="607e5f47-1b43-4d19-9bfb-02afe6bdf845" detail="c64d53ca-ca4d-4cf3-8d88-25d00f37f205" isTree="true"/>
+                    <relations uid="c0e265c9-372e-4e11-a402-c9f4703f1d49" master="c64d53ca-ca4d-4cf3-8d88-25d00f37f205" detail="ff7161ba-4177-41ae-90e8-19395789a2d5"/>
+                    <relations uid="92a33228-4933-40f0-be13-e86e1e1b89cc" master="ff7161ba-4177-41ae-90e8-19395789a2d5" detail="f694df01-48ab-4682-956c-827b21384d38"/>
+                    <relations uid="ca769174-ee5e-4813-b372-babaad81e46c" master="ff7161ba-4177-41ae-90e8-19395789a2d5" detail="d0e9d7f2-261b-4985-ae7e-e26a30b4afe6"/>
+                    <relations uid="5f4ca8e4-9002-45e2-9857-9302fb86b9c4" master="d0e9d7f2-261b-4985-ae7e-e26a30b4afe6" detail="76776f41-dbcb-44b0-b74c-44bf7348e103"/>
+                    <relations uid="5b27c7c1-1986-43bb-b285-d73357b26255" master="76776f41-dbcb-44b0-b74c-44bf7348e103" detail="76776f41-dbcb-44b0-b74c-44bf7348e103" isTree="true"/>
                   </datacontrols>
                 </forms>
               </applicationUIPackages>
