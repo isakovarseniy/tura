@@ -912,14 +912,68 @@
                       <style uid="26cefdcd-3ae3-4228-b22f-0268f1276979"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="ead1ce5d-b1f2-40a8-8a3d-74000018e821" name="Company department">
                         <style uid="4d8846af-a53f-43d8-8c8e-30059b7fdb5d"/>
-                        <baseCanvas uid="9b1f3fcf-05bc-4ab5-b227-9629bbb86912">
+                        <baseCanvas uid="3724f44a-708f-4948-b096-08046338af0e">
                           <children xsi:type="tura.form:LayerHolder">
                             <children xsi:type="tura.form:Menu" uid="a8c7a6d7-75b3-44d3-a34b-a038f0dbccbf">
                               <style uid="637a5631-57f9-451c-9e32-39455b644831"/>
                             </children>
                           </children>
-                          <children xsi:type="tura.form:LayerHolder" order="1"/>
-                          <children xsi:type="tura.form:LayerHolder" order="2"/>
+                          <children xsi:type="tura.form:LayerHolder" order="1" uid="cd292d6d-b462-4216-a967-5c287415710e" columns="2">
+                            <children xsi:type="tura.form:Label" uid="a864ec88-7708-454b-b447-a009717dd3a7" label="HR controller form">
+                              <style uid="76545684-3601-49ba-b1ca-35f9dae5e304"/>
+                              <readOnly uid="47e1fa56-957d-4bcd-8920-0de18e3f3584"/>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="3d7640ea-909e-413a-b6e6-5b7b2225a308" columns="3">
+                              <children xsi:type="tura.form:Button" label="Canada"/>
+                              <children xsi:type="tura.form:Button" order="1" label="Russia"/>
+                              <children xsi:type="tura.form:Button" order="2" label="Logout"/>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="2" uid="dfff89d8-9d25-4f64-b7ea-58bb9e04c9a9" columns="2">
+                            <children xsi:type="tura.form:Button" label="Save"/>
+                            <children xsi:type="tura.form:Button" order="1" label="RollBack"/>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="3" uid="1b78431b-47fa-49c0-9595-da5d6ffdb7cd" columns="2">
+                            <children xsi:type="tura.form:LayerHolder" uid="738835f5-5991-484c-aa95-189665699b95" columns="2">
+                              <children xsi:type="tura.form:Table" uid="1a73f0f1-2931-4912-8b95-2d991ef73c76" label="Companies">
+                                <cols uid="ea3f43bc-75fc-44c5-a367-a21c8f2dc97e" label="Company name">
+                                  <style uid="a92261c9-64d0-4d0f-b773-13a96d77ccd6"/>
+                                  <element xsi:type="tura.form:InputText"/>
+                                </cols>
+                                <cols uid="a38ad581-d3dc-462a-b0fc-9fd22427f0dd" label="Description">
+                                  <style uid="ac8fe099-2b77-4b29-927f-64f97517cb1a"/>
+                                  <element xsi:type="tura.form:InputText"/>
+                                </cols>
+                                <cols uid="866b4779-f58e-4de7-a6d4-fc9e4862dcd3" label="View company's details">
+                                  <style uid="4402f39c-828a-47b3-8e2c-36572e9daf57"/>
+                                  <element xsi:type="tura.form:Button" label="View Company"/>
+                                </cols>
+                              </children>
+                              <children xsi:type="tura.form:LayerHolder" order="1" uid="aeed97b8-9772-44ab-b203-3468c6231d2e">
+                                <children xsi:type="tura.form:Button" label="Create"/>
+                                <children xsi:type="tura.form:Button" order="1" label="Add"/>
+                                <children xsi:type="tura.form:Button" order="2" label="Remove"/>
+                                <children xsi:type="tura.form:Button" order="3" label="JS Test">
+                                  <required uid="48ceb576-13ab-41de-afe2-5f38db3324ec"/>
+                                  <readOnly uid="457888fa-5646-4877-8753-9b3b4435c747"/>
+                                  <icon uid="7ee22782-085f-4f14-aff2-eeba1fa4f10a"/>
+                                </children>
+                              </children>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="9951f088-5fcc-4976-95da-fd7e7c163389" columns="2">
+                              <children xsi:type="tura.form:Tree" uid="26ce090d-10c9-4624-ab32-5c27d9d05d64" label="Location">
+                                <cols uid="ab482d70-9f7f-46a7-b908-0ad755d96311" label="Column">
+                                  <style uid="c6ab2c8e-b8e8-49ad-8da7-507c4f656570"/>
+                                  <element xsi:type="tura.form:InputText"/>
+                                </cols>
+                              </children>
+                              <children xsi:type="tura.form:LayerHolder" order="1" uid="80a70fc6-c5ed-4393-84f8-f03490f0aa7c">
+                                <children xsi:type="tura.form:Button" label="Add"/>
+                                <children xsi:type="tura.form:Button" order="1" label="Add child"/>
+                                <children xsi:type="tura.form:Button" order="2" label="Remove"/>
+                              </children>
+                            </children>
+                          </children>
                         </baseCanvas>
                       </viewElement>
                       <viewElement xsi:type="tura.form:ViewPort" order="1" uid="5fbee6ea-fd10-4a04-a905-f97ab35ce47b" name="Details"/>
