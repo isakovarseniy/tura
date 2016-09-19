@@ -48,10 +48,33 @@ public class TableItemProvider extends SourcesPointerItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addColumnsPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addRowNumberPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Columns feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColumnsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_HTMLLayerHolder_columns_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
+				 FormPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -167,6 +190,7 @@ public class TableItemProvider extends SourcesPointerItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Table.class)) {
+			case FormPackage.TABLE__COLUMNS:
 			case FormPackage.TABLE__LABEL:
 			case FormPackage.TABLE__ROW_NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

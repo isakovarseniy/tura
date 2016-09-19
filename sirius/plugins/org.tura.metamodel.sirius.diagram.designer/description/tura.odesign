@@ -3085,7 +3085,7 @@
             </style>
           </subNodeMappings>
           <subContainerMappings name="Table" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Table%20edit%20label']" semanticCandidatesExpression="feature:children" domainClass="form.Table" childrenPresentation="VerticalStack">
-            <subContainerMappings name="TableColumns" semanticCandidatesExpression="var:self" domainClass="form.Table" childrenPresentation="HorizontalStack">
+            <subContainerMappings name="TableColumns" semanticCandidatesExpression="var:self" domainClass="form.Table">
               <subContainerMappings name="ColumnTable" semanticCandidatesExpression="feature:cols" domainClass="form.Column" childrenPresentation="VerticalStack">
                 <subContainerMappings name="ColumnElement" semanticCandidatesExpression="var:self" domainClass="form.Column">
                   <subNodeMappings name="Button2" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Button%20edit%20label']" semanticCandidatesExpression="feature:element" domainClass="form.Button">

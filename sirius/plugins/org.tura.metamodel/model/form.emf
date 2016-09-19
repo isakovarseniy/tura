@@ -318,7 +318,7 @@ class Column extends StyleElement,MultiLangLabel, artifact.Categorized,HTMLLayer
    val Uielement element;   
 }
 
-class Table extends SourcesPointer,MultiLangLabel{
+class Table extends SourcesPointer,MultiLangLabel,HTMLLayerHolder{
    attr EString label;
    attr EInt rowNumber;
     val Column[*] cols;

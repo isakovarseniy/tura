@@ -3702,6 +3702,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		columnEClass.getESuperTypes().add(this.getOrderable());
 		tableEClass.getESuperTypes().add(this.getSourcesPointer());
 		tableEClass.getESuperTypes().add(this.getMultiLangLabel());
+		tableEClass.getESuperTypes().add(this.getHTMLLayerHolder());
 		menuEClass.getESuperTypes().add(this.getUielement());
 		menuElementEClass.getESuperTypes().add(this.getMultiLangLabel());
 		menuElementEClass.getESuperTypes().add(this.getStyleElement());

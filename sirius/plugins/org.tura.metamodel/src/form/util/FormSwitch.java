@@ -616,6 +616,7 @@ public class FormSwitch<T> extends Switch<T> {
 				T result = caseTable(table);
 				if (result == null) result = caseSourcesPointer(table);
 				if (result == null) result = caseMultiLangLabel(table);
+				if (result == null) result = caseHTMLLayerHolder(table);
 				if (result == null) result = caseUielement(table);
 				if (result == null) result = caseStyleElement(table);
 				if (result == null) result = caseNickNamed(table);

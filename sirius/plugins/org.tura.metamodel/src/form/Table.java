@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Table extends SourcesPointer, MultiLangLabel {
+public interface Table extends SourcesPointer, MultiLangLabel, HTMLLayerHolder {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->

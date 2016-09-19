@@ -935,20 +935,6 @@
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="3" uid="1b78431b-47fa-49c0-9595-da5d6ffdb7cd" columns="2">
                             <children xsi:type="tura.form:LayerHolder" uid="738835f5-5991-484c-aa95-189665699b95" columns="2">
-                              <children xsi:type="tura.form:Table" uid="1a73f0f1-2931-4912-8b95-2d991ef73c76" label="Companies">
-                                <cols uid="ea3f43bc-75fc-44c5-a367-a21c8f2dc97e" label="Company name">
-                                  <style uid="a92261c9-64d0-4d0f-b773-13a96d77ccd6"/>
-                                  <element xsi:type="tura.form:InputText"/>
-                                </cols>
-                                <cols uid="a38ad581-d3dc-462a-b0fc-9fd22427f0dd" label="Description">
-                                  <style uid="ac8fe099-2b77-4b29-927f-64f97517cb1a"/>
-                                  <element xsi:type="tura.form:InputText"/>
-                                </cols>
-                                <cols uid="866b4779-f58e-4de7-a6d4-fc9e4862dcd3" label="View company's details">
-                                  <style uid="4402f39c-828a-47b3-8e2c-36572e9daf57"/>
-                                  <element xsi:type="tura.form:Button" label="View Company"/>
-                                </cols>
-                              </children>
                               <children xsi:type="tura.form:LayerHolder" order="1" uid="aeed97b8-9772-44ab-b203-3468c6231d2e">
                                 <children xsi:type="tura.form:Button" label="Create"/>
                                 <children xsi:type="tura.form:Button" order="1" label="Add"/>
@@ -958,6 +944,19 @@
                                   <readOnly uid="457888fa-5646-4877-8753-9b3b4435c747"/>
                                   <icon uid="7ee22782-085f-4f14-aff2-eeba1fa4f10a"/>
                                 </children>
+                              </children>
+                              <children xsi:type="tura.form:Table" uid="180bd1e5-0388-4fdf-812a-ca1525b12772" columns="3" label="Companies">
+                                <cols uid="e3bea975-5c1a-461e-beee-ce8006257664" label="Company name">
+                                  <style uid="3c4eeae9-ea07-4ec8-a8b4-01e352abade8"/>
+                                  <element xsi:type="tura.form:InputText"/>
+                                </cols>
+                                <cols order="1" uid="b14d0be6-79f7-408f-b4eb-090535a4309f" label="Description">
+                                  <style uid="8c5f6695-0cb5-407e-9700-042f8731c976"/>
+                                  <element xsi:type="tura.form:InputText"/>
+                                </cols>
+                                <cols order="2" uid="d5e8ff70-3ca5-4ce8-95f3-a3095c0420e9" label="View company's details">
+                                  <element xsi:type="tura.form:Button" label="View Company"/>
+                                </cols>
                               </children>
                             </children>
                             <children xsi:type="tura.form:LayerHolder" order="1" uid="9951f088-5fcc-4976-95da-fd7e7c163389" columns="2">
