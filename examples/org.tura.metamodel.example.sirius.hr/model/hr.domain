@@ -1025,7 +1025,9 @@
                       <style uid="24e4306e-8b03-4ba2-a528-48fc69b56902"/>
                       <menuFolders uid="b47c448a-f618-4b80-9c5b-5559e83348af" name="Main Menu">
                         <icon uid="8210a7ad-b6a3-4f90-a372-98baae245275"/>
-                        <menuElements xsi:type="tura.form:SubMenu" uid="8ff53793-b643-4fae-acf3-d717ff8317a2" name="Forms"/>
+                        <menuElements xsi:type="tura.form:SubMenu" uid="8ff53793-b643-4fae-acf3-d717ff8317a2" name="Forms">
+                          <icon uid="13bd70d6-154e-4dbe-808a-33dab26cfd93"/>
+                        </menuElements>
                         <menuElements xsi:type="tura.form:SubMenu" order="1" uid="1efe95f8-4018-4393-87f7-c1c1a1d2a265" name="Actions"/>
                       </menuFolders>
                       <menuFolders uid="93f7fe70-0b41-4a3d-8009-ca0ea83008ef" name="FormsMenu">
@@ -1036,6 +1038,7 @@
                       </menuFolders>
                       <menuFolders uid="faed360f-b88f-4416-9b1d-c99e9300b335" name="ActionsMenue">
                         <enabled uid="783d7da0-0e0f-494d-b53f-064b1d32b95a"/>
+                        <icon uid="6dafbb1f-01b3-4833-888d-e58a99cd2454"/>
                         <menuElements xsi:type="tura.form:MenuExtensionPoint" uid="9dd191f6-30a4-4ca4-8809-20dc2c2f61d9" name="FormMenu" extensionRef="71b50664-cf31-4f1f-a0de-367dbc998793">
                           <multiLangLabel uid="a06cfe44-26fd-490d-9f1f-e6ef8b1dd5e3"/>
                           <enabled uid="20809966-fce8-4f16-a28d-02fc90ceeec5"/>
@@ -1051,8 +1054,12 @@
                         <menuElements xsi:type="tura.form:MenuItem" uid="1e0c431d-0254-40e6-80f4-49c8b635939f" name="Save">
                           <enabled uid="07a5cf4e-fc52-4924-874b-69711bf92fa1"/>
                         </menuElements>
-                        <menuElements xsi:type="tura.form:MenuSeparator" order="1" uid="958c4c41-93ce-4c2c-97cb-03cc300ad9b6" name="Separator"/>
-                        <menuElements xsi:type="tura.form:SubMenu" order="2" uid="f927e349-b256-407e-b2c4-4debdca74d80" name="SubMenu"/>
+                        <menuElements xsi:type="tura.form:MenuSeparator" order="1" uid="958c4c41-93ce-4c2c-97cb-03cc300ad9b6" name="Separator">
+                          <enabled uid="2de4603c-397d-43e1-8c14-29718eb5cca3"/>
+                        </menuElements>
+                        <menuElements xsi:type="tura.form:SubMenu" order="2" uid="f927e349-b256-407e-b2c4-4debdca74d80" name="SubMenu">
+                          <icon uid="332ba7c1-984d-4600-aca9-7184165a843d"/>
+                        </menuElements>
                       </menuFolders>
                       <menuFolders uid="12d505aa-41cb-4cfe-ab34-03b369a7886d" name="SubMenu">
                         <menuElements xsi:type="tura.form:MenuItem" uid="13956820-7eab-4cf4-bc2c-11d376602ace" name="Rollback"/>
@@ -2359,6 +2366,7 @@
                       </search>
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="c5a22569-7ff5-4aa7-b783-486f9053abfb" name="nameArtf"/>
                       <defaultSearch/>
+                      <defaultOrderBy/>
                     </controls>
                     <controls uid="0912aabc-fd4a-4241-85b2-2afd12c648ba" name="Street">
                       <baseType typeRef="6bcd9fb4-d240-4a86-8c40-01a35fe01033"/>
@@ -2443,6 +2451,7 @@
                         <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </search>
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="6d27f927-2e61-4b07-b9b7-a0483bba571b" name="nameArtf"/>
+                      <defaultOrderBy/>
                     </controls>
                     <controls uid="ded7ef18-7849-4bce-9d23-656da7746f6b" name="Department">
                       <baseType typeRef="bba5bca8-79c4-4856-a307-acc056d2ba90"/>
