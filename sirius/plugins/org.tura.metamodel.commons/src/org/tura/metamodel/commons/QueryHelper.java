@@ -1210,18 +1210,13 @@ public class QueryHelper {
 			String query = "application::ApplicationUILayer.allInstances()->select(q|q.uid='" + app.getUid() + "')"
 					+ "->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages"
 					+ "->collect(w|w.oclAsType(application::ApplicationUIPackage).forms"
-					+ " ->collect(f|f.oclAsType(form::Form).view.menus)"
-					+ "->collect(fl|fl.oclAsType(form::MenuDefinition).menuFolders"
-					+ " ->select(mf|mf.oclIsKindOf(form::MenuFolder)))))"
-					+ "->reject(qwe|application::ApplicationUILayer.allInstances()->select(q|q.uid='" + app.getUid() + "')"
-					+ "->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages"
-					+ "->collect(w|w.oclAsType(application::ApplicationUIPackage).forms"
-					+ " ->collect(f|f.oclAsType(form::Form).view.menus)"
-					+ "->collect(fl|fl.oclAsType(form::MenuDefinition).menuFolders"
-					+ " ->collect(mf|mf.oclAsType(form::MenuFolder).menuElements"
-					+ "->select(e|e.oclIsKindOf(form::SubMenu) and e.oclAsType(form::SubMenu).toSubMenu <> null )"
-					+ " ->collect(e|e.oclAsType(form::SubMenu).toSubMenu ) ))))->includes(qwe))";
-
+					+ " ->collect(f|f.oclAsType(form::Form).view.menus)->collect(fl|fl.oclAsType(form::MenuDefinition).menuFolders "
+					+ "->select(mf|mf.oclIsKindOf(form::MenuFolder)))))->reject(qwe|application::ApplicationUILayer.allInstances()"
+					+ "->select(q|q.uid='" + app.getUid() + "')->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages"
+							+ "->collect(w|w.oclAsType(application::ApplicationUIPackage).forms ->collect(f|f.oclAsType(form::Form).view.menus)"
+							+ "->collect(fl|fl.oclAsType(form::MenuDefinition).toSubMenu ->collect(mf|mf.oclAsType(form::ToSubmenu).target ))))"
+							+ "->includes(qwe))";
+			
 			@SuppressWarnings("unchecked")
 			Collection<MenuFolder> map = (Collection<MenuFolder>) internalEvaluate(app, query);
 
@@ -1243,60 +1238,37 @@ public class QueryHelper {
 	}
 
 	public List<MenuFolder> findExtensionPoints(MenuExtensionRef ref) {
-		throw new RuntimeException();
 
-		// domain.Views views = (Views) (((domain.MenuView)
-		// (ref.eContainer().eContainer()))
-		// .getParent().eContainer());
-		// domain.Form frm = (domain.Form) (views.getParent().eContainer());
-		// domain.ApplicationUILayer app = ((domain.UIPackage)
-		// (frm.eContainer()))
-		// .getParent().getParent();
-		//
-		// try {
-		//
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::ApplicationUILayer.allInstances()->select(q|q.uid='"+app.getUid()+"')"
-		// + "
-		// ->collect(v|v.oclAsType(domain::ApplicationUILayer).applicationUIPackages"
-		// + "
-		// ->collect(w|w.oclAsType(domain::ApplicationUIPackage).uipackage.forms"
-		// + " ->collect(f|f.oclAsType(domain::Form).view.view.menus)"
-		// + "
-		// ->collect(fl|fl.oclAsType(domain::MenuDefinition).menuView.menuFolders"
-		// + "
-		// ->collect(mf|mf.oclAsType(domain::MenuFolder)->select(e|e.extensionPoint)
-		// ))))");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.MenuFolder> map = (Collection<domain.MenuFolder>)
-		// ocl
-		// .evaluate(ref, query);
-		//
-		// ArrayList<domain.MenuFolder> list = new
-		// ArrayList<domain.MenuFolder>();
-		//
-		// if (map.size() != 0) {
-		// for (domain.MenuFolder point : map) {
-		// if (point.getName() != null && !point.getName().trim().equals(""))
-		// list.add(point);
-		// }
-		// }
-		// return list;
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// return new ArrayList<domain.MenuFolder>();
-		// }
-		//
-		//
+		 Views views = (Views) (((MenuDefinition)(ref.eContainer().eContainer())).eContainer());
+		 Form	frm = (Form) ((Views) views).eContainer();
+		 ApplicationUILayer app = (ApplicationUILayer) frm.eContainer().eContainer();
+		
+		String query = "application::ApplicationUILayer.allInstances()->select(q|q.uid='" + app.getUid() + "')"
+				+ "->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages->"
+				+ "collect(w|w.oclAsType(application::ApplicationUIPackage).forms "
+				+ "->collect(f|f.oclAsType(form::Form).view.menus)"
+				+ "->collect(fl|fl.oclAsType(form::MenuDefinition).menuFolders"
+				+ "->collect(mf|mf.oclAsType(form::MenuFolder)->select(e|e.extensionPoint)))))";
+		 
+		try {
+			
+			@SuppressWarnings("unchecked")
+			Collection<MenuFolder> map = (Collection<MenuFolder>) internalEvaluate(app, query);
+			
+			 ArrayList<MenuFolder> list = new ArrayList<MenuFolder>();
+			
+			if (map.size() != 0) {
+				for (MenuFolder point : map) {
+					if (point.getName() != null && !point.getName().trim().equals(""))
+						list.add(point);
+				}
+			}
+			 return list;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return new ArrayList<MenuFolder>();
+		}
+
 	}
 
 	public List<Uielement> findUIElementsForPage(CanvasFrame canvasFrame) {

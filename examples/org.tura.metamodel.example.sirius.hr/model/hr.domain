@@ -914,8 +914,11 @@
                         <style uid="4d8846af-a53f-43d8-8c8e-30059b7fdb5d"/>
                         <baseCanvas uid="3724f44a-708f-4948-b096-08046338af0e">
                           <children xsi:type="tura.form:LayerHolder">
-                            <children xsi:type="tura.form:Menu" uid="a8c7a6d7-75b3-44d3-a34b-a038f0dbccbf">
+                            <children xsi:type="tura.form:Menu" menu="b47c448a-f618-4b80-9c5b-5559e83348af" uid="a8c7a6d7-75b3-44d3-a34b-a038f0dbccbf">
                               <style uid="637a5631-57f9-451c-9e32-39455b644831"/>
+                              <enabled uid="bf34e95d-fb85-40fb-adbc-c7ac29a3ad30"/>
+                              <required uid="7ec58c1f-f0e0-4f03-a4ba-0e06ded77890"/>
+                              <readOnly uid="294bbd33-5575-4153-9533-4b361cb5d8e5"/>
                             </children>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="cd292d6d-b462-4216-a967-5c287415710e" columns="2">
@@ -1000,6 +1003,7 @@
                     </canvases>
                     <canvases xsi:type="tura.form:TabCanvas" uid="202dc775-763f-4b4b-baea-32e2419d3e5a" name="Employee details"/>
                     <canvases xsi:type="tura.form:TabPage" uid="8c605d7f-6e92-4da7-ad1d-fe7ae2621dc9" name="Files">
+                      <style uid="59d4ecb4-1442-49f6-a686-4c87d422ba78"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="5d4f2af1-f172-49ae-9b2e-9b99b25d9a3c" name="File tree"/>
                     </canvases>
                     <canvases xsi:type="tura.form:TabPage" uid="54d24c7b-59ad-43f5-bf29-f65f930751fa" name="Employees">
@@ -1017,7 +1021,46 @@
                     <viewInheritances uid="c7cd815d-a7e2-4cca-88aa-948e52c7a9ec" source="5fbee6ea-fd10-4a04-a905-f97ab35ce47b" target="cca262cf-104f-4dbb-8cec-61d07b721b45"/>
                     <tabPagesInheritances uid="0f976aeb-4962-4fba-9d3f-98a9d61b5a48" source="202dc775-763f-4b4b-baea-32e2419d3e5a" target="8c605d7f-6e92-4da7-ad1d-fe7ae2621dc9"/>
                     <tabPagesInheritances uid="eed2fc5c-900d-457a-8669-7e8d2127693f" source="202dc775-763f-4b4b-baea-32e2419d3e5a" target="54d24c7b-59ad-43f5-bf29-f65f930751fa"/>
-                    <menus uid="032cfef3-1276-4d12-9fc4-af8a02ed4849" name="Main menu"/>
+                    <menus uid="032cfef3-1276-4d12-9fc4-af8a02ed4849" name="Main menu">
+                      <style uid="24e4306e-8b03-4ba2-a528-48fc69b56902"/>
+                      <menuFolders uid="b47c448a-f618-4b80-9c5b-5559e83348af" name="Main Menu">
+                        <icon uid="8210a7ad-b6a3-4f90-a372-98baae245275"/>
+                        <menuElements xsi:type="tura.form:SubMenu" uid="8ff53793-b643-4fae-acf3-d717ff8317a2" name="Forms"/>
+                        <menuElements xsi:type="tura.form:SubMenu" order="1" uid="1efe95f8-4018-4393-87f7-c1c1a1d2a265" name="Actions"/>
+                      </menuFolders>
+                      <menuFolders uid="93f7fe70-0b41-4a3d-8009-ca0ea83008ef" name="FormsMenu">
+                        <menuElements xsi:type="tura.form:MenuExtensionPoint" uid="1716a1aa-9acb-47c7-a2e1-a03e54a1c36f" name="Glogal Menu" extensionRef="be0df2ba-81d1-46b2-9283-a559c9a5b3a0">
+                          <multiLangLabel uid="f169e53f-76ff-40f3-8f8b-1c3df4bac911"/>
+                          <enabled uid="116449c5-37b7-4f60-bd5c-fcbf15adbc39"/>
+                        </menuElements>
+                      </menuFolders>
+                      <menuFolders uid="faed360f-b88f-4416-9b1d-c99e9300b335" name="ActionsMenue">
+                        <enabled uid="783d7da0-0e0f-494d-b53f-064b1d32b95a"/>
+                        <menuElements xsi:type="tura.form:MenuExtensionPoint" uid="9dd191f6-30a4-4ca4-8809-20dc2c2f61d9" name="FormMenu" extensionRef="71b50664-cf31-4f1f-a0de-367dbc998793">
+                          <multiLangLabel uid="a06cfe44-26fd-490d-9f1f-e6ef8b1dd5e3"/>
+                          <enabled uid="20809966-fce8-4f16-a28d-02fc90ceeec5"/>
+                        </menuElements>
+                      </menuFolders>
+                      <menuFolders uid="be0df2ba-81d1-46b2-9283-a559c9a5b3a0" name="Global menu" extensionPoint="true">
+                        <menuElements xsi:type="tura.form:MenuItem" uid="7256c17e-7cd2-4cf8-b6b7-bc69fe318059" name="HrController form"/>
+                        <menuElements xsi:type="tura.form:MenuItem" order="1" uid="2b76551b-d0df-4f8d-9790-f39e9f437aef" name="Tree2tree"/>
+                        <menuElements xsi:type="tura.form:MenuItem" order="2" uid="171e1012-16ef-4003-affe-1a881302f5cb" name="MiscElements"/>
+                      </menuFolders>
+                      <menuFolders uid="71b50664-cf31-4f1f-a0de-367dbc998793" name="Form menu" extensionPoint="true">
+                        <enabled uid="6adcf0fe-8b11-43f6-8c4b-111730693030"/>
+                        <menuElements xsi:type="tura.form:MenuItem" uid="1e0c431d-0254-40e6-80f4-49c8b635939f" name="Save">
+                          <enabled uid="07a5cf4e-fc52-4924-874b-69711bf92fa1"/>
+                        </menuElements>
+                        <menuElements xsi:type="tura.form:MenuSeparator" order="1" uid="958c4c41-93ce-4c2c-97cb-03cc300ad9b6" name="Separator"/>
+                        <menuElements xsi:type="tura.form:SubMenu" order="2" uid="f927e349-b256-407e-b2c4-4debdca74d80" name="SubMenu"/>
+                      </menuFolders>
+                      <menuFolders uid="12d505aa-41cb-4cfe-ab34-03b369a7886d" name="SubMenu">
+                        <menuElements xsi:type="tura.form:MenuItem" uid="13956820-7eab-4cf4-bc2c-11d376602ace" name="Rollback"/>
+                      </menuFolders>
+                      <toSubMenu uid="389b2d3c-1df9-4bd4-a923-946695fa5f1b" source="1efe95f8-4018-4393-87f7-c1c1a1d2a265" target="faed360f-b88f-4416-9b1d-c99e9300b335"/>
+                      <toSubMenu uid="3fe16c40-b8f7-4782-a313-e26bf038e331" source="8ff53793-b643-4fae-acf3-d717ff8317a2" target="93f7fe70-0b41-4a3d-8009-ca0ea83008ef"/>
+                      <toSubMenu uid="8850825b-083d-4f0c-81bf-ed35a98d512f" source="f927e349-b256-407e-b2c4-4debdca74d80" target="12d505aa-41cb-4cfe-ab34-03b369a7886d"/>
+                    </menus>
                   </view>
                   <datacontrols uid="6bb23934-e207-455b-b45a-cf5b70139b85">
                     <root uid="7b142234-5399-4f1b-a65d-90c6c264be71">

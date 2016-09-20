@@ -6,20 +6,20 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.tura.metamodel.commons.QueryHelper;
-import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.MenuMenuHolder;
+import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.MenuExtensionRefMenuExtensionPoint;
 
+import form.MenuExtensionRef;
 import form.MenuFolder;
 
-public class MenuPointerPropertySelection extends AbstractEnumerationPropertySection {
+public class ExtensionPointPropertySelection extends AbstractEnumerationPropertySection {
 
 	protected String getLabelText() {
-		return "Menu";//$NON-NLS-1$
+		return "Extension point";//$NON-NLS-1$
 	}
 
 	protected void init() {
-		dropDownDataSupplier = new MenuMenuHolder();
+		dropDownDataSupplier = new MenuExtensionRefMenuExtensionPoint();
 	}
 
 	protected HashMap<String, ?> getEnumerationFeatureValues() {
@@ -28,11 +28,7 @@ public class MenuPointerPropertySelection extends AbstractEnumerationPropertySec
 			values = new LinkedHashMap<String, Object>();
 
 			QueryHelper query = new QueryHelper();
-			DiagramImpl diagram = (DiagramImpl) editPart.getRoot().getContents()
-					.getModel();
-
-			
-			List<MenuFolder> ls = query.findMenus(query.getForm(diagram));
+			List<MenuFolder> ls = query.findExtensionPoints((MenuExtensionRef) getModel());
 
 			for (MenuFolder p : ls) {
 				values.put(p.getName(), p);
@@ -46,5 +42,4 @@ public class MenuPointerPropertySelection extends AbstractEnumerationPropertySec
 	public EObject getModel(EStructuralFeature feature) {
 		return getModel();
 	}
-
 }

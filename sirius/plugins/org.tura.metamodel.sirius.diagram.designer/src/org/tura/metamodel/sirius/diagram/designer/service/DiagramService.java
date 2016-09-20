@@ -3,7 +3,6 @@ package org.tura.metamodel.sirius.diagram.designer.service;
 import java.util.ArrayList;
 import java.util.UUID;
 
-
 import org.eclipse.emf.ecore.EObject;
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.GrantAccessRoleRef;
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.StylePointerLibraryName;
@@ -42,6 +41,7 @@ import form.Form;
 import form.FormParameter;
 import form.InsertTrigger;
 import form.LayerHolder;
+import form.Menu;
 import form.POSTCreateTrigger;
 import form.POSTQueryTrigger;
 import form.PREDeleteTrigger;
@@ -69,9 +69,9 @@ import recipe.Recipes;
 import style.StyleLibrary;
 import style.StyleSet;
 import type.Assosiation;
+import type.RelationType;
 import type.TypeGroup;
 import type.TypeReference;
-import type.RelationType;
 
 public class DiagramService {
 
@@ -138,6 +138,14 @@ public class DiagramService {
 		return UUID.randomUUID().toString();
 	}
 
+	public String generateName(Menu menu ){
+		if (menu.getMenu() == null){
+			return "N/A";
+		}
+		return menu.getMenu().getName();
+	}
+
+	
 	public String generateName(DomainArtifact domainArtifact ){
 		return "Domain Artifact"+ ((DomainArtifacts)(domainArtifact.eContainer())).getDomainArtifact().size();
 	}

@@ -1957,7 +1957,7 @@
             <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_blue']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="SubMenu" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='SubMenu%20edit%20label']" semanticCandidatesExpression="feature:menuElements" domainClass="form.SubMenu">
@@ -1970,15 +1970,15 @@
           <subNodeMappings name="MenuExtensionPoint" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='MenuExtensionPoint%20edit%20label']" semanticCandidatesExpression="feature:menuElements" domainClass="form.MenuExtensionPoint">
             <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_blue']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='dark_blue']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="MenuSeparator" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Menu%20Definition']/@defaultLayer/@toolSections.0/@ownedTools[name='MenuSeparator%20edit%20label']" semanticCandidatesExpression="feature:menuElements" domainClass="form.MenuSeparator">
             <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_blue']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_red']"/>
             </style>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name">
@@ -3071,7 +3071,7 @@
             </style>
           </subNodeMappings>
           <subNodeMappings name="Menu" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Menu%20edit%20label']" semanticCandidatesExpression="feature:children" domainClass="form.Menu">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.label" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/menu.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/menu.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
