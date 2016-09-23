@@ -149,7 +149,7 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 			// 1 nd column with task Option
 			TableColumn column = new TableColumn(table, SWT.LEFT, col);
 			column.setText(COLUMN_NAME);
-			column.setWidth(400);
+			column.setWidth(700);
 			return column;
 		}
 
@@ -279,7 +279,11 @@ public abstract class ContextValuePropertySelection extends GridProperty {
 
 		TypeElement type = null;
 		if (provider != null && provider.getReturnType(obj) != null)
-			type = (TypeElement) provider.getReturnType(obj);
+			if (provider.getReturnType(obj) instanceof TypeElement ){
+			     type = (TypeElement) provider.getReturnType(obj);
+			}else{
+			     type = (TypeElement) provider.getApplicationType(obj);
+			}
 		
 		return type;
 

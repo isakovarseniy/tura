@@ -3402,12 +3402,14 @@
                   <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
                 </cases>
                 <cases conditionExpression="aql:self.oclIsKindOf(form::LayerHolder)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.LayerHolder" referenceName="children"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.LayerHolder" referenceName="children">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  </subModelOperations>
                 </cases>
                 <cases conditionExpression="aql:self.oclIsKindOf(form::Column)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.LayerHolder" referenceName="element"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.LayerHolder" referenceName="element">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  </subModelOperations>
                 </cases>
               </firstModelOperations>
             </initialOperation>
@@ -3418,12 +3420,14 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:Switch">
                 <cases conditionExpression="aql:self.oclIsKindOf(form::LayerHolder)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Button" referenceName="children"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Button" referenceName="children">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  </subModelOperations>
                 </cases>
                 <cases conditionExpression="aql:self.oclIsKindOf(form::Column)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Button" referenceName="element"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Button" referenceName="element">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  </subModelOperations>
                 </cases>
               </firstModelOperations>
             </initialOperation>
@@ -3440,12 +3444,14 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:Switch">
                 <cases conditionExpression="aql:self.oclIsKindOf(form::LayerHolder)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.CheckBox" referenceName="children"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.CheckBox" referenceName="children">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  </subModelOperations>
                 </cases>
                 <cases conditionExpression="aql:self.oclIsKindOf(form::Column)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.CheckBox" referenceName="element"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.CheckBox" referenceName="element">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  </subModelOperations>
                 </cases>
               </firstModelOperations>
             </initialOperation>
@@ -3462,12 +3468,14 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:Switch">
                 <cases conditionExpression="aql:self.oclIsKindOf(form::LayerHolder)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Date" referenceName="children"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Date" referenceName="children">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  </subModelOperations>
                 </cases>
                 <cases conditionExpression="aql:self.oclIsKindOf(form::Column)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Date" referenceName="element"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Date" referenceName="element">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  </subModelOperations>
                 </cases>
               </firstModelOperations>
             </initialOperation>

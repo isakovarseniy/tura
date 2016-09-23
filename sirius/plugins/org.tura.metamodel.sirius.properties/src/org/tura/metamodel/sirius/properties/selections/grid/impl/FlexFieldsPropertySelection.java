@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -16,6 +17,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.tura.metamodel.sirius.properties.selections.events.Bus;
 import org.tura.metamodel.sirius.properties.selections.events.FlexFieldChangeEvent;
@@ -60,7 +62,6 @@ public class FlexFieldsPropertySelection extends ContextValuePropertySelection {
 				afterUpdate();
 				}
 		});		
-		
 	}
 
 	private void createButtons(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
@@ -121,8 +122,10 @@ public class FlexFieldsPropertySelection extends ContextValuePropertySelection {
 		TableItem [] items = table.getSelection();
 		if (items.length > 0){
 			event.setModel(items[0].getData());
-			Bus.getInstance().notify(event);
+		}else{
+			event.setModel(null);
 		}
+		Bus.getInstance().notify(event);
 	}	
 	
 	public void updateExpressionValue(EditingDomain editingDomain, ContextValue ctxv, TreePath path, Object model) {
@@ -133,5 +136,10 @@ public class FlexFieldsPropertySelection extends ContextValuePropertySelection {
 		afterUpdate();
 
 	}
+	
+	public void setInput(IWorkbenchPart part, ISelection selection) {
+		super.setInput(part, selection);
+		afterUpdate();
+	}	
 	
 }

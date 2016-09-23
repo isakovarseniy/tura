@@ -22,6 +22,8 @@ import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.commons.Util;
 import org.tura.metamodel.commons.properties.selections.adapters.TypeElementProvider;
+import org.tura.metamodel.sirius.properties.selections.events.Bus;
+import org.tura.metamodel.sirius.properties.selections.events.CastChangeEvent;
 
 import form.DataControl;
 import type.Type;
@@ -95,4 +97,10 @@ public abstract class AbstractCastPropertySelection extends AbstractEnumerationP
 		return getModel();
 	}
 
+	@Override
+	public void afterUpdate(){
+		Bus.getInstance().notify(new CastChangeEvent());
+		
+	}	
+	
 }

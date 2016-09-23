@@ -12,11 +12,33 @@
  *******************************************************************************/
 package org.tura.metamodel.sirius.properties.selections.dropdown;
 
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.SourcesPointerValuePointerExternalIterator;
+import org.tura.metamodel.sirius.properties.selections.events.Bus;
 
-public class ValuePointerAttributePropertySelectionExternalIterator extends AbstractAttributePropertySelection{
+public class ValuePointerAttributePropertySelectionExternalIterator extends DependentAbstractAttributePropertySelection{
+
+	private SelectionListener listener = new SelectionListener();
+	
+	
+	@Override
+	public void createControls(Composite parent,
+			final TabbedPropertySheetPage aTabbedPropertySheetPage) {
+		super.createControls(parent, aTabbedPropertySheetPage);
+		Bus.getInstance().addEventListner(listener);
+		
+	}
+
+	
 	protected void init(){
 		dropDownDataSupplier = new SourcesPointerValuePointerExternalIterator();
 	}
 
+	@Override
+	public void dispose(){
+		Bus.getInstance().removeEventListner(listener);
+	}
+	
+	
 }

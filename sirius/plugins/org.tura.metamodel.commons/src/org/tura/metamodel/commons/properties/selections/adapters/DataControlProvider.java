@@ -111,7 +111,7 @@ public class DataControlProvider implements IWorkbenchAdapter,IReturnTypeProvide
 	
 	@Override
 	public Object getApplicationType(Object o) {
-		return null;
+		return new QueryHelper().findDataControlType(o);
 	}	
 
 }

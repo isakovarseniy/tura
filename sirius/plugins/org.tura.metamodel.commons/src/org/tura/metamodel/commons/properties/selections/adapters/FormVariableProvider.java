@@ -37,7 +37,8 @@ public class FormVariableProvider implements IWorkbenchAdapter  ,IReturnTypeProv
 	
 	@Override
 	public Object getApplicationType(Object o) {
-		return null;
+		FormVariable v = (FormVariable) o;
+		return v.getTypeRef();
 	}	
 	
 }

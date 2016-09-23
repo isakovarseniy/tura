@@ -24,11 +24,15 @@ public class FlexFieldParameterDS extends ContextParameterDS {
 	@Override
 	public List<Object> queryRows() {
 		try {
+			List<Object> ls = new ArrayList<Object>();
+			if (property.getEditPart() == null || property.getEditPart().getModel() == null){
+				return ls;
+			}
+			
 			NodeImpl diagram = (NodeImpl) property.getEditPart().getModel();
 			EObject types = (EObject) diagram.getElement();
 			EditingDomain editingDomain = ((DiagramEditor) property.getPart())
 					.getEditingDomain();
-			List<Object> ls = new ArrayList<Object>();
 
 			FlexField field = (FlexField) property.getModel();
 			if (field != null && field.getExpression() != null && field.getExpression().size() != 0){

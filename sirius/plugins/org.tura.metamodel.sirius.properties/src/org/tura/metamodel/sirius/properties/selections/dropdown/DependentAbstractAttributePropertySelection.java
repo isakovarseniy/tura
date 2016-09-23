@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.tura.metamodel.sirius.properties.selections.events.CastChangeEvent;
 import org.tura.metamodel.sirius.properties.selections.events.DataControlChangeEvent;
 import org.tura.metamodel.sirius.properties.selections.events.Event;
 import org.tura.metamodel.sirius.properties.selections.events.EventListener;
@@ -14,7 +15,7 @@ public abstract class DependentAbstractAttributePropertySelection extends Abstra
 	class SelectionListener implements EventListener {
 		@Override
 		public void handleEvent(Event event) {
-			if (event instanceof DataControlChangeEvent) {
+			if (event instanceof DataControlChangeEvent || event instanceof  CastChangeEvent) {
 				for (int j = 0; j < dropDownDataSupplier.getWatchPointFeature().length; j++) {
 						values = null;
 						EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();

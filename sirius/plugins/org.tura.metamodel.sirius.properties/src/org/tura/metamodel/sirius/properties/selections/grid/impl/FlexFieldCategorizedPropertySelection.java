@@ -21,7 +21,6 @@ import org.tura.metamodel.sirius.properties.selections.events.EventListener;
 import org.tura.metamodel.sirius.properties.selections.events.FlexFieldChangeEvent;
 
 import form.FlexField;
-import form.FlexFields;
 
 public class FlexFieldCategorizedPropertySelection extends CategorizedPropertySelection {
 
@@ -37,11 +36,9 @@ public class FlexFieldCategorizedPropertySelection extends CategorizedPropertySe
 	@Override
 	public EObject getModel() {
 		if (model == null) {
-			tableViewer.setInput(null);
-			FlexFields fields = (FlexFields) model;
-			if (fields == null || !fields.getFields().iterator().hasNext())
-				return null;
-			return fields.getFields().iterator().next();
+			tableViewer.getTable().clearAll();
+			tableViewer.getTable().setItemCount(0);
+			return null;
 		}
 		return model;
 	}
