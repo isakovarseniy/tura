@@ -322,6 +322,11 @@
 
     <propertyTab
              category="domain"
+             id="tab.form.DropDown.InitialMessage"
+             label="Initial Message"/>
+
+    <propertyTab
+             category="domain"
              id="tab.form.UIelement.RefreshArias"
              label="Refresh arias"/>
 
@@ -886,6 +891,20 @@
 	   </propertySections>
 	</extension>	
 
+
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.context.impl.InitialOptionMessagePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.DropDownSectionFilter"
+	            id="form.DropDown.Options.InitialMessage"
+	            tab="tab.form.DropDown.InitialMessage">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
@@ -909,6 +928,21 @@
 	   </propertySections>
 	</extension>
 
+
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.DisplayOptionPointerAttributePropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.DropDownSectionFilter"
+	            id="form.DropDown.Options.Disp"
+	            tab="tab.form.DropDown"
+	            afterSection="form.DropDown.Options.Cast">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
+
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
@@ -916,7 +950,7 @@
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.DropDownSectionFilter"
 	            id="form.DropDown.Options.Value"
 	            tab="tab.form.DropDown"
-	            afterSection="form.DropDown.Options.Cast">
+	            afterSection="form.DropDown.Options.Dist">
 	      </propertySection>
 	   </propertySections>
 	</extension>	

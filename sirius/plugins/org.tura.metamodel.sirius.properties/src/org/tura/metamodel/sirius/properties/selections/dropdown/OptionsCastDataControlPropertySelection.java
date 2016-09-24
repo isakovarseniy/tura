@@ -12,12 +12,32 @@
  *******************************************************************************/
 package org.tura.metamodel.sirius.properties.selections.dropdown;
 
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.OptionSelectionOptionCast;
+import org.tura.metamodel.sirius.properties.selections.events.Bus;
 
-public class OptionsCastDataControlPropertySelection extends AbstractCastPropertySelection{
+public class OptionsCastDataControlPropertySelection extends DependentAbstractCastPropertySelection{
+
+	private SelectionListener listener = new SelectionListener();
 
 	protected void init() {
 		dropDownDataSupplier = new OptionSelectionOptionCast();
 	}
 
+	
+	@Override
+	public void createControls(Composite parent,
+			final TabbedPropertySheetPage aTabbedPropertySheetPage) {
+		super.createControls(parent, aTabbedPropertySheetPage);
+		Bus.getInstance().addEventListner(listener);
+		
+	}	
+	
+	
+	@Override
+	public void dispose(){
+		Bus.getInstance().removeEventListner(listener);
+	}
+		
 }

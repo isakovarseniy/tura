@@ -19,7 +19,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.SelectionValueOptionPointer;
+import org.tura.metamodel.sirius.properties.selections.adapters.dropdown.SelectionDisplayOptionPointer;
 import org.tura.metamodel.sirius.properties.selections.events.Bus;
 
 import form.DropDownSelection;
@@ -27,10 +27,15 @@ import form.FormFactory;
 import form.FormPackage;
 import form.Selection;
 
-public class ValueOptionPointerAttributePropertySelection extends DependentAbstractAttributePropertySelection {
+public class DisplayOptionPointerAttributePropertySelection extends DependentAbstractAttributePropertySelection {
 
 	private SelectionListener listener = new SelectionListener();
 	
+	
+	protected String getLabelText() {
+		return "Display value";
+	}
+
 	
 	@Override
 	public void createControls(Composite parent,
@@ -40,13 +45,8 @@ public class ValueOptionPointerAttributePropertySelection extends DependentAbstr
 		
 	}
 	
-	
-	protected String getLabelText() {
-		return "Option value";
-	}
-
 	protected void init() {
-		dropDownDataSupplier = new SelectionValueOptionPointer();
+		dropDownDataSupplier = new SelectionDisplayOptionPointer();
 	}
 
 	@Override
@@ -54,14 +54,14 @@ public class ValueOptionPointerAttributePropertySelection extends DependentAbstr
 		DropDownSelection dd = (DropDownSelection) super.getModel();
 		Selection selection = dd.getSelection();
 		if (selection == null) {
-			EditingDomain editingDomain = ((DiagramEditor) getPart())
-					.getEditingDomain();
+			EditingDomain editingDomain = ((DiagramEditor) getPart()).getEditingDomain();
 
 			selection = FormFactory.eINSTANCE.createSelection();
 
 			editingDomain.getCommandStack().execute(
 					SetCommand.create(editingDomain, dd,
-							FormPackage.eINSTANCE.getDropDownSelection_Selection(),selection));
+							FormPackage.eINSTANCE.getDropDownSelection_Selection(),
+							selection));
 		}
 
 		return dd;
@@ -69,13 +69,12 @@ public class ValueOptionPointerAttributePropertySelection extends DependentAbstr
 
 	@Override
 	public EObject getModel(EStructuralFeature feature) {
-		return ((DropDownSelection) getModel()).getSelection();
+		return ((DropDownSelection)super.getModel()).getSelection();
 	}
 
 	@Override
 	public void dispose(){
 		Bus.getInstance().removeEventListner(listener);
 	}
-	
 	
 }
