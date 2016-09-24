@@ -1,7 +1,0 @@
-# Tracing options for the org.tura.metamodel.diagram.menu plug-in
-
-# Common issues
-org.tura.metamodel.diagram.menu/debug=false
-
-# Visual IDs
-org.tura.metamodel.diagram.menu/debug/visualID=false
