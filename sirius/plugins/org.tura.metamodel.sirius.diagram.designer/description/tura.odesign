@@ -98,6 +98,27 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="MenuDefinition name repetition validation" level="ERROR" message="Name repetition problem" targetClass="form.MenuDefinition">
         <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(form::Views).menus->select(q|q.oclAsType(form::MenuDefinition).name = self.name)->size()=1"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Is Menu pointer defined " level="ERROR" message="Menu pointer cannot be empty " targetClass="form.Menu">
+        <audits auditExpression="aql:self.menu &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Is Source pointer defined " level="ERROR" message="Source pointer cannot be empty " targetClass="form.SourcesPointer">
+        <audits auditExpression="service:validateSourcesPointer"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Is Value pointer defined " level="ERROR" message="Value pointer cannot be empty " targetClass="form.SourcesPointer">
+        <audits auditExpression="service:validateValuePointer"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Is OptionSelection Source pointer defined " level="ERROR" message="OptionSelection pointer cannot be empty " targetClass="form.OptionSelection">
+        <audits auditExpression="service:validateOptionSelectionSourcesPointer"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Is DropDownSelection Selection" level="ERROR" message="DropDownSelection Selection cannot be empty " targetClass="form.DropDownSelection">
+        <audits auditExpression="service:validateOptionSelectionSelection"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Is Selection Display value pointer defined " level="ERROR" message=" Selection Display value pointer cannot be empty " targetClass="form.Selection">
+        <audits auditExpression="service:validateSelectionDisplayOption"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Is Selection Value value pointer defined " level="ERROR" message=" Selection value pointer cannot be empty " targetClass="form.Selection">
+        <audits auditExpression="service:validateSelectionValuePointer"/>
+      </ownedRules>
     </validationSet>
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Message Library" titleExpression="aql:self.name" domainClass="message.MessageLibrary">
       <ownedLineMappings name="Key" domainClass="message.Message" semanticCandidatesExpression="feature:messages" headerLabelExpression="service:generateName">

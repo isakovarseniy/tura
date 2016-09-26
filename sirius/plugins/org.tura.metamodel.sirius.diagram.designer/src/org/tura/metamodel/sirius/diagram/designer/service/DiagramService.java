@@ -37,11 +37,13 @@ import form.Column;
 import form.CreateTrigger;
 import form.DataControl;
 import form.DeleteTrigger;
+import form.DropDownSelection;
 import form.Form;
 import form.FormParameter;
 import form.InsertTrigger;
 import form.LayerHolder;
 import form.Menu;
+import form.OptionSelection;
 import form.POSTCreateTrigger;
 import form.POSTQueryTrigger;
 import form.PREDeleteTrigger;
@@ -50,6 +52,10 @@ import form.PREInsertTrigger;
 import form.PREQueryTrigger;
 import form.PREUpdateTrigger;
 import form.SearchTrigger;
+import form.Selection;
+import form.SourcesPointer;
+import form.Table;
+import form.Tree;
 import form.UpdateTrigger;
 import form.ViewArea;
 import form.ViewPortTrigger;
@@ -391,7 +397,58 @@ public class DiagramService {
 		}
 	}	
 
+	public boolean validateSourcesPointer(SourcesPointer pointer ){
+		if ( pointer.eContainer() instanceof Column ){
+			return true;
+		}else{
+			if (pointer.getSourcePointer() == null )
+				return false;
+			else
+				return true;
+		}
+	}
 
+	public boolean validateValuePointer(SourcesPointer pointer ){
+		if ( pointer instanceof Tree || pointer instanceof Table){
+			return true;
+		}else{
+			if (pointer.getValuePointer() == null )
+				return false;
+			else
+				return true;
+		}
+	}
+	
+	
+	public boolean validateOptionSelectionSourcesPointer(OptionSelection pointer ){
+		if (pointer.getOptionPointer() == null )
+			return false;
+		else
+			return true;
+	}
+
+	public boolean validateOptionSelectionSelection(DropDownSelection pointer ){
+		if (pointer.getSelection() == null )
+			return false;
+		else
+			return true;
+	}	
+	
+	
+	public boolean validateSelectionValuePointer(Selection pointer ){
+		if(pointer.getDisplayOptionPointer() == null)
+			return false;
+		else
+			return true;
+	}
+	
+	public boolean validateSelectionDisplayOption(Selection pointer) {
+		if (pointer.getDisplayOptionPointer() == null)
+			return false;
+		else
+			return true;
+	}
+	
 }
 
 
