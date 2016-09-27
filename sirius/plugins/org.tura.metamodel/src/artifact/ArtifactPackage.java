@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -773,6 +772,7 @@ public interface ArtifactPackage extends EPackage {
 	 */
 	int CLASSIFIER_FEATURE_COUNT = 3;
 
+
 	/**
 	 * Returns the meta object for class '{@link artifact.ArtifactGroup <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
@@ -1466,7 +1466,6 @@ public interface ArtifactPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

@@ -1,9 +1,9 @@
 /**
  */
-package form.tests;
+package common.tests;
 
-import form.FormFactory;
-import form.HTMLLayerHolder;
+import common.CommonFactory;
+import common.Orderable;
 
 import junit.framework.TestCase;
 
@@ -11,19 +11,19 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>HTML Layer Holder</b></em>'.
+ * A test case for the model object '<em><b>Orderable</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class HTMLLayerHolderTest extends TestCase {
+public class OrderableTest extends TestCase {
 
 	/**
-	 * The fixture for this HTML Layer Holder test case.
+	 * The fixture for this Orderable test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected HTMLLayerHolder fixture = null;
+	protected Orderable fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class HTMLLayerHolderTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(HTMLLayerHolderTest.class);
+		TestRunner.run(OrderableTest.class);
 	}
 
 	/**
-	 * Constructs a new HTML Layer Holder test case with the given name.
+	 * Constructs a new Orderable test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HTMLLayerHolderTest(String name) {
+	public OrderableTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this HTML Layer Holder test case.
+	 * Sets the fixture for this Orderable test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(HTMLLayerHolder fixture) {
+	protected void setFixture(Orderable fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this HTML Layer Holder test case.
+	 * Returns the fixture for this Orderable test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected HTMLLayerHolder getFixture() {
+	protected Orderable getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class HTMLLayerHolderTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(FormFactory.eINSTANCE.createHTMLLayerHolder());
+		setFixture(CommonFactory.eINSTANCE.createOrderable());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class HTMLLayerHolderTest extends TestCase {
 		setFixture(null);
 	}
 
-} //HTMLLayerHolderTest
+} //OrderableTest

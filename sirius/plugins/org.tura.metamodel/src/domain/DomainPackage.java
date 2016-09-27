@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -405,6 +404,7 @@ public interface DomainPackage extends EPackage {
 	 */
 	int DOMAIN_APPLICATION_FEATURE_COUNT = 3;
 
+
 	/**
 	 * Returns the meta object for class '{@link domain.Domain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
@@ -754,7 +754,6 @@ public interface DomainPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

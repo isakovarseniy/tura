@@ -24,6 +24,10 @@ import artifact.QueryParameter;
 import artifact.TechLeaf;
 import artifact.Technology;
 
+import common.CommonPackage;
+
+import common.impl.CommonPackageImpl;
+
 import domain.DomainPackage;
 
 import domain.impl.DomainPackageImpl;
@@ -236,6 +240,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		FormPackageImpl theFormPackage = (FormPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) instanceof FormPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) : FormPackage.eINSTANCE);
 		RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
 		MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
+		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theArtifactPackage.createPackageContents();
@@ -249,6 +254,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		theFormPackage.createPackageContents();
 		theRecipePackage.createPackageContents();
 		theMapperPackage.createPackageContents();
+		theCommonPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theArtifactPackage.initializePackageContents();
@@ -262,6 +268,7 @@ public class ArtifactPackageImpl extends EPackageImpl implements ArtifactPackage
 		theFormPackage.initializePackageContents();
 		theRecipePackage.initializePackageContents();
 		theMapperPackage.initializePackageContents();
+		theCommonPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theArtifactPackage.freeze();

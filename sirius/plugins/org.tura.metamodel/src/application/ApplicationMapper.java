@@ -2,9 +2,9 @@
  */
 package application;
 
-import org.eclipse.emf.ecore.EObject;
-
 import mapper.Mappers;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,7 +81,7 @@ public interface ApplicationMapper extends EObject {
 	 * Returns the value of the '<em><b>Mapper</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Mapper</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Mapper</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

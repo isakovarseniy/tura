@@ -3,6 +3,7 @@ package recipe;
 
 import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/mapper.ecore";
+import "platform:/resource/org.tura.metamodel/model/common.ecore";
 
 
 class Recipes{
@@ -18,7 +19,7 @@ class Recipes{
 }
 
 
-class Recipe extends UsingMappers{
+class Recipe extends UsingMappers,common.HTMLLayerHolder{
   id attr EString uid;
   attr EString name;
   val Ingredient[*] ingredients;
@@ -75,14 +76,14 @@ enum PlatformLayers{
 }
 
 
-class Ingredient extends UsingMappers {
+class Ingredient extends UsingMappers,common.HTMLLayerHolder,common.Orderable {
   id attr EString uid;
   attr EString name;
   val Component[*] components;
   attr PlatformLayers layer;
 }
 
-class Component {
+class Component extends common.HTMLLayerHolder,common.Orderable{
     id attr EString uid;
    attr EString name;
    val ModelMapper[*] mappers;
@@ -110,7 +111,7 @@ class Configuration{
    val HashProperty[*] hashProperties; 
 }
 
-class ModelMapper extends ArtifactRef{
+class ModelMapper extends ArtifactRef,common.Orderable{
    attr EString name;
    attr EString artifactRoot;
    val MappingTecnologiy[*] technologies;

@@ -9,6 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: application.tests,
  artifact.tests,
+ common.tests,
  domain.tests,
  form.tests,
  infrastructure.tests,

@@ -2,6 +2,9 @@
  */
 package recipe.impl;
 
+import common.CommonPackage;
+import common.HTMLLayerHolder;
+import common.Orderable;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -30,6 +33,8 @@ import recipe.RecipePackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link recipe.impl.IngredientImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link recipe.impl.IngredientImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getComponents <em>Components</em>}</li>
@@ -39,6 +44,46 @@ import recipe.RecipePackage;
  * @generated
  */
 public class IngredientImpl extends UsingMappersImpl implements Ingredient {
+	/**
+	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColumns()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int COLUMNS_EDEFAULT = 1;
+
+	/**
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColumns()
+	 * @generated
+	 * @ordered
+	 */
+	protected int columns = COLUMNS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ORDER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected int order = ORDER_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -126,6 +171,48 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	@Override
 	protected EClass eStaticClass() {
 		return RecipePackage.Literals.INGREDIENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getColumns() {
+		return columns;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColumns(int newColumns) {
+		int oldColumns = columns;
+		columns = newColumns;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.INGREDIENT__COLUMNS, oldColumns, columns));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getOrder() {
+		return order;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrder(int newOrder) {
+		int oldOrder = order;
+		order = newOrder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.INGREDIENT__ORDER, oldOrder, order));
 	}
 
 	/**
@@ -225,6 +312,10 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case RecipePackage.INGREDIENT__COLUMNS:
+				return getColumns();
+			case RecipePackage.INGREDIENT__ORDER:
+				return getOrder();
 			case RecipePackage.INGREDIENT__UID:
 				return getUid();
 			case RecipePackage.INGREDIENT__NAME:
@@ -246,6 +337,12 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RecipePackage.INGREDIENT__COLUMNS:
+				setColumns((Integer)newValue);
+				return;
+			case RecipePackage.INGREDIENT__ORDER:
+				setOrder((Integer)newValue);
+				return;
 			case RecipePackage.INGREDIENT__UID:
 				setUid((String)newValue);
 				return;
@@ -271,6 +368,12 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case RecipePackage.INGREDIENT__COLUMNS:
+				setColumns(COLUMNS_EDEFAULT);
+				return;
+			case RecipePackage.INGREDIENT__ORDER:
+				setOrder(ORDER_EDEFAULT);
+				return;
 			case RecipePackage.INGREDIENT__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -295,6 +398,10 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case RecipePackage.INGREDIENT__COLUMNS:
+				return columns != COLUMNS_EDEFAULT;
+			case RecipePackage.INGREDIENT__ORDER:
+				return order != ORDER_EDEFAULT;
 			case RecipePackage.INGREDIENT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case RecipePackage.INGREDIENT__NAME:
@@ -313,11 +420,59 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == HTMLLayerHolder.class) {
+			switch (derivedFeatureID) {
+				case RecipePackage.INGREDIENT__COLUMNS: return CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
+				default: return -1;
+			}
+		}
+		if (baseClass == Orderable.class) {
+			switch (derivedFeatureID) {
+				case RecipePackage.INGREDIENT__ORDER: return CommonPackage.ORDERABLE__ORDER;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == HTMLLayerHolder.class) {
+			switch (baseFeatureID) {
+				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return RecipePackage.INGREDIENT__COLUMNS;
+				default: return -1;
+			}
+		}
+		if (baseClass == Orderable.class) {
+			switch (baseFeatureID) {
+				case CommonPackage.ORDERABLE__ORDER: return RecipePackage.INGREDIENT__ORDER;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (uid: ");
+		result.append(" (columns: ");
+		result.append(columns);
+		result.append(", order: ");
+		result.append(order);
+		result.append(", uid: ");
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);

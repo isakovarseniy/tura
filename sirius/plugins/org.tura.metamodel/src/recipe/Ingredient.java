@@ -2,6 +2,8 @@
  */
 package recipe;
 
+import common.HTMLLayerHolder;
+import common.Orderable;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -23,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Ingredient extends UsingMappers {
+public interface Ingredient extends UsingMappers, HTMLLayerHolder, Orderable {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

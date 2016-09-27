@@ -2,6 +2,8 @@
  */
 package recipe;
 
+import common.HTMLLayerHolder;
+import common.Orderable;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -25,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Component extends EObject {
+public interface Component extends HTMLLayerHolder, Orderable {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

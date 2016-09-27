@@ -6,6 +6,8 @@ package form.provider;
 import artifact.ArtifactFactory;
 import artifact.ArtifactPackage;
 
+import common.CommonPackage;
+
 import form.FormFactory;
 import form.FormPackage;
 import form.Uielement;
@@ -94,7 +96,7 @@ public class UielementItemProvider extends StyleElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Orderable_order_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Orderable_order_feature", "_UI_Orderable_type"),
-				 FormPackage.Literals.ORDERABLE__ORDER,
+				 CommonPackage.Literals.ORDERABLE__ORDER,
 				 true,
 				 false,
 				 false,

@@ -29,13 +29,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="menus" upperBound="-1"
         eType="#//MenuDefinition" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HTMLLayerHolder">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Orderable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Comparator">
     <eLiterals name="EQ"/>
     <eLiterals name="NEQ" value="1"/>
@@ -57,7 +50,7 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewPortHolder" eSuperTypes="#//HTMLLayerHolder">
+  <eClassifiers xsi:type="ecore:EClass" name="ViewPortHolder" eSuperTypes="common.ecore#//HTMLLayerHolder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewElement" upperBound="-1"
         eType="#//ViewElement" containment="true">
       <eAnnotations source="gmf.compartment"/>
@@ -90,15 +83,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="TabCanvas" eSuperTypes="#//CanvasFrame #//DefaultCavas #//MultiLangLabel artifact.ecore#//Categorized">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="#//Orientation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel artifact.ecore#//Categorized #//Orderable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewPort" eSuperTypes="#//ViewElement #//Orderable">
+  <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel artifact.ecore#//Categorized common.ecore#//Orderable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewPort" eSuperTypes="#//ViewElement common.ecore#//Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewPortTrigger" eType="#//ViewPortTrigger"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewArea" eSuperTypes="#//ViewElement #//Orderable">
+  <eClassifiers xsi:type="ecore:EClass" name="ViewArea" eSuperTypes="#//ViewElement common.ecore#//Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -185,7 +178,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="enabled" eType="#//Context"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed artifact.ecore#//Categorized #//Orderable #//EnabledUIItem #//FlexFields #//MenuHolder">
+  <eClassifiers xsi:type="ecore:EClass" name="Uielement" eSuperTypes="#//StyleElement #//NickNamed artifact.ecore#//Categorized common.ecore#//Orderable #//EnabledUIItem #//FlexFields #//MenuHolder">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="required" eType="#//Context"
@@ -224,7 +217,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="optionCastDataControl"
         eType="#//DataControl"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//Uielement #//ChildrenHolder #//HTMLLayerHolder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LayerHolder" eSuperTypes="#//Uielement #//ChildrenHolder common.ecore#//HTMLLayerHolder"/>
   <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputElement #//Formatable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Password" eSuperTypes="#//InputElement #//Formatable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Uielement #//MultiLangLabel">
@@ -247,14 +240,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Uielement #//MultiLangLabel #//ItemIcon">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel artifact.ecore#//Categorized #//HTMLLayerHolder #//Orderable">
+  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//StyleElement #//MultiLangLabel artifact.ecore#//Categorized common.ecore#//HTMLLayerHolder common.ecore#//Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//Uielement"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SourcesPointer #//MultiLangLabel #//HTMLLayerHolder">
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SourcesPointer #//MultiLangLabel common.ecore#//HTMLLayerHolder">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cols" upperBound="-1" eType="#//Column"
@@ -267,12 +260,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionRef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="extensionRef" eType="#//MenuFolder"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuElement" eSuperTypes="#//MultiLangLabel #//StyleElement artifact.ecore#//Categorized #//EnabledUIItem #//Orderable">
+  <eClassifiers xsi:type="ecore:EClass" name="MenuElement" eSuperTypes="#//MultiLangLabel #//StyleElement artifact.ecore#//Categorized #//EnabledUIItem common.ecore#//Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuFolder" eSuperTypes="#//HTMLLayerHolder #//EnabledUIItem artifact.ecore#//Categorized #//StyleElement #//MultiLangLabel #//ItemIcon">
+  <eClassifiers xsi:type="ecore:EClass" name="MenuFolder" eSuperTypes="common.ecore#//HTMLLayerHolder #//EnabledUIItem artifact.ecore#//Categorized #//StyleElement #//MultiLangLabel #//ItemIcon">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

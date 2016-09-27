@@ -1,55 +1,57 @@
 /**
  */
-package form.impl;
+package common.impl;
+
+import common.CommonPackage;
+import common.HTMLLayerHolder;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import form.FormPackage;
-import form.Orderable;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Orderable</b></em>'.
+ * An implementation of the model object '<em><b>HTML Layer Holder</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link form.impl.OrderableImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link common.impl.HTMLLayerHolderImpl#getColumns <em>Columns</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OrderableImpl extends EObjectImpl implements Orderable {
+public class HTMLLayerHolderImpl extends EObjectImpl implements HTMLLayerHolder {
 	/**
-	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrder()
+	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ORDER_EDEFAULT = 0;
+	protected static final int COLUMNS_EDEFAULT = 1;
 
 	/**
-	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrder()
+	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-	protected int order = ORDER_EDEFAULT;
+	protected int columns = COLUMNS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OrderableImpl() {
+	protected HTMLLayerHolderImpl() {
 		super();
 	}
 
@@ -60,7 +62,7 @@ public class OrderableImpl extends EObjectImpl implements Orderable {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return FormPackage.Literals.ORDERABLE;
+		return CommonPackage.Literals.HTML_LAYER_HOLDER;
 	}
 
 	/**
@@ -68,8 +70,8 @@ public class OrderableImpl extends EObjectImpl implements Orderable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getOrder() {
-		return order;
+	public int getColumns() {
+		return columns;
 	}
 
 	/**
@@ -77,11 +79,11 @@ public class OrderableImpl extends EObjectImpl implements Orderable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrder(int newOrder) {
-		int oldOrder = order;
-		order = newOrder;
+	public void setColumns(int newColumns) {
+		int oldColumns = columns;
+		columns = newColumns;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.ORDERABLE__ORDER, oldOrder, order));
+			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.HTML_LAYER_HOLDER__COLUMNS, oldColumns, columns));
 	}
 
 	/**
@@ -92,8 +94,8 @@ public class OrderableImpl extends EObjectImpl implements Orderable {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FormPackage.ORDERABLE__ORDER:
-				return getOrder();
+			case CommonPackage.HTML_LAYER_HOLDER__COLUMNS:
+				return getColumns();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,8 +108,8 @@ public class OrderableImpl extends EObjectImpl implements Orderable {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FormPackage.ORDERABLE__ORDER:
-				setOrder((Integer)newValue);
+			case CommonPackage.HTML_LAYER_HOLDER__COLUMNS:
+				setColumns((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -121,8 +123,8 @@ public class OrderableImpl extends EObjectImpl implements Orderable {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FormPackage.ORDERABLE__ORDER:
-				setOrder(ORDER_EDEFAULT);
+			case CommonPackage.HTML_LAYER_HOLDER__COLUMNS:
+				setColumns(COLUMNS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -136,8 +138,8 @@ public class OrderableImpl extends EObjectImpl implements Orderable {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FormPackage.ORDERABLE__ORDER:
-				return order != ORDER_EDEFAULT;
+			case CommonPackage.HTML_LAYER_HOLDER__COLUMNS:
+				return columns != COLUMNS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -152,10 +154,10 @@ public class OrderableImpl extends EObjectImpl implements Orderable {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (order: ");
-		result.append(order);
+		result.append(" (columns: ");
+		result.append(columns);
 		result.append(')');
 		return result.toString();
 	}
 
-} //OrderableImpl
+} //HTMLLayerHolderImpl

@@ -10,6 +10,10 @@ import artifact.ArtifactPackage;
 
 import artifact.impl.ArtifactPackageImpl;
 
+import common.CommonPackage;
+
+import common.impl.CommonPackageImpl;
+
 import domain.DomainPackage;
 
 import domain.impl.DomainPackageImpl;
@@ -140,6 +144,7 @@ public class StylePackageImpl extends EPackageImpl implements StylePackage {
 		FormPackageImpl theFormPackage = (FormPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) instanceof FormPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) : FormPackage.eINSTANCE);
 		RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
 		MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
+		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theStylePackage.createPackageContents();
@@ -153,6 +158,7 @@ public class StylePackageImpl extends EPackageImpl implements StylePackage {
 		theFormPackage.createPackageContents();
 		theRecipePackage.createPackageContents();
 		theMapperPackage.createPackageContents();
+		theCommonPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theStylePackage.initializePackageContents();
@@ -166,6 +172,7 @@ public class StylePackageImpl extends EPackageImpl implements StylePackage {
 		theFormPackage.initializePackageContents();
 		theRecipePackage.initializePackageContents();
 		theMapperPackage.initializePackageContents();
+		theCommonPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theStylePackage.freeze();

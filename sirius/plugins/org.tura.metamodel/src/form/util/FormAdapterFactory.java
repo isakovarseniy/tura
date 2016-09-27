@@ -4,6 +4,9 @@ package form.util;
 
 import artifact.Categorized;
 
+import common.HTMLLayerHolder;
+
+import common.Orderable;
 import form.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -85,14 +88,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseViews(Views object) {
 				return createViewsAdapter();
-			}
-			@Override
-			public Adapter caseHTMLLayerHolder(HTMLLayerHolder object) {
-				return createHTMLLayerHolderAdapter();
-			}
-			@Override
-			public Adapter caseOrderable(Orderable object) {
-				return createOrderableAdapter();
 			}
 			@Override
 			public Adapter caseMultiLangLabel(MultiLangLabel object) {
@@ -435,12 +430,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createTypePointerAdapter();
 			}
 			@Override
+			public Adapter caseHTMLLayerHolder(HTMLLayerHolder object) {
+				return createHTMLLayerHolderAdapter();
+			}
+			@Override
 			public Adapter caseCategorized(Categorized object) {
 				return createCategorizedAdapter();
 			}
 			@Override
 			public Adapter caseSecured(Secured object) {
 				return createSecuredAdapter();
+			}
+			@Override
+			public Adapter caseOrderable(Orderable object) {
+				return createOrderableAdapter();
 			}
 			@Override
 			public Adapter caseMethodPointer(MethodPointer object) {
@@ -509,27 +512,13 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link form.HTMLLayerHolder <em>HTML Layer Holder</em>}'.
+	 * Creates a new adapter for an object of class '{@link common.Orderable <em>Orderable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see form.HTMLLayerHolder
-	 * @generated
-	 */
-	public Adapter createHTMLLayerHolderAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link form.Orderable <em>Orderable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see form.Orderable
+	 * @see common.Orderable
 	 * @generated
 	 */
 	public Adapter createOrderableAdapter() {
@@ -1723,6 +1712,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypePointerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link common.HTMLLayerHolder <em>HTML Layer Holder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see common.HTMLLayerHolder
+	 * @generated
+	 */
+	public Adapter createHTMLLayerHolderAdapter() {
 		return null;
 	}
 

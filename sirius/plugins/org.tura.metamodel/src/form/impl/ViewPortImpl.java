@@ -2,8 +2,10 @@
  */
 package form.impl;
 
+import common.CommonPackage;
+import common.Orderable;
+
 import form.FormPackage;
-import form.Orderable;
 import form.ViewPort;
 import form.ViewPortTrigger;
 
@@ -338,7 +340,7 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Orderable.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.VIEW_PORT__ORDER: return FormPackage.ORDERABLE__ORDER;
+				case FormPackage.VIEW_PORT__ORDER: return CommonPackage.ORDERABLE__ORDER;
 				default: return -1;
 			}
 		}
@@ -354,7 +356,7 @@ public class ViewPortImpl extends ViewElementImpl implements ViewPort {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
-				case FormPackage.ORDERABLE__ORDER: return FormPackage.VIEW_PORT__ORDER;
+				case CommonPackage.ORDERABLE__ORDER: return FormPackage.VIEW_PORT__ORDER;
 				default: return -1;
 			}
 		}

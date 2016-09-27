@@ -2,11 +2,13 @@
  */
 package form.impl;
 
+import common.CommonPackage;
+import common.Orderable;
+
 import form.FormPackage;
 import form.LayerHolder;
 import form.LinkToLabel;
 import form.LinkToMessage;
-import form.Orderable;
 import form.ViewArea;
 
 import java.util.Collection;
@@ -420,7 +422,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Orderable.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.VIEW_AREA__ORDER: return FormPackage.ORDERABLE__ORDER;
+				case FormPackage.VIEW_AREA__ORDER: return CommonPackage.ORDERABLE__ORDER;
 				default: return -1;
 			}
 		}
@@ -436,7 +438,7 @@ public class ViewAreaImpl extends ViewElementImpl implements ViewArea {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
-				case FormPackage.ORDERABLE__ORDER: return FormPackage.VIEW_AREA__ORDER;
+				case CommonPackage.ORDERABLE__ORDER: return FormPackage.VIEW_AREA__ORDER;
 				default: return -1;
 			}
 		}

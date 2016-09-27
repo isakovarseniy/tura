@@ -4,6 +4,9 @@ package form;
 
 import artifact.Categorized;
 
+import common.HTMLLayerHolder;
+import common.Orderable;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Column</b></em>'.

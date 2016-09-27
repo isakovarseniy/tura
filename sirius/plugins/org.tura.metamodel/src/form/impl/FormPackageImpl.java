@@ -2,19 +2,22 @@
  */
 package form.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import application.ApplicationPackage;
+
 import application.impl.ApplicationPackageImpl;
+
 import artifact.ArtifactPackage;
+
 import artifact.impl.ArtifactPackageImpl;
+
+import common.CommonPackage;
+
+import common.impl.CommonPackageImpl;
+
 import domain.DomainPackage;
+
 import domain.impl.DomainPackageImpl;
+
 import form.AreaRef;
 import form.ArtificialField;
 import form.Button;
@@ -46,7 +49,6 @@ import form.FormPackage;
 import form.FormParameter;
 import form.FormVariable;
 import form.Formatable;
-import form.HTMLLayerHolder;
 import form.Image;
 import form.InputElement;
 import form.InputText;
@@ -71,7 +73,6 @@ import form.NickNamed;
 import form.OptionSelection;
 import form.Order;
 import form.OrderBy;
-import form.Orderable;
 import form.Orders;
 import form.Orientation;
 import form.OutputText;
@@ -109,19 +110,41 @@ import form.ViewPortHolder;
 import form.ViewPortTrigger;
 import form.Views;
 import form.Window;
+
 import infrastructure.InfrastructurePackage;
+
 import infrastructure.impl.InfrastructurePackageImpl;
+
 import mapper.MapperPackage;
+
 import mapper.impl.MapperPackageImpl;
+
 import message.MessagePackage;
+
 import message.impl.MessagePackageImpl;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import permission.PermissionPackage;
+
 import permission.impl.PermissionPackageImpl;
+
 import recipe.RecipePackage;
+
 import recipe.impl.RecipePackageImpl;
+
 import style.StylePackage;
+
 import style.impl.StylePackageImpl;
+
 import type.TypePackage;
+
 import type.impl.TypePackageImpl;
 
 /**
@@ -151,20 +174,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass viewsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass htmlLayerHolderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass orderableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -832,6 +841,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		StylePackageImpl theStylePackage = (StylePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) instanceof StylePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) : StylePackage.eINSTANCE);
 		RecipePackageImpl theRecipePackage = (RecipePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) instanceof RecipePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RecipePackage.eNS_URI) : RecipePackage.eINSTANCE);
 		MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
+		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theFormPackage.createPackageContents();
@@ -845,6 +855,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		theStylePackage.createPackageContents();
 		theRecipePackage.createPackageContents();
 		theMapperPackage.createPackageContents();
+		theCommonPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theFormPackage.initializePackageContents();
@@ -858,6 +869,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		theStylePackage.initializePackageContents();
 		theRecipePackage.initializePackageContents();
 		theMapperPackage.initializePackageContents();
+		theCommonPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theFormPackage.freeze();
@@ -1001,42 +1013,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EReference getViews_Menus() {
 		return (EReference)viewsEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getHTMLLayerHolder() {
-		return htmlLayerHolderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHTMLLayerHolder_Columns() {
-		return (EAttribute)htmlLayerHolderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOrderable() {
-		return orderableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOrderable_Order() {
-		return (EAttribute)orderableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3254,12 +3230,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEReference(viewsEClass, VIEWS__TAB_PAGES_INHERITANCES);
 		createEReference(viewsEClass, VIEWS__MENUS);
 
-		htmlLayerHolderEClass = createEClass(HTML_LAYER_HOLDER);
-		createEAttribute(htmlLayerHolderEClass, HTML_LAYER_HOLDER__COLUMNS);
-
-		orderableEClass = createEClass(ORDERABLE);
-		createEAttribute(orderableEClass, ORDERABLE__ORDER);
-
 		multiLangLabelEClass = createEClass(MULTI_LANG_LABEL);
 		createEReference(multiLangLabelEClass, MULTI_LANG_LABEL__MULTI_LANG_LABEL);
 
@@ -3613,6 +3583,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		// Obtain other dependent packages
 		TypePackage theTypePackage = (TypePackage)EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI);
+		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
 		ArtifactPackage theArtifactPackage = (ArtifactPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI);
 		PermissionPackage thePermissionPackage = (PermissionPackage)EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI);
 
@@ -3623,7 +3594,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		// Add supertypes to classes
 		formParameterEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 		canvasFrameEClass.getESuperTypes().add(this.getStyleElement());
-		viewPortHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+		viewPortHolderEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		viewElementEClass.getESuperTypes().add(this.getStyleElement());
 		viewElementEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		viewElementEClass.getESuperTypes().add(this.getNickNamed());
@@ -3653,11 +3624,11 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		tabPageEClass.getESuperTypes().add(this.getViewPortHolder());
 		tabPageEClass.getESuperTypes().add(this.getMultiLangLabel());
 		tabPageEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
-		tabPageEClass.getESuperTypes().add(this.getOrderable());
+		tabPageEClass.getESuperTypes().add(theCommonPackage.getOrderable());
 		viewPortEClass.getESuperTypes().add(this.getViewElement());
-		viewPortEClass.getESuperTypes().add(this.getOrderable());
+		viewPortEClass.getESuperTypes().add(theCommonPackage.getOrderable());
 		viewAreaEClass.getESuperTypes().add(this.getViewElement());
-		viewAreaEClass.getESuperTypes().add(this.getOrderable());
+		viewAreaEClass.getESuperTypes().add(theCommonPackage.getOrderable());
 		viewPortTriggerEClass.getESuperTypes().add(this.getTrigger());
 		contextEClass.getESuperTypes().add(this.getContextValue());
 		contextEClass.getESuperTypes().add(this.getContextParameters());
@@ -3666,7 +3637,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		uielementEClass.getESuperTypes().add(this.getStyleElement());
 		uielementEClass.getESuperTypes().add(this.getNickNamed());
 		uielementEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
-		uielementEClass.getESuperTypes().add(this.getOrderable());
+		uielementEClass.getESuperTypes().add(theCommonPackage.getOrderable());
 		uielementEClass.getESuperTypes().add(this.getEnabledUIItem());
 		uielementEClass.getESuperTypes().add(this.getFlexFields());
 		uielementEClass.getESuperTypes().add(this.getMenuHolder());
@@ -3676,7 +3647,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		optionSelectionEClass.getESuperTypes().add(this.getInputElement());
 		layerHolderEClass.getESuperTypes().add(this.getUielement());
 		layerHolderEClass.getESuperTypes().add(this.getChildrenHolder());
-		layerHolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+		layerHolderEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		inputTextEClass.getESuperTypes().add(this.getInputElement());
 		inputTextEClass.getESuperTypes().add(this.getFormatable());
 		passwordEClass.getESuperTypes().add(this.getInputElement());
@@ -3698,18 +3669,18 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		columnEClass.getESuperTypes().add(this.getStyleElement());
 		columnEClass.getESuperTypes().add(this.getMultiLangLabel());
 		columnEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
-		columnEClass.getESuperTypes().add(this.getHTMLLayerHolder());
-		columnEClass.getESuperTypes().add(this.getOrderable());
+		columnEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		columnEClass.getESuperTypes().add(theCommonPackage.getOrderable());
 		tableEClass.getESuperTypes().add(this.getSourcesPointer());
 		tableEClass.getESuperTypes().add(this.getMultiLangLabel());
-		tableEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+		tableEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		menuEClass.getESuperTypes().add(this.getUielement());
 		menuElementEClass.getESuperTypes().add(this.getMultiLangLabel());
 		menuElementEClass.getESuperTypes().add(this.getStyleElement());
 		menuElementEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		menuElementEClass.getESuperTypes().add(this.getEnabledUIItem());
-		menuElementEClass.getESuperTypes().add(this.getOrderable());
-		menuFolderEClass.getESuperTypes().add(this.getHTMLLayerHolder());
+		menuElementEClass.getESuperTypes().add(theCommonPackage.getOrderable());
+		menuFolderEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		menuFolderEClass.getESuperTypes().add(this.getEnabledUIItem());
 		menuFolderEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		menuFolderEClass.getESuperTypes().add(this.getStyleElement());
@@ -3765,12 +3736,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getViews_ViewInheritances(), this.getViewInheritance(), null, "viewInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViews_TabPagesInheritances(), this.getTabPagesInheritance(), null, "tabPagesInheritances", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViews_Menus(), this.getMenuDefinition(), null, "menus", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(htmlLayerHolderEClass, HTMLLayerHolder.class, "HTMLLayerHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getHTMLLayerHolder_Columns(), ecorePackage.getEInt(), "columns", "1", 0, 1, HTMLLayerHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(orderableEClass, Orderable.class, "Orderable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOrderable_Order(), ecorePackage.getEInt(), "order", null, 0, 1, Orderable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multiLangLabelEClass, MultiLangLabel.class, "MultiLangLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMultiLangLabel_MultiLangLabel(), this.getContext(), null, "multiLangLabel", null, 0, 1, MultiLangLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

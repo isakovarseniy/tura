@@ -2,6 +2,8 @@
  */
 package form;
 
+import common.HTMLLayerHolder;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

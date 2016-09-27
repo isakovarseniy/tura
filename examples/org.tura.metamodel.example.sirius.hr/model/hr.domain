@@ -793,8 +793,8 @@
               <recipes uid="a1b10eb6-b808-4453-b15a-0bf4ffb8b04c" name="Backend objects and services">
                 <recipes uid="a35e53f5-2d9d-46ce-8a15-46ef1576f04c" name="Test domain and persistence model">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 21d8af7b-7dbd-451d-a8e7-ee9d696646a4" uid="8d9145b8-4528-4cde-b96c-ded8331c2011" name="Test model generation">
-                    <ingredients uid="743fbbff-1ddb-4400-848c-23c002a09a64" name="Data base mapping">
-                      <components xsi:type="tura.recipe:JavaComponent" uid="13f31adb-9df4-4c87-b762-1e9af65381ba" name="Domain Model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="domain-test-objects" groupId="org.tura.domain.test" version="1.0" basePackage="org.tura.domain.test">
+                    <ingredients uid="743fbbff-1ddb-4400-848c-23c002a09a64" name="Repository objects">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="13f31adb-9df4-4c87-b762-1e9af65381ba" name="Domain Model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="domain-test-objects" groupId="org.tura.domain.test" version="1.0" basePackage="org.tura.domain.test">
                         <mappers uid="14db4237-4d45-4f0d-9c45-967c1cea6781" artifactRef="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Model generation">
                           <queries uid="6e4361c9-7259-4253-879c-c5ecdf29be0f" name="Query package for classess" queryRef="2f122165-6dcb-4620-8d63-15c0c9dc0270">
                             <variables queryParamRef="83d58dc0-4297-4c19-b869-f879e3c81674" value="Testing repository"/>
@@ -820,6 +820,8 @@
                       </components>
                     </ingredients>
                   </recipe>
+                  <infrastructures uid="5d633cff-2139-490a-9bfc-64b5c3d2cf5b" name="Development"/>
+                  <recipe2Infrastructures uid="a5cd6142-bb7e-45ac-a8fb-e9a1100c1945" source="8d9145b8-4528-4cde-b96c-ded8331c2011" target="5d633cff-2139-490a-9bfc-64b5c3d2cf5b"/>
                 </recipes>
               </recipes>
             </applicationRecipes>

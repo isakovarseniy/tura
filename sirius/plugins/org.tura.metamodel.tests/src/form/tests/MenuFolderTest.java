@@ -2,6 +2,8 @@
  */
 package form.tests;
 
+import common.tests.HTMLLayerHolderTest;
+
 import form.FormFactory;
 import form.MenuFolder;
 

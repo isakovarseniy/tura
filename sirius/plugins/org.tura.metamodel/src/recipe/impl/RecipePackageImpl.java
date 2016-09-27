@@ -2,29 +2,50 @@
  */
 package recipe.impl;
 
+import application.ApplicationPackage;
+
+import application.impl.ApplicationPackageImpl;
+
+import artifact.ArtifactPackage;
+
+import artifact.impl.ArtifactPackageImpl;
+
+import common.CommonPackage;
+
+import common.impl.CommonPackageImpl;
+
+import domain.DomainPackage;
+
+import domain.impl.DomainPackageImpl;
+
+import form.FormPackage;
+
+import form.impl.FormPackageImpl;
+
+import infrastructure.InfrastructurePackage;
+
+import infrastructure.impl.InfrastructurePackageImpl;
+
+import mapper.MapperPackage;
+
+import mapper.impl.MapperPackageImpl;
+
+import message.MessagePackage;
+
+import message.impl.MessagePackageImpl;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import application.ApplicationPackage;
-import application.impl.ApplicationPackageImpl;
-import artifact.ArtifactPackage;
-import artifact.impl.ArtifactPackageImpl;
-import domain.DomainPackage;
-import domain.impl.DomainPackageImpl;
-import form.FormPackage;
-import form.impl.FormPackageImpl;
-import infrastructure.InfrastructurePackage;
-import infrastructure.impl.InfrastructurePackageImpl;
-import mapper.MapperPackage;
-import mapper.impl.MapperPackageImpl;
-import message.MessagePackage;
-import message.impl.MessagePackageImpl;
 import permission.PermissionPackage;
+
 import permission.impl.PermissionPackageImpl;
+
 import recipe.ArtifactRef;
 import recipe.Component;
 import recipe.ConfigExtension;
@@ -49,9 +70,13 @@ import recipe.RecipeFactory;
 import recipe.RecipePackage;
 import recipe.Recipes;
 import recipe.UsingMappers;
+
 import style.StylePackage;
+
 import style.impl.StylePackageImpl;
+
 import type.TypePackage;
+
 import type.impl.TypePackageImpl;
 
 /**
@@ -272,6 +297,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		StylePackageImpl theStylePackage = (StylePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) instanceof StylePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StylePackage.eNS_URI) : StylePackage.eINSTANCE);
 		FormPackageImpl theFormPackage = (FormPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) instanceof FormPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FormPackage.eNS_URI) : FormPackage.eINSTANCE);
 		MapperPackageImpl theMapperPackage = (MapperPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) instanceof MapperPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI) : MapperPackage.eINSTANCE);
+		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theRecipePackage.createPackageContents();
@@ -285,6 +311,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		theStylePackage.createPackageContents();
 		theFormPackage.createPackageContents();
 		theMapperPackage.createPackageContents();
+		theCommonPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theRecipePackage.initializePackageContents();
@@ -298,6 +325,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		theStylePackage.initializePackageContents();
 		theFormPackage.initializePackageContents();
 		theMapperPackage.initializePackageContents();
+		theCommonPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theRecipePackage.freeze();
@@ -1364,6 +1392,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
 		MapperPackage theMapperPackage = (MapperPackage)EPackage.Registry.INSTANCE.getEPackage(MapperPackage.eNS_URI);
 		ArtifactPackage theArtifactPackage = (ArtifactPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI);
 
@@ -1373,9 +1402,15 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 
 		// Add supertypes to classes
 		recipeEClass.getESuperTypes().add(this.getUsingMappers());
+		recipeEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
 		ingredientEClass.getESuperTypes().add(this.getUsingMappers());
+		ingredientEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		ingredientEClass.getESuperTypes().add(theCommonPackage.getOrderable());
+		componentEClass.getESuperTypes().add(theCommonPackage.getHTMLLayerHolder());
+		componentEClass.getESuperTypes().add(theCommonPackage.getOrderable());
 		javaComponentEClass.getESuperTypes().add(this.getComponent());
 		modelMapperEClass.getESuperTypes().add(this.getArtifactRef());
+		modelMapperEClass.getESuperTypes().add(theCommonPackage.getOrderable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(recipesEClass, Recipes.class, "Recipes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

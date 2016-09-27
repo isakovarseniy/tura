@@ -2,6 +2,7 @@
  */
 package recipe;
 
+import common.Orderable;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -24,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ModelMapper extends ArtifactRef {
+public interface ModelMapper extends ArtifactRef, Orderable {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

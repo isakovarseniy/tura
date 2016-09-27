@@ -3,6 +3,8 @@
 package recipe.provider;
 
 
+import common.CommonPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -48,11 +50,57 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addColumnsPropertyDescriptor(object);
+			addOrderPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addLayerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Columns feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColumnsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_HTMLLayerHolder_columns_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
+				 CommonPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Order feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOrderPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Orderable_order_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Orderable_order_feature", "_UI_Orderable_type"),
+				 CommonPackage.Literals.ORDERABLE__ORDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -189,6 +237,8 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Ingredient.class)) {
+			case RecipePackage.INGREDIENT__COLUMNS:
+			case RecipePackage.INGREDIENT__ORDER:
 			case RecipePackage.INGREDIENT__UID:
 			case RecipePackage.INGREDIENT__NAME:
 			case RecipePackage.INGREDIENT__LAYER:

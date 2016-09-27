@@ -2,6 +2,7 @@
  */
 package form;
 
+import common.Orderable;
 
 /**
  * <!-- begin-user-doc -->

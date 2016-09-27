@@ -2,6 +2,7 @@
  */
 package recipe;
 
+import common.CommonPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -15,7 +16,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -196,13 +196,22 @@ public interface RecipePackage extends EPackage {
 	int RECIPE__MAPPERS = USING_MAPPERS__MAPPERS;
 
 	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPE__COLUMNS = USING_MAPPERS_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE__UID = USING_MAPPERS_FEATURE_COUNT + 0;
+	int RECIPE__UID = USING_MAPPERS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -211,7 +220,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE__NAME = USING_MAPPERS_FEATURE_COUNT + 1;
+	int RECIPE__NAME = USING_MAPPERS_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Ingredients</b></em>' containment reference list.
@@ -220,7 +229,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE__INGREDIENTS = USING_MAPPERS_FEATURE_COUNT + 2;
+	int RECIPE__INGREDIENTS = USING_MAPPERS_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Infrastructures</b></em>' reference list.
@@ -229,7 +238,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE__INFRASTRUCTURES = USING_MAPPERS_FEATURE_COUNT + 3;
+	int RECIPE__INFRASTRUCTURES = USING_MAPPERS_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Deplyment Step</b></em>' containment reference list.
@@ -238,7 +247,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE__DEPLYMENT_STEP = USING_MAPPERS_FEATURE_COUNT + 4;
+	int RECIPE__DEPLYMENT_STEP = USING_MAPPERS_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Start Seq</b></em>' containment reference.
@@ -247,7 +256,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE__START_SEQ = USING_MAPPERS_FEATURE_COUNT + 5;
+	int RECIPE__START_SEQ = USING_MAPPERS_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Recipe</em>' class.
@@ -256,7 +265,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 6;
+	int RECIPE_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ConfigExtensionImpl <em>Config Extension</em>}' class.
@@ -517,13 +526,31 @@ public interface RecipePackage extends EPackage {
 	int INGREDIENT__MAPPERS = USING_MAPPERS__MAPPERS;
 
 	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INGREDIENT__COLUMNS = USING_MAPPERS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INGREDIENT__ORDER = USING_MAPPERS_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT__UID = USING_MAPPERS_FEATURE_COUNT + 0;
+	int INGREDIENT__UID = USING_MAPPERS_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -532,7 +559,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT__NAME = USING_MAPPERS_FEATURE_COUNT + 1;
+	int INGREDIENT__NAME = USING_MAPPERS_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -541,7 +568,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT__COMPONENTS = USING_MAPPERS_FEATURE_COUNT + 2;
+	int INGREDIENT__COMPONENTS = USING_MAPPERS_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Layer</b></em>' attribute.
@@ -550,7 +577,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT__LAYER = USING_MAPPERS_FEATURE_COUNT + 3;
+	int INGREDIENT__LAYER = USING_MAPPERS_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Ingredient</em>' class.
@@ -559,7 +586,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 4;
+	int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ComponentImpl <em>Component</em>}' class.
@@ -572,13 +599,31 @@ public interface RecipePackage extends EPackage {
 	int COMPONENT = 9;
 
 	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__COLUMNS = CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__ORDER = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__UID = 0;
+	int COMPONENT__UID = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -587,7 +632,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__NAME = 1;
+	int COMPONENT__NAME = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
@@ -596,7 +641,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__MAPPERS = 2;
+	int COMPONENT__MAPPERS = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Component Root</b></em>' attribute.
@@ -605,7 +650,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENT_ROOT = 3;
+	int COMPONENT__COMPONENT_ROOT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -614,7 +659,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = 4;
+	int COMPONENT_FEATURE_COUNT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.JavaComponentImpl <em>Java Component</em>}' class.
@@ -625,6 +670,24 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	int JAVA_COMPONENT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_COMPONENT__COLUMNS = COMPONENT__COLUMNS;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_COMPONENT__ORDER = COMPONENT__ORDER;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -874,13 +937,22 @@ public interface RecipePackage extends EPackage {
 	int MODEL_MAPPER__ARTIFACT_REF = ARTIFACT_REF__ARTIFACT_REF;
 
 	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_MAPPER__ORDER = ARTIFACT_REF_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__NAME = ARTIFACT_REF_FEATURE_COUNT + 0;
+	int MODEL_MAPPER__NAME = ARTIFACT_REF_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Root</b></em>' attribute.
@@ -889,7 +961,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__ARTIFACT_ROOT = ARTIFACT_REF_FEATURE_COUNT + 1;
+	int MODEL_MAPPER__ARTIFACT_ROOT = ARTIFACT_REF_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Technologies</b></em>' containment reference list.
@@ -898,7 +970,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__TECHNOLOGIES = ARTIFACT_REF_FEATURE_COUNT + 2;
+	int MODEL_MAPPER__TECHNOLOGIES = ARTIFACT_REF_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Queries</b></em>' containment reference list.
@@ -907,7 +979,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__QUERIES = ARTIFACT_REF_FEATURE_COUNT + 3;
+	int MODEL_MAPPER__QUERIES = ARTIFACT_REF_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Execution String</b></em>' attribute.
@@ -916,7 +988,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__ARTIFACT_EXECUTION_STRING = ARTIFACT_REF_FEATURE_COUNT + 4;
+	int MODEL_MAPPER__ARTIFACT_EXECUTION_STRING = ARTIFACT_REF_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Model Mapper</em>' class.
@@ -925,7 +997,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 5;
+	int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.PropertyImpl <em>Property</em>}' class.
@@ -2294,7 +2366,6 @@ public interface RecipePackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

@@ -2,14 +2,20 @@
  */
 package recipe.impl;
 
+import common.CommonPackage;
+import common.HTMLLayerHolder;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -29,6 +35,7 @@ import recipe.RecipePackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link recipe.impl.RecipeImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link recipe.impl.RecipeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.RecipeImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.RecipeImpl#getIngredients <em>Ingredients</em>}</li>
@@ -40,6 +47,26 @@ import recipe.RecipePackage;
  * @generated
  */
 public class RecipeImpl extends UsingMappersImpl implements Recipe {
+	/**
+	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColumns()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int COLUMNS_EDEFAULT = 1;
+
+	/**
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColumns()
+	 * @generated
+	 * @ordered
+	 */
+	protected int columns = COLUMNS_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -137,6 +164,27 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	@Override
 	protected EClass eStaticClass() {
 		return RecipePackage.Literals.RECIPE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getColumns() {
+		return columns;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColumns(int newColumns) {
+		int oldColumns = columns;
+		columns = newColumns;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.RECIPE__COLUMNS, oldColumns, columns));
 	}
 
 	/**
@@ -286,6 +334,8 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case RecipePackage.RECIPE__COLUMNS:
+				return getColumns();
 			case RecipePackage.RECIPE__UID:
 				return getUid();
 			case RecipePackage.RECIPE__NAME:
@@ -311,6 +361,9 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RecipePackage.RECIPE__COLUMNS:
+				setColumns((Integer)newValue);
+				return;
 			case RecipePackage.RECIPE__UID:
 				setUid((String)newValue);
 				return;
@@ -344,6 +397,9 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case RecipePackage.RECIPE__COLUMNS:
+				setColumns(COLUMNS_EDEFAULT);
+				return;
 			case RecipePackage.RECIPE__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -374,6 +430,8 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case RecipePackage.RECIPE__COLUMNS:
+				return columns != COLUMNS_EDEFAULT;
 			case RecipePackage.RECIPE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case RecipePackage.RECIPE__NAME:
@@ -396,11 +454,45 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == HTMLLayerHolder.class) {
+			switch (derivedFeatureID) {
+				case RecipePackage.RECIPE__COLUMNS: return CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == HTMLLayerHolder.class) {
+			switch (baseFeatureID) {
+				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return RecipePackage.RECIPE__COLUMNS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (uid: ");
+		result.append(" (columns: ");
+		result.append(columns);
+		result.append(", uid: ");
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);

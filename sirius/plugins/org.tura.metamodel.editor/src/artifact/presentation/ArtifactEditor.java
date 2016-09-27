@@ -158,6 +158,7 @@ import artifact.provider.ArtifactItemProviderAdapterFactory;
 
 import application.provider.ApplicationItemProviderAdapterFactory;
 
+import common.provider.CommonItemProviderAdapterFactory;
 import domain.presentation.DomainEditorPlugin;
 
 import domain.provider.DomainItemProviderAdapterFactory;
@@ -734,6 +735,7 @@ public class ArtifactEditor
 		adapterFactory.addAdapterFactory(new FormItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CommonItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

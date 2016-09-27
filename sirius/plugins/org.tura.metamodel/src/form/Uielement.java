@@ -4,6 +4,8 @@ package form;
 
 import artifact.Categorized;
 
+import common.Orderable;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

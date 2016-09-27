@@ -4,6 +4,8 @@ package form;
 
 import artifact.Categorized;
 
+import common.HTMLLayerHolder;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

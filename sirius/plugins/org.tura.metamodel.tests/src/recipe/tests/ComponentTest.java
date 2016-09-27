@@ -2,6 +2,7 @@
  */
 package recipe.tests;
 
+import common.tests.HTMLLayerHolderTest;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
@@ -15,15 +16,7 @@ import recipe.RecipeFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComponentTest extends TestCase {
-
-	/**
-	 * The fixture for this Component test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Component fixture = null;
+public class ComponentTest extends HTMLLayerHolderTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +38,14 @@ public class ComponentTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Component test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Component fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Component test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Component getFixture() {
-		return fixture;
+		return (Component)fixture;
 	}
 
 	/**

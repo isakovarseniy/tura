@@ -2,26 +2,33 @@
  */
 package form.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import artifact.ArtifactPackage;
 import artifact.Categorized;
 import artifact.Classifier;
+
+import common.CommonPackage;
+import common.Orderable;
+
 import form.Context;
 import form.EnabledUIItem;
 import form.FormPackage;
 import form.MenuElement;
-import form.Orderable;
 import form.StyleElement;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -467,7 +474,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		}
 		if (baseClass == Orderable.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.MENU_ELEMENT__ORDER: return FormPackage.ORDERABLE__ORDER;
+				case FormPackage.MENU_ELEMENT__ORDER: return CommonPackage.ORDERABLE__ORDER;
 				default: return -1;
 			}
 		}
@@ -501,7 +508,7 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		}
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
-				case FormPackage.ORDERABLE__ORDER: return FormPackage.MENU_ELEMENT__ORDER;
+				case CommonPackage.ORDERABLE__ORDER: return FormPackage.MENU_ELEMENT__ORDER;
 				default: return -1;
 			}
 		}

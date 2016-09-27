@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -343,16 +342,6 @@ public interface PermissionPackage extends EPackage {
 	int SECURED_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link permission.impl.GrantAccessImpl <em>Grant Access</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see permission.impl.GrantAccessImpl
-	 * @see permission.impl.PermissionPackageImpl#getGrantAccess()
-	 * @generated
-	 */
-	int GRANT_ACCESS = 7;
-
-	/**
 	 * The meta object id for the '{@link permission.impl.SecurityEntityPointerImpl <em>Security Entity Pointer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -381,6 +370,16 @@ public interface PermissionPackage extends EPackage {
 	int SECURITY_ENTITY_POINTER_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link permission.impl.GrantAccessImpl <em>Grant Access</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see permission.impl.GrantAccessImpl
+	 * @see permission.impl.PermissionPackageImpl#getGrantAccess()
+	 * @generated
+	 */
+	int GRANT_ACCESS = 7;
+
+	/**
 	 * The feature id for the '<em><b>Security Entity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -406,6 +405,7 @@ public interface PermissionPackage extends EPackage {
 	 * @ordered
 	 */
 	int GRANT_ACCESS_FEATURE_COUNT = SECURITY_ENTITY_POINTER_FEATURE_COUNT + 1;
+
 
 	/**
 	 * Returns the meta object for class '{@link permission.Roles <em>Roles</em>}'.
@@ -699,7 +699,6 @@ public interface PermissionPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

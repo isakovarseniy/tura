@@ -18,7 +18,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructure2Configurations"
         upperBound="-1" eType="#//Infrastructure2Configuration" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//UsingMappers">
+  <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//UsingMappers common.ecore#//HTMLLayerHolder">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -71,7 +71,7 @@
     <eLiterals name="ServiceLayer" value="1"/>
     <eLiterals name="UILayer" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Ingredient" eSuperTypes="#//UsingMappers">
+  <eClassifiers xsi:type="ecore:EClass" name="Ingredient" eSuperTypes="#//UsingMappers common.ecore#//HTMLLayerHolder common.ecore#//Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -79,7 +79,7 @@
         eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="layer" eType="#//PlatformLayers"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Component">
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="common.ecore#//HTMLLayerHolder common.ecore#//Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -108,7 +108,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="hashProperties" upperBound="-1"
         eType="#//HashProperty" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelMapper" eSuperTypes="#//ArtifactRef">
+  <eClassifiers xsi:type="ecore:EClass" name="ModelMapper" eSuperTypes="#//ArtifactRef common.ecore#//Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="technologies" upperBound="-1"

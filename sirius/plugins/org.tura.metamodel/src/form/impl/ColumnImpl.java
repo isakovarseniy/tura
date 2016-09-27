@@ -6,12 +6,14 @@ import artifact.ArtifactPackage;
 import artifact.Categorized;
 import artifact.Classifier;
 
+import common.CommonPackage;
+import common.HTMLLayerHolder;
+import common.Orderable;
+
 import form.Column;
 import form.Context;
 import form.FormPackage;
-import form.HTMLLayerHolder;
 import form.MultiLangLabel;
-import form.Orderable;
 import form.Uielement;
 
 import java.util.Collection;
@@ -519,13 +521,13 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 		}
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.COLUMN__COLUMNS: return FormPackage.HTML_LAYER_HOLDER__COLUMNS;
+				case FormPackage.COLUMN__COLUMNS: return CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
 				default: return -1;
 			}
 		}
 		if (baseClass == Orderable.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.COLUMN__ORDER: return FormPackage.ORDERABLE__ORDER;
+				case FormPackage.COLUMN__ORDER: return CommonPackage.ORDERABLE__ORDER;
 				default: return -1;
 			}
 		}
@@ -553,13 +555,13 @@ public class ColumnImpl extends StyleElementImpl implements Column {
 		}
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
-				case FormPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.COLUMN__COLUMNS;
+				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.COLUMN__COLUMNS;
 				default: return -1;
 			}
 		}
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
-				case FormPackage.ORDERABLE__ORDER: return FormPackage.COLUMN__ORDER;
+				case CommonPackage.ORDERABLE__ORDER: return FormPackage.COLUMN__ORDER;
 				default: return -1;
 			}
 		}

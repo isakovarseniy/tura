@@ -3,6 +3,7 @@
 package recipe.provider;
 
 
+import common.CommonPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -48,11 +49,34 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addOrderPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addArtifactRootPropertyDescriptor(object);
 			addArtifactExecutionStringPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Order feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOrderPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Orderable_order_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Orderable_order_feature", "_UI_Orderable_type"),
+				 CommonPackage.Literals.ORDERABLE__ORDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -190,6 +214,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ModelMapper.class)) {
+			case RecipePackage.MODEL_MAPPER__ORDER:
 			case RecipePackage.MODEL_MAPPER__NAME:
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:

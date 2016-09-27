@@ -1,12 +1,12 @@
 /**
  */
-package form.provider;
+package common.provider;
 
+
+import common.CommonPackage;
+import common.Orderable;
 
 import domain.provider.DomainEditPlugin;
-
-import form.FormPackage;
-import form.Orderable;
 
 import java.util.Collection;
 import java.util.List;
@@ -28,7 +28,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link form.Orderable} object.
+ * This is the item provider adapter for a {@link common.Orderable} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -80,7 +80,7 @@ public class OrderableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Orderable_order_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Orderable_order_feature", "_UI_Orderable_type"),
-				 FormPackage.Literals.ORDERABLE__ORDER,
+				 CommonPackage.Literals.ORDERABLE__ORDER,
 				 true,
 				 false,
 				 false,
@@ -125,7 +125,7 @@ public class OrderableItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Orderable.class)) {
-			case FormPackage.ORDERABLE__ORDER:
+			case CommonPackage.ORDERABLE__ORDER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

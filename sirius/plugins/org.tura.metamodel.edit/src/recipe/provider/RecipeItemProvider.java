@@ -3,6 +3,8 @@
 package recipe.provider;
 
 
+import common.CommonPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -48,11 +50,34 @@ public class RecipeItemProvider extends UsingMappersItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addColumnsPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addInfrastructuresPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Columns feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColumnsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_HTMLLayerHolder_columns_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HTMLLayerHolder_columns_feature", "_UI_HTMLLayerHolder_type"),
+				 CommonPackage.Literals.HTML_LAYER_HOLDER__COLUMNS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -191,6 +216,7 @@ public class RecipeItemProvider extends UsingMappersItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Recipe.class)) {
+			case RecipePackage.RECIPE__COLUMNS:
 			case RecipePackage.RECIPE__UID:
 			case RecipePackage.RECIPE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

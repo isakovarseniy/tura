@@ -2,15 +2,22 @@
  */
 package recipe.impl;
 
+import common.CommonPackage;
+import common.Orderable;
+import common.impl.HTMLLayerHolderImpl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -26,6 +33,7 @@ import recipe.RecipePackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link recipe.impl.ComponentImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link recipe.impl.ComponentImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.ComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.ComponentImpl#getMappers <em>Mappers</em>}</li>
@@ -34,7 +42,27 @@ import recipe.RecipePackage;
  *
  * @generated
  */
-public class ComponentImpl extends EObjectImpl implements Component {
+public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
+	/**
+	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ORDER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected int order = ORDER_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -122,6 +150,27 @@ public class ComponentImpl extends EObjectImpl implements Component {
 	@Override
 	protected EClass eStaticClass() {
 		return RecipePackage.Literals.COMPONENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getOrder() {
+		return order;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrder(int newOrder) {
+		int oldOrder = order;
+		order = newOrder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.COMPONENT__ORDER, oldOrder, order));
 	}
 
 	/**
@@ -221,6 +270,8 @@ public class ComponentImpl extends EObjectImpl implements Component {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case RecipePackage.COMPONENT__ORDER:
+				return getOrder();
 			case RecipePackage.COMPONENT__UID:
 				return getUid();
 			case RecipePackage.COMPONENT__NAME:
@@ -242,6 +293,9 @@ public class ComponentImpl extends EObjectImpl implements Component {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RecipePackage.COMPONENT__ORDER:
+				setOrder((Integer)newValue);
+				return;
 			case RecipePackage.COMPONENT__UID:
 				setUid((String)newValue);
 				return;
@@ -267,6 +321,9 @@ public class ComponentImpl extends EObjectImpl implements Component {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case RecipePackage.COMPONENT__ORDER:
+				setOrder(ORDER_EDEFAULT);
+				return;
 			case RecipePackage.COMPONENT__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -291,6 +348,8 @@ public class ComponentImpl extends EObjectImpl implements Component {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case RecipePackage.COMPONENT__ORDER:
+				return order != ORDER_EDEFAULT;
 			case RecipePackage.COMPONENT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case RecipePackage.COMPONENT__NAME:
@@ -309,11 +368,45 @@ public class ComponentImpl extends EObjectImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Orderable.class) {
+			switch (derivedFeatureID) {
+				case RecipePackage.COMPONENT__ORDER: return CommonPackage.ORDERABLE__ORDER;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Orderable.class) {
+			switch (baseFeatureID) {
+				case CommonPackage.ORDERABLE__ORDER: return RecipePackage.COMPONENT__ORDER;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (uid: ");
+		result.append(" (order: ");
+		result.append(order);
+		result.append(", uid: ");
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);

@@ -2,6 +2,8 @@
  */
 package recipe.impl;
 
+import common.CommonPackage;
+import common.Orderable;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -30,6 +32,7 @@ import recipe.RecipePackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link recipe.impl.ModelMapperImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactRoot <em>Artifact Root</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getTechnologies <em>Technologies</em>}</li>
@@ -40,6 +43,26 @@ import recipe.RecipePackage;
  * @generated
  */
 public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
+	/**
+	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ORDER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected int order = ORDER_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -137,6 +160,27 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	@Override
 	protected EClass eStaticClass() {
 		return RecipePackage.Literals.MODEL_MAPPER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getOrder() {
+		return order;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrder(int newOrder) {
+		int oldOrder = order;
+		order = newOrder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.MODEL_MAPPER__ORDER, oldOrder, order));
 	}
 
 	/**
@@ -250,6 +294,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case RecipePackage.MODEL_MAPPER__ORDER:
+				return getOrder();
 			case RecipePackage.MODEL_MAPPER__NAME:
 				return getName();
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
@@ -273,6 +319,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RecipePackage.MODEL_MAPPER__ORDER:
+				setOrder((Integer)newValue);
+				return;
 			case RecipePackage.MODEL_MAPPER__NAME:
 				setName((String)newValue);
 				return;
@@ -302,6 +351,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case RecipePackage.MODEL_MAPPER__ORDER:
+				setOrder(ORDER_EDEFAULT);
+				return;
 			case RecipePackage.MODEL_MAPPER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -329,6 +381,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case RecipePackage.MODEL_MAPPER__ORDER:
+				return order != ORDER_EDEFAULT;
 			case RecipePackage.MODEL_MAPPER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
@@ -349,11 +403,45 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Orderable.class) {
+			switch (derivedFeatureID) {
+				case RecipePackage.MODEL_MAPPER__ORDER: return CommonPackage.ORDERABLE__ORDER;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Orderable.class) {
+			switch (baseFeatureID) {
+				case CommonPackage.ORDERABLE__ORDER: return RecipePackage.MODEL_MAPPER__ORDER;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
+		result.append(" (order: ");
+		result.append(order);
+		result.append(", name: ");
 		result.append(name);
 		result.append(", artifactRoot: ");
 		result.append(artifactRoot);

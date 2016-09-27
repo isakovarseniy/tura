@@ -160,6 +160,7 @@ import application.provider.ApplicationItemProviderAdapterFactory;
 
 import artifact.provider.ArtifactItemProviderAdapterFactory;
 
+import common.provider.CommonItemProviderAdapterFactory;
 import form.provider.FormItemProviderAdapterFactory;
 
 import infrastructure.provider.InfrastructureItemProviderAdapterFactory;
@@ -732,6 +733,7 @@ public class DomainEditor
 		adapterFactory.addAdapterFactory(new FormItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new RecipeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MapperItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CommonItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

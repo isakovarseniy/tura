@@ -6,11 +6,13 @@ import artifact.ArtifactPackage;
 import artifact.Categorized;
 import artifact.Classifier;
 
+import common.CommonPackage;
+import common.HTMLLayerHolder;
+import common.Orderable;
+
 import form.Context;
 import form.FormPackage;
-import form.HTMLLayerHolder;
 import form.MultiLangLabel;
-import form.Orderable;
 import form.TabPage;
 import form.ViewElement;
 import form.ViewPortHolder;
@@ -374,7 +376,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.TAB_PAGE__COLUMNS: return FormPackage.HTML_LAYER_HOLDER__COLUMNS;
+				case FormPackage.TAB_PAGE__COLUMNS: return CommonPackage.HTML_LAYER_HOLDER__COLUMNS;
 				default: return -1;
 			}
 		}
@@ -398,7 +400,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 		}
 		if (baseClass == Orderable.class) {
 			switch (derivedFeatureID) {
-				case FormPackage.TAB_PAGE__ORDER: return FormPackage.ORDERABLE__ORDER;
+				case FormPackage.TAB_PAGE__ORDER: return CommonPackage.ORDERABLE__ORDER;
 				default: return -1;
 			}
 		}
@@ -414,7 +416,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == HTMLLayerHolder.class) {
 			switch (baseFeatureID) {
-				case FormPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.TAB_PAGE__COLUMNS;
+				case CommonPackage.HTML_LAYER_HOLDER__COLUMNS: return FormPackage.TAB_PAGE__COLUMNS;
 				default: return -1;
 			}
 		}
@@ -438,7 +440,7 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 		}
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
-				case FormPackage.ORDERABLE__ORDER: return FormPackage.TAB_PAGE__ORDER;
+				case CommonPackage.ORDERABLE__ORDER: return FormPackage.TAB_PAGE__ORDER;
 				default: return -1;
 			}
 		}

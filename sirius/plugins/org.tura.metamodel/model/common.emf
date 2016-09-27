@@ -1,0 +1,10 @@
+@namespace(uri="http://tura.org/2016/v2/common", prefix="tura.common")
+package common;
+
+class HTMLLayerHolder{
+   attr EInt columns = 1;
+}
+
+class Orderable{
+  attr EInt order; 
+}

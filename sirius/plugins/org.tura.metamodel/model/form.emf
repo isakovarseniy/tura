@@ -5,6 +5,7 @@ package form;
 import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
 import "platform:/resource/org.tura.metamodel/model/permission.ecore";
+import "platform:/resource/org.tura.metamodel/model/common.ecore";
 
 
 class Form{
@@ -31,15 +32,6 @@ class Views{
 }
 
 
-
-class HTMLLayerHolder{
-   attr EInt columns = 1;
-}
-
-class Orderable{
-  attr EInt order; 
-}
-
 enum Comparator{
     EQ;
     NEQ;
@@ -63,7 +55,7 @@ class CanvasFrame extends StyleElement{
    attr EString name;
 }
 
-class ViewPortHolder extends HTMLLayerHolder{
+class ViewPortHolder extends common.HTMLLayerHolder{
    @gmf.compartment
    val ViewElement[*] viewElement;
 }
@@ -105,16 +97,16 @@ class TabCanvas extends CanvasFrame,DefaultCavas,MultiLangLabel,artifact.Categor
   attr Orientation orientation ;
 }
 
-class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,artifact.Categorized,Orderable {
+class TabPage extends CanvasFrame,ViewPortHolder,MultiLangLabel,artifact.Categorized,common.Orderable {
 }
 
-class ViewPort extends ViewElement,Orderable{
+class ViewPort extends ViewElement,common.Orderable{
     id attr EString uid;
    attr EString name;
     val ViewPortTrigger  viewPortTrigger;
 }
 
-class ViewArea extends ViewElement,Orderable{
+class ViewArea extends ViewElement,common.Orderable{
     id attr EString uid;
    attr EString name;
    val LayerHolder  baseCanvas; 
@@ -217,7 +209,7 @@ class EnabledUIItem{
     val Context enabled;
 }
 
-class Uielement extends StyleElement,NickNamed,artifact.Categorized, Orderable, EnabledUIItem,FlexFields,MenuHolder{
+class Uielement extends StyleElement,NickNamed,artifact.Categorized, common.Orderable, EnabledUIItem,FlexFields,MenuHolder{
     id attr EString uid;
     val Context required;
     val Context readOnly;
@@ -262,7 +254,7 @@ class OptionSelection extends InputElement {
    ref DataControl optionCastDataControl;
 }
 
-class LayerHolder extends Uielement , ChildrenHolder, HTMLLayerHolder{
+class LayerHolder extends Uielement , ChildrenHolder, common.HTMLLayerHolder{
    
 }
 
@@ -312,13 +304,13 @@ class Button extends Uielement,MultiLangLabel,ItemIcon{
    attr EString label;
 }
 
-class Column extends StyleElement,MultiLangLabel, artifact.Categorized,HTMLLayerHolder,Orderable{
+class Column extends StyleElement,MultiLangLabel, artifact.Categorized,common.HTMLLayerHolder,common.Orderable{
     id attr EString uid;
    attr EString label;
    val Uielement element;   
 }
 
-class Table extends SourcesPointer,MultiLangLabel,HTMLLayerHolder{
+class Table extends SourcesPointer,MultiLangLabel,common.HTMLLayerHolder{
    attr EString label;
    attr EInt rowNumber;
     val Column[*] cols;
@@ -338,13 +330,13 @@ class MenuExtensionRef{
 }
 
 
-class MenuElement extends MultiLangLabel,StyleElement,artifact.Categorized,EnabledUIItem,Orderable{
+class MenuElement extends MultiLangLabel,StyleElement,artifact.Categorized,EnabledUIItem,common.Orderable{
     id attr EString uid;
     attr EString name;
 }
 
 
-class MenuFolder extends HTMLLayerHolder,EnabledUIItem,artifact.Categorized,StyleElement,MultiLangLabel,ItemIcon{
+class MenuFolder extends common.HTMLLayerHolder,EnabledUIItem,artifact.Categorized,StyleElement,MultiLangLabel,ItemIcon{
     id attr EString uid;
     attr EString name;
     attr EBoolean extensionPoint;

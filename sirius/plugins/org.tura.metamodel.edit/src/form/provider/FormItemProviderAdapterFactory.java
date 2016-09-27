@@ -2,12 +2,15 @@
  */
 package form.provider;
 
+import form.util.FormAdapterFactory;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -18,8 +21,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
-import form.util.FormAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -136,52 +137,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 		}
 
 		return viewsItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link form.HTMLLayerHolder} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected HTMLLayerHolderItemProvider htmlLayerHolderItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.HTMLLayerHolder}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createHTMLLayerHolderAdapter() {
-		if (htmlLayerHolderItemProvider == null) {
-			htmlLayerHolderItemProvider = new HTMLLayerHolderItemProvider(this);
-		}
-
-		return htmlLayerHolderItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link form.Orderable} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OrderableItemProvider orderableItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.Orderable}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOrderableAdapter() {
-		if (orderableItemProvider == null) {
-			orderableItemProvider = new OrderableItemProvider(this);
-		}
-
-		return orderableItemProvider;
 	}
 
 	/**

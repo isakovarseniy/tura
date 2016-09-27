@@ -2,6 +2,8 @@
  */
 package recipe.util;
 
+import common.HTMLLayerHolder;
+import common.Orderable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -76,6 +78,7 @@ public class RecipeSwitch<T> extends Switch<T> {
 				Recipe recipe = (Recipe)theEObject;
 				T result = caseRecipe(recipe);
 				if (result == null) result = caseUsingMappers(recipe);
+				if (result == null) result = caseHTMLLayerHolder(recipe);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,12 +122,16 @@ public class RecipeSwitch<T> extends Switch<T> {
 				Ingredient ingredient = (Ingredient)theEObject;
 				T result = caseIngredient(ingredient);
 				if (result == null) result = caseUsingMappers(ingredient);
+				if (result == null) result = caseHTMLLayerHolder(ingredient);
+				if (result == null) result = caseOrderable(ingredient);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RecipePackage.COMPONENT: {
 				Component component = (Component)theEObject;
 				T result = caseComponent(component);
+				if (result == null) result = caseHTMLLayerHolder(component);
+				if (result == null) result = caseOrderable(component);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,6 +139,8 @@ public class RecipeSwitch<T> extends Switch<T> {
 				JavaComponent javaComponent = (JavaComponent)theEObject;
 				T result = caseJavaComponent(javaComponent);
 				if (result == null) result = caseComponent(javaComponent);
+				if (result == null) result = caseHTMLLayerHolder(javaComponent);
+				if (result == null) result = caseOrderable(javaComponent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -151,6 +160,7 @@ public class RecipeSwitch<T> extends Switch<T> {
 				ModelMapper modelMapper = (ModelMapper)theEObject;
 				T result = caseModelMapper(modelMapper);
 				if (result == null) result = caseArtifactRef(modelMapper);
+				if (result == null) result = caseOrderable(modelMapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -512,6 +522,36 @@ public class RecipeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseArtifactRef(ArtifactRef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>HTML Layer Holder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>HTML Layer Holder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHTMLLayerHolder(HTMLLayerHolder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Orderable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Orderable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrderable(Orderable object) {
 		return null;
 	}
 

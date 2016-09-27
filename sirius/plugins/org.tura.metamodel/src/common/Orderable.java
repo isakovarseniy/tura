@@ -1,6 +1,6 @@
 /**
  */
-package form;
+package common;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link form.Orderable#getOrder <em>Order</em>}</li>
+ *   <li>{@link common.Orderable#getOrder <em>Order</em>}</li>
  * </ul>
  *
- * @see form.FormPackage#getOrderable()
+ * @see common.CommonPackage#getOrderable()
  * @model
  * @generated
  */
@@ -31,14 +31,14 @@ public interface Orderable extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Order</em>' attribute.
 	 * @see #setOrder(int)
-	 * @see form.FormPackage#getOrderable_Order()
+	 * @see common.CommonPackage#getOrderable_Order()
 	 * @model
 	 * @generated
 	 */
 	int getOrder();
 
 	/**
-	 * Sets the value of the '{@link form.Orderable#getOrder <em>Order</em>}' attribute.
+	 * Sets the value of the '{@link common.Orderable#getOrder <em>Order</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Order</em>' attribute.

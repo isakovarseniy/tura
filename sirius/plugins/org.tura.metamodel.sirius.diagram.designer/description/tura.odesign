@@ -1044,60 +1044,39 @@
             </endLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="Recipe" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Deployment%20sequence']" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Recipe%20edit%20label']" semanticCandidatesExpression="aql:self.recipe" domainClass="recipe.Recipe" childrenPresentation="VerticalStack">
-          <subContainerMappings name="Ingredients" semanticCandidatesExpression="var:self" domainClass="recipe.Recipe" childrenPresentation="VerticalStack">
-            <subContainerMappings name="Ingredient" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Ingredient%20edit%20label']" semanticCandidatesExpression="feature:ingredients" domainClass="recipe.Ingredient" childrenPresentation="VerticalStack">
-              <subContainerMappings name="JavaComponent" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='JavaComponent%20edit%20label']" semanticCandidatesExpression="feature:components" domainClass="recipe.JavaComponent" childrenPresentation="HorizontalStack">
-                <subContainerMappings name="ModelMappers" semanticCandidatesExpression="var:self" domainClass="recipe.JavaComponent" childrenPresentation="HorizontalStack">
-                  <subContainerMappings name="ModelMapper" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ModelMapper%20edit%20label']" semanticCandidatesExpression="feature:mappers" domainClass="recipe.ModelMapper" childrenPresentation="VerticalStack">
-                    <subContainerMappings name="Queries" semanticCandidatesExpression="var:self" domainClass="recipe.ModelMapper" childrenPresentation="List">
-                      <subNodeMappings name="Query" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Query%20edit%20label']" semanticCandidatesExpression="feature:queries" domainClass="recipe.Query">
-                        <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
-                          <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                          <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
-                        </style>
-                      </subNodeMappings>
-                      <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="Queries" hideLabelByDefault="true">
-                        <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                        <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                        <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-                        <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
-                      </style>
-                    </subContainerMappings>
-                    <style xsi:type="style:FlatContainerStyleDescription" labelSize="12">
-                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-                      <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
-                    </style>
-                  </subContainerMappings>
-                  <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="Ingredients" hideLabelByDefault="true">
+        <containerMappings name="Recipe" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Deployment%20sequence']" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Recipe%20edit%20label']" semanticCandidatesExpression="aql:self.recipe" domainClass="recipe.Recipe">
+          <subContainerMappings name="Ingredient" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Ingredient%20edit%20label']" semanticCandidatesExpression="feature:ingredients" domainClass="recipe.Ingredient">
+            <subContainerMappings name="JavaComponent" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='JavaComponent%20edit%20label']" semanticCandidatesExpression="feature:components" domainClass="recipe.JavaComponent">
+              <subContainerMappings name="ModelMapper" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ModelMapper%20edit%20label']" semanticCandidatesExpression="feature:mappers" domainClass="recipe.ModelMapper" childrenPresentation="List">
+                <subNodeMappings name="Query" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Query%20edit%20label']" semanticCandidatesExpression="feature:queries" domainClass="recipe.Query">
+                  <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
                   </style>
-                </subContainerMappings>
+                </subNodeMappings>
                 <style xsi:type="style:FlatContainerStyleDescription" labelSize="12">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_gray']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_gray']"/>
+                  <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
                 </style>
               </subContainerMappings>
               <style xsi:type="style:FlatContainerStyleDescription" labelSize="12">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+                <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
               </style>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="Ingredients" hideLabelByDefault="true">
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='yellow']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='yellow']"/>
+              <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
             </style>
           </subContainerMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name">
@@ -1105,6 +1084,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
+            <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
           </style>
         </containerMappings>
         <containerMappings name="Configuration" semanticCandidatesExpression="aql:self.configurations" domainClass="recipe.Configuration" childrenPresentation="VerticalStack">
@@ -1161,7 +1141,7 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Ingredient" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredients']/@subContainerMappings[name='Ingredient']">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Ingredient" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1178,7 +1158,7 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="JavaComponent" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredients']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="JavaComponent" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1195,7 +1175,7 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ModelMapper" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredients']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMappers']/@subContainerMappings[name='ModelMapper']">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ModelMapper" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1212,7 +1192,7 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Query" nodeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredients']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMappers']/@subContainerMappings[name='ModelMapper']/@subContainerMappings[name='Queries']/@subNodeMappings[name='Query']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Query" nodeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@subNodeMappings[name='Query']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
