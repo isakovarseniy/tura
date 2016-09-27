@@ -2,29 +2,33 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tura.domain="http://tura.org/2016/v2/domain" xmlns:tura.form="http://tura.org/2016/v2/form" xmlns:tura.infrastructure="http://tura.org/2016/v2/infrastructure" xmlns:tura.mapper="http://tura.org/2016/v2/mapper" xmlns:tura.recipe="http://tura.org/2016/v2/recipe" xmlns:tura.type="http://tura.org/2016/v2/type">
   <tura.domain:Domain>
     <domainArtifacts>
-      <domainArtifact uid="8c6e20f4-46c7-4fd1-b50c-3ad6922cb6e8" name="Domain Artifact1">
-        <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Artifact package1">
-          <artifacts uid="286f5f16-4c6c-4a09-a69f-fb43c250e3e4" name="dasdasd" description="q1">
-            <configVariables uid="f5476b6e-8c76-4a35-85dc-604ca856e880" name="asdasd"/>
-            <configVariables uid="d7c1abc2-32b9-4be9-9cf9-2d9b6dc88a5d" name="a1111sdasd"/>
-            <configHashes uid="94d9296f-13a4-4cb3-bfa0-08ca327516de" name="asdasdasdasd"/>
-            <modelQuery uid="dc22f168-f169-4c8a-b09a-70130a43180c" name="asdasdadsrrrrr">
-              <parameters uid="0dd5a2ba-1c65-422f-8514-4b0507000708" name="asdasd"/>
+      <domainArtifact uid="8c6e20f4-46c7-4fd1-b50c-3ad6922cb6e8" name="Backend">
+        <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Model objects">
+          <artifacts uid="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Domain model generation" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/DomainModel/mainDomainModel.egl">
+            <modelQuery uid="2f122165-6dcb-4620-8d63-15c0c9dc0270" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(type::Type ).oclAsType(domain::Categorized).classifiers->select(q|q.oclIsKindOf(artifact::Classifier ).hint.uid='@{Domain Object}'))">
+              <parameters uid="83d58dc0-4297-4c19-b869-f879e3c81674" name="Repository"/>
+              <parameters uid="a3b311aa-04af-42be-b905-66b06246ded9" name="Package"/>
             </modelQuery>
-            <modelQuery uid="69e139c9-62e6-47c5-bf4a-2f7bb1f199a6" name="q3"/>
-            <modelQuery uid="e612ad8c-95ae-472d-8637-a72939d0cf11" name="q2">
-              <parameters uid="0831b865-1142-4a61-ae80-650dfc50b2cc" name="sadasdas"/>
+            <modelQuery uid="37036a3c-8f09-455e-93fa-ec2f87f9e1f7" name="Query model interfaces" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(type::Type ).oclAsType(domain::Categorized).classifiers->select(q|q.oclIsKindOf(artifact::Classifier ).hint.uid='@{Domain Interface}'))">
+              <parameters uid="7969678d-ba21-43f6-a500-99fad251d868" name="Repository"/>
+              <parameters uid="bcfe6f6f-bdd5-4f6e-952e-6620dc3c04b7" name="Package"/>
             </modelQuery>
-            <modelQuery uid="d1de6077-5d14-4b58-97da-fcd2a37d3f0f" name="ewwqe"/>
-            <modelQuery uid="7629cbe4-fcca-4939-ad0f-d6754fb7c235" name="sadasD"/>
-            <technologies uid="4ce1ecb9-5d39-44fe-9aaa-7a32391000f8" name="Jpa persistance">
-              <options uid="4450628d-9690-4484-b38e-993c8d960960"/>
-              <options uid="c695d2e2-1728-4bde-ac43-5be039292e38"/>
-            </technologies>
-            <hints uid="8cc4494b-000c-422c-932d-5577ec587524" name="mbmnb,mn"/>
+            <hints uid="62d4afc4-f60f-4c8a-8769-b314ae7f9751" name="Domain Object" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
+            <hints uid="cebb28cf-216f-403a-ae67-9116065a56e5" name="Domain Interface" hint="b90dae78-c0f8-4049-b6ae-8596aa802c54"/>
           </artifacts>
-          <artifacts uid="880949d7-5902-48b1-ae35-df5687fe4d71" name="asdasdasd"/>
+          <artifacts uid="fa4e788a-3eaf-42f2-bd89-07236a99db9e" name="Domain model builder" description="" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/DomainModel/mainDomainModelBuilder.egl">
+            <modelQuery uid="5608a6a7-69b0-4079-8680-559898647495" name="Query package of types" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(type::TypeGroup).name='${Package}' )">
+              <parameters uid="736f276e-6dd7-45a3-b121-fe499d4af92c" name="Repository"/>
+              <parameters uid="bfa23885-96b6-4d6c-81cf-a37ca2cf3c9c" name="Package"/>
+            </modelQuery>
+            <technologies uid="cb867b24-d14a-42df-93e0-7fd0250a3ad9" name="Builder">
+              <options uid="08f0285e-a43b-46e5-8bad-2e3dc7ab9b96" value="b8dc44f4-aaaa-4447-94b2-4c26831416cc"/>
+              <options uid="fef04f50-1ac3-47e3-98b5-8b229621332d" value="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1"/>
+            </technologies>
+          </artifacts>
         </artifactPackages>
+        <artifactPackages uid="698d5af3-01ce-4f35-8803-52e05f88c6fe" name="JPA objects"/>
+        <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
       </domainArtifact>
       <techLeafs uid="52052d1c-7313-4684-a8bd-c62091140f59" name="JEE">
         <techLeafs uid="f52da8a4-ca3f-49ac-9328-5504ce7b49b6" name="JPA">
@@ -32,10 +36,15 @@
         </techLeafs>
         <techLeafs uid="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4" name="Domain model">
           <hints uid="9ac4e017-6f79-46c6-b411-ba78189b6742" name="Domain Object"/>
+          <hints uid="b90dae78-c0f8-4049-b6ae-8596aa802c54" name="Domain Interface"/>
         </techLeafs>
       </techLeafs>
       <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="Java">
         <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Implements"/>
+        <techLeafs uid="5c4cfcc0-9025-498a-b587-bce89efacafd" name="Builder">
+          <techLeafs uid="b8dc44f4-aaaa-4447-94b2-4c26831416cc" name="Maven"/>
+          <techLeafs uid="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1" name="Ant"/>
+        </techLeafs>
       </techLeafs>
       <techLeafs uid="641ee1ff-40bd-4b86-b5cd-be0c6460ca88" name="Model">
         <techLeafs uid="ad574e45-c59b-42ff-862f-8dea7d2a902c" name="Form">
@@ -122,13 +131,16 @@
         </repositoryPackages>
         <repositoryPackages uid="606e5926-7b6c-4685-a788-3a4d4aa4b932" name="Domain model test package">
           <types xsi:type="tura.type:Type" uid="f05f5088-03b8-4044-9388-1ac846647766" name="Client">
+            <classifiers uid="d48f805b-40da-4379-af37-f1c1d5bef3db" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="a9458493-cb62-4c4d-b856-6a7640ea2c92" name="clientId"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="757871e8-e167-42aa-9b7c-446c85a2ea18" name="name"/>
           </types>
           <types xsi:type="tura.type:Type" uid="85e19240-5760-4c0b-a33f-9af9af6eb9f1" name="Phone">
+            <classifiers uid="cbdb9994-f2e8-4953-aee4-cecdbbd172ad" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
             <attributes uid="52414133-d9be-4c23-aa0a-52407b55254a" name="phone"/>
           </types>
           <types xsi:type="tura.type:Type" uid="224a7cd4-297b-4cfe-bc8c-b8507cad5fdc" name="Mail Address">
+            <classifiers uid="ccc2e07d-717e-43ab-96f1-630d004b49f0" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="7eec6ddc-73af-4de2-be43-ad47b1add7b4" name="address"/>
           </types>
           <relationships xsi:type="tura.type:Assosiation" uid="c148e229-dac2-4c79-8bac-0bb5e992d327" source="f05f5088-03b8-4044-9388-1ac846647766" target="85e19240-5760-4c0b-a33f-9af9af6eb9f1" type="One2Many"/>
@@ -778,59 +790,38 @@
         <applicationPackages uid="e0a49a0b-9961-4803-9c0c-efb84da14715" name="HR domain">
           <applications uid="6dbe9372-c514-4152-8d84-c8ac1223c2f7" name="HR application">
             <applicationRecipes uid="df503cbb-5ff4-4931-a503-0ba1035b4410">
-              <recipes uid="ff616d96-1997-4684-87cb-cbc57b8dec63" name="Application recipes  package1">
-                <recipes uid="3179836b-f84e-49fd-b423-452592f0ed87" name="Recipe 1">
-                  <recipe uid="a53513af-bf77-49c6-baba-aff5ad83a8eb" name="Recipe">
-                    <ingredients uid="79003a1c-ed2f-454d-85f9-48cacba976f4" name="Ingredient 1">
-                      <components xsi:type="tura.recipe:JavaComponent" uid="abb5c51f-48fb-4e23-ac5b-5395fd679204" name="Java component 1">
-                        <mappers uid="ed5de964-e740-4dee-ac74-5a6d695f1bf6" artifactRef="286f5f16-4c6c-4a09-a69f-fb43c250e3e4" name="Model mapper 1" artifactRoot="">
-                          <technologies techRef="4ce1ecb9-5d39-44fe-9aaa-7a32391000f8" valueRef="4450628d-9690-4484-b38e-993c8d960960"/>
-                          <queries uid="6942f882-f597-44c3-9a67-ef94f9bd917c" name="Query1" queryRef="dc22f168-f169-4c8a-b09a-70130a43180c">
-                            <variables queryParamRef="0dd5a2ba-1c65-422f-8514-4b0507000708"/>
+              <recipes uid="a1b10eb6-b808-4453-b15a-0bf4ffb8b04c" name="Backend objects and services">
+                <recipes uid="a35e53f5-2d9d-46ce-8a15-46ef1576f04c" name="Test domain and persistence model">
+                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 21d8af7b-7dbd-451d-a8e7-ee9d696646a4" uid="8d9145b8-4528-4cde-b96c-ded8331c2011" name="Test model generation">
+                    <ingredients uid="743fbbff-1ddb-4400-848c-23c002a09a64" name="Data base mapping">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="13f31adb-9df4-4c87-b762-1e9af65381ba" name="Domain Model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="domain-test-objects" groupId="org.tura.domain.test" version="1.0" basePackage="org.tura.domain.test">
+                        <mappers uid="14db4237-4d45-4f0d-9c45-967c1cea6781" artifactRef="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Model generation">
+                          <queries uid="6e4361c9-7259-4253-879c-c5ecdf29be0f" name="Query package for classess" queryRef="2f122165-6dcb-4620-8d63-15c0c9dc0270">
+                            <variables queryParamRef="83d58dc0-4297-4c19-b869-f879e3c81674" value="Testing repository"/>
+                            <variables queryParamRef="a3b311aa-04af-42be-b905-66b06246ded9" value="Domain model test package"/>
                           </queries>
-                          <queries uid="43f2d8e9-0985-4a08-a7a1-6358351f386c" name="Query 2"/>
-                          <queries uid="41038e0f-1d08-49a1-a00e-d6090e233a77" name="Query 3"/>
+                          <queries uid="18f169aa-a43e-4cfd-8343-76c1d178ca0c" name="Query package for interfaces" queryRef="37036a3c-8f09-455e-93fa-ec2f87f9e1f7">
+                            <variables queryParamRef="7969678d-ba21-43f6-a500-99fad251d868" value="Testing repository"/>
+                            <variables queryParamRef="bcfe6f6f-bdd5-4f6e-952e-6620dc3c04b7" value="Domain model test package"/>
+                          </queries>
                         </mappers>
-                        <mappers uid="bafcda71-e9fb-46ea-9274-08c6f4d41404" name="Model mapper 2"/>
-                        <mappers uid="bf34c444-e149-44b5-a10c-a1dff11a97ed" name="Model mapper 3"/>
-                        <mappers uid="792f1c5f-6f1a-4e21-b541-ac4239993d9b" name="Model Mapper 7"/>
-                      </components>
-                      <components xsi:type="tura.recipe:JavaComponent" uid="5b41bbee-c78e-40f6-9dbe-fb3a9ed0ef2c" name="Java component 2">
-                        <mappers uid="5303a710-3250-4828-9757-88d80bec3926" name="Model Mapper 4"/>
-                        <mappers uid="fe744d66-0897-45c3-be40-3abbf53b4393" name="Model mapper 5"/>
-                        <mappers uid="6ba04eb3-3f9b-4a8d-bb87-19c4155e86e2" name="Model Mapper 6"/>
+                        <mappers uid="66c1f571-5619-4e95-9eb4-e4ee6241c5a1" artifactRef="fa4e788a-3eaf-42f2-bd89-07236a99db9e" name="Domain buider" artifactExecutionString="">
+                          <technologies techRef="cb867b24-d14a-42df-93e0-7fd0250a3ad9" valueRef="08f0285e-a43b-46e5-8bad-2e3dc7ab9b96"/>
+                          <queries uid="c5af850d-b06e-44b9-88e0-aa8a4eb1b362" name="Query package for model classes" queryRef="5608a6a7-69b0-4079-8680-559898647495">
+                            <variables queryParamRef="736f276e-6dd7-45a3-b121-fe499d4af92c" value="Testing repository"/>
+                            <variables queryParamRef="bfa23885-96b6-4d6c-81cf-a37ca2cf3c9c" value="Domain model test package"/>
+                          </queries>
+                          <queries uid="eb0086c3-5154-48f4-a741-0e08d7208c83" name="Query package for model interfaces" queryRef="37036a3c-8f09-455e-93fa-ec2f87f9e1f7">
+                            <variables queryParamRef="7969678d-ba21-43f6-a500-99fad251d868" value="Testing repository"/>
+                            <variables queryParamRef="bcfe6f6f-bdd5-4f6e-952e-6620dc3c04b7" value="Domain model test package"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="a27cced6-8532-498e-a62e-8b4d7eb2ab26" name="Build runner"/>
                       </components>
                     </ingredients>
-                    <ingredients uid="76496306-0c11-4b40-90f8-a6e7e9291354" name="Ingredient 2">
-                      <components xsi:type="tura.recipe:JavaComponent" uid="3cfd888b-22ce-4c8a-8259-364be4d745a3" name="Model mapper 8"/>
-                    </ingredients>
-                    <deplymentStep mapper="ed5de964-e740-4dee-ac74-5a6d695f1bf6" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.2"/>
-                    <deplymentStep mapper="bafcda71-e9fb-46ea-9274-08c6f4d41404" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.0"/>
-                    <deplymentStep mapper="bf34c444-e149-44b5-a10c-a1dff11a97ed"/>
-                    <startSeq uid="c119506d-ef2f-4d81-a1dc-3a7f8854cc48" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.1"/>
                   </recipe>
-                  <configurations uid="41b58e36-cca1-458a-8f45-d88154c8aa1e" name="qwerty">
-                    <properties value=""/>
-                  </configurations>
-                  <configurations uid="8a3affb8-c67c-42b2-8e59-2fedbf2213dc" name="qwerty"/>
-                  <configurations uid="49b45bbe-82bb-42a9-a023-a693c5d4d782">
-                    <properties/>
-                    <hashProperties>
-                      <hash uid="7dfdb5e2-425b-45cf-9879-2f72a175f24e" key="adasdasd" value="asdasdasd"/>
-                    </hashProperties>
-                  </configurations>
-                  <infrastructures uid="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3" name="Development"/>
-                  <infrastructures uid="04dedfd4-c909-42cf-81f5-1898ace8d9e4" name="Production"/>
-                  <configExtensions uid="f8c68b40-d2aa-407d-9f91-e10b8065adb3" source="41b58e36-cca1-458a-8f45-d88154c8aa1e" target="49b45bbe-82bb-42a9-a023-a693c5d4d782"/>
-                  <configExtensions uid="5850c798-5c94-4559-a8ed-14b0d9f2806b" source="8a3affb8-c67c-42b2-8e59-2fedbf2213dc" target="49b45bbe-82bb-42a9-a023-a693c5d4d782"/>
-                  <recipe2Infrastructures uid="9faa75b4-6a88-49c6-9d80-f37b56751c1e" source="a53513af-bf77-49c6-baba-aff5ad83a8eb" target="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3"/>
-                  <recipe2Infrastructures uid="708316d2-8d3c-44aa-8338-a0ac77c8fe84" source="a53513af-bf77-49c6-baba-aff5ad83a8eb" target="04dedfd4-c909-42cf-81f5-1898ace8d9e4"/>
-                  <infrastructure2Configurations uid="87f876ed-62b9-4f6c-9d53-713fc7681b68" source="bc3c95cf-3bfa-44bf-93be-e4741f5d6af3" target="41b58e36-cca1-458a-8f45-d88154c8aa1e"/>
-                  <infrastructure2Configurations uid="5aa5342d-53be-4bce-b1dc-ec86602ae796" source="04dedfd4-c909-42cf-81f5-1898ace8d9e4" target="8a3affb8-c67c-42b2-8e59-2fedbf2213dc"/>
                 </recipes>
-                <recipes uid="561df30a-5e25-4918-a009-9ba745f5bb66" name="Recipe 2"/>
               </recipes>
-              <recipes uid="a1b10eb6-b808-4453-b15a-0bf4ffb8b04c" name="Application recipes  package2"/>
             </applicationRecipes>
             <applicationMappers uid="0cf8dece-306e-4a11-a093-c6a0b9c250be">
               <mappers uid="979a1600-5460-4d07-9d79-c27ccbc57132" name="Primitives mapper">
