@@ -26831,7 +26831,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_CKH8UISmEea4_8NQ0CykAg" labelSize="12" borderSize="2" borderSizeComputationExpression="2" foregroundColor="253,206,137">
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_CKH8UISmEea4_8NQ0CykAg" labelSize="12" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2" foregroundColor="253,206,137">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']"/>
@@ -26845,7 +26845,7 @@
           <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_A7lrR4RnEea4_8NQ0CykAg" name="Domain Model">
             <target xmi:type="tura.recipe:JavaComponent" href="model/hr.domain#13f31adb-9df4-4c87-b762-1e9af65381ba"/>
             <semanticElements xmi:type="tura.recipe:JavaComponent" href="model/hr.domain#13f31adb-9df4-4c87-b762-1e9af65381ba"/>
-            <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_A7lrSIRnEea4_8NQ0CykAg" labelSize="12" backgroundColor="136,136,136" foregroundColor="136,136,136">
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_A7lrSIRnEea4_8NQ0CykAg" labelSize="12" labelAlignment="LEFT" backgroundColor="136,136,136" foregroundColor="136,136,136">
               <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']"/>
@@ -26855,7 +26855,7 @@
               <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
               <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
               <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-              <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_A7lrSoRnEea4_8NQ0CykAg" labelSize="12" backgroundColor="209,209,209">
+              <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_A7lrSoRnEea4_8NQ0CykAg" labelSize="12" labelAlignment="LEFT" backgroundColor="209,209,209">
                 <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@style"/>
               </ownedStyle>
               <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']"/>
@@ -26882,7 +26882,7 @@
               <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
               <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
               <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-              <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_A7mSVYRnEea4_8NQ0CykAg" labelSize="12" backgroundColor="209,209,209">
+              <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_A7mSVYRnEea4_8NQ0CykAg" labelSize="12" labelAlignment="LEFT" backgroundColor="209,209,209">
                 <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@style"/>
               </ownedStyle>
               <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']"/>
@@ -26906,7 +26906,7 @@
             <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_A7mSWoRnEea4_8NQ0CykAg" name="Build runner">
               <target xmi:type="tura.recipe:ModelMapper" href="model/hr.domain#a27cced6-8532-498e-a62e-8b4d7eb2ab26"/>
               <semanticElements xmi:type="tura.recipe:ModelMapper" href="model/hr.domain#a27cced6-8532-498e-a62e-8b4d7eb2ab26"/>
-              <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_A7mSW4RnEea4_8NQ0CykAg" labelSize="12" backgroundColor="209,209,209">
+              <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_A7mSW4RnEea4_8NQ0CykAg" labelSize="12" labelAlignment="LEFT" backgroundColor="209,209,209">
                 <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@style"/>
               </ownedStyle>
               <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']"/>
