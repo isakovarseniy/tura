@@ -61,6 +61,7 @@ import form.Views;
 import recipe.ConfigExtension;
 import recipe.Configuration;
 import recipe.Infrastructure;
+import recipe.Infrastructure2Configuration;
 import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.QueryVariable;
@@ -132,6 +133,7 @@ public class QueryHelper {
 
 	}
 	
+
 	
 	public Object getApplicationRoles(DiagramImpl root) {
 		Form frm = getForm(root);
@@ -226,6 +228,31 @@ public class QueryHelper {
 		}
 	}
 
+	
+	@SuppressWarnings("unchecked")
+	public Recipe getRecipe(Infrastructure infra) throws Exception{
+		String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.target.uid ='" + infra.getUid() + "')";
+
+		Collection<Recipe2Infrastructure> map = (Collection<Recipe2Infrastructure>) internalEvaluate(infra, query);
+		if ((map != null) && (map.size() != 0))
+			return map.iterator().next().getSource();
+		else
+			return null;
+	}	
+	
+	
+	@SuppressWarnings("unchecked")
+	public Configuration getConfiguration(Infrastructure infra) throws Exception{
+		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + infra.getUid() + "')";
+
+		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(infra, query);
+		if ((map != null) && (map.size() != 0))
+			return map.iterator().next().getTarget();
+		else
+			return null;
+	}	
+	
+	
 	@SuppressWarnings("unchecked")
 	public Configuration getConfigExtensionUp(Configuration config) throws Exception {
 

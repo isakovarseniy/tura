@@ -26938,6 +26938,20 @@
       <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer"/>
       <target xmi:type="tura.recipe:Recipes" href="model/hr.domain#a35e53f5-2d9d-46ce-8a15-46ef1576f04c"/>
     </ownedRepresentations>
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_NjBQIIUHEea4_8NQ0CykAg" name="Test model generation">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_NjBQIYUHEea4_8NQ0CykAg" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_NjBQIoUHEea4_8NQ0CykAg"/>
+      </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_NjMPQIUHEea4_8NQ0CykAg" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_NjMPQYUHEea4_8NQ0CykAg" type="Sirius" element="_NjBQIIUHEea4_8NQ0CykAg" measurementUnit="Pixel">
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_NjMPQoUHEea4_8NQ0CykAg"/>
+        </data>
+      </ownedAnnotationEntries>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Deployment%20sequence']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_NjBQI4UHEea4_8NQ0CykAg"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Deployment%20sequence']/@defaultLayer"/>
+      <target xmi:type="tura.recipe:Recipe" href="model/hr.domain#8d9145b8-4528-4cde-b96c-ded8331c2011"/>
+    </ownedRepresentations>
     <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']"/>
   </ownedViews>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_wGtwUDQLEeauXai_VimCJg">

@@ -100,7 +100,6 @@ class JavaComponent extends Component{
 
 class Infrastructure{
   id attr EString uid;
-  ref Recipe  recipe;
   attr EString name;
 }
 

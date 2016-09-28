@@ -17,5 +17,6 @@ Require-Bundle: org.eclipse.ui,
  org.tura.metamodel.epsilon;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.epsilon.common.dt.util
+Import-Package: org.eclipse.epsilon.common.dt.util,
+ org.tura.metamodel.generation
 Export-Package: org.tura.metamodel.sirius.properties.selections.adapters.textdata

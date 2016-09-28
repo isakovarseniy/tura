@@ -19,10 +19,13 @@ Import-Package: org.eclipse.core.internal.resources,
  org.eclipse.epsilon.common.dt.util,
  org.eclipse.epsilon.common.module,
  org.eclipse.epsilon.common.parse.problem,
+ org.eclipse.epsilon.egl,
  org.eclipse.epsilon.egl.traceability,
  org.eclipse.epsilon.eol,
+ org.eclipse.epsilon.eol.exceptions,
  org.eclipse.epsilon.eol.exceptions.models,
  org.eclipse.epsilon.eol.execute.context,
  org.eclipse.epsilon.eol.models,
+ org.eclipse.epsilon.eol.models.transactions,
  org.eclipse.epsilon.eol.tools
 Export-Package: org.tura.metamodel.epsilon.command

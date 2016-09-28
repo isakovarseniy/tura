@@ -1372,6 +1372,10 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
+          <ownedTools xsi:type="tool:PopupMenu" name="Recipe processing" precondition="service:enableContextMenuForInfrastructure">
+            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run generation" id="org.tura.metamodel.sirius.properties.actions.RunGenerationActionID"/>
+            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Run deployment" id="org.tura.metamodel.sirius.properties.actions.RunDeploymentActionID"/>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>

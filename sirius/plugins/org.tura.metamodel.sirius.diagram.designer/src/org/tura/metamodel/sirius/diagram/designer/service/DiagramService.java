@@ -70,6 +70,7 @@ import message.Message;
 import message.MessageLibrary;
 import message.Translation;
 import recipe.Configuration;
+import recipe.Infrastructure;
 import recipe.ModelMapper;
 import recipe.Recipes;
 import style.StyleLibrary;
@@ -115,6 +116,13 @@ public class DiagramService {
 		}
 	}	
 	
+	public boolean enableContextMenuForInfrastructure( EObject eobject ){
+		if (eobject instanceof Infrastructure){
+			return true;
+		}else{
+			return false;
+		}
+	}	
 	
 	public boolean enableContextMenuForModelMapper( EObject eobject ){
 		if (eobject instanceof ModelMapper){
