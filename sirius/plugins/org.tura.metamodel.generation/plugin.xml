@@ -34,7 +34,7 @@
    <extension
          point="org.eclipse.epsilon.common.dt.tool">
      <tool
-            class="org.tura.metamodel.wizard.infrastructure.JavaFormatter"
+            class="org.tura.metamodel.generation.JavaFormatter"
             defaultName="JavaFormatter">
       </tool>
    </extension>

@@ -183,7 +183,7 @@ public class ActionExecutor  implements java.io.Serializable {
     }
 }  
 [%
-      var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
+      var f = new Native("org.tura.metamodel.generation.JavaFormatter");
       out.formatWith(f);
       util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/action/"  , "ActionExecutor.java",out.toString());  
 }

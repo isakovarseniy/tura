@@ -2,7 +2,7 @@
      var util = new Native('org.tura.metamodel.commons.Util');
      var queryHelper = new Native('org.tura.metamodel.commons.QueryHelper');
      var forms = util.runQuery(model_mapper,"Query form",model_mapper);
-      var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
+      var f = new Native("org.tura.metamodel.generation.JavaFormatter");
 
     if (forms.size() <> 0 ){
        for (form in forms){

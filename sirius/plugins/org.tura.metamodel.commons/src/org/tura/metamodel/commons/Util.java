@@ -18,6 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
@@ -33,6 +34,8 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.tura.metamodel.commons.preferences.IPreferenceConstants;
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeDataControl;
 
+import artifact.GenerationHintWithNickName;
+import artifact.TechLeaf;
 import form.ArtificialField;
 import form.DataControl;
 import form.Form;
@@ -192,7 +195,13 @@ public class Util {
 			strQuery = strQuery.replaceAll("\\$\\{"
 					+ var.getQueryParamRef().getName() + "\\}", var.getValue());
 		}
-
+		
+		ModelMapper mapper = (ModelMapper) query.eContainer();
+		
+		for (   GenerationHintWithNickName hintRef : mapper.getArtifactRef().getHints()){
+			strQuery = strQuery.replaceAll("\\@\\{"
+					+ hintRef.getName() + "\\}", hintRef.getHint().getUid());
+		}
 		traceIfDebug("Query", strQuery);
 		return executeQuery(strQuery, eobj);
 	}
@@ -474,11 +483,36 @@ public class Util {
 			return;
 
 		for (MappingTecnologiy tech : mapper.getTechnologies()) {
-			hash.put(tech.getTechRef().getName().replace(' ', '_'), tech
-					.getValueRef().getValue());
+			String path = buildTechnologiesString(tech.getValueRef().getValue());
+			hash.put(tech.getTechRef().getName().replace(' ', '_'), path);
 		}
 	}
 
+	
+	public static String buildTechnologiesString(TechLeaf tech){
+		TechLeaf root = tech;
+		Stack<String> s = new Stack<String>();
+		do{
+			s.push(root.getName());
+			if (root.eContainer() instanceof TechLeaf){
+				root = (TechLeaf) root.eContainer();
+			}else{
+				root = null;
+			}
+				
+		}while(root != null);
+		
+		String path = "";
+		boolean first = true;
+		while(!s.isEmpty()){
+			if (!first){
+				path = path +"/";				
+			}
+			first = false;
+			path = path +s.pop();
+		}
+		return path;
+	}
 	
 	public int message(String header, String message){
 		MessageBox dialog = 

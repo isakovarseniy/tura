@@ -13,7 +13,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
      var hash = new Native('java.util.HashMap');
 
      var type;
-     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 
      var types = util.runQuery(model_mapper,"Query type",model_mapper);
      if (types <> null and types.size <> 0 )

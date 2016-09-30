@@ -3,10 +3,7 @@
 package recipe.tests;
 
 import common.tests.HTMLLayerHolderTest;
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import recipe.Component;
 import recipe.RecipeFactory;
 

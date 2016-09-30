@@ -92,7 +92,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
         
         }
  [%       
-        var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
+        var f = new Native("org.tura.metamodel.generation.JavaFormatter");
         out.formatWith(f);
         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/menu/"  , util.mergeAndCapitalize(self.name) +"Menu.java",out.toString());  
   }

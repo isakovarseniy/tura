@@ -4,7 +4,7 @@
 operation  cdi_service_producer_generation(hash) {
 
     var util = new Native('org.tura.metamodel.commons.Util');
-    var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+    var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
     var target;
         
     var type =  hash.get("type");

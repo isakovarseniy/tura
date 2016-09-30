@@ -7,7 +7,7 @@
 operation  service_generation(hash) {
 
     var util = new Native('org.tura.metamodel.commons.Util');
-    var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+    var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
     var typeRemote;
     var typeLocal;
     var typeGeneric;

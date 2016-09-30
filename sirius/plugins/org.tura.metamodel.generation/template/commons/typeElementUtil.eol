@@ -1,10 +1,10 @@
-operation domain::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) { 
+operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) { 
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
 
     var tp=self;
-    if (self.isTypeOf(domain::TypeReference)){
+    if (self.isTypeOf(type::TypeReference)){
         tp = self.typeRef;
     }
     
@@ -15,11 +15,11 @@ operation domain::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingre
     for( appmapper in appmappers ){
          var selfUID = self.uid;
          tp = self;
-         if (self.isTypeOf(domain::TypeReference)){
+         if (self.isTypeOf(type::TypeReference)){
              selfUID = self.typeRef.uid;
              tp = self.typeRef;
          }
-          var set = appmapper.mapper.mappers.select(r|r.isKindOf(JavaMapper) and r.typeRef.uid= selfUID);
+          var set = appmapper.mappers.select(r|r.isKindOf(JavaMapper) and r.typeRef.uid= selfUID);
           if ( set.size() <> 0 ){
               var type =  util.mapType(set,ingredient,tp) ;
               if ( type <> null){
@@ -47,14 +47,14 @@ operation domain::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingre
 
      if (self.~class = null and tp <> null){
 	    for( appmapper in appmappers ){
-	         var pkg =  self.eContainer().parent;
-	         var pkgUID = self.eContainer().parent.uid;
-	         if (self.isTypeOf(domain::TypeReference)){
-	             pkgUID = self.typeRef.eContainer().parent.uid;
-	             pkg =  self.typeRef.eContainer().parent;
+	         var pkg =  self.eContainer();
+	         var pkgUID = self.eContainer().uid;
+	         if (self.isTypeOf(type::TypeReference)){
+	             pkgUID = self.typeRef.eContainer().uid;
+	             pkg =  self.typeRef.eContainer();
 	         }
 	         
-	         var set = appmapper.mapper.mappers.select(r|r.isKindOf(domain::JavaPackageMapper) and r.packageRef.uid= pkgUID);
+	         var set = appmapper.mappers.select(r|r.isKindOf(mapper::JavaPackageMapper) and r.packageRef.uid= pkgUID);
              if ( set.size() <> 0 ){
               var pkgMp =  util.mapPackage(set,ingredient,pkg) ;
  
@@ -95,7 +95,7 @@ operation domain::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingre
 } 
 
 
-operation domain::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :Ingredient) { 
+operation type::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :Ingredient) { 
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
@@ -104,7 +104,7 @@ operation domain::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient 
     appmappers.addAll(ingredient.mappers);
 
     for( appmapper in appmappers ){
-         var set = appmapper.mapper.mappers.select(r|r.isKindOf(JavaScriptMapper) and  r.typeRef.uid= self.uid);
+         var set = appmapper.mappers.select(r|r.isKindOf(JavaScriptMapper) and  r.typeRef.uid= self.uid);
           if ( set.size() <> 0 ){
             for( s in set){
              self.~mapper="Type2JavaScript";

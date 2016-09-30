@@ -11,7 +11,7 @@ operation  datacontrolgeneration(hash) {
      var util = new Native('org.tura.metamodel.commons.Util');
      
 
-    var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+    var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
     var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
     
     var recipe = hash.get("recipe");

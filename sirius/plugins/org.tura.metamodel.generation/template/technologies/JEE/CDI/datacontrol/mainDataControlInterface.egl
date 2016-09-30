@@ -4,7 +4,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/model/da
 
      var util = new Native('org.tura.metamodel.commons.Util');
      var forms = util.runQuery(model_mapper,"Query form",model_mapper);
-     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
  
     if (forms.size() <> 0 ){
 

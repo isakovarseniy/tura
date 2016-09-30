@@ -4,31 +4,41 @@
     <domainArtifacts>
       <domainArtifact uid="8c6e20f4-46c7-4fd1-b50c-3ad6922cb6e8" name="Backend">
         <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Model objects">
-          <artifacts uid="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Domain model generation" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/DomainModel/mainDomainModel.egl">
-            <modelQuery uid="2f122165-6dcb-4620-8d63-15c0c9dc0270" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(type::Type ).oclAsType(domain::Categorized).classifiers->select(q|q.oclIsKindOf(artifact::Classifier ).hint.uid='@{Domain Object}'))">
+          <artifacts uid="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Domain model generation" template="platform:/plugin/org.tura.metamodel.generation/template/pit/DomainModel/mainDomainModel.egl">
+            <modelQuery uid="2f122165-6dcb-4620-8d63-15c0c9dc0270" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Domain Object}')->size()>0)">
               <parameters uid="83d58dc0-4297-4c19-b869-f879e3c81674" name="Repository"/>
               <parameters uid="a3b311aa-04af-42be-b905-66b06246ded9" name="Package"/>
             </modelQuery>
-            <modelQuery uid="37036a3c-8f09-455e-93fa-ec2f87f9e1f7" name="Query model interfaces" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(type::Type ).oclAsType(domain::Categorized).classifiers->select(q|q.oclIsKindOf(artifact::Classifier ).hint.uid='@{Domain Interface}'))">
+            <modelQuery uid="37036a3c-8f09-455e-93fa-ec2f87f9e1f7" name="Query model interfaces" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Domain Interface}')->size()>0)&#xA;">
               <parameters uid="7969678d-ba21-43f6-a500-99fad251d868" name="Repository"/>
               <parameters uid="bcfe6f6f-bdd5-4f6e-952e-6620dc3c04b7" name="Package"/>
             </modelQuery>
             <hints uid="62d4afc4-f60f-4c8a-8769-b314ae7f9751" name="Domain Object" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
             <hints uid="cebb28cf-216f-403a-ae67-9116065a56e5" name="Domain Interface" hint="b90dae78-c0f8-4049-b6ae-8596aa802c54"/>
           </artifacts>
-          <artifacts uid="fa4e788a-3eaf-42f2-bd89-07236a99db9e" name="Domain model builder" description="" template="platform:/plugin/org.tura.metamodel.wizard.generation/template/pit/DomainModel/mainDomainModelBuilder.egl">
-            <modelQuery uid="5608a6a7-69b0-4079-8680-559898647495" name="Query package of types" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(type::TypeGroup).name='${Package}' )">
-              <parameters uid="736f276e-6dd7-45a3-b121-fe499d4af92c" name="Repository"/>
-              <parameters uid="bfa23885-96b6-4d6c-81cf-a37ca2cf3c9c" name="Package"/>
-            </modelQuery>
-            <technologies uid="cb867b24-d14a-42df-93e0-7fd0250a3ad9" name="Builder">
-              <options uid="08f0285e-a43b-46e5-8bad-2e3dc7ab9b96" value="b8dc44f4-aaaa-4447-94b2-4c26831416cc"/>
-              <options uid="fef04f50-1ac3-47e3-98b5-8b229621332d" value="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1"/>
-            </technologies>
-          </artifacts>
         </artifactPackages>
         <artifactPackages uid="698d5af3-01ce-4f35-8803-52e05f88c6fe" name="JPA objects"/>
         <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
+        <artifactPackages uid="f682f26f-03a6-444b-9787-ec199edc6468" name="Artifact builders">
+          <artifacts uid="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Build jar" template="platform:/plugin/org.tura.metamodel.generation/template/pit/ORM/mainEntityBuilder.egl">
+            <modelQuery uid="64164ced-a76e-4688-8759-5c5c1d4658f8" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')">
+              <parameters uid="b516ddbf-0acc-4279-a974-70fc787c56a7" name="Repository"/>
+              <parameters uid="9504b800-0df7-4358-9905-088633212cd2" name="Package"/>
+              <parameters uid="e3b370e6-74f9-427e-ae54-603a4f7747c2" name="Type"/>
+            </modelQuery>
+            <modelQuery uid="21216e18-27d0-4994-bcea-7f023839eb64" name="Query package" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' )">
+              <parameters uid="2ff5c610-33e2-4dc2-a809-4e76875e8752" name="Repository"/>
+              <parameters uid="0473d7ad-921d-4013-ba20-6c96351469d6" name="Package"/>
+            </modelQuery>
+            <technologies uid="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" name="Builder implementation">
+              <options uid="2e59f5ad-14f4-4f81-be7e-6f596c3588b5" value="b8dc44f4-aaaa-4447-94b2-4c26831416cc"/>
+              <options uid="b8b067e3-caa8-4511-b53b-f804da958762" value="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1"/>
+            </technologies>
+            <technologies uid="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" name="Entity implementation">
+              <options uid="6f062f1c-432d-494b-b184-ddac711e1c1c" value="f52da8a4-ca3f-49ac-9328-5504ce7b49b6"/>
+            </technologies>
+          </artifacts>
+        </artifactPackages>
       </domainArtifact>
       <techLeafs uid="52052d1c-7313-4684-a8bd-c62091140f59" name="JEE">
         <techLeafs uid="f52da8a4-ca3f-49ac-9328-5504ce7b49b6" name="JPA">
@@ -39,7 +49,7 @@
           <hints uid="b90dae78-c0f8-4049-b6ae-8596aa802c54" name="Domain Interface"/>
         </techLeafs>
       </techLeafs>
-      <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="Java">
+      <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="JSE">
         <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Implements"/>
         <techLeafs uid="5c4cfcc0-9025-498a-b587-bce89efacafd" name="Builder">
           <techLeafs uid="b8dc44f4-aaaa-4447-94b2-4c26831416cc" name="Maven"/>
@@ -805,18 +815,19 @@
                             <variables queryParamRef="bcfe6f6f-bdd5-4f6e-952e-6620dc3c04b7" value="Domain model test package"/>
                           </queries>
                         </mappers>
-                        <mappers uid="66c1f571-5619-4e95-9eb4-e4ee6241c5a1" artifactRef="fa4e788a-3eaf-42f2-bd89-07236a99db9e" name="Domain buider" artifactExecutionString="">
-                          <technologies techRef="cb867b24-d14a-42df-93e0-7fd0250a3ad9" valueRef="08f0285e-a43b-46e5-8bad-2e3dc7ab9b96"/>
-                          <queries uid="c5af850d-b06e-44b9-88e0-aa8a4eb1b362" name="Query package for model classes" queryRef="5608a6a7-69b0-4079-8680-559898647495">
-                            <variables queryParamRef="736f276e-6dd7-45a3-b121-fe499d4af92c" value="Testing repository"/>
-                            <variables queryParamRef="bfa23885-96b6-4d6c-81cf-a37ca2cf3c9c" value="Domain model test package"/>
+                        <mappers uid="a27cced6-8532-498e-a62e-8b4d7eb2ab26" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Domain object builder">
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="6f062f1c-432d-494b-b184-ddac711e1c1c"/>
+                          <queries uid="7e0aba10-e065-4f08-91f0-72e8a0cee866" name="Query NA classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="NA"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="NA"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="NA"/>
                           </queries>
-                          <queries uid="eb0086c3-5154-48f4-a741-0e08d7208c83" name="Query package for model interfaces" queryRef="37036a3c-8f09-455e-93fa-ec2f87f9e1f7">
-                            <variables queryParamRef="7969678d-ba21-43f6-a500-99fad251d868" value="Testing repository"/>
-                            <variables queryParamRef="bcfe6f6f-bdd5-4f6e-952e-6620dc3c04b7" value="Domain model test package"/>
+                          <queries uid="fca4b151-c1c0-4842-bcac-cb37ac7d9925" name="Query NA package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="NA"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
                           </queries>
                         </mappers>
-                        <mappers uid="a27cced6-8532-498e-a62e-8b4d7eb2ab26" name="Build runner"/>
                       </components>
                     </ingredients>
                   </recipe>

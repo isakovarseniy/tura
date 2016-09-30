@@ -64,21 +64,16 @@ public class EGLCommand implements Command {
 	@Override
 	public void execute() {
 
-		InMemoryEmfModel model = (InMemoryEmfModel) factory.getContext()
-				.getModelRepository().getModels().get(0);
+		InMemoryEmfModel model = (InMemoryEmfModel) factory.getContext().getModelRepository().getModels().get(0);
 		@SuppressWarnings("deprecation")
-		ChangeRecorder recorder = new ChangeRecorder(model.getModelImpl()
-				.getResourceSet());
+		ChangeRecorder recorder = new ChangeRecorder(model.getModelImpl().getResourceSet());
 
 		try {
-			factory.getContext().getModelRepository().getTransactionSupport()
-					.startTransaction();
+			factory.getContext().getModelRepository().getTransactionSupport().startTransaction();
 			template.process();
-			factory.getContext().getModelRepository().getTransactionSupport()
-					.commitTransaction();
+			factory.getContext().getModelRepository().getTransactionSupport().commitTransaction();
 		} catch (EolRuntimeException e) {
-			factory.getContext().getModelRepository().getTransactionSupport()
-					.rollbackTransaction();
+			factory.getContext().getModelRepository().getTransactionSupport().rollbackTransaction();
 			LogUtil.log("Error in template "+ template.toString(),e);
 			throw new RuntimeException(e);
 		} finally {

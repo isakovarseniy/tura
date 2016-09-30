@@ -13,7 +13,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
      var hash = new Native('java.util.HashMap');
 
      var type;
-     var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 
 
      var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
@@ -143,7 +143,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 operation  domain_class_generation(hash) {
 
    var util = new Native('org.tura.metamodel.commons.Util');
-   var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+   var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
         
     var type =  hash.get("type");
     var recipe = hash.get("recipe");
@@ -165,7 +165,7 @@ operation  domain_class_generation(hash) {
 operation  domain_interface_generation(hash) {
 
    var util = new Native('org.tura.metamodel.commons.Util');
-   var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter"); 
+   var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
         
     var type =  hash.get("type");
     var recipe = hash.get("recipe");

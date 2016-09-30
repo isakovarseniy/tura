@@ -28,7 +28,7 @@ operation  viewgeneration(hash) {
 
  
       hash.put("allPorts",allPorts);
-      var f = new Native("org.tura.metamodel.wizard.infrastructure.JavaFormatter");
+      var f = new Native("org.tura.metamodel.generation.JavaFormatter");
       var x = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
              
       var viewportclass : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/viewPortHolderClass.egl",hash,TemplateFactory);
