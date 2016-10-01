@@ -13,9 +13,10 @@
 package org.tura.metamodel.generation;
 
 import java.util.HashMap;
-import java.util.Iterator;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.epsilon.egl.EglTemplate;
@@ -92,13 +93,20 @@ public class GMFGeneration {
 			try {
 				HashMap<String, Object> configuration = new HashMap<>();
 				getConfiguratioin( new QueryHelper().getConfiguration(infrastructure),  configuration);
-
 				Recipes recipes = (Recipes) infrastructure.eContainer();
-				InMemoryEmfModel model = new InMemoryEmfModel(recipes.eResource());
+				InMemoryEmfModel model = new InMemoryEmfModel(recipes.eResource()){
+					//Take Global registry 
+					//Override original method to avoid exception  "Unavailable type"
+					protected Registry getPackageRegistry() {
+						if (registry == null) {
+								registry = EPackage.Registry.INSTANCE;
+						}
+						return registry;
+					}
+				};
 				EditingDomain editingDomain = diagramEditPart.getEditingDomain();
 
-				for (Iterator<Ingredient> itr = recipes.getRecipe().getIngredients().iterator(); itr.hasNext();) {
-					Ingredient ingredient = itr.next();
+				for (Ingredient ingredient : recipes.getRecipe().getIngredients()) {
 					for (Component comp : ingredient.getComponents()) {
 						monitor.beginTask(
 								"Component generation:" + comp.getName(), comp

@@ -1,54 +1,40 @@
-operation domain::Categorized findClassifier( artifactLib:String, artifact: String, classifier : String) { 
+operation artifact::Categorized findClassifier( hintUUID : String) { 
 
-      var util = new Native('org.tura.metamodel.commons.Util');
- 
       for (hint in self.getClassifiers()){
            if (hint.getHint()= null )
                  return false;
            
-           if (classifier.equals(hint.getHint.getName())){
-               if ( artifact.equals(  hint.getHint.eContainer().getName)){
-                  if ( artifactLib.equals( hint.getHint.eContainer().getParent().getParent().getName()) ){
-                     self.~hintDetails=hint.details;
-                     return true;
-                  }
-               }
+           if (hintUUID.equals(hint.getHint.getUid())){
+                 self.~hintDetails=hint.details;
+                 return true;
            }
       }
       return false;
 }
 
-operation domain::Categorized findAllClassifiers( artifactLib:String, artifact: String, classifier : String) { 
+operation artifact::Categorized findAllClassifiers( hintUUID : String) { 
 
-      var util = new Native('org.tura.metamodel.commons.Util');
       var list = new Native('java.util.ArrayList');
  
       for (hint in self.getClassifiers()){
            if (hint.getHint() == null )
                  continue;
            
-           if (classifier.equals(hint.getHint.getName())){
-               if ( artifact.equals(  hint.getHint.eContainer().getName)){
-                  if ( artifactLib.equals( hint.getHint.eContainer().getParent().getParent().getName()) ){
-                     list.add(hint);
-                  }
-               }
+           if (hintUUID.equals(hint.getHint.getUid())){
+               list.add(hint);
            }
       }
       return list;
 }
 
 
-operation domain::Classifier findHint( artifactLib:String, artifact: String, classifier : String):Boolean {
+operation artifact::Classifier findHint( hintUUID : String):Boolean {
      if (self.getHint()= null )
           return false;
            
-     if (classifier.equals(self.getHint.getName())){
-        if ( artifact.equals(  self.getHint.eContainer().getName)){
-           if ( artifactLib.equals( self.getHint.eContainer().getParent().getParent().getName()) ){
-                     return true;
-           }
-        }
+     if (hintUUID.equals(self.getHint.getUid())){
+          return true;
+     }else{
+         return false;
      }
-     return false;
 }

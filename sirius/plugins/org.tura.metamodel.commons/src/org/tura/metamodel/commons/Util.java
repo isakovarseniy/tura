@@ -441,22 +441,18 @@ public class Util {
 		return cv;
 	}
 
-	public static void saveFile(String path, String fileName, String in)
-			throws IOException {
+	public static void saveFile(String path, String fileName, String in) throws IOException {
 		saveFile(path, fileName, in,"UTF-8");
 	}
 
-	public static void saveFile(String path, String fileName, String in,
-			String charset) throws IOException {
+	public static void saveFile(String path, String fileName, String in,String charset) throws IOException {
 
 		File f = new File(path);
 		f.mkdirs();
 
-		FileOutputStream out = new FileOutputStream(new File(f, fileName),
-				false);
+		FileOutputStream out = new FileOutputStream(new File(f, fileName),false);
 
-		final OutputStreamWriter writer = new OutputStreamWriter(out,
-				Charset.forName(charset));
+		final OutputStreamWriter writer = new OutputStreamWriter(out,Charset.forName(charset));
 		
 		writer.write(in);
 		writer.flush();
@@ -523,8 +519,7 @@ public class Util {
 				return dialog.open(); 		
 	}
 	
-	public static EglTemplate loadTemplate(String templateFile,
-			HashMap<String, Object> parameters, EglTemplateFactory factory)
+	public static EglTemplate loadTemplate(String templateFile,HashMap<String, Object> parameters, EglTemplateFactory factory)
 			throws Exception {
 
 		/* Create and adjust the configuration */
@@ -541,20 +536,16 @@ public class Util {
 		StringWriter writer = new StringWriter();
 		t.process(parameters, writer);
 
-		IEclipsePreferences pref = InstanceScope.INSTANCE
-				.getNode("org.tura.metamodel.commons.preferences");
-		if ("true"
-				.equals(pref.get(IPreferenceConstants.LOG_TEMPLATES, "false"))) {
-			LogUtil.logInfo("Template" + templateFile + " : \n"
-					+ writer.toString());
+		IEclipsePreferences pref = InstanceScope.INSTANCE.getNode("org.tura.metamodel.commons.preferences");
+		if ("true".equals(pref.get(IPreferenceConstants.LOG_TEMPLATES, "false"))) {
+			LogUtil.logInfo("Template" + templateFile + " : \n"+ writer.toString());
 		}
 
 		EglTemplate egltemplate = factory.prepare(writer.toString());
 
 		if (egltemplate == null || !egltemplate.getParseProblems().isEmpty()) {
 			if (egltemplate != null)
-				LogUtil.logInfo("Error during pursing template" + templateFile
-						+ " : \n" + writer.toString());
+				LogUtil.logInfo("Error during pursing template" + templateFile+ " : \n" + writer.toString());
 			throw new Exception(egltemplate.getParseProblems().toString());
 		}
 
@@ -566,4 +557,16 @@ public class Util {
 		return egltemplate;
 	}
 
+	public static String getHint(ModelMapper mapper, String hintNickName) throws Exception{
+		if (hintNickName == null){
+			throw new Exception("Hint is undifined");
+		}
+		for (   GenerationHintWithNickName hintRef : mapper.getArtifactRef().getHints()){
+			if (hintRef.getName().equals(hintNickName)){
+				return hintRef.getHint().getUid();
+			}
+		}
+		return null;
+	}
+	
 }

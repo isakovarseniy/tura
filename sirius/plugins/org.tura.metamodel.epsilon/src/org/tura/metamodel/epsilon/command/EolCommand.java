@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.change.ChangeDescription;
 import org.eclipse.emf.ecore.change.util.ChangeRecorder;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -80,7 +82,16 @@ public class EolCommand implements Command{
 	@Override
 	public void execute() {
 		
-		InMemoryEmfModel model = new InMemoryEmfModel(resource);
+		InMemoryEmfModel model = new InMemoryEmfModel(resource){
+			//Take Global registry 
+			//Override original method to avoid exception  "Unavailable type"
+			protected Registry getPackageRegistry() {
+				if (registry == null) {
+						registry = EPackage.Registry.INSTANCE;
+				}
+				return registry;
+			}
+		};
 		ChangeRecorder recorder = new ChangeRecorder(model.getResource());
 		try{
 			parseModule();

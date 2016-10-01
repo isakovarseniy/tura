@@ -15,6 +15,7 @@
             </modelQuery>
             <hints uid="62d4afc4-f60f-4c8a-8769-b314ae7f9751" name="Domain Object" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
             <hints uid="cebb28cf-216f-403a-ae67-9116065a56e5" name="Domain Interface" hint="b90dae78-c0f8-4049-b6ae-8596aa802c54"/>
+            <hints uid="faf2f0a8-2837-4d7f-874e-ebfdddf4be1f" name="obj.Implements" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
           </artifacts>
         </artifactPackages>
         <artifactPackages uid="698d5af3-01ce-4f35-8803-52e05f88c6fe" name="JPA objects"/>
