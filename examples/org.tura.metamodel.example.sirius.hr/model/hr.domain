@@ -37,6 +37,7 @@
             </technologies>
             <technologies uid="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" name="Builder type">
               <options uid="6f062f1c-432d-494b-b184-ddac711e1c1c" value="f52da8a4-ca3f-49ac-9328-5504ce7b49b6"/>
+              <options uid="72639b34-c455-4b47-87da-f714cffb9bd2" value="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4"/>
             </technologies>
           </artifacts>
           <artifacts uid="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" template="platform:/plugin/org.tura.metamodel.generation/template/pit/Builder/mainBuildRunner.egl">
@@ -64,7 +65,7 @@
         <techLeafs uid="f52da8a4-ca3f-49ac-9328-5504ce7b49b6" name="JPA">
           <hints uid="b335d5d7-6d63-47de-a24b-246a55e48ad8" name="Entity Object"/>
         </techLeafs>
-        <techLeafs uid="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4" name="Domain model">
+        <techLeafs uid="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4" name="Domain_model">
           <hints uid="9ac4e017-6f79-46c6-b411-ba78189b6742" name="Domain Object"/>
           <hints uid="b90dae78-c0f8-4049-b6ae-8596aa802c54" name="Domain Interface"/>
         </techLeafs>
@@ -97,7 +98,7 @@
         </techLeafs>
       </techLeafs>
       <techLeafs uid="128060cb-76e9-4f85-9ff7-2bc5dad2a886" name="OS">
-        <techLeafs uid="0ba9fb8e-4b01-47bc-93f2-7c398218105a" name="UNIX"/>
+        <techLeafs uid="0ba9fb8e-4b01-47bc-93f2-7c398218105a" name="Unix"/>
       </techLeafs>
     </domainArtifacts>
     <domainTypes uid="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" name="Primitives">
@@ -841,7 +842,7 @@
                         </mappers>
                         <mappers uid="a27cced6-8532-498e-a62e-8b4d7eb2ab26" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Domain object builder">
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
-                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="6f062f1c-432d-494b-b184-ddac711e1c1c"/>
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
                           <queries uid="7e0aba10-e065-4f08-91f0-72e8a0cee866" name="Query NA classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
                             <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="NA"/>
                             <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="NA"/>
