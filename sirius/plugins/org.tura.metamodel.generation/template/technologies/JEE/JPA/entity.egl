@@ -39,7 +39,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 [%}%]
 
 	[%
-	  var assosiations = domain::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
       for (rel in assosiations){
         var target = rel.target;
 	    if (target.isKindOf(domain::TypeReference )){
@@ -93,7 +93,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 	%]
 
 	[%
-	  var assosiations = domain::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
       for (rel in assosiations){
         var source = rel.source;
 	    if (source.isKindOf(domain::TypeReference )){
@@ -148,7 +148,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 }
 [%
 @template
-operation domain::Assosiation  joinColumns(){
+operation type::Assosiation  joinColumns(){
 	  var i = 0;
       %]@javax.persistence.JoinColumns({[%
             for (lnk in self.links){
@@ -158,7 +158,7 @@ operation domain::Assosiation  joinColumns(){
 [%
 }
 @template
-operation domain::Assosiation  joinTable(src,target){
+operation type::Assosiation  joinTable(src,target){
 	  var i = 0;
 	  var table = "RL_"+src.toUpperCase()+"_"+target.toUpperCase();
       if (self.source.findClassifier("ORMEntity",  "entityObject","Many2ManyTable"))

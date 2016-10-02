@@ -8,9 +8,9 @@ operation  method_definition( type , hash  ) {
 %]
 
 [%for ( field in type.attributes){
-     
+
     field.typeRef.mappingType2Java(recipe,ingredient);
-    
+
     if (not skipVar ){
     %]
 	private [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%];
@@ -26,10 +26,10 @@ operation  method_definition( type , hash  ) {
 [%}%]
 
 	[%
-	  var assosiations = domain::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
       for (rel in assosiations){
         var target = rel.target;
-	    if (target.isKindOf(domain::TypeReference )){
+	    if (target.isKindOf(type::TypeReference )){
 	         target = target.typeRef;
 	    }
          var sourceMethodName = util.mergeAndCapitalize(target.name);

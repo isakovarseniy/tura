@@ -2,7 +2,7 @@
 <#assign start = "[" >
 <#assign end = "]" >
 ${start}${percent} 
-import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/builder.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Builder_type}/builder.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Builder_implementation}.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
  ${percent}${end}
@@ -23,8 +23,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
      if (types <> null and types.size <> 0 )
          alltypes.addAll(types); 
 
-
-    if (alltypes.size() <> 0 ){
  
        hash.put("recipe",recipe);
        hash.put("ingredient",ingredient);
@@ -34,6 +32,5 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
        hash.put("types",alltypes);
        hash.put("alltypes",alltypes);
      
-       entity_builder(hash);
-    }
+       builder(hash);
 %]

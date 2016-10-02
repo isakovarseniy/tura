@@ -3,8 +3,9 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
 %]
 
 
-[% @template
-operation  maven_service_build_runner(hash) {
+[%
+ @template
+operation  maven_build_runner(hash) {
 
     var util = new Native('org.tura.metamodel.commons.Util');
      
@@ -21,7 +22,7 @@ operation  maven_service_build_runner(hash) {
 }
 
  @template
-operation  maven_service_builder(hash) {
+operation  maven_builder(hash) {
 
     var recipe = hash.get("recipe");
     var ingredient =  hash.get("ingredient");
@@ -70,52 +71,18 @@ operation  maven_service_builder(hash) {
 }    
 
  @template
-operation  maven_proxy_client_builder(hash) {
-    
-    var recipe = hash.get("recipe");
-    var ingredient =  hash.get("ingredient");
-    var component = hash.get("component");
-    var model_mapper = hash.get("model_mapper");
-    var alltypes = hash.get("alltypes");
-
-    var path = component.getComponentRoot+"/"+component.getArtifactId;  
-    var util = new Native('org.tura.metamodel.commons.Util');
-    util.populateTechnologies(hash,model_mapper);
-
-     var builder : Template   = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Services/EJB-WS/MavenClientProxyPomBuilder.egl",hash,TemplateFactory);
-     var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
-     builder.setFormatter(f);
-
-     var buffer = builder.process();
-     util.saveFile( path, "pom.xml",buffer); 
- 
-}
-
- @template
-operation maven_proxy_client_build_runner(hash){
-
-    var util = new Native('org.tura.metamodel.commons.Util');
-     
-    var configuration = hash.get("configuration");
-    var component = hash.get("component");
-    var path = component.getComponentRoot+"/"+component.getArtifactId;  
-    var model_mapper = hash.get("model_mapper");
- %]
-[%=mavenBuilder_mavenCleanInstall(configuration, component.getComponentRoot+"/"+component.getArtifactId,hash)%]
-[%    
-
-    model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
-    util.saveFile( path, "builder."+os_batch_extension(),out.toString()); 
-}
-
- @template
-operation service_deployment(hash){
+operation deployment(hash){
          ear_deployment(hash);     
 }
 
+
  @template
-operation  ant_entity_builder(hash) {
+operation  ant_builder(hash) {
     
  
+}
+
+ @template
+operation  ant_build_runner(hash) {
 }
 %]

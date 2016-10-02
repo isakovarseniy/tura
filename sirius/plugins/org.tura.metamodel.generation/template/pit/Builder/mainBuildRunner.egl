@@ -2,7 +2,7 @@
 <#assign start = "[" >
 <#assign end = "]" >
 ${start}${percent} 
-import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Service_implementation}/builder.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Builder_type}/builder.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Builder_implementation}.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${OS}.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
@@ -20,8 +20,9 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
       hash.put("model_mapper",model_mapper);
       hash.put("configuration",configuration);
  
-       util.populateTechnologies(hash,model_mapper);
- 
-      service_build_runner(hash);  
- 
+      util.populateTechnologies(hash,model_mapper);
+
+      build_runner(hash);
+      
+
 %]

@@ -20,7 +20,7 @@ operation  maven_entity_build_runner(hash) {
 }
 
  @template
-operation  maven_entity_builder(hash) {
+operation  maven_builder(hash) {
 
 
     var recipe = hash.get("recipe");
@@ -54,7 +54,7 @@ operation  maven_entity_builder(hash) {
 }    
 
  @template
-operation  ant_entity_builder(hash) {
+operation  ant_builder(hash) {
     
  
 }

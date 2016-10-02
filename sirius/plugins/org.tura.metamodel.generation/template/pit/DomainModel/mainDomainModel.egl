@@ -21,7 +21,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
      if (types <> null and types.size <> 0 )
 
        for (type in types){
- type.name.println();      
           type.mappingType2Java(recipe,ingredient);
  
           var extension = type::Generalization.allInstances()->select(t|t.source.uid = type.uid  and t.classifiers->size() = 0 ).first();
@@ -62,7 +61,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
            }
 
            var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
-
+ 
            for (rel in assosiations){
   	          var tp =  rel.source;
 	          if (tp.isKindOf(type::TypeReference )){
@@ -78,7 +77,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
           hash.put("component",component);
           hash.put("model_mapper",model_mapper);
           hash.put("path",path);    
-     
+
           domain_class_generation(hash);
     }
 

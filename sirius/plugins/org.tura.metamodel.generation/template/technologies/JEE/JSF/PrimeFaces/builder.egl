@@ -3,7 +3,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
 %]
 
 [% @template
-operation  maven_mvc_build_runner(hash) {
+operation  maven_build_runner(hash) {
 
     var util = new Native('org.tura.metamodel.commons.Util');
      
@@ -20,7 +20,7 @@ operation  maven_mvc_build_runner(hash) {
 }
 
  @template
-operation  maven_mvc_application_builder(hash) {
+operation  maven_builder(hash) {
 
     var recipe = hash.get("recipe");
     var ingredient =  hash.get("ingredient");
@@ -54,13 +54,13 @@ operation  maven_mvc_application_builder(hash) {
 }    
 
  @template
-operation mvc_deployment(hash){
+operation deployment(hash){
          war_deployment(hash);     
 }
 
 
  @template
-operation  ant_maven_mvc_application_builde(hash) {
+operation  ant_builder(hash) {
     
  
 }

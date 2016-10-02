@@ -1,7 +1,7 @@
 [% @template
-operation  entity_builder(hash) {
+operation  builder(hash) {
     
-         ant_entity_builder(hash);
+         ant_builder(hash);
  
 }
 %]

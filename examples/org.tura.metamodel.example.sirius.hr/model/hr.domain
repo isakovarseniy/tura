@@ -21,7 +21,7 @@
         <artifactPackages uid="698d5af3-01ce-4f35-8803-52e05f88c6fe" name="JPA objects"/>
         <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
         <artifactPackages uid="f682f26f-03a6-444b-9787-ec199edc6468" name="Artifact builders">
-          <artifacts uid="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Build jar" template="platform:/plugin/org.tura.metamodel.generation/template/pit/ORM/mainEntityBuilder.egl">
+          <artifacts uid="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Build jar" template="platform:/plugin/org.tura.metamodel.generation/template/pit/Builder/mainModelBuilder.egl">
             <modelQuery uid="64164ced-a76e-4688-8759-5c5c1d4658f8" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')">
               <parameters uid="b516ddbf-0acc-4279-a974-70fc787c56a7" name="Repository"/>
               <parameters uid="9504b800-0df7-4358-9905-088633212cd2" name="Package"/>
@@ -35,8 +35,27 @@
               <options uid="2e59f5ad-14f4-4f81-be7e-6f596c3588b5" value="b8dc44f4-aaaa-4447-94b2-4c26831416cc"/>
               <options uid="b8b067e3-caa8-4511-b53b-f804da958762" value="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1"/>
             </technologies>
-            <technologies uid="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" name="Entity implementation">
+            <technologies uid="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" name="Builder type">
               <options uid="6f062f1c-432d-494b-b184-ddac711e1c1c" value="f52da8a4-ca3f-49ac-9328-5504ce7b49b6"/>
+            </technologies>
+          </artifacts>
+          <artifacts uid="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" template="platform:/plugin/org.tura.metamodel.generation/template/pit/Builder/mainBuildRunner.egl">
+            <configVariables uid="28e1672f-8a8d-4ded-9f50-40562a68e88e" name="Builder location" var="7ad955eb-6fb9-46ca-8005-519cedacf668"/>
+            <technologies uid="24ac3e64-fb3b-4f95-afe5-85fdb828debd" name="Builder implementation">
+              <options uid="c26c2ace-79a3-4841-9967-4fe12b6ab5ee" value="b8dc44f4-aaaa-4447-94b2-4c26831416cc"/>
+              <options uid="4aeb4c9a-0d51-4e1b-b226-c00faff54aa5" value="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1"/>
+            </technologies>
+            <technologies uid="9d443a3e-8fad-4305-86c4-05b4728c9285" name="Java">
+              <options uid="69011f29-1a9b-4957-9236-e637465a1e9a" value="f35d1165-d79f-41d9-a998-7c53da59d0f8"/>
+              <options uid="7006ac8e-4ae5-43f0-9094-f462f7bfab82" value="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26"/>
+            </technologies>
+            <technologies uid="db75ca91-86b4-4bae-8cb7-d43634dd4914" name="OS">
+              <options uid="dcc18127-fb5a-4f89-920c-3cf9ad4390ee" value="0ba9fb8e-4b01-47bc-93f2-7c398218105a"/>
+            </technologies>
+            <technologies uid="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" name="Builder type">
+              <options uid="cc47fddb-b1b8-4ac6-a070-73cd8096168e" value="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4"/>
+              <options uid="5516fd5e-e5b1-4fb3-aba7-07325b517be7" value="f52da8a4-ca3f-49ac-9328-5504ce7b49b6"/>
+              <options uid="7cf78d7c-c8b3-4798-93da-11732862def7" value="68be505b-a727-44cd-bc9e-07fe9abb1579"/>
             </technologies>
           </artifacts>
         </artifactPackages>
@@ -49,13 +68,17 @@
           <hints uid="9ac4e017-6f79-46c6-b411-ba78189b6742" name="Domain Object"/>
           <hints uid="b90dae78-c0f8-4049-b6ae-8596aa802c54" name="Domain Interface"/>
         </techLeafs>
+        <techLeafs uid="68be505b-a727-44cd-bc9e-07fe9abb1579" name="JSF"/>
       </techLeafs>
       <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="JSE">
         <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Implements"/>
         <techLeafs uid="5c4cfcc0-9025-498a-b587-bce89efacafd" name="Builder">
+          <configVariables uid="7ad955eb-6fb9-46ca-8005-519cedacf668" name="Builder location"/>
           <techLeafs uid="b8dc44f4-aaaa-4447-94b2-4c26831416cc" name="Maven"/>
           <techLeafs uid="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1" name="Ant"/>
         </techLeafs>
+        <techLeafs uid="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26" name="1.6"/>
+        <techLeafs uid="f35d1165-d79f-41d9-a998-7c53da59d0f8" name="1.7"/>
       </techLeafs>
       <techLeafs uid="641ee1ff-40bd-4b86-b5cd-be0c6460ca88" name="Model">
         <techLeafs uid="ad574e45-c59b-42ff-862f-8dea7d2a902c" name="Form">
@@ -72,6 +95,9 @@
             <hints uid="625ac7d6-d94f-4fae-8cfe-cbe5be594cfe" name="nested.command"/>
           </techLeafs>
         </techLeafs>
+      </techLeafs>
+      <techLeafs uid="128060cb-76e9-4f85-9ff7-2bc5dad2a886" name="OS">
+        <techLeafs uid="0ba9fb8e-4b01-47bc-93f2-7c398218105a" name="UNIX"/>
       </techLeafs>
     </domainArtifacts>
     <domainTypes uid="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" name="Primitives">
@@ -126,9 +152,6 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="87a1e862-4b41-47ba-bfe4-7847e2b1c337" name="Street"/>
           </types>
           <types xsi:type="tura.type:TypeReference" uid="cdeba6f2-8884-4de8-bb0d-def699e5c556" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d"/>
-          <relationships xsi:type="tura.type:Assosiation" uid="bca78920-d1d9-410d-8bf6-4fe885a66bb6">
-            <links uid="4aa54173-75fb-479c-9b2e-094eb12edd54"/>
-          </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="05b8203a-a5ba-40e9-9e80-c0d33f20a054" source="2c8f38e5-fb95-4fff-92b8-f58e2fa17ee0" target="6986a47f-7571-4ce0-a591-18b1d979f67c">
             <links uid="3e462c1d-0a8b-45b1-9432-b418c184de7e" masterField="47301e42-b34a-4dcf-911d-32f7de1eb096" detailField="63ad86d7-e335-4710-aaca-851c830af972"/>
           </relationships>
@@ -148,7 +171,7 @@
           </types>
           <types xsi:type="tura.type:Type" uid="85e19240-5760-4c0b-a33f-9af9af6eb9f1" name="Phone">
             <classifiers uid="cbdb9994-f2e8-4953-aee4-cecdbbd172ad" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
-            <attributes uid="52414133-d9be-4c23-aa0a-52407b55254a" name="phone"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="52414133-d9be-4c23-aa0a-52407b55254a" name="phone"/>
           </types>
           <types xsi:type="tura.type:Type" uid="224a7cd4-297b-4cfe-bc8c-b8507cad5fdc" name="Mail Address">
             <classifiers uid="ccc2e07d-717e-43ab-96f1-630d004b49f0" hint="9ac4e017-6f79-46c6-b411-ba78189b6742"/>
@@ -825,15 +848,27 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="NA"/>
                           </queries>
                           <queries uid="fca4b151-c1c0-4842-bcac-cb37ac7d9925" name="Query NA package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
-                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="NA"/>
-                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Testing repository"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Domain model test package"/>
                           </queries>
+                        </mappers>
+                        <mappers uid="24ea5cb4-5cc5-43df-beac-047f6f661d78" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactRoot="" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/domain-test-objects/builder.sh">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="5516fd5e-e5b1-4fb3-aba7-07325b517be7"/>
                         </mappers>
                       </components>
                     </ingredients>
+                    <deplymentStep mapper="24ea5cb4-5cc5-43df-beac-047f6f661d78"/>
+                    <startSeq uid="11a6c073-aba1-43e8-8162-e58bea27fe67" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.0"/>
                   </recipe>
+                  <configurations uid="ed16267e-2d82-4b6a-b779-9a4a36855c2a">
+                    <properties confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
+                  </configurations>
                   <infrastructures uid="5d633cff-2139-490a-9bfc-64b5c3d2cf5b" name="Development"/>
                   <recipe2Infrastructures uid="a5cd6142-bb7e-45ac-a8fb-e9a1100c1945" source="8d9145b8-4528-4cde-b96c-ded8331c2011" target="5d633cff-2139-490a-9bfc-64b5c3d2cf5b"/>
+                  <infrastructure2Configurations uid="22220c18-3ad7-4578-a830-f41ff1930a34" source="5d633cff-2139-490a-9bfc-64b5c3d2cf5b" target="ed16267e-2d82-4b6a-b779-9a4a36855c2a"/>
                 </recipes>
               </recipes>
             </applicationRecipes>
