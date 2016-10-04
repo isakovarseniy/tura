@@ -13,7 +13,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
 
      var type;
 
-     var types = util.runQuery(model_mapper,"Query package of types",model_mapper);
+     var types = util.runQuery(model_mapper,"Query model enum",model_mapper);
      if (types <> null and types.size <> 0 )
          alltypes.addAll(types); 
 

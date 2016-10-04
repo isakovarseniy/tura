@@ -15,10 +15,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
      var type;
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 
-     var types = util.runQuery(model_mapper,"Query type",model_mapper);
-     if (types <> null and types.size <> 0 )
-         alltypes.addAll(types); 
-     types = util.runQuery(model_mapper,"Query package of types",model_mapper);
+     var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
      if (types <> null and types.size <> 0 )
          alltypes.addAll(types); 
 
@@ -27,7 +24,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
        for (type in alltypes){
           type.mappingType2Java(recipe,ingredient);
 
-          var extension = type::Generalization.allInstances()->select(t|t.source.uid = type.uid).first();
+          var extension = type::Generalization.allInstances()->select(t|t.source.uid = type.uid and t.classifiers->size() = 0 ).first();
           
           if (extension <> null){
 	          var ex =  extension.target;

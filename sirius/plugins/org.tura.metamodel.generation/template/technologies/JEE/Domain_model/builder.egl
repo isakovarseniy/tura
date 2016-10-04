@@ -1,0 +1,4 @@
+[%
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/builder.egl";
+%]
+

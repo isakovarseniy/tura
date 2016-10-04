@@ -119,7 +119,7 @@ public abstract class ArtifactConfigPropertySelector extends GridProperty {
 
 		@Override
 		public void modify(Object element, Object value) {
-			if (element == null)
+			if (element == null || !(value instanceof TreePath))
 				return;
 			super.modify(element, value);
 			TableItem item = (TableItem) element;

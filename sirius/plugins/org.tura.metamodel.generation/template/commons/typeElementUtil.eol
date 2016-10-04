@@ -82,14 +82,14 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
 
      if (self.~class = null and tp <> null){
 /*  Cannot throw exception */     
-         util.traceIfDebug("JavaMapper","Unable to find JavaMapper for type \"" + tp.parent.parent.name+"."+tp.name+"\" on layer \"" + ingredient.layer +"\"");
+         util.traceIfDebug("JavaMapper","Unable to find JavaMapper for type \"" + tp.eContainer().name+"."+tp.name+"\" on layer \"" + ingredient.layer +"\"");
          self.~mapper="Type2Java";
-         self.~class="Unable to find JavaMapper for type \"" + tp.parent.parent.name+"."+ tp.name +"\" on layer \"" + ingredient.layer +"\"";
-         self.~package= "Unable to find JavaMapper for type \""+ tp.parent.parent.name+"."+ tp.name +"\" on layer \"" + ingredient.layer +"\"";
-         self.~fullName="Unable to find JavaMapper for type \"" + tp.parent.parent.name+"."+ tp.name +"\" on layer \"" + ingredient.layer +"\"";
-         self.~artifactId="Unable to find JavaMapper for type \""+ tp.parent.parent.name+"." + tp.name +"\" on layer \"" + ingredient.layer +"\"";
-         self.~groupId="Unable to find JavaMapper for type \"" + tp.parent.parent.name+"."+ tp.name +"\" on layer \"" + ingredient.layer +"\"";
-         self.~version= "Unable to find JavaMapper for type \"" + tp.parent.parent.name+"."+ tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~class="Unable to find JavaMapper for type \"" + tp.eContainer().name+"."+ tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~package= "Unable to find JavaMapper for type \""+ tp.eContainer().name+"."+ tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~fullName="Unable to find JavaMapper for type \"" + tp.eContainer().name+"."+ tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~artifactId="Unable to find JavaMapper for type \""+ tp.eContainer().name+"." + tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~groupId="Unable to find JavaMapper for type \"" + tp.eContainer().name+"."+ tp.name +"\" on layer \"" + ingredient.layer +"\"";
+         self.~version= "Unable to find JavaMapper for type \"" + tp.eContainer().name+"."+ tp.name +"\" on layer \"" + ingredient.layer +"\"";
          
      }
 } 

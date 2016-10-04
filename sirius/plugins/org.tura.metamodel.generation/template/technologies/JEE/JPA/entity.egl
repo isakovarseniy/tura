@@ -17,10 +17,10 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
      
     field.typeRef.mappingType2Java(recipe,ingredient);
 
-    if (field.findClassifier("ORMEntity",  "entityObject","Bean validation"))%]
+    if (field.findClassifier(util.getHint(model_mapper,"Bean validation")))%]
     [%=field.~hintDetails%]  
     
-    [%if (field.findClassifier("ORMEntity",  "entityObject","Sequence"))%]
+    [%if (field.findClassifier(util.getHint(model_mapper,"Sequence")))%]
     [%=field.~hintDetails%]  
     [%if ( field.pk) %]
     @javax.persistence.Id
@@ -42,7 +42,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
       for (rel in assosiations){
         var target = rel.target;
-	    if (target.isKindOf(domain::TypeReference )){
+	    if (target.isKindOf(type::TypeReference )){
 	         target = target.typeRef;
 	    }
          var sourceMethodName = util.mergeAndCapitalize(target.name);
@@ -52,7 +52,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
          var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
       
         var source = rel.source;
-	    if (source.isKindOf(domain::TypeReference )){
+	    if (source.isKindOf(type::TypeReference )){
 	         source = source.typeRef;
 	    }
         var targetMethodName = util.mergeAndCapitalize(source.name);
@@ -96,7 +96,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
       for (rel in assosiations){
         var source = rel.source;
-	    if (source.isKindOf(domain::TypeReference )){
+	    if (source.isKindOf(type::TypeReference )){
 	         source = source.typeRef;
 	    }
       
@@ -106,7 +106,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
          var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
       
          var target = rel.target;
-	     if (target.isKindOf(domain::TypeReference )){
+	     if (target.isKindOf(type::TypeReference )){
 	         target = target.typeRef;
 	     }
       
@@ -118,7 +118,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
   	     switch  (rel.type.toString()){
          case "One2One" : %] [%=rel.joinColumns()%] @javax.persistence.OneToOne[%
          case "One2Many" : %]  [%=rel.joinColumns()%] @javax.persistence.ManyToOne[%
-         case "Many2Many" : %] [%=rel.joinTable(sourceMethodName,targetMethodName)%] @javax.persistence.ManyToMany[%
+         case "Many2Many" : %] [%=rel.joinTable(sourceMethodName,targetMethodName,model_mapper)%] @javax.persistence.ManyToMany[%
          }
       
       
@@ -158,10 +158,12 @@ operation type::Assosiation  joinColumns(){
 [%
 }
 @template
-operation type::Assosiation  joinTable(src,target){
+operation type::Assosiation  joinTable(src,target,model_mapper){
 	  var i = 0;
+      var util = new Native('org.tura.metamodel.commons.Util');
+	  
 	  var table = "RL_"+src.toUpperCase()+"_"+target.toUpperCase();
-      if (self.source.findClassifier("ORMEntity",  "entityObject","Many2ManyTable"))
+      if (self.source.findClassifier(  util.getHint(model_mapper,"Many2ManyTable" )))
          table = self.source.~hintDetails;
       %]@javax.persistence.JoinTable(name="[%=table%]",  
               joinColumns={[%
