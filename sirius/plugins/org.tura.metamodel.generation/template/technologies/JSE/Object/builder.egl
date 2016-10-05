@@ -3,7 +3,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
 %]
 
 [% @template
-operation  maven_entity_build_runner(hash) {
+operation  maven_build_runner(hash) {
 
     var util = new Native('org.tura.metamodel.commons.Util');
      

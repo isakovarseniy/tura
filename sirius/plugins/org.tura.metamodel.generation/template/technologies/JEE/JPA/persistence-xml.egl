@@ -14,13 +14,13 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${D
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
                                  http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"  version="2.1">
 
-	<persistence-unit name="[%=configuration.get("persistence_unit")%]"  [%if (isJTA.equals("NO")){%]transaction-type="RESOURCE_LOCAL"[%}%] >
+	<persistence-unit name="[%=configuration.get("persistence_unit")%]"  [%if (Transaction.equals("JEE/Transaction/LOCAL")){%]transaction-type="RESOURCE_LOCAL"[%}%] >
 
 		<provider>[%=persistence_jpaprovider()%]</provider>
 		
-[%    if (Connection.equals("JNDI")){
+[%    if (Connection.equals("JEE/DataSource/JNDI")){
          var typeOfDataSource="jta-data-source"; 
-          if (isJTA.equals("NO"))
+          if (Transaction.equals("JEE/Transaction/LOCAL"))
             typeOfDataSource="non-jta-data-source"; %]
 		   <[%=typeOfDataSource%]>[%=configuration.get("jndi access string")%]</[%=typeOfDataSource%]>
 [%   } %]		

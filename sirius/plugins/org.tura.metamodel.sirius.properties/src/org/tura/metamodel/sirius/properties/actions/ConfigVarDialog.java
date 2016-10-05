@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -70,7 +70,7 @@ public class ConfigVarDialog {
 			}
 			
 			editingDomain.getCommandStack().execute(
-					SetCommand.create(editingDomain,config,
+					AddCommand.create(editingDomain,config,
 							RecipePackage.eINSTANCE.getConfiguration_Properties(), properties));
 		}
 	}
