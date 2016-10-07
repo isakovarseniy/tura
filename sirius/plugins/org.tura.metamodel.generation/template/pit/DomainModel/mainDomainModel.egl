@@ -88,7 +88,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
        for (type in types){
           type.mappingType2Java(recipe,ingredient);
 
-
           var interfaces = type::Generalization.allInstances()->select(t|t.source.uid = type.uid and t.classifiers <> null  );
           
           if (interfaces <> null){

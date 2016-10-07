@@ -18,6 +18,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -61,6 +62,7 @@ public class ConfigHashVarDialog {
 			ArrayList<HashProperty> properties = new ArrayList<HashProperty>();
 			for (Object obj : result){
 				HashProperty property = RecipeFactory.eINSTANCE.createHashProperty();
+				property.setUid(UUID.randomUUID().toString());
 				property.setConfHashRef((ConfigHash) obj);
 				properties.add(property);
 			}

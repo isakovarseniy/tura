@@ -18,6 +18,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -65,6 +66,7 @@ public class ConfigVarDialog {
 			ArrayList<Property> properties = new ArrayList<Property>();
 			for (Object obj : result){
 				Property property = RecipeFactory.eINSTANCE.createProperty();
+				property.setUid(UUID.randomUUID().toString());
 				property.setConfVarRef((ConfigVariable) obj);
 				properties.add(property);
 			}
