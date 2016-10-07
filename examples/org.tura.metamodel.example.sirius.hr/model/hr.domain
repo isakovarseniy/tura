@@ -1071,7 +1071,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model Interface"/>
                           </queries>
                         </mappers>
-                        <mappers uid="b422bd67-53ef-486b-b99c-9cca982d0077" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple domain build run" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-domain-simple-objects-model/builder.sh">
+                        <mappers uid="b422bd67-53ef-486b-b99c-9cca982d0077" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple domain model build run" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-domain-simple-objects-model/builder.sh">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -1085,10 +1085,25 @@
                             <variables queryParamRef="a3b311aa-04af-42be-b905-66b06246ded9" value="Complex domain model"/>
                           </queries>
                         </mappers>
+                        <mappers uid="a0b73bf5-3126-4a67-a8c3-bd5c7a118f08" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Complex domain model builder">
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <queries uid="b3df9407-db71-4fc0-9548-6c8fa9e305a4" name="Query simple domain model" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="HR domain"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Simple domain model"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="8cd51074-c67b-43d6-b47d-2ee8848ec2e2" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex domain model build run" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-domain-complex-objects-model/builder.sh">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                        </mappers>
                       </components>
                     </ingredients>
                     <deplymentStep mapper="2207b98a-7ec4-45b3-86f8-98e6e9d89e97" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.1/@recipe/@deplymentStep.1"/>
-                    <deplymentStep mapper="b422bd67-53ef-486b-b99c-9cca982d0077"/>
+                    <deplymentStep mapper="b422bd67-53ef-486b-b99c-9cca982d0077" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.1/@recipe/@deplymentStep.2"/>
+                    <deplymentStep mapper="8cd51074-c67b-43d6-b47d-2ee8848ec2e2"/>
                     <startSeq uid="634b07ad-ee36-4f36-ad7e-88e3e02cebc9" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.1/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="1dd1bb56-4a7f-41ed-a4d5-27d1ca65c7d2">
@@ -1141,7 +1156,7 @@
               <mappers uid="1de43906-7f41-46a6-a3df-49089f334ac2" name="HR model mapping">
                 <mapper uid="f222b58b-cd61-4fe3-9a57-98f09aafac20">
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" serviceLayer="true" uiLayer="true" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="af1b2ab6-8e62-439f-a6d8-1a4a057afdf8" mappedToPackageName="org.elsoft.platform.hr.objects.jpa.simple.model" artifactId="hr-jpa-simple-objects-model" groupId="org.tura.example.service" version="1.0"/>
-                  <mappers xsi:type="tura.mapper:JavaPackageMapper" serviceLayer="true" uiLayer="true" packageRef="cd8eaef8-59ae-4578-8813-7456662e94d9" uid="46474441-2cb3-4e1a-ba7c-14ae7c62f99f" artifactId="hr-domain-complex-objects-model" groupId="org.tura.example.service" version="1.0" libraryName="org.elsoft.platform.hr.objects.complex.model"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" serviceLayer="true" uiLayer="true" packageRef="cd8eaef8-59ae-4578-8813-7456662e94d9" uid="46474441-2cb3-4e1a-ba7c-14ae7c62f99f" mappedToPackageName="org.elsoft.platform.hr.objects.complex.model" artifactId="hr-domain-complex-objects-model" groupId="org.tura.example.service" version="1.0" libraryName=""/>
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" serviceLayer="true" uiLayer="true" packageRef="a9ba33ab-86a9-4c30-ac66-ea59dc68f3fb" uid="79573990-3fef-4b16-a68a-71ac9237dce2" mappedToPackageName="org.elsoft.platform.hr.objects.simple.model" artifactId="hr-domain-simple-objects-model" groupId="org.tura.example.service" version="1.0"/>
                 </mapper>
               </mappers>
