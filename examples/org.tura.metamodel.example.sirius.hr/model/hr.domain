@@ -1100,7 +1100,7 @@
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                         </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" columns="4" order="3" uid="5409bd86-d65b-4f13-bc10-6a5f44695c45" name="HR persistence model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="hr-jpa-simple-objects-model" groupId="org.tura.example.service" version="1.0" basePackage="org.elsoft.platform.hr.objects.jpa.simple.model">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="3" uid="5409bd86-d65b-4f13-bc10-6a5f44695c45" name="HR persistence model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="hr-jpa-simple-objects-model" groupId="org.tura.example.service" version="1.0" basePackage="org.elsoft.platform.hr.objects.jpa.simple.model">
                         <mappers uid="8dafbf5c-a11a-45ca-b2e1-e5c2ad6d1742" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactRoot="persistence.xml">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
                           <queries uid="04ffcc3b-ee30-4a5f-b687-62073ccbdc14" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
@@ -1127,7 +1127,7 @@
                         <mappers uid="cad9e4f8-ab51-4bc4-a4d7-a8caee05c88e" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="JPA builder">
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="6f062f1c-432d-494b-b184-ddac711e1c1c"/>
-                          <queries uid="fe234b12-fb09-4261-9fb7-a4988082721d" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                          <queries uid="fe234b12-fb09-4261-9fb7-a4988082721d" name="Query Per. Base type impl classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
                             <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
                             <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Persistence Base type implementation"/>

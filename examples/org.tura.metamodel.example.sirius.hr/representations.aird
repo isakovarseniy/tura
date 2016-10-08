@@ -29409,7 +29409,7 @@
                 <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@style"/>
               </ownedStyle>
               <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']"/>
-              <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_HSHa4IzrEeakatHn7PD9QA">
+              <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_HSHa4IzrEeakatHn7PD9QA" name="Query Per. Base type impl classes">
                 <target xmi:type="tura.recipe:Query" href="model/hr.domain#fe234b12-fb09-4261-9fb7-a4988082721d"/>
                 <semanticElements xmi:type="tura.recipe:Query" href="model/hr.domain#fe234b12-fb09-4261-9fb7-a4988082721d"/>
                 <ownedStyle xmi:type="diagram:Square" xmi:id="_HSHa4YzrEeakatHn7PD9QA" labelSize="12" labelAlignment="LEFT">
