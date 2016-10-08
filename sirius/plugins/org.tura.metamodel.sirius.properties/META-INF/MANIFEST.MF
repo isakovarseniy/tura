@@ -19,4 +19,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.epsilon.common.dt.util,
  org.tura.metamodel.generation
-Export-Package: org.tura.metamodel.sirius.properties.selections.adapters.textdata
+Export-Package: org.tura.metamodel.sirius.properties.actions,
+ org.tura.metamodel.sirius.properties.selections.adapters.textdata

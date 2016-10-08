@@ -23,7 +23,6 @@ class Recipe extends UsingMappers,common.HTMLLayerHolder{
   id attr EString uid;
   attr EString name;
   val Ingredient[*] ingredients;
-  ref Infrastructure[*] infrastructures;
   val DeploymentComponent[*] deplymentStep;   
   val DeploymentStarStep startSeq;
 }

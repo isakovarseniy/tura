@@ -119,6 +119,51 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Is Selection Value value pointer defined " level="ERROR" message=" Selection value pointer cannot be empty " targetClass="form.Selection">
         <audits auditExpression="service:validateSelectionValuePointer"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Ingredient name validation" level="ERROR" message="Ingredient name cannot be empty " targetClass="recipe.Ingredient">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Ingredient layer validation" level="ERROR" message="Ingredient layer cannot be empty " targetClass="recipe.Ingredient">
+        <audits auditExpression="aql:self.layer &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Infrastructure name validation" level="ERROR" message="Infrastructure name cannot be empty " targetClass="recipe.Infrastructure">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Infrastructure disconected from recipe" level="ERROR" message="Wrong connection between Infrastructure and recipe" targetClass="recipe.Infrastructure">
+        <audits auditExpression="aql:(self.oclAsType(ecore::EObject).eContainer().oclAsType(recipe::Recipes).recipe2Infrastructures->size()-self.oclAsType(ecore::EObject).eContainer().oclAsType(recipe::Recipes).infrastructures->size()) = 0"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Component name validation" level="ERROR" message="Component name cannot be empty " targetClass="recipe.Component">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="JavaComponent artifactId  validation" level="ERROR" message="JavaComponent artifactId cannot be empty " targetClass="recipe.JavaComponent">
+        <audits auditExpression="aql:self.artifactId &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="JavaComponent  groupId validation" level="ERROR" message="JavaComponent groupId cannot be empty " targetClass="recipe.JavaComponent">
+        <audits auditExpression="aql:self.groupId &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="JavaComponent  version validation" level="ERROR" message="JavaComponent version cannot be empty " targetClass="recipe.JavaComponent">
+        <audits auditExpression="aql:self.version &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Configuration  variables is compleat" level="ERROR" message="Configuration variables is not compleat" targetClass="recipe.Configuration">
+        <audits auditExpression="service:validateConfigVariablesIsDefine"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Configuration  hashVar is compleat" level="ERROR" message="Configuration hashVar is not compleat" targetClass="recipe.Configuration">
+        <audits auditExpression="service:validateConfigHashVariablesIsDefine"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="ModelMapper name validation" level="ERROR" message="ModelMapper name cannot be empty " targetClass="recipe.ModelMapper">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="ModelMapper artifact reference is defined" level="ERROR" message="ModelMapper artifact reference is defined" targetClass="recipe.ModelMapper">
+        <audits auditExpression="aql:self.artifactRef &lt;> null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="ModelMapper validate technologies" level="ERROR" message="ModelMapper teschnologies definition are not compatible with artifact" targetClass="recipe.ModelMapper">
+        <audits auditExpression="service:validateMappingTechnologies"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Query validate parameters" level="ERROR" message="Query paremeters definition are not compatible with artifact" targetClass="recipe.Query">
+        <audits auditExpression="service:validateQueryParameters"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Query name validation" level="ERROR" message="Query name cannot be empty " targetClass="recipe.Query">
+        <audits auditExpression="aql:self.name &lt;> null"/>
+      </ownedRules>
     </validationSet>
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Message Library" titleExpression="aql:self.name" domainClass="message.MessageLibrary">
       <ownedLineMappings name="Key" domainClass="message.Message" semanticCandidatesExpression="feature:messages" headerLabelExpression="service:generateName">
