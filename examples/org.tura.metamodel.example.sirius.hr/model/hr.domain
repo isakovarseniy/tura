@@ -630,7 +630,7 @@
             <classifiers uid="3ffa02cb-5c87-4cdd-b39d-8bc28744372d" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="a8a3f144-210b-4a2c-805c-e03e07c35022" name="employeeId"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="234f30f1-a5f1-4ee6-9e20-f7f0ac88cd9e" name="firstName"/>
-            <attributes uid="b0b7031f-8f86-4a22-8fad-44d326c634fb" name="lastName"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="b0b7031f-8f86-4a22-8fad-44d326c634fb" name="lastName"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="2e084337-64a0-4e15-a7af-c71f86931084" name="email"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="925a16cc-ca95-49fa-ad4a-0f90dc1a2162" name="phoneNumber"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="3d0a8bd3-351a-4fae-beae-8bde678e4693" name="hireDate"/>
@@ -1100,14 +1100,58 @@
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                         </mappers>
                       </components>
+                      <components xsi:type="tura.recipe:JavaComponent" columns="4" order="3" uid="5409bd86-d65b-4f13-bc10-6a5f44695c45" name="HR persistence model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="hr-jpa-simple-objects-model" groupId="org.tura.example.service" version="1.0" basePackage="org.elsoft.platform.hr.objects.jpa.simple.model">
+                        <mappers uid="8dafbf5c-a11a-45ca-b2e1-e5c2ad6d1742" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactRoot="persistence.xml">
+                          <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
+                          <queries uid="04ffcc3b-ee30-4a5f-b687-62073ccbdc14" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
+                            <variables queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="HR domain"/>
+                            <variables queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="Simple  persistence model"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="60fa6bb0-c82e-451b-9ced-066f900c0dd9" artifactRef="59533f28-588d-4996-8f8c-e34bd233ff47" name="persistence.xml">
+                          <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="1ae2819d-80eb-4d89-b042-529ae9e1ffc8"/>
+                          <technologies techRef="16673b50-9ff5-4d9c-93a9-ac755d436182" valueRef="ca43dc5b-2305-4a10-85e8-7c15f7aa7610"/>
+                          <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="3f5b9cdf-a2a0-428e-b4ca-77134edf47d0"/>
+                          <technologies techRef="be483d3b-fe1f-4d50-a4cd-952773f4e562" valueRef="981e7b23-344e-4445-bfd1-f698757f7a3b"/>
+                          <queries uid="03e89593-6998-4f39-be72-6e118e141064" name="Get entities" queryRef="52517f79-0222-42d3-a473-d783bcf46ef9">
+                            <variables queryParamRef="ce0cf871-7c61-4a98-82c3-d900ee351897" value="HR domain"/>
+                            <variables queryParamRef="6127dffe-e697-46fc-a99e-6c79be24b2bf" value="Simple  persistence model"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="21363c9c-fec9-451c-9d2f-d94d4752157e" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-jpa-simple-objects-model/builder.sh">
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="5516fd5e-e5b1-4fb3-aba7-07325b517be7"/>
+                        </mappers>
+                        <mappers uid="cad9e4f8-ab51-4bc4-a4d7-a8caee05c88e" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="JPA builder">
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="6f062f1c-432d-494b-b184-ddac711e1c1c"/>
+                          <queries uid="fe234b12-fb09-4261-9fb7-a4988082721d" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Persistence Base type implementation"/>
+                          </queries>
+                        </mappers>
+                      </components>
                     </ingredients>
                     <deplymentStep mapper="2207b98a-7ec4-45b3-86f8-98e6e9d89e97" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.1/@recipe/@deplymentStep.1"/>
                     <deplymentStep mapper="b422bd67-53ef-486b-b99c-9cca982d0077" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.1/@recipe/@deplymentStep.2"/>
-                    <deplymentStep mapper="8cd51074-c67b-43d6-b47d-2ee8848ec2e2"/>
+                    <deplymentStep mapper="8cd51074-c67b-43d6-b47d-2ee8848ec2e2" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.1/@recipe/@deplymentStep.3"/>
+                    <deplymentStep mapper="21363c9c-fec9-451c-9d2f-d94d4752157e"/>
                     <startSeq uid="634b07ad-ee36-4f36-ad7e-88e3e02cebc9" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.1/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="1dd1bb56-4a7f-41ed-a4d5-27d1ca65c7d2">
                     <properties uid="2bfd17a6-ae4d-4ad5-9cd4-2f9e655044f1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
+                    <properties uid="768ab36d-49c7-44a8-94d3-0d3c321bbf1b" confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d"/>
+                    <properties uid="78b3baf1-f33b-4777-bdc7-334d89cab9fb" confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="postgres"/>
+                    <properties uid="b113dd69-3add-4f04-a428-b5ae246c245c" confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="5432"/>
+                    <properties uid="37b0b1b6-7218-4913-bbe6-097803c07fe6" confVarRef="da93edee-51a1-4f85-b64a-7a97cb722636" value="HR"/>
+                    <properties uid="999e4a72-a874-496a-b880-8901feb5e773" confVarRef="aa181c77-6813-41eb-b8ef-7d87aaca6d5c" value="na"/>
+                    <properties uid="e07fe821-36d8-4099-a17d-e09306bf306d" confVarRef="ba2fd94e-1867-4349-bdf8-3c7ab266f769" value="NA"/>
+                    <properties uid="26b91093-b53c-4c66-99ec-b1c6c1172f9c" confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="HRObjects"/>
+                    <properties uid="81a3e051-4e9c-4602-becf-4eca269dcc2b" confVarRef="59b08248-2e8c-4f86-bba6-076b43f5f7f7" value="LOCALHOST"/>
+                    <properties uid="ff249de0-648d-4626-96e4-a56229a47cc7" confVarRef="6a7494ac-ac73-41db-952e-b47dbc241639" value="postgres"/>
                   </configurations>
                   <infrastructures uid="30c7d8fe-161c-416a-a9e1-d7e6ba28a746" name="Development"/>
                   <recipe2Infrastructures uid="171611f7-fe02-4f52-a49a-92a5ae58bee2" source="80a7bd65-32b9-4094-9edf-534c7bdc5d3b" target="30c7d8fe-161c-416a-a9e1-d7e6ba28a746"/>
