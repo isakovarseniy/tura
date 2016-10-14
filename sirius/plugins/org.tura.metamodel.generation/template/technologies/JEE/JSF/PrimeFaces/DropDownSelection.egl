@@ -1,5 +1,5 @@
 [%@template
-operation domain::DropDownSelection draw(hash) { 
+operation form::DropDownSelection draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
      var value;
@@ -27,7 +27,7 @@ operation domain::DropDownSelection draw(hash) {
 }
 
 @template
-operation domain::DropDownSelection treeContext(hash,value) { 
+operation form::DropDownSelection treeContext(hash,value) { 
 %]
 <p:inplace editor="true" event="dblclick">
    [%=self.rw(hash,value)%]
@@ -36,7 +36,7 @@ operation domain::DropDownSelection treeContext(hash,value) {
 }
 
 @template
-operation domain::DropDownSelection tableContext(hash,value) { 
+operation form::DropDownSelection tableContext(hash,value) { 
 %]
 <p:cellEditor>
   <f:facet name="output">
@@ -52,14 +52,14 @@ operation domain::DropDownSelection tableContext(hash,value) {
 }
 
 @template
-operation domain::DropDownSelection noContext(hash,value) { 
+operation form::DropDownSelection noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
 }
 
 @template
-operation domain::DropDownSelection rw(hash,value) { 
+operation form::DropDownSelection rw(hash,value) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
      var emptyhints = new Native('java.util.HashMap');
@@ -80,7 +80,7 @@ operation domain::DropDownSelection rw(hash,value) {
 }
 
 @template
-operation domain::DropDownSelection ro(hash,value) { 
+operation form::DropDownSelection ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">
    [%=self.readOnlyConverter(hash)%]

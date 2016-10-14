@@ -3,7 +3,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/buildExp
  
 
 
-operation domain::Controls processRootElement(recipe:Recipe, ingredient :Ingredient ) { 
+operation form::Controls processRootElement(recipe:Recipe, ingredient :Ingredient ) { 
     if (self.root.isDefined()){
  	   for ( frmvar in self.root.variables){
  	      if ( frmvar.typeRef <> null)
@@ -16,13 +16,13 @@ operation domain::Controls processRootElement(recipe:Recipe, ingredient :Ingredi
     }
 }
 
-operation domain::DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingredient,hash ) { 
+operation form::DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingredient,hash ) { 
 
       if ( self.defaultSearch<> null)
             self.defaultSearch.processParameters(recipe,ingredient,self,hash);
 }
 
-operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredient , hash) { 
+operation form::DataControl processTriggers(recipe:Recipe, ingredient :Ingredient , hash) { 
 
         var provider = new Native('java.util.HashMap');
         self.~provider=provider;
@@ -44,7 +44,7 @@ operation domain::DataControl processTriggers(recipe:Recipe, ingredient :Ingredi
 }
 
 
-operation domain::Trigger extarctProviders(recipe:Recipe, ingredient :Ingredient, provider,cmd){
+operation form::Trigger extarctProviders(recipe:Recipe, ingredient :Ingredient, provider,cmd){
      for (  pointer in self.typePointers){
         pointer.typeRef.mappingType2Java(recipe,ingredient);
         var fullName = pointer.typeRef.~fullName;
@@ -59,15 +59,15 @@ operation domain::Trigger extarctProviders(recipe:Recipe, ingredient :Ingredient
 
 }
 
-operation domain::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,datacontrol: domain::DataControl,hash){
+operation form::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,datacontrol: form::DataControl,hash){
         var util = new Native('org.tura.metamodel.commons.Util');
-        if (self.typeRef.isDefined()){
-          self.typeRef.mappingType2Java(recipe,ingredient);
+        if (self.methodRef.isDefined()){
+          self.methodRef.eContainer().mappingType2Java(recipe,ingredient);
           self.processParameters(recipe,ingredient,datacontrol,hash);
         }
 }
 
-operation domain::ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient,datacontrol: domain::DataControl,hash){
+operation form::ContextParameters processParameters(recipe:Recipe, ingredient :Ingredient,datacontrol: form::DataControl,hash){
         var util = new Native('org.tura.metamodel.commons.Util');
         var hints = new Native('java.util.HashMap');
         
@@ -80,7 +80,7 @@ operation domain::ContextParameters processParameters(recipe:Recipe, ingredient 
 
 
 
-operation domain::DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) { 
+operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) { 
 
         var util = new Native('org.tura.metamodel.commons.Util');
         
@@ -109,7 +109,7 @@ operation domain::DataControl processKeys(recipe:Recipe, ingredient :Ingredient 
 
 
 
-operation domain::DataControl processArtificialFields(recipe:Recipe, ingredient :Ingredient ) { 
+operation form::DataControl processArtificialFields(recipe:Recipe, ingredient :Ingredient ) { 
 
         var artificialFields = self.artificialFields;
         for (  field in artificialFields){
@@ -117,11 +117,11 @@ operation domain::DataControl processArtificialFields(recipe:Recipe, ingredient 
         }
 }
 
-operation domain::DataControl processRelations( recipe:Recipe, ingredient :Ingredient,hash) { 
+operation form::DataControl processRelations( recipe:Recipe, ingredient :Ingredient,hash) { 
         var util = new Native('org.tura.metamodel.commons.Util');
         var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
         
-       var masterscontrol = domain::DataControl.allInstances()->select(r|r.eContainer() = self.parent )->reject(q|domain::Relation.allInstances()->select(r|r.eContainer() = self.parent )->collect(w|w.detail)->includes(q));        
+       var masterscontrol = form::DataControl.allInstances()->select(r|r.eContainer().uid = self.eContainer().uid )->reject(q|form::Relation.allInstances()->select(r|r.eContainer().uid = self.eContainer().uid  )->collect(w|w.detail)->includes(q));        
         for ( master in masterscontrol ){
             master.~masterControl = true;
         }        
@@ -139,14 +139,13 @@ operation domain::DataControl processRelations( recipe:Recipe, ingredient :Ingre
 }
 
 
-operation domain::DataControl processDependencies(recipe:Recipe, ingredient :Ingredient,hash){
+operation form::DataControl processDependencies(recipe:Recipe, ingredient :Ingredient,hash){
         var util = new Native('org.tura.metamodel.commons.Util');
         var hints = new Native('java.util.HashMap');
         
         var queryHelper =  new Native('org.tura.metamodel.commons.QueryHelper');
         var form = queryHelper.getForm(self);
-        var listOfDependencies = domain::Dependency.allInstances()->select(r| r.eContainer().uid = 
-						form.getDatacontrols().getFormControl().getUid())->collect(w|w);
+        var listOfDependencies = form::Dependency.allInstances()->select(r| r.eContainer().uid = form.getDatacontrols().getUid())->collect(w|w);
         for (dep in listOfDependencies){
             var master = dep.master;
             var dependent = dep.detail;
@@ -164,7 +163,7 @@ operation domain::DataControl processDependencies(recipe:Recipe, ingredient :Ing
 
 }
 
-operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataControl,recipe:Recipe, ingredient :Ingredient,hash){
+operation form::DataControl findDependecies ( objectTrack, treeRoot: DataControl,recipe:Recipe, ingredient :Ingredient,hash){
 
         var util = new Native('org.tura.metamodel.commons.Util');
         var hints = new Native('java.util.HashMap');
@@ -174,7 +173,7 @@ operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataContr
         
         objectTrack.add(self);
         
-        var listOfRelations = domain::Relation.allInstances()->select(r|r.isTree=false and r.master = self);
+        var listOfRelations = form::Relation.allInstances()->select(r|r.isTree=false and r.master = self);
         for (rel in listOfRelations){
             var dependent = rel.detail;
             treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null),hints,hash));
@@ -190,7 +189,7 @@ operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataContr
             }
         }      
               
-        var listOfDependecies = domain::Dependency.allInstances()->select(r| r.master = self);
+        var listOfDependecies = form::Dependency.allInstances()->select(r| r.master = self);
         for (dep in listOfDependecies){
             var dependent = dep.detail;
             treeRoot.~dependArray.add(buildExpression(util.createArtificialContextValue(dependent,dependent.findTreeRoot(),null),hints,hash));
@@ -201,13 +200,13 @@ operation domain::DataControl findDependecies ( objectTrack, treeRoot: DataContr
          
         }              
               
-        var listOfTreeNodes = domain::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);
+        var listOfTreeNodes = form::Relation.allInstances()->select(r|r.isTree=true and r.master = self)->collect(w|w.detail);
         for (treeNode in listOfTreeNodes){
                treeNode.findDependecies(objectTrack, treeRoot,recipe,ingredient,hash);
         }
 }
 
-operation domain::DataControl getBaseClass(recipe:Recipe, ingredient :Ingredient)  : domain::Type{
+operation form::DataControl getBaseClass(recipe:Recipe, ingredient :Ingredient)  : type::Type{
 
        var base = self.baseType.typeRef;
        base.mappingType2Java(recipe,ingredient);

@@ -118,6 +118,42 @@
             </technologies>
           </artifacts>
         </artifactPackages>
+        <artifactPackages uid="05701dc4-c4ef-48cd-bb6a-9d56b6b1767a" name="UI application">
+          <artifacts uid="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Data control" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/model/mainModel.egl">
+            <configVariables uid="1cac3cea-a672-4c9e-b0b1-78a550680e3c" name="persistence_unit" var="b374473f-5332-44d2-ae43-176f3e586a3b"/>
+            <modelQuery uid="6f144a4c-ed93-4505-83eb-949ae91f81f2" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+              <parameters uid="c59e9116-e389-49bc-be09-87085a157fbb" name="Domain Application"/>
+              <parameters uid="bd434a4d-05fb-4391-af0d-ce67335d09e4" name="Group"/>
+              <parameters uid="0e6076da-459b-4dd0-b959-1e0e14d3709a" name="Application"/>
+              <parameters uid="7ede7695-6600-442a-a285-a05a22c90089" name="Package"/>
+            </modelQuery>
+            <technologies uid="ee0c3883-34bd-433b-b762-866a375d8d82" name="Model management framework">
+              <options uid="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee" value="23d58a75-40fc-4824-a82a-8f5af07b0a8e"/>
+            </technologies>
+            <technologies uid="60e93daf-fbf7-4f68-8dd5-7905e3737a36" name="Environment">
+              <options uid="669ee6ac-32dc-4d28-83a1-9b8fd41d9cff" value="7914b840-d59b-47a7-91fe-d5507fc1ebc1"/>
+              <options uid="32cdf13e-2b00-42ea-a6a0-00eadfd814db" value="52052d1c-7313-4684-a8bd-c62091140f59"/>
+            </technologies>
+            <technologies uid="0c8b7b8b-252d-4323-8606-8eddce2b8716" name="Transaction">
+              <options uid="9ea28c7b-cbec-4234-b4e4-5ceec80bc8e9" value="e4d0e485-6532-423f-942b-6be38b380c25"/>
+              <options uid="29872d37-9dc6-4cfb-9350-147e66cca6c3" value="450227fa-1b3e-4d00-a8fa-df7635aa0531"/>
+            </technologies>
+          </artifacts>
+          <artifacts uid="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="View" template="platform:/plugin/org.tura.metamodel.generation//template/pit/mvc/view/mainView.egl">
+            <configVariables uid="c2ff15f2-4cf7-4028-9710-af2bd3eb4312" name="Resource library location" var="edbc4c3d-9673-4188-b39e-665a62f165e2"/>
+            <modelQuery uid="6e511ddd-9739-4056-b478-e5224e536df4" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+              <parameters uid="e1a35fee-7cf6-4b74-8081-76c8b4521140" name="Domain Application"/>
+              <parameters uid="d998450d-f752-45da-835f-065c044e7f4c" name="Group"/>
+              <parameters uid="74a4fc6e-658f-4814-ae0f-9b47663f7806" name="Application"/>
+              <parameters uid="39d906fc-4ffd-4e09-b733-ac066c5ec505" name="Package"/>
+            </modelQuery>
+            <technologies uid="66c361a9-e7af-4282-a7d3-b15717a08e74" name="View implementation">
+              <options uid="a2699473-c26e-4b9e-8a72-a059800607ec" value="38d17c08-8c9d-43e3-8535-1d1831c96c6b"/>
+              <options uid="80bdcd86-66bb-4855-8742-ba002fe8ccd7" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
+              <options uid="8c280b50-6124-427d-8cc5-4d7acc55a1dc" value="29507ea3-68c9-417b-85dc-a32c4474ee6c"/>
+            </technologies>
+          </artifacts>
+        </artifactPackages>
       </domainArtifact>
       <techLeafs uid="52052d1c-7313-4684-a8bd-c62091140f59" name="JEE">
         <hints uid="55406073-2639-498f-b8ee-f121395f99e3" name="Bean validation"/>
@@ -141,7 +177,12 @@
           <hints uid="9ac4e017-6f79-46c6-b411-ba78189b6742" name="Domain Object"/>
           <hints uid="b90dae78-c0f8-4049-b6ae-8596aa802c54" name="Domain Interface"/>
         </techLeafs>
-        <techLeafs uid="68be505b-a727-44cd-bc9e-07fe9abb1579" name="JSF"/>
+        <techLeafs uid="68be505b-a727-44cd-bc9e-07fe9abb1579" name="JSF">
+          <configVariables uid="edbc4c3d-9673-4188-b39e-665a62f165e2" name="Resource library location"/>
+          <techLeafs uid="38d17c08-8c9d-43e3-8535-1d1831c96c6b" name="RichFaces"/>
+          <techLeafs uid="2e39e023-cf18-477b-a88d-caabe0c76d39" name="PrimeFaces"/>
+          <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
+        </techLeafs>
         <techLeafs uid="0f2e956d-80f8-4063-b97a-67c7d028f024" name="Transaction">
           <techLeafs uid="e4d0e485-6532-423f-942b-6be38b380c25" name="JTA"/>
           <techLeafs uid="450227fa-1b3e-4d00-a8fa-df7635aa0531" name="LOCAL"/>
@@ -150,6 +191,7 @@
           <techLeafs uid="57df8db5-f381-40e5-a99b-91ef289e2095" name="JNDI"/>
           <techLeafs uid="bac478cc-27e1-4f2f-b70b-1ff471e8524b" name="JDBC"/>
         </techLeafs>
+        <techLeafs uid="23d58a75-40fc-4824-a82a-8f5af07b0a8e" name="CDI"/>
       </techLeafs>
       <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="JSE">
         <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Implements"/>
@@ -1156,6 +1198,53 @@
                   <infrastructures uid="30c7d8fe-161c-416a-a9e1-d7e6ba28a746" name="Development"/>
                   <recipe2Infrastructures uid="171611f7-fe02-4f52-a49a-92a5ae58bee2" source="80a7bd65-32b9-4094-9edf-534c7bdc5d3b" target="30c7d8fe-161c-416a-a9e1-d7e6ba28a746"/>
                   <infrastructure2Configurations uid="5925147e-5864-4556-ab43-c8433d20664a" source="30c7d8fe-161c-416a-a9e1-d7e6ba28a746" target="1dd1bb56-4a7f-41ed-a4d5-27d1ca65c7d2"/>
+                </recipes>
+              </recipes>
+              <recipes uid="66d6cc9b-a6e1-40e0-b0cb-18c4c02274b2" name="UI">
+                <recipes uid="6c59b498-c8ad-4f2e-8b13-68919051c08f" name="HR forms">
+                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 6efca180-cd81-4fb5-b991-399346567070 f222b58b-cd61-4fe3-9a57-98f09aafac20 af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3 acdc2d46-bd08-4e15-ae7f-e81dade87e6d" uid="4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5" name="HR forms">
+                    <ingredients uid="cb94813a-6ea2-4cca-84e9-e7322de5afd0" name="Form ingredient" layer="UILayer">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="f8f26823-9f25-4fe4-a406-059a4c2bc09f" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+                        <mappers uid="989d5392-92cf-4922-b915-896f942783cb" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
+                          <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
+                          <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="32cdf13e-2b00-42ea-a6a0-00eadfd814db"/>
+                          <technologies techRef="0c8b7b8b-252d-4323-8606-8eddce2b8716" valueRef="29872d37-9dc6-4cfb-9350-147e66cca6c3"/>
+                          <queries uid="131b9190-c393-4033-a825-4dc2dbe57bac" name="Query forms" queryRef="6f144a4c-ed93-4505-83eb-949ae91f81f2">
+                            <variables queryParamRef="c59e9116-e389-49bc-be09-87085a157fbb" value="ERP"/>
+                            <variables queryParamRef="bd434a4d-05fb-4391-af0d-ce67335d09e4" value="HR domain"/>
+                            <variables queryParamRef="0e6076da-459b-4dd0-b959-1e0e14d3709a" value="HR application"/>
+                            <variables queryParamRef="7ede7695-6600-442a-a285-a05a22c90089" value="Employee management"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="775c23bd-691f-40d5-9dac-f9c513b71569" artifactRef="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="Process all form's views">
+                          <technologies techRef="66c361a9-e7af-4282-a7d3-b15717a08e74" valueRef="80bdcd86-66bb-4855-8742-ba002fe8ccd7"/>
+                          <queries uid="ccb2a123-5c55-46b2-a7dd-2f9b6d463533" name="Query forms" queryRef="6e511ddd-9739-4056-b478-e5224e536df4">
+                            <variables queryParamRef="e1a35fee-7cf6-4b74-8081-76c8b4521140" value="ERP"/>
+                            <variables queryParamRef="d998450d-f752-45da-835f-065c044e7f4c" value="HR domain"/>
+                            <variables queryParamRef="74a4fc6e-658f-4814-ae0f-9b47663f7806" value="HR application"/>
+                            <variables queryParamRef="39d906fc-4ffd-4e09-b733-ac066c5ec505" value="Employee management"/>
+                          </queries>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                  </recipe>
+                  <configurations uid="b051237e-4899-42fb-870a-551e3056850f">
+                    <properties uid="4886bcd5-84be-4365-a8b7-537dcaeba1d8" confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="HRObjects"/>
+                  </configurations>
+                  <configurations uid="67fda0b2-5539-4648-ba8a-76c2dc7b9809">
+                    <properties uid="f8c812a1-5e0d-422b-be97-2b49c52ebe06" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2" value="https://localhost:8181/hrresources-2.0"/>
+                  </configurations>
+                  <configurations uid="249725cb-08a5-4324-896f-e31a00a86081">
+                    <properties uid="b2970f82-f698-47f7-9bf7-6a2ab7b6b8d6" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2" value="http://localhost:8080/hrresources-2.0"/>
+                  </configurations>
+                  <infrastructures uid="25ebeb54-7003-4e72-bacc-3d8de138ac52" name="Development"/>
+                  <infrastructures uid="53e5aac5-9adb-40f6-94b4-72d5dd83620c" name="Development with https"/>
+                  <configExtensions uid="8a509360-7c24-42c6-a2ee-31d02d30931a" source="67fda0b2-5539-4648-ba8a-76c2dc7b9809" target="b051237e-4899-42fb-870a-551e3056850f"/>
+                  <configExtensions uid="01549ec5-8bc0-417d-95e0-08ffd36a26ec" source="249725cb-08a5-4324-896f-e31a00a86081" target="b051237e-4899-42fb-870a-551e3056850f"/>
+                  <recipe2Infrastructures uid="f67ea65f-2763-4114-9823-2f542c1c497f" source="4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5" target="53e5aac5-9adb-40f6-94b4-72d5dd83620c"/>
+                  <recipe2Infrastructures uid="6e2d4ba5-ba89-4f80-8dda-29bcdbf6b77c" source="4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5" target="25ebeb54-7003-4e72-bacc-3d8de138ac52"/>
+                  <infrastructure2Configurations uid="a981f59e-f527-4192-b796-309b28ddd263" source="25ebeb54-7003-4e72-bacc-3d8de138ac52" target="249725cb-08a5-4324-896f-e31a00a86081"/>
+                  <infrastructure2Configurations uid="1e4d919d-c01f-46c0-acd5-ae99d45fa65b" source="53e5aac5-9adb-40f6-94b4-72d5dd83620c" target="67fda0b2-5539-4648-ba8a-76c2dc7b9809"/>
                 </recipes>
               </recipes>
             </applicationRecipes>

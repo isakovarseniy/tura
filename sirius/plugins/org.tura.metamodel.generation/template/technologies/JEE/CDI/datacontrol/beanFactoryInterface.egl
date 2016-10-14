@@ -23,7 +23,7 @@ public interface IBeanFactory   {
    %]
 	
 	[%
-	var root = form.datacontrols.formControl.root;
+	var root = form.datacontrols.root;
 	if (root <> null){
 	   for ( frmvar in root.variables){
 	   %]
@@ -36,7 +36,7 @@ public interface IBeanFactory   {
 	%]	
 
     [%
-     var controls =  form.datacontrols.formControl.controls;
+     var controls =  form.datacontrols.controls;
      for (control in controls){
        if (control.~masterControl = true){%]
           public   org.tura.platform.datacontrol.IDataControl  [%=methodName(control)%]() throws org.tura.platform.datacontrol.commons.TuraException;
@@ -46,7 +46,7 @@ public interface IBeanFactory   {
     
 [%
      for (control in controls){
-         var relations = domain::Relation.allInstances()->select(r|r.master= control);   
+         var relations = form::Relation.allInstances()->select(r|r.master= control);   
          for ( relation in relations ){
          if (relation.isTree = false){%]
           public   org.tura.platform.datacontrol.IDataControl  [%=methodName(relation.detail)%]() throws org.tura.platform.datacontrol.commons.TuraException;;
@@ -59,16 +59,16 @@ public interface IBeanFactory   {
 
 
 [% @template
-operation methodName(dc:domain::DataControl) {
+operation methodName(dc:form::DataControl) {
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
    get[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]
  [%} 
 
  @template
-operation typeName(dc:domain::DataControl, component: domain::Component, form:Form) {
+operation typeName(dc:form::DataControl, component: recipe::Component, form:Form) {
      var util = new Native('org.tura.metamodel.commons.Util');
-     var uipackage = form.eContainer().parent;
+     var uipackage = form.eContainer();
      
 %]
   [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%if (dc.~treeRoot=true){%]TreeRoot[%}%][%=util.mergeAndCapitalize(dc.name)%]DC 

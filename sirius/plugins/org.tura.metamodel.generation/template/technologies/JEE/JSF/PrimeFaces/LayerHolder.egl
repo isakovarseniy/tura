@@ -1,5 +1,5 @@
 [%@template
-operation  domain::LayerHolder  draw(hash) { 
+operation  form::LayerHolder  draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","LayerHolder start: "+self.uid);     
 %]
@@ -11,7 +11,7 @@ operation  domain::LayerHolder  draw(hash) {
 }
 
 @template
-operation domain::LayerHolder  generateBody(hash){
+operation form::LayerHolder  generateBody(hash){
                 for (element in self.children.sortBy(q|q.order)){
 %]                
                     [%=element.draw(hash)%]

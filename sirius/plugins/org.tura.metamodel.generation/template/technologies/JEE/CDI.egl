@@ -27,7 +27,7 @@ operation  datacontrolgeneration(hash) {
     var buffer;
     util.populateTechnologies(hash,model_mapper);
 
-     var controls =  form.datacontrols.formControl.controls;
+     var controls =  form.datacontrols.controls;
      for (control in controls){
      
          hash.put("control",control);
@@ -75,8 +75,8 @@ operation  datacontrolgeneration(hash) {
     util.saveFile( javaPath+"/commons/producer/"  , "EntityManagerFactoryProducer.java",buffer);   
 
 
-    var trans : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/"+hash.get("Transaction")+".egl",hash,TemplateFactory);
-    buffer = trans.process();
+    var trans : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Transaction.egl",hash,TemplateFactory);
+    trans.process();
 
     var beanFactory : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/beanFactory.egl",hash,TemplateFactory);
     beanFactory.setFormatter(f);

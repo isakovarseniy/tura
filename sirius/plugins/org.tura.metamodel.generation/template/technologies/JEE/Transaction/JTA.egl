@@ -1,10 +1,6 @@
-<#assign percent = "%" >
-<#assign start = "[" >
-<#assign end = "]" >
-${start}${percent} 
-import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Environment}.egl";
-${percent}${end}
-[%
+[% @template
+operation  commandstack(component,uipackage,form) {
+
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
@@ -20,5 +16,8 @@ public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack 
 	public void commitCommand() throws org.tura.platform.datacontrol.commons.TuraException {
 		super.commitCommand();
 	}
-	
 }
+[%
+
+}
+%]

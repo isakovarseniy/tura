@@ -1,5 +1,5 @@
 [%@template
-operation domain::Button draw(hash) { 
+operation form::Button draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","Button start: "+self.uid);     
      

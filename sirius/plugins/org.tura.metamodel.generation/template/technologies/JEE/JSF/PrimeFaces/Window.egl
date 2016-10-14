@@ -1,5 +1,5 @@
 [%@template
-operation  domain::Window draw(hash) { 
+operation  form::Window draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var webapp = hash.get("webapp");   
      var form = hash.get("form");   
@@ -19,7 +19,7 @@ operation  domain::Window draw(hash) {
 }
 
 @template
-operation domain::Window generateBody(hash){
+operation form::Window generateBody(hash){
 
      var form = hash.get("form");   
      var recipe =  hash.get("recipe");

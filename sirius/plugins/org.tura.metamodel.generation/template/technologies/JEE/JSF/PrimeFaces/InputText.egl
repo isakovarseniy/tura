@@ -1,5 +1,5 @@
 [%@template
-operation domain::InputText treeContext(hash,value) { 
+operation form::InputText treeContext(hash,value) { 
 %]
 <p:inplace editor="true" event="dblclick">
    [%=self.rw(hash,value)%]
@@ -8,7 +8,7 @@ operation domain::InputText treeContext(hash,value) {
 }
 
 @template
-operation domain::InputText tableContext(hash,value) { 
+operation form::InputText tableContext(hash,value) { 
      var util = new Native('org.tura.metamodel.commons.Util');
 %]
 <p:cellEditor>
@@ -32,14 +32,14 @@ operation domain::InputText tableContext(hash,value) {
 }
 
 @template
-operation domain::InputText noContext(hash,value) { 
+operation form::InputText noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
 }
 
 @template
-operation domain::InputText rw(hash,value) { 
+operation form::InputText rw(hash,value) { 
 
 %]
 <p:inputText   [%=self.mkUIDBinding()%] value="[%=value%]"   [%=self.uiElementAttributes(hash)%]>
@@ -50,7 +50,7 @@ operation domain::InputText rw(hash,value) {
 }
 
 @template
-operation domain::InputText ro(hash,value) { 
+operation form::InputText ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">
    [%=self.readOnlyConverter(hash)%]

@@ -17,7 +17,7 @@ ${percent}${end}
       for (  pkg in app.application.applicationUILayer.applicationUIPackages ){
           for  ( frm in pkg.uipackage.forms){
             for (form in frm){
-              win.addAll(form.view.view.canvases->select(q|q.isKindOf(domain::Window))->collect(r|r));
+              win.addAll(form.view.canvases->select(q|q.isKindOf(form::Window))->collect(r|r));
             }
           }
       }

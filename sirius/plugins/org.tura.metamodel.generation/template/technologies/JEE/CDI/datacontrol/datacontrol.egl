@@ -50,7 +50,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     
 
     [%
-     var relations = domain::Relation.allInstances()->select(r|r.master= control);   
+     var relations = form::Relation.allInstances()->select(r|r.master= control);   
     for (relation in relations){
       if (not relation.detail.~dependObject.isDefined()){
     %]
@@ -75,7 +75,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      try{
      setBaseClass([%=control.~basefullName%].class); 
     [%
-     var isTree = domain::Relation.allInstances()->select(r|r.detail = control and r.isTree=true).size();   
+     var isTree = form::Relation.allInstances()->select(r|r.detail = control and r.isTree=true).size();   
      if (control.~treeRoot.isDefined() or isTree > 0){%]
      this.createCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*",getId());
      [%}%]

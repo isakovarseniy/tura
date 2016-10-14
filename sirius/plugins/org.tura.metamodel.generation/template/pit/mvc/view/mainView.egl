@@ -18,8 +18,8 @@ ${percent}${end}
          var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
          var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
          var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/";
-         var uipackage = form.eContainer().parent;
-         var application = uipackage.eContainer().parent.parent;
+         var uipackage = form.eContainer();
+         var application = uipackage.eContainer();
 
          hash.put("recipe",recipe);
          hash.put("ingredient",ingredient);

@@ -1,5 +1,5 @@
 [%@template
-operation domain::CheckBox treeContext(hash,value) { 
+operation form::CheckBox treeContext(hash,value) { 
 %]
 <p:inplace editor="true" event="dblclick">
    [%=self.rw(hash,value)%]
@@ -8,7 +8,7 @@ operation domain::CheckBox treeContext(hash,value) {
 }
 
 @template
-operation domain::CheckBox tableContext(hash,value) { 
+operation form::CheckBox tableContext(hash,value) { 
 %]
 <p:cellEditor>
   <f:facet name="output">
@@ -24,14 +24,14 @@ operation domain::CheckBox tableContext(hash,value) {
 }
 
 @template
-operation domain::CheckBox noContext(hash,value) { 
+operation form::CheckBox noContext(hash,value) { 
 %]
    [%=self.rw(hash,value)%]
 [%   
 }
 
 @template
-operation domain::CheckBox rw(hash,value) { 
+operation form::CheckBox rw(hash,value) { 
 %]
 <p:selectBooleanCheckbox  [%=self.mkUIDBinding()%] value="[%=value%]" [%=self.uiElementAttributes(hash)%] >
    [%=self.validator(hash)%]
@@ -41,7 +41,7 @@ operation domain::CheckBox rw(hash,value) {
 }
 
 @template
-operation domain::CheckBox ro(hash,value) { 
+operation form::CheckBox ro(hash,value) { 
 %]
 <h:outputText value="[%=value%]">
    [%=self.readOnlyConverter(hash)%]

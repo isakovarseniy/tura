@@ -15,12 +15,12 @@ operation  viewgeneration(hash) {
       hash.put("scriptTriggers",scriptTriggers);
       hash.put("menuReferences",menuReferences);
       
-      if (form.view = null or form.view.view = null)
+      if (form.view = null or form.view = null)
          return;   
 
-      for (canvas in form.view.view.canvases){
-              if (not canvas.isKindOf(domain::TabCanvas) ){
-                  var ports = canvas.viewElement->select(p|p.isKindOf(domain::ViewPort)); 
+      for (canvas in form.view.canvases){
+              if (not canvas.isKindOf(form::TabCanvas) ){
+                  var ports = canvas.viewElement->select(p|p.isKindOf(form::ViewPort)); 
                    allPorts.addAll(ports);
               }
               canvas.draw(hash);   
@@ -53,18 +53,18 @@ operation  viewgeneration(hash) {
 }
 
 @template
-operation domain::Uielement  uiElementAttributes(hash){
+operation form::Uielement  uiElementAttributes(hash){
 %][%=self.styleAttributes(hash)%]  [%=self.rendered(hash)%]  [%=self.enabled(hash)%] [%=self.required(hash)%] [%if (hash.get("readonly") <> null){%] readonly="[%=hash.get("readonly")%]"[%}else{%][%=self.readonly(hash)%][%}%]
 [%}
 
 
 @template
-operation domain::StyleElement  styleAttributes(hash){
+operation form::StyleElement  styleAttributes(hash){
      %]style="[%=self.style(hash)%]" styleClass="[%=self.styleClass(hash)%]"
 [%
 }
 
-operation domain::StyleElement  style(hash) : String{
+operation form::StyleElement  style(hash) : String{
       var hints = new Native('java.util.HashMap');
  
      if (self.style <> null  and  self.style.value <> null  ){
@@ -73,7 +73,7 @@ operation domain::StyleElement  style(hash) : String{
      return "";
 }
 
-operation domain::StyleElement  styleClass(hash) : String{
+operation form::StyleElement  styleClass(hash) : String{
     var hints = new Native('java.util.HashMap');
     var result = "";
      if (self.styleClass <> null  and self.styleClass.size() <> 0 ){
@@ -93,7 +93,7 @@ operation domain::StyleElement  styleClass(hash) : String{
 
 
 
-operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: String, classifier : String):String{
+operation form::StyleElement  styleAttributes(artifactLib:String, artifact: String, classifier : String):String{
       var util = new Native('org.tura.metamodel.commons.Util');
       var hints = new Native('java.util.HashMap');
       var hash = new Native('java.util.HashMap');
@@ -113,35 +113,35 @@ operation domain::StyleElement  styleAttributes(artifactLib:String, artifact: St
 }
 
 @template
-operation domain::Uielement  validator(hash){
+operation form::Uielement  validator(hash){
     if (self.findClassifier("UIGeneration",  "JSF","validator"))%]
     [%=self.~hintDetails%]  
 [%
 }
 
 @template
-operation domain::Uielement  convertor(hash){
+operation form::Uielement  convertor(hash){
     if (self.findClassifier("UIGeneration",  "JSF","converter"))%]
     [%=self.~hintDetails%]  
 [%
 }
 
 @template
-operation domain::Uielement  readOnlyConverter(hash){
+operation form::Uielement  readOnlyConverter(hash){
     if (self.findClassifier("UIGeneration",  "JSF","readOnlyConverter"))%]
     [%=self.~hintDetails%]  
 [%
 }
 
 @template
-operation domain::Uielement  enabled(hash){
+operation form::Uielement  enabled(hash){
       var hints = new Native('java.util.HashMap');
      %]disabled="[%=buildExpression(self.enabled,hints,hash)%]"[%
 }
 
 
 @template
-operation domain::Uielement  rendered(hash){
+operation form::Uielement  rendered(hash){
       var hints = new Native('java.util.HashMap');
       var value = constructExpression(self,'trigger.rendered',hints,hash);
       if (value <> null and value <> ""){
@@ -151,7 +151,7 @@ operation domain::Uielement  rendered(hash){
 
 
 @template
-operation domain::Uielement  required(hash){
+operation form::Uielement  required(hash){
       var hints = new Native('java.util.HashMap');
      if (self.required <> null  and self.required.value <> null){
          var value = buildExpression(self.required,hints,hash);
@@ -160,7 +160,7 @@ operation domain::Uielement  required(hash){
 }
 
 @template
-operation domain::Uielement  readonly(hash){
+operation form::Uielement  readonly(hash){
       var hints = new Native('java.util.HashMap');
      if (self.readOnly <> null  and self.readOnly.value <> null){
           var value = buildExpression(self.readOnly,hints,hash);
@@ -170,7 +170,7 @@ operation domain::Uielement  readonly(hash){
 
 
 @template
-operation domain::Uielement  draw(hash){
+operation form::Uielement  draw(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
      var value;
@@ -198,22 +198,22 @@ operation domain::Uielement  draw(hash){
 
 
 @template
-operation domain::Uielement  mkUIDBinding(){
+operation form::Uielement  mkUIDBinding(){
 %]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
 }
 
 @template
-operation domain::CanvasFrame  mkUIDBinding(){
+operation form::CanvasFrame  mkUIDBinding(){
 %]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
 }
 
 @template
-operation domain::ViewPort  mkUIDBinding(){
+operation form::ViewPort  mkUIDBinding(){
 %]id="[%=self.mkuid()%]" binding="#{[%=self.mkuid()%]}"[%
 }
 
 
-operation constructExpression( fields : domain::FlexFields, classifier : String , hints, hash) {
+operation constructExpression( fields : form::FlexFields, classifier : String , hints, hash) {
    var util = new Native('org.tura.metamodel.commons.Util');
 
    var field = fields.findClassifiedField("UIGeneration",  "JSF", classifier);
@@ -223,7 +223,7 @@ operation constructExpression( fields : domain::FlexFields, classifier : String 
         return "";      
 }
 
-operation domain::FlexFields findClassifiedField( artifactLib:String, artifact: String, classifier : String) {
+operation form::FlexFields findClassifiedField( artifactLib:String, artifact: String, classifier : String) {
        for (field in self.fields){
           if (field.findClassifier(artifactLib,artifact,classifier)){
              return field;

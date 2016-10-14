@@ -1,5 +1,5 @@
 [%@template
-operation domain::Column draw(hash) { 
+operation form::Column draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","Column start: "+self.uid);     
 %]
@@ -9,7 +9,7 @@ operation domain::Column draw(hash) {
 }
 
 @template
-operation domain::Column generateBody(hash){
+operation form::Column generateBody(hash){
      var hints = new Native('java.util.HashMap');
 
      var title = buildExpression(self.multiLangLabel,hints,hash);
@@ -32,14 +32,14 @@ operation domain::Column generateBody(hash){
 }
 
 @template
-operation domain::Column treecontext(hash){
+operation form::Column treecontext(hash){
 %]
              [%=self.element.draw(hash)%]
 [%                    
 }
 
 @template
-operation domain::Column tablecontext(hash){
+operation form::Column tablecontext(hash){
 %]
                     [%=self.element.draw(hash)%]
 [%                    

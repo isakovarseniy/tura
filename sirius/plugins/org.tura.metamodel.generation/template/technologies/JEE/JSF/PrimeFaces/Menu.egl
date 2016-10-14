@@ -1,5 +1,5 @@
 [%@template
-operation domain::Menu draw(hash) { 
+operation form::Menu draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
  
      var form = hash.get("form");

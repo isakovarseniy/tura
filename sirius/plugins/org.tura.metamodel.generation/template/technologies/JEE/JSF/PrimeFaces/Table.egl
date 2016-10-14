@@ -1,5 +1,5 @@
 [%@template
-operation domain::Table draw(hash) { 
+operation form::Table draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      hash.put("context","table");
      util.traceIfDebug("UI element","Table start: "+self.uid);     
@@ -13,7 +13,7 @@ operation domain::Table draw(hash) {
 
 
 @template
-operation domain::Table generateBody(hash){
+operation form::Table generateBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
      

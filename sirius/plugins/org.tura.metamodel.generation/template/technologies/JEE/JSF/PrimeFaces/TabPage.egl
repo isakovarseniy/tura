@@ -1,5 +1,5 @@
 [%@template
-operation  domain::TabPage draw(hash) { 
+operation  form::TabPage draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","TabPage start: "+self.name);     
 %]
@@ -9,7 +9,7 @@ operation  domain::TabPage draw(hash) {
 }
 
 @template
-operation domain::TabPage generateBody(hash){
+operation form::TabPage generateBody(hash){
      var hints = new Native('java.util.HashMap');
      var title = buildExpression(self.multiLangLabel,hints,hash);
         

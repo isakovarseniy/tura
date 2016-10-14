@@ -1,33 +1,33 @@
 [%
 
 @template
-operation domain::Uielement  mkuid(){
+operation form::Uielement  mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
 
 @template
-operation domain::ViewPort  mkuid(){
+operation form::ViewPort  mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
 
 @template
-operation domain::CanvasFrame mkuid(){
+operation form::CanvasFrame mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
 
 @template
-operation domain::ViewArea mkuid(){
+operation form::ViewArea mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
 
 
 @template
-operation domain::FlexField mkuid(){
+operation form::FlexField mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
 
 @template
-operation domain::Context mkuid(){
+operation form::Context mkuid(){
 %]tura[%=self.uid.replaceAll("\\-","_")%][%
 }
 

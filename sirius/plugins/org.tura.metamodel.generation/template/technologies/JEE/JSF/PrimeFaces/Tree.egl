@@ -1,5 +1,5 @@
 [%@template
-operation domain::Tree draw(hash) { 
+operation form::Tree draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","Tree start: "+self.uid);     
 
@@ -19,7 +19,7 @@ operation domain::Tree draw(hash) {
 }
 
 @template
-operation domain::Tree generateTreeBody(hash){
+operation form::Tree generateTreeBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
 
@@ -61,7 +61,7 @@ operation domain::Tree generateTreeBody(hash){
 }
 
 @template
-operation domain::Tree generateTreeTableBody(hash){
+operation form::Tree generateTreeTableBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
 }
 %]

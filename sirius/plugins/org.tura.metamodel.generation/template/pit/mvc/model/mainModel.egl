@@ -20,7 +20,7 @@ ${percent}${end}
    
          var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
          var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
-         var uipackage = form.eContainer().parent;
+         var uipackage = form.eContainer();
 
          hash.put("recipe",recipe);
          hash.put("ingredient",ingredient);
@@ -33,10 +33,11 @@ ${percent}${end}
          hash.put("configuration",configuration);
          hash.put("beanFactoryName",util.mergeAndCapitalize(uipackage.name)+util.mergeAndCapitalize(form.name));
          
-         if (form.datacontrols == null or form.datacontrols.formControl == null)
+         if (form.datacontrols == null or form.datacontrols.controls == null){
             continue;
-         form.datacontrols.formControl.processRootElement(recipe,ingredient);
-         var controls =  form.datacontrols.formControl.controls;
+          }
+         form.datacontrols.processRootElement(recipe,ingredient);
+         var controls =  form.datacontrols.controls;
          
          for (control in controls){
 

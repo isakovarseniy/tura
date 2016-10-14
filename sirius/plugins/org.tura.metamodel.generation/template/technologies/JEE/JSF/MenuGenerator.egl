@@ -6,7 +6,7 @@ operation   menuGenerator(hash) {
      var  javaPath =  hash.get("javaPath");  
      var uipackage = hash.get("uipackage");
      
-     for (menuDefinition in form.view.view.menus){
+     for (menuDefinition in form.view.menus){
         for (menu in menuDefinition.menuView.menuFolders){
            for (item in menu.menuElements->select(q|q.isKindOf(domain::SubMenu)) ){
              item.toSubmenu.~submenu=true;

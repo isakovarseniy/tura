@@ -1,5 +1,5 @@
 [%@template
-operation domain::ViewPort draw(hash) { 
+operation form::ViewPort draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var form = hash.get("form");
      var uipackage = hash.get("uipackage");

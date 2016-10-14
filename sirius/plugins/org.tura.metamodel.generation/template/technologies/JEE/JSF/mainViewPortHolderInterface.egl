@@ -27,9 +27,9 @@
          
          var allPorts = new Native('java.util.ArrayList'); 
          
-         for (canvas in form.view.view.canvases){
-              if (not canvas.isKindOf(domain::TabCanvas) ){
-                  var ports = canvas.viewElement->select(p|p.isKindOf(domain::ViewPort)); 
+         for (canvas in form.view.canvases){
+              if (not canvas.isKindOf(form::TabCanvas) ){
+                  var ports = canvas.viewElement->select(p|p.isKindOf(form::ViewPort)); 
                    allPorts.addAll(ports);
               }
         }         

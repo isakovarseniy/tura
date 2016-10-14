@@ -1,5 +1,5 @@
 [%@template
-operation  domain::PopupCanvas draw(hash) { 
+operation  form::PopupCanvas draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var webapp = hash.get("webapp");   
      var form = hash.get("form");   
@@ -30,7 +30,7 @@ operation  domain::PopupCanvas draw(hash) {
 
 
 @template
-operation domain::PopupCanvas generateBody(hash){
+operation form::PopupCanvas generateBody(hash){
                 for (element in self.viewElement.sortBy(q|q.order)){
 %]                
                     [%=element.draw(hash)%]

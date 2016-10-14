@@ -1,5 +1,5 @@
 [% @template
-operation domain::Operation generate(recipe:Recipe, ingredient :Ingredient ,generic:domain::Type) {
+operation type::Operation generate(recipe:Recipe, ingredient :Ingredient ,generic:type::Type) {
     var returnValue = "void";
     if (self.returnValue <> null){
        self.returnValue.typeRef.mappingType2Java(recipe,ingredient);

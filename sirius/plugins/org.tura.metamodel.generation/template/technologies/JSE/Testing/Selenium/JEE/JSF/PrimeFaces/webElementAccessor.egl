@@ -1,6 +1,6 @@
 [%
 @template
-operation  domain::Button accessor(id,methodName) {
+operation  form::Button accessor(id,methodName) {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("button[id$=\''+id+'\']")';
    %]
@@ -15,7 +15,7 @@ operation  domain::Button accessor(id,methodName) {
 }
 
 @template
-operation  domain::CheckBox accessor(id,methodName)  {
+operation  form::CheckBox accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';
 
@@ -33,7 +33,7 @@ operation  domain::CheckBox accessor(id,methodName)  {
 
 
 @template
-operation  domain::Date accessor(id,methodName)  {
+operation  form::Date accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';
    %]
@@ -49,7 +49,7 @@ operation  domain::Date accessor(id,methodName)  {
 
 
 @template
-operation  domain::DropDownSelection accessor(id,methodName)  {
+operation  form::DropDownSelection accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';
      
@@ -65,7 +65,7 @@ operation  domain::DropDownSelection accessor(id,methodName)  {
 
 
 @template
-operation  domain::Image accessor(id,methodName)  {
+operation  form::Image accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
    %]
@@ -80,7 +80,7 @@ operation  domain::Image accessor(id,methodName)  {
 
 
 @template
-operation  domain::InputText accessor(id,methodName)  {
+operation  form::InputText accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("input[id$=\''+id+'\']")';     
 
@@ -96,7 +96,7 @@ operation  domain::InputText accessor(id,methodName)  {
 }
 
 @template
-operation  domain::Password accessor(id,methodName)  {
+operation  form::Password accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("input[id$=\''+id+'\']")';     
 
@@ -115,7 +115,7 @@ operation  domain::Password accessor(id,methodName)  {
 
 
 @template
-operation  domain::Label accessor(id,methodName)  {
+operation  form::Label accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("label[id$=\''+id+'\']")';     
      
@@ -131,7 +131,7 @@ operation  domain::Label accessor(id,methodName)  {
 
 
 @template
-operation  domain::MessageElement accessor(id,methodName)  {
+operation  form::MessageElement accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
      
@@ -147,7 +147,7 @@ operation  domain::MessageElement accessor(id,methodName)  {
 
 
 @template
-operation  domain::OutputText accessor(id,methodName)  {
+operation  form::OutputText accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
     var s = 'org.openqa.selenium.By.cssSelector("input[id$=\''+id+'\']")';     
      
@@ -163,7 +163,7 @@ operation  domain::OutputText accessor(id,methodName)  {
 }
 
 @template
-operation  domain::LayerHolder accessor(id,methodName)  {
+operation  form::LayerHolder accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
     var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
 
@@ -179,7 +179,7 @@ operation  domain::LayerHolder accessor(id,methodName)  {
 
 
 @template
-operation  domain::Table accessor(id,methodName)  {
+operation  form::Table accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
      
@@ -195,7 +195,7 @@ operation  domain::Table accessor(id,methodName)  {
 }
 
 @template
-operation  domain::Tree accessor(id,methodName)  {
+operation  form::Tree accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("div[id$=\''+id+'\']")';     
 
@@ -211,7 +211,7 @@ operation  domain::Tree accessor(id,methodName)  {
 
 
 @template
-operation  domain::Window accessor(id,methodName)  {
+operation  form::Window accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
 
@@ -226,7 +226,7 @@ operation  domain::Window accessor(id,methodName)  {
 }
 
 @template
-operation  domain::Canvas accessor(id,methodName)  {
+operation  form::Canvas accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
 
@@ -241,7 +241,7 @@ operation  domain::Canvas accessor(id,methodName)  {
 }
 
 @template
-operation  domain::PopupCanvas accessor(id,methodName)  {
+operation  form::PopupCanvas accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
 
@@ -256,7 +256,7 @@ operation  domain::PopupCanvas accessor(id,methodName)  {
 }
 
 @template
-operation  domain::TabPage accessor(id,methodName)  {
+operation  form::TabPage accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("a[href$=\''+id+'\']")';     
 
@@ -272,7 +272,7 @@ operation  domain::TabPage accessor(id,methodName)  {
 
 
 @template
-operation  domain::ViewArea accessor(id,methodName)  {
+operation  form::ViewArea accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
 
@@ -288,7 +288,7 @@ operation  domain::ViewArea accessor(id,methodName)  {
 
 
 @template
-operation  domain::ViewPort accessor(id,methodName)  {
+operation  form::ViewPort accessor(id,methodName)  {
      var util = new Native('org.tura.metamodel.commons.Util');
      var s = 'org.openqa.selenium.By.cssSelector("table[id$=\''+id+'\']")';     
 
@@ -304,6 +304,6 @@ operation  domain::ViewPort accessor(id,methodName)  {
 
 
 @template
-operation  domain::Menu accessor(id,methodName) {
+operation  form::Menu accessor(id,methodName) {
 }
 %]

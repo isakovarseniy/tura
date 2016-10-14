@@ -1,5 +1,5 @@
 [%@template
-operation domain::Label draw(hash) { 
+operation form::Label draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","Label start: "+self.uid);     
      var hints = new Native('java.util.HashMap');
@@ -20,22 +20,22 @@ operation domain::Label draw(hash) {
 }
 
 @template
-operation domain::Label treeContext(hash,hints) { 
+operation form::Label treeContext(hash,hints) { 
 %]
 	<p:outputLabel  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />
 [%
 }
 
 @template
-operation domain::Label tableContext(hash,hints) { 
+operation form::Label tableContext(hash,hints) { 
 %]
 	<p:outputLabel  [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%]  value="[%=buildExpression(self.multiLangLabel,hints,hash)%]" />
 [%   
 }
 
 @template
-operation domain::Label noContext(hash,hints) { 
-   var link = domain::LinkToLabel->allInstances()->select(r|r.target.uid=self.uid)->first();
+operation form::Label noContext(hash,hints) { 
+   var link = form::LinkToLabel->allInstances()->select(r|r.target.uid=self.uid)->first();
    var forRef = "";
    if ( link <> null and  link.source <> null){
       forRef="for=\""+link.source.mkuid()+"\"";

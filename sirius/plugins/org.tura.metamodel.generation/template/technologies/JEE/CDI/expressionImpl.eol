@@ -264,17 +264,17 @@ operation  WindowImpl(expression:String, contextValue , paramId: Integer, array 
 
 
 
-operation domain::Context  scriptTrigger( hash){
+operation form::Context  scriptTrigger( hash){
    hash.get("scriptTriggers").add(self);
    return '#{scriptGenerator'+hash.get("beanFactoryName")+".scriptBuilder('"+self.mkuid()+"')}";
 }
 
-operation domain::Context  javaTrigger(  hash){
+operation form::Context  javaTrigger(  hash){
    hash.get("actionTriggers").add(self);
    return '#{actionExecutor'+hash.get("beanFactoryName")+".setSource('"+self.mkuid()+"').eventListener}";
 }
 
-operation domain::Context  javaCall( hash){
+operation form::Context  javaCall( hash){
    hash.get("actionTriggers").add(self);
    return '#{actionExecutor'+hash.get("beanFactoryName")+".setSource('"+self.mkuid()+"').action}";
 }

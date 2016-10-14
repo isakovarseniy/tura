@@ -24,12 +24,12 @@
          hash.put("uipackage",uipackage);
          hash.put("View_implementation",View_implementation);
          
-         if (form.view = null or form.view.view = null)
+         if (form.view = null or form.view= null)
             return;   
 
         var array = new Native("java.util.ArrayList"); 
-         for (canvas in form.view.view.canvases){
-              if (canvas.isKindOf(domain::ViewPortHolder)  and canvas.isKindOf(domain::CanvasFrame) ){
+         for (canvas in form.view.canvases){
+              if (canvas.isKindOf(form::ViewPortHolder)  and canvas.isKindOf(form::CanvasFrame) ){
                   array.add(canvas);
                   if (canvas.viewElement <> null)
                      array.addAll(canvas.viewElement);

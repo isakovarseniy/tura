@@ -1,5 +1,5 @@
 [%@template
-operation domain::Image draw(hash) { 
+operation form::Image draw(hash) { 
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
      

@@ -19,7 +19,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]CommandProducer {
 				org.tura.platform.datacontrol.annotations.Create.class);
 
 
-		[%=control.create.typeRef.~fullName%] cmd = new [%=control.create.typeRef.~fullName%]();
+		[%=control.create.methodRef.eContainer().~fullName%] cmd = new [%=control.create.methodRef.eContainer().~fullName%]();
 
 		parametersBuilder(annotation.parameters(), cmd);
 
@@ -35,7 +35,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]CommandProducer {
 		org.tura.platform.datacontrol.annotations.Insert annotation = injectionPoint.getAnnotated().getAnnotation(
 				org.tura.platform.datacontrol.annotations.Insert.class);
 				
-		[%=control.insert.typeRef.~fullName%] cmd = new [%=control.insert.typeRef.~fullName%]();
+		[%=control.insert.methodRef.eContainer().~fullName%] cmd = new [%=control.insert.methodRef.eContainer().~fullName%]();
 
 		parametersBuilder(annotation.parameters(), cmd);
 
@@ -50,7 +50,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]CommandProducer {
 		org.tura.platform.datacontrol.annotations.Update annotation = injectionPoint.getAnnotated().getAnnotation(
 				org.tura.platform.datacontrol.annotations.Update.class);
 
-		[%=control.update.typeRef.~fullName%] cmd = new [%=control.update.typeRef.~fullName%]();
+		[%=control.update.methodRef.eContainer().~fullName%] cmd = new [%=control.update.methodRef.eContainer().~fullName%]();
 
 		parametersBuilder(annotation.parameters(), cmd);
 
@@ -65,7 +65,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]CommandProducer {
 		org.tura.platform.datacontrol.annotations.Delete annotation = injectionPoint.getAnnotated().getAnnotation(
 				org.tura.platform.datacontrol.annotations.Delete.class);
 
-		[%=control.remove.typeRef.~fullName%] cmd = new [%=control.remove.typeRef.~fullName%]();
+		[%=control.remove.methodRef.eContainer().~fullName%] cmd = new [%=control.remove.methodRef.eContainer().~fullName%]();
 		parametersBuilder(annotation.parameters(), cmd);
 
 		return cmd;
@@ -79,7 +79,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]CommandProducer {
 		org.tura.platform.datacontrol.annotations.Search annotation = injectionPoint.getAnnotated().getAnnotation(
 				org.tura.platform.datacontrol.annotations.Search.class);
 
-		[%=control.search.typeRef.~fullName%] cmd = new [%=control.search.typeRef.~fullName%]();
+		[%=control.search.methodRef.eContainer().~fullName%] cmd = new [%=control.search.methodRef.eContainer().~fullName%]();
 
 		parametersBuilder(annotation.parameters(), cmd);
 
