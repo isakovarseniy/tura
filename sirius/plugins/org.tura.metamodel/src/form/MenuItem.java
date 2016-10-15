@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface MenuItem extends MenuElement, ItemIcon, FlexFields {
+public interface MenuItem extends MenuElement, ItemIcon {
 	/**
 	 * Returns the value of the '<em><b>Transition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

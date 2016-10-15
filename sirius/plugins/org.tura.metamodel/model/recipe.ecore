@@ -24,8 +24,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ingredients" upperBound="-1"
         eType="#//Ingredient" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructures" upperBound="-1"
-        eType="#//Infrastructure"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deplymentStep" upperBound="-1"
         eType="#//DeploymentComponent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="startSeq" eType="#//DeploymentStarStep"
@@ -96,7 +94,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Infrastructure">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" eType="#//Recipe"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Configuration">

@@ -4862,13 +4862,22 @@ public interface FormPackage extends EPackage {
 	int MENU_ELEMENT__ORDER = MULTI_LANG_LABEL_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ELEMENT__FIELDS = MULTI_LANG_LABEL_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ELEMENT__UID = MULTI_LANG_LABEL_FEATURE_COUNT + 4;
+	int MENU_ELEMENT__UID = MULTI_LANG_LABEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4877,7 +4886,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ELEMENT__NAME = MULTI_LANG_LABEL_FEATURE_COUNT + 5;
+	int MENU_ELEMENT__NAME = MULTI_LANG_LABEL_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Menu Element</em>' class.
@@ -4886,7 +4895,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ELEMENT_FEATURE_COUNT = MULTI_LANG_LABEL_FEATURE_COUNT + 6;
+	int MENU_ELEMENT_FEATURE_COUNT = MULTI_LANG_LABEL_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link form.impl.MenuFolderImpl <em>Menu Folder</em>}' class.
@@ -4953,13 +4962,22 @@ public interface FormPackage extends EPackage {
 	int MENU_FOLDER__ICON = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_FOLDER__FIELDS = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__UID = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 5;
+	int MENU_FOLDER__UID = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4968,7 +4986,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__NAME = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 6;
+	int MENU_FOLDER__NAME = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Extension Point</b></em>' attribute.
@@ -4977,7 +4995,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__EXTENSION_POINT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 7;
+	int MENU_FOLDER__EXTENSION_POINT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Menu Elements</b></em>' containment reference list.
@@ -4986,7 +5004,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER__MENU_ELEMENTS = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 8;
+	int MENU_FOLDER__MENU_ELEMENTS = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Menu Folder</em>' class.
@@ -4995,7 +5013,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FOLDER_FEATURE_COUNT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 9;
+	int MENU_FOLDER_FEATURE_COUNT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link form.impl.MenuItemImpl <em>Menu Item</em>}' class.
@@ -5053,6 +5071,15 @@ public interface FormPackage extends EPackage {
 	int MENU_ITEM__ORDER = MENU_ELEMENT__ORDER;
 
 	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_ITEM__FIELDS = MENU_ELEMENT__FIELDS;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5080,22 +5107,13 @@ public interface FormPackage extends EPackage {
 	int MENU_ITEM__ICON = MENU_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU_ITEM__FIELDS = MENU_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Transition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ITEM__TRANSITION = MENU_ELEMENT_FEATURE_COUNT + 2;
+	int MENU_ITEM__TRANSITION = MENU_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Areas</b></em>' containment reference list.
@@ -5104,7 +5122,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ITEM__REFRESH_AREAS = MENU_ELEMENT_FEATURE_COUNT + 3;
+	int MENU_ITEM__REFRESH_AREAS = MENU_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Menu Item</em>' class.
@@ -5113,7 +5131,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_ITEM_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 4;
+	int MENU_ITEM_FEATURE_COUNT = MENU_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link form.impl.MenuExtensionPointImpl <em>Menu Extension Point</em>}' class.
@@ -5169,6 +5187,15 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int MENU_EXTENSION_POINT__ORDER = MENU_ELEMENT__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_EXTENSION_POINT__FIELDS = MENU_ELEMENT__FIELDS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5260,6 +5287,15 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int SUB_MENU__ORDER = MENU_ELEMENT__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_MENU__FIELDS = MENU_ELEMENT__FIELDS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5397,6 +5433,15 @@ public interface FormPackage extends EPackage {
 	 * @ordered
 	 */
 	int MENU_SEPARATOR__ORDER = MENU_ELEMENT__ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_SEPARATOR__FIELDS = MENU_ELEMENT__FIELDS;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.

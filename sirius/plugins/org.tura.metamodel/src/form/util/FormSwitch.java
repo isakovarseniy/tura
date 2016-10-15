@@ -653,6 +653,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(menuElement);
 				if (result == null) result = caseEnabledUIItem(menuElement);
 				if (result == null) result = caseOrderable(menuElement);
+				if (result == null) result = caseFlexFields(menuElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -665,6 +666,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseStyleElement(menuFolder);
 				if (result == null) result = caseMultiLangLabel(menuFolder);
 				if (result == null) result = caseItemIcon(menuFolder);
+				if (result == null) result = caseFlexFields(menuFolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -673,12 +675,12 @@ public class FormSwitch<T> extends Switch<T> {
 				T result = caseMenuItem(menuItem);
 				if (result == null) result = caseMenuElement(menuItem);
 				if (result == null) result = caseItemIcon(menuItem);
-				if (result == null) result = caseFlexFields(menuItem);
 				if (result == null) result = caseMultiLangLabel(menuItem);
 				if (result == null) result = caseStyleElement(menuItem);
 				if (result == null) result = caseCategorized(menuItem);
 				if (result == null) result = caseEnabledUIItem(menuItem);
 				if (result == null) result = caseOrderable(menuItem);
+				if (result == null) result = caseFlexFields(menuItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -692,6 +694,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(menuExtensionPoint);
 				if (result == null) result = caseEnabledUIItem(menuExtensionPoint);
 				if (result == null) result = caseOrderable(menuExtensionPoint);
+				if (result == null) result = caseFlexFields(menuExtensionPoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -705,6 +708,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(subMenu);
 				if (result == null) result = caseEnabledUIItem(subMenu);
 				if (result == null) result = caseOrderable(subMenu);
+				if (result == null) result = caseFlexFields(subMenu);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -723,6 +727,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorized(menuSeparator);
 				if (result == null) result = caseEnabledUIItem(menuSeparator);
 				if (result == null) result = caseOrderable(menuSeparator);
+				if (result == null) result = caseFlexFields(menuSeparator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

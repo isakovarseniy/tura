@@ -94,11 +94,11 @@ operation form::Window generateBody(hash){
 
 [%
 
-		var app = form.eContainer().getParent().getParent().getParent();
+		var app = form.eContainer().eContainer().eContainer();
 		if (app.getApplicationStyle() <> null){
-            for (pkg in app.getApplicationStyle().stylesPackage ){
-               if (pkg.styles <> null ){
-                 for (lib in pkg.styles.libraries ){
+            for (pkg in app.getApplicationStyle().styleLibraries ){
+               if (pkg.libraries <> null ){
+                 for (lib in pkg.libraries ){
                  lib.mappingStyleLibrary2CSS(recipe, ingredient );
                  if (lib.~url.isDefined()){
               %]<h:outputStylesheet library="css" name="[%=lib.~url%]" targer="head"/>[%

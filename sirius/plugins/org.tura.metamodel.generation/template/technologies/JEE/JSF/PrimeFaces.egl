@@ -40,7 +40,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 
 
 @template
-operation   domain::Uielement  refreshArias() {
+operation   form::Uielement  refreshArias() {
    var update = self.refreshAreas->select(r|r.group > 1);
    var process = self.refreshAreas->select(r|r.group == 1)->sortBy(q|q.group);
      %]process="[%=refreshAriasGroup(process)%]"  update="[%=refreshAriasGroup(update)%]"[%

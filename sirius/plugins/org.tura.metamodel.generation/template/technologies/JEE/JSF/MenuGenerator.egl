@@ -5,33 +5,36 @@ operation   menuGenerator(hash) {
      var form = hash.get("form");
      var  javaPath =  hash.get("javaPath");  
      var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
      
      for (menuDefinition in form.view.menus){
-        for (menu in menuDefinition.menuView.menuFolders){
-           for (item in menu.menuElements->select(q|q.isKindOf(domain::SubMenu)) ){
-             item.toSubmenu.~submenu=true;
-             item.toSubmenu.~label=item;
-           }
+
+        for (toSubMenu in menuDefinition.toSubMenu){
+             toSubMenu.target.~submenu=true;
+             toSubMenu.target.~label=toSubMenu.source;
+             toSubMenu.source.~toSubMenu= toSubMenu.target;
+        }
+     
+        for (menu in menuDefinition.menuFolders){
            if (menu.extensionPoint ){
                 if (menu.findClassifier(util.getHint(model_mapper,"menu.global"))){
                    menu.~extpount = 'global';
                 }else{
                    menu.~extpount = 'form';
                 }
-                
            }
        }
-      }  
+     }  
      
-     for (menuDefinition in form.view.view.menus){
-        for (menu in menuDefinition.menuView.menuFolders){
+     for (menuDefinition in form.view.menus){
+        for (menu in menuDefinition.menuFolders){
            menu.menuProcessor(hash);
         }
     }
   }
   
  @template 
-  operation domain:: MenuFolder menuProcessor(hash){
+  operation form:: MenuFolder menuProcessor(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
      var component = hash.get("component");
@@ -98,7 +101,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
   }
   
 @template  
-  operation domain::MenuItem addToModel(hash,addOperation){
+  operation form::MenuItem addToModel(hash,addOperation){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
      var update = self.refreshAreas->select(r|r.group > 1);
@@ -147,11 +150,11 @@ operation setAttribute(variable , attribute, value){
 }
   
 @template  
-  operation domain::SubMenu addToModel(hash,addOperation){
+  operation form::SubMenu addToModel(hash,addOperation){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
   %]
-        [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu [%=util.mergeAndUnCapitalize(self.name)%]  = new [%=util.mergeAndCapitalize(self.toSubmenu.name)%]Menu();
+        [%=util.mergeAndCapitalize(self.~toSubMenu.name)%]Menu [%=util.mergeAndUnCapitalize(self.name)%]  = new [%=util.mergeAndCapitalize(self.~toSubMenu.name)%]Menu();
         org.primefaces.model.menu.DefaultSubMenu [%=util.mergeAndUnCapitalize(self.name)%]_submenu = (org.primefaces.model.menu.DefaultSubMenu)[%=util.mergeAndUnCapitalize(self.name)%].getMenu(elResolver);
         [%=setAttribute(util.mergeAndUnCapitalize(self.name)+"_submenu","Style",self.style(hash))%]
         [%=setAttribute(util.mergeAndUnCapitalize(self.name)+"_submenu","StyleClass",self.styleClass(hash))%]
@@ -162,7 +165,7 @@ operation setAttribute(variable , attribute, value){
   }
   
 @template
-  operation domain::MenuSeparator addToModel(hash,addOperation){
+  operation form::MenuSeparator addToModel(hash,addOperation){
        var util = new Native('org.tura.metamodel.commons.Util');
   %]
      org.primefaces.model.menu.DefaultSeparator  [%=util.mergeAndUnCapitalize(self.name)%]  = new org.primefaces.model.menu.DefaultSeparator();
@@ -173,14 +176,15 @@ operation setAttribute(variable , attribute, value){
  }
 
 @template
-  operation domain::MenuExtensionPoint addToModel(hash,addOperation){
+  operation form::MenuExtensionPoint addToModel(hash,addOperation){
      var  javaPath =  hash.get("javaPath");  
      var util = new Native('org.tura.metamodel.commons.Util');
 
     var extension = self.extensionRef;
-    var form = extension.eContainer().parent.eContainer().parent.eContainer();
-    var uipackage = form.eContainer().parent;
-    var application = uipackage.eContainer().parent.parent;
+    var form = extension.eContainer().eContainer().eContainer();
+    var uipackage = form.eContainer();
+    var application = uipackage.eContainer().eContainer();
+     var model_mapper = hash.get('model_mapper');
 
 
 
@@ -213,7 +217,7 @@ operation setAttribute(variable , attribute, value){
     
     var form = hash.get("form");
     var uipackage = hash.get("uipackage");
-    var application = uipackage.eContainer().parent.parent;
+    var application = uipackage.eContainer().eContainer();
       
   %]
 @javax.enterprise.context.RequestScoped
@@ -227,7 +231,7 @@ operation setAttribute(variable , attribute, value){
     var menu = hash.get("menu");
     var form = hash.get("form");
     var uipackage = hash.get("uipackage");
-    var application = uipackage.eContainer().parent.parent;
+    var application = uipackage.eContainer().eContainer();
      
   
   %]

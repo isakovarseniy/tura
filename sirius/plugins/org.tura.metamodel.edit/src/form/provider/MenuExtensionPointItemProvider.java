@@ -135,7 +135,8 @@ public class MenuExtensionPointItemProvider extends MenuElementItemProvider {
 		boolean qualify =
 			childFeature == FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
 			childFeature == FormPackage.Literals.STYLE_ELEMENT__STYLE ||
-			childFeature == FormPackage.Literals.ENABLED_UI_ITEM__ENABLED;
+			childFeature == FormPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
+			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

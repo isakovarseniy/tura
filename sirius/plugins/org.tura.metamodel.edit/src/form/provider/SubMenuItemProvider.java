@@ -162,7 +162,8 @@ public class SubMenuItemProvider extends MenuElementItemProvider {
 			childFeature == FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
 			childFeature == FormPackage.Literals.STYLE_ELEMENT__STYLE ||
 			childFeature == FormPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
-			childFeature == FormPackage.Literals.ITEM_ICON__ICON;
+			childFeature == FormPackage.Literals.ITEM_ICON__ICON ||
+			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

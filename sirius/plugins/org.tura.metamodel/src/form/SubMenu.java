@@ -13,5 +13,5 @@ package form;
  * @model
  * @generated
  */
-public interface SubMenu extends MenuElement, ItemIcon {
+public interface SubMenu extends MenuElement, ItemIcon, FlexFields {
 } // SubMenu

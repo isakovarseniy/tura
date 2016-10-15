@@ -260,12 +260,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionRef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="extensionRef" eType="#//MenuFolder"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuElement" eSuperTypes="#//MultiLangLabel #//StyleElement artifact.ecore#//Categorized #//EnabledUIItem common.ecore#//Orderable">
+  <eClassifiers xsi:type="ecore:EClass" name="MenuElement" eSuperTypes="#//MultiLangLabel #//StyleElement artifact.ecore#//Categorized #//EnabledUIItem common.ecore#//Orderable #//FlexFields">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuFolder" eSuperTypes="common.ecore#//HTMLLayerHolder #//EnabledUIItem artifact.ecore#//Categorized #//StyleElement #//MultiLangLabel #//ItemIcon">
+  <eClassifiers xsi:type="ecore:EClass" name="MenuFolder" eSuperTypes="common.ecore#//HTMLLayerHolder #//EnabledUIItem artifact.ecore#//Categorized #//StyleElement #//MultiLangLabel #//ItemIcon #//FlexFields">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -273,14 +273,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="menuElements" upperBound="-1"
         eType="#//MenuElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MenuItem" eSuperTypes="#//MenuElement #//ItemIcon #//FlexFields">
+  <eClassifiers xsi:type="ecore:EClass" name="MenuItem" eSuperTypes="#//MenuElement #//ItemIcon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" eType="#//Context"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refreshAreas" upperBound="-1"
         eType="#//AreaRef" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MenuExtensionPoint" eSuperTypes="#//MenuElement #//MenuExtensionRef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SubMenu" eSuperTypes="#//MenuElement #//ItemIcon"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SubMenu" eSuperTypes="#//MenuElement #//ItemIcon #//FlexFields"/>
   <eClassifiers xsi:type="ecore:EClass" name="ToSubmenu">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>

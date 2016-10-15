@@ -168,6 +168,9 @@
             <hints uid="844f8029-775c-411f-86a8-41177a6ff598" name="exception.code.handler" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d"/>
             <hints uid="9314f444-5a29-4241-9564-6d076de20333" name="error.page" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
             <hints uid="cb7616b2-05cd-4196-9e59-08d21b464067" name="exception.type.handler" hint="a24ca484-c882-4e80-961a-8093e6dc5803"/>
+            <hints uid="8ae530bd-135a-4d8a-b62d-720776d50704" name="panel.columns.class" hint="5ecedec5-0aff-42cf-80f2-abf218d5fb47"/>
+            <hints uid="c6933b95-e132-4b0f-9528-b10325a536e1" name="row number selector" hint="be798615-3f9f-4c7a-bb08-626b35fbabc6"/>
+            <hints uid="cefe0e3e-ea2c-44a5-b9f7-aba4bdc08b45" name="menu.global" hint="e7e14e37-f0b2-4166-a029-c1c8619ce37d"/>
           </artifacts>
         </artifactPackages>
       </domainArtifact>
@@ -208,6 +211,9 @@
           <techLeafs uid="38d17c08-8c9d-43e3-8535-1d1831c96c6b" name="RichFaces"/>
           <techLeafs uid="2e39e023-cf18-477b-a88d-caabe0c76d39" name="PrimeFaces">
             <hints uid="0c540a45-6e97-4273-a483-9aed3e27477c" name="widget.var"/>
+            <hints uid="5ecedec5-0aff-42cf-80f2-abf218d5fb47" name="panel.columns.class"/>
+            <hints uid="be798615-3f9f-4c7a-bb08-626b35fbabc6" name="row number selector"/>
+            <hints uid="e7e14e37-f0b2-4166-a029-c1c8619ce37d" name="menu.global"/>
           </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>

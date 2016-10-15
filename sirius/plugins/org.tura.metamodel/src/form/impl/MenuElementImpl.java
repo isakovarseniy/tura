@@ -11,6 +11,8 @@ import common.Orderable;
 
 import form.Context;
 import form.EnabledUIItem;
+import form.FlexField;
+import form.FlexFields;
 import form.FormPackage;
 import form.MenuElement;
 import form.StyleElement;
@@ -42,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.MenuElementImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link form.impl.MenuElementImpl#getEnabled <em>Enabled</em>}</li>
  *   <li>{@link form.impl.MenuElementImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link form.impl.MenuElementImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link form.impl.MenuElementImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.MenuElementImpl#getName <em>Name</em>}</li>
  * </ul>
@@ -98,6 +101,16 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * @ordered
 	 */
 	protected int order = ORDER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
 
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -282,6 +295,18 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.MENU_ELEMENT__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getUid() {
 		return uid;
 	}
@@ -333,6 +358,8 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
 			case FormPackage.MENU_ELEMENT__ENABLED:
 				return basicSetEnabled(null, msgs);
+			case FormPackage.MENU_ELEMENT__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -353,6 +380,8 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 				return getEnabled();
 			case FormPackage.MENU_ELEMENT__ORDER:
 				return getOrder();
+			case FormPackage.MENU_ELEMENT__FIELDS:
+				return getFields();
 			case FormPackage.MENU_ELEMENT__UID:
 				return getUid();
 			case FormPackage.MENU_ELEMENT__NAME:
@@ -382,6 +411,10 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 				return;
 			case FormPackage.MENU_ELEMENT__ORDER:
 				setOrder((Integer)newValue);
+				return;
+			case FormPackage.MENU_ELEMENT__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
 				return;
 			case FormPackage.MENU_ELEMENT__UID:
 				setUid((String)newValue);
@@ -413,6 +446,9 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 			case FormPackage.MENU_ELEMENT__ORDER:
 				setOrder(ORDER_EDEFAULT);
 				return;
+			case FormPackage.MENU_ELEMENT__FIELDS:
+				getFields().clear();
+				return;
 			case FormPackage.MENU_ELEMENT__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -439,6 +475,8 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 				return enabled != null;
 			case FormPackage.MENU_ELEMENT__ORDER:
 				return order != ORDER_EDEFAULT;
+			case FormPackage.MENU_ELEMENT__FIELDS:
+				return fields != null && !fields.isEmpty();
 			case FormPackage.MENU_ELEMENT__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case FormPackage.MENU_ELEMENT__NAME:
@@ -478,6 +516,12 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.MENU_ELEMENT__FIELDS: return FormPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -509,6 +553,12 @@ public class MenuElementImpl extends MultiLangLabelImpl implements MenuElement {
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
 				case CommonPackage.ORDERABLE__ORDER: return FormPackage.MENU_ELEMENT__ORDER;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case FormPackage.FLEX_FIELDS__FIELDS: return FormPackage.MENU_ELEMENT__FIELDS;
 				default: return -1;
 			}
 		}

@@ -16,6 +16,7 @@ operation form::Table draw(hash) {
 operation form::Table generateBody(hash){
      var util = new Native('org.tura.metamodel.commons.Util');
      var hints = new Native('java.util.HashMap');
+     var model_mapper = hash.get('model_mapper');
      
      var selector = "\"5,10,15\"";
      if (self.findClassifier(util.getHint(model_mapper,"row number selector"))){

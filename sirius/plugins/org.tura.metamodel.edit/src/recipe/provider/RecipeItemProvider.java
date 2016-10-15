@@ -53,7 +53,6 @@ public class RecipeItemProvider extends UsingMappersItemProvider {
 			addColumnsPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addInfrastructuresPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -120,28 +119,6 @@ public class RecipeItemProvider extends UsingMappersItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Infrastructures feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInfrastructuresPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Recipe_infrastructures_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Recipe_infrastructures_feature", "_UI_Recipe_type"),
-				 RecipePackage.Literals.RECIPE__INFRASTRUCTURES,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

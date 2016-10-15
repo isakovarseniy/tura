@@ -39,7 +39,6 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.RecipeImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.RecipeImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.RecipeImpl#getIngredients <em>Ingredients</em>}</li>
- *   <li>{@link recipe.impl.RecipeImpl#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link recipe.impl.RecipeImpl#getDeplymentStep <em>Deplyment Step</em>}</li>
  *   <li>{@link recipe.impl.RecipeImpl#getStartSeq <em>Start Seq</em>}</li>
  * </ul>
@@ -116,16 +115,6 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * @ordered
 	 */
 	protected EList<Ingredient> ingredients;
-
-	/**
-	 * The cached value of the '{@link #getInfrastructures() <em>Infrastructures</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInfrastructures()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Infrastructure> infrastructures;
 
 	/**
 	 * The cached value of the '{@link #getDeplymentStep() <em>Deplyment Step</em>}' containment reference list.
@@ -246,18 +235,6 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Infrastructure> getInfrastructures() {
-		if (infrastructures == null) {
-			infrastructures = new EObjectResolvingEList<Infrastructure>(Infrastructure.class, this, RecipePackage.RECIPE__INFRASTRUCTURES);
-		}
-		return infrastructures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<DeploymentComponent> getDeplymentStep() {
 		if (deplymentStep == null) {
 			deplymentStep = new EObjectContainmentEList<DeploymentComponent>(DeploymentComponent.class, this, RecipePackage.RECIPE__DEPLYMENT_STEP);
@@ -342,8 +319,6 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 				return getName();
 			case RecipePackage.RECIPE__INGREDIENTS:
 				return getIngredients();
-			case RecipePackage.RECIPE__INFRASTRUCTURES:
-				return getInfrastructures();
 			case RecipePackage.RECIPE__DEPLYMENT_STEP:
 				return getDeplymentStep();
 			case RecipePackage.RECIPE__START_SEQ:
@@ -373,10 +348,6 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 			case RecipePackage.RECIPE__INGREDIENTS:
 				getIngredients().clear();
 				getIngredients().addAll((Collection<? extends Ingredient>)newValue);
-				return;
-			case RecipePackage.RECIPE__INFRASTRUCTURES:
-				getInfrastructures().clear();
-				getInfrastructures().addAll((Collection<? extends Infrastructure>)newValue);
 				return;
 			case RecipePackage.RECIPE__DEPLYMENT_STEP:
 				getDeplymentStep().clear();
@@ -409,9 +380,6 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 			case RecipePackage.RECIPE__INGREDIENTS:
 				getIngredients().clear();
 				return;
-			case RecipePackage.RECIPE__INFRASTRUCTURES:
-				getInfrastructures().clear();
-				return;
 			case RecipePackage.RECIPE__DEPLYMENT_STEP:
 				getDeplymentStep().clear();
 				return;
@@ -438,8 +406,6 @@ public class RecipeImpl extends UsingMappersImpl implements Recipe {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RecipePackage.RECIPE__INGREDIENTS:
 				return ingredients != null && !ingredients.isEmpty();
-			case RecipePackage.RECIPE__INFRASTRUCTURES:
-				return infrastructures != null && !infrastructures.isEmpty();
 			case RecipePackage.RECIPE__DEPLYMENT_STEP:
 				return deplymentStep != null && !deplymentStep.isEmpty();
 			case RecipePackage.RECIPE__START_SEQ:

@@ -78,13 +78,13 @@ operation form::StyleElement  style(hash) : String{
 operation form::FlexFields  styleClass(hash) : String{
     var util = new Native('org.tura.metamodel.commons.Util');
     var model_mapper = hash.get('model_mapper');
-    var classifierUUID = util.getHint(model_mapper,classifier);
-    return self.styleClass(classifierUUID);
+    var classifierUUID = util.getHint(model_mapper,"styleClass");
+    return self.styleClassByClassifier(classifierUUID);
 }
 
 
 
-operation form::FlexFields  styleClass( classifierUUID : String):String{
+operation form::FlexFields  styleClassByClassifier( classifierUUID : String):String{
       var util = new Native('org.tura.metamodel.commons.Util');
       var hints = new Native('java.util.HashMap');
       var hash = new Native('java.util.HashMap');
@@ -93,9 +93,9 @@ operation form::FlexFields  styleClass( classifierUUID : String):String{
      if (self.fields <> null  and self.fields.size() <> 0 ){
       var first = 0;
       for (field in self.fields ){ 
-         if (class.classifier <> null and field.findHint(classifierUUID)){
+         if (field.classifier <> null and field.findHint(classifierUUID)){
              if ( first <> 0){value = value+",";}
-             value = value + buildExpression(class,hints,hash);
+             value = value + buildExpression(field,hints,hash);
              first=1;
            }
          } 

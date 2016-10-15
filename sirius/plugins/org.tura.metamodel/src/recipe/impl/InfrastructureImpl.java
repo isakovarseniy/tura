@@ -23,7 +23,6 @@ import recipe.RecipePackage;
  * </p>
  * <ul>
  *   <li>{@link recipe.impl.InfrastructureImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link recipe.impl.InfrastructureImpl#getRecipe <em>Recipe</em>}</li>
  *   <li>{@link recipe.impl.InfrastructureImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -49,16 +48,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 	 * @ordered
 	 */
 	protected String uid = UID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getRecipe() <em>Recipe</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRecipe()
-	 * @generated
-	 * @ordered
-	 */
-	protected Recipe recipe;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -125,44 +114,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Recipe getRecipe() {
-		if (recipe != null && recipe.eIsProxy()) {
-			InternalEObject oldRecipe = (InternalEObject)recipe;
-			recipe = (Recipe)eResolveProxy(oldRecipe);
-			if (recipe != oldRecipe) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecipePackage.INFRASTRUCTURE__RECIPE, oldRecipe, recipe));
-			}
-		}
-		return recipe;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Recipe basicGetRecipe() {
-		return recipe;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRecipe(Recipe newRecipe) {
-		Recipe oldRecipe = recipe;
-		recipe = newRecipe;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.INFRASTRUCTURE__RECIPE, oldRecipe, recipe));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
 		return name;
 	}
@@ -189,9 +140,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 		switch (featureID) {
 			case RecipePackage.INFRASTRUCTURE__UID:
 				return getUid();
-			case RecipePackage.INFRASTRUCTURE__RECIPE:
-				if (resolve) return getRecipe();
-				return basicGetRecipe();
 			case RecipePackage.INFRASTRUCTURE__NAME:
 				return getName();
 		}
@@ -208,9 +156,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 		switch (featureID) {
 			case RecipePackage.INFRASTRUCTURE__UID:
 				setUid((String)newValue);
-				return;
-			case RecipePackage.INFRASTRUCTURE__RECIPE:
-				setRecipe((Recipe)newValue);
 				return;
 			case RecipePackage.INFRASTRUCTURE__NAME:
 				setName((String)newValue);
@@ -230,9 +175,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 			case RecipePackage.INFRASTRUCTURE__UID:
 				setUid(UID_EDEFAULT);
 				return;
-			case RecipePackage.INFRASTRUCTURE__RECIPE:
-				setRecipe((Recipe)null);
-				return;
 			case RecipePackage.INFRASTRUCTURE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -250,8 +192,6 @@ public class InfrastructureImpl extends EObjectImpl implements Infrastructure {
 		switch (featureID) {
 			case RecipePackage.INFRASTRUCTURE__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
-			case RecipePackage.INFRASTRUCTURE__RECIPE:
-				return recipe != null;
 			case RecipePackage.INFRASTRUCTURE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}

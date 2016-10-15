@@ -31,8 +31,8 @@ public class MenuProvider  implements java.io.Serializable {
         for( menu in  menuReferences ){
         
         var folder = menu.menu;
-        var formMenu = folder.eContainer().parent.eContainer().parent.eContainer();
-        var uipackageMenu = formMenu.eContainer().parent;
+        var formMenu = folder.eContainer().eContainer().eContainer();
+        var uipackageMenu = formMenu.eContainer();
         
         
         %]

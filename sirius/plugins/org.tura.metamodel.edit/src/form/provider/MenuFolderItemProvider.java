@@ -147,6 +147,7 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE);
 			childrenFeatures.add(FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL);
 			childrenFeatures.add(FormPackage.Literals.ITEM_ICON__ICON);
+			childrenFeatures.add(FormPackage.Literals.FLEX_FIELDS__FIELDS);
 			childrenFeatures.add(FormPackage.Literals.MENU_FOLDER__MENU_ELEMENTS);
 		}
 		return childrenFeatures;
@@ -213,6 +214,7 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 			case FormPackage.MENU_FOLDER__STYLE:
 			case FormPackage.MENU_FOLDER__MULTI_LANG_LABEL:
 			case FormPackage.MENU_FOLDER__ICON:
+			case FormPackage.MENU_FOLDER__FIELDS:
 			case FormPackage.MENU_FOLDER__MENU_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -278,6 +280,11 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(FormPackage.Literals.FLEX_FIELDS__FIELDS,
+				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(FormPackage.Literals.MENU_FOLDER__MENU_ELEMENTS,
 				 FormFactory.eINSTANCE.createMenuElement()));
 
@@ -317,7 +324,8 @@ public class MenuFolderItemProvider extends HTMLLayerHolderItemProvider {
 			childFeature == FormPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
 			childFeature == FormPackage.Literals.STYLE_ELEMENT__STYLE ||
 			childFeature == FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
-			childFeature == FormPackage.Literals.ITEM_ICON__ICON;
+			childFeature == FormPackage.Literals.ITEM_ICON__ICON ||
+			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

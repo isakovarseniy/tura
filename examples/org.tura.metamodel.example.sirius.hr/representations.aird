@@ -992,7 +992,7 @@
               <target xmi:type="tura.application:Application" href="model/hr.domain#6dbe9372-c514-4152-8d84-c8ac1223c2f7"/>
               <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_McrnsFFVEea-h9u82GMR9g" name="Application recipes" expanded="true">
                 <target xmi:type="tura.application:ApplicationRecipes" href="model/hr.domain#df503cbb-5ff4-4931-a503-0ba1035b4410"/>
-                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_Mmh9UFhSEea2E443ZLjqSQ" name="Backend objects and services" expanded="true">
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_Mmh9UFhSEea2E443ZLjqSQ" name="Backend objects and services">
                   <target xmi:type="tura.application:ApplicationRecipe" href="model/hr.domain#a1b10eb6-b808-4453-b15a-0bf4ffb8b04c"/>
                   <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_yj_zEIREEeamMf6qTS23zA" name="Test domain and persistence model">
                     <target xmi:type="tura.recipe:Recipes" href="model/hr.domain#a35e53f5-2d9d-46ce-8a15-46ef1576f04c"/>
@@ -1236,7 +1236,7 @@
                 <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_MrI6cVFVEea-h9u82GMR9g" labelSize="12"/>
                 <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='Application%20infrastructure%20environment']"/>
               </ownedTreeItems>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_MrI6clFVEea-h9u82GMR9g" name="Application styles">
+              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_MrI6clFVEea-h9u82GMR9g" name="Application styles" expanded="true">
                 <target xmi:type="tura.application:ApplicationStyleLibraries" href="model/hr.domain#8d0a3826-f0d9-435f-a0bc-ad850460c3b9"/>
                 <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_MrJhhFFVEea-h9u82GMR9g" name="HR Controller style libraries">
                   <target xmi:type="tura.application:ApplicationStyle" href="model/hr.domain#5088d112-328b-4451-b9c4-97aa08277435"/>
@@ -15869,6 +15869,24 @@
                   <target xmi:type="tura.artifact:GenerationHint" href="model/hr.domain#0c540a45-6e97-4273-a483-9aed3e27477c"/>
                   <semanticElements xmi:type="tura.artifact:GenerationHint" href="model/hr.domain#0c540a45-6e97-4273-a483-9aed3e27477c"/>
                   <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_epyu4ZJwEeaIspIrNZnVpQ" labelSize="12" labelColor="154,103,23"/>
+                  <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Generation%20Hints']/@subItemMappings[name='Genration%20Hint']"/>
+                </ownedTreeItems>
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_M-1AoJJ-EeaIspIrNZnVpQ" name="panel.columns.class">
+                  <target xmi:type="tura.artifact:GenerationHint" href="model/hr.domain#5ecedec5-0aff-42cf-80f2-abf218d5fb47"/>
+                  <semanticElements xmi:type="tura.artifact:GenerationHint" href="model/hr.domain#5ecedec5-0aff-42cf-80f2-abf218d5fb47"/>
+                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_M-1AoZJ-EeaIspIrNZnVpQ" labelSize="12" labelColor="154,103,23"/>
+                  <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Generation%20Hints']/@subItemMappings[name='Genration%20Hint']"/>
+                </ownedTreeItems>
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_wMvMUJLgEea4J7OgxaH1ng" name="row number selector">
+                  <target xmi:type="tura.artifact:GenerationHint" href="model/hr.domain#be798615-3f9f-4c7a-bb08-626b35fbabc6"/>
+                  <semanticElements xmi:type="tura.artifact:GenerationHint" href="model/hr.domain#be798615-3f9f-4c7a-bb08-626b35fbabc6"/>
+                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_wMvMUZLgEea4J7OgxaH1ng" labelSize="12" labelColor="154,103,23"/>
+                  <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Generation%20Hints']/@subItemMappings[name='Genration%20Hint']"/>
+                </ownedTreeItems>
+                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2iUfQJLpEea4J7OgxaH1ng" name="menu.global">
+                  <target xmi:type="tura.artifact:GenerationHint" href="model/hr.domain#e7e14e37-f0b2-4166-a029-c1c8619ce37d"/>
+                  <semanticElements xmi:type="tura.artifact:GenerationHint" href="model/hr.domain#e7e14e37-f0b2-4166-a029-c1c8619ce37d"/>
+                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2iUfQZLpEea4J7OgxaH1ng" labelSize="12" labelColor="154,103,23"/>
                   <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']/@subItemMappings[name='Technologies%20tree']/@subItemMappings[name='Technology']/@subItemMappings[name='Generation%20Hints']/@subItemMappings[name='Genration%20Hint']"/>
                 </ownedTreeItems>
                 <semanticElements xmi:type="tura.artifact:TechLeaf" href="model/hr.domain#2e39e023-cf18-477b-a88d-caabe0c76d39"/>

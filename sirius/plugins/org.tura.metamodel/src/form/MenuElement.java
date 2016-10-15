@@ -23,7 +23,7 @@ import common.Orderable;
  * @model
  * @generated
  */
-public interface MenuElement extends MultiLangLabel, StyleElement, Categorized, EnabledUIItem, Orderable {
+public interface MenuElement extends MultiLangLabel, StyleElement, Categorized, EnabledUIItem, Orderable, FlexFields {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

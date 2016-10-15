@@ -10,6 +10,8 @@ import common.impl.HTMLLayerHolderImpl;
 
 import form.Context;
 import form.EnabledUIItem;
+import form.FlexField;
+import form.FlexFields;
 import form.FormPackage;
 import form.ItemIcon;
 import form.MenuElement;
@@ -45,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.MenuFolderImpl#getStyle <em>Style</em>}</li>
  *   <li>{@link form.impl.MenuFolderImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link form.impl.MenuFolderImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link form.impl.MenuFolderImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link form.impl.MenuFolderImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.MenuFolderImpl#getName <em>Name</em>}</li>
  *   <li>{@link form.impl.MenuFolderImpl#isExtensionPoint <em>Extension Point</em>}</li>
@@ -103,6 +106,16 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * @ordered
 	 */
 	protected Context icon;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlexField> fields;
 
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -382,6 +395,18 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FlexField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.MENU_FOLDER__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getUid() {
 		return uid;
 	}
@@ -470,6 +495,8 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return basicSetMultiLangLabel(null, msgs);
 			case FormPackage.MENU_FOLDER__ICON:
 				return basicSetIcon(null, msgs);
+			case FormPackage.MENU_FOLDER__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 			case FormPackage.MENU_FOLDER__MENU_ELEMENTS:
 				return ((InternalEList<?>)getMenuElements()).basicRemove(otherEnd, msgs);
 		}
@@ -494,6 +521,8 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return getMultiLangLabel();
 			case FormPackage.MENU_FOLDER__ICON:
 				return getIcon();
+			case FormPackage.MENU_FOLDER__FIELDS:
+				return getFields();
 			case FormPackage.MENU_FOLDER__UID:
 				return getUid();
 			case FormPackage.MENU_FOLDER__NAME:
@@ -530,6 +559,10 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return;
 			case FormPackage.MENU_FOLDER__ICON:
 				setIcon((Context)newValue);
+				return;
+			case FormPackage.MENU_FOLDER__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends FlexField>)newValue);
 				return;
 			case FormPackage.MENU_FOLDER__UID:
 				setUid((String)newValue);
@@ -571,6 +604,9 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 			case FormPackage.MENU_FOLDER__ICON:
 				setIcon((Context)null);
 				return;
+			case FormPackage.MENU_FOLDER__FIELDS:
+				getFields().clear();
+				return;
 			case FormPackage.MENU_FOLDER__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -605,6 +641,8 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				return multiLangLabel != null;
 			case FormPackage.MENU_FOLDER__ICON:
 				return icon != null;
+			case FormPackage.MENU_FOLDER__FIELDS:
+				return fields != null && !fields.isEmpty();
 			case FormPackage.MENU_FOLDER__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case FormPackage.MENU_FOLDER__NAME:
@@ -654,6 +692,12 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlexFields.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.MENU_FOLDER__FIELDS: return FormPackage.FLEX_FIELDS__FIELDS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -691,6 +735,12 @@ public class MenuFolderImpl extends HTMLLayerHolderImpl implements MenuFolder {
 		if (baseClass == ItemIcon.class) {
 			switch (baseFeatureID) {
 				case FormPackage.ITEM_ICON__ICON: return FormPackage.MENU_FOLDER__ICON;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlexFields.class) {
+			switch (baseFeatureID) {
+				case FormPackage.FLEX_FIELDS__FIELDS: return FormPackage.MENU_FOLDER__FIELDS;
 				default: return -1;
 			}
 		}

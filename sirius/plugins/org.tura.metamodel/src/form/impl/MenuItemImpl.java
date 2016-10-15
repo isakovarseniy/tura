@@ -34,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link form.impl.MenuItemImpl#getIcon <em>Icon</em>}</li>
- *   <li>{@link form.impl.MenuItemImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link form.impl.MenuItemImpl#getTransition <em>Transition</em>}</li>
  *   <li>{@link form.impl.MenuItemImpl#getRefreshAreas <em>Refresh Areas</em>}</li>
  * </ul>
@@ -51,16 +50,6 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 	 * @ordered
 	 */
 	protected Context icon;
-
-	/**
-	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFields()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<FlexField> fields;
 
 	/**
 	 * The cached value of the '{@link #getTransition() <em>Transition</em>}' containment reference.
@@ -149,18 +138,6 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<FlexField> getFields() {
-		if (fields == null) {
-			fields = new EObjectContainmentEList<FlexField>(FlexField.class, this, FormPackage.MENU_ITEM__FIELDS);
-		}
-		return fields;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Context getTransition() {
 		return transition;
 	}
@@ -221,8 +198,6 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 		switch (featureID) {
 			case FormPackage.MENU_ITEM__ICON:
 				return basicSetIcon(null, msgs);
-			case FormPackage.MENU_ITEM__FIELDS:
-				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 			case FormPackage.MENU_ITEM__TRANSITION:
 				return basicSetTransition(null, msgs);
 			case FormPackage.MENU_ITEM__REFRESH_AREAS:
@@ -241,8 +216,6 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 		switch (featureID) {
 			case FormPackage.MENU_ITEM__ICON:
 				return getIcon();
-			case FormPackage.MENU_ITEM__FIELDS:
-				return getFields();
 			case FormPackage.MENU_ITEM__TRANSITION:
 				return getTransition();
 			case FormPackage.MENU_ITEM__REFRESH_AREAS:
@@ -262,10 +235,6 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 		switch (featureID) {
 			case FormPackage.MENU_ITEM__ICON:
 				setIcon((Context)newValue);
-				return;
-			case FormPackage.MENU_ITEM__FIELDS:
-				getFields().clear();
-				getFields().addAll((Collection<? extends FlexField>)newValue);
 				return;
 			case FormPackage.MENU_ITEM__TRANSITION:
 				setTransition((Context)newValue);
@@ -289,9 +258,6 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 			case FormPackage.MENU_ITEM__ICON:
 				setIcon((Context)null);
 				return;
-			case FormPackage.MENU_ITEM__FIELDS:
-				getFields().clear();
-				return;
 			case FormPackage.MENU_ITEM__TRANSITION:
 				setTransition((Context)null);
 				return;
@@ -312,8 +278,6 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 		switch (featureID) {
 			case FormPackage.MENU_ITEM__ICON:
 				return icon != null;
-			case FormPackage.MENU_ITEM__FIELDS:
-				return fields != null && !fields.isEmpty();
 			case FormPackage.MENU_ITEM__TRANSITION:
 				return transition != null;
 			case FormPackage.MENU_ITEM__REFRESH_AREAS:
@@ -335,12 +299,6 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 				default: return -1;
 			}
 		}
-		if (baseClass == FlexFields.class) {
-			switch (derivedFeatureID) {
-				case FormPackage.MENU_ITEM__FIELDS: return FormPackage.FLEX_FIELDS__FIELDS;
-				default: return -1;
-			}
-		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -354,12 +312,6 @@ public class MenuItemImpl extends MenuElementImpl implements MenuItem {
 		if (baseClass == ItemIcon.class) {
 			switch (baseFeatureID) {
 				case FormPackage.ITEM_ICON__ICON: return FormPackage.MENU_ITEM__ICON;
-				default: return -1;
-			}
-		}
-		if (baseClass == FlexFields.class) {
-			switch (baseFeatureID) {
-				case FormPackage.FLEX_FIELDS__FIELDS: return FormPackage.MENU_ITEM__FIELDS;
 				default: return -1;
 			}
 		}

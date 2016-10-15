@@ -1,4 +1,4 @@
-operation domain::Role mappingRole2Role( recipe:Recipe, ingredient :Ingredient) { 
+operation permission::Role mappingRole2Role( recipe:Recipe, ingredient :Ingredient) { 
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
@@ -7,7 +7,7 @@ operation domain::Role mappingRole2Role( recipe:Recipe, ingredient :Ingredient) 
     appmappers.addAll(ingredient.mappers);
 
     for( appmapper in appmappers ){
-         var set = appmapper.mapper.mappers.select(r|r.isKindOf(domain::RoleMapper) and  r.role.uid= self.uid);
+         var set = appmapper.mappers.select(r|r.isKindOf(mapper::RoleMapper) and  r.securityEntity.uid= self.uid);
           if ( set.size() <> 0 ){
             for( s in set){
              self.~localRoleName=s.localRoleName;

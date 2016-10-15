@@ -566,7 +566,7 @@ public class Util {
 				return hintRef.getHint().getUid();
 			}
 		}
-		throw new Exception("Hint is undifined");
+		throw new Exception("Hint "+hintNickName+" is undifined in "+mapper.getArtifactRef().getName());
 	}
 	
 }

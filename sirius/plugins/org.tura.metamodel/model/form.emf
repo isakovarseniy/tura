@@ -330,20 +330,22 @@ class MenuExtensionRef{
 }
 
 
-class MenuElement extends MultiLangLabel,StyleElement,artifact.Categorized,EnabledUIItem,common.Orderable{
+//Add FlexFields to configure styleClasses
+class MenuElement extends MultiLangLabel,StyleElement,artifact.Categorized,EnabledUIItem,common.Orderable,FlexFields{
     id attr EString uid;
     attr EString name;
 }
 
 
-class MenuFolder extends common.HTMLLayerHolder,EnabledUIItem,artifact.Categorized,StyleElement,MultiLangLabel,ItemIcon{
+//Add FlexFields to configure styleClasses
+class MenuFolder extends common.HTMLLayerHolder,EnabledUIItem,artifact.Categorized,StyleElement,MultiLangLabel,ItemIcon,FlexFields{
     id attr EString uid;
     attr EString name;
     attr EBoolean extensionPoint;
     val MenuElement[*] menuElements;
 }
 
-class MenuItem extends MenuElement,ItemIcon,FlexFields{
+class MenuItem extends MenuElement,ItemIcon{
 	 val Context transition;
      val AreaRef[*]  refreshAreas;	 
 }
@@ -353,8 +355,8 @@ class MenuExtensionPoint extends MenuElement,MenuExtensionRef{
 	
 }
 
-
-class SubMenu extends MenuElement,ItemIcon{
+//Add FlexFields to configure styleClasses
+class SubMenu extends MenuElement,ItemIcon,FlexFields{
 }
 
 

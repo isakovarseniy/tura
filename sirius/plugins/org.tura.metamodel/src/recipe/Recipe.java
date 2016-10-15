@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link recipe.Recipe#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.Recipe#getName <em>Name</em>}</li>
  *   <li>{@link recipe.Recipe#getIngredients <em>Ingredients</em>}</li>
- *   <li>{@link recipe.Recipe#getInfrastructures <em>Infrastructures</em>}</li>
  *   <li>{@link recipe.Recipe#getDeplymentStep <em>Deplyment Step</em>}</li>
  *   <li>{@link recipe.Recipe#getStartSeq <em>Start Seq</em>}</li>
  * </ul>
@@ -94,22 +93,6 @@ public interface Recipe extends UsingMappers, HTMLLayerHolder {
 	 * @generated
 	 */
 	EList<Ingredient> getIngredients();
-
-	/**
-	 * Returns the value of the '<em><b>Infrastructures</b></em>' reference list.
-	 * The list contents are of type {@link recipe.Infrastructure}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Infrastructures</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Infrastructures</em>' reference list.
-	 * @see recipe.RecipePackage#getRecipe_Infrastructures()
-	 * @model
-	 * @generated
-	 */
-	EList<Infrastructure> getInfrastructures();
 
 	/**
 	 * Returns the value of the '<em><b>Deplyment Step</b></em>' containment reference list.

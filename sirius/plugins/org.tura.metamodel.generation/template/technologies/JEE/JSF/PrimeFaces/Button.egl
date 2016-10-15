@@ -21,7 +21,7 @@ operation form::Button draw(hash) {
 
  %]
 <p:commandButton  [%=immediate%]  [%=title%] [%=self.mkUIDBinding()%] [%=self.uiElementAttributes(hash)%][%  
-       var expression = constructExpression(self,'trigger.onclick',hints, hash);
+       var expression = constructExpression(self,'onclick',hints, hash);
        if (expression <> ""){
        %] onclick="[%=expression%]"[%
        }

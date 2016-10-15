@@ -232,22 +232,13 @@ public interface RecipePackage extends EPackage {
 	int RECIPE__INGREDIENTS = USING_MAPPERS_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Infrastructures</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECIPE__INFRASTRUCTURES = USING_MAPPERS_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Deplyment Step</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE__DEPLYMENT_STEP = USING_MAPPERS_FEATURE_COUNT + 5;
+	int RECIPE__DEPLYMENT_STEP = USING_MAPPERS_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Start Seq</b></em>' containment reference.
@@ -256,7 +247,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE__START_SEQ = USING_MAPPERS_FEATURE_COUNT + 6;
+	int RECIPE__START_SEQ = USING_MAPPERS_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Recipe</em>' class.
@@ -265,7 +256,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPE_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 7;
+	int RECIPE_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ConfigExtensionImpl <em>Config Extension</em>}' class.
@@ -790,22 +781,13 @@ public interface RecipePackage extends EPackage {
 	int INFRASTRUCTURE__UID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Recipe</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFRASTRUCTURE__RECIPE = 1;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE__NAME = 2;
+	int INFRASTRUCTURE__NAME = 1;
 
 	/**
 	 * The number of structural features of the '<em>Infrastructure</em>' class.
@@ -814,7 +796,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_FEATURE_COUNT = 3;
+	int INFRASTRUCTURE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -1437,17 +1419,6 @@ public interface RecipePackage extends EPackage {
 	EReference getRecipe_Ingredients();
 
 	/**
-	 * Returns the meta object for the reference list '{@link recipe.Recipe#getInfrastructures <em>Infrastructures</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Infrastructures</em>'.
-	 * @see recipe.Recipe#getInfrastructures()
-	 * @see #getRecipe()
-	 * @generated
-	 */
-	EReference getRecipe_Infrastructures();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link recipe.Recipe#getDeplymentStep <em>Deplyment Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1898,17 +1869,6 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getInfrastructure_Uid();
-
-	/**
-	 * Returns the meta object for the reference '{@link recipe.Infrastructure#getRecipe <em>Recipe</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Recipe</em>'.
-	 * @see recipe.Infrastructure#getRecipe()
-	 * @see #getInfrastructure()
-	 * @generated
-	 */
-	EReference getInfrastructure_Recipe();
 
 	/**
 	 * Returns the meta object for the attribute '{@link recipe.Infrastructure#getName <em>Name</em>}'.
@@ -2482,14 +2442,6 @@ public interface RecipePackage extends EPackage {
 		EReference RECIPE__INGREDIENTS = eINSTANCE.getRecipe_Ingredients();
 
 		/**
-		 * The meta object literal for the '<em><b>Infrastructures</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RECIPE__INFRASTRUCTURES = eINSTANCE.getRecipe_Infrastructures();
-
-		/**
 		 * The meta object literal for the '<em><b>Deplyment Step</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2844,14 +2796,6 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INFRASTRUCTURE__UID = eINSTANCE.getInfrastructure_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Recipe</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INFRASTRUCTURE__RECIPE = eINSTANCE.getInfrastructure_Recipe();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

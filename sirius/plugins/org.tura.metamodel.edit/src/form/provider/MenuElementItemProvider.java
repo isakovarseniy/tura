@@ -141,6 +141,7 @@ public class MenuElementItemProvider extends MultiLangLabelItemProvider {
 			childrenFeatures.add(FormPackage.Literals.STYLE_ELEMENT__STYLE);
 			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(FormPackage.Literals.ENABLED_UI_ITEM__ENABLED);
+			childrenFeatures.add(FormPackage.Literals.FLEX_FIELDS__FIELDS);
 		}
 		return childrenFeatures;
 	}
@@ -204,6 +205,7 @@ public class MenuElementItemProvider extends MultiLangLabelItemProvider {
 			case FormPackage.MENU_ELEMENT__STYLE:
 			case FormPackage.MENU_ELEMENT__CLASSIFIERS:
 			case FormPackage.MENU_ELEMENT__ENABLED:
+			case FormPackage.MENU_ELEMENT__FIELDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -245,6 +247,11 @@ public class MenuElementItemProvider extends MultiLangLabelItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.ENABLED_UI_ITEM__ENABLED,
 				 FormFactory.eINSTANCE.createFlexField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.FLEX_FIELDS__FIELDS,
+				 FormFactory.eINSTANCE.createFlexField()));
 	}
 
 	/**
@@ -261,7 +268,8 @@ public class MenuElementItemProvider extends MultiLangLabelItemProvider {
 		boolean qualify =
 			childFeature == FormPackage.Literals.MULTI_LANG_LABEL__MULTI_LANG_LABEL ||
 			childFeature == FormPackage.Literals.STYLE_ELEMENT__STYLE ||
-			childFeature == FormPackage.Literals.ENABLED_UI_ITEM__ENABLED;
+			childFeature == FormPackage.Literals.ENABLED_UI_ITEM__ENABLED ||
+			childFeature == FormPackage.Literals.FLEX_FIELDS__FIELDS;
 
 		if (qualify) {
 			return getString

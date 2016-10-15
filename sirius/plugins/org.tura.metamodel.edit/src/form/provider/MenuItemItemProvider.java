@@ -63,7 +63,6 @@ public class MenuItemItemProvider extends MenuElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FormPackage.Literals.ITEM_ICON__ICON);
-			childrenFeatures.add(FormPackage.Literals.FLEX_FIELDS__FIELDS);
 			childrenFeatures.add(FormPackage.Literals.MENU_ITEM__TRANSITION);
 			childrenFeatures.add(FormPackage.Literals.MENU_ITEM__REFRESH_AREAS);
 		}
@@ -122,7 +121,6 @@ public class MenuItemItemProvider extends MenuElementItemProvider {
 
 		switch (notification.getFeatureID(MenuItem.class)) {
 			case FormPackage.MENU_ITEM__ICON:
-			case FormPackage.MENU_ITEM__FIELDS:
 			case FormPackage.MENU_ITEM__TRANSITION:
 			case FormPackage.MENU_ITEM__REFRESH_AREAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -150,11 +148,6 @@ public class MenuItemItemProvider extends MenuElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FormPackage.Literals.ITEM_ICON__ICON,
-				 FormFactory.eINSTANCE.createFlexField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.FLEX_FIELDS__FIELDS,
 				 FormFactory.eINSTANCE.createFlexField()));
 
 		newChildDescriptors.add
