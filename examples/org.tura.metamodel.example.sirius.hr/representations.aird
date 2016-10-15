@@ -24443,8 +24443,8 @@
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='Label0']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_vniugIBeEea7u53EMksaYQ" width="-1" height="-1">
-            <target xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.1/@viewElement.0/@baseCanvas/@children.1/@children.1"/>
-            <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.1/@viewElement.0/@baseCanvas/@children.1/@children.1"/>
+            <target xmi:type="tura.form:OutputText" href="model/hr.domain#15ab1d0b-cd35-481d-9808-ae47fe658178"/>
+            <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#15ab1d0b-cd35-481d-9808-ae47fe658178"/>
             <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_vnjVkIBeEea7u53EMksaYQ" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/outputtext.png">
               <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='OutputText0']/@style"/>
             </ownedStyle>
@@ -24550,8 +24550,8 @@
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='Label0']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_ny0_kIBfEea7u53EMksaYQ" width="-1" height="-1">
-            <target xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.2/@viewElement.0/@baseCanvas/@children.1/@children.1"/>
-            <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.2/@viewElement.0/@baseCanvas/@children.1/@children.1"/>
+            <target xmi:type="tura.form:OutputText" href="model/hr.domain#35e4f0f7-48c7-4705-8514-1d9e5c6a700d"/>
+            <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#35e4f0f7-48c7-4705-8514-1d9e5c6a700d"/>
             <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_ny0_kYBfEea7u53EMksaYQ" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/outputtext.png">
               <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='OutputText0']/@style"/>
             </ownedStyle>
@@ -24657,8 +24657,8 @@
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='Label0']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_c68g8IBoEeaZncCJdxAR1Q" width="-1" height="-1">
-            <target xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.3/@viewElement.0/@baseCanvas/@children.1/@children.1"/>
-            <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.3/@viewElement.0/@baseCanvas/@children.1/@children.1"/>
+            <target xmi:type="tura.form:OutputText" href="model/hr.domain#cb21c053-49eb-4cab-97b7-ea63721bdc49"/>
+            <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#cb21c053-49eb-4cab-97b7-ea63721bdc49"/>
             <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_c69IAIBoEeaZncCJdxAR1Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/outputtext.png">
               <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='OutputText0']/@style"/>
             </ownedStyle>
@@ -24764,8 +24764,8 @@
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='Label0']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_vRA5UIBoEeaZncCJdxAR1Q" width="-1" height="-1">
-            <target xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.4/@viewElement.0/@baseCanvas/@children.1/@children.1"/>
-            <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.4/@viewElement.0/@baseCanvas/@children.1/@children.1"/>
+            <target xmi:type="tura.form:OutputText" href="model/hr.domain#c6a5d2bd-195f-4bfb-bed0-1389dd60a45b"/>
+            <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#c6a5d2bd-195f-4bfb-bed0-1389dd60a45b"/>
             <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_vRA5UYBoEeaZncCJdxAR1Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/outputtext.png">
               <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='OutputText0']/@style"/>
             </ownedStyle>
@@ -25355,16 +25355,16 @@
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='Label0']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_734WYIBsEeaZncCJdxAR1Q" width="-1" height="-1">
-            <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.10/@viewElement.0/@baseCanvas/@children.1/@children.1"/>
-            <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.10/@viewElement.0/@baseCanvas/@children.1/@children.1"/>
+            <target xmi:type="tura.form:InputText" href="model/hr.domain#b073329f-ecd7-4a66-9e33-a568f4503904"/>
+            <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#b073329f-ecd7-4a66-9e33-a568f4503904"/>
             <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_734WYYBsEeaZncCJdxAR1Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
               <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='InputText0']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='InputText0']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_GyUDoIBtEeaZncCJdxAR1Q" width="-1" height="-1">
-            <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.10/@viewElement.0/@baseCanvas/@children.1/@children.3"/>
-            <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.10/@viewElement.0/@baseCanvas/@children.1/@children.3"/>
+            <target xmi:type="tura.form:InputText" href="model/hr.domain#bca28a67-b6af-4d86-aa22-782c1f79fd47"/>
+            <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#bca28a67-b6af-4d86-aa22-782c1f79fd47"/>
             <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_GyUqsIBtEeaZncCJdxAR1Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
               <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='InputText0']/@style"/>
             </ownedStyle>
@@ -25585,8 +25585,8 @@
                 </ownedStyle>
                 <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']"/>
                 <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_UoddYIEYEeaHlJaK6zO82Q" width="-1" height="-1">
-                  <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.5/@viewElement.0/@baseCanvas/@children.0/@cols.0/@element"/>
-                  <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.5/@viewElement.0/@baseCanvas/@children.0/@cols.0/@element"/>
+                  <target xmi:type="tura.form:InputText" href="model/hr.domain#b3679c03-c017-40b1-8efb-5630c01fd3dd"/>
+                  <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#b3679c03-c017-40b1-8efb-5630c01fd3dd"/>
                   <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_UoddYYEYEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
                     <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']/@subNodeMappings[name='InputText2']/@style"/>
                   </ownedStyle>
@@ -25610,8 +25610,8 @@
                 </ownedStyle>
                 <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']"/>
                 <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_T3nPQIEYEeaHlJaK6zO82Q" width="-1" height="-1">
-                  <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.5/@viewElement.0/@baseCanvas/@children.0/@cols.1/@element"/>
-                  <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.5/@viewElement.0/@baseCanvas/@children.0/@cols.1/@element"/>
+                  <target xmi:type="tura.form:InputText" href="model/hr.domain#69414b2f-5231-4a68-b302-1c54215965b5"/>
+                  <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#69414b2f-5231-4a68-b302-1c54215965b5"/>
                   <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_T3n2UIEYEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
                     <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']/@subNodeMappings[name='InputText2']/@style"/>
                   </ownedStyle>
@@ -25635,8 +25635,8 @@
                 </ownedStyle>
                 <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']"/>
                 <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VPEKYIEYEeaHlJaK6zO82Q" width="-1" height="-1">
-                  <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.5/@viewElement.0/@baseCanvas/@children.0/@cols.2/@element"/>
-                  <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.5/@viewElement.0/@baseCanvas/@children.0/@cols.2/@element"/>
+                  <target xmi:type="tura.form:InputText" href="model/hr.domain#ef5e0ead-153d-4f80-afcc-a949d71f0e7c"/>
+                  <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#ef5e0ead-153d-4f80-afcc-a949d71f0e7c"/>
                   <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_VPEKYYEYEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
                     <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']/@subNodeMappings[name='InputText2']/@style"/>
                   </ownedStyle>
@@ -25829,8 +25829,8 @@
                 </ownedStyle>
                 <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subContainerMappings[name='ColumnElement']"/>
                 <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_jCV3kIEZEeaHlJaK6zO82Q" width="-1" height="-1">
-                  <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.8/@viewElement.0/@baseCanvas/@children.0/@cols.0/@element"/>
-                  <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.8/@viewElement.0/@baseCanvas/@children.0/@cols.0/@element"/>
+                  <target xmi:type="tura.form:InputText" href="model/hr.domain#636a7945-cd50-4970-8b50-5345907c05bd"/>
+                  <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#636a7945-cd50-4970-8b50-5345907c05bd"/>
                   <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_jCWeoIEZEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
                     <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Tree']/@subContainerMappings[name='TreeColumns']/@subContainerMappings[name='ColumnTree']/@subContainerMappings[name='ColumnElement']/@subNodeMappings[name='InputText4']/@style"/>
                   </ownedStyle>
@@ -26290,8 +26290,8 @@
                   </ownedStyle>
                   <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']"/>
                   <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="__2NHsIEdEeaHlJaK6zO82Q" width="-1" height="-1">
-                    <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.0/@children.0/@cols.0/@element"/>
-                    <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.0/@children.0/@cols.0/@element"/>
+                    <target xmi:type="tura.form:InputText" href="model/hr.domain#f0b5bbfd-7a83-4aec-8b71-6bb975bf9a1a"/>
+                    <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#f0b5bbfd-7a83-4aec-8b71-6bb975bf9a1a"/>
                     <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="__2NHsYEdEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
                       <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']/@subNodeMappings[name='InputText2']/@style"/>
                     </ownedStyle>
@@ -26315,8 +26315,8 @@
                   </ownedStyle>
                   <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']"/>
                   <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_AK5lUIEeEeaHlJaK6zO82Q" width="-1" height="-1">
-                    <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.0/@children.0/@cols.1/@element"/>
-                    <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.0/@children.0/@cols.1/@element"/>
+                    <target xmi:type="tura.form:InputText" href="model/hr.domain#ec741ce0-29bf-4758-a269-4f88eae3e906"/>
+                    <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#ec741ce0-29bf-4758-a269-4f88eae3e906"/>
                     <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_AK5lUYEeEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
                       <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']/@subNodeMappings[name='InputText2']/@style"/>
                     </ownedStyle>
@@ -26394,8 +26394,8 @@
                   </ownedStyle>
                   <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']"/>
                   <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_mKZiwIEbEeaHlJaK6zO82Q" width="-1" height="-1">
-                    <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.1/@children.0/@cols.0/@element"/>
-                    <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.1/@children.0/@cols.0/@element"/>
+                    <target xmi:type="tura.form:InputText" href="model/hr.domain#d3a6ac99-75ae-4e10-8b34-bc842facaa5d"/>
+                    <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#d3a6ac99-75ae-4e10-8b34-bc842facaa5d"/>
                     <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_mKaJ0IEbEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
                       <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']/@subNodeMappings[name='InputText2']/@style"/>
                     </ownedStyle>
@@ -26419,8 +26419,8 @@
                   </ownedStyle>
                   <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']"/>
                   <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_mgg8sIEbEeaHlJaK6zO82Q" width="-1" height="-1">
-                    <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.1/@children.0/@cols.1/@element"/>
-                    <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.1/@children.0/@cols.1/@element"/>
+                    <target xmi:type="tura.form:InputText" href="model/hr.domain#a815f428-b95e-483d-9c5a-827ff5eb3b1e"/>
+                    <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#a815f428-b95e-483d-9c5a-827ff5eb3b1e"/>
                     <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_mgg8sYEbEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
                       <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']/@subNodeMappings[name='InputText2']/@style"/>
                     </ownedStyle>
@@ -26444,8 +26444,8 @@
                   </ownedStyle>
                   <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']"/>
                   <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_nE6qQIEbEeaHlJaK6zO82Q" width="-1" height="-1">
-                    <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.1/@children.0/@cols.2/@element"/>
-                    <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.1/@children.0/@cols.2/@element"/>
+                    <target xmi:type="tura.form:InputText" href="model/hr.domain#601cba0e-6e11-4e6c-84ac-87914a90f444"/>
+                    <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#601cba0e-6e11-4e6c-84ac-87914a90f444"/>
                     <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_nE7RUIEbEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/inputtext.png">
                       <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subContainerMappings[name='Table']/@subContainerMappings[name='TableColumns']/@subContainerMappings[name='ColumnTable']/@subContainerMappings[name='ColumnElement']/@subNodeMappings[name='InputText2']/@style"/>
                     </ownedStyle>
@@ -26516,16 +26516,16 @@
               <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='Label0']"/>
             </ownedDiagramElements>
             <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_E3QU0IEgEeaHlJaK6zO82Q" width="-1" height="-1">
-              <target xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.1/@children.2/@children.3"/>
-              <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.1/@children.2/@children.3"/>
+              <target xmi:type="tura.form:OutputText" href="model/hr.domain#99dae6f2-b50a-4800-9cfd-9ef5ce5a746c"/>
+              <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#99dae6f2-b50a-4800-9cfd-9ef5ce5a746c"/>
               <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_E3QU0YEgEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/outputtext.png">
                 <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='OutputText0']/@style"/>
               </ownedStyle>
               <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='OutputText0']"/>
             </ownedDiagramElements>
             <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_FXrhUIEgEeaHlJaK6zO82Q" width="-1" height="-1">
-              <target xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.1/@children.2/@children.4"/>
-              <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas/@children.1/@children.2/@children.4"/>
+              <target xmi:type="tura.form:OutputText" href="model/hr.domain#d7ca7e1f-7303-455b-9549-a9a7ab83621e"/>
+              <semanticElements xmi:type="tura.form:OutputText" href="model/hr.domain#d7ca7e1f-7303-455b-9549-a9a7ab83621e"/>
               <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_FXrhUYEgEeaHlJaK6zO82Q" labelSize="12" showIcon="false" labelAlignment="LEFT" labelPosition="node" workspacePath="/org.tura.metamodel.sirius.diagram.designer/images/outputtext.png">
                 <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='OutputText0']/@style"/>
               </ownedStyle>
