@@ -3448,8 +3448,9 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:Switch">
                 <cases conditionExpression="aql:self.oclIsKindOf(form::ViewArea)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.LayerHolder" referenceName="baseCanvas"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.LayerHolder" referenceName="baseCanvas">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  </subModelOperations>
                 </cases>
                 <cases conditionExpression="aql:self.oclIsKindOf(form::LayerHolder)">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="form.LayerHolder" referenceName="children">

@@ -23485,8 +23485,8 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']"/>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_-Z68tn34Eea_dobTCGKaKA">
-          <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.0/@viewElement.0/@baseCanvas/@children.0"/>
-          <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.0/@viewElement.0/@baseCanvas/@children.0"/>
+          <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#3fc4f77c-2b93-42b4-accf-ba4a658fb2ba"/>
+          <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#3fc4f77c-2b93-42b4-accf-ba4a658fb2ba"/>
           <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_-Z68t334Eea_dobTCGKaKA"/>
           <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_-Z68uH34Eea_dobTCGKaKA" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
             <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -24408,8 +24408,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_a5WBIIBeEea7u53EMksaYQ">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.1/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.1/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#f72c200e-7aaa-487d-8a50-c933ac93e683"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#f72c200e-7aaa-487d-8a50-c933ac93e683"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_a5XPQIBeEea7u53EMksaYQ"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_a5WoMIBeEea7u53EMksaYQ" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -24518,8 +24518,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_boZqEIBfEea7u53EMksaYQ">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.2/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.2/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#be1db301-9b65-4abd-ba6f-a79e1201ff3c"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#be1db301-9b65-4abd-ba6f-a79e1201ff3c"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_boa4MIBfEea7u53EMksaYQ"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_boZqEYBfEea7u53EMksaYQ" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -24625,8 +24625,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_Ui20oIBoEeaZncCJdxAR1Q">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.3/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.3/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#eb820a65-f893-469f-aa1e-c65ede8c1ef4"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#eb820a65-f893-469f-aa1e-c65ede8c1ef4"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_Ui5Q4IBoEeaZncCJdxAR1Q"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_Ui3bsIBoEeaZncCJdxAR1Q" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -24732,8 +24732,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_navgoIBoEeaZncCJdxAR1Q">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.4/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.4/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#31209527-e18e-4472-b537-3492f4f02faf"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#31209527-e18e-4472-b537-3492f4f02faf"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_nawHsIBoEeaZncCJdxAR1Q"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_navgoYBoEeaZncCJdxAR1Q" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -24988,8 +24988,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_ur16QIBpEeaZncCJdxAR1Q">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.6/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.6/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#440d622a-4c2f-452e-a739-022c82956ad3"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#440d622a-4c2f-452e-a739-022c82956ad3"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_ur2hUYBpEeaZncCJdxAR1Q"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -25042,8 +25042,8 @@
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='Label0']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_KOjBUIBqEeaZncCJdxAR1Q" outgoingEdges="_hUkhsIBqEeaZncCJdxAR1Q _t2UyEIBqEeaZncCJdxAR1Q" width="-1" height="-1">
-            <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.6/@viewElement.0/@baseCanvas/@children.1/@children.2"/>
-            <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.6/@viewElement.0/@baseCanvas/@children.1/@children.2"/>
+            <target xmi:type="tura.form:InputText" href="model/hr.domain#8a2f480e-7f0d-4c16-8166-703dbfeda7ad"/>
+            <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#8a2f480e-7f0d-4c16-8166-703dbfeda7ad"/>
             <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
             <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
             <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -25053,8 +25053,8 @@
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@subNodeMappings[name='InputText0']"/>
           </ownedDiagramElements>
           <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_RNWmgIBqEeaZncCJdxAR1Q" outgoingEdges="_gX3B0IBqEeaZncCJdxAR1Q _y7CpIIBqEeaZncCJdxAR1Q" width="-1" height="-1">
-            <target xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.6/@viewElement.0/@baseCanvas/@children.1/@children.4"/>
-            <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.6/@viewElement.0/@baseCanvas/@children.1/@children.4"/>
+            <target xmi:type="tura.form:InputText" href="model/hr.domain#77551383-702f-4cd4-816e-b3e0d76c71f2"/>
+            <semanticElements xmi:type="tura.form:InputText" href="model/hr.domain#77551383-702f-4cd4-816e-b3e0d76c71f2"/>
             <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
             <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
             <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -25288,8 +25288,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_eLSxsIBsEeaZncCJdxAR1Q">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.10/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.10/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#e03af5dc-fb1d-4ff4-bef2-6b690e3153bd"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#e03af5dc-fb1d-4ff4-bef2-6b690e3153bd"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_eLTYwYBsEeaZncCJdxAR1Q"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -25544,8 +25544,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_yFupIIEXEeaHlJaK6zO82Q">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.5/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.5/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#deaca6de-72c2-412c-9456-80edfb64441f"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#deaca6de-72c2-412c-9456-80edfb64441f"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_yFxFYIEXEeaHlJaK6zO82Q"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_yFv3QIEXEeaHlJaK6zO82Q" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -25791,8 +25791,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_Og9eMIEZEeaHlJaK6zO82Q">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.8/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.8/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#08d6eb6f-5230-42f9-83c6-ee7d1e42b8be"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#08d6eb6f-5230-42f9-83c6-ee7d1e42b8be"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_Og-FQIEZEeaHlJaK6zO82Q"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_Og9eMYEZEeaHlJaK6zO82Q" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -26241,8 +26241,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_G3Po4IEbEeaHlJaK6zO82Q">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.0/@view/@canvases.9/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#0d19a894-e47b-482f-b8de-7c73e109aa85"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#0d19a894-e47b-482f-b8de-7c73e109aa85"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_G3QP8YEbEeaHlJaK6zO82Q"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_G3QP8IEbEeaHlJaK6zO82Q" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -26908,8 +26908,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_JMfF0IJ3EeaORuSlKdWdJA">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.1/@view/@canvases.0/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.1/@view/@canvases.0/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#73e36ce5-8475-4cc8-9449-abf7b165000e"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#73e36ce5-8475-4cc8-9449-abf7b165000e"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_JMfs4YJ3EeaORuSlKdWdJA"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_JMfs4IJ3EeaORuSlKdWdJA" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -27202,8 +27202,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_cbsQMIJ4EeaORuSlKdWdJA">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.2/@view/@canvases.0/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.2/@view/@canvases.0/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#275e758b-4f71-4471-ab0b-a6c419597a8d"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#275e758b-4f71-4471-ab0b-a6c419597a8d"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_cbs3QIJ4EeaORuSlKdWdJA"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_cbsQMYJ4EeaORuSlKdWdJA" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -27479,8 +27479,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_Bk1-AIKCEeaeC-8KKf5Lng">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.3/@view/@canvases.0/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.3/@view/@canvases.0/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#7e4d40c6-5a93-4e00-b75d-f4f488533797"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#7e4d40c6-5a93-4e00-b75d-f4f488533797"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_Bk3MIIKCEeaeC-8KKf5Lng"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_Bk2lEIKCEeaeC-8KKf5Lng" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
@@ -27685,8 +27685,8 @@
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_RL_ckIKDEeaeC-8KKf5Lng">
-        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.4/@view/@canvases.0/@viewElement.0/@baseCanvas"/>
-        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationUILayer/@applicationUIPackages.0/@forms.4/@view/@canvases.0/@viewElement.0/@baseCanvas"/>
+        <target xmi:type="tura.form:LayerHolder" href="model/hr.domain#3f662a6c-20d1-4977-ae65-72d2006896d1"/>
+        <semanticElements xmi:type="tura.form:LayerHolder" href="model/hr.domain#3f662a6c-20d1-4977-ae65-72d2006896d1"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_RMADoIKDEeaeC-8KKf5Lng"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_RL_ckYKDEeaeC-8KKf5Lng" labelSize="12" iconPath="/org.tura.metamodel.sirius.diagram.designer/icons/layerholder.png" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" foregroundColor="255,255,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Canvas%20diagram']/@defaultLayer/@containerMappings[name='LayerHolder']/@style"/>
