@@ -152,6 +152,22 @@
               <options uid="80bdcd86-66bb-4855-8742-ba002fe8ccd7" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
               <options uid="8c280b50-6124-427d-8cc5-4d7acc55a1dc" value="29507ea3-68c9-417b-85dc-a32c4474ee6c"/>
             </technologies>
+            <hints uid="f85e9a1c-88b1-4643-940f-5f435bf7581f" name="rendered" hint="41114f86-3709-482c-937b-5ddce650956d"/>
+            <hints uid="13e95b9f-4927-4fb9-a395-5503c69d87f3" name="enabled" hint="d8828b31-6724-4425-a82d-4b9b454452c2"/>
+            <hints uid="b9317335-1f17-43ca-8b21-263d00806ab3" name="oncomplete" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
+            <hints uid="82e82c98-a44e-4603-98bf-7c2c90e6929b" name="onclick" hint="f90f475a-ad40-40e5-8fa0-7ecac8801a7c"/>
+            <hints uid="c9f119ee-e80e-4083-891c-624f3e08fc9d" name="styleClass" hint="9c3a5219-2f65-4f6a-bfd6-2e6b59f206fb"/>
+            <hints uid="428ed76a-fd1c-4006-845f-3350871a5e76" name="immediate" hint="89a950f1-ade0-48cf-9299-941f4fd81bef"/>
+            <hints uid="a841c016-1646-4987-9c01-387c4643dc05" name="validator" hint="8b00f418-32ad-4fff-9b83-77e4940d61d5"/>
+            <hints uid="bd287129-52bc-4a04-b885-d31b28d32dcc" name="converter" hint="a9c40783-19ab-438b-adeb-cf93e1820b3c"/>
+            <hints uid="4eeeea9e-c6fc-4999-b499-34a4fb00c50b" name="readOnlyConverter" hint="a3bdeb94-d20c-4341-9841-cc3a232e69ac"/>
+            <hints uid="4529e28e-d895-4797-b966-ea1d6f47f115" name="parameter" hint="2810fba1-00d2-4b52-8cd2-90875dc4efd6"/>
+            <hints uid="32b73d8b-d0e5-4dae-9985-12bd1fbd6dee" name="separate.form" hint="d03ec51a-cb9c-4115-bdfc-237180f61384"/>
+            <hints uid="229bc3e6-0e5b-47fe-8a07-1fb31c1af236" name="widget.var" hint="0c540a45-6e97-4273-a483-9aed3e27477c"/>
+            <hints uid="edb81d98-faab-4c75-aad2-e2a688db4b72" name="login.page" hint="4b28d583-e785-4888-bda9-20cdc9db245a"/>
+            <hints uid="844f8029-775c-411f-86a8-41177a6ff598" name="exception.code.handler" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d"/>
+            <hints uid="9314f444-5a29-4241-9564-6d076de20333" name="error.page" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
+            <hints uid="cb7616b2-05cd-4196-9e59-08d21b464067" name="exception.type.handler" hint="a24ca484-c882-4e80-961a-8093e6dc5803"/>
           </artifacts>
         </artifactPackages>
       </domainArtifact>
@@ -178,9 +194,21 @@
           <hints uid="b90dae78-c0f8-4049-b6ae-8596aa802c54" name="Domain Interface"/>
         </techLeafs>
         <techLeafs uid="68be505b-a727-44cd-bc9e-07fe9abb1579" name="JSF">
+          <hints uid="89a950f1-ade0-48cf-9299-941f4fd81bef" name="immediate"/>
+          <hints uid="8b00f418-32ad-4fff-9b83-77e4940d61d5" name="validator"/>
+          <hints uid="a9c40783-19ab-438b-adeb-cf93e1820b3c" name="converter"/>
+          <hints uid="a3bdeb94-d20c-4341-9841-cc3a232e69ac" name="readOnlyConverter"/>
+          <hints uid="2810fba1-00d2-4b52-8cd2-90875dc4efd6" name="parameter"/>
+          <hints uid="d03ec51a-cb9c-4115-bdfc-237180f61384" name="separate.form"/>
+          <hints uid="4b28d583-e785-4888-bda9-20cdc9db245a" name="login.page"/>
+          <hints uid="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" name="exception.code.handler"/>
+          <hints uid="b2faf8c7-f1b6-48fa-885c-5174c65ee62e" name="error.page"/>
+          <hints uid="a24ca484-c882-4e80-961a-8093e6dc5803" name="exception.type.handler"/>
           <configVariables uid="edbc4c3d-9673-4188-b39e-665a62f165e2" name="Resource library location"/>
           <techLeafs uid="38d17c08-8c9d-43e3-8535-1d1831c96c6b" name="RichFaces"/>
-          <techLeafs uid="2e39e023-cf18-477b-a88d-caabe0c76d39" name="PrimeFaces"/>
+          <techLeafs uid="2e39e023-cf18-477b-a88d-caabe0c76d39" name="PrimeFaces">
+            <hints uid="0c540a45-6e97-4273-a483-9aed3e27477c" name="widget.var"/>
+          </techLeafs>
           <techLeafs uid="29507ea3-68c9-417b-85dc-a32c4474ee6c" name="ICEFaces"/>
         </techLeafs>
         <techLeafs uid="0f2e956d-80f8-4063-b97a-67c7d028f024" name="Transaction">
@@ -209,8 +237,9 @@
             <techLeafs uid="3afdade9-4f0b-46b1-be40-5bda2e61319b" name="UIElement">
               <hints uid="41114f86-3709-482c-937b-5ddce650956d" name="rendered"/>
               <hints uid="d8828b31-6724-4425-a82d-4b9b454452c2" name="enabled"/>
-              <hints uid="8962de68-b529-4f12-88bb-135bdfde4174" name="oncomplet"/>
+              <hints uid="8962de68-b529-4f12-88bb-135bdfde4174" name="oncomplete"/>
               <hints uid="f90f475a-ad40-40e5-8fa0-7ecac8801a7c" name="onclick"/>
+              <hints uid="9c3a5219-2f65-4f6a-bfd6-2e6b59f206fb" name="styleClass"/>
             </techLeafs>
           </techLeafs>
           <techLeafs uid="19ab089c-73fa-45d4-97d6-d85ca456dc34" name="Data Control">
@@ -226,6 +255,11 @@
         <techLeafs uid="3db4f4d3-909c-4e25-bcfe-067c2e506d65" name="MySQL"/>
         <techLeafs uid="f36d089f-e187-4d20-a7e8-2c1295f780d4" name="PostgresSQL"/>
         <techLeafs uid="3d2b790c-8146-4d94-978c-077836a28e14" name="Oracle"/>
+      </techLeafs>
+      <techLeafs uid="a0f0014a-2f47-4de4-8857-ee9c8d7197a4" name="Testing">
+        <techLeafs uid="9a7c8d7e-f51c-4492-b919-916d503d649d" name="Selenium">
+          <hints uid="bfda8719-98c2-46fe-9788-45a33747d1fc" name="Web element name"/>
+        </techLeafs>
       </techLeafs>
     </domainArtifacts>
     <domainTypes uid="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" name="Primitives">
@@ -1831,6 +1865,7 @@
                         <style uid="58cc8c8e-cb61-465f-920b-cc9ea346d7eb"/>
                       </viewElement>
                       <viewElement xsi:type="tura.form:ViewPort" order="2" uid="b194b449-1154-4b02-99c2-936b7e11be68" name="PopupPort"/>
+                      <multiLangLabel uid="9d47309b-17f3-4d03-85cb-73b25ad0d359"/>
                       <grants securityEntity="b21bfadc-260c-4f5c-a655-076b3a71bf78" uid="5f419a40-d47a-45de-bea9-2a26e59dc83f"/>
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="d6448cd0-dc5c-4417-affd-5ef631ec9193" name="Country details">

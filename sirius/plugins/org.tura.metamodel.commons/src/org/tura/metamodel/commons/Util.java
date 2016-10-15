@@ -566,7 +566,7 @@ public class Util {
 				return hintRef.getHint().getUid();
 			}
 		}
-		return null;
+		throw new Exception("Hint is undifined");
 	}
 	
 }

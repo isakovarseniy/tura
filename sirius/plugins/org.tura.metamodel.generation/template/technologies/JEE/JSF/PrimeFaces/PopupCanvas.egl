@@ -7,7 +7,7 @@ operation  form::PopupCanvas draw(hash) {
      util.traceIfDebug("UI element","PopupCanvas start: "+self.name);     
      
      var widvar = "";
-      if (self.findClassifier('UIGeneration','Primefaces','widget.var')){
+      if (self.findClassifier(util.getHint(model_mapper,"widget.var"))){
          widvar = " widgetVar=\""+ self.~hintDetails +"\"  onHide=\"PF('"+self.~hintDetails+ "').content.empty()\"";
       }
      var modal =" modal=\""+ self.modal+ "\"";

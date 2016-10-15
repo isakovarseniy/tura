@@ -26,7 +26,7 @@ operation  message_content(lang, library,resourcePath,application) {
         }     
       }
     var encoding = "UTF-8";
-    if (library.findClassifier ("UIGeneration","JSF","encoding")){
+    if (library.findClassifier (util.getHint(model_mapper,"encoding"))){
        encoding = library.~hintDetails;
     }
      
@@ -37,7 +37,7 @@ operation  message_content(lang, library,resourcePath,application) {
 operation  message_bundl_provider( library,javaPath,application,component) {
     var util = new Native('org.tura.metamodel.commons.Util');
     var encoding = "UTF-8";
-    if (library.findClassifier ("UIGeneration","JSF","encoding")){
+    if (library.findClassifier (util.getHint(model_mapper,"encoding"))){
        encoding = library.~hintDetails;
     }
 %]

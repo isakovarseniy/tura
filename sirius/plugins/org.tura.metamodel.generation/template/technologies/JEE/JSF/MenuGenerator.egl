@@ -13,7 +13,7 @@ operation   menuGenerator(hash) {
              item.toSubmenu.~label=item;
            }
            if (menu.extensionPoint ){
-                if (menu.findClassifier('UIGeneration','JSF','menu.global')){
+                if (menu.findClassifier(util.getHint(model_mapper,"menu.global"))){
                    menu.~extpount = 'global';
                 }else{
                    menu.~extpount = 'form';
@@ -185,7 +185,7 @@ operation setAttribute(variable , attribute, value){
 
 
 
-     if (extension.findClassifier('UIGeneration','JSF','menu.global')){%]
+     if (extension.findClassifier(util.getHint(model_mapper,"menu.global"))){%]
        java.util.ArrayList<org.primefaces.model.menu.MenuElement>  [%=util.mergeAndUnCapitalize(self.name)%] = org.tura.platform.primefaces.menu.GlobalExtensionPointResolver.find("[%=util.mergeAndCapitalize(application.name)%]" , "[%=util.mergeAndCapitalize(uipackage.name)%]", "[%=util.mergeAndCapitalize(form.name)%]", "[%=util.mergeAndCapitalize(extension.name)%]",elResolver);
      [%  
      }else{%]

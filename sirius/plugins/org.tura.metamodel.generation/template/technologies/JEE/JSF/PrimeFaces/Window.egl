@@ -4,6 +4,7 @@ operation  form::Window draw(hash) {
      var webapp = hash.get("webapp");   
      var form = hash.get("form");   
      var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
      
      util.traceIfDebug("UI element","Window start: "+self.name);     
      
@@ -25,6 +26,8 @@ operation form::Window generateBody(hash){
      var recipe =  hash.get("recipe");
      var ingredient  = hash.get("ingredient");
      var hints = new Native('java.util.HashMap');
+     var model_mapper = hash.get('model_mapper');
+     var util = new Native('org.tura.metamodel.commons.Util');
 
      var title = buildExpression(self.multiLangLabel,hints,hash);
         
@@ -51,7 +54,7 @@ operation form::Window generateBody(hash){
 					<h:form>
 [%
                 for (element in self.viewElement.sortBy(q|q.order)){
-                  var isForm = element.findClassifier('UIGeneration','JSF','separate.form');
+                  var isForm = element.findClassifier(util.getHint(model_mapper,"separate.form") );
                   if (isForm){
                   %]
                   </h:form>

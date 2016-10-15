@@ -8,13 +8,14 @@ operation form::Button draw(hash) {
      var form = hash.get("form");
      var uipackage = hash.get("uipackage");
      var hints = new Native('java.util.HashMap');
+     var model_mapper = hash.get('model_mapper');
      
      var title =  " value=\"" + buildExpression(self.multiLangLabel,hints,hash) + "\" ";  
      var icon = " icon=\""+buildExpression(self.icon,hints,hash)+"\" ";
  
      var immediate = "";
      var eventListener="";
-     if (self.findClassifier('UIGeneration','JSF','immediate')){
+     if (self.findClassifier(util.getHint(model_mapper,"immediate"))){
         immediate = " immediate=\"true\"";
      }
 
@@ -24,7 +25,7 @@ operation form::Button draw(hash) {
        if (expression <> ""){
        %] onclick="[%=expression%]"[%
        }
-       expression = constructExpression(self,'trigger.oncomplete',hints, hash);
+       expression = constructExpression(self,'oncomplete',hints, hash);
        if (expression <> ""){
        %] oncomplete="[%=expression%]"[%
        }
@@ -37,7 +38,7 @@ operation form::Button draw(hash) {
       }
 %] [%=icon%]    [%=self.refreshArias()%] >
 [%
-        for (param in self.findAllClassifiers('UIGeneration','JSF','parameter')){%]
+        for (param in self.findAllClassifiers(util.getHint(model_mapper,"parameter"))){%]
              [%=param.details%]        
         [%
         }

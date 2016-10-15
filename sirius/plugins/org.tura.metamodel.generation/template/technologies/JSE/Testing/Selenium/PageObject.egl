@@ -22,7 +22,7 @@ ${percent}${end}
     if (uiElement.nickname.isDefined())
       methodName = uiElement.nickname;
     else{
-       if ( uiElement.findClassifier('UIGeneration','Selenium Page Object','Web element name') ){
+       if ( uiElement.findClassifier(util.getHint(model_mapper,"Web element name")) ){
          methodName = uiElement.~hintDetails;
        }
     }  

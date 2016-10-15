@@ -131,11 +131,11 @@ operation  web_xml(hash) {
 
 
        
-        if (window.findClassifier("UIGeneration",  "JSF", "login.page") and login == false  ){
+        if (window.findClassifier(util.getHint(model_mapper,"login.page")) and login == false  ){
           login = true;
           loginWin = window;
         }
-        if (window.findClassifier("UIGeneration",  "JSF", "error.page") and error == false){
+        if (window.findClassifier(util.getHint(model_mapper,"error.page")) and error == false){
           error = true;
           errorWin = window;
         }

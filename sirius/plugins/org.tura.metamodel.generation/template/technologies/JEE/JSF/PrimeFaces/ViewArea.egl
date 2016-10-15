@@ -3,7 +3,7 @@ operation form::ViewArea draw(hash) {
     var util = new Native('org.tura.metamodel.commons.Util');
      util.traceIfDebug("UI element","ViewArea start: "+self.name);     
 %]
-       [%=self.canvasView.baseCanvas.draw(hash)%]
+       [%=self.baseCanvas.draw(hash)%]
 [%
      util.traceIfDebug("UI element","ViewArea end: "+self.name);     
 }

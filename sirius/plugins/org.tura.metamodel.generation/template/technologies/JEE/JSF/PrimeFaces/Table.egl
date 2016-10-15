@@ -18,7 +18,7 @@ operation form::Table generateBody(hash){
      var hints = new Native('java.util.HashMap');
      
      var selector = "\"5,10,15\"";
-     if (self.findClassifier('UIGeneration','Primefaces','row number selector')){
+     if (self.findClassifier(util.getHint(model_mapper,"row number selector"))){
         selector = self.~hintDetails;
      }
      hints.put("noCurlyBracket",true);
