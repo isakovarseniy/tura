@@ -19,7 +19,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
      var types = util.runQuery(model_mapper,"Query type",model_mapper);
      if (types <> null and types.size <> 0 )
          alltypes.addAll(types); 
-     types = util.runQuery(model_mapper,"Query package of types",model_mapper);
+     types = util.runQuery(model_mapper,"Query package",model_mapper);
      if (types <> null and types.size <> 0 )
          alltypes.addAll(types); 
 
@@ -33,5 +33,5 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
      
        util.populateTechnologies(hash,model_mapper);
        
-       mvc_application_builder(hash);
+       maven_builder(hash);
 %]

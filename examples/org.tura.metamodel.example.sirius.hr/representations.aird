@@ -1026,7 +1026,7 @@
                 <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_McrnsVFVEea-h9u82GMR9g" labelSize="12"/>
                 <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20applications']/@subItemMappings[name='Domain%20application']/@subItemMappings[name='Application%20groups']/@subItemMappings[name='Application']/@subItemMappings[name='ApplicationRecipes']"/>
               </ownedTreeItems>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_MrITYFFVEea-h9u82GMR9g" name="Application mappers">
+              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_MrITYFFVEea-h9u82GMR9g" name="Application mappers" expanded="true">
                 <target xmi:type="tura.application:ApplicationMappers" href="model/hr.domain#0cf8dece-306e-4a11-a093-c6a0b9c250be"/>
                 <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_lvduMHO9Eea1qfoYCAyclQ" name="Primitives mapper">
                   <target xmi:type="tura.application:ApplicationMapper" href="model/hr.domain#979a1600-5460-4d07-9d79-c27ccbc57132"/>
@@ -14540,8 +14540,14 @@
     </ownedRepresentations>
     <ownedRepresentations xmi:type="tree:DTree" xmi:id="_jHHCgHPWEea1qfoYCAyclQ" name="HR control app mappings">
       <target xmi:type="tura.application:ApplicationMapper" href="model/hr.domain#f65c8bf9-c033-4281-b8ee-918b9882f067"/>
-      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_jHHCgXPWEea1qfoYCAyclQ" name="Java type mappers">
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_jHHCgXPWEea1qfoYCAyclQ" name="Java type mappers" expanded="true">
         <target xmi:type="tura.mapper:Mappers" href="model/hr.domain#9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec"/>
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_4XzHoJNAEeaGnMwE3bnarQ" name="Repository:Repository">
+          <target xmi:type="tura.mapper:JavaMapper" href="model/hr.domain#71221973-da7a-415b-81ab-8f7840e29ce3"/>
+          <semanticElements xmi:type="tura.mapper:JavaMapper" href="model/hr.domain#71221973-da7a-415b-81ab-8f7840e29ce3"/>
+          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_4XzHoZNAEeaGnMwE3bnarQ" labelSize="12"/>
+          <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='Java%20type%20mappers']/@subItemMappings[name='Java%20type%20mapper']"/>
+        </ownedTreeItems>
         <semanticElements xmi:type="tura.mapper:Mappers" href="model/hr.domain#9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec"/>
         <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_jHHCgnPWEea1qfoYCAyclQ" labelSize="12"/>
         <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='Java%20type%20mappers']"/>
@@ -14747,7 +14753,7 @@
                   <styles xmi:type="notation:DrawerStyle" xmi:id="_67wSdHSREeaWP-vzxwQ1hQ"/>
                 </children>
                 <styles xmi:type="notation:ShapeStyle" xmi:id="_67vrYXSREeaWP-vzxwQ1hQ" fontName=".SF NS Text" fontHeight="12"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_67vrYnSREeaWP-vzxwQ1hQ" y="189" width="232" height="35"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_67vrYnSREeaWP-vzxwQ1hQ" y="189" width="232" height="80"/>
               </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_67qL0XSREeaWP-vzxwQ1hQ"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_67qL0nSREeaWP-vzxwQ1hQ"/>
@@ -14864,7 +14870,7 @@
     </ownedRepresentations>
     <ownedRepresentations xmi:type="tree:DTree" xmi:id="_OpyG0HSTEeaWP-vzxwQ1hQ" name="HR controller mapper">
       <target xmi:type="tura.application:ApplicationMapper" href="model/hr.domain#cafba9fe-0d77-4612-8569-752443925068"/>
-      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_OpyG0XSTEeaWP-vzxwQ1hQ" name="Java type mappers">
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_OpyG0XSTEeaWP-vzxwQ1hQ" name="Java type mappers" expanded="true">
         <target xmi:type="tura.mapper:Mappers" href="model/hr.domain#acdc2d46-bd08-4e15-ae7f-e81dade87e6d"/>
         <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_PUhs8HSTEeaWP-vzxwQ1hQ" name="HR controller business logic:Action executor">
           <target xmi:type="tura.mapper:JavaMapper" href="model/hr.domain#2815fe07-9a8d-406e-90dc-81f400f678c9"/>
@@ -20613,14 +20619,14 @@
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_F30aMHufEeaWpNLQo-1O8w" name="Repository" childrenPresentation="VerticalStack">
         <target xmi:type="tura.type:Type" href="model/hr.domain#c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
         <semanticElements xmi:type="tura.type:Type" href="model/hr.domain#c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_F32PYHufEeaWpNLQo-1O8w" labelSize="12" showIcon="false" borderSize="2" borderSizeComputationExpression="2" foregroundColor="253,206,137">
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_F32PYHufEeaWpNLQo-1O8w" labelSize="12" showIcon="false" borderSize="2" borderSizeComputationExpression="2" foregroundColor="252,175,62">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type']"/>
         <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_F37u8HufEeaWpNLQo-1O8w" name="Operations">
           <target xmi:type="tura.type:Type" href="model/hr.domain#c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
           <semanticElements xmi:type="tura.type:Type" href="model/hr.domain#c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_F38WAHufEeaWpNLQo-1O8w" labelSize="12" showIcon="false" foregroundColor="253,206,137">
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_F38WAHufEeaWpNLQo-1O8w" labelSize="12" showIcon="false" foregroundColor="252,175,62">
             <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type']/@subContainerMappings[name='Operatioins']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type']/@subContainerMappings[name='Operatioins']"/>
@@ -20668,7 +20674,7 @@
         <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_F389EHufEeaWpNLQo-1O8w" name="Attributes">
           <target xmi:type="tura.type:Type" href="model/hr.domain#c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
           <semanticElements xmi:type="tura.type:Type" href="model/hr.domain#c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_F389EXufEeaWpNLQo-1O8w" labelSize="12" showIcon="false" foregroundColor="253,206,137">
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_F389EXufEeaWpNLQo-1O8w" labelSize="12" showIcon="false" foregroundColor="252,175,62">
             <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type']/@subContainerMappings[name='Attributes']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type']/@subContainerMappings[name='Attributes']"/>
@@ -28598,6 +28604,75 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_cbIyIYgAEeaZE_-1os6hJQ" fontName=".SF NS Text" fontHeight="12"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cbIyIogAEeaZE_-1os6hJQ" x="288" y="72" width="174"/>
           </children>
+          <children xmi:type="notation:Node" xmi:id="_2jJoQJNCEeaGnMwE3bnarQ" type="2002" element="_2i4igJNCEeaGnMwE3bnarQ">
+            <children xmi:type="notation:Node" xmi:id="_2jKPUJNCEeaGnMwE3bnarQ" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_2jKPUZNCEeaGnMwE3bnarQ" type="7001">
+              <children xmi:type="notation:Node" xmi:id="_2jK2YJNCEeaGnMwE3bnarQ" type="3009" element="_2jDhoJNCEeaGnMwE3bnarQ">
+                <children xmi:type="notation:Node" xmi:id="_2jLdcJNCEeaGnMwE3bnarQ" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_2jLdcZNCEeaGnMwE3bnarQ" type="7003">
+                  <children xmi:type="notation:Node" xmi:id="_ES3gkJNDEeaGnMwE3bnarQ" type="3010" element="_ESj-kJNDEeaGnMwE3bnarQ">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_ES3gkZNDEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_ES3gkpNDEeaGnMwE3bnarQ"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_KSikAJNDEeaGnMwE3bnarQ" type="3010" element="_KSPCAJNDEeaGnMwE3bnarQ">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_KSikAZNDEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_KSikApNDEeaGnMwE3bnarQ"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_2jLdcpNCEeaGnMwE3bnarQ"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_2jLdc5NCEeaGnMwE3bnarQ"/>
+                  <styles xmi:type="notation:DrawerStyle" xmi:id="_2jLddJNCEeaGnMwE3bnarQ"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_2jK2YZNCEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2jK2YpNCEeaGnMwE3bnarQ" width="222" height="58"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_2jLddZNCEeaGnMwE3bnarQ" type="3009" element="_2jEIsJNCEeaGnMwE3bnarQ">
+                <children xmi:type="notation:Node" xmi:id="_2jMEgZNCEeaGnMwE3bnarQ" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_2jMEgpNCEeaGnMwE3bnarQ" type="7003">
+                  <children xmi:type="notation:Node" xmi:id="_TRElQJNDEeaGnMwE3bnarQ" type="3010" element="_TQ0GkJNDEeaGnMwE3bnarQ">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_TRElQZNDEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_TRElQpNDEeaGnMwE3bnarQ"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_aLVBoJNDEeaGnMwE3bnarQ" type="3010" element="_aLCtwJNDEeaGnMwE3bnarQ">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_aLVBoZNDEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_aLVBopNDEeaGnMwE3bnarQ"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_p23GYJNDEeaGnMwE3bnarQ" type="3010" element="_p2mnsJNDEeaGnMwE3bnarQ">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_p23GYZNDEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_p23GYpNDEeaGnMwE3bnarQ"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_2jMEg5NCEeaGnMwE3bnarQ"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_2jMEhJNCEeaGnMwE3bnarQ"/>
+                  <styles xmi:type="notation:DrawerStyle" xmi:id="_2jMEhZNCEeaGnMwE3bnarQ"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_2jLddpNCEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2jMEgJNCEeaGnMwE3bnarQ" y="58" width="222" height="95"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_2jMrkJNCEeaGnMwE3bnarQ" type="3009" element="_2jEIspNCEeaGnMwE3bnarQ">
+                <children xmi:type="notation:Node" xmi:id="_2jNSoJNCEeaGnMwE3bnarQ" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_2jNSoZNCEeaGnMwE3bnarQ" type="7003">
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_2jNSopNCEeaGnMwE3bnarQ"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_2jNSo5NCEeaGnMwE3bnarQ"/>
+                  <styles xmi:type="notation:DrawerStyle" xmi:id="_2jNSpJNCEeaGnMwE3bnarQ"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_2jMrkZNCEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2jMrkpNCEeaGnMwE3bnarQ" y="153" width="222" height="55"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_2jN5sJNCEeaGnMwE3bnarQ" type="3009" element="_2jEvwJNCEeaGnMwE3bnarQ">
+                <children xmi:type="notation:Node" xmi:id="_2jN5s5NCEeaGnMwE3bnarQ" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_2jN5tJNCEeaGnMwE3bnarQ" type="7003">
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_2jN5tZNCEeaGnMwE3bnarQ"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_2jN5tpNCEeaGnMwE3bnarQ"/>
+                  <styles xmi:type="notation:DrawerStyle" xmi:id="_2jN5t5NCEeaGnMwE3bnarQ"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_2jN5sZNCEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2jN5spNCEeaGnMwE3bnarQ" y="208" width="222" height="45"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_2jKPUpNCEeaGnMwE3bnarQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_2jKPU5NCEeaGnMwE3bnarQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_2jJoQZNCEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2jJoQpNCEeaGnMwE3bnarQ" x="504" y="72" width="228"/>
+          </children>
           <styles xmi:type="notation:DiagramStyle" xmi:id="_R37H4oXYEeaSkIF-0tSHvA"/>
         </data>
       </ownedAnnotationEntries>
@@ -28754,6 +28829,86 @@
           <target xmi:type="tura.artifact:Artifact" href="model/hr.domain#8ac85ef5-7d67-4532-a9da-dc6a084b52e1"/>
           <semanticElements xmi:type="tura.artifact:Artifact" href="model/hr.domain#8ac85ef5-7d67-4532-a9da-dc6a084b52e1"/>
           <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_ca2eQYgAEeaZE_-1os6hJQ" labelSize="12" showIcon="false" foregroundColor="204,242,166">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ConfigHashWithNickNames']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ConfigHashWithNickNames']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_2i4igJNCEeaGnMwE3bnarQ" name="Build MVC application" childrenPresentation="VerticalStack">
+        <target xmi:type="tura.artifact:Artifact" href="model/hr.domain#e7d86967-d594-4f25-8b34-5211665bf367"/>
+        <semanticElements xmi:type="tura.artifact:Artifact" href="model/hr.domain#e7d86967-d594-4f25-8b34-5211665bf367"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_2i4igZNCEeaGnMwE3bnarQ" labelSize="12" showIcon="false" borderSize="2" borderSizeComputationExpression="2" foregroundColor="204,242,166">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2jDhoJNCEeaGnMwE3bnarQ" name="Model Queryes">
+          <target xmi:type="tura.artifact:Artifact" href="model/hr.domain#e7d86967-d594-4f25-8b34-5211665bf367"/>
+          <semanticElements xmi:type="tura.artifact:Artifact" href="model/hr.domain#e7d86967-d594-4f25-8b34-5211665bf367"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_2jDhoZNCEeaGnMwE3bnarQ" labelSize="12" showIcon="false" foregroundColor="204,242,166">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ModelQueryes']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ModelQueryes']"/>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ESj-kJNDEeaGnMwE3bnarQ" name="Query type">
+            <target xmi:type="tura.artifact:ModelQuery" href="model/hr.domain#0710bd35-c15a-4e87-821f-d534dfd8cb5a"/>
+            <semanticElements xmi:type="tura.artifact:ModelQuery" href="model/hr.domain#0710bd35-c15a-4e87-821f-d534dfd8cb5a"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_ESkloJNDEeaGnMwE3bnarQ" labelSize="12" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ModelQueryes']/@subNodeMappings[name='ModelQuery']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ModelQueryes']/@subNodeMappings[name='ModelQuery']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_KSPCAJNDEeaGnMwE3bnarQ" name="Query package">
+            <target xmi:type="tura.artifact:ModelQuery" href="model/hr.domain#0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce"/>
+            <semanticElements xmi:type="tura.artifact:ModelQuery" href="model/hr.domain#0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_KSPCAZNDEeaGnMwE3bnarQ" labelSize="12" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ModelQueryes']/@subNodeMappings[name='ModelQuery']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ModelQueryes']/@subNodeMappings[name='ModelQuery']"/>
+          </ownedElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2jEIsJNCEeaGnMwE3bnarQ" name="Technologies">
+          <target xmi:type="tura.artifact:Artifact" href="model/hr.domain#e7d86967-d594-4f25-8b34-5211665bf367"/>
+          <semanticElements xmi:type="tura.artifact:Artifact" href="model/hr.domain#e7d86967-d594-4f25-8b34-5211665bf367"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_2jEIsZNCEeaGnMwE3bnarQ" labelSize="12" showIcon="false" foregroundColor="204,242,166">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='Technologies']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='Technologies']"/>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_TQ0GkJNDEeaGnMwE3bnarQ" name="Java">
+            <target xmi:type="tura.artifact:Technology" href="model/hr.domain#a77433e3-0f05-4914-8f7d-826865199dfc"/>
+            <semanticElements xmi:type="tura.artifact:Technology" href="model/hr.domain#a77433e3-0f05-4914-8f7d-826865199dfc"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_TQ0toJNDEeaGnMwE3bnarQ" labelSize="12" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='Technologies']/@subNodeMappings[name='Technology']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='Technologies']/@subNodeMappings[name='Technology']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_aLCtwJNDEeaGnMwE3bnarQ" name="Builder implementation">
+            <target xmi:type="tura.artifact:Technology" href="model/hr.domain#9c644338-08e7-4b17-bdda-58e6690b8f3d"/>
+            <semanticElements xmi:type="tura.artifact:Technology" href="model/hr.domain#9c644338-08e7-4b17-bdda-58e6690b8f3d"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_aLDU0JNDEeaGnMwE3bnarQ" labelSize="12" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='Technologies']/@subNodeMappings[name='Technology']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='Technologies']/@subNodeMappings[name='Technology']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_p2mnsJNDEeaGnMwE3bnarQ" name="MVC application implementation">
+            <target xmi:type="tura.artifact:Technology" href="model/hr.domain#a0eabf01-e648-44ca-8be7-bf2779d04f0e"/>
+            <semanticElements xmi:type="tura.artifact:Technology" href="model/hr.domain#a0eabf01-e648-44ca-8be7-bf2779d04f0e"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_p2mnsZNDEeaGnMwE3bnarQ" labelSize="12" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='Technologies']/@subNodeMappings[name='Technology']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='Technologies']/@subNodeMappings[name='Technology']"/>
+          </ownedElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2jEIspNCEeaGnMwE3bnarQ" name="Config Variables">
+          <target xmi:type="tura.artifact:Artifact" href="model/hr.domain#e7d86967-d594-4f25-8b34-5211665bf367"/>
+          <semanticElements xmi:type="tura.artifact:Artifact" href="model/hr.domain#e7d86967-d594-4f25-8b34-5211665bf367"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_2jEIs5NCEeaGnMwE3bnarQ" labelSize="12" showIcon="false" foregroundColor="204,242,166">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ConfigVariableWithNickNames']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ConfigVariableWithNickNames']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2jEvwJNCEeaGnMwE3bnarQ" name="Config Hash">
+          <target xmi:type="tura.artifact:Artifact" href="model/hr.domain#e7d86967-d594-4f25-8b34-5211665bf367"/>
+          <semanticElements xmi:type="tura.artifact:Artifact" href="model/hr.domain#e7d86967-d594-4f25-8b34-5211665bf367"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_2jEvwZNCEeaGnMwE3bnarQ" labelSize="12" showIcon="false" foregroundColor="204,242,166">
             <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ConfigHashWithNickNames']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Artifact%20package']/@defaultLayer/@containerMappings[name='Artifact']/@subContainerMappings[name='ConfigHashWithNickNames']"/>
@@ -30466,7 +30621,7 @@
                           <styles xmi:type="notation:FilteringStyle" xmi:id="_BNP9xo8BEeagcMi7tbp12g"/>
                         </children>
                         <styles xmi:type="notation:ShapeStyle" xmi:id="_BNP9wY8BEeagcMi7tbp12g" fontName=".SF NS Text" fontHeight="12"/>
-                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BNP9wo8BEeagcMi7tbp12g" x="13" y="16"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BNP9wo8BEeagcMi7tbp12g" y="-3"/>
                       </children>
                       <children xmi:type="notation:Node" xmi:id="_l0hOEJGdEeaIspIrNZnVpQ" type="3009" element="_l0PhQJGdEeaIspIrNZnVpQ">
                         <children xmi:type="notation:Node" xmi:id="_l0h1IJGdEeaIspIrNZnVpQ" type="5004"/>
@@ -30479,7 +30634,24 @@
                           <styles xmi:type="notation:FilteringStyle" xmi:id="_l0h1I5GdEeaIspIrNZnVpQ"/>
                         </children>
                         <styles xmi:type="notation:ShapeStyle" xmi:id="_l0hOEZGdEeaIspIrNZnVpQ" fontName=".SF NS Text" fontHeight="12"/>
-                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l0hOEpGdEeaIspIrNZnVpQ" x="157" y="16"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l0hOEpGdEeaIspIrNZnVpQ" x="154" y="-3"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_MLJg4JNCEeaGnMwE3bnarQ" type="3009" element="_MK8skJNCEeaGnMwE3bnarQ">
+                        <children xmi:type="notation:Node" xmi:id="_MLKH8JNCEeaGnMwE3bnarQ" type="5004"/>
+                        <children xmi:type="notation:Node" xmi:id="_MLKH8ZNCEeaGnMwE3bnarQ" type="7003">
+                          <children xmi:type="notation:Node" xmi:id="_Z8KZsJNCEeaGnMwE3bnarQ" type="3010" element="_Z75T8JNCEeaGnMwE3bnarQ">
+                            <styles xmi:type="notation:FontStyle" xmi:id="_Z8KZsZNCEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                            <layoutConstraint xmi:type="notation:Location" xmi:id="_Z8KZspNCEeaGnMwE3bnarQ"/>
+                          </children>
+                          <children xmi:type="notation:Node" xmi:id="_TQKCcJNHEeaGnMwE3bnarQ" type="3010" element="_TPzdIJNHEeaGnMwE3bnarQ">
+                            <styles xmi:type="notation:FontStyle" xmi:id="_TQKCcZNHEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                            <layoutConstraint xmi:type="notation:Location" xmi:id="_TQKCcpNHEeaGnMwE3bnarQ"/>
+                          </children>
+                          <styles xmi:type="notation:SortingStyle" xmi:id="_MLKH8pNCEeaGnMwE3bnarQ"/>
+                          <styles xmi:type="notation:FilteringStyle" xmi:id="_MLKH85NCEeaGnMwE3bnarQ"/>
+                        </children>
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_MLJg4ZNCEeaGnMwE3bnarQ" fontName=".SF NS Text" fontHeight="12"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MLJg4pNCEeaGnMwE3bnarQ" x="427" y="-2"/>
                       </children>
                       <styles xmi:type="notation:SortingStyle" xmi:id="_tuA94o8AEeagcMi7tbp12g"/>
                       <styles xmi:type="notation:FilteringStyle" xmi:id="_tuA9448AEeagcMi7tbp12g"/>
@@ -30497,7 +30669,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_e89kY48AEeagcMi7tbp12g"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_e889UY8AEeagcMi7tbp12g" fontName=".SF NS Text" fontHeight="12"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e889Uo8AEeagcMi7tbp12g" x="279" y="135"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e889Uo8AEeagcMi7tbp12g" x="248" y="135"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_eDDEYI8BEeagcMi7tbp12g" type="2001" element="_eCtGII8BEeagcMi7tbp12g">
             <children xmi:type="notation:Node" xmi:id="_eDESgI8BEeagcMi7tbp12g" type="5002">
@@ -30579,7 +30751,7 @@
                   <styles xmi:type="notation:DrawerStyle" xmi:id="_BZXDI5GeEeaIspIrNZnVpQ"/>
                 </children>
                 <styles xmi:type="notation:ShapeStyle" xmi:id="_BZWcEpGeEeaIspIrNZnVpQ" fontName=".SF NS Text" fontHeight="12"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BZWcE5GeEeaIspIrNZnVpQ" y="40"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BZWcE5GeEeaIspIrNZnVpQ" y="42"/>
               </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_BZVN8JGeEeaIspIrNZnVpQ"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_BZVN8ZGeEeaIspIrNZnVpQ"/>
@@ -30623,35 +30795,34 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_eRQU8o8AEeagcMi7tbp12g"/>
           <edges xmi:type="notation:Edge" xmi:id="_pHqoYI8BEeagcMi7tbp12g" type="4001" element="_pHY7kI8BEeagcMi7tbp12g" source="_e889UI8AEeagcMi7tbp12g" target="_hzDyUI8BEeagcMi7tbp12g">
             <children xmi:type="notation:Node" xmi:id="_pHr2gI8BEeagcMi7tbp12g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pHr2gY8BEeagcMi7tbp12g" x="4" y="-10"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pHr2gY8BEeagcMi7tbp12g" x="-3" y="-9"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_pHsdkI8BEeagcMi7tbp12g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pHsdkY8BEeagcMi7tbp12g" x="7" y="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pHsdkY8BEeagcMi7tbp12g" x="13" y="8"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_pHtrsI8BEeagcMi7tbp12g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pHtrsY8BEeagcMi7tbp12g" x="11" y="6"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pHtrsY8BEeagcMi7tbp12g" x="12" y="5"/>
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_pHqoYY8BEeagcMi7tbp12g"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_pHqoYo8BEeagcMi7tbp12g" fontName=".SF NS Text" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pHqoY48BEeagcMi7tbp12g" points="[2, -2, 0, 116]$[2, -118, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pHuSwI8BEeagcMi7tbp12g" id="(0.7435897435897436,0.01875)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pHuSwY8BEeagcMi7tbp12g" id="(0.2236024844720497,1.0)"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pHqoY48BEeagcMi7tbp12g" points="[-8, -1, 0, 131]$[-8, -117, 0, 15]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pHuSwI8BEeagcMi7tbp12g" id="(0.6947791164658634,0.0125)"/>
           </edges>
           <edges xmi:type="notation:Edge" xmi:id="_qNqAEI8BEeagcMi7tbp12g" type="4001" element="_qNRlkI8BEeagcMi7tbp12g" source="_e889UI8AEeagcMi7tbp12g" target="_eDDEYI8BEeagcMi7tbp12g">
             <children xmi:type="notation:Node" xmi:id="_qNqnII8BEeagcMi7tbp12g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qNqnIY8BEeagcMi7tbp12g" x="-8" y="-7"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qNqnIY8BEeagcMi7tbp12g" x="-6" y="-8"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_qNqnIo8BEeagcMi7tbp12g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qNqnI48BEeagcMi7tbp12g" x="11" y="7"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qNqnI48BEeagcMi7tbp12g" x="14" y="6"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_qNrOMI8BEeagcMi7tbp12g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qNrOMY8BEeagcMi7tbp12g" x="10" y="7"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qNrOMY8BEeagcMi7tbp12g" x="12" y="5"/>
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_qNqAEY8BEeagcMi7tbp12g"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_qNqAEo8BEeagcMi7tbp12g" fontName=".SF NS Text" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qNqAE48BEeagcMi7tbp12g" points="[8, -1, 0, 116]$[8, -117, 0, 0]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qNqAE48BEeagcMi7tbp12g" points="[5, -1, 0, 118]$[5, -117, 0, 2]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qNrOMo8BEeagcMi7tbp12g" id="(0.18518518518518517,0.0125)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qNrOM48BEeagcMi7tbp12g" id="(0.6377952755905512,1.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qNrOM48BEeagcMi7tbp12g" id="(0.5826771653543307,0.9333333333333333)"/>
           </edges>
           <edges xmi:type="notation:Edge" xmi:id="_Cg3dwJGeEeaIspIrNZnVpQ" type="4001" element="_vQ_XEI8BEeagcMi7tbp12g" source="_hzDyUI8BEeagcMi7tbp12g" target="_BZUm4JGeEeaIspIrNZnVpQ">
             <children xmi:type="notation:Node" xmi:id="_Cg5S8JGeEeaIspIrNZnVpQ" type="6001">
@@ -30722,6 +30893,9 @@
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_e8uT0I8AEeagcMi7tbp12g" name="HR forms" outgoingEdges="_pHY7kI8BEeagcMi7tbp12g _qNRlkI8BEeagcMi7tbp12g">
         <target xmi:type="tura.recipe:Recipe" href="model/hr.domain#4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5"/>
         <semanticElements xmi:type="tura.recipe:Recipe" href="model/hr.domain#4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_e8u64I8AEeagcMi7tbp12g" labelSize="12" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2" foregroundColor="253,206,137">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@style"/>
         </ownedStyle>
@@ -30743,6 +30917,9 @@
             <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_BM2VII8BEeagcMi7tbp12g" name="Process all datacontrols">
               <target xmi:type="tura.recipe:ModelMapper" href="model/hr.domain#989d5392-92cf-4922-b915-896f942783cb"/>
               <semanticElements xmi:type="tura.recipe:ModelMapper" href="model/hr.domain#989d5392-92cf-4922-b915-896f942783cb"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
               <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_BM28MI8BEeagcMi7tbp12g" labelSize="12" labelAlignment="LEFT" backgroundColor="209,209,209">
                 <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@style"/>
               </ownedStyle>
@@ -30759,6 +30936,9 @@
             <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_l0PhQJGdEeaIspIrNZnVpQ" name="Process all form's views">
               <target xmi:type="tura.recipe:ModelMapper" href="model/hr.domain#775c23bd-691f-40d5-9dac-f9c513b71569"/>
               <semanticElements xmi:type="tura.recipe:ModelMapper" href="model/hr.domain#775c23bd-691f-40d5-9dac-f9c513b71569"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
               <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_l0QIUJGdEeaIspIrNZnVpQ" labelSize="12" labelAlignment="LEFT" backgroundColor="209,209,209">
                 <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@style"/>
               </ownedStyle>
@@ -30767,6 +30947,33 @@
                 <target xmi:type="tura.recipe:Query" href="model/hr.domain#ccb2a123-5c55-46b2-a7dd-2f9b6d463533"/>
                 <semanticElements xmi:type="tura.recipe:Query" href="model/hr.domain#ccb2a123-5c55-46b2-a7dd-2f9b6d463533"/>
                 <ownedStyle xmi:type="diagram:Square" xmi:id="_yUfVwZGdEeaIspIrNZnVpQ" labelSize="12" labelAlignment="LEFT">
+                  <description xmi:type="style:SquareDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@subNodeMappings[name='Query']/@style"/>
+                </ownedStyle>
+                <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@subNodeMappings[name='Query']"/>
+              </ownedElements>
+            </ownedDiagramElements>
+            <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_MK8skJNCEeaGnMwE3bnarQ" name="Build application">
+              <target xmi:type="tura.recipe:ModelMapper" href="model/hr.domain#d383ffba-ed1f-45ab-935d-1d2b65224c6f"/>
+              <semanticElements xmi:type="tura.recipe:ModelMapper" href="model/hr.domain#d383ffba-ed1f-45ab-935d-1d2b65224c6f"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_MK8skZNCEeaGnMwE3bnarQ" labelSize="12" labelAlignment="LEFT" backgroundColor="209,209,209">
+                <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']"/>
+              <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Z75T8JNCEeaGnMwE3bnarQ" name="Query domain model">
+                <target xmi:type="tura.recipe:Query" href="model/hr.domain#8d3e1ed3-c29a-40b9-b39d-7c121fa7e49b"/>
+                <semanticElements xmi:type="tura.recipe:Query" href="model/hr.domain#8d3e1ed3-c29a-40b9-b39d-7c121fa7e49b"/>
+                <ownedStyle xmi:type="diagram:Square" xmi:id="_Z757AJNCEeaGnMwE3bnarQ" labelSize="12" labelAlignment="LEFT">
+                  <description xmi:type="style:SquareDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@subNodeMappings[name='Query']/@style"/>
+                </ownedStyle>
+                <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@subNodeMappings[name='Query']"/>
+              </ownedElements>
+              <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_TPzdIJNHEeaGnMwE3bnarQ" name="Query commands">
+                <target xmi:type="tura.recipe:Query" href="model/hr.domain#703e4db1-e051-4630-99e6-66ea28c605ba"/>
+                <semanticElements xmi:type="tura.recipe:Query" href="model/hr.domain#703e4db1-e051-4630-99e6-66ea28c605ba"/>
+                <ownedStyle xmi:type="diagram:Square" xmi:id="_TP0EMJNHEeaGnMwE3bnarQ" labelSize="12" labelAlignment="LEFT">
                   <description xmi:type="style:SquareDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@subNodeMappings[name='Query']/@style"/>
                 </ownedStyle>
                 <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']/@subNodeMappings[name='Query']"/>
@@ -30972,6 +31179,33 @@
       <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_eRBEY48AEeagcMi7tbp12g"/>
       <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer"/>
       <target xmi:type="tura.recipe:Recipes" href="model/hr.domain#6c59b498-c8ad-4f2e-8b13-68919051c08f"/>
+    </ownedRepresentations>
+    <ownedRepresentations xmi:type="tree:DTree" xmi:id="_ugNXcJNAEeaGnMwE3bnarQ" name="Repository mapper" target="420dda72-048d-468f-9a36-8bc688082182">
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_ugNXcZNAEeaGnMwE3bnarQ" target="b061b338-7812-4c36-a4e4-5f91a5938dc5" name="Java type mappers" semanticElements="b061b338-7812-4c36-a4e4-5f91a5938dc5" expanded="true">
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_vELAIJNAEeaGnMwE3bnarQ" target="8be73f87-96cf-41e6-a742-7f48cc89bb90" semanticElements="8be73f87-96cf-41e6-a742-7f48cc89bb90">
+          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_vELAIZNAEeaGnMwE3bnarQ" labelSize="12"/>
+          <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='Java%20type%20mappers']/@subItemMappings[name='Java%20type%20mapper']"/>
+        </ownedTreeItems>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_ugNXcpNAEeaGnMwE3bnarQ" labelSize="12"/>
+        <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='Java%20type%20mappers']"/>
+      </ownedTreeItems>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_ugNXc5NAEeaGnMwE3bnarQ" target="b061b338-7812-4c36-a4e4-5f91a5938dc5" name="Java package mappers" semanticElements="b061b338-7812-4c36-a4e4-5f91a5938dc5">
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_ugNXdJNAEeaGnMwE3bnarQ" labelSize="12"/>
+        <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='Java%20package%20mappers']"/>
+      </ownedTreeItems>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_ugNXdZNAEeaGnMwE3bnarQ" target="b061b338-7812-4c36-a4e4-5f91a5938dc5" name="JavaScript mappers" semanticElements="b061b338-7812-4c36-a4e4-5f91a5938dc5">
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_ugNXdpNAEeaGnMwE3bnarQ" labelSize="12"/>
+        <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='JavaScript%20mappers']"/>
+      </ownedTreeItems>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_ugNXd5NAEeaGnMwE3bnarQ" target="b061b338-7812-4c36-a4e4-5f91a5938dc5" name="CSS mappers" semanticElements="b061b338-7812-4c36-a4e4-5f91a5938dc5">
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_ugNXeJNAEeaGnMwE3bnarQ" labelSize="12"/>
+        <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='CSS%20mappers']"/>
+      </ownedTreeItems>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_ugNXeZNAEeaGnMwE3bnarQ" target="b061b338-7812-4c36-a4e4-5f91a5938dc5" name="Role mappers" semanticElements="b061b338-7812-4c36-a4e4-5f91a5938dc5">
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_ugNXepNAEeaGnMwE3bnarQ" labelSize="12"/>
+        <actualMapping xmi:type="description_3:TreeItemMapping" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='Role%20mappers']"/>
+      </ownedTreeItems>
+      <description xmi:type="description_3:TreeDescription" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']"/>
     </ownedRepresentations>
     <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.tura.metamodel.sirius.diagram.designer/description/tura.odesign#//@ownedViewpoints[name='Domain%20tree']"/>
   </ownedViews>

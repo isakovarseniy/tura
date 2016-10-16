@@ -117,6 +117,29 @@
               <options uid="7cf78d7c-c8b3-4798-93da-11732862def7" value="68be505b-a727-44cd-bc9e-07fe9abb1579"/>
             </technologies>
           </artifacts>
+          <artifacts uid="e7d86967-d594-4f25-8b34-5211665bf367" name="Build MVC application" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/mainMVCApplicationBuilder.egl">
+            <modelQuery uid="0710bd35-c15a-4e87-821f-d534dfd8cb5a" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')">
+              <parameters uid="511cb416-e48c-4eb1-a720-c916b73628ea" name="Repository"/>
+              <parameters uid="193285c6-060b-4e29-a440-6862d33d7302" name="Package"/>
+              <parameters uid="c7d733c5-b134-4414-a260-0852636e2be2" name="Type"/>
+            </modelQuery>
+            <modelQuery uid="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce" name="Query package" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types">
+              <parameters uid="30c1f3f9-955c-409d-9202-ec6ba3beea4b" name="Repository"/>
+              <parameters uid="c1e85a38-e001-4c43-a94e-155c15e5c37e" name="Package"/>
+            </modelQuery>
+            <technologies uid="a77433e3-0f05-4914-8f7d-826865199dfc" name="Java">
+              <options uid="e5879ed4-6a8e-417e-a412-fb9a085f3f07" value="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26"/>
+              <options uid="d05628e6-5a6f-40b6-986f-e5b16f9e619e" value="f35d1165-d79f-41d9-a998-7c53da59d0f8"/>
+            </technologies>
+            <technologies uid="9c644338-08e7-4b17-bdda-58e6690b8f3d" name="Builder implementation">
+              <options uid="f5220160-61e4-46f2-abaa-750bf4235f27" value="b8dc44f4-aaaa-4447-94b2-4c26831416cc"/>
+              <options uid="8281e4d2-2a4d-4f3b-b7f0-7dc4b8ccb3f3" value="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1"/>
+            </technologies>
+            <technologies uid="a0eabf01-e648-44ca-8be7-bf2779d04f0e" name="MVC application implementation">
+              <options uid="1a2b1010-9329-4acf-9a74-ce8e1f51db82" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
+              <options uid="ee45886e-8f2e-4541-a13b-7dbdfa01b18d" value="29507ea3-68c9-417b-85dc-a32c4474ee6c"/>
+            </technologies>
+          </artifacts>
         </artifactPackages>
         <artifactPackages uid="05701dc4-c4ef-48cd-bb6a-9d56b6b1767a" name="UI application">
           <artifacts uid="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Data control" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/model/mainModel.egl">
@@ -1244,7 +1267,7 @@
                 <recipes uid="6c59b498-c8ad-4f2e-8b13-68919051c08f" name="HR forms">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 6efca180-cd81-4fb5-b991-399346567070 f222b58b-cd61-4fe3-9a57-98f09aafac20 af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3 acdc2d46-bd08-4e15-ae7f-e81dade87e6d" uid="4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5" name="HR forms">
                     <ingredients uid="cb94813a-6ea2-4cca-84e9-e7322de5afd0" name="Form ingredient" layer="UILayer">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="f8f26823-9f25-4fe4-a406-059a4c2bc09f" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f8f26823-9f25-4fe4-a406-059a4c2bc09f" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="989d5392-92cf-4922-b915-896f942783cb" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="32cdf13e-2b00-42ea-a6a0-00eadfd814db"/>
@@ -1263,6 +1286,19 @@
                             <variables queryParamRef="d998450d-f752-45da-835f-065c044e7f4c" value="HR domain"/>
                             <variables queryParamRef="74a4fc6e-658f-4814-ae0f-9b47663f7806" value="HR application"/>
                             <variables queryParamRef="39d906fc-4ffd-4e09-b733-ac066c5ec505" value="Employee management"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="d383ffba-ed1f-45ab-935d-1d2b65224c6f" artifactRef="e7d86967-d594-4f25-8b34-5211665bf367" name="Build application">
+                          <technologies techRef="9c644338-08e7-4b17-bdda-58e6690b8f3d" valueRef="f5220160-61e4-46f2-abaa-750bf4235f27"/>
+                          <technologies techRef="a77433e3-0f05-4914-8f7d-826865199dfc" valueRef="d05628e6-5a6f-40b6-986f-e5b16f9e619e"/>
+                          <technologies techRef="a0eabf01-e648-44ca-8be7-bf2779d04f0e" valueRef="1a2b1010-9329-4acf-9a74-ce8e1f51db82"/>
+                          <queries uid="8d3e1ed3-c29a-40b9-b39d-7c121fa7e49b" name="Query domain model" queryRef="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce">
+                            <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="HR domain"/>
+                            <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="Simple domain model"/>
+                          </queries>
+                          <queries uid="703e4db1-e051-4630-99e6-66ea28c605ba" name="Query commands" queryRef="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce">
+                            <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="Base Repository"/>
+                            <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="Data control commands"/>
                           </queries>
                         </mappers>
                       </components>
@@ -1336,7 +1372,7 @@
               <mappers uid="0a60b0d3-0018-4642-a2d7-477a0ccb5b2c" name="Data control commands mapping">
                 <mapper uid="af4ffe3b-0786-4855-81cb-e5712863f276">
                   <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="0bc393ed-37a8-4b8c-afd2-1d7151d417c7" uid="c4dea937-b888-4435-b930-3715b01c5038" mappedToPackageName="java.util" mappedToClassName="List"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" typeRef="b88f6082-11a8-41d4-aba6-a8f51101c7ee" uid="71ad446e-a2b1-4a34-b3e7-9a507676108f" mappedToPackageName="java.util" mappedToClassName="List"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="b88f6082-11a8-41d4-aba6-a8f51101c7ee" uid="71ad446e-a2b1-4a34-b3e7-9a507676108f" mappedToPackageName="java.util" mappedToClassName="List"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="0b15e255-6c03-447d-baec-bac82427d639" uid="8360be6b-4660-4335-8a33-eaa286634e0f" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="SearchCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="45e54a84-60e2-47e4-8159-5c815a3c346e" uid="9dd83f36-fe0f-4148-ae5a-628304b48938" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="CreateCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="71922925-c8d3-4273-b2ee-441e832f13f1" uid="962edff2-f153-4a8c-a82f-9a6246a5d536" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="InsertCommandTuraService" artifactId="tura-service-compressor" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
@@ -1352,6 +1388,7 @@
                 <mapper uid="9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec">
                   <mappers xsi:type="tura.mapper:RoleMapper" uiLayer="true" securityEntity="b21bfadc-260c-4f5c-a655-076b3a71bf78" uid="7dc58b54-3593-4f41-8ddf-f114f80fb483" localRoleName="power_user" globalRoleName="manager"/>
                   <mappers xsi:type="tura.mapper:CSSMapper" styleLibrary="973addd3-f590-4271-ad52-e037b8c73dc0" uid="d5496c74-2a82-4e72-8cde-067e6b123f45" libraryUrl="hrcontrol-style.css"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82" uid="71221973-da7a-415b-81ab-8f7840e29ce3" mappedToPackageName="org.tura.platform.repository" mappedToClassName="Repository" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
                 </mapper>
               </mappers>
               <mappers uid="0cb562ff-4a44-4888-b2ae-67706c3c792f" name="Base package mapping">
