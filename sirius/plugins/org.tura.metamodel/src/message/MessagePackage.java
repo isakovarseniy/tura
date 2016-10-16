@@ -95,22 +95,13 @@ public interface MessagePackage extends EPackage {
 	int MESSAGE_LIBRARY__NAME = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Lib Languages</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGE_LIBRARY__LIB_LANGUAGES = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY__MESSAGES = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
+	int MESSAGE_LIBRARY__MESSAGES = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Library</em>' class.
@@ -119,7 +110,7 @@ public interface MessagePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_LIBRARY_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 4;
+	int MESSAGE_LIBRARY_FEATURE_COUNT = ArtifactPackage.CATEGORIZED_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link message.impl.MessageImpl <em>Message</em>}' class.
@@ -300,17 +291,6 @@ public interface MessagePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMessageLibrary_Name();
-
-	/**
-	 * Returns the meta object for the reference list '{@link message.MessageLibrary#getLibLanguages <em>Lib Languages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Lib Languages</em>'.
-	 * @see message.MessageLibrary#getLibLanguages()
-	 * @see #getMessageLibrary()
-	 * @generated
-	 */
-	EReference getMessageLibrary_LibLanguages();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link message.MessageLibrary#getMessages <em>Messages</em>}'.
@@ -510,14 +490,6 @@ public interface MessagePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MESSAGE_LIBRARY__NAME = eINSTANCE.getMessageLibrary_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Lib Languages</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MESSAGE_LIBRARY__LIB_LANGUAGES = eINSTANCE.getMessageLibrary_LibLanguages();
 
 		/**
 		 * The meta object literal for the '<em><b>Messages</b></em>' containment reference list feature.

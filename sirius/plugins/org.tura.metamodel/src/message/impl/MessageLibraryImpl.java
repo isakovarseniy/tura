@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link message.impl.MessageLibraryImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link message.impl.MessageLibraryImpl#getName <em>Name</em>}</li>
- *   <li>{@link message.impl.MessageLibraryImpl#getLibLanguages <em>Lib Languages</em>}</li>
  *   <li>{@link message.impl.MessageLibraryImpl#getMessages <em>Messages</em>}</li>
  * </ul>
  *
@@ -81,16 +80,6 @@ public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrar
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLibLanguages() <em>Lib Languages</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLibLanguages()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Language> libLanguages;
 
 	/**
 	 * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference list.
@@ -168,18 +157,6 @@ public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Language> getLibLanguages() {
-		if (libLanguages == null) {
-			libLanguages = new EObjectResolvingEList<Language>(Language.class, this, MessagePackage.MESSAGE_LIBRARY__LIB_LANGUAGES);
-		}
-		return libLanguages;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Message> getMessages() {
 		if (messages == null) {
 			messages = new EObjectContainmentEList<Message>(Message.class, this, MessagePackage.MESSAGE_LIBRARY__MESSAGES);
@@ -213,8 +190,6 @@ public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrar
 				return getUid();
 			case MessagePackage.MESSAGE_LIBRARY__NAME:
 				return getName();
-			case MessagePackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
-				return getLibLanguages();
 			case MessagePackage.MESSAGE_LIBRARY__MESSAGES:
 				return getMessages();
 		}
@@ -235,10 +210,6 @@ public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrar
 				return;
 			case MessagePackage.MESSAGE_LIBRARY__NAME:
 				setName((String)newValue);
-				return;
-			case MessagePackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
-				getLibLanguages().clear();
-				getLibLanguages().addAll((Collection<? extends Language>)newValue);
 				return;
 			case MessagePackage.MESSAGE_LIBRARY__MESSAGES:
 				getMessages().clear();
@@ -262,9 +233,6 @@ public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrar
 			case MessagePackage.MESSAGE_LIBRARY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case MessagePackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
-				getLibLanguages().clear();
-				return;
 			case MessagePackage.MESSAGE_LIBRARY__MESSAGES:
 				getMessages().clear();
 				return;
@@ -284,8 +252,6 @@ public class MessageLibraryImpl extends CategorizedImpl implements MessageLibrar
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case MessagePackage.MESSAGE_LIBRARY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case MessagePackage.MESSAGE_LIBRARY__LIB_LANGUAGES:
-				return libLanguages != null && !libLanguages.isEmpty();
 			case MessagePackage.MESSAGE_LIBRARY__MESSAGES:
 				return messages != null && !messages.isEmpty();
 		}

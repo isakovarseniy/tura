@@ -223,17 +223,8 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMessageLibrary_LibLanguages() {
-		return (EReference)messageLibraryEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getMessageLibrary_Messages() {
-		return (EReference)messageLibraryEClass.getEStructuralFeatures().get(3);
+		return (EReference)messageLibraryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -384,7 +375,6 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		messageLibraryEClass = createEClass(MESSAGE_LIBRARY);
 		createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__UID);
 		createEAttribute(messageLibraryEClass, MESSAGE_LIBRARY__NAME);
-		createEReference(messageLibraryEClass, MESSAGE_LIBRARY__LIB_LANGUAGES);
 		createEReference(messageLibraryEClass, MESSAGE_LIBRARY__MESSAGES);
 
 		messageEClass = createEClass(MESSAGE);
@@ -441,7 +431,6 @@ public class MessagePackageImpl extends EPackageImpl implements MessagePackage {
 		initEClass(messageLibraryEClass, MessageLibrary.class, "MessageLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMessageLibrary_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMessageLibrary_LibLanguages(), this.getLanguage(), null, "libLanguages", null, 0, -1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMessageLibrary_Messages(), this.getMessage(), null, "messages", null, 0, -1, MessageLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -7,10 +7,11 @@ operation  web_xml(hash) {
      var component = hash.get("component");
      var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
      var configuration = hash.get("configuration");
-     var roles = hash.get("roles");
+     var realms = hash.get("realms");
      var windows = hash.get("windows");
      var recipe = hash.get("recipe");
      var ingredient = hash.get("ingredient");
+     var model_mapper = hash.get('model_mapper');
      
      
 %]
@@ -73,26 +74,30 @@ operation  web_xml(hash) {
  </context-param>  
  
  [%
-   if (roles <> null){
+   if (realms <> null){
 //Unclear why should I do like this   
-     for ( ls in roles){
-      for(role in ls){
+     for ( ls in realms){
+      for(realm in ls){
+      for (rolepkg in realm.roles){ 
+      for(role in rolepkg.roles){
        role.mappingRole2Role(recipe, ingredient);      
       %]
    <security-role>
     <role-name>[%=role.~localRoleName%]</role-name>
    </security-role>        
     [%  
-     }
+        }
+       }
+      }
       }
    }
   if (windows <> null){
     for (window in windows)
       for (gr  in window.grants){
          for(grant in gr){
-          var form =  window.eContainer().parent.eContainer();
-          var pkg = form.eContainer().parent;
-          var role = grant.roleRef;
+          var form =  window.eContainer().eContainer();
+          var pkg = form.eContainer();
+          var role = grant.securityEntity;
           role.mappingRole2Role(recipe, ingredient);
   %]
 <security-constraint>
@@ -119,12 +124,12 @@ operation  web_xml(hash) {
     
     for (window in windows){
     
-        var list = window.findAllClassifiers("UIGeneration",  "JSF", "exception.type.handler");
+        var list = window.findAllClassifiers(util.getHint(model_mapper,"exception.type.handler"));
        
         if (list.size <> 0  )
            exceptionTypeHandler.put(window, list);
 
-        var list = window.findAllClassifiers("UIGeneration",  "JSF", "exception.code.handler");
+        var list = window.findAllClassifiers(util.getHint(model_mapper,"exception.code.handler"));
        
         if (list.size <> 0  )
            exceptionCodeHandler.put(window, list);
@@ -141,8 +146,8 @@ operation  web_xml(hash) {
         }
     }
     if (loginWin <> null ){
-      var form =  loginWin.eContainer().parent.eContainer();
-      var pkg = form.eContainer().parent;
+      var form =  loginWin.eContainer().eContainer();
+      var pkg = form.eContainer();
 
 %]    
 
@@ -153,8 +158,8 @@ operation  web_xml(hash) {
         <form-login-page>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(loginWin.name)+".xhtml"%]</form-login-page>
 [%
      if (errorWin <> null) {
-      var form =  errorWin.eContainer().parent.eContainer();
-      var pkg = form.eContainer().parent;
+      var form =  errorWin.eContainer().eContainer();
+      var pkg = form.eContainer();
 %]        
         <form-error-page>/[%=util.mergeAndCapitalize(pkg.name).toLowerCase()%]/[%=util.mergeAndCapitalize(form.name).toLowerCase()%]/[%=util.mergeAndCapitalize(errorWin.name)+".xhtml"%]</form-error-page>
 [%
@@ -168,8 +173,8 @@ operation  web_xml(hash) {
    for(window in exceptionTypeHandler.keySet()){
        var list = exceptionTypeHandler.get(window);
         for(hint in  list){
-          var form =  window.eContainer().parent.eContainer();
-          var pkg = form.eContainer().parent;        
+          var form =  window.eContainer().eContainer();
+          var pkg = form.eContainer();        
         %]
  <error-page>
      <exception-type>[%=hint.details%]</exception-type>
@@ -183,8 +188,8 @@ operation  web_xml(hash) {
     for(window in exceptionCodeHandler.keySet()){
        var list = exceptionCodeHandler.get(window);
         for(hint in  list){
-          var form =  window.eContainer().parent.eContainer();
-          var pkg = form.eContainer().parent;        
+          var form =  window.eContainer().eContainer();
+          var pkg = form.eContainer();        
         %]
  <error-page>
      <error-code>[%=hint.details%]</error-code>

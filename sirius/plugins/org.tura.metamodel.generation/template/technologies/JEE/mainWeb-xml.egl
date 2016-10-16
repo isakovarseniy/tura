@@ -11,11 +11,11 @@ ${percent}${end}
  
       var util = new Native('org.tura.metamodel.commons.Util');
       var app = util.runQuery(model_mapper,"Query application",model_mapper);
-      var roles = app.application.applicationRole.roles.roles;
+      var realms = app.applicationRole.realms;
       var win = new Native('java.util.ArrayList');
       
-      for (  pkg in app.application.applicationUILayer.applicationUIPackages ){
-          for  ( frm in pkg.uipackage.forms){
+      for (  pkg in app.applicationUILayer.applicationUIPackages ){
+          for  ( frm in pkg.forms){
             for (form in frm){
               win.addAll(form.view.canvases->select(q|q.isKindOf(form::Window))->collect(r|r));
             }
@@ -29,7 +29,7 @@ ${percent}${end}
       hash.put("component",component);
       hash.put("model_mapper",model_mapper);
       hash.put("configuration",configuration);
-      hash.put("roles",roles);
+      hash.put("realms",realms);
       hash.put("windows",win);
       hash.put("application",app.get(0));
  

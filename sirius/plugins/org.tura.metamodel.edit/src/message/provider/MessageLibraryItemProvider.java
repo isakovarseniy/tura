@@ -56,7 +56,6 @@ public class MessageLibraryItemProvider extends CategorizedItemProvider {
 
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addLibLanguagesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -101,28 +100,6 @@ public class MessageLibraryItemProvider extends CategorizedItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Lib Languages feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLibLanguagesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MessageLibrary_libLanguages_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MessageLibrary_libLanguages_feature", "_UI_MessageLibrary_type"),
-				 MessagePackage.Literals.MESSAGE_LIBRARY__LIB_LANGUAGES,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

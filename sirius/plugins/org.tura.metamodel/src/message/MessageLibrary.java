@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link message.MessageLibrary#getUid <em>Uid</em>}</li>
  *   <li>{@link message.MessageLibrary#getName <em>Name</em>}</li>
- *   <li>{@link message.MessageLibrary#getLibLanguages <em>Lib Languages</em>}</li>
  *   <li>{@link message.MessageLibrary#getMessages <em>Messages</em>}</li>
  * </ul>
  *
@@ -77,22 +76,6 @@ public interface MessageLibrary extends Categorized {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Lib Languages</b></em>' reference list.
-	 * The list contents are of type {@link message.Language}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Lib Languages</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lib Languages</em>' reference list.
-	 * @see message.MessagePackage#getMessageLibrary_LibLanguages()
-	 * @model
-	 * @generated
-	 */
-	EList<Language> getLibLanguages();
 
 	/**
 	 * Returns the value of the '<em><b>Messages</b></em>' containment reference list.

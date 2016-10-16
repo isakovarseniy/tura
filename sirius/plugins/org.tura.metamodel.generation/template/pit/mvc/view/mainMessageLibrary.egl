@@ -13,7 +13,7 @@ ${percent}${end}
     if (appMsgLibs.size() <> 0 ){
        for (appMsg in appMsgLibs){
 
-         for ( library in appMsg.messageLibraries){
+         for ( library in appMsg.libraries){
 
             var hash = new Native("java.util.HashMap"); 
    

@@ -6,7 +6,6 @@ import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 class MessageLibrary extends artifact.Categorized{
     id attr EString uid;
     attr EString name;
-    ref Language[*] libLanguages;
     val Message[*] messages ;
 
 }

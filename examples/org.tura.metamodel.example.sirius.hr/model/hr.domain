@@ -114,7 +114,7 @@
             <technologies uid="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" name="Builder type">
               <options uid="cc47fddb-b1b8-4ac6-a070-73cd8096168e" value="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4"/>
               <options uid="5516fd5e-e5b1-4fb3-aba7-07325b517be7" value="f52da8a4-ca3f-49ac-9328-5504ce7b49b6"/>
-              <options uid="7cf78d7c-c8b3-4798-93da-11732862def7" value="68be505b-a727-44cd-bc9e-07fe9abb1579"/>
+              <options uid="3c0efdaa-5641-438e-830c-67905a0982e1" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
             </technologies>
           </artifacts>
           <artifacts uid="e7d86967-d594-4f25-8b34-5211665bf367" name="Build MVC application" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/mainMVCApplicationBuilder.egl">
@@ -140,6 +140,24 @@
               <options uid="ee45886e-8f2e-4541-a13b-7dbdfa01b18d" value="29507ea3-68c9-417b-85dc-a32c4474ee6c"/>
             </technologies>
           </artifacts>
+          <artifacts uid="e9d0b499-bc45-4190-a488-40202391c5f4" name="MVC application deployer" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/mainMVCDeployment.egl">
+            <configVariables uid="34a6c1cd-ac64-4399-b7d9-ea94e0f1ec97" name="Application server home" var="733038d4-dbbf-4a72-8f84-45ec731f4ce9"/>
+            <configVariables uid="44a57f01-4d89-4e92-9893-c89588cdb717" name="Application server admin port" var="a4f78b70-3a9d-491b-b748-4480daae7f19"/>
+            <configVariables uid="0d029c7c-d9c6-4b54-875d-32cfd9b34205" name="Application server domain" var="f52c2871-e5b6-479e-a5bd-3101df6341f5"/>
+            <technologies uid="4b7af66a-8fb6-4b03-91ab-c9d1cb468b8e" name="OS">
+              <options uid="9c56c069-91b0-413f-95fa-b5056476b0be" value="0ba9fb8e-4b01-47bc-93f2-7c398218105a"/>
+            </technologies>
+            <technologies uid="4aff409c-1621-40ea-8607-555c901d6f31" name="MVC application implementation">
+              <options uid="a232c26e-2c1e-4a22-acbf-9d2b57846a16" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
+            </technologies>
+            <technologies uid="88a0db5d-fb41-4f9b-bcff-bbae1c23e369" name="Deployment environment">
+              <options uid="50fa6ec0-fa7e-4eab-8030-a448feaf400b" value="d337ffa2-6a9c-46cd-aa04-72143493a834"/>
+            </technologies>
+            <technologies uid="c0b0a587-7107-4c80-a7bd-b586801e18ee" name="Java">
+              <options uid="c431d8ed-e954-4f7d-ba84-16411885e865" value="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26"/>
+              <options uid="9641ce84-425f-4a23-bc0b-f73ace27bf6a" value="f35d1165-d79f-41d9-a998-7c53da59d0f8"/>
+            </technologies>
+          </artifacts>
         </artifactPackages>
         <artifactPackages uid="05701dc4-c4ef-48cd-bb6a-9d56b6b1767a" name="UI application">
           <artifacts uid="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Data control" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/model/mainModel.egl">
@@ -162,7 +180,7 @@
               <options uid="29872d37-9dc6-4cfb-9350-147e66cca6c3" value="450227fa-1b3e-4d00-a8fa-df7635aa0531"/>
             </technologies>
           </artifacts>
-          <artifacts uid="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="View" template="platform:/plugin/org.tura.metamodel.generation//template/pit/mvc/view/mainView.egl">
+          <artifacts uid="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="View" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainView.egl">
             <configVariables uid="c2ff15f2-4cf7-4028-9710-af2bd3eb4312" name="Resource library location" var="edbc4c3d-9673-4188-b39e-665a62f165e2"/>
             <modelQuery uid="6e511ddd-9739-4056-b478-e5224e536df4" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
               <parameters uid="e1a35fee-7cf6-4b74-8081-76c8b4521140" name="Domain Application"/>
@@ -195,10 +213,42 @@
             <hints uid="c6933b95-e132-4b0f-9528-b10325a536e1" name="row number selector" hint="be798615-3f9f-4c7a-bb08-626b35fbabc6"/>
             <hints uid="cefe0e3e-ea2c-44a5-b9f7-aba4bdc08b45" name="menu.global" hint="e7e14e37-f0b2-4166-a029-c1c8619ce37d"/>
           </artifacts>
+          <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
+            <modelQuery uid="4952c198-a1c8-4f39-aa8a-9448640d40ae" name="Query message library" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationMessages.messageLibraries">
+              <parameters uid="7567233d-4978-48a3-abc8-91c1e6e026b7" name="Domain Application"/>
+              <parameters uid="405dac8b-0858-41d7-bcfc-6a2db84a4d4d" name="Group"/>
+              <parameters uid="2da04696-e0d1-453e-b7c4-3c69c2c43793" name="Application"/>
+            </modelQuery>
+            <technologies uid="2b33ca7a-ad2d-45f7-af12-26b58ca73e9d" name="View implementation">
+              <options uid="af295254-efd7-4de5-9441-50fb316e20fc" value="68be505b-a727-44cd-bc9e-07fe9abb1579"/>
+            </technologies>
+            <hints uid="93a4332e-a29c-4b79-b590-dd70fc07a9c4" name="message.encoding" hint="d74f5a9a-dd22-4885-b1ba-2cfb9a078e7a"/>
+          </artifacts>
+          <artifacts uid="840d10b4-046c-4b14-91d3-3e7f7710324e" name="web.xml" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/mainWeb-xml.egl">
+            <configVariables uid="3dfdb6d7-ca44-46f4-bc62-b25a79616e64" name="Session timeout" var="2c1d2970-1630-474c-b93c-7ace2a3ae99b"/>
+            <configHashes uid="0efeb124-b5dd-41c9-8599-e22c39e6df46" name="Application routing table" hash="d716c499-dde8-4598-a7df-06282fe54480"/>
+            <modelQuery uid="dcf664dc-d951-4e02-af1a-ca7ac95fda26" name="Query application" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application)">
+              <parameters uid="d01eca2d-6498-4c5e-a8fa-9d174985f006" name="Domain Application"/>
+              <parameters uid="1d935640-f589-4deb-b5a3-eaf6799df108" name="Group"/>
+              <parameters uid="6bedbda4-2dea-4298-9d2b-eca8cc146548" name="Application"/>
+            </modelQuery>
+            <technologies uid="a6a64a8c-3d68-46b9-8da1-ab9750d7ca4e" name="View implementation">
+              <options uid="5eb90993-8328-45c1-a5cc-5153a4bf4397" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
+            </technologies>
+            <technologies uid="0741ec62-d452-459e-a610-1182f366d213" name="Deployment environment">
+              <options uid="b7066c89-3fe3-4660-9f4b-0878499f4906" value="d337ffa2-6a9c-46cd-aa04-72143493a834"/>
+            </technologies>
+            <hints uid="3312fbd0-faeb-41c5-9214-78d4c7d0025f" name="exception.code.handler" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d"/>
+            <hints uid="59d425f9-d7a4-417b-887f-5a1edd0b91ba" name="exception.type.handler" hint="a24ca484-c882-4e80-961a-8093e6dc5803"/>
+            <hints uid="7713d7e1-8898-42e6-8c85-1860c31bdac4" name="login.page" hint="4b28d583-e785-4888-bda9-20cdc9db245a"/>
+            <hints uid="d4468815-5b2c-4371-bef4-f2c02b2d95ce" name="error.page" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
+          </artifacts>
         </artifactPackages>
       </domainArtifact>
       <techLeafs uid="52052d1c-7313-4684-a8bd-c62091140f59" name="JEE">
         <hints uid="55406073-2639-498f-b8ee-f121395f99e3" name="Bean validation"/>
+        <configVariables uid="2c1d2970-1630-474c-b93c-7ace2a3ae99b" name="Session timeout"/>
+        <configHashes uid="d716c499-dde8-4598-a7df-06282fe54480" name="Application routing table"/>
         <techLeafs uid="f52da8a4-ca3f-49ac-9328-5504ce7b49b6" name="JPA">
           <hints uid="b335d5d7-6d63-47de-a24b-246a55e48ad8" name="Entity Object"/>
           <hints uid="8ab73b44-bfc9-4a10-9f62-7438696132d7" name="Sequence"/>
@@ -230,6 +280,7 @@
           <hints uid="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" name="exception.code.handler"/>
           <hints uid="b2faf8c7-f1b6-48fa-885c-5174c65ee62e" name="error.page"/>
           <hints uid="a24ca484-c882-4e80-961a-8093e6dc5803" name="exception.type.handler"/>
+          <hints uid="d74f5a9a-dd22-4885-b1ba-2cfb9a078e7a" name="message.encoding"/>
           <configVariables uid="edbc4c3d-9673-4188-b39e-665a62f165e2" name="Resource library location"/>
           <techLeafs uid="38d17c08-8c9d-43e3-8535-1d1831c96c6b" name="RichFaces"/>
           <techLeafs uid="2e39e023-cf18-477b-a88d-caabe0c76d39" name="PrimeFaces">
@@ -249,6 +300,12 @@
           <techLeafs uid="bac478cc-27e1-4f2f-b70b-1ff471e8524b" name="JDBC"/>
         </techLeafs>
         <techLeafs uid="23d58a75-40fc-4824-a82a-8f5af07b0a8e" name="CDI"/>
+        <techLeafs uid="0c685d42-8551-4253-8c0b-7b7206aaeae7" name="Application_server">
+          <configVariables uid="733038d4-dbbf-4a72-8f84-45ec731f4ce9" name="Application server home"/>
+          <configVariables uid="a4f78b70-3a9d-491b-b748-4480daae7f19" name="Application server admin port"/>
+          <configVariables uid="f52c2871-e5b6-479e-a5bd-3101df6341f5" name="Application server domain"/>
+          <techLeafs uid="d337ffa2-6a9c-46cd-aa04-72143493a834" name="GlassFish.v4"/>
+        </techLeafs>
       </techLeafs>
       <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="JSE">
         <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Implements"/>
@@ -1265,7 +1322,7 @@
               </recipes>
               <recipes uid="66d6cc9b-a6e1-40e0-b0cb-18c4c02274b2" name="UI">
                 <recipes uid="6c59b498-c8ad-4f2e-8b13-68919051c08f" name="HR forms">
-                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 6efca180-cd81-4fb5-b991-399346567070 f222b58b-cd61-4fe3-9a57-98f09aafac20 af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3 acdc2d46-bd08-4e15-ae7f-e81dade87e6d" uid="4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5" name="HR forms">
+                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 6efca180-cd81-4fb5-b991-399346567070 f222b58b-cd61-4fe3-9a57-98f09aafac20 af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3 acdc2d46-bd08-4e15-ae7f-e81dade87e6d 71f44269-b3fd-4292-8c43-2ffb245accd8" uid="4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5" name="HR forms">
                     <ingredients uid="cb94813a-6ea2-4cca-84e9-e7322de5afd0" name="Form ingredient" layer="UILayer">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f8f26823-9f25-4fe4-a406-059a4c2bc09f" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="989d5392-92cf-4922-b915-896f942783cb" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
@@ -1300,18 +1357,62 @@
                             <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="Base Repository"/>
                             <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="Data control commands"/>
                           </queries>
+                          <queries uid="80a31766-541f-460f-b79f-1f537d9caa3c" name="Query business logic" queryRef="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce">
+                            <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="HR domain"/>
+                            <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="HR controller business logic"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="1dc64683-ffb2-46a7-bd67-7e7bc2fdbe8f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/builder.sh">
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c0efdaa-5641-438e-830c-67905a0982e1"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                        </mappers>
+                        <mappers uid="493f35a8-60d7-44c6-b555-9231a3f568ce" artifactRef="e9d0b499-bc45-4190-a488-40202391c5f4" name="Application deployer" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/deployer.sh">
+                          <technologies techRef="4aff409c-1621-40ea-8607-555c901d6f31" valueRef="a232c26e-2c1e-4a22-acbf-9d2b57846a16"/>
+                          <technologies techRef="88a0db5d-fb41-4f9b-bcff-bbae1c23e369" valueRef="50fa6ec0-fa7e-4eab-8030-a448feaf400b"/>
+                          <technologies techRef="4b7af66a-8fb6-4b03-91ab-c9d1cb468b8e" valueRef="9c56c069-91b0-413f-95fa-b5056476b0be"/>
+                          <technologies techRef="c0b0a587-7107-4c80-a7bd-b586801e18ee" valueRef="9641ce84-425f-4a23-bc0b-f73ace27bf6a"/>
+                        </mappers>
+                        <mappers uid="198c196a-d355-45fb-a06e-4a08ab5cd0f7" artifactRef="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Messages generation">
+                          <technologies techRef="2b33ca7a-ad2d-45f7-af12-26b58ca73e9d" valueRef="af295254-efd7-4de5-9441-50fb316e20fc"/>
+                          <queries uid="b69b8c56-a5fa-4753-9feb-ab71e0074713" name="Query messages" queryRef="4952c198-a1c8-4f39-aa8a-9448640d40ae">
+                            <variables queryParamRef="7567233d-4978-48a3-abc8-91c1e6e026b7" value="ERP"/>
+                            <variables queryParamRef="405dac8b-0858-41d7-bcfc-6a2db84a4d4d" value="HR domain"/>
+                            <variables queryParamRef="2da04696-e0d1-453e-b7c4-3c69c2c43793" value="HR application"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="6170be20-7d3d-4974-b078-f1ccb3527945" artifactRef="840d10b4-046c-4b14-91d3-3e7f7710324e" name="web.xml">
+                          <technologies techRef="0741ec62-d452-459e-a610-1182f366d213" valueRef="b7066c89-3fe3-4660-9f4b-0878499f4906"/>
+                          <technologies techRef="a6a64a8c-3d68-46b9-8da1-ab9750d7ca4e" valueRef="5eb90993-8328-45c1-a5cc-5153a4bf4397"/>
+                          <queries uid="5563464d-d944-43b3-afc6-a233aedc7815" name="Query applicatioin" queryRef="dcf664dc-d951-4e02-af1a-ca7ac95fda26">
+                            <variables queryParamRef="d01eca2d-6498-4c5e-a8fa-9d174985f006" value="ERP"/>
+                            <variables queryParamRef="1d935640-f589-4deb-b5a3-eaf6799df108" value="HR domain"/>
+                            <variables queryParamRef="6bedbda4-2dea-4298-9d2b-eca8cc146548" value="HR application"/>
+                          </queries>
                         </mappers>
                       </components>
                     </ingredients>
                   </recipe>
                   <configurations uid="b051237e-4899-42fb-870a-551e3056850f">
                     <properties uid="4886bcd5-84be-4365-a8b7-537dcaeba1d8" confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="HRObjects"/>
+                    <properties uid="eab771eb-6b9e-458f-bbae-7939a9b02c3a" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
+                    <properties uid="d1840311-0539-4ee9-8296-3600026dfed1" confVarRef="f52c2871-e5b6-479e-a5bd-3101df6341f5" value="domain1"/>
+                    <properties uid="51f9193f-ade7-4e6b-b931-7c074812a910" confVarRef="733038d4-dbbf-4a72-8f84-45ec731f4ce9" value="/Users/arseniy/servers/glassfish4"/>
+                    <properties uid="ca64f81e-4db0-48cc-a23b-e62e23f1127f" confVarRef="a4f78b70-3a9d-491b-b748-4480daae7f19" value="4848"/>
+                    <properties uid="2c3d7a7f-2dc8-499b-b8b0-cddc19c32f21" confVarRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b" value="5"/>
                   </configurations>
                   <configurations uid="67fda0b2-5539-4648-ba8a-76c2dc7b9809">
                     <properties uid="f8c812a1-5e0d-422b-be97-2b49c52ebe06" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2" value="https://localhost:8181/hrresources-2.0"/>
+                    <hashProperties uid="616ea5c1-d598-450a-9880-dadfa53bae90" confHashRef="d716c499-dde8-4598-a7df-06282fe54480">
+                      <hash uid="e5605bfa-e44d-4b22-bbd5-449f696f1bf7" key="hrapplication" value="https://localhost:8181/hrapplication"/>
+                    </hashProperties>
                   </configurations>
                   <configurations uid="249725cb-08a5-4324-896f-e31a00a86081">
                     <properties uid="b2970f82-f698-47f7-9bf7-6a2ab7b6b8d6" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2" value="http://localhost:8080/hrresources-2.0"/>
+                    <hashProperties uid="40739cf2-2da7-4576-9ac3-5c19afd515b6" confHashRef="d716c499-dde8-4598-a7df-06282fe54480">
+                      <hash uid="5792b8fd-0cea-45af-80bd-cc0307361616" key="hrapplication" value="http://localhost:8080/hrapplication"/>
+                    </hashProperties>
                   </configurations>
                   <infrastructures uid="25ebeb54-7003-4e72-bacc-3d8de138ac52" name="Development"/>
                   <infrastructures uid="53e5aac5-9adb-40f6-94b4-72d5dd83620c" name="Development with https"/>
@@ -1404,9 +1505,10 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="22643e00-1019-4f9a-b22b-5ee03e957858" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="f07b6531-021a-4b2d-baa4-d28fa79a4053" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="ca9619bb-716a-48ac-9b6c-2f4a6b468793" uid="817f486a-a5f4-4d08-82c5-257b90a92e02" mappedToPackageName="org.tura.platform.object.model" mappedToClassName="DomainObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="1d17cd28-17dc-4964-bb46-63e1a4003517" uid="d7802112-623c-4771-a623-12a9272369f4" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager"/>
                 </mapper>
               </mappers>
-              <mappers uid="cafba9fe-0d77-4612-8569-752443925068" name="HR controller mapper">
+              <mappers uid="cafba9fe-0d77-4612-8569-752443925068" name="HR controller business logic mapper">
                 <mapper uid="acdc2d46-bd08-4e15-ae7f-e81dade87e6d">
                   <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="b37d91c8-1363-4548-8896-02d5ad9a93c3" uid="2815fe07-9a8d-406e-90dc-81f400f678c9" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="Actions" artifactId="triggers" groupId="org.tura.example.service.hrform" version="1.0"/>
                 </mapper>
@@ -1414,6 +1516,9 @@
               <mappers uid="e857e5f1-c6dd-40b3-95a6-dca7a562b44e" name="JSF special class mapping">
                 <mapper uid="71f44269-b3fd-4292-8c43-2ffb245accd8">
                   <mappers xsi:type="tura.mapper:JavaMapper" serviceLayer="true" uiLayer="true" typeRef="8b94b9cd-b404-4243-bc7b-bf085d4163bd" uid="b5826d10-77c1-48f8-b7b6-23ed489c869f" mappedToPackageName="java.lang" mappedToClassName="String"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="af833f7a-deb1-4318-bdee-c54a889293cc" uid="92e66479-4fef-4d61-b401-6b9a690c9e21" mappedToClassName="String"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="31b79724-028a-4868-900f-e445787d71b0" uid="892fa8b8-006e-4dd9-8732-7fa51cb62b8b" mappedToClassName="String"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" uiLayer="true" typeRef="5752f30f-2e05-4204-a7a7-9f0cfe79d39e" uid="cb2ae84d-1892-4039-baef-00ce85b47c1f" mappedToClassName="String"/>
                 </mapper>
               </mappers>
             </applicationMappers>
@@ -6434,7 +6539,7 @@
               </messageLibraries>
               <applicationLanguages uid="697ce488-936c-4f2c-8093-0117b7137501" name="Languages">
                 <languages uid="67dcba92-1d36-4cb2-8f10-54c3038f1d72" lang="English" code="en" defaultLang="true"/>
-                <languages uid="feb191aa-7a09-4d02-8102-d628390d4fd5" lang="Russian"/>
+                <languages uid="feb191aa-7a09-4d02-8102-d628390d4fd5" lang="Russian" code="ru"/>
               </applicationLanguages>
             </applicationMessages>
           </applications>

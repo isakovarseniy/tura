@@ -19,6 +19,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
       hash.put("model_mapper",model_mapper);
       hash.put("configuration",configuration);
  
-      mvc_deployment(hash);  
+      deployment(hash);  
  
 %]

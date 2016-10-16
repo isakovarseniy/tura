@@ -117,14 +117,22 @@
 
 	</dependencies>
 
+[%
+  var i =  Java.lastIndexOf("/");
+  if (i <> -1){
+     i = i+1;
+  }else{
+    i = 0;
+  }
+%]
 
     <build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>[%=Java%]</source>
-					<target>[%=Java%]</target>
+					<source>[%=Java.substring(i)%]</source>
+					<target>[%=Java.substring(i)%]</target>
 				</configuration>
 			</plugin>
 		</plugins>

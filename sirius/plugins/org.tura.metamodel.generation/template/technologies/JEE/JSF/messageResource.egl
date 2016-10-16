@@ -5,18 +5,20 @@ operation  message_library_generation(hash) {
      var library = hash.get("library");    
      var resourcePath = hash.get("resourcePath");   
      var javaPath = hash.get("javaPath");
-     var application = library.eContainer().parent.parent.parent;
+     var application = library.eContainer().eContainer().eContainer();
      var component = hash.get("component"); 
+     var model_mapper = hash.get("model_mapper");
      
-     for (  lang in library.libLanguages){
-     message_content(lang, library,resourcePath,application);
-     message_bundl_provider( library,javaPath,application,component);
+     for (  lang in library.eContainer().eContainer().applicationLanguages.languages){
+     message_content(lang, library,resourcePath,application,model_mapper);
+     message_bundl_provider( library,javaPath,application,component,model_mapper);
      }
  }
  
 @template
-operation  message_content(lang, library,resourcePath,application) {
+operation  message_content(lang, library,resourcePath,application,model_mapper) {
      var util = new Native('org.tura.metamodel.commons.Util');
+     
       for (  message in library.messages){
       
       var translation = message.translatioins->select(t|t.lang = lang)->collect(t|t.translation);
@@ -26,18 +28,18 @@ operation  message_content(lang, library,resourcePath,application) {
         }     
       }
     var encoding = "UTF-8";
-    if (library.findClassifier (util.getHint(model_mapper,"encoding"))){
+    if (library.findClassifier (util.getHint(model_mapper,"message.encoding"))){
        encoding = library.~hintDetails;
     }
      
-    util.saveFile( resourcePath+"/"+util.mergeAndCapitalize(application.name).toLowerCase(), util.mergeAndCapitalize(library.name)+"_"+lang.lang.code+".properties",out.toString(),encoding);   
+    util.saveFile( resourcePath+"/"+util.mergeAndCapitalize(application.name).toLowerCase(), util.mergeAndCapitalize(library.name)+"_"+lang.code+".properties",out.toString(),encoding);   
  }
  
 @template
-operation  message_bundl_provider( library,javaPath,application,component) {
+operation  message_bundl_provider( library,javaPath,application,component,model_mapper) {
     var util = new Native('org.tura.metamodel.commons.Util');
     var encoding = "UTF-8";
-    if (library.findClassifier (util.getHint(model_mapper,"encoding"))){
+    if (library.findClassifier (util.getHint(model_mapper,"message.encoding"))){
        encoding = library.~hintDetails;
     }
 %]
