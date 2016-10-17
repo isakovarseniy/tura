@@ -244,6 +244,18 @@
             <hints uid="d4468815-5b2c-4371-bef4-f2c02b2d95ce" name="error.page" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
           </artifacts>
         </artifactPackages>
+        <artifactPackages uid="0a23182c-abb1-43f4-93f0-3371c846ad36" name="JSF specific artifacts">
+          <artifacts uid="ef56805f-64cc-4d5f-b264-2ed3dd9e7751" name="faces-config.xml" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/mainFaces-config-xml.egl">
+            <modelQuery uid="e9a36941-6c8f-4ebe-b774-a7fccface66f" name="Query message library" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationMessages">
+              <parameters uid="d66ba3fc-71af-4eb5-afe7-c5e9dc905574" name="Domain Application"/>
+              <parameters uid="1166e87f-29a7-42c4-8612-072cfbe14ee4" name="Group"/>
+              <parameters uid="23b7cd06-c14a-4b2d-ae72-d815fada6780" name="Application"/>
+            </modelQuery>
+            <technologies uid="9b3e2153-3251-4507-a7a9-dae7fa52808f" name="View implementation">
+              <options uid="ee6aae36-a545-44a8-a48f-94403134f75c" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
+            </technologies>
+          </artifacts>
+        </artifactPackages>
       </domainArtifact>
       <techLeafs uid="52052d1c-7313-4684-a8bd-c62091140f59" name="JEE">
         <hints uid="55406073-2639-498f-b8ee-f121395f99e3" name="Bean validation"/>
@@ -1389,6 +1401,14 @@
                             <variables queryParamRef="d01eca2d-6498-4c5e-a8fa-9d174985f006" value="ERP"/>
                             <variables queryParamRef="1d935640-f589-4deb-b5a3-eaf6799df108" value="HR domain"/>
                             <variables queryParamRef="6bedbda4-2dea-4298-9d2b-eca8cc146548" value="HR application"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="a4758d54-f199-4803-b433-b338680adecd" artifactRef="ef56805f-64cc-4d5f-b264-2ed3dd9e7751" name="faces-config.xml">
+                          <technologies techRef="9b3e2153-3251-4507-a7a9-dae7fa52808f" valueRef="ee6aae36-a545-44a8-a48f-94403134f75c"/>
+                          <queries uid="1460b436-96d2-4a4c-818b-d1601c6e3f1e" name="Query messages" queryRef="e9a36941-6c8f-4ebe-b774-a7fccface66f">
+                            <variables queryParamRef="d66ba3fc-71af-4eb5-afe7-c5e9dc905574" value="ERP"/>
+                            <variables queryParamRef="1166e87f-29a7-42c4-8612-072cfbe14ee4" value="HR domain"/>
+                            <variables queryParamRef="23b7cd06-c14a-4b2d-ae72-d815fada6780" value="HR application"/>
                           </queries>
                         </mappers>
                       </components>

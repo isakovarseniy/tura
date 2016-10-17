@@ -13,7 +13,7 @@ ${percent}${end}
     
        var appMsg = appMsgLibs.get(0);
        var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
-       var application = appMsg.parent.parent.parent;
+       var application = appMsg.eContainer().eContainer();
        
 %]
 <?xml version='1.0' encoding='UTF-8'?>
@@ -42,7 +42,7 @@ ${percent}${end}
 %]
         <locale-config>
 [%
-       for ( lang in appMsg.languages){
+       for ( lang in appMsg.applicationLanguages.languages){
           if (lang.defaultLang){
 %]        
            <default-locale>[%=lang.code%]</default-locale>
@@ -52,7 +52,7 @@ ${percent}${end}
 %]
 
 [%
-       for ( lang in appMsg.languages){
+       for ( lang in appMsg.applicationLanguages.languages){
           if (not lang.defaultLang){
 %]        
             <supported-locale>[%=lang.code%]</supported-locale>
