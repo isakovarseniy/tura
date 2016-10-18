@@ -12,7 +12,7 @@
          var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
          var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
          var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/";
-         var uipackage = form.eContainer().parent;
+         var uipackage = form.eContainer();
 
          hash.put("recipe",recipe);
          hash.put("ingredient",ingredient);

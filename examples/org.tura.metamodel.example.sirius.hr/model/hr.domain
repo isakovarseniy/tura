@@ -255,6 +255,22 @@
               <options uid="ee6aae36-a545-44a8-a48f-94403134f75c" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
             </technologies>
           </artifacts>
+          <artifacts uid="159597f8-6998-4947-9a0c-be08e02260a5" name="DataControl Interface" description="" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/mainDataControlInterface.egl">
+            <modelQuery uid="24dbf757-45c1-4d75-af3b-ed8ca60184ea" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+              <parameters uid="1561eaa6-4ca2-416d-957b-f5fb312b63e4" name="Domain Application"/>
+              <parameters uid="36bc7750-c0e2-43de-b590-7167d9f4a153" name="Group"/>
+              <parameters uid="242a0ac0-7267-48b8-9940-de542577c28a" name="Application"/>
+              <parameters uid="84f83e19-6565-48c3-9a1f-fe1886e6b230" name="Package"/>
+            </modelQuery>
+          </artifacts>
+          <artifacts uid="c36f9706-6b7f-41e2-82da-01fb1088e8cb" name="Viewport interface" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JSF/mainViewPortHolderInterface.egl">
+            <modelQuery uid="adb8b66d-658c-45ac-9fa7-8389586b6271" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+              <parameters uid="d62af783-cfc9-444b-b3c7-38252846086f" name="Domain Application"/>
+              <parameters uid="4dc59f11-982a-4cfc-970e-80d160594285" name="Group"/>
+              <parameters uid="3bd23e05-a410-4c4c-afa2-41ef571daffe" name="Application"/>
+              <parameters uid="5560e2bd-0c7d-439b-a0aa-681f0275fce6" name="Package"/>
+            </modelQuery>
+          </artifacts>
         </artifactPackages>
       </domainArtifact>
       <techLeafs uid="52052d1c-7313-4684-a8bd-c62091140f59" name="JEE">
@@ -1410,6 +1426,39 @@
                             <variables queryParamRef="1166e87f-29a7-42c4-8612-072cfbe14ee4" value="HR domain"/>
                             <variables queryParamRef="23b7cd06-c14a-4b2d-ae72-d815fada6780" value="HR application"/>
                           </queries>
+                        </mappers>
+                      </components>
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="c3fdf5c2-a443-4de5-b6b3-795080b23b56" name="Forms interface" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform-interface" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+                        <mappers uid="ae622f5d-f20e-4061-b432-6ad7d0acab37" artifactRef="159597f8-6998-4947-9a0c-be08e02260a5" name="Data control interface">
+                          <queries uid="f37f75b6-26bf-488e-b3e6-87ace4656696" name="Query form" queryRef="24dbf757-45c1-4d75-af3b-ed8ca60184ea">
+                            <variables queryParamRef="1561eaa6-4ca2-416d-957b-f5fb312b63e4" value="ERP"/>
+                            <variables queryParamRef="36bc7750-c0e2-43de-b590-7167d9f4a153" value="HR domain"/>
+                            <variables queryParamRef="242a0ac0-7267-48b8-9940-de542577c28a" value="HR application"/>
+                            <variables queryParamRef="84f83e19-6565-48c3-9a1f-fe1886e6b230" value="Employee management"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="ea765dfb-a801-4d3a-afad-10ecda923a68" artifactRef="c36f9706-6b7f-41e2-82da-01fb1088e8cb" name="View port interface">
+                          <queries uid="b2b44189-9c71-4339-90b8-45ffea8c46f4" name="Query form" queryRef="adb8b66d-658c-45ac-9fa7-8389586b6271">
+                            <variables queryParamRef="d62af783-cfc9-444b-b3c7-38252846086f" value="ERP"/>
+                            <variables queryParamRef="4dc59f11-982a-4cfc-970e-80d160594285" value="HR domain"/>
+                            <variables queryParamRef="3bd23e05-a410-4c4c-afa2-41ef571daffe" value="HR application"/>
+                            <variables queryParamRef="5560e2bd-0c7d-439b-a0aa-681f0275fce6" value="Employee management"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="34a1ebb9-cd1c-42cd-b1f2-1c50ecc96e2e" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Forms interface builder">
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <queries uid="a35ce2f2-6ea0-4680-b729-0dfd8f7e9179" name="Query Base type  classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Base type"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="17e4bf61-820a-433e-9b51-229a8738632f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Application build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform-interface/builder.sh">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                         </mappers>
                       </components>
                     </ingredients>

@@ -5,7 +5,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/idGenera
      var query =  new Native('org.tura.metamodel.commons.QueryHelper');
      var nicnamed = new Native('java.util.ArrayList');
      if (form.getView() <> null){  
-         nicnamed = query.collectRefreshedAeas(form.getView().getView());
+         nicnamed = query.collectRefreshedAeas(form.getView());
      }
      
 %]

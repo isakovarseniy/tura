@@ -1031,64 +1031,11 @@ public class QueryHelper {
 		 return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<NickNamed> collectRefreshedAeas(Views views) throws Exception {
 
-		throw new RuntimeException();
-
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid
-		// = '"
-		// + views.getUid()
-		// +
-		// "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::ViewArea))");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl
-		// .evaluate(views, query);
-		//
-		// query = helper
-		// .createQuery("domain::Views.allInstances()->select(r|r.oclAsType(domain::Views).uid
-		// = '"
-		// + views.getUid()
-		// +
-		// "').canvases->select(c|c.oclIsKindOf(domain::ViewPortHolder))->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::NickNamed)
-		// and q.oclAsType(domain::NickNamed).nickname <> null and
-		// q.oclAsType(domain::NickNamed).nickname <> '')");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.NickNamed> map1 = (Collection<domain.NickNamed>)
-		// ocl
-		// .evaluate(views, query);
-		//
-		// ArrayList<domain.NickNamed> nickNamed = new
-		// ArrayList<domain.NickNamed>();
-		//
-		// if (map.size() != 0) {
-		// for (Iterator<domain.ViewArea> itr = map.iterator(); itr
-		// .hasNext();) {
-		// domain.ViewArea viewarea = itr.next();
-		// if (viewarea.getCanvasView() != null)
-		// findNick(nickNamed, viewarea.getCanvasView()
-		// .getBaseCanvas(), null);
-		// }
-		// }
-		// nickNamed.addAll(map1);
-		//
-		// return nickNamed;
-		//
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// return null;
-		// }
-		//
+		Object[] array = (Object[]) findRefreshedAeas(views,views);
+		return (List<NickNamed>) array[0];
 	}
 
 	public Object[] findRefreshedAeas(MenuItem obj) throws Exception {
@@ -1149,7 +1096,7 @@ public class QueryHelper {
 			}
 			nickNamed.addAll(map1);
 
-			List<AreaRef> list = null;
+			List<AreaRef> list = new ArrayList<>();
 			if (obj instanceof Uielement){
 				list = ((Uielement)obj).getRefreshAreas();
 			}
@@ -1157,7 +1104,6 @@ public class QueryHelper {
 			if (obj instanceof MenuItem){
 				list = ((MenuItem)obj).getRefreshAreas();
 			}
-			
 			for (AreaRef ref : list) {
 				if (ref.getArea() == null || ref.getArea().getNickname() == null|| "".equals(ref.getArea().getNickname())){
 					remove.add(ref);
