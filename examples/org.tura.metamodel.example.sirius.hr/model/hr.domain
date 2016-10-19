@@ -79,7 +79,7 @@
         </artifactPackages>
         <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
         <artifactPackages uid="f682f26f-03a6-444b-9787-ec199edc6468" name="Artifact builders">
-          <artifacts uid="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Build jar" template="platform:/plugin/org.tura.metamodel.generation/template/pit/Builder/mainModelBuilder.egl">
+          <artifacts uid="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Build jar" description="" template="platform:/plugin/org.tura.metamodel.generation/template/pit/Builder/mainModelBuilder.egl">
             <modelQuery uid="64164ced-a76e-4688-8759-5c5c1d4658f8" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')">
               <parameters uid="b516ddbf-0acc-4279-a974-70fc787c56a7" name="Repository"/>
               <parameters uid="9504b800-0df7-4358-9905-088633212cd2" name="Package"/>
@@ -96,6 +96,11 @@
             <technologies uid="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" name="Builder type">
               <options uid="6f062f1c-432d-494b-b184-ddac711e1c1c" value="f52da8a4-ca3f-49ac-9328-5504ce7b49b6"/>
               <options uid="72639b34-c455-4b47-87da-f714cffb9bd2" value="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4"/>
+              <options uid="a55eb81d-9d80-4ce9-90cd-ef478f7459de" value="9a7c8d7e-f51c-4492-b919-916d503d649d"/>
+            </technologies>
+            <technologies uid="dd41c97a-4e6a-4e00-8651-8f9efb82348f" name="Java">
+              <options uid="c1d71c81-59fc-449d-a43a-b6b56f0ebee2" value="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26"/>
+              <options uid="11907576-473b-45c8-804b-9ef7679f7373" value="f35d1165-d79f-41d9-a998-7c53da59d0f8"/>
             </technologies>
           </artifacts>
           <artifacts uid="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" template="platform:/plugin/org.tura.metamodel.generation/template/pit/Builder/mainBuildRunner.egl">
@@ -270,6 +275,20 @@
               <parameters uid="3bd23e05-a410-4c4c-afa2-41ef571daffe" name="Application"/>
               <parameters uid="5560e2bd-0c7d-439b-a0aa-681f0275fce6" name="Package"/>
             </modelQuery>
+          </artifacts>
+        </artifactPackages>
+        <artifactPackages uid="a863566f-081c-4299-aa68-6761e89de8aa" name="Testing artifact">
+          <artifacts uid="c406774c-40ae-4395-97b2-34f9e87eeac1" name="Selenium Page Object" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/Testing/Selenium/mainPageObjectBuilder.egl">
+            <modelQuery uid="1bf945ea-2bd9-4571-9483-b52312063b02" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms&#xA;">
+              <parameters uid="1f2f0e06-3969-43bd-a00c-0c65920f8885" name="Domain Application"/>
+              <parameters uid="d8cba772-7f0d-436f-9576-78468dcaf1c8" name="Group"/>
+              <parameters uid="68f297d0-3b02-44ba-bc7b-e2d12d0fd02f" name="Application"/>
+              <parameters uid="1e5354c6-4681-49f7-8612-34e12350c6f3" name="Package"/>
+            </modelQuery>
+            <technologies uid="ebae84aa-a7e2-44f7-bae4-25f96bf57a08" name="View implementation">
+              <options uid="a1acf69c-3adf-45a6-a515-9353cce02808" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
+            </technologies>
+            <hints uid="601ab46c-4f8d-47d4-9400-3708169feec7" name="Web element name" hint="bfda8719-98c2-46fe-9788-45a33747d1fc"/>
           </artifacts>
         </artifactPackages>
       </domainArtifact>
@@ -1459,6 +1478,32 @@
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                        </mappers>
+                      </components>
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="2" uid="03c48d65-4d1a-494a-ab5f-35eb4da5eb87" name="Selenium testing package" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform-pageobjects" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+                        <mappers uid="ecad5c19-380b-4e76-b01a-9ee3412df3f5" artifactRef="c406774c-40ae-4395-97b2-34f9e87eeac1" name="Page objects">
+                          <technologies techRef="ebae84aa-a7e2-44f7-bae4-25f96bf57a08" valueRef="a1acf69c-3adf-45a6-a515-9353cce02808"/>
+                          <queries uid="0c494b14-1bff-4560-baa8-06e01048a69f" name="Query forms" queryRef="1bf945ea-2bd9-4571-9483-b52312063b02">
+                            <variables queryParamRef="1f2f0e06-3969-43bd-a00c-0c65920f8885" value="ERP"/>
+                            <variables queryParamRef="d8cba772-7f0d-436f-9576-78468dcaf1c8" value="HR domain"/>
+                            <variables queryParamRef="68f297d0-3b02-44ba-bc7b-e2d12d0fd02f" value="HR application"/>
+                            <variables queryParamRef="1e5354c6-4681-49f7-8612-34e12350c6f3" value="Employee management"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="8b4da326-0a9a-42cb-b4e6-e7d6a5fab4d7" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Page object builder">
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="a55eb81d-9d80-4ce9-90cd-ef478f7459de"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <queries uid="1895ea2b-45bd-4dcb-aaad-663e09d6c679" name="Query base package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Base Repository"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="018eecf2-6087-4f3d-9484-a5460fff806c" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Page object build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform-pageobjects/builder.sh">
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                         </mappers>
                       </components>
                     </ingredients>

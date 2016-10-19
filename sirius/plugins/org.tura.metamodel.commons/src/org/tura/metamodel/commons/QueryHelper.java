@@ -82,17 +82,16 @@ public class QueryHelper {
 	private static String BASE_REPOSITORY = "Base Repository";
 	private static String MODEL_PACKAGE = "Model types";
 	private static String MESSAGE_TYPE = "Message";
-	private static String DATA_CONTROL="Data control";
-	private static String TREE_DATA_CONTROL="Tree data control";
-	private static String STYLE_TYPE ="Style";
-	private static String GROUP_TYPE="Group";
-	private static String ROLE_TYPE="Role";
-	private static String ICON_TYPE="Icon";
-	private static String BASE_TYPE="Base type";
+	private static String DATA_CONTROL = "Data control";
+	private static String TREE_DATA_CONTROL = "Tree data control";
+	private static String STYLE_TYPE = "Style";
+	private static String GROUP_TYPE = "Group";
+	private static String ROLE_TYPE = "Role";
+	private static String ICON_TYPE = "Icon";
+	private static String BASE_TYPE = "Base type";
 
-	
 	private HintHelper hintHelper = new HintHelper();
-	
+
 	/** The OCL object. */
 	private OCL<?, EClassifier, ?, ?, ?, ?, ?, ?, ?, Constraint, EClass, EObject> ocl;
 
@@ -123,7 +122,8 @@ public class QueryHelper {
 
 	}
 
-	private Object internalEvaluate(final EObject context,  final EClass eclass,  final String expression) throws ParserException {
+	private Object internalEvaluate(final EObject context, final EClass eclass, final String expression)
+			throws ParserException {
 		getOCLHelper().setContext(eclass);
 
 		final OCLExpression<EClassifier> query = getOCLHelper().createQuery(expression);
@@ -132,39 +132,37 @@ public class QueryHelper {
 		return eval.evaluate(context);
 
 	}
-	
 
-	
 	public Object getApplicationRoles(DiagramImpl root) {
 		Form frm = getForm(root);
-		
-		 Application app = ((Application) (frm.eContainer().eContainer().eContainer() ));
-		 if (app.getApplicationRole() != null){
-		    return app.getApplicationRole();
-		 }
-		 return null;
+
+		Application app = ((Application) (frm.eContainer().eContainer().eContainer()));
+		if (app.getApplicationRole() != null) {
+			return app.getApplicationRole();
+		}
+		return null;
 	}
 
 	//
 	public Object getMessages(DiagramImpl root) {
 		Form frm = getForm(root);
-		
-		 Application app = ((Application) (frm.eContainer().eContainer().eContainer() ));
-		 if (app.getApplicationMessages() != null){
-		    return app.getApplicationMessages().getMessageLibraries();
-		 }
-		 return null;
+
+		Application app = ((Application) (frm.eContainer().eContainer().eContainer()));
+		if (app.getApplicationMessages() != null) {
+			return app.getApplicationMessages().getMessageLibraries();
+		}
+		return null;
 	}
 
 	//
 	public Object getApplicationStyle(DiagramImpl root) {
 		Form frm = getForm(root);
 
-		 Application app = ((Application) (frm.eContainer().eContainer().eContainer() ));
-		 if (app.getApplicationStyle() != null){
-		    return app.getApplicationStyle();
-		 }
-		 return null;
+		Application app = ((Application) (frm.eContainer().eContainer().eContainer()));
+		if (app.getApplicationStyle() != null) {
+			return app.getApplicationStyle();
+		}
+		return null;
 	}
 
 	public Form getForm(DataControl dc) {
@@ -184,11 +182,11 @@ public class QueryHelper {
 		if (obj instanceof ViewArea) {
 			frm = (Form) ((ViewArea) obj).eContainer().eContainer().eContainer();
 		}
-		
+
 		if (obj instanceof Controls) {
 			frm = (Form) ((Controls) obj).eContainer();
 		}
-		
+
 		// if (root.getElement() instanceof domain.MenuView) {
 		// domain.Views views = (Views) (((domain.MenuView) root.getElement())
 		// .getParent().eContainer());
@@ -228,9 +226,8 @@ public class QueryHelper {
 		}
 	}
 
-	
 	@SuppressWarnings("unchecked")
-	public Recipe getRecipe(Infrastructure infra) throws Exception{
+	public Recipe getRecipe(Infrastructure infra) throws Exception {
 		String query = "recipe::Recipe2Infrastructure.allInstances()->select(r|r.target.uid ='" + infra.getUid() + "')";
 
 		Collection<Recipe2Infrastructure> map = (Collection<Recipe2Infrastructure>) internalEvaluate(infra, query);
@@ -238,21 +235,21 @@ public class QueryHelper {
 			return map.iterator().next().getSource();
 		else
 			return null;
-	}	
-	
-	
-	@SuppressWarnings("unchecked")
-	public Configuration getConfiguration(Infrastructure infra) throws Exception{
-		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + infra.getUid() + "')";
+	}
 
-		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(infra, query);
+	@SuppressWarnings("unchecked")
+	public Configuration getConfiguration(Infrastructure infra) throws Exception {
+		String query = "recipe::Infrastructure2Configuration.allInstances()->select(r|r.source.uid ='" + infra.getUid()
+				+ "')";
+
+		Collection<Infrastructure2Configuration> map = (Collection<Infrastructure2Configuration>) internalEvaluate(
+				infra, query);
 		if ((map != null) && (map.size() != 0))
 			return map.iterator().next().getTarget();
 		else
 			return null;
-	}	
-	
-	
+	}
+
 	@SuppressWarnings("unchecked")
 	public Configuration getConfigExtensionUp(Configuration config) throws Exception {
 
@@ -382,76 +379,70 @@ public class QueryHelper {
 
 	@SuppressWarnings("unchecked")
 	public Collection<TreeDataControl> findTreeRootControls(Form frm) throws Exception {
-		
+
 		String query = "form::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
-		 + frm.getDatacontrols().getUid()
-		 +"')->collect(w|w.master)->reject(q|form::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
-		 + frm.getDatacontrols().getUid()
-		 + "')->collect(w|w.detail)->includes(q))";
-		
-		 Collection<DataControl> map = (Collection<DataControl>)internalEvaluate(frm, query);
-		
-		 // Remove duplication
-		 HashMap<String, DataControl> hash = new HashMap<>();
-		 for (DataControl dc : map){
-		    hash.put(dc.getUid(), dc);
-		 }
-		
-		 
-		 query = "form::Relation.allInstances()->select(r|r.isTree=true and r.master=r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
-		 + frm.getDatacontrols().getUid()
-		 +"')->collect(w|w.master)->reject(q|form::Relation.allInstances()->select(r|r.isTree=true and r.master <> r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
-		 + frm.getDatacontrols().getUid()
-		 + "')->collect(w|w.detail)->includes(q))";
-		
-		 Collection<DataControl> map1 = (Collection<DataControl>) internalEvaluate(frm, query);
-		
-		 ArrayList<TreeDataControl> ls = new ArrayList<>();
-		 for (DataControl dc : hash.values()){
-		    ls.add(new TreeDataControl(dc));
-		 }
-		 for (DataControl dc : map1){
-		   ls.add(new TreeDataControl(dc));
-		 }
-		
-		 return ls;
+				+ frm.getDatacontrols().getUid()
+				+ "')->collect(w|w.master)->reject(q|form::Relation.allInstances()->select(r|r.isTree=true and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+				+ frm.getDatacontrols().getUid() + "')->collect(w|w.detail)->includes(q))";
+
+		Collection<DataControl> map = (Collection<DataControl>) internalEvaluate(frm, query);
+
+		// Remove duplication
+		HashMap<String, DataControl> hash = new HashMap<>();
+		for (DataControl dc : map) {
+			hash.put(dc.getUid(), dc);
+		}
+
+		query = "form::Relation.allInstances()->select(r|r.isTree=true and r.master=r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+				+ frm.getDatacontrols().getUid()
+				+ "')->collect(w|w.master)->reject(q|form::Relation.allInstances()->select(r|r.isTree=true and r.master <> r.detail and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+				+ frm.getDatacontrols().getUid() + "')->collect(w|w.detail)->includes(q))";
+
+		Collection<DataControl> map1 = (Collection<DataControl>) internalEvaluate(frm, query);
+
+		ArrayList<TreeDataControl> ls = new ArrayList<>();
+		for (DataControl dc : hash.values()) {
+			ls.add(new TreeDataControl(dc));
+		}
+		for (DataControl dc : map1) {
+			ls.add(new TreeDataControl(dc));
+		}
+
+		return ls;
 
 	}
 
 	@SuppressWarnings("unchecked")
 	public Collection<DataControl> findMasterControls(Form frm) throws Exception {
 
-		 String query = "form::DataControl.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
-		 + frm.getDatacontrols().getUid()
-		 + "')->reject(q|form::Relation.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
-		 + frm.getDatacontrols().getUid()
-		 + "' )->collect(w|w.detail)->includes(q))";
+		String query = "form::DataControl.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+				+ frm.getDatacontrols().getUid()
+				+ "')->reject(q|form::Relation.allInstances()->select(r|r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid= '"
+				+ frm.getDatacontrols().getUid() + "' )->collect(w|w.detail)->includes(q))";
 
-		 Collection<DataControl> map =((Collection<DataControl>) internalEvaluate(frm, query));
-		
-		 for (TreeDataControl obj : findTreeRootControls(frm)){
-		    map.remove(obj.getDc());
-		 }
-		
-		 return map;
+		Collection<DataControl> map = ((Collection<DataControl>) internalEvaluate(frm, query));
+
+		for (TreeDataControl obj : findTreeRootControls(frm)) {
+			map.remove(obj.getDc());
+		}
+
+		return map;
 
 	}
 
 	@SuppressWarnings("unchecked")
 	public Collection<DataControl> findDetailAndDependencyControls(Form frm) throws Exception {
-		
+
 		String query = "form::Relation.allInstances()->select(r|r.isTree=false and r.oclAsType(ecore::EObject).eContainer().oclAsType(form::Controls).uid = '"
-				 + frm.getDatacontrols().getUid()
-				 + "')->collect(w|w.detail)";
+				+ frm.getDatacontrols().getUid() + "')->collect(w|w.detail)";
 
-		 Collection<DataControl> map = (Collection<DataControl>)internalEvaluate(frm, query);
+		Collection<DataControl> map = (Collection<DataControl>) internalEvaluate(frm, query);
 
-		
-		 for (TreeDataControl obj : findTreeRootControls(frm)){
-		    map.remove(obj.getDc());
-		 }
-		
-		 return map;
+		for (TreeDataControl obj : findTreeRootControls(frm)) {
+			map.remove(obj.getDc());
+		}
+
+		return map;
 
 	}
 
@@ -759,10 +750,11 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings("unchecked")
-	private TypeElement findModelType(EObject context, String typeRepositoryName, String packageName, String typeName)throws Exception{
+	private TypeElement findModelType(EObject context, String typeRepositoryName, String packageName, String typeName)
+			throws Exception {
 		String query = "domain::DomainTypes.allInstances().typesRepository->select(r|r.name='" + typeRepositoryName
-				+ "').repositoryPackages->select(p|p.name='" + packageName + "').types->select(t|t.name='"
-				+ typeName + "')";
+				+ "').repositoryPackages->select(p|p.name='" + packageName + "').types->select(t|t.name='" + typeName
+				+ "')";
 
 		Collection<TypeElement> map = (Collection<TypeElement>) internalEvaluate(context, query);
 
@@ -771,18 +763,18 @@ public class QueryHelper {
 			return type;
 		} else
 			return null;
-		
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	private Primitive findPrimitive(EObject context , String typeName )throws Exception {
-		String query ="domain::Domain.allInstances()";
+	private Primitive findPrimitive(EObject context, String typeName) throws Exception {
+		String query = "domain::Domain.allInstances()";
 		Collection<Domain> map = (Collection<Domain>) internalEvaluate(context, query);
 		if ((map != null) && (map.size() != 0)) {
 			Domain domain = ((Domain) (map.iterator().next()));
-			PrimitivesGroup grp =   domain.getDomainTypes().getPrimitives();
+			PrimitivesGroup grp = domain.getDomainTypes().getPrimitives();
 
-			 query = "type::Primitive.allInstances()->select(r|r.name='" + typeName+ "')";
+			query = "type::Primitive.allInstances()->select(r|r.name='" + typeName + "')";
 
 			Collection<Primitive> map1 = (Collection<Primitive>) internalEvaluate(grp, query);
 
@@ -793,18 +785,17 @@ public class QueryHelper {
 				return null;
 		} else
 			return null;
-		
+
 	}
-	
+
 	public TypeElement findMessageType(EObject obj) throws Exception {
 		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, MESSAGE_TYPE);
 	}
 
-
 	public TypeElement findStyleType(EObject obj) throws Exception {
 		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, STYLE_TYPE);
 	}
-	
+
 	public TypeElement findRoleType(EObject obj) throws Exception {
 		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, ROLE_TYPE);
 	}
@@ -812,18 +803,16 @@ public class QueryHelper {
 	public TypeElement findGroupType(EObject obj) throws Exception {
 		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, GROUP_TYPE);
 	}
-	
+
 	public TypeElement findIconType(EObject obj) throws Exception {
 		return findModelType(obj, BASE_REPOSITORY, MODEL_PACKAGE, ICON_TYPE);
 	}
 
-	
-	
-	
 	@SuppressWarnings("unchecked")
 	public DomainArtifacts getDomainArtifact(EObject obj) throws Exception {
 
-		Collection<DomainArtifacts> map = (Collection<DomainArtifacts>) internalEvaluate(obj,"domain::DomainArtifacts.allInstances()");
+		Collection<DomainArtifacts> map = (Collection<DomainArtifacts>) internalEvaluate(obj,
+				"domain::DomainArtifacts.allInstances()");
 
 		if (map != null && map.size() != 0) {
 			return (DomainArtifacts) map.toArray()[0];
@@ -894,12 +883,12 @@ public class QueryHelper {
 	}
 
 	public TypeElement findNullType(Object obj) {
-		 try {
-				return findPrimitive((EObject) obj, "Null");
-		 } catch (Exception e) {
-		   LogUtil.log(e);
-		 }
-		 return null;
+		try {
+			return findPrimitive((EObject) obj, "Null");
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return null;
 	}
 
 	public TypeElement findSearchCriteriaType(Object obj) {
@@ -995,62 +984,62 @@ public class QueryHelper {
 	}
 
 	public TypeElement findBooleanType(Object obj) {
-		 try {
-				return findPrimitive((EObject) obj, "Boolean");
-		 } catch (Exception e) {
-		   LogUtil.log(e);
-		 }
-		 return null;
+		try {
+			return findPrimitive((EObject) obj, "Boolean");
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return null;
 
 	}
 
 	public TypeElement findBaseType(Object obj) {
-		 try {
-				return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, BASE_TYPE);
-		 } catch (Exception e) {
-			   LogUtil.log(e);
-			 }
-			 return null;
+		try {
+			return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, BASE_TYPE);
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return null;
 	}
 
 	public TypeElement findDataControlType(Object obj) {
-		 try {
-				return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, DATA_CONTROL);
-		 } catch (Exception e) {
-		   LogUtil.log(e);
-		 }
-		 return null;
+		try {
+			return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, DATA_CONTROL);
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return null;
 	}
 
 	public TypeElement findTreeDataControlType(Object obj) {
-		 try {
-				return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, TREE_DATA_CONTROL);
-		 } catch (Exception e) {
-		   LogUtil.log(e);
-		 }
-		 return null;
+		try {
+			return findModelType((EObject) obj, BASE_REPOSITORY, MODEL_PACKAGE, TREE_DATA_CONTROL);
+		} catch (Exception e) {
+			LogUtil.log(e);
+		}
+		return null;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<NickNamed> collectRefreshedAeas(Views views) throws Exception {
 
-		Object[] array = (Object[]) findRefreshedAeas(views,views);
+		Object[] array = (Object[]) findRefreshedAeas(views, views);
 		return (List<NickNamed>) array[0];
 	}
 
 	public Object[] findRefreshedAeas(MenuItem obj) throws Exception {
 
-		 EObject root = obj;
-		 do {
-			 root = root.eContainer();
-			 if (root == null){
-			 throw new Exception("UI element container is null");
-			 }
-		 } while (!(root instanceof MenuDefinition));
-		
+		EObject root = obj;
+		do {
+			root = root.eContainer();
+			if (root == null) {
+				throw new Exception("UI element container is null");
+			}
+		} while (!(root instanceof MenuDefinition));
+
 		Views views = (Views) ((MenuDefinition) root).eContainer();
-		return findRefreshedAeas(views,obj);
-		
+		return findRefreshedAeas(views, obj);
+
 	}
 
 	public Object[] findRefreshedAeas(Uielement obj) throws Exception {
@@ -1063,15 +1052,14 @@ public class QueryHelper {
 			}
 		} while (!(root instanceof ViewArea));
 
-		
 		Views views = (Views) ((ViewArea) root).eContainer().eContainer();
-		
-		return findRefreshedAeas(views,obj);
+
+		return findRefreshedAeas(views, obj);
 
 	}
 
 	@SuppressWarnings("unchecked")
-	public Object[] findRefreshedAeas(Views views,EObject obj) throws Exception {
+	public Object[] findRefreshedAeas(Views views, EObject obj) throws Exception {
 		try {
 			String query = "form::Views.allInstances()->select(r|r.oclAsType(form::Views).uid = '" + views.getUid()
 					+ "').canvases->select(c|c.oclIsKindOf(form::ViewPortHolder))->collect(v|v.oclAsType(form::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(form::ViewArea))";
@@ -1089,7 +1077,7 @@ public class QueryHelper {
 
 			if (map.size() != 0) {
 				for (ViewArea viewarea : map) {
-					if (viewarea.getBaseCanvas() != null){
+					if (viewarea.getBaseCanvas() != null) {
 						findNick(nickNamed, viewarea.getBaseCanvas(), obj);
 					}
 				}
@@ -1097,15 +1085,16 @@ public class QueryHelper {
 			nickNamed.addAll(map1);
 
 			List<AreaRef> list = new ArrayList<>();
-			if (obj instanceof Uielement){
-				list = ((Uielement)obj).getRefreshAreas();
+			if (obj instanceof Uielement) {
+				list = ((Uielement) obj).getRefreshAreas();
 			}
 
-			if (obj instanceof MenuItem){
-				list = ((MenuItem)obj).getRefreshAreas();
+			if (obj instanceof MenuItem) {
+				list = ((MenuItem) obj).getRefreshAreas();
 			}
 			for (AreaRef ref : list) {
-				if (ref.getArea() == null || ref.getArea().getNickname() == null|| "".equals(ref.getArea().getNickname())){
+				if (ref.getArea() == null || ref.getArea().getNickname() == null
+						|| "".equals(ref.getArea().getNickname())) {
 					remove.add(ref);
 				}
 			}
@@ -1116,21 +1105,19 @@ public class QueryHelper {
 			return new Object[] { null, null };
 		}
 
-	
-	}	
-	
+	}
+
 	private void findNick(List<NickNamed> list, LayerHolder holder, EObject exception) {
-		
+
 		String uuid = null;
-		if (exception instanceof Uielement){
-			uuid = ((Uielement)exception).getUid();
+		if (exception instanceof Uielement) {
+			uuid = ((Uielement) exception).getUid();
 		}
 
-		if (exception instanceof MenuItem){
-			uuid = ((MenuItem)exception).getUid();
+		if (exception instanceof MenuItem) {
+			uuid = ((MenuItem) exception).getUid();
 		}
-		
-		
+
 		if (holder.getNickname() != null && !"".equals(holder.getNickname())) {
 			if (exception != null && uuid != holder.getUid())
 				list.add(holder);
@@ -1138,7 +1125,7 @@ public class QueryHelper {
 				list.add(holder);
 		}
 
-		for (Uielement el  : holder.getChildren()) {
+		for (Uielement el : holder.getChildren()) {
 			if (el instanceof LayerHolder) {
 				findNick(list, (LayerHolder) el, exception);
 				continue;
@@ -1153,27 +1140,22 @@ public class QueryHelper {
 		}
 	}
 
-	// private void findUIElement(List<domain.Uielement> list,
-	// domain.LayerHolder holder) {
-	// list.add(holder);
-	//
-	// for (Iterator<domain.Uielement> itr = holder.getChildren().iterator();
-	// itr
-	// .hasNext();) {
-	//
-	// domain.Uielement el = itr.next();
-	// if (el instanceof domain.LayerHolder) {
-	// findUIElement(list, (domain.LayerHolder) el);
-	// continue;
-	// } else {
-	// list.add(el);
-	// }
-	//
-	// }
-	// }
-	//
-	//
-	//
+	private void findUIElement(List<Uielement> list, LayerHolder holder) {
+		list.add(holder);
+
+		for (Iterator<Uielement> itr = holder.getChildren().iterator(); itr.hasNext();) {
+
+			Uielement el = itr.next();
+			if (el instanceof LayerHolder) {
+				findUIElement(list, (LayerHolder) el);
+				continue;
+			} else {
+				list.add(el);
+			}
+
+		}
+	}
+
 	public List<MenuFolder> findMenus(Form frm) {
 
 		ApplicationUILayer app = (ApplicationUILayer) frm.eContainer().eContainer();
@@ -1185,11 +1167,12 @@ public class QueryHelper {
 					+ "->collect(w|w.oclAsType(application::ApplicationUIPackage).forms"
 					+ " ->collect(f|f.oclAsType(form::Form).view.menus)->collect(fl|fl.oclAsType(form::MenuDefinition).menuFolders "
 					+ "->select(mf|mf.oclIsKindOf(form::MenuFolder)))))->reject(qwe|application::ApplicationUILayer.allInstances()"
-					+ "->select(q|q.uid='" + app.getUid() + "')->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages"
-							+ "->collect(w|w.oclAsType(application::ApplicationUIPackage).forms ->collect(f|f.oclAsType(form::Form).view.menus)"
-							+ "->collect(fl|fl.oclAsType(form::MenuDefinition).toSubMenu ->collect(mf|mf.oclAsType(form::ToSubmenu).target ))))"
-							+ "->includes(qwe))";
-			
+					+ "->select(q|q.uid='" + app.getUid()
+					+ "')->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages"
+					+ "->collect(w|w.oclAsType(application::ApplicationUIPackage).forms ->collect(f|f.oclAsType(form::Form).view.menus)"
+					+ "->collect(fl|fl.oclAsType(form::MenuDefinition).toSubMenu ->collect(mf|mf.oclAsType(form::ToSubmenu).target ))))"
+					+ "->includes(qwe))";
+
 			@SuppressWarnings("unchecked")
 			Collection<MenuFolder> map = (Collection<MenuFolder>) internalEvaluate(app, query);
 
@@ -1212,31 +1195,31 @@ public class QueryHelper {
 
 	public List<MenuFolder> findExtensionPoints(MenuExtensionRef ref) {
 
-		 Views views = (Views) (((MenuDefinition)(ref.eContainer().eContainer())).eContainer());
-		 Form	frm = (Form) ((Views) views).eContainer();
-		 ApplicationUILayer app = (ApplicationUILayer) frm.eContainer().eContainer();
-		
+		Views views = (Views) (((MenuDefinition) (ref.eContainer().eContainer())).eContainer());
+		Form frm = (Form) ((Views) views).eContainer();
+		ApplicationUILayer app = (ApplicationUILayer) frm.eContainer().eContainer();
+
 		String query = "application::ApplicationUILayer.allInstances()->select(q|q.uid='" + app.getUid() + "')"
 				+ "->collect(v|v.oclAsType(application::ApplicationUILayer).applicationUIPackages->"
 				+ "collect(w|w.oclAsType(application::ApplicationUIPackage).forms "
 				+ "->collect(f|f.oclAsType(form::Form).view.menus)"
 				+ "->collect(fl|fl.oclAsType(form::MenuDefinition).menuFolders"
 				+ "->collect(mf|mf.oclAsType(form::MenuFolder)->select(e|e.extensionPoint)))))";
-		 
+
 		try {
-			
+
 			@SuppressWarnings("unchecked")
 			Collection<MenuFolder> map = (Collection<MenuFolder>) internalEvaluate(app, query);
-			
-			 ArrayList<MenuFolder> list = new ArrayList<MenuFolder>();
-			
+
+			ArrayList<MenuFolder> list = new ArrayList<MenuFolder>();
+
 			if (map.size() != 0) {
 				for (MenuFolder point : map) {
 					if (point.getName() != null && !point.getName().trim().equals(""))
 						list.add(point);
 				}
 			}
-			 return list;
+			return list;
 		} catch (Exception e) {
 			LogUtil.log(e);
 			return new ArrayList<MenuFolder>();
@@ -1245,43 +1228,29 @@ public class QueryHelper {
 	}
 
 	public List<Uielement> findUIElementsForPage(CanvasFrame canvasFrame) {
-		throw new RuntimeException();
-		//
-		// try {
-		// @SuppressWarnings("rawtypes")
-		// OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		// @SuppressWarnings("unchecked")
-		// OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl
-		// .createOCLHelper();
-		// helper.setContext(DomainPackage.eINSTANCE.getEClassifier("Domain"));
-		//
-		// OCLExpression<EClassifier> query = helper
-		// .createQuery("domain::CanvasFrame.allInstances()->select(r|r.oclAsType(domain::CanvasFrame).uid
-		// ='"
-		// + canvasFrame.getUid()
-		// +
-		// "')->collect(v|v.oclAsType(domain::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(domain::ViewArea))");
-		//
-		// @SuppressWarnings("unchecked")
-		// Collection<domain.ViewArea> map = (Collection<domain.ViewArea>) ocl
-		// .evaluate(canvasFrame, query);
-		//
-		// ArrayList<domain.Uielement> list = new ArrayList<domain.Uielement>();
-		//
-		// if (map.size() != 0) {
-		// for (Iterator<domain.ViewArea> itr = map.iterator(); itr
-		// .hasNext();) {
-		// domain.ViewArea viewarea = itr.next();
-		// if (viewarea.getCanvasView() != null)
-		// findUIElement(list, viewarea.getCanvasView()
-		// .getBaseCanvas());
-		// }
-		// }
-		// return list;
-		// } catch (Exception e) {
-		// LogUtil.log(e);
-		// return new ArrayList<domain.Uielement>();
-		// }
+
+		try {
+
+			String query = "form::CanvasFrame.allInstances()->select(r|r.oclAsType(form::CanvasFrame).uid='"
+					+ canvasFrame.getUid()
+					+ "')->collect(v|v.oclAsType(form::ViewPortHolder).viewElement)->select(q|q.oclIsKindOf(form::ViewArea))";
+
+			@SuppressWarnings("unchecked")
+			Collection<ViewArea> map = (Collection<ViewArea>) internalEvaluate(canvasFrame, query);
+
+			ArrayList<Uielement> list = new ArrayList<Uielement>();
+
+			if (map.size() != 0) {
+				for (ViewArea viewarea : map) {
+					if (viewarea.getBaseCanvas() != null)
+						findUIElement(list, viewarea.getBaseCanvas());
+				}
+			}
+			return list;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return new ArrayList<Uielement>();
+		}
 
 	}
 
@@ -1302,69 +1271,71 @@ public class QueryHelper {
 
 	}
 
-	
-	private String findHint(EObject obj,int level, String... hints  ){
+	private String findHint(EObject obj, int level, String... hints) {
 		try {
 			if (hints.length == 0)
 				return null;
-			
-			if (level == hints.length){
-				return ((TechLeaf)obj).getUid();
+
+			if (level == hints.length) {
+				return ((TechLeaf) obj).getUid();
 			}
-			
+
 			String query = null;
-			if (level == 0 ){
-				query ="domain::DomainArtifacts.allInstances().techLeafs->select(q|q.name='"+hints[level]+"')";
-			}else{
-				if (level == hints.length-1 ){
-					   query ="artifact::TechLeaf.allInstances()->select(q|q.uid='"+((TechLeaf)obj).getUid()+"').oclAsType(artifact::TechLeaf).hints->select(q|q.name='"+hints[level]+"')";
-				}else{
-				   query ="artifact::TechLeaf.allInstances()->select(q|q.uid='"+((TechLeaf)obj).getUid()+"').oclAsType(artifact::TechLeaf).techLeafs->select(q|q.name='"+hints[level]+"')";
+			if (level == 0) {
+				query = "domain::DomainArtifacts.allInstances().techLeafs->select(q|q.name='" + hints[level] + "')";
+			} else {
+				if (level == hints.length - 1) {
+					query = "artifact::TechLeaf.allInstances()->select(q|q.uid='" + ((TechLeaf) obj).getUid()
+							+ "').oclAsType(artifact::TechLeaf).hints->select(q|q.name='" + hints[level] + "')";
+				} else {
+					query = "artifact::TechLeaf.allInstances()->select(q|q.uid='" + ((TechLeaf) obj).getUid()
+							+ "').oclAsType(artifact::TechLeaf).techLeafs->select(q|q.name='" + hints[level] + "')";
 				}
 			}
-			
+
 			@SuppressWarnings("unchecked")
 			Collection<EObject> list = (Collection<EObject>) internalEvaluate(obj, query);
-			if (list == null || list.size() == 0 ){
+			if (list == null || list.size() == 0) {
 				return null;
 			}
-			if (level == hints.length-1 ){
+			if (level == hints.length - 1) {
 				GenerationHint hint = (GenerationHint) list.iterator().next();
 				return hint.getUid();
 			}
-			
-			for (Iterator<EObject> itr = list.iterator(); itr.hasNext();){
+
+			for (Iterator<EObject> itr = list.iterator(); itr.hasNext();) {
 				EObject obj1 = itr.next();
-				String hint = findHint(obj1,++level, hints);
-				if (hint != null){
+				String hint = findHint(obj1, ++level, hints);
+				if (hint != null) {
 					return hint;
 				}
 			}
 			return null;
-			
+
 		} catch (Exception e) {
 			LogUtil.log(e);
 			return null;
 		}
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Type> queryTypesByHint(Object obj, String key) {
 		String[] hints = hintHelper.get(key);
-		String hint = findHint((EObject)obj, 0, hints  );
-		if (hint == null){
+		String hint = findHint((EObject) obj, 0, hints);
+		if (hint == null) {
 			return new ArrayList<Type>();
 		}
 		try {
-			String query = "type::Type.allInstances()->select(r|r.oclAsType(type::Type).classifiers->select(c|c.hint.uid='"+hint+"')->size()>0)";
-			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) obj,  TypePackage.Literals.TYPE  , query);
-			if (list == null || list.size() == 0 ){
+			String query = "type::Type.allInstances()->select(r|r.oclAsType(type::Type).classifiers->select(c|c.hint.uid='"
+					+ hint + "')->size()>0)";
+			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) obj, TypePackage.Literals.TYPE,
+					query);
+			if (list == null || list.size() == 0) {
 				return null;
 			}
 			ArrayList<Type> array = new ArrayList<Type>();
 			array.addAll((Collection<? extends Type>) list);
-			
+
 			return array;
 		} catch (Exception e) {
 			LogUtil.log(e);

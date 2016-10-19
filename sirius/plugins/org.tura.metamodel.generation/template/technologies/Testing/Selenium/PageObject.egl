@@ -1,0 +1,35 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/Testing/Selenium/${View_implementation}/webElementAccessor.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${View_implementation}.egl";
+${percent}${end}
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+  package [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()+"."+util.mergeAndCapitalize(form.name).toLowerCase()+".pageobject"%];
+  
+  public class [%=util.mergeAndCapitalize(canvas.name)%]PageObject{
+     org.openqa.selenium.WebDriver webDriver;
+     
+     public [%=util.mergeAndCapitalize(canvas.name)%]PageObject(org.openqa.selenium.WebDriver webDriver){
+         this.webDriver = webDriver;
+     }
+     
+  [%for(uiElement in uiElementsList){
+    var methodName = uiElement.mkuid();
+    if (uiElement.nickname.isDefined())
+      methodName = uiElement.nickname;
+    else{
+       if ( uiElement.findClassifier(util.getHint(model_mapper,"Web element name")) ){
+         methodName = uiElement.~hintDetails;
+       }
+    }  
+  %]
+    [%=uiElement.accessor(uiElement.mkuid(),methodName)%]
+  [%
+  }
+  %]
+  }
+
