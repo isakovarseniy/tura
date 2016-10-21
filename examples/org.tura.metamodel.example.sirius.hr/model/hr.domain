@@ -770,7 +770,9 @@
           <relationships xsi:type="tura.type:Generalization" uid="546f16f7-5818-463a-b399-51bf6a2bef81" source="6bcd9fb4-d240-4a86-8c40-01a35fe01033" target="bd682c64-f18e-41f2-a757-e8313d641f29">
             <classifiers uid="f460d88f-6afb-4e60-8102-b2efa4a0eeb7" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
           </relationships>
-          <relationships xsi:type="tura.type:Generalization" uid="e156fdd2-217a-4ffb-b5c5-189fe9edfd9e" source="bba5bca8-79c4-4856-a307-acc056d2ba90" target="bd682c64-f18e-41f2-a757-e8313d641f29"/>
+          <relationships xsi:type="tura.type:Generalization" uid="e156fdd2-217a-4ffb-b5c5-189fe9edfd9e" source="bba5bca8-79c4-4856-a307-acc056d2ba90" target="bd682c64-f18e-41f2-a757-e8313d641f29">
+            <classifiers uid="29981b06-fc83-4d2a-8b0f-7bc05f2590ad" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
+          </relationships>
           <relationships xsi:type="tura.type:Generalization" uid="80b55e14-28d9-4e78-b88d-d3698aa02c4a" source="a560547a-2981-4fc4-9431-70d493884454" target="bd682c64-f18e-41f2-a757-e8313d641f29">
             <classifiers uid="29f17db9-bb95-4378-90d1-069a51db0a64" hint="a16caa5b-e156-4d25-aebf-3466ae7ebce0"/>
           </relationships>
@@ -1352,7 +1354,7 @@
                   </recipe>
                   <configurations uid="1dd1bb56-4a7f-41ed-a4d5-27d1ca65c7d2">
                     <properties uid="2bfd17a6-ae4d-4ad5-9cd4-2f9e655044f1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
-                    <properties uid="768ab36d-49c7-44a8-94d3-0d3c321bbf1b" confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d"/>
+                    <properties uid="768ab36d-49c7-44a8-94d3-0d3c321bbf1b" confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="jdbc/hrDS"/>
                     <properties uid="78b3baf1-f33b-4777-bdc7-334d89cab9fb" confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="postgres"/>
                     <properties uid="b113dd69-3add-4f04-a428-b5ae246c245c" confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="5432"/>
                     <properties uid="37b0b1b6-7218-4913-bbe6-097803c07fe6" confVarRef="da93edee-51a1-4f85-b64a-7a97cb722636" value="HR"/>
@@ -1380,7 +1382,7 @@
                             <variables queryParamRef="c59e9116-e389-49bc-be09-87085a157fbb" value="ERP"/>
                             <variables queryParamRef="bd434a4d-05fb-4391-af0d-ce67335d09e4" value="HR domain"/>
                             <variables queryParamRef="0e6076da-459b-4dd0-b959-1e0e14d3709a" value="HR application"/>
-                            <variables queryParamRef="7ede7695-6600-442a-a285-a05a22c90089" value="Employee management"/>
+                            <variables queryParamRef="7ede7695-6600-442a-a285-a05a22c90089" value="Hr manager"/>
                           </queries>
                         </mappers>
                         <mappers uid="775c23bd-691f-40d5-9dac-f9c513b71569" artifactRef="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="Process all form's views">
@@ -1389,7 +1391,7 @@
                             <variables queryParamRef="e1a35fee-7cf6-4b74-8081-76c8b4521140" value="ERP"/>
                             <variables queryParamRef="d998450d-f752-45da-835f-065c044e7f4c" value="HR domain"/>
                             <variables queryParamRef="74a4fc6e-658f-4814-ae0f-9b47663f7806" value="HR application"/>
-                            <variables queryParamRef="39d906fc-4ffd-4e09-b733-ac066c5ec505" value="Employee management"/>
+                            <variables queryParamRef="39d906fc-4ffd-4e09-b733-ac066c5ec505" value="Hr manager"/>
                           </queries>
                         </mappers>
                         <mappers uid="d383ffba-ed1f-45ab-935d-1d2b65224c6f" artifactRef="e7d86967-d594-4f25-8b34-5211665bf367" name="Build application">
@@ -1409,7 +1411,7 @@
                             <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="HR controller business logic"/>
                           </queries>
                         </mappers>
-                        <mappers uid="1dc64683-ffb2-46a7-bd67-7e7bc2fdbe8f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/builder.sh">
+                        <mappers uid="1dc64683-ffb2-46a7-bd67-7e7bc2fdbe8f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Application Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/builder.sh">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c0efdaa-5641-438e-830c-67905a0982e1"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
@@ -1453,7 +1455,7 @@
                             <variables queryParamRef="1561eaa6-4ca2-416d-957b-f5fb312b63e4" value="ERP"/>
                             <variables queryParamRef="36bc7750-c0e2-43de-b590-7167d9f4a153" value="HR domain"/>
                             <variables queryParamRef="242a0ac0-7267-48b8-9940-de542577c28a" value="HR application"/>
-                            <variables queryParamRef="84f83e19-6565-48c3-9a1f-fe1886e6b230" value="Employee management"/>
+                            <variables queryParamRef="84f83e19-6565-48c3-9a1f-fe1886e6b230" value="Hr manager"/>
                           </queries>
                         </mappers>
                         <mappers uid="ea765dfb-a801-4d3a-afad-10ecda923a68" artifactRef="c36f9706-6b7f-41e2-82da-01fb1088e8cb" name="View port interface">
@@ -1461,20 +1463,19 @@
                             <variables queryParamRef="d62af783-cfc9-444b-b3c7-38252846086f" value="ERP"/>
                             <variables queryParamRef="4dc59f11-982a-4cfc-970e-80d160594285" value="HR domain"/>
                             <variables queryParamRef="3bd23e05-a410-4c4c-afa2-41ef571daffe" value="HR application"/>
-                            <variables queryParamRef="5560e2bd-0c7d-439b-a0aa-681f0275fce6" value="Employee management"/>
+                            <variables queryParamRef="5560e2bd-0c7d-439b-a0aa-681f0275fce6" value="Hr manager"/>
                           </queries>
                         </mappers>
                         <mappers uid="34a1ebb9-cd1c-42cd-b1f2-1c50ecc96e2e" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Forms interface builder">
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
-                          <queries uid="a35ce2f2-6ea0-4680-b729-0dfd8f7e9179" name="Query Base type  classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
-                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
-                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
-                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Base type"/>
+                          <queries uid="a35ce2f2-6ea0-4680-b729-0dfd8f7e9179" name="Query Base type  classes" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Base Repository"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model types"/>
                           </queries>
                         </mappers>
-                        <mappers uid="17e4bf61-820a-433e-9b51-229a8738632f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Application build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform-interface/builder.sh">
+                        <mappers uid="17e4bf61-820a-433e-9b51-229a8738632f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Interface build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform-interface/builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
@@ -1488,7 +1489,7 @@
                             <variables queryParamRef="1f2f0e06-3969-43bd-a00c-0c65920f8885" value="ERP"/>
                             <variables queryParamRef="d8cba772-7f0d-436f-9576-78468dcaf1c8" value="HR domain"/>
                             <variables queryParamRef="68f297d0-3b02-44ba-bc7b-e2d12d0fd02f" value="HR application"/>
-                            <variables queryParamRef="1e5354c6-4681-49f7-8612-34e12350c6f3" value="Employee management"/>
+                            <variables queryParamRef="1e5354c6-4681-49f7-8612-34e12350c6f3" value="Hr manager"/>
                           </queries>
                         </mappers>
                         <mappers uid="8b4da326-0a9a-42cb-b4e6-e7d6a5fab4d7" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Page object builder">
@@ -1508,6 +1509,11 @@
                         </mappers>
                       </components>
                     </ingredients>
+                    <deplymentStep mapper="17e4bf61-820a-433e-9b51-229a8738632f" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.1"/>
+                    <deplymentStep mapper="1dc64683-ffb2-46a7-bd67-7e7bc2fdbe8f" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.2"/>
+                    <deplymentStep mapper="493f35a8-60d7-44c6-b555-9231a3f568ce" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.3"/>
+                    <deplymentStep mapper="018eecf2-6087-4f3d-9484-a5460fff806c"/>
+                    <startSeq uid="e2ef3a3d-92f4-4fa1-a0ed-9c4010ed41c0" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="b051237e-4899-42fb-870a-551e3056850f">
                     <properties uid="4886bcd5-84be-4365-a8b7-537dcaeba1d8" confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="HRObjects"/>
@@ -1688,7 +1694,7 @@
               </mappers>
             </applicationMappers>
             <applicationUILayer uid="2f3c70d8-7e8f-474c-8ef1-c3ddea9c65e8" name="UILayer">
-              <applicationUIPackages uid="0afdb0d2-d857-440e-a514-4b937d79a247" name="Employee management">
+              <applicationUIPackages uid="0afdb0d2-d857-440e-a514-4b937d79a247" name="Hr manager">
                 <forms uid="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" name="Hr controller">
                   <view uid="32d7b5bf-2b6a-4a1d-9bf5-76f35f51938a">
                     <canvases xsi:type="tura.form:Window" uid="a29ed4f1-c30e-4673-8642-04fb7f5260b6" name="HR Controller">
@@ -4763,6 +4769,7 @@
                         </parameters>
                         <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </search>
+                      <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8ad8e295-070a-418b-95ce-2b4a2fa75191" name="nameArtf"/>
                       <defaultOrderBy/>
                     </controls>
                     <relations uid="94685cba-cc57-415d-9f97-affefb810fc8" master="536415eb-22fd-4379-be08-8c458d98a53b" detail="04835b94-7738-420d-9846-5ab8bdddc66e" isTree="true">

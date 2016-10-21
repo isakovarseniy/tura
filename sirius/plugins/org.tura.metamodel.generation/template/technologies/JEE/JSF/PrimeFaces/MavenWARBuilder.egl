@@ -49,6 +49,12 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${openexp}version.hibernate-entitymanager}</version>
 			<scope>provided</scope>
+		    <exclusions>
+		        <exclusion>
+		            <artifactId>xml-apis</artifactId>
+		            <groupId>xml-apis</groupId>
+		        </exclusion>        
+		    </exclusions>			
 		</dependency>
 		
 		<dependency>

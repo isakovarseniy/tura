@@ -34,7 +34,7 @@ import org.tura.platform.datacontrol.commons.TuraException;
 @Alternative
 @Priority(10)
 @Selector("hrmanager.hrcontroller")
-@PostCreate("files")
+@PostCreate("file")
 public class FilePostCreateTrigger implements PostCreateTrigger {
 
 	@Override

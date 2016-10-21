@@ -72,7 +72,7 @@ operation  datacontrolgeneration(hash) {
     var entityproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/entityManagerProducer.egl",hash,TemplateFactory);
     entityproducer.setFormatter(f);
     buffer = entityproducer.process();
-    util.saveFile( javaPath+"/commons/producer/"  , "EntityManagerFactoryProducer.java",buffer);   
+    util.saveFile( javaPath+"/commons/producer/"  , "EntityManagerProducer.java",buffer);   
 
 
     var trans : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Transaction.egl",hash,TemplateFactory);
