@@ -31,7 +31,7 @@ ${percent}${end}
     <application>
     <resource-handler>org.tura.platform.primefaces.resourcehandler.OmniResourceHandlerWrapper</resource-handler>
 [%
-       for ( library in appMsg.messageLibraries){
+       for ( library in appMsg.messageLibraries.libraries){
 %]        
         <resource-bundle>
             <base-name>[%=component.basePackage%].commons.resourcebundle.[%=util.mergeAndCapitalize(library.name)%]Bundle</base-name>

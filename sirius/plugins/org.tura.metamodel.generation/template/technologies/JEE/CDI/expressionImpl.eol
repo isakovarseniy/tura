@@ -133,7 +133,7 @@ operation MessageLibraryImpl(expression:String, contextValue , paramId: Integer 
    return expression.replaceAll("<holder>", util.mergeAndCapitalize(library.name)+"<holder>");
 }
 
-operation MessagesImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
+operation ApplicationMessageLibraryImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
    var begin = "#{";
    var end = "}";
    if (hints.get("noCurlyBracket") <> null  ){

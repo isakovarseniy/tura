@@ -1695,7 +1695,7 @@
             </applicationMappers>
             <applicationUILayer uid="2f3c70d8-7e8f-474c-8ef1-c3ddea9c65e8" name="UILayer">
               <applicationUIPackages uid="0afdb0d2-d857-440e-a514-4b937d79a247" name="Hr manager">
-                <forms uid="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" name="Hr controller">
+                <forms uid="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" name="HR controller">
                   <view uid="32d7b5bf-2b6a-4a1d-9bf5-76f35f51938a">
                     <canvases xsi:type="tura.form:Window" uid="a29ed4f1-c30e-4673-8642-04fb7f5260b6" name="HR Controller">
                       <style uid="26cefdcd-3ae3-4228-b22f-0268f1276979"/>
@@ -2864,6 +2864,7 @@
                       </multiLangLabel>
                     </canvases>
                     <canvases xsi:type="tura.form:Window" uid="28dc49d4-6150-4bda-9154-18ab055c151c" name="Login page">
+                      <style uid="4126c7ee-f883-4679-b51e-321715473b46" constant="true" value="width: 500px; margin: 200px auto 0 auto;"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="500943b0-8215-4b2e-a5c8-4980d8857da2" name="Login">
                         <style uid="b33fb355-f1b7-469b-a656-003e68df5de5"/>
                         <baseCanvas uid="e03af5dc-fb1d-4ff4-bef2-6b690e3153bd">
@@ -2876,7 +2877,7 @@
                               <expression objRef="b97e2e57-d767-481d-8caf-e5aa45822f67" order="2" expressionType="MessageImpl"/>
                             </multiLangLabel>
                           </children>
-                          <children xsi:type="tura.form:LayerHolder" order="1" uid="9478dd8c-c28c-49f5-931b-3ba24e923ef4" columns="2">
+                          <children xsi:type="tura.form:LayerHolder" nickname="Login Page" order="1" uid="9478dd8c-c28c-49f5-931b-3ba24e923ef4" columns="2">
                             <style uid="5f497eaa-4ee1-44a2-a14c-08078384c871"/>
                             <children xsi:type="tura.form:Label" uid="5dd33003-f10b-4d55-9a90-0a274a1c1d21" label="User name">
                               <style uid="b67638e5-d159-4e50-ac16-0fe7d7b8a4f8" constant="true" value="font:18px arial, sans-serif;color: #0033CC;"/>
@@ -2942,10 +2943,18 @@
                                 <expression objRef="eb251e35-a3d2-47a4-85d7-40f832c0378d" order="4" expressionType="OperationImpl"/>
                               </fields>
                               <required uid="d9b20df4-d679-4c6d-adf6-ec4a7736d753"/>
+                              <refreshAreas area="9478dd8c-c28c-49f5-931b-3ba24e923ef4" group="2"/>
+                              <multiLangLabel uid="f10f2d5e-fd98-4472-ad77-84cc39c14411" value="Application Message Libraries.HR Controller.SIGN_IN">
+                                <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                <expression objRef="d466019b-c0bc-47dd-8d81-2c1466ca8b52" order="2" expressionType="MessageImpl"/>
+                              </multiLangLabel>
+                              <icon uid="9c089bce-443d-4ecd-b6c8-54e01e7f66a4"/>
                             </children>
                           </children>
                         </baseCanvas>
                       </viewElement>
+                      <classifiers uid="dc0ee648-dc36-4e02-8c0a-13178e8acd24" hint="4b28d583-e785-4888-bda9-20cdc9db245a"/>
                     </canvases>
                     <viewInheritances uid="4f10fbf9-dbd1-41f4-91ee-c3b668267e90" source="9700618b-bb04-4b25-af40-e3f537976fc5" target="202dc775-763f-4b4b-baea-32e2419d3e5a"/>
                     <viewInheritances uid="292babc4-3a98-4ee7-8fec-6808d811b17a" source="b194b449-1154-4b02-99c2-936b7e11be68" target="119168a0-b863-4411-8f90-59c6ac835980"/>
@@ -3694,6 +3703,7 @@
                             <expression uid="e966ceeb-3922-44d8-ae7e-c93ebe1b9ca7" objRef="24bfd56d-56ab-467f-afb3-c27050fa7d16" order="3" expressionType="TypeImpl"/>
                           </value>
                         </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </create>
                       <insert methodRef="af699e3b-4d57-4649-8fa0-60f4e52abb98" uid="cdd59c20-698a-4b63-bef5-6b1c167ce028">
                         <parameters uid="ee66f6d9-fcaf-4c26-a031-ea5f60b76331" refObj="ed121d61-27bb-42ab-9e84-2304521ab847">
@@ -3703,6 +3713,7 @@
                             <expression uid="2af7635a-89fd-4ff7-af6b-6086208f7f29" order="2" expressionType="DataControlFakeMethod"/>
                           </value>
                         </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </insert>
                       <update methodRef="1a6374ef-6469-49b8-8eb0-760e6e273f23" uid="ef8faaf4-08c4-47fd-a8a2-c4d3c2a2c3bd">
                         <parameters uid="61f5cef4-f981-4fe8-b281-c24fb9183fed" refObj="40b2187e-6059-4345-a69e-427102883a07">
@@ -3712,6 +3723,7 @@
                             <expression uid="59344e53-ba76-4289-a1a3-a1bcd475e44d" order="2" expressionType="DataControlFakeMethod"/>
                           </value>
                         </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </update>
                       <remove methodRef="c3a41d83-bd58-49ce-a7f8-d2b2ebf8a97e" uid="811fc765-7e46-4309-9b5a-97d21108ed56">
                         <parameters uid="477fafae-4b32-4bed-a9f7-6ade5b3a49d1" refObj="30e1a3a4-9359-41e3-828a-249d5ceeefb7">
@@ -3721,6 +3733,7 @@
                             <expression uid="2be390d0-5732-40f5-a34b-66acc6845969" order="2" expressionType="DataControlFakeMethod"/>
                           </value>
                         </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </remove>
                       <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="8059e4f2-b552-40d9-9253-de4dbc629153">
                         <parameters uid="3be8da79-35e5-42ec-ad42-7cd30b140c2a" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
@@ -3759,6 +3772,7 @@
                             <expression uid="2c1cf85a-e55b-4598-9475-67e0bb901e49" objRef="24bfd56d-56ab-467f-afb3-c27050fa7d16" order="3" expressionType="TypeImpl"/>
                           </value>
                         </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </search>
                       <defaultSearch>
                         <parameters uid="6d591e18-450e-4706-a104-35aee7e4d106" refObj="96d9355b-421b-4812-98f4-d9d9acf40e7b">
@@ -3781,6 +3795,7 @@
                             <expression uid="e9d5119f-2111-4cba-9e2b-fa46d471ef2c" objRef="8fc713c5-d6ba-46ac-9609-2560bab34bbd" order="3" expressionType="TypeImpl"/>
                           </value>
                         </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </create>
                       <insert methodRef="af699e3b-4d57-4649-8fa0-60f4e52abb98" uid="6af7531c-61b7-40a3-b76a-ace0cc952f51">
                         <parameters uid="ed788de4-4b19-47fc-af62-3edabe2cc047" refObj="ed121d61-27bb-42ab-9e84-2304521ab847">
@@ -3790,6 +3805,7 @@
                             <expression uid="445957ca-81bc-406c-b471-86d39ffdf1e4" order="2" expressionType="DataControlFakeMethod"/>
                           </value>
                         </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </insert>
                       <update methodRef="1a6374ef-6469-49b8-8eb0-760e6e273f23" uid="90dc85ce-45ff-4fb8-bafe-0b8f29d54e31">
                         <parameters uid="384c09a4-ba85-4d1f-9e32-347fdea59d76" refObj="40b2187e-6059-4345-a69e-427102883a07">
@@ -3799,6 +3815,7 @@
                             <expression uid="1d3c8760-a97f-4f5d-b77c-559395a9c1e3" order="2" expressionType="DataControlFakeMethod"/>
                           </value>
                         </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </update>
                       <remove methodRef="c3a41d83-bd58-49ce-a7f8-d2b2ebf8a97e" uid="4a68c4e8-1caa-4a46-a935-0e81a0f47c41">
                         <parameters uid="9d8b728b-7929-4587-9a24-0cb0d2538ff9" refObj="30e1a3a4-9359-41e3-828a-249d5ceeefb7">
@@ -3808,6 +3825,7 @@
                             <expression uid="610b6f90-c954-4938-843c-6b1e362f0455" order="2" expressionType="DataControlFakeMethod"/>
                           </value>
                         </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </remove>
                       <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="bc39dc2d-4c61-40a1-981a-89d0e91b2724">
                         <parameters uid="aea93aed-7314-4296-89ee-e82e93e0d47d" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
@@ -3846,6 +3864,7 @@
                             <expression uid="ddb293dd-9be6-4a56-b804-d06db9ef3216" objRef="8fc713c5-d6ba-46ac-9609-2560bab34bbd" order="3" expressionType="TypeImpl"/>
                           </value>
                         </parameters>
+                        <typePointers typeRef="c6f8f6d7-7cf2-4378-bc67-b6e6f1bfef82"/>
                       </search>
                       <artificialFields typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912" uid="f09d9b45-322f-4dcc-8c2e-676c1da95292" name="loginError"/>
                       <defaultSearch/>
@@ -5160,6 +5179,9 @@
                           <children xsi:type="tura.form:OutputText" order="9" uid="374b93c6-befd-49ff-a711-1884e5151a67" sourcePointer="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" valuePointer="2ec9aa76-28dd-4914-b224-c04fb2d708a9"/>
                         </baseCanvas>
                       </viewElement>
+                      <classifiers uid="968e98f8-f5a2-4c36-8720-1a6f18900c63" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="404"/>
+                      <classifiers uid="cbffcacd-57a7-4e9a-9861-d33b29fd92d5" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d" details="500"/>
+                      <classifiers uid="649ac42c-7c1c-4451-8732-3030b9b376a3" hint="b2faf8c7-f1b6-48fa-885c-5174c65ee62e"/>
                     </canvases>
                   </view>
                   <datacontrols uid="44caa04c-0d70-4570-8873-b48e26252c67">
@@ -5267,6 +5289,7 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
+                      <classifiers uid="d115a068-d8dc-4cc8-a744-bcee4a9d9fbd" hint="a24ca484-c882-4e80-961a-8093e6dc5803" details="javax.faces.application.ViewExpiredException"/>
                     </canvases>
                   </view>
                   <datacontrols uid="fb454453-8294-4cf1-bfaa-730fa7ef09df"/>

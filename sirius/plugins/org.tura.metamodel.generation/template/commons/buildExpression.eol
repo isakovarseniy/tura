@@ -37,7 +37,7 @@ operation  buildExpression( contextValue,hints,inOutParams) : String {
           case "GroupImpl":                        resultExpression = GroupImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "RoleImpl":                          resultExpression = RoleImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "MessageLibraryImpl":        resultExpression = MessageLibraryImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
-          case "MessagesImpl":                 resultExpression = MessagesImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "ApplicationMessageLibraryImpl":                 resultExpression = ApplicationMessageLibraryImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "MessageImpl":                   resultExpression = MessageImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "DomainArtifactsImpl":         resultExpression = DomainArtifactsImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "DomainArtifactImpl":           resultExpression = DomainArtifactImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);

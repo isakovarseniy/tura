@@ -7,7 +7,7 @@ operation  form::LayerHolder  draw(hash) {
      var classifierUUID = util.getHint(model_mapper,"panel.columns.class");
        
 %]
-     <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%]  columnClasses="[%=self.styleAttributes(util.getHint(model_mapper,"panel.columns.class"))%]">
+     <p:panelGrid [%=self.mkUIDBinding()%] columns="[%=self.columns%]"  [%=self.styleAttributes(hash)%]  columnClasses="[%=self.styleClassByClassifier(util.getHint(model_mapper,"panel.columns.class"))%]">
      [%=self.generateBody(hash)%]     
      </p:panelGrid>
 [%

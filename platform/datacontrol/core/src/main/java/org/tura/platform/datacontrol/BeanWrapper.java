@@ -50,6 +50,7 @@ public class BeanWrapper implements MethodInterceptor {
 	private ArrayList<String> exceptionmethod = new ArrayList<String>();
 	private ArrayList<String> artificialmethod = new ArrayList<String>();
 	private HashMap<String, Object> artificialvalues = new HashMap<String, Object>();
+	private boolean isChangesTracking = true; 
 
 	public void addExceptionsmethod(String method) {
 		exceptionmethod.add(method);
@@ -253,7 +254,7 @@ public class BeanWrapper implements MethodInterceptor {
 	}
 
 	private void createCommand( Object oldValue, Object newValue,  String property, Object bean) throws Exception {
-		if (datacontrol.getCommandStack() != null) {
+		if ( isChangesTracking &&  datacontrol.getCommandStack() != null) {
 			if (this.insertMode) {
 				Command cmd = CommandFactory.cloneCommand(datacontrol, datacontrol.getInsertCommand(), oldValue, newValue, bean,  property);
 			    cmd.execute();
@@ -271,5 +272,13 @@ public class BeanWrapper implements MethodInterceptor {
 
 	public void setObj(Object obj) {
 		this.obj = obj;
+	}
+
+	public boolean isChangesTracking() {
+		return isChangesTracking;
+	}
+
+	public void setChangesTracking(boolean isChangesTracking) {
+		this.isChangesTracking = isChangesTracking;
 	}
 }
