@@ -22,8 +22,10 @@
 package org.tura.platform.datacontrol.command.base;
 
 
+import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Util;
+import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 
 public class CreateCommandBase extends Command {
@@ -40,7 +42,6 @@ public class CreateCommandBase extends Command {
 	public Object execute() throws Exception {
 		
       Object obj = getObj();
-      Object saveObj = obj;
 
 		if (obj != null){
 			obj = Util.convertobject(obj, getDatacontrol(),true);
@@ -49,8 +50,13 @@ public class CreateCommandBase extends Command {
 			this.getDatacontrol().getCommandStack().registerForCleaningDataControl(this.getDatacontrol());
 		}
 
-		if (obj != null && this.getDatacontrol().getPostCreateTrigger() != null)
-			this.getDatacontrol().getPostCreateTrigger().execute(this.getDatacontrol(), saveObj);
+		if (obj != null && this.getDatacontrol().getPostCreateTrigger() != null){
+			// Do not track any changes on created object !!!!!
+			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+			w.setChangesTracking(false);
+			this.getDatacontrol().getPostCreateTrigger().execute(this.getDatacontrol(), obj);
+			w.setChangesTracking(true);
+		}
 
 		return obj;
 
