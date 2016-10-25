@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.BeanUtilsBean;
 import org.elsoft.platform.hr.objects.CityDAO;
 import org.elsoft.platform.hr.objects.CompanyDAO;
 import org.elsoft.platform.hr.objects.CountryDAO;
@@ -176,7 +177,8 @@ public class SimpleTuraProvider implements DataProvider {
 
 			for (int i = 0; i < list.size(); i++) {
 				Object domainObject = Class.forName(domainModelClass).newInstance();
-				BeanUtils.copyProperties(domainObject, list.get(i));
+				BeanUtilsBean.getInstance().getConvertUtils().register(false, false, 0);
+				BeanUtilsBean.getInstance().copyProperties(domainObject, list.get(i));
 				list.set(i, domainObject);
 			}
 			LazyList lazyList = new LazyList<>(list, numberOfRows, startIndex);

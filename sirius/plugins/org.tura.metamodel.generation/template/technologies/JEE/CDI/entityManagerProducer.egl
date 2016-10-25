@@ -14,7 +14,7 @@ package  [%=component.basePackage%].commons.producer;
 @javax.annotation.Priority(0)
 public class EntityManagerProducer{
 
-  @org.apache.deltaspike.jpa.api.entitymanager.PersistenceUnitName("[%=configuration.get("persistence_unit")%]")
+  @javax.persistence.PersistenceUnit
    private javax.persistence.EntityManagerFactory emf;
 
 	@javax.enterprise.inject.Produces

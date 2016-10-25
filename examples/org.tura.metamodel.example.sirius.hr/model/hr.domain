@@ -4705,6 +4705,7 @@
                       </search>
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="377b44f6-b0c8-469f-893a-f416b15313de" name="nameArtf"/>
                       <defaultSearch/>
+                      <defaultOrderBy/>
                     </controls>
                     <controls uid="74f97484-5727-4afc-ad95-26edf43072a1" name="Employee">
                       <baseType typeRef="290e5b93-8e34-478f-8794-fdeb922c9298"/>
@@ -4824,7 +4825,9 @@
                         <style uid="e9843c2a-fb85-4073-9926-a0f4733e6666"/>
                         <baseCanvas uid="275e758b-4f71-4471-ab0b-a6c419597a8d">
                           <children xsi:type="tura.form:LayerHolder" uid="4c7b0bd1-9cdd-460f-a516-0aa09672a741" columns="2">
+                            <style uid="f2c3a0ec-4fd3-4a59-9baf-a319366af782" constant="true" value="padding: 5px 5px 5px 5px;font: 15px arial, sans-serif;"/>
                             <children xsi:type="tura.form:DropDownSelection" order="2" uid="ef6362a6-125b-46af-895e-cb33eb04780e" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="7611dd7e-100b-4380-b36c-27e103569514" optionPointer="c6c3d4ab-13ac-4f42-8875-2f036368af04" optionCast="bba5bca8-79c4-4856-a307-acc056d2ba90" optionCastDataControl="c6c3d4ab-13ac-4f42-8875-2f036368af04" initialOptionValue="-1">
+                              <style uid="455a2c9c-3251-441e-975a-9bda185c7575" constant="true" value="width:150px"/>
                               <refreshAreas area="ff1d0d8e-83d6-4440-8144-80dfb4637109" group="2"/>
                               <selection displayOptionPointer="5ad949b9-3af6-4e6a-974c-f7da0be99fa8" valueOptionPointer="96d9355b-421b-4812-98f4-d9d9acf40e7b"/>
                               <initialOptionMessage value="Application Message Libraries.Misc.INITIAL_SELECTION_MESSAGE">
@@ -4834,6 +4837,7 @@
                               </initialOptionMessage>
                             </children>
                             <children xsi:type="tura.form:DropDownSelection" nickname="employees drop down" order="3" uid="ff1d0d8e-83d6-4440-8144-80dfb4637109" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="62fec7f1-c18c-49ce-bd33-ae71172ea7f2" optionPointer="9a305f5e-0e34-4c48-bb07-ce89361bdd1e" initialOptionValue="-1">
+                              <style uid="93d32ce4-0472-4a28-9a7c-7017e5540323" constant="true" value="width:150px"/>
                               <selection displayOptionPointer="2a951adc-c89f-4d84-a59c-ffeba113f873" valueOptionPointer="96d9355b-421b-4812-98f4-d9d9acf40e7b"/>
                               <initialOptionMessage value="Application Message Libraries.Misc.INITIAL_SELECTION_MESSAGE">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
