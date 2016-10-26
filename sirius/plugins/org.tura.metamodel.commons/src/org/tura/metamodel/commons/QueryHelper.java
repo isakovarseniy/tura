@@ -187,12 +187,10 @@ public class QueryHelper {
 			frm = (Form) ((Controls) obj).eContainer();
 		}
 
-		// if (root.getElement() instanceof domain.MenuView) {
-		// domain.Views views = (Views) (((domain.MenuView) root.getElement())
-		// .getParent().eContainer());
-		// frm = (domain.Form) (views.getParent().eContainer());
-		//
-		// }
+		if (obj instanceof MenuDefinition) {
+			Views views = (Views) (((MenuDefinition) obj).eContainer());
+			frm = (Form) views.eContainer();
+		}
 		//
 		// if (root.getElement() instanceof domain.CanvasView) {
 		//

@@ -65,6 +65,9 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Artificial name repetition validation" level="ERROR" message="form.ArtificialField cannot have same name " targetClass="form.ArtificialField">
         <audits auditExpression="aql:self.oclAsType(ecore::EObject).eContainer().oclAsType(form::DataControl).artificialFields->select(q|q.oclAsType(form::ArtificialField).name = self.name)->size()=1"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Relation validation" level="ERROR" message="form.Relation has wrong description of master detail " targetClass="form.Relation">
+        <audits auditExpression="service:validateRelation"/>
+      </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="CanvasFramel name validation" level="ERROR" message="Name cannot be empty " targetClass="form.CanvasFrame">
         <audits auditExpression="aql:self.name &lt;> null"/>
       </ownedRules>

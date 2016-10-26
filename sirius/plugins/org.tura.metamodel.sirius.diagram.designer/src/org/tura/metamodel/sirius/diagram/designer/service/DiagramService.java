@@ -59,6 +59,7 @@ import form.PREFormTrigger;
 import form.PREInsertTrigger;
 import form.PREQueryTrigger;
 import form.PREUpdateTrigger;
+import form.Relation;
 import form.SearchTrigger;
 import form.Selection;
 import form.SourcesPointer;
@@ -85,6 +86,7 @@ import recipe.Recipes;
 import style.StyleLibrary;
 import style.StyleSet;
 import type.Assosiation;
+import type.Link;
 import type.RelationType;
 import type.TypeGroup;
 import type.TypeReference;
@@ -514,4 +516,17 @@ public class DiagramService {
 			return false;
 		}
 	}
+	
+	public boolean validateRelation(Relation relation) {
+		if (relation.getLinks().size() == 0){
+			return false;
+		}
+		for (Link link : relation.getLinks()){
+			if (link.getMasterField() == null || link.getDetailField() == null){
+				return false;
+			}
+		}
+		return true;
+	}
+	
 }

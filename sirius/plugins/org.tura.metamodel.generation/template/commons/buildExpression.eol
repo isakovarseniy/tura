@@ -64,14 +64,25 @@ operation  buildExpression( contextValue,hints,inOutParams) : String {
 }
 
 operation form::DataControl findTreeRoot(  ) : form::DataControl {
-      var masters =  form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->collect(w|w.master);
+
+     var masters; 
+     var i = form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->size();
+     
+     if ( i = 0 ){
+        return self;
+     }
+      if (i  > 1 ){
+         masters =  form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self  and r.master <> self)->collect(w|w.master);
+      }else{
+         masters =  form::Relation.allInstances()->select(r|r.isTree=true and  r.detail = self )->collect(w|w.master);
+      }
+
       for ( master in masters ){
          if (master = self )
             return self;
             
          return master.findTreeRoot();   
       }
-     return self;
 }
 
 
