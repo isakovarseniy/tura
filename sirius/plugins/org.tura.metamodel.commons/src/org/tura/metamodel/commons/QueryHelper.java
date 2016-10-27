@@ -31,6 +31,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRoot
 
 import application.Application;
 import application.ApplicationUILayer;
+import application.ApplicationUIPackage;
 import artifact.GenerationHint;
 import artifact.QueryParameter;
 import artifact.TechLeaf;
@@ -356,11 +357,9 @@ public class QueryHelper {
 	}
 
 	public Object getDomainApplications(DiagramImpl root) {
-		// domain.Form frm = getForm(root);
-		// domain.UIPackage pkg = (UIPackage) frm.eContainer();
-		// return
-		// pkg.getParent().getParent().getParent().getParent().getParent();
-		throw new RuntimeException();
+		Form frm = getForm(root);
+		ApplicationUIPackage pkg = (ApplicationUIPackage) frm.eContainer();
+		return  pkg.eContainer().eContainer().eContainer().eContainer();
 	}
 
 	@SuppressWarnings("unchecked")

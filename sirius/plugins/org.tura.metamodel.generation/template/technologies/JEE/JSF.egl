@@ -93,7 +93,7 @@ operation form::FlexFields  styleClassByClassifier( classifierUUID : String):Str
      if (self.fields <> null  and self.fields.size() <> 0 ){
       var first = 0;
       for (field in self.fields ){ 
-         if (field.classifier <> null and field.findHint(classifierUUID)){
+         if (field.classifiers <> null and field.findClassifier(classifierUUID)){
              if ( first <> 0){value = value+",";}
              value = value + buildExpression(field,hints,hash);
              first=1;

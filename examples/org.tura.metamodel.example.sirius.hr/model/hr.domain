@@ -217,6 +217,7 @@
             <hints uid="8ae530bd-135a-4d8a-b62d-720776d50704" name="panel.columns.class" hint="5ecedec5-0aff-42cf-80f2-abf218d5fb47"/>
             <hints uid="c6933b95-e132-4b0f-9528-b10325a536e1" name="row number selector" hint="be798615-3f9f-4c7a-bb08-626b35fbabc6"/>
             <hints uid="cefe0e3e-ea2c-44a5-b9f7-aba4bdc08b45" name="menu.global" hint="e7e14e37-f0b2-4166-a029-c1c8619ce37d"/>
+            <hints uid="88bf1d1a-8ad5-40fb-9a3c-40257684fa67" name="transitionURL" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
           </artifacts>
           <artifacts uid="26a52323-6c5e-4973-8d5e-11f03a394ced" name="Message provider" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainMessageLibrary.egl">
             <modelQuery uid="4952c198-a1c8-4f39-aa8a-9448640d40ae" name="Query message library" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationMessages.messageLibraries">
@@ -373,6 +374,7 @@
               <hints uid="8962de68-b529-4f12-88bb-135bdfde4174" name="oncomplete"/>
               <hints uid="f90f475a-ad40-40e5-8fa0-7ecac8801a7c" name="onclick"/>
               <hints uid="9c3a5219-2f65-4f6a-bfd6-2e6b59f206fb" name="styleClass"/>
+              <hints uid="a0e9405c-2eaf-4d04-add7-7ca34aee8919" name="transitionURL"/>
             </techLeafs>
           </techLeafs>
           <techLeafs uid="19ab089c-73fa-45d4-97d6-d85ca456dc34" name="Data Control">
@@ -2902,6 +2904,7 @@
                               <style uid="d93fd7a0-f4c8-4eb3-b9b7-b06ac5dc250b"/>
                             </children>
                             <children xsi:type="tura.form:Label" order="4" uid="f01a589e-7150-473b-8be6-42216f46653a" label="Label">
+                              <style uid="91dcdff5-47e1-4241-83e6-490510b87f98"/>
                               <fields uid="51888e77-f7c5-4e68-8f46-2318a2ad497f" value="Types repository.Base Repository.Model types.Model types::Authentication manager.isLoginError()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2931,10 +2934,11 @@
                               </multiLangLabel>
                             </children>
                             <children xsi:type="tura.form:Label" order="6" uid="f3e562d7-5ba6-4c31-85ca-e3c960a8ffa5" label="Label">
+                              <style uid="3358bdea-3801-464d-a940-dfa05514bffb"/>
                               <enabled uid="76248abe-a28b-44b1-93c8-4244f45cc3b6"/>
                             </children>
                             <children xsi:type="tura.form:Button" order="7" uid="dc0dc648-bb4e-4647-ad34-82fbb31c049d" label="Sign in">
-                              <style uid="118ed2aa-f5c3-4cc1-898c-282ea01aeac2"/>
+                              <style uid="118ed2aa-f5c3-4cc1-898c-282ea01aeac2" constant="true" value="margin-top: 5px;font:15px arial, sans-serif"/>
                               <fields uid="e3a7933d-7eed-41e4-8236-b5efc88159de" value="Types repository.Base Repository.Model types.Model types::Authentication manager.login()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -3007,6 +3011,15 @@
                             <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                             <expression objRef="082e951e-d516-4d82-a1f6-b855095c5c32" order="2" expressionType="MessageImpl"/>
                           </multiLangLabel>
+                          <fields uid="ee6e6e13-37e4-4a15-b8db-bbc7638421af" value="ERP.HR domain.HR application.Hr manager.HR controller.HR Controller">
+                            <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" expressionType="DomainApplicationImpl"/>
+                            <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="1" expressionType="ApplicationGroupImpl"/>
+                            <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="2" expressionType="ApplicationImpl"/>
+                            <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="3" expressionType="ApplicationUIPackageImpl"/>
+                            <expression objRef="5985e87a-f9a6-456d-8075-b5fc2dcf5a37" order="4" expressionType="FormImpl"/>
+                            <expression objRef="a29ed4f1-c30e-4673-8642-04fb7f5260b6" order="5" expressionType="WindowImpl"/>
+                            <classifiers uid="6438230b-bbfd-492f-9074-a896f8bb91fc" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
+                          </fields>
                         </menuElements>
                         <menuElements xsi:type="tura.form:MenuItem" order="1" uid="2b76551b-d0df-4f8d-9790-f39e9f437aef" name="Tree2tree">
                           <multiLangLabel uid="e3d350a6-ebb9-4dad-b2c3-be2b9386cc24" value="Application Message Libraries.Tree 2 Tree.MAIN_WINDOW_LABEL">
@@ -3014,6 +3027,15 @@
                             <expression objRef="a08f51bb-b04c-4c58-8d47-50e9aa951972" order="1" expressionType="MessageLibraryImpl"/>
                             <expression objRef="40e8cb69-ea22-4909-9a42-87cfa73f3dd3" order="2" expressionType="MessageImpl"/>
                           </multiLangLabel>
+                          <fields uid="53adfd68-0c91-4c60-b3ff-0fda227b89ba" value="ERP.HR domain.HR application.Hr manager.Tree2tree.Tree 2 tree relations">
+                            <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" expressionType="DomainApplicationImpl"/>
+                            <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="1" expressionType="ApplicationGroupImpl"/>
+                            <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="2" expressionType="ApplicationImpl"/>
+                            <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="3" expressionType="ApplicationUIPackageImpl"/>
+                            <expression objRef="99d4dc61-8ead-4778-8b9e-8883f2ea002a" order="4" expressionType="FormImpl"/>
+                            <expression objRef="aa60649c-abda-4942-bb01-a9e80feb2d2f" order="5" expressionType="WindowImpl"/>
+                            <classifiers uid="6c36aa54-99e0-40b2-bde0-256aa822a673" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
+                          </fields>
                         </menuElements>
                         <menuElements xsi:type="tura.form:MenuItem" order="2" uid="171e1012-16ef-4003-affe-1a881302f5cb" name="MiscElements">
                           <multiLangLabel uid="d3e4bade-9bd3-44e1-aecb-5a5049775e30" value="Application Message Libraries.Misc.MAIN_WINDOW_SELECTION">
@@ -3021,6 +3043,15 @@
                             <expression objRef="ad666172-36e0-47fb-bd08-423724589d54" order="1" expressionType="MessageLibraryImpl"/>
                             <expression objRef="dfbd8bd4-b0a6-4b82-8fd1-b99c837c3616" order="2" expressionType="MessageImpl"/>
                           </multiLangLabel>
+                          <fields uid="a6aa3a65-c676-41ab-aa36-95389a29f6d2" value="ERP.HR domain.HR application.Hr manager.MiscElements.MiscElements window">
+                            <expression objRef="dd9a03ec-7974-4324-b247-0405080b3944" expressionType="DomainApplicationImpl"/>
+                            <expression objRef="e0a49a0b-9961-4803-9c0c-efb84da14715" order="1" expressionType="ApplicationGroupImpl"/>
+                            <expression objRef="6dbe9372-c514-4152-8d84-c8ac1223c2f7" order="2" expressionType="ApplicationImpl"/>
+                            <expression objRef="0afdb0d2-d857-440e-a514-4b937d79a247" order="3" expressionType="ApplicationUIPackageImpl"/>
+                            <expression objRef="30fc6c06-40e1-4761-9017-03ef02fb7b7b" order="4" expressionType="FormImpl"/>
+                            <expression objRef="f85ed6e4-52b4-4a66-b8f8-03684c4b5349" order="5" expressionType="WindowImpl"/>
+                            <classifiers uid="12a56249-dfad-48e4-b91d-9dc939190cd8" hint="a0e9405c-2eaf-4d04-add7-7ca34aee8919"/>
+                          </fields>
                         </menuElements>
                       </menuFolders>
                       <menuFolders uid="71b50664-cf31-4f1f-a0de-367dbc998793" name="Form menu" extensionPoint="true">

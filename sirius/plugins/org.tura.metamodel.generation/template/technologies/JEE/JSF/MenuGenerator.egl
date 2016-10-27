@@ -106,10 +106,18 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
      var hints = new Native('java.util.HashMap');
      var update = self.refreshAreas->select(r|r.group > 1);
      var process = self.refreshAreas->select(r|r.group == 1)->sortBy(q|q.group);
+     var model_mapper = hash.get("model_mapper");
      
   %]
         org.primefaces.model.menu.DefaultMenuItem [%=util.mergeAndUnCapitalize(self.name)%] = new org.primefaces.model.menu.DefaultMenuItem((String)resolver("[%=buildExpression(self.multiLangLabel,hints,hash)%]",elResolver));
-        [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Url",buildExpression(self.transition,hints,hash))%]
+        [%
+        
+            var classifierUUID = util.getHint(model_mapper,"transitionURL");
+            var list = self.findClassifiedField(classifierUUID);
+		    for ( field in  list){
+		           %][%=setAttribute(util.mergeAndUnCapitalize(self.name),"Url",buildExpression(field,hints,hash))%][%
+		    }        
+        %]
         [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Icon",buildExpression(self.icon,hints,hash))%]
 
         [%=setAttribute(util.mergeAndUnCapitalize(self.name),"Update",refreshAriasGroup(update))%]

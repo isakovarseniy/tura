@@ -25,6 +25,8 @@ public class ApplicationProvider implements IWorkbenchAdapter ,IReturnTypeProvid
 		ArrayList<Object> ls = new ArrayList<>();
 		ls.add(p.getApplicationRole());
 		ls.add(p.getApplicationStyle());
+		ls.addAll(p.getApplicationUILayer().getApplicationUIPackages());
+		
 
 		return ls.toArray();
 	}
@@ -36,7 +38,8 @@ public class ApplicationProvider implements IWorkbenchAdapter ,IReturnTypeProvid
 
 	@Override
 	public String getLabel(Object o) {
-		return "Applicatioin";
+		Application p = (Application) o;
+		return p.getName();
 	}
 
 	@Override

@@ -5,7 +5,7 @@ operation web_xml_serverspecific(hash){
    var component = hash.get("component");
    var util = new Native('org.tura.metamodel.commons.Util');
    var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
-   var roles = hash.get("roles");
+   var realms = hash.get("realms");
    var recipe = hash.get("recipe");
    var ingredient = hash.get("ingredient");
    var app = hash.get("application");
@@ -14,20 +14,25 @@ operation web_xml_serverspecific(hash){
 %]
 <glassfish-web-app>
 [%
-   if (roles <> null){
+
+   if (realms <> null){
 //Unclear why should I do like this   
-     for ( ls in roles){
-      for(role in ls){
+     for ( ls in realms){
+      for(realm in ls){
+      for (rolepkg in realm.roles){ 
+      for(role in rolepkg.roles){
        role.mappingRole2Role(recipe, ingredient);      
-%]
+      %]
 <security-role-mapping>
         <role-name>[%=role.~localRoleName%]</role-name>
         <group-name>[%=role.~globalRoleName%]</group-name>
- </security-role-mapping>
-[%
+ </security-role-mapping>   
+    [%  
+        }
+       }
       }
-    }
- }
+      }
+   }
 %]
         <context-root>[%=util.mergeAndCapitalize(app.name).toLowerCase()%]</context-root> 
 </glassfish-web-app>
