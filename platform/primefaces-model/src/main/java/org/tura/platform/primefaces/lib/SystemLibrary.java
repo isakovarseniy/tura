@@ -52,6 +52,9 @@ public class SystemLibrary {
 		}
 	}
 
+	public String style2Icon(String style){
+		return style;
+	}
 	
     public void changeLanguage(String language) {
         FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale(language));
