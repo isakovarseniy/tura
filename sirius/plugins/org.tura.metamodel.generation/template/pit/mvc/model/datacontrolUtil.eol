@@ -84,8 +84,6 @@ operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) 
 
         var util = new Native('org.tura.metamodel.commons.Util');
         
-        var tp = self.create.methodRef.returnValue.typeRef;
-        
         var basetype = self.getBaseClass(recipe,ingredient);
         
         self.~baseclass = basetype.~class;
@@ -97,7 +95,7 @@ operation form::DataControl processKeys(recipe:Recipe, ingredient :Ingredient ) 
         var attributes = new Native('java.util.HashMap');
         
         var helper = new Native('org.tura.metamodel.commons.Helper');
-        helper.addOperations(operations, attributes,tp);
+        helper.addOperations(operations, attributes,basetype);
 
          for (attribute in attributes.values){
                if (attribute.pk == true ){

@@ -496,7 +496,7 @@
           </types>
           <types xsi:type="tura.type:Type" uid="4d408999-e499-4951-9cbe-8e747fbbe1fc" name="Tree data control"/>
           <types xsi:type="tura.type:Type" uid="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" name="Base type">
-            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="96d9355b-421b-4812-98f4-d9d9acf40e7b" name="objId"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="96d9355b-421b-4812-98f4-d9d9acf40e7b" name="objId" pk="true"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="b29cd180-b3a7-416b-b572-ff1acb86e080" name="parentId"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="fb2638e3-2e6e-47d1-8a6e-1237e8472b12" name="objType"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="6d639722-b948-4e45-a29b-71ec6e58e823" name="objStatus"/>
