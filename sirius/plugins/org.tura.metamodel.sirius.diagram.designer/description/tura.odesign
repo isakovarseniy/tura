@@ -2609,7 +2609,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="Window" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Window%20edit%20label']" semanticCandidatesExpression="aql:self.canvases" domainClass="form.Window" childrenPresentation="VerticalStack">
-          <subContainerMappings name="ViewElements0" semanticCandidatesExpression="var:self" domainClass="form.ViewPortHolder">
+          <subContainerMappings name="ViewElements0" semanticCandidatesExpression="var:self" domainClass="form.ViewPortHolder" dropDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewAria%20to%20PopupCanvase']">
             <subNodeMappings name="ViewArea0" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Canvas%20diagram']" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewArea%20edit%20label']" semanticCandidatesExpression="feature:viewElement" domainClass="form.ViewArea">
               <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
@@ -2655,7 +2655,7 @@
           </style>
         </containerMappings>
         <containerMappings name="Canvas" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Canvas%20edit%20label']" semanticCandidatesExpression="aql:self.canvases" domainClass="form.Canvas" childrenPresentation="VerticalStack">
-          <subContainerMappings name="ViewElements1" semanticCandidatesExpression="var:self" domainClass="form.ViewPortHolder">
+          <subContainerMappings name="ViewElements1" semanticCandidatesExpression="var:self" domainClass="form.ViewPortHolder" dropDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewAria%20to%20PopupCanvase']">
             <subNodeMappings name="ViewArea1" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Canvas%20diagram']" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewArea%20edit%20label']" semanticCandidatesExpression="feature:viewElement" domainClass="form.ViewArea">
               <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
@@ -2701,7 +2701,7 @@
           </style>
         </containerMappings>
         <containerMappings name="PopupCanvas" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PopupCanvas%20edit%20label']" semanticCandidatesExpression="aql:self.canvases" domainClass="form.PopupCanvas" childrenPresentation="VerticalStack">
-          <subContainerMappings name="ViewElements2" semanticCandidatesExpression="var:self" domainClass="form.ViewPortHolder">
+          <subContainerMappings name="ViewElements2" semanticCandidatesExpression="var:self" domainClass="form.ViewPortHolder" dropDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewAria%20to%20PopupCanvase']">
             <subNodeMappings name="ViewArea2" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Canvas%20diagram']" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewArea%20edit%20label']" semanticCandidatesExpression="feature:viewElement" domainClass="form.ViewArea">
               <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
@@ -2747,7 +2747,7 @@
           </style>
         </containerMappings>
         <containerMappings name="TabPage" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='TabPage%20edit%20label']" semanticCandidatesExpression="aql:self.canvases" domainClass="form.TabPage" childrenPresentation="VerticalStack">
-          <subContainerMappings name="ViewElements3" semanticCandidatesExpression="var:self" domainClass="form.ViewPortHolder">
+          <subContainerMappings name="ViewElements3" semanticCandidatesExpression="var:self" domainClass="form.ViewPortHolder" dropDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewAria%20to%20PopupCanvase']">
             <subNodeMappings name="ViewArea3" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Canvas%20diagram']" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ViewArea%20edit%20label']" semanticCandidatesExpression="feature:viewElement" domainClass="form.ViewArea">
               <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
@@ -2823,6 +2823,17 @@
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="ViewAria to PopupCanvase" mappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@containerMappings[name='Window']/@subContainerMappings[name='ViewElements0']/@subNodeMappings[name='ViewArea0'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@containerMappings[name='Canvas']/@subContainerMappings[name='ViewElements1']/@subNodeMappings[name='ViewArea1'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@containerMappings[name='PopupCanvas']/@subContainerMappings[name='ViewElements2']/@subNodeMappings[name='ViewArea2'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@containerMappings[name='TabPage']/@subContainerMappings[name='ViewElements3']/@subNodeMappings[name='ViewArea3']" dragSource="BOTH">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newSemanticContainer">
+                <subModelOperations xsi:type="tool:SetValue" featureName="viewElement" valueExpression="var:element"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ViewPort" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@containerMappings[name='Window']/@subContainerMappings[name='ViewElements0']/@subContainerMappings[name='ViewPort0'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@containerMappings[name='Canvas']/@subContainerMappings[name='ViewElements1']/@subContainerMappings[name='ViewPort1'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@containerMappings[name='PopupCanvas']/@subContainerMappings[name='ViewElements2']/@subContainerMappings[name='ViewPort2'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Views%20diagram']/@defaultLayer/@containerMappings[name='TabPage']/@subContainerMappings[name='ViewElements3']/@subContainerMappings[name='ViewPort3']">

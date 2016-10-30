@@ -4,6 +4,7 @@ operation  form::PopupCanvas draw(hash) {
      var webapp = hash.get("webapp");   
      var form = hash.get("form");   
      var uipackage = hash.get("uipackage");
+     var model_mapper = hash.get('model_mapper');
      util.traceIfDebug("UI element","PopupCanvas start: "+self.name);     
      
      var widvar = "";

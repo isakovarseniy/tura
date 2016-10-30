@@ -47,7 +47,7 @@ operation  buildExpression( contextValue,hints,inOutParams) : String {
           case "DataControlFakeMethod":  resultExpression = DataControlFakeMethod(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "TreeDataControl":               resultExpression = TreeDataControl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case "ExtendedType":                   resultExpression = ExtendedType(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
-          case "RolesImpl":                          resultExpression = RolesImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
+          case "ApplicationRealmsImpl":      resultExpression = ApplicationRealmsImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case"ApplicationStyleImpl":           resultExpression = ApplicationStyleImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case"StylesPackageImpl":             resultExpression = StylesPackageImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams);
           case"StyleLibraryImpl":                 resultExpression = StyleLibraryImpl(resultExpression,contextValue,i,tokenArray,hints,inOutParams); 

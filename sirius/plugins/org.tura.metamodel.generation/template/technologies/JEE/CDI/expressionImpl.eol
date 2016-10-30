@@ -201,7 +201,7 @@ operation ExtendedType(expression:String, contextValue , paramId: Integer , arra
    return expression;
 }
 
-operation  RolesImpl(expression:String, contextValue , paramId: Integer, array , hints , inOutParams ) : String {
+operation  ApplicationRealmsImpl(expression:String, contextValue , paramId: Integer, array , hints , inOutParams ) : String {
     return "<holder>";
 }
 
