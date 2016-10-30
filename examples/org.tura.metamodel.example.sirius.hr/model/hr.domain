@@ -2473,7 +2473,7 @@
                       <viewElement xsi:type="tura.form:ViewPort" order="1" uid="9700618b-bb04-4b25-af40-e3f537976fc5" name="Frame for emploee details"/>
                     </canvases>
                     <canvases xsi:type="tura.form:TabCanvas" uid="202dc775-763f-4b4b-baea-32e2419d3e5a" name="Employee details"/>
-                    <canvases xsi:type="tura.form:TabPage" uid="8c605d7f-6e92-4da7-ad1d-fe7ae2621dc9" name="Files" order="1">
+                    <canvases xsi:type="tura.form:TabPage" uid="8c605d7f-6e92-4da7-ad1d-fe7ae2621dc9" name="Files">
                       <style uid="59d4ecb4-1442-49f6-a686-4c87d422ba78"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="efdce18c-a4bf-4d82-a550-2721095cd3a8" name="File tree">
                         <style uid="e5a0f60b-727d-4f01-af45-72b26572c6c9"/>
@@ -3191,6 +3191,13 @@
                             <expression objRef="6565095e-4207-4a11-a858-109f06028299" order="2" expressionType="MessageImpl"/>
                           </multiLangLabel>
                           <enabled uid="07a5cf4e-fc52-4924-874b-69711bf92fa1"/>
+                          <fields uid="64965596-ca9b-4e23-b5f0-5d74bde1f602" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.saveApplication()">
+                            <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression objRef="6dbc5800-0c88-48a9-94d0-4eb5d11f6aa3" order="2" expressionType="TypeGroupImpl"/>
+                            <expression objRef="b37d91c8-1363-4548-8896-02d5ad9a93c3" order="3" expressionType="TypeImpl"/>
+                            <expression objRef="7aacf107-7260-4df2-bc80-62f948b58ddb" order="4" expressionType="OperationImpl"/>
+                          </fields>
                         </menuElements>
                         <menuElements xsi:type="tura.form:MenuSeparator" order="1" uid="958c4c41-93ce-4c2c-97cb-03cc300ad9b6" name="Separator">
                           <enabled uid="2de4603c-397d-43e1-8c14-29718eb5cca3"/>
@@ -3210,7 +3217,23 @@
                           <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                           <expression objRef="f986f4d2-d59f-464b-a1d3-1fea36b57d5a" order="2" expressionType="MessageImpl"/>
                         </multiLangLabel>
-                        <menuElements xsi:type="tura.form:MenuItem" uid="13956820-7eab-4cf4-bc2c-11d376602ace" name="Rollback"/>
+                        <menuElements xsi:type="tura.form:MenuItem" uid="13956820-7eab-4cf4-bc2c-11d376602ace" name="Rollback">
+                          <multiLangLabel uid="5030737c-5329-499c-b5d3-af85c95cb2b2" value="Application Message Libraries.HR Controller.ROLLBACK_BUTTON">
+                            <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                            <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                            <expression objRef="f986f4d2-d59f-464b-a1d3-1fea36b57d5a" order="2" expressionType="MessageImpl"/>
+                          </multiLangLabel>
+                          <fields uid="b9544188-689c-46c7-a7b9-aafdcddeca27" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.rallbackApplication()">
+                            <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression objRef="6dbc5800-0c88-48a9-94d0-4eb5d11f6aa3" order="2" expressionType="TypeGroupImpl"/>
+                            <expression objRef="b37d91c8-1363-4548-8896-02d5ad9a93c3" order="3" expressionType="TypeImpl"/>
+                            <expression objRef="5d118cc0-214a-492f-aa13-bfb042668e6a" order="4" expressionType="OperationImpl"/>
+                          </fields>
+                          <refreshAreas area="180bd1e5-0388-4fdf-812a-ca1525b12772" group="2"/>
+                          <refreshAreas area="26ce090d-10c9-4624-ab32-5c27d9d05d64" group="2"/>
+                          <refreshAreas area="5fbee6ea-fd10-4a04-a905-f97ab35ce47b" group="2"/>
+                        </menuElements>
                       </menuFolders>
                       <toSubMenu uid="389b2d3c-1df9-4bd4-a923-946695fa5f1b" source="1efe95f8-4018-4393-87f7-c1c1a1d2a265" target="faed360f-b88f-4416-9b1d-c99e9300b335"/>
                       <toSubMenu uid="3fe16c40-b8f7-4782-a313-e26bf038e331" source="8ff53793-b643-4fae-acf3-d717ff8317a2" target="93f7fe70-0b41-4a3d-8009-ca0ea83008ef"/>
