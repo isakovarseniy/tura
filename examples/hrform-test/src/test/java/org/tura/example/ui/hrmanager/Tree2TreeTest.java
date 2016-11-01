@@ -91,7 +91,7 @@ public class Tree2TreeTest {
 		new SeleniumActionExecutor(driver,Tree2TreeRelationsPageObject.getTree2SearchCriteria()){
 			public void action(WebDriver driver){
 				Tree2TreeRelationsPageObject tree2TreeRelationsPageObject = new Tree2TreeRelationsPageObject(driver);
-				Tree tree =   tree2TreeRelationsPageObject.getTuraad6e95c8_f28d_4e3f_8cc2_aeb0605f4321();
+				Tree tree =   tree2TreeRelationsPageObject.getTree1();
 
 				TreeRow tr = (TreeRow) tree.getRow("0");
 				tr.open();

@@ -55,6 +55,7 @@ public class TabPageItemProvider extends CanvasFrameItemProvider {
 
 			addColumnsPropertyDescriptor(object);
 			addOrderPropertyDescriptor(object);
+			addTabSequencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -95,6 +96,28 @@ public class TabPageItemProvider extends CanvasFrameItemProvider {
 				 getString("_UI_Orderable_order_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Orderable_order_feature", "_UI_Orderable_type"),
 				 CommonPackage.Literals.ORDERABLE__ORDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tab Sequence feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTabSequencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TabPage_tabSequence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TabPage_tabSequence_feature", "_UI_TabPage_type"),
+				 FormPackage.Literals.TAB_PAGE__TAB_SEQUENCE,
 				 true,
 				 false,
 				 false,
@@ -175,6 +198,7 @@ public class TabPageItemProvider extends CanvasFrameItemProvider {
 		switch (notification.getFeatureID(TabPage.class)) {
 			case FormPackage.TAB_PAGE__COLUMNS:
 			case FormPackage.TAB_PAGE__ORDER:
+			case FormPackage.TAB_PAGE__TAB_SEQUENCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormPackage.TAB_PAGE__VIEW_ELEMENT:

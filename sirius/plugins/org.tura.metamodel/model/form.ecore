@@ -83,7 +83,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="TabCanvas" eSuperTypes="#//CanvasFrame #//DefaultCavas #//MultiLangLabel artifact.ecore#//Categorized">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="#//Orientation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel artifact.ecore#//Categorized common.ecore#//Orderable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TabPage" eSuperTypes="#//CanvasFrame #//ViewPortHolder #//MultiLangLabel artifact.ecore#//Categorized common.ecore#//Orderable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tabSequence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewPort" eSuperTypes="#//ViewElement common.ecore#//Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>

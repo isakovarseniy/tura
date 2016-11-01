@@ -1218,6 +1218,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTabPage_TabSequence() {
+		return (EAttribute)tabPageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getViewPort() {
 		return viewPortEClass;
 	}
@@ -3262,6 +3271,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEAttribute(tabCanvasEClass, TAB_CANVAS__ORIENTATION);
 
 		tabPageEClass = createEClass(TAB_PAGE);
+		createEAttribute(tabPageEClass, TAB_PAGE__TAB_SEQUENCE);
 
 		viewPortEClass = createEClass(VIEW_PORT);
 		createEAttribute(viewPortEClass, VIEW_PORT__UID);
@@ -3771,6 +3781,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEAttribute(getTabCanvas_Orientation(), this.getOrientation(), "orientation", null, 0, 1, TabCanvas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tabPageEClass, TabPage.class, "TabPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTabPage_TabSequence(), ecorePackage.getEInt(), "tabSequence", null, 0, 1, TabPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewPortEClass, ViewPort.class, "ViewPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getViewPort_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

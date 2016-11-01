@@ -45,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link form.impl.TabPageImpl#getMultiLangLabel <em>Multi Lang Label</em>}</li>
  *   <li>{@link form.impl.TabPageImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link form.impl.TabPageImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link form.impl.TabPageImpl#getTabSequence <em>Tab Sequence</em>}</li>
  * </ul>
  *
  * @generated
@@ -119,6 +120,26 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * @ordered
 	 */
 	protected int order = ORDER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTabSequence() <em>Tab Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTabSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int TAB_SEQUENCE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getTabSequence() <em>Tab Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTabSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected int tabSequence = TAB_SEQUENCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,6 +274,27 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getTabSequence() {
+		return tabSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTabSequence(int newTabSequence) {
+		int oldTabSequence = tabSequence;
+		tabSequence = newTabSequence;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.TAB_PAGE__TAB_SEQUENCE, oldTabSequence, tabSequence));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -284,6 +326,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 				return getClassifiers();
 			case FormPackage.TAB_PAGE__ORDER:
 				return getOrder();
+			case FormPackage.TAB_PAGE__TAB_SEQUENCE:
+				return getTabSequence();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -314,6 +358,9 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 			case FormPackage.TAB_PAGE__ORDER:
 				setOrder((Integer)newValue);
 				return;
+			case FormPackage.TAB_PAGE__TAB_SEQUENCE:
+				setTabSequence((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -341,6 +388,9 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 			case FormPackage.TAB_PAGE__ORDER:
 				setOrder(ORDER_EDEFAULT);
 				return;
+			case FormPackage.TAB_PAGE__TAB_SEQUENCE:
+				setTabSequence(TAB_SEQUENCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -363,6 +413,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 				return classifiers != null && !classifiers.isEmpty();
 			case FormPackage.TAB_PAGE__ORDER:
 				return order != ORDER_EDEFAULT;
+			case FormPackage.TAB_PAGE__TAB_SEQUENCE:
+				return tabSequence != TAB_SEQUENCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -461,6 +513,8 @@ public class TabPageImpl extends CanvasFrameImpl implements TabPage {
 		result.append(columns);
 		result.append(", order: ");
 		result.append(order);
+		result.append(", tabSequence: ");
+		result.append(tabSequence);
 		result.append(')');
 		return result.toString();
 	}

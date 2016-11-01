@@ -1731,7 +1731,7 @@
                             <children xsi:type="tura.form:LayerHolder" order="1" uid="3d7640ea-909e-413a-b6e6-5b7b2225a308" columns="3">
                               <style uid="02e8a583-e866-4fee-af86-507e33ae74f6" constant="true" value="float:right;"/>
                               <readOnly uid="d785787f-4e96-4713-a6d6-69dc839b139e"/>
-                              <children xsi:type="tura.form:Button" uid="56a59fc2-d4f1-4595-a40c-e8e53a4335ad" label="Canada">
+                              <children xsi:type="tura.form:Button" nickname="engLang" uid="56a59fc2-d4f1-4595-a40c-e8e53a4335ad" label="Canada">
                                 <style uid="80fb9fe6-66d2-4a07-bfdf-8f56dc1a94d5" constant="true" value="width:16px;height:11px"/>
                                 <enabled uid="ad14a100-9e65-4fdc-a7c2-47daab5624df"/>
                                 <fields uid="dee7540e-f088-4700-b0d5-d102664974d4" value="Types repository.Base Repository.Model types.Model types::System library.Chenge lang()">
@@ -1764,7 +1764,7 @@
                                   </parameters>
                                 </icon>
                               </children>
-                              <children xsi:type="tura.form:Button" order="1" uid="52215ddf-0eb1-436b-92b4-151cf6542765" label="Russia">
+                              <children xsi:type="tura.form:Button" nickname="rusLang" order="1" uid="52215ddf-0eb1-436b-92b4-151cf6542765" label="Russia">
                                 <style uid="ac8cda91-13c3-4b2b-a041-69151f2adce8" constant="true" value="width:16px;height:11px"/>
                                 <fields uid="5353e5c6-5932-41c6-9bcf-5311566b2438" value="Types repository.Base Repository.Model types.Model types::System library.Chenge lang()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -1826,6 +1826,7 @@
                           <children xsi:type="tura.form:LayerHolder" order="2" uid="97cfeed5-bc95-4ded-8558-881abaa760cd" columns="2">
                             <children xsi:type="tura.form:Button" uid="78eef0f9-2c9b-4f0a-af22-30737303cd9b" label="Save">
                               <style uid="c931db08-d23f-47ca-8435-ba43bdcae150" constant="true" value="width:30px;height:30px"/>
+                              <classifiers uid="1b0b9064-443f-419b-bc56-90700d7df04d" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Save Button"/>
                               <enabled uid="130cf63d-bc1b-4106-b282-ac8d2be3f77b"/>
                               <fields uid="4e576177-4265-47a6-aee7-57d0185c7c85" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.saveApplication()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -1868,6 +1869,7 @@
                             </children>
                             <children xsi:type="tura.form:Button" order="1" uid="ce73bdd0-cea7-4edc-8ed4-0f81e971a5f9" label="RollBack">
                               <style uid="323ca75a-a512-461a-a8da-1c7823048672" constant="true" value="width:30px;height:30px"/>
+                              <classifiers uid="741b4231-ddab-4038-b0d9-6c73ade37690" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Rollback Button"/>
                               <fields uid="d32968d5-3e89-49a9-9fee-940fe89648de" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.rallbackApplication()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -1913,6 +1915,7 @@
                               <children xsi:type="tura.form:LayerHolder" order="1" uid="80a70fc6-c5ed-4393-84f8-f03490f0aa7c">
                                 <children xsi:type="tura.form:Button" uid="350a6f22-a300-478a-ade6-eee9fb638ecc" label="Add">
                                   <style uid="e87e7c95-c957-4e41-8227-2b36beaf3296" constant="true" value="width:30px;height:30px"/>
+                                  <classifiers uid="d7437ced-50b7-4787-b785-6382f6ae9bff" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Add To Tree"/>
                                   <fields uid="cab17517-dc1b-411b-b33a-08b694cde004" value="Types repository.Base Repository.Model types.Model types::System library.Create row()">
                                     <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                     <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -1948,6 +1951,7 @@
                                 </children>
                                 <children xsi:type="tura.form:Button" order="1" uid="0e317adf-8b2b-4e90-9370-3471cf45ff45" label="Add child">
                                   <style uid="9a14b063-14d0-4d13-acfc-d64a61d77f5a" constant="true" value="width:30px;height:30px"/>
+                                  <classifiers uid="b999a154-e13e-4808-9728-51dc62ff18ee" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Add Child To Tree"/>
                                   <fields uid="768e4f13-882e-4acf-b365-8ba0ae7584fb" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.createChildRow()">
                                     <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                     <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -1983,6 +1987,7 @@
                                 </children>
                                 <children xsi:type="tura.form:Button" order="2" uid="39244645-bbd7-4d0d-8016-5c8d6cd94b60" label="Remove">
                                   <style uid="744e4738-5001-4584-9342-27237a9fbc25" constant="true" value="width:30px;height:30px"/>
+                                  <classifiers uid="d665608d-75df-4439-8c40-cef0a3fd7b92" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Delete Location"/>
                                   <fields uid="611ca67c-a437-49ee-9656-4c6196420933" value="Types repository.Base Repository.Model types.Model types::System library.Remove row()">
                                     <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                     <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2022,7 +2027,7 @@
                               <children xsi:type="tura.form:LayerHolder" uid="738835f5-5991-484c-aa95-189665699b95" columns="2">
                                 <style uid="e4dfbf25-b954-4290-8c25-da1f022fc228"/>
                                 <children xsi:type="tura.form:LayerHolder" order="1" uid="aeed97b8-9772-44ab-b203-3468c6231d2e">
-                                  <children xsi:type="tura.form:Button" uid="a371959c-6e77-4277-a1f9-6449a07acf83" label="Create">
+                                  <children xsi:type="tura.form:Button" nickname="creatCompany" uid="a371959c-6e77-4277-a1f9-6449a07acf83" label="Create">
                                     <style uid="1a304b79-7da3-4071-93b1-a67ec4113617" constant="true" value="width:30px;height:30px"/>
                                     <fields uid="3ff3ee3a-748b-44e3-8a78-2395d974166f" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.createCompanyPopup()">
                                       <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -2059,7 +2064,7 @@
                                       </parameters>
                                     </icon>
                                   </children>
-                                  <children xsi:type="tura.form:Button" order="1" uid="9576c33f-656f-4c19-a967-edd8259ed4f0" label="Add">
+                                  <children xsi:type="tura.form:Button" nickname="addCompany" order="1" uid="9576c33f-656f-4c19-a967-edd8259ed4f0" label="Add">
                                     <style uid="332e91a0-ad8d-4d9d-81dc-c85a4161e5a2" constant="true" value="width:30px;height:30px"/>
                                     <fields uid="4b31c1a1-2e52-4b88-86ce-560dbe0bd058" value="Types repository.Base Repository.Model types.Model types::System library.Create row()">
                                       <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -2094,7 +2099,7 @@
                                       </parameters>
                                     </icon>
                                   </children>
-                                  <children xsi:type="tura.form:Button" order="2" uid="aa6e4c85-f67f-4dae-bce8-919e4a777168" label="Remove">
+                                  <children xsi:type="tura.form:Button" nickname="delCompany" order="2" uid="aa6e4c85-f67f-4dae-bce8-919e4a777168" label="Remove">
                                     <style uid="b3a004e9-7256-4fc3-b195-4d34ef0ec10d" constant="true" value="width:30px;height:30px"/>
                                     <fields uid="c6c5efce-7780-4641-9cc6-e55ad83015f2" value="Types repository.Base Repository.Model types.Model types::System library.Remove row()">
                                       <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -2282,6 +2287,7 @@
                             </children>
                             <children xsi:type="tura.form:OutputText" order="1" uid="15ab1d0b-cd35-481d-9808-ae47fe658178" sourcePointer="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7" valuePointer="eeeec2b4-b252-47c8-92b1-9bd0ba1c000a" sourceCast="63741959-d017-485d-9f05-6900553841d8" sourceCastDataControl="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7">
                               <style uid="d137ec67-c993-4179-9a3d-c34e11ed3b55" constant="true" value="margin:0px 0px 0px 20px;"/>
+                              <classifiers uid="81dd6cd7-f6f4-44ff-bbb2-01831db3144e" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Company Details"/>
                             </children>
                           </children>
                         </baseCanvas>
@@ -2310,6 +2316,7 @@
                             </children>
                             <children xsi:type="tura.form:OutputText" order="1" uid="35e4f0f7-48c7-4705-8514-1d9e5c6a700d" sourcePointer="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7" valuePointer="eeeec2b4-b252-47c8-92b1-9bd0ba1c000a" sourceCast="31870394-1bfa-438e-b57a-df34481cbaa3" sourceCastDataControl="8ac18684-75e6-423f-b9eb-deedcc1ae268">
                               <style uid="b69294ff-a3f4-43e0-8e1a-e07595880164" constant="true" value="margin:0px 0px 0px 20px;"/>
+                              <classifiers uid="23ba8a30-4980-4869-adc1-9f39abe16007" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="State Deteails"/>
                             </children>
                           </children>
                         </baseCanvas>
@@ -2338,6 +2345,7 @@
                             </children>
                             <children xsi:type="tura.form:OutputText" order="1" uid="cb21c053-49eb-4cab-97b7-ea63721bdc49" sourcePointer="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7" valuePointer="f7d7a189-c1df-4985-ba31-f7c5e8b7f5bd" sourceCast="adf61d26-a067-4bab-a585-9efefc1bed1c" sourceCastDataControl="2353760b-a5f1-4eea-afa7-175298743af2">
                               <style uid="e8e5a59e-a116-46b6-9936-b945f27b57c7" constant="true" value="margin:0px 0px 0px 20px;"/>
+                              <classifiers uid="111c6e42-be65-4f09-a8ad-1c72db1fff01" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="City Details"/>
                             </children>
                           </children>
                         </baseCanvas>
@@ -2345,7 +2353,7 @@
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="858ea617-f1e8-4184-a791-57a7c18baf50" name="Company details">
                       <style uid="78e686c9-2a53-4210-874f-5baa3d863a5d"/>
-                      <viewElement xsi:type="tura.form:ViewArea" uid="e1955ce5-4885-48ff-96e7-c77bb8b9391e" name="Company details">
+                      <viewElement xsi:type="tura.form:ViewArea" uid="e1955ce5-4885-48ff-96e7-c77bb8b9391e" name="Company">
                         <style uid="531d3467-5ec6-40df-abfe-aa0da920bc5f"/>
                         <baseCanvas uid="31209527-e18e-4472-b537-3492f4f02faf">
                           <children xsi:type="tura.form:Label" uid="cca3c086-4198-410e-a738-baa7e56a40e7" label="Company details">
@@ -2402,6 +2410,7 @@
                             <style uid="b7482b40-8bcb-4007-8764-137c23cf1e76" constant="true" value="margin:0px 0px 0px 3px;width:50%"/>
                             <children xsi:type="tura.form:Button" uid="8c069259-9df9-4ec7-aa60-af169c9dec1c" label="Add">
                               <style uid="c32b4794-2c77-4d49-9a2c-823bd862c238" constant="true" value="width:30px;height:30px"/>
+                              <classifiers uid="bf1e0a7d-0236-4955-a997-ffa01f2c140e" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Add Department"/>
                               <fields uid="7701ea05-cddf-404f-90e1-9fafaa506606" value="Types repository.Base Repository.Model types.Model types::System library.Create row()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2436,6 +2445,7 @@
                             </children>
                             <children xsi:type="tura.form:Button" order="1" uid="f796317d-5d9f-4960-a3df-2a1957fee0da" label="Remove">
                               <style uid="7d5fb817-69bf-44d3-8f4a-a24a1343115c" constant="true" value="width:30px;height:30px"/>
+                              <classifiers uid="0c5476c5-222b-4afc-862a-d5e79616d2fc" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Remove Department"/>
                               <fields uid="10627b84-5cef-4384-b0a5-0d32ae0a141e" value="Types repository.Base Repository.Model types.Model types::System library.Remove row()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2473,7 +2483,7 @@
                       <viewElement xsi:type="tura.form:ViewPort" order="1" uid="9700618b-bb04-4b25-af40-e3f537976fc5" name="Frame for emploee details"/>
                     </canvases>
                     <canvases xsi:type="tura.form:TabCanvas" uid="202dc775-763f-4b4b-baea-32e2419d3e5a" name="Employee details"/>
-                    <canvases xsi:type="tura.form:TabPage" uid="8c605d7f-6e92-4da7-ad1d-fe7ae2621dc9" name="Files">
+                    <canvases xsi:type="tura.form:TabPage" uid="8c605d7f-6e92-4da7-ad1d-fe7ae2621dc9" name="Files" tabSequence="1">
                       <style uid="59d4ecb4-1442-49f6-a686-4c87d422ba78"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="efdce18c-a4bf-4d82-a550-2721095cd3a8" name="File tree">
                         <style uid="e5a0f60b-727d-4f01-af45-72b26572c6c9"/>
@@ -2494,6 +2504,7 @@
                             <style uid="44e4611a-188e-4a22-b4da-d4bbbcc3e5cd" constant="true" value="margin:0px 0px 0px 3px;width:50%"/>
                             <children xsi:type="tura.form:Button" uid="9c8ab282-b534-4763-b64b-b19031cccbb1" label="Add">
                               <style uid="c0a5a04c-3436-4072-9e2e-6ae16fcd9ef8" constant="true" value="width:30px;height:30px"/>
+                              <classifiers uid="eedc059a-7cd1-42bb-9316-eb163aa21f44" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Add content"/>
                               <fields uid="781b1502-bea1-478d-b153-b6277353d222" value="Types repository.Base Repository.Model types.Model types::System library.Create row()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2527,6 +2538,7 @@
                             </children>
                             <children xsi:type="tura.form:Button" order="1" uid="54766a2b-a264-47e5-a8da-2c6fe46e791b" label="Add child">
                               <style uid="02799d71-3448-4d17-a2bd-f6cebd804ba5" constant="true" value="width:30px;height:30px"/>
+                              <classifiers uid="1de7ca47-7b0c-4944-82e9-f67b67a9bbc8" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Add Child Content"/>
                               <fields uid="dbd4f5af-fa05-4d96-be7a-a9cbd918076e" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.createChildRow()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2560,6 +2572,7 @@
                             </children>
                             <children xsi:type="tura.form:Button" order="2" uid="2b6d9b4a-a7d6-4634-848c-780e6c488873" label="Remove">
                               <style uid="7bcd96f6-2f4e-4d3d-9d88-e2db8f38bf19" constant="true" value="width:30px;height:30px"/>
+                              <classifiers uid="c2303dae-0a2d-418d-82b8-c1a5e5eba347" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Remove Content"/>
                               <fields uid="ad6d1a27-0cd4-469c-808f-30cbe16520cf" value="Types repository.Base Repository.Model types.Model types::System library.Remove row()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2633,6 +2646,7 @@
                               <style uid="e2a6c908-e2b6-494c-926e-0e6cbb2f6500" constant="true" value="margin:0px 0px 0px 3px;width:50%"/>
                               <children xsi:type="tura.form:Button" uid="87253fe9-43b0-4c84-9de4-b782774c6d68" label="Add">
                                 <style uid="90ae3eba-5d90-4e73-bf05-aa6aeabca183" constant="true" value="width:30px;height:30px"/>
+                                <classifiers uid="2d2bc085-1516-497b-8dbd-87c16f5beceb" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Add Vehicle"/>
                                 <fields uid="bf688548-c979-4fdd-98e8-48d134314240" value="Types repository.Base Repository.Model types.Model types::System library.Create row()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                   <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2666,6 +2680,7 @@
                               </children>
                               <children xsi:type="tura.form:Button" order="1" uid="f1fb7799-579d-416e-8d07-24f77449394c" label="Remove">
                                 <style uid="56fd196f-0053-4320-852a-facaff9739d9" constant="true" value="width:30px;height:30px"/>
+                                <classifiers uid="020bc618-92f6-4497-8be2-219c748622f0" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Remove Vehicle"/>
                                 <fields uid="7d972707-058a-4401-8bfe-153653c131b3" value="Types repository.Base Repository.Model types.Model types::System library.Remove row()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                   <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2741,6 +2756,7 @@
                                 <style uid="edc4bd11-f5ae-4718-8db0-884a4e6ab907" constant="true" value="margin:0px 0px 0px 3px;width:50%"/>
                                 <children xsi:type="tura.form:Button" uid="3fbe188f-572a-4dce-ba3e-7a17e3e0d5cc" label="Add">
                                   <style uid="f94c0222-e855-4399-8807-32240be6b081" constant="true" value="width:30px;height:30px"/>
+                                  <classifiers uid="546a499a-cf75-4960-a450-5010ffb8841c" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Add Employee"/>
                                   <fields uid="3ab4b53a-000e-4f99-ab9b-6bf38b23ff28" value="Types repository.Base Repository.Model types.Model types::System library.Create row()">
                                     <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                     <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2776,6 +2792,7 @@
                                 </children>
                                 <children xsi:type="tura.form:Button" order="1" uid="9c419798-b402-46df-a26d-38accd5ce0c1" label="Remove">
                                   <style uid="4c9a0872-a6de-42d4-af84-9ced1c775e35" constant="true" value="width:30px;height:30px"/>
+                                  <classifiers uid="579af7f9-acdb-468d-9ba2-d8eeaeb5ec10" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Remove Employee"/>
                                   <fields uid="8f4fec27-f8e9-4b68-96ac-85620e1a79e4" value="Types repository.Base Repository.Model types.Model types::System library.Remove row()">
                                     <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                     <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2810,7 +2827,7 @@
                                 </children>
                               </children>
                             </children>
-                            <children xsi:type="tura.form:LayerHolder" order="1" uid="50fcf042-4013-4a83-a9ee-99dac6c3923f" columns="3">
+                            <children xsi:type="tura.form:LayerHolder" nickname="emplInfo" order="1" uid="50fcf042-4013-4a83-a9ee-99dac6c3923f" columns="3">
                               <style uid="116dd565-cdd0-4efc-b1a4-7169a880330c"/>
                               <children xsi:type="tura.form:Label" uid="24e7d950-008b-488d-b398-8448925026d5" label="Salary">
                                 <style uid="6e5020db-9661-40da-98a5-6ea9f713d11d"/>
@@ -2873,7 +2890,7 @@
                                 <expression objRef="749dea6d-9731-4638-ad73-5645c784a58c" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:InputText" order="1" uid="b073329f-ecd7-4a66-9e33-a568f4503904" sourcePointer="99c10c45-5375-4984-a913-b3ae38e442be" valuePointer="eab39822-a254-4dbb-9cb4-7cf67c037fe0" sourceCast="8fc713c5-d6ba-46ac-9609-2560bab34bbd" sourceCastDataControl="99c10c45-5375-4984-a913-b3ae38e442be">
+                            <children xsi:type="tura.form:InputText" nickname="user" order="1" uid="b073329f-ecd7-4a66-9e33-a568f4503904" sourcePointer="99c10c45-5375-4984-a913-b3ae38e442be" valuePointer="eab39822-a254-4dbb-9cb4-7cf67c037fe0" sourceCast="8fc713c5-d6ba-46ac-9609-2560bab34bbd" sourceCastDataControl="99c10c45-5375-4984-a913-b3ae38e442be">
                               <style uid="ad1c6715-03b1-4d7f-ae60-7f999d75c6b2"/>
                             </children>
                             <children xsi:type="tura.form:Label" order="2" uid="d4d2dbcc-c7ae-49c6-b1ed-8e70a92ca499" label="Password">
@@ -2918,7 +2935,7 @@
                               <style uid="3358bdea-3801-464d-a940-dfa05514bffb"/>
                               <enabled uid="76248abe-a28b-44b1-93c8-4244f45cc3b6"/>
                             </children>
-                            <children xsi:type="tura.form:Button" order="7" uid="dc0dc648-bb4e-4647-ad34-82fbb31c049d" label="Sign in">
+                            <children xsi:type="tura.form:Button" nickname="signin" order="7" uid="dc0dc648-bb4e-4647-ad34-82fbb31c049d" label="Sign in">
                               <style uid="118ed2aa-f5c3-4cc1-898c-282ea01aeac2" constant="true" value="margin-top: 5px;font:15px arial, sans-serif"/>
                               <fields uid="e3a7933d-7eed-41e4-8236-b5efc88159de" value="Types repository.Base Repository.Model types.Model types::Authentication manager.login()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -2936,7 +2953,7 @@
                               </multiLangLabel>
                               <icon uid="9c089bce-443d-4ecd-b6c8-54e01e7f66a4"/>
                             </children>
-                            <children xsi:type="tura.form:Password" order="3" uid="727257ca-7ea1-4b5e-9768-7ccb07b481ad" sourcePointer="99c10c45-5375-4984-a913-b3ae38e442be" valuePointer="89c74a3d-e2d0-4627-8f5f-1bd94a132c48" sourceCast="8fc713c5-d6ba-46ac-9609-2560bab34bbd" sourceCastDataControl="99c10c45-5375-4984-a913-b3ae38e442be"/>
+                            <children xsi:type="tura.form:Password" nickname="password" order="3" uid="727257ca-7ea1-4b5e-9768-7ccb07b481ad" sourcePointer="99c10c45-5375-4984-a913-b3ae38e442be" valuePointer="89c74a3d-e2d0-4627-8f5f-1bd94a132c48" sourceCast="8fc713c5-d6ba-46ac-9609-2560bab34bbd" sourceCastDataControl="99c10c45-5375-4984-a913-b3ae38e442be"/>
                           </children>
                         </baseCanvas>
                       </viewElement>
@@ -2957,7 +2974,7 @@
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="cbe1df13-156d-4981-bd96-9fdada1953e5" columns="3">
                             <style uid="8d094f90-9c60-459e-8c59-61861dfbcd98"/>
-                            <children xsi:type="tura.form:Label" uid="42e781b7-47ef-426b-9bd4-5387d08215b6" label="Comlany name">
+                            <children xsi:type="tura.form:Label" nickname="lb1" uid="42e781b7-47ef-426b-9bd4-5387d08215b6" label="Comlany name">
                               <style uid="abda156b-0932-4a6f-81dd-34586c43e51c"/>
                               <multiLangLabel uid="1246b2b8-a988-4fc5-9b6a-e1a4c1059b6d" value="Application Message Libraries.HR Controller.COMPANIES_TABLE_COMPANY_NAME_COLUMN">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
@@ -2973,16 +2990,16 @@
                                 <expression objRef="00bf40a7-fbc3-4452-b8c0-fa73d6273243" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:InputText" order="1" uid="8a2f480e-7f0d-4c16-8166-703dbfeda7ad" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64" valuePointer="57928b1d-0626-45dc-8b7d-08905ac1e947">
+                            <children xsi:type="tura.form:InputText" nickname="CmpName" order="1" uid="8a2f480e-7f0d-4c16-8166-703dbfeda7ad" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64" valuePointer="57928b1d-0626-45dc-8b7d-08905ac1e947">
                               <style uid="0c2f05d0-593d-4bee-8795-5937952adf7d" constant="true" value="margin:0px 0px 0px 20px;"/>
                             </children>
-                            <children xsi:type="tura.form:MessageElement" order="2" uid="ef4c812e-0355-4933-b6ab-2998b79be721" label="Message element">
+                            <children xsi:type="tura.form:MessageElement" nickname="msg1" order="2" uid="ef4c812e-0355-4933-b6ab-2998b79be721" label="Message element">
                               <multiLangLabel uid="792f7d4d-57d9-4b84-81d0-cf2dc225144c"/>
                             </children>
-                            <children xsi:type="tura.form:InputText" order="4" uid="77551383-702f-4cd4-816e-b3e0d76c71f2" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64" valuePointer="f922f7f8-6826-42cd-87b6-c62a7dc280d8">
+                            <children xsi:type="tura.form:InputText" nickname="Desk" order="4" uid="77551383-702f-4cd4-816e-b3e0d76c71f2" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64" valuePointer="f922f7f8-6826-42cd-87b6-c62a7dc280d8">
                               <style uid="ce0b1701-4022-4e08-807f-ccdd99895e43" constant="true" value="margin:0px 0px 0px 20px;"/>
                             </children>
-                            <children xsi:type="tura.form:MessageElement" order="5" uid="ccd81231-1378-416f-917f-b430c2e94cad" label="Message element"/>
+                            <children xsi:type="tura.form:MessageElement" nickname="msg2" order="5" uid="ccd81231-1378-416f-917f-b430c2e94cad" label="Message element"/>
                           </children>
                           <children xsi:type="tura.form:Label" order="2" uid="234f9418-b5c5-44b8-b49a-0064d765dd86" label="empty label">
                             <style uid="06932702-1c93-4841-b2c9-d3ea2d58ce0e"/>
@@ -2990,7 +3007,7 @@
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="3" uid="8f9f89a8-e438-4904-a60a-e331f4a55da8" columns="2">
                             <style uid="d706dad6-bb73-43d4-b9be-d509ceaad478"/>
-                            <children xsi:type="tura.form:Button" uid="a3df7279-a8c3-4eb9-b89a-c6e0ba1ff737" label="Ok">
+                            <children xsi:type="tura.form:Button" nickname="ok" uid="a3df7279-a8c3-4eb9-b89a-c6e0ba1ff737" label="Ok">
                               <style uid="604e0cd4-e77f-47f0-8ea9-7b96265a47f3"/>
                               <fields uid="23958e12-6084-4f77-bace-ccff80da940c" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.applyChanges()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
@@ -3038,7 +3055,7 @@
                                 </parameters>
                               </icon>
                             </children>
-                            <children xsi:type="tura.form:Button" order="1" uid="7a73e575-1965-4655-a94b-8a054617cefe" label="Cancel">
+                            <children xsi:type="tura.form:Button" nickname="cancel" order="1" uid="7a73e575-1965-4655-a94b-8a054617cefe" label="Cancel">
                               <fields uid="00df0721-d750-4b7d-98a1-e0965a1bf834" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.rallbackApplication()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -4257,7 +4274,7 @@
                             <children xsi:type="tura.form:Menu" menu="436e75eb-a99d-456c-9126-0ccb6449530e" uid="407f7caa-72f8-47c6-98c1-3fc80a6dbee3"/>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="2" uid="dd8ac837-ec36-4ed5-a76a-37f13228886b" columns="2">
-                            <children xsi:type="tura.form:Tree" uid="2ffbfc15-96f8-468b-9582-7add0e18c1c8" sourcePointer="536415eb-22fd-4379-be08-8c458d98a53b" label="First tree">
+                            <children xsi:type="tura.form:Tree" nickname="tree1" uid="2ffbfc15-96f8-468b-9582-7add0e18c1c8" sourcePointer="536415eb-22fd-4379-be08-8c458d98a53b" label="First tree">
                               <style uid="d36140ac-2a2e-40c1-bccf-3dcf068e64b7"/>
                               <required uid="7d7f6dce-72e4-40cf-883a-238410cbe3ec"/>
                               <refreshAreas area="ba976532-fef6-4953-ba4d-dc7903648300" group="2"/>
@@ -5173,12 +5190,12 @@
                   <view uid="399117bd-7107-481c-afb6-d6835ac44877">
                     <canvases xsi:type="tura.form:Window" uid="f85ed6e4-52b4-4a66-b8f8-03684c4b5349" name="MiscElements window">
                       <style uid="20697a6d-67ae-48de-8697-0abd33cc5098"/>
-                      <viewElement xsi:type="tura.form:ViewArea" uid="1cbdf956-32f8-4019-a3bd-3401eb57ded0" name="Main canvas">
+                      <viewElement xsi:type="tura.form:ViewArea" nickname="" uid="1cbdf956-32f8-4019-a3bd-3401eb57ded0" name="Main canvas">
                         <style uid="e9843c2a-fb85-4073-9926-a0f4733e6666"/>
                         <baseCanvas uid="275e758b-4f71-4471-ab0b-a6c419597a8d">
                           <children xsi:type="tura.form:LayerHolder" uid="4c7b0bd1-9cdd-460f-a516-0aa09672a741" columns="2">
                             <style uid="f2c3a0ec-4fd3-4a59-9baf-a319366af782" constant="true" value="padding: 5px 5px 5px 5px;font: 15px arial, sans-serif;"/>
-                            <children xsi:type="tura.form:DropDownSelection" order="2" uid="ef6362a6-125b-46af-895e-cb33eb04780e" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="7611dd7e-100b-4380-b36c-27e103569514" optionPointer="c6c3d4ab-13ac-4f42-8875-2f036368af04" optionCast="bba5bca8-79c4-4856-a307-acc056d2ba90" optionCastDataControl="c6c3d4ab-13ac-4f42-8875-2f036368af04" initialOptionValue="-1">
+                            <children xsi:type="tura.form:DropDownSelection" nickname="department drop down" order="2" uid="ef6362a6-125b-46af-895e-cb33eb04780e" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="7611dd7e-100b-4380-b36c-27e103569514" optionPointer="c6c3d4ab-13ac-4f42-8875-2f036368af04" optionCast="bba5bca8-79c4-4856-a307-acc056d2ba90" optionCastDataControl="c6c3d4ab-13ac-4f42-8875-2f036368af04" initialOptionValue="-1">
                               <style uid="455a2c9c-3251-441e-975a-9bda185c7575" constant="true" value="width:150px"/>
                               <refreshAreas area="ff1d0d8e-83d6-4440-8144-80dfb4637109" group="2"/>
                               <selection displayOptionPointer="5ad949b9-3af6-4e6a-974c-f7da0be99fa8" valueOptionPointer="96d9355b-421b-4812-98f4-d9d9acf40e7b"/>
@@ -5212,7 +5229,7 @@
                               </multiLangLabel>
                             </children>
                           </children>
-                          <children xsi:type="tura.form:CheckBox" order="1" uid="0394a059-1ede-4713-8bcc-32e60bb5cdd4" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="57fd78ea-c787-497a-b2db-3e60c616dff6"/>
+                          <children xsi:type="tura.form:CheckBox" nickname="chkBox" order="1" uid="0394a059-1ede-4713-8bcc-32e60bb5cdd4" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="57fd78ea-c787-497a-b2db-3e60c616dff6"/>
                           <children xsi:type="tura.form:Image" order="2" uid="3a05b077-aa9c-4d03-898f-310d9580353a" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="5a4df57a-e7ca-4d2f-b3fb-cf48ecaa1e04"/>
                         </baseCanvas>
                       </viewElement>

@@ -976,13 +976,22 @@ public interface FormPackage extends EPackage {
 	int TAB_PAGE__ORDER = CANVAS_FRAME_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Tab Sequence</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAB_PAGE__TAB_SEQUENCE = CANVAS_FRAME_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Tab Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAB_PAGE_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 5;
+	int TAB_PAGE_FEATURE_COUNT = CANVAS_FRAME_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link form.impl.ViewPortImpl <em>View Port</em>}' class.
@@ -7313,6 +7322,17 @@ public interface FormPackage extends EPackage {
 	EClass getTabPage();
 
 	/**
+	 * Returns the meta object for the attribute '{@link form.TabPage#getTabSequence <em>Tab Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tab Sequence</em>'.
+	 * @see form.TabPage#getTabSequence()
+	 * @see #getTabPage()
+	 * @generated
+	 */
+	EAttribute getTabPage_TabSequence();
+
+	/**
 	 * Returns the meta object for class '{@link form.ViewPort <em>View Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9990,6 +10010,14 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TAB_PAGE = eINSTANCE.getTabPage();
+
+		/**
+		 * The meta object literal for the '<em><b>Tab Sequence</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TAB_PAGE__TAB_SEQUENCE = eINSTANCE.getTabPage_TabSequence();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.ViewPortImpl <em>View Port</em>}' class.
