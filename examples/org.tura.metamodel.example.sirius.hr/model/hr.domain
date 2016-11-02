@@ -799,7 +799,7 @@
           <types xsi:type="tura.type:Type" uid="6b919be3-0a0e-4498-bad8-51b552e6735e" name="Company JPA">
             <classifiers uid="95838735-b5ac-4e47-9f08-7ffdaed40b10" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="29fd8b61-9165-4be9-9ff4-9e443732683d" name="company Name"/>
-            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="7ec3b7f6-4116-44ce-a8b4-d8705ae8fd64" name="countryId"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="7ec3b7f6-4116-44ce-a8b4-d8705ae8fd64" name="countryId"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ce8bf78d-797c-4e63-8781-e7a7304998c0" name="description"/>
           </types>
           <types xsi:type="tura.type:Type" uid="e525818e-2007-4be5-b4a4-1d23601af882" name="Country JPA">
@@ -1851,6 +1851,11 @@
                                 <classifiers uid="6346776f-44d2-47de-b6d6-5f42d83d9558" hint="41114f86-3709-482c-937b-5ddce650956d"/>
                               </fields>
                               <required uid="6799dc37-94be-4f0d-9bba-616620777ea6"/>
+                              <refreshAreas area="180bd1e5-0388-4fdf-812a-ca1525b12772" group="1"/>
+                              <refreshAreas area="26ce090d-10c9-4624-ab32-5c27d9d05d64" group="1"/>
+                              <refreshAreas area="5fbee6ea-fd10-4a04-a905-f97ab35ce47b" group="1"/>
+                              <refreshAreas area="78eef0f9-2c9b-4f0a-af22-30737303cd9b" group="1"/>
+                              <multiLangLabel uid="28c1d9ae-20ef-4c28-8ca1-85f6ff627dd5"/>
                               <icon uid="c6dfa44b-c0d2-4063-80f3-187704391b08" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -2181,6 +2186,11 @@
                                   </multiLangLabel>
                                   <cols uid="e3bea975-5c1a-461e-beee-ce8006257664" label="Company name">
                                     <style uid="3c4eeae9-ea07-4ec8-a8b4-01e352abade8"/>
+                                    <multiLangLabel uid="0f3bd048-58a7-48b7-ba58-26eb79bd3b17" value="Application Message Libraries.HR Controller.COMPANIES_TABLE_COMPANY_NAME_COLUMN">
+                                      <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
+                                      <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
+                                      <expression objRef="cd412888-9814-496a-8c27-9c651e639ee9" order="2" expressionType="MessageImpl"/>
+                                    </multiLangLabel>
                                     <element xsi:type="tura.form:InputText" uid="b09c3760-3680-42c9-88bb-8ad03cfa694c" valuePointer="57928b1d-0626-45dc-8b7d-08905ac1e947" sourceCast="24bfd56d-56ab-467f-afb3-c27050fa7d16" sourceCastDataControl="0e096922-7c5f-43ea-af07-2f868963642e"/>
                                   </cols>
                                   <cols order="1" uid="b14d0be6-79f7-408f-b4eb-090535a4309f" label="Description">
@@ -2260,7 +2270,10 @@
                       <viewElement xsi:type="tura.form:ViewPort" nickname="details" order="1" uid="5fbee6ea-fd10-4a04-a905-f97ab35ce47b" name="Details">
                         <style uid="58cc8c8e-cb61-465f-920b-cc9ea346d7eb"/>
                       </viewElement>
-                      <viewElement xsi:type="tura.form:ViewPort" order="2" uid="b194b449-1154-4b02-99c2-936b7e11be68" name="PopupPort"/>
+                      <viewElement xsi:type="tura.form:ViewPort" order="2" uid="b194b449-1154-4b02-99c2-936b7e11be68" name="PopupPort">
+                        <style uid="e45fecd4-d70e-4a0d-a764-b5fa86a7fc37"/>
+                        <classifiers uid="0e010f83-3eae-4e29-9a19-902993759bf6" hint="d03ec51a-cb9c-4115-bdfc-237180f61384"/>
+                      </viewElement>
                       <multiLangLabel uid="9d47309b-17f3-4d03-85cb-73b25ad0d359"/>
                       <grants securityEntity="b21bfadc-260c-4f5c-a655-076b3a71bf78" uid="5f419a40-d47a-45de-bea9-2a26e59dc83f"/>
                     </canvases>
@@ -2992,12 +3005,14 @@
                             </children>
                             <children xsi:type="tura.form:InputText" nickname="CmpName" order="1" uid="8a2f480e-7f0d-4c16-8166-703dbfeda7ad" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64" valuePointer="57928b1d-0626-45dc-8b7d-08905ac1e947">
                               <style uid="0c2f05d0-593d-4bee-8795-5937952adf7d" constant="true" value="margin:0px 0px 0px 20px;"/>
+                              <required uid="b60b6b63-c1a7-4ce1-ae89-889d9cfceacd" constant="true" value="true"/>
                             </children>
                             <children xsi:type="tura.form:MessageElement" nickname="msg1" order="2" uid="ef4c812e-0355-4933-b6ab-2998b79be721" label="Message element">
                               <multiLangLabel uid="792f7d4d-57d9-4b84-81d0-cf2dc225144c"/>
                             </children>
                             <children xsi:type="tura.form:InputText" nickname="Desk" order="4" uid="77551383-702f-4cd4-816e-b3e0d76c71f2" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64" valuePointer="f922f7f8-6826-42cd-87b6-c62a7dc280d8">
                               <style uid="ce0b1701-4022-4e08-807f-ccdd99895e43" constant="true" value="margin:0px 0px 0px 20px;"/>
+                              <required uid="707925e3-423a-4962-96e3-449e38e9b612" constant="true" value="true"/>
                             </children>
                             <children xsi:type="tura.form:MessageElement" nickname="msg2" order="5" uid="ccd81231-1378-416f-917f-b430c2e94cad" label="Message element"/>
                           </children>
@@ -3075,6 +3090,7 @@
                                 <classifiers uid="b017af61-e341-462e-aa95-a704716e26fd" hint="8962de68-b529-4f12-88bb-135bdfde4174"/>
                               </fields>
                               <refreshAreas area="180bd1e5-0388-4fdf-812a-ca1525b12772" group="2"/>
+                              <refreshAreas area="7a73e575-1965-4655-a94b-8a054617cefe" group="1"/>
                               <multiLangLabel uid="3bd61561-00a7-44a2-b6a6-206836c3bc04" value="Application Message Libraries.HR Controller.CANCEL_BUTTON">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
