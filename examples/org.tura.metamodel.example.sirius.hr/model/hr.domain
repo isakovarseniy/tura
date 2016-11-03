@@ -3088,12 +3088,12 @@
                               </icon>
                             </children>
                             <children xsi:type="tura.form:Button" nickname="cancel" order="1" uid="7a73e575-1965-4655-a94b-8a054617cefe" label="Cancel">
-                              <fields uid="00df0721-d750-4b7d-98a1-e0965a1bf834" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.rallbackApplication()">
+                              <fields uid="00df0721-d750-4b7d-98a1-e0965a1bf834" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.rallbackChanges()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                 <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
                                 <expression objRef="6dbc5800-0c88-48a9-94d0-4eb5d11f6aa3" order="2" expressionType="TypeGroupImpl"/>
                                 <expression objRef="b37d91c8-1363-4548-8896-02d5ad9a93c3" order="3" expressionType="TypeImpl"/>
-                                <expression objRef="5d118cc0-214a-492f-aa13-bfb042668e6a" order="4" expressionType="OperationImpl"/>
+                                <expression objRef="1abc2123-1978-420a-b181-2d5c0d0f8ec5" order="4" expressionType="OperationImpl"/>
                               </fields>
                               <fields uid="bf06618d-4d8e-4b2e-b892-1580f07bbcf7" value="Types repository.Base Repository.Model types.Model types::Client System library.hidepopup()">
                                 <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
