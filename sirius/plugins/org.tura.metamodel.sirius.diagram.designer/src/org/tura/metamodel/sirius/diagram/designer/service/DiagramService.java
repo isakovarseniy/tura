@@ -80,6 +80,7 @@ import message.MessageLibrary;
 import message.Translation;
 import recipe.Configuration;
 import recipe.Infrastructure;
+import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.Query;
 import recipe.Recipes;
@@ -486,9 +487,15 @@ public class DiagramService {
 			}
 			Object[] result = new QueryHelper().findMappingTechnologies(mapper, null);
 			if (((List) result[0]).size() == 0 && ((List) result[1]).size() == 0) {
-				return true;
+				for (  MappingTecnologiy tech : mapper.getTechnologies()){
+					if (tech.getValueRef() == null){
+						return false;
+					}
+				}
+			}else{
+			   return false;
 			}
-			return false;
+			return true;
 		} catch (Exception e) {
 			LogUtil.log(e);
 			return false;

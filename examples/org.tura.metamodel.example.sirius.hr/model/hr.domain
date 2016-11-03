@@ -115,6 +115,7 @@
             </technologies>
             <technologies uid="db75ca91-86b4-4bae-8cb7-d43634dd4914" name="OS">
               <options uid="dcc18127-fb5a-4f89-920c-3cf9ad4390ee" value="0ba9fb8e-4b01-47bc-93f2-7c398218105a"/>
+              <options uid="6265ed2c-0266-4578-8220-eb50454702f8" value="91ac90a1-ae2f-44f1-8d1a-84e0ebdf6668"/>
             </technologies>
             <technologies uid="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" name="Builder type">
               <options uid="cc47fddb-b1b8-4ac6-a070-73cd8096168e" value="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4"/>
@@ -151,6 +152,7 @@
             <configVariables uid="0d029c7c-d9c6-4b54-875d-32cfd9b34205" name="Application server domain" var="f52c2871-e5b6-479e-a5bd-3101df6341f5"/>
             <technologies uid="4b7af66a-8fb6-4b03-91ab-c9d1cb468b8e" name="OS">
               <options uid="9c56c069-91b0-413f-95fa-b5056476b0be" value="0ba9fb8e-4b01-47bc-93f2-7c398218105a"/>
+              <options uid="2fb87dee-9c6e-4c27-81d2-4d6a07783c9c" value="91ac90a1-ae2f-44f1-8d1a-84e0ebdf6668"/>
             </technologies>
             <technologies uid="4aff409c-1621-40ea-8607-555c901d6f31" name="MVC application implementation">
               <options uid="a232c26e-2c1e-4a22-acbf-9d2b57846a16" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
@@ -385,6 +387,7 @@
       </techLeafs>
       <techLeafs uid="128060cb-76e9-4f85-9ff7-2bc5dad2a886" name="OS">
         <techLeafs uid="0ba9fb8e-4b01-47bc-93f2-7c398218105a" name="Unix"/>
+        <techLeafs uid="91ac90a1-ae2f-44f1-8d1a-84e0ebdf6668" name="Win"/>
       </techLeafs>
       <techLeafs uid="45c48557-0d21-4b53-8ce5-320c70465113" name="Database">
         <techLeafs uid="3db4f4d3-909c-4e25-bcfe-067c2e506d65" name="MySQL"/>
@@ -1152,6 +1155,7 @@
                         <mappers uid="a27cced6-8532-498e-a62e-8b4d7eb2ab26" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Domain object builder">
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <queries uid="7e0aba10-e065-4f08-91f0-72e8a0cee866" name="Query NA classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
                             <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="NA"/>
                             <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="NA"/>
@@ -1201,6 +1205,7 @@
                         <mappers uid="ffbdee3d-f63f-444c-a65e-2d62e863bb44" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Persistence object builder">
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="6f062f1c-432d-494b-b184-ddac711e1c1c"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <queries uid="e858153f-9afc-4ea5-ba53-c1ec9b2fd2ad" name="Query Per. Base type impl classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
                             <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
                             <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
@@ -1256,6 +1261,7 @@
                         <mappers uid="a66057f8-3ba3-4125-8134-72dda9d05629" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Domain interface builder">
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <queries uid="7dca1e92-ddd8-4390-a478-f7eee36a244e" name="Query Base type  classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
                             <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
                             <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
@@ -1279,6 +1285,7 @@
                         <mappers uid="db1a26bd-431b-4c76-a933-dd3481ac1d0f" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Simple domain model builder">
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <queries uid="bfe2bf91-fdaf-4c3a-b1a4-cdf21a7a005e" name="Query model interface" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
                             <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="HR domain"/>
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Model Interface"/>
@@ -1301,6 +1308,7 @@
                         <mappers uid="a0b73bf5-3126-4a67-a8c3-bd5c7a118f08" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Complex domain model builder">
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="72639b34-c455-4b47-87da-f714cffb9bd2"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <queries uid="b3df9407-db71-4fc0-9548-6c8fa9e305a4" name="Query simple domain model" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
                             <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="HR domain"/>
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Simple domain model"/>
@@ -1340,6 +1348,7 @@
                         <mappers uid="cad9e4f8-ab51-4bc4-a4d7-a8caee05c88e" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="JPA builder">
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="6f062f1c-432d-494b-b184-ddac711e1c1c"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <queries uid="fe234b12-fb09-4261-9fb7-a4988082721d" name="Query Per. Base type impl classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
                             <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
                             <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
