@@ -1082,7 +1082,7 @@
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
             <operations uid="8ab980b5-187f-4428-9bf4-3abcd19e12f8" name="empDetailsEnable">
-              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
+              <returnValue typeRef="033cb09a-3c47-4f0f-90be-40f38ffc7912"/>
             </operations>
             <operations uid="e706ab6e-575d-49ae-b29d-a07c6169f4d3" name="createCompanyPopup">
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
@@ -2743,7 +2743,7 @@
                               <children xsi:type="tura.form:Table" nickname="Employee Table" uid="6ef437a2-e256-45c5-9738-d01e953fc6fd" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f" columns="3" label="Employees" rowNumber="5">
                                 <style uid="231d4bdc-9972-40ed-9b99-7ccebf72a519"/>
                                 <refreshAreas area="08d6eb6f-5230-42f9-83c6-ee7d1e42b8be" group="2"/>
-                                <refreshAreas area="0d19a894-e47b-482f-b8de-7c73e109aa85" group="2"/>
+                                <refreshAreas area="50fcf042-4013-4a83-a9ee-99dac6c3923f" group="2"/>
                                 <multiLangLabel uid="00a1ca2f-cbdc-45e3-9eb7-f36c82828d29" value="Application Message Libraries.HR Controller.EMP_TABLE">
                                   <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                   <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
@@ -2877,7 +2877,15 @@
                                 <style uid="b01e1afe-fe69-4694-839d-72c579d01619"/>
                               </children>
                               <children xsi:type="tura.form:OutputText" order="4" uid="d7ca7e1f-7303-455b-9549-a9a7ab83621e" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f" valuePointer="fc8396fd-13cc-4504-b14a-9336bcd2e56f"/>
-                              <children xsi:type="tura.form:Date" order="5" uid="72911050-07b5-46ab-a079-2a5027988c04" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f" valuePointer="82f29c2a-a8af-41e7-92d0-527945ce135b"/>
+                              <children xsi:type="tura.form:Date" order="5" uid="72911050-07b5-46ab-a079-2a5027988c04" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f" valuePointer="82f29c2a-a8af-41e7-92d0-527945ce135b" format="MM/dd/yyyy">
+                                <enabled uid="316eef5c-f1d3-4211-b756-3dd038f0baf8" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.empDetailsEnable()">
+                                  <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                                  <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                                  <expression objRef="6dbc5800-0c88-48a9-94d0-4eb5d11f6aa3" order="2" expressionType="TypeGroupImpl"/>
+                                  <expression objRef="b37d91c8-1363-4548-8896-02d5ad9a93c3" order="3" expressionType="TypeImpl"/>
+                                  <expression objRef="8ab980b5-187f-4428-9bf4-3abcd19e12f8" order="4" expressionType="OperationImpl"/>
+                                </enabled>
+                              </children>
                             </children>
                           </children>
                         </baseCanvas>
