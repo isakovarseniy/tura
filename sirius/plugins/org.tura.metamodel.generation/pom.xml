@@ -18,10 +18,10 @@
   <parent>
      <groupId>org.tura.metamodel</groupId>
      <artifactId>plugins</artifactId>
-     <version>4.0.0-SNAPSHOT</version>
+     <version>4.1.0-SNAPSHOT</version>
   </parent>
   <groupId>org.tura.metamodel</groupId>
-  <artifactId>org.tura.metamodel.wizard.generation</artifactId>
-  <version>4.0.0-SNAPSHOT</version>
+  <artifactId>org.tura.metamodel.generation</artifactId>
+  <version>4.1.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 </project>
