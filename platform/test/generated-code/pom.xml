@@ -10,16 +10,21 @@
 	</parent>
 
 	<groupId>org.tura.platform.test</groupId>
-	<artifactId>test-model</artifactId>
+	<artifactId>generated-code</artifactId>
 	<packaging>pom</packaging>
 
-	<name>Tura :: Platform :: Test :: Model</name>
+	<name>Tura :: Platform :: Test :: Generated code </name>
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
      
 	<modules>
-	      <module>test-hr-domain-simple-repository</module>
-	      <module>test-hr-domain-complex-repository</module>
+	    <module>test-hr-domain-complex-objects-model</module>
+	    <module>test-hr-domain-objects-interface</module>
+	    <module>test-hr-domain-simple-objects-model</module>
+	    <module>test-hr-jpa-simple-objects-model</module>
+	    <module>test-jpa-objects</module>
+		<module>test-datacontrols</module>
+		<module>test-nested-datacontrols</module>
 	</modules>
 
 

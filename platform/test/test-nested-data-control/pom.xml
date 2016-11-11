@@ -18,13 +18,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-complex-repository</artifactId>
+			<artifactId>test-hr-domain-complex-repository</artifactId>
 			<version> ${project.version} </version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-complex-repository</artifactId>
+			<artifactId>test-hr-domain-complex-repository</artifactId>
 			<version> ${project.version} </version>
 		</dependency>
 
@@ -80,28 +80,28 @@
 
 		<dependency>
 			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-complex-repository</artifactId>
+			<artifactId>test-hr-domain-complex-repository</artifactId>
 			<version> ${project.version} </version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-simple-objects-model</artifactId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-hr-domain-simple-objects-model</artifactId>
 			<version>1.0</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-complex-objects-model</artifactId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-hr-domain-complex-objects-model</artifactId>
 			<version>1.0</version>
 			<scope>test</scope>
 		</dependency>
 
 
 		<dependency>
-			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-jpa-simple-objects-model</artifactId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-hr-jpa-simple-objects-model</artifactId>
 			<version>1.0</version>
 			<scope>test</scope>
 		</dependency>
