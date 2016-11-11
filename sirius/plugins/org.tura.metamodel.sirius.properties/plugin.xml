@@ -975,13 +975,25 @@
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.UielementOnEventRefreshAreaPropertySelection"
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RefreshAreaSetPropertySelection"
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.UIElementSectionFilter"
 	            id="form.UIelement.RefreshArias"
 	            tab="tab.form.UIelement.RefreshArias">
 	      </propertySection>
 	   </propertySections>
 	</extension>	
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.RefreshAreaGetPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.UIElementSectionFilter"
+	            id="form.UIelement.RefreshArias"
+	            tab="tab.form.UIelement.RefreshArias">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
 
     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">

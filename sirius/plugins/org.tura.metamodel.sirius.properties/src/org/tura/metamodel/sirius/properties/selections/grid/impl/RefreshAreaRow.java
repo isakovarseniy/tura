@@ -75,4 +75,15 @@ public class RefreshAreaRow{
 				
 	}
 	
+	@Override
+	public boolean equals(Object obj){
+		if (!(obj instanceof RefreshAreaRow)){
+			return false;
+		}
+		RefreshAreaRow r = (RefreshAreaRow) obj;
+		return this.getNickName().equals(r.getNickName());
+		
+	}
+	
+	
 }

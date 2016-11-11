@@ -1090,8 +1090,7 @@ public class QueryHelper {
 				list = ((MenuItem) obj).getRefreshAreas();
 			}
 			for (AreaRef ref : list) {
-				if (ref.getArea() == null || ref.getArea().getNickname() == null
-						|| "".equals(ref.getArea().getNickname())) {
+				if (ref.getArea() == null) {
 					remove.add(ref);
 				}
 			}
