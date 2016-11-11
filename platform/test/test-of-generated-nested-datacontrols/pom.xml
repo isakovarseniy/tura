@@ -10,7 +10,7 @@
 		<version>2.0</version>
 	</parent>
 	
-	<groupId>org.tura.platform.test.generated-code</groupId>
+	<groupId>org.tura.platform.test</groupId>
 	<artifactId>test-of-generated-nested-datacontrols</artifactId>
 
 	<name>Tura :: Platform :: Test :: Generated code :: Nested Data Control</name>
