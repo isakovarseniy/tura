@@ -16,15 +16,11 @@
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.tura.example.service</groupId>
-			<artifactId>test-hr-domain-complex-repository</artifactId>
-			<version> ${project.version} </version>
-		</dependency>
+
 
 		<dependency>
 			<groupId>org.tura.example.service</groupId>
-			<artifactId>test-hr-domain-complex-repository</artifactId>
+			<artifactId>hr-domain-complex-repository</artifactId>
 			<version> ${project.version} </version>
 		</dependency>
 
@@ -80,7 +76,7 @@
 
 		<dependency>
 			<groupId>org.tura.example.service</groupId>
-			<artifactId>test-hr-domain-complex-repository</artifactId>
+			<artifactId>hr-domain-complex-repository</artifactId>
 			<version> ${project.version} </version>
 		</dependency>
 

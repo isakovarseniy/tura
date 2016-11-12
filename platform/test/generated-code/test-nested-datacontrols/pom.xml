@@ -114,7 +114,7 @@
 		
 		<dependency>
 			<groupId>org.tura.example.service</groupId>
-			<artifactId>test-hr-domain-complex-repository</artifactId>
+			<artifactId>hr-domain-complex-repository</artifactId>
 			<version> ${project.version} </version>
 		</dependency>
 

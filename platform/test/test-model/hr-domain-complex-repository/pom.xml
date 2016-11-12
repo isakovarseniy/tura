@@ -12,7 +12,7 @@
 
 
 	<groupId>org.tura.example.service</groupId>
-	<artifactId>test-hr-domain-complex-repository</artifactId>
+	<artifactId>hr-domain-complex-repository</artifactId>
 
 	<packaging>jar</packaging>
 

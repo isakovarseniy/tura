@@ -18,8 +18,8 @@
 
      
 	<modules>
-	      <module>test-hr-domain-simple-repository</module>
-	      <module>test-hr-domain-complex-repository</module>
+	      <module>hr-domain-simple-repository</module>
+	      <module>hr-domain-complex-repository</module>
 	</modules>
 
 
