@@ -25,6 +25,7 @@
 	    <module>test-jpa-objects</module>
 		<module>test-datacontrols</module>
 		<module>test-nested-datacontrols</module>
+		<module>test-hr-domain-complex-repository</module>
 	</modules>
 
 
