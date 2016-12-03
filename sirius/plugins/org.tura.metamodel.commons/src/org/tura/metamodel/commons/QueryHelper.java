@@ -69,6 +69,8 @@ import recipe.QueryVariable;
 import recipe.Recipe;
 import recipe.Recipe2Infrastructure;
 import recipe.impl.Infrastructure2ConfigurationImpl;
+import repository.ObjectMapper;
+import type.Assosiation;
 import type.Generalization;
 import type.Operation;
 import type.Parameter;
@@ -1267,6 +1269,25 @@ public class QueryHelper {
 
 	}
 
+	public Collection<Assosiation> getAssosiation(Type type) {
+		try {
+
+			String query = "type::Assosiation.allInstances()->select(r|r.oclAsType(type::Assosiation).source.uid ='"
+					+ type.getUid() + "')";
+
+			@SuppressWarnings("unchecked")
+			Collection<Assosiation> list = (Collection<Assosiation>) internalEvaluate(type, query);
+
+			return list;
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return new ArrayList<Assosiation>();
+		}
+
+	}
+	
+	
+	
 	private String findHint(EObject obj, int level, String... hints) {
 		try {
 			if (hints.length == 0)
@@ -1340,6 +1361,48 @@ public class QueryHelper {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	public ObjectMapper findObjectMapperForAttribute(ObjectMapper objectMapper){
+		try{
+			String query ="repository::ObjectMapper.allInstances()->collect(r|r.oclAsType(repository::ObjectMapper).attributeMappers->"
+					+ "select(q|q.oclAsType(repository::AttributeMapper).objectMapperRef<>null  and "
+					+ "q.oclAsType(repository::AttributeMapper).objectMapperRef.uid='"+objectMapper.getUid()+"'))";
+	
+			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) objectMapper, TypePackage.Literals.TYPE,
+					query);
+			if (list == null || list.size() == 0) {
+				return null;
+			}
+	
+			return (ObjectMapper) list.iterator().next().eContainer();
+		}catch(Exception e){
+			LogUtil.log(e);
+			return null;
+		}
+	}
+	
+
+	@SuppressWarnings("unchecked")
+	public ObjectMapper findObjectMapperForRelation(ObjectMapper objectMapper){
+		try{
+			String query ="repository::ObjectMapper.allInstances()->collect(r|r.oclAsType(repository::ObjectMapper).relationMappers->"
+					+ "select(q|q.oclAsType(repository::RelationMapper).objectMapperRef<>null  and "
+					+ "q.oclAsType(repository::RelationMapper).objectMapperRef.uid='"+objectMapper.getUid()+"'))";
+	
+			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) objectMapper, TypePackage.Literals.TYPE,
+					query);
+			if (list == null || list.size() == 0) {
+				return null;
+			}
+	
+			return (ObjectMapper) list.iterator().next().eContainer();
+		}catch(Exception e){
+			LogUtil.log(e);
+			return null;
+		}
+	}
+	
+	
 	public Object executeQuery(String strQuery, EObject eobj) throws ParserException {
 		return internalEvaluate(eobj, strQuery);
 	}

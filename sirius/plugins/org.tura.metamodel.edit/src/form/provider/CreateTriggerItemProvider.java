@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import repository.RepositoryFactory;
 import type.TypeFactory;
 
 /**
@@ -207,6 +208,16 @@ public class CreateTriggerItemProvider extends TriggerItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
 				 TypeFactory.eINSTANCE.createReturnValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
+				 RepositoryFactory.eINSTANCE.createObjectMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
+				 RepositoryFactory.eINSTANCE.createRelationMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -9,6 +9,8 @@
         eType="#//DomainArtifacts" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainTypes" lowerBound="1"
         eType="#//DomainTypes" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainRepositories" lowerBound="1"
+        eType="#//DomainRepositories" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainApplications" lowerBound="1"
         eType="#//DomainApplications" containment="true"/>
   </eClassifiers>
@@ -60,5 +62,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="applicationPackages" upperBound="-1"
         eType="ecore:EClass application.ecore#//ApplicationGroup" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainRepositories">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainRepositories" upperBound="-1"
+        eType="#//DomainRepository" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainRepository">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappres" upperBound="-1"
+        eType="ecore:EClass repository.ecore#//UnitMapper" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

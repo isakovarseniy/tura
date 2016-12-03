@@ -17,6 +17,7 @@ Export-Package: application.tests,
  message.tests,
  permission.tests,
  recipe.tests,
+ repository.tests,
  style.tests,
  type.tests
 Require-Bundle: org.eclipse.core.runtime,

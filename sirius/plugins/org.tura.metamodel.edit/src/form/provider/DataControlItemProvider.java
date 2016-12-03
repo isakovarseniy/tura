@@ -32,6 +32,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import repository.RepositoryFactory;
 import type.TypeFactory;
 
 /**
@@ -276,6 +277,16 @@ public class DataControlItemProvider
 			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
 				 TypeFactory.eINSTANCE.createReturnValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 RepositoryFactory.eINSTANCE.createObjectMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 RepositoryFactory.eINSTANCE.createRelationMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

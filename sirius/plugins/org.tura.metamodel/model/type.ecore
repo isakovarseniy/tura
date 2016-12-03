@@ -99,4 +99,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="MethodPointer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="methodRef" eType="#//Operation"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributePointer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeRef" eType="#//Attribute"/>
+  </eClassifiers>
 </ecore:EPackage>

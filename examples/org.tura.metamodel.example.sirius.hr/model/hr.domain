@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tura.domain="http://tura.org/2016/v2/domain" xmlns:tura.form="http://tura.org/2016/v2/form" xmlns:tura.infrastructure="http://tura.org/2016/v2/infrastructure" xmlns:tura.mapper="http://tura.org/2016/v2/mapper" xmlns:tura.recipe="http://tura.org/2016/v2/recipe" xmlns:tura.type="http://tura.org/2016/v2/type">
   <tura.domain:Domain>
-    <domainArtifacts>
+    <domainArtifacts uid="72fc6370-15cf-4600-b0c4-26f14e4b2609">
       <domainArtifact uid="8c6e20f4-46c7-4fd1-b50c-3ad6922cb6e8" name="Backend">
         <artifactPackages uid="1cc7a684-636b-4e95-b809-38d1439eafc4" name="Model objects">
           <artifacts uid="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Domain model generation" template="platform:/plugin/org.tura.metamodel.generation/template/pit/DomainModel/mainDomainModel.egl">
@@ -1132,7 +1132,34 @@
         <primitives uid="6b00860c-a27c-4215-8b9f-4b34ba75986f" name="Null"/>
       </primitives>
     </domainTypes>
-    <domainApplications>
+    <domainRepositories uid="753487b9-3800-4865-8318-c6d59a6d5773">
+      <domainRepositories uid="cb97b924-bf62-4447-a012-a76ced6fbb86" name="Domain repository 1">
+        <mappres uid="0adb5321-4192-4cc4-b364-6bea96e216c8" name="Unit mapper1">
+          <units uid="c153c8a0-7876-48ad-8f04-4c4a982ec2ff">
+            <units uid="5408a494-7673-43b9-81ed-0c41c3a550a6" name="hgjhgjgkjh">
+              <objectMappers typeRef="0720750d-55cd-4118-9013-8a05fbb3db32" uid="6b476af8-2ad4-44db-ba3d-edc812cb4a91">
+                <attributeMappers attributeRef="71261ad0-dea4-454d-bb18-314218baba11" uid="4ee41c4e-9753-4f00-8302-a2c6627dec99"/>
+                <attributeMappers attributeRef="98052b8d-e50b-40f3-9453-aa8b92bbeb6e" uid="4c8948d7-b5cc-48fd-abd7-34b8ffcf071a"/>
+                <attributeMappers attributeRef="45663c4f-6197-405b-b179-ee71b777aea6" uid="3d5fdc85-0f05-4932-897a-5e22a0cac9d2"/>
+                <attributeMappers attributeRef="1d7799a0-d243-4408-83e3-4f068cdda4e2" uid="aa148984-f395-4743-a7b0-23093e7fd1c0"/>
+                <attributeMappers attributeRef="dc2d81dc-dd41-4180-bf2c-7f734a12f913" uid="135daa2a-3e64-4ca2-a3e5-f422f1800409"/>
+                <attributeMappers attributeRef="1ae3e726-d123-4011-b31a-1ac2a0f649c8" uid="9c2f6176-c285-4c91-978a-3ea5854086c5"/>
+                <attributeMappers attributeRef="0b0d15f9-4954-4a20-ac33-0d422cdff66e" uid="263ca3c5-aa08-4f40-afc6-90eecce8676b"/>
+                <attributeMappers attributeRef="4eec4ccd-0c8b-4d5b-876a-67f481a6f5cf" uid="4df8b9b4-8a41-4fd0-a6a1-fd3df0aac184"/>
+                <attributeMappers attributeRef="136f701e-b7c3-47fa-b8cc-df1ed03d3dce" uid="54329224-9a74-4080-b334-e5d0d86e02e9"/>
+                <attributeMappers attributeRef="57928b1d-0626-45dc-8b7d-08905ac1e947" uid="79996441-0c7b-4fe0-8cc9-ce498faf1a98"/>
+                <attributeMappers attributeRef="935afbc0-2405-42c1-97ef-f148bf4cfe80" uid="4dd59b3e-7549-41df-b753-2d1b2012ec46"/>
+                <attributeMappers attributeRef="373fccd8-dc02-4463-bd6f-16531ff887a6" uid="933a3d02-0516-435a-a985-c99ca930f1c8"/>
+                <relationMappers typeRef="cd523401-99c1-449e-a6a9-83a180864617" uid="5aa6a0a6-f9a5-4a3d-8618-cfcadc2216bc" objectMapperRef="1330d6c9-d9cf-4c95-acbc-679ce08e0d01"/>
+              </objectMappers>
+              <objectMappers typeRef="cd523401-99c1-449e-a6a9-83a180864617" uid="1330d6c9-d9cf-4c95-acbc-679ce08e0d01"/>
+            </units>
+          </units>
+          <datacontrols uid="835a4311-1307-42c2-85db-d51243902be2"/>
+        </mappres>
+      </domainRepositories>
+    </domainRepositories>
+    <domainApplications uid="3cdceac2-603d-4e1f-89a1-78103dd3da72">
       <applications uid="dd9a03ec-7974-4324-b247-0405080b3944" name="ERP">
         <applicationPackages uid="e0a49a0b-9961-4803-9c0c-efb84da14715" name="HR domain">
           <applications uid="6dbe9372-c514-4152-8d84-c8ac1223c2f7" name="HR application">

@@ -6,6 +6,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IFilter;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
+import repository.ObjectMapper;
 import type.TypePointer;
 
 public class TypePointerSectionFilter implements IFilter {
@@ -18,7 +19,7 @@ public class TypePointerSectionFilter implements IFilter {
 			DRepresentationElement obj = (DRepresentationElement) ((View) editPart.getModel()).getElement();
 			EObject element = obj.getTarget();
 
-			if (element instanceof TypePointer)  {
+			if (element instanceof TypePointer  && !(element instanceof ObjectMapper) )  {
 				return true;
 			}
 		}

@@ -1053,6 +1053,34 @@ public interface TypePackage extends EPackage {
 	int METHOD_POINTER_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link type.impl.AttributePointerImpl <em>Attribute Pointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see type.impl.AttributePointerImpl
+	 * @see type.impl.TypePackageImpl#getAttributePointer()
+	 * @generated
+	 */
+	int ATTRIBUTE_POINTER = 20;
+
+	/**
+	 * The feature id for the '<em><b>Attribute Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_POINTER__ATTRIBUTE_REF = 0;
+
+	/**
+	 * The number of structural features of the '<em>Attribute Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_POINTER_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link type.RelationType <em>Relation Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1060,7 +1088,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getRelationType()
 	 * @generated
 	 */
-	int RELATION_TYPE = 20;
+	int RELATION_TYPE = 21;
 
 
 	/**
@@ -1682,6 +1710,27 @@ public interface TypePackage extends EPackage {
 	EReference getMethodPointer_MethodRef();
 
 	/**
+	 * Returns the meta object for class '{@link type.AttributePointer <em>Attribute Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attribute Pointer</em>'.
+	 * @see type.AttributePointer
+	 * @generated
+	 */
+	EClass getAttributePointer();
+
+	/**
+	 * Returns the meta object for the reference '{@link type.AttributePointer#getAttributeRef <em>Attribute Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Attribute Ref</em>'.
+	 * @see type.AttributePointer#getAttributeRef()
+	 * @see #getAttributePointer()
+	 * @generated
+	 */
+	EReference getAttributePointer_AttributeRef();
+
+	/**
 	 * Returns the meta object for enum '{@link type.RelationType <em>Relation Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2216,6 +2265,24 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EReference METHOD_POINTER__METHOD_REF = eINSTANCE.getMethodPointer_MethodRef();
+
+		/**
+		 * The meta object literal for the '{@link type.impl.AttributePointerImpl <em>Attribute Pointer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see type.impl.AttributePointerImpl
+		 * @see type.impl.TypePackageImpl#getAttributePointer()
+		 * @generated
+		 */
+		EClass ATTRIBUTE_POINTER = eINSTANCE.getAttributePointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE_POINTER__ATTRIBUTE_REF = eINSTANCE.getAttributePointer_AttributeRef();
 
 		/**
 		 * The meta object literal for the '{@link type.RelationType <em>Relation Type</em>}' enum.

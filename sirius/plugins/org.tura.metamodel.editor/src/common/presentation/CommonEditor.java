@@ -129,6 +129,7 @@ import mapper.provider.MapperItemProviderAdapterFactory;
 import message.provider.MessageItemProviderAdapterFactory;
 import permission.provider.PermissionItemProviderAdapterFactory;
 import recipe.provider.RecipeItemProviderAdapterFactory;
+import repository.provider.RepositoryItemProviderAdapterFactory;
 import style.provider.StyleItemProviderAdapterFactory;
 import type.provider.TypeItemProviderAdapterFactory;
 
@@ -679,6 +680,7 @@ public class CommonEditor
 		adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PermissionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new InfrastructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MessageItemProviderAdapterFactory());

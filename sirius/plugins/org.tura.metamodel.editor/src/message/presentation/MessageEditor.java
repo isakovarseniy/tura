@@ -177,6 +177,7 @@ import permission.provider.PermissionItemProviderAdapterFactory;
 
 import recipe.provider.RecipeItemProviderAdapterFactory;
 
+import repository.provider.RepositoryItemProviderAdapterFactory;
 import style.provider.StyleItemProviderAdapterFactory;
 
 import type.provider.TypeItemProviderAdapterFactory;
@@ -728,6 +729,7 @@ public class MessageEditor
 		adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PermissionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new InfrastructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MessageItemProviderAdapterFactory());

@@ -531,6 +531,29 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link type.AttributePointer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AttributePointerItemProvider attributePointerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link type.AttributePointer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAttributePointerAdapter() {
+		if (attributePointerItemProvider == null) {
+			attributePointerItemProvider = new AttributePointerItemProvider(this);
+		}
+
+		return attributePointerItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

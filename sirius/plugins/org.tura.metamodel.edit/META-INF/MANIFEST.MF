@@ -18,6 +18,7 @@ Export-Package: application.provider,
  message.provider,
  permission.provider,
  recipe.provider,
+ repository.provider,
  style.provider,
  type.provider
 Require-Bundle: org.eclipse.core.runtime,

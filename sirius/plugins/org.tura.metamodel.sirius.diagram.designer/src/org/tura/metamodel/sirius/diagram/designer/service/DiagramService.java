@@ -15,6 +15,7 @@ import org.tura.metamodel.sirius.properties.selections.adapters.textdata.StylePo
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.TypeGroupPointerName;
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.TypePointerTypeName;
 
+
 import application.Application;
 import application.ApplicationGroup;
 import application.ApplicationInfrastructureLayer;
@@ -38,6 +39,8 @@ import domain.DomainApplication;
 import domain.DomainApplications;
 import domain.DomainArtifact;
 import domain.DomainArtifacts;
+import domain.DomainRepositories;
+import domain.DomainRepository;
 import domain.DomainTypes;
 import domain.DomainTypesRepository;
 import form.ArtificialField;
@@ -84,10 +87,15 @@ import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.Query;
 import recipe.Recipes;
+import repository.AttributeMapper;
+import repository.ObjectMapper;
+import repository.RelationMapper;
+import repository.UnitMapper;
 import style.StyleLibrary;
 import style.StyleSet;
 import type.Assosiation;
 import type.Link;
+import type.Primitive;
 import type.RelationType;
 import type.TypeGroup;
 import type.TypeReference;
@@ -395,6 +403,38 @@ public class DiagramService {
 		return "viewport - " + trigger.getMethodRef().getName() + "()";
 	}
 
+	public String generateName(DomainRepository  repository) {
+		return 	 "Domain repository " + ((DomainRepositories) (repository.eContainer())).getDomainRepositories().size();
+	}
+	
+	public String generateName(UnitMapper mapper) {
+		return "Unit mapper" + ((DomainRepository) (mapper.eContainer())).getMappres().size();
+	}
+	
+	public String generateName(ObjectMapper objectMapper) {
+		if (objectMapper.getTypeRef() == null) {
+			return "type  -  n/a";
+		}
+		return "type - " + objectMapper.getTypeRef().getName();
+	}
+
+	public String generateName(AttributeMapper attributeMapper) {
+		if (attributeMapper.getAttributeRef() == null) {
+			return "attribute  -  n/a";
+		}
+		return "attribute - " + attributeMapper.getAttributeRef().getName();
+	}
+	
+
+	public String generateName(RelationMapper relationMapper) {
+		if (relationMapper.getTypeRef()== null) {
+			return "relatioin  -  n/a";
+		}
+		return "relatioin - " + relationMapper.getTypeRef().getName();
+	}
+	
+	
+	
 	public String generateSourceName(Assosiation assosiation) {
 		if (assosiation.getType().equals(RelationType.MANY2_MANY)) {
 			return "1..n";
@@ -535,5 +575,58 @@ public class DiagramService {
 		}
 		return true;
 	}
+	
+	
+	public boolean checkAttributeMapperDropDown(AttributeMapper attributeMapper){
+		if (attributeMapper.getAttributeRef().getTypeRef() instanceof Primitive){
+			return false;
+		}
+		
+		if (attributeMapper.getObjectMapperRef() == null){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public boolean checkRelationMapperDropDown(RelationMapper relationMapper){
+		if (relationMapper.getTypeRef() instanceof Primitive){
+			return false;
+		}
+
+		if (relationMapper.getObjectMapperRef() == null){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	
+	
+	public boolean showAttributeMapper(AttributeMapper attributeMapper){
+		if (attributeMapper.getObjectMapperRef() == null){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public boolean showRelationMapper(RelationMapper relationMapper){
+		if (relationMapper.getObjectMapperRef() == null){
+			return true;
+		}else{
+			return false;
+		}
+	}	
+	
+	
+	public ObjectMapper findTargetObjectMapperForAttribute(ObjectMapper objectMapper){
+		return new QueryHelper().findObjectMapperForAttribute(objectMapper);
+	}
+
+	public ObjectMapper findTargetObjectMapperForRelation(ObjectMapper objectMapper){
+		return new QueryHelper().findObjectMapperForRelation(objectMapper);
+	}
+	
 	
 }

@@ -4,6 +4,7 @@ package domain;
 import "platform:/resource/org.tura.metamodel/model/application.ecore";
 import "platform:/resource/org.tura.metamodel/model/artifact.ecore";
 import "platform:/resource/org.tura.metamodel/model/type.ecore";
+import "platform:/resource/org.tura.metamodel/model/repository.ecore";
 
 //do not remove
 @gmf.diagram
@@ -11,6 +12,7 @@ class Domain{
   id attr EString uid;
   val DomainArtifacts[1] domainArtifacts;
   val DomainTypes[1] domainTypes;
+  val DomainRepositories[1]  domainRepositories;
   val DomainApplications[1] domainApplications;
 
 }
@@ -57,8 +59,17 @@ class DomainApplication{
    val application.ApplicationGroup[*] applicationPackages;
 }
 
+class DomainRepositories{
+   id attr EString uid;
+   attr EString name;
+   val  DomainRepository[*] domainRepositories;
+}
 
-
+class DomainRepository{
+   id attr EString uid;
+   attr EString name;
+   val repository.UnitMapper[*] mappres;
+}
 
 
 

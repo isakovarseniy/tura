@@ -152,6 +152,10 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 				return createMethodPointerAdapter();
 			}
 			@Override
+			public Adapter caseAttributePointer(AttributePointer object) {
+				return createAttributePointerAdapter();
+			}
+			@Override
 			public Adapter caseCategorized(Categorized object) {
 				return createCategorizedAdapter();
 			}
@@ -456,6 +460,20 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMethodPointerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link type.AttributePointer <em>Attribute Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see type.AttributePointer
+	 * @generated
+	 */
+	public Adapter createAttributePointerAdapter() {
 		return null;
 	}
 

@@ -1,7 +1,24 @@
 package org.tura.metamodel.commons;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+
+import repository.AttributeMapper;
+import repository.ObjectMapper;
+import repository.RelationMapper;
+import repository.RepositoryFactory;
+import repository.RepositoryPackage;
+import type.Assosiation;
 import type.Attribute;
 import type.Generalization;
 import type.Operation;
@@ -41,6 +58,23 @@ public class Helper {
 		}
 
 	}
+	
+	public void getRelatedObjects(Map<String, TypeElement> relatedObjects,TypeElement typeElement){
+		if (typeElement instanceof TypeReference) {
+			typeElement = ((TypeReference) typeElement).getTypeRef();
+		}
+		
+		if (typeElement instanceof Type) {
+			Type type = (Type) typeElement;
+			
+			for (Assosiation rel :  new QueryHelper().getAssosiation(type)) {
+				if (rel.getTarget() != null){
+				   relatedObjects.put(rel.getTarget().getName(), rel.getTarget());
+				}
+			}
+		}
+	}
+	
 
 	private String getOperationKey(Operation operation) {
 
@@ -68,4 +102,50 @@ public class Helper {
 		return attribute.getName() + key;
 	}
 
+	
+	public void populateObjectMapper( ObjectMapper objectMapper , EObject model   ){
+		Type type = (Type) objectMapper.getTypeRef();
+		Map <String,Operation> operations = new HashMap<String,Operation>();
+		Map <String,Attribute> attributes = new HashMap<String,Attribute>();
+		new Helper().addOperations(operations, attributes, type);
+		
+		
+		ArrayList< AttributeMapper> array = new ArrayList<AttributeMapper>();
+		for (Attribute attribute : attributes.values()){
+			AttributeMapper attributeMapper = RepositoryFactory.eINSTANCE.createAttributeMapper();
+			attributeMapper.setUid(UUID.randomUUID().toString());
+			attributeMapper.setAttributeRef(attribute);
+			
+			array.add(attributeMapper);
+		}
+		
+		Map <String,TypeElement> relatedObjects = new HashMap<String,TypeElement>();
+		getRelatedObjects(relatedObjects,type);
+
+		ArrayList< RelationMapper> relations = new ArrayList<RelationMapper>();
+		for (TypeElement tp : relatedObjects.values()){
+			RelationMapper relationMapper = RepositoryFactory.eINSTANCE.createRelationMapper();
+			relationMapper.setUid(UUID.randomUUID().toString());
+			relationMapper.setTypeRef(tp);
+			
+			relations.add(relationMapper);
+		}
+		
+		
+		Session session = SessionManager.INSTANCE.getSession(model);
+		EditingDomain editingDomain = session.getTransactionalEditingDomain();
+
+		EStructuralFeature feature = RepositoryPackage.eINSTANCE.getObjectMapper_AttributeMappers();
+		Command setCommand = SetCommand.create(editingDomain, model, feature, array);
+		editingDomain.getCommandStack().execute(setCommand);
+		
+		feature = RepositoryPackage.eINSTANCE.getObjectMapper_RelationMappers();
+		setCommand = SetCommand.create(editingDomain, model, feature, relations);
+		editingDomain.getCommandStack().execute(setCommand);
+		
+		
+
+	}
+	
+	
 }

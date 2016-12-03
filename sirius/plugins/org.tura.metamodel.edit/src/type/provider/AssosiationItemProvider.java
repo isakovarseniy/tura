@@ -20,6 +20,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import repository.RepositoryFactory;
 import type.Assosiation;
 import type.TypeFactory;
 import type.TypePackage;
@@ -247,6 +248,16 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 			(createChildParameter
 				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
 				 TypeFactory.eINSTANCE.createReturnValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 RepositoryFactory.eINSTANCE.createObjectMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 RepositoryFactory.eINSTANCE.createRelationMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

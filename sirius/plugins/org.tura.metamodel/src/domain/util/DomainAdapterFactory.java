@@ -96,6 +96,14 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 				return createDomainApplicationAdapter();
 			}
 			@Override
+			public Adapter caseDomainRepositories(DomainRepositories object) {
+				return createDomainRepositoriesAdapter();
+			}
+			@Override
+			public Adapter caseDomainRepository(DomainRepository object) {
+				return createDomainRepositoryAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -210,6 +218,34 @@ public class DomainAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDomainApplicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.DomainRepositories <em>Repositories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.DomainRepositories
+	 * @generated
+	 */
+	public Adapter createDomainRepositoriesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link domain.DomainRepository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see domain.DomainRepository
+	 * @generated
+	 */
+	public Adapter createDomainRepositoryAdapter() {
 		return null;
 	}
 

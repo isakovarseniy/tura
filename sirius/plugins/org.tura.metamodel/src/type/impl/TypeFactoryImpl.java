@@ -77,6 +77,7 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 			case TypePackage.ENUMERATOR: return createEnumerator();
 			case TypePackage.ENUM_ATTRIBUTE: return createEnumAttribute();
 			case TypePackage.METHOD_POINTER: return createMethodPointer();
+			case TypePackage.ATTRIBUTE_POINTER: return createAttributePointer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -310,6 +311,16 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	public MethodPointer createMethodPointer() {
 		MethodPointerImpl methodPointer = new MethodPointerImpl();
 		return methodPointer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AttributePointer createAttributePointer() {
+		AttributePointerImpl attributePointer = new AttributePointerImpl();
+		return attributePointer;
 	}
 
 	/**

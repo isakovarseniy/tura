@@ -63,6 +63,8 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 			case DomainPackage.DOMAIN_TYPES_REPOSITORY: return createDomainTypesRepository();
 			case DomainPackage.DOMAIN_APPLICATIONS: return createDomainApplications();
 			case DomainPackage.DOMAIN_APPLICATION: return createDomainApplication();
+			case DomainPackage.DOMAIN_REPOSITORIES: return createDomainRepositories();
+			case DomainPackage.DOMAIN_REPOSITORY: return createDomainRepository();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +138,26 @@ public class DomainFactoryImpl extends EFactoryImpl implements DomainFactory {
 	public DomainApplication createDomainApplication() {
 		DomainApplicationImpl domainApplication = new DomainApplicationImpl();
 		return domainApplication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DomainRepositories createDomainRepositories() {
+		DomainRepositoriesImpl domainRepositories = new DomainRepositoriesImpl();
+		return domainRepositories;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DomainRepository createDomainRepository() {
+		DomainRepositoryImpl domainRepository = new DomainRepositoryImpl();
+		return domainRepository;
 	}
 
 	/**

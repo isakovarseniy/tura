@@ -104,6 +104,7 @@ public class DomainItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DomainPackage.Literals.DOMAIN__DOMAIN_ARTIFACTS);
 			childrenFeatures.add(DomainPackage.Literals.DOMAIN__DOMAIN_TYPES);
+			childrenFeatures.add(DomainPackage.Literals.DOMAIN__DOMAIN_REPOSITORIES);
 			childrenFeatures.add(DomainPackage.Literals.DOMAIN__DOMAIN_APPLICATIONS);
 		}
 		return childrenFeatures;
@@ -165,6 +166,7 @@ public class DomainItemProvider
 				return;
 			case DomainPackage.DOMAIN__DOMAIN_ARTIFACTS:
 			case DomainPackage.DOMAIN__DOMAIN_TYPES:
+			case DomainPackage.DOMAIN__DOMAIN_REPOSITORIES:
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -192,6 +194,11 @@ public class DomainItemProvider
 			(createChildParameter
 				(DomainPackage.Literals.DOMAIN__DOMAIN_TYPES,
 				 DomainFactory.eINSTANCE.createDomainTypes()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DomainPackage.Literals.DOMAIN__DOMAIN_REPOSITORIES,
+				 DomainFactory.eINSTANCE.createDomainRepositories()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -1,0 +1,46 @@
+@namespace(uri="http://tura.org/2016/v2/repository", prefix="tura.repository")
+package repository;
+
+import "platform:/resource/org.tura.metamodel/model/type.ecore";
+import "platform:/resource/org.tura.metamodel/model/form.ecore";
+
+
+class UnitMapper{
+    id attr EString uid;
+   attr EString name;
+   val Units units;
+   val form.Controls datacontrols;
+}
+
+
+class Units{
+    id attr EString uid;
+    val Unit[*] units;
+}
+
+
+class Unit{
+    id attr EString uid;
+    attr EString name;
+	val ObjectMapper[*]  objectMappers; 
+}
+
+
+class ObjectMapper extends type.TypePointer{
+    id attr EString uid;
+	val AttributeMapper[*] attributeMappers;
+	val RelationMapper[*] relationMappers;
+	
+}
+
+
+class AttributeMapper extends type.AttributePointer{
+	id attr EString uid;
+	ref ObjectMapper objectMapperRef;
+}
+
+class RelationMapper extends type.TypePointer{
+    id attr EString uid;
+	ref ObjectMapper objectMapperRef;
+	
+}

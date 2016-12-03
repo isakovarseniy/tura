@@ -21,9 +21,12 @@ import domain.DomainArtifact;
 import domain.DomainArtifacts;
 import domain.DomainFactory;
 import domain.DomainPackage;
+import domain.DomainRepositories;
+import domain.DomainRepository;
 import domain.DomainTypes;
 import domain.DomainTypesRepository;
 
+import domain.Repository;
 import form.FormPackage;
 
 import form.impl.FormPackageImpl;
@@ -55,6 +58,8 @@ import recipe.RecipePackage;
 
 import recipe.impl.RecipePackageImpl;
 
+import repository.RepositoryPackage;
+import repository.impl.RepositoryPackageImpl;
 import style.StylePackage;
 
 import style.impl.StylePackageImpl;
@@ -120,6 +125,20 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	private EClass domainApplicationEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domainRepositoriesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domainRepositoryEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -169,6 +188,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		ArtifactPackageImpl theArtifactPackage = (ArtifactPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) instanceof ArtifactPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI) : ArtifactPackage.eINSTANCE);
 		TypePackageImpl theTypePackage = (TypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) instanceof TypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) : TypePackage.eINSTANCE);
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI) : ApplicationPackage.eINSTANCE);
+		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		PermissionPackageImpl thePermissionPackage = (PermissionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) instanceof PermissionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PermissionPackage.eNS_URI) : PermissionPackage.eINSTANCE);
 		InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) instanceof InfrastructurePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(InfrastructurePackage.eNS_URI) : InfrastructurePackage.eINSTANCE);
 		MessagePackageImpl theMessagePackage = (MessagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) instanceof MessagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MessagePackage.eNS_URI) : MessagePackage.eINSTANCE);
@@ -183,6 +203,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		theArtifactPackage.createPackageContents();
 		theTypePackage.createPackageContents();
 		theApplicationPackage.createPackageContents();
+		theRepositoryPackage.createPackageContents();
 		thePermissionPackage.createPackageContents();
 		theInfrastructurePackage.createPackageContents();
 		theMessagePackage.createPackageContents();
@@ -197,6 +218,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		theArtifactPackage.initializePackageContents();
 		theTypePackage.initializePackageContents();
 		theApplicationPackage.initializePackageContents();
+		theRepositoryPackage.initializePackageContents();
 		thePermissionPackage.initializePackageContents();
 		theInfrastructurePackage.initializePackageContents();
 		theMessagePackage.initializePackageContents();
@@ -256,8 +278,17 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomain_DomainApplications() {
+	public EReference getDomain_DomainRepositories() {
 		return (EReference)domainEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDomain_DomainApplications() {
+		return (EReference)domainEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -499,6 +530,78 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDomainRepositories() {
+		return domainRepositoriesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDomainRepositories_Uid() {
+		return (EAttribute)domainRepositoriesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDomainRepositories_Name() {
+		return (EAttribute)domainRepositoriesEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDomainRepositories_DomainRepositories() {
+		return (EReference)domainRepositoriesEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDomainRepository() {
+		return domainRepositoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDomainRepository_Uid() {
+		return (EAttribute)domainRepositoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDomainRepository_Name() {
+		return (EAttribute)domainRepositoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDomainRepository_Mappres() {
+		return (EReference)domainRepositoryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DomainFactory getDomainFactory() {
 		return (DomainFactory)getEFactoryInstance();
 	}
@@ -526,6 +629,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(domainEClass, DOMAIN__UID);
 		createEReference(domainEClass, DOMAIN__DOMAIN_ARTIFACTS);
 		createEReference(domainEClass, DOMAIN__DOMAIN_TYPES);
+		createEReference(domainEClass, DOMAIN__DOMAIN_REPOSITORIES);
 		createEReference(domainEClass, DOMAIN__DOMAIN_APPLICATIONS);
 
 		domainArtifactsEClass = createEClass(DOMAIN_ARTIFACTS);
@@ -559,6 +663,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		createEAttribute(domainApplicationEClass, DOMAIN_APPLICATION__UID);
 		createEAttribute(domainApplicationEClass, DOMAIN_APPLICATION__NAME);
 		createEReference(domainApplicationEClass, DOMAIN_APPLICATION__APPLICATION_PACKAGES);
+
+		domainRepositoriesEClass = createEClass(DOMAIN_REPOSITORIES);
+		createEAttribute(domainRepositoriesEClass, DOMAIN_REPOSITORIES__UID);
+		createEAttribute(domainRepositoriesEClass, DOMAIN_REPOSITORIES__NAME);
+		createEReference(domainRepositoriesEClass, DOMAIN_REPOSITORIES__DOMAIN_REPOSITORIES);
+
+		domainRepositoryEClass = createEClass(DOMAIN_REPOSITORY);
+		createEAttribute(domainRepositoryEClass, DOMAIN_REPOSITORY__UID);
+		createEAttribute(domainRepositoryEClass, DOMAIN_REPOSITORY__NAME);
+		createEReference(domainRepositoryEClass, DOMAIN_REPOSITORY__MAPPRES);
 	}
 
 	/**
@@ -588,6 +702,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		ArtifactPackage theArtifactPackage = (ArtifactPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactPackage.eNS_URI);
 		TypePackage theTypePackage = (TypePackage)EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI);
 		ApplicationPackage theApplicationPackage = (ApplicationPackage)EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI);
+		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -600,6 +715,7 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getDomain_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomain_DomainArtifacts(), this.getDomainArtifacts(), null, "domainArtifacts", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomain_DomainTypes(), this.getDomainTypes(), null, "domainTypes", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomain_DomainRepositories(), this.getDomainRepositories(), null, "domainRepositories", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomain_DomainApplications(), this.getDomainApplications(), null, "domainApplications", null, 1, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(domainArtifactsEClass, DomainArtifacts.class, "DomainArtifacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -633,6 +749,16 @@ public class DomainPackageImpl extends EPackageImpl implements DomainPackage {
 		initEAttribute(getDomainApplication_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDomainApplication_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomainApplication_ApplicationPackages(), theApplicationPackage.getApplicationGroup(), null, "applicationPackages", null, 0, -1, DomainApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(domainRepositoriesEClass, DomainRepositories.class, "DomainRepositories", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDomainRepositories_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainRepositories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDomainRepositories_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainRepositories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainRepositories_DomainRepositories(), this.getDomainRepository(), null, "domainRepositories", null, 0, -1, DomainRepositories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(domainRepositoryEClass, DomainRepository.class, "DomainRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDomainRepository_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DomainRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDomainRepository_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainRepository_Mappres(), theRepositoryPackage.getUnitMapper(), null, "mappres", null, 0, -1, DomainRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

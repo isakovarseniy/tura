@@ -113,3 +113,8 @@ class EnumAttribute extends  artifact.Categorized{
 class MethodPointer {
     ref Operation methodRef;
 }	
+
+class AttributePointer {
+    ref Attribute attributeRef;
+}	
+
