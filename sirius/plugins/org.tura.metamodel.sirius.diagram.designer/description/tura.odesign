@@ -4750,7 +4750,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="repository.ObjectMapper" referenceName="objectMappers">
                 <subModelOperations xsi:type="tool:SetValue" featureName="typeRef" valueExpression="aql:element.attributeRef.typeRef"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUIDForObjectMapper"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                   <subModelOperations xsi:type="tool:SetValue" featureName="objectMapperRef" valueExpression="var:instance"/>
                 </subModelOperations>
@@ -4765,7 +4765,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="repository.ObjectMapper" referenceName="objectMappers">
                 <subModelOperations xsi:type="tool:SetValue" featureName="typeRef" valueExpression="aql:element.typeRef"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUIDForObjectMapper"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                   <subModelOperations xsi:type="tool:SetValue" featureName="objectMapperRef" valueExpression="var:instance"/>
                 </subModelOperations>

@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
+import org.tura.metamodel.commons.Helper;
 import org.tura.metamodel.commons.QueryHelper;
 import org.tura.metamodel.sirius.properties.actions.ConfigHashVarDialog;
 import org.tura.metamodel.sirius.properties.actions.ConfigVarDialog;
@@ -628,5 +629,8 @@ public class DiagramService {
 		return new QueryHelper().findObjectMapperForRelation(objectMapper);
 	}
 	
-	
+	public String generateUIDForObjectMapper(ObjectMapper objectMapper){
+		new Helper().populateObjectMapper(objectMapper, objectMapper);
+		return generateUID(objectMapper);
+	}
 }

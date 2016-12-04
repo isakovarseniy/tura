@@ -5,6 +5,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IFilter;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
+import org.tura.metamodel.commons.QueryHelper;
 
 import repository.ObjectMapper;
 
@@ -19,7 +20,17 @@ public class ObjectMapperSectionFilter implements IFilter {
 			EObject element = obj.getTarget();
 
 			if (element instanceof ObjectMapper )  {
-				return true;
+				
+				ObjectMapper mapper = new QueryHelper().findObjectMapperForRelation((ObjectMapper) element);
+				if (mapper == null){
+					 mapper = new QueryHelper().findObjectMapperForAttribute((ObjectMapper) element);
+					 if (mapper == null){
+						 return true;
+					 }
+					return false;
+				}
+				
+				return false;
 			}
 		}
 		return false;
