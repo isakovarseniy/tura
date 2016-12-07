@@ -1183,7 +1183,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTrigger()
 	 * @generated
 	 */
-	int TRIGGER = 65;
+	int TRIGGER = 66;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -2096,6 +2096,61 @@ public interface FormPackage extends EPackage {
 	int FORMATABLE_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link form.impl.ControlPointerImpl <em>Control Pointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.ControlPointerImpl
+	 * @see form.impl.FormPackageImpl#getControlPointer()
+	 * @generated
+	 */
+	int CONTROL_POINTER = 36;
+
+	/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_POINTER__SOURCE_POINTER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_POINTER__VALUE_POINTER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_POINTER__SOURCE_CAST = 2;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_POINTER__SOURCE_CAST_DATA_CONTROL = 3;
+
+	/**
+	 * The number of structural features of the '<em>Control Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_POINTER_FEATURE_COUNT = 4;
+
+	/**
 	 * The meta object id for the '{@link form.impl.SourcesPointerImpl <em>Sources Pointer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2103,7 +2158,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSourcesPointer()
 	 * @generated
 	 */
-	int SOURCES_POINTER = 36;
+	int SOURCES_POINTER = 37;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2257,7 +2312,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInputElement()
 	 * @generated
 	 */
-	int INPUT_ELEMENT = 37;
+	int INPUT_ELEMENT = 38;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2411,7 +2466,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSelection()
 	 * @generated
 	 */
-	int SELECTION = 38;
+	int SELECTION = 39;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2457,7 +2512,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOptionSelection()
 	 * @generated
 	 */
-	int OPTION_SELECTION = 39;
+	int OPTION_SELECTION = 40;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2638,7 +2693,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLayerHolder()
 	 * @generated
 	 */
-	int LAYER_HOLDER = 40;
+	int LAYER_HOLDER = 41;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2774,7 +2829,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInputText()
 	 * @generated
 	 */
-	int INPUT_TEXT = 41;
+	int INPUT_TEXT = 42;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -2937,7 +2992,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPassword()
 	 * @generated
 	 */
-	int PASSWORD = 42;
+	int PASSWORD = 43;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3100,7 +3155,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 43;
+	int LABEL = 44;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3236,7 +3291,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMessageElement()
 	 * @generated
 	 */
-	int MESSAGE_ELEMENT = 44;
+	int MESSAGE_ELEMENT = 45;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3372,7 +3427,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOutputText()
 	 * @generated
 	 */
-	int OUTPUT_TEXT = 45;
+	int OUTPUT_TEXT = 46;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3535,7 +3590,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCheckBox()
 	 * @generated
 	 */
-	int CHECK_BOX = 46;
+	int CHECK_BOX = 47;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3689,7 +3744,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDropDownSelection()
 	 * @generated
 	 */
-	int DROP_DOWN_SELECTION = 47;
+	int DROP_DOWN_SELECTION = 48;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -3897,7 +3952,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getImage()
 	 * @generated
 	 */
-	int IMAGE = 48;
+	int IMAGE = 49;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4051,7 +4106,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 49;
+	int DATE = 50;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4214,7 +4269,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getButton()
 	 * @generated
 	 */
-	int BUTTON = 50;
+	int BUTTON = 51;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4359,7 +4414,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getColumn()
 	 * @generated
 	 */
-	int COLUMN = 51;
+	int COLUMN = 52;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4450,7 +4505,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 52;
+	int TABLE = 53;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4649,7 +4704,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenu()
 	 * @generated
 	 */
-	int MENU = 53;
+	int MENU = 54;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -4767,7 +4822,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuHolder()
 	 * @generated
 	 */
-	int MENU_HOLDER = 54;
+	int MENU_HOLDER = 55;
 
 	/**
 	 * The feature id for the '<em><b>Menu</b></em>' reference.
@@ -4795,7 +4850,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuExtensionRef()
 	 * @generated
 	 */
-	int MENU_EXTENSION_REF = 55;
+	int MENU_EXTENSION_REF = 56;
 
 	/**
 	 * The feature id for the '<em><b>Extension Ref</b></em>' reference.
@@ -4823,7 +4878,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuElement()
 	 * @generated
 	 */
-	int MENU_ELEMENT = 56;
+	int MENU_ELEMENT = 57;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -4914,7 +4969,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuFolder()
 	 * @generated
 	 */
-	int MENU_FOLDER = 57;
+	int MENU_FOLDER = 58;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -5032,7 +5087,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuItem()
 	 * @generated
 	 */
-	int MENU_ITEM = 58;
+	int MENU_ITEM = 59;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5150,7 +5205,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuExtensionPoint()
 	 * @generated
 	 */
-	int MENU_EXTENSION_POINT = 59;
+	int MENU_EXTENSION_POINT = 60;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5250,7 +5305,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSubMenu()
 	 * @generated
 	 */
-	int SUB_MENU = 60;
+	int SUB_MENU = 61;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5350,7 +5405,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getToSubmenu()
 	 * @generated
 	 */
-	int TO_SUBMENU = 61;
+	int TO_SUBMENU = 62;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5396,7 +5451,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getMenuSeparator()
 	 * @generated
 	 */
-	int MENU_SEPARATOR = 62;
+	int MENU_SEPARATOR = 63;
 
 	/**
 	 * The feature id for the '<em><b>Multi Lang Label</b></em>' containment reference.
@@ -5487,7 +5542,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 63;
+	int TREE = 64;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -5677,7 +5732,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getControls()
 	 * @generated
 	 */
-	int CONTROLS = 64;
+	int CONTROLS = 65;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -5741,7 +5796,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREFormTrigger()
 	 * @generated
 	 */
-	int PRE_FORM_TRIGGER = 66;
+	int PRE_FORM_TRIGGER = 67;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -5787,7 +5842,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREQueryTrigger()
 	 * @generated
 	 */
-	int PRE_QUERY_TRIGGER = 67;
+	int PRE_QUERY_TRIGGER = 68;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -5833,7 +5888,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTQueryTrigger()
 	 * @generated
 	 */
-	int POST_QUERY_TRIGGER = 68;
+	int POST_QUERY_TRIGGER = 69;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -5879,7 +5934,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREInsertTrigger()
 	 * @generated
 	 */
-	int PRE_INSERT_TRIGGER = 69;
+	int PRE_INSERT_TRIGGER = 70;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -5925,7 +5980,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREDeleteTrigger()
 	 * @generated
 	 */
-	int PRE_DELETE_TRIGGER = 70;
+	int PRE_DELETE_TRIGGER = 71;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -5971,7 +6026,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPOSTCreateTrigger()
 	 * @generated
 	 */
-	int POST_CREATE_TRIGGER = 71;
+	int POST_CREATE_TRIGGER = 72;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6017,7 +6072,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getPREUpdateTrigger()
 	 * @generated
 	 */
-	int PRE_UPDATE_TRIGGER = 72;
+	int PRE_UPDATE_TRIGGER = 73;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6063,7 +6118,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getProxiesList()
 	 * @generated
 	 */
-	int PROXIES_LIST = 73;
+	int PROXIES_LIST = 74;
 
 	/**
 	 * The feature id for the '<em><b>Type Pointers</b></em>' containment reference list.
@@ -6091,7 +6146,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCreateTrigger()
 	 * @generated
 	 */
-	int CREATE_TRIGGER = 74;
+	int CREATE_TRIGGER = 75;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6146,7 +6201,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInsertTrigger()
 	 * @generated
 	 */
-	int INSERT_TRIGGER = 75;
+	int INSERT_TRIGGER = 76;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6201,7 +6256,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getUpdateTrigger()
 	 * @generated
 	 */
-	int UPDATE_TRIGGER = 76;
+	int UPDATE_TRIGGER = 77;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6256,7 +6311,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDeleteTrigger()
 	 * @generated
 	 */
-	int DELETE_TRIGGER = 77;
+	int DELETE_TRIGGER = 78;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6311,7 +6366,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSearchTrigger()
 	 * @generated
 	 */
-	int SEARCH_TRIGGER = 78;
+	int SEARCH_TRIGGER = 79;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6366,7 +6421,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRoot()
 	 * @generated
 	 */
-	int ROOT = 79;
+	int ROOT = 80;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6421,7 +6476,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFormVariable()
 	 * @generated
 	 */
-	int FORM_VARIABLE = 80;
+	int FORM_VARIABLE = 81;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -6476,7 +6531,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataControl()
 	 * @generated
 	 */
-	int DATA_CONTROL = 81;
+	int DATA_CONTROL = 82;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6648,7 +6703,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 82;
+	int ORDERS = 83;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6685,7 +6740,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 83;
+	int ORDER_BY = 84;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6731,7 +6786,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 84;
+	int RELATION = 85;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6804,7 +6859,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 85;
+	int DEPENDENCY = 86;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6859,7 +6914,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 86;
+	int ARTIFICIAL_FIELD = 87;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -6905,7 +6960,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 87;
+	int COMPARATOR = 88;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -6915,7 +6970,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 88;
+	int ORDER = 89;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -6925,7 +6980,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 89;
+	int ORIENTATION = 90;
 
 
 	/**
@@ -8070,6 +8125,60 @@ public interface FormPackage extends EPackage {
 	EAttribute getFormatable_Format();
 
 	/**
+	 * Returns the meta object for class '{@link form.ControlPointer <em>Control Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Control Pointer</em>'.
+	 * @see form.ControlPointer
+	 * @generated
+	 */
+	EClass getControlPointer();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.ControlPointer#getSourcePointer <em>Source Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Pointer</em>'.
+	 * @see form.ControlPointer#getSourcePointer()
+	 * @see #getControlPointer()
+	 * @generated
+	 */
+	EReference getControlPointer_SourcePointer();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.ControlPointer#getValuePointer <em>Value Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value Pointer</em>'.
+	 * @see form.ControlPointer#getValuePointer()
+	 * @see #getControlPointer()
+	 * @generated
+	 */
+	EReference getControlPointer_ValuePointer();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.ControlPointer#getSourceCast <em>Source Cast</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Cast</em>'.
+	 * @see form.ControlPointer#getSourceCast()
+	 * @see #getControlPointer()
+	 * @generated
+	 */
+	EReference getControlPointer_SourceCast();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.ControlPointer#getSourceCastDataControl <em>Source Cast Data Control</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Cast Data Control</em>'.
+	 * @see form.ControlPointer#getSourceCastDataControl()
+	 * @see #getControlPointer()
+	 * @generated
+	 */
+	EReference getControlPointer_SourceCastDataControl();
+
+	/**
 	 * Returns the meta object for class '{@link form.SourcesPointer <em>Sources Pointer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8078,50 +8187,6 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSourcesPointer();
-
-	/**
-	 * Returns the meta object for the reference '{@link form.SourcesPointer#getSourcePointer <em>Source Pointer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source Pointer</em>'.
-	 * @see form.SourcesPointer#getSourcePointer()
-	 * @see #getSourcesPointer()
-	 * @generated
-	 */
-	EReference getSourcesPointer_SourcePointer();
-
-	/**
-	 * Returns the meta object for the reference '{@link form.SourcesPointer#getValuePointer <em>Value Pointer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Value Pointer</em>'.
-	 * @see form.SourcesPointer#getValuePointer()
-	 * @see #getSourcesPointer()
-	 * @generated
-	 */
-	EReference getSourcesPointer_ValuePointer();
-
-	/**
-	 * Returns the meta object for the reference '{@link form.SourcesPointer#getSourceCast <em>Source Cast</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source Cast</em>'.
-	 * @see form.SourcesPointer#getSourceCast()
-	 * @see #getSourcesPointer()
-	 * @generated
-	 */
-	EReference getSourcesPointer_SourceCast();
-
-	/**
-	 * Returns the meta object for the reference '{@link form.SourcesPointer#getSourceCastDataControl <em>Source Cast Data Control</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source Cast Data Control</em>'.
-	 * @see form.SourcesPointer#getSourceCastDataControl()
-	 * @see #getSourcesPointer()
-	 * @generated
-	 */
-	EReference getSourcesPointer_SourceCastDataControl();
 
 	/**
 	 * Returns the meta object for class '{@link form.InputElement <em>Input Element</em>}'.
@@ -10616,6 +10681,48 @@ public interface FormPackage extends EPackage {
 		EAttribute FORMATABLE__FORMAT = eINSTANCE.getFormatable_Format();
 
 		/**
+		 * The meta object literal for the '{@link form.impl.ControlPointerImpl <em>Control Pointer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.ControlPointerImpl
+		 * @see form.impl.FormPackageImpl#getControlPointer()
+		 * @generated
+		 */
+		EClass CONTROL_POINTER = eINSTANCE.getControlPointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Pointer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_POINTER__SOURCE_POINTER = eINSTANCE.getControlPointer_SourcePointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Pointer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_POINTER__VALUE_POINTER = eINSTANCE.getControlPointer_ValuePointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Cast</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_POINTER__SOURCE_CAST = eINSTANCE.getControlPointer_SourceCast();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Cast Data Control</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_POINTER__SOURCE_CAST_DATA_CONTROL = eINSTANCE.getControlPointer_SourceCastDataControl();
+
+		/**
 		 * The meta object literal for the '{@link form.impl.SourcesPointerImpl <em>Sources Pointer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10624,38 +10731,6 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOURCES_POINTER = eINSTANCE.getSourcesPointer();
-
-		/**
-		 * The meta object literal for the '<em><b>Source Pointer</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOURCES_POINTER__SOURCE_POINTER = eINSTANCE.getSourcesPointer_SourcePointer();
-
-		/**
-		 * The meta object literal for the '<em><b>Value Pointer</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOURCES_POINTER__VALUE_POINTER = eINSTANCE.getSourcesPointer_ValuePointer();
-
-		/**
-		 * The meta object literal for the '<em><b>Source Cast</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOURCES_POINTER__SOURCE_CAST = eINSTANCE.getSourcesPointer_SourceCast();
-
-		/**
-		 * The meta object literal for the '<em><b>Source Cast Data Control</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL = eINSTANCE.getSourcesPointer_SourceCastDataControl();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.InputElementImpl <em>Input Element</em>}' class.

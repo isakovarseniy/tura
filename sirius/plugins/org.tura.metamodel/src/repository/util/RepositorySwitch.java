@@ -2,6 +2,7 @@
  */
 package repository.util;
 
+import form.ControlPointer;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -91,6 +92,7 @@ public class RepositorySwitch<T> extends Switch<T> {
 				ObjectMapper objectMapper = (ObjectMapper)theEObject;
 				T result = caseObjectMapper(objectMapper);
 				if (result == null) result = caseTypePointer(objectMapper);
+				if (result == null) result = caseControlPointer(objectMapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,6 +100,7 @@ public class RepositorySwitch<T> extends Switch<T> {
 				AttributeMapper attributeMapper = (AttributeMapper)theEObject;
 				T result = caseAttributeMapper(attributeMapper);
 				if (result == null) result = caseAttributePointer(attributeMapper);
+				if (result == null) result = caseControlPointer(attributeMapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -214,6 +217,21 @@ public class RepositorySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypePointer(TypePointer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Control Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Control Pointer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControlPointer(ControlPointer object) {
 		return null;
 	}
 

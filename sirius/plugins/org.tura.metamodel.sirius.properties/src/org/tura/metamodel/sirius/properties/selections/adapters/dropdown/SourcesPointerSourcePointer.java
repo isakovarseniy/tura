@@ -23,9 +23,9 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeData
 import org.tura.metamodel.sirius.properties.selections.AbstractTuraPropertySection;
 import org.tura.metamodel.sirius.properties.selections.DropDownDataAdapter;
 
+import form.ControlPointer;
 import form.DataControl;
 import form.FormPackage;
-import form.SourcesPointer;
 
 public class SourcesPointerSourcePointer implements DropDownDataAdapter {
 
@@ -37,14 +37,14 @@ public class SourcesPointerSourcePointer implements DropDownDataAdapter {
 
 	@Override
 	public EStructuralFeature[] getFeature() {
-		return new EStructuralFeature[] { FormPackage.eINSTANCE.getSourcesPointer_SourcePointer() };
+		return new EStructuralFeature[] { FormPackage.eINSTANCE.getControlPointer_SourcePointer() };
 	}
 
 	@Override
 	public String getFeatureAsText(Object eObject) {
-		if (((SourcesPointer) eObject).getSourcePointer() != null) {
+		if (((ControlPointer) eObject).getSourcePointer() != null) {
 			DiagramImpl root = (DiagramImpl) property.getEditPart().getRoot().getContents().getModel();
-			DataControl dc = ((SourcesPointer) eObject).getSourcePointer();
+			DataControl dc = ((ControlPointer) eObject).getSourcePointer();
 			try {
 				Object obj;
 				if (Util.ifDataControlIsTreeRoot(dc, root)) {
@@ -66,7 +66,7 @@ public class SourcesPointerSourcePointer implements DropDownDataAdapter {
 	@Override
 	public Object getSelectedFeatureValue(Object eObject, Map<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
-		if (feature.equals(FormPackage.eINSTANCE.getSourcesPointer_SourcePointer()))
+		if (feature.equals(FormPackage.eINSTANCE.getControlPointer_SourcePointer()))
 			return values.get(obj[0]);
 
 		return null;
@@ -74,13 +74,13 @@ public class SourcesPointerSourcePointer implements DropDownDataAdapter {
 
 	@Override
 	public boolean isEqual(Map<String, Object> values, Object key, Object eObject) {
-		if (((SourcesPointer) eObject).getSourcePointer() == null)
+		if (((ControlPointer) eObject).getSourcePointer() == null)
 			return false;
 
-		if (((SourcesPointer) eObject).getSourcePointer().getName() == null)
+		if (((ControlPointer) eObject).getSourcePointer().getName() == null)
 			return false;
 
-		return values.get(key).equals(((SourcesPointer) eObject).getSourcePointer().getName());
+		return values.get(key).equals(((ControlPointer) eObject).getSourcePointer().getName());
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {

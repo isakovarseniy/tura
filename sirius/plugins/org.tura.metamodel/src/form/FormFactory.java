@@ -346,6 +346,15 @@ public interface FormFactory extends EFactory {
 	Formatable createFormatable();
 
 	/**
+	 * Returns a new object of class '<em>Control Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Control Pointer</em>'.
+	 * @generated
+	 */
+	ControlPointer createControlPointer();
+
+	/**
 	 * Returns a new object of class '<em>Sources Pointer</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

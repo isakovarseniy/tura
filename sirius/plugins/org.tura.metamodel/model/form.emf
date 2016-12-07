@@ -231,12 +231,16 @@ class Formatable{
 }
 
 
-class SourcesPointer extends Uielement{
+class ControlPointer{
    ref DataControl sourcePointer;
    ref EObject valuePointer;
    ref type.Type sourceCast;
    // to support tree structure
-   ref DataControl sourceCastDataControl;
+   ref DataControl sourceCastDataControl;	
+}
+
+class SourcesPointer extends Uielement,ControlPointer{
+
 }
 
 

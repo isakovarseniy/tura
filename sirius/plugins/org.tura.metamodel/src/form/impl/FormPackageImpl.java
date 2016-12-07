@@ -31,6 +31,7 @@ import form.Context;
 import form.ContextParameter;
 import form.ContextParameters;
 import form.ContextValue;
+import form.ControlPointer;
 import form.Controls;
 import form.CreateTrigger;
 import form.DataControl;
@@ -407,6 +408,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass formatableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass controlPointerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1853,44 +1861,53 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getControlPointer() {
+		return controlPointerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControlPointer_SourcePointer() {
+		return (EReference)controlPointerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControlPointer_ValuePointer() {
+		return (EReference)controlPointerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControlPointer_SourceCast() {
+		return (EReference)controlPointerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControlPointer_SourceCastDataControl() {
+		return (EReference)controlPointerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSourcesPointer() {
 		return sourcesPointerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSourcesPointer_SourcePointer() {
-		return (EReference)sourcesPointerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSourcesPointer_ValuePointer() {
-		return (EReference)sourcesPointerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSourcesPointer_SourceCast() {
-		return (EReference)sourcesPointerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSourcesPointer_SourceCastDataControl() {
-		return (EReference)sourcesPointerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3369,11 +3386,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		formatableEClass = createEClass(FORMATABLE);
 		createEAttribute(formatableEClass, FORMATABLE__FORMAT);
 
+		controlPointerEClass = createEClass(CONTROL_POINTER);
+		createEReference(controlPointerEClass, CONTROL_POINTER__SOURCE_POINTER);
+		createEReference(controlPointerEClass, CONTROL_POINTER__VALUE_POINTER);
+		createEReference(controlPointerEClass, CONTROL_POINTER__SOURCE_CAST);
+		createEReference(controlPointerEClass, CONTROL_POINTER__SOURCE_CAST_DATA_CONTROL);
+
 		sourcesPointerEClass = createEClass(SOURCES_POINTER);
-		createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_POINTER);
-		createEReference(sourcesPointerEClass, SOURCES_POINTER__VALUE_POINTER);
-		createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_CAST);
-		createEReference(sourcesPointerEClass, SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL);
 
 		inputElementEClass = createEClass(INPUT_ELEMENT);
 
@@ -3657,6 +3676,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		uielementEClass.getESuperTypes().add(this.getFlexFields());
 		uielementEClass.getESuperTypes().add(this.getMenuHolder());
 		sourcesPointerEClass.getESuperTypes().add(this.getUielement());
+		sourcesPointerEClass.getESuperTypes().add(this.getControlPointer());
 		inputElementEClass.getESuperTypes().add(this.getSourcesPointer());
 		selectionEClass.getESuperTypes().add(this.getStyleElement());
 		optionSelectionEClass.getESuperTypes().add(this.getInputElement());
@@ -3879,11 +3899,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEClass(formatableEClass, Formatable.class, "Formatable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFormatable_Format(), ecorePackage.getEString(), "format", null, 0, 1, Formatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(controlPointerEClass, ControlPointer.class, "ControlPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getControlPointer_SourcePointer(), this.getDataControl(), null, "sourcePointer", null, 0, 1, ControlPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControlPointer_ValuePointer(), ecorePackage.getEObject(), null, "valuePointer", null, 0, 1, ControlPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControlPointer_SourceCast(), theTypePackage.getType(), null, "sourceCast", null, 0, 1, ControlPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControlPointer_SourceCastDataControl(), this.getDataControl(), null, "sourceCastDataControl", null, 0, 1, ControlPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(sourcesPointerEClass, SourcesPointer.class, "SourcesPointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSourcesPointer_SourcePointer(), this.getDataControl(), null, "sourcePointer", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSourcesPointer_ValuePointer(), ecorePackage.getEObject(), null, "valuePointer", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSourcesPointer_SourceCast(), theTypePackage.getType(), null, "sourceCast", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSourcesPointer_SourceCastDataControl(), this.getDataControl(), null, "sourceCastDataControl", null, 0, 1, SourcesPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputElementEClass, InputElement.class, "InputElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

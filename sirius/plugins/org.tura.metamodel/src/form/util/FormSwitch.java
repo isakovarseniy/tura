@@ -360,10 +360,17 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FormPackage.CONTROL_POINTER: {
+				ControlPointer controlPointer = (ControlPointer)theEObject;
+				T result = caseControlPointer(controlPointer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FormPackage.SOURCES_POINTER: {
 				SourcesPointer sourcesPointer = (SourcesPointer)theEObject;
 				T result = caseSourcesPointer(sourcesPointer);
 				if (result == null) result = caseUielement(sourcesPointer);
+				if (result == null) result = caseControlPointer(sourcesPointer);
 				if (result == null) result = caseStyleElement(sourcesPointer);
 				if (result == null) result = caseNickNamed(sourcesPointer);
 				if (result == null) result = caseCategorized(sourcesPointer);
@@ -379,6 +386,7 @@ public class FormSwitch<T> extends Switch<T> {
 				T result = caseInputElement(inputElement);
 				if (result == null) result = caseSourcesPointer(inputElement);
 				if (result == null) result = caseUielement(inputElement);
+				if (result == null) result = caseControlPointer(inputElement);
 				if (result == null) result = caseStyleElement(inputElement);
 				if (result == null) result = caseNickNamed(inputElement);
 				if (result == null) result = caseCategorized(inputElement);
@@ -402,6 +410,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInputElement(optionSelection);
 				if (result == null) result = caseSourcesPointer(optionSelection);
 				if (result == null) result = caseUielement(optionSelection);
+				if (result == null) result = caseControlPointer(optionSelection);
 				if (result == null) result = caseStyleElement(optionSelection);
 				if (result == null) result = caseNickNamed(optionSelection);
 				if (result == null) result = caseCategorized(optionSelection);
@@ -435,6 +444,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseFormatable(inputText);
 				if (result == null) result = caseSourcesPointer(inputText);
 				if (result == null) result = caseUielement(inputText);
+				if (result == null) result = caseControlPointer(inputText);
 				if (result == null) result = caseStyleElement(inputText);
 				if (result == null) result = caseNickNamed(inputText);
 				if (result == null) result = caseCategorized(inputText);
@@ -452,6 +462,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseFormatable(password);
 				if (result == null) result = caseSourcesPointer(password);
 				if (result == null) result = caseUielement(password);
+				if (result == null) result = caseControlPointer(password);
 				if (result == null) result = caseStyleElement(password);
 				if (result == null) result = caseNickNamed(password);
 				if (result == null) result = caseCategorized(password);
@@ -499,6 +510,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseFormatable(outputText);
 				if (result == null) result = caseSourcesPointer(outputText);
 				if (result == null) result = caseUielement(outputText);
+				if (result == null) result = caseControlPointer(outputText);
 				if (result == null) result = caseStyleElement(outputText);
 				if (result == null) result = caseNickNamed(outputText);
 				if (result == null) result = caseCategorized(outputText);
@@ -515,6 +527,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInputElement(checkBox);
 				if (result == null) result = caseSourcesPointer(checkBox);
 				if (result == null) result = caseUielement(checkBox);
+				if (result == null) result = caseControlPointer(checkBox);
 				if (result == null) result = caseStyleElement(checkBox);
 				if (result == null) result = caseNickNamed(checkBox);
 				if (result == null) result = caseCategorized(checkBox);
@@ -532,6 +545,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInputElement(dropDownSelection);
 				if (result == null) result = caseSourcesPointer(dropDownSelection);
 				if (result == null) result = caseUielement(dropDownSelection);
+				if (result == null) result = caseControlPointer(dropDownSelection);
 				if (result == null) result = caseStyleElement(dropDownSelection);
 				if (result == null) result = caseNickNamed(dropDownSelection);
 				if (result == null) result = caseCategorized(dropDownSelection);
@@ -548,6 +562,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInputElement(image);
 				if (result == null) result = caseSourcesPointer(image);
 				if (result == null) result = caseUielement(image);
+				if (result == null) result = caseControlPointer(image);
 				if (result == null) result = caseStyleElement(image);
 				if (result == null) result = caseNickNamed(image);
 				if (result == null) result = caseCategorized(image);
@@ -565,6 +580,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseFormatable(date);
 				if (result == null) result = caseSourcesPointer(date);
 				if (result == null) result = caseUielement(date);
+				if (result == null) result = caseControlPointer(date);
 				if (result == null) result = caseStyleElement(date);
 				if (result == null) result = caseNickNamed(date);
 				if (result == null) result = caseCategorized(date);
@@ -609,6 +625,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMultiLangLabel(table);
 				if (result == null) result = caseHTMLLayerHolder(table);
 				if (result == null) result = caseUielement(table);
+				if (result == null) result = caseControlPointer(table);
 				if (result == null) result = caseStyleElement(table);
 				if (result == null) result = caseNickNamed(table);
 				if (result == null) result = caseCategorized(table);
@@ -737,6 +754,7 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSourcesPointer(tree);
 				if (result == null) result = caseMultiLangLabel(tree);
 				if (result == null) result = caseUielement(tree);
+				if (result == null) result = caseControlPointer(tree);
 				if (result == null) result = caseStyleElement(tree);
 				if (result == null) result = caseNickNamed(tree);
 				if (result == null) result = caseCategorized(tree);
@@ -1486,6 +1504,21 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFormatable(Formatable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Control Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Control Pointer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControlPointer(ControlPointer object) {
 		return null;
 	}
 

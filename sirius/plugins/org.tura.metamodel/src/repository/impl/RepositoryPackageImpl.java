@@ -502,7 +502,9 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
 		// Add supertypes to classes
 		objectMapperEClass.getESuperTypes().add(theTypePackage.getTypePointer());
+		objectMapperEClass.getESuperTypes().add(theFormPackage.getControlPointer());
 		attributeMapperEClass.getESuperTypes().add(theTypePackage.getAttributePointer());
+		attributeMapperEClass.getESuperTypes().add(theFormPackage.getControlPointer());
 		relationMapperEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 
 		// Initialize classes and features; add operations and parameters

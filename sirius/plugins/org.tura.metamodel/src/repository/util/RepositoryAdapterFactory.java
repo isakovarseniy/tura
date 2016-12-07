@@ -2,6 +2,7 @@
  */
 package repository.util;
 
+import form.ControlPointer;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -97,6 +98,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTypePointer(TypePointer object) {
 				return createTypePointerAdapter();
+			}
+			@Override
+			public Adapter caseControlPointer(ControlPointer object) {
+				return createControlPointerAdapter();
 			}
 			@Override
 			public Adapter caseAttributePointer(AttributePointer object) {
@@ -217,6 +222,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypePointerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.ControlPointer <em>Control Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.ControlPointer
+	 * @generated
+	 */
+	public Adapter createControlPointerAdapter() {
 		return null;
 	}
 

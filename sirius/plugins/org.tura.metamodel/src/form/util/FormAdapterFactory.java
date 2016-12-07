@@ -222,6 +222,10 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createFormatableAdapter();
 			}
 			@Override
+			public Adapter caseControlPointer(ControlPointer object) {
+				return createControlPointerAdapter();
+			}
+			@Override
 			public Adapter caseSourcesPointer(SourcesPointer object) {
 				return createSourcesPointerAdapter();
 			}
@@ -984,6 +988,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFormatableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.ControlPointer <em>Control Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.ControlPointer
+	 * @generated
+	 */
+	public Adapter createControlPointerAdapter() {
 		return null;
 	}
 

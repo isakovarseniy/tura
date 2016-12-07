@@ -215,13 +215,49 @@ public interface RepositoryPackage extends EPackage {
 	int OBJECT_MAPPER__TYPE_REF = TypePackage.TYPE_POINTER__TYPE_REF;
 
 	/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_MAPPER__SOURCE_POINTER = TypePackage.TYPE_POINTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_MAPPER__VALUE_POINTER = TypePackage.TYPE_POINTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_MAPPER__SOURCE_CAST = TypePackage.TYPE_POINTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_MAPPER__SOURCE_CAST_DATA_CONTROL = TypePackage.TYPE_POINTER_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__UID = TypePackage.TYPE_POINTER_FEATURE_COUNT + 0;
+	int OBJECT_MAPPER__UID = TypePackage.TYPE_POINTER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Attribute Mappers</b></em>' containment reference list.
@@ -230,7 +266,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__ATTRIBUTE_MAPPERS = TypePackage.TYPE_POINTER_FEATURE_COUNT + 1;
+	int OBJECT_MAPPER__ATTRIBUTE_MAPPERS = TypePackage.TYPE_POINTER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Relation Mappers</b></em>' containment reference list.
@@ -239,7 +275,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER__RELATION_MAPPERS = TypePackage.TYPE_POINTER_FEATURE_COUNT + 2;
+	int OBJECT_MAPPER__RELATION_MAPPERS = TypePackage.TYPE_POINTER_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Object Mapper</em>' class.
@@ -248,7 +284,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_MAPPER_FEATURE_COUNT = TypePackage.TYPE_POINTER_FEATURE_COUNT + 3;
+	int OBJECT_MAPPER_FEATURE_COUNT = TypePackage.TYPE_POINTER_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link repository.impl.AttributeMapperImpl <em>Attribute Mapper</em>}' class.
@@ -270,13 +306,49 @@ public interface RepositoryPackage extends EPackage {
 	int ATTRIBUTE_MAPPER__ATTRIBUTE_REF = TypePackage.ATTRIBUTE_POINTER__ATTRIBUTE_REF;
 
 	/**
+	 * The feature id for the '<em><b>Source Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_MAPPER__SOURCE_POINTER = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value Pointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_MAPPER__VALUE_POINTER = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_MAPPER__SOURCE_CAST = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Source Cast Data Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_MAPPER__SOURCE_CAST_DATA_CONTROL = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_MAPPER__UID = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 0;
+	int ATTRIBUTE_MAPPER__UID = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Object Mapper Ref</b></em>' reference.
@@ -285,7 +357,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_MAPPER__OBJECT_MAPPER_REF = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 1;
+	int ATTRIBUTE_MAPPER__OBJECT_MAPPER_REF = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Attribute Mapper</em>' class.
@@ -294,7 +366,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_MAPPER_FEATURE_COUNT = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 2;
+	int ATTRIBUTE_MAPPER_FEATURE_COUNT = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 6;
 
 
 	/**

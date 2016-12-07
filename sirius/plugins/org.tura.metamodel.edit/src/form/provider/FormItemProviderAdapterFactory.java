@@ -899,6 +899,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.ControlPointer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ControlPointerItemProvider controlPointerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.ControlPointer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createControlPointerAdapter() {
+		if (controlPointerItemProvider == null) {
+			controlPointerItemProvider = new ControlPointerItemProvider(this);
+		}
+
+		return controlPointerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.SourcesPointer} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

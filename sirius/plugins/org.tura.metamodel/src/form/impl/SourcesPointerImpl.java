@@ -2,6 +2,7 @@
  */
 package form.impl;
 
+import form.ControlPointer;
 import form.DataControl;
 import form.FormPackage;
 import form.SourcesPointer;
@@ -334,6 +335,44 @@ public class SourcesPointerImpl extends UielementImpl implements SourcesPointer 
 				return sourceCastDataControl != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ControlPointer.class) {
+			switch (derivedFeatureID) {
+				case FormPackage.SOURCES_POINTER__SOURCE_POINTER: return FormPackage.CONTROL_POINTER__SOURCE_POINTER;
+				case FormPackage.SOURCES_POINTER__VALUE_POINTER: return FormPackage.CONTROL_POINTER__VALUE_POINTER;
+				case FormPackage.SOURCES_POINTER__SOURCE_CAST: return FormPackage.CONTROL_POINTER__SOURCE_CAST;
+				case FormPackage.SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL: return FormPackage.CONTROL_POINTER__SOURCE_CAST_DATA_CONTROL;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ControlPointer.class) {
+			switch (baseFeatureID) {
+				case FormPackage.CONTROL_POINTER__SOURCE_POINTER: return FormPackage.SOURCES_POINTER__SOURCE_POINTER;
+				case FormPackage.CONTROL_POINTER__VALUE_POINTER: return FormPackage.SOURCES_POINTER__VALUE_POINTER;
+				case FormPackage.CONTROL_POINTER__SOURCE_CAST: return FormPackage.SOURCES_POINTER__SOURCE_CAST;
+				case FormPackage.CONTROL_POINTER__SOURCE_CAST_DATA_CONTROL: return FormPackage.SOURCES_POINTER__SOURCE_CAST_DATA_CONTROL;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //SourcesPointerImpl

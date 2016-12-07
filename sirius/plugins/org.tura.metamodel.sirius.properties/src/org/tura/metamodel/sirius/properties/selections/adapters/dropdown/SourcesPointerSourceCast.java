@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.sirius.properties.selections.DropDownDataAdapter;
 
+import form.ControlPointer;
 import form.FormPackage;
 import form.SourcesPointer;
 import type.Type;
@@ -27,14 +28,14 @@ public class SourcesPointerSourceCast implements DropDownDataAdapter {
 
 	public EStructuralFeature[] getFeature() {
 
-		return new EStructuralFeature[] { FormPackage.eINSTANCE.getSourcesPointer_SourceCast(),
-				FormPackage.eINSTANCE.getSourcesPointer_SourceCastDataControl() };
+		return new EStructuralFeature[] { FormPackage.eINSTANCE.getControlPointer_SourceCast(),
+				FormPackage.eINSTANCE.getControlPointer_SourceCastDataControl() };
 	}
 
 	public String getFeatureAsText(Object eObject) {
 		String name = null;
-		if (((SourcesPointer) eObject).getSourceCast() instanceof Type)
-			name = ((Type) ((SourcesPointer) eObject).getSourceCast()).getName();
+		if (((ControlPointer) eObject).getSourceCast() instanceof Type)
+			name = ((Type) ((ControlPointer) eObject).getSourceCast()).getName();
 
 		return name;
 	}
@@ -42,10 +43,10 @@ public class SourcesPointerSourceCast implements DropDownDataAdapter {
 	@SuppressWarnings("unchecked")
 	public Object getSelectedFeatureValue(Object eObject, Map<String, Object> values, EStructuralFeature feature,
 			Object... obj) {
-		if (feature.equals(FormPackage.eINSTANCE.getSourcesPointer_SourceCast()))
+		if (feature.equals(FormPackage.eINSTANCE.getControlPointer_SourceCast()))
 			return ((List<Object>) values.get(obj[0])).get(1);
 
-		if (feature.equals(FormPackage.eINSTANCE.getSourcesPointer_SourceCastDataControl()))
+		if (feature.equals(FormPackage.eINSTANCE.getControlPointer_SourceCastDataControl()))
 			return ((List<Object>) values.get(obj[0])).get(0);
 
 		return null;
@@ -55,7 +56,7 @@ public class SourcesPointerSourceCast implements DropDownDataAdapter {
 		if (((SourcesPointer) eObject).getSourceCast() == null)
 			return false;
 
-		String name = (((SourcesPointer) eObject).getSourceCast()).getName();
+		String name = (((ControlPointer) eObject).getSourceCast()).getName();
 
 		if (name == null)
 			return false;
@@ -63,11 +64,11 @@ public class SourcesPointerSourceCast implements DropDownDataAdapter {
 	}
 
 	public Object[] getWatchPointObject(Object eObject) {
-		return new Object[] { ((SourcesPointer) eObject).getSourcePointer() };
+		return new Object[] { ((ControlPointer) eObject).getSourcePointer() };
 	}
 
 	public EStructuralFeature[] getWatchPointFeature() {
-		return new EStructuralFeature[] { FormPackage.eINSTANCE.getSourcesPointer_SourcePointer() };
+		return new EStructuralFeature[] { FormPackage.eINSTANCE.getControlPointer_SourcePointer() };
 	}
 
 	public Class<?> getExpectedClass() {

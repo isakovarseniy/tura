@@ -93,6 +93,7 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.ITEM_ICON: return createItemIcon();
 			case FormPackage.AREA_REF: return createAreaRef();
 			case FormPackage.FORMATABLE: return createFormatable();
+			case FormPackage.CONTROL_POINTER: return createControlPointer();
 			case FormPackage.SOURCES_POINTER: return createSourcesPointer();
 			case FormPackage.INPUT_ELEMENT: return createInputElement();
 			case FormPackage.SELECTION: return createSelection();
@@ -545,6 +546,16 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public Formatable createFormatable() {
 		FormatableImpl formatable = new FormatableImpl();
 		return formatable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ControlPointer createControlPointer() {
+		ControlPointerImpl controlPointer = new ControlPointerImpl();
+		return controlPointer;
 	}
 
 	/**

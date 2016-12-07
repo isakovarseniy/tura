@@ -26,7 +26,7 @@ class Unit{
 }
 
 
-class ObjectMapper extends type.TypePointer{
+class ObjectMapper extends type.TypePointer,form.ControlPointer{
     id attr EString uid;
 	val AttributeMapper[*] attributeMappers;
 	val RelationMapper[*] relationMappers;
@@ -34,7 +34,7 @@ class ObjectMapper extends type.TypePointer{
 }
 
 
-class AttributeMapper extends type.AttributePointer{
+class AttributeMapper extends type.AttributePointer,form.ControlPointer{
 	id attr EString uid;
 	ref ObjectMapper objectMapperRef;
 }

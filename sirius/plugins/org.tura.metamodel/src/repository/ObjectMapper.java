@@ -2,6 +2,7 @@
  */
 package repository;
 
+import form.ControlPointer;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -25,7 +26,7 @@ import type.TypePointer;
  * @model
  * @generated
  */
-public interface ObjectMapper extends TypePointer {
+public interface ObjectMapper extends TypePointer, ControlPointer {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

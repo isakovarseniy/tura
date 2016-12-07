@@ -250,6 +250,11 @@
 
     <propertyTab
              category="domain"
+             id="tab.repository.SourcePointer"
+             label="Attribute mapper"/>
+
+    <propertyTab
+             category="domain"
              id="tab.form.Trigger"
              label="Trigger"/>
 
@@ -1031,6 +1036,43 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>	
+
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.ValuePointerAttributePropertySelectionExternalIterator"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.AttributeMapperSectionFilter"
+	            id="form.SourcePointer.External.ValuePointer"
+	            tab="tab.repository.SourcePointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
+
+	<extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.SourceCastPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ObjectMapperSectionFilter"
+	            id="form.SourcePointer.Cast"
+	            tab="tab.form.SourcePointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+	
+	
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.SourcesPointerDataControlPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ObjectMapperSectionFilter"
+	            id="form.SourcePointer"
+	            tab="tab.form.SourcePointer">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+
 
 
 
