@@ -48,6 +48,7 @@ import org.hibernate.cfg.Configuration;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.jpa.test.Client;
+import org.tura.jpa.test.File;
 import org.tura.jpa.test.MailAddress;
 import org.tura.jpa.test.Person;
 import org.tura.jpa.test.Phone;
@@ -143,7 +144,7 @@ public class JPATest {
 	
 	@Test
 	public void checkPersonClass(){
-		assertEquals(14, Person.class.getDeclaredMethods().length);
+		assertEquals(18, Person.class.getDeclaredMethods().length);
 
 		assertTrue(findMethod( Person.class,"getName" ));
 		assertTrue(findMethod( Person.class,"setName",new Class[]{String.class} ));
@@ -166,11 +167,22 @@ public class JPATest {
 		assertTrue(findMethod( Person.class,"getClient" ));
 		assertTrue(findMethod( Person.class,"setClient",new Class[]{Client.class} ));
 		
+		assertTrue(findMethod( Person.class,"getRootId" ));
+		assertTrue(findMethod( Person.class,"setRootId",new Class[]{Long.class} ));
+
+		assertTrue(findMethod( Person.class,"getFile" ));
+		assertTrue(findMethod( Person.class,"setFile",new Class[]{File.class} ));
+		
+		
 		Annotation a = findFieldAnnotation(Person.class,Id.class,"objId");
 		assertNotNull(a);
 		
 		OneToOne b = (OneToOne) findFieldAnnotation(Person.class,OneToOne.class,"client");
 		assertNotNull(b);
+		
+		b = (OneToOne) findFieldAnnotation(Person.class,OneToOne.class,"file");
+		assertNotNull(b);
+
 		
 		JoinColumns c = (JoinColumns) findFieldAnnotation(Person.class,JoinColumns.class,"client");
 		assertNotNull(c);

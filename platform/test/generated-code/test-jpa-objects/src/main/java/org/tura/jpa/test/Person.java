@@ -1,24 +1,3 @@
-/**
- * Tura - application generation platform
- *
- * Copyright (c) 2012 - 2015, Arseniy Isakov
- *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package org.tura.jpa.test;
 
 import java.util.Collection;
@@ -38,78 +17,97 @@ import javax.persistence.Temporal;
 @Entity(name = "Person")
 @Table(name = "PERSON")
 public class Person {
-    @Column(name = "NAME")
-    private String name;
-    @Id
-    @Column(name = "OBJID")
-    private Long objId;
-    @Column(name = "OBJECTTYPE")
-    private String objectType;
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    @Column(name = "CREATEDATE")
-    private Date createDate;
-    @ManyToMany(mappedBy = "person")
-    private Collection<MailAddress> mailAddress;
-    @OneToMany(mappedBy = "person")
-    private Collection<Phone> phone;
-    @JoinColumns({@JoinColumn(name = "clientId")
-    })
-    @OneToOne
-    private Client client;
+	@Column(name = "NAME")
+	private String name;
+	@Id
+	@Column(name = "OBJID")
+	private Long objId;
+	@Column(name = "OBJECTTYPE")
+	private String objectType;
+	@Temporal(javax.persistence.TemporalType.TIMESTAMP)
+	@Column(name = "CREATEDATE")
+	private Date createDate;
+	@Column(name = "ROOTID")
+	private Long rootId;
+	@ManyToMany(mappedBy = "person")
+	private Collection<MailAddress> mailAddress;
+	@OneToMany(mappedBy = "person")
+	private Collection<Phone> phone;
+	@OneToOne(mappedBy = "person")
+	private File file;
+	@JoinColumns({ @JoinColumn(name = "clientId") })
+	@OneToOne
+	private Client client;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setObjId(Long objId) {
-        this.objId = objId;
-    }
+	public void setObjId(Long objId) {
+		this.objId = objId;
+	}
 
-    public Long getObjId() {
-        return objId;
-    }
+	public Long getObjId() {
+		return objId;
+	}
 
-    public void setObjectType(String objectType) {
-        this.objectType = objectType;
-    }
+	public void setObjectType(String objectType) {
+		this.objectType = objectType;
+	}
 
-    public String getObjectType() {
-        return objectType;
-    }
+	public String getObjectType() {
+		return objectType;
+	}
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
-    public Date getCreateDate() {
-        return createDate;
-    }
+	public Date getCreateDate() {
+		return createDate;
+	}
 
-    public Collection<MailAddress> getMailAddress() {
-        return mailAddress;
-    }
+	public void setRootId(Long rootId) {
+		this.rootId = rootId;
+	}
 
-    public void setMailAddress(Collection<MailAddress> mailAddress) {
-        this.mailAddress = mailAddress;
-    }
+	public Long getRootId() {
+		return rootId;
+	}
 
-    public Collection<Phone> getPhone() {
-        return phone;
-    }
+	public Collection<MailAddress> getMailAddress() {
+		return mailAddress;
+	}
 
-    public void setPhone(Collection<Phone> phone) {
-        this.phone = phone;
-    }
+	public void setMailAddress(Collection<MailAddress> mailAddress) {
+		this.mailAddress = mailAddress;
+	}
 
-    public Client getClient() {
-        return client;
-    }
+	public Collection<Phone> getPhone() {
+		return phone;
+	}
 
-    public void setClient(Client client) {
-        this.client = client;
-    }
+	public void setPhone(Collection<Phone> phone) {
+		this.phone = phone;
+	}
+
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
 }

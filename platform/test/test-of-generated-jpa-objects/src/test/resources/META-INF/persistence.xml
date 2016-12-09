@@ -16,6 +16,8 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"  version="2.1">
 		<class>org.tura.jpa.test.Client</class>
 		<class>org.tura.jpa.test.MailAddress</class>
 		<class>org.tura.jpa.test.Phone</class>
+		<class>org.tura.jpa.test.File</class>
+		
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />

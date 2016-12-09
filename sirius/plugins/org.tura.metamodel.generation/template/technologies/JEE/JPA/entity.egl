@@ -100,7 +100,12 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 	         source = source.typeRef;
 	    }
       
-         var targetMethodName = util.mergeAndCapitalize(source.name);
+      var suffix ="";
+       if (rel.source.uid = rel.target.uid){
+          suffix = "Detail";
+       }
+      
+         var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
          if (rel.targetOperation.isDefined())
              sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
          var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
