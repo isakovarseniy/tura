@@ -16,7 +16,6 @@ import org.tura.metamodel.sirius.properties.selections.adapters.textdata.StylePo
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.TypeGroupPointerName;
 import org.tura.metamodel.sirius.properties.selections.adapters.textdata.TypePointerTypeName;
 
-
 import application.Application;
 import application.ApplicationGroup;
 import application.ApplicationInfrastructureLayer;
@@ -78,6 +77,8 @@ import mapper.JavaMapper;
 import mapper.JavaPackageMapper;
 import mapper.JavaScriptMapper;
 import mapper.RoleMapper;
+import mapper.XMLPackageMapper;
+import mapper.XMLTypeMapper;
 import message.Language;
 import message.Message;
 import message.MessageLibrary;
@@ -434,6 +435,21 @@ public class DiagramService {
 		return "relatioin - " + relationMapper.getTypeRef().getName();
 	}
 	
+	
+	public String generateName(XMLPackageMapper pkg) {
+		if (pkg.getPackageRef() == null) {
+			return "N/A";
+		}
+		return pkg.getPackageRef().getName();
+	}
+	
+	public String generateName(XMLTypeMapper tp) {
+		if (tp.getTypeRef() == null) {
+			return "N/A";
+		}
+		return tp.getTypeRef().getName();
+	}
+
 	
 	
 	public String generateSourceName(Assosiation assosiation) {

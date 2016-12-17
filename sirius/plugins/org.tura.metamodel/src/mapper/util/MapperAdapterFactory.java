@@ -111,6 +111,14 @@ public class MapperAdapterFactory extends AdapterFactoryImpl {
 				return createRoleMapperAdapter();
 			}
 			@Override
+			public Adapter caseXMLPackageMapper(XMLPackageMapper object) {
+				return createXMLPackageMapperAdapter();
+			}
+			@Override
+			public Adapter caseXMLTypeMapper(XMLTypeMapper object) {
+				return createXMLTypeMapperAdapter();
+			}
+			@Override
 			public Adapter caseTypePointer(TypePointer object) {
 				return createTypePointerAdapter();
 			}
@@ -269,6 +277,34 @@ public class MapperAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRoleMapperAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mapper.XMLPackageMapper <em>XML Package Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mapper.XMLPackageMapper
+	 * @generated
+	 */
+	public Adapter createXMLPackageMapperAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mapper.XMLTypeMapper <em>XML Type Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mapper.XMLTypeMapper
+	 * @generated
+	 */
+	public Adapter createXMLTypeMapperAdapter() {
 		return null;
 	}
 

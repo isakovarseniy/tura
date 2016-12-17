@@ -2423,6 +2423,50 @@
           <variables name="container" documentation="The semantic element corresponding to the view container."/>
         </create>
       </subItemMappings>
+      <subItemMappings name="XML namespace mappers" domainClass="mapper.Mappers" semanticCandidatesExpression="feature:mapper">
+        <defaultStyle labelSize="12" labelExpression="XML namespace mappers">
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+        </defaultStyle>
+        <subItemMappings name="XML namespace mapper" domainClass="mapper.XMLPackageMapper" semanticCandidatesExpression="feature:mappers">
+          <defaultStyle labelSize="12" labelExpression="service:generateName">
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+        </subItemMappings>
+        <create name="Create XML Namespace Mapper" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='XML%20namespace%20mappers']">
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="mapper.XMLPackageMapper" referenceName="mappers">
+              <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <variables name="root" documentation="The semantic element of the tree."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        </create>
+      </subItemMappings>
+      <subItemMappings name="XML type mappers" domainClass="mapper.Mappers" semanticCandidatesExpression="feature:mapper">
+        <defaultStyle labelSize="12" labelExpression="XML type mappers">
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+        </defaultStyle>
+        <subItemMappings name="XML type mapper" domainClass="mapper.XMLTypeMapper" semanticCandidatesExpression="feature:mappers">
+          <defaultStyle labelSize="12" labelExpression="service:generateName">
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+        </subItemMappings>
+        <create name="Create XML type Mapper" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='XML%20type%20mappers']">
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="mapper.XMLTypeMapper" referenceName="mappers">
+              <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <variables name="root" documentation="The semantic element of the tree."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        </create>
+      </subItemMappings>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:TreeDescription" name="Technologies diagram" titleExpression="aql:self.name" domainClass="domain.DomainArtifacts">
       <subItemMappings name="Technologies tree" domainClass="domain.DomainArtifacts" semanticCandidatesExpression="var:self">

@@ -65,6 +65,8 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 			case MapperPackage.JAVA_SCRIPT_MAPPER: return createJavaScriptMapper();
 			case MapperPackage.CSS_MAPPER: return createCSSMapper();
 			case MapperPackage.ROLE_MAPPER: return createRoleMapper();
+			case MapperPackage.XML_PACKAGE_MAPPER: return createXMLPackageMapper();
+			case MapperPackage.XML_TYPE_MAPPER: return createXMLTypeMapper();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -158,6 +160,26 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	public RoleMapper createRoleMapper() {
 		RoleMapperImpl roleMapper = new RoleMapperImpl();
 		return roleMapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XMLPackageMapper createXMLPackageMapper() {
+		XMLPackageMapperImpl xmlPackageMapper = new XMLPackageMapperImpl();
+		return xmlPackageMapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XMLTypeMapper createXMLTypeMapper() {
+		XMLTypeMapperImpl xmlTypeMapper = new XMLTypeMapperImpl();
+		return xmlTypeMapper;
 	}
 
 	/**

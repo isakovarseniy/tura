@@ -233,6 +233,11 @@ public class UpdateTriggerItemProvider extends TriggerItemProvider {
 			(createChildParameter
 				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
 				 MapperFactory.eINSTANCE.createJavaScriptMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
+				 MapperFactory.eINSTANCE.createXMLTypeMapper()));
 	}
 
 }

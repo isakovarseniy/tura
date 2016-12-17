@@ -278,6 +278,52 @@ public class MapperItemProviderAdapterFactory extends MapperAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link mapper.XMLPackageMapper} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XMLPackageMapperItemProvider xmlPackageMapperItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mapper.XMLPackageMapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXMLPackageMapperAdapter() {
+		if (xmlPackageMapperItemProvider == null) {
+			xmlPackageMapperItemProvider = new XMLPackageMapperItemProvider(this);
+		}
+
+		return xmlPackageMapperItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mapper.XMLTypeMapper} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XMLTypeMapperItemProvider xmlTypeMapperItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mapper.XMLTypeMapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXMLTypeMapperAdapter() {
+		if (xmlTypeMapperItemProvider == null) {
+			xmlTypeMapperItemProvider = new XMLTypeMapperItemProvider(this);
+		}
+
+		return xmlTypeMapperItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

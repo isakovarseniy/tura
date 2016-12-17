@@ -288,6 +288,11 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 			(createChildParameter
 				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
 				 MapperFactory.eINSTANCE.createJavaScriptMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypePackage.Literals.ASSOSIATION__MANY2MANY_HELPER,
+				 MapperFactory.eINSTANCE.createXMLTypeMapper()));
 	}
 
 }

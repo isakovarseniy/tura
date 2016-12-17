@@ -19,6 +19,28 @@ cd "[%=path%]"
 [%
 }
 
+
+@template
+operation  mavenBuilder_mavenJaxb2Xjc(configuration,path,hash) {
+%]
+#!/bin/sh
+
+[%
+  var i =  hash.get("Java").lastIndexOf("/");
+  if (i <> -1){
+     i = i+1;
+  }else{
+    i = 0;
+  }
+%]
+
+export JAVA_HOME=`/usr/libexec/java_home -v [%=hash.get("Java").substring(i)%]`
+
+cd "[%=path%]"
+"[%=configuration.get('Builder location')%]"/bin/mvn clean jaxb2:xjc
+[%
+}
+
 operation  os_batch_extension():String{
              return "sh";
 }

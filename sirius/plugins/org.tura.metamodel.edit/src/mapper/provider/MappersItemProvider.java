@@ -220,6 +220,16 @@ public class MappersItemProvider
 			(createChildParameter
 				(MapperPackage.Literals.MAPPERS__MAPPERS,
 				 MapperFactory.eINSTANCE.createRoleMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MapperPackage.Literals.MAPPERS__MAPPERS,
+				 MapperFactory.eINSTANCE.createXMLPackageMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MapperPackage.Literals.MAPPERS__MAPPERS,
+				 MapperFactory.eINSTANCE.createXMLTypeMapper()));
 	}
 
 	/**

@@ -103,6 +103,24 @@ public interface MapperFactory extends EFactory {
 	RoleMapper createRoleMapper();
 
 	/**
+	 * Returns a new object of class '<em>XML Package Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XML Package Mapper</em>'.
+	 * @generated
+	 */
+	XMLPackageMapper createXMLPackageMapper();
+
+	/**
+	 * Returns a new object of class '<em>XML Type Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XML Type Mapper</em>'.
+	 * @generated
+	 */
+	XMLTypeMapper createXMLTypeMapper();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

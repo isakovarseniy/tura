@@ -305,6 +305,11 @@ public class DataControlItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
+				 MapperFactory.eINSTANCE.createXMLTypeMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__PRE_QUERY_TRIGGER,
 				 FormFactory.eINSTANCE.createPREQueryTrigger()));
 

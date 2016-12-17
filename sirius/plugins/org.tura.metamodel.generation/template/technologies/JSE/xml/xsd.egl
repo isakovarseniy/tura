@@ -1,0 +1,58 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+
+ ${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+      var typesHash = new Native("java.util.HashMap"); 
+      var nsHash = new Native("java.util.HashMap");
+      var i = 0; 
+      nsHash.put("http://www.w3.org/2001/XMLSchema","xs");
+
+      for(type in typeCollection){
+         type.mappingType2XML(recipe,ingredient);
+         typesHash.put(type.~fullname,type);
+         if (nsHash.get(type.~namespace) = null ){
+            nsHash.put(type.~namespace,"ns"+i);
+            i = i+1;
+         }
+      }
+ %] <xs:schema[%
+	 for ( ns in nsHash.keySet() ){
+	     %]  xmlns:[%= nsHash.get(ns)%]="[%=ns%]" 
+	      [%
+	 }
+ %] elementFormDefault="qualified"> 
+ [%
+
+      for(type in typesHash.values()){
+         %]<xs:complexType name="[%=type.~class%]">
+          [%
+           if (type.~extension.isDefined()){ %] <xs:complexContent>
+           <xs:extension base="[%=type.~extension.~class%]">  
+            [%}
+          %]<xs:sequence>
+          [%
+          
+		for ( field in type.attributes){
+		
+		    field.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(field.name)%]"  type=  "[%=nsHash.get(field.typeRef.~namespace)%]:[%=field.typeRef.~class%]"/>
+		    [%
+		
+			}
+          %]</xs:sequence>
+          [%
+           if (type.~extension.isDefined()){ %]</xs:extension>  
+           </xs:complexContent>
+            [%}
+            
+         %]</xs:complexType>
+          [%
+
+      }
+  %]</xs:schema>   

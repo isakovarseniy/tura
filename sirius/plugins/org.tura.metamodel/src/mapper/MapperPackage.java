@@ -651,6 +651,144 @@ public interface MapperPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link mapper.impl.XMLPackageMapperImpl <em>XML Package Mapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mapper.impl.XMLPackageMapperImpl
+	 * @see mapper.impl.MapperPackageImpl#getXMLPackageMapper()
+	 * @generated
+	 */
+	int XML_PACKAGE_MAPPER = 9;
+
+	/**
+	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PACKAGE_MAPPER__SERVICE_LAYER = PACKAGE_MAPPER__SERVICE_LAYER;
+
+	/**
+	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PACKAGE_MAPPER__UI_LAYER = PACKAGE_MAPPER__UI_LAYER;
+
+	/**
+	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PACKAGE_MAPPER__PACKAGE_REF = PACKAGE_MAPPER__PACKAGE_REF;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PACKAGE_MAPPER__UID = PACKAGE_MAPPER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PACKAGE_MAPPER__NAMESPACE = PACKAGE_MAPPER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>XML Package Mapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PACKAGE_MAPPER_FEATURE_COUNT = PACKAGE_MAPPER_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link mapper.impl.XMLTypeMapperImpl <em>XML Type Mapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mapper.impl.XMLTypeMapperImpl
+	 * @see mapper.impl.MapperPackageImpl#getXMLTypeMapper()
+	 * @generated
+	 */
+	int XML_TYPE_MAPPER = 10;
+
+	/**
+	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TYPE_MAPPER__SERVICE_LAYER = TYPE_MAPPER__SERVICE_LAYER;
+
+	/**
+	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TYPE_MAPPER__UI_LAYER = TYPE_MAPPER__UI_LAYER;
+
+	/**
+	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TYPE_MAPPER__TYPE_REF = TYPE_MAPPER__TYPE_REF;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TYPE_MAPPER__UID = TYPE_MAPPER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TYPE_MAPPER__NAMESPACE = TYPE_MAPPER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Typename</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TYPE_MAPPER__TYPENAME = TYPE_MAPPER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>XML Type Mapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TYPE_MAPPER_FEATURE_COUNT = TYPE_MAPPER_FEATURE_COUNT + 3;
+
+
+	/**
 	 * Returns the meta object for class '{@link mapper.Mappers <em>Mappers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1027,6 +1165,81 @@ public interface MapperPackage extends EPackage {
 	EAttribute getRoleMapper_GlobalRoleName();
 
 	/**
+	 * Returns the meta object for class '{@link mapper.XMLPackageMapper <em>XML Package Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XML Package Mapper</em>'.
+	 * @see mapper.XMLPackageMapper
+	 * @generated
+	 */
+	EClass getXMLPackageMapper();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.XMLPackageMapper#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see mapper.XMLPackageMapper#getUid()
+	 * @see #getXMLPackageMapper()
+	 * @generated
+	 */
+	EAttribute getXMLPackageMapper_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.XMLPackageMapper#getNamespace <em>Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Namespace</em>'.
+	 * @see mapper.XMLPackageMapper#getNamespace()
+	 * @see #getXMLPackageMapper()
+	 * @generated
+	 */
+	EAttribute getXMLPackageMapper_Namespace();
+
+	/**
+	 * Returns the meta object for class '{@link mapper.XMLTypeMapper <em>XML Type Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XML Type Mapper</em>'.
+	 * @see mapper.XMLTypeMapper
+	 * @generated
+	 */
+	EClass getXMLTypeMapper();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.XMLTypeMapper#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see mapper.XMLTypeMapper#getUid()
+	 * @see #getXMLTypeMapper()
+	 * @generated
+	 */
+	EAttribute getXMLTypeMapper_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.XMLTypeMapper#getNamespace <em>Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Namespace</em>'.
+	 * @see mapper.XMLTypeMapper#getNamespace()
+	 * @see #getXMLTypeMapper()
+	 * @generated
+	 */
+	EAttribute getXMLTypeMapper_Namespace();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.XMLTypeMapper#getTypename <em>Typename</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Typename</em>'.
+	 * @see mapper.XMLTypeMapper#getTypename()
+	 * @see #getXMLTypeMapper()
+	 * @generated
+	 */
+	EAttribute getXMLTypeMapper_Typename();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1345,6 +1558,66 @@ public interface MapperPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROLE_MAPPER__GLOBAL_ROLE_NAME = eINSTANCE.getRoleMapper_GlobalRoleName();
+
+		/**
+		 * The meta object literal for the '{@link mapper.impl.XMLPackageMapperImpl <em>XML Package Mapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mapper.impl.XMLPackageMapperImpl
+		 * @see mapper.impl.MapperPackageImpl#getXMLPackageMapper()
+		 * @generated
+		 */
+		EClass XML_PACKAGE_MAPPER = eINSTANCE.getXMLPackageMapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_PACKAGE_MAPPER__UID = eINSTANCE.getXMLPackageMapper_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_PACKAGE_MAPPER__NAMESPACE = eINSTANCE.getXMLPackageMapper_Namespace();
+
+		/**
+		 * The meta object literal for the '{@link mapper.impl.XMLTypeMapperImpl <em>XML Type Mapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mapper.impl.XMLTypeMapperImpl
+		 * @see mapper.impl.MapperPackageImpl#getXMLTypeMapper()
+		 * @generated
+		 */
+		EClass XML_TYPE_MAPPER = eINSTANCE.getXMLTypeMapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_TYPE_MAPPER__UID = eINSTANCE.getXMLTypeMapper_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_TYPE_MAPPER__NAMESPACE = eINSTANCE.getXMLTypeMapper_Namespace();
+
+		/**
+		 * The meta object literal for the '<em><b>Typename</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_TYPE_MAPPER__TYPENAME = eINSTANCE.getXMLTypeMapper_Typename();
 
 	}
 

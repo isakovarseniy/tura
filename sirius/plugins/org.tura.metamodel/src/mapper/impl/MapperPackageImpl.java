@@ -38,6 +38,8 @@ import mapper.PackageMapper;
 import mapper.RoleMapper;
 import mapper.TypeMapper;
 
+import mapper.XMLPackageMapper;
+import mapper.XMLTypeMapper;
 import message.MessagePackage;
 
 import message.impl.MessagePackageImpl;
@@ -136,6 +138,20 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * @generated
 	 */
 	private EClass roleMapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xmlPackageMapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xmlTypeMapperEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -556,6 +572,69 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getXMLPackageMapper() {
+		return xmlPackageMapperEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXMLPackageMapper_Uid() {
+		return (EAttribute)xmlPackageMapperEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXMLPackageMapper_Namespace() {
+		return (EAttribute)xmlPackageMapperEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getXMLTypeMapper() {
+		return xmlTypeMapperEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXMLTypeMapper_Uid() {
+		return (EAttribute)xmlTypeMapperEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXMLTypeMapper_Namespace() {
+		return (EAttribute)xmlTypeMapperEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXMLTypeMapper_Typename() {
+		return (EAttribute)xmlTypeMapperEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MapperFactory getMapperFactory() {
 		return (MapperFactory)getEFactoryInstance();
 	}
@@ -622,6 +701,15 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		createEAttribute(roleMapperEClass, ROLE_MAPPER__UID);
 		createEAttribute(roleMapperEClass, ROLE_MAPPER__LOCAL_ROLE_NAME);
 		createEAttribute(roleMapperEClass, ROLE_MAPPER__GLOBAL_ROLE_NAME);
+
+		xmlPackageMapperEClass = createEClass(XML_PACKAGE_MAPPER);
+		createEAttribute(xmlPackageMapperEClass, XML_PACKAGE_MAPPER__UID);
+		createEAttribute(xmlPackageMapperEClass, XML_PACKAGE_MAPPER__NAMESPACE);
+
+		xmlTypeMapperEClass = createEClass(XML_TYPE_MAPPER);
+		createEAttribute(xmlTypeMapperEClass, XML_TYPE_MAPPER__UID);
+		createEAttribute(xmlTypeMapperEClass, XML_TYPE_MAPPER__NAMESPACE);
+		createEAttribute(xmlTypeMapperEClass, XML_TYPE_MAPPER__TYPENAME);
 	}
 
 	/**
@@ -668,6 +756,8 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		cssMapperEClass.getESuperTypes().add(theStylePackage.getStylePointer());
 		roleMapperEClass.getESuperTypes().add(this.getMapper());
 		roleMapperEClass.getESuperTypes().add(thePermissionPackage.getSecurityEntityPointer());
+		xmlPackageMapperEClass.getESuperTypes().add(this.getPackageMapper());
+		xmlTypeMapperEClass.getESuperTypes().add(this.getTypeMapper());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(mappersEClass, Mappers.class, "Mappers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -713,6 +803,15 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		initEAttribute(getRoleMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, RoleMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoleMapper_LocalRoleName(), ecorePackage.getEString(), "localRoleName", null, 0, 1, RoleMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoleMapper_GlobalRoleName(), ecorePackage.getEString(), "globalRoleName", null, 0, 1, RoleMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(xmlPackageMapperEClass, XMLPackageMapper.class, "XMLPackageMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getXMLPackageMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, XMLPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXMLPackageMapper_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XMLPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(xmlTypeMapperEClass, XMLTypeMapper.class, "XMLTypeMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getXMLTypeMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, XMLTypeMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXMLTypeMapper_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XMLTypeMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXMLTypeMapper_Typename(), ecorePackage.getEString(), "typename", null, 0, 1, XMLTypeMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

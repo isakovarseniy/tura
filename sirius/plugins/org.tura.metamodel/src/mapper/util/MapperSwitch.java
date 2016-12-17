@@ -144,6 +144,24 @@ public class MapperSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MapperPackage.XML_PACKAGE_MAPPER: {
+				XMLPackageMapper xmlPackageMapper = (XMLPackageMapper)theEObject;
+				T result = caseXMLPackageMapper(xmlPackageMapper);
+				if (result == null) result = casePackageMapper(xmlPackageMapper);
+				if (result == null) result = caseMapper(xmlPackageMapper);
+				if (result == null) result = casePackagePointer(xmlPackageMapper);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MapperPackage.XML_TYPE_MAPPER: {
+				XMLTypeMapper xmlTypeMapper = (XMLTypeMapper)theEObject;
+				T result = caseXMLTypeMapper(xmlTypeMapper);
+				if (result == null) result = caseTypeMapper(xmlTypeMapper);
+				if (result == null) result = caseMapper(xmlTypeMapper);
+				if (result == null) result = caseTypePointer(xmlTypeMapper);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -280,6 +298,36 @@ public class MapperSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRoleMapper(RoleMapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XML Package Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XML Package Mapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXMLPackageMapper(XMLPackageMapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XML Type Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XML Type Mapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXMLTypeMapper(XMLTypeMapper object) {
 		return null;
 	}
 

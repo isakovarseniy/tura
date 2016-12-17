@@ -62,3 +62,16 @@ class RoleMapper extends Mapper,permission.SecurityEntityPointer{
      attr EString localRoleName;
      attr EString globalRoleName;
 }
+
+
+class XMLPackageMapper extends PackageMapper {
+    id attr EString uid;
+    attr EString namespace;
+}
+
+
+class XMLTypeMapper extends TypeMapper {
+    id attr EString uid;
+    attr EString namespace;
+    attr EString typename;
+}
