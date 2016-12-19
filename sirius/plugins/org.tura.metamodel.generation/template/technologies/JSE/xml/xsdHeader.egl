@@ -1,0 +1,21 @@
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+ %] <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  targetNamespace="[%=targetnamespace%]"
+      xmlns="[%=targetnamespace%]"
+ [%
+       for (namespace in returnHash.keySet()){
+        %]xmlns:[%=namespace%]="[%=returnHash.get(namespace)%]"[%
+       }
+ %]
+ elementFormDefault="qualified"> 
+ [%
+       for (namespace in returnHash.keySet()){
+      %]<xs:import namespace="[%=returnHash.get(namespace)%]" schemaLocation="schema_[%=fullHash.get(returnHash.get(namespace)).get(1)%].xsd"/>[%
+       }
+ %]
+
+    [%=body%]
+
+ 
+ </xs:schema>
+ 

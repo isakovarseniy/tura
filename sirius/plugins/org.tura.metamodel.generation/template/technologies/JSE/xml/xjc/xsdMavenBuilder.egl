@@ -27,11 +27,6 @@
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-                   <sources>
-                       <source>src/main/resources/schema.xsd</source>
-                   </sources>  
-                   </configuration>
 			</plugin>
 		</plugins>
 	</build>
