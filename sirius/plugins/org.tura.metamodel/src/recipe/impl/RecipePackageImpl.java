@@ -733,6 +733,33 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIngredient_VewLayer() {
+		return (EReference)ingredientEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIngredient_ModeLayer() {
+		return (EReference)ingredientEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIngredient_ControllerLayer() {
+		return (EReference)ingredientEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getComponent() {
 		return componentEClass;
 	}
@@ -1284,6 +1311,9 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(ingredientEClass, INGREDIENT__NAME);
 		createEReference(ingredientEClass, INGREDIENT__COMPONENTS);
 		createEAttribute(ingredientEClass, INGREDIENT__LAYER);
+		createEReference(ingredientEClass, INGREDIENT__VEW_LAYER);
+		createEReference(ingredientEClass, INGREDIENT__MODE_LAYER);
+		createEReference(ingredientEClass, INGREDIENT__CONTROLLER_LAYER);
 
 		componentEClass = createEClass(COMPONENT);
 		createEAttribute(componentEClass, COMPONENT__UID);
@@ -1449,6 +1479,9 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getIngredient_Name(), ecorePackage.getEString(), "name", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIngredient_Components(), this.getComponent(), null, "components", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIngredient_Layer(), this.getPlatformLayers(), "layer", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIngredient_VewLayer(), theMapperPackage.getMappingLayer(), null, "vewLayer", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIngredient_ModeLayer(), theMapperPackage.getMappingLayer(), null, "modeLayer", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIngredient_ControllerLayer(), theMapperPackage.getMappingLayer(), null, "controllerLayer", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

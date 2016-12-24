@@ -2,6 +2,7 @@
  */
 package application;
 
+import mapper.MappingLayer;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link application.ApplicationMappers#getUid <em>Uid</em>}</li>
  *   <li>{@link application.ApplicationMappers#getName <em>Name</em>}</li>
  *   <li>{@link application.ApplicationMappers#getMappers <em>Mappers</em>}</li>
+ *   <li>{@link application.ApplicationMappers#getAppLayers <em>App Layers</em>}</li>
  * </ul>
  *
  * @see application.ApplicationPackage#getApplicationMappers()
@@ -92,5 +94,21 @@ public interface ApplicationMappers extends EObject {
 	 * @generated
 	 */
 	EList<ApplicationMapper> getMappers();
+
+	/**
+	 * Returns the value of the '<em><b>App Layers</b></em>' containment reference list.
+	 * The list contents are of type {@link mapper.MappingLayer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>App Layers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>App Layers</em>' containment reference list.
+	 * @see application.ApplicationPackage#getApplicationMappers_AppLayers()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<MappingLayer> getAppLayers();
 
 } // ApplicationMappers

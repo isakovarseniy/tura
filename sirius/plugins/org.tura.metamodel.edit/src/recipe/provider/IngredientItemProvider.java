@@ -55,6 +55,9 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addLayerPropertyDescriptor(object);
+			addVewLayerPropertyDescriptor(object);
+			addModeLayerPropertyDescriptor(object);
+			addControllerLayerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -165,6 +168,72 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Vew Layer feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVewLayerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Ingredient_vewLayer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Ingredient_vewLayer_feature", "_UI_Ingredient_type"),
+				 RecipePackage.Literals.INGREDIENT__VEW_LAYER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Mode Layer feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addModeLayerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Ingredient_modeLayer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Ingredient_modeLayer_feature", "_UI_Ingredient_type"),
+				 RecipePackage.Literals.INGREDIENT__MODE_LAYER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Controller Layer feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addControllerLayerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Ingredient_controllerLayer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Ingredient_controllerLayer_feature", "_UI_Ingredient_type"),
+				 RecipePackage.Literals.INGREDIENT__CONTROLLER_LAYER,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

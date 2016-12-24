@@ -85,6 +85,12 @@ public class MapperSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MapperPackage.MAPPING_LAYER: {
+				MappingLayer mappingLayer = (MappingLayer)theEObject;
+				T result = caseMappingLayer(mappingLayer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case MapperPackage.TYPE_MAPPER: {
 				TypeMapper typeMapper = (TypeMapper)theEObject;
 				T result = caseTypeMapper(typeMapper);
@@ -193,6 +199,21 @@ public class MapperSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMapper(Mapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mapping Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mapping Layer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMappingLayer(MappingLayer object) {
 		return null;
 	}
 

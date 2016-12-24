@@ -7,6 +7,7 @@ import common.HTMLLayerHolder;
 import common.Orderable;
 import java.util.Collection;
 
+import mapper.MappingLayer;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import recipe.Component;
@@ -39,6 +41,9 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.IngredientImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getLayer <em>Layer</em>}</li>
+ *   <li>{@link recipe.impl.IngredientImpl#getVewLayer <em>Vew Layer</em>}</li>
+ *   <li>{@link recipe.impl.IngredientImpl#getModeLayer <em>Mode Layer</em>}</li>
+ *   <li>{@link recipe.impl.IngredientImpl#getControllerLayer <em>Controller Layer</em>}</li>
  * </ul>
  *
  * @generated
@@ -153,6 +158,36 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * @ordered
 	 */
 	protected PlatformLayers layer = LAYER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getVewLayer() <em>Vew Layer</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVewLayer()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MappingLayer> vewLayer;
+
+	/**
+	 * The cached value of the '{@link #getModeLayer() <em>Mode Layer</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModeLayer()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MappingLayer> modeLayer;
+
+	/**
+	 * The cached value of the '{@link #getControllerLayer() <em>Controller Layer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getControllerLayer()
+	 * @generated
+	 * @ordered
+	 */
+	protected MappingLayer controllerLayer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -295,6 +330,68 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MappingLayer> getVewLayer() {
+		if (vewLayer == null) {
+			vewLayer = new EObjectResolvingEList<MappingLayer>(MappingLayer.class, this, RecipePackage.INGREDIENT__VEW_LAYER);
+		}
+		return vewLayer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<MappingLayer> getModeLayer() {
+		if (modeLayer == null) {
+			modeLayer = new EObjectResolvingEList<MappingLayer>(MappingLayer.class, this, RecipePackage.INGREDIENT__MODE_LAYER);
+		}
+		return modeLayer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MappingLayer getControllerLayer() {
+		if (controllerLayer != null && controllerLayer.eIsProxy()) {
+			InternalEObject oldControllerLayer = (InternalEObject)controllerLayer;
+			controllerLayer = (MappingLayer)eResolveProxy(oldControllerLayer);
+			if (controllerLayer != oldControllerLayer) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecipePackage.INGREDIENT__CONTROLLER_LAYER, oldControllerLayer, controllerLayer));
+			}
+		}
+		return controllerLayer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MappingLayer basicGetControllerLayer() {
+		return controllerLayer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setControllerLayer(MappingLayer newControllerLayer) {
+		MappingLayer oldControllerLayer = controllerLayer;
+		controllerLayer = newControllerLayer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.INGREDIENT__CONTROLLER_LAYER, oldControllerLayer, controllerLayer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -324,6 +421,13 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 				return getComponents();
 			case RecipePackage.INGREDIENT__LAYER:
 				return getLayer();
+			case RecipePackage.INGREDIENT__VEW_LAYER:
+				return getVewLayer();
+			case RecipePackage.INGREDIENT__MODE_LAYER:
+				return getModeLayer();
+			case RecipePackage.INGREDIENT__CONTROLLER_LAYER:
+				if (resolve) return getControllerLayer();
+				return basicGetControllerLayer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,6 +460,17 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 			case RecipePackage.INGREDIENT__LAYER:
 				setLayer((PlatformLayers)newValue);
 				return;
+			case RecipePackage.INGREDIENT__VEW_LAYER:
+				getVewLayer().clear();
+				getVewLayer().addAll((Collection<? extends MappingLayer>)newValue);
+				return;
+			case RecipePackage.INGREDIENT__MODE_LAYER:
+				getModeLayer().clear();
+				getModeLayer().addAll((Collection<? extends MappingLayer>)newValue);
+				return;
+			case RecipePackage.INGREDIENT__CONTROLLER_LAYER:
+				setControllerLayer((MappingLayer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -386,6 +501,15 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 			case RecipePackage.INGREDIENT__LAYER:
 				setLayer(LAYER_EDEFAULT);
 				return;
+			case RecipePackage.INGREDIENT__VEW_LAYER:
+				getVewLayer().clear();
+				return;
+			case RecipePackage.INGREDIENT__MODE_LAYER:
+				getModeLayer().clear();
+				return;
+			case RecipePackage.INGREDIENT__CONTROLLER_LAYER:
+				setControllerLayer((MappingLayer)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -410,6 +534,12 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 				return components != null && !components.isEmpty();
 			case RecipePackage.INGREDIENT__LAYER:
 				return layer != LAYER_EDEFAULT;
+			case RecipePackage.INGREDIENT__VEW_LAYER:
+				return vewLayer != null && !vewLayer.isEmpty();
+			case RecipePackage.INGREDIENT__MODE_LAYER:
+				return modeLayer != null && !modeLayer.isEmpty();
+			case RecipePackage.INGREDIENT__CONTROLLER_LAYER:
+				return controllerLayer != null;
 		}
 		return super.eIsSet(featureID);
 	}

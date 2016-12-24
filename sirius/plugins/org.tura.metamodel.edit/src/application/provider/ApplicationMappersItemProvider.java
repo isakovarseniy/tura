@@ -12,6 +12,7 @@ import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
+import mapper.MapperFactory;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -128,6 +129,7 @@ public class ApplicationMappersItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_MAPPERS__MAPPERS);
+			childrenFeatures.add(ApplicationPackage.Literals.APPLICATION_MAPPERS__APP_LAYERS);
 		}
 		return childrenFeatures;
 	}
@@ -188,6 +190,7 @@ public class ApplicationMappersItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ApplicationPackage.APPLICATION_MAPPERS__MAPPERS:
+			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -209,6 +212,11 @@ public class ApplicationMappersItemProvider
 			(createChildParameter
 				(ApplicationPackage.Literals.APPLICATION_MAPPERS__MAPPERS,
 				 ApplicationFactory.eINSTANCE.createApplicationMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ApplicationPackage.Literals.APPLICATION_MAPPERS__APP_LAYERS,
+				 MapperFactory.eINSTANCE.createMappingLayer()));
 	}
 
 	/**

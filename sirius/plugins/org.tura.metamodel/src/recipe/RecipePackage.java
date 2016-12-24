@@ -571,13 +571,40 @@ public interface RecipePackage extends EPackage {
 	int INGREDIENT__LAYER = USING_MAPPERS_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Vew Layer</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INGREDIENT__VEW_LAYER = USING_MAPPERS_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Mode Layer</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INGREDIENT__MODE_LAYER = USING_MAPPERS_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Controller Layer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INGREDIENT__CONTROLLER_LAYER = USING_MAPPERS_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Ingredient</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 6;
+	int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ComponentImpl <em>Component</em>}' class.
@@ -1742,6 +1769,39 @@ public interface RecipePackage extends EPackage {
 	EAttribute getIngredient_Layer();
 
 	/**
+	 * Returns the meta object for the reference list '{@link recipe.Ingredient#getVewLayer <em>Vew Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Vew Layer</em>'.
+	 * @see recipe.Ingredient#getVewLayer()
+	 * @see #getIngredient()
+	 * @generated
+	 */
+	EReference getIngredient_VewLayer();
+
+	/**
+	 * Returns the meta object for the reference list '{@link recipe.Ingredient#getModeLayer <em>Mode Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Mode Layer</em>'.
+	 * @see recipe.Ingredient#getModeLayer()
+	 * @see #getIngredient()
+	 * @generated
+	 */
+	EReference getIngredient_ModeLayer();
+
+	/**
+	 * Returns the meta object for the reference '{@link recipe.Ingredient#getControllerLayer <em>Controller Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Controller Layer</em>'.
+	 * @see recipe.Ingredient#getControllerLayer()
+	 * @see #getIngredient()
+	 * @generated
+	 */
+	EReference getIngredient_ControllerLayer();
+
+	/**
 	 * Returns the meta object for class '{@link recipe.Component <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2694,6 +2754,30 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INGREDIENT__LAYER = eINSTANCE.getIngredient_Layer();
+
+		/**
+		 * The meta object literal for the '<em><b>Vew Layer</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INGREDIENT__VEW_LAYER = eINSTANCE.getIngredient_VewLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode Layer</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INGREDIENT__MODE_LAYER = eINSTANCE.getIngredient_ModeLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Controller Layer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INGREDIENT__CONTROLLER_LAYER = eINSTANCE.getIngredient_ControllerLayer();
 
 		/**
 		 * The meta object literal for the '{@link recipe.impl.ComponentImpl <em>Component</em>}' class.

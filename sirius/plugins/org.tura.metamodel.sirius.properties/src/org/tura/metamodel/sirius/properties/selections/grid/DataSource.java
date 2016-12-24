@@ -70,6 +70,15 @@ public abstract class DataSource {
 		changeListeners.add(viewer);
 	}
 
+
+	public void upRow(Object row){
+		
+	}
+	public void downRow(Object row){
+		
+	}
+	
+	
 	public abstract void addRow();
 	public abstract void removeRow(Object row);
 	public abstract List<Object> queryRows();

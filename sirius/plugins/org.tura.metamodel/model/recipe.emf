@@ -80,6 +80,10 @@ class Ingredient extends UsingMappers,common.HTMLLayerHolder,common.Orderable {
   attr EString name;
   val Component[*] components;
   attr PlatformLayers layer;
+  ref mapper.MappingLayer[*] vewLayer;
+  ref mapper.MappingLayer[*] modelLayer;
+  ref mapper.MappingLayer controllerLayer;
+  
 }
 
 class Component extends common.HTMLLayerHolder,common.Orderable{

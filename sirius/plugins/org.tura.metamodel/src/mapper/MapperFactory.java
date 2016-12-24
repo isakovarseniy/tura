@@ -40,6 +40,15 @@ public interface MapperFactory extends EFactory {
 	Mapper createMapper();
 
 	/**
+	 * Returns a new object of class '<em>Mapping Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mapping Layer</em>'.
+	 * @generated
+	 */
+	MappingLayer createMappingLayer();
+
+	/**
 	 * Returns a new object of class '<em>Type Mapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

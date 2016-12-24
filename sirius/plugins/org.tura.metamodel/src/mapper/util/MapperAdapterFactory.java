@@ -83,6 +83,10 @@ public class MapperAdapterFactory extends AdapterFactoryImpl {
 				return createMapperAdapter();
 			}
 			@Override
+			public Adapter caseMappingLayer(MappingLayer object) {
+				return createMappingLayerAdapter();
+			}
+			@Override
 			public Adapter caseTypeMapper(TypeMapper object) {
 				return createTypeMapperAdapter();
 			}
@@ -179,6 +183,20 @@ public class MapperAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMapperAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mapper.MappingLayer <em>Mapping Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mapper.MappingLayer
+	 * @generated
+	 */
+	public Adapter createMappingLayerAdapter() {
 		return null;
 	}
 

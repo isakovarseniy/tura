@@ -2,10 +2,9 @@
  */
 package repository;
 
-import form.ControlPointer;
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
+import form.ControlPointer;
 import type.TypePointer;
 
 /**

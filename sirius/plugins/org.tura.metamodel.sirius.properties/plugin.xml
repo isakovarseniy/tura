@@ -96,6 +96,13 @@
 
     <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabstree">
      <propertyTabs contributorId="org.eclipse.sirius.tree.ui.EditorID">
+ 
+          <propertyTab
+             category="default"
+             id="tab.tree.mapper.MapperLayers"
+             label="Mapping layer"/>
+
+
           <propertyTab
              category="default"
              id="tab.tree.type.TypePointer"
@@ -118,10 +125,39 @@
              id="tab.tree.style.StyleLibrary"
              label="Style lib"/>
 
+          <propertyTab
+             category="default"
+             id="tab.tree.application.Layers"
+             label="Application Layers"/>
+
 
       </propertyTabs>
 
    </extension>
+   
+   
+   
+     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.tree.ui.EditorID">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.MapperMappingLayerPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.MapperTreeFilter"
+	            id="tree.mapper.MapperLayers"
+	            tab="tab.tree.mapper.MapperLayers">
+	      </propertySection>
+	   </propertySections>
+	</extension>      
+   
+     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.tree.ui.EditorID">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ApplicationLayerPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.ApplicationMappersTreeFilter"
+	            id="tree.application.Layers"
+	            tab="tab.tree.application.Layers">
+	      </propertySection>
+	   </propertySections>
+	</extension>   
    
    
   	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
@@ -201,6 +237,23 @@
              category="domain"
              id="tab.artifact.Artifact.ConfigHashesNickName"
              label="Hashes"/>
+
+
+       <propertyTab
+             category="domain"
+             id="tab.recipe.Ingredient.VewLayer"
+             label="View layers"/>
+
+       <propertyTab
+             category="domain"
+             id="tab.recipe.Ingredient.ModelLayer"
+             label="Model layers"/>
+
+       <propertyTab
+             category="domain"
+             id="tab.recipe.Ingredient.ControllerLayer"
+             label="Controller layers"/>
+
 
        <propertyTab
              category="domain"
@@ -368,6 +421,8 @@
    </extension>
  
  
+ 
+ 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
@@ -449,6 +504,9 @@
 	</extension>
 	
 
+
+
+
 	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
@@ -496,6 +554,40 @@
 	</extension>
 
 
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.IngredientViewMappingLayerPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.IngredientSelectionFilter"
+	            id="recipe.Ingredient.VewLayer"
+	            tab="tab.recipe.Ingredient.VewLayer">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.IngredientModelMappingLayerPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.IngredientSelectionFilter"
+	            id="recipe.Ingredient.VewLayer"
+	            tab="tab.recipe.Ingredient.ModelLayer">
+	      </propertySection>
+	   </propertySections>
+	</extension>
+	
+	
+    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+	      <propertySection
+	            class="org.tura.metamodel.sirius.properties.selections.dropdown.IngredientControllerLayerPropertySelection"
+	            filter="org.tura.metamodel.sirius.properties.selections.filter.IngredientSelectionFilter"
+	            id="recipe.Ingredient.ControllerLayer"
+	            tab="tab.recipe.Ingredient.ControllerLayer">
+	      </propertySection>
+	   </propertySections>
+	</extension>	
+	
 	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection

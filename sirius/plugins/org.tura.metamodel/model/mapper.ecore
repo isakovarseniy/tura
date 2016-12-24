@@ -10,6 +10,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="Mapper">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceLayer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uiLayer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="layers" upperBound="-1"
+        eType="#//MappingLayer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MappingLayer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeMapper" eSuperTypes="#//Mapper type.ecore#//TypePointer"/>
   <eClassifiers xsi:type="ecore:EClass" name="PackageMapper" eSuperTypes="#//Mapper type.ecore#//PackagePointer"/>

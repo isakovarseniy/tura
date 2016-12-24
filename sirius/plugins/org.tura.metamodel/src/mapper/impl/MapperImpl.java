@@ -2,15 +2,19 @@
  */
 package mapper.impl;
 
+import java.util.Collection;
 import mapper.Mapper;
 import mapper.MapperPackage;
 
+import mapper.MappingLayer;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link mapper.impl.MapperImpl#isServiceLayer <em>Service Layer</em>}</li>
  *   <li>{@link mapper.impl.MapperImpl#isUiLayer <em>Ui Layer</em>}</li>
+ *   <li>{@link mapper.impl.MapperImpl#getLayers <em>Layers</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +71,16 @@ public class MapperImpl extends EObjectImpl implements Mapper {
 	 * @ordered
 	 */
 	protected boolean uiLayer = UI_LAYER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getLayers() <em>Layers</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLayers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MappingLayer> layers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +148,18 @@ public class MapperImpl extends EObjectImpl implements Mapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MappingLayer> getLayers() {
+		if (layers == null) {
+			layers = new EObjectResolvingEList<MappingLayer>(MappingLayer.class, this, MapperPackage.MAPPER__LAYERS);
+		}
+		return layers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +167,8 @@ public class MapperImpl extends EObjectImpl implements Mapper {
 				return isServiceLayer();
 			case MapperPackage.MAPPER__UI_LAYER:
 				return isUiLayer();
+			case MapperPackage.MAPPER__LAYERS:
+				return getLayers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,6 +178,7 @@ public class MapperImpl extends EObjectImpl implements Mapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -157,6 +187,10 @@ public class MapperImpl extends EObjectImpl implements Mapper {
 				return;
 			case MapperPackage.MAPPER__UI_LAYER:
 				setUiLayer((Boolean)newValue);
+				return;
+			case MapperPackage.MAPPER__LAYERS:
+				getLayers().clear();
+				getLayers().addAll((Collection<? extends MappingLayer>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +210,9 @@ public class MapperImpl extends EObjectImpl implements Mapper {
 			case MapperPackage.MAPPER__UI_LAYER:
 				setUiLayer(UI_LAYER_EDEFAULT);
 				return;
+			case MapperPackage.MAPPER__LAYERS:
+				getLayers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +229,8 @@ public class MapperImpl extends EObjectImpl implements Mapper {
 				return serviceLayer != SERVICE_LAYER_EDEFAULT;
 			case MapperPackage.MAPPER__UI_LAYER:
 				return uiLayer != UI_LAYER_EDEFAULT;
+			case MapperPackage.MAPPER__LAYERS:
+				return layers != null && !layers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

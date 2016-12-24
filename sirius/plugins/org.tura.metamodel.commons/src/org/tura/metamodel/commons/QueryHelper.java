@@ -30,6 +30,7 @@ import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeData
 import org.tura.metamodel.commons.properties.selections.adapters.helper.TreeRootDataControlHolder;
 
 import application.Application;
+import application.ApplicationMappers;
 import application.ApplicationUILayer;
 import application.ApplicationUIPackage;
 import artifact.GenerationHint;
@@ -59,6 +60,7 @@ import form.NickNamed;
 import form.Uielement;
 import form.ViewArea;
 import form.Views;
+import mapper.MappingLayer;
 import recipe.ConfigExtension;
 import recipe.Configuration;
 import recipe.Infrastructure;
@@ -1400,6 +1402,25 @@ public class QueryHelper {
 			LogUtil.log(e);
 			return null;
 		}
+	}
+	
+	
+	public List<MappingLayer> findApplicationLayers(EObject object){
+		 if (object instanceof ApplicationMappers){
+			 ApplicationMappers appMappers = (ApplicationMappers) object;
+			 return appMappers.getAppLayers();
+		 }
+		 if (object instanceof Application){
+			 Application app = (Application) object;
+			 return app.getApplicationMappers().getAppLayers();
+		 }
+
+		 
+		 EObject container = object.eContainer();
+		 if (container == null){
+			 return new ArrayList<MappingLayer>();
+		 }
+		return findApplicationLayers(container);
 	}
 	
 	

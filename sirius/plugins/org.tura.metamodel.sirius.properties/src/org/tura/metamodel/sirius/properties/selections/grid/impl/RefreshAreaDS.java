@@ -83,9 +83,9 @@ public abstract class RefreshAreaDS extends DataSource {
 	public void addRow() {
 
 		ListSelectionDialog dialog = new ListSelectionDialog(Display.getCurrent().getActiveShell(), getContextRoot(),
-				new ArrayContentProvider(), new RefreshAreaLabelProvider(), "Select Mappers:");
+				new ArrayContentProvider(), new RefreshAreaLabelProvider(), "Select Arias:");
 
-		dialog.setTitle("Select Mappers:");
+		dialog.setTitle("Select Arias:");
 		dialog.setMessage("");
 
 		dialog.setInitialElementSelections(queryRows());

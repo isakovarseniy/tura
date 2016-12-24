@@ -34,6 +34,7 @@ import mapper.Mapper;
 import mapper.MapperFactory;
 import mapper.MapperPackage;
 import mapper.Mappers;
+import mapper.MappingLayer;
 import mapper.PackageMapper;
 import mapper.RoleMapper;
 import mapper.TypeMapper;
@@ -89,6 +90,13 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * @generated
 	 */
 	private EClass mapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mappingLayerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -304,6 +312,51 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 */
 	public EAttribute getMapper_UiLayer() {
 		return (EAttribute)mapperEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMapper_Layers() {
+		return (EReference)mapperEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMappingLayer() {
+		return mappingLayerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMappingLayer_Uid() {
+		return (EAttribute)mappingLayerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMappingLayer_Name() {
+		return (EAttribute)mappingLayerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMappingLayer_Order() {
+		return (EAttribute)mappingLayerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -665,6 +718,12 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		mapperEClass = createEClass(MAPPER);
 		createEAttribute(mapperEClass, MAPPER__SERVICE_LAYER);
 		createEAttribute(mapperEClass, MAPPER__UI_LAYER);
+		createEReference(mapperEClass, MAPPER__LAYERS);
+
+		mappingLayerEClass = createEClass(MAPPING_LAYER);
+		createEAttribute(mappingLayerEClass, MAPPING_LAYER__UID);
+		createEAttribute(mappingLayerEClass, MAPPING_LAYER__NAME);
+		createEAttribute(mappingLayerEClass, MAPPING_LAYER__ORDER);
 
 		typeMapperEClass = createEClass(TYPE_MAPPER);
 
@@ -767,6 +826,12 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		initEClass(mapperEClass, Mapper.class, "Mapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMapper_ServiceLayer(), ecorePackage.getEBoolean(), "serviceLayer", null, 0, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMapper_UiLayer(), ecorePackage.getEBoolean(), "uiLayer", null, 0, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMapper_Layers(), this.getMappingLayer(), null, "layers", null, 0, -1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mappingLayerEClass, MappingLayer.class, "MappingLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMappingLayer_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, MappingLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMappingLayer_Name(), ecorePackage.getEString(), "name", null, 0, 1, MappingLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMappingLayer_Order(), ecorePackage.getEInt(), "order", null, 0, 1, MappingLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeMapperEClass, TypeMapper.class, "TypeMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

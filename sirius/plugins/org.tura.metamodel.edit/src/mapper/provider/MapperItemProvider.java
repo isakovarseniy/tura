@@ -64,6 +64,7 @@ public class MapperItemProvider
 
 			addServiceLayerPropertyDescriptor(object);
 			addUiLayerPropertyDescriptor(object);
+			addLayersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +109,28 @@ public class MapperItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Layers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLayersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Mapper_layers_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Mapper_layers_feature", "_UI_Mapper_type"),
+				 MapperPackage.Literals.MAPPER__LAYERS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

@@ -8,6 +8,7 @@ import application.ApplicationPackage;
 
 import java.util.Collection;
 
+import mapper.MappingLayer;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link application.impl.ApplicationMappersImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link application.impl.ApplicationMappersImpl#getName <em>Name</em>}</li>
  *   <li>{@link application.impl.ApplicationMappersImpl#getMappers <em>Mappers</em>}</li>
+ *   <li>{@link application.impl.ApplicationMappersImpl#getAppLayers <em>App Layers</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +89,16 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * @ordered
 	 */
 	protected EList<ApplicationMapper> mappers;
+
+	/**
+	 * The cached value of the '{@link #getAppLayers() <em>App Layers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAppLayers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MappingLayer> appLayers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,11 +178,25 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MappingLayer> getAppLayers() {
+		if (appLayers == null) {
+			appLayers = new EObjectContainmentEList<MappingLayer>(MappingLayer.class, this, ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS);
+		}
+		return appLayers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ApplicationPackage.APPLICATION_MAPPERS__MAPPERS:
 				return ((InternalEList<?>)getMappers()).basicRemove(otherEnd, msgs);
+			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
+				return ((InternalEList<?>)getAppLayers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -189,6 +215,8 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 				return getName();
 			case ApplicationPackage.APPLICATION_MAPPERS__MAPPERS:
 				return getMappers();
+			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
+				return getAppLayers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -212,6 +240,10 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 				getMappers().clear();
 				getMappers().addAll((Collection<? extends ApplicationMapper>)newValue);
 				return;
+			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
+				getAppLayers().clear();
+				getAppLayers().addAll((Collection<? extends MappingLayer>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -233,6 +265,9 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 			case ApplicationPackage.APPLICATION_MAPPERS__MAPPERS:
 				getMappers().clear();
 				return;
+			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
+				getAppLayers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,6 +286,8 @@ public class ApplicationMappersImpl extends EObjectImpl implements ApplicationMa
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ApplicationPackage.APPLICATION_MAPPERS__MAPPERS:
 				return mappers != null && !mappers.isEmpty();
+			case ApplicationPackage.APPLICATION_MAPPERS__APP_LAYERS:
+				return appLayers != null && !appLayers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

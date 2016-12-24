@@ -117,6 +117,29 @@ public class MapperItemProviderAdapterFactory extends MapperAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link mapper.MappingLayer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MappingLayerItemProvider mappingLayerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mapper.MappingLayer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMappingLayerAdapter() {
+		if (mappingLayerItemProvider == null) {
+			mappingLayerItemProvider = new MappingLayerItemProvider(this);
+		}
+
+		return mappingLayerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link mapper.TypeMapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

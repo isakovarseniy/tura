@@ -846,13 +846,22 @@ public interface ApplicationPackage extends EPackage {
 	int APPLICATION_MAPPERS__MAPPERS = 2;
 
 	/**
+	 * The feature id for the '<em><b>App Layers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_MAPPERS__APP_LAYERS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Mappers</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_MAPPERS_FEATURE_COUNT = 3;
+	int APPLICATION_MAPPERS_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link application.impl.ApplicationMapperImpl <em>Mapper</em>}' class.
@@ -1667,6 +1676,17 @@ public interface ApplicationPackage extends EPackage {
 	EReference getApplicationMappers_Mappers();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link application.ApplicationMappers#getAppLayers <em>App Layers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>App Layers</em>'.
+	 * @see application.ApplicationMappers#getAppLayers()
+	 * @see #getApplicationMappers()
+	 * @generated
+	 */
+	EReference getApplicationMappers_AppLayers();
+
+	/**
 	 * Returns the meta object for class '{@link application.ApplicationMapper <em>Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2330,6 +2350,14 @@ public interface ApplicationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference APPLICATION_MAPPERS__MAPPERS = eINSTANCE.getApplicationMappers_Mappers();
+
+		/**
+		 * The meta object literal for the '<em><b>App Layers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION_MAPPERS__APP_LAYERS = eINSTANCE.getApplicationMappers_AppLayers();
 
 		/**
 		 * The meta object literal for the '{@link application.impl.ApplicationMapperImpl <em>Mapper</em>}' class.

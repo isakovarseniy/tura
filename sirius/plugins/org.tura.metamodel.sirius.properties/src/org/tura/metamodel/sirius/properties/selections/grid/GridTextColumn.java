@@ -17,9 +17,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.TextCellEditor;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -95,7 +96,9 @@ public class GridTextColumn implements GridColumn {
 	public void modify(Object element, Object value) {
 		Object data = ((TableItem) element).getData();
 
-		EditingDomain editingDomain = ((DiagramEditor) this.property.getPart()).getEditingDomain();
+		Session session = SessionManager.INSTANCE.getSession(this.property.getModel());
+		EditingDomain editingDomain = session.getTransactionalEditingDomain();
+
 		EStructuralFeature feature = dataAdapter.getFeature();
 
 		if (dataAdapter instanceof TextColumnConverter){

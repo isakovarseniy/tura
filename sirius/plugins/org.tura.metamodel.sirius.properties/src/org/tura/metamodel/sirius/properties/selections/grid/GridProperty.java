@@ -138,10 +138,23 @@ public abstract class GridProperty extends AbstractTuraPropertySection {
 		if (selection != 0)
 		    tableViewer.setSelection(new StructuredSelection(tableViewer.getElementAt(selection-1)),true);
 		
-		((TabbedPropertyComposite) (getPropertySheetPage().getControl()))
-				.getTabComposite().layout(true, true);
+		((TabbedPropertyComposite) (getPropertySheetPage().getControl())).getTabComposite().layout(true, true);
 	}
 
+	
+	public void upRow(Object row) {
+		ds.upRow(row);
+		tableViewer.refresh();
+		
+	}
+	
+	public void downRow(Object row) {
+		ds.downRow(row);
+		tableViewer.refresh();
+	}
+	
+	
+	
 	public int getSorterID() {
 		return ds.getSorterID();
 	}

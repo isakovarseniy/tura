@@ -4,6 +4,7 @@ package recipe;
 
 import common.HTMLLayerHolder;
 import common.Orderable;
+import mapper.MappingLayer;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -19,6 +20,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link recipe.Ingredient#getName <em>Name</em>}</li>
  *   <li>{@link recipe.Ingredient#getComponents <em>Components</em>}</li>
  *   <li>{@link recipe.Ingredient#getLayer <em>Layer</em>}</li>
+ *   <li>{@link recipe.Ingredient#getVewLayer <em>Vew Layer</em>}</li>
+ *   <li>{@link recipe.Ingredient#getModeLayer <em>Mode Layer</em>}</li>
+ *   <li>{@link recipe.Ingredient#getControllerLayer <em>Controller Layer</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getIngredient()
@@ -122,5 +126,63 @@ public interface Ingredient extends UsingMappers, HTMLLayerHolder, Orderable {
 	 * @generated
 	 */
 	void setLayer(PlatformLayers value);
+
+	/**
+	 * Returns the value of the '<em><b>Vew Layer</b></em>' reference list.
+	 * The list contents are of type {@link mapper.MappingLayer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Vew Layer</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vew Layer</em>' reference list.
+	 * @see recipe.RecipePackage#getIngredient_VewLayer()
+	 * @model
+	 * @generated
+	 */
+	EList<MappingLayer> getVewLayer();
+
+	/**
+	 * Returns the value of the '<em><b>Mode Layer</b></em>' reference list.
+	 * The list contents are of type {@link mapper.MappingLayer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mode Layer</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mode Layer</em>' reference list.
+	 * @see recipe.RecipePackage#getIngredient_ModeLayer()
+	 * @model
+	 * @generated
+	 */
+	EList<MappingLayer> getModeLayer();
+
+	/**
+	 * Returns the value of the '<em><b>Controller Layer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Controller Layer</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Controller Layer</em>' reference.
+	 * @see #setControllerLayer(MappingLayer)
+	 * @see recipe.RecipePackage#getIngredient_ControllerLayer()
+	 * @model
+	 * @generated
+	 */
+	MappingLayer getControllerLayer();
+
+	/**
+	 * Sets the value of the '{@link recipe.Ingredient#getControllerLayer <em>Controller Layer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Controller Layer</em>' reference.
+	 * @see #getControllerLayer()
+	 * @generated
+	 */
+	void setControllerLayer(MappingLayer value);
 
 } // Ingredient

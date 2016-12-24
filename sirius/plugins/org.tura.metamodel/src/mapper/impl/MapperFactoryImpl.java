@@ -58,6 +58,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 		switch (eClass.getClassifierID()) {
 			case MapperPackage.MAPPERS: return createMappers();
 			case MapperPackage.MAPPER: return createMapper();
+			case MapperPackage.MAPPING_LAYER: return createMappingLayer();
 			case MapperPackage.TYPE_MAPPER: return createTypeMapper();
 			case MapperPackage.PACKAGE_MAPPER: return createPackageMapper();
 			case MapperPackage.JAVA_MAPPER: return createJavaMapper();
@@ -90,6 +91,16 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	public Mapper createMapper() {
 		MapperImpl mapper = new MapperImpl();
 		return mapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MappingLayer createMappingLayer() {
+		MappingLayerImpl mappingLayer = new MappingLayerImpl();
+		return mappingLayer;
 	}
 
 	/**

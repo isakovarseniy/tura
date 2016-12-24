@@ -76,6 +76,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="layer" eType="#//PlatformLayers"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vewLayer" upperBound="-1"
+        eType="ecore:EClass mapper.ecore#//MappingLayer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modeLayer" upperBound="-1"
+        eType="ecore:EClass mapper.ecore#//MappingLayer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controllerLayer" eType="ecore:EClass mapper.ecore#//MappingLayer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="common.ecore#//HTMLLayerHolder common.ecore#//Orderable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

@@ -125,7 +125,10 @@ class ApplicationMappers {
     id attr EString uid;
    attr EString name;
    val ApplicationMapper[*] mappers;
+   val mapper.MappingLayer[*] appLayers;
 }
+
+
 
 class ApplicationMapper{
     id attr EString uid;
