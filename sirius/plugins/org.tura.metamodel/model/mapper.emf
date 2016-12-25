@@ -12,8 +12,6 @@ class Mappers{
 }
 
 class Mapper {
-    attr boolean serviceLayer;
-    attr boolean uiLayer;
     ref MappingLayer[*] layers;
 }
 

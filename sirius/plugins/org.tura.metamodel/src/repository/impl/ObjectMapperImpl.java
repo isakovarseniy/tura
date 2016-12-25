@@ -5,6 +5,7 @@ package repository.impl;
 import form.ControlPointer;
 import form.DataControl;
 import form.FormPackage;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,6 +28,7 @@ import repository.RelationMapper;
 import repository.RepositoryPackage;
 
 import type.Type;
+
 import type.impl.TypePointerImpl;
 
 /**

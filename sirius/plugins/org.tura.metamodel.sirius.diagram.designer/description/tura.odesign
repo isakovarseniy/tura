@@ -1093,7 +1093,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="Recipe" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Deployment%20sequence']" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Recipe%20edit%20label']" semanticCandidatesExpression="aql:self.recipe" domainClass="recipe.Recipe">
-          <subContainerMappings name="Ingredient" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Ingredient%20edit%20label']" semanticCandidatesExpression="feature:ingredients" domainClass="recipe.Ingredient">
+          <subContainerMappings name="Ingredient" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Ingredient%20edit%20label']" semanticCandidatesExpression="feature:ingredients" domainClass="recipe.Ingredient" dropDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='JavaComponent%20to%20Ingredient']">
             <subContainerMappings name="JavaComponent" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='JavaComponent%20edit%20label']" semanticCandidatesExpression="feature:components" domainClass="recipe.JavaComponent">
               <subContainerMappings name="ModelMapper" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ModelMapper%20edit%20label']" semanticCandidatesExpression="feature:mappers" domainClass="recipe.ModelMapper" childrenPresentation="List">
                 <subNodeMappings name="Query" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Query%20edit%20label']" semanticCandidatesExpression="feature:queries" domainClass="recipe.Query">
@@ -1221,6 +1221,17 @@
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="JavaComponent to Ingredient" mappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']" dragSource="BOTH">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newSemanticContainer">
+                <subModelOperations xsi:type="tool:SetValue" featureName="components" valueExpression="var:element"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ModelMapper" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Recipe%20diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='Ingredient']/@subContainerMappings[name='JavaComponent']/@subContainerMappings[name='ModelMapper']">

@@ -23,7 +23,6 @@ import common.Orderable;
  * @generated
  */
 public interface TabPage extends CanvasFrame, ViewPortHolder, MultiLangLabel, Categorized, Orderable {
-
 	/**
 	 * Returns the value of the '<em><b>Tab Sequence</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -49,4 +48,5 @@ public interface TabPage extends CanvasFrame, ViewPortHolder, MultiLangLabel, Ca
 	 * @generated
 	 */
 	void setTabSequence(int value);
+
 } // TabPage

@@ -45,7 +45,7 @@ import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
-import mapper.Mapper;
+import mapper.MappingLayer;
 import mapper.PackageMapper;
 import mapper.TypeMapper;
 import recipe.Ingredient;
@@ -137,31 +137,46 @@ public class Util {
 
 	}
 
-	public static boolean mapperRecognizer(Set<Mapper> mappers,Ingredient ingredient) {
+//	public static boolean mapperRecognizer(Set<Mapper> mappers,Ingredient ingredient) {
+//
+//		for (Mapper mapper : mappers) {
+//
+//			int ui = mapper.isUiLayer() ? 1 : 0;
+//			int s = mapper.isServiceLayer() ? 1 : 0;
+//			int ingr = ingredient.getLayer().getValue();
+//
+//			if ((((ui << 1) + s) & ingr) != 0)
+//				return true;
+//		}
+//		return false;
+//	}
 
-		for (Mapper mapper : mappers) {
+	private static int powerN(int base, int n) {
+	    int result = 1;
+	    for (int i = 0; i < n; i++) {
+	        result *= base;
+	    }
 
-			int ui = mapper.isUiLayer() ? 1 : 0;
-			int s = mapper.isServiceLayer() ? 1 : 0;
-			int ingr = ingredient.getLayer().getValue();
-
-			if ((((ui << 1) + s) & ingr) != 0)
-				return true;
-		}
-		return false;
+	    return result;
 	}
-
+	
+	private static int makeMask(List<MappingLayer> layers ){
+		int i = 0;
+		for (MappingLayer layer : layers){
+			i = i + powerN(2,layer.getOrder());;
+		}
+		return i;
+	}
+	
 	public static TypeMapper mapType(Set<TypeMapper> mappers,Ingredient ingredient, TypeElement typeElement)
 			throws Exception {
 
 		for (TypeMapper mapper : mappers) {
 
-			int ui = mapper.isUiLayer() ? 1 : 0;
-			int s = mapper.isServiceLayer() ? 1 : 0;
-			int ingr = ingredient.getLayer().getValue();
+			int mapperMask = makeMask(mapper.getLayers());
+			int ingredientMask = powerN(2,ingredient.getControllerLayer().getOrder());
 
-			if (((((ui << 1) + s) & ingr) != 0)
-					&& (mapper.getTypeRef().getUid() == typeElement.getUid())) {
+			if ( (mapper.getTypeRef().getUid() == typeElement.getUid()) && ( (ingredientMask & mapperMask) != 0) ) {
 				return mapper;
 			}
 		}
@@ -173,20 +188,16 @@ public class Util {
 
 		for (PackageMapper mapper : mappers) {
 
-			int ui = mapper.isUiLayer() ? 1 : 0;
-			int s = mapper.isServiceLayer() ? 1 : 0;
-			int ingr = ingredient.getLayer().getValue();
+			int mapperMask = makeMask(mapper.getLayers());
+			int ingredientMask = powerN(2,ingredient.getControllerLayer().getOrder());
 
-			if (((((ui << 1) + s) & ingr) != 0)
-					&& (mapper.getPackageRef().getUid() == pkg.getUid())) {
+			if ( (mapper.getPackageRef().getUid() == pkg.getUid()) &&  ((ingredientMask & mapperMask) != 0)  ) {
 				return mapper;
 			}
 		}
 		return null;
 	}
 
-	
-	
 	
 	public static Object runQuery(Query query, EObject eobj)
 			throws Exception {

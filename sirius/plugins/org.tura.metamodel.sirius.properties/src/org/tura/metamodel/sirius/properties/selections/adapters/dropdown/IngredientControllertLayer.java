@@ -5,11 +5,8 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.tura.metamodel.sirius.properties.selections.DropDownDataAdapter;
 
-import form.ControlPointer;
-import form.SourcesPointer;
 import recipe.Ingredient;
 import recipe.RecipePackage;
-import type.Link;
 
 public class IngredientControllertLayer implements DropDownDataAdapter {
 

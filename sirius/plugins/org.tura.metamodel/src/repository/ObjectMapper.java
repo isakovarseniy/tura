@@ -2,9 +2,10 @@
  */
 package repository;
 
+import form.ControlPointer;
+
 import org.eclipse.emf.common.util.EList;
 
-import form.ControlPointer;
 import type.TypePointer;
 
 /**

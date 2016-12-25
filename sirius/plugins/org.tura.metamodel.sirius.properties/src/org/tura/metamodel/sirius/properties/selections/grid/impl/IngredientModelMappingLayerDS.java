@@ -13,7 +13,7 @@ public class IngredientModelMappingLayerDS extends MappingLayerDS{
 
 	@Override
 	public EStructuralFeature getFeature() {
-		return RecipePackage.eINSTANCE.getIngredient_ModeLayer();
+		return RecipePackage.eINSTANCE.getIngredient_ModelLayer();
 	}
 
 }

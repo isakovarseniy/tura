@@ -368,7 +368,6 @@ public interface RepositoryPackage extends EPackage {
 	 */
 	int ATTRIBUTE_MAPPER_FEATURE_COUNT = TypePackage.ATTRIBUTE_POINTER_FEATURE_COUNT + 6;
 
-
 	/**
 	 * The meta object id for the '{@link repository.impl.RelationMapperImpl <em>Relation Mapper</em>}' class.
 	 * <!-- begin-user-doc -->

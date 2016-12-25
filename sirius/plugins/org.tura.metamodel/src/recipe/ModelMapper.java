@@ -3,6 +3,7 @@
 package recipe;
 
 import common.Orderable;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

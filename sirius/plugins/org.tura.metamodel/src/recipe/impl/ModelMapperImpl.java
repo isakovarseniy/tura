@@ -4,6 +4,7 @@ package recipe.impl;
 
 import common.CommonPackage;
 import common.Orderable;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

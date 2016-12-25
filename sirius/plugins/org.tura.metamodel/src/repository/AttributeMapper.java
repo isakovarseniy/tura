@@ -3,6 +3,7 @@
 package repository;
 
 import form.ControlPointer;
+
 import type.AttributePointer;
 
 /**
@@ -23,7 +24,6 @@ import type.AttributePointer;
  * @generated
  */
 public interface AttributeMapper extends AttributePointer, ControlPointer {
-
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

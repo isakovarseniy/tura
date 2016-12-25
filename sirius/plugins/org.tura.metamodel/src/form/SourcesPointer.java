@@ -2,6 +2,7 @@
  */
 package form;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Sources Pointer</b></em>'.
@@ -13,5 +14,4 @@ package form;
  * @generated
  */
 public interface SourcesPointer extends Uielement, ControlPointer {
-
 } // SourcesPointer

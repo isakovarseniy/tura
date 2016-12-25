@@ -88,6 +88,7 @@ public class MappersListPropertySelection extends GridProperty {
 			super(table, property, col);
 			setTextDataAdapter(new ApplicationMapperName());
 			this.setColumnName("Mappers");
+			this.setColumnwidth(400);
 		}
 
 		@Override

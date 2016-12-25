@@ -5,8 +5,8 @@ package form.util;
 import artifact.Categorized;
 
 import common.HTMLLayerHolder;
-
 import common.Orderable;
+
 import form.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -512,20 +512,6 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link common.Orderable <em>Orderable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see common.Orderable
-	 * @generated
-	 */
-	public Adapter createOrderableAdapter() {
 		return null;
 	}
 
@@ -1772,6 +1758,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSecuredAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link common.Orderable <em>Orderable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see common.Orderable
+	 * @generated
+	 */
+	public Adapter createOrderableAdapter() {
 		return null;
 	}
 

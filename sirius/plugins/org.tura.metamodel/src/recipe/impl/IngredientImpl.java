@@ -5,9 +5,11 @@ package recipe.impl;
 import common.CommonPackage;
 import common.HTMLLayerHolder;
 import common.Orderable;
+
 import java.util.Collection;
 
 import mapper.MappingLayer;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,7 +26,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import recipe.Component;
 import recipe.Ingredient;
-import recipe.PlatformLayers;
 import recipe.RecipePackage;
 
 /**
@@ -40,9 +41,8 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.IngredientImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link recipe.impl.IngredientImpl#getLayer <em>Layer</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getVewLayer <em>Vew Layer</em>}</li>
- *   <li>{@link recipe.impl.IngredientImpl#getModeLayer <em>Mode Layer</em>}</li>
+ *   <li>{@link recipe.impl.IngredientImpl#getModelLayer <em>Model Layer</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getControllerLayer <em>Controller Layer</em>}</li>
  * </ul>
  *
@@ -140,26 +140,6 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	protected EList<Component> components;
 
 	/**
-	 * The default value of the '{@link #getLayer() <em>Layer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLayer()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final PlatformLayers LAYER_EDEFAULT = PlatformLayers.SERVICE_LAYER;
-
-	/**
-	 * The cached value of the '{@link #getLayer() <em>Layer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLayer()
-	 * @generated
-	 * @ordered
-	 */
-	protected PlatformLayers layer = LAYER_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getVewLayer() <em>Vew Layer</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,14 +150,14 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	protected EList<MappingLayer> vewLayer;
 
 	/**
-	 * The cached value of the '{@link #getModeLayer() <em>Mode Layer</em>}' reference list.
+	 * The cached value of the '{@link #getModelLayer() <em>Model Layer</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModeLayer()
+	 * @see #getModelLayer()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MappingLayer> modeLayer;
+	protected EList<MappingLayer> modelLayer;
 
 	/**
 	 * The cached value of the '{@link #getControllerLayer() <em>Controller Layer</em>}' reference.
@@ -309,27 +289,6 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PlatformLayers getLayer() {
-		return layer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLayer(PlatformLayers newLayer) {
-		PlatformLayers oldLayer = layer;
-		layer = newLayer == null ? LAYER_EDEFAULT : newLayer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.INGREDIENT__LAYER, oldLayer, layer));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<MappingLayer> getVewLayer() {
 		if (vewLayer == null) {
 			vewLayer = new EObjectResolvingEList<MappingLayer>(MappingLayer.class, this, RecipePackage.INGREDIENT__VEW_LAYER);
@@ -342,11 +301,11 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MappingLayer> getModeLayer() {
-		if (modeLayer == null) {
-			modeLayer = new EObjectResolvingEList<MappingLayer>(MappingLayer.class, this, RecipePackage.INGREDIENT__MODE_LAYER);
+	public EList<MappingLayer> getModelLayer() {
+		if (modelLayer == null) {
+			modelLayer = new EObjectResolvingEList<MappingLayer>(MappingLayer.class, this, RecipePackage.INGREDIENT__MODEL_LAYER);
 		}
-		return modeLayer;
+		return modelLayer;
 	}
 
 	/**
@@ -419,12 +378,10 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 				return getName();
 			case RecipePackage.INGREDIENT__COMPONENTS:
 				return getComponents();
-			case RecipePackage.INGREDIENT__LAYER:
-				return getLayer();
 			case RecipePackage.INGREDIENT__VEW_LAYER:
 				return getVewLayer();
-			case RecipePackage.INGREDIENT__MODE_LAYER:
-				return getModeLayer();
+			case RecipePackage.INGREDIENT__MODEL_LAYER:
+				return getModelLayer();
 			case RecipePackage.INGREDIENT__CONTROLLER_LAYER:
 				if (resolve) return getControllerLayer();
 				return basicGetControllerLayer();
@@ -457,16 +414,13 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 				getComponents().clear();
 				getComponents().addAll((Collection<? extends Component>)newValue);
 				return;
-			case RecipePackage.INGREDIENT__LAYER:
-				setLayer((PlatformLayers)newValue);
-				return;
 			case RecipePackage.INGREDIENT__VEW_LAYER:
 				getVewLayer().clear();
 				getVewLayer().addAll((Collection<? extends MappingLayer>)newValue);
 				return;
-			case RecipePackage.INGREDIENT__MODE_LAYER:
-				getModeLayer().clear();
-				getModeLayer().addAll((Collection<? extends MappingLayer>)newValue);
+			case RecipePackage.INGREDIENT__MODEL_LAYER:
+				getModelLayer().clear();
+				getModelLayer().addAll((Collection<? extends MappingLayer>)newValue);
 				return;
 			case RecipePackage.INGREDIENT__CONTROLLER_LAYER:
 				setControllerLayer((MappingLayer)newValue);
@@ -498,14 +452,11 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 			case RecipePackage.INGREDIENT__COMPONENTS:
 				getComponents().clear();
 				return;
-			case RecipePackage.INGREDIENT__LAYER:
-				setLayer(LAYER_EDEFAULT);
-				return;
 			case RecipePackage.INGREDIENT__VEW_LAYER:
 				getVewLayer().clear();
 				return;
-			case RecipePackage.INGREDIENT__MODE_LAYER:
-				getModeLayer().clear();
+			case RecipePackage.INGREDIENT__MODEL_LAYER:
+				getModelLayer().clear();
 				return;
 			case RecipePackage.INGREDIENT__CONTROLLER_LAYER:
 				setControllerLayer((MappingLayer)null);
@@ -532,12 +483,10 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RecipePackage.INGREDIENT__COMPONENTS:
 				return components != null && !components.isEmpty();
-			case RecipePackage.INGREDIENT__LAYER:
-				return layer != LAYER_EDEFAULT;
 			case RecipePackage.INGREDIENT__VEW_LAYER:
 				return vewLayer != null && !vewLayer.isEmpty();
-			case RecipePackage.INGREDIENT__MODE_LAYER:
-				return modeLayer != null && !modeLayer.isEmpty();
+			case RecipePackage.INGREDIENT__MODEL_LAYER:
+				return modelLayer != null && !modelLayer.isEmpty();
 			case RecipePackage.INGREDIENT__CONTROLLER_LAYER:
 				return controllerLayer != null;
 		}
@@ -606,8 +555,6 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", layer: ");
-		result.append(layer);
 		result.append(')');
 		return result.toString();
 	}

@@ -9,6 +9,7 @@ import application.ApplicationPackage;
 import java.util.Collection;
 
 import mapper.MappingLayer;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 

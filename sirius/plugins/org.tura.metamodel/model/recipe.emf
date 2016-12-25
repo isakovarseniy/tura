@@ -7,7 +7,7 @@ import "platform:/resource/org.tura.metamodel/model/common.ecore";
 
 
 class Recipes{
-    id attr EString uid;
+  id attr EString uid;
   attr  EString name;
   val Recipe recipe;
   val Configuration[*] configurations;
@@ -68,18 +68,11 @@ class UsingMappers{
   ref mapper.Mappers[*] mappers;
 }
 
-//Value of laers must be 2^n
-enum PlatformLayers{
-   ServiceLayer = 1;
-   UILayer = 2;
-}
-
 
 class Ingredient extends UsingMappers,common.HTMLLayerHolder,common.Orderable {
   id attr EString uid;
   attr EString name;
   val Component[*] components;
-  attr PlatformLayers layer;
   ref mapper.MappingLayer[*] vewLayer;
   ref mapper.MappingLayer[*] modelLayer;
   ref mapper.MappingLayer controllerLayer;

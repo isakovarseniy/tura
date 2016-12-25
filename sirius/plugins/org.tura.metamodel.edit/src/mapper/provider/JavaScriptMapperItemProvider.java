@@ -114,8 +114,10 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		JavaScriptMapper javaScriptMapper = (JavaScriptMapper)object;
-		return getString("_UI_JavaScriptMapper_type") + " " + javaScriptMapper.isServiceLayer();
+		String label = ((JavaScriptMapper)object).getUid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_JavaScriptMapper_type") :
+			getString("_UI_JavaScriptMapper_type") + " " + label;
 	}
 	
 

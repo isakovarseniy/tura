@@ -103,31 +103,13 @@ public interface MapperPackage extends EPackage {
 	int MAPPER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPER__SERVICE_LAYER = 0;
-
-	/**
-	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPER__UI_LAYER = 1;
-
-	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPER__LAYERS = 2;
+	int MAPPER__LAYERS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Mapper</em>' class.
@@ -136,7 +118,7 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPER_FEATURE_COUNT = 3;
+	int MAPPER_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link mapper.impl.MappingLayerImpl <em>Mapping Layer</em>}' class.
@@ -195,24 +177,6 @@ public interface MapperPackage extends EPackage {
 	int TYPE_MAPPER = 3;
 
 	/**
-	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MAPPER__SERVICE_LAYER = MAPPER__SERVICE_LAYER;
-
-	/**
-	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MAPPER__UI_LAYER = MAPPER__UI_LAYER;
-
-	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -250,24 +214,6 @@ public interface MapperPackage extends EPackage {
 	int PACKAGE_MAPPER = 4;
 
 	/**
-	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_MAPPER__SERVICE_LAYER = MAPPER__SERVICE_LAYER;
-
-	/**
-	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_MAPPER__UI_LAYER = MAPPER__UI_LAYER;
-
-	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -303,24 +249,6 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	int JAVA_MAPPER = 5;
-
-	/**
-	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_MAPPER__SERVICE_LAYER = TYPE_MAPPER__SERVICE_LAYER;
-
-	/**
-	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_MAPPER__UI_LAYER = TYPE_MAPPER__UI_LAYER;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -432,24 +360,6 @@ public interface MapperPackage extends EPackage {
 	int JAVA_PACKAGE_MAPPER = 6;
 
 	/**
-	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_PACKAGE_MAPPER__SERVICE_LAYER = PACKAGE_MAPPER__SERVICE_LAYER;
-
-	/**
-	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_PACKAGE_MAPPER__UI_LAYER = PACKAGE_MAPPER__UI_LAYER;
-
-	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -550,24 +460,6 @@ public interface MapperPackage extends EPackage {
 	int JAVA_SCRIPT_MAPPER = 7;
 
 	/**
-	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_SCRIPT_MAPPER__SERVICE_LAYER = TYPE_MAPPER__SERVICE_LAYER;
-
-	/**
-	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_SCRIPT_MAPPER__UI_LAYER = TYPE_MAPPER__UI_LAYER;
-
-	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -621,24 +513,6 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	int CSS_MAPPER = 8;
-
-	/**
-	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CSS_MAPPER__SERVICE_LAYER = MAPPER__SERVICE_LAYER;
-
-	/**
-	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CSS_MAPPER__UI_LAYER = MAPPER__UI_LAYER;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -696,24 +570,6 @@ public interface MapperPackage extends EPackage {
 	int ROLE_MAPPER = 9;
 
 	/**
-	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE_MAPPER__SERVICE_LAYER = MAPPER__SERVICE_LAYER;
-
-	/**
-	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE_MAPPER__UI_LAYER = MAPPER__UI_LAYER;
-
-	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -767,7 +623,6 @@ public interface MapperPackage extends EPackage {
 	 */
 	int ROLE_MAPPER_FEATURE_COUNT = MAPPER_FEATURE_COUNT + 4;
 
-
 	/**
 	 * The meta object id for the '{@link mapper.impl.XMLPackageMapperImpl <em>XML Package Mapper</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -777,24 +632,6 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	int XML_PACKAGE_MAPPER = 10;
-
-	/**
-	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PACKAGE_MAPPER__SERVICE_LAYER = PACKAGE_MAPPER__SERVICE_LAYER;
-
-	/**
-	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PACKAGE_MAPPER__UI_LAYER = PACKAGE_MAPPER__UI_LAYER;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -850,24 +687,6 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	int XML_TYPE_MAPPER = 11;
-
-	/**
-	 * The feature id for the '<em><b>Service Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_TYPE_MAPPER__SERVICE_LAYER = TYPE_MAPPER__SERVICE_LAYER;
-
-	/**
-	 * The feature id for the '<em><b>Ui Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_TYPE_MAPPER__UI_LAYER = TYPE_MAPPER__UI_LAYER;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -965,28 +784,6 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMapper();
-
-	/**
-	 * Returns the meta object for the attribute '{@link mapper.Mapper#isServiceLayer <em>Service Layer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Service Layer</em>'.
-	 * @see mapper.Mapper#isServiceLayer()
-	 * @see #getMapper()
-	 * @generated
-	 */
-	EAttribute getMapper_ServiceLayer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link mapper.Mapper#isUiLayer <em>Ui Layer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ui Layer</em>'.
-	 * @see mapper.Mapper#isUiLayer()
-	 * @see #getMapper()
-	 * @generated
-	 */
-	EAttribute getMapper_UiLayer();
 
 	/**
 	 * Returns the meta object for the reference list '{@link mapper.Mapper#getLayers <em>Layers</em>}'.
@@ -1486,22 +1283,6 @@ public interface MapperPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MAPPER = eINSTANCE.getMapper();
-
-		/**
-		 * The meta object literal for the '<em><b>Service Layer</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MAPPER__SERVICE_LAYER = eINSTANCE.getMapper_ServiceLayer();
-
-		/**
-		 * The meta object literal for the '<em><b>Ui Layer</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MAPPER__UI_LAYER = eINSTANCE.getMapper_UiLayer();
 
 		/**
 		 * The meta object literal for the '<em><b>Layers</b></em>' reference list feature.

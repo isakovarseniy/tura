@@ -413,7 +413,6 @@ public interface DomainPackage extends EPackage {
 	 */
 	int DOMAIN_APPLICATION_FEATURE_COUNT = 3;
 
-
 	/**
 	 * The meta object id for the '{@link domain.impl.DomainRepositoriesImpl <em>Repositories</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -505,6 +504,7 @@ public interface DomainPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOMAIN_REPOSITORY_FEATURE_COUNT = 3;
+
 
 	/**
 	 * Returns the meta object for class '{@link domain.Domain <em>Domain</em>}'.

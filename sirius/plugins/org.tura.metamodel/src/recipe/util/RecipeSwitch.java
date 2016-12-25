@@ -4,6 +4,7 @@ package recipe.util;
 
 import common.HTMLLayerHolder;
 import common.Orderable;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 

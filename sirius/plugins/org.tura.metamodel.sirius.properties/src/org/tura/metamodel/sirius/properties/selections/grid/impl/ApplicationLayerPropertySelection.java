@@ -140,6 +140,7 @@ public class ApplicationLayerPropertySelection extends GridProperty {
 			super(table, property, col);
 			setTextDataAdapter(new MappingLayerName());
 			this.setColumnName("Layer");
+			this.setColumnwidth(400);
 		}
 		
 	}

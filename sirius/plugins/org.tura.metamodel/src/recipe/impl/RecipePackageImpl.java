@@ -36,7 +36,6 @@ import message.impl.MessagePackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -60,7 +59,6 @@ import recipe.JavaComponent;
 import recipe.KeyValuePair;
 import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
-import recipe.PlatformLayers;
 import recipe.Property;
 import recipe.Query;
 import recipe.QueryVariable;
@@ -72,7 +70,9 @@ import recipe.Recipes;
 import recipe.UsingMappers;
 
 import repository.RepositoryPackage;
+
 import repository.impl.RepositoryPackageImpl;
+
 import style.StylePackage;
 
 import style.impl.StylePackageImpl;
@@ -234,13 +234,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	private EClass artifactRefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum platformLayersEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -724,8 +717,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIngredient_Layer() {
-		return (EAttribute)ingredientEClass.getEStructuralFeatures().get(3);
+	public EReference getIngredient_VewLayer() {
+		return (EReference)ingredientEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -733,7 +726,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIngredient_VewLayer() {
+	public EReference getIngredient_ModelLayer() {
 		return (EReference)ingredientEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -742,17 +735,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIngredient_ModeLayer() {
-		return (EReference)ingredientEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getIngredient_ControllerLayer() {
-		return (EReference)ingredientEClass.getEStructuralFeatures().get(6);
+		return (EReference)ingredientEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1228,15 +1212,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getPlatformLayers() {
-		return platformLayersEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public RecipeFactory getRecipeFactory() {
 		return (RecipeFactory)getEFactoryInstance();
 	}
@@ -1310,9 +1285,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(ingredientEClass, INGREDIENT__UID);
 		createEAttribute(ingredientEClass, INGREDIENT__NAME);
 		createEReference(ingredientEClass, INGREDIENT__COMPONENTS);
-		createEAttribute(ingredientEClass, INGREDIENT__LAYER);
 		createEReference(ingredientEClass, INGREDIENT__VEW_LAYER);
-		createEReference(ingredientEClass, INGREDIENT__MODE_LAYER);
+		createEReference(ingredientEClass, INGREDIENT__MODEL_LAYER);
 		createEReference(ingredientEClass, INGREDIENT__CONTROLLER_LAYER);
 
 		componentEClass = createEClass(COMPONENT);
@@ -1378,9 +1352,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		artifactRefEClass = createEClass(ARTIFACT_REF);
 		createEAttribute(artifactRefEClass, ARTIFACT_REF__UID);
 		createEReference(artifactRefEClass, ARTIFACT_REF__ARTIFACT_REF);
-
-		// Create enums
-		platformLayersEEnum = createEEnum(PLATFORM_LAYERS);
 	}
 
 	/**
@@ -1478,9 +1449,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getIngredient_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIngredient_Name(), ecorePackage.getEString(), "name", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIngredient_Components(), this.getComponent(), null, "components", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIngredient_Layer(), this.getPlatformLayers(), "layer", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIngredient_VewLayer(), theMapperPackage.getMappingLayer(), null, "vewLayer", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIngredient_ModeLayer(), theMapperPackage.getMappingLayer(), null, "modeLayer", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIngredient_ModelLayer(), theMapperPackage.getMappingLayer(), null, "modelLayer", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIngredient_ControllerLayer(), theMapperPackage.getMappingLayer(), null, "controllerLayer", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1546,11 +1516,6 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEClass(artifactRefEClass, ArtifactRef.class, "ArtifactRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifactRef_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifactRef_ArtifactRef(), theArtifactPackage.getArtifact(), null, "artifactRef", null, 0, 1, ArtifactRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		// Initialize enums and add enum literals
-		initEEnum(platformLayersEEnum, PlatformLayers.class, "PlatformLayers");
-		addEEnumLiteral(platformLayersEEnum, PlatformLayers.SERVICE_LAYER);
-		addEEnumLiteral(platformLayersEEnum, PlatformLayers.UI_LAYER);
 
 		// Create resource
 		createResource(eNS_URI);

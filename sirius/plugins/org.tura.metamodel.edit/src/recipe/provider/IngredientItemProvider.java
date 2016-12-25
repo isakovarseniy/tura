@@ -54,9 +54,8 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 			addOrderPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addLayerPropertyDescriptor(object);
 			addVewLayerPropertyDescriptor(object);
-			addModeLayerPropertyDescriptor(object);
+			addModelLayerPropertyDescriptor(object);
 			addControllerLayerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -151,28 +150,6 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Layer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLayerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Ingredient_layer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Ingredient_layer_feature", "_UI_Ingredient_type"),
-				 RecipePackage.Literals.INGREDIENT__LAYER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Vew Layer feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,19 +172,19 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Mode Layer feature.
+	 * This adds a property descriptor for the Model Layer feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addModeLayerPropertyDescriptor(Object object) {
+	protected void addModelLayerPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Ingredient_modeLayer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Ingredient_modeLayer_feature", "_UI_Ingredient_type"),
-				 RecipePackage.Literals.INGREDIENT__MODE_LAYER,
+				 getString("_UI_Ingredient_modelLayer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Ingredient_modelLayer_feature", "_UI_Ingredient_type"),
+				 RecipePackage.Literals.INGREDIENT__MODEL_LAYER,
 				 true,
 				 false,
 				 true,
@@ -310,7 +287,6 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 			case RecipePackage.INGREDIENT__ORDER:
 			case RecipePackage.INGREDIENT__UID:
 			case RecipePackage.INGREDIENT__NAME:
-			case RecipePackage.INGREDIENT__LAYER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RecipePackage.INGREDIENT__COMPONENTS:

@@ -3,6 +3,7 @@
 package repository.util;
 
 import form.ControlPointer;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 

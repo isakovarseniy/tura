@@ -82,7 +82,6 @@ public interface CommonPackage extends EPackage {
 	 */
 	int HTML_LAYER_HOLDER_FEATURE_COUNT = 1;
 
-
 	/**
 	 * The meta object id for the '{@link common.impl.OrderableImpl <em>Orderable</em>}' class.
 	 * <!-- begin-user-doc -->

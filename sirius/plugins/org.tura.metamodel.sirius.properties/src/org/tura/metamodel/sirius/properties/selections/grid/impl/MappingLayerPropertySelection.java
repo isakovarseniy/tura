@@ -71,6 +71,7 @@ public class MappingLayerPropertySelection extends GridProperty {
 			super(table, property, col);
 			setTextDataAdapter(new  MallingLayerName());
 			this.setColumnName("Mapping layers");
+			this.setColumnwidth(400);
 		}
 
 		@Override

@@ -139,8 +139,10 @@ public class CSSMapperItemProvider extends MapperItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		CSSMapper cssMapper = (CSSMapper)object;
-		return getString("_UI_CSSMapper_type") + " " + cssMapper.isServiceLayer();
+		String label = ((CSSMapper)object).getUid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CSSMapper_type") :
+			getString("_UI_CSSMapper_type") + " " + label;
 	}
 	
 

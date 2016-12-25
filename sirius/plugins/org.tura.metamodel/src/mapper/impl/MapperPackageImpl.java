@@ -38,9 +38,9 @@ import mapper.MappingLayer;
 import mapper.PackageMapper;
 import mapper.RoleMapper;
 import mapper.TypeMapper;
-
 import mapper.XMLPackageMapper;
 import mapper.XMLTypeMapper;
+
 import message.MessagePackage;
 
 import message.impl.MessagePackageImpl;
@@ -61,7 +61,9 @@ import recipe.RecipePackage;
 import recipe.impl.RecipePackageImpl;
 
 import repository.RepositoryPackage;
+
 import repository.impl.RepositoryPackageImpl;
+
 import style.StylePackage;
 
 import style.impl.StylePackageImpl;
@@ -301,26 +303,8 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMapper_ServiceLayer() {
-		return (EAttribute)mapperEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMapper_UiLayer() {
-		return (EAttribute)mapperEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getMapper_Layers() {
-		return (EReference)mapperEClass.getEStructuralFeatures().get(2);
+		return (EReference)mapperEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -716,8 +700,6 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		createEReference(mappersEClass, MAPPERS__MAPPERS);
 
 		mapperEClass = createEClass(MAPPER);
-		createEAttribute(mapperEClass, MAPPER__SERVICE_LAYER);
-		createEAttribute(mapperEClass, MAPPER__UI_LAYER);
 		createEReference(mapperEClass, MAPPER__LAYERS);
 
 		mappingLayerEClass = createEClass(MAPPING_LAYER);
@@ -824,8 +806,6 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		initEReference(getMappers_Mappers(), this.getMapper(), null, "mappers", null, 0, -1, Mappers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mapperEClass, Mapper.class, "Mapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMapper_ServiceLayer(), ecorePackage.getEBoolean(), "serviceLayer", null, 0, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMapper_UiLayer(), ecorePackage.getEBoolean(), "uiLayer", null, 0, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMapper_Layers(), this.getMappingLayer(), null, "layers", null, 0, -1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingLayerEClass, MappingLayer.class, "MappingLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

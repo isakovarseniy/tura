@@ -3,9 +3,9 @@
 package recipe;
 
 import common.CommonPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -562,31 +562,22 @@ public interface RecipePackage extends EPackage {
 	int INGREDIENT__COMPONENTS = USING_MAPPERS_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INGREDIENT__LAYER = USING_MAPPERS_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Vew Layer</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT__VEW_LAYER = USING_MAPPERS_FEATURE_COUNT + 6;
+	int INGREDIENT__VEW_LAYER = USING_MAPPERS_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Mode Layer</b></em>' reference list.
+	 * The feature id for the '<em><b>Model Layer</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT__MODE_LAYER = USING_MAPPERS_FEATURE_COUNT + 7;
+	int INGREDIENT__MODEL_LAYER = USING_MAPPERS_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Controller Layer</b></em>' reference.
@@ -595,7 +586,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT__CONTROLLER_LAYER = USING_MAPPERS_FEATURE_COUNT + 8;
+	int INGREDIENT__CONTROLLER_LAYER = USING_MAPPERS_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Ingredient</em>' class.
@@ -604,7 +595,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 9;
+	int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ComponentImpl <em>Component</em>}' class.
@@ -1293,16 +1284,6 @@ public interface RecipePackage extends EPackage {
 	 */
 	int QUERY_VARIABLE_FEATURE_COUNT = 3;
 
-	/**
-	 * The meta object id for the '{@link recipe.PlatformLayers <em>Platform Layers</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see recipe.PlatformLayers
-	 * @see recipe.impl.RecipePackageImpl#getPlatformLayers()
-	 * @generated
-	 */
-	int PLATFORM_LAYERS = 21;
-
 
 	/**
 	 * Returns the meta object for class '{@link recipe.Recipes <em>Recipes</em>}'.
@@ -1758,17 +1739,6 @@ public interface RecipePackage extends EPackage {
 	EReference getIngredient_Components();
 
 	/**
-	 * Returns the meta object for the attribute '{@link recipe.Ingredient#getLayer <em>Layer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Layer</em>'.
-	 * @see recipe.Ingredient#getLayer()
-	 * @see #getIngredient()
-	 * @generated
-	 */
-	EAttribute getIngredient_Layer();
-
-	/**
 	 * Returns the meta object for the reference list '{@link recipe.Ingredient#getVewLayer <em>Vew Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1780,15 +1750,15 @@ public interface RecipePackage extends EPackage {
 	EReference getIngredient_VewLayer();
 
 	/**
-	 * Returns the meta object for the reference list '{@link recipe.Ingredient#getModeLayer <em>Mode Layer</em>}'.
+	 * Returns the meta object for the reference list '{@link recipe.Ingredient#getModelLayer <em>Model Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Mode Layer</em>'.
-	 * @see recipe.Ingredient#getModeLayer()
+	 * @return the meta object for the reference list '<em>Model Layer</em>'.
+	 * @see recipe.Ingredient#getModelLayer()
 	 * @see #getIngredient()
 	 * @generated
 	 */
-	EReference getIngredient_ModeLayer();
+	EReference getIngredient_ModelLayer();
 
 	/**
 	 * Returns the meta object for the reference '{@link recipe.Ingredient#getControllerLayer <em>Controller Layer</em>}'.
@@ -2362,16 +2332,6 @@ public interface RecipePackage extends EPackage {
 	EReference getArtifactRef_ArtifactRef();
 
 	/**
-	 * Returns the meta object for enum '{@link recipe.PlatformLayers <em>Platform Layers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Platform Layers</em>'.
-	 * @see recipe.PlatformLayers
-	 * @generated
-	 */
-	EEnum getPlatformLayers();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2748,14 +2708,6 @@ public interface RecipePackage extends EPackage {
 		EReference INGREDIENT__COMPONENTS = eINSTANCE.getIngredient_Components();
 
 		/**
-		 * The meta object literal for the '<em><b>Layer</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INGREDIENT__LAYER = eINSTANCE.getIngredient_Layer();
-
-		/**
 		 * The meta object literal for the '<em><b>Vew Layer</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2764,12 +2716,12 @@ public interface RecipePackage extends EPackage {
 		EReference INGREDIENT__VEW_LAYER = eINSTANCE.getIngredient_VewLayer();
 
 		/**
-		 * The meta object literal for the '<em><b>Mode Layer</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Model Layer</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INGREDIENT__MODE_LAYER = eINSTANCE.getIngredient_ModeLayer();
+		EReference INGREDIENT__MODEL_LAYER = eINSTANCE.getIngredient_ModelLayer();
 
 		/**
 		 * The meta object literal for the '<em><b>Controller Layer</b></em>' reference feature.
@@ -3218,16 +3170,6 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ARTIFACT_REF__ARTIFACT_REF = eINSTANCE.getArtifactRef_ArtifactRef();
-
-		/**
-		 * The meta object literal for the '{@link recipe.PlatformLayers <em>Platform Layers</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see recipe.PlatformLayers
-		 * @see recipe.impl.RecipePackageImpl#getPlatformLayers()
-		 * @generated
-		 */
-		EEnum PLATFORM_LAYERS = eINSTANCE.getPlatformLayers();
 
 	}
 

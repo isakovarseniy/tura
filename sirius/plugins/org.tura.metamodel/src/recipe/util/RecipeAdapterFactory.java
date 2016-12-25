@@ -4,6 +4,7 @@ package recipe.util;
 
 import common.HTMLLayerHolder;
 import common.Orderable;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 

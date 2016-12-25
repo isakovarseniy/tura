@@ -2,10 +2,10 @@
  */
 package recipe;
 
-import org.eclipse.emf.common.util.EList;
-
 import common.HTMLLayerHolder;
 import common.Orderable;
+
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
