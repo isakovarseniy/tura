@@ -17,8 +17,8 @@ operation permission::Role mappingRole2Role( recipe:Recipe, ingredient :Ingredie
              }
            }
     }
-     if (self.~url = null ){
-         util.traceIfDebug ("StyleLibrary2CSS","Unable to findRole2Role mapper for role  \"" + self.name +"\" on layer \"" + ingredient.layer +"\"");
+     if (self.~mapper = null ){
+         util.traceIfDebug ("Role2Role","Unable to findRole2Role mapper for role  \"" + self.name +"\" on ingredient \"" + ingredient.name +"\"");
      }
     
     

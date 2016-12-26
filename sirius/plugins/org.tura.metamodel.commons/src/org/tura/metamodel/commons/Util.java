@@ -168,13 +168,31 @@ public class Util {
 		return i;
 	}
 	
-	public static TypeMapper mapType(Set<TypeMapper> mappers,Ingredient ingredient, TypeElement typeElement)
+	private static int ingredientMask(Ingredient ingredient,String maskType){
+		int mask = 0;
+		if ("ALL".equals(maskType) || "VIEW".equals(maskType) ){
+			mask = mask |  makeMask(ingredient.getVewLayer());
+		}
+		
+		if ("ALL".equals(maskType)){
+		   mask = mask | powerN(2,ingredient.getControllerLayer().getOrder());
+		}
+
+		 if ("ALL".equals(maskType) || "MODEL".equals(maskType)){
+				mask = mask |  makeMask(ingredient.getModelLayer());
+		}
+		return mask;
+	}
+	
+	
+	public static TypeMapper mapType(Set<TypeMapper> mappers,Ingredient ingredient, TypeElement typeElement, String maskType)
 			throws Exception {
+
+		int ingredientMask = ingredientMask(ingredient,maskType);
 
 		for (TypeMapper mapper : mappers) {
 
 			int mapperMask = makeMask(mapper.getLayers());
-			int ingredientMask = powerN(2,ingredient.getControllerLayer().getOrder());
 
 			if ( (mapper.getTypeRef().getUid() == typeElement.getUid()) && ( (ingredientMask & mapperMask) != 0) ) {
 				return mapper;
@@ -183,15 +201,16 @@ public class Util {
 		return null;
 	}
 
-	public static PackageMapper mapPackage(Set<PackageMapper> mappers,Ingredient ingredient, TypeGroup pkg)
+	public static PackageMapper mapPackage(Set<PackageMapper> mappers,Ingredient ingredient, TypeGroup pkg, String maskType)
 			throws Exception {
+
+		int ingredientMask = ingredientMask(ingredient,maskType);
 
 		for (PackageMapper mapper : mappers) {
 
 			int mapperMask = makeMask(mapper.getLayers());
-			int ingredientMask = powerN(2,ingredient.getControllerLayer().getOrder());
 
-			if ( (mapper.getPackageRef().getUid() == pkg.getUid()) &&  ((ingredientMask & mapperMask) != 0)  ) {
+			if ( ( mapper.getPackageRef().getUid() == pkg.getUid()) &&  ((ingredientMask & mapperMask) != 0)  ) {
 				return mapper;
 			}
 		}

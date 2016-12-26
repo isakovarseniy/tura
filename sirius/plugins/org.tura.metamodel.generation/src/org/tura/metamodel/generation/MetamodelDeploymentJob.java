@@ -95,11 +95,11 @@ public class MetamodelDeploymentJob extends Job {
 
 			component = recipe.getStartSeq().getFirstStep();
 
-			monitor.beginTask("Component deployment :" + component.getName(), i);
+			monitor.beginTask("Component deployment" , i);
 
 			while (component != null) {
 
-				monitor.subTask("Mapper generation :" + component.getName());
+				monitor.subTask( component.getMapper().getName());
 
 				if (component.getMapper().getArtifactExecutionString() != null) {
 					System.out.println("Execution: " + component.getMapper().getArtifactExecutionString());

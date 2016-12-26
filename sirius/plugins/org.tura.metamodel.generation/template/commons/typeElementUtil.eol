@@ -1,4 +1,16 @@
 operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredient) { 
+      self.mappingType2XML(recipe,ingredient,"ALL");
+}
+
+operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) { 
+      self.mappingType2Java(recipe,ingredient,"ALL");
+}
+
+operation type::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :Ingredient) { 
+      self.mappingType2JavaScript(recipe,ingredient,"ALL");
+}
+
+operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredient,maskType) { 
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
@@ -21,7 +33,7 @@ operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredie
          }
           var set = appmapper.mappers.select(r|r.isKindOf(XMLTypeMapper) and r.typeRef.uid= selfUID);
           if ( set.size() <> 0 ){
-              var type =  util.mapType(set,ingredient,tp) ;
+              var type =  util.mapType(set,ingredient,tp,maskType) ;
               if ( type <> null){
                  self.~mapper="Type2XML";
                  self.~class=type.typename;
@@ -31,7 +43,7 @@ operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredie
           }    
      }
 
-     if (self.~class = null and tp <> null){
+     if (self.~class = null and tp <> null and not self.isTypeOf(type::Primitive)){
 	    for( appmapper in appmappers ){
 	         var pkg =  self.eContainer();
 	         var pkgUID = self.eContainer().uid;
@@ -42,7 +54,7 @@ operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredie
 	         
 	         var set = appmapper.mappers.select(r|r.isKindOf(mapper::XMLPackageMapper) and r.packageRef.uid= pkgUID);
              if ( set.size() <> 0 ){
-              var pkgMp =  util.mapPackage(set,ingredient,pkg) ;
+              var pkgMp =  util.mapPackage(set,ingredient,pkg,maskType) ;
  
               if ( pkgMp <> null){
                  self.~mapper="Type2XML";
@@ -72,7 +84,7 @@ operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredie
 
 
 
-operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient) { 
+operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient,maskType) { 
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
@@ -95,7 +107,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
          }
           var set = appmapper.mappers.select(r|r.isKindOf(JavaMapper) and r.typeRef.uid= selfUID);
           if ( set.size() <> 0 ){
-              var type =  util.mapType(set,ingredient,tp) ;
+              var type =  util.mapType(set,ingredient,tp,maskType) ;
               if ( type <> null){
                  self.~mapper="Type2Java";
                  self.~class=type.mappedToClassName;
@@ -119,7 +131,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
           }    
      }
 
-     if (self.~class = null and tp <> null){
+     if (self.~class = null and tp <> null and not self.isTypeOf(type::Primitive)){
 	    for( appmapper in appmappers ){
 	         var pkg =  self.eContainer();
 	         var pkgUID = self.eContainer().uid;
@@ -130,7 +142,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
 	         
 	         var set = appmapper.mappers.select(r|r.isKindOf(mapper::JavaPackageMapper) and r.packageRef.uid= pkgUID);
              if ( set.size() <> 0 ){
-              var pkgMp =  util.mapPackage(set,ingredient,pkg) ;
+              var pkgMp =  util.mapPackage(set,ingredient,pkg,maskType) ;
  
               if ( pkgMp <> null){
                  self.~mapper="Type2Java";
@@ -175,7 +187,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
 } 
 
 
-operation type::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :Ingredient) { 
+operation type::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :Ingredient,maskType) { 
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');

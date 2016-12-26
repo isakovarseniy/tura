@@ -1680,7 +1680,7 @@
               <recipes uid="66d6cc9b-a6e1-40e0-b0cb-18c4c02274b2" name="UI">
                 <recipes uid="6c59b498-c8ad-4f2e-8b13-68919051c08f" name="HR forms">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 6efca180-cd81-4fb5-b991-399346567070 f222b58b-cd61-4fe3-9a57-98f09aafac20 af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3 acdc2d46-bd08-4e15-ae7f-e81dade87e6d 71f44269-b3fd-4292-8c43-2ffb245accd8" uid="4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5" name="HR forms">
-                    <ingredients order="1" uid="cb94813a-6ea2-4cca-84e9-e7322de5afd0" name="Form ingredient" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
+                    <ingredients order="1" uid="cb94813a-6ea2-4cca-84e9-e7322de5afd0" name="Form ingredient" modelLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f8f26823-9f25-4fe4-a406-059a4c2bc09f" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="989d5392-92cf-4922-b915-896f942783cb" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
@@ -1856,7 +1856,7 @@
                 </recipes>
                 <recipes uid="7c76b2db-e6ba-4f0f-9743-8eaa713f5501" name="Test data controls">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 6efca180-cd81-4fb5-b991-399346567070 f222b58b-cd61-4fe3-9a57-98f09aafac20 af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3" uid="79ad0912-2614-4e51-8828-741f315d47d2" name="Recipe">
-                    <ingredients uid="80c8bf2b-de55-4535-b57d-64514a80ab87" name="Data control component" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
+                    <ingredients uid="80c8bf2b-de55-4535-b57d-64514a80ab87" name="Data control component" modelLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
                       <components xsi:type="tura.recipe:JavaComponent" uid="7c1e3cc7-4698-4cf3-b159-dfbb9462f7bc" name="Data control" componentRoot="/Users/arseniy/generatedCode/test" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="be716da5-cfaf-4cae-9f09-e6cb55ef7467" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all DataControl in Employee management">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>

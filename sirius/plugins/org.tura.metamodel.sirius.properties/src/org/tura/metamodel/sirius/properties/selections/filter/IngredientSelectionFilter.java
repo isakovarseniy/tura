@@ -7,7 +7,6 @@ import org.eclipse.jface.viewers.IFilter;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
 import recipe.Ingredient;
-import recipe.Recipe;
 
 public class IngredientSelectionFilter  implements IFilter {
 
@@ -19,7 +18,7 @@ public class IngredientSelectionFilter  implements IFilter {
 			DRepresentationElement obj = (DRepresentationElement) ((View) editPart.getModel()).getElement();
 			EObject element = obj.getTarget();
 
-			if (element instanceof Ingredient || element instanceof Recipe) {
+			if (element instanceof Ingredient ) {
 				return true;
 			}
 		}

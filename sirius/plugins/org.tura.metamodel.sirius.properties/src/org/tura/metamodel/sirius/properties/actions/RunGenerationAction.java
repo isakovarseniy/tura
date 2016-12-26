@@ -22,7 +22,7 @@ public class RunGenerationAction  implements IExternalJavaAction{
 		DRepresentationElement node = (DRepresentationElement) arg0.iterator().next();
 		Infrastructure infra =  (Infrastructure) node.getTarget();
 		
-		new RecipeGeneration().generation(infra);;
+		new RecipeGeneration().generation(infra);
 
 		
 	}
