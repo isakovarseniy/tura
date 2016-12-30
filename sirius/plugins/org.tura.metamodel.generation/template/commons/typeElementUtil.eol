@@ -11,6 +11,10 @@ operation type::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :I
 }
 
 operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredient,maskType) { 
+    self.~mapper=null;
+    self.~class=null;
+    self.~namespace=null;
+    self.~fullname=null;
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
@@ -85,7 +89,14 @@ operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredie
 
 
 operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredient,maskType) { 
-
+     self.~mapper=null;
+     self.~class=null;
+     self.~package= null;
+     self.~fullName=null;
+     self.~artifactId=null;
+     self.~groupId=null;
+     self.~version= null;
+    
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');
 
@@ -188,6 +199,9 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
 
 
 operation type::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :Ingredient,maskType) { 
+
+    self.~mapper=null;
+    self.~url=null;
 
     var appmappers =   new Native('java.util.ArrayList');  
     var util = new Native('org.tura.metamodel.commons.Util');

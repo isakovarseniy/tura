@@ -61,8 +61,47 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 	         case "Many2Many" : %]  <xs:element name="[%=sourceProperty%]"  type=  "[%=getNamespace(target.~namespace,targetnamespace,fullHash,returnHash)%][%=target.~class%]"   maxOccurs="unbounded"/> [%
 	         }
 	      }
+
+	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+      for (rel in assosiations){
+	    if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+	          continue;
+	    }
+
+        var source = rel.source;
+	    if (source.isKindOf(type::TypeReference )){
+	         source = source.typeRef;
+	    }
       
-	      %]</xs:sequence>
+      var suffix ="";
+       if (rel.source.uid = rel.target.uid){
+          suffix = "Master";
+       }
+      
+         var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
+         if (rel.targetOperation.isDefined())
+             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
+         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+      
+         var target = rel.target;
+	     if (target.isKindOf(type::TypeReference )){
+	         target = target.typeRef;
+	     }
+      
+         var sourceMethodName = util.mergeAndCapitalize(target.name);
+         if (rel.sourceOperation.isDefined())
+             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
+         var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %]     <xs:element name="[%=targetProperty%]" type="[%=getNamespace(source.~namespace,targetnamespace,fullHash,returnHash)%][%=source.~class%]" />[%
+         case "One2Many" : %]   <xs:element name="[%=targetProperty%]" type="[%=getNamespace(source.~namespace,targetnamespace,fullHash,returnHash)%][%=source.~class%]" />[%
+         case "Many2Many" : %] <xs:element name="[%=targetProperty%]" type="[%=getNamespace(source.~namespace,targetnamespace,fullHash,returnHash)%][%=source.~class%]"  maxOccurs="unbounded"/>[%
+         }                
+
+      }
+	      %]
+	      </xs:sequence>
 	      [%
 	       if (type.~extension.isDefined()){ %]</xs:extension>  
 	       </xs:complexContent>

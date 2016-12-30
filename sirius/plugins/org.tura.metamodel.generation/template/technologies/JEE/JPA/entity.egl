@@ -102,7 +102,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
       
       var suffix ="";
        if (rel.source.uid = rel.target.uid){
-          suffix = "Detail";
+          suffix = "Master";
        }
       
          var targetMethodName = util.mergeAndCapitalize(source.name+suffix);

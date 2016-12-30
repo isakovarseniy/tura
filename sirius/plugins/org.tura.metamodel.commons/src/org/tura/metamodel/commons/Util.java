@@ -174,7 +174,7 @@ public class Util {
 			mask = mask |  makeMask(ingredient.getVewLayer());
 		}
 		
-		if ("ALL".equals(maskType)){
+		if ("ALL".equals(maskType) && ingredient.getControllerLayer() != null){
 		   mask = mask | powerN(2,ingredient.getControllerLayer().getOrder());
 		}
 
@@ -203,7 +203,7 @@ public class Util {
 
 	public static PackageMapper mapPackage(Set<PackageMapper> mappers,Ingredient ingredient, TypeGroup pkg, String maskType)
 			throws Exception {
-
+		
 		int ingredientMask = ingredientMask(ingredient,maskType);
 
 		for (PackageMapper mapper : mappers) {

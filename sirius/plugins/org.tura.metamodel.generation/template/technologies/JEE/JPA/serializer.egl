@@ -1,0 +1,200 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ 
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=package%];  
+
+public class [%=class%]Serializer {
+       [% 
+         var tp = type;
+         tp.mappingType2Java(recipe,ingredient,"VIEW");
+       %]
+       public [%=tp.~fullName%]  load([%=fullName%] jpa, java.util.HashMap<String,Object> context,java.util.HashMap<String,Object> connections){
+		  StringBuffer key = new StringBuffer();
+		  [%for ( field in tp.~primaryKey){%]
+		   key.append(jpa.get[%=util.mergeAndCapitalize(field.name)%]());
+		   [%}%]
+		  key.append("[%=fullName%]");
+       
+        [%=tp.~fullName%] obj = new [%=tp.~fullName%]();
+        context.put(key.toString(),obj);
+        [%
+         while  (1 == 1) {
+         %]
+          [%=serializer(tp,type.~skipAttributes,"jpa","obj")%]
+         [%  
+		     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
+		     for (rel in assosiations){
+		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+		                continue;
+		         }
+		         
+		        var target = rel.target;
+			    if (target.isKindOf(type::TypeReference )){
+			         target = target.typeRef;
+			    }
+		        var sourceMethodName = util.mergeAndCapitalize(target.name);
+		
+		        if (rel.sourceOperation.isDefined())
+		             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
+		        var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+		      
+		        var source = rel.source;
+			    if (source.isKindOf(type::TypeReference )){
+			         source = source.typeRef;
+			    }
+		        var targetMethodName = util.mergeAndCapitalize(source.name);
+		
+		         if (rel.targetOperation.isDefined())
+		             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
+		         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]  [%=target.~fullName%]  target[%=sourceMethodName%] =  jpa.get[%=sourceMethodName%]();[%
+		         case "One2Many" : %] java.util.Collection<[%=target.~fullName%]>  targets[%=sourceMethodName%] =   jpa.get[%=sourceMethodName%]();[%
+		         case "Many2Many" : %] java.util.Collection<[%=target.~fullName%]>  targets[%=sourceMethodName%] =   jpa.get[%=sourceMethodName%]();[%
+		         }                
+
+                 var suffix="";
+                 var r = rel.source.~class+rel.type.toString()+rel.target.~class;
+                 r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : suffix =sourceMethodName; %] [%
+		         case "One2Many" : %] for ([%=target.~fullName%] target : targets[%=sourceMethodName%]) {[%
+		         case "Many2Many" : %] for ([%=target.~fullName%] target : targets[%=sourceMethodName%]) {[%
+		         }         
+		                
+                 %] 
+				  StringBuffer key[%=sourceMethodName%] = new StringBuffer();
+				  [%for ( field in target.~primaryKey){%]
+				   key[%=sourceMethodName%].append(target[%=suffix%].get[%=util.mergeAndCapitalize(field.name)%]());
+				   [%}%]
+				  key[%=sourceMethodName%].append("[%=target.~fullName%]");
+				  [%=target.~fullName%] obj[%=suffix%] = context.get(key[%=sourceMethodName%].toString());
+                  if (obj[%=suffix%] == null){
+                 
+                 obj[%=suffix%] = new [%=target.~fullName%]Serializer().load(target[%=suffix%],context);
+                 context.put(key[%=sourceMethodName%].toString(),obj[%=suffix%]);
+                 }
+                 [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]   [%=r%] = new [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]();
+                 [%=r%].setSource(jpa);
+                 [%=r%].setTarget(obj[%=suffix%]);
+                 connections.put([%=r%] .getKey(),[%=r%] );
+                 
+                 [%
+
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] }[%
+		         case "Many2Many" : %]}[%
+		         }         
+		         
+		     }    
+		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.source.uid <> t.target.uid);
+		     for (rel in assosiations){
+		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+		                continue;
+		         }
+		         
+		        var source = rel.source;
+			    if (source.isKindOf(type::TypeReference )){
+			         source = source.typeRef;
+			    }
+		      
+		         var targetMethodName = util.mergeAndCapitalize(source.name);
+		         if (rel.targetOperation.isDefined())
+		             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
+		         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+		      
+		         var target = rel.target;
+			     if (target.isKindOf(type::TypeReference )){
+			         target = target.typeRef;
+			     }
+		      
+		         var sourceMethodName = util.mergeAndCapitalize(target.name);
+		         if (rel.sourceOperation.isDefined())
+		             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
+		         var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+		         
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]  [%=source.~fullName%]    source[%=targetMethodName%] = jpa.get[%=targetMethodName%]();[%
+		         case "One2Many" : %] [%=source.~fullName%]    source[%=targetMethodName%] = jpa.get[%=targetMethodName%]();[%
+		         case "Many2Many" : %] java.util.Collection<[%=source.~fullName%]> sources = jpa.get[%=targetMethodName%]();[%
+		         }                
+
+                 var suffix=targetMethodName;
+                 var r = rel.source.~class+rel.type.toString()+rel.target.~class;
+                 r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] [%
+		         case "Many2Many" : suffix ="";%] for ([%=source.~fullName%] source : sources[%=targetMethodName%]) {[%
+		         }         
+		                
+                 %] 
+				  StringBuffer key[%=targetMethodName%] = new StringBuffer();
+				  [%for ( field in target.~primaryKey){%]
+				   key[%=targetMethodName%].append(source[%=suffix%].get[%=util.mergeAndCapitalize(field.name)%]());
+				   [%}%]
+				  key[%=targetMethodName%].append("[%=source.~fullName%]");
+				  [%=source.~fullName%] obj[%=suffix%] = context.get(key[%=targetMethodName%].toString());
+                  if (obj[%=suffix%] == null){
+                 
+                 obj[%=suffix%] = new [%=source.~fullName%]Serializer().load(source[%=suffix%],context);
+                 context.put(key[%=targetMethodName%].toString(),obj[%=suffix%]);
+                 }
+                 [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]   [%=r%] = new [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]();
+                 [%=r%].setSource(obj[%=suffix%]);
+                 [%=r%].setTarget(jpa);
+                 connections.put([%=r%].getKey(),[%=r%]);
+                 
+                 [%
+
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] [%
+		         case "Many2Many" : %]}[%
+		         }         
+		         
+		     }
+		
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+         }%]  
+         return obj;
+       }
+
+       public void  save(){
+         [% 
+         var tp = type;
+         while  (1 == 1) {%]
+          [%=serializer(tp,type.~skipAttributes,"obj","jpa")%]
+         [%  
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+         }%]  
+        }
+   }    
+   
+[%
+@template
+ operation serializer (type,skipAttributes, inObj, outObj){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( field in type.attributes){
+		     if (skipAttributes.contains(field) ){
+		        continue; 
+		     }   
+        	%][%=outObj%].set[%=util.mergeAndCapitalize(field.name)%](  [%=inObj%].get[%=util.mergeAndCapitalize(field.name)%]()  );
+ 			[%}
+ }
+
+%]

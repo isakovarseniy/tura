@@ -28,7 +28,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
       var i = 0; 
       for(type in typeCollection){
          type.mappingType2XML(recipe,ingredient);
-         if (nsHash.get(type.~namespace) = null ){
+         if (nsHash.get(type.~namespace) == null ){
             var arr =  new Native("java.util.ArrayList");
             var col = new Native("java.util.HashMap"); 
             arr.add(col);
@@ -77,12 +77,18 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
     if (self.isTypeOf(type::TypeReference)){
         tp = self.typeRef;
     }
+    if (typeCollection.contains(tp)){
+        return;
+    }
     typeCollection.add(tp);
     
      var skipAttributes=new Native('java.util.ArrayList');
 
-     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and t.source.uid = tp.uid and t.source.uid <> t.target.uid);
+     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid  and t.source.uid <> t.target.uid);
      for (rel in assosiations){
+         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+                continue;
+         }
   	    var tp1 =  rel.target;
 	    if (tp1.isKindOf(type::TypeReference )){
 	        tp1 = tp1.typeRef;
@@ -90,15 +96,19 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 	    tp1.collectType(typeCollection,model_mapper);
      }
 
-     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.source.uid = tp.uid and t.source.uid <> t.target.uid);
 
+     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid  and t.source.uid <> t.target.uid);
      for (rel in assosiations){
+         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+                continue;
+         }
   	    var tp1 =  rel.source;
 	    if (tp1.isKindOf(type::TypeReference )){
-	       tp1 = tp1.typeRef;
+	        tp1 = tp1.typeRef;
 	    }
 	    tp1.collectType(typeCollection,model_mapper);
      }
+
            
      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and (t.type.toString() = "One2One" or t.type.toString() = "One2Many"));
      for (rel in assosiations){
@@ -110,15 +120,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
          }
      }           
     self.~skipAttributes=skipAttributes;
-    
-    var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and t.source.uid <> t.target.uid);
-    for (rel in assosiations){
-  	    var tp1 =  rel.target;
-	    if (tp1.isKindOf(type::TypeReference )){
-	             tp1 = tp1.typeRef;
-	    }
-	    tp1.collectType(typeCollection,model_mapper);
-    }
     
     var extension = type::Generalization.allInstances()->select(t|t.source.uid = tp.uid  and t.classifiers->size() = 0 ).first();
         if (extension <> null){
