@@ -11,7 +11,7 @@ public class [%=class%]Serializer {
          var tp = type;
          tp.mappingType2Java(recipe,ingredient,"VIEW");
        %]
-       public [%=tp.~fullName%]  load([%=fullName%] jpa, java.util.HashMap<String,Object> context,java.util.HashMap<String,Object> connections){
+       public [%=tp.~fullName%]  load([%=fullName%] jpa, java.util.HashMap<String,Object> context,java.util.HashMap<String,org.tura.platform.repository.core.Rule> connections){
 		  StringBuffer key = new StringBuffer();
 		  [%for ( field in tp.~primaryKey){%]
 		   key.append(jpa.get[%=util.mergeAndCapitalize(field.name)%]());
@@ -35,6 +35,8 @@ public class [%=class%]Serializer {
 			    if (target.isKindOf(type::TypeReference )){
 			         target = target.typeRef;
 			    }
+               target.mappingType2Java(recipe,ingredient,"VIEW");
+			    
 		        var sourceMethodName = util.mergeAndCapitalize(target.name);
 		
 		        if (rel.sourceOperation.isDefined())
@@ -78,8 +80,8 @@ public class [%=class%]Serializer {
                  obj[%=suffix%] = new [%=target.~fullName%]Serializer().load(target[%=suffix%],context);
                  context.put(key[%=sourceMethodName%].toString(),obj[%=suffix%]);
                  }
-                 [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]   [%=r%] = new [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]();
-                 [%=r%].setSource(jpa);
+                 [%=rel.source.~fullName%][%=rel.type.toString()%][%=rel.target.~class%]SerializerRule   [%=r%] = new [%=rel.source.~fullName%][%=rel.type.toString()%][%=rel.target.~class%]SerializerRule();
+                 [%=r%].setSource(obj);
                  [%=r%].setTarget(obj[%=suffix%]);
                  connections.put([%=r%] .getKey(),[%=r%] );
                  
@@ -102,8 +104,15 @@ public class [%=class%]Serializer {
 			    if (source.isKindOf(type::TypeReference )){
 			         source = source.typeRef;
 			    }
+               source.mappingType2Java(recipe,ingredient,"VIEW");
 		      
-		         var targetMethodName = util.mergeAndCapitalize(source.name);
+		       var suffix ="";
+		       if (rel.source.uid = rel.target.uid){
+		          suffix = "Master";
+		       }
+		      
+		      
+		         var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
 		         if (rel.targetOperation.isDefined())
 		             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
 		         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
@@ -146,9 +155,9 @@ public class [%=class%]Serializer {
                  obj[%=suffix%] = new [%=source.~fullName%]Serializer().load(source[%=suffix%],context);
                  context.put(key[%=targetMethodName%].toString(),obj[%=suffix%]);
                  }
-                 [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]   [%=r%] = new [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]();
+                 [%=rel.source.~fullName%][%=rel.type.toString()%][%=rel.target.~class%]SerializerRule   [%=r%] = new [%=rel.source.~fullName%][%=rel.type.toString()%][%=rel.target.~class%]SerializerRule();
                  [%=r%].setSource(obj[%=suffix%]);
-                 [%=r%].setTarget(jpa);
+                 [%=r%].setTarget(obj);
                  connections.put([%=r%].getKey(),[%=r%]);
                  
                  [%

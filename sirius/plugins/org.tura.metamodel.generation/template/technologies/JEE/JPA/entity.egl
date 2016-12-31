@@ -100,7 +100,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 	         source = source.typeRef;
 	    }
       
-      var suffix ="";
+       var suffix ="";
        if (rel.source.uid = rel.target.uid){
           suffix = "Master";
        }
