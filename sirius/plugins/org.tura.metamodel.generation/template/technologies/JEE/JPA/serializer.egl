@@ -1,7 +1,8 @@
 [%
  import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
  import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
- 
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+  
  var util = new Native('org.tura.metamodel.commons.Util');
  %]
 package [%=package%];  
@@ -30,55 +31,36 @@ public class [%=class%]Serializer {
 		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
 		                continue;
 		         }
-		         
-		        var target = rel.target;
-			    if (target.isKindOf(type::TypeReference )){
-			         target = target.typeRef;
-			    }
-               target.mappingType2Java(recipe,ingredient,"VIEW");
-			    
-		        var sourceMethodName = util.mergeAndCapitalize(target.name);
-		
-		        if (rel.sourceOperation.isDefined())
-		             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
-		        var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
-		      
-		        var source = rel.source;
-			    if (source.isKindOf(type::TypeReference )){
-			         source = source.typeRef;
-			    }
-		        var targetMethodName = util.mergeAndCapitalize(source.name);
-		
-		         if (rel.targetOperation.isDefined())
-		             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
-		         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+                rel.target.mappingType2Java(recipe,ingredient,"VIEW");
+
+                var hash = rel.sourceSideNamesCalculation();
 		         
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]  [%=target.~fullName%]  target[%=sourceMethodName%] =  jpa.get[%=sourceMethodName%]();[%
-		         case "One2Many" : %] java.util.Collection<[%=target.~fullName%]>  targets[%=sourceMethodName%] =   jpa.get[%=sourceMethodName%]();[%
-		         case "Many2Many" : %] java.util.Collection<[%=target.~fullName%]>  targets[%=sourceMethodName%] =   jpa.get[%=sourceMethodName%]();[%
+		         case "One2One" : %]  [%=hash.get("target").~fullName%]  target[%=hash.get("sourceMethodName")%] =  jpa.get[%=hash.get("sourceMethodName")%]();[%
+		         case "One2Many" : %] java.util.Collection<[%=hash.get("target").~fullName%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%]();[%
+		         case "Many2Many" : %] java.util.Collection<[%=hash.get("target").~fullName%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%]();[%
 		         }                
 
                  var suffix="";
                  var r = rel.source.~class+rel.type.toString()+rel.target.~class;
                  r = r.toLowerCase();
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : suffix =sourceMethodName; %] [%
-		         case "One2Many" : %] for ([%=target.~fullName%] target : targets[%=sourceMethodName%]) {[%
-		         case "Many2Many" : %] for ([%=target.~fullName%] target : targets[%=sourceMethodName%]) {[%
+		         case "One2One" : suffix =hash.get("sourceMethodName");%] [%
+		         case "One2Many" : %] for ([%=hash.get("target").~fullName%] target : targets[%=hash.get("sourceMethodName")%]) {[%
+		         case "Many2Many" : %] for ([%=hash.get("target").~fullName%] target : targets[%=hash.get("sourceMethodName")%]) {[%
 		         }         
 		                
                  %] 
-				  StringBuffer key[%=sourceMethodName%] = new StringBuffer();
-				  [%for ( field in target.~primaryKey){%]
-				   key[%=sourceMethodName%].append(target[%=suffix%].get[%=util.mergeAndCapitalize(field.name)%]());
+				  StringBuffer key[%=hash.get("sourceMethodName")%] = new StringBuffer();
+				  [%for ( field in hash.get("target").~primaryKey){%]
+				   key[%=hash.get("sourceMethodName")%].append(target[%=suffix%].get[%=util.mergeAndCapitalize(field.name)%]());
 				   [%}%]
-				  key[%=sourceMethodName%].append("[%=target.~fullName%]");
-				  [%=target.~fullName%] obj[%=suffix%] = context.get(key[%=sourceMethodName%].toString());
+				  key[%=hash.get("sourceMethodName")%].append("[%=hash.get("target").~fullName%]");
+				  [%=hash.get("target").~fullName%] obj[%=suffix%] = context.get(key[%=hash.get("sourceMethodName")%].toString());
                   if (obj[%=suffix%] == null){
                  
-                 obj[%=suffix%] = new [%=target.~fullName%]Serializer().load(target[%=suffix%],context);
-                 context.put(key[%=sourceMethodName%].toString(),obj[%=suffix%]);
+                 obj[%=suffix%] = new [%=hash.get("target").~fullName%]Serializer().load(target[%=suffix%],context,connections);
+                 context.put(key[%=hash.get("sourceMethodName")%].toString(),obj[%=suffix%]);
                  }
                  [%=rel.source.~fullName%][%=rel.type.toString()%][%=rel.target.~class%]SerializerRule   [%=r%] = new [%=rel.source.~fullName%][%=rel.type.toString()%][%=rel.target.~class%]SerializerRule();
                  [%=r%].setSource(obj);
@@ -100,60 +82,37 @@ public class [%=class%]Serializer {
 		                continue;
 		         }
 		         
-		        var source = rel.source;
-			    if (source.isKindOf(type::TypeReference )){
-			         source = source.typeRef;
-			    }
-               source.mappingType2Java(recipe,ingredient,"VIEW");
-		      
-		       var suffix ="";
-		       if (rel.source.uid = rel.target.uid){
-		          suffix = "Master";
-		       }
-		      
-		      
-		         var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
-		         if (rel.targetOperation.isDefined())
-		             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
-		         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
-		      
-		         var target = rel.target;
-			     if (target.isKindOf(type::TypeReference )){
-			         target = target.typeRef;
-			     }
-		      
-		         var sourceMethodName = util.mergeAndCapitalize(target.name);
-		         if (rel.sourceOperation.isDefined())
-		             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
-		         var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+                rel.source.mappingType2Java(recipe,ingredient,"VIEW");
+
+                var hash = rel.targetSideNamesCalculation();
 		         
 		         
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]  [%=source.~fullName%]    source[%=targetMethodName%] = jpa.get[%=targetMethodName%]();[%
-		         case "One2Many" : %] [%=source.~fullName%]    source[%=targetMethodName%] = jpa.get[%=targetMethodName%]();[%
-		         case "Many2Many" : %] java.util.Collection<[%=source.~fullName%]> sources = jpa.get[%=targetMethodName%]();[%
+		         case "One2One" : %]  [%=hash.get("source").~fullName%]    source[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();[%
+		         case "One2Many" : %] [%=hash.get("source").~fullName%]    source[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();[%
+		         case "Many2Many" : %] java.util.Collection<[%=hash.get("source").~fullName%]> sources = jpa.get[%=hash.get("targetMethodName")%]();[%
 		         }                
 
-                 var suffix=targetMethodName;
+                 var suffix=hash.get("targetMethodName");
                  var r = rel.source.~class+rel.type.toString()+rel.target.~class;
                  r = r.toLowerCase();
 		  	     switch  (rel.type.toString()){
 		         case "One2One" : %] [%
 		         case "One2Many" : %] [%
-		         case "Many2Many" : suffix ="";%] for ([%=source.~fullName%] source : sources[%=targetMethodName%]) {[%
+		         case "Many2Many" : suffix ="";%] for ([%=hash.get("source").~fullName%] source : sources[%=hash.get("targetMethodName")%]) {[%
 		         }         
 		                
                  %] 
-				  StringBuffer key[%=targetMethodName%] = new StringBuffer();
-				  [%for ( field in target.~primaryKey){%]
-				   key[%=targetMethodName%].append(source[%=suffix%].get[%=util.mergeAndCapitalize(field.name)%]());
+				  StringBuffer key[%=hash.get("targetMethodName")%] = new StringBuffer();
+				  [%for ( field in hash.get("target").~primaryKey){%]
+				   key[%=hash.get("targetMethodName")%].append(source[%=suffix%].get[%=util.mergeAndCapitalize(field.name)%]());
 				   [%}%]
-				  key[%=targetMethodName%].append("[%=source.~fullName%]");
-				  [%=source.~fullName%] obj[%=suffix%] = context.get(key[%=targetMethodName%].toString());
+				  key[%=hash.get("targetMethodName")%].append("[%=hash.get("source").~fullName%]");
+				  [%=hash.get("source").~fullName%] obj[%=suffix%] = context.get(key[%=hash.get("targetMethodName")%].toString());
                   if (obj[%=suffix%] == null){
                  
-                 obj[%=suffix%] = new [%=source.~fullName%]Serializer().load(source[%=suffix%],context);
-                 context.put(key[%=targetMethodName%].toString(),obj[%=suffix%]);
+                 obj[%=suffix%] = new [%=hash.get("source").~fullName%]Serializer().load(source[%=suffix%],context);
+                 context.put(key[%=hash.get("targetMethodName")%].toString(),obj[%=suffix%]);
                  }
                  [%=rel.source.~fullName%][%=rel.type.toString()%][%=rel.target.~class%]SerializerRule   [%=r%] = new [%=rel.source.~fullName%][%=rel.type.toString()%][%=rel.target.~class%]SerializerRule();
                  [%=r%].setSource(obj[%=suffix%]);

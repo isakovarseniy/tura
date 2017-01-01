@@ -4,6 +4,7 @@
 ${start}${percent} 
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
 
  ${percent}${end}
  [%
@@ -35,30 +36,13 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 	         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
 	                continue;
 	         }
-	        var target = rel.target;
-		    if (target.isKindOf(type::TypeReference )){
-		         target = target.typeRef;
-		    }
-	         var sourceMethodName = util.mergeAndCapitalize(target.name);
-	
-	         if (rel.sourceOperation.isDefined())
-	             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
-	         var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
-	      
-	        var source = rel.source;
-		    if (source.isKindOf(type::TypeReference )){
-		         source = source.typeRef;
-		    }
-	        var targetMethodName = util.mergeAndCapitalize(source.name);
-	
-	         if (rel.targetOperation.isDefined())
-	             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
-	         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+	         
+            var hash = rel.sourceSideNamesCalculation();
 	      
 	  	     switch  (rel.type.toString()){
-	         case "One2One" : %]    <xs:element name="[%=sourceProperty%]"  type=  "[%=getNamespace(target.~namespace,targetnamespace,fullHash,returnHash)%][%=target.~class%]"/>[%
-	         case "One2Many" : %]  <xs:element name="[%=sourceProperty%]"  type=  "[%=getNamespace(target.~namespace,targetnamespace,fullHash,returnHash)%][%=target.~class%]"   maxOccurs="unbounded"/> [%
-	         case "Many2Many" : %]  <xs:element name="[%=sourceProperty%]"  type=  "[%=getNamespace(target.~namespace,targetnamespace,fullHash,returnHash)%][%=target.~class%]"   maxOccurs="unbounded"/> [%
+	         case "One2One" : %]    <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]"/>[%
+	         case "One2Many" : %]  <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]"   maxOccurs="unbounded"/> [%
+	         case "Many2Many" : %]  <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]"   maxOccurs="unbounded"/> [%
 	         }
 	      }
 
@@ -68,35 +52,12 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 	          continue;
 	    }
 
-        var source = rel.source;
-	    if (source.isKindOf(type::TypeReference )){
-	         source = source.typeRef;
-	    }
-      
-      var suffix ="";
-       if (rel.source.uid = rel.target.uid){
-          suffix = "Master";
-       }
-      
-         var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
-         if (rel.targetOperation.isDefined())
-             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
-         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
-      
-         var target = rel.target;
-	     if (target.isKindOf(type::TypeReference )){
-	         target = target.typeRef;
-	     }
-      
-         var sourceMethodName = util.mergeAndCapitalize(target.name);
-         if (rel.sourceOperation.isDefined())
-             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
-         var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+         var hash = rel.targetSideNamesCalculation();
       
   	     switch  (rel.type.toString()){
-         case "One2One" : %]     <xs:element name="[%=targetProperty%]" type="[%=getNamespace(source.~namespace,targetnamespace,fullHash,returnHash)%][%=source.~class%]" />[%
-         case "One2Many" : %]   <xs:element name="[%=targetProperty%]" type="[%=getNamespace(source.~namespace,targetnamespace,fullHash,returnHash)%][%=source.~class%]" />[%
-         case "Many2Many" : %] <xs:element name="[%=targetProperty%]" type="[%=getNamespace(source.~namespace,targetnamespace,fullHash,returnHash)%][%=source.~class%]"  maxOccurs="unbounded"/>[%
+         case "One2One" : %]     <xs:element name="[%=hash.get("targetProperty")%]" type="[%=getNamespace(hash.get("source").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("source").~class%]" />[%
+         case "One2Many" : %]   <xs:element name="[%=hash.get("targetProperty")%]" type="[%=getNamespace(hash.get("source").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("source").~class%]" />[%
+         case "Many2Many" : %] <xs:element name="[%=hash.get("targetProperty")%]" type="[%=getNamespace(hash.get("source").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("source").~class%]"  maxOccurs="unbounded"/>[%
          }                
 
       }

@@ -1,6 +1,7 @@
 [%
  import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
  import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
  
  var util = new Native('org.tura.metamodel.commons.Util');
  %]
@@ -37,63 +38,22 @@ public class [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%
       public void execute(){
       [%
       
- 		        var target = rel.target;
-			    if (target.isKindOf(type::TypeReference )){
-			         target = target.typeRef;
-			    }
-		        var sourceMethodName = util.mergeAndCapitalize(target.name);
-		
-		        if (rel.sourceOperation.isDefined())
-		             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
-		        var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
-		      
-		        var source = rel.source;
-			    if (source.isKindOf(type::TypeReference )){
-			         source = source.typeRef;
-			    }
-		        var targetMethodName = util.mergeAndCapitalize(source.name);
-		
-		         if (rel.targetOperation.isDefined())
-		             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
-		         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+                 var hash = rel.sourceSideNamesCalculation();
       
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]     source.set[%=sourceMethodName%](target);[%
-		         case "One2Many" : %]   source.get[%=sourceMethodName%]().add(target);[%
-		         case "Many2Many" : %] source.get[%=sourceMethodName%]().add(target);[%
+		         case "One2One" : %]     source.set[%=hash.get("sourceMethodName")%](target);[%
+		         case "One2Many" : %]   source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+		         case "Many2Many" : %] source.get[%=hash.get("sourceMethodName")%]().add(target);[%
 		         }           
 		         
 
-		        var source = rel.source;
-			    if (source.isKindOf(type::TypeReference )){
-			         source = source.typeRef;
-			    }
-		      
-		       var suffix ="";
-		       if (rel.source.uid = rel.target.uid){
-		          suffix = "Master";
-       		   }
-       		      
-		         var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
-		         if (rel.targetOperation.isDefined())
-		             sourceMethodName = util.mergeAndCapitalize(rel.targetOperation);
-		         var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
-		      
-		         var target = rel.target;
-			     if (target.isKindOf(type::TypeReference )){
-			         target = target.typeRef;
-			     }
-		      
-		         var sourceMethodName = util.mergeAndCapitalize(target.name);
-		         if (rel.sourceOperation.isDefined())
-		             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
-		         var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+                var hash = rel.targetSideNamesCalculation();
 		         
 		         
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]  target.se[%=targetMethodName%](source);[%
-		         case "One2Many" : %] target.set[%=targetMethodName%](source);[%
-		         case "Many2Many" : %] target.get[%=targetMethodName%]().add(source);[%
+		         case "One2One" : %]  target.se[%=hash.get("targetMethodName")%](source);[%
+		         case "One2Many" : %] target.set[%=hash.get("targetMethodName")%](source);[%
+		         case "Many2Many" : %] target.get[%=hash.get("targetMethodName")%]().add(source);[%
 		         }                
 		              
       %]

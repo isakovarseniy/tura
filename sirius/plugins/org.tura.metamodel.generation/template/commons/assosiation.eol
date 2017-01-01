@@ -1,0 +1,73 @@
+operation type::Assosiation  sourceSideNamesCalculation(){
+   var util = new Native('org.tura.metamodel.commons.Util');
+
+    var target = self.target;
+    if (target.isKindOf(type::TypeReference )){
+         target = target.typeRef;
+    }
+     var sourceMethodName = util.mergeAndCapitalize(target.name);
+
+     if (self.sourceOperation.isDefined()){
+         sourceMethodName = util.mergeAndCapitalize(self.sourceOperation);
+      }
+     var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+  
+    var source = self.source;
+    if (source.isKindOf(type::TypeReference )){
+         source = source.typeRef;
+    }
+    var targetMethodName = util.mergeAndCapitalize(source.name);
+
+     if (self.targetOperation.isDefined())
+         sourceMethodName = util.mergeAndCapitalize(self.targetOperation);
+     var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+
+     var hash = new Native('java.util.HashMap');
+     hash.put("sourceMethodName",sourceMethodName);
+     hash.put("sourceProperty",sourceProperty);
+     hash.put("targetMethodName",targetMethodName);
+     hash.put("targetProperty",targetProperty);
+     hash.put("target",target);
+
+      return hash;
+}
+
+operation type::Assosiation  targetSideNamesCalculation(){
+   var util = new Native('org.tura.metamodel.commons.Util');
+
+    var source = self.source;
+    if (source.isKindOf(type::TypeReference )){
+         source = source.typeRef;
+    }
+  
+   var suffix ="";
+   if (self.source.uid = self.target.uid){
+      suffix = "Master";
+   }
+  
+     var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
+     if (self.targetOperation.isDefined())
+         sourceMethodName = util.mergeAndCapitalize(self.targetOperation);
+     var targetProperty =  util.mergeAndUnCapitalize(targetMethodName);
+  
+     var target = self.target;
+     if (target.isKindOf(type::TypeReference )){
+         target = target.typeRef;
+     }
+  
+     var sourceMethodName = util.mergeAndCapitalize(target.name);
+     if (self.sourceOperation.isDefined())
+         sourceMethodName = util.mergeAndCapitalize(self.sourceOperation);
+     var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
+
+     var hash = new Native('java.util.HashMap');
+     hash.put("sourceMethodName",sourceMethodName);
+     hash.put("sourceProperty",sourceProperty);
+     hash.put("targetMethodName",targetMethodName);
+     hash.put("targetProperty",targetProperty);
+     hash.put("source",source);
+     hash.put("target",target);
+
+      return hash;
+
+}

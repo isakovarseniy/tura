@@ -64,6 +64,9 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
  		allRel.addAll(assosiations);
  		
  		for ( rel in allRel  ){
+	       if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+	              continue;
+	       }
  		   rel.source.mappingType2Java(recipe,ingredient,'VIEW');
  		   rel.target.mappingType2Java(recipe,ingredient,'VIEW');
 
