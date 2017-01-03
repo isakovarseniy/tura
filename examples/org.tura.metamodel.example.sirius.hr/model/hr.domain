@@ -471,7 +471,7 @@
             <values uid="b35813a2-3a82-47f5-8181-8629f9d0fa79" name="BUSINESS" value="BUSINESS"/>
           </types>
           <types xsi:type="tura.type:Type" uid="339783fc-a290-4f05-9413-182f7d6ffb7f" name="Location">
-            <classifiers uid="f317bf51-a7a6-4134-ab42-5ec19ac6e79f" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <classifiers uid="1958de95-2364-460b-84bb-f09ad5071eb4" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="f6a899c6-94d9-449e-8918-281310a16583" name="City"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="87a1e862-4b41-47ba-bfe4-7847e2b1c337" name="Street"/>
           </types>
