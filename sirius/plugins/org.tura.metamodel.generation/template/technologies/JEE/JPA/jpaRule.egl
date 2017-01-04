@@ -5,39 +5,39 @@
  
  var util = new Native('org.tura.metamodel.commons.Util');
  %]
-package [%=rel.source.~package%];  
+package [%=t2model.get(rel.source).get("package")%];  
 
-public class [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%][%=rule%]JpaRule implements org.tura.platform.repository.core.Rule {
+public class [%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%][%=rule%]JpaRule implements org.tura.platform.repository.core.Rule {
 
-      private [%=PK(rel.source,"sourcePk", rel.source.~fullName,recipe,ingredient)%]; 
-      private [%=PK(rel.target,"targetPk", rel.target.~fullName,recipe,ingredient)%] ;
+      private [%=PK(rel.source,"sourcePk", t2model.get(rel.source).get("fullName"),recipe,ingredient)%]; 
+      private [%=PK(rel.target,"targetPk", t2model.get(rel.target).get("fullName"),recipe,ingredient)%] ;
       private javax.persistence.EntityManager em;
 
      public void setEntityManager(javax.persistence.EntityManager em){
            this.em=em;
      }
       
-      public void setSourcePk([%=PK(rel.source,"sourcePk", rel.source.~fullName,recipe,ingredient)%] ){
+      public void setSourcePk([%=PK(rel.source,"sourcePk", t2model.get(rel.source).get("fullName"),recipe,ingredient)%] ){
          this.sourcePk = sourcePk;
       }
 
-      public void setTarget([%=PK(rel.target,"targetPk", rel.target.~fullName,recipe,ingredient)%]){
+      public void setTarget([%=PK(rel.target,"targetPk", t2model.get(rel.target).get("fullName"),recipe,ingredient)%]){
          this.targetPk = targetPk;
       }
       
       public String getKey(){
 		  StringBuffer key = new StringBuffer();
 		   key.append(sourcePk.toString());
-		   key.append("[%=rel.source.~fullName%]");
+		   key.append("[%=t2model.get(rel.source).get("fullName")%]");
 		   key.append(targetPk.toString());
-		   key.append("[%=rel.target.~fullName%]");
+		   key.append("[%=t2model.get(rel.target).get("fullName")%]");
 		  return key.toString();
       }
 
       public void execute(){
       
-                 [%=rel.source.~fullName%] source = em.find([%=rel.source.~fullName%] ,sourcePk);  
-                 [%=rel.target.~fullName%] target = em.find([%=rel.target.~fullName%] ,targetPk);  
+                 [%=t2model.get(rel.source).get("fullName")%] source = em.find([%=t2model.get(rel.source).get("fullName")%] ,sourcePk);  
+                 [%=t2model.get(rel.target).get("fullName")%] target = em.find([%=t2model.get(rel.target).get("fullName")%] ,targetPk);  
                  
       [%
       

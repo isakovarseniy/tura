@@ -5,18 +5,18 @@
  
  var util = new Native('org.tura.metamodel.commons.Util');
  %]
-package [%=rel.source.~package%];  
+package [%=t2view.get(rel.source).get("package")%];  
 
-public class [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]SerializerRule implements org.tura.platform.repository.core.Rule {
+public class [%=t2view.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2view.get(rel.target).get("class")%]SerializerRule implements org.tura.platform.repository.core.Rule {
 
-      private [%=rel.source.~fullName%] source;
-      private [%=rel.target.~fullName%] target;
+      private [%=t2view.get(rel.source).get("fullName")%] source;
+      private [%=t2view.get(rel.target).get("fullName")%] target;
       
-      public void setSource([%=rel.source.~fullName%] source){
+      public void setSource([%=t2view.get(rel.source).get("fullName")%] source){
          this.source = source;
       }
 
-      public void setTarget([%=rel.target.~fullName%] target){
+      public void setTarget([%=t2view.get(rel.target).get("fullName")%] target){
          this.target = target;
       }
       
@@ -25,12 +25,12 @@ public class [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%
 		  [%for ( field in rel.source.~primaryKey){%]
 		   key.append(source.get[%=util.mergeAndCapitalize(field.name)%]());
 		   [%}%]
-		  key.append("[%=rel.source.~fullName%]");
+		  key.append("[%=t2view.get(rel.source).get("fullName")%]");
 
 		  [%for ( field in rel.target.~primaryKey){%]
 		   key.append(target.get[%=util.mergeAndCapitalize(field.name)%]());
 		   [%}%]
-		  key.append("[%=rel.target.~fullName%]");
+		  key.append("[%=t2view.get(rel.target).get("fullName")%]");
 		  
 		  return key.toString();
       }

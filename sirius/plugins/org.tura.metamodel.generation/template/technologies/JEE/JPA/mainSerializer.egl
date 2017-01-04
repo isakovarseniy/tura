@@ -12,7 +12,9 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
      var util = new Native('org.tura.metamodel.commons.Util');
      var alltypes = new Native('java.util.ArrayList');
      var hash = new Native('java.util.HashMap');
-     var typeHash = new Native("java.util.HashMap"); 
+     var t2view = new Native("java.util.HashMap"); 
+     var t2model = new Native("java.util.HashMap"); 
+
 
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 
@@ -27,21 +29,28 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 	    
       for(type in typeCollection){
          type.mappingType2Java(recipe,ingredient,'MODEL');
-         typeHash.put(type.~fullName,type);
+         var h = new Native("java.util.HashMap"); 
+         h.put("class",type.~class);
+         h.put("package",type.~package);
+         h.put("fullName",type.~fullName);
+         t2model.put(type,h);
+         
+         type.mappingType2Java(recipe,ingredient,'VIEW');
+         var h = new Native("java.util.HashMap"); 
+         h.put("class",type.~class);
+         h.put("package",type.~package);
+         h.put("fullName",type.~fullName);
+         t2view.put(type,h);
       }	    
  
       var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
-      for(type in typeHash.values()){
+      for(type in t2model.keySet()){
          
         if (not type.~primaryKey.isDefined()  ){
            continue;
         }
-        //We need to map it agein to  override possible modification from "serializer.egl" template
-        type.mappingType2Java(recipe,ingredient,'MODEL');
-
-	    hash.put("package",type.~package);
-	    hash.put("class",type.~class);
-	    hash.put("fullName",type.~fullName);
+	    hash.put("t2model",t2model);
+	    hash.put("t2view",t2view);
 
 	    hash.put("type",type);
 	    hash.put("recipe",recipe);
@@ -55,7 +64,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/serializer.egl",hash,TemplateFactory);
 	    serializer.setFormatter(f);
 	    var buffer = serializer.process();
-	    util.saveFile( path+hash.get("package").replaceAll("\\.","\\/"), hash.get("class")+"Serializer.java",buffer);   
+	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/"), t2view.get(type).get("class")+"Serializer.java",buffer);   
          
         var allRel = new Native('java.util.ArrayList');
  		var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
@@ -67,8 +76,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 	       if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
 	              continue;
 	       }
- 		   rel.source.mappingType2Java(recipe,ingredient,'VIEW');
- 		   rel.target.mappingType2Java(recipe,ingredient,'VIEW');
 
 	       hash.put("rel",rel);
  		
@@ -76,14 +83,11 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 		   rule.setFormatter(f);
 		   var buffer = rule.process();
 		   
-		   util.saveFile( path+rel.source.~package.replaceAll("\\.","\\/"), rel.source.~class + rel.type.toString() +rel.target.~class+"SerializerRule.java",buffer);   
+		   util.saveFile( path+t2view.get(rel.source).get("package").replaceAll("\\.","\\/"), t2view.get(rel.source).get("class") + rel.type.toString() +t2view.get(rel.target).get("class")+"SerializerRule.java",buffer);   
  		
  		}
  
   		for ( rel in allRel  ){
- 		   rel.source.mappingType2Java(recipe,ingredient,'MODEL');
- 		   rel.target.mappingType2Java(recipe,ingredient,'MODEL');
-
 	       hash.put("rel",rel);
 	       hash.put("rule","Insert");
  		
@@ -91,7 +95,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 		   rule.setFormatter(f);
 		   var buffer = rule.process();
 		   
-		   util.saveFile( path+rel.source.~package.replaceAll("\\.","\\/"), rel.source.~class + rel.type.toString() +rel.target.~class+"InsertJpaRule.java",buffer);   
+		   util.saveFile( path+t2model.get(rel.source).get("package").replaceAll("\\.","\\/"), t2model.get(rel.source).get("class") + rel.type.toString() +t2model.get(rel.target).get("class")+"InsertJpaRule.java",buffer);   
 
 	       hash.put("rel",rel);
 	       hash.put("rule","Remove");
@@ -100,10 +104,10 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 		   rule.setFormatter(f);
 		   var buffer = rule.process();
 		   
-		   util.saveFile( path+rel.source.~package.replaceAll("\\.","\\/"), rel.source.~class + rel.type.toString() +rel.target.~class+"RemoveJpaRule.java",buffer);   
+		   util.saveFile( path+t2model.get(rel.source).get("package").replaceAll("\\.","\\/"), t2model.get(rel.source).get("class") + rel.type.toString() +t2model.get(rel.target).get("class")+"RemoveJpaRule.java",buffer);   
  		
  		}
-         
+ 		
       }
  
    }
