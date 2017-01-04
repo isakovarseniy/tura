@@ -79,6 +79,30 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 		   util.saveFile( path+rel.source.~package.replaceAll("\\.","\\/"), rel.source.~class + rel.type.toString() +rel.target.~class+"SerializerRule.java",buffer);   
  		
  		}
+ 
+  		for ( rel in allRel  ){
+ 		   rel.source.mappingType2Java(recipe,ingredient,'MODEL');
+ 		   rel.target.mappingType2Java(recipe,ingredient,'MODEL');
+
+	       hash.put("rel",rel);
+	       hash.put("rule","Insert");
+ 		
+		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/jpaRule.egl",hash,TemplateFactory);
+		   rule.setFormatter(f);
+		   var buffer = rule.process();
+		   
+		   util.saveFile( path+rel.source.~package.replaceAll("\\.","\\/"), rel.source.~class + rel.type.toString() +rel.target.~class+"InsertJpaRule.java",buffer);   
+
+	       hash.put("rel",rel);
+	       hash.put("rule","Remove");
+ 		
+		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/jpaRule.egl",hash,TemplateFactory);
+		   rule.setFormatter(f);
+		   var buffer = rule.process();
+		   
+		   util.saveFile( path+rel.source.~package.replaceAll("\\.","\\/"), rel.source.~class + rel.type.toString() +rel.target.~class+"RemoveJpaRule.java",buffer);   
+ 		
+ 		}
          
       }
  

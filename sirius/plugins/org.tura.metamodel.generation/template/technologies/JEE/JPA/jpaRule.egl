@@ -1,0 +1,104 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ 
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=rel.source.~package%];  
+
+public class [%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%][%=rule%]JpaRule implements org.tura.platform.repository.core.Rule {
+
+      private [%=PK(rel.source,"sourcePk", rel.source.~fullName,recipe,ingredient)%]; 
+      private [%=PK(rel.target,"targetPk", rel.target.~fullName,recipe,ingredient)%] ;
+      private javax.persistence.EntityManager em;
+
+     public void setEntityManager(javax.persistence.EntityManager em){
+           this.em=em;
+     }
+      
+      public void setSourcePk([%=PK(rel.source,"sourcePk", rel.source.~fullName,recipe,ingredient)%] ){
+         this.sourcePk = sourcePk;
+      }
+
+      public void setTarget([%=PK(rel.target,"targetPk", rel.target.~fullName,recipe,ingredient)%]){
+         this.targetPk = targetPk;
+      }
+      
+      public String getKey(){
+		  StringBuffer key = new StringBuffer();
+		   key.append(sourcePk.toString());
+		   key.append("[%=rel.source.~fullName%]");
+		   key.append(targetPk.toString());
+		   key.append("[%=rel.target.~fullName%]");
+		  return key.toString();
+      }
+
+      public void execute(){
+      
+                 [%=rel.source.~fullName%] source = em.find([%=rel.source.~fullName%] ,sourcePk);  
+                 [%=rel.target.~fullName%] target = em.find([%=rel.target.~fullName%] ,targetPk);  
+                 
+      [%
+      
+                if (rule == "Insert" ){ 
+                     var hash = rel.sourceSideNamesCalculation();
+
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]     source.set[%=hash.get("sourceMethodName")%](target);[%
+			         case "One2Many" : %]   source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+			         case "Many2Many" : %] source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+			         }           
+			         
+	
+	                var hash = rel.targetSideNamesCalculation();
+			         
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]  target.se[%=hash.get("targetMethodName")%](source);[%
+			         case "One2Many" : %] target.set[%=hash.get("targetMethodName")%](source);[%
+			         case "Many2Many" : %] target.get[%=hash.get("targetMethodName")%]().add(source);[%
+			         }                
+		         }
+
+                if (rule == "Remove" ){ 
+                     var hash = rel.sourceSideNamesCalculation();
+
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]     source.set[%=hash.get("sourceMethodName")%](null);[%
+			         case "One2Many" : %]   source.get[%=hash.get("sourceMethodName")%]().remove(target);[%
+			         case "Many2Many" : %] source.get[%=hash.get("sourceMethodName")%]().remove(target);[%
+			         }           
+			         
+	
+	                var hash = rel.targetSideNamesCalculation();
+			         
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]  target.se[%=hash.get("targetMethodName")%](null);[%
+			         case "One2Many" : %] target.set[%=hash.get("targetMethodName")%](null);[%
+			         case "Many2Many" : %] target.get[%=hash.get("targetMethodName")%]().remove(source);[%
+			         }                
+		         }
+      %]
+      }
+
+
+
+}
+[%
+@template
+ operation PK (type,name,objFullName,recipe,ingredient){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if (type.~primaryKey.size()>1){%]
+         [%=objFullName%]PK [%=name%]
+		   [%
+       }else{
+          var field = type.~primaryKey.get(0);
+          field.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=field.typeRef.~fullName%]   [%=name%]
+       [%}
+}
+
+%]
