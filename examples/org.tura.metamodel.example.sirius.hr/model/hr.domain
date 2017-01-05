@@ -459,7 +459,7 @@
           <types xsi:type="tura.type:Type" uid="1df05d16-1343-4d64-96a5-294e6d596486" name="Vehicle">
             <classifiers uid="c7f4f4f3-0e13-4496-8755-fddbe66bb927" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="ad628776-d1b3-4a56-ae17-57475f231811" name="objId" pk="true"/>
-            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="42fbe763-a5fc-4666-8437-4d8d64ac111e" name="model"/>
+            <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="42fbe763-a5fc-4666-8437-4d8d64ac111e" name="model" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ede239a4-5927-4bb4-b51c-301ca1f30243" name="plate"/>
           </types>
           <types xsi:type="tura.type:Enumerator" uid="d4a5c952-6379-4abb-aeb8-a5048bdbe8e4" name="Person type">

@@ -10,6 +10,10 @@ package [%=type.~package%];
 
 @javax.persistence.Entity(name = "[%=type.~class%]")
 @javax.persistence.Table(name = "[%=type.~class.toUpperCase()%]")
+[%if (type.~primaryKey.isDefined() and type.~primaryKey.size() >1 ){%]
+@javax.persistence.IdClass(value=[%=type.~class%]PK.class)
+[%}%]
+
 public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%=type.~extension.~fullName%]  [%}%] {
 
 

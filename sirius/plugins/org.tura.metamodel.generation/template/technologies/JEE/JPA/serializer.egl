@@ -297,7 +297,7 @@ public class [%=t2view.get(type).get("class")%]Serializer {
        var util = new Native('org.tura.metamodel.commons.Util');
        if (type.~primaryKey.size()>1){%]
         [%=objFullName%]PK [%=name%] = new  [%=objFullName%]PK();
-		  [%for ( field in tp.~primaryKey){%]
+		  [%for ( field in type.~primaryKey){%]
 		   [%=name%].set[%=util.mergeAndCapitalize(field.name)%](obj.get[%=util.mergeAndCapitalize(field.name)%]());
 		   [%}
        }else{
