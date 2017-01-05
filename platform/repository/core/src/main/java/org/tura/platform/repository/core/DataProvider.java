@@ -19,13 +19,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository;
+package org.tura.platform.repository.core;
 
 import java.util.List;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.model.RepositoryException;
 
 public interface DataProvider {
 

@@ -22,7 +22,6 @@
 	    <module>test-hr-domain-objects-interface</module>
 	    <module>test-hr-domain-simple-objects-model</module>
 	    <module>test-hr-jpa-simple-objects-model</module>
-	    <module>test-jpa-objects</module>
 		<module>test-datacontrols</module>
 		<module>test-nested-datacontrols</module>
 		<module>test-hr-domain-complex-repository</module>

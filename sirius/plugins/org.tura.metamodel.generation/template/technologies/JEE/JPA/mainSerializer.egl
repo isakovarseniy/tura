@@ -110,11 +110,13 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
  		
       }
       if (t2model.size() <> 0){
-	 	  var mapper : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/repositoryMapper.egl",hash,TemplateFactory);
+          var dataprovider = util.mergeAndCapitalize(hash.get("type").eContainer().name);
+          hash.put("dataprovider",dataprovider);
+	 	  var mapper : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/dataProvider.egl",hash,TemplateFactory);
 		  mapper.setFormatter(f);
 		  var buffer = mapper.process();
 			   
-		  util.saveFile( path+t2view.values().iterator().next().get("package").replaceAll("\\.","\\/"),"RepositoryMapper.java",buffer);   
+		  util.saveFile( path+t2view.get(hash.get("type")).get("package").replaceAll("\\.","\\/"),dataprovider+"DataProvider.java",buffer);   
      }
  
    }

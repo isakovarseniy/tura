@@ -42,12 +42,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform</groupId>
-			<artifactId>commons-persistence</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>org.tura.platform.datacontrol</groupId>
 			<artifactId>annotations</artifactId>
 			<scope>test</scope>

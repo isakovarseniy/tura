@@ -19,18 +19,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository;
+package org.tura.platform.repository.core;
 
-import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+public class RepositoryException extends Exception{
+	private static final long serialVersionUID = 5383770471837645080L;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
+	public RepositoryException(Exception e) {
+		super(e);
+	}
 
-import javax.inject.Qualifier;
+	public RepositoryException(String message) {
+		super(message);
+	}
 
-@Qualifier
-@Retention(RUNTIME)
-@Target({ TYPE })
-public @interface ObjectProvider {
+
 }

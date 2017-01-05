@@ -19,36 +19,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.object.persistence;
+package org.tura.platform.repository.core;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+public abstract class ObjectLiveCycle {
 
-/**
- * An example entity bean which can be persistent in database
- * 
- */
-@Entity(name = "ObjectsID")
-@Table(name = "objectsid")
-public class ObjectsID {
+	public abstract Object load(Object obj) throws Exception;
+	public abstract void save(Object obj) throws Exception;
 	
-	@Id
-	@SequenceGenerator(name = "OBJ_ID_GEN", sequenceName = "obj_id_gen",allocationSize=1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "OBJ_ID_GEN")
-	@Column(name = "OBJ_ID")
-	private Long objId;
-
-	public Long getObjId() {
-		return objId;
+	private DataProvider provider;
+	
+	
+	public DataProvider getProvider() {
+		return provider;
 	}
-
-	public void setObjId(Long objId) {
-		this.objId = objId;
+	public void setProvider(DataProvider provider) {
+		this.provider = provider;
 	}
+	
 
+	
 }

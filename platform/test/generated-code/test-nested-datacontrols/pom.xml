@@ -59,11 +59,6 @@
 
 
 		<dependency>
-			<groupId>org.tura.platform</groupId>
-			<artifactId>commons-persistence</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.tura.platform.datacontrol</groupId>
 			<artifactId>annotations</artifactId>
 		</dependency>

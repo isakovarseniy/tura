@@ -19,8 +19,31 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.repository.cdi;
 
-public interface Rule {
-      public void execute();
+import java.util.ArrayList;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Observes;
+import javax.enterprise.inject.spi.Bean;
+import javax.enterprise.inject.spi.Extension;
+import javax.enterprise.inject.spi.ProcessBean;
+
+@ApplicationScoped
+public class RepositoryExtension implements Extension {
+
+	private ArrayList<Bean<?>> dataProviderBeans = new ArrayList<>();
+
+	public <T> void collect(@Observes ProcessBean<T> event) {
+		if (event.getAnnotated().isAnnotationPresent(ObjectProvider.class)) {
+			dataProviderBeans.add(event.getBean());
+		}
+	}
+	
+
+	public ArrayList<Bean<?>> getDataProviderBeans() {
+		return dataProviderBeans;
+	}
+
+
 }

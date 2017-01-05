@@ -19,31 +19,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository;
+package org.tura.platform.repository.cdi;
 
-import java.util.ArrayList;
+import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
-import javax.enterprise.inject.spi.Bean;
-import javax.enterprise.inject.spi.Extension;
-import javax.enterprise.inject.spi.ProcessBean;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 
-@ApplicationScoped
-public class RepositoryExtension implements Extension {
+import javax.inject.Qualifier;
 
-	private ArrayList<Bean<?>> dataProviderBeans = new ArrayList<>();
-
-	public <T> void collect(@Observes ProcessBean<T> event) {
-		if (event.getAnnotated().isAnnotationPresent(ObjectProvider.class)) {
-			dataProviderBeans.add(event.getBean());
-		}
-	}
-	
-
-	public ArrayList<Bean<?>> getDataProviderBeans() {
-		return dataProviderBeans;
-	}
-
-
+@Qualifier
+@Retention(RUNTIME)
+@Target({ TYPE })
+public @interface ObjectProvider {
 }

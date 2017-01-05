@@ -1349,7 +1349,7 @@
                 <recipes uid="a35e53f5-2d9d-46ce-8a15-46ef1576f04c" name="Test domain and persistence model">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 21d8af7b-7dbd-451d-a8e7-ee9d696646a4 d618d7da-b15b-4395-ae4c-40f5c49e29a3" uid="8d9145b8-4528-4cde-b96c-ded8331c2011" name="Test model generation">
                     <ingredients uid="743fbbff-1ddb-4400-848c-23c002a09a64" name="Repository of objects" controllerLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="13f31adb-9df4-4c87-b762-1e9af65381ba" name="Domain Model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="domain-test-objects" groupId="org.tura.domain.test" version="1.0" basePackage="org.tura.domain.test">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="13f31adb-9df4-4c87-b762-1e9af65381ba" name="Domain Model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="domain-test-objects" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.domain.test">
                         <mappers uid="14db4237-4d45-4f0d-9c45-967c1cea6781" artifactRef="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Model generation">
                           <queries uid="6e4361c9-7259-4253-879c-c5ecdf29be0f" name="Query package for classess" queryRef="2f122165-6dcb-4620-8d63-15c0c9dc0270">
                             <variables queryParamRef="83d58dc0-4297-4c19-b869-f879e3c81674" value="Testing repository"/>
@@ -1383,7 +1383,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="1" uid="3521f573-77da-4735-a0f6-e13daf00a1a5" name="Persistance" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="791cda7d-5f13-4507-8b6a-48d6f9461db3" name="Persistence model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0" basePackage="org.tura.jpa.test">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="791cda7d-5f13-4507-8b6a-48d6f9461db3" name="Persistence model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-jpa-objects" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="4081d728-74ee-49c5-8e89-5e83a1986dfa" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactExecutionString="">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
                           <queries uid="1ccc5377-e128-446d-beb2-069ff23b4c46" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
@@ -1426,7 +1426,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
                           </queries>
                         </mappers>
-                        <mappers uid="445b383b-6f5b-43f6-9239-3df2ae1d4c98" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/jpa-test-objects/builder.sh">
+                        <mappers uid="445b383b-6f5b-43f6-9239-3df2ae1d4c98" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-jpa-objects/builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="5516fd5e-e5b1-4fb3-aba7-07325b517be7"/>
@@ -1435,7 +1435,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="3" uid="946ca39d-cc10-4663-80e7-f98859db01ab" name="Serialization model for persistence object" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="88598fc1-6a8f-4c53-b92f-a7e4012de25d" name="persistance serialization model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="serializable-jpa-test-objects" groupId="org.tura.jpa.test" version="1.0" basePackage="org.tura.jpa.test">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="88598fc1-6a8f-4c53-b92f-a7e4012de25d" name="persistance serialization model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="serializable-jpa-test-objects" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="2c9326c4-e193-43ae-9533-77c037188fbe" artifactRef="01788d3b-cb04-49a4-ac90-fe9863806de4" name="Serialization model">
                           <queries uid="81116c57-0cbe-4418-b05a-76cf271b153f" name="Query package for classes" queryRef="f221359a-9578-422c-8dda-d4a8f1ddbfbf">
                             <variables queryParamRef="24d765fa-9d81-488b-8f84-5bdf72735276" value="Testing repository"/>
@@ -1456,7 +1456,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="2" uid="14bc11a6-ef32-4a75-a76c-6433dea53faf" name="Persistance object serializer" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" uid="dda9b19e-e5a0-4baf-acba-4535993afa81" name="JPA model serializer" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="jpa-test-objects-serializer" groupId="org.tura.jpa.test" version="1.0" basePackage="">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="dda9b19e-e5a0-4baf-acba-4535993afa81" name="JPA model serializer" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="jpa-test-objects-serializer" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="">
                         <mappers uid="4ad64e23-f0df-4d9c-9f46-0e8d9e64a024" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="model serializer">
                           <queries uid="40469a6e-dadc-4f41-8f40-fde93c40b334" name="Query package for classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
                             <variables queryParamRef="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" value="Testing repository"/>
@@ -1964,11 +1964,11 @@
               </mappers>
               <mappers uid="917f5699-1513-44ea-b39c-02bd6f6a1311" name="Test packages mapper">
                 <mapper uid="21d8af7b-7dbd-451d-a8e7-ee9d696646a4">
-                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="cec3ff79-4dff-4a21-a9b6-37d0e25d4513" packageRef="606e5926-7b6c-4685-a788-3a4d4aa4b932" uid="3ca4c08a-e2d2-4530-8dfe-7273335adfd3" mappedToPackageName="org.tura.domain.test" artifactId="domain-test-objects" groupId="org.tura.domain.test" version="1.0"/>
-                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="d583fa8b-059b-45eb-a6e5-39f3c3625018" mappedToPackageName="org.tura.jpa.test" artifactId="jpa-test-objects" groupId="org.tura.jpa.test" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="cec3ff79-4dff-4a21-a9b6-37d0e25d4513" packageRef="606e5926-7b6c-4685-a788-3a4d4aa4b932" uid="3ca4c08a-e2d2-4530-8dfe-7273335adfd3" mappedToPackageName="org.tura.domain.test" artifactId="domain-test-objects" groupId="org.tura.platform.test.generated-code" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="d583fa8b-059b-45eb-a6e5-39f3c3625018" mappedToPackageName="org.tura.jpa.test" artifactId="jpa-test-objects" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="2887e236-dca7-4640-b13f-a3185d04afd9" namespace="jpa.serialazable.test.objects"/>
-                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="0d0de2e6-1355-4968-ba9d-271910c91dee" mappedToPackageName="jpa.serialazable.test.objects" artifactId="serializable-jpa-test-objects" groupId="org.tura.jpa.test" version="1.0"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="69d437d6-00cd-49dd-9434-97daac4141fe" mappedToPackageName="org.tura.platform.object.serializaton.persistence" mappedToClassName="PersistenceObject" artifactId="serializable-jpa-test-objects" groupId="org.tura.jpa.test" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="0d0de2e6-1355-4968-ba9d-271910c91dee" mappedToPackageName="jpa.serialazable.test.objects" artifactId="serializable-jpa-test-objects" groupId="org.tura.platform.test.generated-code" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="69d437d6-00cd-49dd-9434-97daac4141fe" mappedToPackageName="org.tura.platform.object.serializaton.persistence" mappedToClassName="PersistenceObject" artifactId="serializable-jpa-test-objects" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                 </mapper>
               </mappers>
               <mappers uid="1de43906-7f41-46a6-a3df-49089f334ac2" name="HR model mapping">
@@ -2014,7 +2014,7 @@
                   <mappers xsi:type="tura.mapper:JavaScriptMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="74f6e110-73a0-4c30-bc42-426cde36ac40" uid="51e96293-ab38-4c47-adbd-0f9c0eac305b" libraryUrl="clientSystemLibrary.js"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="1d17cd28-17dc-4964-bb46-63e1a4003517" uid="e78e23cd-7fd8-4e4c-ae9b-464f4c5ed7ac" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec cec3ff79-4dff-4a21-a9b6-37d0e25d4513" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="22643e00-1019-4f9a-b22b-5ee03e957858" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="f07b6531-021a-4b2d-baa4-d28fa79a4053" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="f07b6531-021a-4b2d-baa4-d28fa79a4053" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="jpa" groupId="org.tura.platform.repository" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="cec3ff79-4dff-4a21-a9b6-37d0e25d4513" typeRef="ca9619bb-716a-48ac-9b6c-2f4a6b468793" uid="817f486a-a5f4-4d08-82c5-257b90a92e02" mappedToPackageName="org.tura.platform.object.model" mappedToClassName="DomainObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="1d17cd28-17dc-4964-bb46-63e1a4003517" uid="d7802112-623c-4771-a623-12a9272369f4" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager"/>
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="1c50fed0-8776-47f1-91fb-e02b2d8f00ad" namespace="org.tura.platform.object.serializaton.persistence" typename="PersistenceObject"/>

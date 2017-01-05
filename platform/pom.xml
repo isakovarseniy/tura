@@ -50,7 +50,6 @@
 
 	<modules>
 		<module>java-sql-dsl</module>
-		<module>commons-persistence</module>
 		<module>commons-selenium</module>
 		<module>datacontrol</module>
 		<module>primefaces-model</module>
@@ -90,12 +89,6 @@
 			<dependency>
 				<groupId>org.tura.platform.datacontrol</groupId>
 				<artifactId>commons</artifactId>
-				<version>${version.tura-platform}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.tura.platform</groupId>
-				<artifactId>commons-persistence</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
@@ -217,6 +210,13 @@
 				<artifactId>tura-nested-data</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
+
+		   <dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>core</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
+
 
 		</dependencies>
 

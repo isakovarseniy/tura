@@ -7,6 +7,9 @@
 package [%=type.~package%];  
 
 public class [%=type.~class%]PK implements java.io.Serializable{
+
+	private static final long serialVersionUID = 1L;
+
      [% 
          for (field in type.~primaryKey){
             field.typeRef.mappingType2Java(recipe,ingredient);
@@ -41,7 +44,7 @@ public class [%=type.~class%]PK implements java.io.Serializable{
       [% 
          for (field in type.~primaryKey){
            %]
-            if(!type.get[%=util.mergeAndCapitalize(field.name)%]( ).equals(field.name)){
+            if(!type.get[%=util.mergeAndCapitalize(field.name)%]( ).equals([%=field.name%])){
                 return false;
             }
            [% 
