@@ -1,0 +1,38 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+  
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=t2view.values().iterator().next().get("package")%];  
+
+
+public class RepositoryMapper {
+
+     private java.util.HashMap<Class<?>,Class<?>> classMapper;
+     private java.util.HashMap<Class<?>,Object> serializerMapper;
+     
+     
+     public RepositoryMapper(){
+     [%
+     for (tp in t2view.keySet()){%]
+        classMapper.put([%=t2view.get(tp).get("fullName")%].class, [%=t2model.get(tp).get("fullName")%].class);
+     [%
+     }
+     for (tp in t2view.keySet()){%]
+        serializerMapper.put([%=t2view.get(tp).get("fullName")%].class, new [%=t2view.get(tp).get("fullName")%]Serializer());
+     [%
+     }
+     %]
+     }
+
+   public Class<?> getJPAClass(Class<?> clazz){
+        return classMapper.get(clazz);
+   }
+
+   public Object  getJPAClass(Class<?> clazz){
+        return serializerMapper.get(clazz);
+   }
+     
+
+}
