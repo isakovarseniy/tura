@@ -18,6 +18,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
            <xs:extension base="[%=getNamespace(type.~extension.~namespace,targetnamespace,fullHash,returnHash )%][%=type.~extension.~class%]">  
             [%}
           %]<xs:sequence>
+               <xs:element name="operation" type="xs:string"/>
           [%
           
 		for ( field in type.attributes){
