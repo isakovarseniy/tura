@@ -67,6 +67,24 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
       
       } 
 
+		var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/xjb/";  
+
+	    var jaxbBinding : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/jaxbBinding.egl",hash,TemplateFactory);
+	    jaxbBinding.setFormatter(f);
+	    var buffer = jaxbBinding.process();
+	    
+	    util.saveFile( path, "bindings.xjb",buffer);   
+
+		var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/org/acme/foo/";  
+        var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+
+	    var dateadapter : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/dateAdapter.egl",hash,TemplateFactory);
+	    dateadapter.setFormatter(f);
+	    var buffer = dateadapter.process();
+	    
+	    util.saveFile( path, "DateAdapter.java",buffer);   
+
+
    }
  
  

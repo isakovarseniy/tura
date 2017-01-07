@@ -134,6 +134,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
          }%]  
          return obj;
        }
+       [%
+                var tp = type;
+       %]
        public void  save(Object o,HashMap<String, Rule> rules){
        [%=t2view.get(tp).get("fullName")%] obj = ([%=t2view.get(tp).get("fullName")%])o;
        [%=PK(type,"pk","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]
@@ -170,6 +173,8 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
          [%
          var methods : Sequence = Sequence{"save","insert","remove"};
          for ( call in methods ){
+         var tp = type;
+         
         %]public void [%=call%]Walk([%=t2view.get(tp).get("fullName")%] obj,HashMap<String, Rule> rules){[%
  		     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
 		     for (rel in assosiations){
@@ -239,7 +244,10 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		     }
        %]	         
         }
-        [%}%]
+        [%}
+         var tp = type;
+       %]
+        
         public void  insert([%=t2view.get(tp).get("fullName")%] obj,HashMap<String, Rule> rules){
           [%=PK(type,"pkInsert","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]
         
@@ -259,6 +267,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		   [%=addRule (type,"Insert",recipe,ingredient,t2model,t2view)%]
 		   
          }
+        [%
+        var tp = type;
+       %]
         
         public void  remove([%=t2view.get(tp).get("fullName")%] obj, HashMap<String, Rule> rules){
           [%=PK(type,"pkRemove","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]

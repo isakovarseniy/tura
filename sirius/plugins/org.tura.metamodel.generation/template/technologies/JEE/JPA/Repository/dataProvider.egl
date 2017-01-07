@@ -6,8 +6,9 @@
  %]
 package [%=t2view.get(type).get("package")%];  
 
+import static com.octo.java.sql.query.Query.c;
 
-public class [%=dataprovider%]DataProvider implements org.tura.platform.repository.DataProvider{
+public class [%=dataprovider%]DataProvider implements org.tura.platform.repository.core.DataProvider{
 
      private java.util.HashMap<String,String> classMapper;
      private java.util.HashMap<String,org.tura.platform.repository.core.ObjectLiveCycle> objectLiveCycle;
@@ -24,16 +25,16 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
      public [%=dataprovider%]DataProvider(){
      }
      
-     public [%=dataprovider%]DataProvider(org.tura.platform.repository.Repository repository){
+     public [%=dataprovider%]DataProvider(org.tura.platform.repository.core.Repository repository){
         init(repository);
      }
 
 
-	public void setRepository(org.tura.platform.repository.Repository repository) {
+	public void setRepository(org.tura.platform.repository.core.Repository repository) {
 		init(repository);
 	}
      
-     private init(org.tura.platform.repository.Repository repository){
+     private void init(org.tura.platform.repository.core.Repository repository){
      [%
      for (tp in t2view.keySet()){%]
      	repository.addProvider(this,  [%=t2view.get(tp).get("fullName")%].class.getName());
@@ -41,11 +42,19 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
      }
 
 
-     for (tp in t2view.keySet()){%]
+     for (tp in t2view.keySet()){
+        if (not tp.~primaryKey.isDefined()  ){
+           continue;
+        }
+     %]
         classMapper.put([%=t2view.get(tp).get("fullName")%].class.getName(), [%=t2model.get(tp).get("fullName")%].class.getName());
      [%
      }
-     for (tp in t2view.keySet()){%]
+     for (tp in t2view.keySet()){
+        if (not tp.~primaryKey.isDefined()  ){
+           continue;
+        }
+     %]
         objectLiveCycle.put([%=t2view.get(tp).get("fullName")%].class.getName(), new [%=t2view.get(tp).get("fullName")%]Serializer());
      [%
      }
@@ -71,17 +80,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 	}
      
 	@Override
-	public void update(Object request, String objectClass) throws RepositoryException {
-		try {
-			ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
-			liveCycle.save(request);
-		} catch (Exception e) {
-			throw new org.tura.platform.repository.core.RepositoryException(e);
-		}
-	}
-
-	@Override
-	public void insert(Object request, String objectClass) throws RepositoryException {
+	public void update(Object request, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
 		try {
 			org.tura.platform.repository.core.ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
 			liveCycle.save(request);
@@ -91,9 +90,19 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 	}
 
 	@Override
-	public void update(Object request, String objectClass) throws RepositoryException {
+	public void insert(Object request, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
 		try {
-			ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
+			org.tura.platform.repository.core.ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
+			liveCycle.save(request);
+		} catch (Exception e) {
+			throw new org.tura.platform.repository.core.RepositoryException(e);
+		}
+	}
+
+	@Override
+	public void remove(Object request, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
+		try {
+			org.tura.platform.repository.core.ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
 			liveCycle.save(request);
 		} catch (Exception e) {
 			throw new org.tura.platform.repository.core.RepositoryException(e);

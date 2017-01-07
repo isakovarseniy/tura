@@ -544,7 +544,7 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="6d639722-b948-4e45-a29b-71ec6e58e823" name="objStatus"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="294a1c17-2c5b-472a-953a-d4135957e954" name="createDate"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="51c5e61d-44b3-4872-bb98-401db962063a" name="updateDate"/>
-            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="f9b81e89-a73a-4cc2-9995-129df5ee0a18" name="actionDate"/>
+            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="f9b81e89-a73a-4cc2-9995-129df5ee0a18" name="activeDate"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="935b9766-ce62-4779-af01-d32269ce3fd1" name="expiredDate"/>
           </types>
           <types xsi:type="tura.type:Type" uid="af833f7a-deb1-4318-bdee-c54a889293cc" name="Style"/>
@@ -558,7 +558,7 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8e19ec74-4154-40cf-900d-0c1c6af399dd" name="objStatus"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="57ef5f0a-d322-491d-912f-a988ed14f056" name="createDate"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="94585655-0a85-43de-b5b1-a57c65b8f7fc" name="updateDate"/>
-            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="a3586088-d053-4d7f-96eb-883bad5ad12e" name="actionDate"/>
+            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="a3586088-d053-4d7f-96eb-883bad5ad12e" name="activeDate"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="67f05beb-e315-42f3-86f7-cbaf9274caf3" name="expiredDate"/>
           </types>
           <types xsi:type="tura.type:Type" uid="ca9619bb-716a-48ac-9b6c-2f4a6b468793" name="Domain Base Type Implementation">
@@ -568,7 +568,7 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="4eec4ccd-0c8b-4d5b-876a-67f481a6f5cf" name="objStatus"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="98052b8d-e50b-40f3-9453-aa8b92bbeb6e" name="createDate"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="1ae3e726-d123-4011-b31a-1ac2a0f649c8" name="updateDate"/>
-            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="373fccd8-dc02-4463-bd6f-16531ff887a6" name="actionDate"/>
+            <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="373fccd8-dc02-4463-bd6f-16531ff887a6" name="activeDate"/>
             <attributes typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="1d7799a0-d243-4408-83e3-4f068cdda4e2" name="expiredDate"/>
           </types>
           <types xsi:type="tura.type:Type" uid="8b94b9cd-b404-4243-bc7b-bf085d4163bd" name="Image"/>
