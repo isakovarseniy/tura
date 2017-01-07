@@ -21,10 +21,13 @@
  */
 package org.tura.platform.repository.core;
 
+import java.util.HashMap;
+
 public abstract class ObjectLiveCycle {
 
-	public abstract Object load(Object obj) throws Exception;
-	public abstract void save(Object obj) throws Exception;
+	public abstract Object load(Object obj,
+	        HashMap<String, Object> context, HashMap<String, Rule> rules) throws Exception;
+	public abstract void save(Object obj,HashMap<String, Rule> rules) throws Exception;
 	
 	private DataProvider provider;
 	
