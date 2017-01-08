@@ -13,8 +13,27 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	
+[%
+  var i =  Java.lastIndexOf("/");
+  if (i <> -1){
+     i = i+1;
+  }else{
+    i = 0;
+  }
+%]
+
+	
 	<build>
 		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>[%=Java.substring(i)%]</source>
+					<target>[%=Java.substring(i)%]</target>
+				</configuration>
+			</plugin>
+		
 			<!-- Plugin required to build java classes from XSD using XJC -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
