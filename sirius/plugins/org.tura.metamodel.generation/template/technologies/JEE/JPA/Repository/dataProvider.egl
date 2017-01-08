@@ -83,7 +83,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 	public void update(Object request, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
 		try {
 			org.tura.platform.repository.core.ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
-			java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<>();
+				java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule>();
 			liveCycle.save(request,rules);
 			processor(rules.values());
 		} catch (Exception e) {
@@ -95,7 +95,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 	public void insert(Object request, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
 		try {
 			org.tura.platform.repository.core.ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
-			java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<>();
+				java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule>();
 			liveCycle.save(request,rules);
 			processor(rules.values());
 		} catch (Exception e) {
@@ -107,7 +107,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 	public void remove(Object request, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
 		try {
 			org.tura.platform.repository.core.ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
-			java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<>();
+				java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule>();
 			liveCycle.save(request,rules);
 			processor(rules.values());
 		} catch (Exception e) {
@@ -129,14 +129,14 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 
 			org.tura.platform.repository.core.ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
 			for (int i = 0; i < list.size(); i++) {
-				java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<>();
-				java.util.HashMap<String, Object> context = new java.util.HashMap<>();
+				java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule>();
+				java.util.HashMap<String, Object> context = new java.util.HashMap<String, Object>();
 				Object obj = liveCycle.load(list.get(i),context,rules);
 				processor(rules.values());
 			
 				list.set(i, obj);
 			}
-			org.tura.platform.datacontrol.commons.LazyList lazyList = new org.tura.platform.datacontrol.commons.LazyList<>(list, numberOfRows, startIndex);
+			org.tura.platform.datacontrol.commons.LazyList  lazyList= new org.tura.platform.datacontrol.commons.LazyList(list, numberOfRows, startIndex);
 
 			return lazyList;
 		} catch (Exception e) {
