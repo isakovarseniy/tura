@@ -40,10 +40,11 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
                 var hash = rel.sourceSideNamesCalculation();
 		         
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]  [%=t2model.get(hash.get("target")).get("fullName")%]  target[%=hash.get("sourceMethodName")%] =  jpa.get[%=hash.get("sourceMethodName")%]();[%
-		         case "One2Many" : %] java.util.Collection<[%=t2model.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%]();[%
-		         case "Many2Many" : %] java.util.Collection<[%=t2model.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%]();[%
+		         case "One2One" : %]  [%=t2model.get(hash.get("target")).get("fullName")%]  target[%=hash.get("sourceMethodName")%] =  jpa.get[%=hash.get("sourceMethodName")%]();  if(target[%=hash.get("sourceMethodName")%] != null){ [%
+		         case "One2Many" : %] java.util.Collection<[%=t2model.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%](); if(targets[%=hash.get("sourceMethodName")%] != null){  [%
+		         case "Many2Many" : %] java.util.Collection<[%=t2model.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%](); if(targets[%=hash.get("sourceMethodName")%] != null){  [%
 		         }                
+
 
                  var suffix =hash.get("sourceMethodName");
                  var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
@@ -59,7 +60,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
  				  [%=t2view.get(hash.get("target")).get("fullName")%] obj[%=suffix%] = ([%=t2view.get(hash.get("target")).get("fullName")%] )context.get(key[%=hash.get("sourceMethodName")%].toString());
                   if (obj[%=suffix%] == null){
                  
-                 obj[%=suffix%] = new [%=serializer%]().load(target[%=suffix%],context,rules);
+                 [%=serializer%] serializer[%=suffix%] = new [%=serializer%](); 
+                 serializer[%=suffix%].setEntityManager(em);
+                 obj[%=suffix%] = serializer[%=suffix%].load(target[%=suffix%],context,rules);
                  context.put(key[%=hash.get("sourceMethodName")%].toString(),obj[%=suffix%]);
                  }
                  [%=t2view.get(rel.source).get("fullName")%][%=rel.type.toString()%][%=t2view.get(rel.target).get("class")%]SerializerRule   [%=r%] = new [%=t2view.get(rel.source).get("fullName")%][%=rel.type.toString()%][%=t2view.get(rel.target).get("class")%]SerializerRule();
@@ -70,9 +73,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
                  [%
 
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %] [%
-		         case "One2Many" : %] }[%
-		         case "Many2Many" : %]}[%
+		         case "One2One" : %] }[%
+		         case "One2Many" : %] }}[%
+		         case "Many2Many" : %]}}[%
 		         }         
 		         
 		     }    
@@ -88,9 +91,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		         
 		         
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]  [%=t2model.get(hash.get("source")).get("fullName")%]    source[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();[%
-		         case "One2Many" : %] [%=t2model.get(hash.get("source")).get("fullName")%]    source[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();[%
-		         case "Many2Many" : %] java.util.Collection<[%=t2model.get(hash.get("source")).get("fullName")%]> sources[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();[%
+		         case "One2One" : %]  [%=t2model.get(hash.get("source")).get("fullName")%]    source[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();  if(source[%=hash.get("targetMethodName")%] != null){ [%
+		         case "One2Many" : %] [%=t2model.get(hash.get("source")).get("fullName")%]    source[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();  if(source[%=hash.get("targetMethodName")%] != null){[%
+		         case "Many2Many" : %] java.util.Collection<[%=t2model.get(hash.get("source")).get("fullName")%]> sources[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();  if(sources[%=hash.get("targetMethodName")%] != null){[%
 		         }                
 
                  var suffix=hash.get("targetMethodName");
@@ -108,7 +111,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 				  [%=t2view.get(hash.get("source")).get("fullName")%] obj[%=suffix%] = ([%=t2view.get(hash.get("source")).get("fullName")%] )context.get(key[%=hash.get("targetMethodName")%].toString());
                   if (obj[%=suffix%] == null){
                  
-                 obj[%=suffix%] = new [%=serializer%]().load(source[%=suffix%],context,rules);
+                 [%=serializer%] serializer[%=suffix%] = new [%=serializer%](); 
+                 serializer[%=suffix%].setEntityManager(em);
+                 obj[%=suffix%] = serializer[%=suffix%].load(source[%=suffix%],context,rules);
                  context.put(key[%=hash.get("targetMethodName")%].toString(),obj[%=suffix%]);
                  }
                  [%=t2view.get(rel.source).get("fullName")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]SerializerRule   [%=r%] = new [%=t2view.get(rel.source).get("fullName")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]SerializerRule();
@@ -119,9 +124,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
                  [%
 
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %] [%
-		         case "One2Many" : %] [%
-		         case "Many2Many" : %]}[%
+		         case "One2One" : %] }[%
+		         case "One2Many" : %]} [%
+		         case "Many2Many" : %]}}[%
 		         }         
 		         
 		     }
@@ -185,9 +190,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
                 var hash = rel.sourceSideNamesCalculation();
 		         
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]  [%=t2view.get(hash.get("target")).get("fullName")%]  target[%=hash.get("sourceMethodName")%] =  obj.get[%=hash.get("sourceMethodName")%]();[%
-		         case "One2Many" : %] java.util.Collection<[%=t2view.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   obj.get[%=hash.get("sourceMethodName")%]();[%
-		         case "Many2Many" : %] java.util.Collection<[%=t2view.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   obj.get[%=hash.get("sourceMethodName")%]();[%
+		         case "One2One" : %]  [%=t2view.get(hash.get("target")).get("fullName")%]  target[%=hash.get("sourceMethodName")%] =  obj.get[%=hash.get("sourceMethodName")%](); if ( target[%=hash.get("sourceMethodName")%] != null){  [%
+		         case "One2Many" : %] java.util.Collection<[%=t2view.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   obj.get[%=hash.get("sourceMethodName")%]();  if (targets[%=hash.get("sourceMethodName")%] != null) {[%
+		         case "Many2Many" : %] java.util.Collection<[%=t2view.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   obj.get[%=hash.get("sourceMethodName")%]();  if (targets[%=hash.get("sourceMethodName")%] != null) {[%
 		         }                
 
                  var suffix =hash.get("sourceMethodName");
@@ -198,13 +203,15 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		         }         
 		                
                  %] 
-                  new [%=t2view.get(hash.get("target")).get("fullName")%]Serializer().[%=call%](target[%=suffix%],rules);
+                  [%=t2view.get(hash.get("target")).get("fullName")%]Serializer serializer[%=suffix%] = new  [%=t2view.get(hash.get("target")).get("fullName")%]Serializer();
+                  serializer[%=suffix%].setEntityManager(em);
+                  serializer[%=suffix%].[%=call%](target[%=suffix%],rules);
                  [%
 
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %] [%
-		         case "One2Many" : %] }[%
-		         case "Many2Many" : %]}[%
+		         case "One2One" : %] }[%
+		         case "One2Many" : %] }}[%
+		         case "Many2Many" : %]}}[%
 		         }         
 		         
 		     }    
@@ -221,9 +228,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		         
 		         
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]  [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();[%
-		         case "One2Many" : %] [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();[%
-		         case "Many2Many" : %] java.util.Collection<[%=t2view.get(hash.get("source")).get("fullName")%]> sources[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();[%
+		         case "One2One" : %]  [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();   if (source[%=suffix%] != null) {[%
+		         case "One2Many" : %] [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();  if (source[%=suffix%] != null) {[%
+		         case "Many2Many" : %] java.util.Collection<[%=t2view.get(hash.get("source")).get("fullName")%]> sources[%=suffix%] = obj.get[%=hash.get("targetMethodName")%](); if (sources[%=suffix%] != null) {[%
 		         }                
 
                  var suffix=hash.get("targetMethodName");
@@ -234,12 +241,14 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		         }         
 		                
                  %] 
-                 new [%=t2view.get(hash.get("source")).get("fullName")%]Serializer().[%=call%](source[%=suffix%],rules);
+                 [%=t2view.get(hash.get("source")).get("fullName")%]Serializer serializer[%=suffix%] =  new [%=t2view.get(hash.get("source")).get("fullName")%]Serializer ();
+                 serializer[%=suffix%].setEntityManager(em);
+                 serializer[%=suffix%].[%=call%](source[%=suffix%],rules);
                  [%
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %] [%
-		         case "One2Many" : %] [%
-		         case "Many2Many" : %]}[%
+		         case "One2One" : %] }[%
+		         case "One2Many" : %]} [%
+		         case "Many2Many" : %]}}[%
 		         }         
 		     }
        %]	         
@@ -249,7 +258,6 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
        %]
         
         public void  insert([%=t2view.get(tp).get("fullName")%] obj,HashMap<String, Rule> rules){
-          [%=PK(type,"pkInsert","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]
         
           [%=t2model.get(tp).get("fullName")%] jpa = new [%=t2model.get(tp).get("fullName")%]();
 		         [% 
@@ -264,6 +272,7 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		            }
 		         }%]  
 		   em.persist(jpa);
+          [%=PK(type,"pkInsert","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]
 		   [%=addRule (type,"Insert",recipe,ingredient,t2model,t2view)%]
 		   
          }
@@ -335,9 +344,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
                  var suffix =hash.get("sourceMethodName");
 		         
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]  [%=t2view.get(hash.get("target")).get("fullName")%]  target[%=suffix%] =  obj.get[%=hash.get("sourceMethodName")%]();[%
-		         case "One2Many" : %] java.util.Collection<[%=t2view.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   obj.get[%=hash.get("sourceMethodName")%]();[%
-		         case "Many2Many" : %] java.util.Collection<[%=t2view.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   obj.get[%=hash.get("sourceMethodName")%]();[%
+		         case "One2One" : %]  [%=t2view.get(hash.get("target")).get("fullName")%]  target[%=suffix%] =  obj.get[%=hash.get("sourceMethodName")%]();  if ( target[%=suffix%] != null ) { [%
+		         case "One2Many" : %] java.util.Collection<[%=t2view.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   obj.get[%=hash.get("sourceMethodName")%]();  if (targets[%=hash.get("sourceMethodName")%]  != null){ [%
+		         case "Many2Many" : %] java.util.Collection<[%=t2view.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   obj.get[%=hash.get("sourceMethodName")%](); if (targets[%=hash.get("sourceMethodName")%]  != null){  [%
 		         }                
 
                  var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
@@ -351,6 +360,7 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
                  %] 
                  
                  [%=t2model.get(rel.source).get("fullName")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%][%=rule%]JpaRule   [%=r%] = new [%=t2model.get(rel.source).get("fullName")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%][%=rule%]JpaRule();
+                 [%=r%].setEntityManager(em);
                  [%=PK(rel.target,"pk"+suffix,"target"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
                  [%=r%].setSourcePk(pk[%=rule%]);
                  [%=r%].setTargetPk(pk[%=suffix%]);
@@ -359,9 +369,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
                  [%
 
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %] [%
-		         case "One2Many" : %] }[%
-		         case "Many2Many" : %]}[%
+		         case "One2One" : %] }[%
+		         case "One2Many" : %] }}[%
+		         case "Many2Many" : %]}}[%
 		         }         
 		         
 		     }    
@@ -374,9 +384,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
                  var suffix=hash.get("targetMethodName");
 		         
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]  [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();[%
-		         case "One2Many" : %] [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%]= obj.get[%=hash.get("targetMethodName")%]();[%
-		         case "Many2Many" : %] java.util.Collection<[%=t2view.get(hash.get("source")).get("fullName")%]> sources[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();[%
+		         case "One2One" : %]  [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();  if (source[%=suffix%] != null ) { [%
+		         case "One2Many" : %] [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%]= obj.get[%=hash.get("targetMethodName")%]();  if (source[%=suffix%] != null ) { [%
+		         case "Many2Many" : %] java.util.Collection<[%=t2view.get(hash.get("source")).get("fullName")%]> sources[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();  if (sources[%=suffix%] != null ) {[%
 		         }                
 
                  var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
@@ -390,6 +400,7 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
                  %] 
 
                  [%=t2model.get(hash.get("source")).get("fullName")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%][%=rule%]JpaRule   [%=r%] = new [%=t2model.get(hash.get("source")).get("fullName")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%][%=rule%]JpaRule();
+                 [%=r%].setEntityManager(em);
                  [%=PK(rel.target,"pk"+suffix,"source"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
                  [%=r%].setSourcePk(pk[%=suffix%]);
                  [%=r%].setTargetPk(pk[%=rule%]);
@@ -397,9 +408,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
                  [%
 
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %] [%
-		         case "One2Many" : %] [%
-		         case "Many2Many" : %]}[%
+		         case "One2One" : %] }[%
+		         case "One2Many" : %]} [%
+		         case "Many2Many" : %]}}[%
 		         }         
 		         
 		     }

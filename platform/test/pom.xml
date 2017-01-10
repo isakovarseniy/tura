@@ -18,13 +18,17 @@
 
   <modules>
     <module>commons-test</module>
+    <module>test-of-generated-jpa-objects</module>
+    <module>test-of-generated-jpa-repository</module>  
+
+
+
     <module>test-model</module>
     <module>generated-code</module>
     <module>test-jpa-service-command</module>
     <module>test-compressor-command</module>
     <module>test-nested-data-control</module>
     <module>test-of-generated-datacontrol</module>
-    <module>test-of-generated-jpa-objects</module>
     <module>test-of-generated-nested-datacontrols</module>
   </modules>
   

@@ -69,6 +69,20 @@ public class [%=type.~class%]PK implements java.io.Serializable{
         return i;
     }
 
+    @Override
+    public String toString() {
+         String str = "[%=type.~package%].[%=type.~class%]PK";
+        [% 
+         for (field in type.~primaryKey){
+           %]
+           str = str +" [%=field.name%] = " +[%=field.name%].toString();
+           [% 
+         }
+     %]
+        return str;
+    }
+
+
 
 
 }

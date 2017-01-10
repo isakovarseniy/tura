@@ -10,17 +10,22 @@ import static com.octo.java.sql.query.Query.c;
 
 public class [%=dataprovider%]DataProvider implements org.tura.platform.repository.core.DataProvider{
 
-     private java.util.HashMap<String,String> classMapper;
-     private java.util.HashMap<String,org.tura.platform.repository.core.ObjectLiveCycle> objectLiveCycle;
+     private java.util.HashMap<String,String> classMapper = new java.util.HashMap<String,String>();
+     private java.util.HashMap<String,org.tura.platform.repository.core.ObjectLiveCycle> objectLiveCycle = new java.util.HashMap<String,org.tura.platform.repository.core.ObjectLiveCycle> ();
      private javax.persistence.EntityManager em;
+    private org.tura.platform.repository.core.PrImaryKeyStrategy pkStrategy;
 
      public void setEntityManager(javax.persistence.EntityManager em){
            this.em=em;
      }
     
      public javax.persistence.EntityManager getEntityManager(){
-           return em;
-     }     
+           return this.em;
+     }
+     
+     public void setPkStrategy(org.tura.platform.repository.core.PrImaryKeyStrategy pkStrategy){
+          this.pkStrategy=pkStrategy;
+     }
      
      public [%=dataprovider%]DataProvider(){
      }
@@ -73,6 +78,9 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 	public Object create(String objectClass) throws org.tura.platform.repository.core.RepositoryException {
 		try {
 			Object obj = Class.forName(objectClass).newInstance();
+            if (pkStrategy != null){
+            	pkStrategy.generatePk(obj);
+            }
 			return obj;
 		} catch (Exception e) {
 			throw new org.tura.platform.repository.core.RepositoryException(e);
@@ -84,6 +92,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 		try {
 			org.tura.platform.repository.core.ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
 				java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule>();
+			org.tura.platform.datacontrol.commons.Reflection.callTyped(liveCycle,"setEntityManager", javax.persistence.EntityManager.class,em);	
 			liveCycle.save(request,rules);
 			processor(rules.values());
 		} catch (Exception e) {
@@ -96,6 +105,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 		try {
 			org.tura.platform.repository.core.ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
 				java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule>();
+			org.tura.platform.datacontrol.commons.Reflection.callTyped(liveCycle,"setEntityManager", javax.persistence.EntityManager.class,em);	
 			liveCycle.save(request,rules);
 			processor(rules.values());
 		} catch (Exception e) {
@@ -108,6 +118,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 		try {
 			org.tura.platform.repository.core.ObjectLiveCycle liveCycle = findLiveCycle(objectClass);
 				java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule>();
+			org.tura.platform.datacontrol.commons.Reflection.callTyped(liveCycle,"setEntityManager", javax.persistence.EntityManager.class,em);	
 			liveCycle.save(request,rules);
 			processor(rules.values());
 		} catch (Exception e) {
