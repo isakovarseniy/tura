@@ -1,0 +1,54 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ 
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=t2model.get(type).get("package")%];  
+
+public class [%=t2model.get(type).get("class")%]RemoveJpaRule implements org.tura.platform.repository.core.Rule {
+
+      private [%=PK(type,"entityPk", t2model.get(type).get("fullName"),recipe,ingredient)%]; 
+      private javax.persistence.EntityManager em;
+
+     public void setEntityManager(javax.persistence.EntityManager em){
+           this.em=em;
+     }
+      
+      public void setEntityPk([%=PK(type,"entityPk", t2model.get(type).get("fullName"),recipe,ingredient)%] ){
+         this.entityPk = entityPk;
+      }
+
+      public String getKey(){
+		  StringBuffer key = new StringBuffer();
+		   key.append(entityPk.toString());
+		   key.append("[%=t2model.get(type).get("fullName")%]");
+		  return key.toString();
+      }
+
+      public void execute(){
+      
+                 [%=t2model.get(type).get("fullName")%] entity = em.find([%=t2model.get(type).get("fullName")%].class ,entityPk);  
+                 em.remove(entity);
+      }
+
+
+
+}
+[%
+@template
+ operation PK (type,name,objFullName,recipe,ingredient){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if (type.~primaryKey.size()>1){%]
+         [%=objFullName%]PK [%=name%]
+		   [%
+       }else{
+          var field = type.~primaryKey.get(0);
+          field.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=field.typeRef.~fullName%]   [%=name%]
+       [%}
+}
+
+%]

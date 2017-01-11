@@ -89,24 +89,28 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
  
   		for ( rel in allRel  ){
 	       hash.put("rel",rel);
-	       hash.put("rule","Insert");
  		
-		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/jpaRule.egl",hash,TemplateFactory);
+		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/jpaInsertRule.egl",hash,TemplateFactory);
 		   rule.setFormatter(f);
 		   var buffer = rule.process();
 		   
 		   util.saveFile( path+t2model.get(rel.source).get("package").replaceAll("\\.","\\/"), t2model.get(rel.source).get("class") + rel.type.toString() +t2model.get(rel.target).get("class")+"InsertJpaRule.java",buffer);   
 
-	       hash.put("rel",rel);
-	       hash.put("rule","Remove");
  		
-		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/jpaRule.egl",hash,TemplateFactory);
+ 		}
+ 		
+      for(type in t2model.keySet()){
+        if (not type.~primaryKey.isDefined()  ){
+           continue;
+        }
+	       hash.put("type",type);
+ 		
+		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/jpaRemoveRule.egl",hash,TemplateFactory);
 		   rule.setFormatter(f);
 		   var buffer = rule.process();
 		   
-		   util.saveFile( path+t2model.get(rel.source).get("package").replaceAll("\\.","\\/"), t2model.get(rel.source).get("class") + rel.type.toString() +t2model.get(rel.target).get("class")+"RemoveJpaRule.java",buffer);   
- 		
- 		}
+		   util.saveFile( path+t2model.get(type).get("package").replaceAll("\\.","\\/"), t2model.get(type).get("class") +"RemoveJpaRule.java",buffer);   
+    } 		
  		
       }
       if (t2model.size() <> 0){

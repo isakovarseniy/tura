@@ -7,7 +7,7 @@
  %]
 package [%=t2model.get(rel.source).get("package")%];  
 
-public class [%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%][%=rule%]JpaRule implements org.tura.platform.repository.core.Rule {
+public class [%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]InsertJpaRule implements org.tura.platform.repository.core.Rule {
 
       private [%=PK(rel.source,"sourcePk", t2model.get(rel.source).get("fullName"),recipe,ingredient)%]; 
       private [%=PK(rel.target,"targetPk", t2model.get(rel.target).get("fullName"),recipe,ingredient)%] ;
@@ -41,13 +41,12 @@ public class [%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%
                  
       [%
       
-                if (rule == "Insert" ){ 
                      var hash = rel.sourceSideNamesCalculation();
 
 			  	     switch  (rel.type.toString()){
 			         case "One2One" : %]     source.set[%=hash.get("sourceMethodName")%](target);[%
-			         case "One2Many" : %]   source.get[%=hash.get("sourceMethodName")%]().add(target);[%
-			         case "Many2Many" : %] source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+			         case "One2Many" : %]   if (source.get[%=hash.get("sourceMethodName")%]() ==null ){  source.set[%=hash.get("sourceMethodName")%]( new java.util.ArrayList< [%=t2model.get(rel.target).get("fullName")%]>()); }     source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+			         case "Many2Many" : %] if (source.get[%=hash.get("sourceMethodName")%]() == null ){  source.set[%=hash.get("sourceMethodName")%]( new java.util.ArrayList< [%=t2model.get(rel.target).get("fullName")%]>()); }     source.get[%=hash.get("sourceMethodName")%]().add(target);[%
 			         }           
 			         
 	
@@ -57,29 +56,8 @@ public class [%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%
 			  	     switch  (rel.type.toString()){
 			         case "One2One" : %]  target.set[%=hash.get("targetMethodName")%](source);[%
 			         case "One2Many" : %] target.set[%=hash.get("targetMethodName")%](source);[%
-			         case "Many2Many" : %] target.get[%=hash.get("targetMethodName")%]().add(source);[%
+			         case "Many2Many" : %] if ( target.get[%=hash.get("targetMethodName")%]() == null ){target.set[%=hash.get("targetMethodName")%](new java.util.ArrayList<[%=t2model.get(rel.source).get("fullName")%]>() ); }    target.get[%=hash.get("targetMethodName")%]().add(source);[%
 			         }                
-		         }
-
-                if (rule == "Remove" ){ 
-                     var hash = rel.sourceSideNamesCalculation();
-
-			  	     switch  (rel.type.toString()){
-			         case "One2One" : %]     source.set[%=hash.get("sourceMethodName")%](null);[%
-			         case "One2Many" : %]   source.get[%=hash.get("sourceMethodName")%]().remove(target);[%
-			         case "Many2Many" : %] source.get[%=hash.get("sourceMethodName")%]().remove(target);[%
-			         }           
-			         
-	
-	                var hash = rel.targetSideNamesCalculation();
-			         
-			         
-			  	     switch  (rel.type.toString()){
-			         case "One2One" : %]  target.set[%=hash.get("targetMethodName")%](null);[%
-			         case "One2Many" : %] target.set[%=hash.get("targetMethodName")%](null);[%
-			         case "Many2Many" : %] target.get[%=hash.get("targetMethodName")%]().remove(source);[%
-			         }                
-		         }
       %]
       }
 
