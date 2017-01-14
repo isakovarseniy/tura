@@ -206,7 +206,7 @@ public class JPARepositoryTest {
 			em.getTransaction().begin();
 	
 			list =  repository.find(new ArrayList<SearchCriteria>(), orderby, 0, 100, Client.class.getName());
-		//Should be on second position becouse ordering by name	
+		//Should be on second position because ordering by name	
 			client = (Client) list.get(1);
 			assertEquals("Client name 3",client.getName());
 			assertNull(client.getPerson().getFile());

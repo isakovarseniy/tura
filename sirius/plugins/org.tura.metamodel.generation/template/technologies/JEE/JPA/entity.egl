@@ -124,7 +124,8 @@ operation type::Assosiation  joinColumns(){
 	  var i = 0;
       %]@javax.persistence.JoinColumns({[%
             for (lnk in self.links){
-            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=lnk.detailField.name%]")[%  
+            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=lnk.detailField.name%]")[%
+            i = 1;  
             }
     %]}) 
 [%

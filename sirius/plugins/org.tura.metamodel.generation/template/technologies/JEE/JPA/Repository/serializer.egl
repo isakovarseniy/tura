@@ -275,7 +275,7 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		   em.persist(jpa);
 	       obj.setOperation("C");
           [%=PK(type,"pkInsert","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]
-		   [%=addInsertRule (type,"Insert",recipe,ingredient,t2model,t2view)%]
+		   [%=addInsertRule (type,"Insert",recipe,ingredient,t2model,t2view,model_mapper)%]
 		   
          }
         [%
@@ -291,7 +291,7 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
            rules.put(rule.getKey(), rule);
 	       obj.setOperation("C");
         
-          [%=addRemoveRule (type,"Remove",recipe,ingredient,t2model,t2view)%]
+          [%=addRemoveRule (type,"Remove",recipe,ingredient,t2model,t2view,model_mapper)%]
         
         }
         
@@ -340,11 +340,15 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 
 
 @template
- operation addInsertRule (type,rule,recipe,ingredient,t2model,t2view){
+ operation addInsertRule (type,rule,recipe,ingredient,t2model,t2view,model_mapper){
+         var util = new Native('org.tura.metamodel.commons.Util');
          var tp = type;
           while  (1 == 1) {
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
 		     for (rel in assosiations){
+		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+		                continue;
+		         }
 
                  var hash = rel.sourceSideNamesCalculation();
                  var suffix =hash.get("sourceMethodName");
@@ -393,6 +397,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		     }    
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.source.uid <> t.target.uid);
 		     for (rel in assosiations){
+		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+		                continue;
+		         }
 
 
                 var hash = rel.targetSideNamesCalculation();
@@ -452,11 +459,16 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 
 
 @template
- operation addRemoveRule (type,rule,recipe,ingredient,t2model,t2view){
+ operation addRemoveRule (type,rule,recipe,ingredient,t2model,t2view,model_mapper){
+         var util = new Native('org.tura.metamodel.commons.Util');
          var tp = type;
           while  (1 == 1) {
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
 		     for (rel in assosiations){
+
+		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+		                continue;
+		         }
 
                  var hash = rel.sourceSideNamesCalculation();
                  var suffix =hash.get("sourceMethodName");
@@ -511,6 +523,9 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		     }    
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.source.uid <> t.target.uid);
 		     for (rel in assosiations){
+		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+		                continue;
+		         }
 
 
                 var hash = rel.targetSideNamesCalculation();

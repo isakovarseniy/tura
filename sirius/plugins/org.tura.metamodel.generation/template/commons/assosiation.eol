@@ -1,3 +1,25 @@
+operation type::Assosiation  check(){
+        if (self.type.toString() == "Many2Many" ){
+	        for (link in self.links){
+	             if (not link.masterField.pk){
+	                throw "Assosiation between type "+ self.source.name + " and "+self.target.name+" has wrong assosiation. Master field has to be primary key ";
+	             }
+	             if (not link.detailField.pk){
+	                throw "Assosiation between type "+ self.source.name + " and "+self.target.name+" has wrong assosiation. Detail field  has to be primary key   ";
+	             }
+	        }  
+        }else{
+	        for (link in self.links){
+	             if (not link.masterField.pk){
+	                throw "Assosiation between type "+ self.source.name + " and "+self.target.name+" has wrong assosiation. Master field has to be primary key ";
+	             }
+	             if (link.detailField.pk){
+	                throw "Assosiation between type "+ self.source.name + " and "+self.target.name+" has wrong assosiation. Detail field should not be primary key  ";
+	             }
+	        }  
+        }
+}
+
 operation type::Assosiation  sourceSideNamesCalculation(){
    var util = new Native('org.tura.metamodel.commons.Util');
 

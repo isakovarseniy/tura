@@ -4,6 +4,7 @@
 ${start}${percent} 
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
 
  ${percent}${end}
  
@@ -158,9 +159,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 
      var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid  and t.source.uid <> t.target.uid);
      for (rel in assosiations){
-         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-                continue;
-         }
+        rel.check(); 
   	    var tp1 =  rel.target;
 	    if (tp1.isKindOf(type::TypeReference )){
 	        tp1 = tp1.typeRef;
@@ -171,9 +170,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 
      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid  and t.source.uid <> t.target.uid);
      for (rel in assosiations){
-         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-                continue;
-         }
+        rel.check(); 
   	    var tp1 =  rel.source;
 	    if (tp1.isKindOf(type::TypeReference )){
 	        tp1 = tp1.typeRef;
@@ -183,9 +180,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
 
      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and (t.type.toString() = "One2One" or t.type.toString() = "One2Many"));
      for (rel in assosiations){
-         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-                continue;
-         }
+
          for (lnk in rel.links){
              skipAttributes.add(lnk.detailField);
          }
