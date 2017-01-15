@@ -1397,8 +1397,8 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="NA"/>
                           </queries>
                           <queries uid="fca4b151-c1c0-4842-bcac-cb37ac7d9925" name="Query NA package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
-                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Testing repository"/>
-                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Domain model test package"/>
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="NA"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
                           </queries>
                         </mappers>
                         <mappers uid="24ea5cb4-5cc5-43df-beac-047f6f661d78" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Domain build runner" artifactRoot="" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-domain-objects/builder.sh">
