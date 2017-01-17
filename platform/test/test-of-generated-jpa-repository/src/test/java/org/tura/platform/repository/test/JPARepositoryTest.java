@@ -22,6 +22,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
 
 import objects.test.serialazable.jpa.Client;
@@ -64,7 +65,7 @@ public class JPARepositoryTest {
 	public void t0000_saveObject(){
 		try{
 		
-		Repository repository = new Repository();
+		Repository repository = new BasicRepository();
 		JPATestPackageDataProvider  dataProvider = new JPATestPackageDataProvider(repository);
 		dataProvider.setEntityManager(em);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
@@ -184,7 +185,7 @@ public class JPARepositoryTest {
 	public void t0001_removeUpdateObject(){
 		try{
 
-			Repository repository = new Repository();
+			Repository repository = new BasicRepository();
 			JPATestPackageDataProvider  dataProvider = new JPATestPackageDataProvider(repository);
 			dataProvider.setEntityManager(em);
 			dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
@@ -238,7 +239,7 @@ public class JPARepositoryTest {
 	public void t0002_insertIndependentObject(){
 		try{
 
-			Repository repository = new Repository();
+			Repository repository = new BasicRepository();
 			JPATestPackageDataProvider  dataProvider = new JPATestPackageDataProvider(repository);
 			dataProvider.setEntityManager(em);
 			dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());

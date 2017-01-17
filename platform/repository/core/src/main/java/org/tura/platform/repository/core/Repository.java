@@ -21,59 +21,27 @@
  */
 package org.tura.platform.repository.core;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 
-public class Repository {
+public interface Repository {
 
-	private HashMap<String, DataProvider> providerTable = new HashMap<>();
-	private ArrayList<String> classList = new ArrayList<>();
+	public void addProvider(DataProvider provider, String objectClass) ;
 
-	public void addProvider(DataProvider provider, String objectClass) {
-		providerTable.put(objectClass, provider);
-		classList.add(objectClass);
-	}
-
-	public boolean doYouKnowDomainObject(Class<?> clazz) {
-		return classList.contains(clazz);
-	}
-
-	private DataProvider findprovider(String objectClass) throws RepositoryException {
-		DataProvider provider = providerTable.get(objectClass);
-		if (provider == null)
-			throw new RepositoryException( "No provider for "+objectClass);
-		return provider;
-	}
-
-	public Object create(String objectClass) throws RepositoryException {
-		DataProvider provider = findprovider(objectClass);
-		return provider.create(objectClass);
-	}
+	public boolean doYouKnowDomainObject(Class<?> clazz) ;
+	
+	public Object create(String objectClass) throws RepositoryException ;
 
 	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException {
-		DataProvider provider = findprovider(objectClass);
-		return provider.find(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
-	}
+			Integer endIndex, String objectClass) throws RepositoryException ;
 
-	public void update(Object request, String objectClass) throws RepositoryException {
-		DataProvider provider = findprovider(objectClass);
-		provider.update(request, objectClass);
-	}
+	public void update(Object request, String objectClass) throws RepositoryException ;
 
-	public void insert(Object request, String objectClass) throws RepositoryException {
-		DataProvider provider = findprovider(objectClass);
-		provider.insert(request, objectClass);
+	public void insert(Object request, String objectClass) throws RepositoryException ;
 
-	}
-
-	public void remove(Object request, String objectClass) throws RepositoryException {
-		DataProvider provider = findprovider(objectClass);
-		provider.remove(request, objectClass);
-	}
-
+	public void remove(Object request, String objectClass) throws RepositoryException ;
+	
+	
 }
