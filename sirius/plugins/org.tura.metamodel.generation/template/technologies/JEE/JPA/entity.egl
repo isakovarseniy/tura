@@ -9,7 +9,13 @@ package [%=type.~package%];
 
 
 @javax.persistence.Entity(name = "[%=type.~class%]")
-@javax.persistence.Table(name = "[%=type.~class.toUpperCase()%]")
+[%
+    var table_name=  type.~class.toUpperCase();  
+    if (type.findClassifier(util.getHint(model_mapper,"Table"))){
+       table_name=type.~hintDetails;
+    }
+%] 
+@javax.persistence.Table(name = "[%=table_name%]")
 [%if (type.~primaryKey.isDefined() and type.~primaryKey.size() >1 ){%]
 @javax.persistence.IdClass(value=[%=type.~class%]PK.class)
 [%}%]

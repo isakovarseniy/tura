@@ -37,6 +37,7 @@
             <hints uid="c1cbc560-6541-4b7f-97c8-b419413fa0eb" name="Bean validation" hint="55406073-2639-498f-b8ee-f121395f99e3"/>
             <hints uid="e5396704-1a58-4715-a92a-020749b8accc" name="Sequence" hint="8ab73b44-bfc9-4a10-9f62-7438696132d7"/>
             <hints uid="e2f34482-41c1-422e-947e-3ae974117e80" name="Many2ManyTable" hint="73cbcbe9-3531-4a65-b662-0a1f9787779b"/>
+            <hints uid="8d8a2c5f-5972-45e6-ab61-b13dc115a932" name="Table" hint="33258c88-1dfa-4c6f-b714-6a0cef9d1d91"/>
           </artifacts>
           <artifacts uid="59533f28-588d-4996-8f8c-e34bd233ff47" name="persistence.xml" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/mainPersistence-xml.egl">
             <configVariables uid="0ce719ac-79f2-44e7-806f-0c6dd531d973" name="DataBase IP" var="59b08248-2e8c-4f86-bba6-076b43f5f7f7"/>
@@ -324,6 +325,7 @@
           <hints uid="8ab73b44-bfc9-4a10-9f62-7438696132d7" name="Sequence"/>
           <hints uid="73cbcbe9-3531-4a65-b662-0a1f9787779b" name="Many2ManyTable"/>
           <hints uid="b9361b9f-0c27-4f3f-af14-485d0dd5bc05" name="No Assosiation"/>
+          <hints uid="33258c88-1dfa-4c6f-b714-6a0cef9d1d91" name="Table"/>
           <configVariables uid="59b08248-2e8c-4f86-bba6-076b43f5f7f7" name="DataBase IP"/>
           <configVariables uid="030b8632-fbfa-48b3-af65-1854e177011b" name="DataBase socket"/>
           <configVariables uid="092944a7-046c-43ad-bbb5-76629750471a" name="DataBase user"/>
@@ -492,6 +494,7 @@
           </types>
           <types xsi:type="tura.type:Type" uid="2632e4e2-a6cb-428a-a43b-b1ad0c39c61b" name="Order">
             <classifiers uid="0c86c41b-6700-461a-bf43-8b38e6c5ecf9" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <classifiers uid="f9d999f2-b323-4914-8652-ae016eaa954c" hint="33258c88-1dfa-4c6f-b714-6a0cef9d1d91" details="T_ORDER"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="16148a08-6681-4e71-8c10-951e7400d257" name="order id" pk="true"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="3e18d4ab-d043-4aa0-937e-d1d4cce278f5" name="customer"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="5674e895-4ed1-4fc5-99bc-f5a903fa3fcb" name="vehicleId"/>

@@ -293,6 +293,19 @@ public class JPARepositoryTest {
 			
 			em.getTransaction().commit();
 			
+			em.getTransaction().begin();
+			
+			List<Customer> cList =  (List<Customer>) repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, Customer.class.getName());
+			assertEquals(1, cList.size());
+			customer = cList.iterator().next();
+			customer.setOperation("R");
+			repository.remove(customer, Customer.class.getName());
+			
+			List<Order> oList =  (List<Order>) repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, Order.class.getName());
+			assertEquals(0,oList.size());
+			
+			em.getTransaction().commit();
+			
 			
 		}catch(Exception e){
 			if (em.getTransaction().isActive()){
