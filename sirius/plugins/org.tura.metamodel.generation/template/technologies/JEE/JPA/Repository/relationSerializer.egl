@@ -1,0 +1,152 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ 
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=t2view.get(rel.source).get("package")%];  
+
+public class [%=t2view.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2view.get(rel.target).get("class")%]RelationSerializer extends org.tura.platform.repository.core.ObjectLiveCycle{
+
+     javax.persistence.EntityManager em;
+     public void setEntityManager(javax.persistence.EntityManager em){
+           this.em=em;
+     }
+     [%
+     var hash = rel.targetSideNamesCalculation();
+     
+     for (lnk in rel.links){
+         lnk.masterField.typeRef.mappingType2Java(recipe,ingredient);
+          var master = util.mergeAndUnCapitalize(lnk.masterField.name);
+     %]    
+       private [%=lnk.masterField.typeRef.~fullName%] [%=hash.get("sourceMethodName").toLowerCase()%]_[%=master%];
+       
+       public void  set[%=util.mergeAndCapitalize(hash.get("sourceMethodName"))%]_[%=master%]([%=lnk.masterField.typeRef.~fullName%]  [%=hash.get("sourceMethodName").toLowerCase()%]_[%=master%]){
+            this.[%=hash.get("sourceMethodName").toLowerCase()%]_[%=master%] = [%=hash.get("sourceMethodName").toLowerCase()%]_[%=master%];
+       }
+     
+       public  [%=lnk.masterField.typeRef.~fullName%]  get[%=util.mergeAndCapitalize(hash.get("sourceMethodName"))%]_[%=master%](){
+            return [%=hash.get("sourceMethodName").toLowerCase()%]_[%=master%];
+       }
+
+     [%
+     }
+     
+     for (lnk in rel.links){
+         lnk.detailField.typeRef.mappingType2Java(recipe,ingredient);
+         var detail = util.mergeAndUnCapitalize(lnk.detailField.name);
+     %]    
+       private [%=lnk.detailField.typeRef.~fullName%] [%=hash.get("targetMethodName").toLowerCase()%]_[%=detail%];
+       
+       public void set[%=util.mergeAndCapitalize(hash.get("targetMethodName"))%]_[%=detail%]([%=lnk.detailField.typeRef.~fullName%] [%=hash.get("targetMethodName").toLowerCase()%]_[%=detail%] ){
+           this.[%=hash.get("targetMethodName").toLowerCase()%]_[%=detail%] = [%=hash.get("targetMethodName").toLowerCase()%]_[%=detail%];
+       }
+     
+       public [%=lnk.detailField.typeRef.~fullName%] get[%=util.mergeAndCapitalize(hash.get("targetMethodName"))%]_[%=detail%](  ){
+           return [%=hash.get("targetMethodName").toLowerCase()%]_[%=detail%];
+       }
+     
+     [%
+     }     
+     
+     %] 
+
+       [% 
+         var tp = type;
+       %]
+       public [%=t2view.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2view.get(rel.target).get("class")%]Relation load(Object o, java.util.HashMap<String,Object> context,java.util.HashMap<String,org.tura.platform.repository.core.Rule> rules){
+       			return null;
+       }
+       
+       public void  save(Object o,HashMap<String, Rule> rules){
+             [%=t2view.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2view.get(rel.target).get("class")%]Relation obj = ([%=t2view.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2view.get(rel.target).get("class")%]Relation)o;
+	         if (obj.getOperation() != null ){
+		         if ( "R".equals(obj.getOperation()) ){
+		              remove(obj,rules);
+		              return;
+		         }
+		         if ( "I".equals(obj.getOperation()) ){
+		              insert(obj,rules);
+		              return;
+		         }
+          }
+     }  
+     
+        [%       var hash = rel.sourceSideNamesCalculation();  %]     
+        public void  insert([%=t2view.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2view.get(rel.target).get("class")%]Relation obj,HashMap<String, Rule> rules){
+           [%=PKMaster(recipe,ingredient,rel,hash)%]
+           [%=PKDetail(recipe,ingredient,rel,hash)%]
+           
+           [%=t2model.get(rel.source).get("fullName")%] source = em.find([%=t2model.get(rel.source).get("fullName")%] .class, sourcePK);
+           [%=t2model.get(rel.target).get("fullName")%] target = em.find([%=t2model.get(rel.target).get("fullName")%] .class, targetPK);
+           
+           if (source.get[%=util.mergeAndCapitalize(hash.get("sourceMethodName"))%]() == null){
+               source.set[%=util.mergeAndCapitalize(hash.get("sourceMethodName"))%](new java.util.ArrayList<[%=t2model.get(rel.target).get("fullName")%]>());
+           }
+           if (target.get[%=util.mergeAndCapitalize(hash.get("targetMethodName"))%]() == null){
+              target.set[%=util.mergeAndCapitalize(hash.get("targetMethodName"))%](new java.util.ArrayList<[%=t2model.get(rel.source).get("fullName")%]>());
+           }
+           
+           
+           source.get[%=util.mergeAndCapitalize(hash.get("sourceMethodName"))%]().add(target);
+           target.get[%=util.mergeAndCapitalize(hash.get("targetMethodName"))%]().add(source);
+           
+        }
+              
+        public void  remove([%=t2view.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2view.get(rel.target).get("class")%]Relation obj,HashMap<String, Rule> rules){
+           [%=PKMaster(recipe,ingredient,rel,hash)%]
+           [%=PKDetail(recipe,ingredient,rel,hash)%]
+           
+           [%=t2model.get(rel.source).get("fullName")%] source = em.find([%=t2model.get(rel.source).get("fullName")%] .class, sourcePK);
+           [%=t2model.get(rel.target).get("fullName")%] target = em.find([%=t2model.get(rel.target).get("fullName")%] .class, targetPK);
+           
+           source.get[%=util.mergeAndCapitalize(hash.get("sourceMethodName"))%]().remove(target);
+           target.get[%=util.mergeAndCapitalize(hash.get("targetMethodName"))%]().remove(source);
+           
+        }
+}
+[%
+@template
+ operation PKMaster(recipe,ingredient,rel,hash){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       var type = rel.source;
+       if (type.~primaryKey.size()>1){%]
+        [%=type.~fullName%]PK sourcePK = new  [%=type.~fullName%]PK();
+		  [%  		for ( lnk in rel.links) {%]
+		   sourcePK.set[%=util.mergeAndCapitalize(lnk.masterField.name)%](obj.get[%=util.mergeAndCapitalize(hash.get("targetMethodName").toLowerCase()+" "+lnk.masterField.name)%]());
+		   [%}
+       }else{
+          var lnk = rel.links.Iterator().next();
+          if (lnk == null){
+            return;
+          }
+          lnk.masterField.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=lnk.masterField.typeRef.~fullName%]   sourcePK =  obj.get[%=util.mergeAndCapitalize(hash.get("targetMethodName").toLowerCase()+" "+lnk.masterField.name)%]();
+       [%}
+}
+
+@template
+ operation PKDetail(recipe,ingredient,rel,hash){
+       var type = rel.target;
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if (type.~primaryKey.size()>1){%]
+        [%=type.~fullName%]PK targetPK = new  [%=type.~fullName%]PK();
+		  [%  		for ( lnk in rel.links) {%]
+		   targetPK.set[%=util.mergeAndCapitalize(lnk.detailField.name)%](obj.get[%=util.mergeAndCapitalize(hash.get("sourceMethodName").toLowerCase()+" "+lnk.detailField.name)%]());
+		   [%}
+       }else{
+          var lnk = rel.links.Iterator().next();
+          if (lnk == null){
+            return;
+          }
+          lnk.detailField.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=lnk.detailField.typeRef.~fullName%]   targetPK =  obj.get[%=util.mergeAndCapitalize(hash.get("sourceMethodName").toLowerCase()+" "+lnk.detailField.name)%]();
+       [%}
+}
+
+
+
+%]

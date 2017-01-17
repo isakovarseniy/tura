@@ -28,13 +28,15 @@
 	<persistence-unit name="JPARepository" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
- 		<class>org.tura.jpa.test.Location</class>
-		<class>org.tura.jpa.test.Vehicle</class>
-		<class>org.tura.jpa.test.MailAddress</class>
 		<class>org.tura.jpa.test.Person</class>
-		<class>org.tura.jpa.test.File</class>
+		<class>org.tura.jpa.test.MailAddress</class>
 		<class>org.tura.jpa.test.Phone</class>
 		<class>org.tura.jpa.test.Client</class>
+		<class>org.tura.jpa.test.Vehicle</class>
+		<class>org.tura.jpa.test.Location</class>
+		<class>org.tura.jpa.test.Order</class>
+		<class>org.tura.jpa.test.File</class>
+		<class>org.tura.jpa.test.Customer</class>
 		
 		<class>org.tura.platform.object.persistence.ObjectsID</class>
      
@@ -45,6 +47,22 @@
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name = "hibernate.show_sql" value = "false" />
+			
+			<!--   property name="javax.persistence.jdbc.user" value="arseniy" />
+			<property name="javax.persistence.jdbc.password" value="postgres" />
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/arseniy" />
+			
+			
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.default_schema" value="HR"/>
+			<property name = "hibernate.show_sql" value = "true" />
+			<property name="hibernate.classloading.use_current_tccl_as_parent" value="false" /-->			
+			
+			
+			
 		</properties>
 	</persistence-unit>
 

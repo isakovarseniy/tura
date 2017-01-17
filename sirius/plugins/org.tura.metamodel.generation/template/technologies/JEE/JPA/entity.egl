@@ -141,12 +141,12 @@ operation type::Assosiation  joinTable(src,target,model_mapper){
       %]@javax.persistence.JoinTable(name="[%=table%]",  
               joinColumns={[%
 	            for (lnk in self.links){
-	            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=src.toLowerCase()%]_[%=lnk.masterField.name%]")[%  
+	            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=src.toLowerCase()%]_[%=util.mergeAndUnCapitalize(lnk.masterField.name).toLowerCase()%]")[%  
 	            }
               %]},  
               inverseJoinColumns={[%
 	            for (lnk in self.links){
-	            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=target.toLowerCase()%]_[%=lnk.detailField.name%]")[%  
+	            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=target.toLowerCase()%]_[%=util.mergeAndUnCapitalize(lnk.detailField.name).toLowerCase()%]")[%  
 	            }
               %]})      
 [%

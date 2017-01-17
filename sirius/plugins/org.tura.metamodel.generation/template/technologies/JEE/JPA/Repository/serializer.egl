@@ -166,7 +166,7 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 		         }%]  
 		   em.persist(jpa);
 	       obj.setOperation("C");
-          [%=PK(type,"pkInsert","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]
+           [%=PK(type,"pkInsert","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]
 		   [%=addInsertRule (type,"Insert",recipe,ingredient,t2model,t2view,model_mapper)%]
 		   [%=addInsertNoAssosiationtRule (type,recipe,ingredient,t2model,t2view,model_mapper)%]
          }
@@ -536,7 +536,7 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
          var util = new Native('org.tura.metamodel.commons.Util');
          var tp = type;
           while  (1 == 1) {
-		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid );
+		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.type.toString() <> "Many2Many");
 		     for (rel in assosiations){
 		         if ( not rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
 		                continue;
@@ -708,6 +708,17 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
          var util = new Native('org.tura.metamodel.commons.Util');
          var tp = type;
           while  (1 == 1) {
+		     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and t.type.toString() = "Many2Many");
+		     for (rel in assosiations){
+		         if ( not rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+		                continue;
+		         }
+                var hash = rel.sourceSideNamesCalculation();
+		         
+		         %]
+                  jpa.set[%=hash.get("sourceMethodName")%](new java.util.ArrayList<[%=t2model.get(rel.target).get("fullName")%] >());
+            [%
+             } 
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid );
 		     for (rel in assosiations){
 		         if ( not rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
@@ -721,23 +732,24 @@ public class [%=t2view.get(type).get("class")%]Serializer extends org.tura.platf
 
                  var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
                  r = r.toLowerCase();
-		                
+
+                 if (rel.type.toString()<> "Many2Many"){ 		                
                  %] 
 
                  [%=PKDetails(rel.source,"pk"+suffix,"obj",t2model.get(rel.source).get("fullName"),recipe,ingredient,rel)%]   
                  [%=t2model.get(rel.source).get("fullName")%] sourceJpa[%=t2model.get(rel.source).get("class")%] = em.find([%=t2model.get(rel.source).get("fullName")%].class ,pk[%=suffix%]);
                  [%
-                 
+                 }
 			  	     switch  (rel.type.toString()){
 			         case "One2One" : %]     jpa.set[%=hash.get("targetMethodName")%](null);[%
 			         case "One2Many" : %]   jpa.set[%=hash.get("targetMethodName")%](null);[%
-			         case "Many2Many" : %] jpa.get[%=hash.get("targetMethodName")%]().remove(sourceJpa[%=t2model.get(rel.source).get("class")%]);[%
+			         case "Many2Many" : %] jpa.set[%=hash.get("targetMethodName")%](new java.util.ArrayList<[%=t2model.get(rel.source).get("fullName")%] >());[%
 			         }           
 			         
 			  	     switch  (rel.type.toString()){
 			         case "One2One" : %]  sourceJpa[%=t2model.get(rel.source).get("class")%].set[%=hash.get("sourceMethodName")%](null);[%
 			         case "One2Many" : %] sourceJpa[%=t2model.get(rel.source).get("class")%].get[%=hash.get("sourceMethodName")%]().remove(jpa);[%
-			         case "Many2Many" : %] sourceJpa[%=t2model.get(rel.source).get("class")%].get[%=hash.get("sourceMethodName")%]().remove(jpa);[%
+			         case "Many2Many" : %] [%
 			         }                
 
 		         

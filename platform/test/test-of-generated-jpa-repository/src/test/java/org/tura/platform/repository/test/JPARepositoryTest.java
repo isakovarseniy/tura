@@ -1,5 +1,7 @@
 package org.tura.platform.repository.test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -11,25 +13,28 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import org.hibernate.cfg.Configuration;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.Repository;
 
 import objects.test.serialazable.jpa.Client;
+import objects.test.serialazable.jpa.Customer;
 import objects.test.serialazable.jpa.File;
 import objects.test.serialazable.jpa.JPATestPackageDataProvider;
+import objects.test.serialazable.jpa.Location;
+import objects.test.serialazable.jpa.LocationMany2ManyCustomerRelation;
 import objects.test.serialazable.jpa.MailAddress;
+import objects.test.serialazable.jpa.Order;
 import objects.test.serialazable.jpa.Person;
 import objects.test.serialazable.jpa.Phone;
+import objects.test.serialazable.jpa.Vehicle;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class JPARepositoryTest {
@@ -211,7 +216,8 @@ public class JPARepositoryTest {
 			assertEquals("Client name 3",client.getName());
 			assertNull(client.getPerson().getFile());
 			
-			
+			list =  repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, File.class.getName());
+			assertEquals(0, list.size());
 			
 			em.getTransaction().commit();
 			
@@ -226,5 +232,76 @@ public class JPARepositoryTest {
 		}
 		
 	}	
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	public void t0002_insertIndependentObject(){
+		try{
+
+			Repository repository = new Repository();
+			JPATestPackageDataProvider  dataProvider = new JPATestPackageDataProvider(repository);
+			dataProvider.setEntityManager(em);
+			dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
+
+			em.getTransaction().begin();
+
+			Customer customer = (Customer) repository.create(Customer.class.getName());
+			customer.setCustomerName("Customer 1");
+			customer.setOperation("I");
+			repository.insert(customer, Customer.class.getName());
+			
+			
+			Location location = (Location) repository.create(Location.class.getName());
+			location.setCity("City");
+			location.setStreet("Street");
+			location.setOperation("I");
+			repository.insert(location, Location.class.getName());
+			
+			
+			LocationMany2ManyCustomerRelation m2m = (LocationMany2ManyCustomerRelation)repository.create(LocationMany2ManyCustomerRelation.class.getName());
+			m2m.setCustomerCustomerId(customer.getCustomerId());
+			m2m.setLocationObjId(location.getObjId());
+			m2m.setOperation("I");
+			repository.insert(m2m, LocationMany2ManyCustomerRelation.class.getName());
+			
+			
+			Vehicle vehicle = (Vehicle) repository.create(Vehicle.class.getName());
+			vehicle.setModel("Honda");
+			vehicle.setOperation("I");
+			repository.insert(vehicle, Vehicle.class.getName());
+			
+			
+			Order order = (Order) repository.create(Order.class.getName());
+			order.setCustomer(customer.getCustomerId());
+			order.setModel(vehicle.getModel());
+			order.setVehicleId(vehicle.getObjId());
+			order.setOperation("I");
+			repository.insert(vehicle, Vehicle.class.getName());
+			
+			em.getTransaction().commit();
+			
+			em.getTransaction().begin();
+			Query query = em.createQuery("from Location");
+			List <org.tura.jpa.test.Location >  listLocatioin =  query.getResultList();
+			org.tura.jpa.test.Location loc = listLocatioin.iterator().next();
+			assertEquals (1, loc.getCustomer().size());
+
+			query = em.createQuery("from Customer");
+			List <org.tura.jpa.test.Customer >  listCustomer =  query.getResultList();
+			org.tura.jpa.test.Customer ctr = listCustomer.iterator().next();
+			assertEquals (1, ctr.getLocation().size());
+			
+			em.getTransaction().commit();
+			
+			
+		}catch(Exception e){
+			if (em.getTransaction().isActive()){
+			    em.getTransaction().rollback();
+			}
+			e.printStackTrace();
+			fail();
+		}
+			
+		}	
 	
 }

@@ -62,6 +62,22 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
      %]
         objectLiveCycle.put([%=t2view.get(tp).get("fullName")%].class.getName(), new [%=t2view.get(tp).get("fullName")%]Serializer());
      [%
+     
+ 		var relations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
+ 		for ( rel in relations  ){
+	       if ( not rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+	              continue;
+	       }
+
+	       if ( rel.type.toString()<>"Many2Many"   ){
+	              continue;
+           }
+     %]
+     objectLiveCycle.put([%=rel.source.~class%]Many2Many[%=rel.target.~class%]Relation.class.getName(),new [%=rel.source.~class%]Many2Many[%=rel.target.~class%]RelationSerializer());
+     repository.addProvider(this, [%=rel.source.~class%]Many2Many[%=rel.target.~class%]Relation.class.getName());
+
+     [%
+        }
      }
      %]
      }
