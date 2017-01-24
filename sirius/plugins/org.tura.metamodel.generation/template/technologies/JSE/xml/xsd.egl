@@ -21,7 +21,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
           [%
            if (not type.~extension.isDefined()){ 
            %] 
-               <xs:element name="operation" type="xs:string"/>
+               <xs:element name="attached" type="xs:boolean"/>
             [%}
           
           

@@ -101,6 +101,7 @@ import type.Primitive;
 import type.RelationType;
 import type.TypeGroup;
 import type.TypeReference;
+import type.Containment;
 
 public class DiagramService {
 
@@ -636,7 +637,6 @@ public class DiagramService {
 		}
 	}	
 	
-	
 	public ObjectMapper findTargetObjectMapperForAttribute(ObjectMapper objectMapper){
 		return new QueryHelper().findObjectMapperForAttribute(objectMapper);
 	}
@@ -649,4 +649,19 @@ public class DiagramService {
 		new Helper().populateObjectMapper(objectMapper, objectMapper);
 		return generateUID(objectMapper);
 	}
+	
+	public boolean checkIfSourcetContainment(Assosiation assosiation){
+		return Containment.SOURCE.equals(assosiation.getContainment());  
+	}
+
+	public boolean checkIfTargetContainment(Assosiation assosiation){
+		return Containment.TARGET.equals(assosiation.getContainment());  
+	}
+	
+	public boolean checkIfNONContainment(Assosiation assosiation){
+		return Containment.NON.equals(assosiation.getContainment());  
+	}
+	
+	
+	
 }

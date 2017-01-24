@@ -58,6 +58,7 @@ public class ComponentItemProvider extends HTMLLayerHolderItemProvider {
 			addOrderPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addSkipPropertyDescriptor(object);
 			addComponentRootPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -125,6 +126,28 @@ public class ComponentItemProvider extends HTMLLayerHolderItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Skip feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSkipPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Component_skip_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Component_skip_feature", "_UI_Component_type"),
+				 RecipePackage.Literals.COMPONENT__SKIP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -222,6 +245,7 @@ public class ComponentItemProvider extends HTMLLayerHolderItemProvider {
 			case RecipePackage.COMPONENT__ORDER:
 			case RecipePackage.COMPONENT__UID:
 			case RecipePackage.COMPONENT__NAME:
+			case RecipePackage.COMPONENT__SKIP:
 			case RecipePackage.COMPONENT__COMPONENT_ROOT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

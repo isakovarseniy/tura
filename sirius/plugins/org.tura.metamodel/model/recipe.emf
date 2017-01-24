@@ -73,6 +73,7 @@ class Ingredient extends UsingMappers,common.HTMLLayerHolder,common.Orderable {
   id attr EString uid;
   attr EString name;
   val Component[*] components;
+  attr EBoolean skip;
   ref mapper.MappingLayer[*] vewLayer;
   ref mapper.MappingLayer[*] modelLayer;
   ref mapper.MappingLayer controllerLayer;
@@ -82,6 +83,7 @@ class Ingredient extends UsingMappers,common.HTMLLayerHolder,common.Orderable {
 class Component extends common.HTMLLayerHolder,common.Orderable{
     id attr EString uid;
    attr EString name;
+   attr EBoolean skip;
    val ModelMapper[*] mappers;
    attr EString componentRoot;
 }

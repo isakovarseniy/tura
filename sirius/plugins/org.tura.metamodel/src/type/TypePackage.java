@@ -457,13 +457,22 @@ public interface TypePackage extends EPackage {
 	int ASSOSIATION__TYPE = RELATIONSHIP_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Containment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOSIATION__CONTAINMENT = RELATIONSHIP_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__LINKS = RELATIONSHIP_FEATURE_COUNT + 1;
+	int ASSOSIATION__LINKS = RELATIONSHIP_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Source Operation</b></em>' attribute.
@@ -472,7 +481,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__SOURCE_OPERATION = RELATIONSHIP_FEATURE_COUNT + 2;
+	int ASSOSIATION__SOURCE_OPERATION = RELATIONSHIP_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Target Operation</b></em>' attribute.
@@ -481,7 +490,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__TARGET_OPERATION = RELATIONSHIP_FEATURE_COUNT + 3;
+	int ASSOSIATION__TARGET_OPERATION = RELATIONSHIP_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Many2many Helper</b></em>' containment reference.
@@ -490,7 +499,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__MANY2MANY_HELPER = RELATIONSHIP_FEATURE_COUNT + 4;
+	int ASSOSIATION__MANY2MANY_HELPER = RELATIONSHIP_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Assosiation</em>' class.
@@ -499,7 +508,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 5;
+	int ASSOSIATION_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link type.impl.LinkImpl <em>Link</em>}' class.
@@ -1092,6 +1101,17 @@ public interface TypePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link type.Containment <em>Containment</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see type.Containment
+	 * @see type.impl.TypePackageImpl#getContainment()
+	 * @generated
+	 */
+	int CONTAINMENT = 22;
+
+
+	/**
 	 * Returns the meta object for class '{@link type.TypeGroup <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1323,6 +1343,17 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAssosiation_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link type.Assosiation#getContainment <em>Containment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Containment</em>'.
+	 * @see type.Assosiation#getContainment()
+	 * @see #getAssosiation()
+	 * @generated
+	 */
+	EAttribute getAssosiation_Containment();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link type.Assosiation#getLinks <em>Links</em>}'.
@@ -1741,6 +1772,16 @@ public interface TypePackage extends EPackage {
 	EEnum getRelationType();
 
 	/**
+	 * Returns the meta object for enum '{@link type.Containment <em>Containment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Containment</em>'.
+	 * @see type.Containment
+	 * @generated
+	 */
+	EEnum getContainment();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1955,6 +1996,14 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ASSOSIATION__TYPE = eINSTANCE.getAssosiation_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Containment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSOSIATION__CONTAINMENT = eINSTANCE.getAssosiation_Containment();
 
 		/**
 		 * The meta object literal for the '<em><b>Links</b></em>' containment reference list feature.
@@ -2293,6 +2342,16 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum RELATION_TYPE = eINSTANCE.getRelationType();
+
+		/**
+		 * The meta object literal for the '{@link type.Containment <em>Containment</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see type.Containment
+		 * @see type.impl.TypePackageImpl#getContainment()
+		 * @generated
+		 */
+		EEnum CONTAINMENT = eINSTANCE.getContainment();
 
 	}
 

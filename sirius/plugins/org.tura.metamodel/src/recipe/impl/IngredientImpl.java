@@ -41,6 +41,7 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.IngredientImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getComponents <em>Components</em>}</li>
+ *   <li>{@link recipe.impl.IngredientImpl#isSkip <em>Skip</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getVewLayer <em>Vew Layer</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getModelLayer <em>Model Layer</em>}</li>
  *   <li>{@link recipe.impl.IngredientImpl#getControllerLayer <em>Controller Layer</em>}</li>
@@ -138,6 +139,26 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * @ordered
 	 */
 	protected EList<Component> components;
+
+	/**
+	 * The default value of the '{@link #isSkip() <em>Skip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSkip()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SKIP_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSkip() <em>Skip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSkip()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean skip = SKIP_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getVewLayer() <em>Vew Layer</em>}' reference list.
@@ -289,6 +310,27 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSkip() {
+		return skip;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkip(boolean newSkip) {
+		boolean oldSkip = skip;
+		skip = newSkip;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.INGREDIENT__SKIP, oldSkip, skip));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<MappingLayer> getVewLayer() {
 		if (vewLayer == null) {
 			vewLayer = new EObjectResolvingEList<MappingLayer>(MappingLayer.class, this, RecipePackage.INGREDIENT__VEW_LAYER);
@@ -378,6 +420,8 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 				return getName();
 			case RecipePackage.INGREDIENT__COMPONENTS:
 				return getComponents();
+			case RecipePackage.INGREDIENT__SKIP:
+				return isSkip();
 			case RecipePackage.INGREDIENT__VEW_LAYER:
 				return getVewLayer();
 			case RecipePackage.INGREDIENT__MODEL_LAYER:
@@ -413,6 +457,9 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 			case RecipePackage.INGREDIENT__COMPONENTS:
 				getComponents().clear();
 				getComponents().addAll((Collection<? extends Component>)newValue);
+				return;
+			case RecipePackage.INGREDIENT__SKIP:
+				setSkip((Boolean)newValue);
 				return;
 			case RecipePackage.INGREDIENT__VEW_LAYER:
 				getVewLayer().clear();
@@ -452,6 +499,9 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 			case RecipePackage.INGREDIENT__COMPONENTS:
 				getComponents().clear();
 				return;
+			case RecipePackage.INGREDIENT__SKIP:
+				setSkip(SKIP_EDEFAULT);
+				return;
 			case RecipePackage.INGREDIENT__VEW_LAYER:
 				getVewLayer().clear();
 				return;
@@ -483,6 +533,8 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RecipePackage.INGREDIENT__COMPONENTS:
 				return components != null && !components.isEmpty();
+			case RecipePackage.INGREDIENT__SKIP:
+				return skip != SKIP_EDEFAULT;
 			case RecipePackage.INGREDIENT__VEW_LAYER:
 				return vewLayer != null && !vewLayer.isEmpty();
 			case RecipePackage.INGREDIENT__MODEL_LAYER:
@@ -555,6 +607,8 @@ public class IngredientImpl extends UsingMappersImpl implements Ingredient {
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", skip: ");
+		result.append(skip);
 		result.append(')');
 		return result.toString();
 	}

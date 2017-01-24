@@ -61,6 +61,7 @@ import style.impl.StylePackageImpl;
 import type.Assosiation;
 import type.Attribute;
 import type.AttributePointer;
+import type.Containment;
 import type.EnumAttribute;
 import type.Enumerator;
 import type.Generalization;
@@ -243,6 +244,13 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * @generated
 	 */
 	private EEnum relationTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum containmentEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -546,8 +554,17 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAssosiation_Containment() {
+		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getAssosiation_Links() {
-		return (EReference)assosiationEClass.getEStructuralFeatures().get(1);
+		return (EReference)assosiationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -556,15 +573,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * @generated
 	 */
 	public EAttribute getAssosiation_SourceOperation() {
-		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAssosiation_TargetOperation() {
 		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -573,8 +581,17 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAssosiation_TargetOperation() {
+		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getAssosiation_Many2manyHelper() {
-		return (EReference)assosiationEClass.getEStructuralFeatures().get(4);
+		return (EReference)assosiationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -897,6 +914,15 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getContainment() {
+		return containmentEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TypeFactory getTypeFactory() {
 		return (TypeFactory)getEFactoryInstance();
 	}
@@ -950,6 +976,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 
 		assosiationEClass = createEClass(ASSOSIATION);
 		createEAttribute(assosiationEClass, ASSOSIATION__TYPE);
+		createEAttribute(assosiationEClass, ASSOSIATION__CONTAINMENT);
 		createEReference(assosiationEClass, ASSOSIATION__LINKS);
 		createEAttribute(assosiationEClass, ASSOSIATION__SOURCE_OPERATION);
 		createEAttribute(assosiationEClass, ASSOSIATION__TARGET_OPERATION);
@@ -1003,6 +1030,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 
 		// Create enums
 		relationTypeEEnum = createEEnum(RELATION_TYPE);
+		containmentEEnum = createEEnum(CONTAINMENT);
 	}
 
 	/**
@@ -1086,6 +1114,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 
 		initEClass(assosiationEClass, Assosiation.class, "Assosiation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAssosiation_Type(), this.getRelationType(), "type", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssosiation_Containment(), this.getContainment(), "containment", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssosiation_Links(), this.getLink(), null, "links", null, 0, -1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssosiation_SourceOperation(), ecorePackage.getEString(), "sourceOperation", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssosiation_TargetOperation(), ecorePackage.getEString(), "targetOperation", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1142,6 +1171,11 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		addEEnumLiteral(relationTypeEEnum, RelationType.ONE2_ONE);
 		addEEnumLiteral(relationTypeEEnum, RelationType.ONE2_MANY);
 		addEEnumLiteral(relationTypeEEnum, RelationType.MANY2_MANY);
+
+		initEEnum(containmentEEnum, Containment.class, "Containment");
+		addEEnumLiteral(containmentEEnum, Containment.SOURCE);
+		addEEnumLiteral(containmentEEnum, Containment.TARGET);
+		addEEnumLiteral(containmentEEnum, Containment.NON);
 
 		// Create resource
 		createResource(eNS_URI);

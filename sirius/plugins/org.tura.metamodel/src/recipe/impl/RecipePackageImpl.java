@@ -717,8 +717,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIngredient_VewLayer() {
-		return (EReference)ingredientEClass.getEStructuralFeatures().get(3);
+	public EAttribute getIngredient_Skip() {
+		return (EAttribute)ingredientEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -726,7 +726,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIngredient_ModelLayer() {
+	public EReference getIngredient_VewLayer() {
 		return (EReference)ingredientEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -735,8 +735,17 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIngredient_ControllerLayer() {
+	public EReference getIngredient_ModelLayer() {
 		return (EReference)ingredientEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIngredient_ControllerLayer() {
+		return (EReference)ingredientEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -771,8 +780,17 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getComponent_Skip() {
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getComponent_Mappers() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(2);
+		return (EReference)componentEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -781,7 +799,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * @generated
 	 */
 	public EAttribute getComponent_ComponentRoot() {
-		return (EAttribute)componentEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1285,6 +1303,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(ingredientEClass, INGREDIENT__UID);
 		createEAttribute(ingredientEClass, INGREDIENT__NAME);
 		createEReference(ingredientEClass, INGREDIENT__COMPONENTS);
+		createEAttribute(ingredientEClass, INGREDIENT__SKIP);
 		createEReference(ingredientEClass, INGREDIENT__VEW_LAYER);
 		createEReference(ingredientEClass, INGREDIENT__MODEL_LAYER);
 		createEReference(ingredientEClass, INGREDIENT__CONTROLLER_LAYER);
@@ -1292,6 +1311,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		componentEClass = createEClass(COMPONENT);
 		createEAttribute(componentEClass, COMPONENT__UID);
 		createEAttribute(componentEClass, COMPONENT__NAME);
+		createEAttribute(componentEClass, COMPONENT__SKIP);
 		createEReference(componentEClass, COMPONENT__MAPPERS);
 		createEAttribute(componentEClass, COMPONENT__COMPONENT_ROOT);
 
@@ -1449,6 +1469,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getIngredient_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIngredient_Name(), ecorePackage.getEString(), "name", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIngredient_Components(), this.getComponent(), null, "components", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIngredient_Skip(), ecorePackage.getEBoolean(), "skip", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIngredient_VewLayer(), theMapperPackage.getMappingLayer(), null, "vewLayer", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIngredient_ModelLayer(), theMapperPackage.getMappingLayer(), null, "modelLayer", null, 0, -1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIngredient_ControllerLayer(), theMapperPackage.getMappingLayer(), null, "controllerLayer", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1456,6 +1477,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_Skip(), ecorePackage.getEBoolean(), "skip", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Mappers(), this.getModelMapper(), null, "mappers", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_ComponentRoot(), ecorePackage.getEString(), "componentRoot", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

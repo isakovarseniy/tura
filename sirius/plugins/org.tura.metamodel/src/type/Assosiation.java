@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link type.Assosiation#getType <em>Type</em>}</li>
+ *   <li>{@link type.Assosiation#getContainment <em>Containment</em>}</li>
  *   <li>{@link type.Assosiation#getLinks <em>Links</em>}</li>
  *   <li>{@link type.Assosiation#getSourceOperation <em>Source Operation</em>}</li>
  *   <li>{@link type.Assosiation#getTargetOperation <em>Target Operation</em>}</li>
@@ -53,6 +54,35 @@ public interface Assosiation extends Relationship {
 	 * @generated
 	 */
 	void setType(RelationType value);
+
+	/**
+	 * Returns the value of the '<em><b>Containment</b></em>' attribute.
+	 * The literals are from the enumeration {@link type.Containment}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Containment</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Containment</em>' attribute.
+	 * @see type.Containment
+	 * @see #setContainment(Containment)
+	 * @see type.TypePackage#getAssosiation_Containment()
+	 * @model
+	 * @generated
+	 */
+	Containment getContainment();
+
+	/**
+	 * Sets the value of the '{@link type.Assosiation#getContainment <em>Containment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Containment</em>' attribute.
+	 * @see type.Containment
+	 * @see #getContainment()
+	 * @generated
+	 */
+	void setContainment(Containment value);
 
 	/**
 	 * Returns the value of the '<em><b>Links</b></em>' containment reference list.

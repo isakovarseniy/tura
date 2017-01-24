@@ -38,8 +38,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="PackagePointer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="packageRef" eType="#//TypeGroup"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Containment">
+    <eLiterals name="Source"/>
+    <eLiterals name="Target" value="1"/>
+    <eLiterals name="Non" value="2"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assosiation" eSuperTypes="#//Relationship">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RelationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="containment" eType="#//Containment"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
         eType="#//Link" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceOperation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -93,6 +93,8 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 		switch (eDataType.getClassifierID()) {
 			case TypePackage.RELATION_TYPE:
 				return createRelationTypeFromString(eDataType, initialValue);
+			case TypePackage.CONTAINMENT:
+				return createContainmentFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -108,6 +110,8 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 		switch (eDataType.getClassifierID()) {
 			case TypePackage.RELATION_TYPE:
 				return convertRelationTypeToString(eDataType, instanceValue);
+			case TypePackage.CONTAINMENT:
+				return convertContainmentToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -340,6 +344,26 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	 * @generated
 	 */
 	public String convertRelationTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Containment createContainmentFromString(EDataType eDataType, String initialValue) {
+		Containment result = Containment.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertContainmentToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -71,6 +71,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="skip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vewLayer" upperBound="-1"
         eType="ecore:EClass mapper.ecore#//MappingLayer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelLayer" upperBound="-1"
@@ -81,6 +82,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="skip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappers" upperBound="-1"
         eType="#//ModelMapper" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="componentRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

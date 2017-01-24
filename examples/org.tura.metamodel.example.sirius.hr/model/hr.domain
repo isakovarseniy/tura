@@ -514,7 +514,7 @@
           <relationships xsi:type="tura.type:Assosiation" uid="05b8203a-a5ba-40e9-9e80-c0d33f20a054" source="2c8f38e5-fb95-4fff-92b8-f58e2fa17ee0" target="6986a47f-7571-4ce0-a591-18b1d979f67c">
             <links uid="3e462c1d-0a8b-45b1-9432-b418c184de7e" masterField="47301e42-b34a-4dcf-911d-32f7de1eb096" detailField="63ad86d7-e335-4710-aaca-851c830af972"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="a760ce71-2b0c-4838-8b05-8c474f2c11db" source="6986a47f-7571-4ce0-a591-18b1d979f67c" target="3cc8a8d2-0427-4a9e-bcdb-135edcf17716" type="Many2Many">
+          <relationships xsi:type="tura.type:Assosiation" uid="a760ce71-2b0c-4838-8b05-8c474f2c11db" source="6986a47f-7571-4ce0-a591-18b1d979f67c" target="3cc8a8d2-0427-4a9e-bcdb-135edcf17716" type="Many2Many" containment="Non">
             <links uid="0d0854f2-7929-4372-9cdc-9934163c28b1" masterField="9ad13b46-7933-4df0-a811-3b2f6773aade" detailField="23667c28-181d-44d4-8a56-66002a4adf90"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="27536231-ec90-4b97-9fcd-a383a738cec2" source="6986a47f-7571-4ce0-a591-18b1d979f67c" target="5b5ef66a-2b7b-4ef1-bb08-653bcc4cd7b3" type="One2Many">
@@ -528,16 +528,16 @@
             <classifiers uid="a705cd7f-81eb-4052-b3e9-b6f6ce02c82a" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
             <links uid="df1a78ac-d35d-4e08-bd13-6342c932a4cb" masterField="c4e967ae-bc19-4d1b-8581-16e6607da86f" detailField="3e18d4ab-d043-4aa0-937e-d1d4cce278f5"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="9352a6d2-05b4-4bcd-9175-609679cf1b36" source="1df05d16-1343-4d64-96a5-294e6d596486" target="2632e4e2-a6cb-428a-a43b-b1ad0c39c61b">
+          <relationships xsi:type="tura.type:Assosiation" uid="9352a6d2-05b4-4bcd-9175-609679cf1b36" source="1df05d16-1343-4d64-96a5-294e6d596486" target="2632e4e2-a6cb-428a-a43b-b1ad0c39c61b" containment="Non">
             <classifiers uid="ab62212c-34b8-4f99-b91b-5eded0ecac16" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
             <links uid="b46acc67-022b-4bb0-82a2-f60aeafe8e94" masterField="ad628776-d1b3-4a56-ae17-57475f231811" detailField="5674e895-4ed1-4fc5-99bc-f5a903fa3fcb"/>
             <links uid="2d9fe30f-9319-412a-a053-3c8bba827637" masterField="42fbe763-a5fc-4666-8437-4d8d64ac111e" detailField="f813ea86-f1c6-4413-a641-4779dc42355e"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="3ce0f002-b95d-451a-94f5-f4aa7ae48c65" source="339783fc-a290-4f05-9413-182f7d6ffb7f" target="187ba0cb-e554-4753-b7a2-a6ead1ba3bcc" type="Many2Many">
+          <relationships xsi:type="tura.type:Assosiation" uid="3ce0f002-b95d-451a-94f5-f4aa7ae48c65" source="339783fc-a290-4f05-9413-182f7d6ffb7f" target="187ba0cb-e554-4753-b7a2-a6ead1ba3bcc" type="Many2Many" containment="Non">
             <classifiers uid="b9299092-cb43-4f12-8037-a1a6f31c7d4c" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
             <links uid="09a83da8-4ee0-4647-8271-b1f4098d7591" masterField="d601838d-38ef-4f6a-bc2e-a4e2beed9a74" detailField="c4e967ae-bc19-4d1b-8581-16e6607da86f"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="43786009-a763-4756-8050-041afa52d038" source="37e4778e-8aed-41e4-b30c-e6709bf39b25" target="6986a47f-7571-4ce0-a591-18b1d979f67c">
+          <relationships xsi:type="tura.type:Assosiation" uid="43786009-a763-4756-8050-041afa52d038" source="37e4778e-8aed-41e4-b30c-e6709bf39b25" target="6986a47f-7571-4ce0-a591-18b1d979f67c" containment="Target">
             <links uid="b17c1d4a-3861-42ec-9481-a351ca3ffe33" masterField="662d0829-75eb-4a7c-bdfd-8fa1f83480e4" detailField="e9cf4f86-4a70-4f29-810a-6ed30cfd2b81"/>
           </relationships>
         </repositoryPackages>
@@ -1521,7 +1521,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="4" uid="76b6f6d0-62b2-4d26-a6d1-fdb0bd8978f1" name="Proxy for persistance objects repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
+                    <ingredients order="4" uid="76b6f6d0-62b2-4d26-a6d1-fdb0bd8978f1" name="Proxy for persistance objects repository" skip="true" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="bc745a61-1853-42b0-97ce-ee8ce18bde39" name="Proxy for JPA model repository" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-jpa-objects-repository-proxy" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="e65a423e-fc1d-4ea2-a342-89af14857b2e" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy">
                           <queries uid="6535e225-1dab-45c9-927d-712cb911fbbf" name="Query package for classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">

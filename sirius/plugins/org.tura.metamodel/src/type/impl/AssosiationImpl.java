@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import type.Assosiation;
+import type.Containment;
 import type.Link;
 import type.RelationType;
 import type.TypePackage;
@@ -32,6 +33,7 @@ import type.TypePointer;
  * </p>
  * <ul>
  *   <li>{@link type.impl.AssosiationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link type.impl.AssosiationImpl#getContainment <em>Containment</em>}</li>
  *   <li>{@link type.impl.AssosiationImpl#getLinks <em>Links</em>}</li>
  *   <li>{@link type.impl.AssosiationImpl#getSourceOperation <em>Source Operation</em>}</li>
  *   <li>{@link type.impl.AssosiationImpl#getTargetOperation <em>Target Operation</em>}</li>
@@ -60,6 +62,26 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 	 * @ordered
 	 */
 	protected RelationType type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getContainment() <em>Containment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Containment CONTAINMENT_EDEFAULT = Containment.SOURCE;
+
+	/**
+	 * The cached value of the '{@link #getContainment() <em>Containment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainment()
+	 * @generated
+	 * @ordered
+	 */
+	protected Containment containment = CONTAINMENT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getLinks() <em>Links</em>}' containment reference list.
@@ -159,6 +181,27 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.ASSOSIATION__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Containment getContainment() {
+		return containment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainment(Containment newContainment) {
+		Containment oldContainment = containment;
+		containment = newContainment == null ? CONTAINMENT_EDEFAULT : newContainment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypePackage.ASSOSIATION__CONTAINMENT, oldContainment, containment));
 	}
 
 	/**
@@ -284,6 +327,8 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 		switch (featureID) {
 			case TypePackage.ASSOSIATION__TYPE:
 				return getType();
+			case TypePackage.ASSOSIATION__CONTAINMENT:
+				return getContainment();
 			case TypePackage.ASSOSIATION__LINKS:
 				return getLinks();
 			case TypePackage.ASSOSIATION__SOURCE_OPERATION:
@@ -307,6 +352,9 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 		switch (featureID) {
 			case TypePackage.ASSOSIATION__TYPE:
 				setType((RelationType)newValue);
+				return;
+			case TypePackage.ASSOSIATION__CONTAINMENT:
+				setContainment((Containment)newValue);
 				return;
 			case TypePackage.ASSOSIATION__LINKS:
 				getLinks().clear();
@@ -336,6 +384,9 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 			case TypePackage.ASSOSIATION__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case TypePackage.ASSOSIATION__CONTAINMENT:
+				setContainment(CONTAINMENT_EDEFAULT);
+				return;
 			case TypePackage.ASSOSIATION__LINKS:
 				getLinks().clear();
 				return;
@@ -362,6 +413,8 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 		switch (featureID) {
 			case TypePackage.ASSOSIATION__TYPE:
 				return type != TYPE_EDEFAULT;
+			case TypePackage.ASSOSIATION__CONTAINMENT:
+				return containment != CONTAINMENT_EDEFAULT;
 			case TypePackage.ASSOSIATION__LINKS:
 				return links != null && !links.isEmpty();
 			case TypePackage.ASSOSIATION__SOURCE_OPERATION:
@@ -386,6 +439,8 @@ public class AssosiationImpl extends RelationshipImpl implements Assosiation {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (type: ");
 		result.append(type);
+		result.append(", containment: ");
+		result.append(containment);
 		result.append(", sourceOperation: ");
 		result.append(sourceOperation);
 		result.append(", targetOperation: ");

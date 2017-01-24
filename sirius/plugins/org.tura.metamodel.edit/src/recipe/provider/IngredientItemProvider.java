@@ -54,6 +54,7 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 			addOrderPropertyDescriptor(object);
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addSkipPropertyDescriptor(object);
 			addVewLayerPropertyDescriptor(object);
 			addModelLayerPropertyDescriptor(object);
 			addControllerLayerPropertyDescriptor(object);
@@ -145,6 +146,28 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Skip feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSkipPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Ingredient_skip_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Ingredient_skip_feature", "_UI_Ingredient_type"),
+				 RecipePackage.Literals.INGREDIENT__SKIP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -287,6 +310,7 @@ public class IngredientItemProvider extends UsingMappersItemProvider {
 			case RecipePackage.INGREDIENT__ORDER:
 			case RecipePackage.INGREDIENT__UID:
 			case RecipePackage.INGREDIENT__NAME:
+			case RecipePackage.INGREDIENT__SKIP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RecipePackage.INGREDIENT__COMPONENTS:

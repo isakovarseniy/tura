@@ -562,13 +562,22 @@ public interface RecipePackage extends EPackage {
 	int INGREDIENT__COMPONENTS = USING_MAPPERS_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Skip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INGREDIENT__SKIP = USING_MAPPERS_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Vew Layer</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT__VEW_LAYER = USING_MAPPERS_FEATURE_COUNT + 5;
+	int INGREDIENT__VEW_LAYER = USING_MAPPERS_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Model Layer</b></em>' reference list.
@@ -577,7 +586,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT__MODEL_LAYER = USING_MAPPERS_FEATURE_COUNT + 6;
+	int INGREDIENT__MODEL_LAYER = USING_MAPPERS_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Controller Layer</b></em>' reference.
@@ -586,7 +595,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT__CONTROLLER_LAYER = USING_MAPPERS_FEATURE_COUNT + 7;
+	int INGREDIENT__CONTROLLER_LAYER = USING_MAPPERS_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Ingredient</em>' class.
@@ -595,7 +604,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 8;
+	int INGREDIENT_FEATURE_COUNT = USING_MAPPERS_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.ComponentImpl <em>Component</em>}' class.
@@ -644,13 +653,22 @@ public interface RecipePackage extends EPackage {
 	int COMPONENT__NAME = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Skip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__SKIP = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__MAPPERS = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 3;
+	int COMPONENT__MAPPERS = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Component Root</b></em>' attribute.
@@ -659,7 +677,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENT_ROOT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 4;
+	int COMPONENT__COMPONENT_ROOT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -668,7 +686,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 5;
+	int COMPONENT_FEATURE_COUNT = CommonPackage.HTML_LAYER_HOLDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.JavaComponentImpl <em>Java Component</em>}' class.
@@ -715,6 +733,15 @@ public interface RecipePackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_COMPONENT__NAME = COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Skip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_COMPONENT__SKIP = COMPONENT__SKIP;
 
 	/**
 	 * The feature id for the '<em><b>Mappers</b></em>' containment reference list.
@@ -1739,6 +1766,17 @@ public interface RecipePackage extends EPackage {
 	EReference getIngredient_Components();
 
 	/**
+	 * Returns the meta object for the attribute '{@link recipe.Ingredient#isSkip <em>Skip</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Skip</em>'.
+	 * @see recipe.Ingredient#isSkip()
+	 * @see #getIngredient()
+	 * @generated
+	 */
+	EAttribute getIngredient_Skip();
+
+	/**
 	 * Returns the meta object for the reference list '{@link recipe.Ingredient#getVewLayer <em>Vew Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1802,6 +1840,17 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getComponent_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link recipe.Component#isSkip <em>Skip</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Skip</em>'.
+	 * @see recipe.Component#isSkip()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EAttribute getComponent_Skip();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link recipe.Component#getMappers <em>Mappers</em>}'.
@@ -2708,6 +2757,14 @@ public interface RecipePackage extends EPackage {
 		EReference INGREDIENT__COMPONENTS = eINSTANCE.getIngredient_Components();
 
 		/**
+		 * The meta object literal for the '<em><b>Skip</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INGREDIENT__SKIP = eINSTANCE.getIngredient_Skip();
+
+		/**
 		 * The meta object literal for the '<em><b>Vew Layer</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2756,6 +2813,14 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPONENT__NAME = eINSTANCE.getComponent_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Skip</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT__SKIP = eINSTANCE.getComponent_Skip();
 
 		/**
 		 * The meta object literal for the '<em><b>Mappers</b></em>' containment reference list feature.

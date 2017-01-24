@@ -54,6 +54,7 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
+			addContainmentPropertyDescriptor(object);
 			addSourceOperationPropertyDescriptor(object);
 			addTargetOperationPropertyDescriptor(object);
 		}
@@ -74,6 +75,28 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 				 getString("_UI_Assosiation_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Assosiation_type_feature", "_UI_Assosiation_type"),
 				 TypePackage.Literals.ASSOSIATION__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Containment feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContainmentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Assosiation_containment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Assosiation_containment_feature", "_UI_Assosiation_type"),
+				 TypePackage.Literals.ASSOSIATION__CONTAINMENT,
 				 true,
 				 false,
 				 false,
@@ -196,6 +219,7 @@ public class AssosiationItemProvider extends RelationshipItemProvider {
 
 		switch (notification.getFeatureID(Assosiation.class)) {
 			case TypePackage.ASSOSIATION__TYPE:
+			case TypePackage.ASSOSIATION__CONTAINMENT:
 			case TypePackage.ASSOSIATION__SOURCE_OPERATION:
 			case TypePackage.ASSOSIATION__TARGET_OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

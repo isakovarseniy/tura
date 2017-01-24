@@ -37,6 +37,7 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.ComponentImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link recipe.impl.ComponentImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.ComponentImpl#getName <em>Name</em>}</li>
+ *   <li>{@link recipe.impl.ComponentImpl#isSkip <em>Skip</em>}</li>
  *   <li>{@link recipe.impl.ComponentImpl#getMappers <em>Mappers</em>}</li>
  *   <li>{@link recipe.impl.ComponentImpl#getComponentRoot <em>Component Root</em>}</li>
  * </ul>
@@ -103,6 +104,26 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSkip() <em>Skip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSkip()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SKIP_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSkip() <em>Skip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSkip()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean skip = SKIP_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMappers() <em>Mappers</em>}' containment reference list.
@@ -221,6 +242,27 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSkip() {
+		return skip;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkip(boolean newSkip) {
+		boolean oldSkip = skip;
+		skip = newSkip;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.COMPONENT__SKIP, oldSkip, skip));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ModelMapper> getMappers() {
 		if (mappers == null) {
 			mappers = new EObjectContainmentEList<ModelMapper>(ModelMapper.class, this, RecipePackage.COMPONENT__MAPPERS);
@@ -277,6 +319,8 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 				return getUid();
 			case RecipePackage.COMPONENT__NAME:
 				return getName();
+			case RecipePackage.COMPONENT__SKIP:
+				return isSkip();
 			case RecipePackage.COMPONENT__MAPPERS:
 				return getMappers();
 			case RecipePackage.COMPONENT__COMPONENT_ROOT:
@@ -302,6 +346,9 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 				return;
 			case RecipePackage.COMPONENT__NAME:
 				setName((String)newValue);
+				return;
+			case RecipePackage.COMPONENT__SKIP:
+				setSkip((Boolean)newValue);
 				return;
 			case RecipePackage.COMPONENT__MAPPERS:
 				getMappers().clear();
@@ -331,6 +378,9 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 			case RecipePackage.COMPONENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case RecipePackage.COMPONENT__SKIP:
+				setSkip(SKIP_EDEFAULT);
+				return;
 			case RecipePackage.COMPONENT__MAPPERS:
 				getMappers().clear();
 				return;
@@ -355,6 +405,8 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 			case RecipePackage.COMPONENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case RecipePackage.COMPONENT__SKIP:
+				return skip != SKIP_EDEFAULT;
 			case RecipePackage.COMPONENT__MAPPERS:
 				return mappers != null && !mappers.isEmpty();
 			case RecipePackage.COMPONENT__COMPONENT_ROOT:
@@ -411,6 +463,8 @@ public class ComponentImpl extends HTMLLayerHolderImpl implements Component {
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", skip: ");
+		result.append(skip);
 		result.append(", componentRoot: ");
 		result.append(componentRoot);
 		result.append(')');

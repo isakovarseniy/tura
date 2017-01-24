@@ -226,18 +226,48 @@
           </style>
         </nodeMappings>
         <edgeMappings name="Assosiation" semanticCandidatesExpression="feature:relationships" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@nodeMappings[name='TypeReference']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@nodeMappings[name='TypeReference']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="type.Assosiation" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20Assosiation'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20Assosiation']">
-          <style targetArrow="InputFillClosedArrow">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
-            <beginLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:generateSourceName">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            </beginLabelStyleDescription>
-            <centerLabelStyleDescription>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-            <endLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:generateTargetName">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            </endLabelStyleDescription>
-          </style>
+          <conditionnalStyles predicateExpression="service:checkIfSourcetContainment">
+            <style sourceArrow="FillDiamond">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+              <beginLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:generateSourceName">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:generateTargetName">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:checkIfTargetContainment">
+            <style targetArrow="InputArrowWithFillDiamond">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+              <beginLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:generateSourceName">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:generateTargetName">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:checkIfNONContainment">
+            <style>
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+              <beginLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:generateSourceName">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:generateTargetName">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
         </edgeMappings>
         <edgeMappings name="Generalization" semanticCandidatesExpression="feature:relationships" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@containerMappings[name='Type'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@nodeMappings[name='TypeReference']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="type.Generalization" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20Generalization'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Type%20package']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20source%20Generalization']">
           <style targetArrow="InputClosedArrow">
@@ -1118,6 +1148,15 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
                 <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
               </style>
+              <conditionnalStyles predicateExpression="aql:self.skip">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelAlignment="LEFT">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='red']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+                  <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
+                </style>
+              </conditionnalStyles>
             </subContainerMappings>
             <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
@@ -1126,6 +1165,15 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='yellow']"/>
               <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.skip">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='red']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='yellow']"/>
+                <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
+              </style>
+            </conditionnalStyles>
           </subContainerMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name" labelAlignment="LEFT">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>

@@ -107,7 +107,13 @@ public class GMFGeneration {
 				EditingDomain editingDomain = diagramEditPart.getEditingDomain();
 
 				for (Ingredient ingredient : recipes.getRecipe().getIngredients()) {
+					if (ingredient.isSkip()){
+						continue;
+					}
 					for (Component comp : ingredient.getComponents()) {
+						if (comp.isSkip()){
+							continue;
+						}
 						monitor.beginTask(
 								"Component generation:" + comp.getName(), comp
 										.getMappers().size());

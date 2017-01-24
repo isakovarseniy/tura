@@ -49,8 +49,16 @@ class PackagePointer{
    ref TypeGroup packageRef;
 }
 
+enum Containment {
+	Source;
+	Target;
+	Non;
+}
+
+
 class Assosiation extends Relationship{
    attr RelationType type;
+   attr Containment containment;
    val Link[*]  links; 
    attr EString sourceOperation;
    attr EString targetOperation;
