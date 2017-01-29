@@ -118,6 +118,9 @@ public class GMFGeneration {
 								"Component generation:" + comp.getName(), comp
 										.getMappers().size());
 						for (ModelMapper mapper : comp.getMappers()) {
+							if (mapper.isSkip()){
+								continue;
+							}
 							monitor.subTask("Mapper generation :"+ mapper.getName());
 							if (mapper.getArtifactRef().getTemplate() != null) {
 								EglTemplate template = null;

@@ -1018,13 +1018,22 @@ public interface RecipePackage extends EPackage {
 	int MODEL_MAPPER__ARTIFACT_EXECUTION_STRING = ARTIFACT_REF_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Skip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_MAPPER__SKIP = ARTIFACT_REF_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Model Mapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 6;
+	int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.PropertyImpl <em>Property</em>}' class.
@@ -2080,6 +2089,17 @@ public interface RecipePackage extends EPackage {
 	EAttribute getModelMapper_ArtifactExecutionString();
 
 	/**
+	 * Returns the meta object for the attribute '{@link recipe.ModelMapper#isSkip <em>Skip</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Skip</em>'.
+	 * @see recipe.ModelMapper#isSkip()
+	 * @see #getModelMapper()
+	 * @generated
+	 */
+	EAttribute getModelMapper_Skip();
+
+	/**
 	 * Returns the meta object for class '{@link recipe.Property <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2997,6 +3017,14 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODEL_MAPPER__ARTIFACT_EXECUTION_STRING = eINSTANCE.getModelMapper_ArtifactExecutionString();
+
+		/**
+		 * The meta object literal for the '<em><b>Skip</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL_MAPPER__SKIP = eINSTANCE.getModelMapper_Skip();
 
 		/**
 		 * The meta object literal for the '{@link recipe.impl.PropertyImpl <em>Property</em>}' class.

@@ -1140,6 +1140,15 @@
                   <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_gray']"/>
                   <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
                 </style>
+                <conditionnalStyles predicateExpression="aql:self.skip">
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelAlignment="LEFT">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='red']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_gray']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_gray']"/>
+                    <labelBorderStyle href="environment:/viewpoint#/0/@labelBorderStyles/@labelBorderStyleDescriptions[id='labelBorderForContainer']"/>
+                  </style>
+                </conditionnalStyles>
               </subContainerMappings>
               <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>

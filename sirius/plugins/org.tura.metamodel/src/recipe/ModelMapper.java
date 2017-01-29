@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link recipe.ModelMapper#getTechnologies <em>Technologies</em>}</li>
  *   <li>{@link recipe.ModelMapper#getQueries <em>Queries</em>}</li>
  *   <li>{@link recipe.ModelMapper#getArtifactExecutionString <em>Artifact Execution String</em>}</li>
+ *   <li>{@link recipe.ModelMapper#isSkip <em>Skip</em>}</li>
  * </ul>
  *
  * @see recipe.RecipePackage#getModelMapper()
@@ -136,5 +137,31 @@ public interface ModelMapper extends ArtifactRef, Orderable {
 	 * @generated
 	 */
 	void setArtifactExecutionString(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Skip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Skip</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Skip</em>' attribute.
+	 * @see #setSkip(boolean)
+	 * @see recipe.RecipePackage#getModelMapper_Skip()
+	 * @model
+	 * @generated
+	 */
+	boolean isSkip();
+
+	/**
+	 * Sets the value of the '{@link recipe.ModelMapper#isSkip <em>Skip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Skip</em>' attribute.
+	 * @see #isSkip()
+	 * @generated
+	 */
+	void setSkip(boolean value);
 
 } // ModelMapper

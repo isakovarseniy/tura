@@ -53,6 +53,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			addNamePropertyDescriptor(object);
 			addArtifactRootPropertyDescriptor(object);
 			addArtifactExecutionStringPropertyDescriptor(object);
+			addSkipPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -146,6 +147,28 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Skip feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSkipPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ModelMapper_skip_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelMapper_skip_feature", "_UI_ModelMapper_type"),
+				 RecipePackage.Literals.MODEL_MAPPER__SKIP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -218,6 +241,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			case RecipePackage.MODEL_MAPPER__NAME:
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_EXECUTION_STRING:
+			case RecipePackage.MODEL_MAPPER__SKIP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RecipePackage.MODEL_MAPPER__TECHNOLOGIES:

@@ -1,4 +1,61 @@
- operation type::TypeElement collectType(typeCollection,model_mapper,skattr,pk){
+ operation type::Assosiation findTypeOfAssosiation(model_mapper){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var masterType;
+     var detailType;
+     var property;
+     var noAssosiation=false;
+     var containment=false; 
+     
+     
+	 if ( self.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+	         noAssosiation = true;
+	         masterType = self.source;
+	         detailType = self.target;
+	         property = util.mergeAndCapitalize(detailType.name);
+
+	 }else{
+	     if (self.containment.toString()<>"Non"){
+	        containment=true;
+	     }
+	     if( self.type.toString() =="One2Many"  ){
+	         masterType = self.source;
+	         detailType = self.target;
+	         property = util.mergeAndCapitalize(detailType.name);
+	     }
+	     if( self.type.toString() == "One2One" and (self.containment.toString()=="Source" or self.containment.toString()=="Non") ){
+	         masterType = self.source;
+	         detailType = self.target;
+	         property = util.mergeAndCapitalize(detailType.name);
+	     }
+	     if( self.type.toString() == "One2One" and self.containment.toString()=="Target"  ){
+	         masterType = self.target;
+	         detailType = self.source;
+	         property = util.mergeAndCapitalize(detailType.name);
+	     }
+
+	     if( self.type.toString() == "Many2Many" and (self.containment.toString()=="Source" or self.containment.toString()=="Non") ){
+	         masterType = self.source;
+	         detailType = self.target;
+	         property = util.mergeAndCapitalize(detailType.name);
+	     }
+	     if( self.type.toString() == "Many2Many" and self.containment.toString()=="Target"  ){
+	         masterType = self.target;
+	         detailType = self.source;
+	         property = util.mergeAndCapitalize(detailType.name);
+	     }
+	 }
+     var hash = new Native('java.util.HashMap');
+     hash.put("masterType",masterType);
+     hash.put("detailType",detailType);
+     hash.put("property",property);
+     hash.put("noAssosiation",noAssosiation);
+     hash.put("containment",containment);
+
+      return hash;
+ }
+
+
+ operation type::TypeElement collectType(typeCollection,model_mapper,skattr,pk,bndattr){
     var tp = self;
     var util = new Native('org.tura.metamodel.commons.Util');
 
@@ -22,6 +79,13 @@
         self.~primaryKey = primaryKey;
     }
 
+    var bindedAttribute=bndattr;
+    if (bindedAttribute == null){
+        bindedAttribute=new Native('java.util.ArrayList');
+        self.~bindedAttribute = bindedAttribute;
+    }
+
+
      for(field in tp.attributes){
         if (field.pk){
             primaryKey.add(field);
@@ -35,7 +99,7 @@
 	    if (tp1.isKindOf(type::TypeReference )){
 	        tp1 = tp1.typeRef;
 	    }
-	    tp1.collectType(typeCollection,model_mapper,null,null);
+	    tp1.collectType(typeCollection,model_mapper,null,null,null);
      }
 
 
@@ -46,7 +110,7 @@
 	    if (tp1.isKindOf(type::TypeReference )){
 	        tp1 = tp1.typeRef;
 	    }
-	    tp1.collectType(typeCollection,model_mapper,null,null);
+	    tp1.collectType(typeCollection,model_mapper,null,null,null);
      }
 
      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and (t.type.toString() = "One2One" or t.type.toString() = "One2Many"));
@@ -55,8 +119,15 @@
          for (lnk in rel.links){
              skipAttributes.add(lnk.detailField);
          }
+         
+         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+	         for (lnk in rel.links){
+	             bindedAttribute.add(lnk.detailField);
+	         }
+         }
      }           
     self.~skipAttributes=skipAttributes;
+    self.~bindedAttribute=bindedAttribute;
     
     var extension = type::Generalization.allInstances()->select(t|t.source.uid = tp.uid  and t.classifiers->size() = 0 ).first();
     if (extension <> null){
@@ -64,7 +135,7 @@
 	   if (ex.isKindOf(type::TypeReference )){
 	       ex = extension.target.typeRef;
 	   }
-	   ex.collectType(typeCollection,model_mapper,skipAttributes,primaryKey);
+	   ex.collectType(typeCollection,model_mapper,skipAttributes,primaryKey,bindedAttribute);
 	   tp.~extension = ex;
     }
  }

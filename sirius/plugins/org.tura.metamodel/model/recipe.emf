@@ -112,8 +112,9 @@ class ModelMapper extends ArtifactRef,common.Orderable{
    attr EString name;
    attr EString artifactRoot;
    val MappingTecnologiy[*] technologies;
-    val Query[*] queries;
-    attr EString artifactExecutionString;
+   val Query[*] queries;
+   attr EString artifactExecutionString;
+   attr EBoolean skip;
 }
 
 class Property{

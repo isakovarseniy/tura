@@ -1,0 +1,90 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+
+ ${percent}${end}
+ 
+ [%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var alltypes = new Native('java.util.ArrayList');
+     var hash = new Native('java.util.HashMap');
+
+     var type;
+     var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+
+
+     var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
+     var nsHash = new Native("java.util.HashMap"); 
+ 
+      if (types <> null and types.size <> 0 ){
+        var typeCollection = new Native("java.util.ArrayList"); 
+	    for (type in types){
+	       type.collectType(typeCollection,model_mapper,null,null,null);
+	    }
+ 
+      var i = 0; 
+      for(type in typeCollection){
+         type.mappingType2XML(recipe,ingredient);
+         if (nsHash.get(type.~namespace) == null ){
+            var arr =  new Native("java.util.ArrayList");
+            var col = new Native("java.util.HashMap"); 
+            arr.add(col);
+            arr.add(i);
+            nsHash.put(type.~namespace,arr);
+            i = i +1;
+         }
+         nsHash.get(type.~namespace).get(0).put(type.~fullname,type);
+      }
+ 
+      for( targetnamespace in nsHash.keySet()  ){
+		var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/xsd/";  
+        var returnHash = new Native('java.util.HashMap');
+		hash.put("returnHash",returnHash);
+		hash.put("fullCollection",typeCollection);
+		hash.put("fullHash",nsHash);
+		hash.put("typeCollection",nsHash.get(targetnamespace).get(0));
+		hash.put("targetnamespace",targetnamespace);
+		hash.put("recipe",recipe);
+		hash.put("ingredient",ingredient);
+		hash.put("component",component);
+		hash.put("model_mapper",model_mapper);
+		hash.put("path",path);    
+	 
+	    var xsd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/xsd.egl",hash,TemplateFactory);
+	    xsd.setFormatter(f);
+	    var buffer = xsd.process();
+
+
+		hash.put("body",buffer);
+	    var xsdHeader : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/xsdHeader.egl",hash,TemplateFactory);
+	    xsdHeader.setFormatter(f);
+	    var buffer = xsdHeader.process();
+	    
+	    util.saveFile( path, "schema_"+nsHash.get(targetnamespace).get(1)+".xsd",buffer);   
+      
+      } 
+
+		var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/xjb/";  
+
+	    var jaxbBinding : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/jaxbBinding.egl",hash,TemplateFactory);
+	    jaxbBinding.setFormatter(f);
+	    var buffer = jaxbBinding.process();
+	    
+	    util.saveFile( path, "bindings.xjb",buffer);   
+
+		var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/org/acme/foo/";  
+        var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+
+	    var dateadapter : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/dateAdapter.egl",hash,TemplateFactory);
+	    dateadapter.setFormatter(f);
+	    var buffer = dateadapter.process();
+	    
+	    util.saveFile( path, "DateAdapter.java",buffer);   
+
+
+   }
+%]

@@ -1,0 +1,286 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+
+ ${percent}${end}
+ [%
+ @template
+operation  commandData (recipe,ingredient,targetnamespace,fullHash,returnHash,model_mapper,typeCollection){
+ 
+      var util = new Native('org.tura.metamodel.commons.Util');
+      for(type in typeCollection.values()){
+       if (type.~primaryKey.size()==0){
+          continue;
+       }
+        var tp = type;
+        while  (1 == 1) {
+	         for (field in tp.attributes){
+	            if (field.pk){
+	               continue;
+	            }
+			     if (tp.~skipAttributes.contains(field) ){
+			        continue; 
+			     }%]
+			     [%=field.updateData(tp,recipe,ingredient,targetnamespace,fullHash,returnHash)%]
+			     
+			[%}
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+        }
+        %]
+       [%=type.addData(recipe,ingredient,targetnamespace,fullHash,returnHash,model_mapper)%]
+       [%=type.removeData(recipe,ingredient,targetnamespace,fullHash,returnHash,model_mapper)%]
+       [%
+      }
+}
+
+
+@template
+operation type::TypeElement  removeData ( recipe,ingredient,targetnamespace,fullHash,returnHash,model_mapper){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid);
+     var topObject = true;
+     for (rel in assosiations){
+        var hash = rel.findTypeOfAssosiation(model_mapper);
+        var masterType =   hash.get("masterType");
+        var detailType = hash.get("detailType");
+        var property =  hash.get("property");
+        
+        if (detailType.uid == self.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"){
+           topObject = false;
+        }
+        
+        if (hash.get("noAssosiation")){
+           %][%=removeNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash)%][%
+        }else{
+	        if (hash.get("containment")){
+           %][%=removeContaintmentRelation( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash)%][%
+	        }else{
+           %][%=removeNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash)%][%
+	        }
+        }
+     }
+     if (topObject  ){
+        %][%=removeTopObject ( self, recipe,ingredient,targetnamespace,fullHash,returnHash)%][%
+     }
+}
+
+
+
+@template
+operation type::TypeElement  addData ( recipe,ingredient,targetnamespace,fullHash,returnHash,model_mapper){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid);
+     var topObject = true;
+     for (rel in assosiations){
+        var hash = rel.findTypeOfAssosiation(model_mapper);
+        var masterType =   hash.get("masterType");
+        var detailType = hash.get("detailType");
+        var property =  hash.get("property");
+        if (detailType.uid == self.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"){
+           topObject = false;
+        }
+        
+        
+        if (hash.get("noAssosiation")){
+           %][%=addNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash)%][%
+        }else{
+	        if (hash.get("containment")){
+           %][%=addContaintmentRelation( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash)%][%
+	        }else{
+           %][%=addNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash)%][%
+	        }
+        }
+     }
+     if (topObject  ){
+        %][%=addTopObject ( self, recipe,ingredient,targetnamespace,fullHash,returnHash)%][%
+     }
+     
+}
+
+@template
+operation  removeTopObject ( masterType,recipe,ingredient,targetnamespace,fullHash,returnHash){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      %]<xs:complexType name="RemoveTop[%=masterType.~class%]Data">[%
+	     %]<xs:sequence>[%
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(masterType.name)%]"  type=  "[%=getNamespace(masterType.~namespace,targetnamespace,fullHash,returnHash)%][%=masterType.~class%]"/>
+		    [%
+	     %]</xs:sequence>[%
+	  %]</xs:complexType>[%
+}
+
+
+@template
+operation  removeContaintmentRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      %]<xs:complexType name="Remove[%=detailType.~class%]2[%=masterType.~class%]_[%=util.mergeAndCapitalize(property)%]Data">[%
+	     %]<xs:sequence>[%
+	      for (pk in masterType.~primaryKey){ 
+		    pk.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(pk.name)%]"  type="[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+		    [%
+	      }
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(detailType.name)%]"  type=  "[%=getNamespace(detailType.~namespace,targetnamespace,fullHash,returnHash)%][%=detailType.~class%]"/>
+		    [%
+	      
+	     %]</xs:sequence>[%
+	  %]</xs:complexType>[%
+      
+}
+
+@template
+operation  removeNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+      %]<xs:complexType name="Remove[%=detailType.~class%]2[%=masterType.~class%]_[%=util.mergeAndCapitalize(property)%]Data">[%
+	     %]<xs:sequence>[%
+	      for (pk in masterType.~primaryKey){ 
+		    pk.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(masterType.name)%]_[%=util.mergeAndUnCapitalize(pk.name)%]"  type="[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+		    [%
+	      }
+
+	      for (pk in detailType.~primaryKey){ 
+		    pk.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(detailType.name)%]_[%=util.mergeAndUnCapitalize(pk.name)%]"  type="[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+		    [%
+	      }
+
+
+	     %]</xs:sequence>[%
+	  %]</xs:complexType>[%
+}
+
+
+@template
+operation removeNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+      %]<xs:complexType name="Remove[%=detailType.~class%]2[%=masterType.~class%]_NoAssosiation[%=util.mergeAndCapitalize(property)%]Data">[%
+	     %]<xs:sequence>[%
+	      for (pk in masterType.~primaryKey){ 
+		    pk.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(masterType.name)%]_[%=util.mergeAndUnCapitalize(pk.name)%]"  type="[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+		    [%
+	      }
+	      for (pk in detailType.~primaryKey){ 
+		    pk.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(detailType.name)%]_[%=util.mergeAndUnCapitalize(pk.name)%]"  type="[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+		    [%
+	      }
+	     %]</xs:sequence>[%
+	  %]</xs:complexType>[%
+}
+
+
+
+@template
+operation  addTopObject ( masterType,recipe,ingredient,targetnamespace,fullHash,returnHash){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      %]<xs:complexType name="AddTop[%=masterType.~class%]Data">[%
+	     %]<xs:sequence>[%
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(masterType.name)%]"  type=  "[%=getNamespace(masterType.~namespace,targetnamespace,fullHash,returnHash)%][%=masterType.~class%]"/>
+		    [%
+	     %]</xs:sequence>[%
+	  %]</xs:complexType>[%
+}
+
+
+@template
+operation  addContaintmentRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      %]<xs:complexType name="Add[%=detailType.~class%]2[%=masterType.~class%]_[%=util.mergeAndCapitalize(property)%]Data">[%
+	     %]<xs:sequence>[%
+	      for (pk in masterType.~primaryKey){ 
+		    pk.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(pk.name)%]"  type="[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+		    [%
+	      }
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(detailType.name)%]"  type=  "[%=getNamespace(detailType.~namespace,targetnamespace,fullHash,returnHash)%][%=detailType.~class%]"/>
+		    [%
+	      
+	     %]</xs:sequence>[%
+	  %]</xs:complexType>[%
+      
+}
+
+@template
+operation  addNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+      %]<xs:complexType name="Add[%=detailType.~class%]2[%=masterType.~class%]_[%=util.mergeAndCapitalize(property)%]Data">[%
+	     %]<xs:sequence>[%
+	      for (pk in masterType.~primaryKey){ 
+		    pk.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(masterType.name)%]_[%=util.mergeAndUnCapitalize(pk.name)%]"  type="[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+		    [%
+	      }
+
+	      for (pk in detailType.~primaryKey){ 
+		    pk.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(detailType.name)%]_[%=util.mergeAndUnCapitalize(pk.name)%]"  type="[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+		    [%
+	      }
+
+
+	     %]</xs:sequence>[%
+	  %]</xs:complexType>[%
+}
+
+
+@template
+operation addNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash){
+     var util = new Native('org.tura.metamodel.commons.Util');
+      %]<xs:complexType name="Add[%=detailType.~class%]2[%=masterType.~class%]_NoAssosiation[%=util.mergeAndCapitalize(property)%]Data">[%
+	     %]<xs:sequence>[%
+	      for (pk in masterType.~primaryKey){ 
+		    pk.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(masterType.name)%]_[%=util.mergeAndUnCapitalize(pk.name)%]"  type="[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+		    [%
+	      }
+	      for (pk in detailType.~primaryKey){ 
+		    pk.typeRef.mappingType2XML(recipe,ingredient);
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(detailType.name)%]_[%=util.mergeAndUnCapitalize(pk.name)%]"  type="[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+		    [%
+	      }
+	     %]</xs:sequence>[%
+	  %]</xs:complexType>[%
+}
+
+@template
+operation type::Attribute  updateData ( type,recipe,ingredient,targetnamespace,fullHash,returnHash){
+       var util = new Native('org.tura.metamodel.commons.Util');
+      %]<xs:complexType name="Update[%=type.~class%][%=util.mergeAndCapitalize(self.name)%]Data">[%
+	     %]<xs:sequence>[%
+	        if  (type.~primaryKey.isDefined()){
+              for (pk in type.~primaryKey){ 
+			    pk.typeRef.mappingType2XML(recipe,ingredient);
+			    %] <xs:element name="[%=util.mergeAndUnCapitalize(pk.name)%]"  type=  "[%=getNamespace(pk.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=pk.typeRef.~class%]"/>
+			    [%
+              }
+            }
+		    self.typeRef.mappingType2XML(recipe,ingredient);
+
+		    %] <xs:element name="[%=util.mergeAndUnCapitalize(self.name)%]"  type=  "[%=getNamespace(self.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=self.typeRef.~class%]"/>[%
+
+	     %]</xs:sequence>[%
+	  %]</xs:complexType>[%
+
+ }
+ 
+operation getNamespace(namespace,targetNamespace,fullHash,returnHash){
+  if ("http://www.w3.org/2001/XMLSchema".equals(namespace)){
+     return "xs:";
+  }
+  if(namespace.equals(targetNamespace)){
+      return "";
+  }else{
+      returnHash.put("ns"+fullHash.get(namespace).get(1),namespace);
+      return "ns"+fullHash.get(namespace).get(1)+":";
+  } 
+} 
+%]
