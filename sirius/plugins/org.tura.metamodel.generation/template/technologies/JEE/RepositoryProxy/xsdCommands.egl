@@ -25,7 +25,7 @@ operation  commandData (recipe,ingredient,targetnamespace,fullHash,returnHash,mo
 			     if (tp.~skipAttributes.contains(field) ){
 			        continue; 
 			     }%]
-			     [%=field.updateData(tp,recipe,ingredient,targetnamespace,fullHash,returnHash)%]
+			     [%=field.updateData(type,recipe,ingredient,targetnamespace,fullHash,returnHash)%]
 			     
 			[%}
             if (tp.~extension.isDefined()){

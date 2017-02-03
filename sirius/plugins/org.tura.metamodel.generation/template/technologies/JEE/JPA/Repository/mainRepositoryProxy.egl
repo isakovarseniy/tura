@@ -23,7 +23,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	       type.collectType(typeCollection,model_mapper,null,null);
 	    }
 
-	    
       var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
 
       for(type in typeCollection){

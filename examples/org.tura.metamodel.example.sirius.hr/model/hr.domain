@@ -77,14 +77,6 @@
             </technologies>
             <hints uid="1610a78f-bda5-4b69-a443-e391f7457d2b" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
           </artifacts>
-          <artifacts uid="01788d3b-cb04-49a4-ac90-fe9863806de4" name="XSD serializable objects" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/mainXSDfromType.egl">
-            <modelQuery uid="f221359a-9578-422c-8dda-d4a8f1ddbfbf" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
-              <parameters uid="24d765fa-9d81-488b-8f84-5bdf72735276" name="Repository"/>
-              <parameters uid="01e38189-3ce8-4b79-a168-0f4c321d9423" name="Package"/>
-            </modelQuery>
-            <hints uid="db668869-b00a-463f-854f-edd4edd48de2" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
-            <hints uid="6cdbc067-4aee-4749-bfcc-026a8eb9a1ed" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
-          </artifacts>
           <artifacts uid="2b04954c-cf6c-46b7-a448-b97377be6839" name="Persistence model repository" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/mainJPARepository.egl">
             <modelQuery uid="cdf258ce-9311-4971-bd60-197bb0021022" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
               <parameters uid="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" name="Repository"/>
@@ -92,14 +84,6 @@
             </modelQuery>
             <hints uid="031451fe-d3a7-4028-991a-eb5dbb739b6b" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <hints uid="cac1830c-5b47-409d-9118-26bbe69c8ea0" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
-          </artifacts>
-          <artifacts uid="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Persistence model repository proxy" description="Persistence model repository proxy" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/mainRepositoryProxy.egl">
-            <modelQuery uid="69662b7f-94e7-4dbf-946a-a717aeb29210" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
-              <parameters uid="52de4dda-86be-4a4d-a3ce-0d093cf014b2" name="Repository"/>
-              <parameters uid="cbba536e-3b02-44dc-8a9b-2fdec45575c6" name="Package"/>
-            </modelQuery>
-            <hints uid="51a75ad8-09c5-42be-96a8-81b8fa52d284" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
-            <hints uid="fb22479f-71fa-4282-98db-f460476e8ff0" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
           </artifacts>
         </artifactPackages>
         <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
@@ -322,6 +306,32 @@
               <options uid="a1acf69c-3adf-45a6-a515-9353cce02808" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
             </technologies>
             <hints uid="601ab46c-4f8d-47d4-9400-3708169feec7" name="Web element name" hint="bfda8719-98c2-46fe-9788-45a33747d1fc"/>
+          </artifacts>
+        </artifactPackages>
+        <artifactPackages uid="517f9380-85f0-4f86-a962-b92acd66e131" name="Repository proxy">
+          <artifacts uid="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy" description="Persistence model repository proxy" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/mainRepositoryProxy.egl">
+            <modelQuery uid="69662b7f-94e7-4dbf-946a-a717aeb29210" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
+              <parameters uid="52de4dda-86be-4a4d-a3ce-0d093cf014b2" name="Repository"/>
+              <parameters uid="cbba536e-3b02-44dc-8a9b-2fdec45575c6" name="Package"/>
+            </modelQuery>
+            <hints uid="51a75ad8-09c5-42be-96a8-81b8fa52d284" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <hints uid="fb22479f-71fa-4282-98db-f460476e8ff0" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
+          </artifacts>
+          <artifacts uid="01788d3b-cb04-49a4-ac90-fe9863806de4" name="XSD serializable objects" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/mainXSDfromType.egl">
+            <modelQuery uid="f221359a-9578-422c-8dda-d4a8f1ddbfbf" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
+              <parameters uid="24d765fa-9d81-488b-8f84-5bdf72735276" name="Repository"/>
+              <parameters uid="01e38189-3ce8-4b79-a168-0f4c321d9423" name="Package"/>
+            </modelQuery>
+            <hints uid="db668869-b00a-463f-854f-edd4edd48de2" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <hints uid="6cdbc067-4aee-4749-bfcc-026a8eb9a1ed" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
+          </artifacts>
+          <artifacts uid="c50ac7ac-fd3a-4f87-8cfd-0553fbd88407" name="Repository Proxy command" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/mainProxyCommands.egl">
+            <modelQuery uid="ee3f89fb-6e9e-46bd-b407-e340472a5778" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
+              <parameters uid="60d5d7fc-5e66-47b4-889b-543c10ca0879" name="Repository"/>
+              <parameters uid="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" name="Package"/>
+            </modelQuery>
+            <hints uid="ea754178-84a2-41a4-88c7-1bb1ec733770" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <hints uid="617b5798-0fc2-4e26-a63d-57d70c3826a2" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
           </artifacts>
         </artifactPackages>
       </domainArtifact>
@@ -1389,7 +1399,7 @@
               <recipes uid="a1b10eb6-b808-4453-b15a-0bf4ffb8b04c" name="Backend objects and services">
                 <recipes uid="a35e53f5-2d9d-46ce-8a15-46ef1576f04c" name="Test domain and persistence model">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 21d8af7b-7dbd-451d-a8e7-ee9d696646a4 d618d7da-b15b-4395-ae4c-40f5c49e29a3" uid="8d9145b8-4528-4cde-b96c-ded8331c2011" name="Test model generation">
-                    <ingredients uid="743fbbff-1ddb-4400-848c-23c002a09a64" name="Repository of objects" controllerLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513">
+                    <ingredients uid="743fbbff-1ddb-4400-848c-23c002a09a64" name="Repository of objects" skip="true" controllerLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="13f31adb-9df4-4c87-b762-1e9af65381ba" name="Domain Model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-domain-objects" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.domain.test">
                         <mappers uid="14db4237-4d45-4f0d-9c45-967c1cea6781" artifactRef="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Model generation">
                           <queries uid="6e4361c9-7259-4253-879c-c5ecdf29be0f" name="Query package for classess" queryRef="2f122165-6dcb-4620-8d63-15c0c9dc0270">
@@ -1423,7 +1433,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="1" uid="3521f573-77da-4735-a0f6-e13daf00a1a5" name="Persistance" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                    <ingredients order="1" uid="3521f573-77da-4735-a0f6-e13daf00a1a5" name="Persistance" skip="true" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="791cda7d-5f13-4507-8b6a-48d6f9461db3" name="Persistence model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-jpa-objects" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="4081d728-74ee-49c5-8e89-5e83a1986dfa" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactExecutionString="">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
@@ -1496,7 +1506,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="2" uid="14bc11a6-ef32-4a75-a76c-6433dea53faf" name="Persistance objects repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                    <ingredients order="2" uid="14bc11a6-ef32-4a75-a76c-6433dea53faf" name="Persistance objects repository" skip="true" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="dda9b19e-e5a0-4baf-acba-4535993afa81" name="JPA model repository" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-jpa-objects-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="">
                         <mappers uid="4ad64e23-f0df-4d9c-9f46-0e8d9e64a024" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <queries uid="40469a6e-dadc-4f41-8f40-fde93c40b334" name="Query package for classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
@@ -1522,20 +1532,26 @@
                       </components>
                     </ingredients>
                     <ingredients order="4" uid="76b6f6d0-62b2-4d26-a6d1-fdb0bd8978f1" name="Proxy for persistance objects repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="bc745a61-1853-42b0-97ce-ee8ce18bde39" name="Proxy for JPA model repository" skip="true" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-jpa-objects-repository-proxy" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="bc745a61-1853-42b0-97ce-ee8ce18bde39" name="Proxy for JPA model repository" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-jpa-objects-repository-proxy" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="e65a423e-fc1d-4ea2-a342-89af14857b2e" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy" skip="true">
                           <queries uid="6535e225-1dab-45c9-927d-712cb911fbbf" name="Query package for classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
                             <variables queryParamRef="52de4dda-86be-4a4d-a3ce-0d093cf014b2" value="Testing repository"/>
                             <variables queryParamRef="cbba536e-3b02-44dc-8a9b-2fdec45575c6" value="JPA test package"/>
                           </queries>
                         </mappers>
-                        <mappers uid="3ddd4ecf-2764-4667-a585-c3ebb02ed651" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Repository proxy builder">
+                        <mappers uid="3ddd4ecf-2764-4667-a585-c3ebb02ed651" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Repository proxy builder" skip="true">
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="51207326-6dcb-4727-9b08-cb08fd035f8f"/>
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <queries uid="45b82bd2-c75c-46ab-93ba-d4a2b716da30" name="Query package for classes" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
                             <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Testing repository"/>
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="JPA test package"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="78c30414-5e18-4764-b90f-e971b209187c" artifactRef="c50ac7ac-fd3a-4f87-8cfd-0553fbd88407" name="Repository proxy command">
+                          <queries uid="22cd2b39-04f1-4ae5-8843-d91b76195387" name="Query package for classes" queryRef="ee3f89fb-6e9e-46bd-b407-e340472a5778">
+                            <variables queryParamRef="60d5d7fc-5e66-47b4-889b-543c10ca0879" value="Testing repository"/>
+                            <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="JPA test package"/>
                           </queries>
                         </mappers>
                       </components>
@@ -1714,10 +1730,10 @@
                     </ingredients>
                     <ingredients order="2" uid="401a4f66-e20a-4e48-83d2-98dcd67df4d8" name="Serialization model for persistence object" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="19aa9de6-606a-4699-875a-1cbc3b8bc1ba" name="HR complex persistance serialization model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="hr-serialization-complex-jpa-objects-model" groupId="org.tura.example.service" version="1.0" basePackage="org.elsoft.platform.hr.objects.serializaton.jpa.complex.model">
-                        <mappers uid="14546d63-f8bb-4263-b228-b80844a1b863" artifactRef="01788d3b-cb04-49a4-ac90-fe9863806de4" name="Serialization model">
-                          <queries uid="210ed03d-becd-4679-99ad-02fba376008c" name="Query package for classes" queryRef="f221359a-9578-422c-8dda-d4a8f1ddbfbf">
-                            <variables queryParamRef="24d765fa-9d81-488b-8f84-5bdf72735276" value="HR domain"/>
-                            <variables queryParamRef="01e38189-3ce8-4b79-a168-0f4c321d9423" value="Complex persistence model"/>
+                        <mappers uid="14546d63-f8bb-4263-b228-b80844a1b863" name="Serialization model">
+                          <queries uid="210ed03d-becd-4679-99ad-02fba376008c" name="Query package for classes">
+                            <variables value="HR domain"/>
+                            <variables value="Complex persistence model"/>
                           </queries>
                         </mappers>
                         <mappers uid="4f33fbef-bc5f-42ea-a665-29d6161d2ec7" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="XJC complex model serialization builder">

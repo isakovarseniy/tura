@@ -1,0 +1,110 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+
+ ${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+      field.typeRef.mappingType2Java(recipe,ingredient);
+ 
+ %]
+ package [%=type.~package%].commands;
+ public class Update[%=type.~class%]On[%=util.mergeAndCapitalize(field.name)%]Command implements org.tura.platform.repository.proxy.ProxyRepositoryCommand {
+ 
+ 	private [%=type.~fullName%] [%=util.mergeAndCapitalize(type.~class)%];
+	private [%=field.typeRef.~fullName%] new[%=util.mergeAndCapitalize(field.name)%]Value;
+	private [%=field.typeRef.~fullName%] old[%=util.mergeAndCapitalize(field.name)%]Value;
+	@SuppressWarnings("rawtypes")
+	private java.util.List commandStack;	
+ 
+ 	public [%=type.~fullName%] get[%=type.~class%]() {
+		return [%=util.mergeAndCapitalize(type.~class)%];
+	}
+
+
+	public void set[%=type.~class%]([%=type.~fullName%] [%=util.mergeAndCapitalize(type.~class)%]) {
+		this.[%=util.mergeAndCapitalize(type.~class)%] = [%=util.mergeAndCapitalize(type.~class)%];
+	}
+
+
+	public [%=field.typeRef.~fullName%] getNew[%=util.mergeAndCapitalize(field.name)%]Value() {
+		return new[%=util.mergeAndCapitalize(field.name)%]Value;
+	}
+
+
+	public void setNew[%=util.mergeAndCapitalize(field.name)%]Value([%=field.typeRef.~fullName%] new[%=util.mergeAndCapitalize(field.name)%]Value) {
+		this.new[%=util.mergeAndCapitalize(field.name)%]Value = new[%=util.mergeAndCapitalize(field.name)%]Value;
+	}
+
+
+	public [%=field.typeRef.~fullName%] getOld[%=util.mergeAndCapitalize(field.name)%]Value() {
+		return old[%=util.mergeAndCapitalize(field.name)%]Value;
+	}
+
+
+	public void setOld[%=util.mergeAndCapitalize(field.name)%]Value([%=field.typeRef.~fullName%] old[%=util.mergeAndCapitalize(field.name)%]Value) {
+		this.old[%=util.mergeAndCapitalize(field.name)%]Value = old[%=util.mergeAndCapitalize(field.name)%]Value;
+	}
+
+
+	@SuppressWarnings("rawtypes")
+	public List getCommandStack() {
+		return commandStack;
+	}
+
+
+	@SuppressWarnings("rawtypes")
+	public void setCommandStack(List commandStack) {
+		this.commandStack = commandStack;
+	}
+ 
+ 	public boolean prepare() {
+		
+		if ((old[%=util.mergeAndCapitalize(field.name)%]Value != null) && (old[%=util.mergeAndCapitalize(field.name)%]Value.equals(""))){
+			old[%=util.mergeAndCapitalize(field.name)%]Value = null;
+		}
+
+		if ((new[%=util.mergeAndCapitalize(field.name)%]Value != null) && (new[%=util.mergeAndCapitalize(field.name)%]Value.equals(""))){
+			new[%=util.mergeAndCapitalize(field.name)%]Value = null;
+		}
+		
+		if ((new[%=util.mergeAndCapitalize(field.name)%]Value == null) && (old[%=util.mergeAndCapitalize(field.name)%]Value == null)){
+			return false;
+		}
+		
+		if ((new[%=util.mergeAndCapitalize(field.name)%]Value != null) && (old[%=util.mergeAndCapitalize(field.name)%]Value == null) || (new[%=util.mergeAndCapitalize(field.name)%]Value == null) && (old[%=util.mergeAndCapitalize(field.name)%]Value != null)) {
+			add( );
+			return true;
+
+		} else {
+			if (!new[%=util.mergeAndCapitalize(field.name)%]Value.equals(old[%=util.mergeAndCapitalize(field.name)%]Value)) {
+
+				add();
+				return true;
+			}
+			return false;
+		}
+		
+	}
+ 
+ 	@SuppressWarnings("unchecked")
+	private void add(){
+		[%=type.~package%].Update[%=type.~class%][%=util.mergeAndCapitalize(field.name)%]Data data = new [%=type.~package%].Update[%=type.~class%][%=util.mergeAndCapitalize(field.name)%]Data();
+		[%
+	      for (pk in primaryKey){ 
+	      %]
+	      data.set[%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndCapitalize(type.~class)%].get[%=util.mergeAndCapitalize(pk.name)%]());
+	      [%
+	      }
+		%]
+		data.set[%=util.mergeAndCapitalize(field.name)%](new[%=util.mergeAndCapitalize(field.name)%]Value);
+		commandStack.add(data);
+	}
+ }
+ 
+ 
+ 
