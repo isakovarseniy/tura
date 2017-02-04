@@ -1,0 +1,72 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+
+ ${percent}${end}
+ 
+ [%
+     var util = new Native('org.tura.metamodel.commons.Util');
+      masterType.mappingType2Java(recipe,ingredient);
+     
+%]
+package [%=masterType.~package%].commands;
+
+public class AddTop[%=masterType.~class%]Command{
+
+
+ 	private [%=masterType.~fullName%] [%=util.mergeAndUnCapitalize(masterType.~class)%];
+
+	@SuppressWarnings("rawtypes")
+	private java.util.List commandStack;	
+
+
+    public void set[%=util.mergeAndCapitalize(masterType.~class)%]([%=masterType.~fullName%] [%=util.mergeAndUnCapitalize(masterType.~class)%]){
+       this.[%=util.mergeAndUnCapitalize(masterType.~class)%] = [%=util.mergeAndUnCapitalize(masterType.~class)%];
+    }
+   
+    public [%=masterType.~fullName%] get[%=util.mergeAndCapitalize(masterType.~class)%](){
+        return [%=util.mergeAndUnCapitalize(masterType.~class)%];
+    }
+    
+ 	@SuppressWarnings("rawtypes")
+	public java.util.List getCommandStack() {
+		return commandStack;
+	}
+
+
+	@SuppressWarnings("rawtypes")
+	public void setCommandStack(java.util.List commandStack) {
+		this.commandStack = commandStack;
+	}
+    
+    
+ 	public boolean prepare() {
+       add();
+       return true;
+    }
+    
+   @SuppressWarnings("unchecked")
+   public void add(){
+   
+        [%=masterType.~package%].AddTop[%=masterType.~class%]Data data = new [%=masterType.~package%].AddTop[%=masterType.~class%]Data();
+
+	     com.rits.cloning.Cloner c = new com.rits.cloning.Cloner();
+		 [%=masterType.~fullName%] cloned = c.deepClone([%=util.mergeAndUnCapitalize(masterType.~class)%]);
+         data.set[%=util.mergeAndCapitalize(masterType.name)%](cloned);
+         
+		commandStack.add(data);
+		
+		[%=util.mergeAndUnCapitalize(masterType.~class)%].setAttached(true);
+         
+   
+   
+   }
+
+
+
+
+}

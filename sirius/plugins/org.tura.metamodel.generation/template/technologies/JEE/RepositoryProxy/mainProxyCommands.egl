@@ -47,6 +47,11 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	   var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/updateCommand.egl",hash,TemplateFactory);
 	   cmd.process();
       
+      
+	   var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/addCommand.egl",hash,TemplateFactory);
+	   cmd.process();
+      
+      
       } 
    }
 %]
