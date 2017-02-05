@@ -309,7 +309,7 @@
           </artifacts>
         </artifactPackages>
         <artifactPackages uid="517f9380-85f0-4f86-a962-b92acd66e131" name="Repository proxy">
-          <artifacts uid="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy" description="Persistence model repository proxy" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/mainRepositoryProxy.egl">
+          <artifacts uid="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy" description="Persistence model repository proxy" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/mainRepositoryProxy.egl">
             <modelQuery uid="69662b7f-94e7-4dbf-946a-a717aeb29210" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
               <parameters uid="52de4dda-86be-4a4d-a3ce-0d093cf014b2" name="Repository"/>
               <parameters uid="cbba536e-3b02-44dc-8a9b-2fdec45575c6" name="Package"/>
@@ -1533,7 +1533,7 @@
                     </ingredients>
                     <ingredients order="4" uid="76b6f6d0-62b2-4d26-a6d1-fdb0bd8978f1" name="Proxy for persistance objects repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="bc745a61-1853-42b0-97ce-ee8ce18bde39" name="Proxy for JPA model repository" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-jpa-objects-repository-proxy" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
-                        <mappers uid="e65a423e-fc1d-4ea2-a342-89af14857b2e" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy" skip="true">
+                        <mappers uid="e65a423e-fc1d-4ea2-a342-89af14857b2e" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy">
                           <queries uid="6535e225-1dab-45c9-927d-712cb911fbbf" name="Query package for classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
                             <variables queryParamRef="52de4dda-86be-4a4d-a3ce-0d093cf014b2" value="Testing repository"/>
                             <variables queryParamRef="cbba536e-3b02-44dc-8a9b-2fdec45575c6" value="JPA test package"/>

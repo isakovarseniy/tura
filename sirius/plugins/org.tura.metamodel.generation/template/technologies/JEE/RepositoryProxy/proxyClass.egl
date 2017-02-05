@@ -1,0 +1,521 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+
+ ${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+      
+ %]
+package [%=type.~package%];
+
+
+public class  [%=type.~class%]Proxy extends [%=type.~fullName%]  {
+
+    private [%=type.~fullName%] object;
+
+    public  [%=type.~class%]Proxy([%=type.~fullName%] object){
+    	this.object = object;
+    }
+    [%
+		for ( field in type.attributes){
+		     if (type.~skipAttributes.contains(field) ){
+		        continue; 
+		     }   
+		    field.typeRef.mappingType2Java(recipe,ingredient);
+		    if (field.pk){
+%]
+	      @Override
+		  public  [%=field.typeRef.~fullName%]   get[%=util.mergeAndCapitalize(field.name)%](){
+		       return object.get[%=util.mergeAndCapitalize(field.name)%]();
+          }
+
+	      @Override
+		  public  void set[%=util.mergeAndCapitalize(field.name)%]([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%] ){
+	    	if (!object.isAttached()){
+			       object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
+	    	}else{
+	    		throw new RuntimeException("Could  not modify primary key on attached object");
+	    	}
+          }
+[%		    
+		    }else{
+%]
+	      @Override
+		  public  [%=field.typeRef.~fullName%]   get[%=util.mergeAndCapitalize(field.name)%](){
+		       return object.get[%=util.mergeAndCapitalize(field.name)%]();
+          }
+
+	      @Override
+		  public  void set[%=util.mergeAndCapitalize(field.name)%]([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%] ){
+	    	if (!object.isAttached()){
+			     object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
+	            return;
+	    	}
+	    	[%=type.~package%].commands.Update[%=type.~class%]On[%=util.mergeAndCapitalize(field.name)%]Command command = new [%=type.~package%].commands.Update[%=type.~class%]On[%=util.mergeAndCapitalize(field.name)%]Command();
+	
+	        command.set[%=type.~class%](object);
+	        command.setNew[%=util.mergeAndCapitalize(field.name)%]Value([%=util.mergeAndUnCapitalize(field.name)%]);
+	        command.setOld[%=util.mergeAndCapitalize(field.name)%]Value(object.get[%=util.mergeAndCapitalize(field.name)%]());
+	        if (command.prepare()){
+	            object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
+	        }
+          }
+[%		    
+		    }
+		}
+		
+ 	 var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
+ 	 for ( rel in assosiations  ){
+	  	 switch  (rel.type.toString()){
+	         case "One2One" :  %][%=rel.one2oneSrc(recipe,ingredient,model_mapper)%][%
+	         case "One2Many" : %][%=rel.one2manySrc(recipe,ingredient,model_mapper)%][%
+	         case "Many2Many" : %][%=rel.many2manySrc(recipe,ingredient,model_mapper)%][%
+	     }
+         
+     }			
+	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid);
+      for (rel in assosiations){
+	  	 switch  (rel.type.toString()){
+	         case "One2One" :  %][%=rel.one2oneTrg(recipe,ingredient,model_mapper)%][%
+	         case "One2Many" : %][%=rel.one2manyTrg(recipe,ingredient,model_mapper)%][%
+	         case "Many2Many" : %][%=rel.many2manyTrg(recipe,ingredient,model_mapper)%][%
+	     }
+      }		
+		    
+%]
+}        
+      
+[%
+@template
+operation type::Assosiation one2oneSrc(recipe,ingredient,model_mapper){
+      var util = new Native('org.tura.metamodel.commons.Util');
+     if ( self.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+          %][%=self.one2oneSrcNo(recipe,ingredient,model_mapper)%][%
+     }else{
+          %][%=self.one2oneSrcRel(recipe,ingredient,model_mapper)%][%
+     }
+
+} 
+
+@template
+operation type::Assosiation one2manySrc(recipe,ingredient,model_mapper){
+      var util = new Native('org.tura.metamodel.commons.Util');
+     if ( self.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+          %][%=self.one2manySrcNo(recipe,ingredient,model_mapper)%][%
+     }else{
+          %][%=self.one2manySrcRel(recipe,ingredient,model_mapper)%][%
+     }
+} 
+
+@template
+operation type::Assosiation many2manySrc(recipe,ingredient,model_mapper){
+      var util = new Native('org.tura.metamodel.commons.Util');
+     if ( self.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+          %][%=self.many2manySrcNo(recipe,ingredient,model_mapper)%][%
+     }else{
+          %][%=self.many2manySrcRel(recipe,ingredient,model_mapper)%][%
+     }
+} 
+
+operation type::Assosiation one2oneTrg(recipe,ingredient,model_mapper){
+      var util = new Native('org.tura.metamodel.commons.Util');
+     if ( self.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+          %][%=self.one2oneTrgNo(recipe,ingredient,model_mapper)%][%
+     }else{
+          %][%=self.one2oneTrgRel(recipe,ingredient,model_mapper)%][%
+     }
+
+} 
+
+@template
+operation type::Assosiation one2manyTrg(recipe,ingredient,model_mapper){
+      var util = new Native('org.tura.metamodel.commons.Util');
+     if ( self.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+          %][%=self.one2manyTrgNo(recipe,ingredient,model_mapper)%][%
+     }else{
+          %][%=self.one2manyTrgRel(recipe,ingredient,model_mapper)%][%
+     }
+} 
+
+@template
+operation type::Assosiation many2manyTrg(recipe,ingredient,model_mapper){
+      var util = new Native('org.tura.metamodel.commons.Util');
+     if ( self.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
+          %][%=self.many2manyTrgNo(recipe,ingredient,model_mapper)%][%
+     }else{
+          %][%=self.many2manyTrgRel(recipe,ingredient,model_mapper)%][%
+     }
+} 
+
+
+@template
+operation type::Assosiation one2oneSrcNo(recipe,ingredient,model_mapper){
+
+}
+
+@template
+operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+
+     hash = self.sourceSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("target").mappingType2Java(recipe,ingredient);
+     %]
+     @Override
+     public [%=hash.get("target").~fullName%] get[%=hash.get("sourceMethodName")%](){
+     
+        return new [%=hash.get("target").~fullName%]Proxy(object.get[%=hash.get("sourceMethodName")%]());
+     }
+     
+     @Override
+     public void set[%=hash.get("sourceMethodName")%] ([%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
+     [%
+        if (masterType.uid == self.source.uid ){
+        %]
+
+    	if (!object.isAttached()){
+            object.set[%=hash.get("sourceMethodName")%]([%=hash.get("sourceProperty")%]);
+             [%=hash.get("sourceProperty")%].set[%=hash.get("targetMethodName")%](object);
+            return;
+   	    }
+   	    
+    	[%=masterType.~package%].commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+
+    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
+        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object.get[%=hash.get("sourceMethodName")%]());
+
+        if (command.prepare()){
+	    	[%=masterType.~package%].commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	
+	    	command2.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
+	        command2.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%]([%=hash.get("sourceProperty")%]);
+	
+	        if (command2.prepare()){
+	            object.set[%=hash.get("sourceMethodName")%]([%=hash.get("sourceProperty")%]);
+	            [%=hash.get("sourceProperty")%].set[%=hash.get("targetMethodName")%](object);
+	        }
+        }        
+        [%
+        }else{
+        %]
+            	throw new UnsupportedOperationException();
+        [%
+        
+        }
+     
+     %]
+     }
+     [%  
+
+}
+
+
+@template
+operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+     
+
+     hash = self.sourceSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("target").mappingType2Java(recipe,ingredient);
+     if (masterType.uid == self.source.uid ){
+
+     %]
+     @Override
+     public java.util.List<[%=hash.get("target").~fullName%]> get[%=hash.get("sourceMethodName")%](){
+    	return new java.util.AbstractList<[%=hash.get("target").~fullName%]>() {
+    		
+    		@Override
+    		public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
+    	    	if (!object.isAttached()){
+    	            object.get[%=hash.get("sourceMethodName")%]().add(i,[%=hash.get("sourceProperty")%]);
+    	            [%=hash.get("sourceProperty")%].set[%=hash.get("targetMethodName")%](object);
+    	            return;
+    	    	}
+    	    	
+                [%=masterType.~package%].commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
+    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%]([%=hash.get("sourceProperty")%]);
+
+    	        if (command.prepare()){
+    	            object.get[%=hash.get("sourceMethodName")%]().add(i,[%=hash.get("sourceProperty")%]);
+    	            [%=hash.get("sourceProperty")%].set[%=hash.get("targetMethodName")%](object);
+    	        }
+
+    		}
+
+       		@Override
+       	    public [%=hash.get("target").~fullName%] remove(int index) {
+    	    	if (!object.isAttached()){
+    	    		object.get[%=hash.get("sourceMethodName")%]().get(index).set[%=hash.get("targetMethodName")%](null);
+    	            return object.get[%=hash.get("sourceMethodName")%]().remove(index);
+    	    	}
+    	    	
+    	      [%=masterType.~package%].commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+
+    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
+    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object.get[%=hash.get("sourceMethodName")%]().get(index));
+
+    	        if (command.prepare()){
+    	    		object.get[%=hash.get("sourceMethodName")%]().get(index).set[%=hash.get("targetMethodName")%](null);
+    	            return object.get[%=hash.get("sourceMethodName")%]().remove(index);
+    	        }
+    	        return null;
+    	    }
+
+    		
+			@Override
+			public [%=hash.get("target").~fullName%] get(int index) {
+				[%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%] = object.get[%=hash.get("sourceMethodName")%]().get(index);
+				if ([%=hash.get("sourceProperty")%] instanceof [%=hash.get("target").~fullName%]Proxy){
+					return [%=hash.get("sourceProperty")%];
+				}else{
+				   return new [%=hash.get("target").~fullName%]Proxy(object.get[%=hash.get("sourceMethodName")%]().get(index));
+				}
+			}
+
+			@Override
+			public int size() {
+				return object.get[%=hash.get("sourceMethodName")%]().size();
+			}
+    		
+		};
+     }
+     [%
+     }else{
+     %]
+     @Override
+     public [%=hash.get("target").~fullName%] get[%=hash.get("sourceMethodName")%](){
+         return [%=hash.get("target").~fullName%]Proxy(object.get[%=hash.get("sourceMethodName")%]());
+     }
+
+     @Override
+     public set[%=hash.get("sourceMethodName")%]( [%=hash.get("target").~fullName%]  [%=hash.get("targePropertyt")%]){
+          throw new UnsupportedOperationException();
+     }
+     [%
+     }
+}
+
+@template
+operation type::Assosiation one2manySrcNo(recipe,ingredient,model_mapper){
+
+
+}
+
+@template
+operation type::Assosiation many2manySrcNo(recipe,ingredient,model_mapper){
+}
+
+@template
+operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
+}
+
+
+@template
+operation type::Assosiation one2oneTrgNo(recipe,ingredient,model_mapper){
+}
+
+@template
+operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
+
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+
+     hash = self.targetSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("source").mappingType2Java(recipe,ingredient);
+     %]
+     @Override
+     public [%=hash.get("source").~fullName%] get[%=hash.get("targetMethodName")%](){
+     
+        return new [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%]());
+     }
+     
+     @Override
+     public void set[%=hash.get("targetMethodName")%] ([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
+     [%
+        if (masterType.uid == self.target.uid ){
+        %]
+
+    	if (!object.isAttached()){
+            object.set[%=hash.get("targetMethodName")%]([%=hash.get("targetProperty")%]);
+             [%=hash.get("targetProperty")%].set[%=hash.get("sourceMethodName")%](object);
+            return;
+   	    }
+   	    
+    	[%=masterType.~package%].commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+
+    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
+        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object.get[%=hash.get("targetMethodName")%]());
+
+        if (command.prepare()){
+	    	[%=masterType.~package%].commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	
+	    	command2.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
+	        command2.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%]([%=hash.get("targetProperty")%]);
+	
+	        if (command2.prepare()){
+	            object.set[%=hash.get("targetMethodName")%]([%=hash.get("targetProperty")%]);
+	            [%=hash.get("targetProperty")%].set[%=hash.get("sourceMethodName")%](object);
+	        }
+        }        
+        [%
+        }else{
+        %]
+            	throw new UnsupportedOperationException();
+        [%
+        
+        }
+     
+     %]
+     
+     }
+     
+     
+     [%  
+
+
+}
+
+
+@template
+operation type::Assosiation one2manyTrgNo(recipe,ingredient,model_mapper){
+}
+
+@template
+operation type::Assosiation one2manyTrgRel(recipe,ingredient,model_mapper){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+     
+
+     hash = self.targetSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("source").mappingType2Java(recipe,ingredient);
+     if (masterType.uid == self.target.uid ){
+
+     %]
+     @Override
+     public java.util.List<[%=hash.get("source").~fullName%]> get[%=hash.get("targetMethodName")%](){
+    	return new java.util.AbstractList<[%=hash.get("source").~fullName%]>() {
+    		
+    		@Override
+    		public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
+    	    	if (!object.isAttached()){
+    	            object.get[%=hash.get("targetMethodName")%]().add(i,[%=hash.get("targetProperty")%]);
+    	            [%=hash.get("targetProperty")%].set[%=hash.get("sourceMethodName")%](object);
+    	            return;
+    	    	}
+    	    	
+                [%=masterType.~package%].commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
+    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%]([%=hash.get("targetProperty")%]);
+
+    	        if (command.prepare()){
+    	            object.get[%=hash.get("targetMethodName")%]().add(i,[%=hash.get("targetProperty")%]);
+    	            [%=hash.get("targetProperty")%].set[%=hash.get("sourceMethodName")%](object);
+    	        }
+
+    		}
+
+       		@Override
+       	    public [%=hash.get("source").~fullName%] remove(int index) {
+    	    	if (!object.isAttached()){
+    	    		object.get[%=hash.get("targetMethodName")%]().get(index).set[%=hash.get("sourceMethodName")%](null);
+    	            return object.get[%=hash.get("targetMethodName")%]().remove(index);
+    	    	}
+    	    	
+    	      [%=masterType.~package%].commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+
+    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
+    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object.get[%=hash.get("sourceMethodName")%]().get(index));
+
+    	        if (command.prepare()){
+    	    		object.get[%=hash.get("targetMethodName")%]().get(index).set[%=hash.get("sourceMethodName")%](null);
+    	            return object.get[%=hash.get("targetMethodName")%]().remove(index);
+    	        }
+    	        return null;
+    	    }
+
+    		
+			@Override
+			public [%=hash.get("source").~fullName%] get(int index) {
+				[%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%] = object.get[%=hash.get("targetMethodName")%]().get(index);
+				if ([%=hash.get("targetProperty")%] instanceof [%=hash.get("source").~fullName%]Proxy){
+					return [%=hash.get("targetProperty")%];
+				}else{
+				   return new [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%]().get(index));
+				}
+			}
+
+			@Override
+			public int size() {
+				return object.get[%=hash.get("targetMethodName")%]().size();
+			}
+    		
+		};
+     }
+     [%
+     }else{
+     %]
+     @Override
+     public [%=hash.get("source").~fullName%] get[%=hash.get("targetMethodName")%](){
+         return [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%]());
+     }
+
+     @Override
+     public set[%=hash.get("targetMethodName")%]( [%=hash.get("source").~fullName%]  [%=hash.get("sourcePropertyt")%]){
+          throw new UnsupportedOperationException();
+     }
+     [%
+     }
+}
+
+@template
+operation type::Assosiation many2manyTrgNo(recipe,ingredient,model_mapper){
+}
+
+@template
+operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
+}
+
+
+
+
+
+%]

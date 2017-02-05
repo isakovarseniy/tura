@@ -170,6 +170,13 @@ operation type::Assosiation  sourceSideNamesCalculation(){
     if (target.isKindOf(type::TypeReference )){
          target = target.typeRef;
     }
+    
+   var suffix ="";
+   if (self.source.uid = self.target.uid){
+      suffix = "Master";
+   }
+    
+    
      var sourceMethodName = util.mergeAndCapitalize(target.name);
 
      if (self.sourceOperation.isDefined()){
@@ -181,7 +188,7 @@ operation type::Assosiation  sourceSideNamesCalculation(){
     if (source.isKindOf(type::TypeReference )){
          source = source.typeRef;
     }
-    var targetMethodName = util.mergeAndCapitalize(source.name);
+    var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
 
      if (self.targetOperation.isDefined())
          sourceMethodName = util.mergeAndCapitalize(self.targetOperation);
@@ -193,6 +200,7 @@ operation type::Assosiation  sourceSideNamesCalculation(){
      hash.put("targetMethodName",targetMethodName);
      hash.put("targetProperty",targetProperty);
      hash.put("target",target);
+     hash.put("source",source);
 
       return hash;
 }
