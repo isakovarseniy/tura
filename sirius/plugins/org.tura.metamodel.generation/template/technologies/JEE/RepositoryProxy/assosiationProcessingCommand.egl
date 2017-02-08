@@ -23,6 +23,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 		    hash.put("component",component);
 		    hash.put("model_mapper",model_mapper);
 		    hash.put("cmdtype",cmdtype);
+		    hash.put("rel",rel);
 		    
 	        var masterType =   hash.get("masterType");
 	        var detailType = hash.get("detailType");
