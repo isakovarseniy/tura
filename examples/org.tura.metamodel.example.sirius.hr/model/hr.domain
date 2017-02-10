@@ -1506,7 +1506,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="2" uid="14bc11a6-ef32-4a75-a76c-6433dea53faf" name="Persistance objects repository" skip="true" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                    <ingredients order="2" uid="14bc11a6-ef32-4a75-a76c-6433dea53faf" name="Persistance objects repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="dda9b19e-e5a0-4baf-acba-4535993afa81" name="JPA model repository" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-jpa-objects-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="">
                         <mappers uid="4ad64e23-f0df-4d9c-9f46-0e8d9e64a024" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <queries uid="40469a6e-dadc-4f41-8f40-fde93c40b334" name="Query package for classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">

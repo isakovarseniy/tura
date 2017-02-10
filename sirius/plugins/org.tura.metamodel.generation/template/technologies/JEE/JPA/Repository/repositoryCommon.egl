@@ -1,0 +1,71 @@
+[%
+@template
+ operation serializer (type,skipAttributes, inObj, outObj){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( field in type.attributes){
+		     if (skipAttributes.contains(field) ){
+		        continue; 
+		     }   
+        	%][%=outObj%].set[%=util.mergeAndCapitalize(field.name)%](  [%=inObj%].get[%=util.mergeAndCapitalize(field.name)%]()  );
+ 			[%}
+ }
+ 
+ 
+@template
+ operation serializerDetails (rel, inObj, outObj){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( lnk in rel.links){
+        	%][%=outObj%].set[%=util.mergeAndCapitalize( lnk.detailField.name)%](  [%=inObj%].get[%=util.mergeAndCapitalize(lnk.masterField.name)%]()  );
+ 			[%}
+ } 
+
+
+@template
+ operation stringPK (type,name,obj,objFullName){
+        var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+ 		  StringBuffer [%=name%] = new StringBuffer();
+		  [%for ( field in type.~primaryKey){%]
+		   [%=name%].append([%=obj%].get[%=util.mergeAndCapitalize(field.name)%]());
+		   [%}%]
+		   [%=name%].append("[%=objFullName%]");
+ [%
+}
+
+@template
+ operation PK (type,name,obj,objFullName,recipe,ingredient){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if (type.~primaryKey.size()>1){%]
+        [%=objFullName%]PK [%=name%] = new  [%=objFullName%]PK();
+		  [%for ( field in type.~primaryKey){%]
+		   [%=name%].set[%=util.mergeAndCapitalize(field.name)%](obj.get[%=util.mergeAndCapitalize(field.name)%]());
+		   [%}
+       }else{
+          var field = type.~primaryKey.get(0);
+          field.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=field.typeRef.~fullName%]   [%=name%] =  [%=obj%].get[%=util.mergeAndCapitalize(field.name)%]();
+       [%}
+}
+
+
+@template
+ operation PKDetails (type,name,obj,objFullName,recipe,ingredient,rel){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if (type.~primaryKey.size()>1){%]
+        [%=objFullName%]PK [%=name%] = new  [%=objFullName%]PK();
+		  [%  		for ( lnk in rel.links) {%]
+		   [%=name%].set[%=util.mergeAndCapitalize(lnk.masterField.name)%](obj.get[%=util.mergeAndCapitalize(lnk.detailField.name)%]());
+		   [%}
+       }else{
+          var lnk = rel.links.Iterator().next();
+          if (lnk == null){
+            return;
+          }
+          var field = lnk.detailField;
+          field.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=field.typeRef.~fullName%]   [%=name%] =  [%=obj%].get[%=util.mergeAndCapitalize(field.name)%]();
+       [%}
+}
+%]

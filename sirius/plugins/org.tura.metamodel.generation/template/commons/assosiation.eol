@@ -33,14 +33,9 @@
 	         property = util.mergeAndCapitalize(detailType.name);
 	     }
 
-	     if( self.type.toString() == "Many2Many" and (self.containment.toString()=="Source" or self.containment.toString()=="Non") ){
+	     if( self.type.toString() == "Many2Many"  ){
 	         masterType = self.source;
 	         detailType = self.target;
-	         property = util.mergeAndCapitalize(detailType.name);
-	     }
-	     if( self.type.toString() == "Many2Many" and self.containment.toString()=="Target"  ){
-	         masterType = self.target;
-	         detailType = self.source;
 	         property = util.mergeAndCapitalize(detailType.name);
 	     }
 	 }
