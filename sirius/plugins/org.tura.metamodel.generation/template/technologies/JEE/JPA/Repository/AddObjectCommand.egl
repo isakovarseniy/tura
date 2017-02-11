@@ -68,6 +68,8 @@ public class Add[%=t2view.get(type).get("class")%]Command{
 		                
                  %] 
                  [%=PK(rel.target,"pk"+suffix,"target"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
+                 
+                 [%if (rel.containment.toString() == "Source" and rel.type.toString() <> "Many2Many") {%]
                  if ( target[%=suffix%].getOperation() == null || !target[%=suffix%].getOperation().equals("C")){
                  
                  [%=t2model.get(rel.target).get("fullName")%] jpa[%=suffix%] = em.find([%=t2model.get(rel.target).get("fullName")%].class,pk[%=suffix%]);
@@ -77,8 +79,8 @@ public class Add[%=t2view.get(type).get("class")%]Command{
                      cmd[%=suffix%].insert(target[%=suffix%],rules); 
                   }
                  }
-                 
-                 [%=t2model.get(rel.source).get("fullName")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]InsertJpaRule   [%=r%] = new [%=t2model.get(rel.source).get("fullName")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]InsertJpaRule();
+                 [%}%]
+                 [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]JpaRule   [%=r%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]JpaRule();
                  [%=r%].setEntityManager(em);
                  [%=r%].setSourcePk(pkInsert);
                  [%=r%].setTargetPk(pk[%=suffix%]);
@@ -121,6 +123,8 @@ public class Add[%=t2view.get(type).get("class")%]Command{
 		                
                  %] 
                  [%=PK(rel.target,"pk"+suffix,"source"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
+                 [%if (rel.containment.toString() == "Traget" and rel.type.toString() == "One2One") {%]
+                 
                  if (source[%=suffix%].getOperation() == null ||  !source[%=suffix%].getOperation().equals("C")){
                  
                  [%=t2model.get(rel.source).get("fullName")%] jpa[%=suffix%] = em.find([%=t2model.get(rel.source).get("fullName")%].class,pk[%=suffix%]);
@@ -130,9 +134,8 @@ public class Add[%=t2view.get(type).get("class")%]Command{
                      cmd[%=suffix%].insert(source[%=suffix%],rules); 
                    }
                  }
-
-
-                 [%=t2model.get(hash.get("source")).get("fullName")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]InsertJpaRule   [%=r%] = new [%=t2model.get(hash.get("source")).get("fullName")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]InsertJpaRule();
+                 [%}%]
+                 [%=t2model.get(hash.get("source")).get("package")%].rules.Add[%=t2model.get(hash.get("source")).get("class")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]JpaRule   [%=r%] = new [%=t2model.get(hash.get("source")).get("package")%].rules.Add[%=t2model.get(hash.get("source")).get("class")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]JpaRule();
                  [%=r%].setEntityManager(em);
                  [%=r%].setSourcePk(pk[%=suffix%]);
                  [%=r%].setTargetPk(pkInsert);
@@ -177,7 +180,7 @@ public class Add[%=t2view.get(type).get("class")%]Command{
                  %] 
                  [%=PKDetails(rel.source,"pk"+suffix,"obj",t2model.get(rel.source).get("fullName"),recipe,ingredient,rel)%]   
 
-                 [%=t2model.get(hash.get("source")).get("fullName")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]InsertJpaRule   [%=r%] = new [%=t2model.get(hash.get("source")).get("fullName")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]InsertJpaRule();
+                 [%=t2model.get(hash.get("source")).get("package")%].rules.Add[%=t2model.get(hash.get("source")).get("class")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]JpaRule   [%=r%] = new [%=t2model.get(hash.get("source")).get("package")%].rules.Add[%=t2model.get(hash.get("source")).get("class")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]JpaRule();
                  [%=r%].setEntityManager(em);
                  [%=r%].setSourcePk(pk[%=suffix%]);
                  [%=r%].setTargetPk(pkInsert);

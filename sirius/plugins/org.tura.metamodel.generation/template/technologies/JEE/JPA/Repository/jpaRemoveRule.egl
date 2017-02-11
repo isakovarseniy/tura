@@ -5,9 +5,9 @@
  
  var util = new Native('org.tura.metamodel.commons.Util');
  %]
-package [%=t2model.get(type).get("package")%];  
+package [%=t2model.get(type).get("package")%].rules;  
 
-public class [%=t2model.get(type).get("class")%]RemoveJpaRule implements org.tura.platform.repository.core.Rule {
+public class Remove[%=t2model.get(type).get("class")%]JpaRule implements org.tura.platform.repository.core.Rule {
 
       private [%=PK(type,"entityPk", t2model.get(type).get("fullName"),recipe,ingredient)%]; 
       private javax.persistence.EntityManager em;

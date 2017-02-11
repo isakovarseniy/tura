@@ -5,9 +5,9 @@
  
  var util = new Native('org.tura.metamodel.commons.Util');
  %]
-package [%=t2model.get(rel.source).get("package")%];  
+package [%=t2model.get(rel.source).get("package")%].rules;  
 
-public class [%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]InsertJpaRule implements org.tura.platform.repository.core.Rule {
+public class Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]JpaRule implements org.tura.platform.repository.core.Rule {
 
       private [%=PK(rel.source,"sourcePk", t2model.get(rel.source).get("fullName"),recipe,ingredient)%]; 
       private [%=PK(rel.target,"targetPk", t2model.get(rel.target).get("fullName"),recipe,ingredient)%] ;
