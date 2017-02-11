@@ -24,6 +24,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
            if (not type.~extension.isDefined()){ 
            %] 
                <xs:element name="attached" type="xs:boolean"/>
+               <xs:element name="operation" type="xs:string"/>
             [%}
           
           

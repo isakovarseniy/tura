@@ -67,6 +67,14 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    var buffer = serializer.process();
 	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Load"+t2view.get(type).get("class")+"Command.java",buffer);   
          
+
+	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/AddObjectCommand.egl",hash,TemplateFactory);
+	    serializer.setFormatter(f);
+	    var buffer = serializer.process();
+	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Add"+t2view.get(type).get("class")+"Command.java",buffer);   
+
+
+
         var allRel = new Native('java.util.ArrayList');
  		var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
  		allRel.addAll(assosiations);
@@ -131,9 +139,9 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 		   var buffer = rule.process();
 		   
 		   util.saveFile( path+t2model.get(type).get("package").replaceAll("\\.","\\/"), t2model.get(type).get("class") +"RemoveJpaRule.java",buffer);   
-    } 		
+     } 		
  		
-      }
+    }
       if (t2model.size() <> 0){
           var dataprovider = util.mergeAndCapitalize(hash.get("type").eContainer().name);
           hash.put("dataprovider",dataprovider);
