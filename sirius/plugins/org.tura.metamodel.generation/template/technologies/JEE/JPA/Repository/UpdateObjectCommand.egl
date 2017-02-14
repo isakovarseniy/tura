@@ -1,0 +1,29 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/repositoryCommon.egl";
+  
+ var util = new Native('org.tura.metamodel.commons.Util');
+ var tp = type;
+ %]
+package [%=t2view.get(type).get("package")%].commands;  
+
+
+
+public class Update[%=t2view.get(type).get("class")%]On[%=util.mergeAndCapitalize(field.name)%]Command{
+
+     javax.persistence.EntityManager em;
+     public void setEntityManager(javax.persistence.EntityManager em){
+           this.em=em;
+     }
+
+
+    public void update(  [%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%][%=util.mergeAndCapitalize(field.name)%]Data obj){
+         [%=PK(type,"pk","obj",t2model.get(type).get("fullName"),recipe,ingredient)%]
+         
+         [%=t2model.get(type).get("fullName")%] jpa = em.find([%=t2model.get(type).get("fullName")%].class ,pk);
+         jpa.set[%=util.mergeAndCapitalize(field.name)%](obj.get[%=util.mergeAndCapitalize(field.name)%]());
+            
+    }
+}

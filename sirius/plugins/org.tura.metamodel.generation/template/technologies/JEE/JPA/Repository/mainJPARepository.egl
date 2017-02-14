@@ -80,6 +80,24 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Remove"+t2view.get(type).get("class")+"Command.java",buffer);   
 
 
+        for (attribute in type.attributes){
+	        if (type.~skipAttributes.contains(attribute) or  type.~bindedAttribute.contains(attribute)){
+		        continue; 
+		     }
+            if (attribute.pk){
+               continue;
+            }
+        
+	        hash.put("field",attribute);
+
+		    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/UpdateObjectCommand.egl",hash,TemplateFactory);
+		    serializer.setFormatter(f);
+		    var buffer = serializer.process();
+		    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Update"+t2view.get(type).get("class")+"On"+util.mergeAndCapitalize(attribute.name)+"Command.java",buffer);   
+        
+        }
+
+
         var allRel = new Native('java.util.ArrayList');
  		var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
  		allRel.addAll(assosiations);

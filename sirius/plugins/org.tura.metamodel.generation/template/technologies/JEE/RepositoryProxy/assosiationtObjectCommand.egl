@@ -21,7 +21,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 %]
 package [%=masterType.~package%].commands;
 
-public class [%=cmdtype%][%=detailType.~class%]2[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Command{
+public class [%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Command{
 
  	private [%=detailType.~fullName%] [%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%];
 
@@ -101,12 +101,12 @@ public class [%=cmdtype%][%=detailType.~class%]2[%=masterType.~class%]On[%=util.
    
 [%
         if (noAssosiation){
-           %][%=noAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,suffix,cmdtype,rel)%][%
+           %][%=noAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,suffix,cmdtype,rel,hyphen)%][%
         }else{
 	        if (containment){
-             %][%=containtmentRelation( masterType, detailType,property,recipe,ingredient,suffix,cmdtype)%][%
+             %][%=containtmentRelation( masterType, detailType,property,recipe,ingredient,suffix,cmdtype,hyphen)%][%
 	        }else{
-              %][%=nonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,suffix,cmdtype)%][%
+              %][%=nonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,suffix,cmdtype,hyphen)%][%
 	        }
         }
 %]   
@@ -117,10 +117,10 @@ public class [%=cmdtype%][%=detailType.~class%]2[%=masterType.~class%]On[%=util.
   
 [%
 @template
-operation  containtmentRelation ( masterType, detailType,property,recipe,ingredient,suffix,cmdtype){
+operation  containtmentRelation ( masterType, detailType,property,recipe,ingredient,suffix,cmdtype,hyphen){
       var util = new Native('org.tura.metamodel.commons.Util');
       %]
-      [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%]2[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data data = new [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%]2[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data();
+      [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data data = new [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data();
           [%
 	      for (pk in masterType.~primaryKey){ 
 		    pk.typeRef.mappingType2Java(recipe,ingredient);
@@ -139,10 +139,10 @@ operation  containtmentRelation ( masterType, detailType,property,recipe,ingredi
 [%}
 
 @template
-operation  nonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,suffix,cmdtype){
+operation  nonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,suffix,cmdtype,hyphen){
      var util = new Native('org.tura.metamodel.commons.Util');
     %]
-      [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%]2[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data data = new [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%]2[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data();
+      [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data data = new [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data();
            [%
 	      for (pk in masterType.~primaryKey){ 
 		    pk.typeRef.mappingType2Java(recipe,ingredient);
@@ -164,10 +164,10 @@ operation  nonContaintmentRelation ( masterType, detailType,property,recipe,ingr
 
 
 @template
-operation noAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,suffix,cmdtype,rel){
+operation noAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,suffix,cmdtype,rel,hyphen){
      var util = new Native('org.tura.metamodel.commons.Util');
     %]
-      [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%]2[%=masterType.~class%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data data = new [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%]2[%=masterType.~class%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data();
+      [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data data = new [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data();
            [%
 	        for ( lnk in rel.links){
 		    %] 

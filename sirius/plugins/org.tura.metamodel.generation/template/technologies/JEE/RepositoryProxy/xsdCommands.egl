@@ -127,7 +127,7 @@ operation  removeTopObject ( masterType,recipe,ingredient,targetnamespace,fullHa
 @template
 operation  removeContaintmentRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash,suffix){
       var util = new Native('org.tura.metamodel.commons.Util');
-      %]<xs:complexType name="Remove[%=detailType.~class%]2[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data">[%
+      %]<xs:complexType name="Remove[%=detailType.~class%]From[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data">[%
 	     %]<xs:sequence>[%
 	      for (pk in masterType.~primaryKey){ 
 		    pk.typeRef.mappingType2XML(recipe,ingredient);
@@ -145,7 +145,7 @@ operation  removeContaintmentRelation ( masterType, detailType,property,recipe,i
 @template
 operation  removeNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash){
      var util = new Native('org.tura.metamodel.commons.Util');
-      %]<xs:complexType name="Remove[%=detailType.~class%]2[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data">[%
+      %]<xs:complexType name="Remove[%=detailType.~class%]From[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data">[%
 	     %]<xs:sequence>[%
 	      for (pk in masterType.~primaryKey){ 
 		    pk.typeRef.mappingType2XML(recipe,ingredient);
@@ -168,7 +168,7 @@ operation  removeNonContaintmentRelation ( masterType, detailType,property,recip
 @template
 operation removeNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,targetnamespace,fullHash,returnHash){
      var util = new Native('org.tura.metamodel.commons.Util');
-      %]<xs:complexType name="Remove[%=detailType.~class%]2[%=masterType.~class%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data">[%
+      %]<xs:complexType name="Remove[%=detailType.~class%]From[%=masterType.~class%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data">[%
 	     %]<xs:sequence>[%
 	      for (pk in masterType.~primaryKey){ 
 		    pk.typeRef.mappingType2XML(recipe,ingredient);

@@ -24,6 +24,11 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 		    hash.put("model_mapper",model_mapper);
 		    hash.put("cmdtype",cmdtype);
 		    hash.put("rel",rel);
+	        if (cmdtype == "Add"){
+	           hash.put("hyphen","2");
+	        }else{
+	           hash.put("hyphen","From");
+	        }
 		    
 	        var masterType =   hash.get("masterType");
 	        var detailType = hash.get("detailType");
@@ -37,7 +42,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 		   var cmd : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/assosiationtObjectCommand.egl",hash,TemplateFactory);
 	       cmd.setFormatter(f);
 	       var buffer = cmd.process();
-	       util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/commands", cmdtype+detailType.~class +"2"+masterType.~class+ "On" + util.mergeAndCapitalize(property)+"Command.java",buffer);   
+	       util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/commands", cmdtype+detailType.~class +hash.get("hyphen")+masterType.~class+ "On" + util.mergeAndCapitalize(property)+"Command.java",buffer);   
 				     
 	     }
      }
@@ -52,6 +57,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 			    hash.put("component",component);
 			    hash.put("model_mapper",model_mapper);
 		        hash.put("cmdtype",cmdtype);
+		        
 		        
 			    var cmd : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/topObjectCommand.egl",hash,TemplateFactory);
 		        cmd.setFormatter(f);

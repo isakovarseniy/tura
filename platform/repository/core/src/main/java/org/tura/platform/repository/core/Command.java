@@ -1,6 +1,6 @@
 package org.tura.platform.repository.core;
 
 public interface Command {
-	public void execute();
+	public void execute(Object data);
 	
 }
