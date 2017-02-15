@@ -5,6 +5,9 @@ ${start}${percent}
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/AddObjectCommand.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/repositoryCommon.egl";
+
 
  ${percent}${end}
  
@@ -68,18 +71,20 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Load"+t2view.get(type).get("class")+"Command.java",buffer);   
          
 
-	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/AddObjectCommand.egl",hash,TemplateFactory);
+	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/AddInternalObjectCommand.egl",hash,TemplateFactory);
 	    serializer.setFormatter(f);
 	    var buffer = serializer.process();
-	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Add"+t2view.get(type).get("class")+"Command.java",buffer);   
+	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "InternalAdd"+t2view.get(type).get("class")+"Command.java",buffer);   
 
 
-	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/RemoveObjectCommand.egl",hash,TemplateFactory);
+	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/RemoveInternalObjectCommand.egl",hash,TemplateFactory);
 	    serializer.setFormatter(f);
 	    var buffer = serializer.process();
-	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Remove"+t2view.get(type).get("class")+"Command.java",buffer);   
+	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "InternalRemove"+t2view.get(type).get("class")+"Command.java",buffer);   
 
 
+        type.addCommand(recipe,ingredient,model_mapper,t2view,t2model,path);
+        
         for (attribute in type.attributes){
 	        if (type.~skipAttributes.contains(attribute) or  type.~bindedAttribute.contains(attribute)){
 		        continue; 
