@@ -34,17 +34,22 @@
 
 @template
  operation PK (type,name,obj,objFullName,recipe,ingredient){
+    %][%=PK (type,name,obj,objFullName,recipe,ingredient,"")%][%
+}
+
+@template
+ operation PK (type,name,obj,objFullName,recipe,ingredient,suffix){
        var util = new Native('org.tura.metamodel.commons.Util');
        if (type.~primaryKey.size()>1){%]
         [%=objFullName%]PK [%=name%] = new  [%=objFullName%]PK();
 		  [%for ( field in type.~primaryKey){%]
-		   [%=name%].set[%=util.mergeAndCapitalize(field.name)%](obj.get[%=util.mergeAndCapitalize(field.name)%]());
+		   [%=name%].set[%=util.mergeAndCapitalize(field.name)%]( [%=obj%].get[%=suffix%][%=util.mergeAndCapitalize(field.name)%]());
 		   [%}
        }else{
           var field = type.~primaryKey.get(0);
           field.typeRef.mappingType2Java(recipe,ingredient);
        %]
-        [%=field.typeRef.~fullName%]   [%=name%] =  [%=obj%].get[%=util.mergeAndCapitalize(field.name)%]();
+        [%=field.typeRef.~fullName%]   [%=name%] =  [%=obj%].get[%=suffix%][%=util.mergeAndCapitalize(field.name)%]();
        [%}
 }
 
