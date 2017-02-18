@@ -6,6 +6,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/AddObjectCommand.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/RemoveObjectCommand.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/repositoryCommon.egl";
 
 
@@ -84,6 +85,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 
 
         type.addCommand(recipe,ingredient,model_mapper,t2view,t2model,path);
+        type.removeCommand(recipe,ingredient,model_mapper,t2view,t2model,path);
         
         for (attribute in type.attributes){
 	        if (type.~skipAttributes.contains(attribute) or  type.~bindedAttribute.contains(attribute)){
@@ -133,25 +135,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 		   util.saveFile( path+t2model.get(rel.source).get("package").replaceAll("\\.","\\/")+"/rules", "Add"+t2model.get(rel.source).get("class") + rel.type.toString() +t2model.get(rel.target).get("class")+"JpaRule.java",buffer);   
 
  		}
- 		
- 		for ( rel in allRel  ){
-	       if ( not rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-	              continue;
-	       }
-
-	       if ( rel.type.toString()<>"Many2Many"   ){
-	              continue;
-           }
-
-	       hash.put("rel",rel);
- 		
-		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/relationSerializer.egl",hash,TemplateFactory);
-		   rule.setFormatter(f);
-		   var buffer = rule.process();
-		   
-		   util.saveFile( path+t2view.get(rel.source).get("package").replaceAll("\\.","\\/"), t2view.get(rel.source).get("class") + rel.type.toString() +t2view.get(rel.target).get("class")+"RelationSerializer.java",buffer);   
- 		
- 		} 		
  		
  		
       for(type in t2model.keySet()){
