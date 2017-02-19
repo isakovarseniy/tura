@@ -49,7 +49,7 @@ operation  maven_builder(hash) {
     util.populateTechnologies(hash,model_mapper);
 
   
-     var builder : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/RepositoryProxy/MavenBuilder.egl",hash,TemplateFactory);
+     var builder : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/MavenBuilder.egl",hash,TemplateFactory);
      var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
      builder.setFormatter(f);
     

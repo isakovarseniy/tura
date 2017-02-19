@@ -118,11 +118,11 @@ operation   removeTopObject ( type, recipe,ingredient,t2view,t2model,path){
      hash.put("t2view",t2view);
      hash.put("t2model",t2model);
 	  
-//	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/removeTopObject.egl",hash,TemplateFactory);
-//	 cmd.setFormatter(f);
-//	 var buffer = cmd.process();
+	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/removeTopObject.egl",hash,TemplateFactory);
+	 cmd.setFormatter(f);
+	 var buffer = cmd.process();
 
- //    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands","AddTop"+t2view.get(type).get("class")+"Command.java",buffer);   
+     util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands","RemoveTop"+t2view.get(type).get("class")+"Command.java",buffer);   
 
 }
 

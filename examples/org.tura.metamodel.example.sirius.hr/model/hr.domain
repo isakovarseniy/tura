@@ -108,7 +108,7 @@
               <options uid="a55eb81d-9d80-4ce9-90cd-ef478f7459de" value="9a7c8d7e-f51c-4492-b919-916d503d649d"/>
               <options uid="a402227e-405e-4074-ae16-33b2f8a07b39" value="a8528dba-931e-4940-b800-522bf2cddb36"/>
               <options uid="f9acb5da-4729-4339-ae8a-8355a3035459" value="85a00552-1cc3-4465-80ac-4201c352cd5d"/>
-              <options uid="51207326-6dcb-4727-9b08-cb08fd035f8f" value="32c0add4-6fa4-4b7c-bd82-5b6bfa34d80e"/>
+              <options uid="d9e3a392-75f8-4c7f-a64d-b783675fcd26" value="48b0f660-5827-4f55-bf5e-3a9e90b139cc"/>
             </technologies>
             <technologies uid="dd41c97a-4e6a-4e00-8651-8f9efb82348f" name="Java">
               <options uid="c1d71c81-59fc-449d-a43a-b6b56f0ebee2" value="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26"/>
@@ -135,6 +135,7 @@
               <options uid="3c0efdaa-5641-438e-830c-67905a0982e1" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
               <options uid="18beeaab-aaf4-4bf6-bf36-dd140e15098c" value="a8528dba-931e-4940-b800-522bf2cddb36"/>
               <options uid="a6ed3581-8c02-4249-b3cc-4cf664d85966" value="85a00552-1cc3-4465-80ac-4201c352cd5d"/>
+              <options uid="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e" value="48b0f660-5827-4f55-bf5e-3a9e90b139cc"/>
             </technologies>
           </artifacts>
           <artifacts uid="e7d86967-d594-4f25-8b34-5211665bf367" name="Build MVC application" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/mainMVCApplicationBuilder.egl">
@@ -356,9 +357,7 @@
           <configVariables uid="b374473f-5332-44d2-ae43-176f3e586a3b" name="persistence_unit"/>
           <techLeafs uid="10a45ded-af3f-4352-b39a-bd79b9679b3e" name="Hibernate"/>
           <techLeafs uid="c68dc461-8beb-4123-9051-fe038394fe2d" name="EclipseLink"/>
-          <techLeafs uid="85a00552-1cc3-4465-80ac-4201c352cd5d" name="Repository">
-            <techLeafs uid="32c0add4-6fa4-4b7c-bd82-5b6bfa34d80e" name="Proxy"/>
-          </techLeafs>
+          <techLeafs uid="85a00552-1cc3-4465-80ac-4201c352cd5d" name="Repository"/>
         </techLeafs>
         <techLeafs uid="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4" name="Domain_model">
           <hints uid="9ac4e017-6f79-46c6-b411-ba78189b6742" name="Domain Object"/>
@@ -401,6 +400,7 @@
           <configVariables uid="f52c2871-e5b6-479e-a5bd-3101df6341f5" name="Application server domain"/>
           <techLeafs uid="d337ffa2-6a9c-46cd-aa04-72143493a834" name="GlassFish.v4"/>
         </techLeafs>
+        <techLeafs uid="48b0f660-5827-4f55-bf5e-3a9e90b139cc" name="RepositoryProxy"/>
       </techLeafs>
       <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="JSE">
         <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Implements"/>
@@ -1399,7 +1399,7 @@
               <recipes uid="a1b10eb6-b808-4453-b15a-0bf4ffb8b04c" name="Backend objects and services">
                 <recipes uid="a35e53f5-2d9d-46ce-8a15-46ef1576f04c" name="Test domain and persistence model">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 21d8af7b-7dbd-451d-a8e7-ee9d696646a4 d618d7da-b15b-4395-ae4c-40f5c49e29a3" uid="8d9145b8-4528-4cde-b96c-ded8331c2011" name="Test model generation">
-                    <ingredients uid="743fbbff-1ddb-4400-848c-23c002a09a64" name="Domain objects" skip="true" controllerLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513">
+                    <ingredients uid="743fbbff-1ddb-4400-848c-23c002a09a64" name="Domain objects" controllerLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="13f31adb-9df4-4c87-b762-1e9af65381ba" name="Domain Model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-domain-objects" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.domain.test">
                         <mappers uid="14db4237-4d45-4f0d-9c45-967c1cea6781" artifactRef="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Model generation">
                           <queries uid="6e4361c9-7259-4253-879c-c5ecdf29be0f" name="Query package for classess" queryRef="2f122165-6dcb-4620-8d63-15c0c9dc0270">
@@ -1433,7 +1433,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="1" uid="3521f573-77da-4735-a0f6-e13daf00a1a5" name="Persistance" skip="true" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                    <ingredients order="1" uid="3521f573-77da-4735-a0f6-e13daf00a1a5" name="Persistance" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="791cda7d-5f13-4507-8b6a-48d6f9461db3" name="Persistence model" componentRoot="/Users/arseniy/generatedCode/serviceLayer" artifactId="test-jpa-objects" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="4081d728-74ee-49c5-8e89-5e83a1986dfa" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactExecutionString="">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
@@ -1539,8 +1539,8 @@
                             <variables queryParamRef="cbba536e-3b02-44dc-8a9b-2fdec45575c6" value="JPA test package"/>
                           </queries>
                         </mappers>
-                        <mappers uid="3ddd4ecf-2764-4667-a585-c3ebb02ed651" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Repository proxy builder" skip="true">
-                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="51207326-6dcb-4727-9b08-cb08fd035f8f"/>
+                        <mappers uid="3ddd4ecf-2764-4667-a585-c3ebb02ed651" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Repository proxy builder">
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="d9e3a392-75f8-4c7f-a64d-b783675fcd26"/>
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <queries uid="45b82bd2-c75c-46ab-93ba-d4a2b716da30" name="Query package for classes" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
@@ -1554,12 +1554,19 @@
                             <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="JPA test package"/>
                           </queries>
                         </mappers>
+                        <mappers uid="9bb17021-f9c5-4a40-985b-cdc28bf9679f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Repository proxy build runner">
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                        </mappers>
                       </components>
                     </ingredients>
                     <deplymentStep mapper="24ea5cb4-5cc5-43df-beac-047f6f661d78" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.1"/>
                     <deplymentStep mapper="445b383b-6f5b-43f6-9239-3df2ae1d4c98" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.2"/>
                     <deplymentStep mapper="ed3fba79-6854-4a72-92a6-725b77fd56bd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.3"/>
-                    <deplymentStep mapper="55c762dd-0383-4265-bb38-05b6e3b44559"/>
+                    <deplymentStep mapper="55c762dd-0383-4265-bb38-05b6e3b44559" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.4"/>
+                    <deplymentStep mapper="9bb17021-f9c5-4a40-985b-cdc28bf9679f"/>
                     <startSeq uid="11a6c073-aba1-43e8-8162-e58bea27fe67" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="ed16267e-2d82-4b6a-b779-9a4a36855c2a">

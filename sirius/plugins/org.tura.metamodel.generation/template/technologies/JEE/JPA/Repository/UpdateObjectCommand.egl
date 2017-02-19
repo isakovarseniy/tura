@@ -11,7 +11,7 @@ package [%=t2view.get(type).get("package")%].commands;
 
 
 
-public class Update[%=t2view.get(type).get("class")%]On[%=util.mergeAndCapitalize(field.name)%]Command{
+public class Update[%=t2view.get(type).get("class")%]On[%=util.mergeAndCapitalize(field.name)%]Command implements org.tura.platform.repository.core.Command {
 
      javax.persistence.EntityManager em;
      public void setEntityManager(javax.persistence.EntityManager em){
@@ -19,11 +19,14 @@ public class Update[%=t2view.get(type).get("class")%]On[%=util.mergeAndCapitaliz
      }
 
 
-    public void update(  [%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%][%=util.mergeAndCapitalize(field.name)%]Data obj){
-         [%=PK(type,"pk","obj",t2model.get(type).get("fullName"),recipe,ingredient)%]
+    public Object execute(Object obj  ){
+        [%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%][%=util.mergeAndCapitalize(field.name)%]Data data = ([%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%][%=util.mergeAndCapitalize(field.name)%]Data)obj;
+       
+         [%=PK(type,"pk","data",t2model.get(type).get("fullName"),recipe,ingredient)%]
          
          [%=t2model.get(type).get("fullName")%] jpa = em.find([%=t2model.get(type).get("fullName")%].class ,pk);
-         jpa.set[%=util.mergeAndCapitalize(field.name)%](obj.get[%=util.mergeAndCapitalize(field.name)%]());
+         jpa.set[%=util.mergeAndCapitalize(field.name)%](data.get[%=util.mergeAndCapitalize(field.name)%]());
             
+        return null;    
     }
 }

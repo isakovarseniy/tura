@@ -33,12 +33,6 @@ public interface DataProvider {
 	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException;
 
-	public void update(Object request, String objectClass) throws RepositoryException;
-
-	public void insert(Object request, String objectClass) throws RepositoryException;
-
-	public void remove(Object request, String objectClass) throws RepositoryException;
-	
 	public void setRepository(Repository repository);
 
 }

@@ -8,13 +8,23 @@
  %]
 package [%=t2view.get(type).get("package")%].commands;  
 
-public class Load[%=t2view.get(type).get("class")%]Command{
+public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.platform.repository.core.Command{
 
      javax.persistence.EntityManager em;
      public void setEntityManager(javax.persistence.EntityManager em){
            this.em=em;
      }
 
+
+        public Object execute( Object obj ){
+			java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule>();
+			java.util.HashMap<String, Object> context = new java.util.HashMap<String, Object>();
+			Object loadedObject = load(obj , context,rules );
+		    for (org.tura.platform.repository.core.Rule rule:rules.values()){
+			   rule.execute();
+		    }
+			return loadedObject;
+        }
        [% 
          var tp = type;
        %]

@@ -21,7 +21,6 @@
  */
 package org.tura.platform.repository.core;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -31,15 +30,14 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 public class BasicRepository implements Repository{
 
 	private HashMap<String, DataProvider> providerTable = new HashMap<>();
-	private ArrayList<String> classList = new ArrayList<>();
+	private HashMap <String,Command> cmdHash = new HashMap<>(); 
 
 	public void addProvider(DataProvider provider, String objectClass) {
 		providerTable.put(objectClass, provider);
-		classList.add(objectClass);
 	}
 
-	public boolean doYouKnowDomainObject(Class<?> clazz) {
-		return classList.contains(clazz);
+	public void addCommand(Command command, String dataClass) {
+		cmdHash.put(dataClass, command);
 	}
 
 	private DataProvider findprovider(String objectClass) throws RepositoryException {
@@ -60,20 +58,14 @@ public class BasicRepository implements Repository{
 		return provider.find(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
 	}
 
-	public void update(Object request, String objectClass) throws RepositoryException {
-		DataProvider provider = findprovider(objectClass);
-		provider.update(request, objectClass);
-	}
-
-	public void insert(Object request, String objectClass) throws RepositoryException {
-		DataProvider provider = findprovider(objectClass);
-		provider.insert(request, objectClass);
-
-	}
-
-	public void remove(Object request, String objectClass) throws RepositoryException {
-		DataProvider provider = findprovider(objectClass);
-		provider.remove(request, objectClass);
-	}
-
+    public void applyChanges(List<Object> changes) throws RepositoryException{
+    	try{
+	    	for (Object change:changes ){
+	    		Command cmd = cmdHash.get(change.getClass().getName());
+	    		cmd.execute(change);
+	    	}
+    	}catch(Exception e){
+    		throw new RepositoryException(e);
+    	}
+    }
 }

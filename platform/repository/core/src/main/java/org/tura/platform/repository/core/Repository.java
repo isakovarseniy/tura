@@ -29,19 +29,14 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 public interface Repository {
 
 	public void addProvider(DataProvider provider, String objectClass) ;
-
-	public boolean doYouKnowDomainObject(Class<?> clazz) ;
+	
+	public void addCommand(Command command, String dataClass) ;
 	
 	public Object create(String objectClass) throws RepositoryException ;
 
 	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException ;
 
-	public void update(Object request, String objectClass) throws RepositoryException ;
-
-	public void insert(Object request, String objectClass) throws RepositoryException ;
-
-	public void remove(Object request, String objectClass) throws RepositoryException ;
-	
+    public void applyChanges(List<Object> changes) throws RepositoryException;
 	
 }

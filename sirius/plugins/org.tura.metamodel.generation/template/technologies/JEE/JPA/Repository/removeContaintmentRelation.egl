@@ -18,12 +18,12 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
      package [%=t2view.get(masterType).get("package")%].commands;  
       
       
-      public class Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command{
+      public class Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command implements org.tura.platform.repository.core.Command {
          javax.persistence.EntityManager em;
 	     public void setEntityManager(javax.persistence.EntityManager em){
 	           this.em=em;
 	     }
-        public void execute( Object obj ){
+        public Object execute( Object obj ){
            [%=t2view.get(masterType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data data = ([%=t2view.get(masterType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data) obj;
            [%=PK(masterType,"pk","data",t2model.get(masterType).get("fullName"),recipe,ingredient)%]
            [%=t2model.get(masterType).get("fullName")%] jpa = em.find([%=t2model.get(masterType).get("fullName")%].class,pk);
@@ -78,7 +78,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
            for (org.tura.platform.repository.core.Rule r:rules.values()){
               r.execute();
            }
-        
+           return null;
         }
         
       }

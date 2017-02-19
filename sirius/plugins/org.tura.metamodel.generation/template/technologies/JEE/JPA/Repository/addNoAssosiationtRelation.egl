@@ -19,12 +19,12 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
      package [%=t2view.get(masterType).get("package")%].commands;  
       
       
-      public class Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command{
+      public class Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command implements org.tura.platform.repository.core.Command {
          javax.persistence.EntityManager em;
 	     public void setEntityManager(javax.persistence.EntityManager em){
 	           this.em=em;
 	     }
-        public void execute( Object obj ){
+        public Object execute( Object obj ){
            [%=t2view.get(masterType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data data = ([%=t2view.get(masterType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data) obj;
 
            [%=PK(masterType,"pkMaster","data",t2model.get(masterType).get("fullName"),recipe,ingredient,util.mergeAndCapitalize(masterType.name))%]
@@ -35,6 +35,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	        rule.setTargetPk(pkDetail);
 	        rule.setEntityManager(em);
 	        rule.execute();
+	        
+	        return null;
 
         }
         
