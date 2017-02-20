@@ -30,7 +30,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
            continue;
         }
 
-         type.mappingType2Java(recipe,ingredient);
+        type.mappingType2Java(recipe,ingredient);
 
 	    hash.put("type",type);
 	    hash.put("recipe",recipe);
@@ -47,6 +47,16 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    util.saveFile( path+type.~package.replaceAll("\\.","\\/"), type.~class+"Proxy.java",buffer);   
          
       }
+      
+	    hash.remove("type");
+	    hash.put("typeCollection",typeCollection);
+	    
+	    util.populateTechnologies(hash,model_mapper);
+		
+	    var repository : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/proxyRepository.egl",hash,TemplateFactory);
+	    repository.setFormatter(f);
+	    var buffer = repository.process();
+	    util.saveFile( path+typeCollection.get(0).~package.replaceAll("\\.","\\/"), "ProxyRepository.java",buffer);   
       
       
     }

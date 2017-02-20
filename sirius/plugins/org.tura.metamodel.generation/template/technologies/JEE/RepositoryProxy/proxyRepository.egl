@@ -1,0 +1,69 @@
+package [%=typeCollection.get(0).~package%];
+
+public class ProxyRepository implements org.tura.platform.repository.core.Repository{
+	
+	private org.tura.platform.repository.core.Repository transport;
+	
+	public ProxyRepository(org.tura.platform.repository.core.Repository transport){
+	   this.transport = transport;
+	}
+
+	@Override
+	public void addProvider(org.tura.platform.repository.core.DataProvider provider, String objectClass) {
+		
+	}
+
+	@Override
+	public void addCommand(org.tura.platform.repository.core.Command command, String dataClass) {
+		
+	}
+
+	@Override
+	public Object create(String objectClass) throws org.tura.platform.repository.core.RepositoryException {
+        return factory( transport.create(objectClass),objectClass);
+	}
+
+    @SuppressWarnings("unchecked")
+	@Override
+    public org.tura.platform.repository.core.SearchResult  find(java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria,
+        java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, Integer startIndex,
+        Integer endIndex, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
+    	
+    	org.tura.platform.repository.core.SearchResult  result =  transport.find(searchCriteria, orderCriteria, startIndex,endIndex, objectClass);
+    	
+    	@SuppressWarnings("rawtypes")
+		java.util.List  list = new java.util.ArrayList();
+    	for (Object obj : result.getSearchResult()){
+    		list.add(factory(obj,objectClass));
+    	}
+        return new org.tura.platform.repository.core.SearchResult (list,result.getNumberOfRows());
+    }
+	@Override
+	public void applyChanges(java.util.List<Object> changes) throws org.tura.platform.repository.core.RepositoryException {
+		transport.applyChanges(changes);
+	}
+	
+	
+	private Object factory( Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException{
+	
+	switch (objectClass){
+	
+[%
+	for (type in typeCollection){
+        if (not type.~primaryKey.isDefined()  ){
+           continue;
+        }
+	
+%] 
+case "[%=type.~fullName%]": return new [%=type.~fullName%]Proxy(([%=type.~fullName%])obj);
+[%	
+	}
+%]	
+	
+	}
+        throw new org.tura.platform.repository.core.RepositoryException("Class is not supported");
+	
+	}
+	
+
+}

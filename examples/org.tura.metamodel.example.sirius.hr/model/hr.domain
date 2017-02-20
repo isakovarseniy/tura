@@ -1554,7 +1554,7 @@
                             <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="JPA test package"/>
                           </queries>
                         </mappers>
-                        <mappers uid="9bb17021-f9c5-4a40-985b-cdc28bf9679f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Repository proxy build runner">
+                        <mappers uid="9bb17021-f9c5-4a40-985b-cdc28bf9679f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Repository proxy build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-jpa-objects-repository-proxy/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>

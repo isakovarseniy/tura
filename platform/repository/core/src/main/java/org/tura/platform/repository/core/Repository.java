@@ -34,7 +34,7 @@ public interface Repository {
 	
 	public Object create(String objectClass) throws RepositoryException ;
 
-	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
+	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException ;
 
     public void applyChanges(List<Object> changes) throws RepositoryException;

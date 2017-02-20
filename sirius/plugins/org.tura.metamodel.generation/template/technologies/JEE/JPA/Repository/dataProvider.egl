@@ -120,7 +120,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 
 	@Override
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public java.util.List<?> find(java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, Integer startIndex,
+	public org.tura.platform.repository.core.SearchResult find(java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
 		try {
 			String persistentClass = findPersistanceClass(objectClass);
@@ -135,9 +135,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 				Object obj = cmd.execute(list.get(i));
 				list.set(i, obj);
 			}
-			org.tura.platform.datacontrol.commons.LazyList  lazyList= new org.tura.platform.datacontrol.commons.LazyList(list, numberOfRows, startIndex);
-
-			return lazyList;
+            return new org.tura.platform.repository.core.SearchResult(list, numberOfRows);
 		} catch (Exception e) {
 			throw new org.tura.platform.repository.core.RepositoryException(e);
 		}
