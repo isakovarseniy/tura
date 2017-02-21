@@ -52,13 +52,14 @@ public class BasicRepository implements Repository{
 		return provider.create(objectClass);
 	}
 
-	public List<?> find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
+	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException {
 		DataProvider provider = findprovider(objectClass);
 		return provider.find(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
 	}
 
-    public void applyChanges(List<Object> changes) throws RepositoryException{
+    @SuppressWarnings("rawtypes")
+	public void applyChanges(List changes) throws RepositoryException{
     	try{
 	    	for (Object change:changes ){
 	    		Command cmd = cmdHash.get(change.getClass().getName());
@@ -68,4 +69,17 @@ public class BasicRepository implements Repository{
     		throw new RepositoryException(e);
     	}
     }
+
+	@Override
+	public void insert(Object obj, String objectClass) {
+		throw new UnsupportedOperationException();
+		
+	}
+
+	@Override
+	public void remove(Object obj, String objectClass) {
+		throw new UnsupportedOperationException();
+		
+	}
+
 }

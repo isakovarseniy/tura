@@ -1,6 +1,12 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+  
+%]
 package [%=typeCollection.get(0).~package%];
 
-public class ProxyRepository implements org.tura.platform.repository.core.Repository{
+public abstract class ProxyRepository implements org.tura.platform.repository.core.Repository{
 	
 	private org.tura.platform.repository.core.Repository transport;
 	
@@ -8,20 +14,107 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
 	   this.transport = transport;
 	}
 
+    @SuppressWarnings("rawtypes")
+    public abstract List getCommandStack();
+
+
 	@Override
 	public void addProvider(org.tura.platform.repository.core.DataProvider provider, String objectClass) {
-		
+			throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public void addCommand(org.tura.platform.repository.core.Command command, String dataClass) {
-		
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public Object create(String objectClass) throws org.tura.platform.repository.core.RepositoryException {
         return factory( transport.create(objectClass),objectClass);
 	}
+
+	@Override
+	public void insert(Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
+	switch (objectClass){
+	
+[%	
+     for (type in typeCollection){
+        if (not type.~primaryKey.isDefined()  ){
+           continue;
+        }
+     
+         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+         var topObject = true;
+	     for (rel in assosiations){
+	        var hash = rel.findTypeOfAssosiation(model_mapper);
+	        var masterType =   hash.get("masterType");
+	        var detailType = hash.get("detailType");
+	        var property =  hash.get("property");
+     
+        if (detailType.uid == type.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"){
+           topObject = false;
+        }
+     }
+     if (topObject ){
+         %]
+         case "[%=type.~fullName%]": { [%=type.~package%].commands.AddTop[%=type.~class%]Command cmd = new [%=type.~package%].commands.AddTop[%=type.~class%]Command();
+               cmd.set[%=type.~class%](([%=type.~fullName%]) obj);
+               cmd.setCommandStack(getCommandStack());
+               cmd.prepare();
+               break;}
+         [%
+     }
+     %]
+     [%
+     }
+     %]
+		}
+        throw new org.tura.platform.repository.core.RepositoryException("Class is not supported");
+		
+	}
+
+	@Override
+	public void remove(Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
+	
+	switch (objectClass){
+	
+[%	
+     for (type in typeCollection){
+        if (not type.~primaryKey.isDefined()  ){
+           continue;
+        }
+     
+         var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+         var topObject = true;
+	     for (rel in assosiations){
+	        var hash = rel.findTypeOfAssosiation(model_mapper);
+	        var masterType =   hash.get("masterType");
+	        var detailType = hash.get("detailType");
+	        var property =  hash.get("property");
+     
+        if (detailType.uid == type.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"){
+           topObject = false;
+        }
+     }
+     if (topObject ){
+         %]
+         case "[%=type.~fullName%]": { [%=type.~package%].commands.RemoveTop[%=type.~class%]Command cmd = new [%=type.~package%].commands.RemoveTop[%=type.~class%]Command();
+               cmd.set[%=type.~class%](([%=type.~fullName%]) obj);
+               cmd.setCommandStack(getCommandStack());
+               cmd.prepare();
+               break;}
+         [%
+     }
+     %]
+     [%
+     }
+     %]
+		}
+        throw new org.tura.platform.repository.core.RepositoryException("Class is not supported");
+		
+	}
+
+
 
     @SuppressWarnings("unchecked")
 	@Override
@@ -39,8 +132,9 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
         return new org.tura.platform.repository.core.SearchResult (list,result.getNumberOfRows());
     }
 	@Override
-	public void applyChanges(java.util.List<Object> changes) throws org.tura.platform.repository.core.RepositoryException {
-		transport.applyChanges(changes);
+    @SuppressWarnings("rawtypes")
+	public void applyChanges(java.util.List changes) throws org.tura.platform.repository.core.RepositoryException {
+		transport.applyChanges(getCommandStack());
 	}
 	
 	
@@ -55,7 +149,7 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
         }
 	
 %] 
-case "[%=type.~fullName%]": return new [%=type.~fullName%]Proxy(([%=type.~fullName%])obj);
+case "[%=type.~fullName%]": return new [%=type.~fullName%]Proxy(([%=type.~fullName%])obj,getCommandStack());
 [%	
 	}
 %]	

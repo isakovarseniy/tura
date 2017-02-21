@@ -37,6 +37,11 @@ public interface Repository {
 	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException ;
 
-    public void applyChanges(List<Object> changes) throws RepositoryException;
+	public void insert( Object obj , String objectClass) throws RepositoryException;
+	
+	public void remove( Object obj , String objectClass) throws RepositoryException;
+	
+    @SuppressWarnings("rawtypes")
+	public void applyChanges(List changes) throws RepositoryException;
 	
 }
