@@ -24,6 +24,12 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	     public void setEntityManager(javax.persistence.EntityManager em){
 	           this.em=em;
 	     }
+	     
+	     
+	     public Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(javax.persistence.EntityManager em){
+	        this.em=em;
+	     }
+	     
         public Object execute( Object obj ){
            [%=t2view.get(masterType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data data = ([%=t2view.get(masterType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data) obj;
 

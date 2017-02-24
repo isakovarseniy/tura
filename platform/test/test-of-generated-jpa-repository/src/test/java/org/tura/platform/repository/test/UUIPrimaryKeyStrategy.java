@@ -41,7 +41,7 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			return;
 		}		
 
-		Reflection.callTyped(o, "setObjId", long.class,UUID.randomUUID().getMostSignificantBits());
+		Reflection.callTyped(o, "setObjId", Long.class,UUID.randomUUID().getMostSignificantBits());
 		
 		}catch(Exception e){
 			throw new RuntimeException(e);

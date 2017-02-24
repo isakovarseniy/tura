@@ -68,9 +68,11 @@ public class JPARepositoryTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		JPATestPackageDataProvider dataProvider = new JPATestPackageDataProvider(repository);
+		JPATestPackageDataProvider dataProvider = new JPATestPackageDataProvider();
 		dataProvider.setEntityManager(em);
+		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
+		dataProvider.init();
 
 		return new ProxyRepository(repository){
 			@SuppressWarnings("rawtypes")
@@ -130,6 +132,8 @@ public class JPARepositoryTest {
 			client.setPerson(person);
 			person.getMailAddress().add(address);
 
+			repository.insert(client, Client.class.getName());
+			
 			repository.applyChanges(null);
 
 			em.getTransaction().commit();

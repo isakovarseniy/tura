@@ -12,7 +12,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
       field.typeRef.mappingType2Java(recipe,ingredient);
  
  %]
- package [%=type.~package%].commands;
+ package [%=type.~package%].proxy.commands;
  public class Update[%=type.~class%]On[%=util.mergeAndCapitalize(field.name)%]Command implements org.tura.platform.repository.proxy.ProxyRepositoryCommand {
  
  	private [%=type.~fullName%] [%=util.mergeAndCapitalize(type.~class)%];

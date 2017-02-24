@@ -57,11 +57,11 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
      }
      if (topObject ){
          %]
-         case "[%=type.~fullName%]": { [%=type.~package%].commands.AddTop[%=type.~class%]Command cmd = new [%=type.~package%].commands.AddTop[%=type.~class%]Command();
-               cmd.set[%=type.~class%](([%=type.~fullName%]) obj);
+         case "[%=type.~fullName%]": { [%=type.~package%].proxy.commands.AddTop[%=type.~class%]Command cmd = new [%=type.~package%].proxy.commands.AddTop[%=type.~class%]Command();
+               cmd.set[%=type.~class%]((([%=type.~fullName%]Proxy) obj).getWrappedObject());
                cmd.setCommandStack(getCommandStack());
                cmd.prepare();
-               break;}
+               return;}
          [%
      }
      %]
@@ -98,11 +98,11 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
      }
      if (topObject ){
          %]
-         case "[%=type.~fullName%]": { [%=type.~package%].commands.RemoveTop[%=type.~class%]Command cmd = new [%=type.~package%].commands.RemoveTop[%=type.~class%]Command();
+         case "[%=type.~fullName%]": { [%=type.~package%].proxy.commands.RemoveTop[%=type.~class%]Command cmd = new [%=type.~package%].proxy.commands.RemoveTop[%=type.~class%]Command();
                cmd.set[%=type.~class%](([%=type.~fullName%]) obj);
                cmd.setCommandStack(getCommandStack());
                cmd.prepare();
-               break;}
+               return;}
          [%
      }
      %]

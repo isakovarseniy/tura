@@ -13,7 +13,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
       masterType.mappingType2Java(recipe,ingredient);
      
 %]
-package [%=masterType.~package%].commands;
+package [%=masterType.~package%].proxy.commands;
 
 public class [%=cmdtype%]Top[%=masterType.~class%]Command{
 

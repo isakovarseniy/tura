@@ -25,8 +25,13 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	     public void setEntityManager(javax.persistence.EntityManager em){
 	           this.em=em;
 	     }
+	     
+	    public RemoveTop[%=t2view.get(type).get("class")%]Command(javax.persistence.EntityManager em){
+	       this.em=em;
+	    } 
+	    
         public Object execute( Object obj ){
-           [%=t2view.get(type).get("package")%].AddTop[%=t2view.get(type).get("class")%]Data data = ([%=t2view.get(type).get("package")%].AddTop[%=t2view.get(type).get("class")%]Data) obj;
+           [%=t2view.get(type).get("package")%].RemoveTop[%=t2view.get(type).get("class")%]Data data = ([%=t2view.get(type).get("package")%].RemoveTop[%=t2view.get(type).get("class")%]Data) obj;
 
           [%=t2view.get(type).get("fullName")%] serialObj = data.get[%=t2view.get(type).get("class")%]();
           

@@ -42,7 +42,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 		   var cmd : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/assosiationtObjectCommand.egl",hash,TemplateFactory);
 	       cmd.setFormatter(f);
 	       var buffer = cmd.process();
-	       util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/commands", cmdtype+detailType.~class +hash.get("hyphen")+masterType.~class+ "On" + util.mergeAndCapitalize(property)+"Command.java",buffer);   
+	       util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/proxy/commands", cmdtype+detailType.~class +hash.get("hyphen")+masterType.~class+ "On" + util.mergeAndCapitalize(property)+"Command.java",buffer);   
 				     
 	     }
      }
@@ -62,7 +62,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 			    var cmd : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/topObjectCommand.egl",hash,TemplateFactory);
 		        cmd.setFormatter(f);
 		        var buffer = cmd.process();
-		        util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/commands", cmdtype+"Top"+type.~class+ "Command.java",buffer);   
+		        util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/proxy/commands", cmdtype+"Top"+type.~class+ "Command.java",buffer);   
 	
 	     }
      }

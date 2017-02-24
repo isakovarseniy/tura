@@ -13,6 +13,7 @@ import static com.octo.java.sql.query.Query.c;
 public class [%=dataprovider%]DataProvider implements org.tura.platform.repository.core.DataProvider{
 
     private javax.persistence.EntityManager em;
+    private org.tura.platform.repository.core.Repository repository;
     private org.tura.platform.repository.core.PrImaryKeyStrategy pkStrategy;
     private java.util.HashMap<String,org.tura.platform.repository.core.Command> classLoader = new java.util.HashMap<String,org.tura.platform.repository.core.Command>();
     private java.util.HashMap<String,String> classMapper = new java.util.HashMap<String,String>();
@@ -33,22 +34,23 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
      public [%=dataprovider%]DataProvider(){
      }
      
-     public [%=dataprovider%]DataProvider(org.tura.platform.repository.core.Repository repository){
-        init(repository);
+     public [%=dataprovider%]DataProvider(org.tura.platform.repository.core.Repository repository,javax.persistence.EntityManager em){
+        this.repository=repository;
+        this.em=em;
      }
 
 
 	public void setRepository(org.tura.platform.repository.core.Repository repository) {
-		init(repository);
+        this.repository=repository;
 	}
      
-     private void init(org.tura.platform.repository.core.Repository repository){
+     public void init(){
      [%
      for (tp in t2view.keySet()){
         if (not tp.~primaryKey.isDefined()  ){
            continue;
         }
-     
+     %]repository.addProvider(this,  [%=t2view.get(tp).get("fullName")%].class.getName());[%
          var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid);
          var topObject = true;
 	     for (rel in assosiations){
@@ -63,29 +65,28 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
         
         if (hash.get("noAssosiation")){
               %]
-              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(),  [%=t2view.get(detailType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data.class.getName());
-              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(),  [%=t2view.get(detailType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data.class.getName());
+              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(em),  [%=t2view.get(detailType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data.class.getName());
+              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(em),  [%=t2view.get(detailType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data.class.getName());
               [%
         }else{
 	        if (hash.get("containment")){
               %]
-              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(),  [%=t2view.get(detailType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data.class.getName());
-              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(),  [%=t2view.get(detailType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data.class.getName());
+              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(em),  [%=t2view.get(detailType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data.class.getName());
+              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(em),  [%=t2view.get(detailType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data.class.getName());
               [%
 	        }else{
               %]
-              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(),  [%=t2view.get(detailType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data.class.getName());
-              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(),  [%=t2view.get(detailType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data.class.getName());
+              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(em),  [%=t2view.get(detailType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data.class.getName());
+              repository.addCommand(  new [%=t2view.get(detailType).get("package")%].commands.Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(em),  [%=t2view.get(detailType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data.class.getName());
               [%
 	        }
         }
      }
      if (topObject ){
          %]
-         repository.addCommand(  new [%=t2view.get(tp).get("package")%].commands.AddTop[%=t2view.get(tp).get("class")%]Command(),  [%=t2view.get(tp).get("package")%].AddTop[%=t2view.get(tp).get("class")%]Data.class.getName());
-         repository.addCommand(  new [%=t2view.get(tp).get("package")%].commands.RemoveTop[%=t2view.get(tp).get("class")%]Command(),  [%=t2view.get(tp).get("package")%].RemoveTop[%=t2view.get(tp).get("class")%]Data.class.getName());
-         repository.addProvider(this,  [%=t2view.get(tp).get("fullName")%].class.getName());
-         classLoader.put( [%=t2model.get(tp).get("fullName")%].class.getName(),new [%=t2view.get(tp).get("package")%].commands.Load[%=t2view.get(tp).get("class")%]Command()  );
+         repository.addCommand(  new [%=t2view.get(tp).get("package")%].commands.AddTop[%=t2view.get(tp).get("class")%]Command(em),  [%=t2view.get(tp).get("package")%].AddTop[%=t2view.get(tp).get("class")%]Data.class.getName());
+         repository.addCommand(  new [%=t2view.get(tp).get("package")%].commands.RemoveTop[%=t2view.get(tp).get("class")%]Command(em),  [%=t2view.get(tp).get("package")%].RemoveTop[%=t2view.get(tp).get("class")%]Data.class.getName());
+         classLoader.put( [%=t2model.get(tp).get("fullName")%].class.getName(),new [%=t2view.get(tp).get("package")%].commands.Load[%=t2view.get(tp).get("class")%]Command(em)  );
          classMapper.put( [%=t2view.get(tp).get("fullName")%].class.getName(),[%=t2model.get(tp).get("fullName")%].class.getName()  );
          [%
      }

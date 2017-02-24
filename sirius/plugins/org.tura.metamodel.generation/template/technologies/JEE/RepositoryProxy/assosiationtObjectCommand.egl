@@ -19,7 +19,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
      }
      
 %]
-package [%=masterType.~package%].commands;
+package [%=masterType.~package%].proxy.commands;
 
 public class [%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Command{
 
