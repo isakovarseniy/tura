@@ -19,6 +19,8 @@ public class InternalAdd[%=t2view.get(type).get("class")%]Command{
         public void  insert([%=t2view.get(tp).get("fullName")%] obj,java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules){
         
           [%=t2model.get(tp).get("fullName")%] jpa = new [%=t2model.get(tp).get("fullName")%]();
+          [%=PK(tp,"pk","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]   
+          
 		         [% 
 		         while  (1 == 1) {%]
 		          [%=serializer(tp,type.~skipAttributes,"obj","jpa")%]
@@ -30,27 +32,58 @@ public class InternalAdd[%=t2view.get(type).get("class")%]Command{
 		            }
 		         }%]  
 		   em.persist(jpa);
-	       obj.setOperation("C");
-           [%=PK(type,"pkInsert","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]
-		   [%=addInsertRule (type,"Insert",recipe,ingredient,t2model,t2view,model_mapper)%]
-		   [%=addInsertNoAssosiationtRule (type,recipe,ingredient,t2model,t2view,model_mapper)%]
-         }
+         [%
+           var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
+        %]
+          [%=add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,tp)%]
+
+         [%
+           assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.target.uid <> t.source.uid);
+        %]
+          [%=add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,tp)%]
+        
+        }
 }
 [%
+
 @template
- operation addInsertRule (type,rule,recipe,ingredient,t2model,t2view,model_mapper){
-         var util = new Native('org.tura.metamodel.commons.Util');
-         var tp = type;
-          while  (1 == 1) {
-		     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
-		     for (rel in assosiations){
-		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-		                continue;
-		         }
-                 
+operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
+     for (rel in assosiations){
+        var hash = rel.findTypeOfAssosiation(model_mapper);
+        var masterType =   hash.get("masterType");
+        var detailType = hash.get("detailType");
+        var property =  hash.get("property");
+        
+	    var suffix="";
+	    if (masterType.~class == detailType.~class ){
+	        suffix="Detail";
+	    }
+        
+        if (hash.get("noAssosiation")){
+           %][%=addNoAssosiationtRelation ( recipe,ingredient,t2view,t2model,rel,type)%][%
+        }else{
+	        if (hash.get("containment") and masterType.uid = type.uid){
+              %][%=addContaintmentRelation(recipe,ingredient,t2view,t2model,rel,type)%][%
+	        }else{
+             %][%=addNonContaintmentRelation ( recipe,ingredient,t2view,t2model,rel,type)%][%
+	        }
+        }
+     }
+}
+
+@template
+ operation addContaintmentRelation ( recipe,ingredient,t2view,t2model,rel,type){
+ 
+          var util = new Native('org.tura.metamodel.commons.Util');
+         if (type.uid ==  rel.source.uid ){
+%]
+/*CD [%=rel.source.~class%]/[%=rel.target.~class%]*/ 
+[%		         
+
                  var hash = rel.sourceSideNamesCalculation();
                  var suffix =hash.get("sourceMethodName");
-                 var serializer = t2view.get(rel.target).get("package")+".commands.InternalAdd" +t2view.get(rel.target).get("class")+"Command";
+                 var serializer = t2view.get(rel.target).get("package")+".commands.InternalAdd"+ t2view.get(rel.target).get("class")+"Command" ;
+                 
 		         
 		  	     switch  (rel.type.toString()){
 		         case "One2One" : %]  [%=t2view.get(hash.get("target")).get("fullName")%]  target[%=suffix%] =  obj.get[%=hash.get("sourceMethodName")%]();  if ( target[%=suffix%] != null ) { [%
@@ -67,25 +100,20 @@ public class InternalAdd[%=t2view.get(type).get("class")%]Command{
 		         }         
 		                
                  %] 
+                
+                 
+                 [%=serializer%] cmd[%=suffix%]  = new [%=serializer%] ();
+                 cmd[%=suffix%].setEntityManager(em); 
+                 cmd[%=suffix%].insert(target[%=suffix%],rules); 
+ 
                  [%=PK(rel.target,"pk"+suffix,"target"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
-                 
-                 [%if (rel.containment.toString() == "Source" and rel.type.toString() <> "Many2Many") {%]
-                 if ( target[%=suffix%].getOperation() == null || !target[%=suffix%].getOperation().equals("C")){
-                 
-                 [%=t2model.get(rel.target).get("fullName")%] jpa[%=suffix%] = em.find([%=t2model.get(rel.target).get("fullName")%].class,pk[%=suffix%]);
-                  if (jpa[%=suffix%] == null){
-                     [%=serializer%] cmd[%=suffix%]  = new [%=serializer%] ();
-                     cmd[%=suffix%].setEntityManager(em); 
-                     cmd[%=suffix%].insert(target[%=suffix%],rules); 
-                  }
-                 }
-                 [%}%]
-                 [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]JpaRule   [%=r%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]JpaRule();
-                 [%=r%].setEntityManager(em);
-                 [%=r%].setSourcePk(pkInsert);
-                 [%=r%].setTargetPk(pk[%=suffix%]);
-                 rules.put([%=r%].getKey(),[%=r%] );
-                 
+
+                [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule rule[%=suffix%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule();
+                rule[%=suffix%].setEntityManager(em);
+                rule[%=suffix%].setSourcePk(pk);
+                rule[%=suffix%].setTargetPk(pk[%=suffix%]);
+                rules.put(rule[%=suffix%].getKey(), rule[%=suffix%]);
+
                  [%
 
 		  	     switch  (rel.type.toString()){
@@ -93,19 +121,15 @@ public class InternalAdd[%=t2view.get(type).get("class")%]Command{
 		         case "One2Many" : %] }}[%
 		         case "Many2Many" : %]}}[%
 		         }         
-		         
-		     }    
-		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.source.uid <> t.target.uid);
-		     for (rel in assosiations){
-		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-		                continue;
-		         }
-
-
+         
+         }else{
                 var hash = rel.targetSideNamesCalculation();
+%]
+/*CO [%=rel.source.~class%]/[%=rel.target.~class%]*/ 
+[%		         
 		         
                  var suffix=hash.get("targetMethodName");
-                 var serializer = t2view.get(rel.source).get("package")+".commands.InternalAdd"+t2view.get(rel.source).get("class")+"Command";
+                 var serializer = t2view.get(rel.source).get("package")+".commands.InternalAdd"+ t2view.get(rel.source).get("class")+"Command" ;
 		         
 		  	     switch  (rel.type.toString()){
 		         case "One2One" : %]  [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();  if (source[%=suffix%] != null ) { [%
@@ -122,78 +146,206 @@ public class InternalAdd[%=t2view.get(type).get("class")%]Command{
 		         }         
 		                
                  %] 
-                 [%=PK(rel.target,"pk"+suffix,"source"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
-                 [%if (rel.containment.toString() == "Traget" and rel.type.toString() == "One2One") {%]
+                
                  
-                 if (source[%=suffix%].getOperation() == null ||  !source[%=suffix%].getOperation().equals("C")){
-                 
-                 [%=t2model.get(rel.source).get("fullName")%] jpa[%=suffix%] = em.find([%=t2model.get(rel.source).get("fullName")%].class,pk[%=suffix%]);
-                   if (jpa[%=suffix%] == null){
-                     [%=serializer%] cmd[%=suffix%]  = new [%=serializer%] ();
-                     cmd[%=suffix%].setEntityManager(em); 
-                     cmd[%=suffix%].insert(source[%=suffix%],rules); 
-                   }
-                 }
-                 [%}%]
-                 [%=t2model.get(hash.get("source")).get("package")%].rules.Add[%=t2model.get(hash.get("source")).get("class")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]JpaRule   [%=r%] = new [%=t2model.get(hash.get("source")).get("package")%].rules.Add[%=t2model.get(hash.get("source")).get("class")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]JpaRule();
-                 [%=r%].setEntityManager(em);
-                 [%=r%].setSourcePk(pk[%=suffix%]);
-                 [%=r%].setTargetPk(pkInsert);
-                 rules.put([%=r%].getKey(),[%=r%] );
+                  [%=serializer%] cmd[%=suffix%]  = new [%=serializer%] ();
+                  cmd[%=suffix%].setEntityManager(em); 
+                  cmd[%=suffix%].insert(source[%=suffix%],rules); 
+
+                 [%=PK(rel.source,"pk"+suffix,"source"+suffix,t2model.get(rel.source).get("fullName"),recipe,ingredient)%]   
+
+                [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule rule[%=suffix%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule();
+
+                rule[%=suffix%].setEntityManager(em);
+                rule[%=suffix%].setSourcePk(pk[%=suffix%]);
+                rule[%=suffix%].setTargetPk(pk);
+                rules.put(rule[%=suffix%].getKey(), rule[%=suffix%]);
+
+
                  [%
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] }[%
+		         case "One2Many" : %]} [%
+		         case "Many2Many" : %]}}[%
+		         }         
+         }
+}
+
+@template
+ operation addNonContaintmentRelation ( recipe,ingredient,t2view,t2model,rel,type){
+          var util = new Native('org.tura.metamodel.commons.Util');
+         if (type.uid ==  rel.source.uid ){
+%]
+/*NCD [%=rel.source.~class%]/[%=rel.target.~class%]*/     
+[%
+                 var hash = rel.sourceSideNamesCalculation();
+                 var suffix =hash.get("sourceMethodName");
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]  [%=t2view.get(hash.get("target")).get("fullName")%]  target[%=suffix%] =  obj.get[%=hash.get("sourceMethodName")%]();  if ( target[%=suffix%] != null ) { [%
+		         case "One2Many" : %] java.util.Collection<[%=t2view.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   obj.get[%=hash.get("sourceMethodName")%]();  if (targets[%=hash.get("sourceMethodName")%]  != null){ [%
+		         case "Many2Many" : %] java.util.Collection<[%=t2view.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   obj.get[%=hash.get("sourceMethodName")%](); if (targets[%=hash.get("sourceMethodName")%]  != null){  [%
+		         }                
+
+                 var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
+                 r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] for ([%=t2view.get(hash.get("target")).get("fullName")%] target[%=suffix%] : targets[%=suffix%]) {[%
+		         case "Many2Many" : %] for ([%=t2view.get(hash.get("target")).get("fullName")%] target[%=suffix%] : targets[%=suffix%]) {[%
+		         }         
+		                
+%]
+                 [%=PK(rel.target,"pk"+suffix,"target"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
+
+                [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule rule[%=suffix%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule();
+                rule[%=suffix%].setEntityManager(em);
+                rule[%=suffix%].setSourcePk(pk);
+                rule[%=suffix%].setTargetPk(pk[%=suffix%]);
+                rules.put(rule[%=suffix%].getKey(), rule[%=suffix%]);
+[%
+
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] }[%
+		         case "One2Many" : %] }}[%
+		         case "Many2Many" : %]}}[%
+		         }         
+         
+         }else{
+                var hash = rel.targetSideNamesCalculation();
+%]
+/*NCO [%=rel.source.~class%]/[%=rel.target.~class%]*/ 
+[%		         
+                 var suffix=hash.get("targetMethodName");
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]  [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();  if (source[%=suffix%] != null ) { [%
+		         case "One2Many" : %] [%=t2view.get(hash.get("source")).get("fullName")%]    source[%=suffix%]= obj.get[%=hash.get("targetMethodName")%]();  if (source[%=suffix%] != null ) { [%
+		         case "Many2Many" : %] java.util.Collection<[%=t2view.get(hash.get("source")).get("fullName")%]> sources[%=suffix%] = obj.get[%=hash.get("targetMethodName")%]();  if (sources[%=suffix%] != null ) {[%
+		         }                
+
+                 var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
+                 r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] [%
+		         case "Many2Many" : %] for ([%=t2view.get(hash.get("source")).get("fullName")%] source[%=suffix%] : sources[%=suffix%]) {[%
+		         }         
+		                
+%]
+                 
+                 [%=PK(rel.source,"pk"+suffix,"source"+suffix,t2model.get(rel.source).get("fullName"),recipe,ingredient)%]   
+
+                [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule rule[%=suffix%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule();
+
+                rule[%=suffix%].setEntityManager(em);
+                rule[%=suffix%].setSourcePk(pk[%=suffix%]);
+                rule[%=suffix%].setTargetPk(pk);
+                rules.put(rule[%=suffix%].getKey(), rule[%=suffix%]);
+
+[%
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] }[%
+		         case "One2Many" : %]} [%
+		         case "Many2Many" : %]}}[%
+		         }         
+         
+         
+         }
+ 
+ 
+ 
+}
+
+@template
+ operation addNoAssosiationtRelation ( recipe,ingredient,t2view,t2model,rel,type){
+          var util = new Native('org.tura.metamodel.commons.Util');
+         if (type.uid == rel.source.uid){
+%]
+/*NAD [%=rel.source.~class%]/[%=rel.target.~class%]*/     
+[%
+                 var hash = rel.sourceSideNamesCalculation();
+                 var suffix =hash.get("sourceMethodName");
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]  [%=t2model.get(hash.get("target")).get("fullName")%]  target[%=suffix%] =  jpa.get[%=hash.get("sourceMethodName")%]();  if ( target[%=suffix%] != null ) { [%
+		         case "One2Many" : %] java.util.Collection<[%=t2model.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%]();  if (targets[%=hash.get("sourceMethodName")%]  != null){ [%
+		         case "Many2Many" : %] java.util.Collection<[%=t2model.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%](); if (targets[%=hash.get("sourceMethodName")%]  != null){  [%
+		         }                
+
+                 var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
+                 r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] for ([%=t2model.get(hash.get("target")).get("fullName")%] target[%=suffix%] : targets[%=suffix%]) {[%
+		         case "Many2Many" : %] for ([%=t2model.get(hash.get("target")).get("fullName")%] target[%=suffix%] : targets[%=suffix%]) {[%
+		         }         
+		                
+
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]     jpa.set[%=hash.get("sourceMethodName")%](target[%=t2model.get(rel.target).get("class")%]);[%
+			         case "One2Many" : %]   jpa.get[%=hash.get("sourceMethodName")%]().add(target[%=t2model.get(rel.target).get("class")%] );[%
+			         case "Many2Many" : %] jpa.get[%=hash.get("sourceMethodName")%]().add(target[%=t2model.get(rel.target).get("class")%] );[%
+			         }           
+			         
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]  target[%=t2model.get(rel.target).get("class")%] .set[%=hash.get("targetMethodName")%](jpa);[%
+			         case "One2Many" : %] target[%=t2model.get(rel.target).get("class")%] .set[%=hash.get("targetMethodName")%](jpa);[%
+			         case "Many2Many" : %] target[%=t2model.get(rel.target).get("class")%] .get[%=hash.get("targetMethodName")%]().add(jpa);[%
+			         }                
+                 
+
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] }[%
+		         case "One2Many" : %] }}[%
+		         case "Many2Many" : %]}}[%
+		         }         
+         
+         }else{
+                var hash = rel.targetSideNamesCalculation();
+%]
+/*NAO [%=rel.source.~class%]/[%=rel.target.~class%]*/ 
+[%		         
+                 var suffix=hash.get("targetMethodName");
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]  [%=t2model.get(hash.get("source")).get("fullName")%]    source[%=suffix%] = jpa.get[%=hash.get("targetMethodName")%]();  if (source[%=suffix%] != null ) { [%
+		         case "One2Many" : %] [%=t2model.get(hash.get("source")).get("fullName")%]    source[%=suffix%]= jpa.get[%=hash.get("targetMethodName")%]();  if (source[%=suffix%] != null ) { [%
+		         case "Many2Many" : %] java.util.Collection<[%=t2model.get(hash.get("source")).get("fullName")%]> sources[%=suffix%] = jpa.get[%=hash.get("targetMethodName")%]();  if (sources[%=suffix%] != null ) {[%
+		         }                
+
+                 var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
+                 r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] [%
+		         case "Many2Many" : %] for ([%=t2model.get(hash.get("source")).get("fullName")%] source[%=suffix%] : sources[%=suffix%]) {[%
+		         }         
+		                
+                  
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]     jpa.set[%=hash.get("targetMethodName")%](source[%=t2model.get(rel.source).get("class")%]);[%
+			         case "One2Many" : %]   jpa.set[%=hash.get("targetMethodName")%](source[%=t2model.get(rel.source).get("class")%]);[%
+			         case "Many2Many" : %] jpa.get[%=hash.get("targetMethodName")%]().add(source[%=t2model.get(rel.source).get("class")%]);[%
+			         }           
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]  source[%=t2model.get(rel.source).get("class")%].set[%=hash.get("sourceMethodName")%](jpa);[%
+			         case "One2Many" : %] source[%=t2model.get(rel.source).get("class")%].get[%=hash.get("sourceMethodName")%]().add(jpa);[%
+			         case "Many2Many" : %] source[%=t2model.get(rel.source).get("class")%].get[%=hash.get("sourceMethodName")%]().add(jpa);[%
+			         }                
 
 		  	     switch  (rel.type.toString()){
 		         case "One2One" : %] }[%
 		         case "One2Many" : %]} [%
 		         case "Many2Many" : %]}}[%
 		         }         
-		         
-		     }
-		
-            if (tp.~extension.isDefined()){
-               tp = tp.~extension;
-            }else{
-               break;
-            }
+         
+         
          }
+ 
+ 
 }
 
-
-@template
- operation addInsertNoAssosiationtRule (type,recipe,ingredient,t2model,t2view,model_mapper){
-         var util = new Native('org.tura.metamodel.commons.Util');
-         var tp = type;
-          while  (1 == 1) {
-		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.type.toString() <> "Many2Many");
-		     for (rel in assosiations){
-		         if ( not rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-		                continue;
-		         }
-
-                var hash = rel.targetSideNamesCalculation();
-		         
-                 var suffix=hash.get("targetMethodName");
-
-                 var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
-                 r = r.toLowerCase();
-		                
-                 %] 
-                 [%=PKDetails(rel.source,"pk"+suffix,"obj",t2model.get(rel.source).get("fullName"),recipe,ingredient,rel)%]   
-
-                 [%=t2model.get(hash.get("source")).get("package")%].rules.Add[%=t2model.get(hash.get("source")).get("class")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]JpaRule   [%=r%] = new [%=t2model.get(hash.get("source")).get("package")%].rules.Add[%=t2model.get(hash.get("source")).get("class")%][%=rel.type.toString()%][%=t2model.get(hash.get("target")).get("class")%]JpaRule();
-                 [%=r%].setEntityManager(em);
-                 [%=r%].setSourcePk(pk[%=suffix%]);
-                 [%=r%].setTargetPk(pkInsert);
-                 rules.put([%=r%].getKey(),[%=r%] );
-                 [%
-		         
-		     }
-		
-            if (tp.~extension.isDefined()){
-               tp = tp.~extension;
-            }else{
-               break;
-            }
-         }
-}
 %]

@@ -43,8 +43,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
               r.execute();
            }
 
-           [%=util.mergeAndUnCapitalize(t2view.get(masterType).get("class"))%].setOperation("C");
-           
            
       [%
              var suffix = "";

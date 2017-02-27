@@ -186,7 +186,9 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
      %]
      @Override
      public [%=hash.get("target").~fullName%] get[%=hash.get("sourceMethodName")%](){
-     
+        if (object.get[%=hash.get("sourceMethodName")%]() == null){
+            return null;
+        }
         return new [%=hash.get("target").~fullName%]Proxy(object.get[%=hash.get("sourceMethodName")%](),commandStack);
      }
      
@@ -197,8 +199,12 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
         %]
 
 	   if ( object.isAttached() == null || !object.isAttached()){
-            object.set[%=hash.get("sourceMethodName")%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
-             (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
+	        if ([%=hash.get("sourceProperty")%] != null){
+               object.set[%=hash.get("sourceMethodName")%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+               (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
+             }else{
+               object.set[%=hash.get("sourceMethodName")%](null);
+             }
             return;
    	    }
    	    
@@ -209,6 +215,7 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 	    command.setCommandStack(commandStack);
 
         if (command.prepare()){
+          if ([%=hash.get("sourceProperty")%] != null){
 	    	[%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
 	
 	    	command2.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
@@ -218,6 +225,7 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 	            object.set[%=hash.get("sourceMethodName")%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
 	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
 	        }
+	     }
         }        
         [%
         }else{
@@ -532,6 +540,9 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
      %]
      @Override
      public [%=hash.get("source").~fullName%] get[%=hash.get("targetMethodName")%](){
+        if (object.get[%=hash.get("targetMethodName")%]() == null){
+            return null;
+        }
      
         return new [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%](),commandStack);
      }
@@ -543,8 +554,12 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
         %]
 
 	   if ( object.isAttached() == null || !object.isAttached()){
+	     if ([%=hash.get("targetProperty")%] != null){
             object.set[%=hash.get("targetMethodName")%](  (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
             (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().set[%=hash.get("sourceMethodName")%](object);
+           }else{
+              object.set[%=hash.get("targetMethodName")%](  null );
+           }
             return;
    	    }
    	    
@@ -555,6 +570,7 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 	    command.setCommandStack(commandStack);
 
         if (command.prepare()){
+           if ([%=hash.get("targetProperty")%] != null){
 	    	[%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
 	
 	    	command2.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
@@ -564,6 +580,7 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 	            object.set[%=hash.get("targetMethodName")%]((([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
 	            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().set[%=hash.get("sourceMethodName")%](object);
 	        }
+	       } 
         }        
         [%
         }else{

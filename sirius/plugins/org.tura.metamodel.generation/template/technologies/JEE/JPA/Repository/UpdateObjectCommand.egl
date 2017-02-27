@@ -18,6 +18,9 @@ public class Update[%=t2view.get(type).get("class")%]On[%=util.mergeAndCapitaliz
            this.em=em;
      }
 
+    public Update[%=t2view.get(type).get("class")%]On[%=util.mergeAndCapitalize(field.name)%]Command(javax.persistence.EntityManager em){
+           this.em=em;
+    }
 
     public Object execute(Object obj  ){
         [%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%][%=util.mergeAndCapitalize(field.name)%]Data data = ([%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%][%=util.mergeAndCapitalize(field.name)%]Data)obj;

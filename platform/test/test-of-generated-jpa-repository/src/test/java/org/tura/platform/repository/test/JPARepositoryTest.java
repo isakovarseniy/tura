@@ -26,12 +26,12 @@ import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 
+import objects.test.serialazable.jpa.AddCustomer2LocationOnNoAssosiationCustomerData;
 import objects.test.serialazable.jpa.Client;
 import objects.test.serialazable.jpa.Customer;
 import objects.test.serialazable.jpa.File;
 import objects.test.serialazable.jpa.JPATestPackageDataProvider;
 import objects.test.serialazable.jpa.Location;
-import objects.test.serialazable.jpa.LocationMany2ManyCustomerRelation;
 import objects.test.serialazable.jpa.MailAddress;
 import objects.test.serialazable.jpa.Order;
 import objects.test.serialazable.jpa.Person;
@@ -93,7 +93,9 @@ public class JPARepositoryTest {
 
 			MailAddress address = (MailAddress) repository.create(MailAddress.class.getName());
 			address.setAddress("Address 1");
+			repository.insert(address, MailAddress.class.getName());
 
+			
 			Client client = (Client) repository.create(Client.class.getName());
 			client.setName("Client name 1");
 			client.setOperation("I");
@@ -121,6 +123,7 @@ public class JPARepositoryTest {
 			person.getPhone().add(phone1);
 			person.setFile(dir1);
 
+			repository.insert(client, Client.class.getName());
 
 			client = (Client) repository.create(Client.class.getName());
 			client.setName("Client name 2");
@@ -217,6 +220,8 @@ public class JPARepositoryTest {
 			client.getPerson().setFile(null);
 			client.setName("Client name 3");
 
+			repository.applyChanges(null);
+
 
 			em.getTransaction().commit();
 
@@ -231,6 +236,7 @@ public class JPARepositoryTest {
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
 					File.class.getName());
+			list = result.getSearchResult();
 			assertEquals(0, list.size());
 
 			em.getTransaction().commit();
@@ -263,8 +269,8 @@ public class JPARepositoryTest {
 			location.setStreet("Street");
 			repository.insert(location, Location.class.getName());
 
-			LocationMany2ManyCustomerRelation m2m = (LocationMany2ManyCustomerRelation) repository
-					.create(LocationMany2ManyCustomerRelation.class.getName());
+			AddCustomer2LocationOnNoAssosiationCustomerData m2m =new AddCustomer2LocationOnNoAssosiationCustomerData();
+			
 			m2m.setCustomerCustomerId(customer.getCustomerId());
 			m2m.setLocationObjId(location.getObjId());
 			repository.getCommandStack().add(m2m);
