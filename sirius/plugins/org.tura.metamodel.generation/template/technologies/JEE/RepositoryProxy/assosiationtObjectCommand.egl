@@ -86,11 +86,34 @@ public class [%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]
  	   if ([%=util.mergeAndUnCapitalize(masterType.~class)%] == null ){
  	     return false;
  	   }
-[%}%] 	   
  	   
  	   if ([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%] == null ){
  	     return false;
  	   }
+
+[%}else{
+           %] boolean b = true;  [%
+	        for ( lnk in rel.links){
+	            var attr = lnk.masterField;
+			%]
+			b = b& ([%=util.mergeAndUnCapitalize(attr.name)%] == null);
+			[%    
+        }
+
+%]
+ 	   if (b ){
+ 	     return false;
+ 	   }
+ 	   
+ 	   if ([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%] == null ){
+ 	     return false;
+ 	   }
+
+[%
+}
+%] 	   
+ 	   
+
        [%=cmdtype.toLowerCase()%]();
        return true;
 

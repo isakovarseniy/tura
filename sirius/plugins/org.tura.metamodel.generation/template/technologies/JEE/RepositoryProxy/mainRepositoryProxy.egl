@@ -32,7 +32,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 
         type.mappingType2Java(recipe,ingredient);
 
-	    hash.put("type",type);
+	    hash.put("tp",type);
 	    hash.put("recipe",recipe);
 	    hash.put("ingredient",ingredient);
 	    hash.put("component",component);

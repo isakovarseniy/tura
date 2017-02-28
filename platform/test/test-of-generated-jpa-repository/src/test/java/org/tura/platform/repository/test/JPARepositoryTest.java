@@ -283,8 +283,10 @@ public class JPARepositoryTest {
 			order.setCustomer(customer.getCustomerId());
 			order.setModel(vehicle.getModel());
 			order.setVehicleId(vehicle.getObjId());
-			repository.insert(vehicle, Vehicle.class.getName());
+			repository.insert(order, Order.class.getName());
 
+			repository.applyChanges(null);
+			
 			em.getTransaction().commit();
 
 			em.getTransaction().begin();
@@ -300,6 +302,8 @@ public class JPARepositoryTest {
 
 			em.getTransaction().commit();
 
+			commandStack.clear();
+			
 			em.getTransaction().begin();
 
 			SearchResult result =  repository.find(new ArrayList<SearchCriteria>(),
@@ -307,13 +311,15 @@ public class JPARepositoryTest {
 			List <Customer> cList =(List<Customer>) result.getSearchResult();
 			assertEquals(1, cList.size());
 			customer = cList.iterator().next();
-			customer.setOperation("R");
 			repository.remove(customer, Customer.class.getName());
+			
+			repository.applyChanges(null);
+			
 
 			result = repository.find(new ArrayList<SearchCriteria>(),
 					new ArrayList<OrderCriteria>(), 0, 100, Order.class.getName());
 			List<Order> oList = (List<Order>) result.getSearchResult();
-			assertEquals(0, oList.size());
+			assertEquals(1, oList.size());
 
 			em.getTransaction().commit();
 

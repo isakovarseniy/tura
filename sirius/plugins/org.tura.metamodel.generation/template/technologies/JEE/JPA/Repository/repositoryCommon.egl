@@ -15,7 +15,10 @@
  operation serializerDetails (rel, inObj, outObj){
         var util = new Native('org.tura.metamodel.commons.Util');
 		for ( lnk in rel.links){
-        	%][%=outObj%].set[%=util.mergeAndCapitalize( lnk.detailField.name)%](  [%=inObj%].get[%=util.mergeAndCapitalize(lnk.masterField.name)%]()  );
+        	%]
+        	if ([%=inObj%] != null){
+        	   [%=outObj%].set[%=util.mergeAndCapitalize( lnk.detailField.name)%](  [%=inObj%].get[%=util.mergeAndCapitalize(lnk.masterField.name)%]()  );
+        	}
  			[%}
  } 
 

@@ -99,7 +99,7 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
      if (topObject ){
          %]
          case "[%=type.~fullName%]": { [%=type.~package%].proxy.commands.RemoveTop[%=type.~class%]Command cmd = new [%=type.~package%].proxy.commands.RemoveTop[%=type.~class%]Command();
-               cmd.set[%=type.~class%](([%=type.~fullName%]) obj);
+               cmd.set[%=type.~class%]((([%=type.~fullName%]Proxy) obj).getWrappedObject());
                cmd.setCommandStack(getCommandStack());
                cmd.prepare();
                return;}
