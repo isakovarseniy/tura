@@ -35,6 +35,7 @@ import application.ApplicationUIPackage;
 import artifact.ArtifactGroup;
 import artifact.ConfigHash;
 import artifact.ConfigVariable;
+import artifact.Classifier;
 import domain.DomainApplication;
 import domain.DomainApplications;
 import domain.DomainArtifact;
@@ -651,17 +652,38 @@ public class DiagramService {
 	}
 	
 	public boolean checkIfSourcetContainment(Assosiation assosiation){
-		return Containment.SOURCE.equals(assosiation.getContainment());  
+		return Containment.SOURCE.equals(assosiation.getContainment())&!checkIfNOAssosiatioin(assosiation);  
 	}
 
 	public boolean checkIfTargetContainment(Assosiation assosiation){
-		return Containment.TARGET.equals(assosiation.getContainment());  
+		return Containment.TARGET.equals(assosiation.getContainment())&!checkIfNOAssosiatioin(assosiation);  
 	}
 	
 	public boolean checkIfNONContainment(Assosiation assosiation){
-		return Containment.NON.equals(assosiation.getContainment());  
+		return Containment.NON.equals(assosiation.getContainment())&!checkIfNOAssosiatioin(assosiation);  
 	}
 	
 	
+	public boolean checkIfSourcetContainmentNoAssosiation(Assosiation assosiation){
+		return Containment.SOURCE.equals(assosiation.getContainment())&checkIfNOAssosiatioin(assosiation);  
+	}
+
+	public boolean checkIfTargetContainmentNoAssosiation(Assosiation assosiation){
+		return Containment.TARGET.equals(assosiation.getContainment())&checkIfNOAssosiatioin(assosiation);  
+	}
+	
+	public boolean checkIfNONContainmentNoAssosiation(Assosiation assosiation){
+		return Containment.NON.equals(assosiation.getContainment())&checkIfNOAssosiatioin(assosiation);  
+	}	
+	
+	
+	public boolean checkIfNOAssosiatioin(Assosiation assosiation){
+		for ( Classifier c :assosiation.getClassifiers()){
+			if ( c.getHint().getName().equals("No Assosiation")){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 }
