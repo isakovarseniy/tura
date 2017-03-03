@@ -135,6 +135,8 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
     @SuppressWarnings("rawtypes")
 	public void applyChanges(java.util.List changes) throws org.tura.platform.repository.core.RepositoryException {
 		transport.applyChanges(getCommandStack());
+		getCommandStack().clear();
+		
 	}
 	
 	

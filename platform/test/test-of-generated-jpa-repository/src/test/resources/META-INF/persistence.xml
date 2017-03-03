@@ -28,15 +28,33 @@
 	<persistence-unit name="JPARepository" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-		<class>org.tura.jpa.test.Person</class>
+		<class>org.tura.jpa.test.One2One1A</class>
+		<class>org.tura.jpa.test.One2One2A</class>
+		<class>org.tura.jpa.test.One2Many3B</class>
+		<class>org.tura.jpa.test.One2Many1A</class>
 		<class>org.tura.jpa.test.MailAddress</class>
-		<class>org.tura.jpa.test.Phone</class>
-		<class>org.tura.jpa.test.Client</class>
-		<class>org.tura.jpa.test.Vehicle</class>
+		<class>org.tura.jpa.test.One2One2B</class>
 		<class>org.tura.jpa.test.Location</class>
-		<class>org.tura.jpa.test.Order</class>
-		<class>org.tura.jpa.test.File</class>
+		<class>org.tura.jpa.test.One2One4A</class>
+		<class>org.tura.jpa.test.Many2Many2B</class>
+		<class>org.tura.jpa.test.Many2Many2A</class>
+		<class>org.tura.jpa.test.Vehicle</class>
 		<class>org.tura.jpa.test.Customer</class>
+		<class>org.tura.jpa.test.Person</class>
+		<class>org.tura.jpa.test.Client</class>
+		<class>org.tura.jpa.test.Many2Many1A</class>
+		<class>org.tura.jpa.test.One2One3A</class>
+		<class>org.tura.jpa.test.One2Many2A</class>
+		<class>org.tura.jpa.test.One2Many3A</class>
+		<class>org.tura.jpa.test.One2Many1B</class>
+		<class>org.tura.jpa.test.One2Many2B</class>
+		<class>org.tura.jpa.test.Order</class>
+		<class>org.tura.jpa.test.One2One1B</class>
+		<class>org.tura.jpa.test.File</class>
+		<class>org.tura.jpa.test.Many2Many1B</class>
+		<class>org.tura.jpa.test.Phone</class>
+		<class>org.tura.jpa.test.One2One3B</class>
+		<class>org.tura.jpa.test.One2One4B</class>
 		
 		<class>org.tura.platform.object.persistence.ObjectsID</class>
      
