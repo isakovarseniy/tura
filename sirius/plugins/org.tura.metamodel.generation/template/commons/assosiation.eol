@@ -14,23 +14,30 @@
 	         property = util.mergeAndCapitalize(detailType.name);
 
 	 }else{
-	     if (self.containment.toString()<>"Non"){
-	        containment=true;
-	     }
 	     if( self.type.toString() =="One2Many"  ){
 	         masterType = self.source;
 	         detailType = self.target;
 	         property = util.mergeAndCapitalize(detailType.name);
+	         if (self.containment.toString() == "Source"){
+	           containment=true;
+	         }
 	     }
 	     if( self.type.toString() == "One2One" and (self.containment.toString()=="Source" or self.containment.toString()=="Non") ){
 	         masterType = self.source;
 	         detailType = self.target;
 	         property = util.mergeAndCapitalize(detailType.name);
+	         if (self.containment.toString() == "Source"){
+	           containment=true;
+	         }
 	     }
 	     if( self.type.toString() == "One2One" and self.containment.toString()=="Target"  ){
 	         masterType = self.target;
 	         detailType = self.source;
 	         property = util.mergeAndCapitalize(detailType.name);
+	         if (self.containment.toString() == "Target"){
+	           containment=true;
+	         }
+	         
 	     }
 
 	     if( self.type.toString() == "Many2Many"  ){
@@ -45,6 +52,7 @@
      hash.put("property",property);
      hash.put("noAssosiation",noAssosiation);
      hash.put("containment",containment);
+     hash.put("masterContainment",containment);
 
       return hash;
  }

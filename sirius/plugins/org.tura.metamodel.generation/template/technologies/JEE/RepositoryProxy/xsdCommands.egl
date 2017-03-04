@@ -52,8 +52,9 @@ operation type::TypeElement  removeData ( recipe,ingredient,targetnamespace,full
         var masterType =   hash.get("masterType");
         var detailType = hash.get("detailType");
         var property =  hash.get("property");
+        var containment = hash.get("containment");
         
-        if (detailType.uid == self.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"){
+        if (detailType.uid == self.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"  and containment){
            topObject = false;
         }
 	    var suffix="";
@@ -88,7 +89,9 @@ operation type::TypeElement  addData ( recipe,ingredient,targetnamespace,fullHas
         var masterType =   hash.get("masterType");
         var detailType = hash.get("detailType");
         var property =  hash.get("property");
-        if (detailType.uid == self.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"){
+        var containment = hash.get("containment");
+        
+        if (detailType.uid == self.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"  and containment){
            topObject = false;
         }
 	    var suffix="";

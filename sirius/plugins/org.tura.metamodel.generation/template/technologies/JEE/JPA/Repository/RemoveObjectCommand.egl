@@ -10,8 +10,9 @@ operation type::TypeElement  removeCommand ( recipe,ingredient,model_mapper,t2vi
         var masterType =   hash.get("masterType");
         var detailType = hash.get("detailType");
         var property =  hash.get("property");
+        var containment = hash.get("containment");
         
-        if (detailType.uid == self.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"){
+        if (detailType.uid == self.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"  and containment){
            topObject = false;
         }
 	    var suffix="";
