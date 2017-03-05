@@ -215,7 +215,7 @@ operation remove(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type
 
 			  	     switch  (rel.type.toString()){
 			         case "One2One" : %]     jpa.set[%=hash.get("sourceMethodName")%](null);[%
-			         case "One2Many" : %]   jpa.get[%=hash.get("sourceMethodName")%]().remove(target[%=t2model.get(rel.target).get("class")%] );[%
+			         case "One2Many" : %]   [%
 			         case "Many2Many" : %] jpa.get[%=hash.get("sourceMethodName")%]().remove(target[%=t2model.get(rel.target).get("class")%] );[%
 			         }           
 			         

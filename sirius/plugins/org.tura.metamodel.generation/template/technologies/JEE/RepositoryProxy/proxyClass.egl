@@ -31,6 +31,16 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  {
         return object;
     }
     
+    @Override
+    public boolean equals(Object o){
+      if (o instanceof [%=tp.~package%].[%=tp.~class%]Proxy){
+          return object.equals(  (([%=tp.~package%].[%=tp.~class%]Proxy)o).getWrappedObject()  );
+     }else{
+       return false;
+     }  
+    }
+    
+    
     [%
     
     var type = tp;
@@ -224,8 +234,8 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
     	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
         command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object.get[%=hash.get("sourceMethodName")%]());
 	    command.setCommandStack(commandStack);
-
-        if (command.prepare()){
+        command.prepare();
+        
           if ([%=hash.get("sourceProperty")%] != null){
 	    	[%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
 	
@@ -238,7 +248,6 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
 	        }
 	     }
-        }        
         [%
         }else{
         %]
@@ -508,14 +517,15 @@ operation type::Assosiation one2oneTrgNo(recipe,ingredient,model_mapper){
 			      [%
 	               for (nk in self.links){
 			      %]
-			    	command.set[%=util.mergeAndCapitalize(masterType.~class)%][%=util.mergeAndCapitalize(nk.masterField.name)%]([%=util.mergeAndUnCapitalize(nk.detailField.name)%]);
+			    	command.set[%=util.mergeAndCapitalize(masterType.~class)%][%=util.mergeAndCapitalize(nk.masterField.name)%](object.get[%=util.mergeAndCapitalize(nk.detailField.name)%]());
 	              [%
 	              }
 	              %]
 			        command.set[%=util.mergeAndCapitalize(detailType.~class)%](object);
 			        command.setCommandStack(commandStack);
+			        command.prepare();
 			        
-			        if (command.prepare()){
+			        if ([%=util.mergeAndUnCapitalize(lnk.detailField.name)%] != null){
 
 				      [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
                       command2.setCommandStack(commandStack);
@@ -531,8 +541,8 @@ operation type::Assosiation one2oneTrgNo(recipe,ingredient,model_mapper){
 				        if (command2.prepare()){
 				            object.set[%=util.mergeAndCapitalize(lnk.detailField.name)%]([%=util.mergeAndUnCapitalize(lnk.detailField.name)%]);
 				        }
-		          }
-		       } 
+		           } 
+		       }
 			}
          [%
          }
@@ -587,8 +597,8 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
     	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
         command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object.get[%=hash.get("targetMethodName")%]());
 	    command.setCommandStack(commandStack);
+        command.prepare();
 
-        if (command.prepare()){
            if ([%=hash.get("targetProperty")%] != null){
 	    	[%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
 	
@@ -601,7 +611,6 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 	            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().set[%=hash.get("sourceMethodName")%](object);
 	        }
 	       } 
-        }        
         [%
         }else{
         %]
@@ -680,8 +689,7 @@ operation type::Assosiation one2manyTrgNo(recipe,ingredient,model_mapper){
 	              %]
 			        command.set[%=util.mergeAndCapitalize(detailType.~class)%](object);
 			        command.setCommandStack(commandStack);
-			        
-			        if (command.prepare()){
+			        command.prepare();
 
 				      [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
 			          command2.setCommandStack(commandStack);
@@ -699,7 +707,6 @@ operation type::Assosiation one2manyTrgNo(recipe,ingredient,model_mapper){
 				        }
 		          }
 		       } 
-			}
          [%
          }
      }
