@@ -11,6 +11,19 @@
 	         noAssosiation = true;
 	         masterType = self.source;
 	         detailType = self.target;
+	         if (self.type.toString() <> "Many2Many"){
+	           var check = true;
+	           for (lnk in self.links){
+	               if (not lnk.masterField.pk){
+	                 check = false;
+	                 break;
+	               }
+	           }
+	           if (check == false){
+	              detailType = self.source;
+	              masterType = self.target;
+	           }
+	         }
 	         property = util.mergeAndCapitalize(detailType.name);
 
 	 }else{

@@ -80,6 +80,8 @@ public class One2ManyNoAssosiationTest {
 			em.getTransaction().begin();
 
 			One2Many3A o1 = (One2Many3A) repository.create(One2Many3A.class.getName());
+
+			repository.insert(o1, One2Many3A.class.getName());
 			
 			One2Many3B o2 = (One2Many3B) repository.create(One2Many3B.class.getName());
 			o2.setRef(o1.getObjId());
@@ -89,7 +91,6 @@ public class One2ManyNoAssosiationTest {
 			o2.setRef(o1.getObjId());
 			repository.insert(o2, One2Many3B.class.getName());
 			
-			repository.insert(o1, One2Many3A.class.getName());
 			
 			repository.applyChanges(null);
 
@@ -146,29 +147,7 @@ public class One2ManyNoAssosiationTest {
 			repository.applyChanges(null);
 			
 			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-			
-			repository.remove(o1, One2Many3A.class.getName());
-			repository.applyChanges(null);
-
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3A.class.getName());
-			assertEquals(0,result.getSearchResult().size());
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3B.class.getName());
-			assertEquals(2,result.getSearchResult().size());
-
-			for (Object o : result.getSearchResult()){
-				One2Many3B o3 = (One2Many3B) o;
-				assertEquals(o1.getObjId(), o3.getRef());
-			}
-			
-			em.getTransaction().commit();
-			
+						
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
