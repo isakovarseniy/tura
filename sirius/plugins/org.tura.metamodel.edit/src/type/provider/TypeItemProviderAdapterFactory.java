@@ -278,6 +278,29 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link type.DomainConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DomainConnectorItemProvider domainConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link type.DomainConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDomainConnectorAdapter() {
+		if (domainConnectorItemProvider == null) {
+			domainConnectorItemProvider = new DomainConnectorItemProvider(this);
+		}
+
+		return domainConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link type.Link} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

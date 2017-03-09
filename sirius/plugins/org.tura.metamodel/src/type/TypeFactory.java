@@ -103,6 +103,15 @@ public interface TypeFactory extends EFactory {
 	Assosiation createAssosiation();
 
 	/**
+	 * Returns a new object of class '<em>Domain Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Domain Connector</em>'.
+	 * @generated
+	 */
+	DomainConnector createDomainConnector();
+
+	/**
 	 * Returns a new object of class '<em>Link</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

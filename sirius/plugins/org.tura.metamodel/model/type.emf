@@ -65,6 +65,12 @@ class Assosiation extends Relationship{
    val TypePointer many2manyHelper;
 }
 
+class DomainConnector  extends Relationship{
+   val Link[*]  links; 
+   attr EString sourceOperation;
+   attr EString targetOperation;
+}
+
 
 class Link{
     id attr EString uid;

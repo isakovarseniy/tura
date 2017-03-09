@@ -131,6 +131,14 @@ public class TypeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case TypePackage.DOMAIN_CONNECTOR: {
+				DomainConnector domainConnector = (DomainConnector)theEObject;
+				T result = caseDomainConnector(domainConnector);
+				if (result == null) result = caseRelationship(domainConnector);
+				if (result == null) result = caseCategorized(domainConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case TypePackage.LINK: {
 				Link link = (Link)theEObject;
 				T result = caseLink(link);
@@ -352,6 +360,21 @@ public class TypeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAssosiation(Assosiation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Domain Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Domain Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDomainConnector(DomainConnector object) {
 		return null;
 	}
 

@@ -108,6 +108,10 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 				return createAssosiationAdapter();
 			}
 			@Override
+			public Adapter caseDomainConnector(DomainConnector object) {
+				return createDomainConnectorAdapter();
+			}
+			@Override
 			public Adapter caseLink(Link object) {
 				return createLinkAdapter();
 			}
@@ -306,6 +310,20 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAssosiationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link type.DomainConnector <em>Domain Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see type.DomainConnector
+	 * @generated
+	 */
+	public Adapter createDomainConnectorAdapter() {
 		return null;
 	}
 

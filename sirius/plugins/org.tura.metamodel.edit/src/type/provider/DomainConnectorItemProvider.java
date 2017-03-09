@@ -3,54 +3,37 @@
 package type.provider;
 
 
-import domain.provider.DomainEditPlugin;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import type.DomainConnector;
 import type.TypeFactory;
-import type.TypeGroup;
 import type.TypePackage;
 
 /**
- * This is the item provider adapter for a {@link type.TypeGroup} object.
+ * This is the item provider adapter for a {@link type.DomainConnector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypeGroupItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class DomainConnectorItemProvider extends RelationshipItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeGroupItemProvider(AdapterFactory adapterFactory) {
+	public DomainConnectorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -65,26 +48,26 @@ public class TypeGroupItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addUidPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
+			addSourceOperationPropertyDescriptor(object);
+			addTargetOperationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Uid feature.
+	 * This adds a property descriptor for the Source Operation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addUidPropertyDescriptor(Object object) {
+	protected void addSourceOperationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TypeGroup_uid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TypeGroup_uid_feature", "_UI_TypeGroup_type"),
-				 TypePackage.Literals.TYPE_GROUP__UID,
+				 getString("_UI_DomainConnector_sourceOperation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DomainConnector_sourceOperation_feature", "_UI_DomainConnector_type"),
+				 TypePackage.Literals.DOMAIN_CONNECTOR__SOURCE_OPERATION,
 				 true,
 				 false,
 				 false,
@@ -94,19 +77,19 @@ public class TypeGroupItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Target Operation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addTargetOperationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TypeGroup_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TypeGroup_name_feature", "_UI_TypeGroup_type"),
-				 TypePackage.Literals.TYPE_GROUP__NAME,
+				 getString("_UI_DomainConnector_targetOperation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DomainConnector_targetOperation_feature", "_UI_DomainConnector_type"),
+				 TypePackage.Literals.DOMAIN_CONNECTOR__TARGET_OPERATION,
 				 true,
 				 false,
 				 false,
@@ -127,8 +110,7 @@ public class TypeGroupItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TypePackage.Literals.TYPE_GROUP__TYPES);
-			childrenFeatures.add(TypePackage.Literals.TYPE_GROUP__RELATIONSHIPS);
+			childrenFeatures.add(TypePackage.Literals.DOMAIN_CONNECTOR__LINKS);
 		}
 		return childrenFeatures;
 	}
@@ -147,14 +129,14 @@ public class TypeGroupItemProvider
 	}
 
 	/**
-	 * This returns TypeGroup.gif.
+	 * This returns DomainConnector.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TypeGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DomainConnector"));
 	}
 
 	/**
@@ -165,10 +147,10 @@ public class TypeGroupItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TypeGroup)object).getName();
+		String label = ((DomainConnector)object).getUid();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TypeGroup_type") :
-			getString("_UI_TypeGroup_type") + " " + label;
+			getString("_UI_DomainConnector_type") :
+			getString("_UI_DomainConnector_type") + " " + label;
 	}
 	
 
@@ -183,13 +165,12 @@ public class TypeGroupItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TypeGroup.class)) {
-			case TypePackage.TYPE_GROUP__UID:
-			case TypePackage.TYPE_GROUP__NAME:
+		switch (notification.getFeatureID(DomainConnector.class)) {
+			case TypePackage.DOMAIN_CONNECTOR__SOURCE_OPERATION:
+			case TypePackage.DOMAIN_CONNECTOR__TARGET_OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case TypePackage.TYPE_GROUP__TYPES:
-			case TypePackage.TYPE_GROUP__RELATIONSHIPS:
+			case TypePackage.DOMAIN_CONNECTOR__LINKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -209,64 +190,8 @@ public class TypeGroupItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__TYPES,
-				 TypeFactory.eINSTANCE.createTypeElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__TYPES,
-				 TypeFactory.eINSTANCE.createPrimitive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__TYPES,
-				 TypeFactory.eINSTANCE.createType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__TYPES,
-				 TypeFactory.eINSTANCE.createTypeReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__TYPES,
-				 TypeFactory.eINSTANCE.createEnumerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__RELATIONSHIPS,
-				 TypeFactory.eINSTANCE.createRelationship()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__RELATIONSHIPS,
-				 TypeFactory.eINSTANCE.createReferences()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__RELATIONSHIPS,
-				 TypeFactory.eINSTANCE.createGeneralization()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__RELATIONSHIPS,
-				 TypeFactory.eINSTANCE.createAssosiation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__RELATIONSHIPS,
-				 TypeFactory.eINSTANCE.createDomainConnector()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return DomainEditPlugin.INSTANCE;
+				(TypePackage.Literals.DOMAIN_CONNECTOR__LINKS,
+				 TypeFactory.eINSTANCE.createLink()));
 	}
 
 }
