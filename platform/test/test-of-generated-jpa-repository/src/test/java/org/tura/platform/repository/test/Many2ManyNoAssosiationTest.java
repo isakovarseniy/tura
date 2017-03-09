@@ -22,15 +22,15 @@ import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 
-import objects.test.serialazable.jpa.AddMany2Many1B2Many2Many1AOnMany2Many1BData;
+import objects.test.serialazable.jpa.AddMany2Many2B2Many2Many2AOnNoAssosiationMany2Many2BData;
 import objects.test.serialazable.jpa.JPATestPackageDataProvider;
-import objects.test.serialazable.jpa.Many2Many1A;
-import objects.test.serialazable.jpa.Many2Many1B;
+import objects.test.serialazable.jpa.Many2Many2A;
+import objects.test.serialazable.jpa.Many2Many2B;
 import objects.test.serialazable.jpa.ProxyRepository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Many2ManyNoContainmentTest {
 
+public class Many2ManyNoAssosiationTest {
 
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
@@ -81,15 +81,16 @@ public class Many2ManyNoContainmentTest {
 
 			em.getTransaction().begin();
 
-			Many2Many1A o1 = (Many2Many1A) repository.create(Many2Many1A.class.getName());
-			repository.insert(o1, Many2Many1A.class.getName());
+			Many2Many2A o1 = (Many2Many2A) repository.create(Many2Many2A.class.getName());
+			repository.insert(o1, Many2Many2A.class.getName());
 
-			Many2Many1B o2 = (Many2Many1B) repository.create(Many2Many1B.class.getName());
-			repository.insert(o2, Many2Many1B.class.getName());
+			Many2Many2B o2 = (Many2Many2B) repository.create(Many2Many2B.class.getName());
+			repository.insert(o2, Many2Many2B.class.getName());
 			
-			AddMany2Many1B2Many2Many1AOnMany2Many1BData m2m = new AddMany2Many1B2Many2Many1AOnMany2Many1BData();
-			m2m.setMany2Many1AObjId(o1.getObjId());
-			m2m.setMany2Many1BObjId(o2.getObjId());
+			AddMany2Many2B2Many2Many2AOnNoAssosiationMany2Many2BData m2m = new AddMany2Many2B2Many2Many2AOnNoAssosiationMany2Many2BData();
+			
+			m2m.setMany2Many2AObjId(o1.getObjId());
+			m2m.setMany2Many2BObjId(o2.getObjId());
 			repository.getCommandStack().add(m2m);
 			
 			repository.applyChanges(null);
@@ -98,12 +99,12 @@ public class Many2ManyNoContainmentTest {
 			em.getTransaction().begin();
 
 			SearchResult result =  repository.find(new ArrayList<SearchCriteria>(),
-					new ArrayList<OrderCriteria>(), 0, 100, Many2Many1A.class.getName());
+					new ArrayList<OrderCriteria>(), 0, 100, Many2Many2A.class.getName());
 
 			assertEquals(1, result.getSearchResult().size());
 
 			result =  repository.find(new ArrayList<SearchCriteria>(),
-					new ArrayList<OrderCriteria>(), 0, 100, Many2Many1B.class.getName());
+					new ArrayList<OrderCriteria>(), 0, 100, Many2Many2B.class.getName());
 			
 			assertEquals(1, result.getSearchResult().size());
 
@@ -121,6 +122,7 @@ public class Many2ManyNoContainmentTest {
 		}
 
 	}
+
 	
 	
 }
