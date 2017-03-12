@@ -268,19 +268,27 @@ public class Util {
 	}
 
 	public static String mergeAndCapitalize(String name) {
-		String[] ls = StringUtils.split(name, " ");
-		for (int i = 0; i < ls.length; i++) {
-			ls[i] = StringUtils.capitalize(ls[i]);
+		if (name != null ){
+			String[] ls = StringUtils.split(name, " ");
+			for (int i = 0; i < ls.length; i++) {
+				ls[i] = StringUtils.capitalize(ls[i]);
+			}
+			return StringUtils.join(ls);
+		}else{
+			return "Error !!!";
 		}
-		return StringUtils.join(ls);
 	}
 
 	public static String mergeAndUnCapitalize(String name) {
-		String[] ls = StringUtils.split(name, " ");
-		for (int i = 0; i < ls.length; i++) {
-			ls[i] = StringUtils.capitalize(ls[i]);
+		if (name != null ){
+			String[] ls = StringUtils.split(name, " ");
+			for (int i = 0; i < ls.length; i++) {
+				ls[i] = StringUtils.capitalize(ls[i]);
+			}
+			return StringUtils.uncapitalize(StringUtils.join(ls));
+		}else{
+			return "Error !!!";
 		}
-		return StringUtils.uncapitalize(StringUtils.join(ls));
 	}
 
 	public static String dashmergeAndUnCapitalize(String name) {

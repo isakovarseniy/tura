@@ -62,7 +62,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 		    %]repository.addCommand(  new [%=tp.~package%].commands.Update[%=tp.~class%]On[%=util.mergeAndCapitalize(attribute.name)%]Command(em), [%=tp.~package%].Update[%=tp.~class%][%=util.mergeAndCapitalize(attribute.name)%]Data.class.getName());[%
       }
      %]
-         classLoader.put( [%=t2view.get(tp).get("fullName")%].class.getName(),new [%=t2view.get(tp).get("package")%].commands.Load[%=t2view.get(tp).get("class")%]Command(em)  );
+         classLoader.put( [%=t2view.get(tp).get("fullName")%].class.getName(),new [%=t2view.get(tp).get("package")%].commands.Load[%=t2view.get(tp).get("class")%]Command(em,repository)  );
          classMapper.put( [%=t2view.get(tp).get("fullName")%].class.getName(),[%=t2model.get(tp).get("fullName")%].class.getName()  );
      [%
          var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid);
@@ -163,7 +163,9 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 		com.octo.java.sql.query.SelectQuery dslQuery = org.tura.platform.datacontrol.commons.DefaulQueryFactory.builder(searchCriteria, orderCriteria, Class.forName(objectClass));
 		javax.persistence.Query query = getEntityManager().createQuery(dslQuery.toSql(), clazz);
 		query.setFirstResult(startIndex);
-		query.setMaxResults(endIndex - startIndex);
+		if (endIndex > 0){
+		   query.setMaxResults(endIndex - startIndex);
+		}
 		for (String param : dslQuery.getParams().keySet()) {
 			query.setParameter(param, dslQuery.getParams().get(param));
 		}

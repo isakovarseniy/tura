@@ -94,6 +94,11 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  {
 		    }
 		}
 		
+	var domainConnectors = type::DomainConnector.allInstances()->select(t|t.source.uid = type.uid);
+ 	for (connector in domainConnectors){
+ 	  %][%=connector.domainObjectConnection(recipe,ingredient,model_mapper)%][%
+ 	}
+		
  	 var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
  	 for ( rel in assosiations  ){
 	  	 switch  (rel.type.toString()){
@@ -123,6 +128,61 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  {
 }        
       
 [%
+
+@template
+operation type::DomainConnector domainObjectConnection(recipe,ingredient,model_mapper){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      self.target.mappingType2Java(recipe,ingredient);
+%]
+      @Override
+      public java.util.List<[%=self.target.~fullName%]> get[%=self.target.~class%](){
+    	return new java.util.AbstractList<[%=self.target.~fullName%]>() {
+
+    		@Override
+    		public void add(int i , [%=self.target.~fullName%] [%=util.mergeAndUnCapitalize(self.target.~class)%]){
+		     [%
+ 		         for (lnk in self.links){
+ 		      %]
+ 		        [%=util.mergeAndUnCapitalize(self.target.~class)%].set[%=util.mergeAndCapitalize(lnk.detailField.name)%](object.get[%=util.mergeAndCapitalize(lnk.masterField.name)%]());     
+     		[%
+     		}
+     		%]
+     		 object.get[%=self.target.~class%]().add(i,[%=util.mergeAndUnCapitalize(self.target.~class)%]);
+            }
+            
+       		@Override
+       	    public  [%=self.target.~fullName%]  remove(int index) {
+       	      [%=self.target.~fullName%] [%=util.mergeAndUnCapitalize(self.target.~class)%] = object.get[%=self.target.~class%]().remove(index);
+		     [%
+ 		         for (lnk in self.links){
+ 		      %]
+ 		        [%=util.mergeAndUnCapitalize(self.target.~class)%].set[%=util.mergeAndCapitalize(lnk.detailField.name)%](null);     
+     		[%
+     		}
+     		%]
+       	      return [%=util.mergeAndUnCapitalize(self.target.~class)%];
+       	    }
+
+			@Override
+			public [%=self.target.~fullName%] get(int index) {
+				[%=self.target.~fullName%]  [%=util.mergeAndUnCapitalize(self.target.~class)%] = object.get[%=self.target.~class%]().get(index);
+				if ([%=util.mergeAndUnCapitalize(self.target.~class)%] instanceof [%=self.target.~fullName%]Proxy){
+					return  [%=util.mergeAndUnCapitalize(self.target.~class)%];
+				}else{
+				   return new [%=self.target.~fullName%]Proxy(object.get[%=self.target.~class%]().get(index),commandStack);
+				}
+			}
+
+			@Override
+			public int size() {
+				return object.get[%=self.target.~class%]().size();
+			}
+    	};
+      }
+[%
+}
+
+
 @template
 operation type::Assosiation one2oneSrc(recipe,ingredient,model_mapper){
       var util = new Native('org.tura.metamodel.commons.Util');

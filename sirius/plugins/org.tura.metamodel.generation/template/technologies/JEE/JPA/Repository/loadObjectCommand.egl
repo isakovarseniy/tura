@@ -10,15 +10,25 @@ package [%=t2view.get(type).get("package")%].commands;
 
 public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.platform.repository.core.Command{
 
-     javax.persistence.EntityManager em;
+    private javax.persistence.EntityManager em;
+    private org.tura.platform.repository.core.Repository repository;
+     
+     
      public void setEntityManager(javax.persistence.EntityManager em){
            this.em=em;
      }
 
 
+     public Load[%=t2view.get(type).get("class")%]Command (javax.persistence.EntityManager em,org.tura.platform.repository.core.Repository repository){
+        this.repository = repository;
+        this.em=em;
+     }
+
      public Load[%=t2view.get(type).get("class")%]Command (javax.persistence.EntityManager em){
         this.em=em;
      }
+
+
 
         public Object execute( Object obj ){
 			java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule>();
@@ -42,7 +52,7 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
         context.put(key.toString(),obj);
         [%=addLoadRules(tp,recipe,ingredient,t2model,t2view,model_mapper)%]
         [%=addLoadNoAssosiationRules(tp,recipe,ingredient,t2model,t2view,model_mapper)%]
-        
+        [%=addLoadDomainConnectorRules(tp,recipe,ingredient,t2model,t2view,model_mapper)%]
         
          return obj;
        }
@@ -87,7 +97,7 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
  				  [%=t2view.get(hash.get("target")).get("fullName")%] obj[%=suffix%] = ([%=t2view.get(hash.get("target")).get("fullName")%] )context.get(key[%=hash.get("sourceMethodName")%].toString());
                   if (obj[%=suffix%] == null){
                  
-                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](em); 
+                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](em,repository); 
                  cmd[%=suffix%].setEntityManager(em);
                  obj[%=suffix%] = cmd[%=suffix%].load(target[%=suffix%],context,rules);
                  context.put(key[%=hash.get("sourceMethodName")%].toString(),obj[%=suffix%]);
@@ -138,7 +148,7 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
 				  [%=t2view.get(hash.get("source")).get("fullName")%] obj[%=suffix%] = ([%=t2view.get(hash.get("source")).get("fullName")%] )context.get(key[%=hash.get("targetMethodName")%].toString());
                   if (obj[%=suffix%] == null){
                  
-                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](em); 
+                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](em,repository); 
                  cmd[%=suffix%].setEntityManager(em);
                  obj[%=suffix%] = cmd[%=suffix%].load(source[%=suffix%],context,rules);
                  context.put(key[%=hash.get("targetMethodName")%].toString(),obj[%=suffix%]);
@@ -194,6 +204,55 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
             }
          }  
 }
+
+
+@template
+ operation addLoadDomainConnectorRules (type,recipe,ingredient,t2model,t2view,model_mapper){
+         var util = new Native('org.tura.metamodel.commons.Util');
+         var tp = type;
+    %] if (repository != null){ 
+ 		       java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriterias =  null;
+  		       java.util.ArrayList<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriterias =  null;
+  		       org.tura.platform.datacontrol.commons.SearchCriteria criteria = null;
+  		       org.tura.platform.repository.core.SearchResult result = null;
+    [%
+         while  (1 == 1) {
+ 		     var domainConnectors = type::DomainConnector.allInstances()->select(t|t.source.uid = type.uid);
+ 		     for (connector in domainConnectors){
+ 		     %]
+ 		       searchCriterias =  new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
+  		       orderCriterias =  new java.util.ArrayList<org.tura.platform.datacontrol.commons.OrderCriteria>();
+ 		     [%
+ 		         for (lnk in connector.links){
+ 		             %]
+ 		               criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
+ 		               criteria.setName("[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]");
+ 		               criteria.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
+ 		               criteria.setValue(jpa.get[%=util.mergeAndCapitalize(lnk.masterField.name)%]());
+ 		               searchCriterias.add(criteria);
+ 		               try {
+			               result = repository.find(searchCriterias, orderCriterias, 0, -1, "[%=connector.target.~fullName%]");
+			          } catch (org.tura.platform.repository.core.RepositoryException e) {
+			             throw new RuntimeException(e);
+			          }
+			               
+			           if (result.getNumberOfRows()>0){
+			               obj.get[%=connector.target.~class%]().addAll((java.util.Collection<? extends [%=connector.target.~fullName%]>) result.getSearchResult());
+			           }
+ 		             [%
+ 		     
+ 		         }
+		     }
+		
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+         }  
+         %]}[%
+}
+
 
 %]     
  

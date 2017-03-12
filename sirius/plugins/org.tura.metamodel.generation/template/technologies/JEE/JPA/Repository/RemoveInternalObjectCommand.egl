@@ -97,12 +97,10 @@ operation remove(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type
 		                
                  %] 
                 
-                 if ( target[%=suffix%].getOperation() == null ){
                  
-                     [%=serializer%] cmd[%=suffix%]  = new [%=serializer%] ();
-                     cmd[%=suffix%].setEntityManager(em); 
-                     cmd[%=suffix%].remove(target[%=suffix%],rules); 
-                 }
+                 [%=serializer%] cmd[%=suffix%]  = new [%=serializer%] ();
+                 cmd[%=suffix%].setEntityManager(em); 
+                 cmd[%=suffix%].remove(target[%=suffix%],rules); 
                  [%=PK(rel.target,"pk"+suffix,"target"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
                  [%=t2model.get(rel.target).get("fullName")%] targetJpa[%=t2model.get(rel.target).get("class")%] = em.find([%=t2model.get(rel.target).get("fullName")%].class ,pk[%=suffix%]);
 
@@ -154,12 +152,10 @@ operation remove(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type
                  %] 
                 
                  
-                 if (source[%=suffix%].getOperation() == null ){
                  
                   [%=serializer%] cmd[%=suffix%]  = new [%=serializer%] ();
                   cmd[%=suffix%].setEntityManager(em); 
                   cmd[%=suffix%].remove(source[%=suffix%],rules); 
-                 }
 
                  [%=PK(rel.target,"pk"+suffix,"source"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
                  [%=t2model.get(rel.source).get("fullName")%] sourceJpa[%=t2model.get(rel.source).get("class")%] = em.find([%=t2model.get(rel.source).get("fullName")%].class ,pk[%=suffix%]);

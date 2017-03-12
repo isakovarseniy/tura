@@ -659,6 +659,9 @@
             <classifiers uid="3d9c432f-cc52-4a35-85ab-65858a079663" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
             <links uid="e692c052-100f-47f8-b173-a3a0421b901d" masterField="ca180226-65db-43cb-9aa4-def9addc2186" detailField="ee1a5a37-44dc-4f3a-b711-538e82d964b3"/>
           </relationships>
+          <relationships xsi:type="tura.type:DomainConnector" uid="cd47711d-d456-4175-be0c-8627df633344" source="187ba0cb-e554-4753-b7a2-a6ead1ba3bcc" target="2632e4e2-a6cb-428a-a43b-b1ad0c39c61b" sourceOperation="">
+            <links uid="bdc57b5a-8bab-4541-b48f-c8ee79b60af2" masterField="c4e967ae-bc19-4d1b-8581-16e6607da86f" detailField="3e18d4ab-d043-4aa0-937e-d1d4cce278f5"/>
+          </relationships>
         </repositoryPackages>
         <repositoryPackages uid="606e5926-7b6c-4685-a788-3a4d4aa4b932" name="Domain model test package">
           <types xsi:type="tura.type:Type" uid="f05f5088-03b8-4044-9388-1ac846647766" name="Client">

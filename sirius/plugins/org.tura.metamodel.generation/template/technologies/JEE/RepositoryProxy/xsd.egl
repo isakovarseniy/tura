@@ -24,7 +24,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
            if (not type.~extension.isDefined()){ 
            %] 
                <xs:element name="attached" type="xs:boolean"/>
-               <xs:element name="operation" type="xs:string"/>
             [%}
           
           
@@ -38,6 +37,17 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 		    [%
 		
 			}
+			
+ 		var domainConnectors = type::DomainConnector.allInstances()->select(t|t.source.uid = type.uid);
+ 		for (connector in domainConnectors){
+ 			connector.source.mappingType2XML(recipe,ingredient);
+ 			connector.target.mappingType2XML(recipe,ingredient);
+ 		%]
+ 		
+ 		<xs:element name="[%=util.mergeAndUnCapitalize(connector.target.name)%]"  type= "[%=getNamespace(connector.target.~namespace,targetnamespace,fullHash,returnHash)%][%=connector.target.~class%]"   maxOccurs="unbounded"/> 
+ 		[%
+ 		}			
+			
 			
 		  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
 	      for (rel in assosiations){
@@ -92,7 +102,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
            
           %]<xs:complexType name="[%=rel.source.~class%]Many2Many[%=rel.target.~class%]Relation">
           <xs:sequence>
-          <xs:element name="operation" type="xs:string"/>
           [%
                for (lnk in rel.links){
                   lnk.masterField.typeRef.mappingType2XML(recipe,ingredient);
