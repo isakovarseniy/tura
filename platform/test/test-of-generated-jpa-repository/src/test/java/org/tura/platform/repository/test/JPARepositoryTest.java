@@ -98,7 +98,6 @@ public class JPARepositoryTest {
 			
 			Client client = (Client) repository.create(Client.class.getName());
 			client.setName("Client name 1");
-			client.setOperation("I");
 
 			Person person = (Person) repository.create(Person.class.getName());
 			person.setName("Person name 1");
@@ -127,7 +126,6 @@ public class JPARepositoryTest {
 
 			client = (Client) repository.create(Client.class.getName());
 			client.setName("Client name 2");
-			client.setOperation("I");
 
 			person = (Person) repository.create(Person.class.getName());
 			person.setName("Person name 2");

@@ -600,6 +600,15 @@
             <classifiers uid="548ecefe-e282-45e1-8b3a-8c2385155196" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="ee1a5a37-44dc-4f3a-b711-538e82d964b3" name="objId" pk="true"/>
           </types>
+          <types xsi:type="tura.type:Type" uid="1774c5bf-9736-4b2d-ab54-a927ba5396f4" name="IndepObject1">
+            <classifiers uid="e0b430bc-b545-4c14-883b-27bb26601ce9" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="3547bec4-8e40-4eed-995f-3e31fab8f675" name="objId" pk="true"/>
+          </types>
+          <types xsi:type="tura.type:Type" uid="b911fe37-d827-45e9-ad4e-6a0e90a05c13" name="IndepObject2">
+            <classifiers uid="709f1b15-ec3b-4358-afcc-721e40b72d4f" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="cffa796d-d556-43e8-b1c4-549b3b73d899" name="objId" pk="true"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="1a14f4eb-c324-4b3a-9576-cb49830acca2" name="ref"/>
+          </types>
           <relationships xsi:type="tura.type:Assosiation" uid="05b8203a-a5ba-40e9-9e80-c0d33f20a054" source="2c8f38e5-fb95-4fff-92b8-f58e2fa17ee0" target="6986a47f-7571-4ce0-a591-18b1d979f67c">
             <links uid="3e462c1d-0a8b-45b1-9432-b418c184de7e" masterField="47301e42-b34a-4dcf-911d-32f7de1eb096" detailField="63ad86d7-e335-4710-aaca-851c830af972"/>
           </relationships>
@@ -659,8 +668,8 @@
             <classifiers uid="3d9c432f-cc52-4a35-85ab-65858a079663" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
             <links uid="e692c052-100f-47f8-b173-a3a0421b901d" masterField="ca180226-65db-43cb-9aa4-def9addc2186" detailField="ee1a5a37-44dc-4f3a-b711-538e82d964b3"/>
           </relationships>
-          <relationships xsi:type="tura.type:DomainConnector" uid="cd47711d-d456-4175-be0c-8627df633344" source="187ba0cb-e554-4753-b7a2-a6ead1ba3bcc" target="2632e4e2-a6cb-428a-a43b-b1ad0c39c61b" sourceOperation="">
-            <links uid="bdc57b5a-8bab-4541-b48f-c8ee79b60af2" masterField="c4e967ae-bc19-4d1b-8581-16e6607da86f" detailField="3e18d4ab-d043-4aa0-937e-d1d4cce278f5"/>
+          <relationships xsi:type="tura.type:DomainConnector" uid="aec8e9a2-980f-4424-af42-b22882f8170f" source="1774c5bf-9736-4b2d-ab54-a927ba5396f4" target="b911fe37-d827-45e9-ad4e-6a0e90a05c13">
+            <links uid="af81a26c-8339-4bd7-9094-c260ec049017" masterField="3547bec4-8e40-4eed-995f-3e31fab8f675" detailField="1a14f4eb-c324-4b3a-9576-cb49830acca2"/>
           </relationships>
         </repositoryPackages>
         <repositoryPackages uid="606e5926-7b6c-4685-a788-3a4d4aa4b932" name="Domain model test package">

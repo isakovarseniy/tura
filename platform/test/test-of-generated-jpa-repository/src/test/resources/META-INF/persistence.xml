@@ -55,6 +55,8 @@
 		<class>org.tura.jpa.test.Phone</class>
 		<class>org.tura.jpa.test.One2One3B</class>
 		<class>org.tura.jpa.test.One2One4B</class>
+		<class>org.tura.jpa.test.IndepObject1</class>
+		<class>org.tura.jpa.test.IndepObject2</class>
 		
 		<class>org.tura.platform.object.persistence.ObjectsID</class>
      
