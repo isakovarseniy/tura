@@ -144,12 +144,12 @@ public class GMFGeneration {
 									template = Util.loadTemplate(templatePath,parameters, factory);
 
 									if (template != null && template.getParseProblems().isEmpty()) {
-										editingDomain.getCommandStack().execute(new EGLCommand(factory,template));
+									editingDomain.getCommandStack().execute(new EGLCommand(factory,template));
 									} else {
 										LogUtil.logInfo("Generation action failed. Template parsing problem :"+ templatePath);
 										generationError = true;
 									}
-								} catch (Exception e) {
+								} catch (Throwable e) {
 									LogUtil.log("Generation action failed. Ingredient -> {"
 															+ ingredient.getName()
 															+ "} Component -> {"
@@ -164,7 +164,7 @@ public class GMFGeneration {
 						}
 					}
 				}
-			} catch(Exception e) {
+			} catch(Throwable e) {
 				LogUtil.log(e);
 			}
 		}

@@ -50,7 +50,7 @@ public class EolCommand implements Command{
 
 	@Override
 	public boolean canUndo() {
-		return true;
+		return false;
 	}
 
 	

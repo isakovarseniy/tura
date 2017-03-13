@@ -48,7 +48,7 @@ public class EGLCommand implements Command {
 	}
 
 	public boolean canUndo() {
-		return true;
+		return false;
 	}
 
 	public Command chain(Command command) {

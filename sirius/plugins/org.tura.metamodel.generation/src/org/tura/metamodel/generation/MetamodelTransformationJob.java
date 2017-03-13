@@ -16,7 +16,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.epsilon.common.dt.util.LogUtil;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
@@ -63,20 +62,24 @@ public class MetamodelTransformationJob extends Job {
 				.getDocumentProvider()).getDocument(input);
 
 		GMFGeneration gmfGeneration = new GMFGeneration(monitor);
-
-		runGeneration(((IDiagramWorkbenchPart) editorPart).getDiagramEditPart(), (View) document.getContent(),
-				infrastructure, gmfGeneration);
-		if (gmfGeneration.isGenerationError()) {
-			Display.getDefault().asyncExec(new Runnable() {
-				public void run() {
-					MessageDialog dialog = new MessageDialog(Display.getDefault().getActiveShell(), "Tura", null,
-							"Generation error", MessageDialog.ERROR, new String[] { "Ok" }, 0);
-					dialog.open();
-				}
-			});
-
-		}
-
+        try{
+			runGeneration(((IDiagramWorkbenchPart) editorPart).getDiagramEditPart(), (View) document.getContent(),
+					infrastructure, gmfGeneration);
+			if (gmfGeneration.isGenerationError()) {
+				Display.getDefault().asyncExec(new Runnable() {
+					public void run() {
+						MessageDialog dialog = new MessageDialog(Display.getDefault().getActiveShell(), "Tura", null,
+								"Generation error", MessageDialog.ERROR, new String[] { "Ok" }, 0);
+						dialog.open();
+					}
+				});
+	
+			}
+        }catch(Throwable t){
+			LogUtil.log(t);
+        }
+        monitor.done();
+        
 		return Status.OK_STATUS;
 
 	}
@@ -91,30 +94,6 @@ public class MetamodelTransformationJob extends Job {
 
 		action.generate(fpart, fview, infra);
 
-	}
-
-	public static void runWithConstraints(
-			TransactionalEditingDomain editingDomain, Runnable operation) {
-		final Runnable op = operation;
-		Runnable task = new Runnable() {
-			public void run() {
-				try {
-					constraintsActive = true;
-					op.run();
-				} finally {
-					constraintsActive = false;
-				}
-			}
-		};
-		if (editingDomain != null) {
-			try {
-				editingDomain.runExclusive(task);
-			} catch (Exception e) {
-				LogUtil.log(e);
-			}
-		} else {
-			task.run();
-		}
 	}
 
 }
