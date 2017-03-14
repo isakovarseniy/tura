@@ -40,7 +40,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	           topObject = false;
 	        }
 	        
-		   var cmd : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/assosiationtObjectCommand.egl",hash,TemplateFactory);
+		   var cmd : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/assosiationtObjectCommand.egl",hash,TemplateFactory,templateStore);
 	       cmd.setFormatter(f);
 	       var buffer = cmd.process();
 	       util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/proxy/commands", cmdtype+detailType.~class +hash.get("hyphen")+masterType.~class+ "On" + util.mergeAndCapitalize(property)+"Command.java",buffer);   
@@ -60,7 +60,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 		        hash.put("cmdtype",cmdtype);
 		        
 		        
-			    var cmd : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/topObjectCommand.egl",hash,TemplateFactory);
+			    var cmd : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/topObjectCommand.egl",hash,TemplateFactory,templateStore);
 		        cmd.setFormatter(f);
 		        var buffer = cmd.process();
 		        util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/proxy/commands", cmdtype+"Top"+type.~class+ "Command.java",buffer);   

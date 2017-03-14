@@ -70,6 +70,21 @@ public class Util {
 		return str;
 	}
 
+	private static long time;
+	
+	public static void initTimestamp(){
+		time =  System.currentTimeMillis();
+	}
+	
+	public static long timeDiff(){
+		long i = System.currentTimeMillis();
+		long j = i - time;
+		time = i;
+		return j;
+	}
+	
+	
+	
 	public static String apostropheRemover(String str) {
 		if (str.length() < 1)
 			return str;
@@ -556,6 +571,22 @@ public class Util {
 
 				return dialog.open(); 		
 	}
+	
+	public static EglTemplate loadTemplate(String templateFile,HashMap<String, Object> parameters, EglTemplateFactory factory,HashMap<String, Object> templateStore)
+			throws Exception {
+		EglTemplate template = (EglTemplate) templateStore.get(templateFile);
+		if (template == null){
+			template = loadTemplate( templateFile,parameters,  factory);
+			templateStore.put(templateFile, template);
+		}else{
+			template.reset();
+			for (String key :  parameters.keySet()) {
+				template.populate(key, parameters.get(key));
+			}
+		}
+		return template;
+	}
+	
 	
 	public static EglTemplate loadTemplate(String templateFile,HashMap<String, Object> parameters, EglTemplateFactory factory)
 			throws Exception {

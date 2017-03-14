@@ -12,6 +12,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
      var util = new Native('org.tura.metamodel.commons.Util');
      var alltypes = new Native('java.util.ArrayList');
      var hash = new Native('java.util.HashMap');
+     var templateStore = new Native('java.util.HashMap');
 
      var types = util.runQuery(model_mapper,"Query model classes",model_mapper);
      var nsHash = new Native("java.util.HashMap"); 
@@ -41,14 +42,15 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    hash.put("component",component);
 	    hash.put("model_mapper",model_mapper);
 	    hash.put("path",path);
+	    hash.put("templateStore",templateStore);
 		    
 	    util.populateTechnologies(hash,model_mapper);
 		
-	   var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/updateCommand.egl",hash,TemplateFactory);
+	   var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/updateCommand.egl",hash,TemplateFactory,templateStore);
 	   cmd.process();
       
       
-	   var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/assosiationProcessingCommand.egl",hash,TemplateFactory);
+	   var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/assosiationProcessingCommand.egl",hash,TemplateFactory,templateStore);
 	   cmd.process();
       
       
