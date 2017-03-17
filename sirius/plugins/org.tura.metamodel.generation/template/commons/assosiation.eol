@@ -78,11 +78,11 @@
     if (self.isTypeOf(type::TypeReference)){
         tp = self.typeRef;
     }
-    if (typeCollection.contains(tp)){
-        return;
+    
+    if (not typeCollection.contains(tp)){
+        typeCollection.add(tp);
     }
     
-    typeCollection.add(tp);
     
     var skipAttributes=skattr;
     if (skattr == null){
@@ -115,7 +115,9 @@
 	    if (tp1.isKindOf(type::TypeReference )){
 	        tp1 = tp1.typeRef;
 	    }
-	    tp1.collectType(typeCollection,model_mapper,null,null,null);
+	    if (not typeCollection.contains(tp1)){
+	        tp1.collectType(typeCollection,model_mapper,null,null,null);
+	    }
      }
 
 
@@ -126,7 +128,9 @@
 	    if (tp1.isKindOf(type::TypeReference )){
 	        tp1 = tp1.typeRef;
 	    }
-	    tp1.collectType(typeCollection,model_mapper,null,null,null);
+	    if (not typeCollection.contains(tp1)){
+	    	tp1.collectType(typeCollection,model_mapper,null,null,null);
+	    }
      }
 
      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and (t.type.toString() = "One2One" or t.type.toString() = "One2Many"));

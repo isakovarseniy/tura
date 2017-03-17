@@ -12,7 +12,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
  [%
       var util = new Native('org.tura.metamodel.commons.Util');
       for(type in typeCollection.values()){
-type.name.println();      
          %]<xs:complexType name="[%=type.~class%]">
           [%
            if (type.~extension.isDefined()){ 
@@ -32,15 +31,10 @@ type.name.println();
 		     if (type.~skipAttributes.contains(field) and not type.~bindedAttribute.contains(field)){
 		        continue; 
 		     }   
-"-".print();
-field.name.print();        		
 		    field.typeRef.mappingType2XML(recipe,ingredient);
-"+".print();
 		    %] <xs:element name="[%=util.mergeAndUnCapitalize(field.name)%]"  type=  "[%=getNamespace(field.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=field.typeRef.~class%]"/>
 		    [%
-"^".println();		
 			}
-"1".println();			
  		var domainConnectors = type::DomainConnector.allInstances()->select(t|t.source.uid = type.uid);
  		for (connector in domainConnectors){
  			connector.source.mappingType2XML(recipe,ingredient);
@@ -51,7 +45,6 @@ field.name.print();
  		[%
  		}			
 			
-"2".println();			
 			
 		  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
 	      for (rel in assosiations){
@@ -67,7 +60,6 @@ field.name.print();
 	         case "Many2Many" : %]  <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]"   maxOccurs="unbounded"/> [%
 	         }
 	      }
-"3".println();			
 
 	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
       for (rel in assosiations){
@@ -93,7 +85,6 @@ field.name.print();
 	        
 	     %]</xs:complexType>
 	      [%
-"4".println();			
 
  		var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
  		for ( rel in assosiations  ){
@@ -125,7 +116,6 @@ field.name.print();
   	       </xs:complexType>[%
        }
       }
-"5".println();			
       
       %][%=commandData (recipe,ingredient,targetnamespace,fullHash,returnHash,model_mapper,typeCollection)%][%
 
@@ -140,6 +130,7 @@ operation getNamespace(namespace,targetNamespace,fullHash,returnHash){
            returnHash.put("ns"+fullHash.get(namespace).get(1),namespace);
            return "ns"+fullHash.get(namespace).get(1)+":";
       }else{
+           util.traceIfDebug("Error","Undefined namespace : "+namespace);
            return "Error !!!!";
       }
   } 

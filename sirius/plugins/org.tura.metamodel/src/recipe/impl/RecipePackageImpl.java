@@ -618,8 +618,17 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDeploymentComponent_Skip() {
+		return (EAttribute)deploymentComponentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getDeploymentComponent_DeploymentComponentLink() {
-		return (EReference)deploymentComponentEClass.getEStructuralFeatures().get(3);
+		return (EReference)deploymentComponentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1298,6 +1307,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		createEAttribute(deploymentComponentEClass, DEPLOYMENT_COMPONENT__UID);
 		createEAttribute(deploymentComponentEClass, DEPLOYMENT_COMPONENT__NAME);
 		createEReference(deploymentComponentEClass, DEPLOYMENT_COMPONENT__MAPPER);
+		createEAttribute(deploymentComponentEClass, DEPLOYMENT_COMPONENT__SKIP);
 		createEReference(deploymentComponentEClass, DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK);
 
 		deploymentStarStepEClass = createEClass(DEPLOYMENT_STAR_STEP);
@@ -1465,6 +1475,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		initEAttribute(getDeploymentComponent_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, DeploymentComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeploymentComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, DeploymentComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeploymentComponent_Mapper(), this.getModelMapper(), null, "mapper", null, 0, 1, DeploymentComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeploymentComponent_Skip(), ecorePackage.getEBoolean(), "skip", null, 0, 1, DeploymentComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeploymentComponent_DeploymentComponentLink(), this.getDeploymentComponent(), null, "deploymentComponentLink", null, 0, 1, DeploymentComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentStarStepEClass, DeploymentStarStep.class, "DeploymentStarStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -2354,6 +2354,13 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_blue']"/>
           </style>
+          <conditionnalStyles predicateExpression="aql:self.skip">
+            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.mapper.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
         <edgeMappings name="FirstStep2Deployment" deletionDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Deployment%20sequence']/@defaultLayer/@toolSections.1/@ownedTools[name='DeploymentStarStep%20remove']" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Deployment%20sequence']/@defaultLayer/@nodeMappings[name='DeploymentStarStep']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Deployment%20sequence']/@defaultLayer/@nodeMappings[name='DeploymentComponent']" targetFinderExpression="feature:firstStep" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Deployment%20sequence']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20target%20DeploymentStarStep']">
           <style targetArrow="InputFillClosedArrow">

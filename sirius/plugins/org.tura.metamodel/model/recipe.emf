@@ -53,6 +53,7 @@ class DeploymentComponent{
     id attr EString uid;
     attr EString name;
     ref ModelMapper mapper;
+    attr EBoolean skip;
     ref DeploymentComponent deploymentComponentLink;
 }
 

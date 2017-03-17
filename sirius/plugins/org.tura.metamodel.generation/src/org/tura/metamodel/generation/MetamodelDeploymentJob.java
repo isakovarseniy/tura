@@ -101,7 +101,7 @@ public class MetamodelDeploymentJob extends Job {
 
 				monitor.subTask( component.getMapper().getName());
 
-				if (component.getMapper().getArtifactExecutionString() != null) {
+				if (!component.isSkip() &&  component.getMapper().getArtifactExecutionString() != null) {
 					System.out.println("Execution: " + component.getMapper().getArtifactExecutionString());
 					Process proc = Runtime.getRuntime().exec(component.getMapper().getArtifactExecutionString());
 

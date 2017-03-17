@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link recipe.DeploymentComponent#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.DeploymentComponent#getName <em>Name</em>}</li>
  *   <li>{@link recipe.DeploymentComponent#getMapper <em>Mapper</em>}</li>
+ *   <li>{@link recipe.DeploymentComponent#isSkip <em>Skip</em>}</li>
  *   <li>{@link recipe.DeploymentComponent#getDeploymentComponentLink <em>Deployment Component Link</em>}</li>
  * </ul>
  *
@@ -101,6 +102,32 @@ public interface DeploymentComponent extends EObject {
 	 * @generated
 	 */
 	void setMapper(ModelMapper value);
+
+	/**
+	 * Returns the value of the '<em><b>Skip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Skip</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Skip</em>' attribute.
+	 * @see #setSkip(boolean)
+	 * @see recipe.RecipePackage#getDeploymentComponent_Skip()
+	 * @model
+	 * @generated
+	 */
+	boolean isSkip();
+
+	/**
+	 * Sets the value of the '{@link recipe.DeploymentComponent#isSkip <em>Skip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Skip</em>' attribute.
+	 * @see #isSkip()
+	 * @generated
+	 */
+	void setSkip(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Deployment Component Link</b></em>' reference.

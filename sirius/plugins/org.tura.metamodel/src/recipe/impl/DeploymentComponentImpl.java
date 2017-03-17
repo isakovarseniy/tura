@@ -25,6 +25,7 @@ import recipe.RecipePackage;
  *   <li>{@link recipe.impl.DeploymentComponentImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link recipe.impl.DeploymentComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.DeploymentComponentImpl#getMapper <em>Mapper</em>}</li>
+ *   <li>{@link recipe.impl.DeploymentComponentImpl#isSkip <em>Skip</em>}</li>
  *   <li>{@link recipe.impl.DeploymentComponentImpl#getDeploymentComponentLink <em>Deployment Component Link</em>}</li>
  * </ul>
  *
@@ -80,6 +81,26 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 	 * @ordered
 	 */
 	protected ModelMapper mapper;
+
+	/**
+	 * The default value of the '{@link #isSkip() <em>Skip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSkip()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SKIP_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSkip() <em>Skip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSkip()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean skip = SKIP_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDeploymentComponentLink() <em>Deployment Component Link</em>}' reference.
@@ -195,6 +216,27 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSkip() {
+		return skip;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkip(boolean newSkip) {
+		boolean oldSkip = skip;
+		skip = newSkip;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecipePackage.DEPLOYMENT_COMPONENT__SKIP, oldSkip, skip));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DeploymentComponent getDeploymentComponentLink() {
 		if (deploymentComponentLink != null && deploymentComponentLink.eIsProxy()) {
 			InternalEObject oldDeploymentComponentLink = (InternalEObject)deploymentComponentLink;
@@ -243,6 +285,8 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 			case RecipePackage.DEPLOYMENT_COMPONENT__MAPPER:
 				if (resolve) return getMapper();
 				return basicGetMapper();
+			case RecipePackage.DEPLOYMENT_COMPONENT__SKIP:
+				return isSkip();
 			case RecipePackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK:
 				if (resolve) return getDeploymentComponentLink();
 				return basicGetDeploymentComponentLink();
@@ -266,6 +310,9 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 				return;
 			case RecipePackage.DEPLOYMENT_COMPONENT__MAPPER:
 				setMapper((ModelMapper)newValue);
+				return;
+			case RecipePackage.DEPLOYMENT_COMPONENT__SKIP:
+				setSkip((Boolean)newValue);
 				return;
 			case RecipePackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK:
 				setDeploymentComponentLink((DeploymentComponent)newValue);
@@ -291,6 +338,9 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 			case RecipePackage.DEPLOYMENT_COMPONENT__MAPPER:
 				setMapper((ModelMapper)null);
 				return;
+			case RecipePackage.DEPLOYMENT_COMPONENT__SKIP:
+				setSkip(SKIP_EDEFAULT);
+				return;
 			case RecipePackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK:
 				setDeploymentComponentLink((DeploymentComponent)null);
 				return;
@@ -312,6 +362,8 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RecipePackage.DEPLOYMENT_COMPONENT__MAPPER:
 				return mapper != null;
+			case RecipePackage.DEPLOYMENT_COMPONENT__SKIP:
+				return skip != SKIP_EDEFAULT;
 			case RecipePackage.DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK:
 				return deploymentComponentLink != null;
 		}
@@ -332,6 +384,8 @@ public class DeploymentComponentImpl extends EObjectImpl implements DeploymentCo
 		result.append(uid);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", skip: ");
+		result.append(skip);
 		result.append(')');
 		return result.toString();
 	}

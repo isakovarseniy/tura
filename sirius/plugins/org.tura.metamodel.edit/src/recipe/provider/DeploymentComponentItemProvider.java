@@ -65,6 +65,7 @@ public class DeploymentComponentItemProvider
 			addUidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addMapperPropertyDescriptor(object);
+			addSkipPropertyDescriptor(object);
 			addDeploymentComponentLinkPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -137,6 +138,28 @@ public class DeploymentComponentItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Skip feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSkipPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DeploymentComponent_skip_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DeploymentComponent_skip_feature", "_UI_DeploymentComponent_type"),
+				 RecipePackage.Literals.DEPLOYMENT_COMPONENT__SKIP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Deployment Component Link feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,6 +221,7 @@ public class DeploymentComponentItemProvider
 		switch (notification.getFeatureID(DeploymentComponent.class)) {
 			case RecipePackage.DEPLOYMENT_COMPONENT__UID:
 			case RecipePackage.DEPLOYMENT_COMPONENT__NAME:
+			case RecipePackage.DEPLOYMENT_COMPONENT__SKIP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -434,13 +434,22 @@ public interface RecipePackage extends EPackage {
 	int DEPLOYMENT_COMPONENT__MAPPER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Skip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT_COMPONENT__SKIP = 3;
+
+	/**
 	 * The feature id for the '<em><b>Deployment Component Link</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK = 3;
+	int DEPLOYMENT_COMPONENT__DEPLOYMENT_COMPONENT_LINK = 4;
 
 	/**
 	 * The number of structural features of the '<em>Deployment Component</em>' class.
@@ -449,7 +458,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT_COMPONENT_FEATURE_COUNT = 4;
+	int DEPLOYMENT_COMPONENT_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.DeploymentStarStepImpl <em>Deployment Star Step</em>}' class.
@@ -1657,6 +1666,17 @@ public interface RecipePackage extends EPackage {
 	EReference getDeploymentComponent_Mapper();
 
 	/**
+	 * Returns the meta object for the attribute '{@link recipe.DeploymentComponent#isSkip <em>Skip</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Skip</em>'.
+	 * @see recipe.DeploymentComponent#isSkip()
+	 * @see #getDeploymentComponent()
+	 * @generated
+	 */
+	EAttribute getDeploymentComponent_Skip();
+
+	/**
 	 * Returns the meta object for the reference '{@link recipe.DeploymentComponent#getDeploymentComponentLink <em>Deployment Component Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2681,6 +2701,14 @@ public interface RecipePackage extends EPackage {
 		 * @generated
 		 */
 		EReference DEPLOYMENT_COMPONENT__MAPPER = eINSTANCE.getDeploymentComponent_Mapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Skip</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPLOYMENT_COMPONENT__SKIP = eINSTANCE.getDeploymentComponent_Skip();
 
 		/**
 		 * The meta object literal for the '<em><b>Deployment Component Link</b></em>' reference feature.
