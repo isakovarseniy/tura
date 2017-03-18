@@ -34,28 +34,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>test-hr-domain-objects-interface</artifactId>
-			<version>1.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>test-hr-jpa-simple-objects-model</artifactId>
-			<version>1.0</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.tura.platform.datacontrol</groupId>
 			<artifactId>annotations</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>org.tura.example.service</groupId>
-			<artifactId>hr-domain-simple-repository</artifactId>
-			<version> ${project.version} </version>
-		</dependency>
-
 
 	</dependencies>
 

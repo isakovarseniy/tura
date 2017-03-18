@@ -108,7 +108,7 @@
 
 	<dependency>
 		<groupId>org.tura.platform.test.generated-code</groupId>
-		<artifactId>test-jpa-objects</artifactId>
+		<artifactId>test-objects-jpa</artifactId>
 		<version>1.0</version>
 			<scope>test</scope>
 	</dependency>

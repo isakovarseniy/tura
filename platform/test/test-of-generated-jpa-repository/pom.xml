@@ -77,14 +77,14 @@
 
 	<dependency>
 		<groupId>org.tura.platform.test.generated-code</groupId>
-		<artifactId>test-jpa-objects-repository</artifactId>
+		<artifactId>test-objects-repository</artifactId>
 		<version>1.0</version>
 	    <scope>test</scope>
 	</dependency>
 
     <dependency>
 		<groupId>org.tura.platform.test.generated-code</groupId>
-		<artifactId>test-jpa-objects-repository-proxy</artifactId>
+		<artifactId>test-objects-repository-proxy</artifactId>
 		<version>1.0</version>
     </dependency>
 

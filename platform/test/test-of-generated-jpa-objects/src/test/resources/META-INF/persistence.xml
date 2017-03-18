@@ -17,6 +17,8 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"  version="2.1">
 		<class>org.tura.jpa.test.MailAddress</class>
 		<class>org.tura.jpa.test.Phone</class>
 		<class>org.tura.jpa.test.File</class>
+		<class>org.tura.jpa.test.Customer</class>
+		<class>org.tura.jpa.test.Order</class>
 		
 		
 		<properties>

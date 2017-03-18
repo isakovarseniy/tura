@@ -144,7 +144,7 @@ public class JPATest {
 	
 	@Test
 	public void checkPersonClass(){
-		assertEquals(18, Person.class.getDeclaredMethods().length);
+		assertEquals(16, Person.class.getDeclaredMethods().length);
 
 		assertTrue(findMethod( Person.class,"getName" ));
 		assertTrue(findMethod( Person.class,"setName",new Class[]{String.class} ));
@@ -167,9 +167,6 @@ public class JPATest {
 		assertTrue(findMethod( Person.class,"getClient" ));
 		assertTrue(findMethod( Person.class,"setClient",new Class[]{Client.class} ));
 		
-		assertTrue(findMethod( Person.class,"getRootId" ));
-		assertTrue(findMethod( Person.class,"setRootId",new Class[]{Long.class} ));
-
 		assertTrue(findMethod( Person.class,"getFile" ));
 		assertTrue(findMethod( Person.class,"setFile",new Class[]{File.class} ));
 		
@@ -229,8 +226,8 @@ public class JPATest {
 		assertEquals("RL_MAILADDRESS_PERSON", b.name());
 		
 		assertEquals(1, b.joinColumns().length);
-		assertEquals("mailaddress_objId", b.joinColumns()[0].name());
-		assertEquals("person_objId", b.inverseJoinColumns()[0].name());
+		assertEquals("mailaddress_objid", b.joinColumns()[0].name());
+		assertEquals("person_objid", b.inverseJoinColumns()[0].name());
 		
 	}
 	

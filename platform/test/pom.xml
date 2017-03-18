@@ -22,9 +22,6 @@
     <module>test-of-generated-jpa-repository</module>  
 
 
-
-    <module>test-model</module>
-    <module>generated-code</module>
     <module>test-jpa-service-command</module>
     <module>test-compressor-command</module>
     <module>test-nested-data-control</module>
