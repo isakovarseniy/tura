@@ -60,7 +60,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  {
 
 	      @Override
 		  public  void set[%=util.mergeAndCapitalize(field.name)%]([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%] ){
-	    	if ( object.isAttached() == null || !object.isAttached()){
+	    	if ( object.getAttached() == null || !object.getAttached()){
 			       object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
 	    	}else{
 	    		throw new RuntimeException("Could  not modify primary key on attached object");
@@ -76,7 +76,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  {
 
 	      @Override
 		  public  void set[%=util.mergeAndCapitalize(field.name)%]([%=field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%] ){
-	    	if ( object.isAttached() == null || !object.isAttached()){
+	    	if ( object.getAttached() == null || !object.getAttached()){
 			     object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
 	            return;
 	    	}
@@ -279,7 +279,7 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
         if (masterType.uid == self.source.uid ){
         %]
 
-	   if ( object.isAttached() == null || !object.isAttached()){
+	   if ( object.getAttached() == null || !object.getAttached()){
 	        if ([%=hash.get("sourceProperty")%] != null){
                object.set[%=hash.get("sourceMethodName")%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
                (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
@@ -347,7 +347,7 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
     		
     		@Override
     		public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
-	    	  if ( object.isAttached() == null || !object.isAttached()){
+	    	  if ( object.getAttached() == null || !object.getAttached()){
     	            object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
     	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
     	            return;
@@ -367,7 +367,7 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
 
        		@Override
        	    public [%=hash.get("target").~fullName%] remove(int index) {
-	    	if ( object.isAttached() == null || !object.isAttached()){
+	    	if ( object.getAttached() == null || !object.getAttached()){
     	    		object.get[%=hash.get("sourceMethodName")%]().get(index).set[%=hash.get("targetMethodName")%](null);
     	            return object.get[%=hash.get("sourceMethodName")%]().remove(index);
     	    	}
@@ -454,7 +454,7 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
     		
     		@Override
     		public void add(int i , [%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
-	    	if ( object.isAttached() == null || !object.isAttached()){
+	    	if ( object.getAttached() == null || !object.getAttached()){
     	            object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
     	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().get[%=hash.get("targetMethodName")%]().add(object);
     	            return;
@@ -474,7 +474,7 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
 
        		@Override
        	    public [%=hash.get("target").~fullName%] remove(int index) {
-	    	if ( object.isAttached() == null || !object.isAttached()){
+	    	if ( object.getAttached() == null || !object.getAttached()){
     	    		[%=detailType.~fullName%] m=  object.get[%=hash.get("sourceMethodName")%]().remove(index);
     	    		m.get[%=hash.get("targetMethodName")%]().remove(object);
     	            return m;
@@ -550,7 +550,7 @@ operation type::Assosiation one2oneTrgNo(recipe,ingredient,model_mapper){
          
 			@Override
 			public void set[%=util.mergeAndCapitalize(lnk.detailField.name)%]([%=lnk.detailField.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(lnk.detailField.name)%] ){
-	    	if ( object.isAttached() == null || !object.isAttached()){
+	    	if ( object.getAttached() == null || !object.getAttached()){
  				   object.set[%=util.mergeAndCapitalize(lnk.detailField.name)%]([%=util.mergeAndUnCapitalize(lnk.detailField.name)%]);
     	           return ;
     	    	}
@@ -642,7 +642,7 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
         if (masterType.uid == self.target.uid ){
         %]
 
-	   if ( object.isAttached() == null || !object.isAttached()){
+	   if ( object.getAttached() == null || !object.getAttached()){
 	     if ([%=hash.get("targetProperty")%] != null){
             object.set[%=hash.get("targetMethodName")%](  (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
             (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().set[%=hash.get("sourceMethodName")%](object);
@@ -716,7 +716,7 @@ operation type::Assosiation one2manyTrgNo(recipe,ingredient,model_mapper){
          
 			@Override
 			public void set[%=util.mergeAndCapitalize(lnk.detailField.name)%]([%=lnk.detailField.typeRef.~fullName%] [%=util.mergeAndUnCapitalize(lnk.detailField.name)%] ){
-	    	    if ( object.isAttached() == null || !object.isAttached()){
+	    	    if ( object.getAttached() == null || !object.getAttached()){
 				   object.set[%=util.mergeAndCapitalize(lnk.detailField.name)%]([%=util.mergeAndUnCapitalize(lnk.detailField.name)%]);
     	           return ;
     	    	}
@@ -837,7 +837,7 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
     		
     		@Override
     		public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
-	    	if ( object.isAttached() == null || !object.isAttached()){
+	    	if ( object.getAttached() == null || !object.getAttached()){
     	            object.get[%=hash.get("targetMethodName")%]().add(i,[%=hash.get("targetProperty")%]);
     	            [%=hash.get("targetProperty")%].get[%=hash.get("sourceMethodName")%]().add(object);
     	            return;
@@ -857,7 +857,7 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
 
        		@Override
        	    public [%=hash.get("source").~fullName%] remove(int index) {
-	    	  if ( object.isAttached() == null || !object.isAttached()){
+	    	  if ( object.getAttached() == null || !object.getAttached()){
     	    		[%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
     	    		m.get[%=hash.get("sourceMethodName")%]().remove(m);
     	            return m;

@@ -1,3 +1,5 @@
+<#assign dollar = "$" >
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -47,6 +49,28 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+			    <groupId>com.google.code.maven-replacer-plugin</groupId>
+			    <artifactId>replacer</artifactId>
+			    <version>1.5.2</version>
+			    <executions>
+			        <execution>
+			            <phase>process-resources</phase>
+			            <goals>
+			                <goal>replace</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			    <configuration>
+			        <basedir>${dollar}{project.basedir}</basedir>
+			        <includes>
+			            <include>target/generated-sources/jaxb/**/*.java</include>
+			        </includes>
+			        <token>public Boolean is(.*)\(\)(\s*\{\s*.+\s*\})</token>
+			        <value>public Boolean get$1\(\)$2</value>
+			    </configuration>
+			</plugin>			
+			
 		</plugins>
 	</build>
 </project>
