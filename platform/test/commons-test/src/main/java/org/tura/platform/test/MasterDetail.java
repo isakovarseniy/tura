@@ -33,8 +33,6 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.DepartmentsDAO;
-import org.elsoft.platform.hr.objects.EmployeesDAO;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
@@ -44,6 +42,8 @@ import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
+import org.tura.platform.hr.objects.jpa.Department;
+import org.tura.platform.hr.objects.jpa.Employee;
 
 import com.octo.java.sql.exp.Operator;
 
@@ -94,10 +94,10 @@ public class MasterDetail {
 	public void getObject(){
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			DataControl<Object> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			DataControl<Object> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			
@@ -109,9 +109,9 @@ public class MasterDetail {
 			
 			dcd.addChildren("departmentsToemployees", relation);
 			
-			DepartmentsDAO rowd = dcd.getCurrentObject();
+			Department rowd = factory.adaptDepartment(dcd.getCurrentObject());
 			dcd.nextObject();
-			EmployeesDAO rowe = dce.getCurrentObject();
+			Employee rowe = factory.adaptEmployee(dce.getCurrentObject());
 			
 			assertEquals(rowd.getObjId(), new Long(10));
 			assertEquals(rowe.getObjId(), new Long(201));
@@ -128,10 +128,10 @@ public class MasterDetail {
 	public void getObjectWithDefailtWhere(){
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			DataControl<Object> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			DataControl<Object> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			ArrayList<SearchCriteria> sc = new ArrayList<>();
@@ -153,9 +153,9 @@ public class MasterDetail {
 			
 			dcd.addChildren("departmentsToemployees", relation);
 			
-			DepartmentsDAO rowd = dcd.getCurrentObject();
+			Department rowd = factory.adaptDepartment( dcd.getCurrentObject());
 			dcd.nextObject();
-			EmployeesDAO rowe = dce.getCurrentObject();
+			Employee rowe = factory.adaptEmployee( dce.getCurrentObject());
 			
 			assertEquals(rowd.getObjId(), new Long(10));
 			assertEquals(rowe.getObjId(), new Long(201));
@@ -172,10 +172,10 @@ public class MasterDetail {
 	public void createDetailObject(){
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			DataControl<Object> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			DataControl<Object> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			
@@ -187,7 +187,7 @@ public class MasterDetail {
 			
 			dcd.addChildren("departmentsToemployees", relation);
 
-			EmployeesDAO rowe = dce.createObject();
+			Employee rowe = factory.adaptEmployee(dce.createObject());
 			rowe.setFirstName("test");
 			dce.getCommandStack().commitCommand();
 			assertEquals(rowe.getParentId(), new Long(10));
@@ -204,10 +204,10 @@ public class MasterDetail {
 	public void removeDetailObject(){
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			DataControl<Object> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			DataControl<Object> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			
@@ -220,8 +220,8 @@ public class MasterDetail {
 			dcd.addChildren("departmentsToemployees", relation);
 			dcd.removeObject();
 
-			DepartmentsDAO rowd = dcd.getCurrentObject();
-			EmployeesDAO rowe = dce.getCurrentObject();
+			Department rowd = factory.adaptDepartment( dcd.getCurrentObject());
+			Employee rowe = factory.adaptEmployee(dce.getCurrentObject());
 			
 			dcd.getShifter().setLogger(logger);
 			dcd.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);

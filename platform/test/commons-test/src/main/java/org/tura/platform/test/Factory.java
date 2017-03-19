@@ -23,17 +23,22 @@ package org.tura.platform.test;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.DepartmentsDAO;
-import org.elsoft.platform.hr.objects.EmployeesDAO;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.hr.objects.jpa.Department;
+import org.tura.platform.hr.objects.jpa.Employee;
 
 public interface Factory {
 	
 	public void initCommandStack();
-	public DataControl<EmployeesDAO> initEmployees(String elPrefix) throws Exception;
-	public DataControl<DepartmentsDAO> initDepartments(String elPrefix) throws Exception;
+	public DataControl<Object> initEmployees(String elPrefix) throws Exception;
+	public DataControl<Object> initDepartments(String elPrefix) throws Exception;
 	public EntityManager getEntityManager();
-	public EmployeesDAO getNewEmployeesDAO() throws Exception;
-	public DepartmentsDAO getNewDepartmentsDAO() throws Exception;
+	public Employee getNewEmployee() throws Exception;
+	public Department getNewDepartment() throws Exception;
 
+	public  Employee adaptEmployee(Object obj) throws Exception;
+	public  Department adaptDepartment(Object obj) throws Exception;
+	
+
+	
 }

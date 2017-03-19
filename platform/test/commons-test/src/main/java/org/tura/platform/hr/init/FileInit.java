@@ -25,7 +25,8 @@ import java.text.ParseException;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.jpa.simple.model.FileJPA;
+import org.tura.platform.hr.objects.jpa.File;
+
 
 public class FileInit {
 
@@ -53,7 +54,7 @@ public class FileInit {
 	
 	
 	private void create(Long obj_id, Long parentId, String fileName) {
-		FileJPA file = new FileJPA();
+		File file = new File();
 		file.setObjId(obj_id);
 		file.setParentId(parentId);
 		file.setFileName(fileName);

@@ -23,7 +23,6 @@ package org.tura.platform.hr.controls;
 
 import java.util.List;
 
-import org.elsoft.platform.hr.objects.EmployeesDAO;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CreateCommandBase;
@@ -40,7 +39,7 @@ import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 
-public class EmployeesDC extends DataControl<EmployeesDAO> {
+public class EmployeesDC extends DataControl<Object> {
 
 	public EmployeesDC() throws Exception {
 		super();

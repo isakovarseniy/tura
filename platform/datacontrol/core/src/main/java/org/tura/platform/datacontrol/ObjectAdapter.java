@@ -19,51 +19,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.test;
+package org.tura.platform.datacontrol;
 
-public class ParameterObject {
-	private String name;
-	private String expression;
-	private Class<?> type;
+public abstract class ObjectAdapter {
 	
+	private Object object;
+	private IDataControl dataControl;
 	
-	public ParameterObject(String name,String expression,Class<?> type){
-		this.name = name;
-		this.expression = expression;
-		this.setType(type);
+	public abstract String getPrimaryKey();
+
+	public Object getWrappedObject() {
+		return object;
 	}
 
-
-	public String getName() {
-		return name;
+	public IDataControl getDataControl() {
+		return dataControl;
 	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public String getExpression() {
-		return expression;
-	}
-
-
-	public void setExpression(String expression) {
-		this.expression = expression;
-	}
-
-
-	public Class<?> getType() {
-		return type;
-	}
-
-
-	public void setType(Class<?> type) {
-		this.type = type;
-	}
-
-
 	
-
 }

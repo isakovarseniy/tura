@@ -34,8 +34,6 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.DepartmentsDAO;
-import org.elsoft.platform.hr.objects.EmployeesDAO;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
@@ -46,6 +44,8 @@ import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
+import org.tura.platform.hr.objects.jpa.Department;
+import org.tura.platform.hr.objects.jpa.Employee;
 
 public abstract class MasterDetailDataControlPool {
 
@@ -94,10 +94,10 @@ public abstract class MasterDetailDataControlPool {
 	public void t1_getApplyCreateModification() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			DataControl<Object> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			DataControl<Object> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			Relation relation = new Relation();
@@ -108,9 +108,9 @@ public abstract class MasterDetailDataControlPool {
 			
 			dcd.addChildren("departmentsToemployees", relation);
 			
-			DepartmentsDAO dep =  dcd.getCurrentObject();
+			Department dep =  factory.adaptDepartment( dcd.getCurrentObject());
 
-			EmployeesDAO newrow = factory.getNewEmployeesDAO();
+			Employee newrow = factory.getNewEmployee();
 			newrow.setObjId(123L);
 			newrow.setParentId(dep.getObjId());
 			
@@ -119,7 +119,7 @@ public abstract class MasterDetailDataControlPool {
 	        PoolElement e = new PoolElement(newrow, dce.getObjectKey(newrow), dce.getBaseClass(), PoolCommand.C.name(), "1");
 	        pager.addCommand(e);
 	        
-			EmployeesDAO rowe = dce.getCurrentObject();
+			Employee rowe = factory.adaptEmployee( dce.getCurrentObject());
 
 			assertEquals( new Long(123L),rowe.getObjId());
 			
@@ -136,10 +136,10 @@ public abstract class MasterDetailDataControlPool {
 	public void t2_getApplyCreateModificationIsolated() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			DataControl<Object> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			DataControl<Object> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			Relation relation = new Relation();
@@ -150,13 +150,13 @@ public abstract class MasterDetailDataControlPool {
 			
 			dcd.addChildren("departmentsToemployees", relation);
 			
-			DepartmentsDAO dep =  dcd.getCurrentObject();
+			Department dep =  factory.adaptDepartment( dcd.getCurrentObject());
 
-			EmployeesDAO newrow = factory.getNewEmployeesDAO();
+			Employee newrow = factory.getNewEmployee();
 			newrow.setObjId(123L);
 			newrow.setParentId(dep.getObjId());
 
-			EmployeesDAO rowe = dce.getCurrentObject();
+			Employee rowe = factory.adaptEmployee( dce.getCurrentObject());
 			
 			
 	        Pager<?> pager = getPager(dce);
@@ -167,13 +167,13 @@ public abstract class MasterDetailDataControlPool {
 	        pager.addCommand(e);
 	        
 	        
-			EmployeesDAO rowe1 = dce.getCurrentObject();
+			Employee rowe1 = factory.adaptEmployee( dce.getCurrentObject());
 
 			assertEquals( rowe1.getObjId(),rowe.getObjId());
 
 	        dce.flush();
 			
-			rowe = dce.getCurrentObject();
+			rowe = factory.adaptEmployee( dce.getCurrentObject());
 
 			assertEquals( new Long(123L),rowe.getObjId());
 			
@@ -190,10 +190,10 @@ public abstract class MasterDetailDataControlPool {
 	public void t3_getApplyCreateModificationMasterIsolated() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dcd = factory.initDepartments("");
+			DataControl<Object> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<EmployeesDAO> dce = factory.initEmployees("");
+			DataControl<Object> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			Relation relation = new Relation();
@@ -206,10 +206,10 @@ public abstract class MasterDetailDataControlPool {
 
 			dcd.islolate();
 			
-			DepartmentsDAO rowd =  dcd.getCurrentObject();
-			EmployeesDAO rowe = dce.getCurrentObject();
+			Department rowd =  factory.adaptDepartment( dcd.getCurrentObject());
+			Employee rowe = factory.adaptEmployee(dce.getCurrentObject());
 
-			DepartmentsDAO newrow = factory.getNewDepartmentsDAO();
+			Department newrow = factory.getNewDepartment();
 			newrow.setObjId(123L);
 
 
@@ -219,8 +219,8 @@ public abstract class MasterDetailDataControlPool {
 	        pager.addCommand(e);
 	        
 	        
-	        DepartmentsDAO rowd1 = dcd.getCurrentObject();
-			EmployeesDAO rowe1 = dce.getCurrentObject();
+	        Department rowd1 = factory.adaptDepartment( dcd.getCurrentObject());
+			Employee rowe1 = factory.adaptEmployee( dce.getCurrentObject());
 			
 
 			assertEquals( rowd.getObjId(),rowd1.getObjId());
@@ -228,8 +228,8 @@ public abstract class MasterDetailDataControlPool {
 
 			dcd.flush();
 			
-			rowd =  dcd.getCurrentObject();
-			rowe = dce.getCurrentObject();
+			rowd =  factory.adaptDepartment( dcd.getCurrentObject());
+			rowe = factory.adaptEmployee( dce.getCurrentObject());
 
 			assertEquals( new Long(123L),rowd.getObjId());
 			assertNull(rowe);

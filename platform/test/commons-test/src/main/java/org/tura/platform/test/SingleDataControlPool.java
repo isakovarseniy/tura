@@ -39,7 +39,6 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Ignore;
@@ -59,6 +58,7 @@ import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
+import org.tura.platform.hr.objects.jpa.Department;
 
 import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.query.QueryException;
@@ -112,11 +112,11 @@ public class SingleDataControlPool {
 	public void t1_getApplyCreateModification() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			DataControl<Object> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			DepartmentsDAO row = dc.getCurrentObject();
+			Department row =  factory.adaptDepartment( dc.getCurrentObject());
 
-			DepartmentsDAO newrow = factory.getNewDepartmentsDAO();
+			Department newrow = factory.getNewDepartment();
 			newrow.setObjId(123L);
 
 			Pager<?> pager = getPager(dc);
@@ -125,7 +125,7 @@ public class SingleDataControlPool {
 					dc.getBaseClass(), PoolCommand.C.name(), "1");
 			pager.addCommand(e);
 
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 
 			assertEquals(row.getObjId(), new Long(123L));
 
@@ -139,11 +139,11 @@ public class SingleDataControlPool {
 	public void t2_getApplyRemoveModification() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			DataControl<Object> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			DepartmentsDAO row = dc.getCurrentObject();
+			Department row = factory.adaptDepartment( dc.getCurrentObject() );
 
-			DepartmentsDAO newrow = factory.getNewDepartmentsDAO();
+			Department newrow = factory.getNewDepartment();
 			newrow.setObjId(10L);
 
 			Pager<?> pager = getPager(dc);
@@ -152,7 +152,7 @@ public class SingleDataControlPool {
 					dc.getBaseClass(), PoolCommand.R.name(), "1");
 			pager.addCommand(e);
 
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 
 			assertEquals(new Long(20L), row.getObjId());
 
@@ -166,23 +166,23 @@ public class SingleDataControlPool {
 	public void t3_getApplyUpdateModification() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			DataControl<Object> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 
-			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
+			DataControl<Object> dc2 = factory.initDepartments("N");
 			dc2.getElResolver().setValue("Ndepartments", dc2);
 
 			dc2.getCurrentObject();
 			dc2.nextObject();
-			DepartmentsDAO newrow = dc2.getCurrentObject();
+			Department newrow = factory.adaptDepartment( dc2.getCurrentObject());
 			newrow.setDepartmentName("test dep");
 
-			DepartmentsDAO row = dc.getCurrentObject();
+			Department row = factory.adaptDepartment( dc.getCurrentObject());
 			assertEquals(row.getObjId(), new Long(10));
 			assertEquals(row.getDepartmentName(), "Administration");
 
 			dc.nextObject();
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 			assertEquals(row.getObjId(), new Long(20L));
 			assertEquals(row.getDepartmentName(), "test dep");
 
@@ -196,13 +196,13 @@ public class SingleDataControlPool {
 	public void t4_getApplyCreateUpdateModification() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			DataControl<Object> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			DepartmentsDAO row = dc.getCurrentObject();
+			Department row = factory.adaptDepartment(dc.getCurrentObject());
 
 			Pager<?> pager = getPager(dc);
 
-			DepartmentsDAO newrow = factory.getNewDepartmentsDAO();
+			Department newrow = factory.getNewDepartment();
 			newrow.setObjId(123L);
 
 			PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow),
@@ -215,13 +215,13 @@ public class SingleDataControlPool {
 					dc.getBaseClass(), PoolCommand.U.name(), "1");
 			pager.addCommand(e);
 
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 
 			assertEquals(row.getObjId(), new Long(123L));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 			dc.nextObject();
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 
 			assertEquals(row.getObjId(), new Long(10L));
 
@@ -235,40 +235,40 @@ public class SingleDataControlPool {
 	public void t5_savePoint() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			DataControl<Object> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 
-			DepartmentsDAO row = dc.getCurrentObject();
+			Department row = factory.adaptDepartment(dc.getCurrentObject());
 
-			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
+			DataControl<Object> dc2 = factory.initDepartments("N");
 			dc2.getElResolver().setValue("Ndepartments", dc2);
 
 			dc2.getCurrentObject();
-			DepartmentsDAO newrow = dc2.createObject();
+			Department newrow = factory.adaptDepartment(dc2.createObject());
 			newrow.setDepartmentId(123L);
 			newrow.setDepartmentName("test dep");
 
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 
 			assertEquals(row.getDepartmentId(), new Long(123L));
 			assertEquals(row.getDepartmentName(), "test dep");
 
 			dc.getCommandStack().savePoint();
 
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 
 			dc.nextObject();
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 			dc.removeObject();
 
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 
 			assertEquals(new Long(20L), row.getObjId());
 
 			dc.getCommandStack().rallbackSavePoint();
 			dc.prevObject();
 
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 
 			assertEquals(row.getDepartmentId(), new Long(123L));
 			assertEquals(row.getDepartmentName(), "test dep");
@@ -282,7 +282,7 @@ public class SingleDataControlPool {
 
 			dc.getCommandStack().rallbackCommand();
 
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 			assertEquals(new Long(10L), row.getObjId());
 
 		} catch (Exception e) {
@@ -295,11 +295,11 @@ public class SingleDataControlPool {
 	public void t6_commitWithsavePoint() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			DataControl<Object> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
-			DepartmentsDAO row = dc.getCurrentObject();
+			Department row = factory.adaptDepartment(dc.getCurrentObject());
 
-			row = dc.createObject();
+			row =factory.adaptDepartment( dc.createObject());
 			row.setDepartmentName("test department");
 
 			dc.getCommandStack().savePoint();
@@ -307,7 +307,7 @@ public class SingleDataControlPool {
 
 			dc.getCommandStack().commitCommand();
 
-			row = dc.getCurrentObject();
+			row = factory.adaptDepartment(dc.getCurrentObject());
 
 			assertEquals(new Long(10L), row.getObjId());
 
@@ -321,23 +321,23 @@ public class SingleDataControlPool {
 	public void t7_updateWithDefaultSearchCriteria() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			DataControl<Object> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 
-			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
+			DataControl<Object> dc2 = factory.initDepartments("N");
 			dc2.getElResolver().setValue("Ndepartments", dc2);
-			createQuery(dc2, DepartmentsDAO.class.getCanonicalName());
+			createQuery(dc2, Department.class.getCanonicalName());
 
 			for (int i = 0; i < 2; i++) {
 
-				DepartmentsDAO row = dc.getCurrentObject();
+				Department row = factory.adaptDepartment(dc.getCurrentObject());
 				row.setDepartmentName("test");
 				dc.getElResolver().setValue("cmpId", row.getObjId());
 
 				dc2.forceRefresh();
 				dc2.getCommandStack().savePoint();
 
-				DepartmentsDAO row2 = dc2.getCurrentObject();
+				Department row2 = factory.adaptDepartment(dc2.getCurrentObject());
 				assertEquals(row.getObjId(), row2.getObjId());
 
 				dc.nextObject();
@@ -355,26 +355,26 @@ public class SingleDataControlPool {
 	public void t8_updateWithDefaultSearchCriteria() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			DataControl<Object> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 
-			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
+			DataControl<Object> dc2 = factory.initDepartments("N");
 			dc2.getElResolver().setValue("Ndepartments", dc2);
-			createQuery(dc2, DepartmentsDAO.class.getCanonicalName());
+			createQuery(dc2, Department.class.getCanonicalName());
 
 			dc.nextObject();
-			DepartmentsDAO row = dc.getCurrentObject();
+			Department row = factory.adaptDepartment(dc.getCurrentObject());
 			row.setDepartmentName("test");
 			dc.forceRefresh();
 
 			for (int i = 0; i < 2; i++) {
 
-				row = dc.getCurrentObject();
+				row = factory.adaptDepartment(dc.getCurrentObject());
 				dc.getElResolver().setValue("cmpId", row.getObjId());
 
 				dc2.forceRefresh();
 				dc2.getCommandStack().savePoint();
-				DepartmentsDAO row2 = dc2.getCurrentObject();
+				Department row2 = factory.adaptDepartment(dc2.getCurrentObject());
 				assertEquals(row.getObjId(), row2.getObjId());
 
 				dc.nextObject();
@@ -399,19 +399,19 @@ public class SingleDataControlPool {
 	public void t9_randomUpdateWithDefaultSearchCriteria() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			DataControl<Object> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 
-			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
+			DataControl<Object> dc2 = factory.initDepartments("N");
 			dc2.getElResolver().setValue("Ndepartments", dc2);
-			createQuery(dc2, DepartmentsDAO.class.getCanonicalName());
+			createQuery(dc2, Department.class.getCanonicalName());
 
-			DepartmentsDAO row = dc.getCurrentObject();
+			Department row = factory.adaptDepartment(dc.getCurrentObject());
 			ShiftControlData d = getShiftControlData(dc);
 
-			Iterator<DepartmentsDAO> itr = dc.getScroller().iterator();
+			Iterator<Object> itr = dc.getScroller().iterator();
 			for (int i = 0; i < 2; i++) {
-				row = itr.next();
+				row =  factory.adaptDepartment( itr.next());
 				row.setDepartmentName("test" + i);
 			}
 
@@ -426,28 +426,26 @@ public class SingleDataControlPool {
 			CommandStackData csd = (CommandStackData) savePoints.get(0)
 					.getData().get(id);
 			List<Command> cmdLst = csd.getTransaction();
-			row = (DepartmentsDAO) cmdLst.get(0).getParameters().get(0)
-					.getObj();
+			row =  factory.adaptDepartment( cmdLst.get(0).getParameters().get(0).getObj());
 			// assertEquals(new Long (10), row.getObjId());
 
-			row = (DepartmentsDAO) cmdLst.get(1).getParameters().get(0)
-					.getObj();
+			row = factory.adaptDepartment(  cmdLst.get(1).getParameters().get(0).getObj());
 			// assertEquals(new Long (20), row.getObjId());
 
 			
 			dc2.forceRefresh();
 			dc.getCommandStack().savePoint();
 
-			DepartmentsDAO row2 = dc2.getCurrentObject();
+			Department row2 = factory.adaptDepartment(  dc2.getCurrentObject());
 			assertEquals(new Long(20), row2.getObjId());
 
 			row2.setDepartmentName("test3");
 
 			itr = dc.getScroller().iterator();
-			row = (DepartmentsDAO) itr.next();
+			row = factory.adaptDepartment(  itr.next());
 			assertEquals("test0", row.getDepartmentName());
 
-			row = (DepartmentsDAO) itr.next();
+			row = factory.adaptDepartment( itr.next());
 			assertEquals("test3", row.getDepartmentName());
 
 		} catch (Exception e) {
@@ -462,33 +460,33 @@ public class SingleDataControlPool {
 	public void t10_isolationDataCalontrol() {
 		try {
 			factory.initCommandStack();
-			DataControl<DepartmentsDAO> dc = factory.initDepartments("");
+			DataControl<Object> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
 
-			DepartmentsDAO row = dc.getCurrentObject();
+			Department row = factory.adaptDepartment( dc.getCurrentObject());
 
-			DataControl<DepartmentsDAO> dc2 = factory.initDepartments("N");
+			DataControl<Object> dc2 = factory.initDepartments("N");
 			dc2.getElResolver().setValue("Ndepartments", dc2);
 
 			dc2.getCurrentObject();
 
 			dc2.islolate();
-			DepartmentsDAO   obj = dc2.createObject();
+			Department   obj = factory.adaptDepartment( dc2.createObject());
 			obj.setDepartmentName("test department");
 			obj.setDescription("test description");
 			
 			dc.forceRefresh();
-			DepartmentsDAO row1 = dc.getCurrentObject();
+			Department row1 = factory.adaptDepartment( dc.getCurrentObject());
 			
 			assertEquals(row.getObjId(), row1.getObjId());
 
 			dc2.flush();
 			dc.forceRefresh();
-			row1 = dc.getCurrentObject();
+			row1 = factory.adaptDepartment( dc.getCurrentObject());
 			assertEquals(obj.getObjId(), row1.getObjId());
 			
 			dc.nextObject();
-			row1 = dc.getCurrentObject();
+			row1 = factory.adaptDepartment( dc.getCurrentObject());
 			assertEquals(row.getObjId(), row1.getObjId());
 			
 			

@@ -23,7 +23,8 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.jpa.simple.model.CountryJPA;
+import org.tura.platform.hr.objects.jpa.Country;
+
 
 
 public class CountryInit {
@@ -43,8 +44,8 @@ public class CountryInit {
 
 	}
 
-	private CountryJPA create(Long obj_id, String countryName, Long companyid) {
-		CountryJPA dpt = new CountryJPA();
+	private Country create(Long obj_id, String countryName, Long companyid) {
+		Country dpt = new Country();
 		dpt.setObjId(obj_id);
 		dpt.setName(countryName);
 		dpt.setParentId(companyid);

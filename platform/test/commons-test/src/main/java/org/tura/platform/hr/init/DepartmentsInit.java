@@ -23,7 +23,7 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.jpa.simple.model.DepartmentJPA;
+import org.tura.platform.hr.objects.jpa.Department;
 
 public class DepartmentsInit {
 
@@ -64,9 +64,9 @@ public class DepartmentsInit {
 
 	}
 
-	private DepartmentJPA create(Long obj_id, Long departmentId,
+	private Department create(Long obj_id, Long departmentId,
 			String departmentName, Long managerId, Long locationId) {
-		DepartmentJPA dpt = new DepartmentJPA();
+		Department dpt = new Department();
 		dpt.setObjId(obj_id);
 		dpt.setDepartmentId(departmentId);
 		dpt.setDepartmentName(departmentName);

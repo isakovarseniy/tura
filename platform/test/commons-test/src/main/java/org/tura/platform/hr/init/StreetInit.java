@@ -23,7 +23,7 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.jpa.simple.model.StreetJPA;
+import org.tura.platform.hr.objects.jpa.Street;
 
 
 public class StreetInit {
@@ -59,8 +59,8 @@ public class StreetInit {
 
 	}
 	
-	private StreetJPA create(Long obj_id, String streetName, Long city_id) {
-		StreetJPA dpt = new StreetJPA();
+	private Street create(Long obj_id, String streetName, Long city_id) {
+		Street dpt = new Street();
 		dpt.setObjId(obj_id);
 		dpt.setParentId(city_id);
 		dpt.setName(streetName);

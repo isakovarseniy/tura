@@ -25,7 +25,7 @@ import java.text.ParseException;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.jpa.simple.model.VehicleJPA;
+import org.tura.platform.hr.objects.jpa.Vehicle;
 
 public class VehicleInit {
 
@@ -43,7 +43,7 @@ public class VehicleInit {
 	}
 	
 	private void create(Long obj_id, Long parentId, String vehicleMaker,String plateNumber) {
-		VehicleJPA vehicle = new VehicleJPA();
+		Vehicle vehicle = new Vehicle();
 		vehicle.setObjId(obj_id);
 		vehicle.setParentId(parentId);
 		vehicle.setVehicleMaker(vehicleMaker);

@@ -27,7 +27,8 @@ import java.util.Date;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.jpa.simple.model.EmployeeJPA;
+import org.tura.platform.hr.objects.jpa.Employee;
+
 
 
 public class EmployesesInit {
@@ -152,7 +153,7 @@ public class EmployesesInit {
 	}
 
 	private void create(Long obj_id, Long employeeid,String firstname,String lastname,String email, String phonenumber,Date hiredate,String jobid,Float salary, Float commissionpct, Long managerid, Long departmentid) {
-		EmployeeJPA emp = new EmployeeJPA();
+		Employee emp = new Employee();
 		emp.setObjId(obj_id);
 		emp.setEmployeeId(employeeid);
 		emp.setFirstName(firstname);

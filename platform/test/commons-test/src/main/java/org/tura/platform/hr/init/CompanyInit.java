@@ -23,7 +23,8 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.jpa.simple.model.CompanyJPA;
+import org.tura.platform.hr.objects.jpa.Company;
+
 
 
 public class CompanyInit {
@@ -39,8 +40,8 @@ public class CompanyInit {
 
 	}
 
-	private CompanyJPA create(Long obj_id, String companyName) {
-		CompanyJPA dpt = new CompanyJPA();
+	private Company create(Long obj_id, String companyName) {
+		Company dpt = new Company();
 		dpt.setObjId(obj_id);
 		dpt.setCompanyName(companyName);
 		em.persist(dpt);

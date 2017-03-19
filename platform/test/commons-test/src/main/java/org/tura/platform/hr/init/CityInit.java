@@ -23,7 +23,8 @@ package org.tura.platform.hr.init;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.jpa.simple.model.CityJPA;
+import org.tura.platform.hr.objects.jpa.City;
+
 
 
 public class CityInit {
@@ -42,8 +43,8 @@ public class CityInit {
 
 	}
 	
-	private CityJPA create(Long obj_id, String cityName, Long state_id) {
-		CityJPA dpt = new CityJPA();
+	private City create(Long obj_id, String cityName, Long state_id) {
+		City dpt = new City();
 		dpt.setObjId(obj_id);
 		dpt.setParentId(state_id);
 		dpt.setName(cityName);
