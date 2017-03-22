@@ -93,22 +93,13 @@ public interface DomainPackage extends EPackage {
 	int DOMAIN__DOMAIN_TYPES = 2;
 
 	/**
-	 * The feature id for the '<em><b>Domain Repositories</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN__DOMAIN_REPOSITORIES = 3;
-
-	/**
 	 * The feature id for the '<em><b>Domain Applications</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN__DOMAIN_APPLICATIONS = 4;
+	int DOMAIN__DOMAIN_APPLICATIONS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
@@ -117,7 +108,7 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_FEATURE_COUNT = 5;
+	int DOMAIN_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link domain.impl.DomainArtifactsImpl <em>Artifacts</em>}' class.
@@ -413,98 +404,6 @@ public interface DomainPackage extends EPackage {
 	 */
 	int DOMAIN_APPLICATION_FEATURE_COUNT = 3;
 
-	/**
-	 * The meta object id for the '{@link domain.impl.DomainRepositoriesImpl <em>Repositories</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see domain.impl.DomainRepositoriesImpl
-	 * @see domain.impl.DomainPackageImpl#getDomainRepositories()
-	 * @generated
-	 */
-	int DOMAIN_REPOSITORIES = 7;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_REPOSITORIES__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_REPOSITORIES__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Domain Repositories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_REPOSITORIES__DOMAIN_REPOSITORIES = 2;
-
-	/**
-	 * The number of structural features of the '<em>Repositories</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_REPOSITORIES_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link domain.impl.DomainRepositoryImpl <em>Repository</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see domain.impl.DomainRepositoryImpl
-	 * @see domain.impl.DomainPackageImpl#getDomainRepository()
-	 * @generated
-	 */
-	int DOMAIN_REPOSITORY = 8;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_REPOSITORY__UID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_REPOSITORY__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Mappres</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_REPOSITORY__MAPPRES = 2;
-
-	/**
-	 * The number of structural features of the '<em>Repository</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_REPOSITORY_FEATURE_COUNT = 3;
-
 
 	/**
 	 * Returns the meta object for class '{@link domain.Domain <em>Domain</em>}'.
@@ -548,17 +447,6 @@ public interface DomainPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDomain_DomainTypes();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link domain.Domain#getDomainRepositories <em>Domain Repositories</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Domain Repositories</em>'.
-	 * @see domain.Domain#getDomainRepositories()
-	 * @see #getDomain()
-	 * @generated
-	 */
-	EReference getDomain_DomainRepositories();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link domain.Domain#getDomainApplications <em>Domain Applications</em>}'.
@@ -852,92 +740,6 @@ public interface DomainPackage extends EPackage {
 	EReference getDomainApplication_ApplicationPackages();
 
 	/**
-	 * Returns the meta object for class '{@link domain.DomainRepositories <em>Repositories</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Repositories</em>'.
-	 * @see domain.DomainRepositories
-	 * @generated
-	 */
-	EClass getDomainRepositories();
-
-	/**
-	 * Returns the meta object for the attribute '{@link domain.DomainRepositories#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see domain.DomainRepositories#getUid()
-	 * @see #getDomainRepositories()
-	 * @generated
-	 */
-	EAttribute getDomainRepositories_Uid();
-
-	/**
-	 * Returns the meta object for the attribute '{@link domain.DomainRepositories#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see domain.DomainRepositories#getName()
-	 * @see #getDomainRepositories()
-	 * @generated
-	 */
-	EAttribute getDomainRepositories_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link domain.DomainRepositories#getDomainRepositories <em>Domain Repositories</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Domain Repositories</em>'.
-	 * @see domain.DomainRepositories#getDomainRepositories()
-	 * @see #getDomainRepositories()
-	 * @generated
-	 */
-	EReference getDomainRepositories_DomainRepositories();
-
-	/**
-	 * Returns the meta object for class '{@link domain.DomainRepository <em>Repository</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Repository</em>'.
-	 * @see domain.DomainRepository
-	 * @generated
-	 */
-	EClass getDomainRepository();
-
-	/**
-	 * Returns the meta object for the attribute '{@link domain.DomainRepository#getUid <em>Uid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uid</em>'.
-	 * @see domain.DomainRepository#getUid()
-	 * @see #getDomainRepository()
-	 * @generated
-	 */
-	EAttribute getDomainRepository_Uid();
-
-	/**
-	 * Returns the meta object for the attribute '{@link domain.DomainRepository#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see domain.DomainRepository#getName()
-	 * @see #getDomainRepository()
-	 * @generated
-	 */
-	EAttribute getDomainRepository_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link domain.DomainRepository#getMappres <em>Mappres</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Mappres</em>'.
-	 * @see domain.DomainRepository#getMappres()
-	 * @see #getDomainRepository()
-	 * @generated
-	 */
-	EReference getDomainRepository_Mappres();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -992,14 +794,6 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOMAIN__DOMAIN_TYPES = eINSTANCE.getDomain_DomainTypes();
-
-		/**
-		 * The meta object literal for the '<em><b>Domain Repositories</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOMAIN__DOMAIN_REPOSITORIES = eINSTANCE.getDomain_DomainRepositories();
 
 		/**
 		 * The meta object literal for the '<em><b>Domain Applications</b></em>' containment reference feature.
@@ -1228,74 +1022,6 @@ public interface DomainPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOMAIN_APPLICATION__APPLICATION_PACKAGES = eINSTANCE.getDomainApplication_ApplicationPackages();
-
-		/**
-		 * The meta object literal for the '{@link domain.impl.DomainRepositoriesImpl <em>Repositories</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see domain.impl.DomainRepositoriesImpl
-		 * @see domain.impl.DomainPackageImpl#getDomainRepositories()
-		 * @generated
-		 */
-		EClass DOMAIN_REPOSITORIES = eINSTANCE.getDomainRepositories();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOMAIN_REPOSITORIES__UID = eINSTANCE.getDomainRepositories_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOMAIN_REPOSITORIES__NAME = eINSTANCE.getDomainRepositories_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Domain Repositories</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOMAIN_REPOSITORIES__DOMAIN_REPOSITORIES = eINSTANCE.getDomainRepositories_DomainRepositories();
-
-		/**
-		 * The meta object literal for the '{@link domain.impl.DomainRepositoryImpl <em>Repository</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see domain.impl.DomainRepositoryImpl
-		 * @see domain.impl.DomainPackageImpl#getDomainRepository()
-		 * @generated
-		 */
-		EClass DOMAIN_REPOSITORY = eINSTANCE.getDomainRepository();
-
-		/**
-		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOMAIN_REPOSITORY__UID = eINSTANCE.getDomainRepository_Uid();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOMAIN_REPOSITORY__NAME = eINSTANCE.getDomainRepository_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Mappres</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOMAIN_REPOSITORY__MAPPRES = eINSTANCE.getDomainRepository_Mappres();
 
 	}
 

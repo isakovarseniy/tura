@@ -1980,6 +1980,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.RelationMapper} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RelationMapperItemProvider relationMapperItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.RelationMapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRelationMapperAdapter() {
+		if (relationMapperItemProvider == null) {
+			relationMapperItemProvider = new RelationMapperItemProvider(this);
+		}
+
+		return relationMapperItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.Orders} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

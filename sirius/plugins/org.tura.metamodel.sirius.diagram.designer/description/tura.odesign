@@ -1617,8 +1617,22 @@
         </create>
       </subItemMappings>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Data Control" titleExpression="aql:self.name" domainClass="form.Controls">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='Relation%20to%20Controls']" name="Data Control" titleExpression="aql:self.name" domainClass="form.Controls">
       <defaultLayer name="Default">
+        <edgeMappings name="ExternalRelation" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="service:findDataControlForRelation">
+          <style targetArrow="InputFillClosedArrow">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
+            <beginLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <edgeMappings name="Relation" semanticCandidatesExpression="feature:relations" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="feature:detail" sourceFinderExpression="feature:master" domainClass="form.Relation" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20detail%20Relation'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20master%20Relation']">
           <style targetArrow="InputFillClosedArrow">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
@@ -1748,11 +1762,49 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
             </style>
           </subContainerMappings>
+          <subContainerMappings name="RelarionsMapper" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
+            <subNodeMappings name="RelationMapper" preconditionExpression="service:showRelationMapper" semanticCandidatesExpression="feature:relationMappers" domainClass="form.RelationMapper">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="RelarionsMapper" hideLabelByDefault="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="FakeDataControlRelarionsMapper" semanticCandidatesExpression="var:self" domainClass="form.DataControl" dropDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='Self%20Relation%20to%20Controls']" childrenPresentation="List">
+            <subNodeMappings name="FakeDatacontrolRelationMapper" preconditionExpression="service:showRelationMapper" semanticCandidatesExpression="feature:baseType" domainClass="form.RelationMapper">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="FakeDataControlRelarionsMapper" hideLabelByDefault="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
+            </style>
+          </subContainerMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="FakeRelationMapper" semanticCandidatesExpression="aql:self.objectMappers" domainClass="form.RelationMapper">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:generateName">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='orange']"/>
           </style>
         </containerMappings>
         <containerMappings name="Root" semanticCandidatesExpression="aql:self.root" domainClass="form.Root" childrenPresentation="VerticalStack">
@@ -2066,6 +2118,35 @@
           <ownedTools xsi:type="tool:PopupMenu" name="Configuration" precondition="service:enableContextMenuForDatacontrol">
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Data control with compressed commands" id="org.tura.metamodel.sirius.diagram.actions.DataControlCompressorCommandActionID"/>
             <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Data control with nested commands" id="org.tura.metamodel.sirius.diagram.actions.DataControlNestedCommandActionID"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="Relation to Controls" precondition="service:checkRelationMapperDropDown" mappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']/@subContainerMappings[name='RelarionsMapper']/@subNodeMappings[name='RelationMapper'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='FakeRelationMapper']" dragSource="BOTH">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="form.DataControl" referenceName="controls">
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:element.typeRef.name"/>
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="type.TypePointer" referenceName="baseType" variableName="instance1">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="typeRef" valueExpression="aql:element.typeRef"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUIDForObjectMapper"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="dataControlRef" valueExpression="var:instance"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="Self Relation to Controls" precondition="service:checkRelationMapperSefDropDown" mappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']/@subContainerMappings[name='RelarionsMapper']/@subNodeMappings[name='RelationMapper'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']/@subContainerMappings[name='FakeDataControlRelarionsMapper']/@subNodeMappings[name='FakeDatacontrolRelationMapper']" dragSource="BOTH">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:SetValue" featureName="dataControlRef" valueExpression="aql:element.eContainer()"/>
+              </firstModelOperations>
+            </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Connections">
@@ -4735,66 +4816,6 @@
           <variables name="container" documentation="The semantic element corresponding to the view container."/>
         </create>
       </subItemMappings>
-      <subItemMappings name="Domain repositories" domainClass="domain.DomainRepositories" semanticCandidatesExpression="feature:domainRepositories">
-        <defaultStyle labelSize="12" labelExpression="Domain repositories">
-          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-        </defaultStyle>
-        <subItemMappings name="Domain repositor" domainClass="domain.DomainRepository" semanticCandidatesExpression="feature:domainRepositories">
-          <defaultStyle labelSize="12">
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-          </defaultStyle>
-          <subItemMappings name="UnitMapper" domainClass="repository.UnitMapper" semanticCandidatesExpression="feature:mappres">
-            <defaultStyle labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-            </defaultStyle>
-            <subItemMappings name="Units" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@ownedRepresentationCreationDescriptions[name='Create%20Units%20mapping']" domainClass="repository.Units" semanticCandidatesExpression="feature:units">
-              <defaultStyle labelSize="12" labelExpression="Units">
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-              </defaultStyle>
-            </subItemMappings>
-            <subItemMappings name="Data controls" detailDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@ownedRepresentationCreationDescriptions[name='Create%20Data%20Control']" domainClass="form.Controls" semanticCandidatesExpression="feature:datacontrols">
-              <defaultStyle labelSize="12" labelExpression="Data controls">
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-              </defaultStyle>
-            </subItemMappings>
-          </subItemMappings>
-          <create name="Create Unit Mapper" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20repositories']/@subItemMappings[name='Domain%20repositor']">
-            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="repository.UnitMapper" referenceName="mappres">
-                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="repository.Units" referenceName="units" variableName="instance1">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
-                  </subModelOperations>
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.Controls" referenceName="datacontrols" variableName="instance2">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </subModelOperations>
-            </firstModelOperation>
-            <variables name="root" documentation="The semantic element of the tree."/>
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="container" documentation="The semantic element corresponding to the view container."/>
-          </create>
-        </subItemMappings>
-        <create name="Create Domain repository" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20repositories']">
-          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
-            <subModelOperations xsi:type="tool:CreateInstance" typeName="domain.DomainRepository" referenceName="domainRepositories">
-              <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
-              <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:generateName"/>
-            </subModelOperations>
-          </firstModelOperation>
-          <variables name="root" documentation="The semantic element of the tree."/>
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="container" documentation="The semantic element corresponding to the view container."/>
-        </create>
-      </subItemMappings>
       <ownedRepresentationCreationDescriptions xsi:type="description_3:TreeCreationDescription" name="Create Technologies diagram" treeDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Technologies%20diagram']">
         <containerViewVariable name="containerView"/>
         <representationNameVariable name="diagramName"/>
@@ -4846,150 +4867,6 @@
         <containerViewVariable name="containerView"/>
         <representationNameVariable name="diagramName"/>
       </ownedRepresentationCreationDescriptions>
-      <ownedRepresentationCreationDescriptions xsi:type="tool_1:DiagramCreationDescription" name="Create Units mapping" diagramDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']">
-        <initialOperation/>
-        <containerViewVariable name="containerView"/>
-        <representationNameVariable name="diagramName"/>
-      </ownedRepresentationCreationDescriptions>
-      <ownedRepresentationCreationDescriptions xsi:type="tool_1:DiagramCreationDescription" name="Create Data Control" diagramDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']">
-        <initialOperation/>
-        <containerViewVariable name="containerView"/>
-        <representationNameVariable name="diagramName"/>
-      </ownedRepresentationCreationDescriptions>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Units mapping" titleExpression="aql:self.name" domainClass="repository.Units">
-      <defaultLayer name="Default">
-        <edgeMappings name="ExternalAttribute" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@containerMappings[name='Unit']/@subContainerMappings[name='ObjectMapper']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@containerMappings[name='Unit']/@subContainerMappings[name='ObjectMapper']" targetFinderExpression="service:findTargetObjectMapperForAttribute">
-          <style targetArrow="InputFillClosedArrow">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
-            <beginLabelStyleDescription>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            </beginLabelStyleDescription>
-            <centerLabelStyleDescription>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-            <endLabelStyleDescription>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            </endLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="ExternalRelation" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@containerMappings[name='Unit']/@subContainerMappings[name='ObjectMapper']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@containerMappings[name='Unit']/@subContainerMappings[name='ObjectMapper']" targetFinderExpression="service:findTargetObjectMapperForRelation">
-          <style targetArrow="InputFillClosedArrow">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
-            <beginLabelStyleDescription>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            </beginLabelStyleDescription>
-            <centerLabelStyleDescription>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-            <endLabelStyleDescription>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            </endLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <containerMappings name="Unit" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@toolSections.0/@ownedTools[name='Unit%20edit%20label']" semanticCandidatesExpression="aql:self.units" domainClass="repository.Unit" dropDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@toolSections.0/@ownedTools[name='Attribute%20to%20Unit'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@toolSections.0/@ownedTools[name='Relation%20to%20Unit']">
-          <subContainerMappings name="ObjectMapper" semanticCandidatesExpression="aql:self.objectMappers" domainClass="repository.ObjectMapper" childrenPresentation="List">
-            <subNodeMappings name="AttributeMapper" preconditionExpression="service:showAttributeMapper" semanticCandidatesExpression="aql:self.attributeMappers" domainClass="repository.AttributeMapper">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="RelationMapper" preconditionExpression="service:showRelationMapper" semanticCandidatesExpression="aql:self.relationMappers" domainClass="repository.RelationMapper">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
-              </style>
-            </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:generateName">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='orange']"/>
-            </style>
-          </subContainerMappings>
-          <subContainerMappings name="FakeAttributeMapper" semanticCandidatesExpression="aql:self.objectMappers" domainClass="repository.AttributeMapper">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:generateName">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='orange']"/>
-            </style>
-          </subContainerMappings>
-          <subContainerMappings name="FakeRelationMapper" semanticCandidatesExpression="aql:self.objectMappers" domainClass="repository.RelationMapper">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" showIcon="false" labelExpression="service:generateName">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='orange']"/>
-            </style>
-          </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" labelSize="12" labelExpression="aql:self.name">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='light_orange']"/>
-          </style>
-        </containerMappings>
-        <toolSections name="Nodes">
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Unit" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@containerMappings[name='Unit']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="repository.Unit" referenceName="units">
-                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:DirectEditLabel" name="Unit edit label">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ObjectMapper" containerMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@containerMappings[name='Unit']/@subContainerMappings[name='ObjectMapper']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="repository.ObjectMapper" referenceName="objectMappers">
-                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="Attribute to Unit" precondition="service:checkAttributeMapperDropDown" mappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@containerMappings[name='Unit']/@subContainerMappings[name='ObjectMapper']/@subNodeMappings[name='AttributeMapper'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@containerMappings[name='Unit']/@subContainerMappings[name='FakeAttributeMapper']" dragSource="BOTH">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="repository.ObjectMapper" referenceName="objectMappers">
-                <subModelOperations xsi:type="tool:SetValue" featureName="typeRef" valueExpression="aql:element.attributeRef.typeRef"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUIDForObjectMapper"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="objectMapperRef" valueExpression="var:instance"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="Relation to Unit" precondition="service:checkRelationMapperDropDown" mappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@containerMappings[name='Unit']/@subContainerMappings[name='ObjectMapper']/@subNodeMappings[name='RelationMapper'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Units%20mapping']/@defaultLayer/@containerMappings[name='Unit']/@subContainerMappings[name='FakeRelationMapper']" dragSource="BOTH">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="repository.ObjectMapper" referenceName="objectMappers">
-                <subModelOperations xsi:type="tool:SetValue" featureName="typeRef" valueExpression="aql:element.typeRef"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUIDForObjectMapper"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="objectMapperRef" valueExpression="var:instance"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-        </toolSections>
-      </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.tura.metamodel.sirius.diagram.designer.service.DiagramService"/>
   </ownedViewpoints>

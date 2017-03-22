@@ -32,7 +32,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import repository.RepositoryFactory;
 import type.TypeFactory;
 
 /**
@@ -147,6 +146,7 @@ public class DataControlItemProvider
 			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS);
 			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH);
 			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY);
+			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__RELATION_MAPPERS);
 		}
 		return childrenFeatures;
 	}
@@ -221,6 +221,7 @@ public class DataControlItemProvider
 			case FormPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
 			case FormPackage.DATA_CONTROL__DEFAULT_SEARCH:
 			case FormPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
+			case FormPackage.DATA_CONTROL__RELATION_MAPPERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -277,16 +278,6 @@ public class DataControlItemProvider
 			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
 				 TypeFactory.eINSTANCE.createReturnValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 RepositoryFactory.eINSTANCE.createObjectMapper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__BASE_TYPE,
-				 RepositoryFactory.eINSTANCE.createRelationMapper()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -457,6 +448,11 @@ public class DataControlItemProvider
 			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__DEFAULT_ORDER_BY,
 				 FormFactory.eINSTANCE.createOrders()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormPackage.Literals.DATA_CONTROL__RELATION_MAPPERS,
+				 FormFactory.eINSTANCE.createRelationMapper()));
 	}
 
 	/**

@@ -140,6 +140,7 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.ROOT: return createRoot();
 			case FormPackage.FORM_VARIABLE: return createFormVariable();
 			case FormPackage.DATA_CONTROL: return createDataControl();
+			case FormPackage.RELATION_MAPPER: return createRelationMapper();
 			case FormPackage.ORDERS: return createOrders();
 			case FormPackage.ORDER_BY: return createOrderBy();
 			case FormPackage.RELATION: return createRelation();
@@ -1016,6 +1017,16 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public DataControl createDataControl() {
 		DataControlImpl dataControl = new DataControlImpl();
 		return dataControl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelationMapper createRelationMapper() {
+		RelationMapperImpl relationMapper = new RelationMapperImpl();
+		return relationMapper;
 	}
 
 	/**

@@ -161,6 +161,7 @@ import application.provider.ApplicationItemProviderAdapterFactory;
 import artifact.provider.ArtifactItemProviderAdapterFactory;
 
 import common.provider.CommonItemProviderAdapterFactory;
+
 import form.provider.FormItemProviderAdapterFactory;
 
 import infrastructure.provider.InfrastructureItemProviderAdapterFactory;
@@ -175,7 +176,6 @@ import permission.provider.PermissionItemProviderAdapterFactory;
 
 import recipe.provider.RecipeItemProviderAdapterFactory;
 
-import repository.provider.RepositoryItemProviderAdapterFactory;
 import style.provider.StyleItemProviderAdapterFactory;
 
 import type.provider.TypeItemProviderAdapterFactory;
@@ -727,7 +727,6 @@ public class DomainEditor
 		adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PermissionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new InfrastructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MessageItemProviderAdapterFactory());

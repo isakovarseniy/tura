@@ -6,7 +6,6 @@ import domain.Domain;
 import domain.DomainApplications;
 import domain.DomainArtifacts;
 import domain.DomainPackage;
-import domain.DomainRepositories;
 import domain.DomainTypes;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -29,7 +28,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link domain.impl.DomainImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.impl.DomainImpl#getDomainArtifacts <em>Domain Artifacts</em>}</li>
  *   <li>{@link domain.impl.DomainImpl#getDomainTypes <em>Domain Types</em>}</li>
- *   <li>{@link domain.impl.DomainImpl#getDomainRepositories <em>Domain Repositories</em>}</li>
  *   <li>{@link domain.impl.DomainImpl#getDomainApplications <em>Domain Applications</em>}</li>
  * </ul>
  *
@@ -75,16 +73,6 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * @ordered
 	 */
 	protected DomainTypes domainTypes;
-
-	/**
-	 * The cached value of the '{@link #getDomainRepositories() <em>Domain Repositories</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDomainRepositories()
-	 * @generated
-	 * @ordered
-	 */
-	protected DomainRepositories domainRepositories;
 
 	/**
 	 * The cached value of the '{@link #getDomainApplications() <em>Domain Applications</em>}' containment reference.
@@ -227,49 +215,6 @@ public class DomainImpl extends EObjectImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DomainRepositories getDomainRepositories() {
-		return domainRepositories;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDomainRepositories(DomainRepositories newDomainRepositories, NotificationChain msgs) {
-		DomainRepositories oldDomainRepositories = domainRepositories;
-		domainRepositories = newDomainRepositories;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__DOMAIN_REPOSITORIES, oldDomainRepositories, newDomainRepositories);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDomainRepositories(DomainRepositories newDomainRepositories) {
-		if (newDomainRepositories != domainRepositories) {
-			NotificationChain msgs = null;
-			if (domainRepositories != null)
-				msgs = ((InternalEObject)domainRepositories).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_REPOSITORIES, null, msgs);
-			if (newDomainRepositories != null)
-				msgs = ((InternalEObject)newDomainRepositories).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainPackage.DOMAIN__DOMAIN_REPOSITORIES, null, msgs);
-			msgs = basicSetDomainRepositories(newDomainRepositories, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomainPackage.DOMAIN__DOMAIN_REPOSITORIES, newDomainRepositories, newDomainRepositories));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DomainApplications getDomainApplications() {
 		return domainApplications;
 	}
@@ -320,8 +265,6 @@ public class DomainImpl extends EObjectImpl implements Domain {
 				return basicSetDomainArtifacts(null, msgs);
 			case DomainPackage.DOMAIN__DOMAIN_TYPES:
 				return basicSetDomainTypes(null, msgs);
-			case DomainPackage.DOMAIN__DOMAIN_REPOSITORIES:
-				return basicSetDomainRepositories(null, msgs);
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				return basicSetDomainApplications(null, msgs);
 		}
@@ -342,8 +285,6 @@ public class DomainImpl extends EObjectImpl implements Domain {
 				return getDomainArtifacts();
 			case DomainPackage.DOMAIN__DOMAIN_TYPES:
 				return getDomainTypes();
-			case DomainPackage.DOMAIN__DOMAIN_REPOSITORIES:
-				return getDomainRepositories();
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				return getDomainApplications();
 		}
@@ -366,9 +307,6 @@ public class DomainImpl extends EObjectImpl implements Domain {
 				return;
 			case DomainPackage.DOMAIN__DOMAIN_TYPES:
 				setDomainTypes((DomainTypes)newValue);
-				return;
-			case DomainPackage.DOMAIN__DOMAIN_REPOSITORIES:
-				setDomainRepositories((DomainRepositories)newValue);
 				return;
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				setDomainApplications((DomainApplications)newValue);
@@ -394,9 +332,6 @@ public class DomainImpl extends EObjectImpl implements Domain {
 			case DomainPackage.DOMAIN__DOMAIN_TYPES:
 				setDomainTypes((DomainTypes)null);
 				return;
-			case DomainPackage.DOMAIN__DOMAIN_REPOSITORIES:
-				setDomainRepositories((DomainRepositories)null);
-				return;
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				setDomainApplications((DomainApplications)null);
 				return;
@@ -418,8 +353,6 @@ public class DomainImpl extends EObjectImpl implements Domain {
 				return domainArtifacts != null;
 			case DomainPackage.DOMAIN__DOMAIN_TYPES:
 				return domainTypes != null;
-			case DomainPackage.DOMAIN__DOMAIN_REPOSITORIES:
-				return domainRepositories != null;
 			case DomainPackage.DOMAIN__DOMAIN_APPLICATIONS:
 				return domainApplications != null;
 		}

@@ -769,6 +769,15 @@ public interface FormFactory extends EFactory {
 	DataControl createDataControl();
 
 	/**
+	 * Returns a new object of class '<em>Relation Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Relation Mapper</em>'.
+	 * @generated
+	 */
+	RelationMapper createRelationMapper();
+
+	/**
 	 * Returns a new object of class '<em>Orders</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

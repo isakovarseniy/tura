@@ -611,17 +611,6 @@
 	   </propertySections>
 	</extension>
 	
-	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
-	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.ObjectMapperTypePropertySelection"
-	            filter="org.tura.metamodel.sirius.properties.selections.filter.ObjectMapperSectionFilter"
-	            id="type.TypePointer"
-	            tab="tab.type.TypePointer">
-	      </propertySection>
-	   </propertySections>
-	</extension>
-	
 	
 	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
@@ -741,7 +730,7 @@
 	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.BaseClassTypeNamepropertySelection"
+	            class="org.tura.metamodel.sirius.properties.selections.tree.impl.DataControlBaseTypePropertySelection"
 	            filter="org.tura.metamodel.sirius.properties.selections.filter.DataControlSectionFilter"
 	            id="form.DataContorol.baseType"
 	            tab="tab.form.DataContorol.baseType">
@@ -1140,43 +1129,6 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>	
-
-
-   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
-	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.dropdown.ValuePointerAttributePropertySelectionExternalIterator"
-	            filter="org.tura.metamodel.sirius.properties.selections.filter.AttributeMapperSectionFilter"
-	            id="form.SourcePointer.External.ValuePointer"
-	            tab="tab.repository.SourcePointer">
-	      </propertySection>
-	   </propertySections>
-	</extension>	
-
-
-	<extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
-	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.dropdown.SourceCastPropertySelection"
-	            filter="org.tura.metamodel.sirius.properties.selections.filter.ObjectMapperSectionFilter"
-	            id="form.SourcePointer.Cast"
-	            tab="tab.form.SourcePointer">
-	      </propertySection>
-	   </propertySections>
-	</extension>	
-	
-	
-   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
-	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.dropdown.SourcesPointerDataControlPropertySelection"
-	            filter="org.tura.metamodel.sirius.properties.selections.filter.ObjectMapperSectionFilter"
-	            id="form.SourcePointer"
-	            tab="tab.form.SourcePointer">
-	      </propertySection>
-	   </propertySections>
-	</extension>	
-
 
 
 

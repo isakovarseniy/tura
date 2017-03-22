@@ -71,7 +71,6 @@ import recipe.QueryVariable;
 import recipe.Recipe;
 import recipe.Recipe2Infrastructure;
 import recipe.impl.Infrastructure2ConfigurationImpl;
-import repository.ObjectMapper;
 import type.Assosiation;
 import type.Generalization;
 import type.Operation;
@@ -1364,40 +1363,19 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ObjectMapper findObjectMapperForAttribute(ObjectMapper objectMapper){
+	public DataControl findDataControlForRelation(DataControl dataControl){
 		try{
-			String query ="repository::ObjectMapper.allInstances()->collect(r|r.oclAsType(repository::ObjectMapper).attributeMappers->"
-					+ "select(q|q.oclAsType(repository::AttributeMapper).objectMapperRef<>null  and "
-					+ "q.oclAsType(repository::AttributeMapper).objectMapperRef.uid='"+objectMapper.getUid()+"'))";
+			String query ="form::DataControl.allInstances()->collect(r|r.oclAsType(form::DataControl).relationMappers->"
+					+ "select(q|q.oclAsType(form::RelationMapper).dataControlRef<>null  and "
+					+ "q.oclAsType(form::RelationMapper).dataControlRef.uid='"+dataControl.getUid()+"'))";
 	
-			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) objectMapper, TypePackage.Literals.TYPE,
+			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) dataControl, TypePackage.Literals.TYPE,
 					query);
 			if (list == null || list.size() == 0) {
 				return null;
 			}
 	
-			return (ObjectMapper) list.iterator().next().eContainer();
-		}catch(Exception e){
-			LogUtil.log(e);
-			return null;
-		}
-	}
-	
-
-	@SuppressWarnings("unchecked")
-	public ObjectMapper findObjectMapperForRelation(ObjectMapper objectMapper){
-		try{
-			String query ="repository::ObjectMapper.allInstances()->collect(r|r.oclAsType(repository::ObjectMapper).relationMappers->"
-					+ "select(q|q.oclAsType(repository::RelationMapper).objectMapperRef<>null  and "
-					+ "q.oclAsType(repository::RelationMapper).objectMapperRef.uid='"+objectMapper.getUid()+"'))";
-	
-			Collection<EObject> list = (Collection<EObject>) internalEvaluate((EObject) objectMapper, TypePackage.Literals.TYPE,
-					query);
-			if (list == null || list.size() == 0) {
-				return null;
-			}
-	
-			return (ObjectMapper) list.iterator().next().eContainer();
+			return (DataControl) list.iterator().next().eContainer();
 		}catch(Exception e){
 			LogUtil.log(e);
 			return null;

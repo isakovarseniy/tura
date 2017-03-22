@@ -16,6 +16,7 @@ import form.PREDeleteTrigger;
 import form.PREInsertTrigger;
 import form.PREQueryTrigger;
 import form.PREUpdateTrigger;
+import form.RelationMapper;
 import form.SearchTrigger;
 import form.UpdateTrigger;
 
@@ -62,6 +63,7 @@ import type.TypePointer;
  *   <li>{@link form.impl.DataControlImpl#getArtificialFields <em>Artificial Fields</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getDefaultSearch <em>Default Search</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getDefaultOrderBy <em>Default Order By</em>}</li>
+ *   <li>{@link form.impl.DataControlImpl#getRelationMappers <em>Relation Mappers</em>}</li>
  * </ul>
  *
  * @generated
@@ -256,6 +258,16 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	 * @ordered
 	 */
 	protected Orders defaultOrderBy;
+
+	/**
+	 * The cached value of the '{@link #getRelationMappers() <em>Relation Mappers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelationMappers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RelationMapper> relationMappers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -937,6 +949,18 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RelationMapper> getRelationMappers() {
+		if (relationMappers == null) {
+			relationMappers = new EObjectContainmentEList<RelationMapper>(RelationMapper.class, this, FormPackage.DATA_CONTROL__RELATION_MAPPERS);
+		}
+		return relationMappers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -970,6 +994,8 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return basicSetDefaultSearch(null, msgs);
 			case FormPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
 				return basicSetDefaultOrderBy(null, msgs);
+			case FormPackage.DATA_CONTROL__RELATION_MAPPERS:
+				return ((InternalEList<?>)getRelationMappers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1016,6 +1042,8 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return getDefaultSearch();
 			case FormPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
 				return getDefaultOrderBy();
+			case FormPackage.DATA_CONTROL__RELATION_MAPPERS:
+				return getRelationMappers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1081,6 +1109,10 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 			case FormPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
 				setDefaultOrderBy((Orders)newValue);
 				return;
+			case FormPackage.DATA_CONTROL__RELATION_MAPPERS:
+				getRelationMappers().clear();
+				getRelationMappers().addAll((Collection<? extends RelationMapper>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1144,6 +1176,9 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 			case FormPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
 				setDefaultOrderBy((Orders)null);
 				return;
+			case FormPackage.DATA_CONTROL__RELATION_MAPPERS:
+				getRelationMappers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1190,6 +1225,8 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return defaultSearch != null;
 			case FormPackage.DATA_CONTROL__DEFAULT_ORDER_BY:
 				return defaultOrderBy != null;
+			case FormPackage.DATA_CONTROL__RELATION_MAPPERS:
+				return relationMappers != null && !relationMappers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

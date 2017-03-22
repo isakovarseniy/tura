@@ -6,8 +6,6 @@ package mapper.provider;
 import java.util.Collection;
 import java.util.List;
 
-import mapper.PackageMapper;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 

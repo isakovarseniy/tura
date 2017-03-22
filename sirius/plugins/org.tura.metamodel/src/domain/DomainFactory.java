@@ -85,24 +85,6 @@ public interface DomainFactory extends EFactory {
 	DomainApplication createDomainApplication();
 
 	/**
-	 * Returns a new object of class '<em>Repositories</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Repositories</em>'.
-	 * @generated
-	 */
-	DomainRepositories createDomainRepositories();
-
-	/**
-	 * Returns a new object of class '<em>Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Repository</em>'.
-	 * @generated
-	 */
-	DomainRepository createDomainRepository();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -61,19 +61,6 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated domain -->
       <factory
-            uri="http://tura.org/2016/v2/repository"
-            class="repository.provider.RepositoryItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated domain -->
-      <factory
             uri="http://tura.org/2016/v2/permission"
             class="permission.provider.PermissionItemProviderAdapterFactory"
             supportedTypes=

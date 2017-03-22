@@ -34,6 +34,7 @@ import type.TypePointer;
  *   <li>{@link form.DataControl#getArtificialFields <em>Artificial Fields</em>}</li>
  *   <li>{@link form.DataControl#getDefaultSearch <em>Default Search</em>}</li>
  *   <li>{@link form.DataControl#getDefaultOrderBy <em>Default Order By</em>}</li>
+ *   <li>{@link form.DataControl#getRelationMappers <em>Relation Mappers</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getDataControl()
@@ -472,5 +473,21 @@ public interface DataControl extends EObject {
 	 * @generated
 	 */
 	void setDefaultOrderBy(Orders value);
+
+	/**
+	 * Returns the value of the '<em><b>Relation Mappers</b></em>' containment reference list.
+	 * The list contents are of type {@link form.RelationMapper}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Relation Mappers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Relation Mappers</em>' containment reference list.
+	 * @see form.FormPackage#getDataControl_RelationMappers()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RelationMapper> getRelationMappers();
 
 } // DataControl

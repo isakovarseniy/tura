@@ -9,7 +9,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//Domain/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainArtifacts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainRepositories"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//Domain/domainApplications"/>
     </genClasses>
     <genClasses ecoreClass="domain.ecore#//DomainArtifacts">
@@ -43,16 +42,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainApplication/uid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainApplication/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainApplication/applicationPackages"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//DomainRepositories">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainRepositories/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainRepositories/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainRepositories/domainRepositories"/>
-    </genClasses>
-    <genClasses ecoreClass="domain.ecore#//DomainRepository">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainRepository/uid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute domain.ecore#//DomainRepository/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference domain.ecore#//DomainRepository/mappres"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

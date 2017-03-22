@@ -233,52 +233,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link domain.DomainRepositories} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DomainRepositoriesItemProvider domainRepositoriesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link domain.DomainRepositories}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDomainRepositoriesAdapter() {
-		if (domainRepositoriesItemProvider == null) {
-			domainRepositoriesItemProvider = new DomainRepositoriesItemProvider(this);
-		}
-
-		return domainRepositoriesItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link domain.DomainRepository} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DomainRepositoryItemProvider domainRepositoryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link domain.DomainRepository}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDomainRepositoryAdapter() {
-		if (domainRepositoryItemProvider == null) {
-			domainRepositoryItemProvider = new DomainRepositoryItemProvider(this);
-		}
-
-		return domainRepositoryItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,8 +338,6 @@ public class DomainItemProviderAdapterFactory extends DomainAdapterFactory imple
 		if (domainTypesRepositoryItemProvider != null) domainTypesRepositoryItemProvider.dispose();
 		if (domainApplicationsItemProvider != null) domainApplicationsItemProvider.dispose();
 		if (domainApplicationItemProvider != null) domainApplicationItemProvider.dispose();
-		if (domainRepositoriesItemProvider != null) domainRepositoriesItemProvider.dispose();
-		if (domainRepositoryItemProvider != null) domainRepositoryItemProvider.dispose();
 	}
 
 }

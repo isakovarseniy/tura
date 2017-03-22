@@ -410,6 +410,10 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createDataControlAdapter();
 			}
 			@Override
+			public Adapter caseRelationMapper(RelationMapper object) {
+				return createRelationMapperAdapter();
+			}
+			@Override
 			public Adapter caseOrders(Orders object) {
 				return createOrdersAdapter();
 			}
@@ -1632,6 +1636,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataControlAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.RelationMapper <em>Relation Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.RelationMapper
+	 * @generated
+	 */
+	public Adapter createRelationMapperAdapter() {
 		return null;
 	}
 

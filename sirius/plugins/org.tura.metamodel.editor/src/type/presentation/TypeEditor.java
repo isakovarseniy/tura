@@ -161,6 +161,7 @@ import application.provider.ApplicationItemProviderAdapterFactory;
 import artifact.provider.ArtifactItemProviderAdapterFactory;
 
 import common.provider.CommonItemProviderAdapterFactory;
+
 import domain.presentation.DomainEditorPlugin;
 
 import domain.provider.DomainItemProviderAdapterFactory;
@@ -179,7 +180,6 @@ import permission.provider.PermissionItemProviderAdapterFactory;
 
 import recipe.provider.RecipeItemProviderAdapterFactory;
 
-import repository.provider.RepositoryItemProviderAdapterFactory;
 import style.provider.StyleItemProviderAdapterFactory;
 
 
@@ -729,7 +729,6 @@ public class TypeEditor
 		adapterFactory.addAdapterFactory(new ArtifactItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ApplicationItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PermissionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new InfrastructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MessageItemProviderAdapterFactory());

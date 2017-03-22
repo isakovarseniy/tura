@@ -489,8 +489,20 @@ class DataControl {
    val ArtificialField[*] artificialFields;   
    val ContextParameters defaultSearch;
    val Orders defaultOrderBy;
+
+   val RelationMapper[*] relationMappers;
+    
     
 }
+
+class RelationMapper {
+    id attr EString uid;
+	ref DataControl dataControlRef;
+	ref type.TypeElement typeRef;
+	
+}
+
+
 
 class Orders{
     id attr EString uid;

@@ -13,11 +13,10 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 
-import repository.AttributeMapper;
-import repository.ObjectMapper;
-import repository.RelationMapper;
-import repository.RepositoryFactory;
-import repository.RepositoryPackage;
+import form.DataControl;
+import form.FormFactory;
+import form.FormPackage;
+import form.RelationMapper;
 import type.Assosiation;
 import type.Attribute;
 import type.Generalization;
@@ -103,28 +102,15 @@ public class Helper {
 	}
 
 	
-	public void populateObjectMapper( ObjectMapper objectMapper , EObject model   ){
-		Type type = (Type) objectMapper.getTypeRef();
-		Map <String,Operation> operations = new HashMap<String,Operation>();
-		Map <String,Attribute> attributes = new HashMap<String,Attribute>();
-		new Helper().addOperations(operations, attributes, type);
-		
-		
-		ArrayList< AttributeMapper> array = new ArrayList<AttributeMapper>();
-		for (Attribute attribute : attributes.values()){
-			AttributeMapper attributeMapper = RepositoryFactory.eINSTANCE.createAttributeMapper();
-			attributeMapper.setUid(UUID.randomUUID().toString());
-			attributeMapper.setAttributeRef(attribute);
-			
-			array.add(attributeMapper);
-		}
+	public void populateObjectMapper( DataControl datacontrol , EObject model   ){
+		Type type = (Type) datacontrol.getBaseType().getTypeRef();
 		
 		Map <String,TypeElement> relatedObjects = new HashMap<String,TypeElement>();
 		getRelatedObjects(relatedObjects,type);
 
 		ArrayList< RelationMapper> relations = new ArrayList<RelationMapper>();
 		for (TypeElement tp : relatedObjects.values()){
-			RelationMapper relationMapper = RepositoryFactory.eINSTANCE.createRelationMapper();
+			RelationMapper relationMapper = FormFactory.eINSTANCE.createRelationMapper();
 			relationMapper.setUid(UUID.randomUUID().toString());
 			relationMapper.setTypeRef(tp);
 			
@@ -135,15 +121,9 @@ public class Helper {
 		Session session = SessionManager.INSTANCE.getSession(model);
 		EditingDomain editingDomain = session.getTransactionalEditingDomain();
 
-		EStructuralFeature feature = RepositoryPackage.eINSTANCE.getObjectMapper_AttributeMappers();
-		Command setCommand = SetCommand.create(editingDomain, model, feature, array);
+		EStructuralFeature feature = FormPackage.eINSTANCE.getDataControl_RelationMappers();
+		Command setCommand = SetCommand.create(editingDomain, model, feature, relations);
 		editingDomain.getCommandStack().execute(setCommand);
-		
-		feature = RepositoryPackage.eINSTANCE.getObjectMapper_RelationMappers();
-		setCommand = SetCommand.create(editingDomain, model, feature, relations);
-		editingDomain.getCommandStack().execute(setCommand);
-		
-		
 
 	}
 	

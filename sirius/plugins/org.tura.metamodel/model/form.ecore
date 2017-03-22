@@ -411,6 +411,14 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOrderBy" eType="#//Orders"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationMappers" upperBound="-1"
+        eType="#//RelationMapper" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationMapper">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataControlRef" eType="#//DataControl"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeRef" eType="ecore:EClass type.ecore#//TypeElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Orders">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

@@ -33,15 +33,13 @@ import application.ApplicationStyleLibraries;
 import application.ApplicationUILayer;
 import application.ApplicationUIPackage;
 import artifact.ArtifactGroup;
+import artifact.Classifier;
 import artifact.ConfigHash;
 import artifact.ConfigVariable;
-import artifact.Classifier;
 import domain.DomainApplication;
 import domain.DomainApplications;
 import domain.DomainArtifact;
 import domain.DomainArtifacts;
-import domain.DomainRepositories;
-import domain.DomainRepository;
 import domain.DomainTypes;
 import domain.DomainTypesRepository;
 import form.ArtificialField;
@@ -64,6 +62,7 @@ import form.PREInsertTrigger;
 import form.PREQueryTrigger;
 import form.PREUpdateTrigger;
 import form.Relation;
+import form.RelationMapper;
 import form.SearchTrigger;
 import form.Selection;
 import form.SourcesPointer;
@@ -90,19 +89,15 @@ import recipe.MappingTecnologiy;
 import recipe.ModelMapper;
 import recipe.Query;
 import recipe.Recipes;
-import repository.AttributeMapper;
-import repository.ObjectMapper;
-import repository.RelationMapper;
-import repository.UnitMapper;
 import style.StyleLibrary;
 import style.StyleSet;
 import type.Assosiation;
+import type.Containment;
 import type.Link;
 import type.Primitive;
 import type.RelationType;
 import type.TypeGroup;
 import type.TypeReference;
-import type.Containment;
 
 public class DiagramService {
 
@@ -407,27 +402,6 @@ public class DiagramService {
 		return "viewport - " + trigger.getMethodRef().getName() + "()";
 	}
 
-	public String generateName(DomainRepository  repository) {
-		return 	 "Domain repository " + ((DomainRepositories) (repository.eContainer())).getDomainRepositories().size();
-	}
-	
-	public String generateName(UnitMapper mapper) {
-		return "Unit mapper" + ((DomainRepository) (mapper.eContainer())).getMappres().size();
-	}
-	
-	public String generateName(ObjectMapper objectMapper) {
-		if (objectMapper.getTypeRef() == null) {
-			return "type  -  n/a";
-		}
-		return "type - " + objectMapper.getTypeRef().getName();
-	}
-
-	public String generateName(AttributeMapper attributeMapper) {
-		if (attributeMapper.getAttributeRef() == null) {
-			return "attribute  -  n/a";
-		}
-		return "attribute - " + attributeMapper.getAttributeRef().getName();
-	}
 	
 
 	public String generateName(RelationMapper relationMapper) {
@@ -596,24 +570,13 @@ public class DiagramService {
 	}
 	
 	
-	public boolean checkAttributeMapperDropDown(AttributeMapper attributeMapper){
-		if (attributeMapper.getAttributeRef().getTypeRef() instanceof Primitive){
-			return false;
-		}
-		
-		if (attributeMapper.getObjectMapperRef() == null){
-			return true;
-		}else{
-			return false;
-		}
-	}
 	
 	public boolean checkRelationMapperDropDown(RelationMapper relationMapper){
 		if (relationMapper.getTypeRef() instanceof Primitive){
 			return false;
 		}
 
-		if (relationMapper.getObjectMapperRef() == null){
+		if (relationMapper.getDataControlRef() == null){
 			return true;
 		}else{
 			return false;
@@ -621,34 +584,40 @@ public class DiagramService {
 	}
 
 	
-	
-	public boolean showAttributeMapper(AttributeMapper attributeMapper){
-		if (attributeMapper.getObjectMapperRef() == null){
-			return true;
+	public boolean checkRelationMapperSefDropDown(RelationMapper relationMapper){
+		if (relationMapper.getTypeRef() instanceof Primitive){
+			return false;
+		}
+
+		if (relationMapper.getDataControlRef() == null){
+			DataControl dc =   (DataControl) relationMapper.eContainer();
+			if (dc.getBaseType().getTypeRef().getUid().equals(relationMapper.getTypeRef().getUid())){
+				return true;
+			}else{
+				return false;
+			}
 		}else{
 			return false;
 		}
 	}
+	
 
 	public boolean showRelationMapper(RelationMapper relationMapper){
-		if (relationMapper.getObjectMapperRef() == null){
+		if (relationMapper.getDataControlRef() == null){
 			return true;
 		}else{
 			return false;
 		}
 	}	
 	
-	public ObjectMapper findTargetObjectMapperForAttribute(ObjectMapper objectMapper){
-		return new QueryHelper().findObjectMapperForAttribute(objectMapper);
-	}
 
-	public ObjectMapper findTargetObjectMapperForRelation(ObjectMapper objectMapper){
-		return new QueryHelper().findObjectMapperForRelation(objectMapper);
+	public DataControl findDataControlForRelation(DataControl dataControl){
+		return new QueryHelper().findDataControlForRelation(dataControl);
 	}
 	
-	public String generateUIDForObjectMapper(ObjectMapper objectMapper){
-		new Helper().populateObjectMapper(objectMapper, objectMapper);
-		return generateUID(objectMapper);
+	public String generateUIDForObjectMapper(DataControl datacontrol){
+		new Helper().populateObjectMapper(datacontrol, datacontrol);
+		return generateUID(datacontrol);
 	}
 	
 	public boolean checkIfSourcetContainment(Assosiation assosiation){

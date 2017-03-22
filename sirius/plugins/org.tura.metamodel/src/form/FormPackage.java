@@ -6687,13 +6687,68 @@ public interface FormPackage extends EPackage {
 	int DATA_CONTROL__DEFAULT_ORDER_BY = 16;
 
 	/**
+	 * The feature id for the '<em><b>Relation Mappers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CONTROL__RELATION_MAPPERS = 17;
+
+	/**
 	 * The number of structural features of the '<em>Data Control</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL_FEATURE_COUNT = 17;
+	int DATA_CONTROL_FEATURE_COUNT = 18;
+
+	/**
+	 * The meta object id for the '{@link form.impl.RelationMapperImpl <em>Relation Mapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.RelationMapperImpl
+	 * @see form.impl.FormPackageImpl#getRelationMapper()
+	 * @generated
+	 */
+	int RELATION_MAPPER = 83;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPER__UID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Data Control Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPER__DATA_CONTROL_REF = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPER__TYPE_REF = 2;
+
+	/**
+	 * The number of structural features of the '<em>Relation Mapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPER_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link form.impl.OrdersImpl <em>Orders</em>}' class.
@@ -6703,7 +6758,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 83;
+	int ORDERS = 84;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6740,7 +6795,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 84;
+	int ORDER_BY = 85;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6786,7 +6841,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 85;
+	int RELATION = 86;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6859,7 +6914,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 86;
+	int DEPENDENCY = 87;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6914,7 +6969,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 87;
+	int ARTIFICIAL_FIELD = 88;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -6960,7 +7015,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 88;
+	int COMPARATOR = 89;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -6970,7 +7025,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 89;
+	int ORDER = 90;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -6980,7 +7035,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 90;
+	int ORIENTATION = 91;
 
 
 	/**
@@ -9464,6 +9519,60 @@ public interface FormPackage extends EPackage {
 	EReference getDataControl_DefaultOrderBy();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link form.DataControl#getRelationMappers <em>Relation Mappers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Relation Mappers</em>'.
+	 * @see form.DataControl#getRelationMappers()
+	 * @see #getDataControl()
+	 * @generated
+	 */
+	EReference getDataControl_RelationMappers();
+
+	/**
+	 * Returns the meta object for class '{@link form.RelationMapper <em>Relation Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Relation Mapper</em>'.
+	 * @see form.RelationMapper
+	 * @generated
+	 */
+	EClass getRelationMapper();
+
+	/**
+	 * Returns the meta object for the attribute '{@link form.RelationMapper#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see form.RelationMapper#getUid()
+	 * @see #getRelationMapper()
+	 * @generated
+	 */
+	EAttribute getRelationMapper_Uid();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.RelationMapper#getDataControlRef <em>Data Control Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Control Ref</em>'.
+	 * @see form.RelationMapper#getDataControlRef()
+	 * @see #getRelationMapper()
+	 * @generated
+	 */
+	EReference getRelationMapper_DataControlRef();
+
+	/**
+	 * Returns the meta object for the reference '{@link form.RelationMapper#getTypeRef <em>Type Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type Ref</em>'.
+	 * @see form.RelationMapper#getTypeRef()
+	 * @see #getRelationMapper()
+	 * @generated
+	 */
+	EReference getRelationMapper_TypeRef();
+
+	/**
 	 * Returns the meta object for class '{@link form.Orders <em>Orders</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11781,6 +11890,48 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DATA_CONTROL__DEFAULT_ORDER_BY = eINSTANCE.getDataControl_DefaultOrderBy();
+
+		/**
+		 * The meta object literal for the '<em><b>Relation Mappers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_CONTROL__RELATION_MAPPERS = eINSTANCE.getDataControl_RelationMappers();
+
+		/**
+		 * The meta object literal for the '{@link form.impl.RelationMapperImpl <em>Relation Mapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.RelationMapperImpl
+		 * @see form.impl.FormPackageImpl#getRelationMapper()
+		 * @generated
+		 */
+		EClass RELATION_MAPPER = eINSTANCE.getRelationMapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELATION_MAPPER__UID = eINSTANCE.getRelationMapper_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Control Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_MAPPER__DATA_CONTROL_REF = eINSTANCE.getRelationMapper_DataControlRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_MAPPER__TYPE_REF = eINSTANCE.getRelationMapper_TypeRef();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.OrdersImpl <em>Orders</em>}' class.

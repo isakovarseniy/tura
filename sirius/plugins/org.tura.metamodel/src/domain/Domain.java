@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link domain.Domain#getUid <em>Uid</em>}</li>
  *   <li>{@link domain.Domain#getDomainArtifacts <em>Domain Artifacts</em>}</li>
  *   <li>{@link domain.Domain#getDomainTypes <em>Domain Types</em>}</li>
- *   <li>{@link domain.Domain#getDomainRepositories <em>Domain Repositories</em>}</li>
  *   <li>{@link domain.Domain#getDomainApplications <em>Domain Applications</em>}</li>
  * </ul>
  *
@@ -102,32 +101,6 @@ public interface Domain extends EObject {
 	 * @generated
 	 */
 	void setDomainTypes(DomainTypes value);
-
-	/**
-	 * Returns the value of the '<em><b>Domain Repositories</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Domain Repositories</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Domain Repositories</em>' containment reference.
-	 * @see #setDomainRepositories(DomainRepositories)
-	 * @see domain.DomainPackage#getDomain_DomainRepositories()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	DomainRepositories getDomainRepositories();
-
-	/**
-	 * Sets the value of the '{@link domain.Domain#getDomainRepositories <em>Domain Repositories</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Domain Repositories</em>' containment reference.
-	 * @see #getDomainRepositories()
-	 * @generated
-	 */
-	void setDomainRepositories(DomainRepositories value);
 
 	/**
 	 * Returns the value of the '<em><b>Domain Applications</b></em>' containment reference.

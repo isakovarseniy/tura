@@ -1181,7 +1181,6 @@ public interface TypePackage extends EPackage {
 	 */
 	int RELATION_TYPE = 22;
 
-
 	/**
 	 * The meta object id for the '{@link type.Containment <em>Containment</em>}' enum.
 	 * <!-- begin-user-doc -->

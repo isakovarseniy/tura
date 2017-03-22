@@ -8,7 +8,6 @@ import domain.provider.DomainEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
-import mapper.Mapper;
 import mapper.MapperPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -23,9 +22,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link mapper.Mapper} object.
