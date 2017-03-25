@@ -6,16 +6,15 @@
 %]
 package [%=typeCollection.get(0).~package%];
 
-public abstract class ProxyRepository implements org.tura.platform.repository.core.Repository{
+public class ProxyRepository implements org.tura.platform.repository.core.Repository{
 	
 	private org.tura.platform.repository.core.Repository transport;
+	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 	
-	public ProxyRepository(org.tura.platform.repository.core.Repository transport){
+	public ProxyRepository(org.tura.platform.repository.core.Repository transport,org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider){
 	   this.transport = transport;
+	   this.stackProvider = stackProvider;
 	}
-
-    @SuppressWarnings("rawtypes")
-    public abstract List getCommandStack();
 
 
 	@Override
@@ -35,6 +34,7 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
 
 	@Override
 	public void insert(Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
+	try{
 	switch (objectClass){
 	
 [%	
@@ -60,7 +60,7 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
          %]
          case "[%=type.~fullName%]": { [%=type.~package%].proxy.commands.AddTop[%=type.~class%]Command cmd = new [%=type.~package%].proxy.commands.AddTop[%=type.~class%]Command();
                cmd.set[%=type.~class%]((([%=type.~fullName%]Proxy) obj).getWrappedObject());
-               cmd.setCommandStack(getCommandStack());
+               cmd.setStackProvider(stackProvider);
                cmd.prepare();
                return;}
          [%
@@ -72,11 +72,16 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
 		}
         throw new org.tura.platform.repository.core.RepositoryException("Class is not supported");
 		
+		 }catch(Exception e){
+            throw new org.tura.platform.repository.core.RepositoryException(e);
+         }
+		
+		
 	}
 
 	@Override
 	public void remove(Object obj, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
-	
+	try{
 	switch (objectClass){
 	
 [%	
@@ -102,7 +107,7 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
          %]
          case "[%=type.~fullName%]": { [%=type.~package%].proxy.commands.RemoveTop[%=type.~class%]Command cmd = new [%=type.~package%].proxy.commands.RemoveTop[%=type.~class%]Command();
                cmd.set[%=type.~class%]((([%=type.~fullName%]Proxy) obj).getWrappedObject());
-               cmd.setCommandStack(getCommandStack());
+               cmd.setStackProvider(stackProvider);
                cmd.prepare();
                return;}
          [%
@@ -113,6 +118,9 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
      %]
 		}
         throw new org.tura.platform.repository.core.RepositoryException("Class is not supported");
+		 }catch(Exception e){
+            throw new org.tura.platform.repository.core.RepositoryException(e);
+         }
 		
 	}
 
@@ -136,8 +144,12 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
 	@Override
     @SuppressWarnings("rawtypes")
 	public void applyChanges(java.util.List changes) throws org.tura.platform.repository.core.RepositoryException {
-		transport.applyChanges(getCommandStack());
-		getCommandStack().clear();
+	   try{
+		transport.applyChanges(stackProvider.getListOfCommand());
+		stackProvider.clear();
+		}catch(Exception e){
+		  throw new org.tura.platform.repository.core.RepositoryException(e);
+		}
 		
 	}
 	
@@ -153,7 +165,7 @@ public abstract class ProxyRepository implements org.tura.platform.repository.co
         }
 	
 %] 
-case "[%=type.~fullName%]": return new [%=type.~fullName%]Proxy(([%=type.~fullName%])obj,getCommandStack());
+case "[%=type.~fullName%]": return new [%=type.~fullName%]Proxy(([%=type.~fullName%])obj,stackProvider);
 [%	
 	}
 %]	

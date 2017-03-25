@@ -21,8 +21,9 @@
  */
 package org.tura.platform.datacontrol.command.base;
 
+import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 public interface PreUpdateTrigger {
-	public void execute(Command cmd) throws TuraException;
+	public void execute(Object  obj, IDataControl dc) throws TuraException;
 }

@@ -42,6 +42,7 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import objects.test.serialazable.jpa.JPATestPackageDataProvider;
 import objects.test.serialazable.jpa.One2Many1A;
@@ -55,6 +56,30 @@ public class One2ManyNoContaintmantTest {
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
 
+	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public void addCommand(Object cmd) throws Exception {
+			commandStack.add(cmd);
+			
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public List<Object> getListOfCommand() throws Exception {
+			return commandStack;
+		}
+
+		@Override
+		public void clear() throws Exception {
+			commandStack.clear();
+			
+		}
+		
+	};	
+	
+	
 	private static Logger logger;
 
 	@BeforeClass
@@ -76,23 +101,19 @@ public class One2ManyNoContaintmantTest {
 	private ProxyRepository getRepository() {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
-
+		
 		JPATestPackageDataProvider dataProvider = new JPATestPackageDataProvider();
 		dataProvider.setEntityManager(em);
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
 		dataProvider.init();
-
-		return new ProxyRepository(repository) {
-			@SuppressWarnings("rawtypes")
-			public List getCommandStack() {
-				return commandStack;
-			}
-
-		};
-
+		
+		
+		return  new ProxyRepository(repository,stackProvider);
+		
 	}
 
+	
 	@Test
 	public void t0000_One2Many() {
 		try {

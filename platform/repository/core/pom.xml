@@ -19,7 +19,7 @@
 	
 		<dependency>
 			<groupId>org.tura.platform.datacontrol</groupId>
-			<artifactId>core</artifactId>
+			<artifactId>commons</artifactId>
 		</dependency>
 
 

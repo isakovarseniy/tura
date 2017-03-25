@@ -18,8 +18,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
  	private [%=type.~fullName%] [%=util.mergeAndCapitalize(type.~class)%];
 	private [%=field.typeRef.~fullName%] new[%=util.mergeAndCapitalize(field.name)%]Value;
 	private [%=field.typeRef.~fullName%] old[%=util.mergeAndCapitalize(field.name)%]Value;
-	@SuppressWarnings("rawtypes")
-	private java.util.List commandStack;	
+
+	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
  
  	public [%=type.~fullName%] get[%=type.~class%]() {
 		return [%=util.mergeAndCapitalize(type.~class)%];
@@ -51,18 +51,16 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	}
 
 
-	@SuppressWarnings("rawtypes")
-	public List getCommandStack() {
-		return commandStack;
+	public org.tura.platform.repository.proxy.ProxyCommadStackProvider getStackProvider() {
+		return stackProvider;
 	}
 
 
-	@SuppressWarnings("rawtypes")
-	public void setCommandStack(List commandStack) {
-		this.commandStack = commandStack;
+	public void setStackProvider(org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider) {
+		this.stackProvider = stackProvider;
 	}
  
- 	public boolean prepare() {
+ 	public boolean prepare() throws Exception{
 		
 		if ((old[%=util.mergeAndCapitalize(field.name)%]Value != null) && (old[%=util.mergeAndCapitalize(field.name)%]Value.equals(""))){
 			old[%=util.mergeAndCapitalize(field.name)%]Value = null;
@@ -92,7 +90,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	}
  
  	@SuppressWarnings("unchecked")
-	private void add(){
+	private void add() throws Exception{
 		[%=type.~package%].Update[%=type.~class%][%=util.mergeAndCapitalize(field.name)%]Data data = new [%=type.~package%].Update[%=type.~class%][%=util.mergeAndCapitalize(field.name)%]Data();
 		[%
 	      for (pk in primaryKey){ 
@@ -102,7 +100,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	      }
 		%]
 		data.set[%=util.mergeAndCapitalize(field.name)%](new[%=util.mergeAndCapitalize(field.name)%]Value);
-		commandStack.add(data);
+		stackProvider.addCommand(data);
 	}
  }
  

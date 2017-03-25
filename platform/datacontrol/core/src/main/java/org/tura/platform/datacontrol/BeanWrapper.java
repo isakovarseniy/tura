@@ -27,6 +27,13 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.tura.platform.datacontrol.command.base.InsertObjectRepositoryAdapter;
+import org.tura.platform.datacontrol.command.base.UpdateObjectRepositoryAdapter;
+import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
+
 import net.sf.cglib.core.Signature;
 import net.sf.cglib.proxy.Callback;
 import net.sf.cglib.proxy.Enhancer;
@@ -34,13 +41,6 @@ import net.sf.cglib.proxy.InterfaceMaker;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 import net.sf.cglib.proxy.NoOp;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
-import org.tura.platform.datacontrol.command.base.Command;
-import org.tura.platform.datacontrol.command.base.CommandFactory;
-import org.tura.platform.datacontrol.commons.Reflection;
-import org.tura.platform.datacontrol.metainfo.ArtificialProperty;
 
 public class BeanWrapper implements MethodInterceptor {
 
@@ -50,7 +50,6 @@ public class BeanWrapper implements MethodInterceptor {
 	private ArrayList<String> exceptionmethod = new ArrayList<String>();
 	private ArrayList<String> artificialmethod = new ArrayList<String>();
 	private HashMap<String, Object> artificialvalues = new HashMap<String, Object>();
-	private boolean isChangesTracking = true; 
 
 	public void addExceptionsmethod(String method) {
 		exceptionmethod.add(method);
@@ -254,14 +253,16 @@ public class BeanWrapper implements MethodInterceptor {
 	}
 
 	private void createCommand( Object oldValue, Object newValue,  String property, Object bean) throws Exception {
-		if ( isChangesTracking &&  datacontrol.getCommandStack() != null) {
+		if ( datacontrol.getCommandStack() != null) {
 			if (this.insertMode) {
-				Command cmd = CommandFactory.cloneCommand(datacontrol, datacontrol.getInsertCommand(), oldValue, newValue, bean,  property);
-			    cmd.execute();
+				InsertObjectRepositoryAdapter cmd = datacontrol.getInsertCommand();
+				cmd.setUnwrappedProxyObject(bean);
+				cmd.insert();
 				setInsertMode(false);
 			} else {
-				Command cmd = CommandFactory.cloneCommand(datacontrol, datacontrol.getUpdateCommand(), oldValue, newValue, bean,  property);
-				cmd.execute();
+				UpdateObjectRepositoryAdapter cmd = datacontrol.getUpdateCommand();
+				cmd.setUnwrappedProxyObject(bean);
+				cmd.update();
 			}
 		}
 	}
@@ -274,11 +275,4 @@ public class BeanWrapper implements MethodInterceptor {
 		this.obj = obj;
 	}
 
-	public boolean isChangesTracking() {
-		return isChangesTracking;
-	}
-
-	public void setChangesTracking(boolean isChangesTracking) {
-		this.isChangesTracking = isChangesTracking;
-	}
 }

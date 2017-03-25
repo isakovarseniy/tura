@@ -28,6 +28,14 @@ import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 public class Util {
+	
+	public static Object unwrapObject(Object wrappedObject) throws Exception{
+		BeanWrapper w = (BeanWrapper) Reflection.call(wrappedObject, "getWrapper");
+		return w.getObj();
+		
+	}
+
+	
 
 	@SuppressWarnings({ "rawtypes" })
 	public static Object convertobject(Object obj, DataControl datacontrol)

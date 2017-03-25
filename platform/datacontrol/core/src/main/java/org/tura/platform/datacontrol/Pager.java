@@ -31,8 +31,7 @@ import java.util.UUID;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.josql.QueryExecutionException;
 import org.josql.QueryParseException;
-import org.tura.platform.datacontrol.command.base.Command;
-import org.tura.platform.datacontrol.command.base.CommandFactory;
+import org.tura.platform.datacontrol.command.base.DeleteObjectRepositoryAdapter;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.DefaulQueryFactory;
 import org.tura.platform.datacontrol.commons.LazyList;
@@ -46,6 +45,7 @@ import org.tura.platform.datacontrol.data.ShiftControlData;
 import org.tura.platform.datacontrol.pool.Pool;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.datacontrol.shift.ShiftControl;
+import org.tura.platform.repository.core.SearchResult;
 
 import com.octo.java.sql.query.SelectQuery;
 import com.rits.cloning.Cloner;
@@ -165,7 +165,7 @@ public class Pager<T> extends Pool {
 	@SuppressWarnings("unchecked")
 	public T createObject(int index, boolean managable) throws TuraException {
 		try {
-			Object obj = datacontrol.getCreateCommand().execute();
+			Object obj = datacontrol.getCreateCommand().create();
 			return (T) obj;
 		} catch (Exception e) {
 			throw new TuraException(e);
@@ -250,7 +250,7 @@ public class Pager<T> extends Pool {
 		}
 	}
 
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public T queryDS(int sindex, int index) throws TuraException {
 
 		if (index < 0)
@@ -267,16 +267,16 @@ public class Pager<T> extends Pool {
 
 		try {
 
-			if (!prepareQuery())
+			if (!prepareQuery()){
 				return null;
-
-			   entities = (LazyList<T>) datacontrol.getSearchCommand()
-						.execute();
+			}
+			  SearchResult result = datacontrol.getSearchCommand().query();
+			
+			   entities = new LazyList(result.getSearchResult(),result.getNumberOfRows(),startIndex);
 
 				getShifter().setActualRowNumber(entities.getActualRowNumber());
 
-			if (entities.getFragmentSize() != 0
-					&& index < entities.getActualRowNumber()) {
+			if (entities.getFragmentSize() != 0&& index < entities.getActualRowNumber()) {
 				return getEntity(index);
 			} else {
 				return null;
@@ -372,12 +372,11 @@ public class Pager<T> extends Pool {
 		try {
 			T obj = getObject(i);
 			
-			Command cmd = CommandFactory.cloneCommand(datacontrol, datacontrol.getDeleteCommand(), null, null, obj, null);
-
-			if (datacontrol.getPreDeleteTrigger() != null)
-				datacontrol.getPreDeleteTrigger().execute(cmd);
-
-			cmd.execute();
+			DeleteObjectRepositoryAdapter  cmd = datacontrol.getDeleteCommand();
+			cmd.setDatacontrol(datacontrol);
+			cmd.setUnwrappedProxyObject(Util.unwrapObject(obj) );
+			
+			cmd.delete();
 
 			return obj;
 		} catch (Exception e) {

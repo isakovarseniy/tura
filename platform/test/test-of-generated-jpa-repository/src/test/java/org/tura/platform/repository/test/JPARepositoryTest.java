@@ -46,6 +46,7 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import objects.test.serialazable.jpa.AddCustomer2LocationOnNoAssosiationCustomerData;
 import objects.test.serialazable.jpa.Client;
@@ -66,6 +67,29 @@ public class JPARepositoryTest {
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
+	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public void addCommand(Object cmd) throws Exception {
+			commandStack.add(cmd);
+			
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public List<Object> getListOfCommand() throws Exception {
+			return commandStack;
+		}
+
+		@Override
+		public void clear() throws Exception {
+			commandStack.clear();
+			
+		}
+		
+	};	
+	
 
 	private static Logger logger;
 
@@ -94,15 +118,10 @@ public class JPARepositoryTest {
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
 		dataProvider.init();
-
-		return new ProxyRepository(repository){
-			@SuppressWarnings("rawtypes")
-			public List getCommandStack(){
-				   return commandStack ;
-			   }
-
-		};
-
+		
+		
+		return  new ProxyRepository(repository,stackProvider);
+		
 	}
 
 	@Test
@@ -292,7 +311,7 @@ public class JPARepositoryTest {
 			
 			m2m.setCustomerCustomerId(customer.getCustomerId());
 			m2m.setLocationObjId(location.getObjId());
-			repository.getCommandStack().add(m2m);
+			stackProvider.addCommand(m2m);
 
 			Vehicle vehicle = (Vehicle) repository.create(Vehicle.class.getName());
 			vehicle.setModel("Honda");

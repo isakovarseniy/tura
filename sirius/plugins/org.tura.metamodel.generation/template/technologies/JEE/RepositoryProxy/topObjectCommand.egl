@@ -15,13 +15,12 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 %]
 package [%=masterType.~package%].proxy.commands;
 
-public class [%=cmdtype%]Top[%=masterType.~class%]Command{
+public class [%=cmdtype%]Top[%=masterType.~class%]Command implements org.tura.platform.repository.proxy.ProxyRepositoryCommand{
 
 
  	private [%=masterType.~fullName%] [%=util.mergeAndUnCapitalize(masterType.~class)%];
 
-	@SuppressWarnings("rawtypes")
-	private java.util.List commandStack;	
+	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 
 
     public void set[%=util.mergeAndCapitalize(masterType.~class)%]([%=masterType.~fullName%] [%=util.mergeAndUnCapitalize(masterType.~class)%]){
@@ -32,25 +31,23 @@ public class [%=cmdtype%]Top[%=masterType.~class%]Command{
         return [%=util.mergeAndUnCapitalize(masterType.~class)%];
     }
     
- 	@SuppressWarnings("rawtypes")
-	public java.util.List getCommandStack() {
-		return commandStack;
+	public org.tura.platform.repository.proxy.ProxyCommadStackProvider  getStackProvider() {
+		return stackProvider;
 	}
 
 
-	@SuppressWarnings("rawtypes")
-	public void setCommandStack(java.util.List commandStack) {
-		this.commandStack = commandStack;
+	public void setStackProvider(org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider) {
+		this.stackProvider = stackProvider;
 	}
     
     
- 	public boolean prepare() {
+ 	public boolean prepare() throws Exception{
        [%=cmdtype.toLowerCase()%]();
        return true;
     }
     
    @SuppressWarnings("unchecked")
-   public void [%=cmdtype.toLowerCase()%](){
+   public void [%=cmdtype.toLowerCase()%]() throws Exception{
    
         [%=masterType.~package%].[%=cmdtype%]Top[%=masterType.~class%]Data data = new [%=masterType.~package%].[%=cmdtype%]Top[%=masterType.~class%]Data();
 
@@ -58,7 +55,7 @@ public class [%=cmdtype%]Top[%=masterType.~class%]Command{
 		 [%=masterType.~fullName%] cloned = c.deepClone([%=util.mergeAndUnCapitalize(masterType.~class)%]);
          data.set[%=util.mergeAndCapitalize(masterType.name)%](cloned);
          
-		commandStack.add(data);
+		stackProvider.addCommand(data);
 		
 		[%=util.mergeAndUnCapitalize(masterType.~class)%].setAttached(true);
          

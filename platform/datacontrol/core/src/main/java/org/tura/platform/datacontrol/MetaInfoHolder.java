@@ -26,18 +26,17 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import org.tura.platform.datacontrol.command.base.Command;
-import org.tura.platform.datacontrol.command.base.CreateCommandBase;
-import org.tura.platform.datacontrol.command.base.DeleteCommandBase;
-import org.tura.platform.datacontrol.command.base.InsertCommandBase;
+import org.tura.platform.datacontrol.command.base.CreateObjectRepositoryAdapter;
+import org.tura.platform.datacontrol.command.base.DeleteObjectRepositoryAdapter;
+import org.tura.platform.datacontrol.command.base.InsertObjectRepositoryAdapter;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
 import org.tura.platform.datacontrol.command.base.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
-import org.tura.platform.datacontrol.command.base.SearchCommandBase;
-import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
+import org.tura.platform.datacontrol.command.base.SearchObjectRepositoryAdapter;
+import org.tura.platform.datacontrol.command.base.UpdateObjectRepositoryAdapter;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -59,11 +58,11 @@ public abstract class MetaInfoHolder {
 	protected List<OrderCriteria> defaultOrderCriteria = new ArrayList<>();
 	
 	protected ELResolver elResolver;
-	protected CreateCommandBase createCommand;
-	protected InsertCommandBase insertCommand;
-	protected UpdateCommandBase updateCommand;
-	protected DeleteCommandBase deleteCommand;
-	protected SearchCommandBase searchCommand;
+	protected CreateObjectRepositoryAdapter createCommand;
+	protected InsertObjectRepositoryAdapter insertCommand;
+	protected UpdateObjectRepositoryAdapter updateCommand;
+	protected DeleteObjectRepositoryAdapter deleteCommand;
+	protected SearchObjectRepositoryAdapter searchCommand;
 	protected PreQueryTrigger preQueryTrigger;
 	protected PostQueryTrigger postQueryTrigger;
 	protected PostCreateTrigger postCreateTrigger;
@@ -72,13 +71,13 @@ public abstract class MetaInfoHolder {
 	protected PreDeleteTrigger preDeleteTrigger;
 
 	
-	public abstract void setCreateCommand(CreateCommandBase createCommand) ;
-	public abstract void setInsertCommand(InsertCommandBase insertCommand);
-	public abstract void setUpdateCommand(UpdateCommandBase updateCommand);
-	public abstract void setDeleteCommand(DeleteCommandBase deleteCommand) ;
+	public abstract void setCreateCommand(CreateObjectRepositoryAdapter createCommand) ;
+	public abstract void setInsertCommand(InsertObjectRepositoryAdapter insertCommand);
+	public abstract void setUpdateCommand(UpdateObjectRepositoryAdapter updateCommand);
+	public abstract void setDeleteCommand(DeleteObjectRepositoryAdapter deleteCommand) ;
 	public abstract void setPreQueryTrigger(PreQueryTrigger preQueryTrigger) ;
 	public abstract void setPostQueryTrigger(PostQueryTrigger postQueryTrigger) ;
-	public abstract void setSearchCommand(SearchCommandBase searchCommand) ;
+	public abstract void setSearchCommand(SearchObjectRepositoryAdapter searchCommand) ;
 	public abstract void setPostCreateTrigger(PostCreateTrigger postCreateTrigger);
 	public abstract void setPreDeleteTrigger(PreDeleteTrigger preDeleteTrigger) ;
 	public abstract void setPreInsertTrigger(PreInsertTrigger preInsertTrigger);
@@ -116,22 +115,22 @@ public abstract class MetaInfoHolder {
 		return elResolver;
 	}
 	
-	public Command getCreateCommand() {
+	public CreateObjectRepositoryAdapter getCreateCommand() {
 		return createCommand;
 	}
 	
-	public Command getInsertCommand() {
+	public InsertObjectRepositoryAdapter getInsertCommand() {
 		return insertCommand;
 	}
 	
-	public Command getUpdateCommand() {
+	public UpdateObjectRepositoryAdapter getUpdateCommand() {
 		return updateCommand;
 	}
 	
-	public Command getDeleteCommand() {
+	public DeleteObjectRepositoryAdapter getDeleteCommand() {
 		return deleteCommand;
 	}
-	public Command getSearchCommand() {
+	public SearchObjectRepositoryAdapter getSearchCommand() {
 		return searchCommand;
 	}
 	

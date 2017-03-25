@@ -21,12 +21,11 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 %]
 package [%=masterType.~package%].proxy.commands;
 
-public class [%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Command{
+public class [%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Command implements org.tura.platform.repository.proxy.ProxyRepositoryCommand{
 
  	private [%=detailType.~fullName%] [%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%];
 
-	@SuppressWarnings("rawtypes")
-	private java.util.List commandStack;	
+	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 
 [%
         if (noAssosiation){
@@ -66,18 +65,16 @@ public class [%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]
         return [%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%];
     }
 
-	@SuppressWarnings("rawtypes")
-	public java.util.List getCommandStack() {
-		return commandStack;
+	public org.tura.platform.repository.proxy.ProxyCommadStackProvider  getStackProvider() {
+		return stackProvider;
 	}
 
 
-	@SuppressWarnings("rawtypes")
-	public void setCommandStack(java.util.List commandStack) {
-		this.commandStack = commandStack;
+	public void setStackProvider(org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider) {
+		this.stackProvider = stackProvider;
 	}
  
- 	public boolean prepare() {
+ 	public boolean prepare() throws Exception{
 [%
 
         if (not noAssosiation){
@@ -119,8 +116,7 @@ public class [%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]
 
     }
 
-   @SuppressWarnings("unchecked")
-   public void [%=cmdtype.toLowerCase()%](){
+   public void [%=cmdtype.toLowerCase()%]() throws Exception{
    
 [%
         if (noAssosiation){
@@ -154,7 +150,7 @@ operation  containtmentRelation ( masterType, detailType,property,recipe,ingredi
 		 [%=detailType.~fullName%] cloned = c.deepClone([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%]);
          data.set[%=util.mergeAndCapitalize(detailType.name)%][%=suffix%](cloned);
          
-		commandStack.add(data);
+		stackProvider.addCommand(data);
 		
 		[%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%].setAttached(true);
          
@@ -180,7 +176,7 @@ operation  nonContaintmentRelation ( masterType, detailType,property,recipe,ingr
 		    data.set[%=util.mergeAndCapitalize(detailType.name)%][%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%].get[%=util.mergeAndCapitalize(pk.name)%]());
 	      [%}%]
  
- 		commandStack.add(data);
+		stackProvider.addCommand(data);
      
  [%    
  }
@@ -204,7 +200,7 @@ operation noAssosiationtRelation ( masterType, detailType,property,recipe,ingred
 		    data.set[%=util.mergeAndCapitalize(detailType.name)%][%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%].get[%=util.mergeAndCapitalize(pk.name)%]());
 	      [%}%]
  
- 		commandStack.add(data);
+		stackProvider.addCommand(data);
 		
  [%    
 }

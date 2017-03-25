@@ -25,12 +25,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.datacontrol.command.base.Command;
+import org.tura.platform.datacontrol.command.base.DataControlCommand;
 
 public class CommandStackData {
 
 	private HashMap<String, DataControl<?>> gostTracking = new HashMap<>();
-	private ArrayList<Command> transaction = new ArrayList<Command>();
+	private ArrayList<DataControlCommand> transaction = new ArrayList<DataControlCommand>();
 
 	
 	public static Object factory(Object obj){
@@ -40,7 +40,7 @@ public class CommandStackData {
 	public HashMap<String, DataControl<?>> getGostTracking() {
 		return gostTracking;
 	}
-	public ArrayList<Command> getTransaction() {
+	public ArrayList<DataControlCommand> getTransaction() {
 		return transaction;
 	}
 

@@ -42,6 +42,7 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import objects.test.serialazable.jpa.AddMany2Many2B2Many2Many2AOnNoAssosiationMany2Many2BData;
 import objects.test.serialazable.jpa.JPATestPackageDataProvider;
@@ -57,6 +58,29 @@ public class Many2ManyNoAssosiationTest {
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
 
+	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public void addCommand(Object cmd) throws Exception {
+			commandStack.add(cmd);
+			
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public List<Object> getListOfCommand() throws Exception {
+			return commandStack;
+		}
+
+		@Override
+		public void clear() throws Exception {
+			commandStack.clear();
+			
+		}
+		
+	};	
+	
 	private static Logger logger;
 
 	@BeforeClass
@@ -78,23 +102,18 @@ public class Many2ManyNoAssosiationTest {
 	private ProxyRepository getRepository() {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
-
+		
 		JPATestPackageDataProvider dataProvider = new JPATestPackageDataProvider();
 		dataProvider.setEntityManager(em);
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
 		dataProvider.init();
-
-		return new ProxyRepository(repository) {
-			@SuppressWarnings("rawtypes")
-			public List getCommandStack() {
-				return commandStack;
-			}
-
-		};
-
+		
+		
+		return  new ProxyRepository(repository,stackProvider);
+		
 	}
-	@SuppressWarnings("unchecked")
+	
 	@Test
 	public void t0000_One2Many() {
 		try {
@@ -112,7 +131,7 @@ public class Many2ManyNoAssosiationTest {
 			
 			m2m.setMany2Many2AObjId(o1.getObjId());
 			m2m.setMany2Many2BObjId(o2.getObjId());
-			repository.getCommandStack().add(m2m);
+			stackProvider.addCommand(m2m);
 			
 			repository.applyChanges(null);
 			em.getTransaction().commit();

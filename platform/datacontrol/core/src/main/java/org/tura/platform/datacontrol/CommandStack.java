@@ -23,10 +23,11 @@ package org.tura.platform.datacontrol;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Stack;
 import java.util.UUID;
 
-import org.tura.platform.datacontrol.command.base.Command;
+import org.tura.platform.datacontrol.command.base.DataControlCommand;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.data.CommandStackData;
@@ -47,7 +48,7 @@ public abstract class CommandStack {
 		return (CommandStackData) this.savePoints.peek().getData().get(id);
 	}
 
-	public void addTransaction(Command cmd) throws TuraException {
+	public void addTransaction(DataControlCommand cmd) throws TuraException {
 		getCommandStackData().getTransaction().add(cmd);
 	}
 
@@ -62,8 +63,8 @@ public abstract class CommandStack {
 
 		for (SavePoint sv : savePoints) {
 			CommandStackData csd = (CommandStackData) sv.getData().get(id);
-			for (Command cmd : csd.getTransaction()) {
-				hash.put(cmd.getDatacontrol().getId(), cmd.getDatacontrol());
+			for (DataControlCommand cmd : csd.getTransaction()) {
+				hash.put(cmd.getDataControl().getId(), cmd.getDataControl());
 			}
 		}
 		for (SavePoint sv : savePoints) {
@@ -113,65 +114,46 @@ public abstract class CommandStack {
 		savePoints.push(sp);
 	}
 
-	public void commitCommand() throws TuraException {
+	public Object[]  getListOfCommand() throws TuraException {
 
 		HashMap<String, DataControl<?>> controlsId = new HashMap<>();
+		ArrayList<Object> commands = new ArrayList<>();
 
 		try {
 
-			Command prevCommand = null;
-			boolean waitingForExecution = false;
-			HashMap<String, Object> context = new HashMap<>();
-
 			for (SavePoint sv : savePoints) {
 				CommandStackData csd = (CommandStackData) sv.getData().get(id);
-				for (Command cmd : csd.getTransaction()) {
-					if (cmd.isCompressable(prevCommand)){
-						cmd.compress(context);
-						if (prevCommand == null){
-						     prevCommand = cmd;
-						}
-						waitingForExecution = true;
-						
-					}else{
-						if (waitingForExecution){
-							compleatCommand(prevCommand,controlsId);
-						}
-						context.clear();
-						
-						cmd.compress(context);
-						
-						waitingForExecution = true;
-						prevCommand = cmd;
-					}
-					
+				for (DataControlCommand cmd : csd.getTransaction()) {
+					controlsId.put(cmd.getDataControl().getId(),cmd.getDataControl());
+					commands.add(cmd.getRepositoryCommand());
 				}
 			}
-			if (waitingForExecution){
-				compleatCommand(prevCommand,controlsId);
-			}
 
-			SavePoint sv = savePoints.peek();
-			savePoints = new Stack<>();
-			savePoints.push(sv);
-
-			for (DataControl<?> ctl : controlsId.values()) {
-				ctl.cleanShifter();
-			}
-
-			for (DataControl<?> ctl : controlsId.values()) {
-				ctl.forceRefresh();
-			}
-
+			return new Object[] {commands,controlsId};
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
 	}
 
-	private void compleatCommand( Command cmd,HashMap<String, DataControl<?>> controlsId ) throws Exception{
-		cmd.delayedExecution();
-		controlsId.put(cmd.getDatacontrol().getId(),cmd.getDatacontrol());
+	public void clean(List <DataControl<?>> controlsId ) throws  TuraException{
+		try{
+			SavePoint sv = savePoints.peek();
+			savePoints = new Stack<>();
+			savePoints.push(sv);
+	
+			for (DataControl<?> ctl : controlsId) {
+				ctl.cleanShifter();
+			}
+	
+			for (DataControl<?> ctl : controlsId) {
+				ctl.forceRefresh();
+			}		
+		} catch (Exception e) {
+			throw new TuraException(e);
+		}
+		
 	}
+	
 	
 	public Object getData(String id) {
 		return this.savePoints.peek().getData().get(id);
