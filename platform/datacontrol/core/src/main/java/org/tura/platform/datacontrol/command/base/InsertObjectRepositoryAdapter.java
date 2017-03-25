@@ -21,7 +21,6 @@
  */
 package org.tura.platform.datacontrol.command.base;
 
-import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 
 public abstract class InsertObjectRepositoryAdapter extends RepositoryAdapter{
@@ -31,7 +30,7 @@ public abstract class InsertObjectRepositoryAdapter extends RepositoryAdapter{
 	
 	public void  preInsert() throws Exception{
 		if (this.getDatacontrol().getPreInsertTrigger() != null)
-			this.getDatacontrol().getPreInsertTrigger().execute(getWrappedObject(),getDatacontrol());
+			this.getDatacontrol().getPreInsertTrigger().execute(getWrappedProxyObject(),getDatacontrol());
 	}
 
 	
@@ -44,14 +43,11 @@ public abstract class InsertObjectRepositoryAdapter extends RepositoryAdapter{
 	}
 
 	public void  postInsert() throws Exception{
-		this.getDatacontrol().putObjectToPool(getWrappedObject(), PoolCommand.U);
-		this.getDatacontrol().getShifter().update(this.getDatacontrol().getCurrentPosition(), getWrappedObject());
+		this.getDatacontrol().putObjectToPool(getWrappedProxyObject(), PoolCommand.U);
+		this.getDatacontrol().getShifter().update(this.getDatacontrol().getCurrentPosition(), getWrappedProxyObject());
 		
 	}
 	
-	public Object getWrappedObject() throws Exception{
-		return Util.convertobject(getUnwrappedProxyObject(), getDatacontrol());		
-	}
 	
 	
 }

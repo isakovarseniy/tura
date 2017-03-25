@@ -21,7 +21,6 @@
  */
 package org.tura.platform.datacontrol.command.base;
 
-import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 
 public abstract class UpdateObjectRepositoryAdapter extends RepositoryAdapter{
@@ -32,7 +31,7 @@ public abstract class UpdateObjectRepositoryAdapter extends RepositoryAdapter{
 	
 	public void  preUpdate() throws Exception{
 		if (this.getDatacontrol().getPreUpdateTrigger() != null)
-			this.getDatacontrol().getPreUpdateTrigger().execute(getWrappedObject(),getDatacontrol());
+			this.getDatacontrol().getPreUpdateTrigger().execute(getWrappedProxyObject(),getDatacontrol());
 	}
 	
 	public void  update() throws Exception{
@@ -44,14 +43,11 @@ public abstract class UpdateObjectRepositoryAdapter extends RepositoryAdapter{
 	
 	public void postUpdate() throws Exception {
 
-		this.getDatacontrol().getShifter().update(this.getDatacontrol().getCurrentPosition(), getWrappedObject());
-		this.getDatacontrol().putObjectToPool(getWrappedObject(), PoolCommand.U);
+		this.getDatacontrol().getShifter().update(this.getDatacontrol().getCurrentPosition(), getWrappedProxyObject());
+		this.getDatacontrol().putObjectToPool(getWrappedProxyObject(), PoolCommand.U);
 		
 	}
 	
-	public Object getWrappedObject() throws Exception{
-		return Util.convertobject(getUnwrappedProxyObject(), getDatacontrol());		
-	}
 	
 	
 }

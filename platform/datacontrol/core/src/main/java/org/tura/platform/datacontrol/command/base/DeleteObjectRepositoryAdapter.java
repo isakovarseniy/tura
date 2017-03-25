@@ -21,7 +21,6 @@
  */
 package org.tura.platform.datacontrol.command.base;
 
-import org.tura.platform.datacontrol.Util;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 
 public abstract class DeleteObjectRepositoryAdapter extends RepositoryAdapter{
@@ -32,7 +31,7 @@ public abstract class DeleteObjectRepositoryAdapter extends RepositoryAdapter{
 	public void preDelete() throws Exception {
 
 		if (this.getDatacontrol().getPreDeleteTrigger() != null)
-			this.getDatacontrol().getPreDeleteTrigger().execute(getWrappedObject(),getDatacontrol());
+			this.getDatacontrol().getPreDeleteTrigger().execute(getWrappedProxyObject(),getDatacontrol());
 
 	}
 
@@ -46,11 +45,8 @@ public abstract class DeleteObjectRepositoryAdapter extends RepositoryAdapter{
 	
 	public  void  postDelete() throws Exception{
 		this.getDatacontrol().getShifter().remove(this.getDatacontrol().getCurrentPosition());
-		this.getDatacontrol().putObjectToPool(getWrappedObject(), PoolCommand.R);
+		this.getDatacontrol().putObjectToPool(getWrappedProxyObject(), PoolCommand.R);
 	}
 	
-	public Object getWrappedObject() throws Exception{
-		return Util.convertobject(getUnwrappedProxyObject(), getDatacontrol());		
-	}
 	
 }

@@ -29,6 +29,7 @@ import java.util.HashMap;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.tura.platform.datacontrol.command.base.CommandFactory;
 import org.tura.platform.datacontrol.command.base.InsertObjectRepositoryAdapter;
 import org.tura.platform.datacontrol.command.base.UpdateObjectRepositoryAdapter;
 import org.tura.platform.datacontrol.commons.Reflection;
@@ -101,23 +102,19 @@ public class BeanWrapper implements MethodInterceptor {
 
 				parameters = new org.objectweb.asm.Type[] {};
 
-				if (obj.getType().getCanonicalName()
-						.equals("java.lang.Boolean")) {
-					signature = new Signature("is"
-							+ StringUtils.capitalize(obj.getProperty()),
+				if (obj.getType().getCanonicalName().equals("java.lang.Boolean")) {
+					signature = new Signature("is"+ StringUtils.capitalize(obj.getProperty()),
 							org.objectweb.asm.Type.getType(obj.getType()),
 							parameters);
 					im.add(signature, parameters);
 				}
 
-				signature = new Signature("get"
-						+ StringUtils.capitalize(obj.getProperty()),
+				signature = new Signature("get"+ StringUtils.capitalize(obj.getProperty()),
 						org.objectweb.asm.Type.getType(obj.getType()),
 						parameters);
 				im.add(signature, parameters);
 
-				parameters = new org.objectweb.asm.Type[] { org.objectweb.asm.Type
-						.getType(obj.getType()) };
+				parameters = new org.objectweb.asm.Type[] { org.objectweb.asm.Type.getType(obj.getType()) };
 				signature = new Signature("set"
 						+ StringUtils.capitalize(obj.getProperty()),
 						org.objectweb.asm.Type.VOID_TYPE, parameters);
@@ -128,10 +125,12 @@ public class BeanWrapper implements MethodInterceptor {
 		// Finish creating the interface
 		Class  myInterface = im.create();
 
-		if (datacontrol.getArtificialInterface() == null) 
+		if (datacontrol.getArtificialInterface() == null){ 
 			interfaces = new Class[]{myInterface};
-		else
+		}
+		else{
 			interfaces = new Class[]{myInterface,datacontrol.getArtificialInterface() };
+		}
 		
 		BeanWrapper interceptor = new BeanWrapper();
 		Enhancer e = new Enhancer();
@@ -183,39 +182,40 @@ public class BeanWrapper implements MethodInterceptor {
 			}
 
 			String field = null;
-			if ((m.getName().substring(0, 3).equals("set"))
-					|| (m.getName().substring(0, 3).equals("get")))
+			if ((m.getName().substring(0, 3).equals("set")) || (m.getName().substring(0, 3).equals("get"))){
 				field = StringUtils.uncapitalize(m.getName().substring(3));
+			}
 			else {
-				if (m.getName().substring(0, 2).equals("is"))
+				if (m.getName().substring(0, 2).equals("is")){
 					field = StringUtils.uncapitalize(m.getName().substring(2));
+				}
 			}
 
-			if ((m.getName().substring(0, 3).equals("set"))
-					&& (!exceptionmethod.contains(field))) {
+			if ((m.getName().substring(0, 3).equals("set")) && (!exceptionmethod.contains(field))) {
 
 				Method getter = null;
 				try {
 					String getAccessor = "get" + m.getName().substring(3);
 
-					getter = obj.getClass().getMethod(getAccessor,
-							new Class[] {});
+					getter = obj.getClass().getMethod(getAccessor,new Class[] {});
 
 				} catch (NoSuchMethodException nm) {
 					String getAccessor = "is" + m.getName().substring(3);
 
-					getter = obj.getClass().getMethod(getAccessor,
-							new Class[] {});
+					getter = obj.getClass().getMethod(getAccessor,new Class[] {});
 
 				}
 				oldValue = getter.invoke(obj, new Object[] {});
 
-				if ((oldValue != null) && (oldValue.equals("")))
+				if ((oldValue != null) && (oldValue.equals(""))){
 					oldValue = null;
+				}
 
 				newValue = args[0];
-				if ((args[0] != null) && (args[0].equals("")))
+				if ((args[0] != null) && (args[0].equals(""))){
 					newValue = null;
+				}
+					
 			}
 
 			if ((field != null) && (artificialmethod.contains(field))) {
@@ -228,18 +228,13 @@ public class BeanWrapper implements MethodInterceptor {
 				result = m.invoke(obj, args);
 			}
 
-			if ((m.getName().substring(0, 3).equals("set"))
-					&& (!exceptionmethod.contains(field))) {
+			if ((m.getName().substring(0, 3).equals("set"))&& (!exceptionmethod.contains(field))) {
 
 				if ((newValue == null) && (oldValue == null))
 					return result;
-				if ((newValue != null) && (oldValue == null)
-						|| (newValue == null) && (oldValue != null)) {
-
+				if ((newValue != null) && (oldValue == null)|| (newValue == null) && (oldValue != null)) {
 					createCommand( oldValue,newValue, field,proxy);
-
 				} else if (!newValue.equals(oldValue)) {
-
 					createCommand( oldValue,newValue, field,proxy);
 				}
 			}
@@ -255,13 +250,11 @@ public class BeanWrapper implements MethodInterceptor {
 	private void createCommand( Object oldValue, Object newValue,  String property, Object bean) throws Exception {
 		if ( datacontrol.getCommandStack() != null) {
 			if (this.insertMode) {
-				InsertObjectRepositoryAdapter cmd = datacontrol.getInsertCommand();
-				cmd.setUnwrappedProxyObject(bean);
+				InsertObjectRepositoryAdapter cmd = (InsertObjectRepositoryAdapter) CommandFactory.initCommand(datacontrol, datacontrol.getInsertCommand(), this );
 				cmd.insert();
 				setInsertMode(false);
 			} else {
-				UpdateObjectRepositoryAdapter cmd = datacontrol.getUpdateCommand();
-				cmd.setUnwrappedProxyObject(bean);
+				UpdateObjectRepositoryAdapter cmd = (UpdateObjectRepositoryAdapter) CommandFactory.initCommand(datacontrol, datacontrol.getUpdateCommand(), this );
 				cmd.update();
 			}
 		}

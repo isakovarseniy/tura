@@ -36,6 +36,7 @@ public  class RepositoryAdapter {
 	private  DataControl<?> datacontrol;
 	private Repository repository;
 	private Object unwrappedProxyObject;
+	private Object wrappedProxyObject;
 
 	
 	
@@ -94,6 +95,16 @@ public  class RepositoryAdapter {
 
 	public void setUnwrappedProxyObject(Object unwrappedProxyObject) {
 		this.unwrappedProxyObject = unwrappedProxyObject;
+	}
+
+
+	public Object getWrappedProxyObject() {
+		return wrappedProxyObject;
+	}
+
+
+	public void setWrappedProxyObject(Object wrappedProxyObject) {
+		this.wrappedProxyObject = wrappedProxyObject;
 	}
 	
 	
