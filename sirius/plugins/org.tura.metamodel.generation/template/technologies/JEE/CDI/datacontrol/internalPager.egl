@@ -1,0 +1,188 @@
+package org.tura.platform.datacontrol;
+
+import java.util.List;
+
+import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
+import org.tura.platform.datacontrol.commons.LazyList;
+import org.tura.platform.datacontrol.commons.TuraException;
+
+import com.octo.java.sql.query.SelectQuery;
+
+public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends Pager<T>{
+   
+    private org.tura.platform.datacontrol.DataControl datacontrol;
+    private org.tura.platform.repository.core.Repository repository;
+
+    public [%=parent.~class%]2[%=type.~class%]Pager(org.tura.platform.datacontrol.DataControl datacontrol){
+       this.datacontrol = datacontrol;
+    }
+
+	@Override
+	public T create() {
+	    CreateObjectParameters createObjectParameters = datacontrol.getCreateObjectParameters();
+	    prepareParameter(createObjectParameters.getObjectType());
+		[%=type.~fullName%] obj =   repository.create((String)createObjectParameters.getObj());
+		obj.getAttributes().put(Constants.DATA_CONTROL, datacontrol);
+		obj.getAttributes().put(Constants.PARENT_OBJECT, getParent());
+		
+		getShifter().add(datacontrol.getCurrentPosition(), obj);
+		putObjectToPool(obj, PoolCommand.C);
+		
+		PostCreateTrigger trigger = datacontrol.getPostCreateTrigger(); 
+		if (trigger != null){
+		   trigger.execute(obj.getWrapper(),datacontrol);
+		}
+		obj.addListener(new UpdateListener());
+		
+		return obj;
+	}
+
+	@Override
+	public LazyList search() {
+	    SearchObjectParameters searchObjectParameters = datacontrol.getSearchObjectParameters();
+	    prepareParameter(searchObjectParameters.getSearchCriteria());
+	    prepareParameter(searchObjectParameters.getOrderByCriteria());
+	    prepareParameter(searchObjectParameters.getObjectType());
+	
+	    [%=parent.~fullName%] parent =  ([%=parent.~fullName%] ) getParent();
+	    
+	    com.octo.java.sql.query.SelectQuery select = org.tura.platform.datacontrol.commons.DefaulQueryFactory.builder(searchObjectParameters.getSearchCriteria().getObj(), searchObjectParameters.getOrderByCriteria().getObj(), searchObjectParameters.getObjectType().getObj()) ; 
+		String strQuery = select.toSql(new JOSQLExpressionBuilder());
+
+	    org.josql.Query query = new org.josql.Query();
+		query.parse(strQuery);
+		QueryResults result = query.execute(parent.get[%=property%]);
+
+        java.util.ArrayList<Object> array = new java.util.ArrayList<Object>();
+        Cloner cloner = new Cloner();
+        
+		for (Object obj : result.getResults()) {
+		   Object o = cloner.deepClone(obj);
+		   array.add(o);
+		   o.getAttributes().put(Constants.DATA_CONTROL, datacontrol);
+		   o.addListener(new UpdateListener());
+		}
+        LazyList<Object> list = new LazyList<Object>(array,rarray.size(),0);  	
+        
+ 		return list;
+	}
+
+	@Override
+	public void delete(Object obj) {
+		PreDeleteTrigger trigger = getDatacontrol().getPreDeleteTrigger(); 
+		if (trigger != null){
+		   trigger.execute(obj,datacontrol);
+		}
+        parent.get[%=property%].remove(obj);
+        
+        getShifter().remove(datacontrol.getCurrentPosition());
+		putObjectToPool(obj, PoolCommand.R);        
+	}
+
+	@Override
+	protected boolean prepareQuery() throws TuraException {
+           Cloner cloner = new Cloner();
+			datacontrol
+					.setSearchCriteria(cloner.deepClone(datacontrol.getDefaultSearchCriteria()));
+
+			datacontrol
+			       .setOrderCriteria(cloner.deepClone(datacontrol.getDefaultOrderCriteria()));
+
+           for (SearchCriteria criteria: datacontrol.getSearchCriteria()){
+				if (criteria .getValue() instanceof String ){
+					criteria.setValue(resolver((String) criteria .getValue()));
+				}
+			}
+			return true;
+	}
+
+	@Override
+	protected SelectQuery getSelectQuery() throws TuraException {
+	    throw new RuntimeException(e); 
+	     //Put additional criteria for paren object 
+	    return org.tura.platform.datacontrol.commons.DefaulQueryFactory.builder(searchObjectParameters.getSearchCriteria().getObj(), searchObjectParameters.getOrderByCriteria().getObj(), searchObjectParameters.getObjectType().getObj()) ; 
+	}
+
+	@Override
+	protected Object getParent() {
+		if ( datacontrol.getParent() != null) {
+				return datacontrol.getParent().getMasterCurrentObject();
+	   }else{
+	      throw new RuntimeException("Parent object canot be null");
+	   }
+	}
+
+	@Override
+	protected Class getBaseClass() {
+		return dc.getBaseClass();
+	}
+
+	@Override
+	protected PostQueryTrigger getPostQueryTrigger() {
+		return dc.getPostQueryTrigger();
+	}
+
+	@Override
+	protected PreDeleteTrigger getPreDeleteTrigger() {
+		return dc.getPreDeleteTrigger();
+	}
+
+	@Override
+	protected List getSearchCriteria() {
+		datacontrol.getSearchCriteria();
+	}
+
+	@Override
+	protected DataControl getDataControl() {
+		return dc;
+	}
+
+
+public void prepareParameter(CallParameter parameter) throws Exception {
+
+		Cloner cloner = new Cloner();
+
+		String exp = parameter.getExpression();
+		Object val = parameter.getValue();
+		Class<?> clazz = parameter.getClazz();
+		if ((exp != null && !exp.equals(""))
+				&& (val != null && !val.equals(""))) {
+			new TuraException("Wrong combination of method's parameter");
+		}
+		if (exp != null && !exp.equals("")) {
+			Object obj = datacontrol.getElResolver().getValue(exp);
+
+			Object o = cloner.deepClone(obj);
+			parameter.setObj(o);
+		}
+		if (val != null && !val.equals("")) {
+			Constructor<?> cnt =  clazz.getDeclaredConstructor(String.class);
+			Object o = cnt.newInstance(val);
+			parameter.setObj(o);
+		}
+
+	}
+
+  public class UpdateListener{
+  
+      public void listener( ObjectControl  obj , String property ){
+           if (!object.getAttached()){
+                 [%=parent.~fullName%] parent = obj.getAttributes().get(Constants.PARENT_OBJECT);
+              [%
+                  if (not contained){
+               %]
+                  repository.insert(object);
+                  [%
+                  }
+              %]         
+                 parent.get[%=property%].add(obj);
+                 putObjectToPool(obj, PoolCommand.U);
+		         getShifter().update(this.getDatacontrol().getCurrentPosition(), obj);                 
+           }else{
+                 getShifter().update(datacontrol.getCurrentPosition(), obj);
+		         datacontrol.putObjectToPool(obj, PoolCommand.U);           
+           }
+      }
+  }
+}

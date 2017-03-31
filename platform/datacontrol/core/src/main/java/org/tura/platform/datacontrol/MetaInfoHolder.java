@@ -26,17 +26,14 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import org.tura.platform.datacontrol.command.base.CreateObjectRepositoryAdapter;
-import org.tura.platform.datacontrol.command.base.DeleteObjectRepositoryAdapter;
-import org.tura.platform.datacontrol.command.base.InsertObjectRepositoryAdapter;
+import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
 import org.tura.platform.datacontrol.command.base.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
-import org.tura.platform.datacontrol.command.base.SearchObjectRepositoryAdapter;
-import org.tura.platform.datacontrol.command.base.UpdateObjectRepositoryAdapter;
+import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -56,13 +53,12 @@ public abstract class MetaInfoHolder {
 	protected Class<?> baseClass;
 	protected List<SearchCriteria> defaultSearchCriteria = new ArrayList<>();
 	protected List<OrderCriteria> defaultOrderCriteria = new ArrayList<>();
+
+	protected CreateObjectParameters createObjectParameters;
+	protected SearchObjectParameters searchObjectParameters;
+	
 	
 	protected ELResolver elResolver;
-	protected CreateObjectRepositoryAdapter createCommand;
-	protected InsertObjectRepositoryAdapter insertCommand;
-	protected UpdateObjectRepositoryAdapter updateCommand;
-	protected DeleteObjectRepositoryAdapter deleteCommand;
-	protected SearchObjectRepositoryAdapter searchCommand;
 	protected PreQueryTrigger preQueryTrigger;
 	protected PostQueryTrigger postQueryTrigger;
 	protected PostCreateTrigger postCreateTrigger;
@@ -71,13 +67,8 @@ public abstract class MetaInfoHolder {
 	protected PreDeleteTrigger preDeleteTrigger;
 
 	
-	public abstract void setCreateCommand(CreateObjectRepositoryAdapter createCommand) ;
-	public abstract void setInsertCommand(InsertObjectRepositoryAdapter insertCommand);
-	public abstract void setUpdateCommand(UpdateObjectRepositoryAdapter updateCommand);
-	public abstract void setDeleteCommand(DeleteObjectRepositoryAdapter deleteCommand) ;
 	public abstract void setPreQueryTrigger(PreQueryTrigger preQueryTrigger) ;
 	public abstract void setPostQueryTrigger(PostQueryTrigger postQueryTrigger) ;
-	public abstract void setSearchCommand(SearchObjectRepositoryAdapter searchCommand) ;
 	public abstract void setPostCreateTrigger(PostCreateTrigger postCreateTrigger);
 	public abstract void setPreDeleteTrigger(PreDeleteTrigger preDeleteTrigger) ;
 	public abstract void setPreInsertTrigger(PreInsertTrigger preInsertTrigger);
@@ -85,7 +76,17 @@ public abstract class MetaInfoHolder {
 	public abstract void setElResolver(ELResolver elResolver);
 	public abstract void setDefaultOrderCriteria(List<OrderCriteria> orderCriteria);
 	public abstract void setDefaultSearchCriteria(List<SearchCriteria> searchCriteria);
+	public abstract void setCreateObjectParameters(CreateObjectParameters createObjectParameters);
+	public abstract void setSearchObjectParameters(SearchObjectParameters searchObjectParameters);
+
 	
+	
+	public CreateObjectParameters getCreateObjectParameters(){
+		return createObjectParameters;
+	}
+	public SearchObjectParameters getSearchObjectParameters(){
+		return searchObjectParameters;
+	}
 	
 	public void addChildren(String relationName, Relation relation) throws TuraException {
 		children.put(relationName, relation);
@@ -115,24 +116,6 @@ public abstract class MetaInfoHolder {
 		return elResolver;
 	}
 	
-	public CreateObjectRepositoryAdapter getCreateCommand() {
-		return createCommand;
-	}
-	
-	public InsertObjectRepositoryAdapter getInsertCommand() {
-		return insertCommand;
-	}
-	
-	public UpdateObjectRepositoryAdapter getUpdateCommand() {
-		return updateCommand;
-	}
-	
-	public DeleteObjectRepositoryAdapter getDeleteCommand() {
-		return deleteCommand;
-	}
-	public SearchObjectRepositoryAdapter getSearchCommand() {
-		return searchCommand;
-	}
 	
 	public PreQueryTrigger getPreQueryTrigger() {
 		return preQueryTrigger;

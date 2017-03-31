@@ -401,8 +401,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		Cloner cloner = new Cloner();
 		Object o = cloner.deepClone(pooledObj);
 
-		pager.addCommand(c.createdCommand(o, getObjectKey(obj), getBaseClass(),
-				getShifter().getId()));
+		pager.addCommand(c.createdCommand(o, getObjectKey(obj), getBaseClass(),getShifter().getId()));
 	}
 
 	

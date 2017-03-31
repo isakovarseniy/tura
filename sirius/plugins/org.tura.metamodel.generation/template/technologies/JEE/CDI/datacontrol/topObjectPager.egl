@@ -1,0 +1,159 @@
+package org.tura.platform.datacontrol;
+
+import java.util.List;
+
+import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
+import org.tura.platform.datacontrol.commons.LazyList;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.datacontrol.commons.TuraException;
+
+import com.octo.java.sql.query.SelectQuery;
+
+public class [%=type.~class%]Pager<T> extends Pager<T>{
+    private org.tura.platform.datacontrol.DataControl datacontrol;
+    private org.tura.platform.repository.core.Repository repository;
+
+    public [%=type.~class%]Pager(org.tura.platform.datacontrol.DataControl datacontrol){
+       this.datacontrol = datacontrol;
+    }
+
+
+	@Override
+	public T create() {
+	    CreateObjectParameters createObjectParameters = datacontrol.getCreateObjectParameters();
+	    prepareParameter(createObjectParameters.getObjectType());
+		[%=type.~fullName%] obj =   repository.create((String)createObjectParameters.getObj());
+		obj.getAttributes().put(Constants.DATA_CONTROL, datacontrol);
+		
+		getShifter().add(datacontrol.getCurrentPosition(), obj);
+		putObjectToPool(obj, PoolCommand.C);
+		
+		PostCreateTrigger trigger = getDatacontrol().getPostCreateTrigger(); 
+		if (trigger != null){
+		   trigger.execute(obj.getWrapper(),datacontrol);
+		}
+		obj.addListener(new UpdateListener());
+		return obj;
+	}
+
+	@Override
+	public LazyList<T> search() {
+	    SearchObjectParameters searchObjectParameters = datacontrol.getSearchObjectParameters();
+	    prepareParameter(searchObjectParameters.getSearchCriteria());
+	    prepareParameter(searchObjectParameters.getOrderByCriteria());
+	    prepareParameter(searchObjectParameters.getStartIndex());
+	    prepareParameter(searchObjectParameters.getEndIndex());
+	    prepareParameter(searchObjectParameters.getObjectType());
+	    
+	    SearchResult result = repository.find(searchObjectParameters.getSearchCriteria().getObj(), searchObjectParameters.getOrderByCriteria().getObj(),searchObjectParameters.getStartIndex().getObj(),searchObjectParameters.getEndIndex().getObj(),searchObjectParameters.getObjectType().getObj());
+ 
+        for(Object o :   result.getSearchResult()){
+		    ((ObjectControl) o).addListener(new UpdateListener());
+        }
+        LazyList<Object> list = new LazyList<>(result.getSearchResult(),result.getNumberOfRows(),searchObjectParameters.getStartIndex());  	
+		return list;
+	}
+
+	@Override
+	public void delete(Object obj) {
+		PreDeleteTrigger trigger = getDatacontrol().getPreDeleteTrigger(); 
+		if (trigger != null){
+		   trigger.execute(obj,datacontrol);
+		}
+		repository.remove(obj);
+	}
+
+	@Override
+	protected boolean prepareQuery() throws TuraException {
+     try {
+			Cloner cloner = new Cloner();
+			datacontrol
+					.setSearchCriteria(cloner.deepClone(datacontrol.getDefaultSearchCriteria()));
+
+			datacontrol
+			       .setOrderCriteria(cloner.deepClone(datacontrol.getDefaultOrderCriteria()));
+
+			Collection<SearchCriteria> sc = null;
+
+			if (datacontrol.getParent() != null) {
+				sc = datacontrol.getParent().getChildSearchCriteria();
+
+				for (SearchCriteria criteria : sc) {
+					if (!criteria.getValue().equals(
+							Constants.UNDEFINED_PARAMETER)) {
+						datacontrol.getSearchCriteria().add(criteria);
+					} else {
+						return false;
+					}
+				}
+
+			}
+			
+			for (SearchCriteria criteria: datacontrol.getSearchCriteria()){
+				if (criteria .getValue() instanceof String ){
+					criteria.setValue(resolver((String) criteria .getValue()));
+				}
+			}
+			return true;
+		} catch (NoSuchMethodException | SecurityException
+				| IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException  e) {
+			throw new TuraException(e);
+		}
+	}
+
+	@Override
+	protected SelectQuery getSelectQuery() throws TuraException {
+			return DefaulQueryFactory.builder(datacontrol.getSearchCriteria(), datacontrol.getOrderCriteria(), datacontrol.getBaseClass()) ;
+	}
+
+	@Override
+	protected Object getParent() {
+	  if (datacontrol.getParent() != null) {
+				Object obj = datacontrol.getParent().getMasterCurrentObject();
+		      	return obj;
+	  }else{
+	     return null;
+	  }	
+	}
+
+	@Override
+	protected Class<?> getBaseClass() {
+		return dc.getBaseClass();
+	}
+
+	@Override
+	protected PostQueryTrigger getPostQueryTrigger() {
+		return dc.getPostQueryTrigger();
+	}
+
+	@Override
+	protected PreDeleteTrigger getPreDeleteTrigger() {
+		return dc.getPreDeleteTrigger();
+	}
+
+	@Override
+	protected List<SearchCriteria> getSearchCriteria() {
+		datacontrol.getSearchCriteria();
+	}
+
+	@Override
+	protected DataControl<T> getDataControl() {
+		return dc;
+	}
+
+  public class UpdateListener{
+      public void listener( ObjectControl  obj , String property ){
+           if (!object.getAttached()){
+                 repository.insert(obj);
+                 putObjectToPool(obj, PoolCommand.U);
+		         getShifter().update(this.getDatacontrol().getCurrentPosition(), obj);                 
+           }else{
+                 getShifter().update(datacontrol.getCurrentPosition(), obj);
+		         datacontrol.putObjectToPool(obj, PoolCommand.U);           
+           }
+      }
+  }
+
+}

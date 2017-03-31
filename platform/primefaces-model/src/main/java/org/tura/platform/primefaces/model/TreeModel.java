@@ -33,7 +33,6 @@ import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.event.NodeUnselectEvent;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
-import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.IDataControl;

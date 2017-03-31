@@ -14,9 +14,10 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 package [%=tp.~package%];
 
 
-public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  {
+public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura.platform.repository.core.ObjectControl {
 
     private [%=tp.~fullName%] object;
+    private java.util.Map <String,Object> attributes;
 
 	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 
@@ -29,6 +30,10 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  {
         return object;
     }
     
+    publicMap<String,Object> getAttributes(){
+          return attributes;
+    }
+    
     @Override
     public boolean equals(Object o){
       if (o instanceof [%=tp.~package%].[%=tp.~class%]Proxy){
@@ -37,6 +42,18 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  {
        return false;
      }  
     }
+    
+       public String getKey(){
+		  StringBuffer key = new StringBuffer();
+		  [%for ( field in tp.~primaryKey){%]
+		   key.append(object.get[%=util.mergeAndCapitalize(field.name)%]());
+		   [%}%]
+		  key.append("[%=tp.~fullName%]");
+
+		  return key.toString();
+      }
+    
+    
     
     
     [%

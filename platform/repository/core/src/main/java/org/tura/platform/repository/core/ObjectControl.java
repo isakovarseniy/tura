@@ -21,12 +21,16 @@
  */
 package org.tura.platform.repository.core;
 
+import java.util.Map;
+
 public interface ObjectControl {
 	
 	Boolean getAttached();
 	
-	Boolean getContained();
+	Object getWrappedObject();
 	
-	Boolean getTopObject();
+	String getKey();
+	
+	Map<String,Object> getAttributes();
 
 }
