@@ -17,7 +17,7 @@ package [%=tp.~package%];
 public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura.platform.repository.core.ObjectControl {
 
     private [%=tp.~fullName%] object;
-    private java.util.Map <String,Object> attributes;
+    private java.util.Map <String,Object> attributes = new java.util.HashMap<String,Object>();
 
 	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 
@@ -30,7 +30,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
         return object;
     }
     
-    publicMap<String,Object> getAttributes(){
+    public java.util.Map<String,Object> getAttributes(){
           return attributes;
     }
     

@@ -25,6 +25,7 @@ public class Constants {
 	public static String UNDEFINED_PARAMETER="@@ARSENIY@UNDEFINED_PARAMETER";
 	public static String POST_QUERY_TRIGGER_COMPLETED = "POST_QUERY_TRIGGER_COMPLETED"; 
 	public static String DATA_CONTROL = "Data control";
+	public static String PARENT_OBJECT = "Parent object";
 	
 
 }

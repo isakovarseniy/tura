@@ -1,0 +1,189 @@
+package [%=type.~package%].pager;
+
+import java.util.List;
+
+import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
+import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
+import org.tura.platform.datacontrol.commons.LazyList;
+import org.tura.platform.datacontrol.commons.TuraException;
+
+import com.octo.java.sql.query.SelectQuery;
+
+public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Pager<T>{
+   
+    private org.tura.platform.datacontrol.DataControl<T> datacontrol;
+    private org.tura.platform.repository.core.Repository repository;
+
+    public [%=parent.~class%]2[%=type.~class%]Pager(org.tura.platform.datacontrol.DataControl<T> datacontrol){
+       this.datacontrol = datacontrol;
+    }
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T create() {
+	    org.tura.platform.datacontrol.command.base.CreateObjectParameters createObjectParameters = datacontrol.getCreateObjectParameters();
+	    prepareParameter(createObjectParameters.getObjectType());
+		[%=type.~fullName%] obj =   ([%=type.~fullName%])repository.create((String)createObjectParameters.getObjectType().getObj());
+		((org.tura.platform.repository.core.ObjectControl)obj).getAttributes().put(org.tura.platform.datacontrol.commons.Constants.DATA_CONTROL, datacontrol);
+		((org.tura.platform.repository.core.ObjectControl)obj).getAttributes().put(org.tura.platform.datacontrol.commons.Constants.PARENT_OBJECT, getParent());
+		
+		getShifter().add(datacontrol.getCurrentPosition(), obj);
+		putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.C);
+		
+		org.tura.platform.datacontrol.command.base.PostCreateTrigger trigger = datacontrol.getPostCreateTrigger(); 
+		if (trigger != null){
+		   trigger.execute(datacontrol,((org.tura.platform.repository.core.ObjectControl)obj).getWrappedObject());
+		}
+		((org.tura.platform.repository.core.ObjectControl)obj).addListener(new UpdateListener());
+		
+		return (T)obj;
+	}
+
+	@Override
+	public LazyList<T> search() {
+	    org.tura.platform.datacontrol.command.base.SearchObjectParameters searchObjectParameters = datacontrol.getSearchObjectParameters();
+	    prepareParameter(searchObjectParameters.getSearchCriteria());
+	    prepareParameter(searchObjectParameters.getOrderByCriteria());
+	    prepareParameter(searchObjectParameters.getObjectType());
+	
+	    [%=parent.~fullName%] parent =  ([%=parent.~fullName%] ) getParent();
+	    
+	    com.octo.java.sql.query.SelectQuery select = org.tura.platform.datacontrol.commons.DefaulQueryFactory.builder(searchObjectParameters.getSearchCriteria().getObj(), searchObjectParameters.getOrderByCriteria().getObj(), searchObjectParameters.getObjectType().getObj()) ; 
+		String strQuery = select.toSql(new org.tura.platform.datacontrol.pool.JOSQLExpressionBuilder());
+
+	    org.josql.Query query = new org.josql.Query();
+		query.parse(strQuery);
+		org.josql.QueryResults result = query.execute(parent.get[%=property%]);
+
+        java.util.ArrayList<Object> array = new java.util.ArrayList<Object>();
+        com.rits.cloning.Cloner cloner = new com.rits.cloning.Cloner();
+        
+		for (Object obj : result.getResults()) {
+		   Object o = cloner.deepClone(obj);
+		   array.add(o);
+		   ((org.tura.platform.repository.core.ObjectControl)o).getAttributes().put(Constants.DATA_CONTROL, datacontrol);
+		   ((org.tura.platform.repository.core.ObjectControl)o).addListener(new UpdateListener());
+		}
+        LazyList<Object> list = new LazyList<Object>(array,rarray.size(),0);  	
+        
+ 		return list;
+	}
+
+	@Override
+	public void delete(Object obj) {
+		org.tura.platform.datacontrol.command.base.PreDeleteTrigger trigger = getDataControl().getPreDeleteTrigger(); 
+		if (trigger != null){
+		   trigger.execute(datacontrol,obj);
+		}
+        parent.get[%=property%].remove(obj);
+        
+        getShifter().remove(datacontrol.getCurrentPosition());
+		putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.R);        
+	}
+
+	@Override
+	protected boolean prepareQuery() throws TuraException {
+        com.rits.cloning.Cloner cloner = new com.rits.cloning.Cloner();
+			datacontrol
+					.setSearchCriteria(cloner.deepClone(datacontrol.getDefaultSearchCriteria()));
+
+			datacontrol
+			       .setOrderCriteria(cloner.deepClone(datacontrol.getDefaultOrderCriteria()));
+
+           for (SearchCriteria criteria: datacontrol.getSearchCriteria()){
+				if (criteria .getValue() instanceof String ){
+					criteria.setValue(resolver((String) criteria .getValue()));
+				}
+			}
+			return true;
+	}
+
+	@Override
+	protected SelectQuery getSelectQuery() throws TuraException {
+	    throw new RuntimeException(e); 
+	     //Put additional criteria for paren object 
+	    return org.tura.platform.datacontrol.commons.DefaulQueryFactory.builder(searchObjectParameters.getSearchCriteria().getObj(), searchObjectParameters.getOrderByCriteria().getObj(), searchObjectParameters.getObjectType().getObj()) ; 
+	}
+
+	@Override
+	protected Object getParent() {
+		if ( datacontrol.getParent() != null) {
+				return datacontrol.getParent().getMasterCurrentObject();
+	   }else{
+	      throw new RuntimeException("Parent object canot be null");
+	   }
+	}
+
+	@Override
+	protected Class<?> getBaseClass() {
+		return datacontrol.getBaseClass();
+	}
+
+	@Override
+	protected org.tura.platform.datacontrol.command.base.PostQueryTrigger getPostQueryTrigger() {
+		return datacontrol.getPostQueryTrigger();
+	}
+
+	@Override
+	protected org.tura.platform.datacontrol.command.base.PreDeleteTrigger getPreDeleteTrigger() {
+		return datacontrol.getPreDeleteTrigger();
+	}
+
+	@Override
+	protected List<org.tura.platform.datacontrol.commons.SearchCriteria> getSearchCriteria() {
+        return datacontrol.getSearchCriteria();
+	}
+
+	@Override
+	protected org.tura.platform.datacontrol.DataControl<T> getDataControl() {
+		return datacontrol;
+	}
+
+
+public void prepareParameter(org.tura.platform.datacontrol.command.base.CallParameter parameter) throws Exception {
+
+        com.rits.cloning.Cloner cloner = new com.rits.cloning.Cloner();
+
+		String exp = parameter.getExpression();
+		Object val = parameter.getValue();
+		Class<?> clazz = parameter.getClazz();
+		if ((exp != null && !exp.equals(""))
+				&& (val != null && !val.equals(""))) {
+			new TuraException("Wrong combination of method's parameter");
+		}
+		if (exp != null && !exp.equals("")) {
+			Object obj = datacontrol.getElResolver().getValue(exp);
+
+			Object o = cloner.deepClone(obj);
+			parameter.setObj(o);
+		}
+		if (val != null && !val.equals("")) {
+			java.lang.reflect.Constructor<?> cnt =  clazz.getDeclaredConstructor(String.class);
+			Object o = cnt.newInstance(val);
+			parameter.setObj(o);
+		}
+
+	}
+
+  public class UpdateListener{
+  
+      public void listener( org.tura.platform.repository.core.ObjectControl  obj , String property ){
+           if (!obj.getAttached()){
+                 [%=parent.~fullName%] parent = ( [%=parent.~fullName%])((org.tura.platform.repository.core.ObjectControl)obj).getAttributes().get(Constants.PARENT_OBJECT);
+              [%
+                  if (not containment){
+               %]
+                  repository.insert(object);
+                  [%
+                  }
+              %]         
+                 parent.get[%=property%]().add(obj);
+                 putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.U);
+		         getShifter().update(getDataControl().getCurrentPosition(), obj);                 
+           }else{
+                 getShifter().update(getDataControl().getCurrentPosition(), obj);
+		         putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.U);           
+           }
+      }
+  }
+}

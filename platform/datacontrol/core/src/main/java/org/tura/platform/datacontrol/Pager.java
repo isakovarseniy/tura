@@ -41,11 +41,13 @@ import org.tura.platform.datacontrol.data.PagerData;
 import org.tura.platform.datacontrol.data.PoolData;
 import org.tura.platform.datacontrol.data.ShiftControlData;
 import org.tura.platform.datacontrol.pool.Pool;
+import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 import org.tura.platform.repository.core.ObjectControl;
 
 import com.octo.java.sql.query.SelectQuery;
+import com.rits.cloning.Cloner;
 
 public abstract class Pager<T> extends Pool {
 
@@ -322,12 +324,6 @@ public abstract class Pager<T> extends Pool {
 		try {
 			T obj = getObject(i);
 			
-			PreDeleteTrigger trigger = getPreDeleteTrigger();
-
-			if (trigger != null){
-				trigger.execute(obj,getDataControl());
-			}
-
 			delete(obj);
 
 			return obj;
@@ -441,4 +437,13 @@ public abstract class Pager<T> extends Pool {
 			super.addCommand(element);
 	}
 
+	
+	public void putObjectToPool(Object obj, PoolCommand c) throws TuraException {
+		ObjectControl pooledObj = (ObjectControl) obj;
+		pooledObj.getAttributes().clear();
+		Cloner cloner = new Cloner();
+		Object o = cloner.deepClone(pooledObj);
+		addCommand(c.createdCommand(o, pooledObj.getKey(), getBaseClass(),getShifter().getId()));
+	}	
+	
 }

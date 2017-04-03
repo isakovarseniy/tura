@@ -26,7 +26,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.ControlRefreshedEvent;
 import org.tura.platform.datacontrol.event.Event;
@@ -36,6 +36,7 @@ import org.tura.platform.datacontrol.event.RowCreatedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
+import org.tura.platform.repository.core.ObjectControl;
 
 public abstract class TreeDataControl implements IDataControl, EventListener {
 
@@ -146,9 +147,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		try {
 			DataControl<?> dc = getRoot();
 			if (currentObject != null) {
-				BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
-						"getWrapper"));
-				dc = w.getDatacontrol();
+				dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
 			}
 			Relation rel = dc.getChild(relationName);
 			if (rel.getChild() == null)
@@ -175,9 +174,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		try {
 			DataControl<?> dc = getRoot();
 			if (currentObject != null) {
-				BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
-						"getWrapper"));
-				dc = w.getDatacontrol();
+				dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
 			}
 
 			currentObject = dc.createObject();
@@ -199,10 +196,8 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 	public void removeObject() throws Exception {
 		if (blocked)
 			return;
+		DataControl<?>  dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
 
-		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
-				"getWrapper"));
-		DataControl<?> dc = w.getDatacontrol();
 
 		RowRemovedEvent event = new RowRemovedEvent(this, currentObject);
 		dc.removeObject();
@@ -217,9 +212,7 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 
 		setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
 
-		BeanWrapper w = ((BeanWrapper) Reflection.call(currentObject,
-				"getWrapper"));
-		DataControl<?> dc = w.getDatacontrol();
+		DataControl<?>  dc = (DataControl<?>) ((ObjectControl) currentObject).getAttributes().get(Constants.DATA_CONTROL);
 
 		dc.removeAll();
 
@@ -341,9 +334,9 @@ public abstract class TreeDataControl implements IDataControl, EventListener {
 		String stateObjectKey = null;
 		
 		if (newObject != null )
-			 newObjectKey = Util.getDataControl(newObject).getObjectKey(newObject);
+			 newObjectKey =  ((ObjectControl)newObject).getKey();
 		if (stateObject != null )
-		    stateObjectKey = Util.getDataControl(stateObject).getObjectKey(stateObject);
+		    stateObjectKey =  ((ObjectControl)stateObject).getKey(); 
 
 		if (((newObject == null) && (stateObject != null))
 				|| ((newObject != null) && (stateObject == null))

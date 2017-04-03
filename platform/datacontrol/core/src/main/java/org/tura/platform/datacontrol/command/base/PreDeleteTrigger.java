@@ -26,5 +26,5 @@ import org.tura.platform.datacontrol.commons.TuraException;
 
 public interface PreDeleteTrigger {
 
-	public void execute(Object obj,IDataControl dc) throws TuraException;
+	public void execute(IDataControl dc,Object obj) throws TuraException;
 }

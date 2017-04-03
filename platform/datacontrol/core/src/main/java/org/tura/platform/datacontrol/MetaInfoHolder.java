@@ -169,11 +169,11 @@ public abstract class MetaInfoHolder {
 	public void setBaseClass(Class<?> baseClass) {
 		this.baseClass = baseClass;
 	}
-	List<SearchCriteria> getDefaultSearchCriteria() {
+	public List<SearchCriteria> getDefaultSearchCriteria() {
 		return defaultSearchCriteria;
 	}
 	
-	List<OrderCriteria> getDefaultOrderCriteria() {
+	public List<OrderCriteria> getDefaultOrderCriteria() {
 		return defaultOrderCriteria;
 	}
 	

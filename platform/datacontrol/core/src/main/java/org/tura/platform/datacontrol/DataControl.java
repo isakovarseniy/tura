@@ -40,13 +40,10 @@ import org.tura.platform.datacontrol.event.RowCreatedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
-import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.shift.ShiftControl;
 
-import com.rits.cloning.Cloner;
 
-public abstract class DataControl<T> extends MetaInfoHolder implements
-		IDataControl {
+public abstract class DataControl<T> extends MetaInfoHolder implements IDataControl {
 
 	private static boolean SCROLL_DOWN = true;
 	private static boolean SCROLL_UP = false;
@@ -71,7 +68,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 	protected CommandStack commandStack;
 
 	public DataControl() throws Exception {
-		this.pager = new Pager<T>(this);
 		this.scroller = new Scroller<T>(pager);
 	}
 
@@ -269,20 +265,12 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 		pager.getObject(currentPosition);
 
 		// Create a new object
-		T objWrp = pager.createObject(currentPosition);
+		T obj = pager.createObject(currentPosition);
 
 		try {
-			if (objWrp != null) {
-				if (getParent() != null) {
-					BeanWrapper w = ((BeanWrapper) Reflection.call(objWrp,
-							"getWrapper"));
-					Object obj = w.getObj();
-
-					List<SearchCriteria> ls = getParent()
-							.getChildSearchCriteria();
-					Iterator<SearchCriteria> itr = ls.iterator();
-					while (itr.hasNext()) {
-						SearchCriteria sc = itr.next();
+			if (obj != null && getParent() != null) {
+					List<SearchCriteria> ls = getParent().getChildSearchCriteria();
+					for (SearchCriteria sc : ls ) {
 
 						String name = sc.getName();
 						String className = sc.getClassName();
@@ -296,14 +284,13 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 									Class.forName(className), value);
 						}
 					}
-				}
 				notifyLiteners(new RowCreatedEvent(this, getCurrentObject()));
 				notifyChageRecordAll(getCurrentObject());
 			}
 		} catch (Exception e) {
 			throw new TuraException(e);
 		}
-		return objWrp;
+		return obj;
 	}
 
 	public Integer getCurrentPosition() {
@@ -388,20 +375,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements
 
 	public List<T> getScroller() {
 		return scroller;
-	}
-
-	public void putObjectToPool(Object obj, PoolCommand c) throws TuraException {
-		Object pooledObj = obj;
-		try {
-			BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
-			pooledObj = w.getObj();
-		} catch (Exception e) {
-
-		}
-		Cloner cloner = new Cloner();
-		Object o = cloner.deepClone(pooledObj);
-
-		pager.addCommand(c.createdCommand(o, getObjectKey(obj), getBaseClass(),getShifter().getId()));
 	}
 
 	
