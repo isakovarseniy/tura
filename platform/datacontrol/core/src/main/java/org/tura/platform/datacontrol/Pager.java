@@ -62,12 +62,12 @@ public abstract class Pager<T> extends Pool {
 	
 	private String id = UUID.randomUUID().toString();
 
-	public abstract T create();
-	public abstract LazyList<T> search();
-	public abstract void delete(Object obj);
+	public abstract T create() throws TuraException;
+	public abstract LazyList<T> search() throws TuraException;
+	public abstract void delete(Object obj) throws TuraException;
 	protected abstract boolean prepareQuery() throws TuraException;
 	protected abstract SelectQuery getSelectQuery() throws TuraException;
-	protected abstract Object getParent();
+	protected abstract Object getParent() throws TuraException;
 	protected abstract Class<?> getBaseClass();
 	protected abstract PostQueryTrigger getPostQueryTrigger();
 	protected abstract PreDeleteTrigger getPreDeleteTrigger();

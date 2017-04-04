@@ -1,3 +1,4 @@
+<#assign number = "#" >
 package [%=type.~package%].pager;
 
 
@@ -22,7 +23,8 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public T create() {
+	public T create() throws TuraException{
+	try{
 	    org.tura.platform.datacontrol.command.base.CreateObjectParameters createObjectParameters = datacontrol.getCreateObjectParameters();
 	    prepareParameter(createObjectParameters.getObjectType());
 		[%=type.~fullName%] obj =   ([%=type.~fullName%])repository.create((String)createObjectParameters.getObjectType().getObj());
@@ -37,10 +39,16 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 		}
 		((org.tura.platform.repository.core.ObjectControl)obj).addListener(new UpdateListener());
 		return (T)obj;
+		}catch(Exception e){
+		  throw new TuraException(e);
+		}		
+		
 	}
 
 	@Override
-	public LazyList<T> search() {
+	@SuppressWarnings("unchecked")
+	public LazyList<T> search() throws TuraException{
+	   try{
 	    org.tura.platform.datacontrol.command.base.SearchObjectParameters searchObjectParameters = datacontrol.getSearchObjectParameters();
 	    prepareParameter(searchObjectParameters.getSearchCriteria());
 	    prepareParameter(searchObjectParameters.getOrderByCriteria());
@@ -48,24 +56,38 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 	    prepareParameter(searchObjectParameters.getEndIndex());
 	    prepareParameter(searchObjectParameters.getObjectType());
 	    
-	    org.tura.platform.repository.core.SearchResult result = repository.find(searchObjectParameters.getSearchCriteria().getObj(), searchObjectParameters.getOrderByCriteria().getObj(),searchObjectParameters.getStartIndex().getObj(),searchObjectParameters.getEndIndex().getObj(),searchObjectParameters.getObjectType().getObj());
+	    org.tura.platform.repository.core.SearchResult result = repository.find(
+	    (List<org.tura.platform.datacontrol.commons.SearchCriteria>)searchObjectParameters.getSearchCriteria().getObj(), 
+	    (List<org.tura.platform.datacontrol.commons.OrderCriteria>)searchObjectParameters.getOrderByCriteria().getObj(),
+	    (Integer)searchObjectParameters.getStartIndex().getObj(),
+	    (Integer)searchObjectParameters.getEndIndex().getObj(),
+	    (String)searchObjectParameters.getObjectType().getObj());
  
         for(Object o :   result.getSearchResult()){
 		    ((org.tura.platform.repository.core.ObjectControl) o).addListener(new UpdateListener());
         }
-        LazyList<Object> list = new LazyList<Object>(result.getSearchResult(),result.getNumberOfRows(),searchObjectParameters.getStartIndex());  	
+        LazyList<T> list = new LazyList<T>((List<T>)result.getSearchResult(),result.getNumberOfRows(),(int)searchObjectParameters.getStartIndex().getObj());  	
 		return list;
+		}catch(Exception e){
+		  throw new TuraException(e);
+		}		
+		
 	}
 
 	@Override
-	public void delete(Object obj) {
+	public void delete(Object obj) throws TuraException{
 		org.tura.platform.datacontrol.command.base.PreDeleteTrigger trigger = getDataControl().getPreDeleteTrigger(); 
 		if (trigger != null){
 		   trigger.execute(datacontrol,obj);
 		}
-		repository.remove(obj);
-        getShifter().remove(datacontrol.getCurrentPosition());
-		putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.R);        
+		
+		try{
+			repository.remove(obj);
+	        getShifter().remove(datacontrol.getCurrentPosition());
+			putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.R);   
+			}catch(Exception e){
+			   throw new TuraException(e);
+			}     
 		
 	}
 
@@ -114,7 +136,7 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 	}
 
 	@Override
-	protected Object getParent() {
+	protected Object getParent() throws TuraException {
 	  if (datacontrol.getParent() != null) {
 				Object obj = datacontrol.getParent().getMasterCurrentObject();
 		      	return obj;
@@ -174,10 +196,17 @@ public void prepareParameter(org.tura.platform.datacontrol.command.base.CallPara
 
 	}
 
+	private Object resolver(String str) {
+		int lastindex = str.length() - 1;
+		if (str.length() > 3 && "${number}{".equals(str.substring(0, 2))
+				&& "}".equals(str.substring(lastindex))) {
+			return datacontrol.getElResolver().getValue(str);
+		} else
+			return str;
+	}
 
 
-
-  public class UpdateListener{
+  public class UpdateListener implements org.tura.platform.repository.proxy.ProxyObjectUpdateListener{
       public void listener( org.tura.platform.repository.core.ObjectControl  obj , String property ){
            if (!obj.getAttached()){
                  repository.insert(obj);

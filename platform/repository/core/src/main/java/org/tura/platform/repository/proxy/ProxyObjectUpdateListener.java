@@ -19,22 +19,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.repository.proxy;
 
-import java.util.Map;
+import org.tura.platform.repository.core.ObjectControl;
 
-import org.tura.platform.repository.proxy.ProxyObjectUpdateListener;
+public interface ProxyObjectUpdateListener {
 
-public interface ObjectControl {
-	
-	Boolean getAttached();
-	
-	Object getWrappedObject();
-	
-	String getKey();
-	
-	Map<String,Object> getAttributes();
-	
-	void addListener( ProxyObjectUpdateListener listener);
+    public void listener( ObjectControl  obj , String property );
 
 }
