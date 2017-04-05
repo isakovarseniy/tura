@@ -2,15 +2,8 @@
 package [%=type.~package%].pager;
 
 
-import java.util.List;
-
-import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
-import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
-import org.tura.platform.datacontrol.commons.LazyList;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.datacontrol.commons.TuraException;
-
 import com.octo.java.sql.query.SelectQuery;
+import org.tura.platform.datacontrol.commons.TuraException;
 
 public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Pager<T>{
     private org.tura.platform.datacontrol.DataControl<T> datacontrol;
@@ -66,7 +59,7 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
         for(Object o :   result.getSearchResult()){
 		    ((org.tura.platform.repository.core.ObjectControl) o).addListener(new UpdateListener());
         }
-        LazyList<T> list = new LazyList<T>((List<T>)result.getSearchResult(),result.getNumberOfRows(),(int)searchObjectParameters.getStartIndex().getObj());  	
+        org.tura.platform.datacontrol.commons.LazyList<T> list = new org.tura.platform.datacontrol.commons.LazyList<T>((java.util.List<T>)result.getSearchResult(),result.getNumberOfRows(),(int)searchObjectParameters.getStartIndex().getObj());  	
 		return list;
 		}catch(Exception e){
 		  throw new TuraException(e);
@@ -82,7 +75,7 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 		}
 		
 		try{
-			repository.remove(obj);
+			repository.remove(obj, ((org.tura.platform.repository.core.ObjectControl)obj).getWrappedObject().getClass().getName());
 	        getShifter().remove(datacontrol.getCurrentPosition());
 			putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.R);   
 			}catch(Exception e){
@@ -123,9 +116,7 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 				}
 			}
 			return true;
-		} catch (NoSuchMethodException | SecurityException
-				| IllegalAccessException | IllegalArgumentException
-				| java.lang.reflect.InvocationTargetException  e) {
+		} catch (Exception  e) {
 			throw new TuraException(e);
 		}
 	}
@@ -207,15 +198,19 @@ public void prepareParameter(org.tura.platform.datacontrol.command.base.CallPara
 
 
   public class UpdateListener implements org.tura.platform.repository.proxy.ProxyObjectUpdateListener{
-      public void listener( org.tura.platform.repository.core.ObjectControl  obj , String property ){
+      public void listener( org.tura.platform.repository.core.ObjectControl  obj , String property ) throws  TuraException{
+         try{
            if (!obj.getAttached()){
-                 repository.insert(obj);
+                 repository.insert(obj,obj.getWrappedObject().getClass().getName());
                  putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.U);
 		         getShifter().update(getDataControl().getCurrentPosition(), obj);                 
            }else{
                  getShifter().update(getDataControl().getCurrentPosition(), obj);
 		         putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.U);           
            }
+	     }catch(Exception e){
+	        throw new TuraException(e);
+	     } 
       }
   }
 

@@ -25,6 +25,6 @@ import org.tura.platform.repository.core.ObjectControl;
 
 public interface ProxyObjectUpdateListener {
 
-    public void listener( ObjectControl  obj , String property );
+    public void listener( ObjectControl  obj , String property ) throws  Exception;
 
 }

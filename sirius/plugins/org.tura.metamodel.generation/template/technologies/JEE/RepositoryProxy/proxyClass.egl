@@ -18,6 +18,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 
     private [%=tp.~fullName%] object;
     private java.util.Map <String,Object> attributes = new java.util.HashMap<String,Object>();
+    private java.util.WeakHashMap<org.tura.platform.repository.proxy.ProxyObjectUpdateListener, Object>  listeners= new java.util.WeakHashMap<org.tura.platform.repository.proxy.ProxyObjectUpdateListener, Object>();
 
 	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 
@@ -25,6 +26,18 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     	this.object = object;
     	this.stackProvider = stackProvider;
     }
+    
+    public void addListener( org.tura.platform.repository.proxy.ProxyObjectUpdateListener listener){
+      listeners.put(listener,null);
+    }
+    
+    protected void notifyListner(ObjectControl obj , String property) throws Exception {
+    	for (ProxyObjectUpdateListener lst : listeners.keySet()){
+    		lst.listener(obj, property);
+    	}
+    }
+
+    
     
     public [%=tp.~fullName%] getWrappedObject(){
         return object;
@@ -94,6 +107,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 			  try{
 			    	if ( object.getAttached() == null || !object.getAttached()){
 					     object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
+					     notifyListner(this,"[%=util.mergeAndUnCapitalize(field.name)%]");
 			            return;
 			    	}
 			    	[%=tp.~package%].proxy.commands.Update[%=tp.~class%]On[%=util.mergeAndCapitalize(field.name)%]Command command = new [%=tp.~package%].proxy.commands.Update[%=tp.~class%]On[%=util.mergeAndCapitalize(field.name)%]Command();
@@ -104,6 +118,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 			        command.setStackProvider(stackProvider);
 			        if (command.prepare()){
 			            object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
+					     notifyListner(this,"[%=util.mergeAndUnCapitalize(field.name)%]");
 			        }
 		          }catch(Exception e){
 		            throw new RuntimeException(e);
