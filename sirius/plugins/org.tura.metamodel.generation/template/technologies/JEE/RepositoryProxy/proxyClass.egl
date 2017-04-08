@@ -14,7 +14,15 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 package [%=tp.~package%];
 
 
-public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura.platform.repository.core.ObjectControl {
+public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura.platform.repository.core.ObjectControl 
+[%
+     for (i in interfaces){
+     %]
+     ,[%=i.~fullName%]
+     [%
+     }
+%]
+{
 
     private [%=tp.~fullName%] object;
     private java.util.Map <String,Object> attributes = new java.util.HashMap<String,Object>();

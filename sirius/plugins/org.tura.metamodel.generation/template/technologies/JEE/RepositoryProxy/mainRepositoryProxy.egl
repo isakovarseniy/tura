@@ -31,8 +31,22 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
         if (not type.~primaryKey.isDefined()  ){
            continue;
         }
-
+        
         type.mappingType2Java(recipe,ingredient);
+
+        var interfaces = new Native('java.util.ArrayList');
+        var general = type::Generalization.allInstances()->select(t|t.source.uid = type.uid);
+        for ( rel in general ){
+	        if ( rel.findClassifier(util.getHint(model_mapper,"Domain Interface"))){
+	           var i = rel.target;
+	           if (i.isKindOf(type::TypeReference)){
+	              i = i.typeRef;
+	           }
+	           i.mappingType2Java(recipe,ingredient);
+	           interfaces.add(i);
+	        }
+        }
+        
 
 	    hash.put("tp",type);
 	    hash.put("recipe",recipe);
@@ -40,6 +54,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    hash.put("component",component);
 	    hash.put("model_mapper",model_mapper);
 	    hash.put("path",path);
+	    hash.put("interfaces",interfaces);
 		    
 	    util.populateTechnologies(hash,model_mapper);
 		
