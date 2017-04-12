@@ -547,9 +547,11 @@ public class SingleDataControl {
 		@Override
 		public void execute(DataControl<?> datacontrol, Object obj)
 				throws TuraException {
-
-			DepartmentType d = (DepartmentType) obj;
-			d.setDepartmentName("test");
+          try{
+			Reflection.call(obj,"setDepartmentName","test");
+          }catch(Exception e){
+        	  throw new TuraException(e);
+          }
 
 		}
 
