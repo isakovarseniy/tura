@@ -34,6 +34,7 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
@@ -42,6 +43,7 @@ import org.tura.platform.datacontrol.metainfo.PropertyLink;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
 
@@ -89,6 +91,11 @@ public abstract class MasterDetailDataControlPool {
 	}
 	
 	
+	@Before
+	public void init(){
+		factory.clean();
+	}	
+	
 	@Test
 	public void t1_getApplyCreateModification() {
 		try {
@@ -114,7 +121,7 @@ public abstract class MasterDetailDataControlPool {
 			
 	        Pager<?> pager = getPager(dce);
 	        
-	        PoolElement e = new PoolElement(newrow, dce.getObjectKey(newrow), dce.getBaseClass(), PoolCommand.C.name(), "1");
+	        PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(), dce.getBaseClass(), PoolCommand.C.name(), "1");
 	        pager.addCommand(e);
 	        
 			EmployeeType rowe = dce.getCurrentObject();
@@ -160,7 +167,7 @@ public abstract class MasterDetailDataControlPool {
 	          
 	        dce.islolate();
 	        
-	        PoolElement e = new PoolElement(newrow, dce.getObjectKey(newrow), dce.getBaseClass(), PoolCommand.C.name(), "1");
+	        PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(), dce.getBaseClass(), PoolCommand.C.name(), "1");
 	        pager.addCommand(e);
 	        
 	        
@@ -211,7 +218,7 @@ public abstract class MasterDetailDataControlPool {
 
 			Pager<?> pager = getPager(dcd);
 	          
-	        PoolElement e = new PoolElement(newrow, dcd.getObjectKey(newrow), dcd.getBaseClass(), PoolCommand.C.name(), "1");
+	        PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(), dcd.getBaseClass(), PoolCommand.C.name(), "1");
 	        pager.addCommand(e);
 	        
 	        

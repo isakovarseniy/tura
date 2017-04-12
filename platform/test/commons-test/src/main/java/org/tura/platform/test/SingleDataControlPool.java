@@ -39,6 +39,7 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Ignore;
@@ -56,6 +57,7 @@ import org.tura.platform.datacontrol.data.PoolData;
 import org.tura.platform.datacontrol.data.ShiftControlData;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.test.hr.model.DepartmentType;
 
@@ -108,6 +110,12 @@ public class SingleDataControlPool {
 
 	}
 
+	@Before
+	public void init(){
+		factory.clean();
+	}
+	
+	
 	@Test
 	public void t1_getApplyCreateModification() {
 		try {
@@ -120,7 +128,7 @@ public class SingleDataControlPool {
 
 			Pager<?> pager = getPager(dc);
 
-			PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow),
+			PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(),
 					dc.getBaseClass(), PoolCommand.C.name(), "1");
 			pager.addCommand(e);
 
@@ -146,7 +154,7 @@ public class SingleDataControlPool {
 
 			Pager<?> pager = getPager(dc);
 
-			PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow),
+			PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(),
 					dc.getBaseClass(), PoolCommand.R.name(), "1");
 			pager.addCommand(e);
 
@@ -201,13 +209,13 @@ public class SingleDataControlPool {
 			DepartmentType newrow = factory.getNewDepartmentType();
 			newrow.setObjId(123L);
 
-			PoolElement e = new PoolElement(newrow, dc.getObjectKey(newrow),
+			PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(),
 					dc.getBaseClass(), PoolCommand.C.name(), "1");
 			pager.addCommand(e);
 
 			newrow.setDepartmentName("test dep");
 
-			e = new PoolElement(newrow, dc.getObjectKey(newrow),
+			e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(),
 					dc.getBaseClass(), PoolCommand.U.name(), "1");
 			pager.addCommand(e);
 

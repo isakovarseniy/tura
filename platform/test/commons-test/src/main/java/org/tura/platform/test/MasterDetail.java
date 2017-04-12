@@ -33,6 +33,7 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
@@ -89,6 +90,11 @@ public class MasterDetail {
 		
 	}
 	
+	
+	@Before
+	public void init(){
+		factory.clean();
+	}	
 	
 	@Test
 	public void getObject(){

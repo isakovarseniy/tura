@@ -22,7 +22,6 @@
 package org.tura.platform.datacontrol;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -41,6 +40,7 @@ import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.shift.ShiftControl;
+import org.tura.platform.repository.core.ObjectControl;
 
 
 public abstract class DataControl<T> extends MetaInfoHolder implements IDataControl {
@@ -221,24 +221,10 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		notifyChageRecordAll(getCurrentObject());
 	}
 
-	public String getObjectKey(Object object) throws TuraException {
-		try {
-			if (!getBaseClass().isAssignableFrom(object.getClass()))
-				throw new TuraException("Wrong object type");
-			
-			StringBuffer key = new StringBuffer();
-			Iterator<String> itr = this.getKeys().iterator();
-			while (itr.hasNext()) {
-				String method = "get" + StringUtils.capitalize(itr.next());
-				key.append(Reflection.call(object, method));
-				key.append(" ");
-			}
-			key.append(getBaseClass().getName());
-			return key.toString();
-		} catch (Exception e) {
-			throw new TuraException(e);
-		}
-	}
+//	public String getObjectKey(Object object) throws TuraException {
+//		ObjectControl obj = (ObjectControl) object;
+//		return obj.getKey();
+//	}
 
 	public void removeAll() throws Exception {
 		if (blocked)
@@ -411,9 +397,9 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		String stateObjectKey = null;
 		
 		if (newObject != null )
-		   newObjectKey = getObjectKey(newObject);
+		   newObjectKey = ((ObjectControl) newObject).getKey();
 		if (stateObject != null )
-		   stateObjectKey = getObjectKey(stateObject);
+		   stateObjectKey = ((ObjectControl) stateObject).getKey();
 
 		if (((newObject == null) && (stateObject != null))
 				|| ((newObject != null) && (stateObject == null))
