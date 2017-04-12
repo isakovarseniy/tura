@@ -11,7 +11,21 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 
     public [%=type.~class%]Pager(org.tura.platform.datacontrol.DataControl<T> datacontrol){
        this.datacontrol = datacontrol;
+        this.datacontrol .setPager(this);
     }
+
+	@Override
+	protected Object connectObject(Object obj) {
+        ((ObjectControl) obj).addListener(new UpdateListener());
+		org.tura.platform.datacontrol.command.base.CommandStackProvider sp = new org.tura.platform.datacontrol.command.base.CommandStackProvider();
+		sp.setDataControl(datacontrol);
+		sp.setCommandStack(this.getCommandStack());
+        ((ObjectControl) obj).setStackProvider(sp);
+        
+	    ((org.tura.platform.repository.core.ObjectControl)obj).getAttributes().put(Constants.DATA_CONTROL, datacontrol);
+        
+		return obj;
+	}
 
 
 	@SuppressWarnings("unchecked")
@@ -30,8 +44,7 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 		if (trigger != null){
 		   trigger.execute(datacontrol,((org.tura.platform.repository.core.ObjectControl)obj).getWrappedObject());
 		}
-		((org.tura.platform.repository.core.ObjectControl)obj).addListener(new UpdateListener());
-		return (T)obj;
+		return (T)connectObject(obj);
 		}catch(Exception e){
 		  throw new TuraException(e);
 		}		
@@ -57,7 +70,7 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 	    (String)searchObjectParameters.getObjectType().getObj());
  
         for(Object o :   result.getSearchResult()){
-		    ((org.tura.platform.repository.core.ObjectControl) o).addListener(new UpdateListener());
+		    connectObject(o);
         }
         org.tura.platform.datacontrol.commons.LazyList<T> list = new org.tura.platform.datacontrol.commons.LazyList<T>((java.util.List<T>)result.getSearchResult(),result.getNumberOfRows(),(int)searchObjectParameters.getStartIndex().getObj());  	
 		return list;
@@ -109,6 +122,11 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 				}
 
 			}
+			
+            org.tura.platform.datacontrol.command.base.PreQueryTrigger trigger = getDataControl().getPreQueryTrigger();
+            if (trigger != null) {
+                trigger.execute(datacontrol);
+            }
 			
 			for (SearchCriteria criteria: datacontrol.getSearchCriteria()){
 				if (criteria .getValue() instanceof String ){
@@ -196,11 +214,20 @@ public void prepareParameter(org.tura.platform.datacontrol.command.base.CallPara
 			return str;
 	}
 
+    public org.tura.platform.repository.core.Repository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(org.tura.platform.repository.core.Repository repository) {
+		this.repository = repository;
+	}
+
+
 
   public class UpdateListener implements org.tura.platform.repository.proxy.ProxyObjectUpdateListener{
       public void listener( org.tura.platform.repository.core.ObjectControl  obj , String property ) throws  TuraException{
          try{
-           if (!obj.getAttached()){
+           if (obj.getAttached() == null || !obj.getAttached()){
                  repository.insert(obj,obj.getWrappedObject().getClass().getName());
                  putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.U);
 		         getShifter().update(getDataControl().getCurrentPosition(), obj);                 

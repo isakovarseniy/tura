@@ -39,6 +39,20 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
       listeners.put(listener,null);
     }
     
+    public void setStackProvider(org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider){
+       this.stackProvider = stackProvider;
+    }
+    
+    public  Boolean getAttached(){
+    	return object.getAttached();
+    }
+    
+    
+    public  [%=tp.~class%]Proxy clone(){
+      com.rits.cloning.Cloner c = new com.rits.cloning.Cloner();
+      return  new [%=tp.~class%]Proxy( c.deepClone(object),null);
+    }
+    
     protected void notifyListner(ObjectControl obj , String property) throws Exception {
     	for (ProxyObjectUpdateListener lst : listeners.keySet()){
     		lst.listener(obj, property);

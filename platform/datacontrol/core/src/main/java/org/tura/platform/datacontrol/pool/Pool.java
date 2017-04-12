@@ -38,6 +38,7 @@ import org.tura.platform.datacontrol.shift.ShiftControl;
 
 import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
+import com.rits.cloning.Cloner;
 
 public abstract class Pool {
 
@@ -50,6 +51,7 @@ public abstract class Pool {
 	protected abstract void registerForCleaning() throws TuraException;
 
 	protected abstract SelectQuery getSelectQuery() throws TuraException;
+	protected abstract Object connectObject(Object obj);
 
 	public void addCommand(PoolElement element) throws TuraException {
 		element.setCreateDate(getPoolData().getNextId());
@@ -85,9 +87,11 @@ public abstract class Pool {
 			List<?> objects = filterByDataControlCondition(poolObjects,getSelectQuery());
 
 			Collections.reverse(objects);
+			Cloner c = new Cloner();
 
 			for (Object obj : objects) {
-				getShifter().add(index, obj);
+				Object o = c.deepClone(obj);
+				getShifter().add(index, connectObject(o));
 			}
 
 			if (objects.size() > 0)

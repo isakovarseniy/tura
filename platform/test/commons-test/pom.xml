@@ -29,21 +29,16 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.tura.platform.datacontrol</groupId>
+			<artifactId>annotations</artifactId>
+		</dependency>
+
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
-			<artifactId>annotations</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>hr-simple-model-jpa</artifactId>
-			<version>1.0</version>
-		</dependency>		
-		
 		<dependency>
 			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>hr-model-interface</artifactId>

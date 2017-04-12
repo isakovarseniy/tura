@@ -23,22 +23,21 @@ package org.tura.platform.test;
 
 import javax.persistence.EntityManager;
 
+import org.tura.platform.test.hr.model.DepartmentType;
+import org.tura.platform.test.hr.model.EmployeeType;
 import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.hr.objects.jpa.Department;
-import org.tura.platform.hr.objects.jpa.Employee;
+import org.tura.platform.repository.core.Repository;
 
 public interface Factory {
 	
-	public void initCommandStack();
-	public DataControl<Object> initEmployees(String elPrefix) throws Exception;
-	public DataControl<Object> initDepartments(String elPrefix) throws Exception;
+	public Repository getRepository();
+	public DataControl<EmployeeType> initEmployees(String elPrefix) throws Exception;
+	public DataControl<DepartmentType> initDepartments(String elPrefix) throws Exception;
 	public EntityManager getEntityManager();
-	public Employee getNewEmployee() throws Exception;
-	public Department getNewDepartment() throws Exception;
-
-	public  Employee adaptEmployee(Object obj) throws Exception;
-	public  Department adaptDepartment(Object obj) throws Exception;
+	public EmployeeType getNewEmployeeType() throws Exception;
+	public DepartmentType getNewDepartmentType() throws Exception;
 	
+	public void initDB(String initializer, EntityManager em) throws Exception;
+	public void clean();
 
-	
 }

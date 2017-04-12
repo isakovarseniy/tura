@@ -19,30 +19,51 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.test;
 
-import java.util.Map;
-
-import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-import org.tura.platform.repository.proxy.ProxyObjectUpdateListener;
-
-public interface ObjectControl {
+public class ParameterObject {
+	private String name;
+	private String expression;
+	private Class<?> type;
 	
-	Boolean getAttached();
 	
-	Object getWrappedObject();
-	
-	String getKey();
-	
-	Map<String,Object> getAttributes();
-	
-	void addListener( ProxyObjectUpdateListener listener);
-	
-    void setStackProvider(ProxyCommadStackProvider stackProvider);
-    
-    ObjectControl clone(); 
-    
+	public ParameterObject(String name,String expression,Class<?> type){
+		this.name = name;
+		this.expression = expression;
+		this.setType(type);
+	}
 
 
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getExpression() {
+		return expression;
+	}
+
+
+	public void setExpression(String expression) {
+		this.expression = expression;
+	}
+
+
+	public Class<?> getType() {
+		return type;
+	}
+
+
+	public void setType(Class<?> type) {
+		this.type = type;
+	}
+
+
+	
 
 }

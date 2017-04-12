@@ -67,9 +67,6 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 
 	protected CommandStack commandStack;
 
-	public DataControl() throws Exception {
-		this.scroller = new Scroller<T>(pager);
-	}
 
 	public void addEventLiteners(EventListener listener) {
 		eventLiteners.add(listener);
@@ -374,6 +371,9 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 	}
 
 	public List<T> getScroller() {
+		if (scroller == null){
+			scroller = new Scroller<T>(pager);
+		}
 		return scroller;
 	}
 
@@ -452,6 +452,10 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 
 	public void setOrderCriteria(List<OrderCriteria> orderCriteria) {
 		this.orderCriteria = orderCriteria;
+	}
+
+	public void setPager(Pager<T> pager) {
+		this.pager = pager;
 	}
 
 }

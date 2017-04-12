@@ -25,21 +25,18 @@ import java.util.List;
 
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
-import org.tura.platform.datacontrol.command.base.CreateCommandBase;
-import org.tura.platform.datacontrol.command.base.DeleteCommandBase;
-import org.tura.platform.datacontrol.command.base.InsertCommandBase;
+import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
 import org.tura.platform.datacontrol.command.base.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
-import org.tura.platform.datacontrol.command.base.SearchCommandBase;
-import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
+import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 
-public class DepartmentsDC extends DataControl<Object> {
+public class DepartmentsDC<T> extends DataControl<T> {
 
 	public DepartmentsDC() throws Exception {
 		super();
@@ -55,28 +52,6 @@ public class DepartmentsDC extends DataControl<Object> {
 		this.defaultOrderCriteria=defaultOrderCriteria;
 	}
 	
-	
-	@Override
-	public void setCreateCommand(CreateCommandBase createCommand) {
-		this.createCommand = createCommand;
-
-	}
-
-	@Override
-	public void setInsertCommand(InsertCommandBase insertCommand) {
-		this.insertCommand = insertCommand;
-
-	}
-
-	@Override
-	public void setUpdateCommand(UpdateCommandBase updateCommand) {
-		this.updateCommand = updateCommand;
-	}
-
-	@Override
-	public void setDeleteCommand(DeleteCommandBase deleteCommand) {
-		this.deleteCommand = deleteCommand;
-	}
 
 	@Override
 	public void setPreQueryTrigger(PreQueryTrigger preQueryTrigger) {
@@ -88,10 +63,6 @@ public class DepartmentsDC extends DataControl<Object> {
 		this.postQueryTrigger = postQueryTrigger;
 	}
 
-	@Override
-	public void setSearchCommand(SearchCommandBase searchCommand) {
-		this.searchCommand = searchCommand;
-	}
 
 	@Override
 	public void setPostCreateTrigger(PostCreateTrigger postCreateTrigger) {
@@ -122,6 +93,17 @@ public class DepartmentsDC extends DataControl<Object> {
 
 	@Override
 	public void createChild( String  relName) {
+	}
+
+	@Override
+	public void setCreateObjectParameters(CreateObjectParameters createObjectParameters) {
+		this.createObjectParameters = createObjectParameters;
+		
+	}
+
+	@Override
+	public void setSearchObjectParameters(SearchObjectParameters searchObjectParameters) {
+		this.searchObjectParameters=searchObjectParameters;
 	}
 
 

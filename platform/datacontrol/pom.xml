@@ -19,7 +19,6 @@
   <modules>
     <module>commons</module>
     <module>core</module>
-    <module>command</module>
     <module>annotations</module>
   </modules>
   

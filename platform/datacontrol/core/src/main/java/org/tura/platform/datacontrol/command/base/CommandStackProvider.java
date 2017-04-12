@@ -21,7 +21,9 @@
  */
 package org.tura.platform.datacontrol.command.base;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
@@ -33,7 +35,7 @@ public class CommandStackProvider implements ProxyCommadStackProvider{
 	@SuppressWarnings("rawtypes")
 	private DataControl  dataControl;
 	
-	private List<DataControl<?>> listForCleaning;
+	private Collection<DataControl<?>> listForCleaning;
 	
 	@Override
 	public void addCommand(Object cmd) throws Exception {
@@ -47,7 +49,7 @@ public class CommandStackProvider implements ProxyCommadStackProvider{
 	@Override
 	public List<Object> getListOfCommand() throws Exception {
 		Object [] array = commandStack.getListOfCommand();
-		listForCleaning = (List<DataControl<?>>) array[1];
+		listForCleaning = ((Map<String, DataControl<?>>) array[1]).values();
 		return (List<Object>) array[0];
 	}
 

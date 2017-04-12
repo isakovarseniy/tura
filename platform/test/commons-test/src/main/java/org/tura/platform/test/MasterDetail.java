@@ -40,10 +40,9 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
-import org.tura.platform.hr.init.DepartmentsInit;
-import org.tura.platform.hr.init.EmployesesInit;
-import org.tura.platform.hr.objects.jpa.Department;
-import org.tura.platform.hr.objects.jpa.Employee;
+import org.tura.platform.repository.core.Repository;
+import org.tura.platform.test.hr.model.DepartmentType;
+import org.tura.platform.test.hr.model.EmployeeType;
 
 import com.octo.java.sql.exp.Operator;
 
@@ -79,9 +78,10 @@ public class MasterDetail {
 
 		em = factory.getEntityManager();
 		em.getTransaction().begin();
-		new DepartmentsInit(em).init();
+		
+		factory.initDB("Departments", em);
 		try {
-			new EmployesesInit(em).init();
+			factory.initDB("Employes", em);
 			em.getTransaction().commit();
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -93,11 +93,10 @@ public class MasterDetail {
 	@Test
 	public void getObject(){
 		try {
-			factory.initCommandStack();
-			DataControl<Object> dcd = factory.initDepartments("");
+			DataControl<DepartmentType> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<Object> dce = factory.initEmployees("");
+			DataControl<EmployeeType> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			
@@ -109,9 +108,9 @@ public class MasterDetail {
 			
 			dcd.addChildren("departmentsToemployees", relation);
 			
-			Department rowd = factory.adaptDepartment(dcd.getCurrentObject());
+			DepartmentType rowd = dcd.getCurrentObject();
 			dcd.nextObject();
-			Employee rowe = factory.adaptEmployee(dce.getCurrentObject());
+			EmployeeType rowe = dce.getCurrentObject();
 			
 			assertEquals(rowd.getObjId(), new Long(10));
 			assertEquals(rowe.getObjId(), new Long(201));
@@ -127,11 +126,10 @@ public class MasterDetail {
 	@Test
 	public void getObjectWithDefailtWhere(){
 		try {
-			factory.initCommandStack();
-			DataControl<Object> dcd = factory.initDepartments("");
+			DataControl<DepartmentType> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<Object> dce = factory.initEmployees("");
+			DataControl<EmployeeType> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			ArrayList<SearchCriteria> sc = new ArrayList<>();
@@ -153,9 +151,9 @@ public class MasterDetail {
 			
 			dcd.addChildren("departmentsToemployees", relation);
 			
-			Department rowd = factory.adaptDepartment( dcd.getCurrentObject());
+			DepartmentType rowd = dcd.getCurrentObject();
 			dcd.nextObject();
-			Employee rowe = factory.adaptEmployee( dce.getCurrentObject());
+			EmployeeType rowe = dce.getCurrentObject();
 			
 			assertEquals(rowd.getObjId(), new Long(10));
 			assertEquals(rowe.getObjId(), new Long(201));
@@ -171,11 +169,12 @@ public class MasterDetail {
 	@Test
 	public void createDetailObject(){
 		try {
-			factory.initCommandStack();
-			DataControl<Object> dcd = factory.initDepartments("");
+			Repository repo = factory.getRepository();
+
+			DataControl<DepartmentType> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<Object> dce = factory.initEmployees("");
+			DataControl<EmployeeType> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			
@@ -187,9 +186,11 @@ public class MasterDetail {
 			
 			dcd.addChildren("departmentsToemployees", relation);
 
-			Employee rowe = factory.adaptEmployee(dce.createObject());
+			EmployeeType rowe = dce.createObject();
 			rowe.setFirstName("test");
-			dce.getCommandStack().commitCommand();
+
+			repo.applyChanges(null);
+
 			assertEquals(rowe.getParentId(), new Long(10));
 			
 		} catch (Exception e) {
@@ -203,11 +204,10 @@ public class MasterDetail {
 	@Test
 	public void removeDetailObject(){
 		try {
-			factory.initCommandStack();
-			DataControl<Object> dcd = factory.initDepartments("");
+			DataControl<DepartmentType> dcd = factory.initDepartments("");
 			dcd.getElResolver().setValue("departments", dcd);
 			
-			DataControl<Object> dce = factory.initEmployees("");
+			DataControl<EmployeeType> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
 			
@@ -220,8 +220,8 @@ public class MasterDetail {
 			dcd.addChildren("departmentsToemployees", relation);
 			dcd.removeObject();
 
-			Department rowd = factory.adaptDepartment( dcd.getCurrentObject());
-			Employee rowe = factory.adaptEmployee(dce.getCurrentObject());
+			DepartmentType rowd = dcd.getCurrentObject();
+			EmployeeType rowe = dce.getCurrentObject();
 			
 			dcd.getShifter().setLogger(logger);
 			dcd.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);

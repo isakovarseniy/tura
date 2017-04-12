@@ -20,7 +20,7 @@
     <module>commons-test</module>
     <module>test-of-generated-jpa-objects</module>
     <module>test-of-generated-jpa-repository</module>  
-
+    <module>test-of-generated-pagers-o2m-1</module>
 
     <module>test-jpa-service-command</module>
     <module>test-compressor-command</module>

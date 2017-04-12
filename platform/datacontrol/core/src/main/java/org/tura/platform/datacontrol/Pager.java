@@ -47,7 +47,6 @@ import org.tura.platform.datacontrol.shift.ShiftControl;
 import org.tura.platform.repository.core.ObjectControl;
 
 import com.octo.java.sql.query.SelectQuery;
-import com.rits.cloning.Cloner;
 
 public abstract class Pager<T> extends Pool {
 
@@ -440,10 +439,15 @@ public abstract class Pager<T> extends Pool {
 	
 	public void putObjectToPool(Object obj, PoolCommand c) throws TuraException {
 		ObjectControl pooledObj = (ObjectControl) obj;
-		pooledObj.getAttributes().clear();
-		Cloner cloner = new Cloner();
-		Object o = cloner.deepClone(pooledObj);
+		Object o = pooledObj.clone();
 		addCommand(c.createdCommand(o, pooledObj.getKey(), getBaseClass(),getShifter().getId()));
+	}
+
+	public CommandStack getCommandStack() {
+		return commandStack;
+	}
+	public void setCommandStack(CommandStack commandStack) {
+		this.commandStack = commandStack;
 	}	
 	
 }

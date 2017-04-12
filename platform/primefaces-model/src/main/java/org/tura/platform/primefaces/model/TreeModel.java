@@ -38,13 +38,14 @@ import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.TreePath;
-import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.ControlRallbackEvent;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
 import org.tura.platform.datacontrol.event.RowCreatedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
+import org.tura.platform.repository.core.ObjectControl;
 
 public class TreeModel {
 
@@ -142,9 +143,8 @@ public class TreeModel {
 		Object[] data = (Object[]) expnode.getData();
 		Object obj = data[1];
 
-		BeanWrapper w = (BeanWrapper) Reflection.call(obj, "getWrapper");
+		IDataControl curdc = (DataControl<?>) ((ObjectControl) obj).getAttributes().get(Constants.DATA_CONTROL);
 
-		IDataControl curdc = w.getDatacontrol();
 
 		expnode.getChildren().clear();
 
@@ -226,8 +226,7 @@ public class TreeModel {
 					TreeNode parent = null;
 
 					Object newRow = ((RowCreatedEvent) event).getRow();
-					BeanWrapper  w = ((BeanWrapper) Reflection.call(newRow, "getWrapper"));
-					DataControl<?> newDC = w.getDatacontrol();
+					DataControl<?> newDC = (DataControl<?>) ((ObjectControl) newRow).getAttributes().get(Constants.DATA_CONTROL);
 
 					if (selectedNode == null) {
 						parent = root;
@@ -235,9 +234,7 @@ public class TreeModel {
 
 						Object[] data = (Object[]) selectedNode.getData();
 						Object obj = data[1];
-						w = ((BeanWrapper) Reflection.call(obj,
-								"getWrapper"));
-						DataControl<?> currentDc = w.getDatacontrol();
+						DataControl<?> currentDc = (DataControl<?>) ((ObjectControl) obj).getAttributes().get(Constants.DATA_CONTROL);
 
 						
 						if (currentDc.getId().equals(newDC.getId()))
@@ -289,9 +286,8 @@ public class TreeModel {
 					Object[] data = (Object[]) selectedNode.getData();
 					Object obj = data[1];
 
-					BeanWrapper w = ((BeanWrapper) Reflection.call(obj,
-							"getWrapper"));
-					DataControl<?> currentDc = w.getDatacontrol();
+					DataControl<?> currentDc = (DataControl<?>) ((ObjectControl) obj).getAttributes().get(Constants.DATA_CONTROL);
+					
 					List<?> scroller = currentDc.getScroller();
 					String relation = "";
 					if (currentDc.getParent() != null)

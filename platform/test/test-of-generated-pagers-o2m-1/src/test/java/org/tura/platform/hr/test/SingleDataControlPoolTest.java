@@ -19,30 +19,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.hr.test;
 
-import java.util.Map;
+import org.tura.platform.test.SingleDataControlPool;
 
-import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-import org.tura.platform.repository.proxy.ProxyObjectUpdateListener;
-
-public interface ObjectControl {
-	
-	Boolean getAttached();
-	
-	Object getWrappedObject();
-	
-	String getKey();
-	
-	Map<String,Object> getAttributes();
-	
-	void addListener( ProxyObjectUpdateListener listener);
-	
-    void setStackProvider(ProxyCommadStackProvider stackProvider);
-    
-    ObjectControl clone(); 
-    
-
-
+public class SingleDataControlPoolTest extends SingleDataControlPool{
 
 }

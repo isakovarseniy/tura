@@ -22,8 +22,8 @@
 package org.tura.platform.datacontrol;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Stack;
 import java.util.UUID;
 
@@ -33,7 +33,7 @@ import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.data.CommandStackData;
 import org.tura.platform.datacontrol.event.ControlRallbackEvent;
 
-public abstract class CommandStack {
+public  class CommandStack {
 
 	private Stack<SavePoint> savePoints;
 	private String id = UUID.randomUUID().toString();
@@ -135,7 +135,7 @@ public abstract class CommandStack {
 		}
 	}
 
-	public void clean(List <DataControl<?>> controlsId ) throws  TuraException{
+	public void clean(Collection <DataControl<?>> controlsId ) throws  TuraException{
 		try{
 			SavePoint sv = savePoints.peek();
 			savePoints = new Stack<>();
