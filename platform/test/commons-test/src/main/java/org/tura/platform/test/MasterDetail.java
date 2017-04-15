@@ -47,7 +47,7 @@ import org.tura.platform.test.hr.model.EmployeeType;
 
 import com.octo.java.sql.exp.Operator;
 
-public class MasterDetail {
+public abstract class MasterDetail {
 
 	private static EntityManager em;
 	private static Factory factory;
@@ -197,7 +197,7 @@ public class MasterDetail {
 
 			repo.applyChanges(null);
 
-			assertEquals(rowe.getParentId(), new Long(10));
+			assertEquals(getParent(rowe), new Long(10));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -236,7 +236,8 @@ public class MasterDetail {
 			dce.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			
 		    assertEquals(rowd.getObjId(), new Long(20));
-		    assertEquals(rowe.getParentId(), new Long(20));
+		    assertEquals(getParent(rowe), new Long(20));
+//		    assertEquals(rowe.getParentId(), new Long(20));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -245,6 +246,7 @@ public class MasterDetail {
 		
 	}
 	
+	public abstract Long getParent(EmployeeType emp);
 
 
 	

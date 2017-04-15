@@ -117,7 +117,8 @@ public abstract class MasterDetailDataControlPool {
 
 			EmployeeType newrow = factory.getNewEmployeeType();
 			newrow.setObjId(123L);
-			newrow.setParentId(dep.getObjId());
+			setParent(dep, newrow);
+//			newrow.setParentId(dep.getObjId());
 			
 	        Pager<?> pager = getPager(dce);
 	        
@@ -158,7 +159,8 @@ public abstract class MasterDetailDataControlPool {
 
 			EmployeeType newrow = factory.getNewEmployeeType();
 			newrow.setObjId(123L);
-			newrow.setParentId(dep.getObjId());
+			setParent(dep, newrow);
+//			newrow.setParentId(dep.getObjId());
 
 			EmployeeType rowe = dce.getCurrentObject();
 			
@@ -251,4 +253,6 @@ public abstract class MasterDetailDataControlPool {
         return (Pager<?>) field.get(dc);	
 	}
 
+	public abstract void setParent(DepartmentType dep ,EmployeeType emp);
+	
 }

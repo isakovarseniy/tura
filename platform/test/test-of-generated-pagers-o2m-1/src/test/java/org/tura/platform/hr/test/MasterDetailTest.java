@@ -22,7 +22,15 @@
 package org.tura.platform.hr.test;
 
 import org.tura.platform.test.MasterDetail;
+import org.tura.platform.test.hr.model.EmployeeType;
+
+import objects.test.serialazable.jpa.Employee1;
 
 public class MasterDetailTest extends MasterDetail{
+
+	@Override
+	public Long getParent(EmployeeType emp) {
+		return ((Employee1)emp).getParentId();
+	}
 
 }

@@ -53,8 +53,5 @@ public interface  TuraObject {
 
 	public void setObjId(Long objId);
 	
-	public Long getParentId();
-	
-	public void setParentId(Long parentId);
 	
 }

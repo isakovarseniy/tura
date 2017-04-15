@@ -12,7 +12,7 @@
 	<groupId>org.tura.platform.test</groupId>
 	<artifactId>test-of-generated-pagers-o2m-1</artifactId>
 
-	<name>Tura :: Platform :: Test :: Generated code :: Pagers</name>
+	<name>Tura :: Platform :: Test :: Generated code :: Pagers :: O2M TEST 1</name>
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
