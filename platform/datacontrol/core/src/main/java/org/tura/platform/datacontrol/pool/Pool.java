@@ -51,7 +51,7 @@ public abstract class Pool {
 	protected abstract void registerForCleaning() throws TuraException;
 
 	protected abstract SelectQuery getSelectQuery() throws TuraException;
-	protected abstract Object connectObject(Object obj);
+	protected abstract Object connectObject(Object obj) throws TuraException;
 
 	public void addCommand(PoolElement element) throws TuraException {
 		element.setCreateDate(getPoolData().getNextId());

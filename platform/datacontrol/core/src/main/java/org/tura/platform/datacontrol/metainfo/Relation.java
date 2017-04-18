@@ -88,6 +88,12 @@ public class Relation {
 		this.masterCurrentObject = masterCurrentObject;
 	}
 
+	public void loadMasterObject() throws TuraException{
+		if (masterCurrentObject == null){
+			masterCurrentObject = getParent().getCurrentObject();
+		}
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<SearchCriteria> getChildSearchCriteria()
 			throws NoSuchMethodException, SecurityException,
@@ -98,8 +104,7 @@ public class Relation {
 		ArrayList scls = new ArrayList();
 
 		Iterator<PropertyLink> itr = links.iterator();
-		if (masterCurrentObject == null)
-			masterCurrentObject = getParent().getCurrentObject();
+		loadMasterObject();
 		if (masterCurrentObject != null) {
 			while (itr.hasNext()) {
 				PropertyLink lnk = itr.next();

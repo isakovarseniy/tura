@@ -34,13 +34,13 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
+import org.h2.tools.Server;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Pager;
-import org.tura.platform.datacontrol.metainfo.PropertyLink;
-import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.repository.core.ObjectControl;
@@ -53,9 +53,18 @@ public abstract class MasterDetailDataControlPool {
 	private static Factory factory;
 
 	private static Logger logger;
+	private static Server server;
 
+	@AfterClass
+	public static void afterClass() throws Exception {
+		server.stop();
+	}
+	
+	
 	@BeforeClass
 	public static void beforeClass() throws Exception{
+		server = Server.createTcpServer().start();
+		
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 //		ConsoleHandler handler = new ConsoleHandler();
@@ -105,13 +114,15 @@ public abstract class MasterDetailDataControlPool {
 			DataControl<EmployeeType> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
-			Relation relation = new Relation();
-			relation.setParent(dcd);
-			relation.setChild(dce);
-			PropertyLink  link =   new PropertyLink ("objId", "parentId");
-			relation.getLinks().add(link);
-			
-			dcd.addChildren("departmentsToemployees", relation);
+			factory.setRelatioin(dcd, dce);
+
+//			Relation relation = new Relation();
+//			relation.setParent(dcd);
+//			relation.setChild(dce);
+//			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+//			relation.getLinks().add(link);
+//			
+//			dcd.addChildren("departmentsToemployees", relation);
 			
 			DepartmentType dep =  dcd.getCurrentObject();
 
@@ -146,14 +157,16 @@ public abstract class MasterDetailDataControlPool {
 			
 			DataControl<EmployeeType> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
+
+			factory.setRelatioin(dcd, dce);
 			
-			Relation relation = new Relation();
-			relation.setParent(dcd);
-			relation.setChild(dce);
-			PropertyLink  link =   new PropertyLink ("objId", "parentId");
-			relation.getLinks().add(link);
-			
-			dcd.addChildren("departmentsToemployees", relation);
+//			Relation relation = new Relation();
+//			relation.setParent(dcd);
+//			relation.setChild(dce);
+//			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+//			relation.getLinks().add(link);
+//			
+//			dcd.addChildren("departmentsToemployees", relation);
 			
 			DepartmentType dep =  dcd.getCurrentObject();
 
@@ -201,13 +214,14 @@ public abstract class MasterDetailDataControlPool {
 			DataControl<EmployeeType> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
-			Relation relation = new Relation();
-			relation.setParent(dcd);
-			relation.setChild(dce);
-			PropertyLink  link =   new PropertyLink ("objId", "parentId");
-			relation.getLinks().add(link);
-			
-			dcd.addChildren("departmentsToemployees", relation);
+			factory.setRelatioin(dcd, dce);
+//			Relation relation = new Relation();
+//			relation.setParent(dcd);
+//			relation.setChild(dce);
+//			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+//			relation.getLinks().add(link);
+//			
+//			dcd.addChildren("departmentsToemployees", relation);
 
 			dcd.islolate();
 			

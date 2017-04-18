@@ -21,14 +21,22 @@
  */
 package org.tura.platform.hr.test;
 
+import org.tura.platform.datacontrol.commons.Constants;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.test.MasterDetail;
 import org.tura.platform.test.hr.model.EmployeeType;
+
+import objects.test.serialazable.jpa.Department2;
 
 public class MasterDetailTest extends MasterDetail{
 
 	@Override
 	public Long getParent(EmployeeType emp) {
-		return null;
+        Department2 parent =
+                (Department2) ((ObjectControl) emp).getAttributes()
+                               .get(Constants.PARENT_OBJECT);		
+		
+		return parent.getObjId();
 	}
 
 }

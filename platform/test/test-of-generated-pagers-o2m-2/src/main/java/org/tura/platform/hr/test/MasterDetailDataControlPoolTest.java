@@ -25,12 +25,14 @@ import org.tura.platform.test.MasterDetailDataControlPool;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
 
+import objects.test.serialazable.jpa.Department2;
+import objects.test.serialazable.jpa.Employee2;
+
 public class MasterDetailDataControlPoolTest extends MasterDetailDataControlPool{
 
 	@Override
 	public void setParent(DepartmentType dep, EmployeeType emp) {
-		// TODO Auto-generated method stub
-		
+		((Department2)dep).getEmployee2().add((Employee2) emp);
 	}
 
 }

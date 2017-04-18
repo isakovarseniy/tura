@@ -35,6 +35,8 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
+import org.h2.tools.Server;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -60,11 +62,22 @@ public class SingleDataControl {
 	private static Factory factory;
 
 	private static Logger logger;
+	private static Server server;
 
+	
+	@AfterClass
+	public static void afterClass() throws Exception {
+		server.stop();
+	}
+	
 	@BeforeClass
 	public static void beforeClass() throws Exception {
+		server = Server.createTcpServer().start();
+		
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
+		
+		
 //		ConsoleHandler handler = new ConsoleHandler();
 //		handler.setFormatter(new LogFormatter());
 //		logger.addHandler(handler);

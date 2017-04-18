@@ -43,7 +43,13 @@
 			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>hr-model-interface</artifactId>
 			<version>1.0</version>
-		</dependency>		
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
 
 	</dependencies>
 

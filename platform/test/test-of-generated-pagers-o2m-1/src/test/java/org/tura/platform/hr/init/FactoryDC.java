@@ -35,6 +35,9 @@ import org.tura.platform.datacontrol.command.base.CallParameter;
 import org.tura.platform.datacontrol.command.base.CommandStackProvider;
 import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
 import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
+import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.metainfo.PropertyLink;
+import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
 import org.tura.platform.repository.core.BasicRepository;
@@ -225,6 +228,20 @@ public class FactoryDC implements Factory {
 	@Override
 	public void clean() {
 		sc = new CommandStack();
+		
+	}
+
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public void setRelatioin(DataControl ddc, DataControl edc) throws TuraException {
+		Relation relation = new Relation();
+		relation.setParent(ddc);
+		relation.setChild(edc);
+		PropertyLink  link =   new PropertyLink ("objId", "parentId");
+		relation.getLinks().add(link);
+		
+		ddc.addChildren("departmentsToemployees", relation);
 		
 	}
 

@@ -23,10 +23,11 @@ package org.tura.platform.test;
 
 import javax.persistence.EntityManager;
 
+import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.repository.core.Repository;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
-import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.repository.core.Repository;
 
 public interface Factory {
 	
@@ -39,5 +40,8 @@ public interface Factory {
 	
 	public void initDB(String initializer, EntityManager em) throws Exception;
 	public void clean();
+	@SuppressWarnings("rawtypes")
+	public void setRelatioin(DataControl ddc,DataControl edc) throws TuraException;
+	
 
 }

@@ -35,6 +35,7 @@
 		<version.primefaces>5.1</version.primefaces>
 		<verson.beanutil>1.9.2</verson.beanutil>
 		<version.deltaspike>1.6.1</version.deltaspike>
+		<version.com.h2database.h2>1.4.193</version.com.h2database.h2>
 
 
 	</properties>

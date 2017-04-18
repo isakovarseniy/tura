@@ -33,13 +33,14 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
+import org.h2.tools.Server;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.datacontrol.metainfo.PropertyLink;
-import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.test.hr.model.DepartmentType;
@@ -53,9 +54,18 @@ public abstract class MasterDetail {
 	private static Factory factory;
 
 	private static Logger logger;
+	private static Server server;
 
+	@AfterClass
+	public static void afterClass() throws Exception {
+		server.stop();
+	}
+	
+	
 	@BeforeClass
 	public static void beforeClass() throws Exception{
+		server = Server.createTcpServer().start();
+		
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 //		ConsoleHandler handler = new ConsoleHandler();
@@ -105,14 +115,24 @@ public abstract class MasterDetail {
 			DataControl<EmployeeType> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
+			ArrayList<OrderCriteria> ord = new ArrayList<>();
 			
-			Relation relation = new Relation();
-			relation.setParent(dcd);
-			relation.setChild(dce);
-			PropertyLink  link =   new PropertyLink ("objId", "parentId");
-			relation.getLinks().add(link);
+			OrderCriteria o = new OrderCriteria();
+			o.setName("objId");
+			o.setOrder("ASC");
+			ord.add(o);
 			
-			dcd.addChildren("departmentsToemployees", relation);
+			dce.setDefaultOrderCriteria(ord);
+			
+			
+			factory.setRelatioin(dcd, dce);
+//			Relation relation = new Relation();
+//			relation.setParent(dcd);
+//			relation.setChild(dce);
+//			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+//			relation.getLinks().add(link);
+//			
+//			dcd.addChildren("departmentsToemployees", relation);
 			
 			DepartmentType rowd = dcd.getCurrentObject();
 			dcd.nextObject();
@@ -148,14 +168,25 @@ public abstract class MasterDetail {
 			
 			dce.setDefaultSearchCriteria(sc);
 			
+			ArrayList<OrderCriteria> ord = new ArrayList<>();
 			
-			Relation relation = new Relation();
-			relation.setParent(dcd);
-			relation.setChild(dce);
-			PropertyLink  link =   new PropertyLink ("objId", "parentId");
-			relation.getLinks().add(link);
+			OrderCriteria o = new OrderCriteria();
+			o.setName("objId");
+			o.setOrder("ASC");
+			ord.add(o);
 			
-			dcd.addChildren("departmentsToemployees", relation);
+			dce.setDefaultOrderCriteria(ord);
+			
+			
+			factory.setRelatioin(dcd, dce);
+			
+//			Relation relation = new Relation();
+//			relation.setParent(dcd);
+//			relation.setChild(dce);
+//			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+//			relation.getLinks().add(link);
+//			
+//			dcd.addChildren("departmentsToemployees", relation);
 			
 			DepartmentType rowd = dcd.getCurrentObject();
 			dcd.nextObject();
@@ -184,13 +215,15 @@ public abstract class MasterDetail {
 			dce.getElResolver().setValue("employees", dce);
 			
 			
-			Relation relation = new Relation();
-			relation.setParent(dcd);
-			relation.setChild(dce);
-			PropertyLink  link =   new PropertyLink ("objId", "parentId");
-			relation.getLinks().add(link);
+			factory.setRelatioin(dcd, dce);
 			
-			dcd.addChildren("departmentsToemployees", relation);
+//			Relation relation = new Relation();
+//			relation.setParent(dcd);
+//			relation.setChild(dce);
+//			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+//			relation.getLinks().add(link);
+//			
+//			dcd.addChildren("departmentsToemployees", relation);
 
 			EmployeeType rowe = dce.createObject();
 			rowe.setFirstName("test");
@@ -216,14 +249,16 @@ public abstract class MasterDetail {
 			DataControl<EmployeeType> dce = factory.initEmployees("");
 			dce.getElResolver().setValue("employees", dce);
 			
+
+			factory.setRelatioin(dcd, dce);
 			
-			Relation relation = new Relation();
-			relation.setParent(dcd);
-			relation.setChild(dce);
-			PropertyLink  link =   new PropertyLink ("objId", "parentId");
-			relation.getLinks().add(link);
-			
-			dcd.addChildren("departmentsToemployees", relation);
+//			Relation relation = new Relation();
+//			relation.setParent(dcd);
+//			relation.setChild(dce);
+//			PropertyLink  link =   new PropertyLink ("objId", "parentId");
+//			relation.getLinks().add(link);
+//			
+//			dcd.addChildren("departmentsToemployees", relation);
 			dcd.removeObject();
 
 			DepartmentType rowd = dcd.getCurrentObject();
@@ -237,7 +272,6 @@ public abstract class MasterDetail {
 			
 		    assertEquals(rowd.getObjId(), new Long(20));
 		    assertEquals(getParent(rowe), new Long(20));
-//		    assertEquals(rowe.getParentId(), new Long(20));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
