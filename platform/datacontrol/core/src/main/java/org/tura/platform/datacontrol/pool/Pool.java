@@ -35,10 +35,10 @@ import org.josql.QueryResults;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.data.PoolData;
 import org.tura.platform.datacontrol.shift.ShiftControl;
+import org.tura.platform.repository.core.ObjectControl;
 
 import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;
-import com.rits.cloning.Cloner;
 
 public abstract class Pool {
 
@@ -87,11 +87,10 @@ public abstract class Pool {
 			List<?> objects = filterByDataControlCondition(poolObjects,getSelectQuery());
 
 			Collections.reverse(objects);
-			Cloner c = new Cloner();
 
 			for (Object obj : objects) {
-				Object o = c.deepClone(obj);
-				getShifter().add(index, connectObject(o));
+				ObjectControl oc = (ObjectControl) obj;
+				getShifter().add(index, connectObject(oc.clone()));
 			}
 
 			if (objects.size() > 0)
