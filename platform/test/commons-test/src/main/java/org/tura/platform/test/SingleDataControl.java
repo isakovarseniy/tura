@@ -407,7 +407,7 @@ public class SingleDataControl {
 				dc.nextObject();
 			}
 
-			id = new Long(2);
+			id = d2.getObjId();
 			for (int i = 0; i < 2; i++) {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());
@@ -440,7 +440,7 @@ public class SingleDataControl {
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 			dc.forceRefresh();
 
-			id = new Long(1);
+			id = d1.getObjId();
 			for (int i = 0; i < 2; i++) {
 				DepartmentType row = dc.getCurrentObject();
 				logger.info(row.getObjId().toString());

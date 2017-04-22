@@ -25,7 +25,7 @@ import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.repository.core.PrImaryKeyStrategy;
 
 public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
-	public static long id =1L;
+	public static long id =-100L;
 
 	@Override
 	public void generatePk(Object o) {
