@@ -36,7 +36,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import org.h2.tools.Server;
 import org.hibernate.cfg.Configuration;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -92,9 +94,18 @@ public class JPARepositoryTest {
 	
 
 	private static Logger logger;
+	private static Server server;
 
+	
+	@AfterClass
+	public static void afterClass() throws Exception {
+		server.stop();
+	}
+	
+	
 	@BeforeClass
 	public static void beforeClass() throws Exception {
+		server = Server.createTcpServer().start();
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 		// ConsoleHandler handler = new ConsoleHandler();

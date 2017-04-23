@@ -44,7 +44,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Persistence;
 
+import org.h2.tools.Server;
 import org.hibernate.cfg.Configuration;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.jpa.test.Client;
@@ -58,9 +60,19 @@ public class JPATest {
 	private static EntityManager em;
 
 	private static Logger logger;
+	private static Server server;
 
+	
+	@AfterClass
+	public static void afterClass() throws Exception {
+		server.stop();
+	}
+	
+	
 	@BeforeClass
 	public static void beforeClass() throws Exception{
+		server = Server.createTcpServer().start();
+
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 //		ConsoleHandler handler = new ConsoleHandler();
