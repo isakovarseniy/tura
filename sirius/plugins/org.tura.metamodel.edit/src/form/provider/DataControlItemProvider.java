@@ -139,9 +139,6 @@ public class DataControlItemProvider
 			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__POST_CREATE_TRIGGER);
 			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__PRE_UPDATE_TRIGGER);
 			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__CREATE);
-			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__INSERT);
-			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__UPDATE);
-			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__REMOVE);
 			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__SEARCH);
 			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__ARTIFICIAL_FIELDS);
 			childrenFeatures.add(FormPackage.Literals.DATA_CONTROL__DEFAULT_SEARCH);
@@ -214,9 +211,6 @@ public class DataControlItemProvider
 			case FormPackage.DATA_CONTROL__POST_CREATE_TRIGGER:
 			case FormPackage.DATA_CONTROL__PRE_UPDATE_TRIGGER:
 			case FormPackage.DATA_CONTROL__CREATE:
-			case FormPackage.DATA_CONTROL__INSERT:
-			case FormPackage.DATA_CONTROL__UPDATE:
-			case FormPackage.DATA_CONTROL__REMOVE:
 			case FormPackage.DATA_CONTROL__SEARCH:
 			case FormPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
 			case FormPackage.DATA_CONTROL__DEFAULT_SEARCH:
@@ -333,21 +327,6 @@ public class DataControlItemProvider
 			(createChildParameter
 				(FormPackage.Literals.DATA_CONTROL__CREATE,
 				 FormFactory.eINSTANCE.createCreateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__INSERT,
-				 FormFactory.eINSTANCE.createInsertTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__UPDATE,
-				 FormFactory.eINSTANCE.createUpdateTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.DATA_CONTROL__REMOVE,
-				 FormFactory.eINSTANCE.createDeleteTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -477,9 +456,6 @@ public class DataControlItemProvider
 			childFeature == FormPackage.Literals.DATA_CONTROL__POST_CREATE_TRIGGER ||
 			childFeature == FormPackage.Literals.DATA_CONTROL__PRE_UPDATE_TRIGGER ||
 			childFeature == FormPackage.Literals.DATA_CONTROL__CREATE ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__INSERT ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__UPDATE ||
-			childFeature == FormPackage.Literals.DATA_CONTROL__REMOVE ||
 			childFeature == FormPackage.Literals.DATA_CONTROL__SEARCH;
 
 		if (qualify) {

@@ -6624,40 +6624,13 @@ public interface FormPackage extends EPackage {
 	int DATA_CONTROL__CREATE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Insert</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_CONTROL__INSERT = 10;
-
-	/**
-	 * The feature id for the '<em><b>Update</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_CONTROL__UPDATE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Remove</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_CONTROL__REMOVE = 12;
-
-	/**
 	 * The feature id for the '<em><b>Search</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__SEARCH = 13;
+	int DATA_CONTROL__SEARCH = 10;
 
 	/**
 	 * The feature id for the '<em><b>Artificial Fields</b></em>' containment reference list.
@@ -6666,7 +6639,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__ARTIFICIAL_FIELDS = 14;
+	int DATA_CONTROL__ARTIFICIAL_FIELDS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Default Search</b></em>' containment reference.
@@ -6675,7 +6648,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__DEFAULT_SEARCH = 15;
+	int DATA_CONTROL__DEFAULT_SEARCH = 12;
 
 	/**
 	 * The feature id for the '<em><b>Default Order By</b></em>' containment reference.
@@ -6684,7 +6657,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__DEFAULT_ORDER_BY = 16;
+	int DATA_CONTROL__DEFAULT_ORDER_BY = 13;
 
 	/**
 	 * The feature id for the '<em><b>Relation Mappers</b></em>' containment reference list.
@@ -6693,7 +6666,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL__RELATION_MAPPERS = 17;
+	int DATA_CONTROL__RELATION_MAPPERS = 14;
 
 	/**
 	 * The number of structural features of the '<em>Data Control</em>' class.
@@ -6702,7 +6675,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTROL_FEATURE_COUNT = 18;
+	int DATA_CONTROL_FEATURE_COUNT = 15;
 
 	/**
 	 * The meta object id for the '{@link form.impl.RelationMapperImpl <em>Relation Mapper</em>}' class.
@@ -9442,39 +9415,6 @@ public interface FormPackage extends EPackage {
 	EReference getDataControl_Create();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link form.DataControl#getInsert <em>Insert</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Insert</em>'.
-	 * @see form.DataControl#getInsert()
-	 * @see #getDataControl()
-	 * @generated
-	 */
-	EReference getDataControl_Insert();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link form.DataControl#getUpdate <em>Update</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Update</em>'.
-	 * @see form.DataControl#getUpdate()
-	 * @see #getDataControl()
-	 * @generated
-	 */
-	EReference getDataControl_Update();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link form.DataControl#getRemove <em>Remove</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Remove</em>'.
-	 * @see form.DataControl#getRemove()
-	 * @see #getDataControl()
-	 * @generated
-	 */
-	EReference getDataControl_Remove();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link form.DataControl#getSearch <em>Search</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11834,30 +11774,6 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DATA_CONTROL__CREATE = eINSTANCE.getDataControl_Create();
-
-		/**
-		 * The meta object literal for the '<em><b>Insert</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_CONTROL__INSERT = eINSTANCE.getDataControl_Insert();
-
-		/**
-		 * The meta object literal for the '<em><b>Update</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_CONTROL__UPDATE = eINSTANCE.getDataControl_Update();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_CONTROL__REMOVE = eINSTANCE.getDataControl_Remove();
 
 		/**
 		 * The meta object literal for the '<em><b>Search</b></em>' containment reference feature.

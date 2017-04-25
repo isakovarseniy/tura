@@ -2935,7 +2935,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_Insert() {
+	public EReference getDataControl_Search() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -2944,7 +2944,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_Update() {
+	public EReference getDataControl_ArtificialFields() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -2953,7 +2953,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_Remove() {
+	public EReference getDataControl_DefaultSearch() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -2962,7 +2962,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_Search() {
+	public EReference getDataControl_DefaultOrderBy() {
 		return (EReference)dataControlEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -2971,35 +2971,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataControl_ArtificialFields() {
-		return (EReference)dataControlEClass.getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDataControl_DefaultSearch() {
-		return (EReference)dataControlEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDataControl_DefaultOrderBy() {
-		return (EReference)dataControlEClass.getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDataControl_RelationMappers() {
-		return (EReference)dataControlEClass.getEStructuralFeatures().get(17);
+		return (EReference)dataControlEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -3599,9 +3572,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEReference(dataControlEClass, DATA_CONTROL__POST_CREATE_TRIGGER);
 		createEReference(dataControlEClass, DATA_CONTROL__PRE_UPDATE_TRIGGER);
 		createEReference(dataControlEClass, DATA_CONTROL__CREATE);
-		createEReference(dataControlEClass, DATA_CONTROL__INSERT);
-		createEReference(dataControlEClass, DATA_CONTROL__UPDATE);
-		createEReference(dataControlEClass, DATA_CONTROL__REMOVE);
 		createEReference(dataControlEClass, DATA_CONTROL__SEARCH);
 		createEReference(dataControlEClass, DATA_CONTROL__ARTIFICIAL_FIELDS);
 		createEReference(dataControlEClass, DATA_CONTROL__DEFAULT_SEARCH);
@@ -4118,9 +4088,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getDataControl_PostCreateTrigger(), this.getPOSTCreateTrigger(), null, "postCreateTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_PreUpdateTrigger(), this.getPREUpdateTrigger(), null, "preUpdateTrigger", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_Create(), this.getCreateTrigger(), null, "create", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataControl_Insert(), this.getInsertTrigger(), null, "insert", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataControl_Update(), this.getUpdateTrigger(), null, "update", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataControl_Remove(), this.getDeleteTrigger(), null, "remove", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_Search(), this.getSearchTrigger(), null, "search", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_ArtificialFields(), this.getArtificialField(), null, "artificialFields", null, 0, -1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataControl_DefaultSearch(), this.getContextParameters(), null, "defaultSearch", null, 0, 1, DataControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

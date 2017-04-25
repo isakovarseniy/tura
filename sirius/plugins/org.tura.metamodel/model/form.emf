@@ -482,9 +482,6 @@ class DataControl {
    val POSTCreateTrigger postCreateTrigger;
    val PREUpdateTrigger preUpdateTrigger;
    val CreateTrigger create;
-   val InsertTrigger insert;
-   val UpdateTrigger update;
-   val DeleteTrigger remove;
    val SearchTrigger search;
    val ArtificialField[*] artificialFields;   
    val ContextParameters defaultSearch;

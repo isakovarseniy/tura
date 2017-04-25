@@ -6,9 +6,7 @@ import form.ArtificialField;
 import form.ContextParameters;
 import form.CreateTrigger;
 import form.DataControl;
-import form.DeleteTrigger;
 import form.FormPackage;
-import form.InsertTrigger;
 import form.Orders;
 import form.POSTCreateTrigger;
 import form.POSTQueryTrigger;
@@ -18,7 +16,6 @@ import form.PREQueryTrigger;
 import form.PREUpdateTrigger;
 import form.RelationMapper;
 import form.SearchTrigger;
-import form.UpdateTrigger;
 
 import java.util.Collection;
 
@@ -56,9 +53,6 @@ import type.TypePointer;
  *   <li>{@link form.impl.DataControlImpl#getPostCreateTrigger <em>Post Create Trigger</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getPreUpdateTrigger <em>Pre Update Trigger</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getCreate <em>Create</em>}</li>
- *   <li>{@link form.impl.DataControlImpl#getInsert <em>Insert</em>}</li>
- *   <li>{@link form.impl.DataControlImpl#getUpdate <em>Update</em>}</li>
- *   <li>{@link form.impl.DataControlImpl#getRemove <em>Remove</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getSearch <em>Search</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getArtificialFields <em>Artificial Fields</em>}</li>
  *   <li>{@link form.impl.DataControlImpl#getDefaultSearch <em>Default Search</em>}</li>
@@ -188,36 +182,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	 * @ordered
 	 */
 	protected CreateTrigger create;
-
-	/**
-	 * The cached value of the '{@link #getInsert() <em>Insert</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInsert()
-	 * @generated
-	 * @ordered
-	 */
-	protected InsertTrigger insert;
-
-	/**
-	 * The cached value of the '{@link #getUpdate() <em>Update</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUpdate()
-	 * @generated
-	 * @ordered
-	 */
-	protected UpdateTrigger update;
-
-	/**
-	 * The cached value of the '{@link #getRemove() <em>Remove</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRemove()
-	 * @generated
-	 * @ordered
-	 */
-	protected DeleteTrigger remove;
 
 	/**
 	 * The cached value of the '{@link #getSearch() <em>Search</em>}' containment reference.
@@ -679,135 +643,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InsertTrigger getInsert() {
-		return insert;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInsert(InsertTrigger newInsert, NotificationChain msgs) {
-		InsertTrigger oldInsert = insert;
-		insert = newInsert;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.DATA_CONTROL__INSERT, oldInsert, newInsert);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInsert(InsertTrigger newInsert) {
-		if (newInsert != insert) {
-			NotificationChain msgs = null;
-			if (insert != null)
-				msgs = ((InternalEObject)insert).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FormPackage.DATA_CONTROL__INSERT, null, msgs);
-			if (newInsert != null)
-				msgs = ((InternalEObject)newInsert).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FormPackage.DATA_CONTROL__INSERT, null, msgs);
-			msgs = basicSetInsert(newInsert, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.DATA_CONTROL__INSERT, newInsert, newInsert));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UpdateTrigger getUpdate() {
-		return update;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUpdate(UpdateTrigger newUpdate, NotificationChain msgs) {
-		UpdateTrigger oldUpdate = update;
-		update = newUpdate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.DATA_CONTROL__UPDATE, oldUpdate, newUpdate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUpdate(UpdateTrigger newUpdate) {
-		if (newUpdate != update) {
-			NotificationChain msgs = null;
-			if (update != null)
-				msgs = ((InternalEObject)update).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FormPackage.DATA_CONTROL__UPDATE, null, msgs);
-			if (newUpdate != null)
-				msgs = ((InternalEObject)newUpdate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FormPackage.DATA_CONTROL__UPDATE, null, msgs);
-			msgs = basicSetUpdate(newUpdate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.DATA_CONTROL__UPDATE, newUpdate, newUpdate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeleteTrigger getRemove() {
-		return remove;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRemove(DeleteTrigger newRemove, NotificationChain msgs) {
-		DeleteTrigger oldRemove = remove;
-		remove = newRemove;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormPackage.DATA_CONTROL__REMOVE, oldRemove, newRemove);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRemove(DeleteTrigger newRemove) {
-		if (newRemove != remove) {
-			NotificationChain msgs = null;
-			if (remove != null)
-				msgs = ((InternalEObject)remove).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FormPackage.DATA_CONTROL__REMOVE, null, msgs);
-			if (newRemove != null)
-				msgs = ((InternalEObject)newRemove).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FormPackage.DATA_CONTROL__REMOVE, null, msgs);
-			msgs = basicSetRemove(newRemove, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.DATA_CONTROL__REMOVE, newRemove, newRemove));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SearchTrigger getSearch() {
 		return search;
 	}
@@ -980,12 +815,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return basicSetPreUpdateTrigger(null, msgs);
 			case FormPackage.DATA_CONTROL__CREATE:
 				return basicSetCreate(null, msgs);
-			case FormPackage.DATA_CONTROL__INSERT:
-				return basicSetInsert(null, msgs);
-			case FormPackage.DATA_CONTROL__UPDATE:
-				return basicSetUpdate(null, msgs);
-			case FormPackage.DATA_CONTROL__REMOVE:
-				return basicSetRemove(null, msgs);
 			case FormPackage.DATA_CONTROL__SEARCH:
 				return basicSetSearch(null, msgs);
 			case FormPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
@@ -1028,12 +857,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return getPreUpdateTrigger();
 			case FormPackage.DATA_CONTROL__CREATE:
 				return getCreate();
-			case FormPackage.DATA_CONTROL__INSERT:
-				return getInsert();
-			case FormPackage.DATA_CONTROL__UPDATE:
-				return getUpdate();
-			case FormPackage.DATA_CONTROL__REMOVE:
-				return getRemove();
 			case FormPackage.DATA_CONTROL__SEARCH:
 				return getSearch();
 			case FormPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:
@@ -1086,15 +909,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return;
 			case FormPackage.DATA_CONTROL__CREATE:
 				setCreate((CreateTrigger)newValue);
-				return;
-			case FormPackage.DATA_CONTROL__INSERT:
-				setInsert((InsertTrigger)newValue);
-				return;
-			case FormPackage.DATA_CONTROL__UPDATE:
-				setUpdate((UpdateTrigger)newValue);
-				return;
-			case FormPackage.DATA_CONTROL__REMOVE:
-				setRemove((DeleteTrigger)newValue);
 				return;
 			case FormPackage.DATA_CONTROL__SEARCH:
 				setSearch((SearchTrigger)newValue);
@@ -1155,15 +969,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 			case FormPackage.DATA_CONTROL__CREATE:
 				setCreate((CreateTrigger)null);
 				return;
-			case FormPackage.DATA_CONTROL__INSERT:
-				setInsert((InsertTrigger)null);
-				return;
-			case FormPackage.DATA_CONTROL__UPDATE:
-				setUpdate((UpdateTrigger)null);
-				return;
-			case FormPackage.DATA_CONTROL__REMOVE:
-				setRemove((DeleteTrigger)null);
-				return;
 			case FormPackage.DATA_CONTROL__SEARCH:
 				setSearch((SearchTrigger)null);
 				return;
@@ -1211,12 +1016,6 @@ public class DataControlImpl extends EObjectImpl implements DataControl {
 				return preUpdateTrigger != null;
 			case FormPackage.DATA_CONTROL__CREATE:
 				return create != null;
-			case FormPackage.DATA_CONTROL__INSERT:
-				return insert != null;
-			case FormPackage.DATA_CONTROL__UPDATE:
-				return update != null;
-			case FormPackage.DATA_CONTROL__REMOVE:
-				return remove != null;
 			case FormPackage.DATA_CONTROL__SEARCH:
 				return search != null;
 			case FormPackage.DATA_CONTROL__ARTIFICIAL_FIELDS:

@@ -27,9 +27,6 @@ import type.TypePointer;
  *   <li>{@link form.DataControl#getPostCreateTrigger <em>Post Create Trigger</em>}</li>
  *   <li>{@link form.DataControl#getPreUpdateTrigger <em>Pre Update Trigger</em>}</li>
  *   <li>{@link form.DataControl#getCreate <em>Create</em>}</li>
- *   <li>{@link form.DataControl#getInsert <em>Insert</em>}</li>
- *   <li>{@link form.DataControl#getUpdate <em>Update</em>}</li>
- *   <li>{@link form.DataControl#getRemove <em>Remove</em>}</li>
  *   <li>{@link form.DataControl#getSearch <em>Search</em>}</li>
  *   <li>{@link form.DataControl#getArtificialFields <em>Artificial Fields</em>}</li>
  *   <li>{@link form.DataControl#getDefaultSearch <em>Default Search</em>}</li>
@@ -301,84 +298,6 @@ public interface DataControl extends EObject {
 	 * @generated
 	 */
 	void setCreate(CreateTrigger value);
-
-	/**
-	 * Returns the value of the '<em><b>Insert</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Insert</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Insert</em>' containment reference.
-	 * @see #setInsert(InsertTrigger)
-	 * @see form.FormPackage#getDataControl_Insert()
-	 * @model containment="true"
-	 * @generated
-	 */
-	InsertTrigger getInsert();
-
-	/**
-	 * Sets the value of the '{@link form.DataControl#getInsert <em>Insert</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Insert</em>' containment reference.
-	 * @see #getInsert()
-	 * @generated
-	 */
-	void setInsert(InsertTrigger value);
-
-	/**
-	 * Returns the value of the '<em><b>Update</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Update</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Update</em>' containment reference.
-	 * @see #setUpdate(UpdateTrigger)
-	 * @see form.FormPackage#getDataControl_Update()
-	 * @model containment="true"
-	 * @generated
-	 */
-	UpdateTrigger getUpdate();
-
-	/**
-	 * Sets the value of the '{@link form.DataControl#getUpdate <em>Update</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Update</em>' containment reference.
-	 * @see #getUpdate()
-	 * @generated
-	 */
-	void setUpdate(UpdateTrigger value);
-
-	/**
-	 * Returns the value of the '<em><b>Remove</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Remove</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Remove</em>' containment reference.
-	 * @see #setRemove(DeleteTrigger)
-	 * @see form.FormPackage#getDataControl_Remove()
-	 * @model containment="true"
-	 * @generated
-	 */
-	DeleteTrigger getRemove();
-
-	/**
-	 * Sets the value of the '{@link form.DataControl#getRemove <em>Remove</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Remove</em>' containment reference.
-	 * @see #getRemove()
-	 * @generated
-	 */
-	void setRemove(DeleteTrigger value);
 
 	/**
 	 * Returns the value of the '<em><b>Search</b></em>' containment reference.

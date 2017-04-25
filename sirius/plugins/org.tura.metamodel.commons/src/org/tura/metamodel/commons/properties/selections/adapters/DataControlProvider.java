@@ -43,15 +43,6 @@ public class DataControlProvider implements IWorkbenchAdapter,IReturnTypeProvide
 		if (ctr.getCreate() != null && ctr.getCreate().getMethodRef() != null)
 			ls.add(new TriggerHolder("CreateTrigger", ctr.getCreate()));
 
-		if (ctr.getInsert() != null && ctr.getInsert().getMethodRef() != null)
-			ls.add(new TriggerHolder("InsertTrigger", ctr.getInsert()));
-
-		if (ctr.getUpdate() != null && ctr.getUpdate().getMethodRef() != null)
-			ls.add(new TriggerHolder("UpdateTrigger", ctr.getUpdate()));
-
-		if (ctr.getRemove() != null && ctr.getRemove().getMethodRef() != null)
-			ls.add(new TriggerHolder("RemoveTrigger", ctr.getRemove()));
-
 		if (ctr.getSearch() != null && ctr.getSearch().getMethodRef() != null)
 			ls.add(new TriggerHolder("SearchTrigger", ctr.getSearch()));
 

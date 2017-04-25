@@ -397,12 +397,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="create" eType="#//CreateTrigger"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="insert" eType="#//InsertTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="update" eType="#//UpdateTrigger"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="remove" eType="#//DeleteTrigger"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="search" eType="#//SearchTrigger"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="artificialFields" upperBound="-1"

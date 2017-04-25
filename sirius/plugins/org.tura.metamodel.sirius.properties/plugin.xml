@@ -311,10 +311,10 @@
              id="tab.form.Trigger"
              label="Trigger"/>
 
-    <propertyTab
+    <!--propertyTab
              category="domain"
              id="tab.form.Trigger.Services"
-             label="Services"/>
+             label="Services"/-->
 
     <propertyTab
              category="domain"
@@ -705,6 +705,7 @@
 	   </propertySections>
 	</extension>
 	
+<!--	
 	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
 	      <propertySection
@@ -715,6 +716,8 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>
+-->	
+	
 	
 	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
 	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
