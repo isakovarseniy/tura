@@ -1619,7 +1619,7 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='Relation%20to%20Controls']" name="Data Control" titleExpression="aql:self.name" domainClass="form.Controls">
       <defaultLayer name="Default">
-        <edgeMappings name="ExternalRelation" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="service:findDataControlForRelation">
+        <edgeMappings name="ExternalRelation" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="feature:dataControlRef" sourceFinderExpression="aql:self.eContainer()" domainClass="form.RelationMapper" useDomainElement="true">
           <style targetArrow="InputFillClosedArrow">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
             <beginLabelStyleDescription>

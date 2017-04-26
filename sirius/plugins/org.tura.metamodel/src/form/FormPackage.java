@@ -6715,13 +6715,22 @@ public interface FormPackage extends EPackage {
 	int RELATION_MAPPER__TYPE_REF = 2;
 
 	/**
+	 * The feature id for the '<em><b>Is Tree</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPER__IS_TREE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Relation Mapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPER_FEATURE_COUNT = 3;
+	int RELATION_MAPPER_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link form.impl.OrdersImpl <em>Orders</em>}' class.
@@ -9513,6 +9522,17 @@ public interface FormPackage extends EPackage {
 	EReference getRelationMapper_TypeRef();
 
 	/**
+	 * Returns the meta object for the attribute '{@link form.RelationMapper#isIsTree <em>Is Tree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Tree</em>'.
+	 * @see form.RelationMapper#isIsTree()
+	 * @see #getRelationMapper()
+	 * @generated
+	 */
+	EAttribute getRelationMapper_IsTree();
+
+	/**
 	 * Returns the meta object for class '{@link form.Orders <em>Orders</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11848,6 +11868,14 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RELATION_MAPPER__TYPE_REF = eINSTANCE.getRelationMapper_TypeRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Tree</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELATION_MAPPER__IS_TREE = eINSTANCE.getRelationMapper_IsTree();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.OrdersImpl <em>Orders</em>}' class.

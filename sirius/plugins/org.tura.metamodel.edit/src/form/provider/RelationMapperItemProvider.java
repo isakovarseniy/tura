@@ -65,6 +65,7 @@ public class RelationMapperItemProvider
 			addUidPropertyDescriptor(object);
 			addDataControlRefPropertyDescriptor(object);
 			addTypeRefPropertyDescriptor(object);
+			addIsTreePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -136,6 +137,28 @@ public class RelationMapperItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Is Tree feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsTreePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RelationMapper_isTree_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelationMapper_isTree_feature", "_UI_RelationMapper_type"),
+				 FormPackage.Literals.RELATION_MAPPER__IS_TREE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns RelationMapper.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -174,6 +197,7 @@ public class RelationMapperItemProvider
 
 		switch (notification.getFeatureID(RelationMapper.class)) {
 			case FormPackage.RELATION_MAPPER__UID:
+			case FormPackage.RELATION_MAPPER__IS_TREE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

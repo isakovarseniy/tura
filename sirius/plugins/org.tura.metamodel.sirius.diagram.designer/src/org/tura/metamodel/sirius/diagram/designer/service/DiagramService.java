@@ -615,6 +615,13 @@ public class DiagramService {
 		return new QueryHelper().findDataControlForRelation(dataControl);
 	}
 	
+	public DataControl findDataControlForRelation(Object dataControl){
+		System.out.println(dataControl.getClass().getName());
+		return null;
+	}
+
+	
+	
 	public String generateUIDForObjectMapper(DataControl datacontrol){
 		new Helper().populateObjectMapper(datacontrol, datacontrol);
 		return generateUID(datacontrol);

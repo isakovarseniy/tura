@@ -1,6 +1,7 @@
 package org.tura.metamodel.commons;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -66,9 +67,17 @@ public class Helper {
 		if (typeElement instanceof Type) {
 			Type type = (Type) typeElement;
 			
-			for (Assosiation rel :  new QueryHelper().getAssosiation(type)) {
+			Collection<Assosiation> [] result =  new QueryHelper().getAssosiation(type);
+			
+			for (Assosiation rel :  result[0]  ) {
 				if (rel.getTarget() != null){
 				   relatedObjects.put(rel.getTarget().getName(), rel.getTarget());
+				}
+			}
+
+			for (Assosiation rel :  result[1]  ) {
+				if (rel.getSource() != null){
+				   relatedObjects.put(rel.getSource().getName(), rel.getSource());
 				}
 			}
 		}

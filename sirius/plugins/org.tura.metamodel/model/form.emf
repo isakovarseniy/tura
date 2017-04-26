@@ -496,7 +496,7 @@ class RelationMapper {
     id attr EString uid;
 	ref DataControl dataControlRef;
 	ref type.TypeElement typeRef;
-	
+    attr EBoolean isTree;
 }
 
 
@@ -527,6 +527,7 @@ class Dependency{
    ref DataControl master;
    ref DataControl detail;
 }
+
 
 
 class ArtificialField extends type.TypePointer{

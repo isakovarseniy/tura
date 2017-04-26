@@ -1270,19 +1270,25 @@ public class QueryHelper {
 
 	}
 
-	public Collection<Assosiation> getAssosiation(Type type) {
+	@SuppressWarnings({ "unchecked"})
+	public Collection<Assosiation>[] getAssosiation(Type type) {
 		try {
 
 			String query = "type::Assosiation.allInstances()->select(r|r.oclAsType(type::Assosiation).source.uid ='"
-					+ type.getUid() + "')";
+					+ type.getUid() + "' and (  r.oclAsType(type::Assosiation).containment = type::Containment::Non or r.oclAsType(type::Assosiation).containment  = type::Containment::Source ))";
 
-			@SuppressWarnings("unchecked")
-			Collection<Assosiation> list = (Collection<Assosiation>) internalEvaluate(type, query);
+			Collection<Assosiation> list1 = (Collection<Assosiation>) internalEvaluate(type, query);
 
-			return list;
+			
+			query = "type::Assosiation.allInstances()->select(r|r.oclAsType(type::Assosiation).target.uid ='"
+					+ type.getUid() + "' and (  r.oclAsType(type::Assosiation).containment = type::Containment::Non or r.oclAsType(type::Assosiation).containment  = type::Containment::Target ))";
+
+			Collection<Assosiation> list2 = (Collection<Assosiation>) internalEvaluate(type, query);
+			
+			return new Collection[]{list1,list2};
 		} catch (Exception e) {
 			LogUtil.log(e);
-			return new ArrayList<Assosiation>();
+			return new Collection[]{new ArrayList<Assosiation>(),new ArrayList<Assosiation>()};
 		}
 
 	}
