@@ -427,31 +427,28 @@ class PREUpdateTrigger   extends Trigger {
  }
 
 
-class ProxiesList{
-    val type.TypePointer[*]  	typePointers;
-}
 
-class CreateTrigger   extends Trigger,ProxiesList {
+class CreateTrigger   extends Trigger {
     id attr EString uid;
  }
 
 
-class InsertTrigger  extends Trigger ,ProxiesList{
+class InsertTrigger  extends Trigger{
     id attr EString uid;
  }
 
 
-class UpdateTrigger   extends Trigger ,ProxiesList{
+class UpdateTrigger   extends Trigger {
     id attr EString uid;
  }
 
 
-class DeleteTrigger  extends Trigger ,ProxiesList{
+class DeleteTrigger  extends Trigger{
     id attr EString uid;
  }
 
 
-class SearchTrigger  extends Trigger, ProxiesList {
+class SearchTrigger  extends Trigger {
     id attr EString uid;
  }
 

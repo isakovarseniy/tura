@@ -19,7 +19,7 @@ package form;
  * @model
  * @generated
  */
-public interface InsertTrigger extends Trigger, ProxiesList {
+public interface InsertTrigger extends Trigger {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -49,12 +49,13 @@ operation TypeImpl(expression:String, contextValue , paramId: Integer , array , 
     var action = contextValue.expression.get(paramId);
     var recipe = inOutParams.get("recipe");
     var ingredient = inOutParams.get("ingredient");
-
    if ( action.objRef <> null ){
         var type = action.objRef;
         if (type <> null ){
            type.mappingType2Java(recipe,ingredient);
-           type.mappingType2JavaScript(recipe,ingredient);
+           if ( not type.~mapper.isDefined() ){
+              type.mappingType2JavaScript(recipe,ingredient);
+           }
         }else{
            expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
           }

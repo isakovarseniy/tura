@@ -31,23 +31,12 @@ import type.TypePointer;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link form.impl.UpdateTriggerImpl#getTypePointers <em>Type Pointers</em>}</li>
  *   <li>{@link form.impl.UpdateTriggerImpl#getUid <em>Uid</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class UpdateTriggerImpl extends TriggerImpl implements UpdateTrigger {
-	/**
-	 * The cached value of the '{@link #getTypePointers() <em>Type Pointers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypePointers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TypePointer> typePointers;
-
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,18 +81,6 @@ public class UpdateTriggerImpl extends TriggerImpl implements UpdateTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TypePointer> getTypePointers() {
-		if (typePointers == null) {
-			typePointers = new EObjectContainmentEList<TypePointer>(TypePointer.class, this, FormPackage.UPDATE_TRIGGER__TYPE_POINTERS);
-		}
-		return typePointers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getUid() {
 		return uid;
 	}
@@ -126,24 +103,8 @@ public class UpdateTriggerImpl extends TriggerImpl implements UpdateTrigger {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FormPackage.UPDATE_TRIGGER__TYPE_POINTERS:
-				return ((InternalEList<?>)getTypePointers()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FormPackage.UPDATE_TRIGGER__TYPE_POINTERS:
-				return getTypePointers();
 			case FormPackage.UPDATE_TRIGGER__UID:
 				return getUid();
 		}
@@ -159,10 +120,6 @@ public class UpdateTriggerImpl extends TriggerImpl implements UpdateTrigger {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FormPackage.UPDATE_TRIGGER__TYPE_POINTERS:
-				getTypePointers().clear();
-				getTypePointers().addAll((Collection<? extends TypePointer>)newValue);
-				return;
 			case FormPackage.UPDATE_TRIGGER__UID:
 				setUid((String)newValue);
 				return;
@@ -178,9 +135,6 @@ public class UpdateTriggerImpl extends TriggerImpl implements UpdateTrigger {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FormPackage.UPDATE_TRIGGER__TYPE_POINTERS:
-				getTypePointers().clear();
-				return;
 			case FormPackage.UPDATE_TRIGGER__UID:
 				setUid(UID_EDEFAULT);
 				return;
@@ -196,44 +150,10 @@ public class UpdateTriggerImpl extends TriggerImpl implements UpdateTrigger {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FormPackage.UPDATE_TRIGGER__TYPE_POINTERS:
-				return typePointers != null && !typePointers.isEmpty();
 			case FormPackage.UPDATE_TRIGGER__UID:
 				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ProxiesList.class) {
-			switch (derivedFeatureID) {
-				case FormPackage.UPDATE_TRIGGER__TYPE_POINTERS: return FormPackage.PROXIES_LIST__TYPE_POINTERS;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ProxiesList.class) {
-			switch (baseFeatureID) {
-				case FormPackage.PROXIES_LIST__TYPE_POINTERS: return FormPackage.UPDATE_TRIGGER__TYPE_POINTERS;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

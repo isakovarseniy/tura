@@ -80,36 +80,6 @@ public class InsertTriggerItemProvider extends TriggerItemProvider {
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns InsertTrigger.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,9 +120,6 @@ public class InsertTriggerItemProvider extends TriggerItemProvider {
 			case FormPackage.INSERT_TRIGGER__UID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case FormPackage.INSERT_TRIGGER__TYPE_POINTERS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -167,66 +134,6 @@ public class InsertTriggerItemProvider extends TriggerItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createFormParameter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createFormVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 FormFactory.eINSTANCE.createArtificialField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 TypeFactory.eINSTANCE.createTypePointer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 TypeFactory.eINSTANCE.createAttribute()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 TypeFactory.eINSTANCE.createTypeReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 TypeFactory.eINSTANCE.createParameter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 TypeFactory.eINSTANCE.createReturnValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 MapperFactory.eINSTANCE.createTypeMapper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 MapperFactory.eINSTANCE.createJavaMapper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 MapperFactory.eINSTANCE.createJavaScriptMapper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormPackage.Literals.PROXIES_LIST__TYPE_POINTERS,
-				 MapperFactory.eINSTANCE.createXMLTypeMapper()));
 	}
 
 }

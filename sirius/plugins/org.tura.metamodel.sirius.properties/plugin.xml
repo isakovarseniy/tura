@@ -318,10 +318,6 @@
              id="tab.form.Trigger"
              label="Trigger"/>
 
-    <!--propertyTab
-             category="domain"
-             id="tab.form.Trigger.Services"
-             label="Services"/-->
 
     <propertyTab
              category="domain"
@@ -711,19 +707,6 @@
 	      </propertySection>
 	   </propertySections>
 	</extension>
-	
-<!--	
-	   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-	   <propertySections contributorId="org.eclipse.sirius.diagram.ui">
-	      <propertySection
-	            class="org.tura.metamodel.sirius.properties.selections.grid.impl.ServicesPropertySelection"
-	            filter="org.tura.metamodel.sirius.properties.selections.filter.ServicesSectionFilter"
-	            id="form.Trigger.Services"
-	            tab="tab.form.Trigger.Services">
-	      </propertySection>
-	   </propertySections>
-	</extension>
--->	
 	
 	
 	 <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">

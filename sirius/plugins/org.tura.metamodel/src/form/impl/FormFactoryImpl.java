@@ -131,7 +131,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.PRE_DELETE_TRIGGER: return createPREDeleteTrigger();
 			case FormPackage.POST_CREATE_TRIGGER: return createPOSTCreateTrigger();
 			case FormPackage.PRE_UPDATE_TRIGGER: return createPREUpdateTrigger();
-			case FormPackage.PROXIES_LIST: return createProxiesList();
 			case FormPackage.CREATE_TRIGGER: return createCreateTrigger();
 			case FormPackage.INSERT_TRIGGER: return createInsertTrigger();
 			case FormPackage.UPDATE_TRIGGER: return createUpdateTrigger();
@@ -928,16 +927,6 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public PREUpdateTrigger createPREUpdateTrigger() {
 		PREUpdateTriggerImpl preUpdateTrigger = new PREUpdateTriggerImpl();
 		return preUpdateTrigger;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProxiesList createProxiesList() {
-		ProxiesListImpl proxiesList = new ProxiesListImpl();
-		return proxiesList;
 	}
 
 	/**

@@ -37,17 +37,6 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     %] 
 
 
-    [%
-    var i = 0;
-    for (methodProvider in control.~provider.keySet()){
-    %]
-	@javax.inject.Inject
-    private [%=methodProvider%] provider_[%=i%];
-    [%
-     i = i+1;
-    }
-    %] 
-    
 
     [%
      var relations = form::Relation.allInstances()->select(r|r.master= control);   
@@ -59,6 +48,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     [%
      }
     }
+"1".println();
     %] 
     
 
@@ -75,6 +65,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      try{
      setBaseClass([%=control.~basefullName%].class); 
     [%
+"2".println();
+    
      var isTree = form::Relation.allInstances()->select(r|r.detail = control and r.isTree=true).size();   
      if (control.~treeRoot.isDefined() or isTree > 0){%]
      this.createCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*",getId());
@@ -82,36 +74,11 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	 this.createCommand.setDatacontrol(this);
 
      [%if (control.~treeRoot.isDefined() or isTree > 0){%]
-     this.insertCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*",getId());
-     [%}%]
-	 this.insertCommand.setDatacontrol(this);
-
-     [%if (control.~treeRoot.isDefined() or isTree > 0){%]
-     this.updateCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*",getId());
-     [%}%]
-	 this.updateCommand.setDatacontrol(this);
-
-     [%if (control.~treeRoot.isDefined() or isTree > 0){%]
-     this.deleteCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*",getId());
-     [%}%]
-	 this.deleteCommand.setDatacontrol(this);
-
-     [%if (control.~treeRoot.isDefined() or isTree > 0){%]
      this.searchCommand.fixParameters("\\*\\*\\*\\*\\*\\*\\*",getId());
      [%}%]
 	 this.searchCommand.setDatacontrol(this);
 
-    [%
-     var i = 0;
-    for (methodProvider in control.~provider.keySet()){
-       for (method in control.~provider.get(methodProvider)) {
-    %]
-		this.[%=method%]Command.setProvider(provider_[%=i%],"[%=methodProvider%]");
-    [%
-      }
-     i = i+1;
-    }
-    %]this.commandStack.getPoolFlushAware().add(this);[%
+    this.commandStack.getPoolFlushAware().add(this);[%
     if (control.artificialFields.size() <> 0 ){%]
     setArtificialInterface(I[%=util.mergeAndCapitalize(control.name)%]ArtifitialFields.class);
     [%}%]
@@ -142,6 +109,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	public void setArtificialProperties(
 			@org.tura.platform.datacontrol.annotations.ArtificialFields(fields = {
    [%
+"3".println();
+   
     var i = 0;
     for (artificialField in control.artificialFields){
         if (i <> 0 ){ %],[%}%]
@@ -149,6 +118,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     [%
      i = i+1;
     }
+"3.5".println();
+    
     %] 
 	 }) java.util.List<org.tura.platform.datacontrol.metainfo.ArtificialProperty> properties) {
 		this.artificialProperties = properties;
@@ -174,6 +145,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	public void setCreateCommand(
 			@org.tura.platform.datacontrol.annotations.Create( parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = { 
    [%
+"4".println();
+   
     var i = 0;
     for (param in control.create.parameters){
         if (i <> 0 ){ %],[%}%]
@@ -191,68 +164,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 		this.createCommand = createCommand;
 	}
 
-	@Override
-	@javax.inject.Inject
-	public void setInsertCommand(
-			@org.tura.platform.datacontrol.annotations.Insert( parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
-   [%
-    var i = 0;
-    for (param in control.insert.parameters){
-        if (i <> 0 ){ %],[%}%]
-			@org.tura.platform.datacontrol.annotations.Parameter(name = "[%=param.refObj.name%]", [%if (param.value.constant){%]  value =  [%}else{%]  expression =  [%}%] "[%=param.~result%]", type = [%=param.refObj.typeRef.~fullName%].class) 
-    [%
-     i = i+1;
-    }
-    %] 
-			 })) 
-	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-			@org.tura.platform.datacontrol.annotations.InsertTrigger("[%=util.mergeAndUnCapitalize(control.name)%]") 			
-			 
-			 org.tura.platform.datacontrol.command.base.InsertCommandBase insertCommand) {
-		this.insertCommand = insertCommand;
-	}
 
-	@Override
-	@javax.inject.Inject
-	public void setUpdateCommand(
-			@org.tura.platform.datacontrol.annotations.Update( parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
-   [%
-    var i = 0;
-    for (param in control.update.parameters){
-        if (i <> 0 ){ %],[%}%]
-			@org.tura.platform.datacontrol.annotations.Parameter(name = "[%=param.refObj.name%]", [%if (param.value.constant){%]  value =  [%}else{%]  expression =  [%}%] "[%=param.~result%]", type = [%=param.refObj.typeRef.~fullName%].class) 
-    [%
-     i = i+1;
-    }
-    %] 
-			  })) 
-	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-			@org.tura.platform.datacontrol.annotations.UpdateTrigger("[%=util.mergeAndUnCapitalize(control.name)%]") 			
-			  
-			  org.tura.platform.datacontrol.command.base.UpdateCommandBase updateCommand) {
-		this.updateCommand = updateCommand;
-	}
 
-	@Override
-	@javax.inject.Inject
-	public void setDeleteCommand(
-			@org.tura.platform.datacontrol.annotations.Delete( parameters = @org.tura.platform.datacontrol.annotations.Parameters(value = {
-   [%
-    var i = 0;
-    for (param in control.remove.parameters){
-        if (i <> 0 ){ %],[%}%]
-			@org.tura.platform.datacontrol.annotations.Parameter(name = "[%=param.refObj.name%]", [%if (param.value.constant){%]  value =  [%}else{%]  expression =  [%}%] "[%=param.~result%]", type = [%=param.refObj.typeRef.~fullName%].class) 
-    [%
-     i = i+1;
-    }
-    %] 
-			 })) 
-	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
-			@org.tura.platform.datacontrol.annotations.DeleteTrigger("[%=util.mergeAndUnCapitalize(control.name)%]") 			
-			 
-			 org.tura.platform.datacontrol.command.base.DeleteCommandBase deleteCommand) {
-		this.deleteCommand = deleteCommand;
-	}
 
 	@Override
 	@javax.inject.Inject
@@ -266,6 +179,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     [%
      i = i+1;
     }
+"5".println();
+    
     %] 
 					})) 
 	        @org.tura.platform.datacontrol.annotations.Selector("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
@@ -324,14 +239,17 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	}
 
     [%
+"5.5".println();
+    
     for (relation in relations){
       if (not relation.detail.~dependObject.isDefined()){
     %]
 	@org.tura.platform.datacontrol.annotations.Connection(connectionName = "[%=util.mergeAndUnCapitalize(relation.master.name)%]2[%=util.mergeAndUnCapitalize(relation.detail.name)%]", links = { 
     [%
+"5.6".println();
      var i = 0;
      for (link in relation.links){
-       if (i <> 0 ){ %],[%}%]
+       if (i <> 0 ){ %],[%}  "5.7".println();  link.uid.println();   %]
 	@org.tura.platform.datacontrol.annotations.Link(field1 = "[%=link.masterField.name%]", field2 = "[%=link.detailField.name%]")
     [%
      i = i+1;
@@ -345,6 +263,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     [%
      }
     }
+"6".println();
+    
     %] 
     
  	@Override
@@ -367,6 +287,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     [%
       }
     }
+"7".println();
+    
     %] 
        [%if (i = 1 ){%]
 
@@ -387,6 +309,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 			@org.tura.platform.datacontrol.annotations.DefaultSearchCriterias(criterias = {
  
  [%
+"8".println();
+ 
     var i = 0;
     if (control.~relation.isDefined()){
       for (link in control.~relation.links){
@@ -399,6 +323,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
  %]
  
   [%
+"9".println();
+  
     if (control.defaultSearch <> null) {
     for (param in control.defaultSearch.parameters){
         if (i <> 0 ){ %],[%}%]
@@ -407,6 +333,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      i = i+1;
     }
    } 
+"10".println();
+   
     %] 
 			} ) java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> defaultSearchCriteria) {
 		this.defaultSearchCriteria = defaultSearchCriteria;
@@ -417,9 +345,11 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	public void setDefaultOrderCriteria(
 			@org.tura.platform.datacontrol.annotations.DefaultOrderBys(orders={
   [%
+"11".println();
     var i = 0;
     if (control.defaultOrderBy <> null  and control.defaultOrderBy.size() <> 0 and control.defaultOrderBy.orderRules <> null and control.defaultOrderBy.orderRules.size() <> 0) {
     for (param in control.defaultOrderBy.orderRules  ){
+ param.uid.println();   
         if (i <> 0 ){ %],[%}%]
 			@org.tura.platform.datacontrol.annotations.DefaultOrderBy(field = "[%=param.refObj.name%]", order =  com.octo.java.sql.query.SelectQuery.Order.[%=param.order%] ) 
     [%
@@ -433,6 +363,8 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      i = i+1;
      }
    } 
+"12".println();
+   
     %] 
 			}) java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> defaultOrderCriteria) {
 		this.defaultOrderCriteria = defaultOrderCriteria;
@@ -446,6 +378,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	public void setDependency(
 			@org.tura.platform.datacontrol.annotations.Dependencies(dependency = { 
     [%
+"13".println();
     var i = 0;
       for (depend in control.~dependArray){
         if (i <> 0 ){ %],[%}%]

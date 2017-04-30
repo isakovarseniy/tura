@@ -688,15 +688,6 @@ public interface FormFactory extends EFactory {
 	PREUpdateTrigger createPREUpdateTrigger();
 
 	/**
-	 * Returns a new object of class '<em>Proxies List</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Proxies List</em>'.
-	 * @generated
-	 */
-	ProxiesList createProxiesList();
-
-	/**
 	 * Returns a new object of class '<em>Create Trigger</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

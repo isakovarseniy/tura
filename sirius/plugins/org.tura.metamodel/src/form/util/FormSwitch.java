@@ -842,17 +842,10 @@ public class FormSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FormPackage.PROXIES_LIST: {
-				ProxiesList proxiesList = (ProxiesList)theEObject;
-				T result = caseProxiesList(proxiesList);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FormPackage.CREATE_TRIGGER: {
 				CreateTrigger createTrigger = (CreateTrigger)theEObject;
 				T result = caseCreateTrigger(createTrigger);
 				if (result == null) result = caseTrigger(createTrigger);
-				if (result == null) result = caseProxiesList(createTrigger);
 				if (result == null) result = caseMethodPointer(createTrigger);
 				if (result == null) result = caseContextParameters(createTrigger);
 				if (result == null) result = defaultCase(theEObject);
@@ -862,7 +855,6 @@ public class FormSwitch<T> extends Switch<T> {
 				InsertTrigger insertTrigger = (InsertTrigger)theEObject;
 				T result = caseInsertTrigger(insertTrigger);
 				if (result == null) result = caseTrigger(insertTrigger);
-				if (result == null) result = caseProxiesList(insertTrigger);
 				if (result == null) result = caseMethodPointer(insertTrigger);
 				if (result == null) result = caseContextParameters(insertTrigger);
 				if (result == null) result = defaultCase(theEObject);
@@ -872,7 +864,6 @@ public class FormSwitch<T> extends Switch<T> {
 				UpdateTrigger updateTrigger = (UpdateTrigger)theEObject;
 				T result = caseUpdateTrigger(updateTrigger);
 				if (result == null) result = caseTrigger(updateTrigger);
-				if (result == null) result = caseProxiesList(updateTrigger);
 				if (result == null) result = caseMethodPointer(updateTrigger);
 				if (result == null) result = caseContextParameters(updateTrigger);
 				if (result == null) result = defaultCase(theEObject);
@@ -882,7 +873,6 @@ public class FormSwitch<T> extends Switch<T> {
 				DeleteTrigger deleteTrigger = (DeleteTrigger)theEObject;
 				T result = caseDeleteTrigger(deleteTrigger);
 				if (result == null) result = caseTrigger(deleteTrigger);
-				if (result == null) result = caseProxiesList(deleteTrigger);
 				if (result == null) result = caseMethodPointer(deleteTrigger);
 				if (result == null) result = caseContextParameters(deleteTrigger);
 				if (result == null) result = defaultCase(theEObject);
@@ -892,7 +882,6 @@ public class FormSwitch<T> extends Switch<T> {
 				SearchTrigger searchTrigger = (SearchTrigger)theEObject;
 				T result = caseSearchTrigger(searchTrigger);
 				if (result == null) result = caseTrigger(searchTrigger);
-				if (result == null) result = caseProxiesList(searchTrigger);
 				if (result == null) result = caseMethodPointer(searchTrigger);
 				if (result == null) result = caseContextParameters(searchTrigger);
 				if (result == null) result = defaultCase(theEObject);
@@ -2072,21 +2061,6 @@ public class FormSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePREUpdateTrigger(PREUpdateTrigger object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Proxies List</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Proxies List</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProxiesList(ProxiesList object) {
 		return null;
 	}
 

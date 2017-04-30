@@ -24,26 +24,15 @@ operation form::DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingre
 
 operation form::DataControl processTriggers(recipe:Recipe, ingredient :Ingredient , hash) { 
 
-        var provider = new Native('java.util.HashMap');
-        self.~provider=provider;
-
         self.create.processTrigger(recipe,ingredient,self,hash);
-        self.create.extarctProviders(recipe, ingredient , provider,"create");
+//        self.create.extarctProviders(recipe, ingredient , provider,"create");
         
-        self.insert.processTrigger(recipe,ingredient,self,hash);
-        self.insert.extarctProviders(recipe, ingredient , provider,"insert");
-        
-        self.update.processTrigger(recipe,ingredient,self,hash);
-        self.update.extarctProviders(recipe, ingredient , provider,"update");
-
-        self.remove.processTrigger(recipe,ingredient,self,hash);
-        self.remove.extarctProviders(recipe, ingredient , provider,"delete");
-
         self.search.processTrigger(recipe,ingredient,self,hash);
-        self.search.extarctProviders(recipe, ingredient , provider,"search");
+//        self.search.extarctProviders(recipe, ingredient , provider,"search");
 }
 
 
+/*
 operation form::Trigger extarctProviders(recipe:Recipe, ingredient :Ingredient, provider,cmd){
      for (  pointer in self.typePointers){
         pointer.typeRef.mappingType2Java(recipe,ingredient);
@@ -58,7 +47,7 @@ operation form::Trigger extarctProviders(recipe:Recipe, ingredient :Ingredient, 
      
 
 }
-
+*/
 operation form::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,datacontrol: form::DataControl,hash){
         var util = new Native('org.tura.metamodel.commons.Util');
         if (self.methodRef.isDefined()){
@@ -73,6 +62,7 @@ operation form::ContextParameters processParameters(recipe:Recipe, ingredient :I
         
         for (parameter in self.parameters){
             parameter.value.~sourceControl=datacontrol.findTreeRoot();
+parameter.value.println();            
             parameter.~result =  buildExpression(parameter.value,hints,hash);
             parameter.refObj.typeRef.mappingType2Java(recipe,ingredient);
         }

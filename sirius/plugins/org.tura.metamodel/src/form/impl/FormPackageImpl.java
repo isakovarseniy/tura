@@ -680,13 +680,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass proxiesListEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass createTriggerEClass = null;
 
 	/**
@@ -2655,24 +2648,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProxiesList() {
-		return proxiesListEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProxiesList_TypePointers() {
-		return (EReference)proxiesListEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCreateTrigger() {
 		return createTriggerEClass;
 	}
@@ -3549,9 +3524,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		preUpdateTriggerEClass = createEClass(PRE_UPDATE_TRIGGER);
 		createEAttribute(preUpdateTriggerEClass, PRE_UPDATE_TRIGGER__UID);
 
-		proxiesListEClass = createEClass(PROXIES_LIST);
-		createEReference(proxiesListEClass, PROXIES_LIST__TYPE_POINTERS);
-
 		createTriggerEClass = createEClass(CREATE_TRIGGER);
 		createEAttribute(createTriggerEClass, CREATE_TRIGGER__UID);
 
@@ -3786,15 +3758,10 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		postCreateTriggerEClass.getESuperTypes().add(this.getTrigger());
 		preUpdateTriggerEClass.getESuperTypes().add(this.getTrigger());
 		createTriggerEClass.getESuperTypes().add(this.getTrigger());
-		createTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		insertTriggerEClass.getESuperTypes().add(this.getTrigger());
-		insertTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		updateTriggerEClass.getESuperTypes().add(this.getTrigger());
-		updateTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		deleteTriggerEClass.getESuperTypes().add(this.getTrigger());
-		deleteTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		searchTriggerEClass.getESuperTypes().add(this.getTrigger());
-		searchTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		formVariableEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 		internalRelationEClass.getESuperTypes().add(this.getRelation());
 		artificialFieldEClass.getESuperTypes().add(theTypePackage.getTypePointer());
@@ -4067,9 +4034,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 
 		initEClass(preUpdateTriggerEClass, PREUpdateTrigger.class, "PREUpdateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPREUpdateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, PREUpdateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(proxiesListEClass, ProxiesList.class, "ProxiesList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxiesList_TypePointers(), theTypePackage.getTypePointer(), null, "typePointers", null, 0, -1, ProxiesList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(createTriggerEClass, CreateTrigger.class, "CreateTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCreateTrigger_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CreateTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

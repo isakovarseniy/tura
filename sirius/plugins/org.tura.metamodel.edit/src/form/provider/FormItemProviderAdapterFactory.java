@@ -1773,29 +1773,6 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link form.ProxiesList} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProxiesListItemProvider proxiesListItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link form.ProxiesList}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createProxiesListAdapter() {
-		if (proxiesListItemProvider == null) {
-			proxiesListItemProvider = new ProxiesListItemProvider(this);
-		}
-
-		return proxiesListItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link form.CreateTrigger} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

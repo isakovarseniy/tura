@@ -6111,34 +6111,6 @@ public interface FormPackage extends EPackage {
 	int PRE_UPDATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link form.impl.ProxiesListImpl <em>Proxies List</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see form.impl.ProxiesListImpl
-	 * @see form.impl.FormPackageImpl#getProxiesList()
-	 * @generated
-	 */
-	int PROXIES_LIST = 74;
-
-	/**
-	 * The feature id for the '<em><b>Type Pointers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROXIES_LIST__TYPE_POINTERS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Proxies List</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROXIES_LIST_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link form.impl.CreateTriggerImpl <em>Create Trigger</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6146,7 +6118,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getCreateTrigger()
 	 * @generated
 	 */
-	int CREATE_TRIGGER = 75;
+	int CREATE_TRIGGER = 74;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6167,22 +6139,13 @@ public interface FormPackage extends EPackage {
 	int CREATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Type Pointers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CREATE_TRIGGER__TYPE_POINTERS = TRIGGER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CREATE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 1;
+	int CREATE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Create Trigger</em>' class.
@@ -6191,7 +6154,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CREATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 2;
+	int CREATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link form.impl.InsertTriggerImpl <em>Insert Trigger</em>}' class.
@@ -6201,7 +6164,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInsertTrigger()
 	 * @generated
 	 */
-	int INSERT_TRIGGER = 76;
+	int INSERT_TRIGGER = 75;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6222,22 +6185,13 @@ public interface FormPackage extends EPackage {
 	int INSERT_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Type Pointers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSERT_TRIGGER__TYPE_POINTERS = TRIGGER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSERT_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 1;
+	int INSERT_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Insert Trigger</em>' class.
@@ -6246,7 +6200,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSERT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 2;
+	int INSERT_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link form.impl.UpdateTriggerImpl <em>Update Trigger</em>}' class.
@@ -6256,7 +6210,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getUpdateTrigger()
 	 * @generated
 	 */
-	int UPDATE_TRIGGER = 77;
+	int UPDATE_TRIGGER = 76;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6277,22 +6231,13 @@ public interface FormPackage extends EPackage {
 	int UPDATE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Type Pointers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UPDATE_TRIGGER__TYPE_POINTERS = TRIGGER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UPDATE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 1;
+	int UPDATE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Update Trigger</em>' class.
@@ -6301,7 +6246,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UPDATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 2;
+	int UPDATE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link form.impl.DeleteTriggerImpl <em>Delete Trigger</em>}' class.
@@ -6311,7 +6256,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDeleteTrigger()
 	 * @generated
 	 */
-	int DELETE_TRIGGER = 78;
+	int DELETE_TRIGGER = 77;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6332,22 +6277,13 @@ public interface FormPackage extends EPackage {
 	int DELETE_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Type Pointers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELETE_TRIGGER__TYPE_POINTERS = TRIGGER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELETE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 1;
+	int DELETE_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Delete Trigger</em>' class.
@@ -6356,7 +6292,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELETE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 2;
+	int DELETE_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link form.impl.SearchTriggerImpl <em>Search Trigger</em>}' class.
@@ -6366,7 +6302,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getSearchTrigger()
 	 * @generated
 	 */
-	int SEARCH_TRIGGER = 79;
+	int SEARCH_TRIGGER = 78;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -6387,22 +6323,13 @@ public interface FormPackage extends EPackage {
 	int SEARCH_TRIGGER__PARAMETERS = TRIGGER__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Type Pointers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEARCH_TRIGGER__TYPE_POINTERS = TRIGGER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEARCH_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 1;
+	int SEARCH_TRIGGER__UID = TRIGGER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Search Trigger</em>' class.
@@ -6411,7 +6338,7 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEARCH_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 2;
+	int SEARCH_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link form.impl.RootImpl <em>Root</em>}' class.
@@ -6421,7 +6348,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRoot()
 	 * @generated
 	 */
-	int ROOT = 80;
+	int ROOT = 79;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6476,7 +6403,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getFormVariable()
 	 * @generated
 	 */
-	int FORM_VARIABLE = 81;
+	int FORM_VARIABLE = 80;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -6531,7 +6458,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDataControl()
 	 * @generated
 	 */
-	int DATA_CONTROL = 82;
+	int DATA_CONTROL = 81;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6685,7 +6612,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelationMapper()
 	 * @generated
 	 */
-	int RELATION_MAPPER = 83;
+	int RELATION_MAPPER = 82;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6731,7 +6658,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 84;
+	int ORDERS = 83;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6768,7 +6695,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrderBy()
 	 * @generated
 	 */
-	int ORDER_BY = 85;
+	int ORDER_BY = 84;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6814,7 +6741,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getRelation()
 	 * @generated
 	 */
-	int RELATION = 86;
+	int RELATION = 85;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6887,7 +6814,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getInternalRelation()
 	 * @generated
 	 */
-	int INTERNAL_RELATION = 87;
+	int INTERNAL_RELATION = 86;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6960,7 +6887,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 88;
+	int DEPENDENCY = 87;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -7015,7 +6942,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 89;
+	int ARTIFICIAL_FIELD = 88;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -7061,7 +6988,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 90;
+	int COMPARATOR = 89;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -7071,7 +6998,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 91;
+	int ORDER = 90;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -7081,7 +7008,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 92;
+	int ORIENTATION = 91;
 
 
 	/**
@@ -9143,27 +9070,6 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPREUpdateTrigger_Uid();
-
-	/**
-	 * Returns the meta object for class '{@link form.ProxiesList <em>Proxies List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Proxies List</em>'.
-	 * @see form.ProxiesList
-	 * @generated
-	 */
-	EClass getProxiesList();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link form.ProxiesList#getTypePointers <em>Type Pointers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Type Pointers</em>'.
-	 * @see form.ProxiesList#getTypePointers()
-	 * @see #getProxiesList()
-	 * @generated
-	 */
-	EReference getProxiesList_TypePointers();
 
 	/**
 	 * Returns the meta object for class '{@link form.CreateTrigger <em>Create Trigger</em>}'.
@@ -11583,24 +11489,6 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PRE_UPDATE_TRIGGER__UID = eINSTANCE.getPREUpdateTrigger_Uid();
-
-		/**
-		 * The meta object literal for the '{@link form.impl.ProxiesListImpl <em>Proxies List</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see form.impl.ProxiesListImpl
-		 * @see form.impl.FormPackageImpl#getProxiesList()
-		 * @generated
-		 */
-		EClass PROXIES_LIST = eINSTANCE.getProxiesList();
-
-		/**
-		 * The meta object literal for the '<em><b>Type Pointers</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROXIES_LIST__TYPE_POINTERS = eINSTANCE.getProxiesList_TypePointers();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.CreateTriggerImpl <em>Create Trigger</em>}' class.
