@@ -2072,6 +2072,29 @@ public class FormItemProviderAdapterFactory extends FormAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link form.InternalRelation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InternalRelationItemProvider internalRelationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link form.InternalRelation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInternalRelationAdapter() {
+		if (internalRelationItemProvider == null) {
+			internalRelationItemProvider = new InternalRelationItemProvider(this);
+		}
+
+		return internalRelationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link form.Dependency} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

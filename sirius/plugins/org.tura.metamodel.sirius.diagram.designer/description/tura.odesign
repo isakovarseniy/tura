@@ -1619,9 +1619,9 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='Relation%20to%20Controls']" name="Data Control" titleExpression="aql:self.name" domainClass="form.Controls">
       <defaultLayer name="Default">
-        <edgeMappings name="ExternalRelation" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="feature:dataControlRef" sourceFinderExpression="aql:self.eContainer()" domainClass="form.RelationMapper" useDomainElement="true">
+        <edgeMappings name="Relation" preconditionExpression="aql:(not self.oclIsKindOf(form::InternalRelation))" semanticCandidatesExpression="feature:relations" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="feature:detail" sourceFinderExpression="feature:master" domainClass="form.Relation" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20detail%20Relation'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20master%20Relation']">
           <style targetArrow="InputFillClosedArrow">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='green']"/>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
             <beginLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             </beginLabelStyleDescription>
@@ -1633,9 +1633,9 @@
             </endLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="Relation" semanticCandidatesExpression="feature:relations" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="feature:detail" sourceFinderExpression="feature:master" domainClass="form.Relation" useDomainElement="true" reconnections="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20detail%20Relation'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconect%20master%20Relation']">
+        <edgeMappings name="InternalRelation" deletionDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20InternalRelation']" semanticCandidatesExpression="feature:relations" sourceMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetMapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']" targetFinderExpression="feature:detail" sourceFinderExpression="feature:master" domainClass="form.InternalRelation" useDomainElement="true">
           <style targetArrow="InputFillClosedArrow">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='gray']"/>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='orange']"/>
             <beginLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
             </beginLabelStyleDescription>
@@ -1661,7 +1661,7 @@
             </endLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="DataControl" semanticCandidatesExpression="aql:self.controls" domainClass="form.DataControl" childrenPresentation="VerticalStack">
+        <containerMappings name="DataControl" deletionDescription="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20DataControl']" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='Datacenter%20edit%20label']" semanticCandidatesExpression="aql:self.controls" domainClass="form.DataControl" childrenPresentation="VerticalStack">
           <subContainerMappings name="Triggers" semanticCandidatesExpression="var:self" domainClass="form.DataControl" childrenPresentation="List">
             <subNodeMappings name="PREQueryTrigger" labelDirectEdit="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@toolSections.0/@ownedTools[name='PREQueryTrigger%20edit%20label']" semanticCandidatesExpression="feature:preQueryTrigger" domainClass="form.PREQueryTrigger">
               <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:generateName" labelAlignment="LEFT">
@@ -1838,6 +1838,14 @@
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Delete DataControl">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Delete DataControl" id="org.tura.metamodel.sirius.properties.actions.DeleteDataControlActionID"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="PREQueryTrigger" nodeMappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']/@subContainerMappings[name='Triggers']/@subNodeMappings[name='PREQueryTrigger']">
@@ -2044,8 +2052,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:PopupMenu" name="Configuration" precondition="service:enableContextMenuForDatacontrol">
-            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Data control with compressed commands" id="org.tura.metamodel.sirius.diagram.actions.DataControlCompressorCommandActionID"/>
-            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Data control with nested commands" id="org.tura.metamodel.sirius.diagram.actions.DataControlNestedCommandActionID"/>
+            <menuItemDescription xsi:type="tool:ExternalJavaAction" name="Init Data control commands" id="org.tura.metamodel.sirius.diagram.actions.DataControlCompressorCommandActionID"/>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ContainerDropDescription" name="Relation to Controls" precondition="service:checkRelationMapperDropDown" mappings="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='DataControl']/@subContainerMappings[name='RelarionsMapper']/@subNodeMappings[name='RelationMapper'] //@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Data%20Control']/@defaultLayer/@containerMappings[name='FakeRelationMapper']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
@@ -2062,6 +2069,15 @@
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                   <subModelOperations xsi:type="tool:SetValue" featureName="dataControlRef" valueExpression="var:instance"/>
                 </subModelOperations>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.eContainer()">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="form.InternalRelation" referenceName="relations" variableName="instance2">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance2">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="master" valueExpression="var:oldSemanticContainer"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="detail" valueExpression="var:instance"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -2071,8 +2087,16 @@
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:SetValue" featureName="dataControlRef" valueExpression="aql:element.eContainer()"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:oldSemanticContainer.eContainer()">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="form.InternalRelation" referenceName="relations" variableName="instance2">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance2"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="master" valueExpression="var:oldSemanticContainer"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="detail" valueExpression="var:oldSemanticContainer"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="dataControlRef" valueExpression="var:oldSemanticContainer"/>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -2159,6 +2183,12 @@
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Delete InternalRelation">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
           </ownedTools>
         </toolSections>
       </defaultLayer>

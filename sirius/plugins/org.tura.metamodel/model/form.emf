@@ -496,7 +496,6 @@ class RelationMapper {
     id attr EString uid;
 	ref DataControl dataControlRef;
 	ref type.TypeElement typeRef;
-    attr EBoolean isTree;
 }
 
 
@@ -520,6 +519,12 @@ class Relation{
    attr EBoolean isTree;
    val type.Link[*] links;  
 }
+
+class InternalRelation extends Relation{
+	
+	
+}
+
 
 class Dependency{
     id attr EString uid;

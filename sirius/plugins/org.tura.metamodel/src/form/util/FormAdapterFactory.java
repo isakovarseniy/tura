@@ -426,6 +426,10 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 				return createRelationAdapter();
 			}
 			@Override
+			public Adapter caseInternalRelation(InternalRelation object) {
+				return createInternalRelationAdapter();
+			}
+			@Override
 			public Adapter caseDependency(Dependency object) {
 				return createDependencyAdapter();
 			}
@@ -1692,6 +1696,20 @@ public class FormAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRelationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link form.InternalRelation <em>Internal Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see form.InternalRelation
+	 * @generated
+	 */
+	public Adapter createInternalRelationAdapter() {
 		return null;
 	}
 

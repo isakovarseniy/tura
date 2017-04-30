@@ -54,6 +54,7 @@ import form.Image;
 import form.InputElement;
 import form.InputText;
 import form.InsertTrigger;
+import form.InternalRelation;
 import form.ItemIcon;
 import form.Label;
 import form.LayerHolder;
@@ -764,6 +765,13 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * @generated
 	 */
 	private EClass relationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass internalRelationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3016,15 +3024,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRelationMapper_IsTree() {
-		return (EAttribute)relationMapperEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getOrders() {
 		return ordersEClass;
 	}
@@ -3144,6 +3143,15 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 	 */
 	public EReference getRelation_Links() {
 		return (EReference)relationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInternalRelation() {
+		return internalRelationEClass;
 	}
 
 	/**
@@ -3591,7 +3599,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEAttribute(relationMapperEClass, RELATION_MAPPER__UID);
 		createEReference(relationMapperEClass, RELATION_MAPPER__DATA_CONTROL_REF);
 		createEReference(relationMapperEClass, RELATION_MAPPER__TYPE_REF);
-		createEAttribute(relationMapperEClass, RELATION_MAPPER__IS_TREE);
 
 		ordersEClass = createEClass(ORDERS);
 		createEAttribute(ordersEClass, ORDERS__UID);
@@ -3609,6 +3616,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		createEReference(relationEClass, RELATION__DETAIL);
 		createEAttribute(relationEClass, RELATION__IS_TREE);
 		createEReference(relationEClass, RELATION__LINKS);
+
+		internalRelationEClass = createEClass(INTERNAL_RELATION);
 
 		dependencyEClass = createEClass(DEPENDENCY);
 		createEAttribute(dependencyEClass, DEPENDENCY__UID);
@@ -3787,6 +3796,7 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		searchTriggerEClass.getESuperTypes().add(this.getTrigger());
 		searchTriggerEClass.getESuperTypes().add(this.getProxiesList());
 		formVariableEClass.getESuperTypes().add(theTypePackage.getTypePointer());
+		internalRelationEClass.getESuperTypes().add(this.getRelation());
 		artificialFieldEClass.getESuperTypes().add(theTypePackage.getTypePointer());
 
 		// Initialize classes and features; add operations and parameters
@@ -4108,7 +4118,6 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEAttribute(getRelationMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, RelationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelationMapper_DataControlRef(), this.getDataControl(), null, "dataControlRef", null, 0, 1, RelationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelationMapper_TypeRef(), theTypePackage.getTypeElement(), null, "typeRef", null, 0, 1, RelationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRelationMapper_IsTree(), ecorePackage.getEBoolean(), "isTree", null, 0, 1, RelationMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ordersEClass, Orders.class, "Orders", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrders_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Orders.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4126,6 +4135,8 @@ public class FormPackageImpl extends EPackageImpl implements FormPackage {
 		initEReference(getRelation_Detail(), this.getDataControl(), null, "detail", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRelation_IsTree(), ecorePackage.getEBoolean(), "isTree", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_Links(), theTypePackage.getLink(), null, "links", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(internalRelationEClass, InternalRelation.class, "InternalRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDependency_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

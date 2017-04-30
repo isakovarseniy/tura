@@ -18,7 +18,6 @@ import type.TypeElement;
  *   <li>{@link form.RelationMapper#getUid <em>Uid</em>}</li>
  *   <li>{@link form.RelationMapper#getDataControlRef <em>Data Control Ref</em>}</li>
  *   <li>{@link form.RelationMapper#getTypeRef <em>Type Ref</em>}</li>
- *   <li>{@link form.RelationMapper#isIsTree <em>Is Tree</em>}</li>
  * </ul>
  *
  * @see form.FormPackage#getRelationMapper()
@@ -103,31 +102,5 @@ public interface RelationMapper extends EObject {
 	 * @generated
 	 */
 	void setTypeRef(TypeElement value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Tree</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Tree</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Tree</em>' attribute.
-	 * @see #setIsTree(boolean)
-	 * @see form.FormPackage#getRelationMapper_IsTree()
-	 * @model
-	 * @generated
-	 */
-	boolean isIsTree();
-
-	/**
-	 * Sets the value of the '{@link form.RelationMapper#isIsTree <em>Is Tree</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Tree</em>' attribute.
-	 * @see #isIsTree()
-	 * @generated
-	 */
-	void setIsTree(boolean value);
 
 } // RelationMapper

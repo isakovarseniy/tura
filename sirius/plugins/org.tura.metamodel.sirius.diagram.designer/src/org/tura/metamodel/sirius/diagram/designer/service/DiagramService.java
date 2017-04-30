@@ -662,4 +662,13 @@ public class DiagramService {
 		return false;
 	}
 	
+	public boolean checkIfNoInternalRelations(DataControl dc){
+		for (  RelationMapper r:  dc.getRelationMappers()){
+			if (r.getDataControlRef() != null){
+				return false;
+			}
+		}
+		return true;
+	}
+	
 }

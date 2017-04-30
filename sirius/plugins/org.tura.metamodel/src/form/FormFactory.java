@@ -805,6 +805,15 @@ public interface FormFactory extends EFactory {
 	Relation createRelation();
 
 	/**
+	 * Returns a new object of class '<em>Internal Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Internal Relation</em>'.
+	 * @generated
+	 */
+	InternalRelation createInternalRelation();
+
+	/**
 	 * Returns a new object of class '<em>Dependency</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

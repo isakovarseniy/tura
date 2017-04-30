@@ -6715,22 +6715,13 @@ public interface FormPackage extends EPackage {
 	int RELATION_MAPPER__TYPE_REF = 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Tree</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPER__IS_TREE = 3;
-
-	/**
 	 * The number of structural features of the '<em>Relation Mapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPER_FEATURE_COUNT = 4;
+	int RELATION_MAPPER_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link form.impl.OrdersImpl <em>Orders</em>}' class.
@@ -6889,6 +6880,79 @@ public interface FormPackage extends EPackage {
 	int RELATION_FEATURE_COUNT = 6;
 
 	/**
+	 * The meta object id for the '{@link form.impl.InternalRelationImpl <em>Internal Relation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see form.impl.InternalRelationImpl
+	 * @see form.impl.FormPackageImpl#getInternalRelation()
+	 * @generated
+	 */
+	int INTERNAL_RELATION = 87;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_RELATION__UID = RELATION__UID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_RELATION__NAME = RELATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Master</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_RELATION__MASTER = RELATION__MASTER;
+
+	/**
+	 * The feature id for the '<em><b>Detail</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_RELATION__DETAIL = RELATION__DETAIL;
+
+	/**
+	 * The feature id for the '<em><b>Is Tree</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_RELATION__IS_TREE = RELATION__IS_TREE;
+
+	/**
+	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_RELATION__LINKS = RELATION__LINKS;
+
+	/**
+	 * The number of structural features of the '<em>Internal Relation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link form.impl.DependencyImpl <em>Dependency</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6896,7 +6960,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 87;
+	int DEPENDENCY = 88;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -6951,7 +7015,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getArtificialField()
 	 * @generated
 	 */
-	int ARTIFICIAL_FIELD = 88;
+	int ARTIFICIAL_FIELD = 89;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -6997,7 +7061,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getComparator()
 	 * @generated
 	 */
-	int COMPARATOR = 89;
+	int COMPARATOR = 90;
 
 	/**
 	 * The meta object id for the '{@link form.Order <em>Order</em>}' enum.
@@ -7007,7 +7071,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 90;
+	int ORDER = 91;
 
 	/**
 	 * The meta object id for the '{@link form.Orientation <em>Orientation</em>}' enum.
@@ -7017,7 +7081,7 @@ public interface FormPackage extends EPackage {
 	 * @see form.impl.FormPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 91;
+	int ORIENTATION = 92;
 
 
 	/**
@@ -9522,17 +9586,6 @@ public interface FormPackage extends EPackage {
 	EReference getRelationMapper_TypeRef();
 
 	/**
-	 * Returns the meta object for the attribute '{@link form.RelationMapper#isIsTree <em>Is Tree</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Tree</em>'.
-	 * @see form.RelationMapper#isIsTree()
-	 * @see #getRelationMapper()
-	 * @generated
-	 */
-	EAttribute getRelationMapper_IsTree();
-
-	/**
 	 * Returns the meta object for class '{@link form.Orders <em>Orders</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9682,6 +9735,16 @@ public interface FormPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRelation_Links();
+
+	/**
+	 * Returns the meta object for class '{@link form.InternalRelation <em>Internal Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Internal Relation</em>'.
+	 * @see form.InternalRelation
+	 * @generated
+	 */
+	EClass getInternalRelation();
 
 	/**
 	 * Returns the meta object for class '{@link form.Dependency <em>Dependency</em>}'.
@@ -11870,14 +11933,6 @@ public interface FormPackage extends EPackage {
 		EReference RELATION_MAPPER__TYPE_REF = eINSTANCE.getRelationMapper_TypeRef();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Tree</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RELATION_MAPPER__IS_TREE = eINSTANCE.getRelationMapper_IsTree();
-
-		/**
 		 * The meta object literal for the '{@link form.impl.OrdersImpl <em>Orders</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11994,6 +12049,16 @@ public interface FormPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RELATION__LINKS = eINSTANCE.getRelation_Links();
+
+		/**
+		 * The meta object literal for the '{@link form.impl.InternalRelationImpl <em>Internal Relation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see form.impl.InternalRelationImpl
+		 * @see form.impl.FormPackageImpl#getInternalRelation()
+		 * @generated
+		 */
+		EClass INTERNAL_RELATION = eINSTANCE.getInternalRelation();
 
 		/**
 		 * The meta object literal for the '{@link form.impl.DependencyImpl <em>Dependency</em>}' class.

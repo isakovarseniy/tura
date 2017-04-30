@@ -27,7 +27,6 @@ import type.TypeElement;
  *   <li>{@link form.impl.RelationMapperImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link form.impl.RelationMapperImpl#getDataControlRef <em>Data Control Ref</em>}</li>
  *   <li>{@link form.impl.RelationMapperImpl#getTypeRef <em>Type Ref</em>}</li>
- *   <li>{@link form.impl.RelationMapperImpl#isIsTree <em>Is Tree</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,26 +71,6 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 	 * @ordered
 	 */
 	protected TypeElement typeRef;
-
-	/**
-	 * The default value of the '{@link #isIsTree() <em>Is Tree</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsTree()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean IS_TREE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isIsTree() <em>Is Tree</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsTree()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isTree = IS_TREE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -214,27 +193,6 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isIsTree() {
-		return isTree;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsTree(boolean newIsTree) {
-		boolean oldIsTree = isTree;
-		isTree = newIsTree;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormPackage.RELATION_MAPPER__IS_TREE, oldIsTree, isTree));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -246,8 +204,6 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 			case FormPackage.RELATION_MAPPER__TYPE_REF:
 				if (resolve) return getTypeRef();
 				return basicGetTypeRef();
-			case FormPackage.RELATION_MAPPER__IS_TREE:
-				return isIsTree();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,9 +224,6 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 				return;
 			case FormPackage.RELATION_MAPPER__TYPE_REF:
 				setTypeRef((TypeElement)newValue);
-				return;
-			case FormPackage.RELATION_MAPPER__IS_TREE:
-				setIsTree((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -293,9 +246,6 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 			case FormPackage.RELATION_MAPPER__TYPE_REF:
 				setTypeRef((TypeElement)null);
 				return;
-			case FormPackage.RELATION_MAPPER__IS_TREE:
-				setIsTree(IS_TREE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -314,8 +264,6 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 				return dataControlRef != null;
 			case FormPackage.RELATION_MAPPER__TYPE_REF:
 				return typeRef != null;
-			case FormPackage.RELATION_MAPPER__IS_TREE:
-				return isTree != IS_TREE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -332,8 +280,6 @@ public class RelationMapperImpl extends EObjectImpl implements RelationMapper {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (uid: ");
 		result.append(uid);
-		result.append(", isTree: ");
-		result.append(isTree);
 		result.append(')');
 		return result.toString();
 	}

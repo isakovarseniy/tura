@@ -57,6 +57,7 @@ import form.MenuExtensionRef;
 import form.MenuFolder;
 import form.MenuItem;
 import form.NickNamed;
+import form.Relation;
 import form.Uielement;
 import form.ViewArea;
 import form.Views;
@@ -1405,6 +1406,21 @@ public class QueryHelper {
 			 return new ArrayList<MappingLayer>();
 		 }
 		return findApplicationLayers(container);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Relation> findRelation( DataControl dataControl) throws Exception{
+		String query = "form::Relation.allInstances()->select(r|r.master.uid ='" + dataControl.getUid()+ "')";
+		Collection<Relation> list1 = (Collection<Relation>) internalEvaluate((EObject) dataControl, query);
+		
+		query = "form::Relation.allInstances()->select(r|r.detail.uid ='" + dataControl.getUid()+ "'  and r.detail.uid <> r.master.uid )";
+		Collection<Relation> list2 = (Collection<Relation>) internalEvaluate((EObject) dataControl, query);
+		
+		ArrayList<Relation> relations = new ArrayList<Relation>();
+		relations.addAll(list1);
+		relations.addAll(list2);
+		
+		return relations;
 	}
 	
 	

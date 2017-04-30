@@ -204,6 +204,11 @@ public class ControlsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(FormPackage.Literals.CONTROLS__RELATIONS,
+				 FormFactory.eINSTANCE.createInternalRelation()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(FormPackage.Literals.CONTROLS__DEPENDENCIES,
 				 FormFactory.eINSTANCE.createDependency()));
 	}

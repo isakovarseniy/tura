@@ -70,6 +70,13 @@
       </javaActions>
    </extension>
 
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.DeleteDataControlAction"
+            id="org.tura.metamodel.sirius.properties.actions.DeleteDataControlActionID">
+      </javaActions>
+   </extension>
 
     <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabstable">
      <propertyTabs contributorId="org.eclipse.sirius.table.ui.EditorID">

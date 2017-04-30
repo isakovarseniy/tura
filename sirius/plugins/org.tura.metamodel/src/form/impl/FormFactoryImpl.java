@@ -144,6 +144,7 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 			case FormPackage.ORDERS: return createOrders();
 			case FormPackage.ORDER_BY: return createOrderBy();
 			case FormPackage.RELATION: return createRelation();
+			case FormPackage.INTERNAL_RELATION: return createInternalRelation();
 			case FormPackage.DEPENDENCY: return createDependency();
 			case FormPackage.ARTIFICIAL_FIELD: return createArtificialField();
 			default:
@@ -1057,6 +1058,16 @@ public class FormFactoryImpl extends EFactoryImpl implements FormFactory {
 	public Relation createRelation() {
 		RelationImpl relation = new RelationImpl();
 		return relation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InternalRelation createInternalRelation() {
+		InternalRelationImpl internalRelation = new InternalRelationImpl();
+		return internalRelation;
 	}
 
 	/**
