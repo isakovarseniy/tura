@@ -1,0 +1,40 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Environment}.egl";
+${percent}${end}
+[%
+    var util = new Native('org.tura.metamodel.commons.Util');
+     
+    var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+
+    var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+    var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
+    var uipackage = form.eContainer();
+
+    %][%=commandstack(component,uipackage, form)%][%
+    
+     out.formatWith(f);
+    util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "CDICommandStack.java",out.toString());   
+
+%]
+
+[% @template
+operation  commandstack(component,uipackage,form) {
+
+     var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
+
+[%=commandstack_scope()%]
+@javax.inject.Named("[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%]")
+public class CDICommandStack extends org.tura.platform.datacontrol.CommandStack  implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+}
+[%
+
+}
+%]

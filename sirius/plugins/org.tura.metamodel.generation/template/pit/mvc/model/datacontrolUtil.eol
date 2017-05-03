@@ -62,7 +62,6 @@ operation form::ContextParameters processParameters(recipe:Recipe, ingredient :I
         
         for (parameter in self.parameters){
             parameter.value.~sourceControl=datacontrol.findTreeRoot();
-parameter.value.println();            
             parameter.~result =  buildExpression(parameter.value,hints,hash);
             parameter.refObj.typeRef.mappingType2Java(recipe,ingredient);
         }

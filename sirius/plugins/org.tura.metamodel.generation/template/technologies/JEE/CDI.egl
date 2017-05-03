@@ -63,13 +63,7 @@ operation  datacontrolgeneration(hash) {
     buffer = resolver.process();
     util.saveFile( javaPath+"/commons/datacontrol/"  , "ELResolverImpl.java",buffer);   
 
-    var entityproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/entityManagerProducer.egl",hash,TemplateFactory);
-    entityproducer.setFormatter(f);
-    buffer = entityproducer.process();
-    util.saveFile( javaPath+"/commons/producer/"  , "EntityManagerProducer.java",buffer);   
-
-
-    var trans : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Transaction.egl",hash,TemplateFactory);
+    var trans : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/commandstack.egl",hash,TemplateFactory);
     trans.process();
 
     var beanFactory : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/beanFactory.egl",hash,TemplateFactory);

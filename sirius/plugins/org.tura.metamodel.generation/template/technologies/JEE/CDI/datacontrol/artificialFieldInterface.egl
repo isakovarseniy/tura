@@ -3,12 +3,22 @@
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
-public interface I[%=util.mergeAndCapitalize(control.name)%]ArtifitialFields   {
+public class [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter   {
+
+   private org.tura.platform.repository.core.ObjectControl obj;
+    public [%=util.mergeAndCapitalize(control.name)%]ArtifitialFieldsAdapter(org.tura.platform.repository.core.ObjectControl obj){
+        this.obj = obj;
+    }
 
    [%
     for (artificialField in control.artificialFields){%]
-			public  [%=artificialField.typeRef.~fullName%] get[%=util.mergeAndCapitalize(artificialField.name)%]();  
-			public void set[%=util.mergeAndCapitalize(artificialField.name)%]( [%=artificialField.typeRef.~fullName%] field);  
+			public  [%=artificialField.typeRef.~fullName%] get[%=util.mergeAndCapitalize(artificialField.name)%](){
+			   return ([%=artificialField.typeRef.~fullName%])obj.getAttributes().get("ATTRIBUTE_[%=artificialField.name.toUpperCase()%]");
+			}  
+			public void set[%=util.mergeAndCapitalize(artificialField.name)%]( [%=artificialField.typeRef.~fullName%] field){
+			   obj.getAttributes().put("ATTRIBUTE_[%=artificialField.name.toUpperCase()%]",field);
+			
+			}
     [%
     }
     %] 

@@ -62,7 +62,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/model/da
                var artifitial : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/artificialFieldInterface.egl",hash,TemplateFactory);
                artifitial.setFormatter(f);
                buffer = artifitial.process();
-               util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "I"+util.mergeAndCapitalize(control.name)+"ArtifitialFields.java",buffer);   
+               util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , util.mergeAndCapitalize(control.name)+"ArtifitialFieldsAdapter.java",buffer);   
             }         
          }
       }   

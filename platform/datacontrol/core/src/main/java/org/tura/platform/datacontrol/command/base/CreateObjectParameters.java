@@ -31,5 +31,18 @@ public class CreateObjectParameters {
 	public void setObjectType(CallParameter objectType) {
 		this.objectType = objectType;
 	}
+	
+	
+	public void fixParameters(String pattern,String replacement){
+		fixParameter(objectType,pattern,replacement);
+	}
+	
+	
+	private void fixParameter(CallParameter parameter, String pattern,String replacement){
+		String exp = parameter.getExpression();
+		if (exp != null && !exp.equals("")) {
+			parameter.setExpression(exp.replaceAll(pattern, replacement));
+		}			
+	}
     
 }

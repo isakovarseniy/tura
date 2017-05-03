@@ -61,4 +61,20 @@ public class SearchObjectParameters {
 	}
 	
 
+	public void fixParameters(String pattern,String replacement){
+		fixParameter(searchCriteria,pattern,replacement);
+		fixParameter(orderByCriteria,pattern,replacement);
+		fixParameter(startIndex,pattern,replacement);
+		fixParameter(endIndex,pattern,replacement);
+		fixParameter(objectType,pattern,replacement);
+	}
+	
+	
+	private void fixParameter(CallParameter parameter, String pattern,String replacement){
+		String exp = parameter.getExpression();
+		if (exp != null && !exp.equals("")) {
+			parameter.setExpression(exp.replaceAll(pattern, replacement));
+		}			
+	}
+	
 }

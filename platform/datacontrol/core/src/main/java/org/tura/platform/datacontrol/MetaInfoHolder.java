@@ -156,13 +156,6 @@ public abstract class MetaInfoHolder {
 		return keys;
 	}
 
-	public Class<?> getArtificialInterface() {
-		return artificialInterface;
-	}
-
-	public  void setArtificialInterface(Class<?> artificialInterface ){
-		this.artificialInterface = artificialInterface;
-	}
 	public Class<?> getBaseClass() {
 		return baseClass;
 	}

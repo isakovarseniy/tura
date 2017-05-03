@@ -197,10 +197,6 @@
               <options uid="669ee6ac-32dc-4d28-83a1-9b8fd41d9cff" value="7914b840-d59b-47a7-91fe-d5507fc1ebc1"/>
               <options uid="32cdf13e-2b00-42ea-a6a0-00eadfd814db" value="52052d1c-7313-4684-a8bd-c62091140f59"/>
             </technologies>
-            <technologies uid="0c8b7b8b-252d-4323-8606-8eddce2b8716" name="Transaction">
-              <options uid="9ea28c7b-cbec-4234-b4e4-5ceec80bc8e9" value="e4d0e485-6532-423f-942b-6be38b380c25"/>
-              <options uid="29872d37-9dc6-4cfb-9350-147e66cca6c3" value="450227fa-1b3e-4d00-a8fa-df7635aa0531"/>
-            </technologies>
           </artifacts>
           <artifacts uid="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="View" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainView.egl">
             <configVariables uid="c2ff15f2-4cf7-4028-9710-af2bd3eb4312" name="Resource library location" var="edbc4c3d-9673-4188-b39e-665a62f165e2"/>
@@ -1809,7 +1805,7 @@
                         <mappers uid="989d5392-92cf-4922-b915-896f942783cb" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="32cdf13e-2b00-42ea-a6a0-00eadfd814db"/>
-                          <technologies techRef="0c8b7b8b-252d-4323-8606-8eddce2b8716" valueRef="29872d37-9dc6-4cfb-9350-147e66cca6c3"/>
+                          <technologies/>
                           <queries uid="131b9190-c393-4033-a825-4dc2dbe57bac" name="Query forms" queryRef="6f144a4c-ed93-4505-83eb-949ae91f81f2">
                             <variables queryParamRef="c59e9116-e389-49bc-be09-87085a157fbb" value="ERP"/>
                             <variables queryParamRef="bd434a4d-05fb-4391-af0d-ce67335d09e4" value="HR domain"/>
@@ -1981,10 +1977,9 @@
                 <recipes uid="7c76b2db-e6ba-4f0f-9743-8eaa713f5501" name="Test data controls">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3" uid="79ad0912-2614-4e51-8828-741f315d47d2" name="Recipe">
                     <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" uid="80c8bf2b-de55-4535-b57d-64514a80ab87" name="Data control  for simple model" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
-                      <components xsi:type="tura.recipe:JavaComponent" uid="7c1e3cc7-4698-4cf3-b159-dfbb9462f7bc" name="Data control" componentRoot="/Users/arseniy/generatedCode/test" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="7c1e3cc7-4698-4cf3-b159-dfbb9462f7bc" name="Data control" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="test-datacontrol-simple-object-model" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="be716da5-cfaf-4cae-9f09-e6cb55ef7467" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all DataControl in Employee management">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
-                          <technologies techRef="0c8b7b8b-252d-4323-8606-8eddce2b8716" valueRef="29872d37-9dc6-4cfb-9350-147e66cca6c3"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="669ee6ac-32dc-4d28-83a1-9b8fd41d9cff"/>
                           <queries uid="befda6f5-69d3-45d6-8ece-e568fdbf44e8" name="Query form" queryRef="6f144a4c-ed93-4505-83eb-949ae91f81f2">
                             <variables queryParamRef="c59e9116-e389-49bc-be09-87085a157fbb" value="ERP"/>
@@ -1998,7 +1993,7 @@
                             <variables queryParamRef="1561eaa6-4ca2-416d-957b-f5fb312b63e4" value="ERP"/>
                             <variables queryParamRef="36bc7750-c0e2-43de-b590-7167d9f4a153" value="HR domain"/>
                             <variables queryParamRef="242a0ac0-7267-48b8-9940-de542577c28a" value="HR application"/>
-                            <variables queryParamRef="84f83e19-6565-48c3-9a1f-fe1886e6b230" value="Employee management"/>
+                            <variables queryParamRef="84f83e19-6565-48c3-9a1f-fe1886e6b230" value="Hr manager"/>
                           </queries>
                         </mappers>
                       </components>
@@ -2007,7 +2002,6 @@
                       <components xsi:type="tura.recipe:JavaComponent" uid="6863e1b1-f881-49ad-9b15-083ae3c08eb2" name="Nested Data control" componentRoot="/Users/arseniy/generatedCode/testNested" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="9ddd681e-aba3-48b6-af76-719feddbf7b9" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all DataControl in Nested form package">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
-                          <technologies techRef="0c8b7b8b-252d-4323-8606-8eddce2b8716" valueRef="29872d37-9dc6-4cfb-9350-147e66cca6c3"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="669ee6ac-32dc-4d28-83a1-9b8fd41d9cff"/>
                           <queries uid="899e1049-8012-404d-96ec-161aab803adc" name="Query form" queryRef="6f144a4c-ed93-4505-83eb-949ae91f81f2">
                             <variables queryParamRef="c59e9116-e389-49bc-be09-87085a157fbb" value="ERP"/>
