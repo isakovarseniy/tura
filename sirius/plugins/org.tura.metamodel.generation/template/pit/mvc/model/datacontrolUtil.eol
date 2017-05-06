@@ -1,5 +1,7 @@
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/buildExpression.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
  
 
 
@@ -25,29 +27,39 @@ operation form::DataControl processDefaultQuery(recipe:Recipe, ingredient :Ingre
 operation form::DataControl processTriggers(recipe:Recipe, ingredient :Ingredient , hash) { 
 
         self.create.processTrigger(recipe,ingredient,self,hash);
-//        self.create.extarctProviders(recipe, ingredient , provider,"create");
         
         self.search.processTrigger(recipe,ingredient,self,hash);
-//        self.search.extarctProviders(recipe, ingredient , provider,"search");
 }
 
 
-/*
-operation form::Trigger extarctProviders(recipe:Recipe, ingredient :Ingredient, provider,cmd){
-     for (  pointer in self.typePointers){
-        pointer.typeRef.mappingType2Java(recipe,ingredient);
-        var fullName = pointer.typeRef.~fullName;
-        var array = provider.get(fullName);   
-        if (array == null){
-           array = new Native('java.util.ArrayList');
-           provider.put(fullName,array);   
+operation form::DataControl definePager(recipe:Recipe, ingredient :Ingredient ,model_mapper:ModelMapper, hash) {
+     var relSet = self.eContainer().relations->select(r|r.isTypeOf(form::InternalRelation) and r.detail=self );
+     
+     if (relSet.size() <> 0){
+        var rel =relSet.iterator().next();
+
+         var assossiations = type::Assosiation.allInstances()->select(t|t.source.uid = rel.master.baseType.typeRef.uid  and t.target.uid = rel.detail.baseType.typeRef.uid);
+         if (assossiations.size() == 0){
+             assossiations = type::Assosiation.allInstances()->select(t|t.target.uid = rel.master.baseType.typeRef.uid  and t.source.uid = rel.detail.baseType.typeRef.uid);
          }
-        array.add(cmd);
+         
+        var  assossiation = assossiations.iterator().next();
+        var hash = assossiation.findTypeOfAssosiation(model_mapper); 
+         
+        self.~containment=hash.get("containment");
+        self.~property=hash.get("property");
+        self.~pagerType="internalPager" ; 
+        self.~parenType=rel.master.baseType;
+        self.~rel=assossiation;
+        
+     }else{
+        self.~pagerType="topPager" ; 
      }
      
-
 }
-*/
+
+
+
 operation form::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,datacontrol: form::DataControl,hash){
         var util = new Native('org.tura.metamodel.commons.Util');
         if (self.methodRef.isDefined()){

@@ -197,6 +197,7 @@
               <options uid="669ee6ac-32dc-4d28-83a1-9b8fd41d9cff" value="7914b840-d59b-47a7-91fe-d5507fc1ebc1"/>
               <options uid="32cdf13e-2b00-42ea-a6a0-00eadfd814db" value="52052d1c-7313-4684-a8bd-c62091140f59"/>
             </technologies>
+            <hints uid="350b40b1-5748-442c-b575-088d5d0eecd2" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
           </artifacts>
           <artifacts uid="1c3f7252-7e43-4b8e-b64c-4c764a20898a" name="View" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/view/mainView.egl">
             <configVariables uid="c2ff15f2-4cf7-4028-9710-af2bd3eb4312" name="Resource library location" var="edbc4c3d-9673-4188-b39e-665a62f165e2"/>
@@ -1998,8 +1999,8 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="1" uid="ffb9ba07-c592-49d7-ab1d-6fcf8684cf36" name="Data control  for complex model" skip="true" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
-                      <components xsi:type="tura.recipe:JavaComponent" uid="6863e1b1-f881-49ad-9b15-083ae3c08eb2" name="Nested Data control" componentRoot="/Users/arseniy/generatedCode/testNested" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+                    <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="1" uid="ffb9ba07-c592-49d7-ab1d-6fcf8684cf36" name="Data control  for complex model" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="6863e1b1-f881-49ad-9b15-083ae3c08eb2" name="Nested Data control" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="test-datacontrol-complex-object-model" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="9ddd681e-aba3-48b6-af76-719feddbf7b9" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all DataControl in Nested form package">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="669ee6ac-32dc-4d28-83a1-9b8fd41d9cff"/>
@@ -2065,7 +2066,7 @@
                 <mapper uid="f222b58b-cd61-4fe3-9a57-98f09aafac20">
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="68b0885f-409f-43ba-9881-0652a190ed62" mappedToPackageName="org.tura.platform.hr.objects.jpa" artifactId="hr-complex-model-jpa" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="43e904a7-edb0-4d36-9fd2-b79df7b0fa38" namespace="serialization.objects.hr.platform.tura.org"/>
-                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="86f6cb15-57a1-4e99-8860-8efd822031ce" mappedToPackageName="org.tura.platform.hr.objects.serialization" artifactId="hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec 0d88bb08-2150-462f-937d-70b99af379f9" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="86f6cb15-57a1-4e99-8860-8efd822031ce" mappedToPackageName="org.tura.platform.hr.objects.serialization" artifactId="hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="6b230e92-341d-474b-867c-56426579090b" mappedToPackageName="org.tura.platform.object.serializaton.persistence" mappedToClassName="PersistenceObject" artifactId="hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                 </mapper>
               </mappers>
@@ -5618,7 +5619,7 @@
                           </value>
                         </parameters>
                       </search>
-                      <relationMappers uid="2fce8d4a-835d-4c3b-993f-291f5b44f3df" dataControlRef="9e0f99b8-4330-4ccc-b806-11970296960b" typeRef="00cfa20a-f76b-45d1-ae9f-a382cf50f85c"/>
+                      <relationMappers uid="2fce8d4a-835d-4c3b-993f-291f5b44f3df" typeRef="00cfa20a-f76b-45d1-ae9f-a382cf50f85c"/>
                     </controls>
                     <controls uid="9e0f99b8-4330-4ccc-b806-11970296960b" name="Department">
                       <baseType typeRef="00cfa20a-f76b-45d1-ae9f-a382cf50f85c"/>
@@ -5836,11 +5837,13 @@
                     <relations xsi:type="tura.form:InternalRelation" uid="3c4a10f8-148d-4edf-a0be-e61029763ee4" master="132d5d5c-dfe4-457e-a181-7b57a5197ae7" detail="beae9146-f406-41db-864e-0fce70a1680b" isTree="true"/>
                     <relations xsi:type="tura.form:InternalRelation" uid="ecc5f2fa-3554-427e-899a-943c9f2dd2d2" master="beae9146-f406-41db-864e-0fce70a1680b" detail="4670692a-c219-4de5-9c7b-312a2e9be13a" isTree="true"/>
                     <relations xsi:type="tura.form:InternalRelation" uid="73d3d3a1-daaa-4c88-a5f3-8d6fbf4a356f" master="4670692a-c219-4de5-9c7b-312a2e9be13a" detail="724c6ac1-b017-4566-93b6-b0e872d77353" isTree="true"/>
-                    <relations xsi:type="tura.form:InternalRelation" uid="e77f835c-688f-4f4d-9451-2a403cfb54f7" master="724c6ac1-b017-4566-93b6-b0e872d77353" detail="9e0f99b8-4330-4ccc-b806-11970296960b"/>
                     <relations xsi:type="tura.form:InternalRelation" uid="3c83fd1f-a746-4a9e-a06d-26f1455c51b5" master="9e0f99b8-4330-4ccc-b806-11970296960b" detail="51d86fec-2e8f-46b7-a07e-409d6dab9a4f"/>
                     <relations xsi:type="tura.form:InternalRelation" uid="2f2223d4-b29c-49fe-ab86-54b156c7c5ca" master="9e0f99b8-4330-4ccc-b806-11970296960b" detail="45cb97ae-db04-411a-a9fd-3b1816e0bc38"/>
                     <relations xsi:type="tura.form:InternalRelation" uid="374e6de1-4c19-45f7-badf-f85121aefd1b" master="51d86fec-2e8f-46b7-a07e-409d6dab9a4f" detail="39dc82e5-6c41-488f-bca7-0e28b31755bb"/>
                     <relations xsi:type="tura.form:InternalRelation" uid="28153b11-d6fd-4a9f-aa73-a412bf8ac4f3" master="39dc82e5-6c41-488f-bca7-0e28b31755bb" detail="39dc82e5-6c41-488f-bca7-0e28b31755bb" isTree="true"/>
+                    <relations uid="f98148ce-dcd0-48b7-9f47-0e2a7d6b3726" master="724c6ac1-b017-4566-93b6-b0e872d77353" detail="9e0f99b8-4330-4ccc-b806-11970296960b">
+                      <links uid="97ac7ef7-5be0-4465-b94a-66e02eabb23e" masterField="d601838d-38ef-4f6a-bc2e-a4e2beed9a74" detailField="f24a4b0c-5d64-4f02-b71c-aa2bb44ddbe8"/>
+                    </relations>
                   </datacontrols>
                 </forms>
               </applicationUIPackages>

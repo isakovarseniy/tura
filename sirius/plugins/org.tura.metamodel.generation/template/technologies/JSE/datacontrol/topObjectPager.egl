@@ -1,5 +1,5 @@
 <#assign number = "#" >
-package [%=type.~package%].pager;
+package [%=objPackage%];
 
 
 import com.octo.java.sql.query.SelectQuery;

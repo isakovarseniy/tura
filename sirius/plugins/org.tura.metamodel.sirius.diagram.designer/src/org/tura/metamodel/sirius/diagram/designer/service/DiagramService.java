@@ -96,6 +96,7 @@ import type.Containment;
 import type.Link;
 import type.Primitive;
 import type.RelationType;
+import type.Type;
 import type.TypeGroup;
 import type.TypeReference;
 
@@ -604,7 +605,11 @@ public class DiagramService {
 
 	public boolean showRelationMapper(RelationMapper relationMapper){
 		if (relationMapper.getDataControlRef() == null){
-			return true;
+			DataControl srcDC = (DataControl) relationMapper.eContainer();
+			
+			Assosiation assosiation =  new QueryHelper().getAssosiation((Type)srcDC.getBaseType().getTypeRef(), (Type)relationMapper.getTypeRef() );
+			return !checkIfNOAssosiatioin(assosiation);
+			
 		}else{
 			return false;
 		}

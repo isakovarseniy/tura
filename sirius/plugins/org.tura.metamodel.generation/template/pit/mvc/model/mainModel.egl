@@ -55,6 +55,7 @@ ${percent}${end}
            i=i+1;   
 
            control.processDefaultQuery(recipe,ingredient,hash);
+           control.definePager(recipe,ingredient,model_mapper,hash);
            
          }
          datacontrolgeneration(hash);

@@ -50,6 +50,30 @@ operation  datacontrolgeneration(hash) {
             buffer = treedatacontrol.process();
             util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/datacontrol/"  , "TreeRoot"+util.mergeAndCapitalize(control.name) + "DC.java",buffer);   
        }
+
+       if (control.~pagerType == "topPager"){
+            hash.put("type",control.baseType.typeRef);
+            hash.put("objPackage",component.basePackage+"."+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"."+util.mergeAndCapitalize(form.name).toLowerCase()+".pager");
+            var pager : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/topObjectPager.egl",hash,TemplateFactory);
+            pager.setFormatter(f);
+            buffer = pager.process();
+            util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pager/"  , util.mergeAndCapitalize(control.baseType.typeRef.~class) + "Pager.java",buffer);   
+       
+       }else{
+     
+            hash.put("type",control.baseType.typeRef);
+            hash.put("containment",control.~containment);
+	        hash.put("parent",control.~parenType.typeRef);
+	        hash.put("rel",control.~rel);
+	        hash.put("property",control.~property);
+            hash.put("objPackage",component.basePackage+"."+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"."+util.mergeAndCapitalize(form.name).toLowerCase()+".pager");
+
+            var pager : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/internalPager.egl",hash,TemplateFactory);
+            pager.setFormatter(f);
+            buffer = pager.process();
+            util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/pager/"  , control.~parenType.typeRef.~class+"2"+util.mergeAndCapitalize(control.baseType.typeRef.~class) + "Pager.java",buffer);   
+       } 
+       
     }
 
 

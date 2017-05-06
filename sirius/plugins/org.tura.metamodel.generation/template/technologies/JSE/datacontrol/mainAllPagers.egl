@@ -60,6 +60,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
                    hash.put("parent",masterType);
                    hash.put("type",detailType);
                    hash.put("rel",rel);
+                   hash.put("objPackage",detailType.~package+".pager");
                    
 				   var pager : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/internalPager.egl",hash,TemplateFactory,templateStore);
 			       pager.setFormatter(f);
@@ -91,6 +92,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	                   hash.put("parent",masterType);
 	                   hash.put("type",detailType);
 	                   hash.put("rel",rel);
+                       hash.put("objPackage",detailType.~package+".pager");
 	                   
 					   var pager : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/internalPager.egl",hash,TemplateFactory,templateStore);
 				       pager.setFormatter(f);
@@ -106,6 +108,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 				    hash.put("component",component);
 				    hash.put("model_mapper",model_mapper);
                     hash.put("type",type);
+                    hash.put("objPackage",type.~package+".pager");
 
 				   var pager : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/datacontrol/topObjectPager.egl",hash,TemplateFactory,templateStore);
 			       pager.setFormatter(f);

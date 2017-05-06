@@ -1272,6 +1272,27 @@ public class QueryHelper {
 	}
 
 	@SuppressWarnings({ "unchecked"})
+   public Assosiation getAssosiation(Type typeMaster , Type typeDetail){
+		try {
+
+			String query = "type::Assosiation.allInstances()->select(r|r.oclAsType(type::Assosiation).source.uid ='"
+					+ typeMaster.getUid() + "' and  r.oclAsType(type::Assosiation).target.uid ='"+ typeDetail.getUid()  +"')";
+
+			Collection<Assosiation> list1 = (Collection<Assosiation>) internalEvaluate(typeMaster, query);
+			if (list1.iterator().hasNext()){
+				return list1.iterator().next();
+			}else{
+				return null;
+			}
+		} catch (Exception e) {
+			LogUtil.log(e);
+			return null;
+		}
+		
+	}
+	
+	
+	@SuppressWarnings({ "unchecked"})
 	public Collection<Assosiation>[] getAssosiation(Type type) {
 		try {
 

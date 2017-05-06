@@ -2188,7 +2188,9 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Delete InternalRelation" id="org.tura.metamodel.sirius.diagram.actions.DeleteInternalRelationActionID"/>
+            </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>

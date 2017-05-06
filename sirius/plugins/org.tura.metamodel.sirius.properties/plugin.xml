@@ -15,6 +15,14 @@
     <extension
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions
+            actionClass="org.tura.metamodel.sirius.properties.actions.DeleteInternalRelationAction"
+            id="org.tura.metamodel.sirius.diagram.actions.DeleteInternalRelationActionID">
+      </javaActions>
+   </extension>
+
+    <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
             actionClass="org.tura.metamodel.sirius.properties.actions.ConfigVariablesAction"
             id="org.tura.metamodel.sirius.diagram.actions.ConfigVariablesActionID">
       </javaActions>
