@@ -32,20 +32,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
-import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.FilesDC;
-import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.TreeRootFilesDC;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.FileDC;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.TreeRootFileDC;
 
 public class TreeRootFileDCStructureTest {
 
 	
 	@Test
 	public void checkTreeRootFileDCStructure(){
-		assertEquals(2, TreeRootFilesDC.class.getDeclaredMethods().length);
+		assertEquals(2, TreeRootFileDC.class.getDeclaredMethods().length);
 
-		assertTrue(findMethod( TreeRootFilesDC.class,"setRoot" , new Class[]{FilesDC.class}));
+		assertTrue(findMethod( TreeRootFileDC.class,"setRoot" , new Class[]{FileDC.class}));
 		
-		assertTrue(findMethod( TreeRootFilesDC.class,"setDependency" , new Class[]{List.class}));
-		Method m = getMethod( TreeRootFilesDC.class,"setDependency" , new Class[]{List.class});
+		assertTrue(findMethod( TreeRootFileDC.class,"setDependency" , new Class[]{List.class}));
+		Method m = getMethod( TreeRootFileDC.class,"setDependency" , new Class[]{List.class});
 		ArrayList<String> ls = new ArrayList<>();
 		checkDependency(m,ls);
 		

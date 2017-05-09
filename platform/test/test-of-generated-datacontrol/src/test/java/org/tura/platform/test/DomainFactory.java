@@ -21,13 +21,13 @@
  */
 package org.tura.platform.test;
 
-import org.elsoft.platform.hr.objects.CompanyDAO;
-import org.elsoft.platform.hr.objects.StreetDAO;
+import org.tura.platform.hr.objects.serialization.Company;
+import org.tura.platform.hr.objects.serialization.Street;
 
 public interface DomainFactory {
 
-	public CompanyDAO getNewCompanyDAO() throws Exception;
-	public StreetDAO getNewStreetDAO() throws Exception;
+	public Company getNewCompanyDAO() throws Exception;
+	public Street getNewStreetDAO() throws Exception;
 	
 	
 }

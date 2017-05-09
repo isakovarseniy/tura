@@ -23,31 +23,25 @@ package org.tura.platform.test.hrcontrol;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.tura.platform.test.ClassStructureTestUtils.findMethod;
-import static org.tura.platform.test.ClassStructureTestUtils.getMethod;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkArtificialProperties;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCommandStack;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkConnection;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCreateTrigger;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkCreateTriggerParameters;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkDeleteTrigger;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkDeleteTriggerParameters;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkInsertTrigger;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkInsertTriggerParameters;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkDefaultOrderCriteria;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkDefaultSearchCriteria;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkKeys;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPostCreateTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPostQueryTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPreDeleteTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPreInsertTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPreQueryTrigger;
+import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPreUpdateTrigger;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkSearchTrigger;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkSearchTriggerParameters;
 import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkSelector;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkUpdateTrigger;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkUpdateTriggerParameters;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPreQueryTrigger;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPostQueryTrigger;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPostCreateTrigger;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPreDeleteTrigger;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPreInsertTrigger;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkPreUpdateTrigger;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkConnection;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkDefaultSearchCriteria;
-import static org.tura.platform.test.CDIImplementationDataControlStructureUtil.checkDefaultOrderCriteria;
+import static org.tura.platform.test.ClassStructureTestUtils.findMethod;
+import static org.tura.platform.test.ClassStructureTestUtils.getMethod;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -59,17 +53,14 @@ import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyDC;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CallParameter;
-import org.tura.platform.datacontrol.command.base.CreateCommandBase;
-import org.tura.platform.datacontrol.command.base.DeleteCommandBase;
-import org.tura.platform.datacontrol.command.base.InsertCommandBase;
+import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreDeleteTrigger;
 import org.tura.platform.datacontrol.command.base.PreInsertTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreUpdateTrigger;
-import org.tura.platform.datacontrol.command.base.SearchCommandBase;
-import org.tura.platform.datacontrol.command.base.UpdateCommandBase;
+import org.tura.platform.datacontrol.command.base.SearchObjectParameters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.metainfo.PropertyLink;
@@ -101,44 +92,17 @@ public class CompanyDCStructureTest {
 		m = getMethod( CompanyDC.class,"setCommandStack",new Class[]{CommandStack.class} );
 		checkCommandStack(m,"hrmanager.hrcontroller");
 		
-		assertTrue(findMethod( CompanyDC.class,"setCreateCommand" ,new Class[]{CreateCommandBase.class}));
-		m = getMethod( CompanyDC.class,"setCreateCommand" ,new Class[]{CreateCommandBase.class});
+		assertTrue(findMethod( CompanyDC.class,"setCreateObjectParameters" ,new Class[]{CreateObjectParameters.class}));
+		m = getMethod( CompanyDC.class,"setCreateObjectParameters" ,new Class[]{CreateObjectParameters.class});
 		checkSelector(m,"hrmanager.hrcontroller");
 		checkCreateTrigger(m,"company");
 		ArrayList<CallParameter> prms = new ArrayList<>();
-		prms.add(new CallParameter("objectType", "org.elsoft.platform.hr.objects.CompanyDAO", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.Company", TuraObject.class));
 		checkCreateTriggerParameters(m,prms);
 		
 		
-		assertTrue(findMethod( CompanyDC.class,"setInsertCommand" ,new Class[]{InsertCommandBase.class}));
-		m = getMethod( CompanyDC.class,"setInsertCommand" ,new Class[]{InsertCommandBase.class});
-		checkSelector(m,"hrmanager.hrcontroller");
-		checkInsertTrigger(m,"company");
-		prms = new ArrayList<>();
-		prms.add(new CallParameter("object", "#{beanFactoryHrManagerHRController.company.currentObject}", TuraObject.class));
-		checkInsertTriggerParameters(m,prms);
-		
-		
-		assertTrue(findMethod( CompanyDC.class,"setUpdateCommand" ,new Class[]{UpdateCommandBase.class}));
-		m = getMethod( CompanyDC.class,"setUpdateCommand" ,new Class[]{UpdateCommandBase.class});
-		checkSelector(m,"hrmanager.hrcontroller");
-		checkUpdateTrigger(m,"company");
-		prms = new ArrayList<>();
-		prms.add(new CallParameter("object", "#{beanFactoryHrManagerHRController.company.currentObject}", TuraObject.class));
-		checkUpdateTriggerParameters(m,prms);
-
-		
-		assertTrue(findMethod( CompanyDC.class,"setDeleteCommand" ,new Class[]{DeleteCommandBase.class}));
-		m = getMethod( CompanyDC.class,"setDeleteCommand" ,new Class[]{DeleteCommandBase.class});
-		checkSelector(m,"hrmanager.hrcontroller");
-		checkDeleteTrigger(m,"company");
-		prms = new ArrayList<>();
-		prms.add(new CallParameter("object", "#{beanFactoryHrManagerHRController.company.currentObject}", TuraObject.class));
-		checkDeleteTriggerParameters(m,prms);
-
-		
-		assertTrue(findMethod( CompanyDC.class,"setSearchCommand" ,new Class[]{SearchCommandBase.class}));
-		m = getMethod( CompanyDC.class,"setSearchCommand" ,new Class[]{SearchCommandBase.class});
+		assertTrue(findMethod( CompanyDC.class,"setSearchObjectParameters" ,new Class[]{SearchObjectParameters.class}));
+		m = getMethod( CompanyDC.class,"setSearchObjectParameters" ,new Class[]{SearchObjectParameters.class});
 		checkSelector(m,"hrmanager.hrcontroller");
 		checkSearchTrigger(m,"company");
 		prms = new ArrayList<>();
@@ -146,7 +110,7 @@ public class CompanyDCStructureTest {
 		prms.add(new CallParameter("orderByCriteria", "#{beanFactoryHrManagerHRController.company.orderCriteria}", List.class));
 		prms.add(new CallParameter("start Index", "#{beanFactoryHrManagerHRController.company.startIndex}", Integer.class));
 		prms.add(new CallParameter("end Index", "#{beanFactoryHrManagerHRController.company.endIndex}", Integer.class));
-		prms.add(new CallParameter("objectType", "org.elsoft.platform.hr.objects.CompanyDAO", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.Company", TuraObject.class));
 		checkSearchTriggerParameters(m,prms);
 
 		

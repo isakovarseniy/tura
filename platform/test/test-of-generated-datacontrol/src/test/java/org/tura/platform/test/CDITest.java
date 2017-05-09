@@ -36,13 +36,6 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
-import org.elsoft.platform.hr.objects.CompanyDAO;
-import org.elsoft.platform.hr.objects.CountryDAO;
-import org.elsoft.platform.hr.objects.DepartmentsDAO;
-import org.elsoft.platform.hr.objects.StateDAO;
-import org.elsoft.platform.hr.objects.StreetDAO;
-import org.elsoft.platform.hr.objects.simple.model.Company;
-import org.elsoft.platform.hr.objects.simple.model.Street;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.After;
@@ -54,7 +47,6 @@ import org.junit.runners.MethodSorters;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.BeanFactory;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
-import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.ICompanyArtifitialFields;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.PopupCompanyDCProviderDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.TreeRootCountryDC;
 import org.tura.platform.datacontrol.DataControl;
