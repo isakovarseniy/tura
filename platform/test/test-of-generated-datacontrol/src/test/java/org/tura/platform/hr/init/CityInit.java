@@ -19,21 +19,38 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.hr.init;
 
-import java.util.List;
+import javax.persistence.EntityManager;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.hr.objects.jpa.City;
 
-public interface DataProvider {
 
-	public Object create(String objectClass) throws RepositoryException;
 
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException;
+public class CityInit {
+	private EntityManager em;
 
-	public void setRepository(Repository repository);
-	public void init();
+	public CityInit(EntityManager em) {
+		this.em = em;
+	}
 
+	public void init() {
+		create(1L,"City 1 State 1 Ct 1",1L);
+		create(2L,"City 2 State 4 Ct 1", 4L);
+		create(3L,"City 1 State 4 Ct 2",9L);
+		create(4L,"City 2 State 5 Ct 2",9L);
+		
+
+	}
+	
+	private City create(Long obj_id, String cityName, Long state_id) {
+		City dpt = new City();
+		dpt.setObjId(obj_id);
+		dpt.setParentId(state_id);
+		dpt.setName(cityName);
+		em.persist(dpt);
+		return dpt;
+
+	}
+	
 }

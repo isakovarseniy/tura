@@ -19,21 +19,39 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.hr.init;
 
-import java.util.List;
+import java.text.ParseException;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
+import javax.persistence.EntityManager;
 
-public interface DataProvider {
+import org.tura.platform.hr.objects.jpa.Vehicle;
 
-	public Object create(String objectClass) throws RepositoryException;
+public class VehicleInit {
 
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException;
+	private EntityManager em;
 
-	public void setRepository(Repository repository);
-	public void init();
+	public VehicleInit(EntityManager em) {
+		this.em = em;
+	}
 
+	public void init() throws ParseException {
+
+		create(1L,100L,"Honda","AABB");
+		create(2L,100L,"Ford","CCEE");
+
+	}
+	
+	private void create(Long obj_id, Long parentId, String vehicleMaker,String plateNumber) {
+		Vehicle vehicle = new Vehicle();
+		vehicle.setObjId(obj_id);
+		vehicle.setParentId(parentId);
+		vehicle.setVehicleMaker(vehicleMaker);
+		vehicle.setPlateNumber(plateNumber);
+		
+		em.persist(vehicle);
+
+	}
+	
+	
 }

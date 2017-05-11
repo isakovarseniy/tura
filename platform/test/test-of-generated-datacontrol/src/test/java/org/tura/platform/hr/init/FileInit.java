@@ -19,35 +19,46 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.cdi;
+package org.tura.platform.hr.init;
 
-import javax.annotation.Priority;
-
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Alternative;
-import javax.enterprise.inject.Disposes;
-import javax.enterprise.inject.Produces;
+import java.text.ParseException;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
 
-@Alternative
-@Priority(0)
-public class EntityManagerProducer {
-    @PersistenceUnit
-    private EntityManagerFactory emf;
+import org.tura.platform.hr.objects.jpa.File;
 
-    @Produces
-    @RequestScoped
-    protected EntityManager createEntityManager() {
-        return emf.createEntityManager();
-    }
+public class FileInit {
 
-    protected void closeEntityManager(@Disposes
-    EntityManager entityManager) {
-        if (entityManager.isOpen()) {
-            entityManager.close();
-        }
-    }
+	private EntityManager em;
+
+	public FileInit(EntityManager em) {
+		this.em = em;
+	}
+
+	public void init() throws ParseException {
+	
+		create(1L,100L,"File1");
+		create(2L,100L,"File2");
+		create(3L,100L,"File3");
+		create(4L,100L,"File4");
+		
+		create(5L,1L,"File5");
+		create(6L,1L,"File6");
+		create(7L,1L,"File7");
+		
+		
+		
+	}
+	
+	
+	
+	private void create(Long obj_id, Long parentId, String fileName) {
+		File file = new File();
+		file.setObjId(obj_id);
+		file.setParentId(parentId);
+		file.setFileName(fileName);
+		em.persist(file);
+
+	}
+	
 }

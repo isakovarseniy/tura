@@ -19,21 +19,38 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.hr.init;
 
-import java.util.List;
+import javax.persistence.EntityManager;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.hr.objects.jpa.Country;
 
-public interface DataProvider {
 
-	public Object create(String objectClass) throws RepositoryException;
+public class CountryInit {
 
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException;
+	private EntityManager em;
 
-	public void setRepository(Repository repository);
-	public void init();
+	public CountryInit(EntityManager em) {
+		this.em = em;
+	}
+	
+	public void init() {
 
+		create(1L,"Country 1",1L);
+		create(2L,"Country 2",2L);
+		create(3L,"Country 3",1L);
+		
+
+	}
+
+	private Country create(Long obj_id, String countryName, Long companyid) {
+		Country dpt = new Country();
+		dpt.setObjId(obj_id);
+		dpt.setName(countryName);
+		dpt.setParentId(companyid);
+		em.persist(dpt);
+		return dpt;
+
+	}	
+	
 }

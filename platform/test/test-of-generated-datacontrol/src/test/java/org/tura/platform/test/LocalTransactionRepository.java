@@ -19,21 +19,36 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.test;
 
 import java.util.List;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
-public interface DataProvider {
+import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.RepositoryException;
 
-	public Object create(String objectClass) throws RepositoryException;
-
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException;
-
-	public void setRepository(Repository repository);
-	public void init();
+public class LocalTransactionRepository extends BasicRepository {
+	
+	@Inject
+	private EntityManager em;
+	
+	@SuppressWarnings("rawtypes")
+	@Override
+	public void applyChanges(List changes) throws RepositoryException{
+		
+		try{
+			em.getTransaction().begin();
+			
+			super.applyChanges(changes);
+			
+			em.getTransaction().commit();
+			
+		}catch(RepositoryException e){
+			em.getTransaction().rollback();
+		}
+	}
+	
 
 }

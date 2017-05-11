@@ -43,6 +43,12 @@ operation  datacontrolgeneration(hash) {
          util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "TriggerProducer.java",buffer);   
 
 
+         var parameteproducer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/parameterProducer.egl",hash,TemplateFactory);
+         parameteproducer.setFormatter(f);
+         buffer = parameteproducer.process();
+         util.saveFile( javaPath+"/"+util.mergeAndCapitalize(uipackage.name).toLowerCase()+"/"+util.mergeAndCapitalize(form.name).toLowerCase()+"/producer/"  , util.mergeAndCapitalize(control.name) + "ParameterProducer.java",buffer);   
+
+
          if (control.~treeRoot <> null){
 
             var treedatacontrol : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/treedatacontrol.egl",hash,TemplateFactory);

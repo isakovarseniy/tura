@@ -36,15 +36,18 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 
+import org.h2.tools.Server;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.BeanFactory;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyArtifitialFieldsAdapter;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.CompanyDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.DepartmentDC;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.PopupCompanyDCProviderDC;
@@ -54,7 +57,7 @@ import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.Pager;
 import org.tura.platform.datacontrol.TreePath;
-import org.tura.platform.datacontrol.Util;
+import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.Event;
@@ -68,15 +71,26 @@ import org.tura.platform.hr.init.DepartmentsInit;
 import org.tura.platform.hr.init.EmployesesInit;
 import org.tura.platform.hr.init.StateInit;
 import org.tura.platform.hr.init.StreetInit;
+import org.tura.platform.hr.objects.serialization.Company;
+import org.tura.platform.hr.objects.serialization.Street;
+import org.tura.platform.hr.objects.serialization.State;
+import org.tura.platform.hr.objects.serialization.Country;
+import org.tura.platform.hr.objects.serialization.Department;
+
+
 import org.tura.platform.primefaces.model.GridModel;
 import org.tura.platform.primefaces.model.LazyDataGridModel;
 
+import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.core.Repository;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class CDITest  implements DomainFactory{
+public class CDITest  {
 
 	private static Logger logger;
 	private  Weld w;
 	private  WeldContainer weld;
+	private static Server server;
 
 	private ArrayList<String> delitedRows = new ArrayList<>();
 
@@ -89,9 +103,18 @@ public class CDITest  implements DomainFactory{
 		weld = null;
 		w.shutdown();
 	}
+	
+	@AfterClass
+	public static void afterClass() throws Exception {
+		server.stop();
+	}
+	
 
 	@BeforeClass
-	public static void beforeClass() {
+	public static void beforeClass() throws Exception {
+		server = Server.createTcpServer().start();
+		
+		
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 		ConsoleHandler handler = new ConsoleHandler();
@@ -109,9 +132,7 @@ public class CDITest  implements DomainFactory{
 				.select(EntityManager.class).get();
 
 		em.getTransaction().begin();
-		em.createNativeQuery("DROP SEQUENCE obj_id_gen").executeUpdate();
-		em.createNativeQuery("CREATE SEQUENCE obj_id_gen START WITH 1000000")
-				.executeUpdate();
+
 		new CompanyInit(em).init();
 		new CountryInit(em).init();
 		new StateInit(em).init();
@@ -157,6 +178,8 @@ public class CDITest  implements DomainFactory{
 			fact.add("Company_2");
 
 			BeanFactory bf = weld.instance().select(BeanFactory.class).get();
+			
+			Repository repository = weld.instance().select(Repository.class).get();
 
 			RemoveObjectTracer tracer = new RemoveObjectTracer();
 
@@ -177,7 +200,7 @@ public class CDITest  implements DomainFactory{
 			}
 			assertEquals(fact.size(), 0);
 
-			companyDC.getCommandStack().commitCommand();
+			repository.applyChanges(null);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -193,18 +216,19 @@ public class CDITest  implements DomainFactory{
 
 			CompanyDC companyDC = bf.getCompany();
 
-			CompanyDAO company = companyDC.getCurrentObject();
+			Company company = (Company) companyDC.getCurrentObject();
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
 
-			CountryDAO row = (CountryDAO) locationDC.getCurrentObject();
+			Country row = (Country) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(1));
 
 			companyDC.nextObject();
-			row = (CountryDAO) locationDC.getCurrentObject();
+			row = (Country) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(2));
 			companyDC.prevObject();
 
-			ICompanyArtifitialFields artf = (ICompanyArtifitialFields) company;
+			CompanyArtifitialFieldsAdapter artf = new CompanyArtifitialFieldsAdapter((ObjectControl) company);
+			
 			artf.setTestfield1("12345");
 			assertEquals(artf.getTestfield1(), "12345");
 
@@ -223,7 +247,7 @@ public class CDITest  implements DomainFactory{
 			companyDC.getCurrentObject();
 			companyDC.nextObject();
 
-			CompanyDAO company = companyDC.getCurrentObject();
+			Company company = (Company) companyDC.getCurrentObject();
 			assertEquals(company.getObjId(), new Long(2));
 
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
@@ -232,7 +256,7 @@ public class CDITest  implements DomainFactory{
 
 			assertEquals(isSet, true);
 
-			StateDAO row = (StateDAO) locationDC.getCurrentObject();
+			State row = (State) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(8));
 
 		} catch (Exception e) {
@@ -248,13 +272,13 @@ public class CDITest  implements DomainFactory{
 			CompanyDC companyDC = bf.getCompany();
 			companyDC.getCurrentObject();
 			companyDC.nextObject();
-			CompanyDAO company = companyDC.getCurrentObject();
+			Company company = (Company) companyDC.getCurrentObject();
 			assertEquals(company.getObjId(), new Long(2));
 
 			DepartmentDC departmentDC = bf.getDepartment();
 			assertEquals(departmentDC.isBlocked(), true);
 
-			DepartmentsDAO department = departmentDC.getCurrentObject();
+			Department department = (Department) departmentDC.getCurrentObject();
 			assertNull(department);
 
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
@@ -265,10 +289,10 @@ public class CDITest  implements DomainFactory{
 
 			assertEquals(isSet, true);
 
-			StreetDAO row = (StreetDAO) locationDC.getCurrentObject();
+			Street row = (Street) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(12));
 
-			department = departmentDC.getCurrentObject();
+			department = (Department) departmentDC.getCurrentObject();
 			assertEquals(department.getObjId(), new Long(200));
 
 			isSet = locationDC.setCurrentPosition(new TreePath[] {
@@ -278,7 +302,7 @@ public class CDITest  implements DomainFactory{
 
 			assertEquals(departmentDC.isBlocked(), true);
 
-			department = departmentDC.getCurrentObject();
+			department = (Department) departmentDC.getCurrentObject();
 			assertNull(department);
 
 		} catch (Exception e) {
@@ -297,7 +321,7 @@ public class CDITest  implements DomainFactory{
 			companyDC.getCurrentObject();
 			companyDC.nextObject();
 
-			CompanyDAO company = companyDC.getCurrentObject();
+			Company company = (Company) companyDC.getCurrentObject();
 			String saveCompanyName = company.getCompanyName();
 			company.setCompanyName("New Company Name");
 			assertEquals(company.getObjId(), new Long(2));
@@ -308,7 +332,7 @@ public class CDITest  implements DomainFactory{
 
 			assertEquals(isSet, true);
 
-			StateDAO row = (StateDAO) locationDC.getCurrentObject();
+			State row = (State) locationDC.getCurrentObject();
 			String saveStreetName = row.getName();
 			row.setName("New Street Name");
 			assertEquals(row.getObjId(), new Long(8));
@@ -319,7 +343,7 @@ public class CDITest  implements DomainFactory{
 			companyDC.getCurrentObject();
 			companyDC.nextObject();
 
-			company = companyDC.getCurrentObject();
+			company = (Company) companyDC.getCurrentObject();
 			assertEquals(company.getCompanyName(), saveCompanyName);
 
 			locationDC = bf.getTreeRootCountry();
@@ -327,7 +351,7 @@ public class CDITest  implements DomainFactory{
 					new TreePath(null, 0), new TreePath("country2state", 2) });
 			assertEquals(isSet, true);
 
-			row = (StateDAO) locationDC.getCurrentObject();
+			row = (State) locationDC.getCurrentObject();
 			assertEquals(row.getName(), saveStreetName);
 
 		} catch (Exception e) {
@@ -352,9 +376,9 @@ public class CDITest  implements DomainFactory{
 			IDataControl dc2 = bf.getTreeRootDepartment();
 			dc2.setCurrentPosition(new TreePath[] { new TreePath(null, 0) });
 
-			CompanyDAO obj1 = (CompanyDAO) dc1.getCurrentObject();
+			Company obj1 = (Company) dc1.getCurrentObject();
 			assertEquals(new Long(1L), obj1.getObjId());
-			DepartmentsDAO obj2 = (DepartmentsDAO) dc2.getCurrentObject();
+			Department obj2 = (Department) dc2.getCurrentObject();
 			assertNull(obj2);
 
 			boolean isSet = dc1.setCurrentPosition(new TreePath[] {
@@ -364,7 +388,7 @@ public class CDITest  implements DomainFactory{
 					new TreePath("city2street", 0) });
 			assertEquals(isSet, true);
 
-			obj2 = (DepartmentsDAO) dc2.getCurrentObject();
+			obj2 = (Department) dc2.getCurrentObject();
 			assertEquals(new Long(10L), obj2.getObjId());
 
 		} catch (Exception e) {
@@ -382,22 +406,22 @@ public class CDITest  implements DomainFactory{
 			PopupCompanyDCProviderDC popupDC = bf.getPopupCompanyDCProvider();
 			bf.setCmpId(1L);
 
-			CompanyDAO row = companyDC.getCurrentObject();
+			Company row = (Company) companyDC.getCurrentObject();
 			String name = row.getCompanyName();
 
-			CompanyDAO row2 = popupDC.getCurrentObject();
+			Company row2 = (Company) popupDC.getCurrentObject();
 			popupDC.getCommandStack().savePoint();
-			row2 = popupDC.getCurrentObject();
+			row2 = (Company) popupDC.getCurrentObject();
 			row2.setCompanyName("test");
 
-			row = companyDC.getCurrentObject();
+			row = (Company) companyDC.getCurrentObject();
 			assertEquals("test", row.getCompanyName());
 
 			companyDC.getCommandStack().rallbackCommand();
-			row = companyDC.getCurrentObject();
+			row = (Company) companyDC.getCurrentObject();
 			assertEquals(name, row.getCompanyName());
 
-			row2 = popupDC.getCurrentObject();
+			row2 = (Company) popupDC.getCurrentObject();
 			row2.setCompanyName("test");
 
 		} catch (Exception e) {
@@ -435,13 +459,13 @@ public class CDITest  implements DomainFactory{
 			CompanyDC companyDC = bf.getCompany();
 			TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
 
-			CompanyDAO company = companyDC.getCurrentObject();
+			Company company = (Company) companyDC.getCurrentObject();
 
-			company = companyDC.createObject();
+			company = (Company) companyDC.createObject();
 			company.setCompanyName("Company 3");
 			company.setDescription("Company 3 description");
 
-			CountryDAO country =  (CountryDAO) treeLocation.createObject();
+			Country country =  (Country) treeLocation.createObject();
 			country.setName("qq");
 
 			companyDC.removeObject();
@@ -460,9 +484,9 @@ public class CDITest  implements DomainFactory{
 			CompanyDC companyDC = bf.getCompany();
 			TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
 
-			CompanyDAO company = companyDC.getCurrentObject();
+			Company company = (Company) companyDC.getCurrentObject();
 
-			company = companyDC.createObject();
+			company = (Company) companyDC.createObject();
 			company.setCompanyName("Company 3");
 			company.setDescription("Company 3 description");
 
@@ -484,16 +508,16 @@ public class CDITest  implements DomainFactory{
 			CompanyDC companyDC = bf.getCompany();
 			TreeRootCountryDC treeLocation = bf.getTreeRootCountry();
 
-			CompanyDAO company = companyDC.getCurrentObject();
+			Company company = (Company) companyDC.getCurrentObject();
 
-			company = companyDC.createObject();
+			company = (Company) companyDC.createObject();
 			company.setCompanyName("Company 3");
 			company.setDescription("Company 3 description");
 
-			CountryDAO country = (CountryDAO) treeLocation.createObject();
+			Country country = (Country) treeLocation.createObject();
 			country.setName("CNT1");
 
-			country = (CountryDAO) treeLocation.createObject();
+			country = (Country) treeLocation.createObject();
 			country.setName("CNT2");
 
 			boolean isSet = treeLocation
@@ -523,13 +547,13 @@ public class CDITest  implements DomainFactory{
 			CompanyDC companyDC = bf.getCompany();
 			companyDC.getCurrentObject();
 			companyDC.nextObject();
-			CompanyDAO company = companyDC.getCurrentObject();
+			Company company = (Company) companyDC.getCurrentObject();
 			assertEquals(company.getObjId(), new Long(2));
 
 			DepartmentDC departmentDC = bf.getDepartment();
 			assertEquals(departmentDC.isBlocked(), true);
 
-			DepartmentsDAO department = departmentDC.getCurrentObject();
+			Department department = (Department) departmentDC.getCurrentObject();
 			assertNull(department);
 
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
@@ -540,10 +564,10 @@ public class CDITest  implements DomainFactory{
 
 			assertEquals(isSet, true);
 
-			StreetDAO row = (StreetDAO) locationDC.getCurrentObject();
+			Street row = (Street) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(12));
 
-			department = departmentDC.getCurrentObject();
+			department = (Department) departmentDC.getCurrentObject();
 			assertEquals(department.getObjId(), new Long(200));
 			
 			assertNotNull(companyDC.getCurrentObject());
@@ -552,12 +576,12 @@ public class CDITest  implements DomainFactory{
 			
 			companyDC.islolate();
 			
-			CompanyDAO newrow = getNewCompanyDAO();
+			Company newrow = getNewCompany();
 			newrow.setObjId(123L);
 
 			Pager<?> pager = getPager(companyDC);
 	          
-	        PoolElement e = new PoolElement(newrow, companyDC.getObjectKey(newrow), companyDC.getBaseClass(), PoolCommand.C.name(), "1");
+	        PoolElement e = new PoolElement(newrow, ((ObjectControl)newrow).getKey() , companyDC.getBaseClass(), PoolCommand.C.name(), "1");
 	        pager.addCommand(e);
 
 	        companyDC.flush();
@@ -580,13 +604,13 @@ public class CDITest  implements DomainFactory{
 			CompanyDC companyDC = bf.getCompany();
 			companyDC.getCurrentObject();
 			companyDC.nextObject();
-			CompanyDAO company = companyDC.getCurrentObject();
+			Company company = (Company) companyDC.getCurrentObject();
 			assertEquals(company.getObjId(), new Long(2));
 
 			DepartmentDC departmentDC = bf.getDepartment();
 			assertEquals(departmentDC.isBlocked(), true);
 
-			DepartmentsDAO department = departmentDC.getCurrentObject();
+			Department department = (Department) departmentDC.getCurrentObject();
 			assertNull(department);
 
 			TreeRootCountryDC locationDC = bf.getTreeRootCountry();
@@ -597,10 +621,10 @@ public class CDITest  implements DomainFactory{
 
 			assertEquals(isSet, true);
 
-			StreetDAO row = (StreetDAO) locationDC.getCurrentObject();
+			Street row = (Street) locationDC.getCurrentObject();
 			assertEquals(row.getObjId(), new Long(12));
 
-			department = departmentDC.getCurrentObject();
+			department = (Department) departmentDC.getCurrentObject();
 			assertEquals(department.getObjId(), new Long(200));
 			
 			assertNotNull(companyDC.getCurrentObject());
@@ -608,22 +632,23 @@ public class CDITest  implements DomainFactory{
 			assertNotNull(departmentDC.getCurrentObject());
 			
 			
-			DataControl<?> streetDC =  Util.getDataControl(row);
+			DataControl<?> streetDC = (DataControl<?>) ((ObjectControl)row).getAttributes().get(Constants.DATA_CONTROL);
+			
 			
 			streetDC.islolate();
 			
-			StreetDAO newrow =  getNewStreetDAO();
+			Street newrow =  getNewStreet();
 			newrow.setObjId(123L);
 			newrow.setParentId(row.getParentId());
 
 			Pager<?> pager = getPager(streetDC);
 	          
-	        PoolElement e = new PoolElement(newrow, streetDC.getObjectKey(newrow), streetDC.getBaseClass(), PoolCommand.C.name(), "1");
+	        PoolElement e = new PoolElement(newrow, ((ObjectControl)newrow).getKey(), streetDC.getBaseClass(), PoolCommand.C.name(), "1");
 	        pager.addCommand(e);
 
 	        streetDC.flush();
 	        
-			StreetDAO row1 = (StreetDAO) locationDC.getCurrentObject();
+			Street row1 = (Street) locationDC.getCurrentObject();
 
 	        assertEquals(newrow.getObjId(), row1.getObjId());
 	        assertNull(departmentDC.getCurrentObject());
@@ -697,14 +722,12 @@ public class CDITest  implements DomainFactory{
 
 	}
 
-	@Override
-	public CompanyDAO getNewCompanyDAO() throws Exception {
+	public Company getNewCompany() throws Exception {
 		return new Company();
 	}
 
 
-	@Override
-	public StreetDAO getNewStreetDAO() throws Exception {
+	public Street getNewStreet() throws Exception {
 		return  new Street();
 	}
 

@@ -19,21 +19,29 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.test;
 
-import java.util.List;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.hr.objects.serialization.SimpleModelDataProvider;
+import org.tura.platform.repository.cdi.ObjectProvider;
+import org.tura.platform.repository.core.PrImaryKeyStrategy;
 
-public interface DataProvider {
+@ObjectProvider
+public class SimpleModelDataProviderCDI extends SimpleModelDataProvider{
 
-	public Object create(String objectClass) throws RepositoryException;
+	@Override
+	@Inject
+    public void setEntityManager(EntityManager em) {
+		super.setEntityManager(em);
+    }
 
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException;
+	@Override
+	@Inject
+    public void setPkStrategy(PrImaryKeyStrategy pkStrategy) {
+		super.setPkStrategy(pkStrategy);
+    }
 
-	public void setRepository(Repository repository);
-	public void init();
-
+	
 }

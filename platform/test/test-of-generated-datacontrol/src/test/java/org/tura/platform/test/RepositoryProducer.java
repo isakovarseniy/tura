@@ -34,9 +34,10 @@ import javax.enterprise.inject.spi.CDI;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 
-import org.tura.platform.repository.DataProvider;
-import org.tura.platform.repository.Repository;
-import org.tura.platform.repository.RepositoryExtension;
+import org.tura.platform.repository.cdi.RepositoryExtension;
+import org.tura.platform.repository.core.DataProvider;
+import org.tura.platform.repository.core.Repository;
+
 
 @Alternative
 @Priority(0)
@@ -45,13 +46,17 @@ public class RepositoryProducer {
 	@Inject
 	private RepositoryExtension repositoryExtension;
 	
+	@Inject
+	private LocalTransactionRepository repository;
+	
 	
     @Produces
 	public Repository getRepository(InjectionPoint injectionPoint) {
 
-		Repository repository = new Repository();
 		for ( DataProvider provider : getDataProviders()){
 			provider.setRepository(repository);
+			provider.init();
+		
 		}
 		
 		return repository;
@@ -74,7 +79,5 @@ public class RepositoryProducer {
 
 		return array;
 	}
-   
-    
     
 }

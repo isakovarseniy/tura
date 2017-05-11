@@ -21,13 +21,23 @@
  */
 package org.tura.platform.test;
 
-import org.tura.platform.hr.objects.serialization.Company;
-import org.tura.platform.hr.objects.serialization.Street;
+import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.repository.core.PrImaryKeyStrategy;
 
-public interface DomainFactory {
+public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
+	public static long id =-100L;
 
-	public Company getNewCompanyDAO() throws Exception;
-	public Street getNewStreetDAO() throws Exception;
-	
-	
+	@Override
+	public void generatePk(Object o) {
+		try{
+			
+		Reflection.callTyped(o, "setObjId", Long.class,id);
+		id= id+1;
+		
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}
+		
+	}
+
 }
