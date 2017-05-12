@@ -63,6 +63,12 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 	@javax.annotation.PostConstruct
 	public void init() {
      try{
+     
+    		org.tura.platform.datacontrol.command.base.CommandStackProvider sp = new org.tura.platform.datacontrol.command.base.CommandStackProvider();
+    		sp.setDataControl(this);
+    		sp.setCommandStack(getCommandStack());
+     
+     
      [%
        if (control.~pagerType == "topPager"){
      %]
@@ -77,7 +83,10 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
      %]
      setPager(pager);
 	 pager.setCommandStack(getCommandStack());
-	 pager.setRepository(repository);
+	 
+     [%=control.~basepackage%].ProxyRepository proxyRepository =   new [%=control.~basepackage%].ProxyRepository(repository,sp);
+     pager.setRepository(proxyRepository);
+
      setBaseClass([%=control.~basefullName%].class); 
     [%
     

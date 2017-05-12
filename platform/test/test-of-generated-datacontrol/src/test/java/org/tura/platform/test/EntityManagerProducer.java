@@ -30,7 +30,6 @@ import javax.persistence.EntityManagerFactory;
 
 import org.apache.deltaspike.jpa.api.entitymanager.PersistenceUnitName;
 
-@ApplicationScoped
 public class EntityManagerProducer
 {
 	
@@ -42,6 +41,7 @@ public class EntityManagerProducer
 	 
 	 
     @Produces
+    @ApplicationScoped
     protected EntityManager createEntityManager(){
     	if (em == null){
             em =  emf.createEntityManager();
