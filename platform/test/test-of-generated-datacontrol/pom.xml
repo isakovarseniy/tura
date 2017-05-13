@@ -112,7 +112,7 @@
 
 		<dependency>
 			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>hr-simple-model-proxy</artifactId>
+			<artifactId>test-datacontrol-simple-object-model</artifactId>
 			<version>1.0</version>
 		</dependency>
 

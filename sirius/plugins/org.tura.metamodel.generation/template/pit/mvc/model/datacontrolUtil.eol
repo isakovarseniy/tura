@@ -9,9 +9,9 @@ operation form::Controls processRootElement(recipe:Recipe, ingredient :Ingredien
     if (self.root.isDefined()){
  	   for ( frmvar in self.root.variables){
  	      if ( frmvar.typeRef <> null)
- 	          frmvar.typeRef.mappingType2Java(recipe,ingredient);
+ 	          frmvar.typeRef.mappingType2Java(recipe,ingredient,'VIEW');
  	      if (frmvar.paramRef<> null and frmvar.paramRef.typeRef <> null  )    
- 	         frmvar.paramRef.typeRef.mappingType2Java(recipe,ingredient);
+ 	         frmvar.paramRef.typeRef.mappingType2Java(recipe,ingredient,'VIEW');
 	   }
        if (self.root.preFormTrigger.isDefined()) 	         
  	        self.root.preFormTrigger.processTrigger(recipe,ingredient);
@@ -63,7 +63,7 @@ operation form::DataControl definePager(recipe:Recipe, ingredient :Ingredient ,m
 operation form::Trigger processTrigger(recipe:Recipe, ingredient :Ingredient,datacontrol: form::DataControl,hash){
         var util = new Native('org.tura.metamodel.commons.Util');
         if (self.methodRef.isDefined()){
-          self.methodRef.eContainer().mappingType2Java(recipe,ingredient);
+          self.methodRef.eContainer().mappingType2Java(recipe,ingredient,'VIEW');
           self.processParameters(recipe,ingredient,datacontrol,hash);
         }
 }
@@ -75,7 +75,7 @@ operation form::ContextParameters processParameters(recipe:Recipe, ingredient :I
         for (parameter in self.parameters){
             parameter.value.~sourceControl=datacontrol.findTreeRoot();
             parameter.~result =  buildExpression(parameter.value,hints,hash);
-            parameter.refObj.typeRef.mappingType2Java(recipe,ingredient);
+            parameter.refObj.typeRef.mappingType2Java(recipe,ingredient,'VIEW');
         }
 }
 
@@ -112,7 +112,7 @@ operation form::DataControl processArtificialFields(recipe:Recipe, ingredient :I
 
         var artificialFields = self.artificialFields;
         for (  field in artificialFields){
-           field.typeRef.mappingType2Java(recipe,ingredient);
+           field.typeRef.mappingType2Java(recipe,ingredient,'VIEW');
         }
 }
 
@@ -183,7 +183,7 @@ operation form::DataControl findDependecies ( objectTrack, treeRoot: DataControl
             dependent.~masterRoot=treeRoot;
             dependent.~relation=rel;
             for ( lnk in rel.links ){
-                lnk.masterField.typeRef.mappingType2Java(recipe,ingredient);
+                lnk.masterField.typeRef.mappingType2Java(recipe,ingredient,'VIEW');
                 lnk.~result = buildExpression ( util.createArtificialContextValue(rel.master,rel.master.findTreeRoot(), lnk),hints,hash);
             }
         }      
@@ -208,7 +208,7 @@ operation form::DataControl findDependecies ( objectTrack, treeRoot: DataControl
 operation form::DataControl getBaseClass(recipe:Recipe, ingredient :Ingredient)  : type::Type{
 
        var base = self.baseType.typeRef;
-       base.mappingType2Java(recipe,ingredient);
+       base.mappingType2Java(recipe,ingredient,'VIEW');
        return base;
  
  }

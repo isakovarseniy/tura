@@ -1127,6 +1127,9 @@
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="9c31a0a1-b781-4089-bf92-096440ef6ed6" name="user name"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="6f080c7e-b31b-4d2a-a4a7-3e99739ae1df" name="password"/>
           </types>
+          <types xsi:type="tura.type:Type" uid="afcf1949-b66e-495e-9f4c-9882634f80cb" name="HolderObject">
+            <classifiers uid="421205b2-4a97-4dd5-940f-c1e1ec7f85fc" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
+          </types>
           <relationships xsi:type="tura.type:Generalization" uid="df256c56-a52a-4e20-b899-c7ccaea2cb0d" source="6b919be3-0a0e-4498-bad8-51b552e6735e" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
           <relationships xsi:type="tura.type:Generalization" uid="ded11f76-fb21-45ea-a936-d3eb6eec0561" source="e525818e-2007-4be5-b4a4-1d23601af882" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
           <relationships xsi:type="tura.type:Generalization" uid="9c6f0647-f093-4264-bab4-5614618e0931" source="a911628a-e1e0-4c5e-b944-ad8afdbb0922" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
@@ -1138,6 +1141,7 @@
           <relationships xsi:type="tura.type:Generalization" uid="1f97195e-77a1-40f2-bce7-c62de80b0917" source="a3c99caa-a56f-4e05-b1b4-045ec986dd64" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
           <relationships xsi:type="tura.type:Generalization" uid="5192ce5b-6ff6-4c7a-a298-f78b474f5af7" source="7a203464-3438-448c-b80f-e9e5a23b295b" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
           <relationships xsi:type="tura.type:Generalization" uid="f008f812-bca7-4e7c-84ad-e20e11fbcf8a" source="cb6d6071-cf77-4f0b-b12f-4fe5eb4c7aba" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
+          <relationships xsi:type="tura.type:Generalization" uid="15412945-d771-4d39-9530-ff9f910bf53d" source="afcf1949-b66e-495e-9f4c-9882634f80cb" target="53e0fd02-695a-45a2-93d3-a6ffaefb63a6"/>
         </repositoryPackages>
         <repositoryPackages uid="6dbc5800-0c88-48a9-94d0-4eb5d11f6aa3" name="HR controller business logic">
           <types xsi:type="tura.type:Type" uid="b37d91c8-1363-4548-8896-02d5ad9a93c3" name="Action executor">
@@ -1981,7 +1985,7 @@
                 </recipes>
                 <recipes uid="7c76b2db-e6ba-4f0f-9743-8eaa713f5501" name="Test data controls">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3" uid="79ad0912-2614-4e51-8828-741f315d47d2" name="Recipe">
-                    <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" uid="80c8bf2b-de55-4535-b57d-64514a80ab87" name="Data control  for simple model" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
+                    <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" uid="80c8bf2b-de55-4535-b57d-64514a80ab87" name="Data control  for simple model" vewLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec" modelLayer="d7636d4b-5360-45e3-b983-1abe14af04d4">
                       <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="7c1e3cc7-4698-4cf3-b159-dfbb9462f7bc" name="Data control" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="test-datacontrol-simple-object-model" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="be716da5-cfaf-4cae-9f09-e6cb55ef7467" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all DataControl in Employee management">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
@@ -2018,7 +2022,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="1" uid="ffb9ba07-c592-49d7-ab1d-6fcf8684cf36" name="Data control  for complex model" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
+                    <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="1" uid="ffb9ba07-c592-49d7-ab1d-6fcf8684cf36" name="Data control  for complex model" vewLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec" modelLayer="d7636d4b-5360-45e3-b983-1abe14af04d4">
                       <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="6863e1b1-f881-49ad-9b15-083ae3c08eb2" name="Nested Data control" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="test-datacontrol-complex-object-model" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="9ddd681e-aba3-48b6-af76-719feddbf7b9" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all DataControl in Nested form package">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
@@ -2109,6 +2113,7 @@
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="43e904a7-edb0-4d36-9fd2-b79df7b0fa38" namespace="serialization.objects.hr.platform.tura.org"/>
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec 0d88bb08-2150-462f-937d-70b99af379f9" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="86f6cb15-57a1-4e99-8860-8efd822031ce" mappedToPackageName="org.tura.platform.hr.objects.serialization" artifactId="hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="6b230e92-341d-474b-867c-56426579090b" mappedToPackageName="org.tura.platform.object.serializaton.persistence" mappedToClassName="PersistenceObject" artifactId="hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="d7636d4b-5360-45e3-b983-1abe14af04d4" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="0940b723-a40d-4c8c-9cc9-995413258694" artifactId="hr-complex-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                 </mapper>
               </mappers>
               <mappers uid="0a60b0d3-0018-4642-a2d7-477a0ccb5b2c" name="Data control commands mapping">
@@ -2166,6 +2171,7 @@
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="9804d328-80ab-4442-b348-de87f0e53e46" mappedToPackageName="org.tura.platform.hr.objects.jpa" artifactId="hr-simple-model-jpa" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec 0d88bb08-2150-462f-937d-70b99af379f9" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="bd272a1d-c997-4621-a689-beb3ed6729d3" mappedToPackageName="org.tura.platform.hr.objects.serialization" artifactId="hr-simple-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="048c2f8e-5b4d-453d-98ed-bd5da7907d76" namespace="serialization.objects.hr.platform.tura.org"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="d7636d4b-5360-45e3-b983-1abe14af04d4" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="2ceabfc3-38c5-4bac-a115-060d340015be" artifactId="hr-simple-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                 </mapper>
               </mappers>
               <mappers uid="4e8497b0-1a35-4ace-90cd-4359e7cbe666" name="HR model interface mapping">
@@ -2176,9 +2182,10 @@
               </mappers>
               <appLayers uid="4bd41a2c-2b37-4d25-8a19-e97a60f95715" name="Persistence layer"/>
               <appLayers uid="0d88bb08-2150-462f-937d-70b99af379f9" name="Persistence serialization layer" order="1"/>
-              <appLayers uid="cec3ff79-4dff-4a21-a9b6-37d0e25d4513" name="Domain layer" order="2"/>
-              <appLayers uid="31dc2714-08fe-4185-b17e-02b0ae92e6ec" name="UI layer" order="3"/>
-              <appLayers uid="7582eec2-b280-4f56-ae44-4ad4ab5d6530" name="Test layer" order="4"/>
+              <appLayers uid="cec3ff79-4dff-4a21-a9b6-37d0e25d4513" name="Domain layer" order="3"/>
+              <appLayers uid="31dc2714-08fe-4185-b17e-02b0ae92e6ec" name="UI layer" order="4"/>
+              <appLayers uid="7582eec2-b280-4f56-ae44-4ad4ab5d6530" name="Test layer" order="5"/>
+              <appLayers uid="d7636d4b-5360-45e3-b983-1abe14af04d4" name="Persistance proxy" order="2"/>
             </applicationMappers>
             <applicationUILayer uid="2f3c70d8-7e8f-474c-8ef1-c3ddea9c65e8" name="UILayer">
               <applicationUIPackages uid="0afdb0d2-d857-440e-a514-4b937d79a247" name="Hr manager">
@@ -5298,53 +5305,53 @@
                     </canvases>
                   </view>
                   <datacontrols uid="44caa04c-0d70-4570-8873-b48e26252c67">
-                    <controls uid="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" name="ErrorRecordDC">
-                      <baseType typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d"/>
-                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="750dc3f6-ec5b-40a1-8b4f-62966fc6edc3">
-                        <parameters uid="5af66277-cbfd-4dbb-8004-0e75d8e2bf7a" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
-                          <value uid="1434614b-ca48-47a2-9cdc-8a4f1f9a945a" value="Types repository.Base Repository.Model types.Model types::Base type">
-                            <expression uid="8c0fd8e2-e718-4e21-9f9c-430e6a8b3694" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                            <expression uid="9a0ada1f-5aa6-444b-aae5-09d678f2d907" objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                            <expression uid="5d8d52c0-ef2c-4acb-8a9e-2e82bc6635ae" objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
-                            <expression uid="97c7629f-cba1-40b6-b6ae-afbf3e81fecd" objRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" order="3" expressionType="TypeImpl"/>
+                    <controls uid="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" name="ErrorRecord">
+                      <baseType typeRef="afcf1949-b66e-495e-9f4c-9882634f80cb"/>
+                      <create methodRef="e31874ca-d2ac-4979-acc0-2e8a46d58d86" uid="143c92c5-b741-4635-9b7b-1395ec7a1c4e">
+                        <parameters uid="e5cd8045-0c70-47cd-aa89-b21ebf1f99b8" refObj="16d108d8-c43c-4508-b5de-eb262ee21b1a">
+                          <value uid="1bb447d9-7cd6-4224-adb0-18166917e1ba" value="Types repository.HR domain.Simple model.Simple model::HolderObject">
+                            <expression uid="266e762c-8808-45a1-a184-76ff0eb5b47b" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="c74d0ca7-fdab-44e2-b7e3-1451ac78c831" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="448f86cc-4ede-449e-b6e3-eee51f6b65b8" objRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="53bf7588-d157-4401-853f-1efa288a3d46" objRef="afcf1949-b66e-495e-9f4c-9882634f80cb" order="3" expressionType="TypeImpl"/>
                           </value>
                         </parameters>
                       </create>
-                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="3fff4c8e-5b25-4313-afec-dd273b30a877">
-                        <parameters uid="84e47993-2669-405e-9414-4b0f9fe99451" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
-                          <value uid="449d4c48-d050-4a92-927a-f25e2f3a1fad" value="Data controls.ErrorRecordDC.searchCriteria">
-                            <expression uid="532da31a-eff0-4144-bcf9-b42e7cd83dc6" expressionType="DataControlHolder"/>
-                            <expression uid="22b8607a-da93-4c81-88c4-8a7e42534b78" objRef="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="d9187583-a725-4814-9535-e85e9d0943f8" order="2" expressionType="DataControlFakeAttribute"/>
+                      <search methodRef="d7a6abf1-69b3-4b5a-bfca-e4964bdcd253" uid="29e5bd40-1c66-4370-b769-cae28cd6790e">
+                        <parameters uid="c76da2f3-1017-4d78-9eec-00bc7b52d310" refObj="b24b906a-97d6-4926-8492-5a81a3e5fb24">
+                          <value uid="cdf70d56-14b0-41c7-ac35-d57b2c370b66" value="Data controls.HolderObject.searchCriteria">
+                            <expression uid="0379e7be-1894-4bc9-8572-dae7746b31ae" expressionType="DataControlHolder"/>
+                            <expression uid="5c0ebdd7-245c-4156-83a4-02f07319304d" objRef="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="0bf49aa6-1c0c-4eb4-9b8a-48767d991f77" order="2" expressionType="DataControlFakeAttribute"/>
                           </value>
                         </parameters>
-                        <parameters uid="ded9b382-a2b4-43ed-b696-99b21ee5106a" refObj="82321931-ce03-428e-b54d-562a21b72c06">
-                          <value uid="ad262a42-fd75-4a75-a52a-c86e80690b88" value="Data controls.ErrorRecordDC.orderCriteria">
-                            <expression uid="3e028ce3-f084-4a37-8188-bb4903690441" expressionType="DataControlHolder"/>
-                            <expression uid="92f5a36f-cad2-409c-8057-313afeb34bd1" objRef="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="a9d30be1-cfec-4ad5-a3ad-c6b3149efd40" order="2" expressionType="DataControlFakeAttribute"/>
+                        <parameters uid="b23ad22e-88c5-4e38-a262-01acc3b7fe5c" refObj="82321931-ce03-428e-b54d-562a21b72c06">
+                          <value uid="8f1c635a-edd1-4085-a642-f2849395a015" value="Data controls.HolderObject.orderCriteria">
+                            <expression uid="21ea86cc-8cf7-4f50-86b7-5d214f8054db" expressionType="DataControlHolder"/>
+                            <expression uid="ddf9b7c5-c4f4-4090-92ed-c36cc0c49cde" objRef="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="eba01b44-f9eb-4af5-b436-97bc4a2619cd" order="2" expressionType="DataControlFakeAttribute"/>
                           </value>
                         </parameters>
-                        <parameters uid="99062693-8309-4d76-b976-943b10b4ca68" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
-                          <value uid="5df248a1-e169-474e-b166-2f527d8d745f" value="Data controls.ErrorRecordDC.start Index">
-                            <expression uid="5ab94c00-9104-4a82-b463-bbd50599269a" expressionType="DataControlHolder"/>
-                            <expression uid="39588e26-bca1-49e8-ba36-cd5a2c2be8ed" objRef="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="86ec3520-76f2-4549-b812-f892c2a18ae9" order="2" expressionType="DataControlFakeAttribute"/>
+                        <parameters uid="1d1bfb11-5005-4672-9311-c68e8d41bb02" refObj="6144d119-6c16-4a8c-a6e2-5af4da325020">
+                          <value uid="a38ab506-60f4-4029-ae55-6d530993e18a" value="Data controls.HolderObject.start Index">
+                            <expression uid="ea1b9fcb-53f5-4ade-9fca-cff75be537b4" expressionType="DataControlHolder"/>
+                            <expression uid="4b58d0e0-92e4-4927-a1ec-70488f99e67a" objRef="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="44f39add-da36-45f9-8b04-406cd293aec0" order="2" expressionType="DataControlFakeAttribute"/>
                           </value>
                         </parameters>
-                        <parameters uid="05f7e302-27c0-4969-8e1e-80cc27bbdc59" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
-                          <value uid="1882baba-b401-44d6-813a-204e2d4ab40a" value="Data controls.ErrorRecordDC.end Index">
-                            <expression uid="99a32c31-dea6-43f4-a8f0-44670b028b2e" expressionType="DataControlHolder"/>
-                            <expression uid="11dc3e48-bbf0-4a6c-9235-4ded2eeddf18" objRef="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" order="1" expressionType="DataControlImpl"/>
-                            <expression uid="9d717c36-732f-44d1-8860-655b61c5bdc6" order="2" expressionType="DataControlFakeAttribute"/>
+                        <parameters uid="eb2ce53f-f097-4a5f-b675-8873c5621da3" refObj="7e5e4d1f-1f95-46ca-8ee6-4d7772ad3f99">
+                          <value uid="b35ef8ce-5dac-4b50-8727-f4764720e993" value="Data controls.HolderObject.end Index">
+                            <expression uid="91eb7c06-e322-44d6-9a73-88f189cabc8f" expressionType="DataControlHolder"/>
+                            <expression uid="06f480f7-d975-4372-a2d4-b371cc5bcdd2" objRef="ac35918f-7e14-4d1c-a0c6-fbdfa30a12be" order="1" expressionType="DataControlImpl"/>
+                            <expression uid="da3eb0b2-1f12-4d33-a825-1b911e057375" order="2" expressionType="DataControlFakeAttribute"/>
                           </value>
                         </parameters>
-                        <parameters uid="4512bb71-38e2-4431-b9a0-9fc083ec1a78" refObj="ab025094-583b-4699-b19b-41549870fa75">
-                          <value uid="a71d9859-4f10-4dbf-9d5b-718824f2666a" value="Types repository.Base Repository.Model types.Model types::Base type">
-                            <expression uid="6c103af5-ca7c-4cae-9124-181640209868" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
-                            <expression uid="86c28ea7-68c0-492b-b875-3b6a9398ffca" objRef="95a185f5-86d1-42f5-a3e4-4fc7645a0820" order="1" expressionType="DomainTypesRepositoryImpl"/>
-                            <expression uid="310f7d4e-0519-4853-80c0-03fa22460730" objRef="43d1b17a-4c79-4f22-ad31-fdb487bb0db9" order="2" expressionType="TypeGroupImpl"/>
-                            <expression uid="867cdd99-cfef-4f61-910c-9517e38fd76e" objRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" order="3" expressionType="TypeImpl"/>
+                        <parameters uid="d4a9c150-b75d-44f6-834d-adf65a7d1fa8" refObj="ab025094-583b-4699-b19b-41549870fa75">
+                          <value uid="c6aa08a8-f271-476e-aa65-26043e7be725" value="Types repository.HR domain.Simple model.Simple model::HolderObject">
+                            <expression uid="00124a8d-7ae8-4726-b3d2-a4794830cf2b" objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
+                            <expression uid="94a968a5-fd6d-4e8e-8d2f-77bc13548e74" objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
+                            <expression uid="4381603b-6547-4188-89dd-bf7214cb259c" objRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" order="2" expressionType="TypeGroupImpl"/>
+                            <expression uid="503ab4cc-c827-4bcd-91d2-0388c2020d54" objRef="afcf1949-b66e-495e-9f4c-9882634f80cb" order="3" expressionType="TypeImpl"/>
                           </value>
                         </parameters>
                       </search>

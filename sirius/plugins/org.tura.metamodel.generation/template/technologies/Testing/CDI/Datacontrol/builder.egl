@@ -34,7 +34,15 @@ operation  maven_builder(hash) {
 
      var currentLib = component.getArtifactId()+"-"+component.getVersion()+".jar";
      for (type in alltypes){
-        type.mappingType2Java(recipe,ingredient);
+        type.mappingType2Java(recipe,ingredient,'VIEW');
+        if (type.~library <> null and type.~library.equals(currentLib)<>true ){
+	         var h = new Native("java.util.HashMap"); 
+	         h.put("groupId",type.~groupId);
+	         h.put("artifactId",type.~artifactId);
+	         h.put("version",type.~version);
+	         lib.put(type.~library,h);
+         }
+        type.mappingType2Java(recipe,ingredient,'MODEL');
         if (type.~library <> null and type.~library.equals(currentLib)<>true ){
 	         var h = new Native("java.util.HashMap"); 
 	         h.put("groupId",type.~groupId);
