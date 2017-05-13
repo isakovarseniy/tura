@@ -575,11 +575,12 @@ public class CDITest  {
 			assertNotNull(departmentDC.getCurrentObject());
 			
 			companyDC.islolate();
-			
-			Company newrow = getNewCompany();
-			newrow.setObjId(123L);
 
 			Pager<?> pager = getPager(companyDC);
+			
+			Company newrow = getNewCompany(pager);
+			newrow.setObjId(123L);
+
 	          
 	        PoolElement e = new PoolElement(newrow, ((ObjectControl)newrow).getKey() , companyDC.getBaseClass(), PoolCommand.C.name(), "1");
 	        pager.addCommand(e);
@@ -636,12 +637,13 @@ public class CDITest  {
 			
 			
 			streetDC.islolate();
+
+			Pager<?> pager = getPager(streetDC);
 			
-			Street newrow =  getNewStreet();
+			Street newrow =  getNewStreet(pager);
 			newrow.setObjId(123L);
 			newrow.setParentId(row.getParentId());
 
-			Pager<?> pager = getPager(streetDC);
 	          
 	        PoolElement e = new PoolElement(newrow, ((ObjectControl)newrow).getKey(), streetDC.getBaseClass(), PoolCommand.C.name(), "1");
 	        pager.addCommand(e);
@@ -707,7 +709,7 @@ public class CDITest  {
 					String objName = ((RowRemovedEvent) event).getObj()
 							.getClass().getSimpleName();
 					
-					String key = objName.substring(0, objName.indexOf("$$"))
+					String key = objName.substring(0, objName.indexOf("Proxy"))
 							+ "_"
 							+ Reflection.call(
 									((RowRemovedEvent) event).getObj(),
@@ -722,13 +724,21 @@ public class CDITest  {
 
 	}
 
-	public Company getNewCompany() throws Exception {
-		return new Company();
+	public Company getNewCompany(Pager<?> pager) throws Exception {
+        Field field = pager.getClass().getDeclaredField("repository");
+        field.setAccessible(true);
+        Repository repository =  (Repository) field.get(pager);	
+
+		return (Company) repository.create(Company.class.getName());
 	}
 
 
-	public Street getNewStreet() throws Exception {
-		return  new Street();
+	public Street getNewStreet(Pager<?> pager) throws Exception {
+        Field field = pager.getClass().getDeclaredField("repository");
+        field.setAccessible(true);
+        Repository repository =  (Repository) field.get(pager);	
+
+        return  (Street) repository.create(Street.class.getName());
 	}
 
 }

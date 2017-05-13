@@ -72,7 +72,7 @@ public class FileDSStructureTest {
 
 	@Test
 	public void checkFileDCStructure(){
-		assertEquals(20, FileDC.class.getDeclaredMethods().length);
+		assertEquals(17, FileDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( FileDC.class,"init" ));
 
@@ -93,7 +93,7 @@ public class FileDSStructureTest {
 		assertTrue(findMethod( FileDC.class,"setCreateObjectParameters" ,new Class[]{CreateObjectParameters.class}));
 		m = getMethod( FileDC.class,"setCreateObjectParameters" ,new Class[]{CreateObjectParameters.class});
 		checkSelector(m,"hrmanager.hrcontroller");
-		checkCreateTrigger(m,"files");
+		checkCreateTrigger(m,"file");
 		ArrayList<CallParameter> prms = new ArrayList<>();
 		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.File", TuraObject.class));
 		checkCreateTriggerParameters(m,prms);
@@ -103,12 +103,12 @@ public class FileDSStructureTest {
 		assertTrue(findMethod( FileDC.class,"setSearchObjectParameters" ,new Class[]{SearchObjectParameters.class}));
 		m = getMethod( FileDC.class,"setSearchObjectParameters" ,new Class[]{SearchObjectParameters.class});
 		checkSelector(m,"hrmanager.hrcontroller");
-		checkSearchTrigger(m,"files");
+		checkSearchTrigger(m,"file");
 		prms = new ArrayList<>();
-		prms.add(new CallParameter("searchCriteria", "#{beanFactoryHrManagerHRController.treeRootFiles.controls['*******'].searchCriteria}", List.class));
-		prms.add(new CallParameter("orderByCriteria", "#{beanFactoryHrManagerHRController.treeRootFiles.controls['*******'].orderCriteria}", List.class));
-		prms.add(new CallParameter("start Index", "#{beanFactoryHrManagerHRController.treeRootFiles.controls['*******'].startIndex}", Integer.class));
-		prms.add(new CallParameter("end Index", "#{beanFactoryHrManagerHRController.treeRootFiles.controls['*******'].endIndex}", Integer.class));
+		prms.add(new CallParameter("searchCriteria", "#{beanFactoryHrManagerHRController.treeRootFile.controls['*******'].searchCriteria}", List.class));
+		prms.add(new CallParameter("orderByCriteria", "#{beanFactoryHrManagerHRController.treeRootFile.controls['*******'].orderCriteria}", List.class));
+		prms.add(new CallParameter("start Index", "#{beanFactoryHrManagerHRController.treeRootFile.controls['*******'].startIndex}", Integer.class));
+		prms.add(new CallParameter("end Index", "#{beanFactoryHrManagerHRController.treeRootFile.controls['*******'].endIndex}", Integer.class));
 		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.File", TuraObject.class));
 		checkSearchTriggerParameters(m,prms);
 
@@ -116,44 +116,44 @@ public class FileDSStructureTest {
 		assertTrue(findMethod( FileDC.class,"setPreQueryTrigger" ,new Class[]{PreQueryTrigger.class}));
 		m = getMethod( FileDC.class,"setPreQueryTrigger" ,new Class[]{PreQueryTrigger.class});
 		checkSelector(m,"hrmanager.hrcontroller");
-		checkPreQueryTrigger(m,"files");
+		checkPreQueryTrigger(m,"file");
 		
 		
 		assertTrue(findMethod( FileDC.class,"setPostQueryTrigger" ,new Class[]{PostQueryTrigger.class}));
 		m = getMethod( FileDC.class,"setPostQueryTrigger" ,new Class[]{PostQueryTrigger.class});
 		checkSelector(m,"hrmanager.hrcontroller");
-		checkPostQueryTrigger(m,"files");
+		checkPostQueryTrigger(m,"file");
 		
 		
 		assertTrue(findMethod( FileDC.class,"setPostCreateTrigger" ,new Class[]{PostCreateTrigger.class}));
 		m = getMethod( FileDC.class,"setPostCreateTrigger" ,new Class[]{PostCreateTrigger.class});
 		checkSelector(m,"hrmanager.hrcontroller");
-		checkPostCreateTrigger(m,"files");
+		checkPostCreateTrigger(m,"file");
 
 		
 		assertTrue(findMethod( FileDC.class,"setPreDeleteTrigger" ,new Class[]{PreDeleteTrigger.class}));
 		m = getMethod( FileDC.class,"setPreDeleteTrigger" ,new Class[]{PreDeleteTrigger.class});
 		checkSelector(m,"hrmanager.hrcontroller");
-		checkPreDeleteTrigger(m,"files");
+		checkPreDeleteTrigger(m,"file");
 
 		
 		assertTrue(findMethod( FileDC.class,"setPreInsertTrigger",new Class[]{PreInsertTrigger.class} ));
 		m = getMethod( FileDC.class,"setPreInsertTrigger",new Class[]{PreInsertTrigger.class} );
 		checkSelector(m,"hrmanager.hrcontroller");
-		checkPreInsertTrigger(m,"files");
+		checkPreInsertTrigger(m,"file");
 
 		
 		assertTrue(findMethod( FileDC.class,"setPreUpdateTrigger" ,new Class[]{PreUpdateTrigger.class}));
 		m = getMethod( FileDC.class,"setPreUpdateTrigger" ,new Class[]{PreUpdateTrigger.class});
 		checkSelector(m,"hrmanager.hrcontroller");
-		checkPreUpdateTrigger(m,"files");
+		checkPreUpdateTrigger(m,"file");
 
 		
-		assertTrue(findMethod( FileDC.class,"getFiles2Files" ,new Class[]{}));
-		m = getMethod( FileDC.class,"getFiles2Files" ,new Class[]{});
+		assertTrue(findMethod( FileDC.class,"getFile2File" ,new Class[]{}));
+		m = getMethod( FileDC.class,"getFile2File" ,new Class[]{});
 		ArrayList<PropertyLink> links = new ArrayList<>();
 		links.add(new PropertyLink("objId","parentId"));
-		checkConnection(m,"files2files",links);
+		checkConnection(m,"file2file",links);
 		
 		assertTrue(findMethod( FileDC.class,"createChild" ,new Class[]{String.class}));
 

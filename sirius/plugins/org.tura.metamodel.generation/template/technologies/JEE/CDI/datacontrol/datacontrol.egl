@@ -356,7 +356,7 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
     if (control.defaultOrderBy <> null  and control.defaultOrderBy.size() <> 0 and control.defaultOrderBy.orderRules <> null and control.defaultOrderBy.orderRules.size() <> 0) {
     for (param in control.defaultOrderBy.orderRules  ){
         if (i <> 0 ){ %],[%}%]
-			@org.tura.platform.datacontrol.annotations.DefaultOrderBy(field = "[%=param.refObj.name%]", order =  com.octo.java.sql.query.SelectQuery.Order.[%=param.order%] ) 
+			@org.tura.platform.datacontrol.annotations.DefaultOrderBy(field = "[%=util.mergeAndUnCapitalize(param.refObj.name)%]", order =  com.octo.java.sql.query.SelectQuery.Order.[%=param.order%] ) 
     [%
      i = i+1;
     }

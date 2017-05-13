@@ -72,7 +72,7 @@ public class CountryDCStructureTest {
 
 	@Test
 	public void checkCountryDCStructure(){
-		assertEquals(20, CountryDC.class.getDeclaredMethods().length);
+		assertEquals(17, CountryDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( CountryDC.class,"init" ));
 		

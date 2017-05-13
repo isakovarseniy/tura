@@ -72,7 +72,7 @@ public class CityDCStructureTest {
 
 	@Test
 	public void checkCityDCStructure(){
-		assertEquals(20, CityDC.class.getDeclaredMethods().length);
+		assertEquals(17, CityDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( CityDC.class,"init" ));
 		

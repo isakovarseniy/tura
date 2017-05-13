@@ -72,7 +72,7 @@ public class StateDCStructureTest {
 
 	@Test
 	public void checkStateDCStructure(){
-		assertEquals(20, StateDC.class.getDeclaredMethods().length);
+		assertEquals(17, StateDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( StateDC.class,"init" ));
 		

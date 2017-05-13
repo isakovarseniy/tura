@@ -3829,10 +3829,10 @@
                         </parameters>
                       </search>
                       <artificialFields typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="eff46f2d-d789-4a2d-ab59-4bcb03f5bc71" name="testfield1"/>
-                      <artificialFields typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="69b0be3e-b59a-4a1f-a24f-1ec3ff1ff010" name="testfield2"/>
+                      <artificialFields typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="69b0be3e-b59a-4a1f-a24f-1ec3ff1ff010" name="testField2"/>
                       <defaultSearch/>
                       <defaultOrderBy>
-                        <orderRules uid="35266462-64da-46f0-aa39-1650238f6c00" refObj="d601838d-38ef-4f6a-bc2e-a4e2beed9a74"/>
+                        <orderRules uid="35266462-64da-46f0-aa39-1650238f6c00" refObj="29fd8b61-9165-4be9-9ff4-9e443732683d"/>
                       </defaultOrderBy>
                     </controls>
                     <controls uid="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7" name="Country">

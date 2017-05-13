@@ -116,20 +116,11 @@ public abstract class MasterDetailDataControlPool {
 			
 			factory.setRelatioin(dcd, dce);
 
-//			Relation relation = new Relation();
-//			relation.setParent(dcd);
-//			relation.setChild(dce);
-//			PropertyLink  link =   new PropertyLink ("objId", "parentId");
-//			relation.getLinks().add(link);
-//			
-//			dcd.addChildren("departmentsToemployees", relation);
-			
 			DepartmentType dep =  dcd.getCurrentObject();
 
 			EmployeeType newrow = factory.getNewEmployeeType();
 			newrow.setObjId(123L);
 			setParent(dep, newrow);
-//			newrow.setParentId(dep.getObjId());
 			
 	        Pager<?> pager = getPager(dce);
 	        

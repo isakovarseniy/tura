@@ -70,7 +70,7 @@ public class VehicleDCStructureTest {
 
 	@Test
 	public void checkVehicleDCStructure(){
-		assertEquals(19, VehicleDC.class.getDeclaredMethods().length);
+		assertEquals(16, VehicleDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( VehicleDC.class,"init" ));
 

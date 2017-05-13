@@ -72,7 +72,7 @@ public class EmployeeDCStructureTest {
 
 	@Test
 	public void checkEmployeeDCStructure(){
-		assertEquals(20, EmployeeDC.class.getDeclaredMethods().length);
+		assertEquals(17, EmployeeDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( EmployeeDC.class,"init" ));
 
@@ -96,7 +96,7 @@ public class EmployeeDCStructureTest {
 		checkSelector(m,"hrmanager.tree2tree");
 		checkCreateTrigger(m,"employee");
 		ArrayList<CallParameter> prms = new ArrayList<>();
-		prms.add(new CallParameter("objectType", "org.elsoft.platform.hr.objects.EmployeesDAO", TuraObject.class));
+		prms.add(new CallParameter("objectType", "org.tura.platform.hr.objects.serialization.Employee", TuraObject.class));
 		checkCreateTriggerParameters(m,prms);
 		
 		assertTrue(findMethod( EmployeeDC.class,"setSearchObjectParameters" ,new Class[]{SearchObjectParameters.class}));
@@ -148,11 +148,11 @@ public class EmployeeDCStructureTest {
 		checkPreUpdateTrigger(m,"employee");
 
 		
-		assertTrue(findMethod( EmployeeDC.class,"getEmployee2Files" ,new Class[]{}));
-		m = getMethod( EmployeeDC.class,"getEmployee2Files" ,new Class[]{});
+		assertTrue(findMethod( EmployeeDC.class,"getEmployee2File" ,new Class[]{}));
+		m = getMethod( EmployeeDC.class,"getEmployee2File" ,new Class[]{});
 		ArrayList<PropertyLink> links = new ArrayList<>();
 		links.add(new PropertyLink("objId","parentId"));
-		checkConnection(m,"employee2files",links);
+		checkConnection(m,"employee2file",links);
 		
 		assertTrue(findMethod( EmployeeDC.class,"createChild" ,new Class[]{String.class}));
 

@@ -74,7 +74,7 @@ public class DepartmentDCStructureTest {
 
 	@Test
 	public void checkDepartmentDCStructure(){
-		assertEquals(22, DepartmentDC.class.getDeclaredMethods().length);
+		assertEquals(19, DepartmentDC.class.getDeclaredMethods().length);
 		
 		assertTrue(findMethod( DepartmentDC.class,"init" ));
 
