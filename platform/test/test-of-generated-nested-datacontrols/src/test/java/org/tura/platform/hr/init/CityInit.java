@@ -56,7 +56,9 @@ public class CityInit {
 			cmp.setCity(new ArrayList<City>()); 	     
 		}
 		cmp.getCity().add(dpt);
+		dpt.setState(cmp);
 		
+		em.persist(cmp);
 		em.persist(dpt);
 		return dpt;
 

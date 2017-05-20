@@ -197,7 +197,7 @@ public class JPATest {
 		assertNotNull(c);
 		assertEquals(1, c.value().length); 
 		
-		assertEquals("clientId", c.value()[0].name()); 
+		assertEquals("CLIENT_ID", c.value()[0].name()); 
 		
 		OneToMany d = (OneToMany) findFieldAnnotation(Person.class,OneToMany.class,"phone");
 		assertNotNull(d);

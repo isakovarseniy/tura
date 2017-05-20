@@ -82,8 +82,10 @@ public class DepartmentsInit {
 			cmp.setDepartment(new ArrayList<Department>()); 	     
 		}
 		cmp.getDepartment().add(dpt);
+		dpt.setStreet(cmp);
 		
 		em.persist(dpt);
+		em.persist(cmp);
 		return dpt;
 		
 	}

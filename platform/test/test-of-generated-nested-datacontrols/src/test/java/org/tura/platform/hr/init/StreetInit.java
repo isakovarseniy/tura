@@ -72,8 +72,10 @@ public class StreetInit {
 			cmp.setStreet(new ArrayList<Street>()); 	     
 		}
 		cmp.getStreet().add(dpt);
+		dpt.setCity(cmp);
 		
 		em.persist(dpt);
+		em.persist(cmp);
 		return dpt;
 
 	}

@@ -167,14 +167,12 @@ public class EmployesesInit {
 		emp.setManagerId(managerid);
 		emp.setDepartmentId(departmentid);
 
-if 		(departmentid == null){
-	System.out.println("");
-}
 		Department cmp = em.find(Department.class, departmentid);
 		if ( cmp.getEmployee() == null){
 			cmp.setEmployee(new ArrayList<Employee>()); 	     
 		}
 		cmp.getEmployee().add(emp);
+		emp.setDepartment(cmp);
 		
 		em.persist(emp);
 

@@ -35,5 +35,6 @@ public interface DataProvider {
 
 	public void setRepository(Repository repository);
 	public void init();
-
+	public void setExtendedQuery(ExtendedQuery query);
+	
 }

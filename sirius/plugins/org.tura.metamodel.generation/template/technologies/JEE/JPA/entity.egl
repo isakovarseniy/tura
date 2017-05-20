@@ -38,7 +38,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
     @javax.persistence.Id
     [%if (field.typeRef.~fullName == "java.util.Date"  or field.typeRef.~fullName == "java.sql.Timestamp")%]
 	@javax.persistence.Temporal(javax.persistence.TemporalType.TIMESTAMP)
-	@javax.persistence.Column(name = "[%=util.mergeAndCapitalize(field.name).toUpperCase()%]")
+	@javax.persistence.Column(name = "[%=util.splitByCapitalLatterAndCapitalize(field.name)%]")
 	private [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%];
 	
 	public void set[%=util.mergeAndCapitalize(field.name)%](  [%= field.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(field.name)%]){
@@ -127,10 +127,11 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 [%
 @template
 operation type::Assosiation  joinColumns(){
+      var util = new Native('org.tura.metamodel.commons.Util');
 	  var i = 0;
       %]@javax.persistence.JoinColumns({[%
             for (lnk in self.links){
-            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=lnk.detailField.name%]")[%
+            if (i <> 0){%],[%}%]@javax.persistence.JoinColumn(name="[%=util.splitByCapitalLatterAndCapitalize(lnk.detailField.name)%]")[%
             i = 1;  
             }
     %]}) 

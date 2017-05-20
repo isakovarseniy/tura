@@ -71,8 +71,10 @@ public class StateInit {
 			cmp.setState(new ArrayList<State>()); 	     
 		}
 		cmp.getState().add(dpt);
+		dpt.setCountry(cmp);
 		
 		em.persist(dpt);
+		em.persist(cmp);
 		return dpt;
 
 	}

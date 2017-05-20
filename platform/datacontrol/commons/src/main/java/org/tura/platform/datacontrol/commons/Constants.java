@@ -26,6 +26,7 @@ public class Constants {
 	public static String POST_QUERY_TRIGGER_COMPLETED = "POST_QUERY_TRIGGER_COMPLETED"; 
 	public static String DATA_CONTROL = "Data control";
 	public static String PARENT_OBJECT = "Parent object";
+	public static String TURA_EXT_QUERY = "TURA_EXTENDED_PARAMETER";
 	
 
 }

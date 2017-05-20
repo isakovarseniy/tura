@@ -46,6 +46,8 @@ import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
+import com.octo.java.sql.exp.Operator;
+
 import objects.test.serialazable.jpa.JPATestPackageDataProvider;
 import objects.test.serialazable.jpa.One2Many3A;
 import objects.test.serialazable.jpa.One2Many3B;
@@ -165,6 +167,35 @@ public class One2ManyNoAssosiationTest {
 			
 			em.getTransaction().commit();
 
+			
+			em.getTransaction().begin();
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3A.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			o1 = (One2Many3A) result.getSearchResult().get(0);
+			
+			ArrayList<SearchCriteria> search = new ArrayList<SearchCriteria>();
+			SearchCriteria sc = new SearchCriteria();
+			search.add(sc);
+			sc.setClassName(Long.class.getName());
+			sc.setName("ref");
+			sc.setValue(o1.getObjId());
+			sc.setComparator(Operator.EQ.name());
+			
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 0, One2Many3B.class.getName());
+			assertEquals(2,result.getSearchResult().size());
+			
+			for (Object o : result.getSearchResult()){
+				One2Many3B o3 = (One2Many3B) o;
+				assertEquals(o1.getObjId(), o3.getRef());
+			}
+			
+			
+			em.getTransaction().commit();
+			
+			
+			
+			
 			em.getTransaction().begin();
 			
 			for (Object o : result.getSearchResult()){

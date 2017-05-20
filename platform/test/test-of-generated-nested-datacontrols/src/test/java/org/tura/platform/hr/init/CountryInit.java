@@ -56,8 +56,10 @@ public class CountryInit {
 			cmp.setCountry(new ArrayList<Country>()); 	     
 		}
 		cmp.getCountry().add(dpt);
+		dpt.setCompany(cmp);
 
 		em.persist(dpt);
+		em.persist(cmp);
 		
 		
 		return dpt;

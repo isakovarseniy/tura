@@ -17,6 +17,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
     private org.tura.platform.repository.core.PrImaryKeyStrategy pkStrategy;
     private java.util.HashMap<String,org.tura.platform.repository.core.Command> classLoader = new java.util.HashMap<String,org.tura.platform.repository.core.Command>();
     private java.util.HashMap<String,String> classMapper = new java.util.HashMap<String,String>();
+    private java.util.HashMap<String,org.tura.platform.repository.core.ExtendedQuery> extQueryHash = new java.util.HashMap<String,org.tura.platform.repository.core.ExtendedQuery>();
     
 
      public void setEntityManager(javax.persistence.EntityManager em){
@@ -155,7 +156,39 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 		}
 	}
 
-	public java.util.List<?> findObjects(java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, Integer startIndex,
+
+    public List<?> findObjects(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, Integer startIndex,
+        Integer endIndex, String objectClass) throws Exception {
+    	
+    	List<org.tura.platform.datacontrol.commons.SearchCriteria> copySearchCriteria  = new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
+    	copySearchCriteria.addAll(searchCriteria);
+    	
+    	String extQuery = findExtParameter(copySearchCriteria); 
+    	if (extQuery != null){
+                return executeExtendedQuery(copySearchCriteria,orderCriteria,startIndex,endIndex, objectClass ,extQueryHash.get(objectClass+"."+extQuery).findObjectsQuery());
+    	}else{
+    		return executeDefaultQuery(copySearchCriteria,orderCriteria,startIndex,endIndex,objectClass);
+    	}
+    }
+
+    public long findNumberOfRows(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, String objectClass) throws Exception {
+    	
+    	List<org.tura.platform.datacontrol.commons.SearchCriteria> copySearchCriteria  = new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
+    	copySearchCriteria.addAll(searchCriteria);
+    	
+    	String extQuery = findExtParameter(copySearchCriteria); 
+    	if (extQuery != null){
+                return executeExtendedNumberOfRowsQuery(copySearchCriteria,orderCriteria, objectClass ,extQueryHash.get(objectClass+"."+extQuery).findNumberOfRowsQuery());
+    	}else{
+    		return executeDefaultNumberOfRowsQuery(copySearchCriteria,orderCriteria,objectClass);
+    	}
+    	
+  }
+
+
+
+
+	public java.util.List<?> executeDefaultQuery(java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws Exception {
 
 		Class<?> clazz = (Class<?>) this.getClass().getClassLoader().loadClass(objectClass);
@@ -173,7 +206,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 		return query.getResultList();
 	}
 
-	public long findNumberOfRows(java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria,String objectClass) throws Exception {
+	public long executeDefaultNumberOfRowsQuery(java.util.List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, java.util.List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria,String objectClass) throws Exception {
 
 		com.octo.java.sql.query.SelectQuery dslQuery = org.tura.platform.datacontrol.commons.DefaulQueryFactory.builder(searchCriteria, orderCriteria, Class.forName(objectClass));
 		dslQuery.getColumns()[0] = c("count(*)");
@@ -186,5 +219,52 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 		return (long) query.getSingleResult();
 	}
 	   
+    private List<?> executeExtendedQuery(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria,List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, Integer startIndex,
+            Integer endIndex, String objectClass,String extQuery) throws Exception{
+    	
+        Class<?> clazz =
+                (Class<?>) this.getClass().getClassLoader().loadClass(objectClass);
+
+        Query query = getEntityManager().createQuery(extQuery, clazz);
+        query.setFirstResult(startIndex);
+        if (endIndex > 0) {
+            query.setMaxResults(endIndex - startIndex);
+        }
+		for (org.tura.platform.datacontrol.commons.SearchCriteria sc  : searchCriteria){
+            query.setParameter(sc.getName(), sc.getValue());
+		}    	
+        return query.getResultList();
+    }    
+
+    private long executeExtendedNumberOfRowsQuery(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, String objectClass,String extQuery) throws Exception{
+    	
+        Class<?> clazz =
+                (Class<?>) this.getClass().getClassLoader().loadClass(objectClass);
+
+        Query query = getEntityManager().createQuery(extQuery, clazz);
+		for (SearchCriteria sc  : searchCriteria){
+            query.setParameter(sc.getName(), sc.getValue());
+		}    	
+        return (long) query.getSingleResult();
+    }    
+    
+	@Override
+	public void setExtendedQuery(org.tura.platform.repository.core.ExtendedQuery query) {
+		extQueryHash.put(query.getCalssName()+"."+query.getQueryName(), query);
+	}
+	
+	private String findExtParameter(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria){
+		org.tura.platform.datacontrol.commons.SearchCriteria saved = null;
+		for (org.tura.platform.datacontrol.commons.SearchCriteria sc  : searchCriteria){
+			if ( org.tura.platform.datacontrol.commons.Constants.TURA_EXT_QUERY.equals(sc.getName())){
+				 saved = sc;
+			}
+		}
+		if (saved != null){
+			searchCriteria.remove(saved);
+			return (String) saved.getValue();
+		}
+		return null;
+	}
 
 }

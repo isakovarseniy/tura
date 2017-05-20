@@ -638,4 +638,19 @@ public class Util {
 		throw new Exception("Hint "+hintNickName+" is undifined in "+mapper.getArtifactRef().getName());
 	}
 	
+	public static String splitByCapitalLatter(String s){
+		String ss = mergeAndCapitalize(s);
+		String[] r = ss.split("(?<=.)(?=\\p{Lu})");
+		String result = r[0];
+		if (r.length > 1){
+			for ( int i = 1;  i < r.length ; i++ ){
+				result = result+"_"+r[i];
+			}
+		}
+		return result;
+	}
+	
+	public static String splitByCapitalLatterAndCapitalize(String s){
+		return splitByCapitalLatter(s).toUpperCase();
+	}
 }
