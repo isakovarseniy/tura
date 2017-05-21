@@ -38,10 +38,6 @@ public class PersistenceObject  implements TuraObject{
 	@Column(name = "OBJ_ID")
 	private Long objId;
 
-
-	@Column(name = "PARENT_ID")
-	private Long parentId;
-	
 	@Column(name = "OBJ_TYPE")
 	private String objType;
 
@@ -132,14 +128,6 @@ public class PersistenceObject  implements TuraObject{
 
 	public void setObjId(Long objId) {
 		this.objId = objId;
-	}
-
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
 	}
 
 }

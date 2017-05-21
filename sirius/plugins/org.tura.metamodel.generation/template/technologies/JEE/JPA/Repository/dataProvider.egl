@@ -165,7 +165,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
     	
     	String extQuery = findExtParameter(copySearchCriteria); 
     	if (extQuery != null){
-                return executeExtendedQuery(copySearchCriteria,orderCriteria,startIndex,endIndex, objectClass ,extQueryHash.get(objectClass+"."+extQuery).findObjectsQuery());
+                return executeExtendedQuery(copySearchCriteria,orderCriteria,startIndex,endIndex, objectClass ,extQueryHash.get(objectClass+".query."+extQuery).findObjectsQuery());
     	}else{
     		return executeDefaultQuery(copySearchCriteria,orderCriteria,startIndex,endIndex,objectClass);
     	}
@@ -178,7 +178,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
     	
     	String extQuery = findExtParameter(copySearchCriteria); 
     	if (extQuery != null){
-                return executeExtendedNumberOfRowsQuery(copySearchCriteria,orderCriteria, objectClass ,extQueryHash.get(objectClass+"."+extQuery).findNumberOfRowsQuery());
+                return executeExtendedNumberOfRowsQuery(copySearchCriteria,orderCriteria, objectClass ,extQueryHash.get(objectClass+".query."+extQuery).findNumberOfRowsQuery());
     	}else{
     		return executeDefaultNumberOfRowsQuery(copySearchCriteria,orderCriteria,objectClass);
     	}
@@ -250,7 +250,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
     
 	@Override
 	public void setExtendedQuery(org.tura.platform.repository.core.ExtendedQuery query) {
-		extQueryHash.put(query.getCalssName()+"."+query.getQueryName(), query);
+		extQueryHash.put(query.getCalssName()+".query."+query.getQueryName(), query);
 	}
 	
 	private String findExtParameter(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria){
