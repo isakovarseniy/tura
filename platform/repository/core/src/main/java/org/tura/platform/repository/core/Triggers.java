@@ -23,22 +23,19 @@ package org.tura.platform.repository.core;
 
 import java.util.List;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
+public abstract class Triggers {
+	
+	public abstract String getCalssName();
+	public abstract String getQueryName();
 
-public interface DataProvider {
+	
+	public void preQueryTrigger(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria){
+		
+	}
 
-	public Object create(String objectClass) throws RepositoryException;
-
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException;
-
-	public void setRepository(Repository repository);
-
-	public void init();
-
-	public void setExtendedQuery(ExtendedQuery query);
-
-	public void setTriggers(Triggers triggers);
-
+	public void postQueryTrigger(Object obj){
+		
+	}
+	
+	
 }

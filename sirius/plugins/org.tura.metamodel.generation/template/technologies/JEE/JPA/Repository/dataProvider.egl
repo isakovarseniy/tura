@@ -18,6 +18,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
     private java.util.HashMap<String,org.tura.platform.repository.core.Command> classLoader = new java.util.HashMap<String,org.tura.platform.repository.core.Command>();
     private java.util.HashMap<String,String> classMapper = new java.util.HashMap<String,String>();
     private java.util.HashMap<String,org.tura.platform.repository.core.ExtendedQuery> extQueryHash = new java.util.HashMap<String,org.tura.platform.repository.core.ExtendedQuery>();
+    private java.util.HashMap<String,org.tura.platform.repository.core.Triggers> extTriggerHash = new java.util.HashMap<String,org.tura.platform.repository.core.Triggers>();
     
 
      public void setEntityManager(javax.persistence.EntityManager em){
@@ -139,15 +140,33 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 			Integer endIndex, String objectClass) throws org.tura.platform.repository.core.RepositoryException {
 		try {
 			String persistentClass = findPersistanceClass(objectClass);
-			long numberOfRows = findNumberOfRows(searchCriteria, orderCriteria, persistentClass);
+    	    List<org.tura.platform.datacontrol.commons.SearchCriteria> copySearchCriteria  = new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
+    	    copySearchCriteria.addAll(searchCriteria);
+    	
+    	   String extQuery = findExtParameter(copySearchCriteria);
+    	   org.tura.platform.repository.core.Triggers triggers = null;
+    	   if (extQuery == null){
+    	      triggers = extTriggerHash.get(persistentClass+".triggers."+"default");
+    	   }else{
+    	      triggers = extTriggerHash.get(persistentClass+".triggers."+extQuery);
+    	   } 
+			
+			if (triggers != null ){
+			    triggers.preQueryTrigger(copySearchCriteria, orderCriteria);
+			}
+			
+			long numberOfRows = findNumberOfRows(copySearchCriteria, orderCriteria, persistentClass,extQuery);
 
-			java.util.List list = (java.util.List<?>) findObjects(searchCriteria, orderCriteria, startIndex, new Long(numberOfRows).intValue(),
-					persistentClass);
+			java.util.List list = (java.util.List<?>) findObjects(copySearchCriteria, orderCriteria, startIndex, new Long(numberOfRows).intValue(),
+					persistentClass,extQuery);
 
 
 			org.tura.platform.repository.core.Command cmd = findLoader(objectClass);
 			for (int i = 0; i < list.size(); i++) {
 				Object obj = cmd.execute(list.get(i));
+			    if (triggers != null) {
+			       triggers.postQueryTrigger(obj);
+			    }
 				list.set(i, obj);
 			}
             return new org.tura.platform.repository.core.SearchResult(list, numberOfRows);
@@ -158,29 +177,21 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
 
 
     public List<?> findObjects(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, Integer startIndex,
-        Integer endIndex, String objectClass) throws Exception {
+        Integer endIndex, String objectClass,String extQuery) throws Exception {
     	
-    	List<org.tura.platform.datacontrol.commons.SearchCriteria> copySearchCriteria  = new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
-    	copySearchCriteria.addAll(searchCriteria);
-    	
-    	String extQuery = findExtParameter(copySearchCriteria); 
     	if (extQuery != null){
-                return executeExtendedQuery(copySearchCriteria,orderCriteria,startIndex,endIndex, objectClass ,extQueryHash.get(objectClass+".query."+extQuery).findObjectsQuery());
+                return executeExtendedQuery(searchCriteria,orderCriteria,startIndex,endIndex, objectClass ,extQueryHash.get(objectClass+".query."+extQuery).findObjectsQuery());
     	}else{
-    		return executeDefaultQuery(copySearchCriteria,orderCriteria,startIndex,endIndex,objectClass);
+    		return executeDefaultQuery(searchCriteria,orderCriteria,startIndex,endIndex,objectClass);
     	}
     }
 
-    public long findNumberOfRows(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, String objectClass) throws Exception {
-    	
-    	List<org.tura.platform.datacontrol.commons.SearchCriteria> copySearchCriteria  = new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
-    	copySearchCriteria.addAll(searchCriteria);
-    	
-    	String extQuery = findExtParameter(copySearchCriteria); 
+    public long findNumberOfRows(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria, String objectClass,String extQuery) throws Exception {
+
     	if (extQuery != null){
-                return executeExtendedNumberOfRowsQuery(copySearchCriteria,orderCriteria, objectClass ,extQueryHash.get(objectClass+".query."+extQuery).findNumberOfRowsQuery());
+                return executeExtendedNumberOfRowsQuery(searchCriteria,orderCriteria, objectClass ,extQueryHash.get(objectClass+".query."+extQuery).findNumberOfRowsQuery());
     	}else{
-    		return executeDefaultNumberOfRowsQuery(copySearchCriteria,orderCriteria,objectClass);
+    		return executeDefaultNumberOfRowsQuery(searchCriteria,orderCriteria,objectClass);
     	}
     	
   }
@@ -250,9 +261,20 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
     
 	@Override
 	public void setExtendedQuery(org.tura.platform.repository.core.ExtendedQuery query) {
-		extQueryHash.put(query.getCalssName()+".query."+query.getQueryName(), query);
+	    if (classMapper.values().contains(query.getCalssName())) {
+		    extQueryHash.put(query.getCalssName()+".query."+query.getQueryName(), query);
+	   }
 	}
 	
+	@Override
+	public void setTriggers(org.tura.platform.repository.core.Triggers  triggers) {
+	   if (classMapper.values().contains(triggers.getCalssName())) {
+		    extTriggerHash.put(triggers.getCalssName()+".triggers."+triggers.getQueryName(), triggers);
+	   }
+	}
+
+
+
 	private String findExtParameter(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria){
 		org.tura.platform.datacontrol.commons.SearchCriteria saved = null;
 		for (org.tura.platform.datacontrol.commons.SearchCriteria sc  : searchCriteria){

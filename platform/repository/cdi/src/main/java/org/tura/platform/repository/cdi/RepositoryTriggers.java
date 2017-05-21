@@ -19,26 +19,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.repository.cdi;
 
-import java.util.List;
+import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 
-public interface DataProvider {
+import javax.inject.Qualifier;
 
-	public Object create(String objectClass) throws RepositoryException;
-
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException;
-
-	public void setRepository(Repository repository);
-
-	public void init();
-
-	public void setExtendedQuery(ExtendedQuery query);
-
-	public void setTriggers(Triggers triggers);
+@Qualifier
+@Retention(RUNTIME)
+@Target({ TYPE })
+public @interface RepositoryTriggers {
 
 }

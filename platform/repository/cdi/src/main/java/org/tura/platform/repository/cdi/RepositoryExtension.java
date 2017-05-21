@@ -33,11 +33,22 @@ import javax.enterprise.inject.spi.ProcessBean;
 public class RepositoryExtension implements Extension {
 
 	private ArrayList<Bean<?>> dataProviderBeans = new ArrayList<>();
+	private ArrayList<Bean<?>> customQueryBeans = new ArrayList<>();
+	private ArrayList<Bean<?>> repositoryTriggersBeans = new ArrayList<>();
 
 	public <T> void collect(@Observes ProcessBean<T> event) {
 		if (event.getAnnotated().isAnnotationPresent(ObjectProvider.class)) {
 			dataProviderBeans.add(event.getBean());
 		}
+		
+		if (event.getAnnotated().isAnnotationPresent(CustomQuery.class)) {
+			customQueryBeans.add(event.getBean());
+		}
+		
+		if (event.getAnnotated().isAnnotationPresent(RepositoryTriggers.class)) {
+			repositoryTriggersBeans.add(event.getBean());
+		}
+		
 	}
 	
 
@@ -45,5 +56,17 @@ public class RepositoryExtension implements Extension {
 		return dataProviderBeans;
 	}
 
+	
+	public ArrayList<Bean<?>> getCustomQueryBeans() {
+		return customQueryBeans;
+	}
+
+
+	public ArrayList<Bean<?>> getRepositoryTriggersBeans() {
+		return repositoryTriggersBeans;
+	}
+
+
+	
 
 }
