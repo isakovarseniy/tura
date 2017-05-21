@@ -67,6 +67,16 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
          %]
           [%=serializer(tp,type.~skipAttributes,"jpa","obj")%]
          [%  
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+         }           
+         
+         var tp = type;
+         while  (1 == 1) {
+         
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
 		     for (rel in assosiations){
 		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){

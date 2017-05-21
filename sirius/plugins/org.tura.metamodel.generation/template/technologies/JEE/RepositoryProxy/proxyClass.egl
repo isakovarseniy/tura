@@ -89,7 +89,21 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
       }
     
     
-    
+    @Override
+    public String toString(){
+    String str = "";
+    [%
+    for (field in tp.attributes){
+	     if (tp.~skipAttributes.contains(field) ){
+	        continue; 
+	     }   
+    %]
+      str = str + " [%=field.name%] = "+ getWrappedObject().get[%=util.mergeAndCapitalize(field.name)%]();
+    [%
+    }
+    %]
+     return str;
+    }
     
     [%
     
