@@ -934,24 +934,6 @@
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
           </types>
-          <types xsi:type="tura.type:Type" uid="71922925-c8d3-4273-b2ee-441e832f13f1" name="Insert commpressor command">
-            <operations uid="af699e3b-4d57-4649-8fa0-60f4e52abb98" name="insert">
-              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="ed121d61-27bb-42ab-9e84-2304521ab847" name="object"/>
-              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
-            </operations>
-          </types>
-          <types xsi:type="tura.type:Type" uid="69fbd42d-c1db-4cbf-bc53-b8acbf706aab" name="Update compressor command">
-            <operations uid="1a6374ef-6469-49b8-8eb0-760e6e273f23" name="update">
-              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="40b2187e-6059-4345-a69e-427102883a07" name="object"/>
-              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
-            </operations>
-          </types>
-          <types xsi:type="tura.type:Type" uid="d77c4aa4-e9dc-4927-a271-3140e44a17b6" name="Remove compressor command">
-            <operations uid="c3a41d83-bd58-49ce-a7f8-d2b2ebf8a97e" name="remove">
-              <parameters typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="30e1a3a4-9359-41e3-828a-249d5ceeefb7" name="object"/>
-              <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
-            </operations>
-          </types>
         </repositoryPackages>
       </typesRepository>
       <typesRepository uid="217f0220-cbd9-4502-9710-2fb1b26cc74c" name="HR domain">
@@ -1826,13 +1808,12 @@
               </recipes>
               <recipes uid="66d6cc9b-a6e1-40e0-b0cb-18c4c02274b2" name="UI">
                 <recipes uid="6c59b498-c8ad-4f2e-8b13-68919051c08f" name="HR forms">
-                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a f222b58b-cd61-4fe3-9a57-98f09aafac20 af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3 acdc2d46-bd08-4e15-ae7f-e81dade87e6d 71f44269-b3fd-4292-8c43-2ffb245accd8" uid="4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5" name="HR forms">
-                    <ingredients order="1" uid="cb94813a-6ea2-4cca-84e9-e7322de5afd0" name="Form ingredient" modelLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
+                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3 acdc2d46-bd08-4e15-ae7f-e81dade87e6d 71f44269-b3fd-4292-8c43-2ffb245accd8 d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" uid="4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5" name="HR forms">
+                    <ingredients order="1" uid="cb94813a-6ea2-4cca-84e9-e7322de5afd0" name="Form ingredient" vewLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec" modelLayer="d7636d4b-5360-45e3-b983-1abe14af04d4">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f8f26823-9f25-4fe4-a406-059a4c2bc09f" name="UI component" componentRoot="/Users/arseniy/generatedCode/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="989d5392-92cf-4922-b915-896f942783cb" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="32cdf13e-2b00-42ea-a6a0-00eadfd814db"/>
-                          <technologies/>
                           <queries uid="131b9190-c393-4033-a825-4dc2dbe57bac" name="Query forms" queryRef="6f144a4c-ed93-4505-83eb-949ae91f81f2">
                             <variables queryParamRef="c59e9116-e389-49bc-be09-87085a157fbb" value="ERP"/>
                             <variables queryParamRef="bd434a4d-05fb-4391-af0d-ce67335d09e4" value="HR domain"/>
@@ -1853,17 +1834,13 @@
                           <technologies techRef="9c644338-08e7-4b17-bdda-58e6690b8f3d" valueRef="f5220160-61e4-46f2-abaa-750bf4235f27"/>
                           <technologies techRef="a77433e3-0f05-4914-8f7d-826865199dfc" valueRef="d05628e6-5a6f-40b6-986f-e5b16f9e619e"/>
                           <technologies techRef="a0eabf01-e648-44ca-8be7-bf2779d04f0e" valueRef="1a2b1010-9329-4acf-9a74-ce8e1f51db82"/>
-                          <queries uid="8d3e1ed3-c29a-40b9-b39d-7c121fa7e49b" name="Query domain model" queryRef="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce">
-                            <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="HR domain"/>
-                            <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="Simple domain model"/>
-                          </queries>
-                          <queries uid="703e4db1-e051-4630-99e6-66ea28c605ba" name="Query commands" queryRef="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce">
-                            <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="Base Repository"/>
-                            <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="Data control commands"/>
-                          </queries>
                           <queries uid="80a31766-541f-460f-b79f-1f537d9caa3c" name="Query business logic" queryRef="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce">
                             <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="HR domain"/>
                             <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="HR controller business logic"/>
+                          </queries>
+                          <queries uid="dbf42e3a-a0b3-4678-af63-55c39e7c2f70" name="Query model" queryRef="0df9d26f-e33e-4f5c-af6b-9d33b2fb22ce">
+                            <variables queryParamRef="30c1f3f9-955c-409d-9202-ec6ba3beea4b" value="HR domain"/>
+                            <variables queryParamRef="c1e85a38-e001-4c43-a94e-155c15e5c37e" value="Simple model"/>
                           </queries>
                         </mappers>
                         <mappers uid="1dc64683-ffb2-46a7-bd67-7e7bc2fdbe8f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Application Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/builder.sh">
@@ -1973,7 +1950,6 @@
                     <startSeq uid="e2ef3a3d-92f4-4fa1-a0ed-9c4010ed41c0" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="b051237e-4899-42fb-870a-551e3056850f">
-                    <properties uid="4886bcd5-84be-4365-a8b7-537dcaeba1d8" confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="HRObjects"/>
                     <properties uid="eab771eb-6b9e-458f-bbae-7939a9b02c3a" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
                     <properties uid="d1840311-0539-4ee9-8296-3600026dfed1" confVarRef="f52c2871-e5b6-479e-a5bd-3101df6341f5" value="domain1"/>
                     <properties uid="51f9193f-ade7-4e6b-b931-7c074812a910" confVarRef="733038d4-dbbf-4a72-8f84-45ec731f4ce9" value="/Users/arseniy/servers/glassfish4"/>
@@ -2140,9 +2116,6 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="b88f6082-11a8-41d4-aba6-a8f51101c7ee" uid="71ad446e-a2b1-4a34-b3e7-9a507676108f" mappedToPackageName="java.util" mappedToClassName="List"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="0b15e255-6c03-447d-baec-bac82427d639" uid="8360be6b-4660-4335-8a33-eaa286634e0f" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="SearchCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="45e54a84-60e2-47e4-8159-5c815a3c346e" uid="9dd83f36-fe0f-4148-ae5a-628304b48938" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="CreateCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="71922925-c8d3-4273-b2ee-441e832f13f1" uid="962edff2-f153-4a8c-a82f-9a6246a5d536" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="InsertCommandTuraService" artifactId="tura-service-compressor" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="69fbd42d-c1db-4cbf-bc53-b8acbf706aab" uid="e11402e9-63c8-451e-acce-642111fcce86" mappedToPackageName="org.tura.platform.datacontrol.command.turaservice" mappedToClassName="UpdateCommandTuraService" artifactId="tura-service-compressor" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="d77c4aa4-e9dc-4927-a271-3140e44a17b6" uid="4d582471-714c-43f5-a43f-c0a82aedf8b7" mappedToPackageName="org.tura.platform.datacontrol.command" mappedToClassName="DeleteCommand" artifactId="tura-service-jpa" groupId="org.tura.platform.datacontrol.command" version="2.0"/>
                 </mapper>
               </mappers>
               <mappers uid="f65c8bf9-c033-4281-b8ee-918b9882f067" name="HR control app mappings">
@@ -2161,13 +2134,12 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" uid="59acb2af-4400-4248-90ec-4b5ed5303c46" mappedToPackageName="org.tura.platform.primefaces.lib" mappedToClassName="SystemLibrary" artifactId="primefaces-model" groupId="org.tura.platform" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaScriptMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="74f6e110-73a0-4c30-bc42-426cde36ac40" uid="51e96293-ab38-4c47-adbd-0f9c0eac305b" libraryUrl="clientSystemLibrary.js"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="1d17cd28-17dc-4964-bb46-63e1a4003517" uid="e78e23cd-7fd8-4e4c-ae9b-464f4c5ed7ac" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec cec3ff79-4dff-4a21-a9b6-37d0e25d4513" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="22643e00-1019-4f9a-b22b-5ee03e957858" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="f07b6531-021a-4b2d-baa4-d28fa79a4053" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="jpa" groupId="org.tura.platform.repository" version="2.0"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="cec3ff79-4dff-4a21-a9b6-37d0e25d4513" typeRef="ca9619bb-716a-48ac-9b6c-2f4a6b468793" uid="817f486a-a5f4-4d08-82c5-257b90a92e02" mappedToPackageName="org.tura.platform.object.model" mappedToClassName="DomainObject" artifactId="commons-persistence" groupId="org.tura.platform" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="1d17cd28-17dc-4964-bb46-63e1a4003517" uid="d7802112-623c-4771-a623-12a9272369f4" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager"/>
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="1c50fed0-8776-47f1-91fb-e02b2d8f00ad" namespace="persistence.serializaton.object.platform.tura.org" typename="PersistenceObject"/>
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="8b94b9cd-b404-4243-bc7b-bf085d4163bd" uid="0e3ef534-9006-44a2-b217-343a56f29075" namespace="http://www.w3.org/2001/XMLSchema" typename="string"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9 4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="8b94b9cd-b404-4243-bc7b-bf085d4163bd" uid="599287c5-e649-426e-a446-75bcd2bc8c31" mappedToPackageName="java.lang" mappedToClassName="String"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="e5cbe290-395a-4dc4-b265-ed2f3fa092e9" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="core" groupId="org.tura.platform.repository" version="2.0"/>
                 </mapper>
               </mappers>
               <mappers uid="cafba9fe-0d77-4612-8569-752443925068" name="HR controller business logic mapper">
@@ -2181,6 +2153,7 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="7582eec2-b280-4f56-ae44-4ad4ab5d6530 31dc2714-08fe-4185-b17e-02b0ae92e6ec cec3ff79-4dff-4a21-a9b6-37d0e25d4513 0d88bb08-2150-462f-937d-70b99af379f9 4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="af833f7a-deb1-4318-bdee-c54a889293cc" uid="92e66479-4fef-4d61-b401-6b9a690c9e21" mappedToClassName="String"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="7582eec2-b280-4f56-ae44-4ad4ab5d6530 31dc2714-08fe-4185-b17e-02b0ae92e6ec cec3ff79-4dff-4a21-a9b6-37d0e25d4513 0d88bb08-2150-462f-937d-70b99af379f9 4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="31b79724-028a-4868-900f-e445787d71b0" uid="892fa8b8-006e-4dd9-8732-7fa51cb62b8b" mappedToClassName="String"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="7582eec2-b280-4f56-ae44-4ad4ab5d6530 31dc2714-08fe-4185-b17e-02b0ae92e6ec cec3ff79-4dff-4a21-a9b6-37d0e25d4513 0d88bb08-2150-462f-937d-70b99af379f9 4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="5752f30f-2e05-4204-a7a7-9f0cfe79d39e" uid="cb2ae84d-1892-4039-baef-00ce85b47c1f" mappedToClassName="String"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="7582eec2-b280-4f56-ae44-4ad4ab5d6530 31dc2714-08fe-4185-b17e-02b0ae92e6ec cec3ff79-4dff-4a21-a9b6-37d0e25d4513 d7636d4b-5360-45e3-b983-1abe14af04d4 0d88bb08-2150-462f-937d-70b99af379f9 4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="847ad35e-4f3c-4d4c-8203-8d93a6d2a4f2" uid="77c9526f-69ec-4310-a1d7-5301cf62f03f" mappedToClassName="String"/>
                 </mapper>
               </mappers>
               <mappers uid="e1fb4b7f-f719-4948-abf1-5761d73ddd6c" name="HR simple model mapper">
@@ -2255,6 +2228,7 @@
                                   </parameters>
                                 </fields>
                                 <required uid="eab3fc44-3649-4f01-a23c-86614d30bdeb"/>
+                                <readOnly uid="919ab26a-7297-4cb3-888c-0298f6f71ad0"/>
                                 <refreshAreas area="d9a54943-1385-431f-a588-cd6816cf82f6" group="2"/>
                                 <refreshAreas area="3fc4f77c-2b93-42b4-accf-ba4a658fb2ba" group="2"/>
                                 <refreshAreas area="5fbee6ea-fd10-4a04-a905-f97ab35ce47b" group="2"/>
@@ -2424,7 +2398,7 @@
                                 </multiLangLabel>
                                 <cols uid="ab482d70-9f7f-46a7-b908-0ad755d96311" label="Column">
                                   <style uid="c6ab2c8e-b8e8-49ad-8da7-507c4f656570"/>
-                                  <element xsi:type="tura.form:InputText" uid="d7fcc797-b6c0-4868-8794-a0dcf52df3b5"/>
+                                  <element xsi:type="tura.form:InputText" uid="d7fcc797-b6c0-4868-8794-a0dcf52df3b5" valuePointer="428efc7e-b92b-4ffa-a88b-4935ac2f1e0e"/>
                                 </cols>
                               </children>
                               <children xsi:type="tura.form:LayerHolder" order="1" uid="80a70fc6-c5ed-4393-84f8-f03490f0aa7c">
@@ -2701,7 +2675,7 @@
                                       <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                       <expression objRef="cd412888-9814-496a-8c27-9c651e639ee9" order="2" expressionType="MessageImpl"/>
                                     </multiLangLabel>
-                                    <element xsi:type="tura.form:InputText" uid="b09c3760-3680-42c9-88bb-8ad03cfa694c" sourceCastDataControl="0e096922-7c5f-43ea-af07-2f868963642e"/>
+                                    <element xsi:type="tura.form:InputText" uid="b09c3760-3680-42c9-88bb-8ad03cfa694c" valuePointer="29fd8b61-9165-4be9-9ff4-9e443732683d" sourceCastDataControl="0e096922-7c5f-43ea-af07-2f868963642e"/>
                                   </cols>
                                   <cols order="1" uid="b14d0be6-79f7-408f-b4eb-090535a4309f" label="Description">
                                     <style uid="8c5f6695-0cb5-407e-9700-042f8731c976"/>
@@ -2710,7 +2684,7 @@
                                       <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                       <expression objRef="00bf40a7-fbc3-4452-b8c0-fa73d6273243" order="2" expressionType="MessageImpl"/>
                                     </multiLangLabel>
-                                    <element xsi:type="tura.form:InputText" uid="ff021750-2f47-4c78-bf48-6abf9700dccd"/>
+                                    <element xsi:type="tura.form:InputText" uid="ff021750-2f47-4c78-bf48-6abf9700dccd" valuePointer="ce8bf78d-797c-4e63-8781-e7a7304998c0"/>
                                   </cols>
                                   <cols order="2" uid="d5e8ff70-3ca5-4ce8-95f3-a3095c0420e9" label="View company's details">
                                     <multiLangLabel uid="5c5cc5d0-aece-4fc3-a8e2-50f97c8dab27" value="Application Message Libraries.HR Controller.COMPANY_TABLE_VIEW_DETAILS">
@@ -2808,7 +2782,7 @@
                                 <expression objRef="85df6847-8d97-4e17-a74b-af8d82075c24" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:OutputText" order="1" uid="15ab1d0b-cd35-481d-9808-ae47fe658178" sourcePointer="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7" sourceCastDataControl="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7">
+                            <children xsi:type="tura.form:OutputText" order="1" uid="15ab1d0b-cd35-481d-9808-ae47fe658178" sourcePointer="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7" valuePointer="428efc7e-b92b-4ffa-a88b-4935ac2f1e0e" sourceCastDataControl="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7">
                               <style uid="d137ec67-c993-4179-9a3d-c34e11ed3b55" constant="true" value="margin:0px 0px 0px 20px;"/>
                               <classifiers uid="81dd6cd7-f6f4-44ff-bbb2-01831db3144e" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="Company Details"/>
                             </children>
@@ -2837,7 +2811,7 @@
                                 <expression objRef="3235a388-1c73-48e5-9818-278fc4912783" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:OutputText" order="1" uid="35e4f0f7-48c7-4705-8514-1d9e5c6a700d" sourcePointer="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7" sourceCastDataControl="8ac18684-75e6-423f-b9eb-deedcc1ae268">
+                            <children xsi:type="tura.form:OutputText" order="1" uid="35e4f0f7-48c7-4705-8514-1d9e5c6a700d" sourcePointer="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7" valuePointer="428efc7e-b92b-4ffa-a88b-4935ac2f1e0e" sourceCastDataControl="8ac18684-75e6-423f-b9eb-deedcc1ae268">
                               <style uid="b69294ff-a3f4-43e0-8e1a-e07595880164" constant="true" value="margin:0px 0px 0px 20px;"/>
                               <classifiers uid="23ba8a30-4980-4869-adc1-9f39abe16007" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="State Deteails"/>
                             </children>
@@ -2866,7 +2840,7 @@
                                 <expression objRef="ec523ae4-3f4c-4b1e-8e83-851fbe963892" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:OutputText" order="1" uid="cb21c053-49eb-4cab-97b7-ea63721bdc49" sourcePointer="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7" sourceCastDataControl="2353760b-a5f1-4eea-afa7-175298743af2">
+                            <children xsi:type="tura.form:OutputText" order="1" uid="cb21c053-49eb-4cab-97b7-ea63721bdc49" sourcePointer="28e1ba6a-2e6e-4c67-a0d4-40d069ee9ac7" valuePointer="428efc7e-b92b-4ffa-a88b-4935ac2f1e0e" sourceCastDataControl="2353760b-a5f1-4eea-afa7-175298743af2">
                               <style uid="e8e5a59e-a116-46b6-9936-b945f27b57c7" constant="true" value="margin:0px 0px 0px 20px;"/>
                               <classifiers uid="111c6e42-be65-4f09-a8ad-1c72db1fff01" hint="bfda8719-98c2-46fe-9788-45a33747d1fc" details="City Details"/>
                             </children>
@@ -2884,7 +2858,7 @@
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="c1cdbd34-0eed-4bf6-b62e-8f85b21c6b6d" columns="2">
                             <children xsi:type="tura.form:Label" uid="b7bc6db3-5959-4fcc-bf17-0ec4b13e3bef" label="Company"/>
-                            <children xsi:type="tura.form:OutputText" order="1" uid="c6a5d2bd-195f-4bfb-bed0-1389dd60a45b" sourcePointer="0e096922-7c5f-43ea-af07-2f868963642e" sourceCastDataControl="0e096922-7c5f-43ea-af07-2f868963642e">
+                            <children xsi:type="tura.form:OutputText" order="1" uid="c6a5d2bd-195f-4bfb-bed0-1389dd60a45b" sourcePointer="0e096922-7c5f-43ea-af07-2f868963642e" valuePointer="29fd8b61-9165-4be9-9ff4-9e443732683d" sourceCastDataControl="0e096922-7c5f-43ea-af07-2f868963642e">
                               <style uid="d0bb8649-2d21-41f2-a849-03f63153cb10" constant="true" value="color: #0033CC;text-decoration: underline"/>
                             </children>
                           </children>
@@ -2910,7 +2884,7 @@
                                 <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                 <expression objRef="89f3a4be-8f55-41c6-9e7e-bc2727a5c053" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
-                              <element xsi:type="tura.form:InputText" uid="b3679c03-c017-40b1-8efb-5630c01fd3dd"/>
+                              <element xsi:type="tura.form:InputText" uid="b3679c03-c017-40b1-8efb-5630c01fd3dd" valuePointer="e8e1a14d-3c6d-4a44-b57d-8bd0629657c0"/>
                             </cols>
                             <cols uid="0edae19d-a07a-466e-98bb-6fbafa4ad67a" label="Department name">
                               <multiLangLabel uid="54306333-64e4-4eb9-ad1e-03537f6781a2" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
@@ -2918,7 +2892,7 @@
                                 <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                 <expression objRef="f034d6ec-17a2-4937-9c06-9b1bb7fee828" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
-                              <element xsi:type="tura.form:InputText" uid="69414b2f-5231-4a68-b302-1c54215965b5"/>
+                              <element xsi:type="tura.form:InputText" uid="69414b2f-5231-4a68-b302-1c54215965b5" valuePointer="71580147-10ff-4069-bf87-c7b7347a19f3"/>
                             </cols>
                             <cols order="2" uid="43f0d175-fb44-4e76-843a-58ff83e52189" label="Department ID">
                               <multiLangLabel uid="f1b51273-b7b5-4818-8102-17f4b34a49a9" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_ID_COLUMN">
@@ -2926,7 +2900,7 @@
                                 <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                 <expression objRef="def4dfd7-4831-45da-b391-c24180d9275b" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
-                              <element xsi:type="tura.form:InputText" uid="ef5e0ead-153d-4f80-afcc-a949d71f0e7c"/>
+                              <element xsi:type="tura.form:InputText" uid="ef5e0ead-153d-4f80-afcc-a949d71f0e7c" valuePointer="f90b4097-09f1-4bb7-9219-d3ae1b23b3da"/>
                             </cols>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="abd9431e-fb9e-49d6-afd0-702f3b5fe746">
@@ -3020,7 +2994,7 @@
                             </multiLangLabel>
                             <cols uid="22358a9d-2352-4289-9f60-882c06fcb2f4" label="Colunm">
                               <multiLangLabel uid="a3895745-7b1c-4419-a084-78e3e8a7bd19"/>
-                              <element xsi:type="tura.form:InputText" uid="636a7945-cd50-4970-8b50-5345907c05bd" sourceCastDataControl="ce5b7507-bf32-4531-855b-202dcecc83d4"/>
+                              <element xsi:type="tura.form:InputText" uid="636a7945-cd50-4970-8b50-5345907c05bd" valuePointer="e1b200e3-76d2-4a4f-b6e5-1b93b283fb8a" sourceCastDataControl="ce5b7507-bf32-4531-855b-202dcecc83d4"/>
                             </cols>
                           </children>
                           <children xsi:type="tura.form:LayerHolder" order="1" uid="14c9396f-9768-4af8-9998-b44558d64421">
@@ -3154,7 +3128,7 @@
                                   <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                   <expression objRef="13fc5374-df98-45c8-8081-1f591e4cc461" order="2" expressionType="MessageImpl"/>
                                 </multiLangLabel>
-                                <element xsi:type="tura.form:InputText" uid="f0b5bbfd-7a83-4aec-8b71-6bb975bf9a1a"/>
+                                <element xsi:type="tura.form:InputText" uid="f0b5bbfd-7a83-4aec-8b71-6bb975bf9a1a" valuePointer="774cbe20-132e-41a2-80d1-2eaa6068c549"/>
                               </cols>
                               <cols order="1" uid="aef80f48-318b-4dbf-8212-ed4eb0de00b0" label="Plate number">
                                 <multiLangLabel uid="ba9f99dd-bdd0-4398-8b5f-f9b775cef547" value="Application Message Libraries.HR Controller.VEHICALE_TABLE_PLATENUMBER_COLUMN">
@@ -3162,7 +3136,7 @@
                                   <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                   <expression objRef="0f38ba00-7063-42ce-b04f-0b8b7d23c83f" order="2" expressionType="MessageImpl"/>
                                 </multiLangLabel>
-                                <element xsi:type="tura.form:InputText" uid="ec741ce0-29bf-4758-a269-4f88eae3e906"/>
+                                <element xsi:type="tura.form:InputText" uid="ec741ce0-29bf-4758-a269-4f88eae3e906" valuePointer="48550683-19a2-4c2d-b6cd-e3b8b1d5e695"/>
                               </cols>
                             </children>
                             <children xsi:type="tura.form:LayerHolder" order="1" uid="99788dfb-3b11-46d9-b0fb-9cd02bc16373">
@@ -3256,7 +3230,7 @@
                                     <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                     <expression objRef="5b8f894b-5b12-424e-a3e2-05f04025d386" order="2" expressionType="MessageImpl"/>
                                   </multiLangLabel>
-                                  <element xsi:type="tura.form:InputText" uid="d3a6ac99-75ae-4e10-8b34-bc842facaa5d"/>
+                                  <element xsi:type="tura.form:InputText" uid="d3a6ac99-75ae-4e10-8b34-bc842facaa5d" valuePointer="234f30f1-a5f1-4ee6-9e20-f7f0ac88cd9e"/>
                                 </cols>
                                 <cols order="1" uid="99045bee-e352-43a1-9208-749cb1bad757" label="Last name">
                                   <multiLangLabel uid="93de68c5-6c07-4682-9f14-e24850996804" value="Application Message Libraries.HR Controller.EMP_TABLE_LASTNAME_COLUMN">
@@ -3264,7 +3238,7 @@
                                     <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                     <expression objRef="24c27fa8-c48c-41fe-91ab-57f83e27ba39" order="2" expressionType="MessageImpl"/>
                                   </multiLangLabel>
-                                  <element xsi:type="tura.form:InputText" uid="a815f428-b95e-483d-9c5a-827ff5eb3b1e"/>
+                                  <element xsi:type="tura.form:InputText" uid="a815f428-b95e-483d-9c5a-827ff5eb3b1e" valuePointer="b0b7031f-8f86-4a22-8fad-44d326c634fb"/>
                                 </cols>
                                 <cols order="2" uid="768a9ee6-42fb-4477-9777-4b3379b240db" label="Phone">
                                   <multiLangLabel uid="a4cdf79b-8a09-4c68-9739-89b3d4c391ca" value="Application Message Libraries.HR Controller.EMP_TABLE_PHONE_COLUMN">
@@ -3272,7 +3246,7 @@
                                     <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
                                     <expression objRef="2a859ec2-dec8-4c26-b1a6-44845b7e3cb6" order="2" expressionType="MessageImpl"/>
                                   </multiLangLabel>
-                                  <element xsi:type="tura.form:InputText" uid="601cba0e-6e11-4e6c-84ac-87914a90f444"/>
+                                  <element xsi:type="tura.form:InputText" uid="601cba0e-6e11-4e6c-84ac-87914a90f444" valuePointer="925a16cc-ca95-49fa-ad4a-0f90dc1a2162"/>
                                 </cols>
                               </children>
                               <children xsi:type="tura.form:LayerHolder" order="1" uid="51593a36-d469-40e6-b35a-ca6dc1f9bbd8">
@@ -3374,11 +3348,11 @@
                                   <expression objRef="13f85fdf-29f7-411d-a1b6-41b27bf50c9c" order="2" expressionType="MessageImpl"/>
                                 </multiLangLabel>
                               </children>
-                              <children xsi:type="tura.form:OutputText" order="3" uid="99dae6f2-b50a-4800-9cfd-9ef5ce5a746c" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f">
+                              <children xsi:type="tura.form:OutputText" order="3" uid="99dae6f2-b50a-4800-9cfd-9ef5ce5a746c" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f" valuePointer="45174719-5d7b-4ad5-9b7e-4649edab159d">
                                 <style uid="b01e1afe-fe69-4694-839d-72c579d01619"/>
                               </children>
-                              <children xsi:type="tura.form:OutputText" order="4" uid="d7ca7e1f-7303-455b-9549-a9a7ab83621e" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f"/>
-                              <children xsi:type="tura.form:Date" order="5" uid="72911050-07b5-46ab-a079-2a5027988c04" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f" format="MM/dd/yyyy">
+                              <children xsi:type="tura.form:OutputText" order="4" uid="d7ca7e1f-7303-455b-9549-a9a7ab83621e" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f" valuePointer="196d2168-671c-405a-9edb-03a6ad69025c"/>
+                              <children xsi:type="tura.form:Date" order="5" uid="72911050-07b5-46ab-a079-2a5027988c04" sourcePointer="ea4959e9-2b76-4a4c-a125-bfead934733f" valuePointer="3d0a8bd3-351a-4fae-beae-8bde678e4693" format="MM/dd/yyyy">
                                 <enabled uid="316eef5c-f1d3-4211-b756-3dd038f0baf8" value="Types repository.HR domain.HR controller business logic.HR controller business logic::Action executor.empDetailsEnable()">
                                   <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>
                                   <expression objRef="217f0220-cbd9-4502-9710-2fb1b26cc74c" order="1" expressionType="DomainTypesRepositoryImpl"/>
@@ -3421,7 +3395,7 @@
                                 <expression objRef="749dea6d-9731-4638-ad73-5645c784a58c" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:InputText" nickname="user" order="1" uid="b073329f-ecd7-4a66-9e33-a568f4503904" sourcePointer="99c10c45-5375-4984-a913-b3ae38e442be" sourceCastDataControl="99c10c45-5375-4984-a913-b3ae38e442be">
+                            <children xsi:type="tura.form:InputText" nickname="user" order="1" uid="b073329f-ecd7-4a66-9e33-a568f4503904" sourcePointer="99c10c45-5375-4984-a913-b3ae38e442be" valuePointer="9c31a0a1-b781-4089-bf92-096440ef6ed6" sourceCastDataControl="99c10c45-5375-4984-a913-b3ae38e442be">
                               <style uid="ad1c6715-03b1-4d7f-ae60-7f999d75c6b2"/>
                             </children>
                             <children xsi:type="tura.form:Label" order="2" uid="d4d2dbcc-c7ae-49c6-b1ed-8e70a92ca499" label="Password">
@@ -3484,7 +3458,7 @@
                               </multiLangLabel>
                               <icon uid="9c089bce-443d-4ecd-b6c8-54e01e7f66a4"/>
                             </children>
-                            <children xsi:type="tura.form:Password" nickname="password" order="3" uid="727257ca-7ea1-4b5e-9768-7ccb07b481ad" sourcePointer="99c10c45-5375-4984-a913-b3ae38e442be" sourceCastDataControl="99c10c45-5375-4984-a913-b3ae38e442be"/>
+                            <children xsi:type="tura.form:Password" nickname="password" order="3" uid="727257ca-7ea1-4b5e-9768-7ccb07b481ad" sourcePointer="99c10c45-5375-4984-a913-b3ae38e442be" valuePointer="6f080c7e-b31b-4d2a-a4a7-3e99739ae1df" sourceCastDataControl="99c10c45-5375-4984-a913-b3ae38e442be"/>
                           </children>
                         </baseCanvas>
                       </viewElement>
@@ -3521,14 +3495,14 @@
                                 <expression objRef="00bf40a7-fbc3-4452-b8c0-fa73d6273243" order="2" expressionType="MessageImpl"/>
                               </multiLangLabel>
                             </children>
-                            <children xsi:type="tura.form:InputText" nickname="CmpName" order="1" uid="8a2f480e-7f0d-4c16-8166-703dbfeda7ad" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64">
+                            <children xsi:type="tura.form:InputText" nickname="CmpName" order="1" uid="8a2f480e-7f0d-4c16-8166-703dbfeda7ad" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64" valuePointer="29fd8b61-9165-4be9-9ff4-9e443732683d">
                               <style uid="0c2f05d0-593d-4bee-8795-5937952adf7d" constant="true" value="margin:0px 0px 0px 20px;"/>
                               <required uid="b60b6b63-c1a7-4ce1-ae89-889d9cfceacd" constant="true" value="true"/>
                             </children>
                             <children xsi:type="tura.form:MessageElement" nickname="msg1" order="2" uid="ef4c812e-0355-4933-b6ab-2998b79be721" label="Message element">
                               <multiLangLabel uid="792f7d4d-57d9-4b84-81d0-cf2dc225144c"/>
                             </children>
-                            <children xsi:type="tura.form:InputText" nickname="Desk" order="4" uid="77551383-702f-4cd4-816e-b3e0d76c71f2" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64">
+                            <children xsi:type="tura.form:InputText" nickname="Desk" order="4" uid="77551383-702f-4cd4-816e-b3e0d76c71f2" sourcePointer="01058c50-21c3-41af-8503-bc8c10607c64" valuePointer="ce8bf78d-797c-4e63-8781-e7a7304998c0">
                               <style uid="ce0b1701-4022-4e08-807f-ccdd99895e43" constant="true" value="margin:0px 0px 0px 20px;"/>
                               <required uid="707925e3-423a-4962-96e3-449e38e9b612" constant="true" value="true"/>
                             </children>
@@ -4453,6 +4427,7 @@
                               <refreshAreas area="ba976532-fef6-4953-ba4d-dc7903648300" group="2"/>
                               <multiLangLabel uid="85b19d28-8832-4622-a8af-b329f643d4b0"/>
                               <cols uid="b52695d7-5f16-4ea7-9be6-53c39c824e5c" label="Name">
+                                <style uid="07524104-8805-4788-88fb-3bd65274715b"/>
                                 <element xsi:type="tura.form:InputText" uid="e92bfd8e-0e1a-4054-992a-ed135889947c" valuePointer="002d9923-fb8e-4ea2-9a55-e1535768f725"/>
                               </cols>
                             </children>
@@ -5055,19 +5030,19 @@
                         <baseCanvas uid="275e758b-4f71-4471-ab0b-a6c419597a8d">
                           <children xsi:type="tura.form:LayerHolder" uid="4c7b0bd1-9cdd-460f-a516-0aa09672a741" columns="2">
                             <style uid="f2c3a0ec-4fd3-4a59-9baf-a319366af782" constant="true" value="padding: 5px 5px 5px 5px;font: 15px arial, sans-serif;"/>
-                            <children xsi:type="tura.form:DropDownSelection" nickname="department drop down" order="2" uid="ef6362a6-125b-46af-895e-cb33eb04780e" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" optionPointer="c6c3d4ab-13ac-4f42-8875-2f036368af04" optionCastDataControl="c6c3d4ab-13ac-4f42-8875-2f036368af04" initialOptionValue="-1">
+                            <children xsi:type="tura.form:DropDownSelection" nickname="department drop down" order="2" uid="ef6362a6-125b-46af-895e-cb33eb04780e" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="b13b09e6-20a4-4046-9d81-63642f0679e8" optionPointer="c6c3d4ab-13ac-4f42-8875-2f036368af04" initialOptionValue="-1">
                               <style uid="455a2c9c-3251-441e-975a-9bda185c7575" constant="true" value="width:150px"/>
                               <refreshAreas area="ff1d0d8e-83d6-4440-8144-80dfb4637109" group="2"/>
-                              <selection valueOptionPointer="96d9355b-421b-4812-98f4-d9d9acf40e7b"/>
+                              <selection displayOptionPointer="71580147-10ff-4069-bf87-c7b7347a19f3" valueOptionPointer="d601838d-38ef-4f6a-bc2e-a4e2beed9a74"/>
                               <initialOptionMessage value="Application Message Libraries.Misc.INITIAL_SELECTION_MESSAGE">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="ad666172-36e0-47fb-bd08-423724589d54" order="1" expressionType="MessageLibraryImpl"/>
                                 <expression objRef="6f548975-9ef8-4ccf-8619-8d8b2b25b34f" order="2" expressionType="MessageImpl"/>
                               </initialOptionMessage>
                             </children>
-                            <children xsi:type="tura.form:DropDownSelection" nickname="employees drop down" order="3" uid="ff1d0d8e-83d6-4440-8144-80dfb4637109" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" optionPointer="9a305f5e-0e34-4c48-bb07-ce89361bdd1e" initialOptionValue="-1">
+                            <children xsi:type="tura.form:DropDownSelection" nickname="employees drop down" order="3" uid="ff1d0d8e-83d6-4440-8144-80dfb4637109" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="e52abb52-559c-4762-857c-89c74eb439ee" optionPointer="9a305f5e-0e34-4c48-bb07-ce89361bdd1e" initialOptionValue="-1">
                               <style uid="93d32ce4-0472-4a28-9a7c-7017e5540323" constant="true" value="width:150px"/>
-                              <selection valueOptionPointer="96d9355b-421b-4812-98f4-d9d9acf40e7b"/>
+                              <selection displayOptionPointer="b0b7031f-8f86-4a22-8fad-44d326c634fb" valueOptionPointer="d601838d-38ef-4f6a-bc2e-a4e2beed9a74"/>
                               <initialOptionMessage value="Application Message Libraries.Misc.INITIAL_SELECTION_MESSAGE">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="ad666172-36e0-47fb-bd08-423724589d54" order="1" expressionType="MessageLibraryImpl"/>
@@ -5089,8 +5064,8 @@
                               </multiLangLabel>
                             </children>
                           </children>
-                          <children xsi:type="tura.form:CheckBox" nickname="chkBox" order="1" uid="0394a059-1ede-4713-8bcc-32e60bb5cdd4" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a"/>
-                          <children xsi:type="tura.form:Image" order="2" uid="3a05b077-aa9c-4d03-898f-310d9580353a" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a"/>
+                          <children xsi:type="tura.form:CheckBox" nickname="chkBox" order="1" uid="0394a059-1ede-4713-8bcc-32e60bb5cdd4" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="beabeced-64d7-4b08-a6fd-b91927411884"/>
+                          <children xsi:type="tura.form:Image" order="2" uid="3a05b077-aa9c-4d03-898f-310d9580353a" sourcePointer="2c5243c0-67d3-48c5-b6b3-073a51f8fa3a" valuePointer="e0cf9921-012f-4b38-b9cc-7ab6afcd551b"/>
                         </baseCanvas>
                       </viewElement>
                     </canvases>

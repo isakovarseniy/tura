@@ -186,7 +186,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
 
 
          util.traceIfDebug("JavaMapper","Unable to find JavaMapper for type \"" + container+"."+tp.name+"\" for ingredient \"" + ingredient.name +"\"");
-         self.~mapper="Type2Java";
+         self.~mapper="NA";
          self.~class="Unable to find JavaMapper for type \"" + container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~package= "Unable to find JavaMapper for type \""+ container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~fullName="Unable to find JavaMapper for type \"" + container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
@@ -221,6 +221,7 @@ operation type::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :I
     }
     
      if (self.~url = null ){
+         self.~mapper="NA";
 /*  Cannot throw exception */     
          util.traceIfDebug("Type2JavaScript","Unable to find Type2JavaScript for type \"" + self.name +"\" for ingredient \"" + ingredient.name +"\"");
      }    

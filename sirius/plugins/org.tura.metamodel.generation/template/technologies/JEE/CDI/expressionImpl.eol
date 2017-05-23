@@ -94,9 +94,11 @@ operation OperationImpl(expression:String, contextValue , paramId: Integer , arr
         var type = action.objRef.eContainer();
         if (type <> null ){
            type.mappingType2Java(recipe,ingredient);
-           type.mappingType2JavaScript(recipe,ingredient);
-        }else
-          return "";
+           if ( not (type.~mapper.isDefined() and "Type2Java".equals(type.~mapper))){
+               type.mappingType2JavaScript(recipe,ingredient);
+           }
+        }
+        
         if (type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper)){
            return contextValue.scriptTrigger(inOutParams);
            
@@ -107,8 +109,8 @@ operation OperationImpl(expression:String, contextValue , paramId: Integer , arr
            return contextValue.javaTrigger(inOutParams);
         else
            return contextValue.javaCall(inOutParams);
-           
-        }   
+        }
+        return "";   
    }else{
       expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
    }  

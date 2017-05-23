@@ -53,7 +53,7 @@ public class ActionExecutor  implements java.io.Serializable {
      
          if (type <> null ){
            type.mappingType2Java(recipe,ingredient);
-           if (type.~fullName.isDefined() and map.get(type.~fullName) = null) {
+           if (type.~mapper.isDefined() and "Type2Java".equals(type.~mapper)) {
                  type.~counter = counter;
                  counter = counter+1;
                  map.put(type.~fullName,type);

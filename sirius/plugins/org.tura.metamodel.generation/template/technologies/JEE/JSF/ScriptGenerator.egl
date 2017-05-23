@@ -50,7 +50,7 @@ public class ScriptGenerator{
         if (method <> null)
            type = action.objRef.eContainer();
       
-       if (type <> null  and  type.~url.isDefined()){  
+       if (type <> null  and  type.~mapper.isDefined() and "Type2JavaScript".equals(type.~mapper)){  
 %]
       hash.put("[%=trigger.mkuid()%]",new Object[]{
             new Object[]{[%

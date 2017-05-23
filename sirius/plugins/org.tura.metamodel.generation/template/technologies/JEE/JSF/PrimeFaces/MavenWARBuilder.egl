@@ -95,22 +95,16 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.tura.platform</groupId>
-			<artifactId>commons-persistence</artifactId>
-				<version>${openexp}version.tura-platform}</version>
-		</dependency>
-		
-		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>${openexp}version.commons-fileupload}</version>
 		</dependency>
 
-       [% for (type in lib.values()) { %]
+       [% for (h in lib.values()) { %]
 				<dependency>
-					<groupId>[%=type.~groupId%]</groupId>
-					<artifactId>[%=type.~artifactId%]</artifactId>
-					<version>[%=type.~version%]</version>
+					<groupId>[%=h.get("groupId")%]</groupId>
+					<artifactId>[%=h.get("artifactId")%]</artifactId>
+					<version>[%=h.get("version")%]</version>
 				</dependency>
        [% } %]
 
