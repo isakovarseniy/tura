@@ -33,20 +33,21 @@ import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.elsoft.platform.hr.objects.CompanyDAO;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IBeanFactory;
-import org.tura.platform.datacontrol.BeanWrapper;
 import org.tura.platform.datacontrol.CommandStack;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.TreeDataControl;
-import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.hr.objects.serialization.Company;
+import org.tura.platform.object.TuraObject;
 import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
 import org.tura.platform.primefaces.lib.EventAccessor;
 import org.tura.platform.primefaces.model.ViewModel;
-import org.tura.platform.object.TuraObject;
+import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.core.Repository;
 
 public class Actions implements EventAccessor {
 	private ActionEvent event;
@@ -60,6 +61,10 @@ public class Actions implements EventAccessor {
 	@Inject
 	@Named("hrmanager.hrcontroller")
 	CommandStack commandStack;
+	
+	@Inject
+	Repository repository; 
+	
 
 	@SuppressWarnings("rawtypes")
 	public void openCompanyDetailsPopup() {
@@ -95,7 +100,7 @@ public class Actions implements EventAccessor {
 			IBeanFactory bf = (IBeanFactory) elResolver
 					.getValue("#{beanFactoryHrManagerHRController}");
 			
-			CompanyDAO cmp = (CompanyDAO) dc.createObject();
+			Company cmp = (Company) dc.createObject();
 
 			bf.setCmpId(cmp.getObjId());
 
@@ -108,7 +113,7 @@ public class Actions implements EventAccessor {
 
 	public void saveApplication() {
 		try {
-			commandStack.commitCommand();
+			repository.applyChanges(null);
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
@@ -128,9 +133,8 @@ public class Actions implements EventAccessor {
 	public void createChildRow(IDataControl datacontrol) {
 		try {
 			TreeDataControl tdc = (TreeDataControl) datacontrol;
-			BeanWrapper w = ((BeanWrapper) Reflection.call(
-					tdc.getCurrentObject(), "getWrapper"));
-			DataControl<?> dc = w.getDatacontrol();
+			ObjectControl w = (ObjectControl) tdc.getCurrentObject();
+			DataControl<?> dc = (DataControl<?>) w.getAttributes().get(Constants.DATA_CONTROL);
 			String rel = dc.getRelationsName().iterator().next();
 			if (rel != null)
 				tdc.createChildObject(rel);

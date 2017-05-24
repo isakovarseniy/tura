@@ -21,28 +21,34 @@
  */
 package org.tura.example.ui.commons.service;
 
-import javax.annotation.Priority;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Alternative;
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
-import org.tura.platform.repository.ObjectProvider;
-import org.tura.platform.services.JPAService;
-import org.tura.platform.tura.simple.domain.provider.SimpleTuraProvider;
+import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.RepositoryException;
 
+public class LocalTransactionRepository extends BasicRepository {
+	
+	@Inject
+	private EntityManager em;
+	
+	@SuppressWarnings("rawtypes")
+	@Override
+	public void applyChanges(List changes) throws RepositoryException{
+		
+		try{
+			em.getTransaction().begin();
+			
+			super.applyChanges(changes);
+			
+			em.getTransaction().commit();
+			
+		}catch(RepositoryException e){
+			em.getTransaction().rollback();
+		}
+	}
+	
 
-@ObjectProvider
-@Alternative
-@Priority(0)
-@RequestScoped
-public class SimpleTuraProviderProvider extends SimpleTuraProvider{
-	   @Inject
-		private JPAService service;
-
-
-	    @Override
-	    public JPAService getService() {
-	        return service;
-	    }
-	   
 }

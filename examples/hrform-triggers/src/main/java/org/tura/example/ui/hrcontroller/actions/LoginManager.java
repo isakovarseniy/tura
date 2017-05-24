@@ -33,12 +33,12 @@ import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-import org.elsoft.platform.hr.objects.UserDAO;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IBeanFactory;
-import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IUserArtifitialFields;
+import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.UserArtifitialFieldsAdapter;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.primefaces.lib.EventAccessor;
+import org.tura.platform.repository.core.ObjectControl;
 
 /**
  * <p>
@@ -68,14 +68,13 @@ public class LoginManager implements EventAccessor {
 
 	private static final String SESSION_USER_VARIABLE_NAME = "user";
 	private static final String PAGE_AFTER_LOGOUT = "/"; // Another good
-	                                                                                           // option is the
-                                                                                               // login page
-	                                                                                          // back again	
+															// option is the
+															// login page
+															// back again
 	private static final String HOME_PAGE = "/";
 
 	private String forwardUrl;
 
-	
 	@PostConstruct
 	public void init() {
 		this.forwardUrl = extractRequestedUrlBeforeLogin();
@@ -89,7 +88,7 @@ public class LoginManager implements EventAccessor {
 		}
 
 		return requestedUrl;
-	}	
+	}
 
 	private ExternalContext externalContext() {
 		return facesContext().getExternalContext();
@@ -111,27 +110,23 @@ public class LoginManager implements EventAccessor {
 		IBeanFactory bf = null;
 
 		try {
-			bf = (IBeanFactory) elResolver
-					.getValue("#{beanFactoryHrManagerHRController}");
+			bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerHRController}");
 
-			((IUserArtifitialFields) (bf.getUser().getCurrentObject()))
-					.setLoginError(false);
+			new UserArtifitialFieldsAdapter((ObjectControl) (bf.getUser().getCurrentObject())).setLoginError(false);
 
 			IDataControl dc = bf.getUser();
-			username = ((UserDAO) dc.getCurrentObject()).getUserName();
-			password = ((UserDAO) dc.getCurrentObject()).getPassword();
+			username = ((org.tura.platform.hr.objects.serialization.User) dc.getCurrentObject()).getUserName();
+			password = ((org.tura.platform.hr.objects.serialization.User) dc.getCurrentObject()).getPassword();
 		} catch (Exception e) {
 			logger.log(Level.INFO, e.getMessage(), e);
 		}
 
 		ExternalContext externalContext = externalContext();
-		HttpServletRequest request = (HttpServletRequest) externalContext
-				.getRequest();
+		HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
 
 		try {
 			request.login(username, password);
-			externalContext.getSessionMap().put(SESSION_USER_VARIABLE_NAME,
-					new User(username));
+			externalContext.getSessionMap().put(SESSION_USER_VARIABLE_NAME, new User(username));
 			externalContext.redirect(forwardUrl);
 		} catch (ServletException e) {
 			/*
@@ -142,8 +137,7 @@ public class LoginManager implements EventAccessor {
 			 * password fails.
 			 */
 			try {
-				((IUserArtifitialFields) (bf.getUser().getCurrentObject()))
-						.setLoginError(true);
+				new UserArtifitialFieldsAdapter((ObjectControl) bf.getUser().getCurrentObject()).setLoginError(true);
 			} catch (Exception e1) {
 				logger.log(Level.INFO, e1.getMessage(), e1);
 			}
@@ -160,8 +154,7 @@ public class LoginManager implements EventAccessor {
 	public void logout() throws IOException {
 		ExternalContext externalContext = externalContext();
 		externalContext.invalidateSession();
-		externalContext.redirect(externalContext.getRequestContextPath()
-				+ PAGE_AFTER_LOGOUT);
+		externalContext.redirect(externalContext.getRequestContextPath() + PAGE_AFTER_LOGOUT);
 	}
 
 	/**
@@ -179,14 +172,13 @@ public class LoginManager implements EventAccessor {
 	}
 
 	public boolean isLoginError() {
-		IBeanFactory bf = (IBeanFactory) elResolver
-				.getValue("#{beanFactoryHrManagerHRController}");
+		IBeanFactory bf = (IBeanFactory) elResolver.getValue("#{beanFactoryHrManagerHRController}");
 
 		try {
-			
-			Boolean b =  ((IUserArtifitialFields) (bf.getUser().getCurrentObject()))
+
+			Boolean b = new UserArtifitialFieldsAdapter((ObjectControl) (bf.getUser().getCurrentObject()))
 					.getLoginError();
-			if ( b == null)
+			if (b == null)
 				return false;
 			return b;
 		} catch (Exception e) {
@@ -217,7 +209,7 @@ public class LoginManager implements EventAccessor {
 	public boolean isUserInRole(String role) {
 		FacesContext context = facesContext();
 		ExternalContext externalContext = context.getExternalContext();
-		return externalContext.isUserInRole(role.replaceAll("'",""));
+		return externalContext.isUserInRole(role.replaceAll("'", ""));
 	}
 
 	@Override

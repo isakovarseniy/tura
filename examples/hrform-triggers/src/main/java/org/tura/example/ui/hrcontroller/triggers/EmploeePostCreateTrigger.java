@@ -26,12 +26,12 @@ import java.util.Date;
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 
-import org.elsoft.platform.hr.objects.EmployeesDAO;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.hr.objects.serialization.Employee;
 
 
 @Alternative
@@ -43,7 +43,7 @@ public class EmploeePostCreateTrigger implements PostCreateTrigger {
 	@Override
 	public void execute(DataControl<?> datacontrol, Object obj)
 			throws TuraException {
-		((EmployeesDAO) obj).setHireDate(new Date());
+		((Employee) obj).setHireDate(new Date());
 	}
 
 }

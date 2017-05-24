@@ -23,13 +23,14 @@
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 
-import org.elsoft.platform.hr.objects.DepartmentsDAO;
-import org.tura.example.ui.hrmanager.tree2tree.datacontrol.IDepartmentArtifitialFields;
+import org.tura.example.ui.hrmanager.tree2tree.datacontrol.DepartmentArtifitialFieldsAdapter;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostQuery;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.hr.objects.serialization.Department;
+import org.tura.platform.repository.core.ObjectControl;
 
 
 @Alternative
@@ -41,8 +42,8 @@ public class DepartmentPostQueryTrigger implements PostQueryTrigger{
 	@Override
 	public void execute(DataControl<?> datacontrol, Object obj)
 			throws TuraException {
-		DepartmentsDAO department = (DepartmentsDAO) obj;
-		IDepartmentArtifitialFields af = (IDepartmentArtifitialFields) obj;
+		Department department = (Department) obj;
+		DepartmentArtifitialFieldsAdapter af = new DepartmentArtifitialFieldsAdapter( (ObjectControl) obj);
 		af.setNameArtf(department.getDepartmentName());
 		
 	}

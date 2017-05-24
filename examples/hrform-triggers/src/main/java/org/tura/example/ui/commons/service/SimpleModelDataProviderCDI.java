@@ -19,28 +19,29 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.hrcontroller.triggers;
+package org.tura.example.ui.commons.service;
 
-import javax.annotation.Priority;
-import javax.enterprise.inject.Alternative;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
-import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.datacontrol.annotations.PostCreate;
-import org.tura.platform.datacontrol.annotations.Selector;
-import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
-import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.hr.objects.serialization.File;
+import org.tura.platform.hr.objects.serialization.SimpleModelDataProvider;
+import org.tura.platform.repository.cdi.ObjectProvider;
+import org.tura.platform.repository.core.PrImaryKeyStrategy;
 
-@Alternative
-@Priority(10)
-@Selector("hrmanager.hrcontroller")
-@PostCreate("file")
-public class FilePostCreateTrigger implements PostCreateTrigger {
+@ObjectProvider
+public class SimpleModelDataProviderCDI extends SimpleModelDataProvider{
 
 	@Override
-	public void execute(DataControl<?> datacontrol, Object obj)
-			throws TuraException {
-		((File) obj).setFileName("NA");
-	}
+	@Inject
+    public void setEntityManager(EntityManager em) {
+		super.setEntityManager(em);
+    }
 
+	@Override
+	@Inject
+    public void setPkStrategy(PrImaryKeyStrategy pkStrategy) {
+		super.setPkStrategy(pkStrategy);
+    }
+
+	
 }

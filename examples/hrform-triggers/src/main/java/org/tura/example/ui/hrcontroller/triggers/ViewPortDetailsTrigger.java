@@ -24,14 +24,14 @@ import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
-import org.elsoft.platform.hr.objects.CityDAO;
-import org.elsoft.platform.hr.objects.CountryDAO;
-import org.elsoft.platform.hr.objects.StateDAO;
-import org.elsoft.platform.hr.objects.StreetDAO;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.annotations.ViewPortTrigger;
 import org.tura.platform.datacontrol.command.ViewPortCommand;
+import org.tura.platform.hr.objects.serialization.City;
+import org.tura.platform.hr.objects.serialization.Country;
+import org.tura.platform.hr.objects.serialization.State;
+import org.tura.platform.hr.objects.serialization.Street;
 
 @Alternative
 @Priority(10)
@@ -46,16 +46,16 @@ public class ViewPortDetailsTrigger extends ViewPortCommand {
 	public Object execute() {
 		
 		Object obj = elResolver.getValue("#{beanFactoryHrManagerHRController.treeRootCountry.currentObject}");
-		if (obj instanceof CountryDAO)
+		if (obj instanceof Country)
 			return "/hrmanager/hrcontroller/CountryDetails.xhtml";
 		
-		if (obj instanceof StateDAO)
+		if (obj instanceof State)
 			return "/hrmanager/hrcontroller/StateDetails.xhtml";
 
-		if (obj instanceof CityDAO)
+		if (obj instanceof City)
 			return "/hrmanager/hrcontroller/CityDetails.xhtml";
 		
-		if (obj instanceof StreetDAO)
+		if (obj instanceof Street)
 			return "/hrmanager/hrcontroller/DepartmentsDetails.xhtml";
 
 		return this.port;

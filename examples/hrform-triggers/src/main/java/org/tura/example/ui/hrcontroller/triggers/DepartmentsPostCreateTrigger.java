@@ -25,13 +25,13 @@ import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
-import org.elsoft.platform.hr.objects.DepartmentsDAO;
 import org.tura.example.ui.hrmanager.hrcontroller.datacontrol.IBeanFactory;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.hr.objects.serialization.Department;
 import org.tura.platform.object.TuraObject;
 
 @Alternative
@@ -47,7 +47,7 @@ public class DepartmentsPostCreateTrigger implements PostCreateTrigger {
 	public void execute(DataControl<?> datacontrol, Object obj)
 			throws TuraException {
 		TuraObject t =  (TuraObject) beanFactory.getTreeRootCountry().getCurrentObject();
-		((DepartmentsDAO) obj).setParentId(t.getObjId());
+		((Department) obj).setParentId(t.getObjId());
 
 	}
 

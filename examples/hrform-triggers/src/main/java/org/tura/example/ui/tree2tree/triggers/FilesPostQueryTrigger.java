@@ -23,13 +23,14 @@
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 
-import org.elsoft.platform.hr.objects.FileDAO;
-import org.tura.example.ui.hrmanager.tree2tree.datacontrol.IFileArtifitialFields;
+import org.tura.example.ui.hrmanager.tree2tree.datacontrol.FileArtifitialFieldsAdapter;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostQuery;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.hr.objects.serialization.File;
+import org.tura.platform.repository.core.ObjectControl;
 
 @Alternative
 @Priority(10)
@@ -40,8 +41,8 @@ public class FilesPostQueryTrigger  implements PostQueryTrigger{
 	@Override
 	public void execute(DataControl<?> datacontrol, Object obj)
 			throws TuraException {
-		FileDAO file = (FileDAO) obj;
-		IFileArtifitialFields af = (IFileArtifitialFields) obj;
+		File file = (File) obj;
+		FileArtifitialFieldsAdapter af = new FileArtifitialFieldsAdapter ((ObjectControl) obj);
 		af.setNameArtf(file.getFileName());
 		
 	}

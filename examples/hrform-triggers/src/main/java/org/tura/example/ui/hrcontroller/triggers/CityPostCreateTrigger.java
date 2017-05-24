@@ -24,12 +24,12 @@ package org.tura.example.ui.hrcontroller.triggers;
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 
-import org.elsoft.platform.hr.objects.CityDAO;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.hr.objects.serialization.City;
 
 @Alternative
 @Priority(10)
@@ -40,7 +40,7 @@ public class CityPostCreateTrigger implements PostCreateTrigger {
 	@Override
 	public void execute(DataControl<?> datacontrol, Object obj)
 			throws TuraException {
-		((CityDAO) obj).setName("NA");
+		((City) obj).setName("NA");
 	}
 
 }

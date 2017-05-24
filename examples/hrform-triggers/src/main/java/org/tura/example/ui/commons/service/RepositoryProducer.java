@@ -34,9 +34,12 @@ import javax.enterprise.inject.spi.CDI;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 
-import org.tura.platform.repository.DataProvider;
-import org.tura.platform.repository.Repository;
-import org.tura.platform.repository.RepositoryExtension;
+import org.tura.platform.repository.cdi.RepositoryExtension;
+import org.tura.platform.repository.core.DataProvider;
+import org.tura.platform.repository.core.ExtendedQuery;
+import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.core.Triggers;
+
 
 @Alternative
 @Priority(0)
@@ -45,17 +48,26 @@ public class RepositoryProducer {
 	@Inject
 	private RepositoryExtension repositoryExtension;
 	
+	@Inject
+	private LocalTransactionRepository repository;
+	
 	
     @Produces
 	public Repository getRepository(InjectionPoint injectionPoint) {
 
-		Repository repository = new Repository();
 		for ( DataProvider provider : getDataProviders()){
 			provider.setRepository(repository);
+			provider.init();
+
+			for (Triggers triggers: getQueryTriggers()) {
+				provider.setTriggers(triggers);
+			}
+			
+			for (ExtendedQuery query: getExtendedQuery()) {
+				provider.setExtendedQuery(query);
+			}
 		}
-		
 		return repository;
-		
 	}
 
     
@@ -74,7 +86,41 @@ public class RepositoryProducer {
 
 		return array;
 	}
-   
-    
-    
+
+	
+	private  List<ExtendedQuery> getExtendedQuery() {
+
+		ArrayList<ExtendedQuery> array = new ArrayList<>();
+
+		for (Bean<?> bean : repositoryExtension.getCustomQueryBeans()) {
+			BeanManager bm = CDI.current().getBeanManager();
+
+			CreationalContext<?> ctx = bm.createCreationalContext(bean);
+			ExtendedQuery provider = (ExtendedQuery) bm.getReference(bean, ExtendedQuery.class, ctx);
+
+			array.add(provider);
+		}
+
+		return array;
+	}
+	
+
+	private  List<Triggers> getQueryTriggers() {
+
+		ArrayList<Triggers> array = new ArrayList<>();
+
+		for (Bean<?> bean : repositoryExtension.getRepositoryTriggersBeans()) {
+			BeanManager bm = CDI.current().getBeanManager();
+
+			CreationalContext<?> ctx = bm.createCreationalContext(bean);
+			Triggers provider = (Triggers) bm.getReference(bean, Triggers.class, ctx);
+
+			array.add(provider);
+		}
+
+		return array;
+	}
+	
+	
+	
 }

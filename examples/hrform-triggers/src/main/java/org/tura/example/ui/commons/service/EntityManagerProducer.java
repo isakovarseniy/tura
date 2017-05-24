@@ -21,17 +21,39 @@
  */
 package org.tura.example.ui.commons.service;
 
-import javax.annotation.Priority;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Disposes;
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
-import org.tura.platform.repository.ObjectProvider;
-import org.tura.platform.tura.simple.domain.provider.SimpleNotPersistedObjectProvider;
+import org.apache.deltaspike.jpa.api.entitymanager.PersistenceUnitName;
 
-@ObjectProvider
-@Alternative
-@Priority(0)
-@RequestScoped
-public class SimpleNotPersistedObjectProviderProvider extends SimpleNotPersistedObjectProvider{
+public class EntityManagerProducer
+{
+	
+	 @Inject
+	 @PersistenceUnitName("HRObjects")
+	 private EntityManagerFactory emf;
+	
+	 private EntityManager em;
+	 
+	 
+    @Produces
+    @RequestScoped
+    protected EntityManager createEntityManager(){
+    	if (em == null){
+            em =  emf.createEntityManager();
+    	}
+    	return em;
+    }
 
+    protected void closeEntityManager(@Disposes EntityManager entityManager)
+    {
+        if (entityManager.isOpen())
+        {
+            entityManager.close();
+        }
+    }
 }

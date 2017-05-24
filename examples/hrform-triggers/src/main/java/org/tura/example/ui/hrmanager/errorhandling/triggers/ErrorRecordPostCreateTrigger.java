@@ -25,12 +25,13 @@ import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 import javax.faces.context.FacesContext;
 
-import org.tura.example.ui.hrmanager.errorhandling.datacontrol.IErrorRecordDCArtifitialFields;
+import org.tura.example.ui.hrmanager.errorhandling.datacontrol.ErrorRecordArtifitialFieldsAdapter;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.repository.core.ObjectControl;
 
 
 @Alternative
@@ -43,7 +44,7 @@ public class ErrorRecordPostCreateTrigger implements PostCreateTrigger {
 	@Override
 	public void execute(DataControl<?> datacontrol, Object obj)
 			throws TuraException {
-		IErrorRecordDCArtifitialFields f = (IErrorRecordDCArtifitialFields) obj;
+		ErrorRecordArtifitialFieldsAdapter f = new ErrorRecordArtifitialFieldsAdapter( (ObjectControl) obj);
 		f.setStatusCode(getStatusCode());
 		f.setMessage(getMessage());
 		f.setExceptionType(getExceptionType());

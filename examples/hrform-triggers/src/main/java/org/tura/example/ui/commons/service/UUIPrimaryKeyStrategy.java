@@ -19,28 +19,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.hrcontroller.triggers;
+package org.tura.example.ui.commons.service;
 
-import javax.annotation.Priority;
-import javax.enterprise.inject.Alternative;
+import org.tura.platform.datacontrol.commons.Reflection;
+import org.tura.platform.repository.core.PrImaryKeyStrategy;
 
-import org.tura.platform.datacontrol.DataControl;
-import org.tura.platform.datacontrol.annotations.PostCreate;
-import org.tura.platform.datacontrol.annotations.Selector;
-import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
-import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.hr.objects.serialization.File;
-
-@Alternative
-@Priority(10)
-@Selector("hrmanager.hrcontroller")
-@PostCreate("file")
-public class FilePostCreateTrigger implements PostCreateTrigger {
+public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
+	public static long id =-100L;
 
 	@Override
-	public void execute(DataControl<?> datacontrol, Object obj)
-			throws TuraException {
-		((File) obj).setFileName("NA");
+	public void generatePk(Object o) {
+		try{
+			
+		Reflection.callTyped(o, "setObjId", Long.class,id);
+		id= id+1;
+		
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}
+		
 	}
 
 }

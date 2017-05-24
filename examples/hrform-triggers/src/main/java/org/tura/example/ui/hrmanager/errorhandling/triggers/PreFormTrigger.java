@@ -40,7 +40,7 @@ public class PreFormTrigger implements FactoryInitializeTrigger {
 	public void execute(Object obj) throws TuraException {
 		try {
 			IBeanFactory bf = (IBeanFactory) obj;
-			bf.getErrorRecordDC().createObject();
+			bf.getErrorRecord().createObject();
 			
 		} catch (Exception e) {
             throw new TuraException(e);
