@@ -77,7 +77,7 @@ public class Actions implements EventAccessor {
 
 			IBeanFactory bf = (IBeanFactory) elResolver
 					.getValue("#{beanFactoryHrManagerHRController}");
-			bf.setCmpId(((TuraObject) (row[2])).getObjId());
+			bf.setCmpId(((Company) (row[2])).getObjId());
 			dc.forceRefresh();
 
 			dc.getCommandStack().savePoint();

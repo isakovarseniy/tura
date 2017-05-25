@@ -185,12 +185,16 @@ operation form::Uielement  draw(hash){
       %] [%=self.noContext(hash,value)%] [%           
       }
      else{
+          var pointer = self.eContainer().eContainer();
+          hints.put("noCurlyBracket","true");
+          value = buildExpression(util.createArtificialContextValue(pointer.sourcePointer,pointer.sourcePointer.findTreeRoot(),self.valuePointer),hints,hash);
+
           if (hash.get("context").equals("table") ){
-               value =  "#{row[2]."+util.mergeAndUnCapitalize(self.valuePointer.name)+"}";
+               value =  "#{row[2]."+util.mergeAndUnCapitalize(value)+"}";
                %] [%=self.tableContext(hash,value)%] [%           
            }  
           if (hash.get("context").equals("tree") ){
-               value =  "#{row[1]."+util.mergeAndUnCapitalize(self.valuePointer.name)+"}";
+               value =  "#{row[1]."+util.mergeAndUnCapitalize(value)+"}";
                %] [%=self.treeContext(hash,value)%] [%           
           }     
      }

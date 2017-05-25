@@ -334,6 +334,10 @@ public class Util {
 		if (obj instanceof Attribute)
 			return createTreeControlAccess(dc, (Attribute) obj);
 
+		if (obj instanceof ArtificialField)
+			return createTreeControlAccess(dc, (ArtificialField) obj);
+
+		
 		throw new Exception("Method createTreeControlAccess for parameter "
 				+ obj.getClass().getName() + " is not implemented");
 	}
@@ -351,6 +355,34 @@ public class Util {
 				+ obj.getClass().getName() + " is not implemented");
 	}
 
+	
+	
+	private ArtificialContextValue createTreeControlAccess(DataControl dc, ArtificialField attr) {
+
+		ArtificialContextValue cv = createTreeControlAccess(dc);
+
+		cv.setValue(cv.getValue() + ".currentObject." + attr.getName());
+
+		ArtificialExpressionPart ex = new ArtificialExpressionPart();
+		ex.setOrder(3);
+		ex.setExpressionType("DataControlFakeMethod");
+		cv.getExpression().add(ex);
+
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(4);
+		ex.setExpressionType("ExtendedType");
+		cv.getExpression().add(ex);
+
+		ex = new ArtificialExpressionPart();
+		ex.setOrder(5);
+		ex.setObjRef(attr);
+		ex.setExpressionType("ArtificialFieldImpl");
+		cv.getExpression().add(ex);
+
+		return cv;
+
+	}	
+	
 	private ArtificialContextValue createTreeControlAccess(DataControl dc, Attribute attr) {
 
 		ArtificialContextValue cv = createTreeControlAccess(dc);
@@ -463,7 +495,7 @@ public class Util {
 		ex = new ArtificialExpressionPart();
 		ex.setOrder(4);
 		ex.setObjRef(attribute);
-		ex.setExpressionType("AttributeImpl");
+		ex.setExpressionType("ArtificialFieldImpl");
 		cv.getExpression().add(ex);
 
 		return cv;

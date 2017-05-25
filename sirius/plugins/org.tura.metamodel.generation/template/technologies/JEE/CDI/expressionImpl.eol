@@ -1,6 +1,24 @@
 operation ArtificialFieldImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
-   return expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var attr =  contextValue.expression.get(paramId).objRef;
+    if (inOutParams.get("context") == null ){
+        return expression.replaceAll("<holder>", "attributes['ATTRIBUTE_"+util.mergeAndUnCapitalize(attr.name).toUpperCase()  +"'].<holder>");
+    }else{
+        return "attributes['ATTRIBUTE_"+util.mergeAndUnCapitalize(attr.name).toUpperCase()+"']"+".<holder>";
+    }
+    
 }
+
+operation AttributeImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var attr =  contextValue.expression.get(paramId).objRef;
+    if (inOutParams.get("context") == null ){
+        return expression.replaceAll("<holder>", util.mergeAndUnCapitalize(attr.name)  +".<holder>");
+    }else{
+       return util.mergeAndUnCapitalize(attr.name)+".<holder>"; 
+    }
+}
+
 
 operation DataControlHolder(expression:String, contextValue , paramId: Integer , array  , hints , inOutParams) : String {
    var util = new Native('org.tura.metamodel.commons.Util');
@@ -71,11 +89,6 @@ operation TypeImpl(expression:String, contextValue , paramId: Integer , array , 
 }
 
 
-operation AttributeImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
-   var util = new Native('org.tura.metamodel.commons.Util');
-   var attr =  contextValue.expression.get(paramId).objRef;
-   return expression.replaceAll("<holder>", util.mergeAndUnCapitalize(attr.name)  +".<holder>");
-}
 
 operation TypesImpl(expression:String, contextValue , paramId: Integer , array , hints , inOutParams ) : String {
    return expression.replaceAll("<holder>", array.get(paramId)+".<holder>");
