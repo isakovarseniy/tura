@@ -14,9 +14,9 @@ public class [%=util.mergeAndCapitalize(control.name)%]DC extends org.tura.platf
 
 	private static final long serialVersionUID = 1L;
 	
-	private transient @javax.inject.Inject java.util.logging.Logger logger;
+	private  java.util.logging.Logger logger= java.util.logging.Logger.getLogger([%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.[%=util.mergeAndCapitalize(control.name)%]DC.class.getName());
 
-	private transient @javax.inject.Inject org.tura.platform.repository.core.Repository repository;
+	private @javax.inject.Inject org.tura.platform.repository.core.Repository repository;
 
     [%
     if (control.~dependObject.isDefined() and not control.~treeRoot.isDefined()){%]

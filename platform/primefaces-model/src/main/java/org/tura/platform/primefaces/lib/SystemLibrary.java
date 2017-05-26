@@ -26,15 +26,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 
 import org.tura.platform.datacontrol.IDataControl;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 public class SystemLibrary {
 
-	@Inject
-    private transient Logger logger;
+    private Logger logger = Logger.getLogger(SystemLibrary.class.getName());
 	
 	public void createRow(IDataControl dc) {
 		try {

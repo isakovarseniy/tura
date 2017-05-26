@@ -18,8 +18,7 @@ public class MenuProvider  implements java.io.Serializable {
 
     private java.util.HashMap<String,Class<?>> hash = new  java.util.HashMap<String,Class<?>>();
 
-    @javax.inject.Inject
-    private transient java.util.logging.Logger logger;
+	private  java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuProvider.class.getName());;
 
     @javax.inject.Inject
     private transient org.tura.platform.datacontrol.ELResolver elResolver;

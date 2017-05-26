@@ -22,8 +22,9 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
 			throw new UnsupportedOperationException();
 	}
 
+	
 	@Override
-	public void addCommand(org.tura.platform.repository.core.Command command, String dataClass) {
+	public void addCommand(org.tura.platform.repository.core.DataProvider provider, String dataClass) {
 		throw new UnsupportedOperationException();
 	}
 

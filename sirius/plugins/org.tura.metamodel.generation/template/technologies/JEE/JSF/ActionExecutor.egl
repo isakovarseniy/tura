@@ -16,7 +16,6 @@ import org.tura.platform.datacontrol.ELResolver;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
 import javax.faces.event.ActionEvent;
 
@@ -27,8 +26,7 @@ public class ActionExecutor  implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Inject
-	private transient Logger logger;
+	private  java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ActionExecutor.class.getName());;
 
 	@Inject
 	private ELResolver elResolver;

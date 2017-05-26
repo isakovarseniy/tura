@@ -60,8 +60,7 @@ public class LoginManager implements EventAccessor {
 	@SuppressWarnings("unused")
 	private ActionEvent event;
 
-	@Inject
-	private transient Logger logger;
+	private transient Logger logger = Logger.getLogger(LoginManager.class.getName());
 
 	@Inject
 	ELResolver elResolver;

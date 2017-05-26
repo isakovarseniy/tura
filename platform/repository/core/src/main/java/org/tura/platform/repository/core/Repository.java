@@ -30,7 +30,7 @@ public interface Repository {
 
 	public void addProvider(DataProvider provider, String objectClass) ;
 	
-	public void addCommand(Command command, String dataClass) ;
+	public void addCommand(DataProvider provider, String dataClass);
 	
 	public Object create(String objectClass) throws RepositoryException ;
 

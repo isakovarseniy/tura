@@ -30,14 +30,14 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 public class BasicRepository implements Repository{
 
 	private HashMap<String, DataProvider> providerTable = new HashMap<>();
-	private HashMap <String,Command> cmdHash = new HashMap<>(); 
+	private HashMap <String,DataProvider> cmdHash = new HashMap<>(); 
 
 	public void addProvider(DataProvider provider, String objectClass) {
 		providerTable.put(objectClass, provider);
 	}
 
-	public void addCommand(Command command, String dataClass) {
-		cmdHash.put(dataClass, command);
+	public void addCommand(DataProvider provider, String dataClass) {
+		cmdHash.put(dataClass, provider);
 	}
 
 	private DataProvider findprovider(String objectClass) throws RepositoryException {
@@ -62,7 +62,8 @@ public class BasicRepository implements Repository{
 	public void applyChanges(List changes) throws RepositoryException{
     	try{
 	    	for (Object change:changes ){
-	    		Command cmd = cmdHash.get(change.getClass().getName());
+	    		DataProvider provider = cmdHash.get(change.getClass().getName());
+	    		Command cmd = provider.getCommand(change.getClass().getName());
 	    		cmd.execute(change);
 	    	}
     	}catch(Exception e){

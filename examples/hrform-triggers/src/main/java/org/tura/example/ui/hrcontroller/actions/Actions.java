@@ -42,7 +42,6 @@ import org.tura.platform.datacontrol.TreeDataControl;
 import org.tura.platform.datacontrol.commons.Constants;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.hr.objects.serialization.Company;
-import org.tura.platform.object.TuraObject;
 import org.tura.platform.primefaces.EditableValueHoldersVisitCallback;
 import org.tura.platform.primefaces.lib.EventAccessor;
 import org.tura.platform.primefaces.model.ViewModel;
@@ -52,8 +51,7 @@ import org.tura.platform.repository.core.Repository;
 public class Actions implements EventAccessor {
 	private ActionEvent event;
 
-	@Inject
-	private transient Logger logger;
+	private transient Logger logger = Logger.getLogger(Actions.class.getName());
 
 	@Inject
 	ELResolver elResolver;

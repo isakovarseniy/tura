@@ -32,7 +32,6 @@ import javax.faces.component.visit.VisitContext;
 import javax.faces.component.visit.VisitResult;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.tura.platform.datacontrol.DataControl;
@@ -43,8 +42,7 @@ import org.tura.platform.datacontrol.TreeDataControl;
 public class ViewModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Inject
-	private transient Logger logger;
+	private  Logger logger = Logger.getLogger(ViewModel.class.getName());
 	private HashMap<String, Object> modelHolder = new HashMap<>();
 
 	

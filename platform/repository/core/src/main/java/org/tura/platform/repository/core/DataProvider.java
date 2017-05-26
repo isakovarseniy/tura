@@ -40,5 +40,7 @@ public interface DataProvider {
 	public void setExtendedQuery(ExtendedQuery query);
 
 	public void setTriggers(Triggers triggers);
+	
+	public Command getCommand(String clazz) throws Exception;
 
 }

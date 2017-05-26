@@ -17,8 +17,7 @@ package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).t
 @javax.inject.Named("scriptGenerator[%=util.mergeAndCapitalize(uipackage.name)%][%=util.mergeAndCapitalize(form.name)%]")
 public class ScriptGenerator{
 
-	@javax.inject.Inject
-	private  java.util.logging.Logger logger;
+	private  java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ScriptGenerator.class.getName());;
 
 	@javax.inject.Inject
 	private org.tura.platform.datacontrol.ELResolver elResolver;

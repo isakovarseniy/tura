@@ -10,7 +10,6 @@ ${percent}${end}
 %]
 package  [%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol;  
 
-import java.util.logging.Logger;
 import org.tura.platform.datacontrol.commons.TuraException;
 import javax.inject.Inject;
 
@@ -21,8 +20,7 @@ public class BeanFactory  implements IBeanFactory, java.io.Serializable {
 
     private int section;
 
-	@Inject
-	private transient Logger logger;
+	private  java.util.logging.Logger logger= java.util.logging.Logger.getLogger([%=component.basePackage%].[%=util.mergeAndCapitalize(uipackage.name).toLowerCase()%].[%=util.mergeAndCapitalize(form.name).toLowerCase()%].datacontrol.BeanFactory.class.getName());
 	
 	
 	[%
