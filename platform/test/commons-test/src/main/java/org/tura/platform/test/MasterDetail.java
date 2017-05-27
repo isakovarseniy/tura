@@ -239,6 +239,37 @@ public abstract class MasterDetail {
 		
 	}
 	
+	@Test
+	public void t11_rallback() {
+		try {
+			DataControl<DepartmentType> dcd = factory.initDepartments("");
+			dcd.getElResolver().setValue("departments", dcd);
+			
+			DataControl<EmployeeType> dce = factory.initEmployees("");
+			dce.getElResolver().setValue("employees", dce);
+			
+			factory.setRelatioin(dcd, dce);
+			
+			
+			dcd.getCurrentObject();
+			EmployeeType o = dce.getCurrentObject();
+			
+			
+			dce.createObject();
+			
+			dce.getCommandStack().rallbackCommand();
+
+			EmployeeType o1 = dce.getCurrentObject();
+			assertEquals(o.getObjId(), o1.getObjId());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+	
+	
 	
 	@Test
 	public void removeDetailObject(){

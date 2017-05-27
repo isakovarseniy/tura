@@ -30,9 +30,9 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
+import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.hr.objects.serialization.Department;
-import org.tura.platform.object.TuraObject;
 
 @Alternative
 @Priority(10)
@@ -46,8 +46,13 @@ public class DepartmentsPostCreateTrigger implements PostCreateTrigger {
 	@Override
 	public void execute(DataControl<?> datacontrol, Object obj)
 			throws TuraException {
-		TuraObject t =  (TuraObject) beanFactory.getTreeRootCountry().getCurrentObject();
-		((Department) obj).setParentId(t.getObjId());
+		try{
+		Object t =  (Object) beanFactory.getTreeRootCountry().getCurrentObject();
+		Long l = (Long) Reflection.call(t, "getObjId");
+		((Department) obj).setParentId(l);
+		}catch (Exception e){
+			throw new TuraException(e);
+		}
 
 	}
 

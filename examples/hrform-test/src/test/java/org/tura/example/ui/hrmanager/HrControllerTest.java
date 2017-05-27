@@ -440,6 +440,15 @@ public class HrControllerTest {
 				driver);
 
 		hrControllerPage.getAddCompany().click();
+
+		try{
+			Tree tree = hrControllerPage.getLocationTree();
+			 tree.getRow("0");
+			fail();
+		}catch(Exception e){
+			
+		}
+
 		hrControllerPage.getDelCompany().click();
 
 		Tree tree = hrControllerPage.getLocationTree();

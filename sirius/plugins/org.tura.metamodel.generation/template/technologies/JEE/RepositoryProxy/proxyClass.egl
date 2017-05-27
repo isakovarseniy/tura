@@ -14,7 +14,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 package [%=tp.~package%];
 
 
-public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura.platform.repository.core.ObjectControl 
+public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura.platform.repository.core.ObjectControl, java.io.Serializable
 [%
      for (i in interfaces){
      %]
@@ -26,7 +26,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 
     private [%=tp.~fullName%] object;
     private java.util.Map <String,Object> attributes = new java.util.HashMap<String,Object>();
-    private java.util.WeakHashMap<org.tura.platform.repository.proxy.ProxyObjectUpdateListener, Object>  listeners= new java.util.WeakHashMap<org.tura.platform.repository.proxy.ProxyObjectUpdateListener, Object>();
+    private java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>  listeners= new java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>();
 
 	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 
@@ -36,7 +36,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     }
     
     public void addListener( org.tura.platform.repository.proxy.ProxyObjectUpdateListener listener){
-      listeners.put(listener,null);
+      listeners.add(listener);
     }
     
     public void setStackProvider(org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider){
@@ -54,7 +54,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     }
     
     protected void notifyListner(ObjectControl obj , String property) throws Exception {
-    	for (ProxyObjectUpdateListener lst : listeners.keySet()){
+    	for (ProxyObjectUpdateListener lst : listeners){
     		lst.listener(obj, property);
     	}
     }

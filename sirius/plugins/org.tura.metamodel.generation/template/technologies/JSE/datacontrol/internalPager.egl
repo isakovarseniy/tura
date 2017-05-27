@@ -48,6 +48,7 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
 		
 		getShifter().add(datacontrol.getCurrentPosition(), obj);
 		putObjectToPool(obj, org.tura.platform.datacontrol.pool.PoolCommand.C);
+		registerForCleaning();
 		
 		org.tura.platform.datacontrol.command.base.PostCreateTrigger trigger = datacontrol.getPostCreateTrigger(); 
 		if (trigger != null){

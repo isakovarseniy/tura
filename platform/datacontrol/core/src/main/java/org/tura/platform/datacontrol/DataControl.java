@@ -251,7 +251,9 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 		T obj = pager.createObject(currentPosition);
 
 		try {
-			if (obj != null && getParent() != null) {
+			if (obj != null ) {
+				if (getParent() != null){
+				
 					List<SearchCriteria> ls = getParent().getChildSearchCriteria();
 					for (SearchCriteria sc : ls ) {
 
@@ -267,6 +269,7 @@ public abstract class DataControl<T> extends MetaInfoHolder implements IDataCont
 									Class.forName(className), value);
 						}
 					}
+				}	
 				notifyLiteners(new RowCreatedEvent(this, getCurrentObject()));
 				notifyChageRecordAll(getCurrentObject());
 			}

@@ -234,8 +234,8 @@ public abstract class Pool {
 
 		if ("U".equals(firstElement.getOperation())) {
 			Object objw = firstElement.getObj();
-			getShifter().update(index, objw);
-			object = objw;
+			object = connectObject(objw);
+			getShifter().update(index, object);
 			registerForCleaning();
 
 		}

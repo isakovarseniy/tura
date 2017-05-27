@@ -43,12 +43,14 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.DataControl;
+import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.command.base.PostQueryTrigger;
 import org.tura.platform.datacontrol.command.base.PreQueryTrigger;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
+import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.test.hr.model.DepartmentType;
@@ -64,6 +66,7 @@ public class SingleDataControl {
 	private static Logger logger;
 	private static Server server;
 
+	
 	
 	@AfterClass
 	public static void afterClass() throws Exception {
@@ -537,13 +540,6 @@ public class SingleDataControl {
 				assertEquals((long)260, (long)(dc.getCurrentObject().getObjId()));
 				
 				
-				
-				
-				
-				
-				
-				
-				
 			} catch (Exception e) {
 				e.printStackTrace();
 				fail(e.getMessage());
@@ -555,6 +551,61 @@ public class SingleDataControl {
 		}
 	}
 
+	@Test
+	public void t11_rallback() {
+		try {
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
+			DepartmentType o = dc.getCurrentObject();
+			
+			dc.createObject();
+			
+			dc.getCommandStack().rallbackCommand();
+
+			DepartmentType o1 = dc.getCurrentObject();
+			assertEquals(o.getObjId(), o1.getObjId());
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+	
+	
+	@Test
+	public void t12_create() {
+		final  int[] createRow = {0};
+
+		try {
+			
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			dc.setPageSize(5);
+			dc.addEventLiteners(new EventListener(){
+
+				@Override
+				public void handleEventListener(Event event) throws TuraException {
+					createRow[0]++;
+				}
+				
+			});
+			
+			dc.createObject();
+			assertEquals(1, createRow[0]);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+
+	
+	
 	public class DeparmentPostCreatTrigger implements PostCreateTrigger {
 
 		@Override

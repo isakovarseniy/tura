@@ -2715,6 +2715,7 @@
                                       </fields>
                                       <required uid="48718a9f-82e7-4638-80cd-848f47ba6ab4"/>
                                       <readOnly uid="6e029824-c980-40a0-bf19-aea400f8b481"/>
+                                      <refreshAreas area="180bd1e5-0388-4fdf-812a-ca1525b12772" group="1"/>
                                       <refreshAreas area="440d622a-4c2f-452e-a739-022c82956ad3" group="2"/>
                                       <icon uid="be98071c-b79e-41c3-a69b-8de5e325f59e" value="Types repository.Base Repository.Model types.Model types::System library.style2Icon()">
                                         <expression objRef="6af7c3d0-ec17-4bb6-9717-f73c2e984ce7" expressionType="DomainTypesImpl"/>

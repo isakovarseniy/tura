@@ -21,8 +21,7 @@
  */
 package org.tura.platform.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
@@ -61,6 +60,7 @@ import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.test.hr.model.DepartmentType;
 
 import com.octo.java.sql.exp.Operator;
@@ -154,6 +154,43 @@ public class SingleDataControlPool {
 		}
 	}
 
+	
+	@Test
+	public void t1_getApplyUpdateModification() {
+		try {
+			DataControl<DepartmentType> dc = factory.initDepartments("");
+			dc.getElResolver().setValue("departments", dc);
+			DepartmentType row = dc.getCurrentObject();
+
+			DepartmentType newrow = factory.getNewDepartmentType();
+			newrow.setObjId(row.getObjId());
+			newrow.setDescription("Updated object");
+			
+			
+			//emulate behavior of pager 
+			newrow = (DepartmentType) ((ObjectControl)newrow).clone();
+			
+
+			Pager<?> pager = getPager(dc);
+
+			PoolElement e = new PoolElement(newrow, ((ObjectControl) newrow).getKey(),
+					dc.getBaseClass(), PoolCommand.U.name(), "1");
+			pager.addCommand(e);
+
+			row = dc.getCurrentObject();
+
+			assertEquals(row.getDescription(), "Updated object");
+			assertNotNull(getStackProvider((ObjectControl) row));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
+	
+	
+	
 	@Test
 	public void t2_getApplyRemoveModification() {
 		try {
@@ -578,4 +615,12 @@ public class SingleDataControlPool {
 		return (Pager<?>) field.get(dc);
 	}
 
+	private ProxyCommadStackProvider getStackProvider(ObjectControl oc)
+			throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+		Field field = oc.getClass().getDeclaredField("stackProvider");
+		field.setAccessible(true);
+		return (ProxyCommadStackProvider) field.get(oc);
+	}
+	
+	
 }
