@@ -92,8 +92,8 @@ public class MiscTest {
 			el.setValue("Department 1");
 
 			el = miscPage.getEmployeesDropDown();
-			el.setValue("First Name 1");
-			assertEquals("First Name 1", el.getValue());
+			el.setValue("Last Name 1");
+			assertEquals("Last Name 1", el.getValue());
 
 		} catch (Exception e) {
 			e.printStackTrace();

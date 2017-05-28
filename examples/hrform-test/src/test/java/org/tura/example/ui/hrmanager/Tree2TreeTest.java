@@ -134,18 +134,18 @@ public class Tree2TreeTest {
 		WebElement el = tr.getCell(1);
 		assertEquals("Department 1", el.getText());
 		
-		tr = (TreeRow) tree.getRow("0_0");
+		tr = (TreeRow) tree.getRow("0_2");
 		tr.open();
 		el = tr.getCell(1);
 		assertEquals("First Name 1 Last Name 1", el.getText());
 		
 		
-		tr = (TreeRow) tree.getRow("0_0_0");
+		tr = (TreeRow) tree.getRow("0_2_0");
 		tr.open();
 		el = tr.getCell(1);
 		assertEquals("Dir1", el.getText());
 
-		tr = (TreeRow) tree.getRow("0_0_0_0");
+		tr = (TreeRow) tree.getRow("0_2_0_0");
 		el = tr.getCell(1);
 		assertEquals("file1", el.getText());
 
