@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.tura.metamodel.editor.feature_4.1.0.qualifier.jar" id="org.tura.metamodel.editor.feature" version="4.1.0.qualifier">
+   <feature url="features/org.tura.metamodel.editor.feature_4.2.0.qualifier.jar" id="org.tura.metamodel.editor.feature" version="4.2.0.qualifier">
       <category name="org.tura.id"/>
    </feature>
    <category-def name="org.tura.id" label="Tura"/>

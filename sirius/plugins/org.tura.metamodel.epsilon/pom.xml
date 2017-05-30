@@ -18,10 +18,9 @@
   <parent>
      <groupId>org.tura.metamodel</groupId>
      <artifactId>plugins</artifactId>
-     <version>4.1.0-SNAPSHOT</version>
+     <version>4.2.0-SNAPSHOT</version>
   </parent>
   <groupId>org.tura.metamodel</groupId>
   <artifactId>org.tura.metamodel.epsilon</artifactId>
-  <version>4.1.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 </project>

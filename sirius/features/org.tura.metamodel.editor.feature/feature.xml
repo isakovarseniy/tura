@@ -14,7 +14,7 @@
 <feature
       id="org.tura.metamodel.editor.feature"
       label="Application generator"
-      version="4.1.0.qualifier">
+      version="4.2.0.qualifier">
 
    <description url="http://www.example.com/description">
       This feature provides functionality for application generation
