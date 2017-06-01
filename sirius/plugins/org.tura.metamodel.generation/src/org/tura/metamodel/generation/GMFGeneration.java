@@ -67,7 +67,12 @@ public class GMFGeneration {
 		try{
 		if (conf != null){
   		   for (Property prop : conf.getProperties()){
-			  configuration.put(prop.getConfVarRef().getName(), prop.getValue());
+			  String p = System.getProperty(prop.getConfVarRef().getName());
+			  if ( p != null){
+				  configuration.put(prop.getConfVarRef().getName(), p);
+			  }else{
+				  configuration.put(prop.getConfVarRef().getName(), prop.getValue());
+			  }
 		   }
   		   
  		   for (HashProperty prop : conf.getHashProperties()){
