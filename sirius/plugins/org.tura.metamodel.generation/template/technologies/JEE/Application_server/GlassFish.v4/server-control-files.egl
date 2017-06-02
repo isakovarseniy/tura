@@ -4,7 +4,7 @@ operation web_xml_serverspecific(hash){
    var configuration = hash.get("configuration");
    var component = hash.get("component");
    var util = new Native('org.tura.metamodel.commons.Util');
-   var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
+   var webapp =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
    var realms = hash.get("realms");
    var recipe = hash.get("recipe");
    var ingredient = hash.get("ingredient");

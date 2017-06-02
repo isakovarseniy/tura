@@ -9,8 +9,8 @@ ${percent}${end}
      
     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 
-    var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
-    var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
+    var javaPath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+    var resourcePath =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";
     var uipackage = form.eContainer();
 
     %][%=commandstack(component,uipackage, form)%][%

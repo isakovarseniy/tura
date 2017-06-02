@@ -41,7 +41,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
       }
  
       for( targetnamespace in nsHash.keySet()  ){
-		var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/xsd/";  
+		var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/xsd/";  
         var returnHash = new Native('java.util.HashMap');
 		hash.put("returnHash",returnHash);
 		hash.put("fullCollection",typeCollection);
@@ -68,7 +68,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
       
       } 
 
-		var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/xjb/";  
+		var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/xjb/";  
 
 	    var jaxbBinding : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/jaxbBinding.egl",hash,TemplateFactory);
 	    jaxbBinding.setFormatter(f);
@@ -76,7 +76,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    
 	    util.saveFile( path, "bindings.xjb",buffer);   
 
-		var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/org/acme/foo/";  
+		var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/org/acme/foo/";  
         var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 
 	    var dateadapter : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/dateAdapter.egl",hash,TemplateFactory);

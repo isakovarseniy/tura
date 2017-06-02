@@ -12,7 +12,7 @@ ${percent}${end}
     if (appMsgLibs.size() <> 0 ){
     
        var appMsg = appMsgLibs.get(0);
-       var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
+       var webapp =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
        var application = appMsg.eContainer().eContainer();
        
 %]

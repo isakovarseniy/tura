@@ -67,7 +67,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
            }           
            type.~skipAttributes=skipAttributes;
 
-          var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
+          var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
           hash.put("type",type);
           hash.put("recipe",recipe);
           hash.put("ingredient",ingredient);

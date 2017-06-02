@@ -15,7 +15,7 @@ operation  cdi_service_producer_generation(hash) {
     var javaPath =  hash.get("javaPath");
     var form =  hash.get("form");
  
-     var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
+     var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
     
     util.populateTechnologies(hash,model_mapper);
 

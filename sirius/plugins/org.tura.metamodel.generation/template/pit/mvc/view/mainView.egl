@@ -15,9 +15,9 @@ ${percent}${end}
 
          var hash = new Native("java.util.HashMap"); 
    
-         var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
-         var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
-         var webapp =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/webapp/";
+         var javaPath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+         var resourcePath =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";
+         var webapp =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/webapp/";
          var uipackage = form.eContainer();
          var application = uipackage.eContainer();
 

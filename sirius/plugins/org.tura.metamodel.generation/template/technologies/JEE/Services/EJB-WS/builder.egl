@@ -11,10 +11,10 @@ operation  maven_build_runner(hash) {
      
     var configuration = hash.get("configuration");
     var component = hash.get("component");
-    var path = component.getComponentRoot+"/"+component.getArtifactId;  
+    var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId;  
     var model_mapper = hash.get("model_mapper");
  %]
-[%=mavenBuilder_mavenCleanInstall(configuration, component.getComponentRoot+"/"+component.getArtifactId,hash)%]
+[%=mavenBuilder_mavenCleanInstall(configuration, util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId,hash)%]
 [%    
 
     model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
@@ -29,6 +29,7 @@ operation  maven_builder(hash) {
     var component = hash.get("component");
     var model_mapper = hash.get("model_mapper");
     var alltypes = hash.get("alltypes");
+    var configuration = hash.get("configuration");
 
     var util = new Native('org.tura.metamodel.commons.Util');
     var lib = new Native('java.util.HashMap');
@@ -49,7 +50,7 @@ operation  maven_builder(hash) {
      var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
      builder.setFormatter(f);
     
-     var path = component.getComponentRoot+"/"+component.getArtifactId;  
+     var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId;  
      var buffer = builder.process();
      util.saveFile( path+"/"+component.getArtifactId()+"-ejb", "pom.xml",buffer); 
 

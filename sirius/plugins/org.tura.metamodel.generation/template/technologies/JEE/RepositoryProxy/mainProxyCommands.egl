@@ -30,7 +30,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
       }   
 	    
  
-	  var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
+	  var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
       for( type in types  ){
 
        if (type.~primaryKey.size()==0){

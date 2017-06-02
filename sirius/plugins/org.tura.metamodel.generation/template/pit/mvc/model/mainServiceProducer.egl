@@ -15,7 +15,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categori
      var hash = new Native('java.util.HashMap');
      var type;
 
-     var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+     var javaPath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
      
      
      var types = util.runQuery(model_mapper,"Query type",model_mapper);

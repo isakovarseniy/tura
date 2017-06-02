@@ -233,6 +233,16 @@ public class Util {
 	}
 
 	
+	public static String getComponentRoot(String root, HashMap<String, Object> configuration){
+		for (String key : configuration.keySet() ){
+			if (configuration.get(key) instanceof String){
+			   root = root.replaceAll("\\$\\{"+ key + "\\}", (String)configuration.get(key));
+			}
+		}
+		return root;
+	}
+	
+	
 	public static Object runQuery(Query query, EObject eobj)
 			throws Exception {
 		String strQuery = query.getQueryRef().getQuery();

@@ -43,7 +43,7 @@
      var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
      persistence.setFormatter(f);
 
-     var path = component.getComponentRoot+"/"+component.getArtifactId;    
+     var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId;    
      if (model_mapper.artifactRoot <> null )
          path = path+"/"+model_mapper.artifactRoot ;
 

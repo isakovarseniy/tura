@@ -13,8 +13,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/model/da
 
          var hash = new Native("java.util.HashMap"); 
    
-         var javaPath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
-         var resourcePath =  component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";
+         var javaPath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/"+component.basePackage.replaceAll("\\.","\\/")+"/";  
+         var resourcePath =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";
          var uipackage = form.eContainer();
 
          hash.put("recipe",recipe);

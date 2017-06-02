@@ -19,7 +19,7 @@ operation  service_generation(hash) {
     var  component = hash.get("component");
     var  model_mapper = hash.get("model_mapper");
  
-     var path = component.getComponentRoot+"/"+component.getArtifactId()+"/"+component.getArtifactId()+"-ejb/src/main/java/";  
+     var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/"+component.getArtifactId()+"-ejb/src/main/java/";  
     
     util.populateTechnologies(hash,model_mapper);
 

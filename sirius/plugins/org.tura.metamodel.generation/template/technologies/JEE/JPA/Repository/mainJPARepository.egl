@@ -29,7 +29,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
  
       if (types <> null and types.size <> 0 ){
       
-        var resourcePath = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/resources/";  
+        var resourcePath = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/resources/";  
 
 	    var beansxml : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/CDI/datacontrol/beans-xml.egl",hash,TemplateFactory);
 	    beansxml.setFormatter(x);
@@ -58,7 +58,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
          t2view.put(type,h);
       }	    
  
-      var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
+      var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
       for(type in t2model.keySet()){
          
         if (not type.~primaryKey.isDefined()  ){

@@ -25,7 +25,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	       type.collectType(typeCollection,model_mapper,null,null,null);
 	    }
 
-      var path = component.getComponentRoot+"/"+component.getArtifactId()+"/src/main/java/";  
+      var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
 
       for(type in typeCollection){
         if (not type.~primaryKey.isDefined()  ){
