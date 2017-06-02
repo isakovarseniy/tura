@@ -461,7 +461,7 @@
         </techLeafs>
       </techLeafs>
       <techLeafs uid="128060cb-76e9-4f85-9ff7-2bc5dad2a886" name="OS">
-        <configVariables uid="c8917447-70ac-417c-b397-d966f2b057ad" name="GENERATION_PATH"/>
+        <configVariables uid="c8917447-70ac-417c-b397-d966f2b057ad" name="Generation path"/>
         <techLeafs uid="0ba9fb8e-4b01-47bc-93f2-7c398218105a" name="Unix"/>
         <techLeafs uid="91ac90a1-ae2f-44f1-8d1a-84e0ebdf6668" name="Win"/>
       </techLeafs>
@@ -1327,7 +1327,7 @@
                 <recipes uid="a35e53f5-2d9d-46ce-8a15-46ef1576f04c" name="Test domain and persistence model">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 21d8af7b-7dbd-451d-a8e7-ee9d696646a4 d618d7da-b15b-4395-ae4c-40f5c49e29a3 5b7c1e6e-40fd-4ebc-91fb-ef1c8709e6cf" uid="8d9145b8-4528-4cde-b96c-ded8331c2011" name="Test model generation">
                     <ingredients uid="743fbbff-1ddb-4400-848c-23c002a09a64" name="Domain objects" controllerLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="13f31adb-9df4-4c87-b762-1e9af65381ba" name="Domain Model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="test-objects-domain" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.domain.test">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="13f31adb-9df4-4c87-b762-1e9af65381ba" name="Domain Model" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-domain" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.domain.test">
                         <mappers uid="14db4237-4d45-4f0d-9c45-967c1cea6781" artifactRef="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Model generation">
                           <queries uid="6e4361c9-7259-4253-879c-c5ecdf29be0f" name="Query package for classess" queryRef="2f122165-6dcb-4620-8d63-15c0c9dc0270">
                             <variables queryParamRef="83d58dc0-4297-4c19-b869-f879e3c81674" value="Testing repository"/>
@@ -1352,7 +1352,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
                           </queries>
                         </mappers>
-                        <mappers uid="24ea5cb4-5cc5-43df-beac-047f6f661d78" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Domain build runner" artifactRoot="" artifactExecutionString="bash /Users/arseniy/Downloads/gen_code/serviceLayer/test-objects-domain/builder.sh">
+                        <mappers uid="24ea5cb4-5cc5-43df-beac-047f6f661d78" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Domain build runner" artifactRoot="" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-domain/builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
@@ -1361,7 +1361,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="1" uid="3521f573-77da-4735-a0f6-e13daf00a1a5" name="Persistance" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="791cda7d-5f13-4507-8b6a-48d6f9461db3" name="Persistence model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="test-objects-jpa" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="791cda7d-5f13-4507-8b6a-48d6f9461db3" name="Persistence model" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-jpa" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="4081d728-74ee-49c5-8e89-5e83a1986dfa" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactExecutionString="">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
                           <queries uid="1ccc5377-e128-446d-beb2-069ff23b4c46" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
@@ -1404,7 +1404,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="NA"/>
                           </queries>
                         </mappers>
-                        <mappers uid="445b383b-6f5b-43f6-9239-3df2ae1d4c98" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA build runner" artifactExecutionString="bash /Users/arseniy/Downloads/gen_code/serviceLayer/test-objects-jpa/builder.sh">
+                        <mappers uid="445b383b-6f5b-43f6-9239-3df2ae1d4c98" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-jpa/builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="5516fd5e-e5b1-4fb3-aba7-07325b517be7"/>
@@ -1413,7 +1413,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="3" uid="946ca39d-cc10-4663-80e7-f98859db01ab" name="Serialization model for persistence object" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="88598fc1-6a8f-4c53-b92f-a7e4012de25d" name="persistance serialization model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="test-objects-serialization" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="88598fc1-6a8f-4c53-b92f-a7e4012de25d" name="persistance serialization model" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-serialization" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="2c9326c4-e193-43ae-9533-77c037188fbe" artifactRef="01788d3b-cb04-49a4-ac90-fe9863806de4" name="Serialization model">
                           <queries uid="81116c57-0cbe-4418-b05a-76cf271b153f" name="Query package for classes" queryRef="f221359a-9578-422c-8dda-d4a8f1ddbfbf">
                             <variables queryParamRef="24d765fa-9d81-488b-8f84-5bdf72735276" value="Testing repository"/>
@@ -1425,7 +1425,7 @@
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="a402227e-405e-4074-ae16-33b2f8a07b39"/>
                         </mappers>
-                        <mappers uid="ed3fba79-6854-4a72-92a6-725b77fd56bd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA serializable  model build runner" artifactExecutionString="bash /Users/arseniy/Downloads/gen_code/serviceLayer/test-objects-serialization/builder.sh">
+                        <mappers uid="ed3fba79-6854-4a72-92a6-725b77fd56bd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA serializable  model build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-serialization/builder.sh">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -1434,7 +1434,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="2" uid="14bc11a6-ef32-4a75-a76c-6433dea53faf" name="Persistance objects repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="dda9b19e-e5a0-4baf-acba-4535993afa81" name="JPA model repository" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="test-objects-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="dda9b19e-e5a0-4baf-acba-4535993afa81" name="JPA model repository" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="">
                         <mappers uid="4ad64e23-f0df-4d9c-9f46-0e8d9e64a024" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <queries uid="40469a6e-dadc-4f41-8f40-fde93c40b334" name="Query package for classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
                             <variables queryParamRef="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" value="Testing repository"/>
@@ -1450,7 +1450,7 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="JPA test package"/>
                           </queries>
                         </mappers>
-                        <mappers uid="55c762dd-0383-4265-bb38-05b6e3b44559" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA Repository build runner" artifactExecutionString="bash /Users/arseniy/Downloads/gen_code/serviceLayer/test-objects-repository/builder.sh">
+                        <mappers uid="55c762dd-0383-4265-bb38-05b6e3b44559" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA Repository build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-repository/builder.sh">
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -1459,7 +1459,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="4" uid="76b6f6d0-62b2-4d26-a6d1-fdb0bd8978f1" name="Proxy for persistance objects repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="bc745a61-1853-42b0-97ce-ee8ce18bde39" name="Proxy for JPA model repository" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="test-objects-repository-proxy" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="bc745a61-1853-42b0-97ce-ee8ce18bde39" name="Proxy for JPA model repository" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-repository-proxy" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="e65a423e-fc1d-4ea2-a342-89af14857b2e" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy">
                           <queries uid="6535e225-1dab-45c9-927d-712cb911fbbf" name="Query package for classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
                             <variables queryParamRef="52de4dda-86be-4a4d-a3ce-0d093cf014b2" value="Testing repository"/>
@@ -1481,7 +1481,7 @@
                             <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="JPA test package"/>
                           </queries>
                         </mappers>
-                        <mappers uid="9bb17021-f9c5-4a40-985b-cdc28bf9679f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Repository proxy build runner" artifactExecutionString="bash /Users/arseniy/Downloads/gen_code/serviceLayer/test-objects-repository-proxy/builder.sh">
+                        <mappers uid="9bb17021-f9c5-4a40-985b-cdc28bf9679f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Repository proxy build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-repository-proxy/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -1490,7 +1490,7 @@
                       </components>
                     </ingredients>
                     <ingredients order="5" uid="308d974e-1723-4d3d-b794-43be2805242a" name="Data Control components" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f9ea1171-9e27-476f-b1fb-7e2958a3871f" name="Pager object" componentRoot="${GENERATION_PATH}/uiLayer" artifactId="test-objects-pagers" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f9ea1171-9e27-476f-b1fb-7e2958a3871f" name="Pager object" componentRoot="${Generation path}/uiLayer" artifactId="test-objects-pagers" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="f4f882dd-7b84-42f5-87e8-59ea8ee110b7" artifactRef="c2c2a8d3-4b1e-410a-9ade-0971d5a0bef3" name="Pager">
                           <queries uid="a11cea5d-02b9-4c03-9f40-42e7a451dbca" name="Query package for classes" queryRef="3c725660-a8c5-443b-9533-53daab6f1eee">
                             <variables queryParamRef="675edf09-f702-4631-bba0-4f157ef21d88" value="Testing repository"/>
@@ -1511,7 +1511,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Data control"/>
                           </queries>
                         </mappers>
-                        <mappers uid="ac990734-7c7d-4545-a2e9-3a639dece9ac" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Pager build runner" artifactExecutionString="bash /Users/arseniy/Downloads/gen_code/uiLayer/test-objects-pagers/builder.sh">
+                        <mappers uid="ac990734-7c7d-4545-a2e9-3a639dece9ac" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Pager build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/test-objects-pagers/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
@@ -1547,7 +1547,7 @@
                 <recipes uid="2e39a682-6e3e-4e2e-8dd2-4d6453cdd8b1" name="HR domain and presistence model">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a d618d7da-b15b-4395-ae4c-40f5c49e29a3" uid="80a7bd65-32b9-4094-9edf-534c7bdc5d3b" name="HR model generation">
                     <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" order="7" uid="ef75278a-e9cb-4a91-85b2-ada164529aec" name="Simple model repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715" controllerLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b9c0cc0f-5420-4769-877d-da2646f404f0" name="HR domain simple model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="hr-simple-model-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.elsoft.platform.hr.objects.simple.model">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b9c0cc0f-5420-4769-877d-da2646f404f0" name="HR domain simple model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-simple-model-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.elsoft.platform.hr.objects.simple.model">
                         <mappers uid="d4df4174-c80c-4a95-84a8-29543058b40b" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Model generatioin">
                           <queries uid="e7a45a88-f65b-49ee-adc4-e97848a50022" name="Query package for classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
                             <variables queryParamRef="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" value="HR domain"/>
@@ -1572,7 +1572,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="1" uid="a03d9042-d13e-40b9-acc8-c09c7a2188bd" name="Complex model persistence" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="65c2aece-7aab-4048-bfd0-f7839ed6de03" name="HR complex persistance model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="hr-complex-model-jpa" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.jpa">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="65c2aece-7aab-4048-bfd0-f7839ed6de03" name="HR complex persistance model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-jpa" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.jpa">
                         <mappers uid="eac21c0f-42e1-41e8-a089-344836bdee19" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactExecutionString="">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
                           <queries uid="f06c0e5f-dad3-400a-852f-b01c7433beca" name="Query package for classes" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
@@ -1609,7 +1609,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="3" uid="1f77f7a4-cd78-489c-8495-6d94551e6ff9" name="Complex  model serialization" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="181d709d-fc19-4d9c-a13c-74340194db20" name="HR domain complex model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.serialization">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="181d709d-fc19-4d9c-a13c-74340194db20" name="HR domain complex model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.serialization">
                         <mappers uid="fe610ad9-590e-4bb9-aaab-128624714381" artifactRef="01788d3b-cb04-49a4-ac90-fe9863806de4" name="Serialization Model">
                           <queries uid="473b1fac-2c3e-482b-8946-e88eb3cc4706" name="Query package for classes" queryRef="f221359a-9578-422c-8dda-d4a8f1ddbfbf">
                             <variables queryParamRef="24d765fa-9d81-488b-8f84-5bdf72735276" value="HR domain"/>
@@ -1630,7 +1630,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="5" uid="54c5dab7-d405-42f4-a96d-2d88c2e58831" name="Proxy repository for complex model" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="09fa87d5-4334-44a2-933d-1986dcfc6f01" name="HR domain complex model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="hr-complex-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="09fa87d5-4334-44a2-933d-1986dcfc6f01" name="HR domain complex model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="78f958e5-4e6a-467a-8431-1e099260ebfb" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy">
                           <queries uid="6c63585b-72ee-4718-93df-9545fc466b3f" name="Query package for classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
                             <variables queryParamRef="52de4dda-86be-4a4d-a3ce-0d093cf014b2" value="HR domain"/>
@@ -1661,7 +1661,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" order="2" uid="9acefc70-fcde-4839-88a0-59bf09b07f28" name="Simple model persistence" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="5409bd86-d65b-4f13-bc10-6a5f44695c45" name="HR simple persistence model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="hr-simple-model-jpa" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.jpa">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="5409bd86-d65b-4f13-bc10-6a5f44695c45" name="HR simple persistence model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-simple-model-jpa" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.jpa">
                         <mappers uid="8dafbf5c-a11a-45ca-b2e1-e5c2ad6d1742" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generation" artifactRoot="">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
                           <queries uid="04ffcc3b-ee30-4a5f-b687-62073ccbdc14" name="Query package for classess" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
@@ -1698,7 +1698,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" order="4" uid="b352de6a-9a22-425a-b0ae-a62e42b24bdf" name="Simple  model serialization" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="727bcb9f-c71e-416e-a5bc-580de6ff6ed2" name="HR domain simple model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="hr-simple-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.serialization">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="727bcb9f-c71e-416e-a5bc-580de6ff6ed2" name="HR domain simple model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-simple-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.platform.hr.objects.serialization">
                         <mappers uid="737e70d4-4b94-4846-a881-7bcc6696a243" artifactRef="01788d3b-cb04-49a4-ac90-fe9863806de4" name="Serialization Model">
                           <queries uid="0fe3e75c-6379-4a15-a211-59a80e296648" name="Query package for classes" queryRef="f221359a-9578-422c-8dda-d4a8f1ddbfbf">
                             <variables queryParamRef="24d765fa-9d81-488b-8f84-5bdf72735276" value="HR domain"/>
@@ -1719,7 +1719,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" order="6" uid="1778503a-9932-4867-9c48-6fd629051e66" name="Proxy repository for simple model" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f23d80cf-9801-43ac-96ce-abc651b69ea8" name="HR domain simple model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="hr-simple-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f23d80cf-9801-43ac-96ce-abc651b69ea8" name="HR domain simple model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-simple-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="89466bec-c850-460b-88a6-7bb53e5a40c6" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy">
                           <queries uid="23b03381-1ed5-43af-bfe6-0d1892a31632" name="Query package for classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
                             <variables queryParamRef="52de4dda-86be-4a4d-a3ce-0d093cf014b2" value="HR domain"/>
@@ -1750,7 +1750,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="8" uid="cf6b8924-af0b-42c8-a14c-9fb2626a4511" name="Complex model repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="582847b7-6d9b-4e3f-9235-8fdf2946798d" name="HR domain complex model" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="hr-complex-model-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.elsoft.platform.hr.objects.complex.model">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="582847b7-6d9b-4e3f-9235-8fdf2946798d" name="HR domain complex model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.elsoft.platform.hr.objects.complex.model">
                         <mappers uid="8c9c5143-54a6-4de0-888e-d644b16eed7e" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Model generatioin">
                           <queries uid="3454fbea-8e52-4797-afc0-a074e9fabda9" name="Query package for classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
                             <variables queryParamRef="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" value="HR domain"/>
@@ -1775,7 +1775,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="5b7c1e6e-40fd-4ebc-91fb-ef1c8709e6cf" uid="fc92aae7-0185-4459-9fec-7e392caf0ff2" name="Model interface" modelLayer="0d88bb08-2150-462f-937d-70b99af379f9" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="046dfc64-e4d1-4c5a-b70f-91d5fc14b175" name="HR model interface" componentRoot="${GENERATION_PATH}/serviceLayer" artifactId="hr-model-interface" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="046dfc64-e4d1-4c5a-b70f-91d5fc14b175" name="HR model interface" componentRoot="${Generation path}/serviceLayer" artifactId="hr-model-interface" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="03193d7d-6d6d-4998-9241-fcd04cb515f1" artifactRef="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="Interface generation">
                           <queries uid="5e0fa26c-454c-4127-83c2-08498310a8ad" name="Query package" queryRef="37036a3c-8f09-455e-93fa-ec2f87f9e1f7">
                             <variables queryParamRef="7969678d-ba21-43f6-a500-99fad251d868" value="HR domain"/>
@@ -1833,7 +1833,7 @@
                 <recipes uid="6c59b498-c8ad-4f2e-8b13-68919051c08f" name="HR forms">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3 acdc2d46-bd08-4e15-ae7f-e81dade87e6d 71f44269-b3fd-4292-8c43-2ffb245accd8 d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" uid="4b203e22-0ea6-4cf8-9c3e-8c1040e73dc5" name="HR forms">
                     <ingredients order="1" uid="cb94813a-6ea2-4cca-84e9-e7322de5afd0" name="Form ingredient" vewLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec" modelLayer="d7636d4b-5360-45e3-b983-1abe14af04d4">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f8f26823-9f25-4fe4-a406-059a4c2bc09f" name="UI component" componentRoot="${GENERATION_PATH}/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f8f26823-9f25-4fe4-a406-059a4c2bc09f" name="UI component" componentRoot="${Generation path}/uiLayer" artifactId="hrform" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="989d5392-92cf-4922-b915-896f942783cb" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all datacontrols">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="32cdf13e-2b00-42ea-a6a0-00eadfd814db"/>
@@ -1904,7 +1904,7 @@
                           </queries>
                         </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="c3fdf5c2-a443-4de5-b6b3-795080b23b56" name="Forms interface" componentRoot="${GENERATION_PATH}/uiLayer" artifactId="hrform-interface" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="c3fdf5c2-a443-4de5-b6b3-795080b23b56" name="Forms interface" componentRoot="${Generation path}/uiLayer" artifactId="hrform-interface" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="ae622f5d-f20e-4061-b432-6ad7d0acab37" artifactRef="159597f8-6998-4947-9a0c-be08e02260a5" name="Data control interface">
                           <queries uid="f37f75b6-26bf-488e-b3e6-87ace4656696" name="Query form" queryRef="24dbf757-45c1-4d75-af3b-ed8ca60184ea">
                             <variables queryParamRef="1561eaa6-4ca2-416d-957b-f5fb312b63e4" value="ERP"/>
@@ -1939,7 +1939,7 @@
                       </components>
                     </ingredients>
                     <ingredients uid="5d5e9e6a-5fff-4639-9f14-f774adcf921f" name="Testing" controllerLayer="7582eec2-b280-4f56-ae44-4ad4ab5d6530">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="03c48d65-4d1a-494a-ab5f-35eb4da5eb87" name="Selenium testing package" componentRoot="${GENERATION_PATH}/uiLayer" artifactId="hrform-pageobjects" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="03c48d65-4d1a-494a-ab5f-35eb4da5eb87" name="Selenium testing package" componentRoot="${Generation path}/uiLayer" artifactId="hrform-pageobjects" groupId="org.tura.example.ui" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="ecad5c19-380b-4e76-b01a-9ee3412df3f5" artifactRef="c406774c-40ae-4395-97b2-34f9e87eeac1" name="Page objects">
                           <technologies techRef="ebae84aa-a7e2-44f7-bae4-25f96bf57a08" valueRef="a1acf69c-3adf-45a6-a515-9353cce02808"/>
                           <queries uid="0c494b14-1bff-4560-baa8-06e01048a69f" name="Query forms" queryRef="1bf945ea-2bd9-4571-9483-b52312063b02">
@@ -2004,7 +2004,7 @@
                 <recipes uid="7c76b2db-e6ba-4f0f-9743-8eaa713f5501" name="Test data controls">
                   <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3" uid="79ad0912-2614-4e51-8828-741f315d47d2" name="Recipe">
                     <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" uid="80c8bf2b-de55-4535-b57d-64514a80ab87" name="Data control  for simple model" vewLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec" modelLayer="d7636d4b-5360-45e3-b983-1abe14af04d4">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="7c1e3cc7-4698-4cf3-b159-dfbb9462f7bc" name="Data control" componentRoot="${GENERATION_PATH}/uiLayer" artifactId="test-datacontrol-simple-object-model" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.example.ui">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="7c1e3cc7-4698-4cf3-b159-dfbb9462f7bc" name="Data control" componentRoot="${Generation path}/uiLayer" artifactId="test-datacontrol-simple-object-model" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="be716da5-cfaf-4cae-9f09-e6cb55ef7467" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all DataControl in Employee management">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="669ee6ac-32dc-4d28-83a1-9b8fd41d9cff"/>
@@ -2041,7 +2041,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="1" uid="ffb9ba07-c592-49d7-ab1d-6fcf8684cf36" name="Data control  for complex model" vewLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec" modelLayer="d7636d4b-5360-45e3-b983-1abe14af04d4">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="6863e1b1-f881-49ad-9b15-083ae3c08eb2" name="Nested Data control" componentRoot="${GENERATION_PATH}/uiLayer" artifactId="test-datacontrol-complex-object-model" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.example.ui">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="6863e1b1-f881-49ad-9b15-083ae3c08eb2" name="Nested Data control" componentRoot="${Generation path}/uiLayer" artifactId="test-datacontrol-complex-object-model" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="9ddd681e-aba3-48b6-af76-719feddbf7b9" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all DataControl in Nested form package">
                           <technologies techRef="ee0c3883-34bd-433b-b762-866a375d8d82" valueRef="f369b2a1-4ab7-4c7b-a53c-7c7440c410ee"/>
                           <technologies techRef="60e93daf-fbf7-4f68-8dd5-7905e3737a36" valueRef="669ee6ac-32dc-4d28-83a1-9b8fd41d9cff"/>
