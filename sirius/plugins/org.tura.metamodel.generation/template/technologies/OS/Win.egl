@@ -10,7 +10,7 @@ operation  mavenBuilder_mavenCleanInstall(configuration,path,hash) {
   }
 %]
 cd "[%=path%]"
-"[%=configuration.get('Builder location')%]"\bin\mvn.cmd clean install
+"[%=configuration.get('Builder location')%]"\bin\mvn.cmd -B clean install
 [%
 }
 

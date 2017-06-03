@@ -15,7 +15,7 @@ operation  mavenBuilder_mavenCleanInstall(configuration,path,hash) {
 export JAVA_HOME=`/usr/libexec/java_home -v [%=hash.get("Java").substring(i)%]`
 
 cd "[%=path%]"
-"[%=configuration.get('Builder location')%]"/bin/mvn clean install
+"[%=configuration.get('Builder location')%]"/bin/mvn -B clean install
 [%
 }
 
@@ -37,7 +37,7 @@ operation  mavenBuilder_mavenJaxb2Xjc(configuration,path,hash) {
 export JAVA_HOME=`/usr/libexec/java_home -v [%=hash.get("Java").substring(i)%]`
 
 cd "[%=path%]"
-"[%=configuration.get('Builder location')%]"/bin/mvn clean jaxb2:xjc
+"[%=configuration.get('Builder location')%]"/bin/mvn -B clean jaxb2:xjc
 [%
 }
 
