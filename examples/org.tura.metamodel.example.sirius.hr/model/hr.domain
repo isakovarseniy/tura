@@ -1988,7 +1988,7 @@
                   <configurations uid="67fda0b2-5539-4648-ba8a-76c2dc7b9809">
                     <properties uid="f8c812a1-5e0d-422b-be97-2b49c52ebe06" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2" value="/hrapplication"/>
                     <hashProperties uid="616ea5c1-d598-450a-9880-dadfa53bae90" confHashRef="d716c499-dde8-4598-a7df-06282fe54480">
-                      <hash uid="e5605bfa-e44d-4b22-bbd5-449f696f1bf7" key="hrapplication" value="https://localhost:8181/hrapplication"/>
+                      <hash uid="e5605bfa-e44d-4b22-bbd5-449f696f1bf7" key="hrapplication" value=""/>
                     </hashProperties>
                   </configurations>
                   <configurations uid="249725cb-08a5-4324-896f-e31a00a86081">
@@ -3495,6 +3495,7 @@
                           </children>
                         </baseCanvas>
                       </viewElement>
+                      <multiLangLabel uid="f6d47037-dc0b-4760-b008-1b555cf62600"/>
                       <classifiers uid="dc0ee648-dc36-4e02-8c0a-13178e8acd24" hint="4b28d583-e785-4888-bda9-20cdc9db245a"/>
                     </canvases>
                     <canvases xsi:type="tura.form:PopupCanvas" uid="a6e67023-511b-4630-8a98-6de2246eaea0" name="PopUp Cpmpany details">
