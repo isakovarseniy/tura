@@ -55,6 +55,10 @@ class JavaPackageMapper extends PackageMapper {
 class JavaScriptMapper extends TypeMapper{
     id attr EString uid;
    attr EString libraryUrl;
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString artifactType = "jar";
 }
 
 class CSSMapper extends Mapper, style.StylePointer{

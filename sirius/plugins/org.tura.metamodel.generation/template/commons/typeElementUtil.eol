@@ -215,6 +215,14 @@ operation type::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :I
             for( s in set){
              self.~mapper="Type2JavaScript";
              self.~url=s.libraryUrl;
+             self.~artifactId=s.artifactId;
+             self.~groupId=s.groupId;
+             self.~version= s.version;
+             if ( s.artifactId<> null and s.version <> null ){
+                    self.~library=s.artifactId+"-"+s.version+"."+s.artifactType;
+             }else{
+                    self.~library=null;
+             }
              break;
              }
            }

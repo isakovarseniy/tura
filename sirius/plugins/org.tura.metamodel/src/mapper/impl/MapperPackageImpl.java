@@ -539,6 +539,42 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJavaScriptMapper_ArtifactId() {
+		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaScriptMapper_GroupId() {
+		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaScriptMapper_Version() {
+		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaScriptMapper_ArtifactType() {
+		return (EAttribute)javaScriptMapperEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCSSMapper() {
 		return cssMapperEClass;
 	}
@@ -726,6 +762,10 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		javaScriptMapperEClass = createEClass(JAVA_SCRIPT_MAPPER);
 		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__UID);
 		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__LIBRARY_URL);
+		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__ARTIFACT_ID);
+		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__GROUP_ID);
+		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__VERSION);
+		createEAttribute(javaScriptMapperEClass, JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE);
 
 		cssMapperEClass = createEClass(CSS_MAPPER);
 		createEAttribute(cssMapperEClass, CSS_MAPPER__UID);
@@ -832,6 +872,10 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		initEClass(javaScriptMapperEClass, JavaScriptMapper.class, "JavaScriptMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaScriptMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaScriptMapper_LibraryUrl(), ecorePackage.getEString(), "libraryUrl", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaScriptMapper_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaScriptMapper_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaScriptMapper_Version(), ecorePackage.getEString(), "version", null, 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaScriptMapper_ArtifactType(), ecorePackage.getEString(), "artifactType", "jar", 0, 1, JavaScriptMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cssMapperEClass, CSSMapper.class, "CSSMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCSSMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, CSSMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

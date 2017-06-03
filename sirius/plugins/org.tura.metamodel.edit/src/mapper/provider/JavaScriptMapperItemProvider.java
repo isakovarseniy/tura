@@ -47,6 +47,10 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 
 			addUidPropertyDescriptor(object);
 			addLibraryUrlPropertyDescriptor(object);
+			addArtifactIdPropertyDescriptor(object);
+			addGroupIdPropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
+			addArtifactTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,6 +100,94 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Artifact Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArtifactIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaScriptMapper_artifactId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_artifactId_feature", "_UI_JavaScriptMapper_type"),
+				 MapperPackage.Literals.JAVA_SCRIPT_MAPPER__ARTIFACT_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Group Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGroupIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaScriptMapper_groupId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_groupId_feature", "_UI_JavaScriptMapper_type"),
+				 MapperPackage.Literals.JAVA_SCRIPT_MAPPER__GROUP_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaScriptMapper_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_version_feature", "_UI_JavaScriptMapper_type"),
+				 MapperPackage.Literals.JAVA_SCRIPT_MAPPER__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Artifact Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArtifactTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaScriptMapper_artifactType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaScriptMapper_artifactType_feature", "_UI_JavaScriptMapper_type"),
+				 MapperPackage.Literals.JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns JavaScriptMapper.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -135,6 +227,10 @@ public class JavaScriptMapperItemProvider extends TypeMapperItemProvider {
 		switch (notification.getFeatureID(JavaScriptMapper.class)) {
 			case MapperPackage.JAVA_SCRIPT_MAPPER__UID:
 			case MapperPackage.JAVA_SCRIPT_MAPPER__LIBRARY_URL:
+			case MapperPackage.JAVA_SCRIPT_MAPPER__ARTIFACT_ID:
+			case MapperPackage.JAVA_SCRIPT_MAPPER__GROUP_ID:
+			case MapperPackage.JAVA_SCRIPT_MAPPER__VERSION:
+			case MapperPackage.JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

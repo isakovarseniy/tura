@@ -51,6 +51,15 @@ operation  maven_builder(hash) {
 	         h.put("version",type.~version);
 	         lib.put(type.~library,h);
          }
+         
+        type.mappingType2JavaScript(recipe,ingredient,'VIEW');
+        if (type.~mapper <> null and  type.~mapper.equals("Type2JavaScript") and   type.~library.equals(currentLib)<>true ){
+	         var h = new Native("java.util.HashMap"); 
+	         h.put("groupId",type.~groupId);
+	         h.put("artifactId",type.~artifactId);
+	         h.put("version",type.~version);
+	         lib.put(type.~library,h);
+         }
       }
 
     hash.put("lib",lib);

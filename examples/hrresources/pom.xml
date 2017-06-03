@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.tura.example.service</groupId>
 	<artifactId>hrresources</artifactId>
-	<packaging>war</packaging>
-	<version>2.0</version>
+	<packaging>jar</packaging>
+	<version>1.0</version>
 	<name>hrresources Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
