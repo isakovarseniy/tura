@@ -54,16 +54,10 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
         }
      %]repository.addProvider(this,  [%=t2view.get(tp).get("fullName")%].class.getName());[%
      
-	   for (attribute in tp.attributes){
-		    if (tp.~skipAttributes.contains(attribute) or  tp.~bindedAttribute.contains(attribute)){
-		        continue; 
-		     }
-		    if (attribute.pk){
-		       continue;
-		    }
-		    %]repository.addCommand(  this, [%=tp.~package%].Update[%=tp.~class%][%=util.mergeAndCapitalize(attribute.name)%]Data.class.getName());[%
-		    %]classLoader.put(   [%=tp.~package%].Update[%=tp.~class%][%=util.mergeAndCapitalize(attribute.name)%]Data.class.getName() , [%=tp.~package%].commands.Update[%=tp.~class%]On[%=util.mergeAndCapitalize(attribute.name)%]Command.class);[%
-      }
+
+		%]repository.addCommand(  this, [%=tp.~package%].Update[%=tp.~class%]Data.class.getName());[%
+		%]classLoader.put(   [%=tp.~package%].Update[%=tp.~class%]Data.class.getName() , [%=tp.~package%].commands.Update[%=tp.~class%]Command.class);[%
+
      %]
          classLoader.put( [%=t2view.get(tp).get("fullName")%].class.getName(), [%=t2view.get(tp).get("package")%].commands.Load[%=t2view.get(tp).get("class")%]Command.class  );
          classMapper.put( [%=t2view.get(tp).get("fullName")%].class.getName(),[%=t2model.get(tp).get("fullName")%].class.getName()  );

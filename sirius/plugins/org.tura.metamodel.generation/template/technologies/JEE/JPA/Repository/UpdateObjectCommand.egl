@@ -11,24 +11,42 @@ package [%=t2view.get(type).get("package")%].commands;
 
 
 
-public class Update[%=t2view.get(type).get("class")%]On[%=util.mergeAndCapitalize(field.name)%]Command implements org.tura.platform.repository.core.Command {
+public class Update[%=t2view.get(type).get("class")%]Command implements org.tura.platform.repository.core.Command {
 
      javax.persistence.EntityManager em;
      public void setEntityManager(javax.persistence.EntityManager em){
            this.em=em;
      }
 
-    public Update[%=t2view.get(type).get("class")%]On[%=util.mergeAndCapitalize(field.name)%]Command(javax.persistence.EntityManager em){
+    public Update[%=t2view.get(type).get("class")%]Command(javax.persistence.EntityManager em){
            this.em=em;
     }
 
     public Object execute(Object obj  ){
-        [%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%][%=util.mergeAndCapitalize(field.name)%]Data data = ([%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%][%=util.mergeAndCapitalize(field.name)%]Data)obj;
+        [%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%]Data data = ([%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%]Data)obj;
        
          [%=PK(type,"pk","data",t2model.get(type).get("fullName"),recipe,ingredient)%]
          
          [%=t2model.get(type).get("fullName")%] jpa = em.find([%=t2model.get(type).get("fullName")%].class ,pk);
-         jpa.set[%=util.mergeAndCapitalize(field.name)%](data.get[%=util.mergeAndCapitalize(field.name)%]());
+         
+         [%
+           for (attribute in type.attributes){
+	        if (type.~skipAttributes.contains(attribute) or  type.~bindedAttribute.contains(attribute)){
+		        continue; 
+		     }
+            if (attribute.pk){
+               continue;
+            }
+         
+         %]
+            if (data.getIsUpdated[%=util.mergeAndCapitalize(attribute.name)%]() != null && data.getIsUpdated[%=util.mergeAndCapitalize(attribute.name)%]() ){
+                 jpa.set[%=util.mergeAndCapitalize(attribute.name)%](data.get[%=util.mergeAndCapitalize(attribute.name)%]());
+            }
+         [%
+         }
+         %]
+
+
             
         return null;    
     }

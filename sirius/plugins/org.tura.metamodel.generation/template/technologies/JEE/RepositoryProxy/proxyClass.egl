@@ -146,7 +146,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 					     notifyListner(this,"[%=util.mergeAndUnCapitalize(field.name)%]");
 			            return;
 			    	}
-			    	[%=tp.~package%].proxy.commands.Update[%=tp.~class%]On[%=util.mergeAndCapitalize(field.name)%]Command command = new [%=tp.~package%].proxy.commands.Update[%=tp.~class%]On[%=util.mergeAndCapitalize(field.name)%]Command();
+			    	[%=tp.~package%].proxy.commands.Update[%=tp.~class%]Command command = new [%=tp.~package%].proxy.commands.Update[%=tp.~class%]Command();
 			
 			        command.set[%=tp.~class%](object);
 			        command.setNew[%=util.mergeAndCapitalize(field.name)%]Value([%=util.mergeAndUnCapitalize(field.name)%]);

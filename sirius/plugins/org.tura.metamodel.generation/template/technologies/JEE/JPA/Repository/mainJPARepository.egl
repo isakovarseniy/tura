@@ -97,23 +97,11 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
         type.addCommand(recipe,ingredient,model_mapper,t2view,t2model,path);
         type.removeCommand(recipe,ingredient,model_mapper,t2view,t2model,path);
         
-        for (attribute in type.attributes){
-	        if (type.~skipAttributes.contains(attribute) or  type.~bindedAttribute.contains(attribute)){
-		        continue; 
-		     }
-            if (attribute.pk){
-               continue;
-            }
+		var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/UpdateObjectCommand.egl",hash,TemplateFactory,templateStore);
+		serializer.setFormatter(f);
+		var buffer = serializer.process();
+		util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Update"+t2view.get(type).get("class")+"Command.java",buffer);   
         
-	        hash.put("field",attribute);
-
-		    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/UpdateObjectCommand.egl",hash,TemplateFactory,templateStore);
-		    serializer.setFormatter(f);
-		    var buffer = serializer.process();
-		    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Update"+t2view.get(type).get("class")+"On"+util.mergeAndCapitalize(attribute.name)+"Command.java",buffer);   
-        
-        }
-
 
         var allRel = new Native('java.util.ArrayList');
  		var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);

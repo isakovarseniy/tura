@@ -9,32 +9,92 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
  ${percent}${end}
  [%
       var util = new Native('org.tura.metamodel.commons.Util');
-      field.typeRef.mappingType2Java(recipe,ingredient);
  
  %]
  package [%=type.~package%].proxy.commands;
- public class Update[%=type.~class%]On[%=util.mergeAndCapitalize(field.name)%]Command implements org.tura.platform.repository.proxy.ProxyRepositoryCommand {
+ public class Update[%=type.~class%]Command implements org.tura.platform.repository.proxy.ProxyRepositoryCommand {
  
- 	private [%=type.~fullName%] [%=util.mergeAndCapitalize(type.~class)%];
-	private [%=field.typeRef.~fullName%] new[%=util.mergeAndCapitalize(field.name)%]Value;
-	private [%=field.typeRef.~fullName%] old[%=util.mergeAndCapitalize(field.name)%]Value;
-
+ 
 	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
- 
- 	public [%=type.~fullName%] get[%=type.~class%]() {
+  	private [%=type.~fullName%] [%=util.mergeAndCapitalize(type.~class)%];
+	private	[%=type.~package%].Update[%=type.~class%]Data data = new [%=type.~package%].Update[%=type.~class%]Data();
+
+
+  	public [%=type.~fullName%] get[%=type.~class%]() {
 		return [%=util.mergeAndCapitalize(type.~class)%];
 	}
-
-
-	public void set[%=type.~class%]([%=type.~fullName%] [%=util.mergeAndCapitalize(type.~class)%]) {
+ 
+ 	public void set[%=type.~class%]([%=type.~fullName%] [%=util.mergeAndCapitalize(type.~class)%]) {
 		this.[%=util.mergeAndCapitalize(type.~class)%] = [%=util.mergeAndCapitalize(type.~class)%];
 	}
+ 
+ 	public org.tura.platform.repository.proxy.ProxyCommadStackProvider getStackProvider() {
+		return stackProvider;
+	}
 
+
+	public void setStackProvider(org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider) {
+		this.stackProvider = stackProvider;
+	}
+ 
+  	public boolean prepare() throws Exception{
+  	   boolean isUpdated = false;
+  	
+[%
+        var tp = type;
+        while  (1 == 1) {
+	         for (field in tp.attributes){
+	            if (field.pk){
+	               continue;
+	            }
+		        if (tp.~skipAttributes.contains(field) or  tp.~bindedAttribute.contains(field)){
+			        continue; 
+			     }
+%]
+  	     isUpdated = isUpdated | prepare[%=util.mergeAndCapitalize(field.name)%]();
+[%
+			}
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+        }
+%]	  	
+  	  if (isUpdated){
+		[%
+	      for (pk in type.~primaryKey){ 
+	      %]
+	      data.set[%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndCapitalize(type.~class)%].get[%=util.mergeAndCapitalize(pk.name)%]());
+	      [%
+	      }
+		%]
+		stackProvider.addCommand(data);
+  	  }
+  	  return isUpdated;
+    }
+ 
+ 
+ [%
+        var tp = type;
+        while  (1 == 1) {
+	         for (field in tp.attributes){
+	            if (field.pk){
+	               continue;
+	            }
+		        if (tp.~skipAttributes.contains(field) or  tp.~bindedAttribute.contains(field)){
+			        continue; 
+			     }
+             field.typeRef.mappingType2Java(recipe,ingredient);
+ 
+ %]
+ 
+	private [%=field.typeRef.~fullName%] new[%=util.mergeAndCapitalize(field.name)%]Value;
+	private [%=field.typeRef.~fullName%] old[%=util.mergeAndCapitalize(field.name)%]Value;
 
 	public [%=field.typeRef.~fullName%] getNew[%=util.mergeAndCapitalize(field.name)%]Value() {
 		return new[%=util.mergeAndCapitalize(field.name)%]Value;
 	}
-
 
 	public void setNew[%=util.mergeAndCapitalize(field.name)%]Value([%=field.typeRef.~fullName%] new[%=util.mergeAndCapitalize(field.name)%]Value) {
 		this.new[%=util.mergeAndCapitalize(field.name)%]Value = new[%=util.mergeAndCapitalize(field.name)%]Value;
@@ -51,16 +111,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	}
 
 
-	public org.tura.platform.repository.proxy.ProxyCommadStackProvider getStackProvider() {
-		return stackProvider;
-	}
-
-
-	public void setStackProvider(org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider) {
-		this.stackProvider = stackProvider;
-	}
  
- 	public boolean prepare() throws Exception{
+ 	public boolean prepare[%=util.mergeAndCapitalize(field.name)%]() throws Exception{
 		
 		if ((old[%=util.mergeAndCapitalize(field.name)%]Value != null) && (old[%=util.mergeAndCapitalize(field.name)%]Value.equals(""))){
 			old[%=util.mergeAndCapitalize(field.name)%]Value = null;
@@ -75,13 +127,13 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 		}
 		
 		if ((new[%=util.mergeAndCapitalize(field.name)%]Value != null) && (old[%=util.mergeAndCapitalize(field.name)%]Value == null) || (new[%=util.mergeAndCapitalize(field.name)%]Value == null) && (old[%=util.mergeAndCapitalize(field.name)%]Value != null)) {
-			add( );
+			add[%=util.mergeAndCapitalize(field.name)%]( );
 			return true;
 
 		} else {
 			if (!new[%=util.mergeAndCapitalize(field.name)%]Value.equals(old[%=util.mergeAndCapitalize(field.name)%]Value)) {
 
-				add();
+				add[%=util.mergeAndCapitalize(field.name)%]();
 				return true;
 			}
 			return false;
@@ -89,19 +141,20 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 		
 	}
  
- 	@SuppressWarnings("unchecked")
-	private void add() throws Exception{
-		[%=type.~package%].Update[%=type.~class%][%=util.mergeAndCapitalize(field.name)%]Data data = new [%=type.~package%].Update[%=type.~class%][%=util.mergeAndCapitalize(field.name)%]Data();
-		[%
-	      for (pk in primaryKey){ 
-	      %]
-	      data.set[%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndCapitalize(type.~class)%].get[%=util.mergeAndCapitalize(pk.name)%]());
-	      [%
-	      }
-		%]
+	private void add[%=util.mergeAndCapitalize(field.name)%]() throws Exception{
 		data.set[%=util.mergeAndCapitalize(field.name)%](new[%=util.mergeAndCapitalize(field.name)%]Value);
-		stackProvider.addCommand(data);
+		data.setIsUpdated[%=util.mergeAndCapitalize(field.name)%](true);
 	}
+[%
+			}
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+        }
+
+%]	
  }
  
  

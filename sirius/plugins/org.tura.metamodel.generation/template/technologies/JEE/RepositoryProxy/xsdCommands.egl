@@ -16,25 +16,8 @@ operation  commandData (recipe,ingredient,targetnamespace,fullHash,returnHash,mo
        if (type.~primaryKey.size()==0){
           continue;
        }
-        var tp = type;
-        while  (1 == 1) {
-	         for (field in tp.attributes){
-	            if (field.pk){
-	               continue;
-	            }
-			     if (tp.~skipAttributes.contains(field) ){
-			        continue; 
-			     }%]
-			     [%=field.updateData(type,recipe,ingredient,targetnamespace,fullHash,returnHash)%]
-			     
-			[%}
-            if (tp.~extension.isDefined()){
-               tp = tp.~extension;
-            }else{
-               break;
-            }
-        }
         %]
+	   [%=type.updateData(recipe,ingredient,targetnamespace,fullHash,returnHash)%]
        [%=type.addData(recipe,ingredient,targetnamespace,fullHash,returnHash,model_mapper)%]
        [%=type.removeData(recipe,ingredient,targetnamespace,fullHash,returnHash,model_mapper)%]
        [%
@@ -262,10 +245,36 @@ operation addNoAssosiationtRelation ( masterType, detailType,property,recipe,ing
 }
 
 @template
-operation type::Attribute  updateData ( type,recipe,ingredient,targetnamespace,fullHash,returnHash){
+operation type::TypeElement  updateData ( recipe,ingredient,targetnamespace,fullHash,returnHash){
        var util = new Native('org.tura.metamodel.commons.Util');
-      %]<xs:complexType name="Update[%=type.~class%][%=util.mergeAndCapitalize(self.name)%]Data">[%
+       var type = self;
+       
+      %]<xs:complexType name="Update[%=type.~class%]Data">[%
 	     %]<xs:sequence>[%
+        var tp = self;
+        while  (1 == 1) {
+	         for (field in tp.attributes){
+	            if (field.pk){
+	               continue;
+	            }
+			     if (tp.~skipAttributes.contains(field) ){
+			        continue; 
+			     }
+		       field.typeRef.mappingType2XML(recipe,ingredient);
+
+		    %] 
+		    <xs:element name="[%=util.mergeAndUnCapitalize(field.name)%]"  type=  "[%=getNamespace(field.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=field.typeRef.~class%]"/>
+		    <xs:element name="IsUpdated[%=util.mergeAndCapitalize(field.name)%]"  type=  "xs:boolean"  />
+		    [%
+			     
+			}
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+        }
+  
 	        if  (type.~primaryKey.isDefined()){
               for (pk in type.~primaryKey){ 
 			    pk.typeRef.mappingType2XML(recipe,ingredient);
@@ -273,9 +282,6 @@ operation type::Attribute  updateData ( type,recipe,ingredient,targetnamespace,f
 			    [%
               }
             }
-		    self.typeRef.mappingType2XML(recipe,ingredient);
-
-		    %] <xs:element name="[%=util.mergeAndUnCapitalize(self.name)%]"  type=  "[%=getNamespace(self.typeRef.~namespace,targetnamespace,fullHash,returnHash)%][%=self.typeRef.~class%]"/>[%
 
 	     %]</xs:sequence>[%
 	  %]</xs:complexType>[%

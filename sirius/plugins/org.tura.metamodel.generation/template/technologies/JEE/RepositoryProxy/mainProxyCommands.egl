@@ -13,6 +13,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
      var alltypes = new Native('java.util.ArrayList');
      var hash = new Native('java.util.HashMap');
      var templateStore = new Native('java.util.HashMap');
+      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 
 
 
@@ -47,8 +48,10 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 		    
 	    util.populateTechnologies(hash,model_mapper);
 		
-	   var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/updateCommand.egl",hash,TemplateFactory,templateStore);
-	   cmd.process();
+  		var cmd : Template =   util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/updatePropertyCommand.egl",hash,TemplateFactory,templateStore);
+	    cmd.setFormatter(f);
+	    var buffer = cmd.process();
+        util.saveFile( path+type.~package.replaceAll("\\.","\\/")+"/proxy/commands", "Update"+type.~class + "Command.java",buffer);   
       
       
 	   var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/assosiationProcessingCommand.egl",hash,TemplateFactory,templateStore);
