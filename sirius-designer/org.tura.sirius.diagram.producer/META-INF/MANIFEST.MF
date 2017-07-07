@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Producer
+Bundle-SymbolicName: org.tura.sirius.diagram.producer
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.tura.sirius.diagram.producer.Activator
+Bundle-Vendor: TURASOLUTIONS
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.tura.sirius.diagram.dsl;bundle-version="1.0.0",
+ org.eclipse.sirius.diagram;bundle-version="3.1.6"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.sirius.table.metamodel.table.description,
+ org.eclipse.sirius.tree.description;version="2.1.0"
