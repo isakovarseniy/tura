@@ -331,6 +331,16 @@
             </technologies>
             <hints uid="601ab46c-4f8d-47d4-9400-3708169feec7" name="Web element name" hint="bfda8719-98c2-46fe-9788-45a33747d1fc"/>
           </artifacts>
+          <artifacts uid="3f8ae5c6-f199-4109-a693-28616e2b3201" name="CDITest" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/Testing/CDI/Datacontrol/mainCDITest.egl">
+            <configVariables uid="97f47658-6615-4e55-bad1-58aec43ff188" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
+            <modelQuery uid="5490ecbf-aa4b-4869-8cdd-732d4eb63885" name="Query form" query="domain::DomainApplication.allInstances()->select(r|r.oclAsType(domain::DomainApplication).name='${Domain Application}').oclAsType(domain::DomainApplication).applicationPackages->select(r|r.oclAsType(tura::application::ApplicationGroup).name='${Group}').oclAsType(tura::application::ApplicationGroup).applications->select(r|r.oclAsType(tura::application::Application).name='${Application}').oclAsType(tura::application::Application).applicationUILayer.applicationUIPackages->select(r|r.oclAsType(tura::application::ApplicationUIPackage).name='${Package}').oclAsType(tura::application::ApplicationUIPackage).forms->select(r|r.oclAsType(tura::form::Form).name='${Form}')&#xA;">
+              <parameters uid="7cb01704-2d6b-41c5-abbb-cb377148ff5c" name="Domain Application"/>
+              <parameters uid="80980b3c-bea8-43c0-8757-3f4ccb5c41e2" name="Group"/>
+              <parameters uid="1f9be1e6-44c9-48b5-841c-19b2910776de" name="Application"/>
+              <parameters uid="5f7b129c-e559-46da-af46-5f49f8d4b519" name="Package"/>
+              <parameters uid="a350d1f7-8701-4efa-bfda-aa26d3ce3ed6" name="Form"/>
+            </modelQuery>
+          </artifacts>
         </artifactPackages>
         <artifactPackages uid="517f9380-85f0-4f86-a962-b92acd66e131" name="Repository proxy">
           <artifacts uid="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository proxy" description="Persistence model repository proxy" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/mainRepositoryProxy.egl">
@@ -955,6 +965,10 @@
               <returnValue typeRef="90154483-0d93-42be-9927-d6a360feb0ba"/>
             </operations>
           </types>
+        </repositoryPackages>
+        <repositoryPackages uid="8b2f19ce-5825-4dfa-9cbc-38cf930f1eb8" name="Additioal Libraries">
+          <types xsi:type="tura.type:Type" uid="62208057-97e3-47b4-bf8e-15b72980f8fe" name="Unit Test"/>
+          <types xsi:type="tura.type:Type" uid="ed537ad7-1cd3-4c74-b5f6-490e94ab5686" name="UI library"/>
         </repositoryPackages>
       </typesRepository>
       <typesRepository uid="217f0220-cbd9-4502-9710-2fb1b26cc74c" name="HR domain">
@@ -2007,7 +2021,7 @@
                   <infrastructure2Configurations uid="1e4d919d-c01f-46c0-acd5-ae99d45fa65b" source="53e5aac5-9adb-40f6-94b4-72d5dd83620c" target="67fda0b2-5539-4648-ba8a-76c2dc7b9809"/>
                 </recipes>
                 <recipes uid="7c76b2db-e6ba-4f0f-9743-8eaa713f5501" name="Test data controls">
-                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3" uid="79ad0912-2614-4e51-8828-741f315d47d2" name="Recipe">
+                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a af4ffe3b-0786-4855-81cb-e5712863f276 9eb7711f-3cbb-41c1-931a-4bf0c3bf51ec d618d7da-b15b-4395-ae4c-40f5c49e29a3 36574a75-c274-435c-907f-6d91e3aebb4c" uid="79ad0912-2614-4e51-8828-741f315d47d2" name="Recipe">
                     <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" uid="80c8bf2b-de55-4535-b57d-64514a80ab87" name="Data control  for simple model" vewLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec" modelLayer="d7636d4b-5360-45e3-b983-1abe14af04d4">
                       <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="7c1e3cc7-4698-4cf3-b159-dfbb9462f7bc" name="Data control" componentRoot="${Generation path}/uiLayer" artifactId="test-datacontrol-simple-object-model" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.example.ui">
                         <mappers uid="be716da5-cfaf-4cae-9f09-e6cb55ef7467" artifactRef="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Process all DataControl in Employee management">
@@ -2036,12 +2050,31 @@
                             <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="HR domain"/>
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Simple model"/>
                           </queries>
+                          <queries uid="c2e67839-01cc-4f0c-9509-f169d2d5c9ba" name="Query type" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Additioal Libraries"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Unit Test"/>
+                          </queries>
+                          <queries uid="0df51e46-41c0-4854-97ed-4dc5e5521f36" name="Query type" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="System library"/>
+                          </queries>
                         </mappers>
                         <mappers uid="a1326ffe-6bf8-4541-b618-59615f4df030" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/test-datacontrol-simple-object-model/builder.sh">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="0f1005fd-cee5-4792-ba0b-bb04144d4905"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                        </mappers>
+                        <mappers uid="325c8388-0ad0-4ca0-a9bb-abea354fad4c" artifactRef="3f8ae5c6-f199-4109-a693-28616e2b3201" name="CDITest">
+                          <queries uid="1ba30468-6429-43ab-a49f-322d65daf700" name="Query form" queryRef="5490ecbf-aa4b-4869-8cdd-732d4eb63885">
+                            <variables queryParamRef="7cb01704-2d6b-41c5-abbb-cb377148ff5c" value="ERP"/>
+                            <variables queryParamRef="80980b3c-bea8-43c0-8757-3f4ccb5c41e2" value="HR domain"/>
+                            <variables queryParamRef="1f9be1e6-44c9-48b5-841c-19b2910776de" value="HR application"/>
+                            <variables queryParamRef="5f7b129c-e559-46da-af46-5f49f8d4b519" value="Hr manager"/>
+                            <variables queryParamRef="a350d1f7-8701-4efa-bfda-aa26d3ce3ed6" value="HR controller"/>
+                          </queries>
                         </mappers>
                       </components>
                     </ingredients>
@@ -2073,12 +2106,31 @@
                             <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="HR domain"/>
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Complex model"/>
                           </queries>
+                          <queries uid="da5e3889-bd4f-41a9-bb0b-06edf560f845" name="Query type" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Additioal Libraries"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Unit Test"/>
+                          </queries>
+                          <queries uid="4e918d27-e788-470f-93c3-9b336a413353" name="Query type" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="System library"/>
+                          </queries>
                         </mappers>
                         <mappers uid="adb68395-9fd8-4424-bb94-99d1422abe8b" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/test-datacontrol-complex-object-model/builder.sh">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="0f1005fd-cee5-4792-ba0b-bb04144d4905"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                        </mappers>
+                        <mappers uid="86ca1125-06fb-4631-8760-16e3fd5a5c07" artifactRef="3f8ae5c6-f199-4109-a693-28616e2b3201" name="CDITest">
+                          <queries uid="6b1e48d6-d103-4f81-842e-b5d9dbfbd4d5" name="Query form" queryRef="5490ecbf-aa4b-4869-8cdd-732d4eb63885">
+                            <variables queryParamRef="7cb01704-2d6b-41c5-abbb-cb377148ff5c" value="ERP"/>
+                            <variables queryParamRef="80980b3c-bea8-43c0-8757-3f4ccb5c41e2" value="HR domain"/>
+                            <variables queryParamRef="1f9be1e6-44c9-48b5-841c-19b2910776de" value="HR application"/>
+                            <variables queryParamRef="5f7b129c-e559-46da-af46-5f49f8d4b519"/>
+                            <variables queryParamRef="a350d1f7-8701-4efa-bfda-aa26d3ce3ed6"/>
+                          </queries>
                         </mappers>
                       </components>
                     </ingredients>
@@ -2199,6 +2251,11 @@
                 <mapper uid="5b7c1e6e-40fd-4ebc-91fb-ef1c8709e6cf">
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="6110560a-e781-4602-99ca-45ed91722414" uid="644ff954-5a40-49da-b976-673bca769383" mappedToPackageName="org.tura.platform.test.hr.model" artifactId="hr-model-interface" groupId="org.tura.platform.test.generated-code" version="1.0" libraryName=""/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="9cd2c6a0-5d5e-4af5-b52c-93c1cc65efbb" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="core" groupId="org.tura.platform.repository" version="2.0"/>
+                </mapper>
+              </mappers>
+              <mappers uid="18b0ebf2-ff9e-487c-b385-16856564743b" name="Additioal Libraries mapping">
+                <mapper uid="36574a75-c274-435c-907f-6d91e3aebb4c">
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="62208057-97e3-47b4-bf8e-15b72980f8fe" uid="7a932a98-3c5a-49ec-b70e-b06d6d412656" mappedToPackageName="Just library definition" mappedToClassName="Just library definition( cannot be null )" artifactId="junit" groupId="junit" version="4.11"/>
                 </mapper>
               </mappers>
               <appLayers uid="4bd41a2c-2b37-4d25-8a19-e97a60f95715" name="Persistence layer"/>

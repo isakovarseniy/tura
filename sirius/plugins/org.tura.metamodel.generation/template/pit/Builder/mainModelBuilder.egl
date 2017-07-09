@@ -17,11 +17,13 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 
      var types = util.runQuery(model_mapper,"Query type",model_mapper);
-     if (types <> null and types.size <> 0 )
+     if (types <> null and types.size <> 0 ){
          alltypes.addAll(types); 
+      }
      types = util.runQuery(model_mapper,"Query package",model_mapper);
-     if (types <> null and types.size <> 0 )
+     if (types <> null and types.size <> 0 ){
          alltypes.addAll(types); 
+      }   
 
  
        hash.put("recipe",recipe);
