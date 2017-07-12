@@ -43,7 +43,7 @@ public class [%=type.~class%]Pager<T> extends org.tura.platform.datacontrol.Page
 		
 		org.tura.platform.datacontrol.command.base.PostCreateTrigger trigger = getDataControl().getPostCreateTrigger(); 
 		if (trigger != null){
-		   trigger.execute(datacontrol,((org.tura.platform.repository.core.ObjectControl)obj).getWrappedObject());
+		   trigger.execute(datacontrol,((org.tura.platform.repository.core.ObjectControl)obj).getWrappedObject(),((org.tura.platform.repository.core.ObjectControl) obj).getAttributes());
 		}
 		return (T)connectObject(obj);
 		}catch(Exception e){

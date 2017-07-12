@@ -21,6 +21,8 @@
  */
 package org.tura.example.ui.hrcontroller.triggers;
 
+import java.util.Map;
+
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 
@@ -38,7 +40,7 @@ import org.tura.platform.hr.objects.serialization.Street;
 public class StreetPostCreateTrigger implements PostCreateTrigger {
 
 	@Override
-	public void execute(DataControl<?> datacontrol, Object obj)
+	public void execute(DataControl<?> datacontrol, Object obj,Map<String,Object> attributes)
 			throws TuraException {
 		((Street) obj).setName("NA");
 	}

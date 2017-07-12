@@ -21,11 +21,13 @@
  */
 package org.tura.platform.datacontrol.command.base;
 
+import java.util.Map;
+
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.commons.TuraException;
 
 public interface PostCreateTrigger {
 	
-	public void execute(DataControl<?> datacontrol, Object obj) throws TuraException;
+	public void execute(DataControl<?> datacontrol, Object obj, Map<String, Object> attributes) throws TuraException;
 
 }

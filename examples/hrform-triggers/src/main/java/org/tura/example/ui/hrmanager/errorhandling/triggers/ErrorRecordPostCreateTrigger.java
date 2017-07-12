@@ -21,6 +21,8 @@
  */
 package org.tura.example.ui.hrmanager.errorhandling.triggers;
 
+import java.util.Map;
+
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 import javax.faces.context.FacesContext;
@@ -31,20 +33,19 @@ import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.repository.core.ObjectControl;
 
 
 @Alternative
 @Priority(10)
 @Selector("hrmanager.errorhandling")
-@PostCreate("errorRecordDC")
+@PostCreate("errorRecord")
 
 public class ErrorRecordPostCreateTrigger implements PostCreateTrigger {
 
 	@Override
-	public void execute(DataControl<?> datacontrol, Object obj)
+	public void execute(DataControl<?> datacontrol, Object obj,Map<String,Object> attributes)
 			throws TuraException {
-		ErrorRecordArtifitialFieldsAdapter f = new ErrorRecordArtifitialFieldsAdapter( (ObjectControl) obj);
+		ErrorRecordArtifitialFieldsAdapter f = new ErrorRecordArtifitialFieldsAdapter( attributes);
 		f.setStatusCode(getStatusCode());
 		f.setMessage(getMessage());
 		f.setExceptionType(getExceptionType());

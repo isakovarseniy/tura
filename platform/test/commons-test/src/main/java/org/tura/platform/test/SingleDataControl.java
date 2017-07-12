@@ -30,6 +30,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -609,7 +610,7 @@ public class SingleDataControl {
 	public class DeparmentPostCreatTrigger implements PostCreateTrigger {
 
 		@Override
-		public void execute(DataControl<?> datacontrol, Object obj)
+		public void execute(DataControl<?> datacontrol, Object obj, Map<String,Object> attributes)
 				throws TuraException {
           try{
 			Reflection.call(obj,"setDepartmentName","test");

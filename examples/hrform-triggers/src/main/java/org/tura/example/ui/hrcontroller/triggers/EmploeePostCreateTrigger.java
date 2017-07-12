@@ -22,6 +22,7 @@
 package org.tura.example.ui.hrcontroller.triggers;
 
 import java.util.Date;
+import java.util.Map;
 
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
@@ -41,7 +42,7 @@ import org.tura.platform.hr.objects.serialization.Employee;
 public class EmploeePostCreateTrigger implements PostCreateTrigger {
 
 	@Override
-	public void execute(DataControl<?> datacontrol, Object obj)
+	public void execute(DataControl<?> datacontrol, Object obj,Map<String,Object> attributes)
 			throws TuraException {
 		((Employee) obj).setHireDate(new Date());
 	}

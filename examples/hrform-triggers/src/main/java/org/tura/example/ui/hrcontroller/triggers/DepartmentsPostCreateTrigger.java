@@ -21,6 +21,8 @@
  */
 package org.tura.example.ui.hrcontroller.triggers;
 
+import java.util.Map;
+
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
@@ -44,7 +46,7 @@ public class DepartmentsPostCreateTrigger implements PostCreateTrigger {
 	IBeanFactory beanFactory;
 	
 	@Override
-	public void execute(DataControl<?> datacontrol, Object obj)
+	public void execute(DataControl<?> datacontrol, Object obj,Map<String,Object> attributes)
 			throws TuraException {
 		try{
 		Object t =  (Object) beanFactory.getTreeRootCountry().getCurrentObject();

@@ -57,14 +57,14 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 	protected static Logger logger;
 	protected  WeldContainer weld;
 
-	private ArrayList<String> delitedRows = new ArrayList<>();
+	private ArrayList<String> delitedRows = new ArrayList<String>();
 
 
 	@Test
 	public void a5_remove() {
 		try {
 
-			ArrayList<String> fact = new ArrayList<>();
+			ArrayList<String> fact = new ArrayList<String>();
 			fact.add("Street_3");
 			fact.add("Street_7");
 			fact.add("Street_11");

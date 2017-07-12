@@ -2128,8 +2128,8 @@
                             <variables queryParamRef="7cb01704-2d6b-41c5-abbb-cb377148ff5c" value="ERP"/>
                             <variables queryParamRef="80980b3c-bea8-43c0-8757-3f4ccb5c41e2" value="HR domain"/>
                             <variables queryParamRef="1f9be1e6-44c9-48b5-841c-19b2910776de" value="HR application"/>
-                            <variables queryParamRef="5f7b129c-e559-46da-af46-5f49f8d4b519"/>
-                            <variables queryParamRef="a350d1f7-8701-4efa-bfda-aa26d3ce3ed6"/>
+                            <variables queryParamRef="5f7b129c-e559-46da-af46-5f49f8d4b519" value="Nested form package"/>
+                            <variables queryParamRef="a350d1f7-8701-4efa-bfda-aa26d3ce3ed6" value="HR controller"/>
                           </queries>
                         </mappers>
                       </components>

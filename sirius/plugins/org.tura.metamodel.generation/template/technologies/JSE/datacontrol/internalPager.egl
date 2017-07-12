@@ -52,7 +52,7 @@ public class [%=parent.~class%]2[%=type.~class%]Pager<T> extends org.tura.platfo
 		
 		org.tura.platform.datacontrol.command.base.PostCreateTrigger trigger = datacontrol.getPostCreateTrigger(); 
 		if (trigger != null){
-		   trigger.execute(datacontrol,((org.tura.platform.repository.core.ObjectControl)obj).getWrappedObject());
+		   trigger.execute(datacontrol,((org.tura.platform.repository.core.ObjectControl)obj).getWrappedObject(),((org.tura.platform.repository.core.ObjectControl) obj).getAttributes());
 		}
 		return (T)connectObject(obj);
 		}catch(Exception e){

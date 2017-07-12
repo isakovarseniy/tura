@@ -21,6 +21,8 @@
  */
 package org.tura.example.ui.hrcontroller.triggers;
 
+import java.util.Map;
+
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 
@@ -40,7 +42,7 @@ import org.tura.platform.repository.core.ObjectControl;
 public class UserPostCreateTrigger implements PostCreateTrigger {
 
 	@Override
-	public void execute(DataControl<?> datacontrol, Object obj)
+	public void execute(DataControl<?> datacontrol, Object obj,Map<String,Object> attributes)
 			throws TuraException {
 		new UserArtifitialFieldsAdapter((ObjectControl) obj).setLoginError(false);
 	}
