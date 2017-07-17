@@ -58,4 +58,19 @@ cd "[%=path%]"
 "[%=configuration.get('Application server home')%]"/bin/asadmin deploy  --force=true  ./[%=archive%]
 [%
 }
+
+@template
+operation jbossdeploy(configuration,path,archive,hash) {
 %]
+#!/bin/sh
+
+cd "[%=path%]"
+
+"[%=configuration.get('Application server home')%]/bin/jboss-cli.sh"  --connect --commands="deploy [%=archive%] --force"
+[%
+}
+%]
+
+
+
+

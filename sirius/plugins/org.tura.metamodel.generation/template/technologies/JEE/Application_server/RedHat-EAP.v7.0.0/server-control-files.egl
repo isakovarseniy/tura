@@ -1,0 +1,23 @@
+[% @template
+operation web_xml_serverspecific(hash){
+
+   var configuration = hash.get("configuration");
+   var component = hash.get("component");
+   var util = new Native('org.tura.metamodel.commons.Util');
+   var webapp =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
+   var realms = hash.get("realms");
+   var recipe = hash.get("recipe");
+   var ingredient = hash.get("ingredient");
+   var app = hash.get("application");
+
+   
+%]
+<jboss-web>
+        <context-root>[%=util.mergeAndCapitalize(app.name).toLowerCase()%]</context-root> 
+</jboss-web>
+[%
+ 
+     util.saveFile( webapp,"jboss-web.xml",out.toString());   
+   
+}
+%]

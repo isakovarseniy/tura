@@ -185,6 +185,7 @@
             </technologies>
             <technologies uid="88a0db5d-fb41-4f9b-bcff-bbae1c23e369" name="Deployment environment">
               <options uid="50fa6ec0-fa7e-4eab-8030-a448feaf400b" value="d337ffa2-6a9c-46cd-aa04-72143493a834"/>
+              <options uid="cd776e70-0790-4869-8068-bfc861686df9" value="7ffd107f-e3d8-4044-a63c-c17ef51e15f7"/>
             </technologies>
             <technologies uid="c0b0a587-7107-4c80-a7bd-b586801e18ee" name="Java">
               <options uid="c431d8ed-e954-4f7d-ba84-16411885e865" value="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26"/>
@@ -271,6 +272,7 @@
             </technologies>
             <technologies uid="0741ec62-d452-459e-a610-1182f366d213" name="Deployment environment">
               <options uid="b7066c89-3fe3-4660-9f4b-0878499f4906" value="d337ffa2-6a9c-46cd-aa04-72143493a834"/>
+              <options uid="c04c21fd-9278-4d29-a502-3ada2c83d5a6" value="7ffd107f-e3d8-4044-a63c-c17ef51e15f7"/>
             </technologies>
             <hints uid="3312fbd0-faeb-41c5-9214-78d4c7d0025f" name="exception.code.handler" hint="ee62e0a4-36fa-417b-a74c-eed7fd0e249d"/>
             <hints uid="59d425f9-d7a4-417b-887f-5a1edd0b91ba" name="exception.type.handler" hint="a24ca484-c882-4e80-961a-8093e6dc5803"/>
@@ -436,6 +438,7 @@
           <configVariables uid="a4f78b70-3a9d-491b-b748-4480daae7f19" name="Application server admin port"/>
           <configVariables uid="f52c2871-e5b6-479e-a5bd-3101df6341f5" name="Application server domain"/>
           <techLeafs uid="d337ffa2-6a9c-46cd-aa04-72143493a834" name="GlassFish.v4"/>
+          <techLeafs uid="7ffd107f-e3d8-4044-a63c-c17ef51e15f7" name="RedHat-EAP.v7.0.0"/>
         </techLeafs>
         <techLeafs uid="48b0f660-5827-4f55-bf5e-3a9e90b139cc" name="RepositoryProxy"/>
       </techLeafs>
@@ -1827,7 +1830,7 @@
                   </recipe>
                   <configurations uid="1dd1bb56-4a7f-41ed-a4d5-27d1ca65c7d2">
                     <properties uid="2bfd17a6-ae4d-4ad5-9cd4-2f9e655044f1" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
-                    <properties uid="768ab36d-49c7-44a8-94d3-0d3c321bbf1b" confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="jdbc/hrDS"/>
+                    <properties uid="768ab36d-49c7-44a8-94d3-0d3c321bbf1b" confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="java:jboss/jdbc/hrDS"/>
                     <properties uid="78b3baf1-f33b-4777-bdc7-334d89cab9fb" confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="postgres"/>
                     <properties uid="b113dd69-3add-4f04-a428-b5ae246c245c" confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="5432"/>
                     <properties uid="37b0b1b6-7218-4913-bbe6-097803c07fe6" confVarRef="da93edee-51a1-4f85-b64a-7a97cb722636" value="HR"/>
@@ -1893,7 +1896,7 @@
                         </mappers>
                         <mappers uid="493f35a8-60d7-44c6-b555-9231a3f568ce" artifactRef="e9d0b499-bc45-4190-a488-40202391c5f4" name="Application deployer" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/hrform/deployer.sh">
                           <technologies techRef="4aff409c-1621-40ea-8607-555c901d6f31" valueRef="a232c26e-2c1e-4a22-acbf-9d2b57846a16"/>
-                          <technologies techRef="88a0db5d-fb41-4f9b-bcff-bbae1c23e369" valueRef="50fa6ec0-fa7e-4eab-8030-a448feaf400b"/>
+                          <technologies techRef="88a0db5d-fb41-4f9b-bcff-bbae1c23e369" valueRef="cd776e70-0790-4869-8068-bfc861686df9"/>
                           <technologies techRef="4b7af66a-8fb6-4b03-91ab-c9d1cb468b8e" valueRef="9c56c069-91b0-413f-95fa-b5056476b0be"/>
                           <technologies techRef="c0b0a587-7107-4c80-a7bd-b586801e18ee" valueRef="9641ce84-425f-4a23-bc0b-f73ace27bf6a"/>
                         </mappers>
@@ -1906,7 +1909,7 @@
                           </queries>
                         </mappers>
                         <mappers uid="6170be20-7d3d-4974-b078-f1ccb3527945" artifactRef="840d10b4-046c-4b14-91d3-3e7f7710324e" name="web.xml">
-                          <technologies techRef="0741ec62-d452-459e-a610-1182f366d213" valueRef="b7066c89-3fe3-4660-9f4b-0878499f4906"/>
+                          <technologies techRef="0741ec62-d452-459e-a610-1182f366d213" valueRef="c04c21fd-9278-4d29-a502-3ada2c83d5a6"/>
                           <technologies techRef="a6a64a8c-3d68-46b9-8da1-ab9750d7ca4e" valueRef="5eb90993-8328-45c1-a5cc-5153a4bf4397"/>
                           <queries uid="5563464d-d944-43b3-afc6-a233aedc7815" name="Query applicatioin" queryRef="dcf664dc-d951-4e02-af1a-ca7ac95fda26">
                             <variables queryParamRef="d01eca2d-6498-4c5e-a8fa-9d174985f006" value="ERP"/>
@@ -1993,9 +1996,9 @@
                   </recipe>
                   <configurations uid="b051237e-4899-42fb-870a-551e3056850f">
                     <properties uid="eab771eb-6b9e-458f-bbae-7939a9b02c3a" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
-                    <properties uid="d1840311-0539-4ee9-8296-3600026dfed1" confVarRef="f52c2871-e5b6-479e-a5bd-3101df6341f5" value="domain1"/>
-                    <properties uid="51f9193f-ade7-4e6b-b931-7c074812a910" confVarRef="733038d4-dbbf-4a72-8f84-45ec731f4ce9" value="/Users/arseniy/servers/glassfish4"/>
-                    <properties uid="ca64f81e-4db0-48cc-a23b-e62e23f1127f" confVarRef="a4f78b70-3a9d-491b-b748-4480daae7f19" value="4848"/>
+                    <properties uid="d1840311-0539-4ee9-8296-3600026dfed1" confVarRef="f52c2871-e5b6-479e-a5bd-3101df6341f5" value="NA"/>
+                    <properties uid="51f9193f-ade7-4e6b-b931-7c074812a910" confVarRef="733038d4-dbbf-4a72-8f84-45ec731f4ce9" value="/Users/arseniy/servers/eap-7.0.0"/>
+                    <properties uid="ca64f81e-4db0-48cc-a23b-e62e23f1127f" confVarRef="a4f78b70-3a9d-491b-b748-4480daae7f19" value="9990"/>
                     <properties uid="2c3d7a7f-2dc8-499b-b8b0-cddc19c32f21" confVarRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b" value="5"/>
                     <properties uid="8a12267d-7828-41ab-ade7-e0f0b4f1adad" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
                   </configurations>
