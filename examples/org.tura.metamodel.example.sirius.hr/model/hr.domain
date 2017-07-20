@@ -116,6 +116,7 @@
               <options uid="f9acb5da-4729-4339-ae8a-8355a3035459" value="85a00552-1cc3-4465-80ac-4201c352cd5d"/>
               <options uid="d9e3a392-75f8-4c7f-a64d-b783675fcd26" value="48b0f660-5827-4f55-bf5e-3a9e90b139cc"/>
               <options uid="3fc6f641-34db-45cb-a4ed-a790465e1460" value="f450508f-626d-4381-9f9d-03c2a0454e63"/>
+              <options uid="b93cf394-bb0f-443f-8983-caf7202acbbd" value="a76f07be-f346-4b06-8186-fb217bf52a03"/>
             </technologies>
             <technologies uid="dd41c97a-4e6a-4e00-8651-8f9efb82348f" name="Java">
               <options uid="c1d71c81-59fc-449d-a43a-b6b56f0ebee2" value="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26"/>
@@ -145,6 +146,7 @@
               <options uid="a6ed3581-8c02-4249-b3cc-4cf664d85966" value="85a00552-1cc3-4465-80ac-4201c352cd5d"/>
               <options uid="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e" value="48b0f660-5827-4f55-bf5e-3a9e90b139cc"/>
               <options uid="0f1005fd-cee5-4792-ba0b-bb04144d4905" value="f450508f-626d-4381-9f9d-03c2a0454e63"/>
+              <options uid="6da7cd59-30d6-46be-95b1-187688dc9820" value="a76f07be-f346-4b06-8186-fb217bf52a03"/>
             </technologies>
           </artifacts>
           <artifacts uid="e7d86967-d594-4f25-8b34-5211665bf367" name="Build MVC application" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/mainMVCApplicationBuilder.egl">
@@ -432,7 +434,11 @@
           <techLeafs uid="57df8db5-f381-40e5-a99b-91ef289e2095" name="JNDI"/>
           <techLeafs uid="bac478cc-27e1-4f2f-b70b-1ff471e8524b" name="JDBC"/>
         </techLeafs>
-        <techLeafs uid="23d58a75-40fc-4824-a82a-8f5af07b0a8e" name="CDI"/>
+        <techLeafs uid="23d58a75-40fc-4824-a82a-8f5af07b0a8e" name="CDI">
+          <techLeafs uid="3c986ae4-6acd-45b0-ae5c-e66e8b55eeb6" name="REST">
+            <techLeafs uid="a76f07be-f346-4b06-8186-fb217bf52a03" name="Repository"/>
+          </techLeafs>
+        </techLeafs>
         <techLeafs uid="0c685d42-8551-4253-8c0b-7b7206aaeae7" name="Application_server">
           <configVariables uid="733038d4-dbbf-4a72-8f84-45ec731f4ce9" name="Application server home"/>
           <configVariables uid="a4f78b70-3a9d-491b-b748-4480daae7f19" name="Application server admin port"/>
@@ -1844,6 +1850,78 @@
                   <infrastructures uid="30c7d8fe-161c-416a-a9e1-d7e6ba28a746" name="Development"/>
                   <recipe2Infrastructures uid="171611f7-fe02-4f52-a49a-92a5ae58bee2" source="80a7bd65-32b9-4094-9edf-534c7bdc5d3b" target="30c7d8fe-161c-416a-a9e1-d7e6ba28a746"/>
                   <infrastructure2Configurations uid="5925147e-5864-4556-ab43-c8433d20664a" source="30c7d8fe-161c-416a-a9e1-d7e6ba28a746" target="1dd1bb56-4a7f-41ed-a4d5-27d1ca65c7d2"/>
+                </recipes>
+                <recipes uid="1a3a687f-0240-4cf7-842a-1980d8bed6d0" name="REST repository service">
+                  <recipe uid="7ee0d7d5-b270-4c71-b18e-4201158b1152" name="REST service generatioin">
+                    <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" uid="1d065034-5f1c-403a-abdd-ba677e7cf3ce" name="REST  service simple model" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="5ce6d375-8041-4b0a-8be2-374e006b9be1" name="Rest service war file for simple model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-simple-model-restservice-repository" groupId="org.tura.platform.test.generated-code" version="1.0">
+                        <mappers uid="bb807544-e106-461e-a516-11390b01c2ef" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Builder">
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="b93cf394-bb0f-443f-8983-caf7202acbbd"/>
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <queries uid="12287b83-94af-4aff-9e77-3fa83afd5740" name="Query package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="HR domain"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Simple model"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="62831dc4-9799-41a8-9796-afd7960b89c7" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-simple-model-restservice-repository/builder.sh">
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="6da7cd59-30d6-46be-95b1-187688dc9820"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                    <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="1" uid="7f66c30e-4065-4ccd-8dcc-a3c763fe8a43" name="REST  service complex model" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="a9f2ce61-17bb-4091-9268-cfedb43cc031" name="Rest service war file for complex model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-restservice-repository" groupId="org.tura.platform.test.generated-code" version="1.0">
+                        <mappers uid="381fa626-8b04-4d1f-9d36-25d1e9dec88d" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Builder">
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="b93cf394-bb0f-443f-8983-caf7202acbbd"/>
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <queries uid="7519d510-0681-4b6d-a4e3-30020fd714c5" name="Query package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="HR domain"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="Complex model"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="309878bc-6437-42d5-a52a-8d867aa14465" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/hr-complex-model-restservice-repository/builder.sh">
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="6da7cd59-30d6-46be-95b1-187688dc9820"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                    <ingredients mappers="21d8af7b-7dbd-451d-a8e7-ee9d696646a4" order="2" uid="6c2d2240-c576-4fe3-93c1-419c685163cc" name="REST service JPA test model" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="402096e8-4cd5-4373-a7cc-5b1dec1dbfcd" name="Rest service war file for JPA test model" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-restservice-repository" groupId="org.tura.platform.test.generated-code" version="1.0">
+                        <mappers uid="b4c1475f-92bc-4590-9747-7c4ed440fa82" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Builder">
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="b93cf394-bb0f-443f-8983-caf7202acbbd"/>
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <queries uid="72bb2046-5cb7-4142-91a9-1b7df1cc4d24" name="Query package" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Testing repository"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="JPA test package"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="9e882c53-3195-4135-aa5c-024cc2166325" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-restservice-repository/builder.sh">
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="6da7cd59-30d6-46be-95b1-187688dc9820"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                    <deplymentStep mapper="62831dc4-9799-41a8-9796-afd7960b89c7" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.2/@recipe/@deplymentStep.2"/>
+                    <deplymentStep mapper="309878bc-6437-42d5-a52a-8d867aa14465" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.2/@recipe/@deplymentStep.0"/>
+                    <deplymentStep mapper="9e882c53-3195-4135-aa5c-024cc2166325"/>
+                    <startSeq uid="348579fc-964d-4c37-9ad0-21f7b9f6457e" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.2/@recipe/@deplymentStep.1"/>
+                  </recipe>
+                  <configurations uid="92392501-32c5-4c63-8efd-39a5793fa1b2">
+                    <properties uid="496fe712-a010-4538-92c7-08f7a162e686" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
+                    <properties uid="72802fd8-f68a-431c-9887-ec747f7af701" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
+                  </configurations>
+                  <infrastructures uid="5d499be9-cf3b-4ef5-8e72-85ceec683c6c" name="Development"/>
+                  <recipe2Infrastructures uid="dbc26269-9c00-45bc-8dca-f10535597578" source="7ee0d7d5-b270-4c71-b18e-4201158b1152" target="5d499be9-cf3b-4ef5-8e72-85ceec683c6c"/>
+                  <infrastructure2Configurations uid="db3778b0-c4cd-41fa-9e80-08f840c52643" source="5d499be9-cf3b-4ef5-8e72-85ceec683c6c" target="92392501-32c5-4c63-8efd-39a5793fa1b2"/>
                 </recipes>
               </recipes>
               <recipes uid="66d6cc9b-a6e1-40e0-b0cb-18c4c02274b2" name="UI">
