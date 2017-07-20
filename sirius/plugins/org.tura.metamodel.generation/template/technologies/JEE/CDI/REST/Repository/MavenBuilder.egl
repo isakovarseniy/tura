@@ -1,0 +1,86 @@
+		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+			<modelVersion>4.0.0</modelVersion>
+
+			<groupId>[%=component.getGroupId()%]</groupId>
+			<artifactId>[%=component.getArtifactId()%]</artifactId>
+			<version>[%=component.getVersion()%]</version>
+
+			<packaging>war</packaging>
+
+			<name>[%=component.getName()%]:: Repository :: REST :: Service</name>
+
+			<dependencies>
+				<dependency>
+					<groupId>javax</groupId>
+					<artifactId>javaee-api</artifactId>
+					<version>6.0</version>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.tura.platform.repository</groupId>
+					<artifactId>core</artifactId>
+					<version>2.0</version>
+				</dependency>
+
+				<dependency>
+					<groupId>org.tura.platform.repository</groupId>
+					<artifactId>cdi-rest</artifactId>
+					<version>2.0</version>
+				</dependency>
+
+       [% for (h in lib.values()) { %]
+				<dependency>
+					<groupId>[%=h.get("groupId")%]</groupId>
+					<artifactId>[%=h.get("artifactId")%]</artifactId>
+					<version>[%=h.get("version")%]</version>
+				</dependency>
+       [% } %]
+
+			</dependencies>
+
+			<repositories>
+				<repository>
+					<id>maven repository.dev.java.net</id>
+					<url>http://download.java.net/maven/2/</url>
+				</repository>
+			</repositories>
+
+[%
+  var i =  Java.lastIndexOf("/");
+  if (i <> -1){
+     i = i+1;
+  }else{
+    i = 0;
+  }
+%]
+
+    <build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>[%=Java.substring(i)%]</source>
+					<target>[%=Java.substring(i)%]</target>
+				</configuration>
+			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <attachClasses>true</attachClasses>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+			
+		</plugins>
+	</build>	
+
+
+
+
+		</project>
