@@ -1,7 +1,7 @@
 /**
  * Tura - application generation platform
  *
- * Copyright (c) 2012 - 2015, Arseniy Isakov
+ * Copyright (c) 2012 - 2017, Arseniy Isakov
  *
  * This project includes software developed by Arseniy Isakov
  * http://sourceforge.net/p/tura/wiki/Home/
@@ -18,8 +18,7 @@
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
  * under the License.
- */package org.tura.example.ui.hrcontroller.triggers;
-
+ */
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 import javax.faces.context.FacesContext;
