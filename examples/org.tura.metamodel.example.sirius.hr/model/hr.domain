@@ -978,6 +978,7 @@
         <repositoryPackages uid="8b2f19ce-5825-4dfa-9cbc-38cf930f1eb8" name="Additioal Libraries">
           <types xsi:type="tura.type:Type" uid="62208057-97e3-47b4-bf8e-15b72980f8fe" name="Unit Test"/>
           <types xsi:type="tura.type:Type" uid="ed537ad7-1cd3-4c74-b5f6-490e94ab5686" name="UI library"/>
+          <types xsi:type="tura.type:Type" uid="2a49c4c8-860b-42a1-9980-4b121e468282" name="CDI Implementation"/>
         </repositoryPackages>
       </typesRepository>
       <typesRepository uid="217f0220-cbd9-4502-9710-2fb1b26cc74c" name="HR domain">
@@ -2141,6 +2142,11 @@
                             <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="System library"/>
                           </queries>
+                          <queries uid="37046429-4fdd-423a-b72e-0c64001d4f4e" name="Query type" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Additioal Libraries"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="CDI Implementation"/>
+                          </queries>
                         </mappers>
                         <mappers uid="a1326ffe-6bf8-4541-b618-59615f4df030" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/test-datacontrol-simple-object-model/builder.sh">
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2196,6 +2202,11 @@
                             <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
                             <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="System library"/>
+                          </queries>
+                          <queries uid="f8d37205-5ba8-4fe7-96cf-3383d2467d1f" name="Query type" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Additioal Libraries"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="CDI Implementation"/>
                           </queries>
                         </mappers>
                         <mappers uid="adb68395-9fd8-4424-bb94-99d1422abe8b" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/uiLayer/test-datacontrol-complex-object-model/builder.sh">
@@ -2337,6 +2348,7 @@
               <mappers uid="18b0ebf2-ff9e-487c-b385-16856564743b" name="Additioal Libraries mapping">
                 <mapper uid="36574a75-c274-435c-907f-6d91e3aebb4c">
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="62208057-97e3-47b4-bf8e-15b72980f8fe" uid="7a932a98-3c5a-49ec-b70e-b06d6d412656" mappedToPackageName="Just library definition" mappedToClassName="Just library definition( cannot be null )" artifactId="junit" groupId="junit" version="4.11"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="2a49c4c8-860b-42a1-9980-4b121e468282" uid="c7fd5d29-3764-4948-8820-80de609cdb94" mappedToPackageName="Just library definition" mappedToClassName="Just library definition( cannot be null )" artifactId="weld-se" groupId="org.jboss.weld.se" version="2.1.1.Final"/>
                 </mapper>
               </mappers>
               <appLayers uid="4bd41a2c-2b37-4d25-8a19-e97a60f95715" name="Persistence layer"/>
