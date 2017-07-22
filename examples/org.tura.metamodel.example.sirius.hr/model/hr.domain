@@ -1921,7 +1921,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients mappers="21d8af7b-7dbd-451d-a8e7-ee9d696646a4" order="2" uid="6c2d2240-c576-4fe3-93c1-419c685163cc" name="REST service JPA test model" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                    <ingredients mappers="21d8af7b-7dbd-451d-a8e7-ee9d696646a4" order="2" uid="6c2d2240-c576-4fe3-93c1-419c685163cc" name="REST service JPA test model" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="2" order="1" uid="402096e8-4cd5-4373-a7cc-5b1dec1dbfcd" name="Rest service war file for JPA test model" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-restservice-repository" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="b4c1475f-92bc-4590-9747-7c4ed440fa82" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Builder">
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="b93cf394-bb0f-443f-8983-caf7202acbbd"/>

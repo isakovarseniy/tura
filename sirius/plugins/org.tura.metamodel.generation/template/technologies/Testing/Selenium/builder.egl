@@ -35,7 +35,7 @@ operation  maven_builder(hash) {
      var currentLib = component.getArtifactId()+component.getVersion()+".jar";
      for (type in alltypes){
         type.mappingType2Java(recipe,ingredient);
-        if (type.~library <> null and type.~library.equals(currentLib)<>true ){
+        if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  type.~library <> null and  type.~library.equals(currentLib)<>true ){
               lib.put(type.~library,type);
         }
      }

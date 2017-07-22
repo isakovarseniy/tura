@@ -39,7 +39,7 @@ operation  maven_builder(hash) {
 
         type.mappingType2Java(recipe,ingredient,'VIEW');
          
-        if (type.~mapper <> null and type.~mapper.equals('NA')<>true ){
+        if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  type.~library <> null and  type.~library.equals(currentLib)<>true ){
  	         var h = new Native("java.util.HashMap"); 
 	         h.put("groupId",type.~groupId);
 	         h.put("artifactId",type.~artifactId);
@@ -47,7 +47,7 @@ operation  maven_builder(hash) {
 	         lib.put(type.~library,h);
          }
         type.mappingType2Java(recipe,ingredient,'MODEL');
-        if (type.~mapper <> null and type.~mapper.equals('NA')<>true ){
+        if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  type.~library <> null and  type.~library.equals(currentLib)<>true ){
 	         var h = new Native("java.util.HashMap"); 
 	         h.put("groupId",type.~groupId);
 	         h.put("artifactId",type.~artifactId);
