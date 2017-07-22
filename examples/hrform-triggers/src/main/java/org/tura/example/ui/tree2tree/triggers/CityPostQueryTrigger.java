@@ -19,6 +19,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+
+package org.tura.example.ui.tree2tree.triggers;
+
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 

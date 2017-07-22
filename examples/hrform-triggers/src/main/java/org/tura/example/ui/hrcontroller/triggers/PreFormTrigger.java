@@ -19,6 +19,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+package org.tura.example.ui.hrcontroller.triggers;
+
 import javax.annotation.Priority;
 import javax.enterprise.inject.Alternative;
 import javax.faces.context.FacesContext;
