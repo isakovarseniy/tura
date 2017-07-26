@@ -26,7 +26,7 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 
-@ApplicationPath("repository")
+@ApplicationPath("rest")
 public class RestRepositoryApplication extends Application{
 
 }

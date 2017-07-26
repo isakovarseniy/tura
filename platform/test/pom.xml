@@ -20,10 +20,10 @@
     <module>commons-test</module>
     <module>test-of-generated-jpa-objects</module>
     <module>test-of-generated-jpa-repository</module>  
+    <module>test-of-generated-jpa-rest-repository</module>      
     <module>test-of-generated-pagers-o2m-1</module>
     <module>test-of-generated-pagers-o2m-2</module>
     <module>test-of-generated-datacontrol</module>
-
     <module>test-of-generated-nested-datacontrols</module>
   </modules>
   

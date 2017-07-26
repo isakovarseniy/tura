@@ -31,7 +31,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${D
 [%       
         }
 %]   
-		<class>org.tura.platform.object.persistence.ObjectsID</class>
 
 		[%=persistence_jpaproperties(Connection,configuration)%]
 

@@ -21,6 +21,7 @@
     <module>jpa</module>
     <module>cdi</module>
     <module>cdi-rest</module>
+    <module>rest-client</module>
   </modules>
   
   

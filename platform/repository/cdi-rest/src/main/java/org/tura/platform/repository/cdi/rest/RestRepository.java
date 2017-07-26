@@ -27,6 +27,8 @@ import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Response;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -35,53 +37,65 @@ import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
 
+
+@Path("repository")
 public class RestRepository {
 
-	
 	@Inject
 	private Repository repository;
-	
+
 	public void addProvider(DataProvider provider, String objectClass) {
-		
+
 	}
 
 	public void addCommand(DataProvider provider, String dataClass) {
-		
+
 	}
 
-	
 	@GET
-    @Path("create")
-	public Object create(String objectClass) throws RepositoryException {
-		
-		return null;
+	@Path("create/{id}")
+	public Response create(@PathParam("id") String objectClass) {
+		try {
+			Object obj = repository.create(objectClass);
+			return Response.status(Response.Status.OK).entity(obj).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+		}
 	}
 
 	@POST
-    @Path("find")
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException {
-		
-		SearchResult result = repository.find(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
-		return result;
+	@Path("find")
+	public Response find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
+			Integer endIndex, String objectClass) {
+		try {
+			SearchResult result = repository.find(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
+			return Response.status(Response.Status.OK).entity(result).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+		}
 	}
 
 	@POST
-    @Path("insert")
-	public void insert(Object obj, String objectClass) throws RepositoryException {
-		throw new UnsupportedOperationException();
+	@Path("insert")
+	public Response insert(Object obj, String objectClass) throws RepositoryException {
+		return Response.status(Response.Status.BAD_REQUEST).entity("UnsupportedOperationException").build();
 	}
 
 	@POST
-    @Path("remove")
-	public void remove(Object obj, String objectClass) throws RepositoryException {
-		throw new UnsupportedOperationException();
+	@Path("remove")
+	public Response remove(Object obj, String objectClass) throws RepositoryException {
+		return Response.status(Response.Status.BAD_REQUEST).entity("UnsupportedOperationException").build();
 	}
 
 	@POST
-    @Path("applyChanges")
-	public void applyChanges(List<?> changes) throws RepositoryException {
-		repository.applyChanges(changes);
+	@Path("applyChanges")
+	public Response applyChanges(List<?> changes) {
+		try {
+			repository.applyChanges(changes);
+			return Response.status(Response.Status.OK).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+		}
 	}
 
 }
