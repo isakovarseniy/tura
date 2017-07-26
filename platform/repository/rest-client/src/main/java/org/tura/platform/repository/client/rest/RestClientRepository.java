@@ -22,6 +22,7 @@
 package org.tura.platform.repository.client.rest;
 
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.ws.rs.client.Client;
@@ -59,17 +60,17 @@ public class RestClientRepository implements Repository {
 	@Override
 	public Object create(String objectClass) throws RepositoryException {
 		try {
-//			Class<?> clazz = Class.forName(objectClass);
+			Class<?> clazz = Class.forName(objectClass);
 			
 			String context = base.getPath();
-			Response response = client.target(new URL(base, context+"rest/repository/create").toExternalForm())//.register(clazz)
-					.path("{id}").resolveTemplate("id", objectClass).request(MediaType.APPLICATION_JSON)
+			Response response = client.target(new URL(base, context+"rest/repository/create").toExternalForm()).register(clazz)
+					.path("{id}").resolveTemplate("id", URLEncoder.encode(objectClass, "UTF-8")).request(MediaType.APPLICATION_JSON)
 					.get(Response.class);
 
 			if (response.getStatus() == Response.Status.OK.getStatusCode()) {
 				return response.getEntity();
 			} else {
-				throw new RepositoryException((String)response.getEntity());
+				throw new RepositoryException(response.readEntity(String.class));
 			}
 		} catch (Exception e) {
 			throw new RepositoryException(e);

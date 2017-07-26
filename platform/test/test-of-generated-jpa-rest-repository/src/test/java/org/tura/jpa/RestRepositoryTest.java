@@ -55,7 +55,7 @@ public class RestRepositoryTest {
 	public void test() {
 		try {
 			URL url = new URL("http://127.0.0.1:8080/test-objects-restservice-repository-1.0/");
-			new RestClientRepository(url).create("Location");
+			new RestClientRepository(url).create(Location.class.getName());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
