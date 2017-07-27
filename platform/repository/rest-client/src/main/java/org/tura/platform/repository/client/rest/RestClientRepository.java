@@ -63,12 +63,12 @@ public class RestClientRepository implements Repository {
 			Class<?> clazz = Class.forName(objectClass);
 			
 			String context = base.getPath();
-			Response response = client.target(new URL(base, context+"rest/repository/create").toExternalForm()).register(clazz)
+			Response response = client.target(new URL(base, context+"rest/repository/create").toExternalForm())
 					.path("{id}").resolveTemplate("id", URLEncoder.encode(objectClass, "UTF-8")).request(MediaType.APPLICATION_JSON)
 					.get(Response.class);
 
 			if (response.getStatus() == Response.Status.OK.getStatusCode()) {
-				return response.getEntity();
+				return response.readEntity(clazz);
 			} else {
 				throw new RepositoryException(response.readEntity(String.class));
 			}

@@ -24,16 +24,14 @@ package org.tura.example.ui.commons.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Priority;
 import javax.enterprise.context.spi.CreationalContext;
-import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
-import javax.enterprise.inject.spi.CDI;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 
+import org.tura.platform.repository.cdi.Repo;
 import org.tura.platform.repository.cdi.RepositoryExtension;
 import org.tura.platform.repository.core.DataProvider;
 import org.tura.platform.repository.core.ExtendedQuery;
@@ -41,8 +39,6 @@ import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.Triggers;
 
 
-@Alternative
-@Priority(0)
 public class RepositoryProducer {
 	
 	@Inject
@@ -52,7 +48,12 @@ public class RepositoryProducer {
 	private LocalTransactionRepository repository;
 	
 	
+	@Inject
+	 private BeanManager beanManager;
+	
+	
     @Produces
+	@Repo("repository")
 	public Repository getRepository(InjectionPoint injectionPoint) {
 
 		for ( DataProvider provider : getDataProviders()){
@@ -76,10 +77,9 @@ public class RepositoryProducer {
 		ArrayList<DataProvider> array = new ArrayList<>();
 
 		for (Bean<?> bean : repositoryExtension.getDataProviderBeans()) {
-			BeanManager bm = CDI.current().getBeanManager();
 
-			CreationalContext<?> ctx = bm.createCreationalContext(bean);
-			DataProvider provider = (DataProvider) bm.getReference(bean, DataProvider.class, ctx);
+			CreationalContext<?> ctx = beanManager.createCreationalContext(bean);
+			DataProvider provider = (DataProvider) beanManager.getReference(bean, DataProvider.class, ctx);
 
 			array.add(provider);
 		}
@@ -93,10 +93,9 @@ public class RepositoryProducer {
 		ArrayList<ExtendedQuery> array = new ArrayList<>();
 
 		for (Bean<?> bean : repositoryExtension.getCustomQueryBeans()) {
-			BeanManager bm = CDI.current().getBeanManager();
 
-			CreationalContext<?> ctx = bm.createCreationalContext(bean);
-			ExtendedQuery provider = (ExtendedQuery) bm.getReference(bean, ExtendedQuery.class, ctx);
+			CreationalContext<?> ctx = beanManager.createCreationalContext(bean);
+			ExtendedQuery provider = (ExtendedQuery) beanManager.getReference(bean, ExtendedQuery.class, ctx);
 
 			array.add(provider);
 		}
@@ -110,10 +109,9 @@ public class RepositoryProducer {
 		ArrayList<Triggers> array = new ArrayList<>();
 
 		for (Bean<?> bean : repositoryExtension.getRepositoryTriggersBeans()) {
-			BeanManager bm = CDI.current().getBeanManager();
 
-			CreationalContext<?> ctx = bm.createCreationalContext(bean);
-			Triggers provider = (Triggers) bm.getReference(bean, Triggers.class, ctx);
+			CreationalContext<?> ctx = beanManager.createCreationalContext(bean);
+			Triggers provider = (Triggers) beanManager.getReference(bean, Triggers.class, ctx);
 
 			array.add(provider);
 		}

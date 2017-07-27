@@ -47,7 +47,7 @@ public class RestRepositoryTest {
 				.resolve("org.tura.platform.test.generated-code:test-objects-restservice-repository:war:1.0")
 				.withTransitivity().as(File.class);
 
-		return ShrinkWrap.createFromZipFile(WebArchive.class, libs[0]);
+		return ShrinkWrap.createFromZipFile(WebArchive.class, libs[0]).addAsWebInfResource("jbossas-ds.xml");
 	}
 
 	@Test
@@ -55,7 +55,8 @@ public class RestRepositoryTest {
 	public void test() {
 		try {
 			URL url = new URL("http://127.0.0.1:8080/test-objects-restservice-repository-1.0/");
-			new RestClientRepository(url).create(Location.class.getName());
+			Location obj = (Location) new RestClientRepository(url).create(Location.class.getName());
+			System.out.println();
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

@@ -67,6 +67,7 @@
               <options uid="3f5b9cdf-a2a0-428e-b4ca-77134edf47d0" value="f36d089f-e187-4d20-a7e8-2c1295f780d4"/>
               <options uid="12836b30-66b2-4874-8225-fec86530f73d" value="3d2b790c-8146-4d94-978c-077836a28e14"/>
               <options uid="61334679-32ed-4d73-a37f-b32bf692f3ca" value="3b43ed48-df87-4bda-970e-df4b5af669e9"/>
+              <options uid="bae1b29d-1dbd-4ccc-a121-830d8cd7352a" value="15e3199f-3b37-4d16-9856-8b71388d9d60"/>
             </technologies>
             <technologies uid="5e32e954-722d-413f-a9ce-54b8b07dd1a2" name="Transaction">
               <options uid="eff84d43-24ed-42d5-9f0b-475a5a9730c4" value="e4d0e485-6532-423f-942b-6be38b380c25"/>
@@ -492,6 +493,7 @@
         <techLeafs uid="f36d089f-e187-4d20-a7e8-2c1295f780d4" name="PostgresSQL"/>
         <techLeafs uid="3d2b790c-8146-4d94-978c-077836a28e14" name="Oracle"/>
         <techLeafs uid="3b43ed48-df87-4bda-970e-df4b5af669e9" name="HSQL"/>
+        <techLeafs uid="15e3199f-3b37-4d16-9856-8b71388d9d60" name="H2"/>
       </techLeafs>
       <techLeafs uid="a0f0014a-2f47-4de4-8857-ee9c8d7197a4" name="Testing">
         <techLeafs uid="9a7c8d7e-f51c-4492-b919-916d503d649d" name="Selenium">
@@ -1408,7 +1410,7 @@
                           <technologies techRef="be483d3b-fe1f-4d50-a4cd-952773f4e562" valueRef="981e7b23-344e-4445-bfd1-f698757f7a3b"/>
                           <technologies techRef="5e32e954-722d-413f-a9ce-54b8b07dd1a2" valueRef="1ae2819d-80eb-4d89-b042-529ae9e1ffc8"/>
                           <technologies techRef="16673b50-9ff5-4d9c-93a9-ac755d436182" valueRef="ca43dc5b-2305-4a10-85e8-7c15f7aa7610"/>
-                          <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="61334679-32ed-4d73-a37f-b32bf692f3ca"/>
+                          <technologies techRef="83b6681c-602c-47c2-87c2-5215777c3498" valueRef="bae1b29d-1dbd-4ccc-a121-830d8cd7352a"/>
                           <queries uid="8c983fb6-8f36-4090-97c1-e4f8a25d74e6" name="Query package for classess" queryRef="52517f79-0222-42d3-a473-d783bcf46ef9">
                             <variables queryParamRef="ce0cf871-7c61-4a98-82c3-d900ee351897" value="Testing repository"/>
                             <variables queryParamRef="6127dffe-e697-46fc-a99e-6c79be24b2bf" value="JPA test package"/>
@@ -1563,7 +1565,7 @@
                     <properties confVarRef="030b8632-fbfa-48b3-af65-1854e177011b" value="5432"/>
                     <properties confVarRef="092944a7-046c-43ad-bbb5-76629750471a" value="postgres"/>
                     <properties confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
-                    <properties confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="java:jboss/datasources/ExampleDS"/>
+                    <properties confVarRef="7c6e8db8-cbcf-493a-82ed-907c0c8eac3d" value="jdbc/hrDS"/>
                     <properties confVarRef="aa181c77-6813-41eb-b8ef-7d87aaca6d5c" value="NA"/>
                     <properties confVarRef="b374473f-5332-44d2-ae43-176f3e586a3b" value="HRObjects"/>
                     <properties confVarRef="59b08248-2e8c-4f86-bba6-076b43f5f7f7" value="localhost"/>

@@ -32,6 +32,7 @@ import javax.ws.rs.core.Response;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.cdi.Repo;
 import org.tura.platform.repository.core.DataProvider;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
@@ -42,6 +43,7 @@ import org.tura.platform.repository.core.SearchResult;
 public class RestRepository {
 
 	@Inject
+	@Repo("repository")
 	private Repository repository;
 
 	public void addProvider(DataProvider provider, String objectClass) {

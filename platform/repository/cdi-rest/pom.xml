@@ -28,5 +28,10 @@
 			<artifactId>core</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>cdi</artifactId>
+		</dependency>
+
 	</dependencies>
 </project>
