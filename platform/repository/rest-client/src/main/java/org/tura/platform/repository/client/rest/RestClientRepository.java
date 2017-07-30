@@ -27,6 +27,7 @@ import java.util.List;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -86,20 +87,31 @@ public class RestClientRepository implements Repository {
 
 	@Override
 	public void insert(Object obj, String objectClass) throws RepositoryException {
-		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
 	public void remove(Object obj, String objectClass) throws RepositoryException {
-		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public void applyChanges(List changes) throws RepositoryException {
-		// TODO Auto-generated method stub
+	public void applyChanges(@SuppressWarnings("rawtypes") List changes) throws RepositoryException {
+		try {
+			
+			String context = base.getPath();
+			Response response = client.target(new URL(base, context+"rest/repository/applyChanges").toExternalForm())
+					.request(MediaType.APPLICATION_JSON)
+					.post(Entity.json(changes));
 
+			if (response.getStatus() != Response.Status.OK.getStatusCode()) {
+				throw new RepositoryException(response.readEntity(String.class));
+			}
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+		}
 	}
 
 }

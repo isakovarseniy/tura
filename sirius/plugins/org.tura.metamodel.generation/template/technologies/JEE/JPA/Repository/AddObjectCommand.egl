@@ -24,9 +24,9 @@ operation type::TypeElement  addCommand ( recipe,ingredient,model_mapper,t2view,
            addNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel);
         }else{
 	        if (hash.get("containment")){
-              addContaintmentRelation( masterType, detailType,property,recipe,ingredient,suffix,t2view,t2model,path,rel);
+              addContaintmentRelation( masterType, detailType,property,recipe,ingredient,suffix,t2view,t2model,path,rel,model_mapper);
 	        }else{
-             addNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel);
+             addNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel,model_mapper);
 	        }
         }
      }
@@ -36,7 +36,7 @@ operation type::TypeElement  addCommand ( recipe,ingredient,model_mapper,t2view,
      
 }
 
-operation  addContaintmentRelation ( masterType, detailType,property,recipe,ingredient,suffix,t2view,t2model,path,rel){
+operation  addContaintmentRelation ( masterType, detailType,property,recipe,ingredient,suffix,t2view,t2model,path,rel,model_mapper){
      var util = new Native('org.tura.metamodel.commons.Util');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 	  
@@ -50,6 +50,7 @@ operation  addContaintmentRelation ( masterType, detailType,property,recipe,ingr
      hash.put("t2view",t2view);
      hash.put("t2model",t2model);
      hash.put("rel",rel);
+     hash.put("model_mapper",model_mapper);
 	  
 	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/addContaintmentRelation.egl",hash,TemplateFactory);
 	 cmd.setFormatter(f);
@@ -82,7 +83,7 @@ operation addNoAssosiationtRelation ( masterType, detailType,property,recipe,ing
 
 }
 
-operation    addNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel){
+operation    addNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel,model_mapper){
 
      var util = new Native('org.tura.metamodel.commons.Util');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
@@ -96,6 +97,7 @@ operation    addNonContaintmentRelation ( masterType, detailType,property,recipe
      hash.put("t2view",t2view);
      hash.put("t2model",t2model);
      hash.put("rel",rel);
+     hash.put("model_mapper",model_mapper);
 	  
 	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/addNonContaintmentRelation.egl",hash,TemplateFactory);
 	 cmd.setFormatter(f);

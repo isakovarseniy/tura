@@ -43,8 +43,12 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
 	                continue;
 	         }
+	        var hash = rel.findTypeOfAssosiation(model_mapper);
+	        if ( not hash.get("masterType").uid.equals( tp.uid)){
+	            continue;
+	        }
 	         
-            var hash = rel.sourceSideNamesCalculation();
+            hash = rel.sourceSideNamesCalculation();
 	      
 	  	     switch  (rel.type.toString()){
 	         case "One2One" : %]    <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]"/>[%
@@ -59,7 +63,12 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	          continue;
 	    }
 
-         var hash = rel.targetSideNamesCalculation();
+	        var hash = rel.findTypeOfAssosiation(model_mapper);
+	        if ( not hash.get("masterType").uid.equals( tp.uid)){
+	            continue;
+	        }
+
+         hash = rel.targetSideNamesCalculation();
       
   	     switch  (rel.type.toString()){
          case "One2One" : %]     <xs:element name="[%=hash.get("targetProperty")%]" type="[%=getNamespace(hash.get("source").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("source").~class%]" />[%

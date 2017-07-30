@@ -60,24 +60,24 @@ operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
 	    }
         
         if (hash.get("noAssosiation")){
-           %][%=addNoAssosiationtRelation ( recipe,ingredient,t2view,t2model,rel,type,model_mapper)%][%
+           %][%=addNoAssosiationtRelation ( recipe,ingredient,t2view,t2model,rel,type,model_mapper,masterType)%][%
         }else{
 	        if (hash.get("containment") and masterType.uid = type.uid){
-              %][%=addContaintmentRelation(recipe,ingredient,t2view,t2model,rel,type)%][%
+              %][%=addContaintmentRelation(recipe,ingredient,t2view,t2model,rel,type,masterType)%][%
 	        }else{
-             %][%=addNonContaintmentRelation ( recipe,ingredient,t2view,t2model,rel,type)%][%
+             %][%=addNonContaintmentRelation ( recipe,ingredient,t2view,t2model,rel,type,masterType)%][%
 	        }
         }
      }
 }
 
 @template
- operation addContaintmentRelation ( recipe,ingredient,t2view,t2model,rel,type){
+ operation addContaintmentRelation ( recipe,ingredient,t2view,t2model,rel,type,masterType){
  
           var util = new Native('org.tura.metamodel.commons.Util');
-         if (type.uid ==  rel.source.uid ){
+          if (masterType.uid.equals( rel.source.uid) and  masterType.uid.equals( type.uid)){
 %]
-/*CD [%=rel.source.~class%]/[%=rel.target.~class%]*/ 
+/*CD [%=rel.source.~class%]/[%=rel.target.~class%]  master [%=masterType.~class%]  */ 
 [%		         
 
                  var hash = rel.sourceSideNamesCalculation();
@@ -122,10 +122,11 @@ operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
 		         case "Many2Many" : %]}}[%
 		         }         
          
-         }else{
+         }
+         if (masterType.uid.equals( rel.target.uid) and  masterType.uid.equals( type.uid)){
                 var hash = rel.targetSideNamesCalculation();
 %]
-/*CO [%=rel.source.~class%]/[%=rel.target.~class%]*/ 
+/*CO [%=rel.source.~class%]/[%=rel.target.~class%]  master [%=masterType.~class%]*/ 
 [%		         
 		         
                  var suffix=hash.get("targetMethodName");
@@ -172,11 +173,11 @@ operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
 }
 
 @template
- operation addNonContaintmentRelation ( recipe,ingredient,t2view,t2model,rel,type){
+ operation addNonContaintmentRelation ( recipe,ingredient,t2view,t2model,rel,type,masterType){
           var util = new Native('org.tura.metamodel.commons.Util');
-         if (type.uid ==  rel.source.uid ){
+          if (masterType.uid.equals( rel.source.uid)  and  masterType.uid.equals( type.uid) ){
 %]
-/*NCD [%=rel.source.~class%]/[%=rel.target.~class%]*/     
+/*NCD [%=rel.source.~class%]/[%=rel.target.~class%] master [%=masterType.~class%]*/     
 [%
                  var hash = rel.sourceSideNamesCalculation();
                  var suffix =hash.get("sourceMethodName");
@@ -211,10 +212,12 @@ operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
 		         case "Many2Many" : %]}}[%
 		         }         
          
-         }else{
+         }
+         
+         if (masterType.uid.equals( rel.target.uid)  and  masterType.uid.equals( type.uid) ){
                 var hash = rel.targetSideNamesCalculation();
 %]
-/*NCO [%=rel.source.~class%]/[%=rel.target.~class%]*/ 
+/*NCO [%=rel.source.~class%]/[%=rel.target.~class%]  master [%=masterType.~class%]*/ 
 [%		         
                  var suffix=hash.get("targetMethodName");
 		         
@@ -258,7 +261,7 @@ operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
 }
 
 @template
- operation addNoAssosiationtRelation ( recipe,ingredient,t2view,t2model,rel,type,model_mapper){
+ operation addNoAssosiationtRelation ( recipe,ingredient,t2view,t2model,rel,type,model_mapper,masterType){
           var util = new Native('org.tura.metamodel.commons.Util');
           var hash = rel.findTypeOfAssosiation(model_mapper);
           var masterType =   hash.get("masterType");

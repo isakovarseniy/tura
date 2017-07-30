@@ -137,13 +137,6 @@ public class One2OneOpositContaintmentTest {
 
 			One2One2B o2 = (One2One2B) repository.create(One2One2B.class.getName());
 
-			try {
-				o1.setOne2One2B(o2);
-				fail();
-			} catch (UnsupportedOperationException e) {
-
-			}
-
 			o2.setOne2One2A(o1);
 			repository.insert(o2, One2One2B.class.getName());
 			repository.applyChanges(null);

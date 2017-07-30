@@ -21,10 +21,14 @@
  */
 package org.tura.jpa;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -34,33 +38,117 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.client.rest.RestClientRepository;
+import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
-import objects.test.serialazable.jpa.Location;
+import objects.test.serialazable.jpa.One2One1A;
+import objects.test.serialazable.jpa.One2One1B;
+import objects.test.serialazable.jpa.ProxyRepository;
 
 @RunWith(Arquillian.class)
 public class RestRepositoryTest {
 
+	@SuppressWarnings("rawtypes")
+	private static List commandStack;
+	
+	
 	@Deployment
 	public static WebArchive createDeployment() {
 		File[] libs = Maven.resolver().loadPomFromFile("pom.xml")
 				.resolve("org.tura.platform.test.generated-code:test-objects-restservice-repository:war:1.0")
 				.withTransitivity().as(File.class);
 
-		return ShrinkWrap.createFromZipFile(WebArchive.class, libs[0]).addAsWebInfResource("jbossas-ds.xml");
+		return ShrinkWrap.createFromZipFile(WebArchive.class, libs[0])
+				.addAsWebInfResource("jbossas-ds.xml");
 	}
 
+//	@Test
+//	@RunAsClient
+//	public void test() {
+//		try {
+//			URL url = new URL("http://127.0.0.1:8080/test-objects-restservice-repository-1.0/");
+//			commandStack = new ArrayList<>();
+//			Location obj = (Location) new RestClientRepository(url).create(Location.class.getName());
+//			System.out.println();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			fail();
+//		}
+//	}
+	
+	
+	private ProxyRepository getRepository() throws MalformedURLException {
+		URL url = new URL("http://127.0.0.1:8080/test-objects-restservice-repository-1.0/");
+		commandStack = new ArrayList<>();
+		return  new ProxyRepository(new RestClientRepository(url),stackProvider);
+		
+	}
+	
 	@Test
 	@RunAsClient
-	public void test() {
+	public void t0000_One2One1() {
 		try {
-			URL url = new URL("http://127.0.0.1:8080/test-objects-restservice-repository-1.0/");
-			Location obj = (Location) new RestClientRepository(url).create(Location.class.getName());
-			System.out.println();
+			ProxyRepository repository = getRepository();
+
+			One2One1A o1 = (One2One1A) repository.create(One2One1A.class.getName());
+			
+			One2One1B o2 = (One2One1B) repository.create(One2One1B.class.getName());
+			
+			o1.setOne2One1B(o2);
+			
+			repository.insert(o1, One2One1A.class.getName());
+			repository.applyChanges(null);
+
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1B.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1A.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			
+			repository.remove(result.getSearchResult().get(0), One2One1A.class.getName());
+			
+			repository.applyChanges(null);
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1B.class.getName());
+			assertEquals(0,result.getSearchResult().size());
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1A.class.getName());
+			assertEquals(0,result.getSearchResult().size());
+
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
+
 	}
+	
+	
+	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public void addCommand(Object cmd) throws Exception {
+			commandStack.add(cmd);
+			
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public List<Object> getListOfCommand() throws Exception {
+			return commandStack;
+		}
+
+		@Override
+		public void clear() throws Exception {
+			commandStack.clear();
+			
+		}
+		
+	};	
+	
 
 }

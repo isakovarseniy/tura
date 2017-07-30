@@ -55,23 +55,26 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
                 target=util.mergeAndUnCapitalize(t2view.get(masterType).get("class"));
                 source = "data.get" +t2view.get(detailType).get("class")+suffix+"()";
              }
-             var hash = rel.sourceSideNamesCalculation();
-
-	  	     switch  (rel.type.toString()){
-	         case "One2One" : %]      [%=source%].set[%=hash.get("sourceMethodName")%]([%=target%]);[%
-	         case "One2Many" : %]    [%=source%].get[%=hash.get("sourceMethodName")%]().add([%=target%]);[%
-	         case "Many2Many" : %]  [%=source%].get[%=hash.get("sourceMethodName")%]().add([%=target%]);[%
-	         }           
-	         
-
-            var hash = rel.targetSideNamesCalculation();
-	         
-	         
-	  	     switch  (rel.type.toString()){
-	         case "One2One" : %]       [%=target%].set[%=hash.get("targetMethodName")%]([%=source%]);[%
-	         case "One2Many" : %]      [%=target%].set[%=hash.get("targetMethodName")%]([%=source%]);[%
-	         case "Many2Many" : %]     [%=target%].get[%=hash.get("targetMethodName")%]().add([%=source%]);[%
-	         }                
+	         var hash = rel.findTypeOfAssosiation(model_mapper);
+	         var masterType =   hash.get("masterType");
+             
+             if (masterType.uid.equals(rel.source.uid)){
+	             var hash = rel.sourceSideNamesCalculation();
+	
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]      [%=source%].set[%=hash.get("sourceMethodName")%]([%=target%]);[%
+		         case "One2Many" : %]    [%=source%].get[%=hash.get("sourceMethodName")%]().add([%=target%]);[%
+		         case "Many2Many" : %]  [%=source%].get[%=hash.get("sourceMethodName")%]().add([%=target%]);[%
+		         }           
+	         }else{  
+	            var hash = rel.targetSideNamesCalculation();
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]       [%=target%].set[%=hash.get("targetMethodName")%]([%=source%]);[%
+		         case "One2Many" : %]      [%=target%].set[%=hash.get("targetMethodName")%]([%=source%]);[%
+		         case "Many2Many" : %]     [%=target%].get[%=hash.get("targetMethodName")%]().add([%=source%]);[%
+		         }   
+	         }             
       %]
            
            [%=t2view.get(masterType).get("package")%].commands.InternalAdd[%=t2view.get(detailType).get("class")%]Command cmd = new [%=t2view.get(masterType).get("package")%].commands.InternalAdd[%=t2view.get(detailType).get("class")%]Command();
