@@ -29,6 +29,8 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedHashMap;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
@@ -37,6 +39,10 @@ import org.tura.platform.repository.core.DataProvider;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
+
+import com.fasterxml.jackson.databind.AnnotationIntrospector;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
 
 public class RestClientRepository implements Repository {
 
@@ -100,11 +106,24 @@ public class RestClientRepository implements Repository {
 	@Override
 	public void applyChanges(@SuppressWarnings("rawtypes") List changes) throws RepositoryException {
 		try {
+	
+			ObjectMapper mapper = new ObjectMapper();
+		    AnnotationIntrospector introspector = new JaxbAnnotationIntrospector();
+		    mapper.setAnnotationIntrospector(introspector);
+
+		    MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
+		    
+		    int index = 0;
+		    for ( Object o : changes ){
+			    formData.add(new Integer(index).toString(), o.getClass().getName());
+			    formData.add(new Integer(index).toString(), mapper.writeValueAsString(o));
+			    index ++;
+		    }
 			
 			String context = base.getPath();
 			Response response = client.target(new URL(base, context+"rest/repository/applyChanges").toExternalForm())
 					.request(MediaType.APPLICATION_JSON)
-					.post(Entity.json(changes));
+					.post(Entity.form(formData));
 
 			if (response.getStatus() != Response.Status.OK.getStatusCode()) {
 				throw new RepositoryException(response.readEntity(String.class));

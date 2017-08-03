@@ -21,6 +21,7 @@
  */
 package org.tura.platform.repository.cdi.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -28,6 +29,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
@@ -37,6 +39,11 @@ import org.tura.platform.repository.core.DataProvider;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
+
+import com.fasterxml.jackson.databind.AnnotationIntrospector;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
+
 
 
 @Path("repository")
@@ -91,13 +98,27 @@ public class RestRepository {
 
 	@POST
 	@Path("applyChanges")
-	public Response applyChanges(List<?> changes) {
+	public Response applyChanges(MultivaluedMap<String,String> map) {
 		try {
-			repository.applyChanges(changes);
+			ObjectMapper mapper = new ObjectMapper();
+		    AnnotationIntrospector introspector = new JaxbAnnotationIntrospector();
+		    mapper.setAnnotationIntrospector(introspector);
+		    ArrayList<Object> list = new ArrayList<>();
+		    
+			for (int i  = 0; ;i++){
+				String key = new Integer(i).toString();
+				if (map.get(key) == null){
+					break;
+				}
+				String className = map.get(key).get(0);
+				Class<?> clazz = Class.forName(className);
+				list.add( mapper.readValue(map.get(key).get(1),clazz));
+			}
+
+			repository.applyChanges(list);
 			return Response.status(Response.Status.OK).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
 		}
 	}
-
 }

@@ -36,6 +36,11 @@
 		<verson.beanutil>1.9.2</verson.beanutil>
 		<version.deltaspike>1.6.1</version.deltaspike>
 		<version.com.h2database.h2>1.4.193</version.com.h2database.h2>
+		<version.resteasy-jackson-provider>3.0.19.Final</version.resteasy-jackson-provider>
+		<version.jackson-module-jaxb-annotations>2.8.0</version.jackson-module-jaxb-annotations>
+		<version.resteasy-client>3.0.2.Final</version.resteasy-client>
+		<version.javax.ws.rs-api>2.0.1</version.javax.ws.rs-api>
+		<version.wildfly-arquillian-container-managed>8.1.0.Final</version.wildfly-arquillian-container-managed>
 
 
 	</properties>
@@ -62,6 +67,43 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>org.wildfly</groupId>
+				<artifactId>wildfly-arquillian-container-managed</artifactId>
+				<version>${version.wildfly-arquillian-container-managed}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>rest-client</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.ws.rs</groupId>
+				<artifactId>javax.ws.rs-api</artifactId>
+				<version>${version.javax.ws.rs-api}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-client</artifactId>
+				<version>${version.resteasy-client}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.module</groupId>
+				<artifactId>jackson-module-jaxb-annotations</artifactId>
+				<version>${version.jackson-module-jaxb-annotations}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jackson-provider</artifactId>
+				<version>${version.resteasy-jackson-provider}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>com.h2database</groupId>

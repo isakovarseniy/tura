@@ -31,6 +31,7 @@ import org.tura.platform.repository.core.RepositoryException;
 
 public class LocalTransactionRepository extends BasicRepository {
 	
+	
 	@Inject
 	private EntityManager em;
 	
@@ -49,6 +50,5 @@ public class LocalTransactionRepository extends BasicRepository {
 			em.getTransaction().rollback();
 		}
 	}
-	
 
 }

@@ -32,6 +32,13 @@
 			<groupId>org.tura.platform.repository</groupId>
 			<artifactId>cdi</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
 
 	</dependencies>
 </project>

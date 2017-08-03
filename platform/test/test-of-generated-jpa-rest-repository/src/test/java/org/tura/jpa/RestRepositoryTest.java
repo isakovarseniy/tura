@@ -60,25 +60,24 @@ public class RestRepositoryTest {
 		File[] libs = Maven.resolver().loadPomFromFile("pom.xml")
 				.resolve("org.tura.platform.test.generated-code:test-objects-restservice-repository:war:1.0")
 				.withTransitivity().as(File.class);
+		
+		File[] libs1 = Maven.resolver().loadPomFromFile("pom.xml")
+				.resolve("org.tura.platform.test.generated-code:test-objects-repository-proxy:1.0")
+				.withTransitivity().as(File.class);
+		
 
-		return ShrinkWrap.createFromZipFile(WebArchive.class, libs[0])
-				.addAsWebInfResource("jbossas-ds.xml");
+		 
+				
+				
+				WebArchive a =  ShrinkWrap.createFromZipFile(WebArchive.class, libs[0])
+				.addAsLibraries(libs1[0])
+				.addAsWebInfResource("jbossas-ds.xml")
+				.addAsWebInfResource("jboss-deployment-structure.xml")
+				;
+				a.toString();
+				return a;
 	}
 
-//	@Test
-//	@RunAsClient
-//	public void test() {
-//		try {
-//			URL url = new URL("http://127.0.0.1:8080/test-objects-restservice-repository-1.0/");
-//			commandStack = new ArrayList<>();
-//			Location obj = (Location) new RestClientRepository(url).create(Location.class.getName());
-//			System.out.println();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			fail();
-//		}
-//	}
-	
 	
 	private ProxyRepository getRepository() throws MalformedURLException {
 		URL url = new URL("http://127.0.0.1:8080/test-objects-restservice-repository-1.0/");
@@ -100,6 +99,11 @@ public class RestRepositoryTest {
 			o1.setOne2One1B(o2);
 			
 			repository.insert(o1, One2One1A.class.getName());
+			
+			o1 = (One2One1A) repository.create(One2One1A.class.getName());
+
+			repository.insert(o1, One2One1A.class.getName());
+			
 			repository.applyChanges(null);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1B.class.getName());
