@@ -10,7 +10,7 @@
 	<container qualifier="wildfly-managed" default="true">
 	 <configuration>
 	     <property name="jbossHome">/Users/arseniy/servers/wildfly-10.1.0.Final</property>
-			<!--  property name="javaVmArguments">-Xverify:none -XX:+UseFastAccessorMethods -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000</property-->
+			<!--  property name="javaVmArguments">-Xverify:none -XX:+UseFastAccessorMethods -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000</property -->
 	 </configuration>
 	</container>
 

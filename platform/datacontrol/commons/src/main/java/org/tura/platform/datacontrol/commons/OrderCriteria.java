@@ -21,6 +21,10 @@
  */
 package org.tura.platform.datacontrol.commons;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "OrderCriteria")
 public class OrderCriteria {
 	private String name;
 	private String order;
@@ -34,7 +38,7 @@ public class OrderCriteria {
 		 this.order=order;
 	 }
 
-	 
+	 @XmlElement
 	 public String getName() {
 		return name;
 	}
@@ -42,7 +46,8 @@ public class OrderCriteria {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	@XmlElement
 	public String getOrder() {
 		return order;
 	}

@@ -29,6 +29,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
@@ -38,6 +39,7 @@ import org.tura.platform.repository.cdi.Repo;
 import org.tura.platform.repository.core.DataProvider;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.SearchRequest;
 import org.tura.platform.repository.core.SearchResult;
 
 import com.fasterxml.jackson.databind.AnnotationIntrospector;
@@ -74,11 +76,25 @@ public class RestRepository {
 
 	@POST
 	@Path("find")
-	public Response find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) {
+	public Response find(SearchRequest  request) {
 		try {
-			SearchResult result = repository.find(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
-			return Response.status(Response.Status.OK).entity(result).build();
+			SearchResult result = repository.find(request.getSearch(), request.getOrder(), request.getStartIndex(), request.getEndIndex(), request.getObjectClass());
+
+			ObjectMapper mapper = new ObjectMapper();
+			AnnotationIntrospector introspector = new JaxbAnnotationIntrospector();
+			mapper.setAnnotationIntrospector(introspector);
+
+			MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
+			formData.add("size",  new Long(result.getNumberOfRows()).toString());
+
+			int index = 0;
+			for (Object o : result.getSearchResult()) {
+				formData.add(new Integer(index).toString()+"_type", o.getClass().getName());
+				formData.add(new Integer(index).toString(), mapper.writeValueAsString(o));
+				index++;
+			}
+			
+			return Response.status(Response.Status.OK).entity(formData).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
 		}
@@ -110,9 +126,9 @@ public class RestRepository {
 				if (map.get(key) == null){
 					break;
 				}
-				String className = map.get(key).get(0);
+				String className = map.get(key+"_type").get(0);
 				Class<?> clazz = Class.forName(className);
-				list.add( mapper.readValue(map.get(key).get(1),clazz));
+				list.add( mapper.readValue(map.get(key).get(0),clazz));
 			}
 
 			repository.applyChanges(list);

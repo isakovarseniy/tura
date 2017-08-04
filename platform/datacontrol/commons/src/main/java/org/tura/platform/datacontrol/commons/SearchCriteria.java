@@ -21,6 +21,10 @@
  */
 package org.tura.platform.datacontrol.commons;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "SearchCriteria")
 public class SearchCriteria {
 
 	private String name;
@@ -38,24 +42,31 @@ public class SearchCriteria {
 		this.className=className;
 	}
 	
+	@XmlElement
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	@XmlElement
 	public Object getValue() {
 		return value;
 	}
 	public void setValue(Object value) {
 		this.value = value;
 	}
+	
+	@XmlElement
 	public String getClassName() {
 		return className;
 	}
 	public void setClassName(String className) {
 		this.className = className;
 	}
+	
+	@XmlElement
 	public String getComparator() {
 		return comparator;
 	}

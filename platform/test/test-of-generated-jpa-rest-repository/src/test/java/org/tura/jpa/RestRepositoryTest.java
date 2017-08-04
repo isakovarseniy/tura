@@ -100,10 +100,6 @@ public class RestRepositoryTest {
 			
 			repository.insert(o1, One2One1A.class.getName());
 			
-			o1 = (One2One1A) repository.create(One2One1A.class.getName());
-
-			repository.insert(o1, One2One1A.class.getName());
-			
 			repository.applyChanges(null);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1B.class.getName());
