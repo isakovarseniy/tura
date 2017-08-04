@@ -102,6 +102,11 @@ public class RestClientRepository implements Repository {
 			request.setEndIndex(endIndex);
 			request.setObjectClass(objectClass);
 
+			for( SearchCriteria  sc : searchCriteria ) {
+				sc.setClassName( sc.getValue().getClass().getName());
+				sc.setValue(sc.getValue().toString());
+			}
+			
 			String context = base.getPath();
 			Response response = client.target(new URL(base, context + "rest/repository/find").toExternalForm())
 					.request(MediaType.APPLICATION_JSON).post(Entity.entity(request, MediaType.APPLICATION_JSON));

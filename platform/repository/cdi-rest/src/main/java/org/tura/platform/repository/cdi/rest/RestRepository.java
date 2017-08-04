@@ -21,6 +21,7 @@
  */
 package org.tura.platform.repository.cdi.rest;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,6 +79,12 @@ public class RestRepository {
 	@Path("find")
 	public Response find(SearchRequest  request) {
 		try {
+			for( SearchCriteria  sc : request.getSearch() ) {
+				Class<?> clazz = Class.forName(sc.getClassName());
+				Constructor<?> constractor = clazz.getConstructor(String.class);
+				sc.setValue(  constractor.newInstance(sc.getValue()));
+			}
+			
 			SearchResult result = repository.find(request.getSearch(), request.getOrder(), request.getStartIndex(), request.getEndIndex(), request.getObjectClass());
 
 			ObjectMapper mapper = new ObjectMapper();

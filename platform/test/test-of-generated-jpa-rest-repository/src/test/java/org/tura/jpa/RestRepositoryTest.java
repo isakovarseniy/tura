@@ -108,6 +108,17 @@ public class RestRepositoryTest {
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One1A.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 			
+			SearchCriteria sc = new SearchCriteria();
+			sc.setName("objId");
+			sc.setComparator("EQ");
+			sc.setValue(o1.getObjId());
+			ArrayList<SearchCriteria> search = new ArrayList<SearchCriteria>();
+			search.add(sc);
+			result = repository.find(search, new ArrayList<OrderCriteria>(), 0, 0, One2One1A.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+
+			
+			
 			repository.remove(result.getSearchResult().get(0), One2One1A.class.getName());
 			
 			repository.applyChanges(null);
