@@ -72,7 +72,6 @@ public class RestRepositoryTest {
 				WebArchive a =  ShrinkWrap.createFromZipFile(WebArchive.class, libs[0])
 				.addAsLibraries(libs1[0])
 				.addAsWebInfResource("jbossas-ds.xml")
-				.addAsWebInfResource("jboss-deployment-structure.xml")
 				;
 				a.toString();
 				return a;

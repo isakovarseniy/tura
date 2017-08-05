@@ -1,3 +1,8 @@
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var webapp =  util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/webapp/WEB-INF";
+
+%]
 <jboss-deployment-structure>
     <deployment>
         <exclusions>
@@ -9,3 +14,8 @@
         </dependencies>
     </deployment>
 </jboss-deployment-structure> 
+
+[%
+     util.saveFile( webapp,"jboss-deployment-structure.xml",out.toString());   
+  
+%]

@@ -379,7 +379,11 @@
             <hints uid="617b5798-0fc2-4e26-a63d-57d70c3826a2" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
           </artifacts>
         </artifactPackages>
+        <artifactPackages uid="7cb48e41-65d4-45d5-b623-dcaafe6eef0b" name="REST artifacts">
+          <artifacts uid="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="RESTEasy JBOSS deployment descriptor" description="" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Application_server/RedHat-EAP.v7.0.0/REST/RESTEasy/mainDeploymentDescriptor.egl"/>
+        </artifactPackages>
       </domainArtifact>
+      <domainArtifact uid="c9d0828d-3e0d-4d3b-8447-1014ade4b039" name="Frontend"/>
       <techLeafs uid="52052d1c-7313-4684-a8bd-c62091140f59" name="JEE">
         <hints uid="55406073-2639-498f-b8ee-f121395f99e3" name="Bean validation"/>
         <configVariables uid="2c1d2970-1630-474c-b93c-7ace2a3ae99b" name="Session timeout"/>
@@ -1883,6 +1887,7 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                         </mappers>
+                        <mappers uid="81ea40f0-7b50-47f4-a625-0ce92a44408d" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" uid="9885f08d-1c1d-4af3-acba-34795fb0ce34" name="Triggers" componentRoot="${External path 1}" artifactId="hr-simple-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0">
                         <mappers uid="8767ffea-e368-449c-a79f-e0f8fb7bbb67" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.1/examples/hr-simple-model-repository-triggers/builder.sh">
@@ -1894,7 +1899,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="1" uid="7f66c30e-4065-4ccd-8dcc-a3c763fe8a43" name="REST  service complex model" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="2" order="1" uid="a9f2ce61-17bb-4091-9268-cfedb43cc031" name="Rest service war file for complex model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-restservice-repository" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="a9f2ce61-17bb-4091-9268-cfedb43cc031" name="Rest service war file for complex model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-restservice-repository" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="381fa626-8b04-4d1f-9d36-25d1e9dec88d" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Builder">
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="b93cf394-bb0f-443f-8983-caf7202acbbd"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
@@ -1915,6 +1920,7 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                         </mappers>
+                        <mappers uid="cf2e94ba-c572-4d55-95b6-6ec132c5f3ef" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" uid="39db2632-0f22-4ddd-90c4-c70d5f8a9136" name="Triggers" componentRoot="${External path 1}" artifactId="hr-complex-model-repository-triggers" groupId="org.tura.example.service.hrform">
                         <mappers uid="1705b9e9-6e3a-4d16-a241-59df0f9c4ee9" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.1/examples/hr-complex-model-repository-triggers/builder.sh">
@@ -1926,7 +1932,7 @@
                       </components>
                     </ingredients>
                     <ingredients mappers="21d8af7b-7dbd-451d-a8e7-ee9d696646a4" order="2" uid="6c2d2240-c576-4fe3-93c1-419c685163cc" name="REST service JPA test model" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="2" order="1" uid="402096e8-4cd5-4373-a7cc-5b1dec1dbfcd" name="Rest service war file for JPA test model" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-restservice-repository" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="402096e8-4cd5-4373-a7cc-5b1dec1dbfcd" name="Rest service war file for JPA test model" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-restservice-repository" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="b4c1475f-92bc-4590-9747-7c4ed440fa82" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Builder">
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="b93cf394-bb0f-443f-8983-caf7202acbbd"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
@@ -1947,6 +1953,7 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                         </mappers>
+                        <mappers uid="3954b242-ef8f-4068-aeb3-d7038d4f5d81" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" uid="2f5cdcb2-9ff8-4e8f-a296-fc47acba4b45" name="Triggers" componentRoot="${External path 1}" artifactId="jpa-test-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0">
                         <mappers uid="b1ff4dce-af4e-4461-ad7a-043e233039ca" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA test model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.1/examples/jpa-test-model-repository-triggers/builder.sh">
