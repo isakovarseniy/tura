@@ -73,7 +73,6 @@ public class RestRepositoryTest {
 				.addAsLibraries(libs1[0])
 				.addAsWebInfResource("jbossas-ds.xml")
 				;
-				a.toString();
 				return a;
 	}
 
