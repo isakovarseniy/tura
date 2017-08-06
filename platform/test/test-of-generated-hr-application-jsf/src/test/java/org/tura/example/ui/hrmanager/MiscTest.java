@@ -143,7 +143,7 @@ public class MiscTest {
 	@RunAsClient
 	public void t2_validateCheckBox() {
 		try {
-			driver.get("http://localhost:8080/hrapplication/hrmanager/miscelements/MiscElementsWindow.xhtml");
+			driver.get(app_url);
 
 			MiscElementsWindowPageObject miscPage = new MiscElementsWindowPageObject(
 					driver);
