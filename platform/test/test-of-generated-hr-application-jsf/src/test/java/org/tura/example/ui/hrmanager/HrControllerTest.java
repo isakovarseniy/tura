@@ -78,7 +78,7 @@ public class HrControllerTest {
 	static private String USERNAME = "qwerty";
 	static private String PASSWORD = "qwerty";
 	static private String app_url = "http://localhost:8080/hrapplication/hrmanager/hrcontroller/HRController.xhtml?param1=qwerty2";
-	static private String driver_location = "/Users/arseniy/Downloads/chromedriver";
+	static private String driver_location = "${user.home}/tools/selenium/chromedriver";
 
 	
 	@Deployment
@@ -105,9 +105,11 @@ public class HrControllerTest {
 	@BeforeClass
 	public static void beforeClass() {
 		try {
+			
+			String home = System.getProperty("user.home");
 			service = new ChromeDriverService.Builder()
 					.usingDriverExecutable(
-							new File(driver_location))
+							new File(driver_location.replace("${user.home}", home) ))
 					.usingAnyFreePort().build();
 
 			service.start();
