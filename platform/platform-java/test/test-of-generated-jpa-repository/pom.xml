@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.tura.platform</groupId>
+		<artifactId>test</artifactId>
+		<version>2.0</version>
+	</parent>
+	
+	<groupId>org.tura.platform.test</groupId>
+	<artifactId>test-of-generated-jpa-repository</artifactId>
+
+	<name>Tura :: Platform :: Java :: Test :: Generated code :: JPA Repository</name>
+	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
+
+	<dependencies>
+		<!-- Test -->
+		<dependency>
+			<groupId>org.tura.platform.test</groupId>
+			<artifactId>commons-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901.jdbc4</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.weld.se</groupId>
+			<artifactId>weld-se</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.octo.java.sql</groupId>
+			<artifactId>java-sql-dsl</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	<dependency>
+		<groupId>org.tura.platform.test.generated-code</groupId>
+		<artifactId>test-objects-repository</artifactId>
+		<version>1.0</version>
+	    <scope>test</scope>
+	</dependency>
+
+    <dependency>
+		<groupId>org.tura.platform.test.generated-code</groupId>
+		<artifactId>test-objects-repository-proxy</artifactId>
+		<version>1.0</version>
+    </dependency>
+
+
+	</dependencies>
+
+</project>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.tura.platform</groupId>
+		<artifactId>repository</artifactId>
+		<version>2.0</version>
+	</parent>
+
+	<groupId>org.tura.platform.repository</groupId>
+	<artifactId>cdi-rest</artifactId>
+
+	<name>Tura :: Platform :: Java :: Repository :: CDI - REST</name>
+	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>cdi</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+
+	</dependencies>
+</project>

@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.tura</groupId>
-	<artifactId>platform</artifactId>
+	<artifactId>parent</artifactId>
 	<version>2.0</version>
 	<packaging>pom</packaging>
 
-	<name>Tura :: Platform</name>
+	<name>Tura :: Platform :: Parent </name>
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<properties>
@@ -20,7 +20,6 @@
 
 		<version.tura-platform>2.0</version.tura-platform>
 		<version.hibernate-entitymanager>4.3.7.Final</version.hibernate-entitymanager>
-		<version.cglib>2.2.2</version.cglib>
 		<version.commons-collections>3.2.1</version.commons-collections>
 		<version.uk.com.robust-it.cloning>1.7.9</version.uk.com.robust-it.cloning>
 		<version.commons-lang>2.6</version.commons-lang>
@@ -55,13 +54,7 @@
 
 
 	<modules>
-		<module>java-sql-dsl</module>
-		<module>commons-selenium</module>
-		<module>datacontrol</module>
-		<module>primefaces-model</module>
-		<module>primefaces-selenium</module>
-		<module>repository</module>
-		<module>test</module>
+		<module>platform-java</module>
 	</modules>
 
 
@@ -188,12 +181,6 @@
 
 
 			<dependency>
-				<groupId>cglib</groupId>
-				<artifactId>cglib</artifactId>
-				<version>${version.cglib}</version>
-			</dependency>
-
-			<dependency>
 				<groupId>net.sf.josql</groupId>
 				<artifactId>josql</artifactId>
 				<version>${version.josql}</version>
@@ -284,8 +271,8 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
