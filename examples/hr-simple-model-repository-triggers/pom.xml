@@ -37,7 +37,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.repository</groupId>
+			<groupId>org.tura.platform-java.repository</groupId>
 			<artifactId>cdi</artifactId>
 		</dependency>
 		

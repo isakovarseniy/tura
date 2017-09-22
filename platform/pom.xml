@@ -41,6 +41,8 @@
 		<version.javax.ws.rs-api>2.0.1</version.javax.ws.rs-api>
 		<version.wildfly-arquillian-container-managed>8.1.0.Final</version.wildfly-arquillian-container-managed>
 
+		<version.jsweet.transpiler>2.0.1-SNAPSHOT</version.jsweet.transpiler>
+		<version.jsweet.core>5-20170726</version.jsweet.core>
 
 	</properties>
 
@@ -50,7 +52,33 @@
 			<name>maven-us.nuxeo.org</name>
 			<url>http://maven.nuxeo.org/nexus/content/repositories/public-releases</url>
 		</repository>
+		<repository>
+			<id>jsweet-central</id>
+			<name>libs-release</name>
+			<url>http://repository.jsweet.org/artifactory/libs-release-local</url>
+		</repository>
+		<repository>
+			<snapshots />
+			<id>jsweet-snapshots</id>
+			<name>libs-snapshot</name>
+			<url>http://repository.jsweet.org/artifactory/libs-snapshot-local</url>
+		</repository>
 	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jsweet-plugins-release</id>
+			<name>plugins-release</name>
+			<url>http://repository.jsweet.org/artifactory/plugins-release-local</url>
+		</pluginRepository>
+		<pluginRepository>
+			<snapshots />
+			<id>jsweet-plugins-snapshots</id>
+			<name>plugins-snapshot</name>
+			<url>http://repository.jsweet.org/artifactory/plugins-snapshot-local</url>
+		</pluginRepository>
+	</pluginRepositories>
+	
 
 
 	<modules>
@@ -62,13 +90,25 @@
 		<dependencies>
 
 			<dependency>
+				<groupId>org.jsweet</groupId>
+				<artifactId>jsweet-transpiler</artifactId>
+				<version>${version.jsweet.transpiler}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jsweet</groupId>
+				<artifactId>jsweet-core</artifactId>
+				<version>${version.jsweet.core}</version>
+			</dependency>
+
+			<dependency>
 				<groupId>org.wildfly</groupId>
 				<artifactId>wildfly-arquillian-container-managed</artifactId>
 				<version>${version.wildfly-arquillian-container-managed}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform.repository</groupId>
+				<groupId>org.tura.platform-java.repository</groupId>
 				<artifactId>rest-client</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
@@ -123,38 +163,38 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform.datacontrol</groupId>
+				<groupId>org.tura.platform-java.datacontrol</groupId>
 				<artifactId>commons</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform.datacontrol</groupId>
+				<groupId>org.tura.platform-java.datacontrol</groupId>
 				<artifactId>annotations</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform.datacontrol</groupId>
+				<groupId>org.tura.platform-java.datacontrol</groupId>
 				<artifactId>core</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform.repository</groupId>
+				<groupId>org.tura.platform-java.repository</groupId>
 				<artifactId>cdi</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform.repository</groupId>
+				<groupId>org.tura.platform-java.repository</groupId>
 				<artifactId>core</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
 
 			<dependency>
-				<groupId>org.tura.platform.test</groupId>
+				<groupId>org.tura.platform-java.test</groupId>
 				<artifactId>commons-test</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
@@ -225,37 +265,37 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform</groupId>
+				<groupId>org.tura.platform-java</groupId>
 				<artifactId>primefaces-model</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform</groupId>
+				<groupId>org.tura.platform-java</groupId>
 				<artifactId>commons-selenium</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform.datacontrol.command</groupId>
+				<groupId>org.tura.platform-java.datacontrol.command</groupId>
 				<artifactId>tura-service-compressor</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform.datacontrol.command</groupId>
+				<groupId>org.tura.platform-java.datacontrol.command</groupId>
 				<artifactId>tura-service-jpa</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform.datacontrol.command</groupId>
+				<groupId>org.tura.platform-java.datacontrol.command</groupId>
 				<artifactId>tura-nested-data</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>org.tura.platform.repository</groupId>
+				<groupId>org.tura.platform-java.repository</groupId>
 				<artifactId>core</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>

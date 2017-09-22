@@ -71,7 +71,7 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.tura.platform</groupId>
+			<groupId>org.tura.platform-java</groupId>
 			<artifactId>primefaces-model</artifactId>
 			<version>${openexp}version.tura-platform}</version>
 		</dependency>
@@ -83,13 +83,13 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
+			<groupId>org.tura.platform-java.datacontrol</groupId>
 			<artifactId>core</artifactId>
 			<version>${openexp}version.tura-platform}</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
+			<groupId>org.tura.platform-java.datacontrol</groupId>
 			<artifactId>annotations</artifactId>
 			<version>${openexp}version.tura-platform}</version>
 		</dependency>

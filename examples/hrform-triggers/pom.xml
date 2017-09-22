@@ -23,17 +23,17 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
+			<groupId>org.tura.platform-java.datacontrol</groupId>
 			<artifactId>core</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
+			<groupId>org.tura.platform-java.datacontrol</groupId>
 			<artifactId>annotations</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform</groupId>
+			<groupId>org.tura.platform-java</groupId>
 			<artifactId>primefaces-model</artifactId>
 		</dependency>
 
@@ -57,7 +57,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.repository</groupId>
+			<groupId>org.tura.platform-java.repository</groupId>
 			<artifactId>cdi</artifactId>
 		</dependency>
 
