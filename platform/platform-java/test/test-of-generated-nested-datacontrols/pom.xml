@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<parent>
-		<groupId>org.tura.platform</groupId>
+		<groupId>org.tura.platform-java</groupId>
 		<artifactId>test</artifactId>
 		<version>2.0</version>
 	</parent>
 	
-	<groupId>org.tura.platform.test</groupId>
+	<groupId>org.tura.platform-java.test</groupId>
 	<artifactId>test-of-generated-nested-datacontrols</artifactId>
 
 	<name>Tura :: Platform :: Java :: Test :: Generated code :: Nested Data Control</name>
@@ -25,7 +25,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.test</groupId>
+			<groupId>org.tura.platform-java.test</groupId>
 			<artifactId>commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
@@ -65,7 +65,7 @@
 
 
 		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
+			<groupId>org.tura.platform-java.datacontrol</groupId>
 			<artifactId>annotations</artifactId>
 			<scope>test</scope>
 		</dependency>
@@ -97,7 +97,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform</groupId>
+			<groupId>org.tura.platform-java</groupId>
 			<artifactId>primefaces-model</artifactId>
 			<scope>test</scope>
 		</dependency>
@@ -116,26 +116,26 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.tura.platform.repository</groupId>
+			<groupId>org.tura.platform-java.repository</groupId>
 			<artifactId>cdi</artifactId>
 		</dependency>
 
 
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
+			<groupId>org.tura.platform-java.test.generated-code</groupId>
 			<artifactId>test-datacontrol-complex-object-model</artifactId>
 			<version>1.0</version>
 		</dependency>
 
 
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
+			<groupId>org.tura.platform-java.test.generated-code</groupId>
 			<artifactId>hr-complex-model-jpa</artifactId>
 			<version>1.0</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
+			<groupId>org.tura.platform-java.test.generated-code</groupId>
 			<artifactId>hr-complex-model-repository</artifactId>
 			<version>1.0</version>
 		</dependency>

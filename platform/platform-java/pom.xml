@@ -9,8 +9,7 @@
 		<version>2.0</version>
 	</parent>
 
-	<groupId>org.tura</groupId>
-	<artifactId>platform</artifactId>
+	<artifactId>platform-java</artifactId>
 	<packaging>pom</packaging>
 
 	<name>Tura :: Platform :: Java</name>

@@ -4,12 +4,12 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.tura.platform</groupId>
+		<groupId>org.tura.platform-java</groupId>
 		<artifactId>test</artifactId>
 		<version>2.0</version>
 	</parent>
 	
-	<groupId>org.tura.platform.test</groupId>
+	<groupId>org.tura.platform-java.test</groupId>
 	<artifactId>test-of-generated-pagers-o2m-1</artifactId>
 
 	<name>Tura :: Platform :: Java :: Test :: Generated code :: Pagers :: O2M TEST 1</name>
@@ -41,7 +41,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.datacontrol</groupId>
+			<groupId>org.tura.platform-java.datacontrol</groupId>
 			<artifactId>core</artifactId>
 		</dependency>
 
@@ -52,36 +52,36 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
+			<groupId>org.tura.platform-java.test.generated-code</groupId>
 			<artifactId>hr-model-interface</artifactId>
 			<version>1.0</version>
 		</dependency>		
 
 		<dependency>
-			<groupId>org.tura.platform.test</groupId>
+			<groupId>org.tura.platform-java.test</groupId>
 			<artifactId>commons-test</artifactId>
 		</dependency>		
 		
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
+			<groupId>org.tura.platform-java.test.generated-code</groupId>
 			<artifactId>test-objects-pagers</artifactId>
 			<version>1.0</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
+			<groupId>org.tura.platform-java.test.generated-code</groupId>
 			<artifactId>test-objects-repository-proxy</artifactId>
 			<version>1.0</version>
 		</dependency>		
 
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
+			<groupId>org.tura.platform-java.test.generated-code</groupId>
 			<artifactId>test-objects-repository</artifactId>
 			<version>1.0</version>
 		</dependency>		
 
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
+			<groupId>org.tura.platform-java.test.generated-code</groupId>
 			<artifactId>test-objects-jpa</artifactId>
 			<version>1.0</version>
 		</dependency>
