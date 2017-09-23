@@ -111,20 +111,20 @@
 
 
 		<dependency>
-			<groupId>org.tura.platform-java.test.generated-code</groupId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>test-datacontrol-simple-object-model</artifactId>
 			<version>1.0</version>
 		</dependency>
 
 
 		<dependency>
-			<groupId>org.tura.platform-java.test.generated-code</groupId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>hr-simple-model-jpa</artifactId>
 			<version>1.0</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform-java.test.generated-code</groupId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>hr-simple-model-repository</artifactId>
 			<version>1.0</version>
 		</dependency>

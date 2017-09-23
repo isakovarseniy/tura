@@ -53,7 +53,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform-java.test.generated-code</groupId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>hr-model-interface</artifactId>
 			<version>1.0</version>
 		</dependency>		
@@ -64,25 +64,25 @@
 		</dependency>		
 		
 		<dependency>
-			<groupId>org.tura.platform-java.test.generated-code</groupId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>test-objects-pagers</artifactId>
 			<version>1.0</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>org.tura.platform-java.test.generated-code</groupId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>test-objects-repository-proxy</artifactId>
 			<version>1.0</version>
 		</dependency>		
 
 		<dependency>
-			<groupId>org.tura.platform-java.test.generated-code</groupId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>test-objects-repository</artifactId>
 			<version>1.0</version>
 		</dependency>		
 
 		<dependency>
-			<groupId>org.tura.platform-java.test.generated-code</groupId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>test-objects-jpa</artifactId>
 			<version>1.0</version>
 		</dependency>
