@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module" : "es2015",
+    "target": "ES6",
+    "moduleResolution": "classic",
+    "sourceMap": true,
+    "declaration": true
+  },
+  "include": [
+    "src/**/*.ts"
+
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+
+
+
+}

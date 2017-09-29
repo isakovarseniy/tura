@@ -1,8 +1,9 @@
 package com.octo.java.sql.query;
 
-import static org.apache.commons.collections.CollectionUtils.exists;
-import static org.apache.commons.lang.ArrayUtils.isEmpty;
-import static org.apache.commons.lang.StringUtils.isEmpty;
+import util.CollectionUtils;
+import util.Predicate;
+import util.ArrayUtils;
+import util.StringUtils;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -10,8 +11,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Predicate;
 
 import com.octo.java.sql.exp.BetweenExp;
 import com.octo.java.sql.exp.Column;
@@ -40,10 +39,10 @@ public class BasicQueryOptimizer extends DefaultVisitor {
   @Override
   public void visit(final InExp inExp) throws QueryException {
     super.visit(inExp);
-    if (isEmpty(inExp.getValues()))
+    if (ArrayUtils.isEmpty(inExp.getValues()))
       inExp.invalidate();
     else {
-      final boolean atLeastOneInValueIsNull = exists(Arrays.asList(inExp
+      final boolean atLeastOneInValueIsNull = CollectionUtils.exists(Arrays.asList(inExp
           .getValues()), new Predicate() {
         public boolean evaluate(final Object object) {
           return object == null;
@@ -64,7 +63,7 @@ public class BasicQueryOptimizer extends DefaultVisitor {
   @Override
   public void visit(final ExpSeq expSeq) throws QueryException {
     super.visit(expSeq);
-    final boolean atLeastOneExpIsValid = exists(expSeq.getClauses(),
+    final boolean atLeastOneExpIsValid = CollectionUtils.exists(expSeq.getClauses(),
         new Predicate() {
           public boolean evaluate(final Object exp) {
             return ((Exp) exp).isValid();
@@ -78,7 +77,7 @@ public class BasicQueryOptimizer extends DefaultVisitor {
   public void visit(final Column column) {
     super.visit(column);
     final String tableName = column.getTableName();
-    if (!isEmpty(tableName)) {
+    if (!StringUtils.isEmpty(tableName)) {
       if (currentJoinedTable == null)
         usedTables.add(tableName);
       else if (!currentJoinedTable.equals(tableName))

@@ -36,7 +36,6 @@ import com.octo.java.sql.exp.Operator;
 import com.octo.java.sql.exp.JavaSQLFunc.Evaluable;
 import com.octo.java.sql.query.Query;
 import com.octo.java.sql.query.QueryException;
-import com.octo.java.sql.query.QueryGrammarException;
 import com.octo.java.sql.query.SelectQuery;
 import com.octo.java.sql.query.visitor.OracleQueryBuilder;
 
@@ -115,7 +114,7 @@ public class SelectQueryTest {
     assertEquals("columnValue2", query.getParams().get("p2"));
   }
 
-  @Test(expected = QueryGrammarException.class)
+  @Test(expected = QueryException.class)
   public void testShouldBuildSQLQueryWithOneWhereInClauseAndANullValue()
       throws QueryException {
     final SelectQuery query = select("*").from("table") //
@@ -365,7 +364,7 @@ public class SelectQueryTest {
     assertEquals("str%", query.getParams().get("p1"));
   }
 
-  @Test(expected = QueryGrammarException.class)
+  @Test(expected = QueryException.class)
   public void testShouldBuildSQLQueryStartWithNullExp() throws QueryException {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).startWith(null);
@@ -373,7 +372,7 @@ public class SelectQueryTest {
     query.toSql();
   }
 
-  @Test(expected = QueryGrammarException.class)
+  @Test(expected = QueryException.class)
   public void testShouldBuildSQLQueryStartWithEmptyString()
       throws QueryException {
     final SelectQuery query = select("*").from("table") //
@@ -393,7 +392,7 @@ public class SelectQueryTest {
     assertEquals("%str%", query.getParams().get("p1"));
   }
 
-  @Test(expected = QueryGrammarException.class)
+  @Test(expected = QueryException.class)
   public void testShouldBuildSQLQueryWithContainsWithNull()
       throws QueryException {
     final SelectQuery query = select("*").from("table") //
@@ -402,7 +401,7 @@ public class SelectQueryTest {
     query.toSql();
   }
 
-  @Test(expected = QueryGrammarException.class)
+  @Test(expected = QueryException.class)
   public void testShouldBuildSQLQueryWithContainsWithEmptyString()
       throws QueryException {
     final SelectQuery query = select("*").from("table") //
@@ -440,7 +439,7 @@ public class SelectQueryTest {
     assertEquals("value", params.get("p3"));
   }
 
-  @Test(expected = QueryGrammarException.class)
+  @Test(expected = QueryException.class)
   public void testShouldBuildSQLQueryWithoutBetweenSignWhenValuesAreNull()
       throws QueryException {
     final SelectQuery query = select("*").from("table") //

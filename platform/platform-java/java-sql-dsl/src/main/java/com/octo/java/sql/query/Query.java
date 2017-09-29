@@ -21,7 +21,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 
 import com.octo.java.sql.exp.Column;
 import com.octo.java.sql.exp.Exp;
@@ -35,10 +34,6 @@ import com.octo.java.sql.query.visitor.QueryVisitor;
 import com.octo.java.sql.query.visitor.Visitable;
 
 public abstract class Query<T extends Query<T>> implements Visitable {
-  /**
-   * Logger for this class
-   */
-  private static final Logger logger = Logger.getLogger(Query.class);
 
   /**
    * Set it to false when using HSQLDB
@@ -48,18 +43,17 @@ public abstract class Query<T extends Query<T>> implements Visitable {
 
   protected Exp whereClause;
 
-  private static Class<? extends DefaultQueryBuilder> querybuilderClass = DefaultQueryBuilder.class;
+  private static String  querybuilderClassName = "com.octo.java.sql.query.visitor.DefaultQueryBuilder";
 
   private static Set<QueryVisitor> visitors = new HashSet<QueryVisitor>();
   private DefaultQueryBuilder builder;
 
-  public static void setDefaultQueryBuilder(
-      final Class<? extends DefaultQueryBuilder> queryBuilderClass) {
-    querybuilderClass = queryBuilderClass;
+  public static void setDefaultQueryBuilder( String className) {
+	  querybuilderClassName = className;
   }
 
   public static void resetDefaultQueryBuilder() {
-    querybuilderClass = DefaultQueryBuilder.class;
+	  querybuilderClassName ="com.octo.java.sql.query.visitor.DefaultQueryBuilder";
   }
 
   public Exp getWhereClause() {
@@ -155,22 +149,18 @@ public abstract class Query<T extends Query<T>> implements Visitable {
     builder = queryBuilder;
     accept(builder);
     final String sqlQuery = builder.getResult().toString();
-    if (logger.isDebugEnabled())
-      logger.debug("buildSQLQuery() - String sqlQuery=" + sqlQuery);
+
     return sqlQuery;
   }
 
   public DefaultQueryBuilder getQueryBuilder() throws QueryException {
-    try {
-      return querybuilderClass.newInstance();
-    } catch (final InstantiationException e) {
-      throw new QueryException("Cannot instanciate query builder "
-          + querybuilderClass);
-    } catch (final IllegalAccessException e) {
-      throw new QueryException("Cannot instanciate query builder "
-          + querybuilderClass);
-    }
-  }
+	    try {
+	      return  (DefaultQueryBuilder) Class.forName(querybuilderClassName).newInstance();
+	    } catch (final Exception e) {
+	      throw new QueryException("Cannot instanciate query builder "
+	          + querybuilderClassName);
+	    } 
+	  }
 
   private void runVisitors() throws QueryException {
     for (final QueryVisitor visitor : visitors) {
@@ -193,19 +183,19 @@ public abstract class Query<T extends Query<T>> implements Visitable {
   @SuppressWarnings("unchecked")
   public T whereReset(){
 	  whereClause = null;
-	   return (T) this;
+	   return (T) (Object)this;
   }
   
   @SuppressWarnings("unchecked")
   public T where(final Column column) {
     whereClause = new OpExp(column);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T where(final Exp newWhereClause) {
     whereClause = newWhereClause;
-    return (T) this;
+    return (T)(Object) this;
   }
 
   @SuppressWarnings("unchecked")
@@ -213,111 +203,111 @@ public abstract class Query<T extends Query<T>> implements Visitable {
       final Object value) {
     if (value != null)
       whereClause = new OpExp(column, operator, value);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T where(final SQLFunc func) {
     whereClause = new OpExp(func);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T eq(final Object value) throws QueryGrammarException {
     assertWhereClauseIsInitialized("eq");
     whereClause = whereClause.eq(value);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T eqOrIsNull(final Object value) throws QueryGrammarException {
     assertWhereClauseIsInitialized("eq");
     whereClause = whereClause.eq(new Nullable(value));
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T neq(final Object value) throws QueryGrammarException {
     assertWhereClauseIsInitialized("neq");
     whereClause = whereClause.neq(value);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T neqNullable(final Object value) throws QueryGrammarException {
     assertWhereClauseIsInitialized("neq");
     whereClause = whereClause.neq(new Nullable(value));
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T geq(final Long value) throws QueryGrammarException {
     assertWhereClauseIsInitialized("geq");
     whereClause = whereClause.geq(value);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T leq(final Long value) throws QueryGrammarException {
     assertWhereClauseIsInitialized("leq");
     whereClause = whereClause.leq(value);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T like(final String value) throws QueryGrammarException {
     assertWhereClauseIsInitialized("like");
     whereClause = whereClause.like(value);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T in(final Object... values) throws QueryGrammarException {
     assertWhereClauseIsInitialized("in");
     whereClause = whereClause.in(values);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T notIn(final Object... values) throws QueryGrammarException {
     assertWhereClauseIsInitialized("not in");
     whereClause = whereClause.notIn(values);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T and(final Column column) throws QueryGrammarException {
     assertWhereClauseIsInitialized("and");
     whereClause = whereClause.and(column);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T and(final SQLFunc func) throws QueryGrammarException {
     assertWhereClauseIsInitialized("and");
     whereClause = whereClause.and(func);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T and(final Exp exp) throws QueryGrammarException {
     assertWhereClauseIsInitialized("and");
     whereClause = whereClause.and(exp);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T isNull() throws QueryGrammarException {
     assertWhereClauseIsInitialized("isNull");
     whereClause = whereClause.isNull();
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T isNotNull() throws QueryGrammarException {
     assertWhereClauseIsInitialized("isNotNull");
     whereClause = whereClause.isNotNull();
-    return (T) this;
+    return (T) (Object)this;
   }
 
   /**
@@ -333,7 +323,7 @@ public abstract class Query<T extends Query<T>> implements Visitable {
       final Object valueEnd) throws QueryGrammarException {
     assertWhereClauseIsInitialized(op == null ? null : op.getValue());
     whereClause = whereClause.betweenOrOp(op, valueStart, valueEnd);
-    return (T) this;
+    return (T)(Object) this;
   }
 
   @SuppressWarnings("unchecked")
@@ -341,7 +331,7 @@ public abstract class Query<T extends Query<T>> implements Visitable {
       throws QueryGrammarException {
     assertWhereClauseIsInitialized("between");
     whereClause = whereClause.between(valueStart, valueEnd);
-    return (T) this;
+    return (T)(Object) this;
   }
 
   @SuppressWarnings("unchecked")
@@ -349,21 +339,21 @@ public abstract class Query<T extends Query<T>> implements Visitable {
       throws QueryGrammarException {
     assertWhereClauseIsInitialized(op == null ? null : op.getValue());
     whereClause = whereClause.applyOperation(op, value);
-    return (T) this;
+    return (T)(Object) this;
   }
 
   @SuppressWarnings("unchecked")
   public T startWith(final String value) throws QueryGrammarException {
     assertWhereClauseIsInitialized("startWith");
     whereClause = whereClause.startWith(value);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   @SuppressWarnings("unchecked")
   public T contains(final String value) throws QueryGrammarException {
     assertWhereClauseIsInitialized("contains");
     whereClause = whereClause.contains(value);
-    return (T) this;
+    return (T) (Object)this;
   }
 
   public static void addFuncEvaluator(final String funcName,

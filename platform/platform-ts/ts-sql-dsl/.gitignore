@@ -1,0 +1,6 @@
+/target/
+/.idea/
+/.node-init/
+/.settings/
+/candies/
+*.classpath

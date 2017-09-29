@@ -1,0 +1,179 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.tura</groupId>
+		<artifactId>platform-ts</artifactId>
+		<version>2.0</version>
+	</parent>
+
+	<groupId>org.tura.platform-ts</groupId>
+	<artifactId>ts-sql-dsl</artifactId>
+
+
+	<properties>
+		<src.dir>../../platform-java/java-sql-dsl/src/main/java/</src.dir>
+		<buildDirectory>${project.basedir}/target</buildDirectory>
+
+	</properties>
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.octo.java.sql</groupId>
+			<artifactId>java-sql-dsl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jsweet</groupId>
+			<artifactId>jsweet-transpiler</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jsweet</groupId>
+			<artifactId>jsweet-core</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jsweet</groupId>
+				<artifactId>jsweet-maven-plugin</artifactId>
+				<version>${version.jsweet.transpiler}</version>
+				<executions>
+					<execution>
+						<id>generate-js</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>jsweet</goal>
+						</goals>
+						<configuration>
+							<verbose>true</verbose>
+							<!-- -outDir>${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}</outDir> 
+								<dtsOut>${project.basedir}/src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}</dtsOut -->
+							<outDir>${project.basedir}/target</outDir>
+							<tsOut>${project.basedir}/target</tsOut>
+							<tsOnly>true</tsOnly>
+							<workingDir>${project.basedir}</workingDir>
+							<targetVersion>ES6</targetVersion>
+							<module>es2015</module>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<concat
+									destfile="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/ts-sql-dsl.ts"
+									force="yes">
+									<filelist dir="${project.basedir}/target">
+										<file name="com/octo/java/sql/query/visitor/Visitable.ts" />
+										<file name="com/octo/java/sql/exp/Exp.ts" />
+										<file name="com/octo/java/sql/exp/ExpSeq.ts" />
+										<file name="com/octo/java/sql/exp/SQLFunc.ts" />
+										<file name="com/octo/java/sql/exp/AndExp.ts" />
+										<file name="com/octo/java/sql/exp/BetweenExp.ts" />
+										<file name="com/octo/java/sql/exp/Column.ts" />
+										<file name="com/octo/java/sql/exp/Constant.ts" />
+										<file name="com/octo/java/sql/exp/InExp.ts" />
+										<file name="com/octo/java/sql/exp/JavaSQLFunc.ts" />
+										<file name="com/octo/java/sql/exp/JoinClause.ts" />
+										<file name="com/octo/java/sql/exp/Nullable.ts" />
+										<file name="com/octo/java/sql/exp/Operator.ts" />
+										<file name="com/octo/java/sql/exp/OpExp.ts" />
+										<file name="com/octo/java/sql/exp/OrExp.ts" />
+										<file name="com/octo/java/sql/exp/SetClause.ts" />
+										<file name="com/octo/java/sql/query/visitor/BaseVisitor.ts" />
+										<file name="com/octo/java/sql/query/visitor/DefaultVisitor.ts" />
+										<file name="com/octo/java/sql/query/BasicQueryOptimizer.ts" />
+										<file name="com/octo/java/sql/query/Query.ts" />
+										<file name="com/octo/java/sql/query/DeleteQuery.ts" />
+										<file name="com/octo/java/sql/query/InsertQuery.ts" />
+										<file name="com/octo/java/sql/query/QueryException.ts" />
+										<file name="com/octo/java/sql/query/QueryGrammarException.ts" />
+										<file name="com/octo/java/sql/query/SelectQuery.ts" />
+										<file name="com/octo/java/sql/query/UpdateQuery.ts" />
+										<file name="com/octo/java/sql/query/visitor/DefaultQueryBuilder.ts" />
+										<file name="com/octo/java/sql/query/visitor/OracleQueryBuilder.ts" />
+										<file name="com/octo/java/sql/query/visitor/QueryVisitor.ts" />
+										<file name="util/ArrayUtils.ts" />
+										<file name="util/CollectionUtils.ts" />
+										<file name="util/ObjectUtils.ts" />
+										<file name="util/Predicate.ts" />
+										<file name="util/StringUtils.ts" />
+									</filelist>
+								</concat>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>${user.home}/.jsweet-node_modules/bin/tsc</executable>
+					<workingDirectory>${project.basedir}</workingDirectory>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}</directory>
+									<includes>
+										<include>*.d.ts</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${project.basedir}/src/main/resources/META-INF/resources/</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+		</plugins>
+		<sourceDirectory>${src.dir}</sourceDirectory>
+	</build>
+
+</project>

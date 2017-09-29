@@ -16,7 +16,7 @@
 
 package com.octo.java.sql.exp;
 
-import static org.apache.commons.lang.StringUtils.isEmpty;
+import util.StringUtils;
 
 import java.util.Collection;
 
@@ -90,12 +90,12 @@ public abstract class Exp implements Visitable {
   }
 
   public Exp startWith(String value) throws QueryGrammarException {
-    value = isEmpty(value) ? null : value.concat("%");
+    value = StringUtils.isEmpty(value) ? null : value.concat("%");
     return applyOperation(Operator.LIKE, value);
   }
 
   public Exp contains(String value) throws QueryGrammarException {
-    value = isEmpty(value) ? null : "%".concat(value.concat("%"));
+    value = StringUtils.isEmpty(value) ? null : "%".concat(value.concat("%"));
     return applyOperation(Operator.LIKE, value);
   }
 

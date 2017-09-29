@@ -16,15 +16,14 @@
 
 package com.octo.java.sql.query.visitor;
 
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
-import static org.apache.commons.lang.ArrayUtils.isEmpty;
-import static org.apache.commons.lang.StringUtils.isEmpty;
-import static org.apache.commons.lang.StringUtils.join;
+import util.CollectionUtils;
+import util.ArrayUtils;
+import util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.collections.map.ListOrderedMap;
+import java.util.LinkedHashMap;
 
 import com.octo.java.sql.exp.BetweenExp;
 import com.octo.java.sql.exp.Column;
@@ -194,7 +193,7 @@ public class DefaultQueryBuilder extends BaseVisitor {
   }
 
   public void visit(final InExp inExp) throws QueryException {
-    if (isEmpty(inExp.getValues()))
+    if (ArrayUtils.isEmpty(inExp.getValues()))
       throw new QueryGrammarException("IN values cannot be empty or null");
 
     result.append(OPEN_BRACKET);
@@ -245,7 +244,7 @@ public class DefaultQueryBuilder extends BaseVisitor {
         acceptOrVisitValue(param, functionName);
       }
       result.append(CLOSE_BRACKET);
-      if (!isEmpty(sqlFunc.getAlias()))
+      if (!StringUtils.isEmpty(sqlFunc.getAlias()))
         result.append(" ").append(AS).append(" ").append(sqlFunc.getAlias());
     }
   }
@@ -271,13 +270,13 @@ public class DefaultQueryBuilder extends BaseVisitor {
     }
 
     result.append(" ").append(FROM).append(" ");
-    result.append(join(query.getTables(), ','));
+    result.append(StringUtils.join(query.getTables(), ','));
 
     for (final JoinClause clause : query.getJoinClauses())
       if (clause.isValid())
         clause.accept(this);
 
-    if (!isEmpty(query.getAlias())) {
+    if (!StringUtils.isEmpty(query.getAlias())) {
       result.append(" ");
       result.append(query.getAlias());
     }
@@ -303,7 +302,7 @@ public class DefaultQueryBuilder extends BaseVisitor {
     if (query.getLimit() != null)
       buildLimitClause(query);
 
-    if (!isEmpty(query.getUnions())) {
+    if (!CollectionUtils.isEmpty(query.getUnions())) {
       result.append(" ").append(UNION).append(" ");
       for (final SelectQuery union : query.getUnions()) {
         addBracketToNextSelectQuery = false;
@@ -339,12 +338,12 @@ public class DefaultQueryBuilder extends BaseVisitor {
     result.append(INSERT).append(" ");
     result.append(insertQuery.getTable()).append(" ");
     result.append(OPEN_BRACKET);
-    final ListOrderedMap columnValues = insertQuery.getColumnsValues();
-    result.append(join(columnValues.keyList(), ", "));
+    final LinkedHashMap<String,Object> columnValues = insertQuery.getColumnsValues();
+    result.append(StringUtils.join(columnValues.keySet(), ", "));
     result.append(CLOSE_BRACKET).append(" ");
     result.append(VALUES).append(" ").append(OPEN_BRACKET);
     boolean firstClause = true;
-    for (final Object column : columnValues.keyList()) {
+    for (final Object column : columnValues.keySet()) {
       if (firstClause) {
         firstClause = false;
       } else {
@@ -358,7 +357,7 @@ public class DefaultQueryBuilder extends BaseVisitor {
   public void visit(final DeleteQuery deleteQuery) throws QueryException {
     addBracketToNextSelectQuery = true;
     result.append(DELETE_FROM).append(" ");
-    result.append(join(deleteQuery.getTables(), ','));
+    result.append(StringUtils.join(deleteQuery.getTables(), ','));
 
     final Exp whereClause = deleteQuery.getWhereClause();
     if ((whereClause != null) && (whereClause.isValid()))
