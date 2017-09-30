@@ -14,8 +14,6 @@
 
 	<properties>
 		<src.dir>../../platform-java/java-sql-dsl/src/main/java/</src.dir>
-		<buildDirectory>${project.basedir}/target</buildDirectory>
-
 	</properties>
 
 
@@ -53,8 +51,6 @@
 						</goals>
 						<configuration>
 							<verbose>true</verbose>
-							<!-- -outDir>${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}</outDir> 
-								<dtsOut>${project.basedir}/src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}</dtsOut -->
 							<outDir>${project.basedir}/target</outDir>
 							<tsOut>${project.basedir}/target</tsOut>
 							<tsOnly>true</tsOnly>

@@ -5,20 +5,20 @@
 
 	<parent>
 	    <groupId>org.tura</groupId>
-	    <artifactId>parent</artifactId>
+	    <artifactId>platform-ts</artifactId>
 	    <version>2.0</version>
 	</parent>
 
-	<artifactId>platform-ts</artifactId>
+	<groupId>org.tura.platform-ts</groupId>
+	<artifactId>test</artifactId>
 	<packaging>pom</packaging>
 
-	<name>Tura :: Platform :: TypeScript</name>
+	<name>Tura :: Platform :: TypeScript :: Test </name>
 
 
 
 	<modules>
-		<module>ts-sql-dsl</module>
-		<module>test</module>
+		<module>ts-sql-dsl-test</module>
 	</modules>
 
 </project>

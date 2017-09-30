@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "sql-dsl/*": ["candies/typings/META-INF/resources/webjars/ts-sql-dsl/2.0/*"]
+    },
+    "module" : "ES6",
+    "target": "ES6",
+    "sourceMap": true
+  },
+  "include": [
+    "target/**/*.ts",
+    "typings/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+
+}

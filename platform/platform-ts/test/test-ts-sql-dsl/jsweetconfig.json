@@ -1,0 +1,8 @@
+{
+  "@Replace(' ')": {
+    "include": [ "com.octo.java.sql.SelectQueryTest.testShouldBuildSQLQueryWithMockFunctionInColumnNames()" ]
+   },
+
+"adapters": [ "org.tura.jsweet.JUnitAdapter" ]
+
+}
