@@ -78,7 +78,7 @@
 			<url>http://repository.jsweet.org/artifactory/plugins-snapshot-local</url>
 		</pluginRepository>
 	</pluginRepositories>
-	
+
 
 
 	<modules>
@@ -205,6 +205,13 @@
 				<artifactId>java-sql-dsl</artifactId>
 				<version>${version.java-sql-dsl}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform-ts</groupId>
+				<artifactId>ts-sql-dsl</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
+
 
 
 			<dependency>
