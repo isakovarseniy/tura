@@ -18,6 +18,8 @@ package com.octo.java.sql;
 
 import static com.octo.java.sql.query.Query.insertInto;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 
 import java.util.Map;
 
@@ -36,9 +38,9 @@ public class InsertQueryTest {
         "INSERT INTO table (column1, column2) VALUES (:p1, :p2)",
         query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(2, params.size());
-    assertEquals(42, params.get("p1"));
-    assertEquals("value2", params.get("p2"));
+    assertEquals(2, (int)params.size());
+    assertEquals(42, (int)params.get("p1"));
+    assertEquals("value2", (String)params.get("p2"));
   }
 
   @Test
@@ -51,9 +53,9 @@ public class InsertQueryTest {
         "INSERT INTO table (column2, column1) VALUES (:p1, :p2)",
         query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(2, params.size());
-    assertEquals(42, params.get("p2"));
-    assertEquals("value2", params.get("p1"));
+    assertEquals(2, (int)params.size());
+    assertEquals(42, (int)params.get("p2"));
+    assertEquals("value2", (String)params.get("p1"));
   }
 
   @Test
@@ -66,8 +68,8 @@ public class InsertQueryTest {
         "INSERT INTO table (column1, column2) VALUES (:p1, :p2)",
         query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(2, params.size());
-    assertEquals("", params.get("p1"));
-    assertEquals(null, params.get("p2"));
+    assertEquals(2, (int)params.size());
+    assertEquals("", (String)params.get("p1"));
+    assertNull( params.get("p2"));
   }
 }

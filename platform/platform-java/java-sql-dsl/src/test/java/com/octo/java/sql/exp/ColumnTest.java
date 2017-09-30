@@ -17,6 +17,7 @@
 package com.octo.java.sql.exp;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
@@ -24,16 +25,16 @@ public class ColumnTest {
 
   @Test
   public void testShouldGetTableNameFromColumnWithTableName() {
-    assertEquals("table", new Column("table.col").getTableName());
+    assertEquals("table", (String)new Column("table.col").getTableName());
   }
 
   @Test
   public void testShouldGetNullFromColumnWithoutTableName() {
-    assertEquals(null, new Column("col").getTableName());
+	  assertNull( new Column("col").getTableName());
   }
 
   @Test
   public void testShouldGetNullFromColumnWithEmptyTableName() {
-    assertEquals(null, new Column(".col").getTableName());
+	  assertNull( new Column(".col").getTableName());
   }
 }

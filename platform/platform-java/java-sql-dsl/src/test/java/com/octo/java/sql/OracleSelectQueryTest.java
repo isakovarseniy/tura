@@ -45,8 +45,8 @@ public class OracleSelectQueryTest {
 
     assertEquals("SELECT * FROM (SELECT * FROM table) WHERE (rownum<=:p1)",
         query.toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals(10L, query.getParams().get("p1"));
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals(10L, (long)query.getParams().get("p1"));
   }
 
   @Test
@@ -58,9 +58,9 @@ public class OracleSelectQueryTest {
     assertEquals(
         "SELECT * FROM (SELECT * FROM table WHERE (column = :p1)) WHERE (rownum<=:p2)",
         query.toSql());
-    assertEquals(2, query.getParams().size());
-    assertEquals("columnValue", query.getParams().get("p1"));
-    assertEquals(10L, query.getParams().get("p2"));
+    assertEquals(2, (int)query.getParams().size());
+    assertEquals("columnValue", (String)query.getParams().get("p1"));
+    assertEquals(10L, (long)query.getParams().get("p2"));
   }
 
 }

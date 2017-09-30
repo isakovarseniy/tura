@@ -44,8 +44,8 @@ public class SelectQueryTest {
   public void testShouldBuildSQLQueryWithoutWhereClause() throws QueryException {
     final SelectQuery query = select("*").from("table");
 
-    assertEquals("SELECT * FROM table", query.toSql());
-    assertEquals(0, query.getParams().size());
+    assertEquals("SELECT * FROM table", (String)query.toSql());
+    assertEquals(0, (int)query.getParams().size());
   }
 
   @Test
@@ -53,9 +53,9 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).eq("columnValue");
 
-    assertEquals("SELECT * FROM table WHERE (column = :p1)", query.toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals("columnValue", query.getParams().get("p1"));
+    assertEquals("SELECT * FROM table WHERE (column = :p1)", (String)query.toSql());
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals("columnValue", (String)query.getParams().get("p1"));
   }
 
   @Test
@@ -64,8 +64,8 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).isNull();
 
-    assertEquals("SELECT * FROM table WHERE (column IS NULL)", query.toSql());
-    assertEquals(0, query.getParams().size());
+    assertEquals("SELECT * FROM table WHERE (column IS NULL)", (String)query.toSql());
+    assertEquals(0, (int)query.getParams().size());
   }
 
   @Test
@@ -74,18 +74,18 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).op(Operator.EQ, "columnValue");
 
-    assertEquals("SELECT * FROM table WHERE (column = :p1)", query.toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals("columnValue", query.getParams().get("p1"));
+    assertEquals("SELECT * FROM table WHERE (column = :p1)", (String)query.toSql());
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals("columnValue", (String)query.getParams().get("p1"));
   }
 
   @Test
   public void testShouldBuildSQLQueryWithLimit() throws QueryException {
     final SelectQuery query = select("*").from("table").limit(10L);
 
-    assertEquals("SELECT * FROM table LIMIT :p1", query.toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals(10L, query.getParams().get("p1"));
+    assertEquals("SELECT * FROM table LIMIT :p1", (String)query.toSql());
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals(10L, (long)query.getParams().get("p1"));
   }
 
   @Test
@@ -95,10 +95,10 @@ public class SelectQueryTest {
         .where(c("column")).eq("columnValue").limit(10L);
 
     assertEquals("SELECT * FROM table WHERE (column = :p1) LIMIT :p2",
-        query.toSql());
-    assertEquals(2, query.getParams().size());
-    assertEquals("columnValue", query.getParams().get("p1"));
-    assertEquals(10L, query.getParams().get("p2"));
+    		(String)query.toSql());
+    assertEquals(2, (int)query.getParams().size());
+    assertEquals("columnValue", (String)query.getParams().get("p1"));
+    assertEquals(10L, (long)query.getParams().get("p2"));
   }
 
   @Test
@@ -108,10 +108,10 @@ public class SelectQueryTest {
         .where(c("column")).in("columnValue1", "columnValue2");
 
     assertEquals("SELECT * FROM table WHERE (column IN (:p1,:p2))",
-        query.toSql());
-    assertEquals(2, query.getParams().size());
-    assertEquals("columnValue1", query.getParams().get("p1"));
-    assertEquals("columnValue2", query.getParams().get("p2"));
+    		(String)query.toSql());
+    assertEquals(2, (int)query.getParams().size());
+    assertEquals("columnValue1", (String)query.getParams().get("p1"));
+    assertEquals("columnValue2", (String)query.getParams().get("p2"));
   }
 
   @Test(expected = QueryException.class)
@@ -130,11 +130,11 @@ public class SelectQueryTest {
         .where(c("column")).notIn("columnValue1", "columnValue2");
 
     assertEquals(
-        "SELECT * FROM table WHERE (column NOT IN (:p1,:p2))", query
+        "SELECT * FROM table WHERE (column NOT IN (:p1,:p2))", (String)query
             .toSql());
-    assertEquals(2, query.getParams().size());
-    assertEquals("columnValue1", query.getParams().get("p1"));
-    assertEquals("columnValue2", query.getParams().get("p2"));
+    assertEquals(2, (int)query.getParams().size());
+    assertEquals("columnValue1", (String)query.getParams().get("p1"));
+    assertEquals("columnValue2", (String)query.getParams().get("p2"));
   }
 
   @Test
@@ -145,9 +145,9 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT * FROM table WHERE (column IN ((SELECT columnIn FROM tableIn WHERE (columnIn = :p1))))",
-        query.toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals(2, query.getParams().get("p1"));
+        (String)query.toSql());
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals(2, (int)query.getParams().get("p1"));
   }
 
   @Test
@@ -159,11 +159,11 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT * FROM table WHERE ((column = :p1) AND (otherColumn IN (:p2,:p3)))",
-        query.toSql());
-    assertEquals(3, query.getParams().size());
-    assertEquals("columnValue1", query.getParams().get("p1"));
-    assertEquals("columnValue2", query.getParams().get("p2"));
-    assertEquals("columnValue3", query.getParams().get("p3"));
+        (String)query.toSql());
+    assertEquals(3, (int)query.getParams().size());
+    assertEquals("columnValue1", (String)query.getParams().get("p1"));
+    assertEquals("columnValue2", (String)query.getParams().get("p2"));
+    assertEquals("columnValue3", (String)query.getParams().get("p3"));
   }
 
   @Test
@@ -172,8 +172,8 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).eq(null);
 
-    assertEquals("SELECT * FROM table WHERE (column IS NULL)", query.toSql());
-    assertEquals(0, query.getParams().size());
+    assertEquals("SELECT * FROM table WHERE (column IS NULL)", (String)query.toSql());
+    assertEquals(0, (int)query.getParams().size());
   }
 
   @Test
@@ -182,8 +182,8 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).eqOrIsNull(null);
 
-    assertEquals("SELECT * FROM table WHERE (column IS NULL)", query.toSql());
-    assertEquals(0, query.getParams().size());
+    assertEquals("SELECT * FROM table WHERE (column IS NULL)", (String)query.toSql());
+    assertEquals(0, (int)query.getParams().size());
   }
 
   @Test
@@ -192,9 +192,9 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).eqOrIsNull(42);
 
-    assertEquals("SELECT * FROM table WHERE (column = :p1)", query.toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals(42, query.getParams().get("p1"));
+    assertEquals("SELECT * FROM table WHERE (column = :p1)", (String)query.toSql());
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals(42, (int)query.getParams().get("p1"));
   }
 
   @Test
@@ -203,8 +203,8 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).eq(new Nullable(null));
 
-    assertEquals("SELECT * FROM table WHERE (column IS NULL)", query.toSql());
-    assertEquals(0, query.getParams().size());
+    assertEquals("SELECT * FROM table WHERE (column IS NULL)", (String)query.toSql());
+    assertEquals(0, (int)query.getParams().size());
   }
 
   @Test
@@ -213,9 +213,9 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).eq(new Nullable(42));
 
-    assertEquals("SELECT * FROM table WHERE (column = :p1)", query.toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals(42, query.getParams().get("p1"));
+    assertEquals("SELECT * FROM table WHERE (column = :p1)", (String)query.toSql());
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals(42, (int)query.getParams().get("p1"));
   }
 
   @Test
@@ -227,10 +227,10 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT * FROM table WHERE ((column = :p1) AND (otherColumn = :p2))",
-        query.toSql());
-    assertEquals(2, query.getParams().size());
-    assertEquals("columnValue", query.getParams().get("p1"));
-    assertEquals("otherColumnValue", query.getParams().get("p2"));
+        (String)query.toSql());
+    assertEquals(2, (int)query.getParams().size());
+    assertEquals("columnValue", (String)query.getParams().get("p1"));
+    assertEquals("otherColumnValue", (String)query.getParams().get("p2"));
   }
 
   @Test
@@ -243,9 +243,9 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT * FROM table WHERE (((column IS NULL) AND (otherColumn IS NULL)) AND (lastColumn = :p1))",
-        query.toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals("lastColumnValue", query.getParams().get("p1"));
+        (String)query.toSql());
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals("lastColumnValue", (String)query.getParams().get("p1"));
   }
 
   @Test
@@ -256,8 +256,8 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT * FROM table1 INNER JOIN table2 ON (table1.column = table2.column)",
-        query.toSql());
-    assertEquals(0, query.getParams().size());
+        (String)query.toSql());
+    assertEquals(0, (int)query.getParams().size());
   }
 
   @Test
@@ -270,10 +270,10 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT * FROM table1 INNER JOIN table2 ON ((table1.column = table2.column) AND (table1.otherColumn >= :p1)) WHERE (lastColumn = :p2)",
-        query.toSql());
-    assertEquals(2, query.getParams().size());
-    assertEquals(42L, query.getParams().get("p1"));
-    assertEquals("test", query.getParams().get("p2"));
+        (String) query.toSql());
+    assertEquals(2, (int)query.getParams().size());
+    assertEquals(42L, (long)query.getParams().get("p1"));
+    assertEquals("test", (String)query.getParams().get("p2"));
   }
 
   @Test
@@ -285,8 +285,8 @@ public class SelectQueryTest {
     assertEquals(
         "SELECT * FROM table WHERE (column = :p1) ORDER BY column", query
             .toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals("columnValue", query.getParams().get("p1"));
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals("columnValue", (String)query.getParams().get("p1"));
   }
 
   @Test
@@ -299,9 +299,9 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT * FROM table WHERE (column = :p1) ORDER BY column1 ASC, column2 DESC",
-        query.toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals("columnValue", query.getParams().get("p1"));
+        (String)query.toSql());
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals("columnValue", (String)query.getParams().get("p1"));
   }
 
   @Test
@@ -311,17 +311,17 @@ public class SelectQueryTest {
         .where(c("column")).eq("columnValue") //
         .orderBy("columnValue", false);
 
-    assertEquals("SELECT * FROM table WHERE (column = :p1)", query.toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals("columnValue", query.getParams().get("p1"));
+    assertEquals("SELECT * FROM table WHERE (column = :p1)", (String)query.toSql());
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals("columnValue", (String)query.getParams().get("p1"));
   }
 
   @Test
   public void testShouldBuildSQLQueryOrderBy() throws QueryException {
     final SelectQuery query = select("*").from("table").orderBy("columnValue");
 
-    assertEquals("SELECT * FROM table ORDER BY columnValue", query.toSql());
-    assertEquals(0, query.getParams().size());
+    assertEquals("SELECT * FROM table ORDER BY columnValue", (String)query.toSql());
+    assertEquals(0, (int)query.getParams().size());
   }
 
   @Test
@@ -329,8 +329,8 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .orderBy("columnValue").asc();
 
-    assertEquals("SELECT * FROM table ORDER BY columnValue ASC", query.toSql());
-    assertEquals(0, query.getParams().size());
+    assertEquals("SELECT * FROM table ORDER BY columnValue ASC", (String)query.toSql());
+    assertEquals(0, (int)query.getParams().size());
   }
 
   @Test
@@ -338,8 +338,8 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .orderBy("columnValue").desc();
 
-    assertEquals("SELECT * FROM table ORDER BY columnValue DESC", query.toSql());
-    assertEquals(0, query.getParams().size());
+    assertEquals("SELECT * FROM table ORDER BY columnValue DESC", (String)query.toSql());
+    assertEquals(0, (int)query.getParams().size());
   }
 
   @Test
@@ -348,9 +348,9 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).isNotNull();
 
-    assertEquals("SELECT * FROM table WHERE (column IS NOT NULL)", query
+    assertEquals("SELECT * FROM table WHERE (column IS NOT NULL)", (String)query
         .toSql());
-    assertEquals(0, query.getParams().size());
+    assertEquals(0, (int)query.getParams().size());
   }
 
   @Test
@@ -360,8 +360,8 @@ public class SelectQueryTest {
 
     assertEquals("SELECT * FROM table WHERE (column LIKE :p1)", query
         .toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals("str%", query.getParams().get("p1"));
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals("str%", (String)query.getParams().get("p1"));
   }
 
   @Test(expected = QueryException.class)
@@ -386,10 +386,10 @@ public class SelectQueryTest {
     final SelectQuery query = select("*").from("table") //
         .where(c("column")).contains("str");
 
-    assertEquals("SELECT * FROM table WHERE (column LIKE :p1)", query
+    assertEquals("SELECT * FROM table WHERE (column LIKE :p1)", (String)query
         .toSql());
-    assertEquals(1, query.getParams().size());
-    assertEquals("%str%", query.getParams().get("p1"));
+    assertEquals(1, (int)query.getParams().size());
+    assertEquals("%str%", (String)query.getParams().get("p1"));
   }
 
   @Test(expected = QueryException.class)
@@ -419,8 +419,8 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT * FROM table WHERE ((column IS NULL) AND ((column = :p1) OR (column = :p2)))",
-        query.toSql());
-    assertEquals(2, query.getParams().size());
+        (String)query.toSql());
+    assertEquals(2, (int)query.getParams().size());
   }
 
   @Test
@@ -431,12 +431,12 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT * FROM table WHERE ((column BETWEEN :p1 AND :p2) AND (column = :p3))",
-        query.toSql());
+        (String)query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(3, params.size());
-    assertEquals("valueStart", params.get("p1"));
-    assertEquals("valueEnd", params.get("p2"));
-    assertEquals("value", params.get("p3"));
+    assertEquals(3, (int)params.size());
+    assertEquals("valueStart", (String)params.get("p1"));
+    assertEquals("valueEnd", (String)params.get("p2"));
+    assertEquals("value", (String)params.get("p3"));
   }
 
   @Test(expected = QueryException.class)
@@ -459,10 +459,10 @@ public class SelectQueryTest {
         "SELECT myFunc(:p1,:p2) FROM table WHERE (column = :p3)",
         query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(3, params.size());
-    assertEquals("param", params.get("p1"));
-    assertEquals(2, params.get("p2"));
-    assertEquals(42, params.get("p3"));
+    assertEquals(3, (int)params.size());
+    assertEquals("param", (String)params.get("p1"));
+    assertEquals(2, (int)params.get("p2"));
+    assertEquals(42, (int)params.get("p3"));
   }
 
   @Test
@@ -474,12 +474,12 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT myFunc(:p1,:p2) AS myAlias FROM table WHERE (column = :p3)",
-        query.toSql());
+        (String)query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(3, params.size());
-    assertEquals("param", params.get("p1"));
-    assertEquals(2, params.get("p2"));
-    assertEquals(42, params.get("p3"));
+    assertEquals(3, (int)params.size());
+    assertEquals("param", (String)params.get("p1"));
+    assertEquals(2, (int)params.get("p2"));
+    assertEquals(42, (int)params.get("p3"));
   }
 
   @Test
@@ -495,11 +495,11 @@ public class SelectQueryTest {
     final String sqlQuery = query.toSql();
     final Map<String, Object> params = query.getParams();
 
-    assertEquals(4, params.size());
-    assertEquals(2, params.get("p1"));
-    assertEquals("param2", params.get("p2"));
-    assertEquals(22, params.get("p3"));
-    assertEquals(42, params.get("p4"));
+    assertEquals(4, (int)params.size());
+    assertEquals(2, (int)params.get("p1"));
+    assertEquals("param2", (String)params.get("p2"));
+    assertEquals(22, (int)params.get("p3"));
+    assertEquals(42, (int)params.get("p4"));
 
     assertEquals(
         "SELECT col1,myFunc(colparam,:p1),col3,mySecondFunc(:p2,:p3) FROM table WHERE (column = :p4)",
@@ -517,8 +517,8 @@ public class SelectQueryTest {
     assertEquals("SELECT * FROM table WHERE (upper(column) = :p1)", query
         .toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(1, params.size());
-    assertEquals("AA", params.get("p1"));
+    assertEquals(1, (int)params.size());
+    assertEquals("AA", (String)params.get("p1"));
   }
 
   @Test
@@ -528,11 +528,11 @@ public class SelectQueryTest {
         .from("table") //
         .where(c("column")).eq(f("myFunc", "AA"));
 
-    assertEquals("SELECT * FROM table WHERE (column = myFunc(:p1))", query
+    assertEquals("SELECT * FROM table WHERE (column = myFunc(:p1))", (String)query
         .toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(1, params.size());
-    assertEquals("AA", params.get("p1"));
+    assertEquals(1, (int)params.size());
+    assertEquals("AA", (String)params.get("p1"));
   }
 
   @SuppressWarnings("unchecked")
@@ -550,12 +550,12 @@ public class SelectQueryTest {
         .from("table") //
         .where(c("column")).eq(42);
 
-    assertEquals("SELECT 1,2 FROM table WHERE (column = :p1)", query
+    assertEquals("SELECT 1,2 FROM table WHERE (column = :p1)", (String)query
         .toSql(queryBuilder));
     verify(funcMock);
     final Map<String, Object> params = query.getParams();
-    assertEquals(1, params.size());
-    assertEquals(42, params.get("p1"));
+    assertEquals(1, (int)params.size());
+    assertEquals(42, (int)params.get("p1"));
     Query.clearVisitors();
   }
 
@@ -571,9 +571,9 @@ public class SelectQueryTest {
         "SELECT * FROM table WHERE ((col = :p1) AND (upper(column) = :p2))",
         query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(2, params.size());
-    assertEquals(42, params.get("p1"));
-    assertEquals("AA", params.get("p2"));
+    assertEquals(2, (int)params.size());
+    assertEquals(42, (int)params.get("p1"));
+    assertEquals("AA", (String)params.get("p2"));
   }
 
   @Test
@@ -588,10 +588,10 @@ public class SelectQueryTest {
         "SELECT * FROM table WHERE (((col = :p1) AND (column = :p2)) AND (column = :p3))",
         query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(3, params.size());
-    assertEquals("val", params.get("p1"));
-    assertEquals("valueStart", params.get("p2"));
-    assertEquals("value", params.get("p3"));
+    assertEquals(3, (int)params.size());
+    assertEquals("val", (String)params.get("p1"));
+    assertEquals("valueStart", (String)params.get("p2"));
+    assertEquals("value", (String)params.get("p3"));
   }
 
   @Test
@@ -604,13 +604,13 @@ public class SelectQueryTest {
 
     assertEquals(
         "SELECT * FROM table WHERE (((col = :p1) AND (column BETWEEN :p2 AND :p3)) AND (column = :p4))",
-        query.toSql());
+        (String)query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(4, params.size());
-    assertEquals("val", params.get("p1"));
-    assertEquals("valueStart", params.get("p2"));
-    assertEquals("valueEnd", params.get("p3"));
-    assertEquals("value", params.get("p4"));
+    assertEquals(4, (int)params.size());
+    assertEquals("val", (String)params.get("p1"));
+    assertEquals("valueStart", (String)params.get("p2"));
+    assertEquals("valueEnd", (String)params.get("p3"));
+    assertEquals("value", (String)params.get("p4"));
   }
 
   @Test
@@ -628,8 +628,8 @@ public class SelectQueryTest {
         "SELECT * FROM table WHERE (col = :p1) UNION SELECT col1,NULL col2 FROM otherTable WHERE (col1 = :p2)",
         query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(2, params.size());
-    assertEquals("val1", params.get("p2"));
-    assertEquals("val", params.get("p1"));
+    assertEquals(2, (int)params.size());
+    assertEquals("val1", (String)params.get("p2"));
+    assertEquals("val", (String)params.get("p1"));
   }
 }

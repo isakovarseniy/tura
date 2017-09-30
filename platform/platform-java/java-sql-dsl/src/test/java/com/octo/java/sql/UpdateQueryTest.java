@@ -21,6 +21,7 @@ import static com.octo.java.sql.query.Query.f;
 import static com.octo.java.sql.query.Query.select;
 import static com.octo.java.sql.query.Query.update;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.util.Map;
 
@@ -38,8 +39,8 @@ public class UpdateQueryTest {
 
     assertEquals(
         "UPDATE myTable SET firstCol = :p1, secondCol = :p2",
-        query.toSql());
-    assertEquals(2, query.getParams().size());
+        (String)query.toSql());
+    assertEquals(2, (int)query.getParams().size());
   }
 
   @Test
@@ -47,10 +48,10 @@ public class UpdateQueryTest {
       throws QueryException {
     final UpdateQuery query = update("myTable").set(c("firstCol"), null);
 
-    assertEquals("UPDATE myTable SET firstCol = :p1", query.toSql());
+    assertEquals("UPDATE myTable SET firstCol = :p1", (String)query.toSql());
     final Map<String, Object> params = query.getParams();
-    assertEquals(1, params.size());
-    assertEquals(null, params.get("p1"));
+    assertEquals(1, (int)params.size());
+    assertNull( params.get("p1"));
   }
 
   @Test
@@ -64,8 +65,8 @@ public class UpdateQueryTest {
     assertEquals(
         "UPDATE myTable SET firstCol = :p1, secondCol = :p2 WHERE (thirdCol LIKE :p3)",
         query.toSql());
-    assertEquals(3, query.getParams().size());
-    assertEquals("%1%", query.getParams().get("p3"));
+    assertEquals(3, (int)query.getParams().size());
+    assertEquals("%1%", (String)query.getParams().get("p3"));
   }
 
   @Test
@@ -82,9 +83,9 @@ public class UpdateQueryTest {
 
     assertEquals(
         "UPDATE myTable SET firstCol = :p1, secondCol = :p2 WHERE ((thirdCol LIKE :p3) AND (col4 = (SELECT MAX(colnum) FROM otherTable WHERE (otherCol = :p4))))",
-        query.toSql());
-    assertEquals(4, query.getParams().size());
-    assertEquals("%1%", query.getParams().get("p3"));
-    assertEquals(42, query.getParams().get("p4"));
+        (String)query.toSql());
+    assertEquals(4, (int)query.getParams().size());
+    assertEquals("%1%", (String)query.getParams().get("p3"));
+    assertEquals(42, (int)query.getParams().get("p4"));
   }
 }
