@@ -1,0 +1,11 @@
+{
+  "presets": ["es2015"],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "sql-dsl": "./candies/js/ts-sql-dsl-2.0"
+      }
+    }]
+  ]
+}

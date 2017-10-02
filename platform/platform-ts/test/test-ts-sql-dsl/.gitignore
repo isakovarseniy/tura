@@ -7,3 +7,4 @@
 *.classpath
 /typings.json
 /extension.json
+/.idea/
