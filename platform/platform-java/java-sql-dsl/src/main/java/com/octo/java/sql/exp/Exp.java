@@ -103,26 +103,26 @@ public abstract class Exp implements Visitable {
     return applyInOperation(values);
   }
 
-  public Exp in(final Collection<Object> values) throws QueryGrammarException {
-    if (values == null) {
-      return this;
-    } else {
-      return applyInOperation(values.toArray(new Object[values.size()]));
-    }
-  }
+//  public Exp in(final Collection<Object> values) throws QueryGrammarException {
+//    if (values == null) {
+//      return this;
+//    } else {
+//      return applyInOperation(values.toArray(new Object[values.size()]));
+//    }
+//  }
 
   public Exp notIn(final Object... values) throws QueryGrammarException {
     return applyNotInOperation(values);
   }
 
-  public Exp notIn(final Collection<Object> values)
-      throws QueryGrammarException {
-    if (values == null) {
-      return this;
-    } else {
-      return applyNotInOperation(values.toArray(new Object[values.size()]));
-    }
-  }
+//  public Exp notIn(final Collection<Object> values)
+//      throws QueryGrammarException {
+//    if (values == null) {
+//      return this;
+//    } else {
+//      return applyNotInOperation(values.toArray(new Object[values.size()]));
+//    }
+//  }
 
   public Exp isNull() throws QueryGrammarException {
     return applyOperation(Operator.IS, Constant.NULL);

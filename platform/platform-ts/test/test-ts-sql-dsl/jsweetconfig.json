@@ -2,7 +2,10 @@
   "@Replace(' ')": {
     "include": [ "com.octo.java.sql.SelectQueryTest.testShouldBuildSQLQueryWithMockFunctionInColumnNames()" ]
    },
-
+ 
+  "@Replace('return \"OracleQueryBuilder\"; ')" : {
+  "include": [ "com.octo.java.sql.OracleSelectQueryTest.getDefaultBuilder()" ]
+},
 "adapters": [ "org.tura.jsweet.JUnitAdapter" ]
 
 }

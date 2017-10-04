@@ -43,7 +43,7 @@ public abstract class Query<T extends Query<T>> implements Visitable {
 
   protected Exp whereClause;
 
-  private static String  querybuilderClassName = "com.octo.java.sql.query.visitor.DefaultQueryBuilder";
+  private static String  querybuilderClassName =getDefaultBuilder();
 
   private static Set<QueryVisitor> visitors = new HashSet<QueryVisitor>();
   private DefaultQueryBuilder builder;
@@ -52,8 +52,13 @@ public abstract class Query<T extends Query<T>> implements Visitable {
 	  querybuilderClassName = className;
   }
 
+  
+  private static String getDefaultBuilder(){
+	  return "com.octo.java.sql.query.visitor.DefaultQueryBuilder";
+  }
+  
   public static void resetDefaultQueryBuilder() {
-	  querybuilderClassName ="com.octo.java.sql.query.visitor.DefaultQueryBuilder";
+	  querybuilderClassName =getDefaultBuilder();
   }
 
   public Exp getWhereClause() {

@@ -22,12 +22,8 @@ export declare abstract class Exp implements Visitable {
     between(valueStart: any, valueEnd: any): Exp;
     startWith(value: string): Exp;
     contains(value: string): Exp;
-    in$java_lang_Object_A(...values: any[]): Exp;
-    in(...values: any[]): any;
-    in$java_util_Collection(values: Array<any>): Exp;
-    notIn$java_lang_Object_A(...values: any[]): Exp;
-    notIn(...values: any[]): any;
-    notIn$java_util_Collection(values: Array<any>): Exp;
+    in(...values: any[]): Exp;
+    notIn(...values: any[]): Exp;
     isNull(): Exp;
     isNotNull(): Exp;
     /**
@@ -160,20 +156,15 @@ export declare class Column implements Visitable {
     accept(visitor: QueryVisitor): void;
     getTableName(): string;
 }
-export declare enum Constant {
-    NULL = 0,
-    STAR = 1,
-}
-/** @ignore */
-export declare class Constant_$WRAPPER implements Visitable {
-    protected _$ordinal: number;
-    protected _$name: string;
-    value: any;
-    constructor(_$ordinal: number, _$name: string, value: any);
+export declare class Constant implements Visitable {
+    static NULL: Constant;
+    static NULL_$LI$(): Constant;
+    static STAR: Constant;
+    static STAR_$LI$(): Constant;
+    value: string;
+    constructor(value: string);
     getValue(): string;
-    accept(visitor: any): void;
-    name(): string;
-    ordinal(): number;
+    accept(visitor: QueryVisitor): void;
 }
 export declare class InExp extends Exp {
     column: Column;
@@ -466,10 +457,12 @@ export declare abstract class Query<T extends Query<T>> implements Visitable {
     static funcEvaluatorMap_$LI$(): any;
     whereClause: Exp;
     static querybuilderClassName: string;
+    static querybuilderClassName_$LI$(): string;
     static visitors: Array<QueryVisitor>;
     static visitors_$LI$(): Array<QueryVisitor>;
     builder: DefaultQueryBuilder;
     static setDefaultQueryBuilder(className: string): void;
+    static getDefaultBuilder(): string;
     static resetDefaultQueryBuilder(): void;
     getWhereClause(): Exp;
     /**

@@ -31,9 +31,14 @@ import com.octo.java.sql.query.visitor.OracleQueryBuilder;
 public class OracleSelectQueryTest {
   @Before
   public void setUp() {
-    SelectQuery.setDefaultQueryBuilder(OracleQueryBuilder.class.getName());
+    SelectQuery.setDefaultQueryBuilder(getDefaultBuilder());
   }
 
+  private  String getDefaultBuilder(){
+	  return OracleQueryBuilder.class.getName();
+  }
+  
+  
   @After
   public void tearDown() {
     SelectQuery.resetDefaultQueryBuilder();

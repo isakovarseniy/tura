@@ -101,52 +101,20 @@ export abstract class Exp implements Visitable {
         return this.applyOperation(Operator.LIKE, value);
     }
 
-    public in$java_lang_Object_A(...values : any[]) : Exp {
+    public in(...values : any[]) : Exp {
         return this.applyInOperation.apply(this, values);
     }
 
-    public in(...values : any[]) : any {
-        if(((values != null && values instanceof <any>Array && (values.length==0 || values[0] == null ||(values[0] != null))) || values === null)) {
-            return <any>this.in$java_lang_Object_A(values);
-        } else if(((values != null && (values instanceof Array)) || values === null)) {
-            return <any>this.in$java_util_Collection(values);
-        } else throw new Error('invalid overload');
-    }
-
-    public in$java_util_Collection(values : Array<any>) : Exp {
-        if(values == null) {
-            return this;
-        } else {
-            return this.applyInOperation.apply(this, /* toArray */values.slice(0));
-        }
-    }
-
-    public notIn$java_lang_Object_A(...values : any[]) : Exp {
+    public notIn(...values : any[]) : Exp {
         return this.applyNotInOperation.apply(this, values);
     }
 
-    public notIn(...values : any[]) : any {
-        if(((values != null && values instanceof <any>Array && (values.length==0 || values[0] == null ||(values[0] != null))) || values === null)) {
-            return <any>this.notIn$java_lang_Object_A(values);
-        } else if(((values != null && (values instanceof Array)) || values === null)) {
-            return <any>this.notIn$java_util_Collection(values);
-        } else throw new Error('invalid overload');
-    }
-
-    public notIn$java_util_Collection(values : Array<any>) : Exp {
-        if(values == null) {
-            return this;
-        } else {
-            return this.applyNotInOperation.apply(this, /* toArray */values.slice(0));
-        }
-    }
-
     public isNull() : Exp {
-        return this.applyOperation(Operator.IS, Constant.NULL);
+        return this.applyOperation(Operator.IS, Constant.NULL_$LI$());
     }
 
     public isNotNull() : Exp {
-        return this.applyOperation(Operator.IS_NOT, Constant.NULL);
+        return this.applyOperation(Operator.IS_NOT, Constant.NULL_$LI$());
     }
 
     /**
@@ -479,15 +447,14 @@ Column["__interfaces"] = ["com.octo.java.sql.query.visitor.Visitable"];
 
 
 /* Generated from Java with JSweet 2.0.1-SNAPSHOT - http://www.jsweet.org */
-export enum Constant {
-    NULL, STAR
-}
+export class Constant implements Visitable {
+    public static NULL : Constant; public static NULL_$LI$() : Constant { if(Constant.NULL == null) Constant.NULL = new Constant("NULL"); return Constant.NULL; };
 
-/** @ignore */
-export class Constant_$WRAPPER implements Visitable {
-    /*private*/ value;
+    public static STAR : Constant; public static STAR_$LI$() : Constant { if(Constant.STAR == null) Constant.STAR = new Constant("*"); return Constant.STAR; };
 
-    constructor(protected _$ordinal : number, protected _$name : string, value) {
+    /*private*/ value : string;
+
+    constructor(value : string) {
         this.value = null;
         this.value = value;
     }
@@ -496,19 +463,20 @@ export class Constant_$WRAPPER implements Visitable {
         return this.value;
     }
 
-    public accept(visitor) {
+    public accept(visitor : QueryVisitor) {
         visitor['visit$com_octo_java_sql_exp_Constant'](this);
     }
-    public name() : string { return this._$name; }
-    public ordinal() : number { return this._$ordinal; }
 }
 Constant["__class"] = "com.octo.java.sql.exp.Constant";
-Constant["__interfaces"] = ["com.octo.java.sql.query.visitor.Visitable","java.lang.Comparable","java.io.Serializable"];
-
-Constant["_$wrappers"] = [new Constant_$WRAPPER(0, "NULL", "NULL"), new Constant_$WRAPPER(1, "STAR", "*")];
+Constant["__interfaces"] = ["com.octo.java.sql.query.visitor.Visitable"];
 
 
 
+
+
+Constant.STAR_$LI$();
+
+Constant.NULL_$LI$();
 /* Generated from Java with JSweet 2.0.1-SNAPSHOT - http://www.jsweet.org */
 export class InExp extends Exp {
     /*private*/ column : Column;
@@ -1036,7 +1004,7 @@ export class DefaultVisitor extends BaseVisitor {
             return <any>this.visit$com_octo_java_sql_exp_JoinClause(javaSQLFunc);
         } else if(((javaSQLFunc != null && javaSQLFunc instanceof <any>SetClause) || javaSQLFunc === null)) {
             return <any>this.visit$com_octo_java_sql_exp_SetClause(javaSQLFunc);
-        } else if(((typeof javaSQLFunc === 'number') || javaSQLFunc === null)) {
+        } else if(((javaSQLFunc != null && javaSQLFunc instanceof <any>Constant) || javaSQLFunc === null)) {
             return <any>this.visit$com_octo_java_sql_exp_Constant(javaSQLFunc);
         } else if(((javaSQLFunc != null && javaSQLFunc instanceof <any>SelectQuery) || javaSQLFunc === null)) {
             return <any>this.visit$com_octo_java_sql_query_SelectQuery(javaSQLFunc);
@@ -1201,7 +1169,7 @@ export class BasicQueryOptimizer extends DefaultVisitor {
             return <any>this.visit$com_octo_java_sql_exp_JoinClause(betweenExp);
         } else if(((betweenExp != null && betweenExp instanceof <any>SelectQuery) || betweenExp === null)) {
             return <any>this.visit$com_octo_java_sql_query_SelectQuery(betweenExp);
-        } else if(((typeof betweenExp === 'number') || betweenExp === null)) {
+        } else if(((betweenExp != null && betweenExp instanceof <any>Constant) || betweenExp === null)) {
             return <any>this.visit$com_octo_java_sql_exp_Constant(betweenExp);
         } else if(((betweenExp != null && betweenExp instanceof <any>JavaSQLFunc) || betweenExp === null)) {
             super.visit(betweenExp);
@@ -1267,7 +1235,7 @@ export class BasicQueryOptimizer extends DefaultVisitor {
 
     public visit$com_octo_java_sql_exp_Constant(constant : Constant) {
         super.visit$com_octo_java_sql_exp_Constant(constant);
-        if(/* Enum.equals */(<any>(Constant.STAR) === <any>(constant))) /* add */((s, e) => { if(s.indexOf(e)==-1) { s.push(e); return true; } else { return false; } })(this.usedTables, null);
+        if(/* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(Constant.STAR_$LI$(),constant))) /* add */((s, e) => { if(s.indexOf(e)==-1) { s.push(e); return true; } else { return false; } })(this.usedTables, null);
     }
 
     /**
@@ -1308,7 +1276,7 @@ export class BasicQueryOptimizer extends DefaultVisitor {
      * @return {boolean}
      */
     isJoinNecessary(table : string) : boolean {
-        return /* contains */(this.usedTables.indexOf(<any>(null)) >= 0) || /* contains */(this.usedTables.indexOf(<any>(Constant["_$wrappers"][Constant.STAR].getValue())) >= 0) || /* contains */(this.usedTables.indexOf(<any>(table)) >= 0) || (/* containsKey */this.tableReverseDependency.hasOwnProperty(table) && CollectionUtils.exists(/* get */((m,k) => m[k]?m[k]:null)(this.tableReverseDependency, table), new BasicQueryOptimizer.BasicQueryOptimizer$2(this)));
+        return /* contains */(this.usedTables.indexOf(<any>(null)) >= 0) || /* contains */(this.usedTables.indexOf(<any>(Constant.STAR_$LI$().getValue())) >= 0) || /* contains */(this.usedTables.indexOf(<any>(table)) >= 0) || (/* containsKey */this.tableReverseDependency.hasOwnProperty(table) && CollectionUtils.exists(/* get */((m,k) => m[k]?m[k]:null)(this.tableReverseDependency, table), new BasicQueryOptimizer.BasicQueryOptimizer$2(this)));
     }
 
     constructor() {
@@ -1380,7 +1348,7 @@ export abstract class Query<T extends Query<T>> implements Visitable {
 
     whereClause : Exp;
 
-    static querybuilderClassName : string = "com.octo.java.sql.query.visitor.DefaultQueryBuilder";
+    static querybuilderClassName : string; public static querybuilderClassName_$LI$() : string { if(Query.querybuilderClassName == null) Query.querybuilderClassName = Query.getDefaultBuilder(); return Query.querybuilderClassName; };
 
     static visitors : Array<QueryVisitor>; public static visitors_$LI$() : Array<QueryVisitor> { if(Query.visitors == null) Query.visitors = <any>([]); return Query.visitors; };
 
@@ -1390,8 +1358,12 @@ export abstract class Query<T extends Query<T>> implements Visitable {
         Query.querybuilderClassName = className;
     }
 
+    /*private*/ static getDefaultBuilder() : string {
+        return "DefaultQueryBuilder"; 
+    }
+
     public static resetDefaultQueryBuilder() {
-        Query.querybuilderClassName = "com.octo.java.sql.query.visitor.DefaultQueryBuilder";
+        Query.querybuilderClassName = Query.getDefaultBuilder();
     }
 
     public getWhereClause() : Exp {
@@ -1734,6 +1706,8 @@ var __Function = Function;
 
 Query.visitors_$LI$();
 
+Query.querybuilderClassName_$LI$();
+
 Query.funcEvaluatorMap_$LI$();
 /* Generated from Java with JSweet 2.0.1-SNAPSHOT - http://www.jsweet.org */
 export class DeleteQuery extends Query<DeleteQuery> {
@@ -1869,7 +1843,7 @@ export class SelectQuery extends Query<SelectQuery> {
         this.columns = null;
         this.tables = null;
         this.alias = null;
-        if((columns != null) && (columns.length === 1) && /* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(Constant["_$wrappers"][Constant.STAR].getValue(),columns[0]))) this.columns = [Constant.STAR]; else this.columns = columns;
+        if((columns != null) && (columns.length === 1) && /* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(Constant.STAR_$LI$().getValue(),columns[0]))) this.columns = [Constant.STAR_$LI$()]; else this.columns = columns;
     }
 
     public from(...newTables : string[]) : SelectQuery {
@@ -1957,7 +1931,7 @@ export class SelectQuery extends Query<SelectQuery> {
     }
 
     public setColumns(...columns : any[]) : SelectQuery {
-        if((columns != null) && (columns.length === 1) && /* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(Constant["_$wrappers"][Constant.STAR].getValue(),columns[0]))) this.columns = [Constant.STAR]; else this.columns = columns;
+        if((columns != null) && (columns.length === 1) && /* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(Constant.STAR_$LI$().getValue(),columns[0]))) this.columns = [Constant.STAR_$LI$()]; else this.columns = columns;
         return this;
     }
 
@@ -2176,7 +2150,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
             return <any>this.visit$com_octo_java_sql_exp_SetClause(column);
         } else if(((column != null && column instanceof <any>SQLFunc) || column === null)) {
             return <any>this.visit$com_octo_java_sql_exp_SQLFunc(column);
-        } else if(((typeof column === 'number') || column === null)) {
+        } else if(((column != null && column instanceof <any>Constant) || column === null)) {
             return <any>this.visit$com_octo_java_sql_exp_Constant(column);
         } else if(((column != null && column instanceof <any>SelectQuery) || column === null)) {
             return <any>this.visit$com_octo_java_sql_query_SelectQuery(column);
@@ -2199,7 +2173,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
         if((exp.getRhsValue() == null) || ((exp.getRhsValue() != null && exp.getRhsValue() instanceof <any>Nullable) && (<Nullable>exp.getRhsValue()).isNull())) {
             if(!/* Enum.equals */(<any>(Operator.EQ) === <any>(exp.getOperator()))) throw new QueryGrammarException("Cannot use NULL value with operator " + Operator["_$wrappers"][exp.getOperator()].getValue());
             /* append */(sb => { sb.str = sb.str.concat(<any>Operator["_$wrappers"][Operator.IS].getValue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result));
-            /* append */(sb => { sb.str = sb.str.concat(<any>Constant.NULL); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result));
+            /* append */(sb => { sb.str = sb.str.concat(<any>Constant.NULL_$LI$().getValue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result));
         } else {
             /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>Operator["_$wrappers"][exp.getOperator()].getValue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
             this.acceptOrVisitValue$java_lang_Object$java_lang_String(exp.getRhsValue(), baseVariableName);
@@ -2298,7 +2272,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
     }
 
     public visit$com_octo_java_sql_exp_Constant(constant : Constant) {
-        /* append */(sb => { sb.str = sb.str.concat(<any>Constant["_$wrappers"][constant].getValue()); return sb; })(this.result);
+        /* append */(sb => { sb.str = sb.str.concat(<any>constant.getValue()); return sb; })(this.result);
     }
 
     public visit$com_octo_java_sql_query_SelectQuery(query : SelectQuery) {

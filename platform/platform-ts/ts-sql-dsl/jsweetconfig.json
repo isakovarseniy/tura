@@ -6,6 +6,10 @@
   "include": [ "com.octo.java.sql.exp.Column.getTableName()" ]
 },
 
+  "@Replace('return \"DefaultQueryBuilder\"; ')" : {
+  "include": [ "com.octo.java.sql.query.Query.getDefaultBuilder()" ]
+},
+
 "adapters": [ "org.tura.jsweet.TsAdapter" ]
 
 }

@@ -152,7 +152,7 @@ public class DefaultQueryBuilder extends BaseVisitor {
         throw new QueryGrammarException("Cannot use NULL value with operator "
             + exp.getOperator().getValue());
       result.append(" ").append(Operator.IS.getValue());
-      result.append(" ").append(Constant.NULL);
+      result.append(" ").append(Constant.NULL.getValue());
     } else {
       result.append(" ").append(exp.getOperator().getValue()).append(" ");
       acceptOrVisitValue(exp.getRhsValue(), baseVariableName);

@@ -61,7 +61,7 @@ public class InsertQueryTest {
   @Test
   public void testShouldBuildInsertSQLQueryWithDefaultValue()
       throws QueryException {
-    final InsertQuery query = insertInto("table").set("column1", null, "").set(
+    final InsertQuery query = insertInto("table").set("column1", null, "3").set(
         "column2", null);
 
     assertEquals(
@@ -69,7 +69,7 @@ public class InsertQueryTest {
         query.toSql());
     final Map<String, Object> params = query.getParams();
     assertEquals(2, (int)params.size());
-    assertEquals("", (String)params.get("p1"));
+    assertEquals("3", (String)params.get("p1"));
     assertNull( params.get("p2"));
   }
 }
