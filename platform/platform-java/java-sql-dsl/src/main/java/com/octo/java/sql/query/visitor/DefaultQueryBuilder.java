@@ -171,7 +171,7 @@ public class DefaultQueryBuilder extends BaseVisitor {
     visit(column);
     result.append(" ").append(BETWEEN).append(" ");
     acceptOrVisitValue(betweenExp.getValueStart(), column.getName());
-    result.append(" ").append(Operator.AND).append(" ");
+    result.append(" ").append(Operator.AND.getValue()).append(" ");
     acceptOrVisitValue(betweenExp.getValueEnd(), column.getName());
     result.append(CLOSE_BRACKET);
   }
@@ -296,7 +296,7 @@ public class DefaultQueryBuilder extends BaseVisitor {
       result.append(orderByColumn);
       final Order columnOrder = orderBy.get(orderByColumn);
       if (columnOrder != null)
-        result.append(" ").append(columnOrder.toString());
+        result.append(" ").append(columnOrder.getVlue());
     }
 
     if (query.getLimit() != null)

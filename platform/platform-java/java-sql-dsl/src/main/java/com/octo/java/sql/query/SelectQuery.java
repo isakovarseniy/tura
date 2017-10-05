@@ -26,8 +26,19 @@ import com.octo.java.sql.exp.JoinClause;
 import com.octo.java.sql.query.visitor.QueryVisitor;
 
 public class SelectQuery extends Query<SelectQuery> {
+
 	public enum Order {
-		DESC, ASC;
+		DESC("DESC"), ASC("ASC");
+		
+		private String value;
+		
+		Order(String value){
+			this.value=value;
+		}
+		
+		public String getVlue(){
+			return value;
+		}
 	}
 
 	/**

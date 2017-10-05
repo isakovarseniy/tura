@@ -638,6 +638,16 @@ export declare namespace SelectQuery {
         DESC = 0,
         ASC = 1,
     }
+    /** @ignore */
+    class Order_$WRAPPER {
+        protected _$ordinal: number;
+        protected _$name: string;
+        value: any;
+        constructor(_$ordinal: number, _$name: string, value: any);
+        getVlue(): string;
+        name(): string;
+        ordinal(): number;
+    }
 }
 export declare class UpdateQuery extends Query<UpdateQuery> {
     setClauses: Array<SetClause>;
