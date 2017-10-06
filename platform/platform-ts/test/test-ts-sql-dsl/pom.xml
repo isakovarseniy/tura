@@ -4,24 +4,24 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-	    <groupId>org.tura.platform-ts</groupId>
-	    <artifactId>test</artifactId>
-	    <version>2.0</version>
+		<groupId>org.tura.platform-ts</groupId>
+		<artifactId>test</artifactId>
+		<version>2.0</version>
 	</parent>
 
 	<groupId>org.tura.platform-ts.test</groupId>
 	<artifactId>test-ts-sql-dsl</artifactId>
 	<name>Tura :: Platform :: TypeScript :: Test :: Typescript SQL DSL</name>
-	
+
 	<properties>
 		<src.dir>../../../platform-java/java-sql-dsl/src/test/java/</src.dir>
 	</properties>
-	
+
 
 	<dependencies>
 
 		<dependency>
-		   	<groupId>org.tura.platform-ts</groupId>
+			<groupId>org.tura.platform-ts</groupId>
 			<artifactId>ts-sql-dsl</artifactId>
 		</dependency>
 
@@ -40,10 +40,10 @@
 			<groupId>org.jsweet</groupId>
 			<artifactId>jsweet-core</artifactId>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 
 		<dependency>
@@ -51,7 +51,7 @@
 			<artifactId>easymock</artifactId>
 			<version>2.5.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.easymock</groupId>
 			<artifactId>easymockclassextension</artifactId>
@@ -93,20 +93,52 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<executions>
 					<execution>
+					   <id>compile</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>${user.home}/.jsweet-node_modules/bin/tsc</executable>
+							<workingDirectory>${project.basedir}</workingDirectory>
+						</configuration>
+					</execution>
+					<execution>
+					   <id>npm install</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>exec</goal>
 						</goals>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+							<workingDirectory>${project.basedir}</workingDirectory>
+						</configuration>
 					</execution>
+					<execution>
+					   <id>run</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>test</argument>
+							</arguments>
+							<workingDirectory>${project.basedir}</workingDirectory>
+						</configuration>
+					</execution>
+					
 				</executions>
-				<configuration>
-					<executable>${user.home}/.jsweet-node_modules/bin/tsc</executable>
-					<workingDirectory>${project.basedir}</workingDirectory>
-				</configuration>
-			</plugin>			
+			</plugin>
+
+
 		</plugins>
 		<sourceDirectory>${src.dir}</sourceDirectory>
 	</build>
 
-			
+
 </project>

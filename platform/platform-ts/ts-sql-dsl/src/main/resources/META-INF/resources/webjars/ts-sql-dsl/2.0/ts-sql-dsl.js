@@ -936,7 +936,7 @@ export class DefaultVisitor extends BaseVisitor {
             let array157 = Object.keys(columnValues);
             for (let index156 = 0; index156 < array157.length; index156++) {
                 let column = array157[index156];
-                this.acceptOrVisitValue$java_lang_Object(/* get */ ((m, k) => m[k])(columnValues, column));
+                this.acceptOrVisitValue$java_lang_Object(/* get */ ((m, k) => m[k] === undefined ? null : m[k])(columnValues, column));
             }
         }
     }
@@ -1077,7 +1077,7 @@ export class BasicQueryOptimizer extends DefaultVisitor {
             for (let index121 = 0; index121 < array122.length; index121++) {
                 let table = array122[index121];
                 if (!this.isJoinNecessary(table))
-                    ((m, k) => m[k])(this.tableJoin, table).invalidate();
+                    ((m, k) => m[k] === undefined ? null : m[k])(this.tableJoin, table).invalidate();
             }
         }
     }
@@ -1111,7 +1111,7 @@ export class BasicQueryOptimizer extends DefaultVisitor {
             /* put */ (this.tableReverseDependency[table2] = reverseDependencies);
         }
         else
-            reverseDependencies = ((m, k) => m[k])(this.tableReverseDependency, table2);
+            reverseDependencies = ((m, k) => m[k] === undefined ? null : m[k])(this.tableReverseDependency, table2);
         /* add */ ((s, e) => { if (s.indexOf(e) == -1) {
             s.push(e);
             return true;
@@ -1142,7 +1142,7 @@ export class BasicQueryOptimizer extends DefaultVisitor {
      * @return {boolean}
      */
     isJoinNecessary(table) {
-        return (this.usedTables.indexOf((null)) >= 0) || (this.usedTables.indexOf((Constant.STAR_$LI$().getValue())) >= 0) || (this.usedTables.indexOf((table)) >= 0) || (this.tableReverseDependency.hasOwnProperty(table) && CollectionUtils.exists(/* get */ ((m, k) => m[k])(this.tableReverseDependency, table), new BasicQueryOptimizer.BasicQueryOptimizer$2(this)));
+        return (this.usedTables.indexOf((null)) >= 0) || (this.usedTables.indexOf((Constant.STAR_$LI$().getValue())) >= 0) || (this.usedTables.indexOf((table)) >= 0) || (this.tableReverseDependency.hasOwnProperty(table) && CollectionUtils.exists(/* get */ ((m, k) => m[k] === undefined ? null : m[k])(this.tableReverseDependency, table), new BasicQueryOptimizer.BasicQueryOptimizer$2(this)));
     }
 }
 BasicQueryOptimizer["__class"] = "com.octo.java.sql.query.BasicQueryOptimizer";
@@ -1256,7 +1256,7 @@ export class Query {
      */
     static f(funcName, ...params) {
         if (Query.funcEvaluatorMap_$LI$().hasOwnProperty(funcName)) {
-            let evaluator = ((m, k) => m[k])(Query.funcEvaluatorMap_$LI$(), funcName);
+            let evaluator = ((m, k) => m[k] === undefined ? null : m[k])(Query.funcEvaluatorMap_$LI$(), funcName);
             return new JavaSQLFunc(funcName, params, evaluator);
         }
         else {
@@ -2005,7 +2005,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
     visit$com_octo_java_sql_exp_SQLFunc(sqlFunc) {
         let functionName = sqlFunc.getName();
         if (this.functions.hasOwnProperty(functionName)) {
-            let functionPlaceHolder = ((m, k) => m[k])(this.functions, functionName);
+            let functionPlaceHolder = ((m, k) => m[k] === undefined ? null : m[k])(this.functions, functionName);
             /* append */ (sb => { sb.str = sb.str.concat((o => o.eval.apply(o, sqlFunc.getParams()))(functionPlaceHolder)); return sb; })(this.result);
         }
         else {
@@ -2084,7 +2084,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
                     else
                         (sb => { sb.str = sb.str.concat(", "); return sb; })(this.result);
                     /* append */ (sb => { sb.str = sb.str.concat(orderByColumn); return sb; })(this.result);
-                    let columnOrder = ((m, k) => m[k])(orderBy, orderByColumn);
+                    let columnOrder = ((m, k) => m[k] === undefined ? null : m[k])(orderBy, orderByColumn);
                     if (columnOrder != null)
                         (sb => { sb.str = sb.str.concat(SelectQuery.Order["_$wrappers"][columnOrder].getVlue()); return sb; })(/* append */ (sb => { sb.str = sb.str.concat(" "); return sb; })(this.result));
                 }
@@ -2154,7 +2154,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
                     else {
                         /* append */ (sb => { sb.str = sb.str.concat(", "); return sb; })(this.result);
                     }
-                    this.acceptOrVisitValue$java_lang_Object$java_lang_String(/* get */ ((m, k) => m[k])(columnValues, column), column);
+                    this.acceptOrVisitValue$java_lang_Object$java_lang_String(/* get */ ((m, k) => m[k] === undefined ? null : m[k])(columnValues, column), column);
                 }
             }
         }

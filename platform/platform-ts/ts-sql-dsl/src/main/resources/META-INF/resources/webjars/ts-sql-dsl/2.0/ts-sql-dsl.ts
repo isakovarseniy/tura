@@ -1110,7 +1110,7 @@ export class DefaultVisitor extends BaseVisitor {
             let array157 = /* keySet */Object.keys(columnValues);
             for(let index156=0; index156 < array157.length; index156++) {
                 let column = array157[index156];
-                this.acceptOrVisitValue$java_lang_Object(/* get */((m,k) => m[k])(columnValues, column))
+                this.acceptOrVisitValue$java_lang_Object(/* get */((m,k) => m[k]===undefined?null:m[k])(columnValues, column))
             }
         }
     }
@@ -1228,7 +1228,7 @@ export class BasicQueryOptimizer extends DefaultVisitor {
             let array122 = /* keySet */Object.keys(this.tableJoin);
             for(let index121=0; index121 < array122.length; index121++) {
                 let table = array122[index121];
-                if(!this.isJoinNecessary(table)) /* get */((m,k) => m[k])(this.tableJoin, table).invalidate();
+                if(!this.isJoinNecessary(table)) /* get */((m,k) => m[k]===undefined?null:m[k])(this.tableJoin, table).invalidate();
             }
         }
     }
@@ -1250,7 +1250,7 @@ export class BasicQueryOptimizer extends DefaultVisitor {
         if(!/* containsKey */this.tableReverseDependency.hasOwnProperty(table2)) {
             reverseDependencies = <any>([]);
             /* put */(this.tableReverseDependency[table2] = reverseDependencies);
-        } else reverseDependencies = /* get */((m,k) => m[k])(this.tableReverseDependency, table2);
+        } else reverseDependencies = /* get */((m,k) => m[k]===undefined?null:m[k])(this.tableReverseDependency, table2);
         /* add */((s, e) => { if(s.indexOf(e)==-1) { s.push(e); return true; } else { return false; } })(reverseDependencies, table1);
     }
 
@@ -1276,7 +1276,7 @@ export class BasicQueryOptimizer extends DefaultVisitor {
      * @return {boolean}
      */
     isJoinNecessary(table : string) : boolean {
-        return /* contains */(this.usedTables.indexOf(<any>(null)) >= 0) || /* contains */(this.usedTables.indexOf(<any>(Constant.STAR_$LI$().getValue())) >= 0) || /* contains */(this.usedTables.indexOf(<any>(table)) >= 0) || (/* containsKey */this.tableReverseDependency.hasOwnProperty(table) && CollectionUtils.exists(/* get */((m,k) => m[k])(this.tableReverseDependency, table), new BasicQueryOptimizer.BasicQueryOptimizer$2(this)));
+        return /* contains */(this.usedTables.indexOf(<any>(null)) >= 0) || /* contains */(this.usedTables.indexOf(<any>(Constant.STAR_$LI$().getValue())) >= 0) || /* contains */(this.usedTables.indexOf(<any>(table)) >= 0) || (/* containsKey */this.tableReverseDependency.hasOwnProperty(table) && CollectionUtils.exists(/* get */((m,k) => m[k]===undefined?null:m[k])(this.tableReverseDependency, table), new BasicQueryOptimizer.BasicQueryOptimizer$2(this)));
     }
 
     constructor() {
@@ -1423,7 +1423,7 @@ export abstract class Query<T extends Query<T>> implements Visitable {
      */
     public static f(funcName : string, ...params : any[]) : SQLFunc {
         if(/* containsKey */Query.funcEvaluatorMap_$LI$().hasOwnProperty(funcName)) {
-            let evaluator : JavaSQLFunc.Evaluable<string> = /* get */((m,k) => m[k])(Query.funcEvaluatorMap_$LI$(), funcName);
+            let evaluator : JavaSQLFunc.Evaluable<string> = /* get */((m,k) => m[k]===undefined?null:m[k])(Query.funcEvaluatorMap_$LI$(), funcName);
             return new JavaSQLFunc(funcName, params, evaluator);
         } else {
             return <any>new (__Function.prototype.bind.apply(SQLFunc, [null, funcName].concat(<any[]>params)));
@@ -2272,7 +2272,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
     public visit$com_octo_java_sql_exp_SQLFunc(sqlFunc : SQLFunc) {
         let functionName : string = sqlFunc.getName();
         if(/* containsKey */this.functions.hasOwnProperty(functionName)) {
-            let functionPlaceHolder : JavaSQLFunc.Evaluable<any> = /* get */((m,k) => m[k])(this.functions, functionName);
+            let functionPlaceHolder : JavaSQLFunc.Evaluable<any> = /* get */((m,k) => m[k]===undefined?null:m[k])(this.functions, functionName);
             /* append */(sb => { sb.str = sb.str.concat(<any>(o => o.eval.apply(o, sqlFunc.getParams()))(functionPlaceHolder)); return sb; })(this.result);
         } else {
             /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.OPEN_BRACKET); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>functionName); return sb; })(this.result));
@@ -2338,7 +2338,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
                         firstOrderBy = false;
                     } else /* append */(sb => { sb.str = sb.str.concat(<any>", "); return sb; })(this.result);
                     /* append */(sb => { sb.str = sb.str.concat(<any>orderByColumn); return sb; })(this.result);
-                    let columnOrder : SelectQuery.Order = /* get */((m,k) => m[k])(orderBy, orderByColumn);
+                    let columnOrder : SelectQuery.Order = /* get */((m,k) => m[k]===undefined?null:m[k])(orderBy, orderByColumn);
                     if(columnOrder != null) /* append */(sb => { sb.str = sb.str.concat(<any>SelectQuery.Order["_$wrappers"][columnOrder].getVlue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result));
                 }
             }
@@ -2404,7 +2404,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
                     } else {
                         /* append */(sb => { sb.str = sb.str.concat(<any>", "); return sb; })(this.result);
                     }
-                    this.acceptOrVisitValue$java_lang_Object$java_lang_String(/* get */((m,k) => m[k])(columnValues, column), <string>column);
+                    this.acceptOrVisitValue$java_lang_Object$java_lang_String(/* get */((m,k) => m[k]===undefined?null:m[k])(columnValues, column), <string>column);
                 }
             }
         }
