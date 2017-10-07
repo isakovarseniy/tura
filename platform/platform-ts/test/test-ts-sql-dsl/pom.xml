@@ -118,6 +118,20 @@
 						</configuration>
 					</execution>
 					<execution>
+					   <id>typings install</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>typings</executable>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+							<workingDirectory>${project.basedir}</workingDirectory>
+						</configuration>
+					</execution>					
+					<execution>
 					   <id>run</id>
 						<phase>process-test-resources</phase>
 						<goals>
