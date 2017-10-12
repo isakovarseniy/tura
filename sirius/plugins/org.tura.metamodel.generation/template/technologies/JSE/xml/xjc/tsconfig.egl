@@ -1,0 +1,32 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+%]
+
+
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module" : "es2015",
+    "target": "ES6",
+    "moduleResolution": "classic",
+    "sourceMap": true,
+    "declaration": true
+  },
+  "include": [
+    "src/**/*.ts"
+
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+
+
+[%
+     util.saveFile( path,"tsconfig.json",out.toString());   
+%]

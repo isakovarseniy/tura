@@ -17,6 +17,22 @@ operation  maven_build_runner(hash) {
 
     model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
     util.saveFile( path, "builder."+os_batch_extension(),out.toString());   
+    
+    hash.put("path",path);
+    
+     var candy : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/xjc/jsweetAdapter.egl",hash,TemplateFactory);
+     candy.process();
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/xjc/jsweetconfig.egl",hash,TemplateFactory);
+     candy.process();
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/xjc/tsconfig.egl",hash,TemplateFactory);
+     candy.process();
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/xjc/candymetadata.egl",hash,TemplateFactory);
+     candy.process();
+    
+    
 }
 
  @template
