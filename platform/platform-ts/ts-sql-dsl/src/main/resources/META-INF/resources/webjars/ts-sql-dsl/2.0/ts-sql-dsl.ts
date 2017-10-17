@@ -156,12 +156,12 @@ Exp["__interfaces"] = ["com.octo.java.sql.query.visitor.Visitable"];
 
 /* Generated from Java with JSweet 2.0.1-SNAPSHOT - http://www.jsweet.org */
 export abstract class ExpSeq extends Exp {
-    clauses : Array<Exp>;
+    clauses : java.util.List<Exp>;
 
     constructor(...clauses : Exp[]) {
         super();
-        this.clauses = null;
-        this.clauses = /* asList */clauses.slice(0);
+        if(this.clauses===undefined) this.clauses = null;
+        this.clauses = java.util.Arrays.asList(...clauses);
     }
 
     /**
@@ -171,9 +171,9 @@ export abstract class ExpSeq extends Exp {
      * @return {Exp}
      */
     public applyOperation(operator : Operator, value : any) : Exp {
-        let lastIndex : number = /* size */(<number>this.clauses.length) - 1;
-        let lastClause : Exp = /* get */this.clauses[lastIndex];
-        /* set */(this.clauses[lastIndex] = lastClause.applyOperation(operator, value));
+        let lastIndex : number = this.clauses.size() - 1;
+        let lastClause : Exp = this.clauses.get(lastIndex);
+        this.clauses.set(lastIndex, lastClause.applyOperation(operator, value));
         return this;
     }
 
@@ -184,9 +184,9 @@ export abstract class ExpSeq extends Exp {
      * @return {Exp}
      */
     public applyBetweenOperation(valueStart : any, valueEnd : any) : Exp {
-        let lastIndex : number = /* size */(<number>this.clauses.length) - 1;
-        let lastClause : Exp = /* get */this.clauses[lastIndex];
-        /* set */(this.clauses[lastIndex] = lastClause.applyBetweenOperation(valueStart, valueEnd));
+        let lastIndex : number = this.clauses.size() - 1;
+        let lastClause : Exp = this.clauses.get(lastIndex);
+        this.clauses.set(lastIndex, lastClause.applyBetweenOperation(valueStart, valueEnd));
         return this;
     }
 
@@ -196,9 +196,9 @@ export abstract class ExpSeq extends Exp {
      * @return {Exp}
      */
     public applyInOperation(...values : any[]) : Exp {
-        let lastIndex : number = /* size */(<number>this.clauses.length) - 1;
-        let lastClause : Exp = /* get */this.clauses[lastIndex];
-        /* set */(this.clauses[lastIndex] = (o => o.applyInOperation.apply(o, values))(lastClause));
+        let lastIndex : number = this.clauses.size() - 1;
+        let lastClause : Exp = this.clauses.get(lastIndex);
+        this.clauses.set(lastIndex, (o => o.applyInOperation.apply(o, values))(lastClause));
         return this;
     }
 
@@ -208,9 +208,9 @@ export abstract class ExpSeq extends Exp {
      * @return {Exp}
      */
     public applyNotInOperation(...values : any[]) : Exp {
-        let lastIndex : number = /* size */(<number>this.clauses.length) - 1;
-        let lastClause : Exp = /* get */this.clauses[lastIndex];
-        /* set */(this.clauses[lastIndex] = (o => o.applyNotInOperation.apply(o, values))(lastClause));
+        let lastIndex : number = this.clauses.size() - 1;
+        let lastClause : Exp = this.clauses.get(lastIndex);
+        this.clauses.set(lastIndex, (o => o.applyNotInOperation.apply(o, values))(lastClause));
         return this;
     }
 
@@ -220,7 +220,7 @@ export abstract class ExpSeq extends Exp {
 
     public abstract getOperator() : Operator;
 
-    public getClauses() : Array<Exp> {
+    public getClauses() : java.util.List<Exp> {
         return this.clauses;
     }
 }
@@ -241,24 +241,24 @@ export class SQLFunc implements Visitable {
     public constructor(funcName? : any, ...params : any[]) {
         if(((typeof funcName === 'string') || funcName === null) && ((params != null && params instanceof <any>Array && (params.length==0 || params[0] == null ||(params[0] != null))) || params === null)) {
             let __args = Array.prototype.slice.call(arguments);
-            this.funcName = null;
-            this.params = null;
-            this.alias = null;
-            this.funcName = null;
-            this.params = null;
-            this.alias = null;
+            if(this.funcName===undefined) this.funcName = null;
+            if(this.params===undefined) this.params = null;
+            if(this.alias===undefined) this.alias = null;
+            if(this.funcName===undefined) this.funcName = null;
+            if(this.params===undefined) this.params = null;
+            if(this.alias===undefined) this.alias = null;
             (() => {
                 this.funcName = funcName;
                 this.params = params;
             })();
         } else if(((typeof funcName === 'string') || funcName === null) && params === undefined) {
             let __args = Array.prototype.slice.call(arguments);
-            this.funcName = null;
-            this.params = null;
-            this.alias = null;
-            this.funcName = null;
-            this.params = null;
-            this.alias = null;
+            if(this.funcName===undefined) this.funcName = null;
+            if(this.params===undefined) this.params = null;
+            if(this.alias===undefined) this.alias = null;
+            if(this.funcName===undefined) this.funcName = null;
+            if(this.params===undefined) this.params = null;
+            if(this.alias===undefined) this.alias = null;
             (() => {
                 this.funcName = funcName;
             })();
@@ -323,9 +323,9 @@ export class BetweenExp extends Exp {
 
     constructor(column : Column, valueStart : any, valueEnd : any) {
         super();
-        this.column = null;
-        this.valueStart = null;
-        this.valueEnd = null;
+        if(this.column===undefined) this.column = null;
+        if(this.valueStart===undefined) this.valueStart = null;
+        if(this.valueEnd===undefined) this.valueEnd = null;
         this.column = column;
         this.valueStart = valueStart;
         this.valueEnd = valueEnd;
@@ -396,7 +396,7 @@ export class Column implements Visitable {
     /*private*/ name : string;
 
     public constructor(name : string) {
-        this.name = null;
+        if(this.name===undefined) this.name = null;
         this.name = name;
     }
 
@@ -455,7 +455,7 @@ export class Constant implements Visitable {
     /*private*/ value : string;
 
     constructor(value : string) {
-        this.value = null;
+        if(this.value===undefined) this.value = null;
         this.value = value;
     }
 
@@ -487,9 +487,9 @@ export class InExp extends Exp {
 
     constructor(column : Column, negative : boolean, ...values : any[]) {
         super();
-        this.column = null;
-        this.values = null;
-        this.negative = false;
+        if(this.column===undefined) this.column = null;
+        if(this.values===undefined) this.values = null;
+        if(this.negative===undefined) this.negative = false;
         this.column = column;
         this.values = values;
         this.negative = negative;
@@ -561,7 +561,7 @@ export class JavaSQLFunc extends SQLFunc {
 
     public constructor(funcName : string, params : any[], evaluator : JavaSQLFunc.Evaluable<string>) {
         super(funcName);
-        this.evaluator = null;
+        if(this.evaluator===undefined) this.evaluator = null;
         this.params = params;
         this.evaluator = evaluator;
     }
@@ -597,10 +597,10 @@ export class JoinClause implements Visitable {
     /*private*/ valid : boolean = true;
 
     public constructor(table : string, joinType : JoinClause.JoinType, query : SelectQuery) {
-        this.table = null;
-        this.joinType = null;
-        this.onClause = null;
-        this.query = null;
+        if(this.table===undefined) this.table = null;
+        if(this.joinType===undefined) this.joinType = null;
+        if(this.onClause===undefined) this.onClause = null;
+        if(this.query===undefined) this.query = null;
         this.table = table;
         this.joinType = joinType;
         this.query = query;
@@ -681,7 +681,7 @@ export namespace JoinClause {
         public value;
 
         constructor(protected _$ordinal : number, protected _$name : string, value) {
-            this.value = null;
+            if(this.value===undefined) this.value = null;
             this.value = value;
         }
         public name() : string { return this._$name; }
@@ -701,7 +701,7 @@ export class Nullable implements Visitable {
     /*private*/ value : any;
 
     public constructor(value : any) {
-        this.value = null;
+        if(this.value===undefined) this.value = null;
         this.value = value;
     }
 
@@ -745,7 +745,7 @@ export class Operator_$WRAPPER {
     /*private*/ value;
 
     constructor(protected _$ordinal : number, protected _$name : string, value) {
-        this.value = null;
+        if(this.value===undefined) this.value = null;
         this.value = value;
     }
 
@@ -774,12 +774,12 @@ export class OpExp extends Exp {
         if(((lhsValue != null) || lhsValue === null) && ((typeof operator === 'number') || operator === null) && ((rhsValue != null) || rhsValue === null)) {
             let __args = Array.prototype.slice.call(arguments);
             super();
-            this.lhsValue = null;
-            this.rhsValue = null;
-            this.operator = null;
-            this.lhsValue = null;
-            this.rhsValue = null;
-            this.operator = null;
+            if(this.lhsValue===undefined) this.lhsValue = null;
+            if(this.rhsValue===undefined) this.rhsValue = null;
+            if(this.operator===undefined) this.operator = null;
+            if(this.lhsValue===undefined) this.lhsValue = null;
+            if(this.rhsValue===undefined) this.rhsValue = null;
+            if(this.operator===undefined) this.operator = null;
             (() => {
                 this.lhsValue = lhsValue;
                 this.rhsValue = rhsValue;
@@ -788,12 +788,12 @@ export class OpExp extends Exp {
         } else if(((lhsValue != null) || lhsValue === null) && operator === undefined && rhsValue === undefined) {
             let __args = Array.prototype.slice.call(arguments);
             super();
-            this.lhsValue = null;
-            this.rhsValue = null;
-            this.operator = null;
-            this.lhsValue = null;
-            this.rhsValue = null;
-            this.operator = null;
+            if(this.lhsValue===undefined) this.lhsValue = null;
+            if(this.rhsValue===undefined) this.rhsValue = null;
+            if(this.operator===undefined) this.operator = null;
+            if(this.lhsValue===undefined) this.lhsValue = null;
+            if(this.rhsValue===undefined) this.rhsValue = null;
+            if(this.operator===undefined) this.operator = null;
             (() => {
                 this.lhsValue = lhsValue;
                 this.rhsValue = null;
@@ -905,8 +905,8 @@ export class SetClause implements Visitable {
     /*private*/ value : any;
 
     public constructor(column : Column, value : any) {
-        this.column = null;
-        this.value = null;
+        if(this.column===undefined) this.column = null;
+        if(this.value===undefined) this.value = null;
         this.column = column;
         this.value = value;
     }
@@ -974,9 +974,9 @@ export class DefaultVisitor extends BaseVisitor {
 
     public visit$com_octo_java_sql_exp_SQLFunc(func : SQLFunc) {
         {
-            let array143 = func.getParams();
-            for(let index142=0; index142 < array143.length; index142++) {
-                let param = array143[index142];
+            let array136 = func.getParams();
+            for(let index135=0; index135 < array136.length; index135++) {
+                let param = array136[index135];
                 this.acceptOrVisitValue$java_lang_Object(param)
             }
         }
@@ -1034,21 +1034,18 @@ export class DefaultVisitor extends BaseVisitor {
     }
 
     public visit$com_octo_java_sql_exp_ExpSeq(expSeq : ExpSeq) {
-        {
-            let array145 = expSeq.getClauses();
-            for(let index144=0; index144 < array145.length; index144++) {
-                let clause = array145[index144];
-                clause.accept(this)
-            }
+        for(let index137=expSeq.getClauses().iterator();index137.hasNext();) {
+            let clause = index137.next();
+            clause.accept(this)
         }
     }
 
     public visit$com_octo_java_sql_exp_InExp(inExp : InExp) {
         inExp.getColumn().accept(this);
         if(!ArrayUtils.isEmpty(inExp.getValues())) {
-            let array147 = inExp.getValues();
-            for(let index146=0; index146 < array147.length; index146++) {
-                let value = array147[index146];
+            let array139 = inExp.getValues();
+            for(let index138=0; index138 < array139.length; index138++) {
+                let value = array139[index138];
                 this.acceptOrVisitValue$java_lang_Object(value)
             }
         }
@@ -1068,50 +1065,38 @@ export class DefaultVisitor extends BaseVisitor {
 
     public visit$com_octo_java_sql_query_SelectQuery(query : SelectQuery) {
         {
-            let array149 = query.getColumns();
-            for(let index148=0; index148 < array149.length; index148++) {
-                let column = array149[index148];
+            let array141 = query.getColumns();
+            for(let index140=0; index140 < array141.length; index140++) {
+                let column = array141[index140];
                 this.acceptOrVisitValue$java_lang_Object(column)
             }
         }
-        {
-            let array151 = query.getJoinClauses();
-            for(let index150=0; index150 < array151.length; index150++) {
-                let clause = array151[index150];
-                clause.accept(this)
-            }
+        for(let index142=query.getJoinClauses().iterator();index142.hasNext();) {
+            let clause = index142.next();
+            clause.accept(this)
         }
         let whereClause : Exp = query.getWhereClause();
         if(whereClause != null) whereClause.accept(this);
-        {
-            let array153 = query.getUnions();
-            for(let index152=0; index152 < array153.length; index152++) {
-                let union = array153[index152];
-                union.accept(this)
-            }
+        for(let index143=query.getUnions().iterator();index143.hasNext();) {
+            let union = index143.next();
+            union.accept(this)
         }
     }
 
     public visit$com_octo_java_sql_query_UpdateQuery(updateQuery : UpdateQuery) {
-        {
-            let array155 = updateQuery.getSetClauses();
-            for(let index154=0; index154 < array155.length; index154++) {
-                let clause = array155[index154];
-                clause.accept(this)
-            }
+        for(let index144=updateQuery.getSetClauses().iterator();index144.hasNext();) {
+            let clause = index144.next();
+            clause.accept(this)
         }
         let whereClause : Exp = updateQuery.getWhereClause();
         if(whereClause != null) whereClause.accept(this);
     }
 
     public visit$com_octo_java_sql_query_InsertQuery(insertQuery : InsertQuery) {
-        let columnValues : any = insertQuery.getColumnsValues();
-        {
-            let array157 = /* keySet */Object.keys(columnValues);
-            for(let index156=0; index156 < array157.length; index156++) {
-                let column = array157[index156];
-                this.acceptOrVisitValue$java_lang_Object(/* get */((m,k) => m[k]===undefined?null:m[k])(columnValues, column))
-            }
+        let columnValues : java.util.LinkedHashMap<string, any> = insertQuery.getColumnsValues();
+        for(let index145=columnValues.keySet().iterator();index145.hasNext();) {
+            let column = index145.next();
+            this.acceptOrVisitValue$java_lang_Object(columnValues.get(column))
         }
     }
 
@@ -1137,11 +1122,11 @@ DefaultVisitor["__interfaces"] = ["com.octo.java.sql.query.visitor.QueryVisitor"
 var __Function = Function;
 /* Generated from Java with JSweet 2.0.1-SNAPSHOT - http://www.jsweet.org */
 export class BasicQueryOptimizer extends DefaultVisitor {
-    /*private*/ usedTables : Array<string> = <any>([]);
+    /*private*/ usedTables : java.util.Set<string> = <any>(<java.util.HashSet<string>>new java.util.HashSet<string>());
 
-    /*private*/ tableReverseDependency : any = <any>({});
+    /*private*/ tableReverseDependency : java.util.Map<string, java.util.Set<string>> = <any>(<java.util.HashMap<string, java.util.Set<string>>>new java.util.HashMap<string, java.util.Set<string>>());
 
-    /*private*/ tableJoin : any = <any>({});
+    /*private*/ tableJoin : java.util.Map<string, JoinClause> = <any>(<java.util.HashMap<string, JoinClause>>new java.util.HashMap<string, JoinClause>());
 
     /*private*/ currentJoinedTable : string;
 
@@ -1191,7 +1176,7 @@ export class BasicQueryOptimizer extends DefaultVisitor {
     public visit$com_octo_java_sql_exp_InExp(inExp : InExp) {
         super.visit$com_octo_java_sql_exp_InExp(inExp);
         if(ArrayUtils.isEmpty(inExp.getValues())) inExp.invalidate(); else {
-            let atLeastOneInValueIsNull : boolean = CollectionUtils.exists(/* asList */inExp.getValues().slice(0), new BasicQueryOptimizer.BasicQueryOptimizer$0(this));
+            let atLeastOneInValueIsNull : boolean = CollectionUtils.exists(java.util.Arrays.asList(...inExp.getValues()), new BasicQueryOptimizer.BasicQueryOptimizer$0(this));
             if(atLeastOneInValueIsNull) inExp.invalidate();
         }
     }
@@ -1211,31 +1196,28 @@ export class BasicQueryOptimizer extends DefaultVisitor {
         super.visit$com_octo_java_sql_exp_Column(column);
         let tableName : string = column.getTableName();
         if(!StringUtils.isEmpty(tableName)) {
-            if(this.currentJoinedTable == null) /* add */((s, e) => { if(s.indexOf(e)==-1) { s.push(e); return true; } else { return false; } })(this.usedTables, tableName); else if(!/* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(this.currentJoinedTable,tableName))) this.addTableReverseDependency(this.currentJoinedTable, tableName);
+            if(this.currentJoinedTable == null) this.usedTables.add(tableName); else if(!/* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(this.currentJoinedTable,tableName))) this.addTableReverseDependency(this.currentJoinedTable, tableName);
         }
     }
 
     public visit$com_octo_java_sql_exp_JoinClause(joinClause : JoinClause) {
         this.currentJoinedTable = joinClause.getTable();
         super.visit$com_octo_java_sql_exp_JoinClause(joinClause);
-        /* put */(this.tableJoin[this.currentJoinedTable] = joinClause);
+        this.tableJoin.put(this.currentJoinedTable, joinClause);
         this.currentJoinedTable = null;
     }
 
     public visit$com_octo_java_sql_query_SelectQuery(query : SelectQuery) {
         super.visit$com_octo_java_sql_query_SelectQuery(query);
-        {
-            let array122 = /* keySet */Object.keys(this.tableJoin);
-            for(let index121=0; index121 < array122.length; index121++) {
-                let table = array122[index121];
-                if(!this.isJoinNecessary(table)) /* get */((m,k) => m[k]===undefined?null:m[k])(this.tableJoin, table).invalidate();
-            }
+        for(let index121=this.tableJoin.keySet().iterator();index121.hasNext();) {
+            let table = index121.next();
+            if(!this.isJoinNecessary(table)) this.tableJoin.get(table).invalidate();
         }
     }
 
     public visit$com_octo_java_sql_exp_Constant(constant : Constant) {
         super.visit$com_octo_java_sql_exp_Constant(constant);
-        if(/* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(Constant.STAR_$LI$(),constant))) /* add */((s, e) => { if(s.indexOf(e)==-1) { s.push(e); return true; } else { return false; } })(this.usedTables, null);
+        if(/* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(Constant.STAR_$LI$(),constant))) this.usedTables.add(null);
     }
 
     /**
@@ -1246,12 +1228,12 @@ export class BasicQueryOptimizer extends DefaultVisitor {
      * @private
      */
     /*private*/ addTableReverseDependency(table1 : string, table2 : string) {
-        let reverseDependencies : Array<string>;
-        if(!/* containsKey */this.tableReverseDependency.hasOwnProperty(table2)) {
-            reverseDependencies = <any>([]);
-            /* put */(this.tableReverseDependency[table2] = reverseDependencies);
-        } else reverseDependencies = /* get */((m,k) => m[k]===undefined?null:m[k])(this.tableReverseDependency, table2);
-        /* add */((s, e) => { if(s.indexOf(e)==-1) { s.push(e); return true; } else { return false; } })(reverseDependencies, table1);
+        let reverseDependencies : java.util.Set<string>;
+        if(!this.tableReverseDependency.containsKey(table2)) {
+            reverseDependencies = <any>(<java.util.HashSet<string>>new java.util.HashSet<string>());
+            this.tableReverseDependency.put(table2, reverseDependencies);
+        } else reverseDependencies = this.tableReverseDependency.get(table2);
+        reverseDependencies.add(table1);
     }
 
     /**
@@ -1276,12 +1258,12 @@ export class BasicQueryOptimizer extends DefaultVisitor {
      * @return {boolean}
      */
     isJoinNecessary(table : string) : boolean {
-        return /* contains */(this.usedTables.indexOf(<any>(null)) >= 0) || /* contains */(this.usedTables.indexOf(<any>(Constant.STAR_$LI$().getValue())) >= 0) || /* contains */(this.usedTables.indexOf(<any>(table)) >= 0) || (/* containsKey */this.tableReverseDependency.hasOwnProperty(table) && CollectionUtils.exists(/* get */((m,k) => m[k]===undefined?null:m[k])(this.tableReverseDependency, table), new BasicQueryOptimizer.BasicQueryOptimizer$2(this)));
+        return this.usedTables.contains(null) || this.usedTables.contains(Constant.STAR_$LI$().getValue()) || this.usedTables.contains(table) || (this.tableReverseDependency.containsKey(table) && CollectionUtils.exists(this.tableReverseDependency.get(table), new BasicQueryOptimizer.BasicQueryOptimizer$2(this)));
     }
 
     constructor() {
         super();
-        this.currentJoinedTable = null;
+        if(this.currentJoinedTable===undefined) this.currentJoinedTable = null;
     }
 }
 BasicQueryOptimizer["__class"] = "com.octo.java.sql.query.BasicQueryOptimizer";
@@ -1344,13 +1326,13 @@ export abstract class Query<T extends Query<T>> implements Visitable {
      */
     public static oracleDialect : boolean = true;
 
-    static funcEvaluatorMap : any; public static funcEvaluatorMap_$LI$() : any { if(Query.funcEvaluatorMap == null) Query.funcEvaluatorMap = <any>({}); return Query.funcEvaluatorMap; };
+    static funcEvaluatorMap : java.util.Map<string, JavaSQLFunc.Evaluable<string>>; public static funcEvaluatorMap_$LI$() : java.util.Map<string, JavaSQLFunc.Evaluable<string>> { if(Query.funcEvaluatorMap == null) Query.funcEvaluatorMap = <any>(<java.util.HashMap<string, JavaSQLFunc.Evaluable<string>>>new java.util.HashMap<string, JavaSQLFunc.Evaluable<string>>()); return Query.funcEvaluatorMap; };
 
     whereClause : Exp;
 
     static querybuilderClassName : string; public static querybuilderClassName_$LI$() : string { if(Query.querybuilderClassName == null) Query.querybuilderClassName = Query.getDefaultBuilder(); return Query.querybuilderClassName; };
 
-    static visitors : Array<QueryVisitor>; public static visitors_$LI$() : Array<QueryVisitor> { if(Query.visitors == null) Query.visitors = <any>([]); return Query.visitors; };
+    static visitors : java.util.Set<QueryVisitor>; public static visitors_$LI$() : java.util.Set<QueryVisitor> { if(Query.visitors == null) Query.visitors = <any>(<java.util.HashSet<QueryVisitor>>new java.util.HashSet<QueryVisitor>()); return Query.visitors; };
 
     /*private*/ builder : DefaultQueryBuilder;
 
@@ -1422,8 +1404,8 @@ export abstract class Query<T extends Query<T>> implements Visitable {
      * @return {SQLFunc}
      */
     public static f(funcName : string, ...params : any[]) : SQLFunc {
-        if(/* containsKey */Query.funcEvaluatorMap_$LI$().hasOwnProperty(funcName)) {
-            let evaluator : JavaSQLFunc.Evaluable<string> = /* get */((m,k) => m[k]===undefined?null:m[k])(Query.funcEvaluatorMap_$LI$(), funcName);
+        if(Query.funcEvaluatorMap_$LI$().containsKey(funcName)) {
+            let evaluator : JavaSQLFunc.Evaluable<string> = Query.funcEvaluatorMap_$LI$().get(funcName);
             return new JavaSQLFunc(funcName, params, evaluator);
         } else {
             return <any>new (__Function.prototype.bind.apply(SQLFunc, [null, funcName].concat(<any[]>params)));
@@ -1472,7 +1454,7 @@ export abstract class Query<T extends Query<T>> implements Visitable {
         this.runVisitors();
         this.builder = queryBuilder;
         this.accept(this.builder);
-        let sqlQuery : string = /* toString */this.builder.getResult().str;
+        let sqlQuery : string = this.builder.getResult().toString();
         return sqlQuery;
     }
 
@@ -1489,24 +1471,24 @@ export abstract class Query<T extends Query<T>> implements Visitable {
     }
 
     /*private*/ runVisitors() {
-        for(let index123=0; index123 < Query.visitors_$LI$().length; index123++) {
-            let visitor = Query.visitors_$LI$()[index123];
+        for(let index122=Query.visitors_$LI$().iterator();index122.hasNext();) {
+            let visitor = index122.next();
             {
                 this.accept(visitor);
             }
         }
     }
 
-    public getParams() : any {
+    public getParams() : java.util.Map<string, any> {
         return this.builder.getParams();
     }
 
     public static addVisitor(visitor : QueryVisitor) {
-        /* add */((s, e) => { if(s.indexOf(e)==-1) { s.push(e); return true; } else { return false; } })(Query.visitors_$LI$(), visitor);
+        Query.visitors_$LI$().add(visitor);
     }
 
     public static clearVisitors() {
-        /* clear */(Query.visitors_$LI$().length = 0);
+        Query.visitors_$LI$().clear();
     }
 
     public whereReset() : T {
@@ -1679,11 +1661,11 @@ export abstract class Query<T extends Query<T>> implements Visitable {
     }
 
     public static addFuncEvaluator(funcName : string, evaluator : JavaSQLFunc.Evaluable<string>) {
-        /* put */(Query.funcEvaluatorMap_$LI$()[funcName] = evaluator);
+        Query.funcEvaluatorMap_$LI$().put(funcName, evaluator);
     }
 
     public static clearFuncEvaluatorMap() {
-        /* clear */(obj => { for (let member in obj) delete obj[member]; })(Query.funcEvaluatorMap_$LI$());
+        Query.funcEvaluatorMap_$LI$().clear();
     }
 
     /*private*/ assertWhereClauseIsInitialized(operation : string) {
@@ -1692,8 +1674,8 @@ export abstract class Query<T extends Query<T>> implements Visitable {
 
     public abstract accept(visitor?: any): any;
     constructor() {
-        this.whereClause = null;
-        this.builder = null;
+        if(this.whereClause===undefined) this.whereClause = null;
+        if(this.builder===undefined) this.builder = null;
     }
 }
 Query["__class"] = "com.octo.java.sql.query.Query";
@@ -1715,7 +1697,7 @@ export class DeleteQuery extends Query<DeleteQuery> {
 
     constructor(...tables : string[]) {
         super();
-        this.tables = null;
+        if(this.tables===undefined) this.tables = null;
         this.tables = tables;
     }
 
@@ -1736,19 +1718,19 @@ DeleteQuery["__interfaces"] = ["com.octo.java.sql.query.visitor.Visitable"];
 var __Function = Function;
 /* Generated from Java with JSweet 2.0.1-SNAPSHOT - http://www.jsweet.org */
 export class InsertQuery extends Query<InsertQuery> {
-    /*private*/ columnsValues : any = <any>({});
+    /*private*/ columnsValues : java.util.LinkedHashMap<string, any> = <any>(<java.util.LinkedHashMap<string, any>>new java.util.LinkedHashMap<string, any>());
 
     /*private*/ table : string;
 
     constructor(table : string) {
         super();
-        this.table = null;
+        if(this.table===undefined) this.table = null;
         this.table = table;
     }
 
     public set$java_lang_String$java_lang_Object(column : string, value : any) : InsertQuery {
-        if(/* containsKey */this.columnsValues.hasOwnProperty(column)) throw new QueryGrammarException("Column \'" + column + "\' has already been set.");
-        /* put */(this.columnsValues[column] = value);
+        if(this.columnsValues.containsKey(column)) throw new QueryGrammarException("Column \'" + column + "\' has already been set.");
+        this.columnsValues.put(column, value);
         return this;
     }
 
@@ -1768,7 +1750,7 @@ export class InsertQuery extends Query<InsertQuery> {
         visitor['visit$com_octo_java_sql_query_InsertQuery'](this);
     }
 
-    public getColumnsValues() : any {
+    public getColumnsValues() : java.util.LinkedHashMap<string, any> {
         return this.columnsValues;
     }
 
@@ -1824,9 +1806,9 @@ export class SelectQuery extends Query<SelectQuery> {
 
     tables : string[];
 
-    /*private*/ joinClauses : Array<JoinClause> = <any>([]);
+    /*private*/ joinClauses : java.util.List<JoinClause> = <any>(<java.util.ArrayList<JoinClause>>new java.util.ArrayList<JoinClause>());
 
-    /*private*/ __orderBy : any = <any>({});
+    /*private*/ __orderBy : java.util.Map<string, SelectQuery.Order> = <any>(<java.util.LinkedHashMap<string, SelectQuery.Order>>new java.util.LinkedHashMap<string, SelectQuery.Order>());
 
     /*private*/ __limit : number = null;
 
@@ -1834,15 +1816,15 @@ export class SelectQuery extends Query<SelectQuery> {
 
     /*private*/ lastOrderByNeeded : boolean = true;
 
-    /*private*/ unions : Array<SelectQuery> = <any>([]);
+    /*private*/ unions : java.util.List<SelectQuery> = <any>(<java.util.ArrayList<SelectQuery>>new java.util.ArrayList<SelectQuery>());
 
     /*private*/ alias : string;
 
     constructor(...columns : any[]) {
         super();
-        this.columns = null;
-        this.tables = null;
-        this.alias = null;
+        if(this.columns===undefined) this.columns = null;
+        if(this.tables===undefined) this.tables = null;
+        if(this.alias===undefined) this.alias = null;
         if((columns != null) && (columns.length === 1) && /* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(Constant.STAR_$LI$().getValue(),columns[0]))) this.columns = [Constant.STAR_$LI$()]; else this.columns = columns;
     }
 
@@ -1853,24 +1835,24 @@ export class SelectQuery extends Query<SelectQuery> {
 
     public innerJoin(table : string) : JoinClause {
         let result : JoinClause = new JoinClause(table, JoinClause.JoinType.INNER_JOIN, this);
-        /* add */(this.joinClauses.push(result)>0);
+        this.joinClauses.add(result);
         return result;
     }
 
     public leftOuterJoin(table : string) : JoinClause {
         let result : JoinClause = new JoinClause(table, JoinClause.JoinType.LEFT_OUTER_JOIN, this);
-        /* add */(this.joinClauses.push(result)>0);
+        this.joinClauses.add(result);
         return result;
     }
 
     public orderBy$java_lang_String(value : string) : SelectQuery {
-        /* put */(this.__orderBy[value] = null);
+        this.__orderBy.put(value, null);
         this.lastOrderByColumn = value;
         return this;
     }
 
     public orderByReset() : SelectQuery {
-        this.__orderBy = <any>({});
+        this.__orderBy = <any>(<java.util.LinkedHashMap<string, SelectQuery.Order>>new java.util.LinkedHashMap<string, SelectQuery.Order>());
         this.lastOrderByColumn = null;
         return this;
     }
@@ -1896,7 +1878,7 @@ export class SelectQuery extends Query<SelectQuery> {
             return this;
         }
         this.assertOrderBySpecified("desc");
-        /* put */(this.__orderBy[this.lastOrderByColumn] = SelectQuery.Order.DESC);
+        this.__orderBy.put(this.lastOrderByColumn, SelectQuery.Order.DESC);
         return this;
     }
 
@@ -1911,7 +1893,7 @@ export class SelectQuery extends Query<SelectQuery> {
             return this;
         }
         this.assertOrderBySpecified("asc");
-        /* put */(this.__orderBy[this.lastOrderByColumn] = SelectQuery.Order.ASC);
+        this.__orderBy.put(this.lastOrderByColumn, SelectQuery.Order.ASC);
         return this;
     }
 
@@ -1926,7 +1908,7 @@ export class SelectQuery extends Query<SelectQuery> {
     }
 
     public union(innerQuery : SelectQuery) : SelectQuery {
-        /* add */(this.unions.push(innerQuery)>0);
+        this.unions.add(innerQuery);
         return this;
     }
 
@@ -1947,7 +1929,7 @@ export class SelectQuery extends Query<SelectQuery> {
         return this.tables;
     }
 
-    public getJoinClauses() : Array<JoinClause> {
+    public getJoinClauses() : java.util.List<JoinClause> {
         return this.joinClauses;
     }
 
@@ -1955,7 +1937,7 @@ export class SelectQuery extends Query<SelectQuery> {
         return this.alias;
     }
 
-    public getOrderBy() : any {
+    public getOrderBy() : java.util.Map<string, SelectQuery.Order> {
         return this.__orderBy;
     }
 
@@ -1963,7 +1945,7 @@ export class SelectQuery extends Query<SelectQuery> {
         return this.__limit;
     }
 
-    public getUnions() : Array<SelectQuery> {
+    public getUnions() : java.util.List<SelectQuery> {
         return this.unions;
     }
 }
@@ -1983,7 +1965,7 @@ export namespace SelectQuery {
         value;
 
         constructor(protected _$ordinal : number, protected _$name : string, value) {
-            this.value = null;
+            if(this.value===undefined) this.value = null;
             this.value = value;
         }
 
@@ -2005,18 +1987,18 @@ export namespace SelectQuery {
 var __Function = Function;
 /* Generated from Java with JSweet 2.0.1-SNAPSHOT - http://www.jsweet.org */
 export class UpdateQuery extends Query<UpdateQuery> {
-    /*private*/ setClauses : Array<SetClause> = <any>([]);
+    /*private*/ setClauses : java.util.List<SetClause> = <any>(<java.util.ArrayList<SetClause>>new java.util.ArrayList<SetClause>());
 
     /*private*/ table : string;
 
     constructor(table : string) {
         super();
-        this.table = null;
+        if(this.table===undefined) this.table = null;
         this.table = table;
     }
 
     public set(column : Column, value : any) : UpdateQuery {
-        /* add */(this.setClauses.push(new SetClause(column, value))>0);
+        this.setClauses.add(new SetClause(column, value));
         return this;
     }
 
@@ -2028,7 +2010,7 @@ export class UpdateQuery extends Query<UpdateQuery> {
         return this.table;
     }
 
-    public getSetClauses() : Array<SetClause> {
+    public getSetClauses() : java.util.List<SetClause> {
         return this.setClauses;
     }
 }
@@ -2073,25 +2055,25 @@ export class DefaultQueryBuilder extends BaseVisitor {
 
     static DELETE_FROM : string = "DELETE FROM";
 
-    result : { str: string } = { str: "", toString: function() { return this.str; } };
+    result : java.lang.StringBuilder = new java.lang.StringBuilder();
 
     /*private*/ variableIndex : number = 1;
 
-    /*private*/ params : any = <any>({});
+    /*private*/ params : java.util.Map<string, any> = <any>(<java.util.HashMap<string, any>>new java.util.HashMap<string, any>());
 
     addBracketToNextSelectQuery : boolean = false;
 
-    /*private*/ functions : any = <any>({});
+    /*private*/ functions : java.util.Map<string, JavaSQLFunc.Evaluable<any>> = <any>(<java.util.HashMap<string, JavaSQLFunc.Evaluable<any>>>new java.util.HashMap<string, JavaSQLFunc.Evaluable<any>>());
 
     public addFunction(functionName : string, __function : JavaSQLFunc.Evaluable<string>) {
-        /* put */(this.functions[functionName] = __function);
+        this.functions.put(functionName, __function);
     }
 
-    public getResult() : { str: string } {
+    public getResult() : java.lang.StringBuilder {
         return this.result;
     }
 
-    public getParams() : any {
+    public getParams() : java.util.Map<string, any> {
         return this.params;
     }
 
@@ -2106,7 +2088,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
      */
     addVariable(value : any, baseColumnName : string) : string {
         let columnName : string = "p" + this.variableIndex++;
-        /* put */(this.params[columnName] = value);
+        this.params.put(columnName, value);
         return columnName;
     }
 
@@ -2117,7 +2099,7 @@ export class DefaultQueryBuilder extends BaseVisitor {
     public acceptOrVisitValue$java_lang_Object$java_lang_String(value : any, baseName : string) {
         if(value != null && (value["__interfaces"] != null && value["__interfaces"].indexOf("com.octo.java.sql.query.visitor.Visitable") >= 0 || value.constructor != null && value.constructor["__interfaces"] != null && value.constructor["__interfaces"].indexOf("com.octo.java.sql.query.visitor.Visitable") >= 0)) (<Visitable><any>value).accept(this); else {
             let variableName : string = this.addVariable(value, baseName);
-            /* append */(sb => { sb.str = sb.str.concat(<any>variableName); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>":"); return sb; })(this.result));
+            this.result.append(":").append(variableName);
         }
     }
 
@@ -2131,23 +2113,23 @@ export class DefaultQueryBuilder extends BaseVisitor {
 
     public visitValue(value : any) {
         let variableName : string = this.addVariable(value, DefaultQueryBuilder.DEFAULT_BASE_VARIABLE_NAME);
-        /* append */(sb => { sb.str = sb.str.concat(<any>variableName); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>":"); return sb; })(this.result));
+        this.result.append(":").append(variableName);
     }
 
     buildWhereClause(whereClause : Exp) {
         if(whereClause.isValid()) {
-            /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.WHERE); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
+            this.result.append(" ").append(DefaultQueryBuilder.WHERE).append(" ");
             whereClause.accept(this);
         }
     }
 
     buildLimitClause(query : SelectQuery) {
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>"LIMIT"); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
-        /* append */(sb => { sb.str = sb.str.concat(<any>this.addVariable(query.getLimit(), "limit")); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>":"); return sb; })(this.result));
+        this.result.append(" ").append("LIMIT").append(" ");
+        this.result.append(":").append(this.addVariable(query.getLimit(), "limit"));
     }
 
     public visit$com_octo_java_sql_exp_Column(column : Column) {
-        /* append */(sb => { sb.str = sb.str.concat(<any>column.getName()); return sb; })(this.result);
+        this.result.append(column.getName());
     }
 
     /**
@@ -2189,195 +2171,180 @@ export class DefaultQueryBuilder extends BaseVisitor {
     public visit$com_octo_java_sql_exp_OpExp(exp : OpExp) {
         let baseVariableName : string = this.getVariableName(exp.getLhsValue(), null);
         if(baseVariableName == null) baseVariableName = this.getVariableName(exp.getRhsValue(), "var");
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.OPEN_BRACKET); return sb; })(this.result);
+        this.result.append(DefaultQueryBuilder.OPEN_BRACKET);
         this.acceptOrVisitValue$java_lang_Object$java_lang_String(exp.getLhsValue(), baseVariableName);
         if((exp.getRhsValue() == null) || ((exp.getRhsValue() != null && exp.getRhsValue() instanceof <any>Nullable) && (<Nullable>exp.getRhsValue()).isNull())) {
             if(!/* Enum.equals */(<any>(Operator.EQ) === <any>(exp.getOperator()))) throw new QueryGrammarException("Cannot use NULL value with operator " + Operator["_$wrappers"][exp.getOperator()].getValue());
-            /* append */(sb => { sb.str = sb.str.concat(<any>Operator["_$wrappers"][Operator.IS].getValue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result));
-            /* append */(sb => { sb.str = sb.str.concat(<any>Constant.NULL_$LI$().getValue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result));
+            this.result.append(" ").append(Operator["_$wrappers"][Operator.IS].getValue());
+            this.result.append(" ").append(Constant.NULL_$LI$().getValue());
         } else {
-            /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>Operator["_$wrappers"][exp.getOperator()].getValue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
+            this.result.append(" ").append(Operator["_$wrappers"][exp.getOperator()].getValue()).append(" ");
             this.acceptOrVisitValue$java_lang_Object$java_lang_String(exp.getRhsValue(), baseVariableName);
         }
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.CLOSE_BRACKET); return sb; })(this.result);
+        this.result.append(DefaultQueryBuilder.CLOSE_BRACKET);
     }
 
     public visit$com_octo_java_sql_exp_BetweenExp(betweenExp : BetweenExp) {
         let column : Column = betweenExp.getColumn();
         if((betweenExp.getValueStart() == null) || (betweenExp.getValueEnd() == null)) throw new QueryGrammarException("Cannot apply BETWEEN with one NULL value");
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.OPEN_BRACKET); return sb; })(this.result);
+        this.result.append(DefaultQueryBuilder.OPEN_BRACKET);
         this.visit$com_octo_java_sql_exp_Column(column);
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.BETWEEN); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
+        this.result.append(" ").append(DefaultQueryBuilder.BETWEEN).append(" ");
         this.acceptOrVisitValue$java_lang_Object$java_lang_String(betweenExp.getValueStart(), column.getName());
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>Operator["_$wrappers"][Operator.AND].getValue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
+        this.result.append(" ").append(Operator["_$wrappers"][Operator.AND].getValue()).append(" ");
         this.acceptOrVisitValue$java_lang_Object$java_lang_String(betweenExp.getValueEnd(), column.getName());
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.CLOSE_BRACKET); return sb; })(this.result);
+        this.result.append(DefaultQueryBuilder.CLOSE_BRACKET);
     }
 
     public visit$com_octo_java_sql_exp_ExpSeq(expSeq : ExpSeq) {
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.OPEN_BRACKET); return sb; })(this.result);
+        this.result.append(DefaultQueryBuilder.OPEN_BRACKET);
         let operator : Operator = expSeq.getOperator();
         let firstClause : boolean = true;
-        {
-            let array125 = expSeq.getClauses();
-            for(let index124=0; index124 < array125.length; index124++) {
-                let clause = array125[index124];
-                {
-                    if(clause.isValid()) {
-                        if(firstClause) firstClause = false; else /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>Operator["_$wrappers"][operator].getValue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
-                        clause.accept(this);
-                    }
+        for(let index123=expSeq.getClauses().iterator();index123.hasNext();) {
+            let clause = index123.next();
+            {
+                if(clause.isValid()) {
+                    if(firstClause) firstClause = false; else this.result.append(" ").append(Operator["_$wrappers"][operator].getValue()).append(" ");
+                    clause.accept(this);
                 }
             }
         }
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.CLOSE_BRACKET); return sb; })(this.result);
+        this.result.append(DefaultQueryBuilder.CLOSE_BRACKET);
     }
 
     public visit$com_octo_java_sql_exp_InExp(inExp : InExp) {
         if(ArrayUtils.isEmpty(inExp.getValues())) throw new QueryGrammarException("IN values cannot be empty or null");
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.OPEN_BRACKET); return sb; })(this.result);
+        this.result.append(DefaultQueryBuilder.OPEN_BRACKET);
         inExp.getColumn().accept(this);
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result);
-        if(inExp.isNegative()) /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>Operator["_$wrappers"][Operator.NOT].getValue()); return sb; })(this.result));
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.OPEN_BRACKET); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>Operator["_$wrappers"][Operator.IN].getValue()); return sb; })(this.result)));
+        this.result.append(" ");
+        if(inExp.isNegative()) this.result.append(Operator["_$wrappers"][Operator.NOT].getValue()).append(" ");
+        this.result.append(Operator["_$wrappers"][Operator.IN].getValue()).append(" ").append(DefaultQueryBuilder.OPEN_BRACKET);
         let firstValue : boolean = true;
         {
-            let array127 = inExp.getValues();
-            for(let index126=0; index126 < array127.length; index126++) {
-                let value = array127[index126];
+            let array125 = inExp.getValues();
+            for(let index124=0; index124 < array125.length; index124++) {
+                let value = array125[index124];
                 {
-                    if(firstValue) firstValue = false; else /* append */(sb => { sb.str = sb.str.concat(<any>","); return sb; })(this.result);
+                    if(firstValue) firstValue = false; else this.result.append(",");
                     this.acceptOrVisitValue$java_lang_Object$java_lang_String(value, inExp.getColumn().getName());
                 }
             }
         }
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.CLOSE_BRACKET); return sb; })(this.result);
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.CLOSE_BRACKET); return sb; })(this.result);
+        this.result.append(DefaultQueryBuilder.CLOSE_BRACKET);
+        this.result.append(DefaultQueryBuilder.CLOSE_BRACKET);
     }
 
     public visit$com_octo_java_sql_exp_JoinClause(joinClause : JoinClause) {
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>JoinClause.JoinType["_$wrappers"][joinClause.getType()].value); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
-        /* append */(sb => { sb.str = sb.str.concat(<any>joinClause.getTable()); return sb; })(this.result);
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.ON); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
+        this.result.append(" ").append(JoinClause.JoinType["_$wrappers"][joinClause.getType()].value).append(" ");
+        this.result.append(joinClause.getTable());
+        this.result.append(" ").append(DefaultQueryBuilder.ON).append(" ");
         joinClause.getOnClause().accept(this);
     }
 
     public visit$com_octo_java_sql_exp_SetClause(setClause : SetClause) {
         let column : Column = setClause.getColumn();
         column.accept(this);
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>Operator["_$wrappers"][Operator.EQ].getValue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
+        this.result.append(" ").append(Operator["_$wrappers"][Operator.EQ].getValue()).append(" ");
         this.acceptOrVisitValue$java_lang_Object$java_lang_String(setClause.getValue(), column.getName());
     }
 
     public visit$com_octo_java_sql_exp_SQLFunc(sqlFunc : SQLFunc) {
         let functionName : string = sqlFunc.getName();
-        if(/* containsKey */this.functions.hasOwnProperty(functionName)) {
-            let functionPlaceHolder : JavaSQLFunc.Evaluable<any> = /* get */((m,k) => m[k]===undefined?null:m[k])(this.functions, functionName);
-            /* append */(sb => { sb.str = sb.str.concat(<any>(o => o.eval.apply(o, sqlFunc.getParams()))(functionPlaceHolder)); return sb; })(this.result);
+        if(this.functions.containsKey(functionName)) {
+            let functionPlaceHolder : JavaSQLFunc.Evaluable<any> = this.functions.get(functionName);
+            this.result.append((o => o.eval.apply(o, sqlFunc.getParams()))(functionPlaceHolder));
         } else {
-            /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.OPEN_BRACKET); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>functionName); return sb; })(this.result));
+            this.result.append(functionName).append(DefaultQueryBuilder.OPEN_BRACKET);
             let firstParam : boolean = true;
             {
-                let array129 = sqlFunc.getParams();
-                for(let index128=0; index128 < array129.length; index128++) {
-                    let param = array129[index128];
+                let array127 = sqlFunc.getParams();
+                for(let index126=0; index126 < array127.length; index126++) {
+                    let param = array127[index126];
                     {
-                        if(firstParam) firstParam = false; else /* append */(sb => { sb.str = sb.str.concat(<any>","); return sb; })(this.result);
+                        if(firstParam) firstParam = false; else this.result.append(",");
                         this.acceptOrVisitValue$java_lang_Object$java_lang_String(param, functionName);
                     }
                 }
             }
-            /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.CLOSE_BRACKET); return sb; })(this.result);
-            if(!StringUtils.isEmpty(sqlFunc.getAlias())) /* append */(sb => { sb.str = sb.str.concat(<any>sqlFunc.getAlias()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.AS); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result))));
+            this.result.append(DefaultQueryBuilder.CLOSE_BRACKET);
+            if(!StringUtils.isEmpty(sqlFunc.getAlias())) this.result.append(" ").append(DefaultQueryBuilder.AS).append(" ").append(sqlFunc.getAlias());
         }
     }
 
     public visit$com_octo_java_sql_exp_Constant(constant : Constant) {
-        /* append */(sb => { sb.str = sb.str.concat(<any>constant.getValue()); return sb; })(this.result);
+        this.result.append(constant.getValue());
     }
 
     public visit$com_octo_java_sql_query_SelectQuery(query : SelectQuery) {
         let innerQuery : boolean = this.addBracketToNextSelectQuery;
-        if(innerQuery) /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.OPEN_BRACKET); return sb; })(this.result); else this.addBracketToNextSelectQuery = true;
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.SELECT); return sb; })(this.result));
+        if(innerQuery) this.result.append(DefaultQueryBuilder.OPEN_BRACKET); else this.addBracketToNextSelectQuery = true;
+        this.result.append(DefaultQueryBuilder.SELECT).append(" ");
         let firstColumn : boolean = true;
         {
-            let array131 = query.getColumns();
-            for(let index130=0; index130 < array131.length; index130++) {
-                let column = array131[index130];
+            let array129 = query.getColumns();
+            for(let index128=0; index128 < array129.length; index128++) {
+                let column = array129[index128];
                 {
-                    if(firstColumn) firstColumn = false; else /* append */(sb => { sb.str = sb.str.concat(<any>","); return sb; })(this.result);
+                    if(firstColumn) firstColumn = false; else this.result.append(",");
                     this.acceptOrVisitValue$java_lang_Object(column);
                 }
             }
         }
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.FROM); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
-        /* append */(sb => { sb.str = sb.str.concat(<any>StringUtils.join$java_lang_Object_A$char(query.getTables(), ',')); return sb; })(this.result);
-        {
-            let array133 = query.getJoinClauses();
-            for(let index132=0; index132 < array133.length; index132++) {
-                let clause = array133[index132];
-                if(clause.isValid()) clause.accept(this);
-            }
+        this.result.append(" ").append(DefaultQueryBuilder.FROM).append(" ");
+        this.result.append(StringUtils.join$java_lang_Object_A$char(query.getTables(), ','));
+        for(let index130=query.getJoinClauses().iterator();index130.hasNext();) {
+            let clause = index130.next();
+            if(clause.isValid()) clause.accept(this);
         }
         if(!StringUtils.isEmpty(query.getAlias())) {
-            /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result);
-            /* append */(sb => { sb.str = sb.str.concat(<any>query.getAlias()); return sb; })(this.result);
+            this.result.append(" ");
+            this.result.append(query.getAlias());
         }
         let whereClause : Exp = query.getWhereClause();
         if((whereClause != null) && (whereClause.isValid())) this.buildWhereClause(whereClause);
         let firstOrderBy : boolean = true;
-        let orderBy : any = query.getOrderBy();
-        {
-            let array135 = /* keySet */Object.keys(orderBy);
-            for(let index134=0; index134 < array135.length; index134++) {
-                let orderByColumn = array135[index134];
-                {
-                    if(firstOrderBy) {
-                        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.ORDER_BY); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
-                        firstOrderBy = false;
-                    } else /* append */(sb => { sb.str = sb.str.concat(<any>", "); return sb; })(this.result);
-                    /* append */(sb => { sb.str = sb.str.concat(<any>orderByColumn); return sb; })(this.result);
-                    let columnOrder : SelectQuery.Order = /* get */((m,k) => m[k]===undefined?null:m[k])(orderBy, orderByColumn);
-                    if(columnOrder != null) /* append */(sb => { sb.str = sb.str.concat(<any>SelectQuery.Order["_$wrappers"][columnOrder].getVlue()); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result));
-                }
+        let orderBy : java.util.Map<string, SelectQuery.Order> = query.getOrderBy();
+        for(let index131=orderBy.keySet().iterator();index131.hasNext();) {
+            let orderByColumn = index131.next();
+            {
+                if(firstOrderBy) {
+                    this.result.append(" ").append(DefaultQueryBuilder.ORDER_BY).append(" ");
+                    firstOrderBy = false;
+                } else this.result.append(", ");
+                this.result.append(orderByColumn);
+                let columnOrder : SelectQuery.Order = orderBy.get(orderByColumn);
+                if(columnOrder != null) this.result.append(" ").append(SelectQuery.Order["_$wrappers"][columnOrder].getVlue());
             }
         }
         if(query.getLimit() != null) this.buildLimitClause(query);
         if(!CollectionUtils.isEmpty(query.getUnions())) {
-            /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.UNION); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
-            {
-                let array137 = query.getUnions();
-                for(let index136=0; index136 < array137.length; index136++) {
-                    let union = array137[index136];
-                    {
-                        this.addBracketToNextSelectQuery = false;
-                        union.accept(this);
-                    }
+            this.result.append(" ").append(DefaultQueryBuilder.UNION).append(" ");
+            for(let index132=query.getUnions().iterator();index132.hasNext();) {
+                let union = index132.next();
+                {
+                    this.addBracketToNextSelectQuery = false;
+                    union.accept(this);
                 }
             }
         }
-        if(innerQuery) /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.CLOSE_BRACKET); return sb; })(this.result);
+        if(innerQuery) this.result.append(DefaultQueryBuilder.CLOSE_BRACKET);
     }
 
     public visit$com_octo_java_sql_query_UpdateQuery(updateQuery : UpdateQuery) {
         this.addBracketToNextSelectQuery = true;
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.UPDATE); return sb; })(this.result));
-        /* append */(sb => { sb.str = sb.str.concat(<any>updateQuery.getTable()); return sb; })(this.result);
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.SET); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(this.result)));
+        this.result.append(DefaultQueryBuilder.UPDATE).append(" ");
+        this.result.append(updateQuery.getTable());
+        this.result.append(" ").append(DefaultQueryBuilder.SET).append(" ");
         let firstClause : boolean = true;
-        {
-            let array139 = updateQuery.getSetClauses();
-            for(let index138=0; index138 < array139.length; index138++) {
-                let clause = array139[index138];
-                {
-                    if(firstClause) {
-                        firstClause = false;
-                    } else {
-                        /* append */(sb => { sb.str = sb.str.concat(<any>", "); return sb; })(this.result);
-                    }
-                    clause.accept(this);
+        for(let index133=updateQuery.getSetClauses().iterator();index133.hasNext();) {
+            let clause = index133.next();
+            {
+                if(firstClause) {
+                    firstClause = false;
+                } else {
+                    this.result.append(", ");
                 }
+                clause.accept(this);
             }
         }
         let whereClause : Exp = updateQuery.getWhereClause();
@@ -2386,35 +2353,32 @@ export class DefaultQueryBuilder extends BaseVisitor {
 
     public visit$com_octo_java_sql_query_InsertQuery(insertQuery : InsertQuery) {
         this.addBracketToNextSelectQuery = true;
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.INSERT); return sb; })(this.result));
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>insertQuery.getTable()); return sb; })(this.result));
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.OPEN_BRACKET); return sb; })(this.result);
-        let columnValues : any = insertQuery.getColumnsValues();
-        /* append */(sb => { sb.str = sb.str.concat(<any>StringUtils.join$java_util_Collection$java_lang_String(/* keySet */Object.keys(columnValues), ", ")); return sb; })(this.result);
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.CLOSE_BRACKET); return sb; })(this.result));
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.OPEN_BRACKET); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.VALUES); return sb; })(this.result)));
+        this.result.append(DefaultQueryBuilder.INSERT).append(" ");
+        this.result.append(insertQuery.getTable()).append(" ");
+        this.result.append(DefaultQueryBuilder.OPEN_BRACKET);
+        let columnValues : java.util.LinkedHashMap<string, any> = insertQuery.getColumnsValues();
+        this.result.append(StringUtils.join$java_util_Collection$java_lang_String(columnValues.keySet(), ", "));
+        this.result.append(DefaultQueryBuilder.CLOSE_BRACKET).append(" ");
+        this.result.append(DefaultQueryBuilder.VALUES).append(" ").append(DefaultQueryBuilder.OPEN_BRACKET);
         let firstClause : boolean = true;
-        {
-            let array141 = /* keySet */Object.keys(columnValues);
-            for(let index140=0; index140 < array141.length; index140++) {
-                let column = array141[index140];
-                {
-                    if(firstClause) {
-                        firstClause = false;
-                    } else {
-                        /* append */(sb => { sb.str = sb.str.concat(<any>", "); return sb; })(this.result);
-                    }
-                    this.acceptOrVisitValue$java_lang_Object$java_lang_String(/* get */((m,k) => m[k]===undefined?null:m[k])(columnValues, column), <string>column);
+        for(let index134=columnValues.keySet().iterator();index134.hasNext();) {
+            let column = index134.next();
+            {
+                if(firstClause) {
+                    firstClause = false;
+                } else {
+                    this.result.append(", ");
                 }
+                this.acceptOrVisitValue$java_lang_Object$java_lang_String(columnValues.get(column), <string>column);
             }
         }
-        /* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.CLOSE_BRACKET); return sb; })(this.result);
+        this.result.append(DefaultQueryBuilder.CLOSE_BRACKET);
     }
 
     public visit$com_octo_java_sql_query_DeleteQuery(deleteQuery : DeleteQuery) {
         this.addBracketToNextSelectQuery = true;
-        /* append */(sb => { sb.str = sb.str.concat(<any>" "); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>DefaultQueryBuilder.DELETE_FROM); return sb; })(this.result));
-        /* append */(sb => { sb.str = sb.str.concat(<any>StringUtils.join$java_lang_Object_A$char(deleteQuery.getTables(), ',')); return sb; })(this.result);
+        this.result.append(DefaultQueryBuilder.DELETE_FROM).append(" ");
+        this.result.append(StringUtils.join$java_lang_Object_A$char(deleteQuery.getTables(), ','));
         let whereClause : Exp = deleteQuery.getWhereClause();
         if((whereClause != null) && (whereClause.isValid())) this.buildWhereClause(whereClause);
     }
@@ -2441,9 +2405,9 @@ export class OracleQueryBuilder extends DefaultQueryBuilder {
      * @param {SelectQuery} query
      */
     buildLimitClause(query : SelectQuery) {
-        /* insert */((sb, index, c) => { sb.str = sb.str.substr(0, index) + c + sb.str.substr(index); return sb; })(this.result, 0, "SELECT * FROM (");
-        /* append */(sb => { sb.str = sb.str.concat(<any>") WHERE (rownum<=:"); return sb; })(this.result);
-        /* append */(sb => { sb.str = sb.str.concat(<any>")"); return sb; })(/* append */(sb => { sb.str = sb.str.concat(<any>this.addVariable(query.getLimit(), "limit")); return sb; })(this.result));
+        this.result.insert(0, "SELECT * FROM (");
+        this.result.append(") WHERE (rownum<=:");
+        this.result.append(this.addVariable(query.getLimit(), "limit")).append(")");
     }
 
     constructor() {
@@ -2482,13 +2446,13 @@ ArrayUtils["__class"] = "util.ArrayUtils";
 var __Function = Function;
 /* Generated from Java with JSweet 2.0.1-SNAPSHOT - http://www.jsweet.org */
 export class CollectionUtils {
-    public static isEmpty(coll : Array<any>) : boolean {
-        return (coll == null || /* isEmpty */(coll.length == 0));
+    public static isEmpty(coll : java.util.Collection<any>) : boolean {
+        return (coll == null || coll.isEmpty());
     }
 
-    public static exists(collection : Array<any>, predicate : Predicate) : boolean {
+    public static exists(collection : java.util.Collection<any>, predicate : Predicate) : boolean {
         if(collection != null && predicate != null) {
-            for(let it : any = /* iterator */((a) => { var i = 0; return { next: function() { return i<a.length?a[i++]:null; }, hasNext: function() { return i<a.length; }}})(collection); it.hasNext(); ) {
+            for(let it : java.util.Iterator<any> = collection.iterator(); it.hasNext(); ) {
                 if(predicate.evaluate(it.next())) {
                     return true;
                 }
@@ -2553,38 +2517,38 @@ export class StringUtils {
             return StringUtils.EMPTY;
         }
         bufSize *= ((array[startIndex] == null?16:array[startIndex].toString().length) + 1);
-        let buf : { str: string } = { str: "", toString: function() { return this.str; } };
+        let buf : java.lang.StringBuffer = new java.lang.StringBuffer(bufSize);
         for(let i : number = startIndex; i < endIndex; i++) {
             if(i > startIndex) {
-                /* append */(sb => { sb.str = sb.str.concat(<any>separator); return sb; })(buf);
+                buf.append(separator);
             }
             if(array[i] != null) {
-                /* append */(sb => { sb.str = sb.str.concat(<any>array[i]); return sb; })(buf);
+                buf.append(array[i]);
             }
         };
-        return /* toString */buf.str;
+        return buf.toString();
     }
 
     public static join(array? : any, separator? : any, startIndex? : any, endIndex? : any) : any {
         if(((array != null && array instanceof <any>Array && (array.length==0 || array[0] == null ||(array[0] != null))) || array === null) && ((typeof separator === 'string') || separator === null) && ((typeof startIndex === 'number') || startIndex === null) && ((typeof endIndex === 'number') || endIndex === null)) {
             return <any>StringUtils.join$java_lang_Object_A$char$int$int(array, separator, startIndex, endIndex);
-        } else if(((array != null && (array instanceof Array)) || array === null) && ((typeof separator === 'string') || separator === null) && startIndex === undefined && endIndex === undefined) {
+        } else if(((array != null && (array["__interfaces"] != null && array["__interfaces"].indexOf("java.util.Collection") >= 0 || array.constructor != null && array.constructor["__interfaces"] != null && array.constructor["__interfaces"].indexOf("java.util.Collection") >= 0)) || array === null) && ((typeof separator === 'string') || separator === null) && startIndex === undefined && endIndex === undefined) {
             return <any>StringUtils.join$java_util_Collection$java_lang_String(array, separator);
-        } else if(((array != null && (array instanceof Object)) || array === null) && ((typeof separator === 'string') || separator === null) && startIndex === undefined && endIndex === undefined) {
+        } else if(((array != null && (array["__interfaces"] != null && array["__interfaces"].indexOf("java.util.Iterator") >= 0 || array.constructor != null && array.constructor["__interfaces"] != null && array.constructor["__interfaces"].indexOf("java.util.Iterator") >= 0)) || array === null) && ((typeof separator === 'string') || separator === null) && startIndex === undefined && endIndex === undefined) {
             return <any>StringUtils.join$java_util_Iterator$java_lang_String(array, separator);
         } else if(((array != null && array instanceof <any>Array && (array.length==0 || array[0] == null ||(array[0] != null))) || array === null) && ((typeof separator === 'string') || separator === null) && startIndex === undefined && endIndex === undefined) {
             return <any>StringUtils.join$java_lang_Object_A$char(array, separator);
         } else throw new Error('invalid overload');
     }
 
-    public static join$java_util_Collection$java_lang_String(collection : Array<any>, separator : string) : string {
+    public static join$java_util_Collection$java_lang_String(collection : java.util.Collection<any>, separator : string) : string {
         if(collection == null) {
             return null;
         }
-        return StringUtils.join$java_util_Iterator$java_lang_String(/* iterator */((a) => { var i = 0; return { next: function() { return i<a.length?a[i++]:null; }, hasNext: function() { return i<a.length; }}})(collection), separator);
+        return StringUtils.join$java_util_Iterator$java_lang_String(collection.iterator(), separator);
     }
 
-    public static join$java_util_Iterator$java_lang_String(iterator : any, separator : string) : string {
+    public static join$java_util_Iterator$java_lang_String(iterator : java.util.Iterator<any>, separator : string) : string {
         if(iterator == null) {
             return null;
         }
@@ -2595,20 +2559,20 @@ export class StringUtils {
         if(!iterator.hasNext()) {
             return ObjectUtils.toString(first);
         }
-        let buf : { str: string } = { str: "", toString: function() { return this.str; } };
+        let buf : java.lang.StringBuffer = new java.lang.StringBuffer(256);
         if(first != null) {
-            /* append */(sb => { sb.str = sb.str.concat(<any>first); return sb; })(buf);
+            buf.append(first);
         }
         while((iterator.hasNext())) {
             if(separator != null) {
-                /* append */(sb => { sb.str = sb.str.concat(<any>separator); return sb; })(buf);
+                buf.append(separator);
             }
             let obj : any = iterator.next();
             if(obj != null) {
-                /* append */(sb => { sb.str = sb.str.concat(<any>obj); return sb; })(buf);
+                buf.append(obj);
             }
         };
-        return /* toString */buf.str;
+        return buf.toString();
     }
 }
 StringUtils["__class"] = "util.StringUtils";

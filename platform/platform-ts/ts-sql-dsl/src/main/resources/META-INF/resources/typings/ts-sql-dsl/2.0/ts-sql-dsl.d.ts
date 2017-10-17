@@ -46,7 +46,7 @@ export declare abstract class Exp implements Visitable {
     constructor();
 }
 export declare abstract class ExpSeq extends Exp {
-    clauses: Array<Exp>;
+    clauses: java.util.List<Exp>;
     constructor(...clauses: Exp[]);
     /**
      *
@@ -76,7 +76,7 @@ export declare abstract class ExpSeq extends Exp {
     applyNotInOperation(...values: any[]): Exp;
     accept(visitor: QueryVisitor): void;
     abstract getOperator(): Operator;
-    getClauses(): Array<Exp>;
+    getClauses(): java.util.List<Exp>;
 }
 export declare class SQLFunc implements Visitable {
     funcName: string;
@@ -382,9 +382,9 @@ export declare class DefaultVisitor extends BaseVisitor {
     constructor();
 }
 export declare class BasicQueryOptimizer extends DefaultVisitor {
-    usedTables: Array<string>;
-    tableReverseDependency: any;
-    tableJoin: any;
+    usedTables: java.util.Set<string>;
+    tableReverseDependency: java.util.Map<string, java.util.Set<string>>;
+    tableJoin: java.util.Map<string, JoinClause>;
     currentJoinedTable: string;
     visit$com_octo_java_sql_exp_BetweenExp(betweenExp: BetweenExp): void;
     /**
@@ -453,13 +453,13 @@ export declare abstract class Query<T extends Query<T>> implements Visitable {
      * Set it to false when using HSQLDB
      */
     static oracleDialect: boolean;
-    static funcEvaluatorMap: any;
-    static funcEvaluatorMap_$LI$(): any;
+    static funcEvaluatorMap: java.util.Map<string, JavaSQLFunc.Evaluable<string>>;
+    static funcEvaluatorMap_$LI$(): java.util.Map<string, JavaSQLFunc.Evaluable<string>>;
     whereClause: Exp;
     static querybuilderClassName: string;
     static querybuilderClassName_$LI$(): string;
-    static visitors: Array<QueryVisitor>;
-    static visitors_$LI$(): Array<QueryVisitor>;
+    static visitors: java.util.Set<QueryVisitor>;
+    static visitors_$LI$(): java.util.Set<QueryVisitor>;
     builder: DefaultQueryBuilder;
     static setDefaultQueryBuilder(className: string): void;
     static getDefaultBuilder(): string;
@@ -528,7 +528,7 @@ export declare abstract class Query<T extends Query<T>> implements Visitable {
     toSql(queryBuilder?: any): any;
     getQueryBuilder(): DefaultQueryBuilder;
     runVisitors(): void;
-    getParams(): any;
+    getParams(): java.util.Map<string, any>;
     static addVisitor(visitor: QueryVisitor): void;
     static clearVisitors(): void;
     whereReset(): T;
@@ -578,14 +578,14 @@ export declare class DeleteQuery extends Query<DeleteQuery> {
     getTables(): string[];
 }
 export declare class InsertQuery extends Query<InsertQuery> {
-    columnsValues: any;
+    columnsValues: java.util.LinkedHashMap<string, any>;
     table: string;
     constructor(table: string);
     set$java_lang_String$java_lang_Object(column: string, value: any): InsertQuery;
     set$java_lang_String$java_lang_Object$java_lang_Object(column: string, value: any, defaultValueIfNull: any): InsertQuery;
     set(column?: any, value?: any, defaultValueIfNull?: any): any;
     accept(visitor: QueryVisitor): void;
-    getColumnsValues(): any;
+    getColumnsValues(): java.util.LinkedHashMap<string, any>;
     getTable(): string;
 }
 export declare class QueryException extends Error {
@@ -602,12 +602,12 @@ export declare class SelectQuery extends Query<SelectQuery> {
      */
     columns: any[];
     tables: string[];
-    joinClauses: Array<JoinClause>;
-    __orderBy: any;
+    joinClauses: java.util.List<JoinClause>;
+    __orderBy: java.util.Map<string, SelectQuery.Order>;
     __limit: number;
     lastOrderByColumn: string;
     lastOrderByNeeded: boolean;
-    unions: Array<SelectQuery>;
+    unions: java.util.List<SelectQuery>;
     alias: string;
     constructor(...columns: any[]);
     from(...newTables: string[]): SelectQuery;
@@ -627,11 +627,11 @@ export declare class SelectQuery extends Query<SelectQuery> {
     accept(visitor: QueryVisitor): void;
     getColumns(): any[];
     getTables(): string[];
-    getJoinClauses(): Array<JoinClause>;
+    getJoinClauses(): java.util.List<JoinClause>;
     getAlias(): string;
-    getOrderBy(): any;
+    getOrderBy(): java.util.Map<string, SelectQuery.Order>;
     getLimit(): number;
-    getUnions(): Array<SelectQuery>;
+    getUnions(): java.util.List<SelectQuery>;
 }
 export declare namespace SelectQuery {
     enum Order {
@@ -650,13 +650,13 @@ export declare namespace SelectQuery {
     }
 }
 export declare class UpdateQuery extends Query<UpdateQuery> {
-    setClauses: Array<SetClause>;
+    setClauses: java.util.List<SetClause>;
     table: string;
     constructor(table: string);
     set(column: Column, value: any): UpdateQuery;
     accept(visitor: QueryVisitor): void;
     getTable(): string;
-    getSetClauses(): Array<SetClause>;
+    getSetClauses(): java.util.List<SetClause>;
 }
 export declare class DefaultQueryBuilder extends BaseVisitor {
     static DEFAULT_BASE_VARIABLE_NAME: string;
@@ -675,18 +675,14 @@ export declare class DefaultQueryBuilder extends BaseVisitor {
     static UPDATE: string;
     static SET: string;
     static DELETE_FROM: string;
-    result: {
-        str: string;
-    };
+    result: java.lang.StringBuilder;
     variableIndex: number;
-    params: any;
+    params: java.util.Map<string, any>;
     addBracketToNextSelectQuery: boolean;
-    functions: any;
+    functions: java.util.Map<string, JavaSQLFunc.Evaluable<any>>;
     addFunction(functionName: string, __function: JavaSQLFunc.Evaluable<string>): void;
-    getResult(): {
-        str: string;
-    };
-    getParams(): any;
+    getResult(): java.lang.StringBuilder;
+    getParams(): java.util.Map<string, any>;
     /**
      * Add a variable to parameters map and return its name
      *
@@ -740,8 +736,8 @@ export declare class ArrayUtils {
     static isEmpty(array: any[]): boolean;
 }
 export declare class CollectionUtils {
-    static isEmpty(coll: Array<any>): boolean;
-    static exists(collection: Array<any>, predicate: Predicate): boolean;
+    static isEmpty(coll: java.util.Collection<any>): boolean;
+    static exists(collection: java.util.Collection<any>, predicate: Predicate): boolean;
 }
 export declare class ObjectUtils {
     static toString(obj: any): string;
@@ -764,6 +760,6 @@ export declare class StringUtils {
     static join$java_lang_Object_A$char(array: any[], separator: string): string;
     static join$java_lang_Object_A$char$int$int(array: any[], separator: string, startIndex: number, endIndex: number): string;
     static join(array?: any, separator?: any, startIndex?: any, endIndex?: any): any;
-    static join$java_util_Collection$java_lang_String(collection: Array<any>, separator: string): string;
-    static join$java_util_Iterator$java_lang_String(iterator: any, separator: string): string;
+    static join$java_util_Collection$java_lang_String(collection: java.util.Collection<any>, separator: string): string;
+    static join$java_util_Iterator$java_lang_String(iterator: java.util.Iterator<any>, separator: string): string;
 }

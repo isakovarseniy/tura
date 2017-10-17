@@ -21,7 +21,7 @@ import java.util.LinkedHashMap;
 import com.octo.java.sql.query.visitor.QueryVisitor;
 
 public class InsertQuery extends Query<InsertQuery> {
-  private final LinkedHashMap<String,Object> columnsValues = new LinkedHashMap<>();
+  private final LinkedHashMap<String,Object> columnsValues = new LinkedHashMap<String,Object>();
   private final String table;
 
   /**

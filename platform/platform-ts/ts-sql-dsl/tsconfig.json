@@ -8,7 +8,9 @@
     "declaration": true
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/bundle.d.ts"
+
 
   ],
   "exclude": [

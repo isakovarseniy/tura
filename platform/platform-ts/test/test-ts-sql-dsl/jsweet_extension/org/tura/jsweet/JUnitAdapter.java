@@ -27,6 +27,17 @@ public class JUnitAdapter extends PrinterAdapter {
 		super(parentAdapter);
 
 		addTypeMapping("org.junit.Assert", "assert");
+		addTypeMapping("java.util.List", "java.util.List");
+		addTypeMapping("java.util.HashMap", "java.util.HashMap");
+		addTypeMapping("java.util.Map", "java.util.Map");
+		addTypeMapping("java.util.HashSet", "java.util.HashSet");
+		addTypeMapping("java.util.Set", "java.util.Set");
+		addTypeMapping("java.util.ArrayList", "java.util.ArrayList");
+		addTypeMapping("java.util.LinkedHashMap", "java.util.LinkedHashMap");
+		addTypeMapping("java.util.Collection", "java.util.Collection");
+		addTypeMapping("java.util.Arrays", "java.util.Arrays");
+		addTypeMapping("java.util.Iterator", "java.util.Iterator");		
+		
 		
 		importMapper.put("com.octo.java.sql.query.Query", "sql-dsl/ts-sql-dsl");
 		importMapper.put("com.octo.java.sql.query.SelectQuery", "sql-dsl/ts-sql-dsl");
@@ -38,11 +49,13 @@ public class JUnitAdapter extends PrinterAdapter {
 		importMapper.put("com.octo.java.sql.exp.Nullable", "sql-dsl/ts-sql-dsl");
 		importMapper.put("com.octo.java.sql.query.visitor.OracleQueryBuilder", "sql-dsl/ts-sql-dsl");
 		importMapper.put("com.octo.java.sql.exp.Column","sql-dsl/ts-sql-dsl");
-				
+		
 	}
 	
 	public ModuleImportDescriptor getModuleImportDescriptor(CompilationUnitElement currentCompilationUnit,
 			String importedName, TypeElement importedClass) {
+ 		   addHeader("jdk", "import \"jdk/bundel\";\n");
+		
 		ModuleImportDescriptor desc =  super.getModuleImportDescriptor(currentCompilationUnit, importedName, importedClass);
 		if (desc != null){
 			return desc;
@@ -80,6 +93,7 @@ public class JUnitAdapter extends PrinterAdapter {
 					
 				case "assertNull":
 					  addHeader(IMPORT_CHAI_HEADER, CHAI_HEADER);
+					  
 					  print("assert.isNull (").print(invocation.getArgument(0)).print(")");
 					return true;
 					

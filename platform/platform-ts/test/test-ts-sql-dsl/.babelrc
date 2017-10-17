@@ -4,7 +4,8 @@
     ["module-resolver", {
       "root": ["./"],
       "alias": {
-        "sql-dsl": "./candies/js/ts-sql-dsl-2.0"
+        "sql-dsl": "./candies/js/ts-sql-dsl-2.0",
+        "jdk": "./candies/js/j4ts-0.6.0-SNAPSHOT"
       }
     }]
   ]
