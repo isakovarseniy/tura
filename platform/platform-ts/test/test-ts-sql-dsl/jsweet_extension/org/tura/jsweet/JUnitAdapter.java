@@ -54,7 +54,7 @@ public class JUnitAdapter extends PrinterAdapter {
 	
 	public ModuleImportDescriptor getModuleImportDescriptor(CompilationUnitElement currentCompilationUnit,
 			String importedName, TypeElement importedClass) {
- 		   addHeader("jdk", "import \"jdk/bundel\";\n");
+ 		   addHeader("jdk", "import \"jdk/bundle\";\n");
 		
 		ModuleImportDescriptor desc =  super.getModuleImportDescriptor(currentCompilationUnit, importedName, importedClass);
 		if (desc != null){
