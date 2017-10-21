@@ -1,0 +1,13 @@
+{
+  "@Erased": {
+    "include": [ "org.tura.platform.datacontrol.commons.Reflection" ]
+  },
+ "@Replace(' return eval(\' query.\'+this.condition+\'(column); \');  ')": {
+    "include": [ "org.tura.platform.datacontrol.commons.ConditionConverter.getRestriction(..)" ]
+   },
+
+
+"adapters": [ "org.tura.jsweet.TsAdapter" ]
+
+}
+

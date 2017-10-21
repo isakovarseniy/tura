@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "sql-dsl/*": ["candies/typings/META-INF/resources/webjars/ts-sql-dsl/2.0/*"],
+      "jdk/*": ["candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/*"]
+    },
+    "module" : "es2015",
+    "target": "ES6",
+    "moduleResolution": "classic",
+    "sourceMap": true,
+    "declaration": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/bundle.d.ts"
+
+
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+
+
+
+}

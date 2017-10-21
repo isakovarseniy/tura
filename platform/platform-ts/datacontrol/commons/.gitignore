@@ -1,0 +1,7 @@
+/target/
+/.idea/
+/.node-init/
+/.settings/
+/candies/
+/extension.json
+*.classpath
