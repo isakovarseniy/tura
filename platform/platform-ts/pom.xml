@@ -18,6 +18,7 @@
 
 	<modules>
 		<module>ts-sql-dsl</module>
+		<module>datacontrol</module>
 		<module>test</module>
 	</modules>
 
