@@ -3,7 +3,6 @@ package org.tura.jsweet;
 import java.lang.reflect.Modifier;
 
 import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.ArrayType;
 
 import org.jsweet.transpiler.ModuleImportDescriptor;
 import org.jsweet.transpiler.extension.PrinterAdapter;

@@ -21,13 +21,12 @@
  */
 package org.tura.platform.datacontrol.commons;
 
-import java.util.AbstractList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class LazyList<T> extends AbstractList<T> {
+public class LazyList<T> extends java.util.AbstractList<T> {
 
 	private Map<Integer, T> loaded;
 

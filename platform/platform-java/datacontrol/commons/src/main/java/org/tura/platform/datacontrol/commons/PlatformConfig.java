@@ -21,11 +21,7 @@
  */
 package org.tura.platform.datacontrol.commons;
 
-import java.util.logging.Level;
-
 public class PlatformConfig {
-
-	public static Level LOGGER_LEVEL = Level.INFO;
 
 	public static int LOADSTEP = 40;
 	
