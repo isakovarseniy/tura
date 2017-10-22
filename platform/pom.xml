@@ -212,6 +212,11 @@
 				<version>${version.tura-platform}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>org.tura.platform-ts.datacontrol</groupId>
+				<artifactId>commons</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
 
 
 			<dependency>

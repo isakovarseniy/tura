@@ -23,13 +23,16 @@ package org.tura.platform.repository.core;
 
 import java.util.List;
 
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
+
 public abstract class Triggers {
 	
 	public abstract String getCalssName();
 	public abstract String getQueryName();
 
 	
-	public void preQueryTrigger(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria){
+	public void preQueryTrigger(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria){
 		
 	}
 

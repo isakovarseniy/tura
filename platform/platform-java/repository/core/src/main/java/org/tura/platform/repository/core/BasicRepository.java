@@ -29,8 +29,8 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 
 public class BasicRepository implements Repository{
 
-	private HashMap<String, DataProvider> providerTable = new HashMap<>();
-	private HashMap <String,DataProvider> cmdHash = new HashMap<>(); 
+	private HashMap<String, DataProvider> providerTable = new HashMap<String, DataProvider>();
+	private HashMap <String,DataProvider> cmdHash = new HashMap<String,DataProvider>(); 
 
 	public void addProvider(DataProvider provider, String objectClass) {
 		providerTable.put(objectClass, provider);
