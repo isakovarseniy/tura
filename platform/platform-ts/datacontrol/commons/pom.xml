@@ -25,7 +25,6 @@
 		<dependency>
 			<groupId>org.jsweet</groupId>
 			<artifactId>j4ts</artifactId>
-			<version>0.6.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -94,91 +93,34 @@
 										<file name="org/tura/platform/datacontrol/commons/LazyList.ts" />
 										<file name="org/tura/platform/datacontrol/commons/OrderCriteria.ts" />
 										<file name="org/tura/platform/datacontrol/commons/PlatformConfig.ts" />
-										<file name="org/tura/platform/datacontrol/commons/Reflection.ts" />
 										<file name="org/tura/platform/datacontrol/commons/SearchCriteria.ts" />
 										<file name="org/tura/platform/datacontrol/commons/TuraException.ts" />
 
 									</filelist>
 								</concat>
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<executable>${user.home}/.jsweet-node_modules/bin/tsc</executable>
-					<workingDirectory>${project.basedir}</workingDirectory>
-				</configuration>
-			</plugin>
-
-
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.basedir}/src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}</directory>
-									<includes>
-										<include>*.d.ts</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
-				<executions>
-					<execution>
-						<id>add - header</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
+								<exec executable="${user.home}/.jsweet-node_modules/bin/tsc"/>
+								
+                                <move file="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.d.ts" 
+                                           todir="${project.basedir}/src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}"/>								
+								
 								<concat
 									destfile="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.jsq"
 									force="yes">
 									<filelist dir="${project.basedir}/src/main/resources/">
 										<file name="header" />
-										<file
-											name="META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.js" />
+										<file name="META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.js" />
 									</filelist>
 								</concat>
-								<delete
-									file="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.js" />
-								<move
-									file="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.jsq"
-									tofile="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.js" />
+                               <delete file="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.js"/>
+                               <move file="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.jsq" 
+                               tofile="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.js"/>								
+								
 							</target>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-
+			
 
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>

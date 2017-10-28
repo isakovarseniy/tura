@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link mapper.impl.JavaMapperImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getLibraryName <em>Library Name</em>}</li>
  *   <li>{@link mapper.impl.JavaMapperImpl#getArtifactType <em>Artifact Type</em>}</li>
+ *   <li>{@link mapper.impl.JavaMapperImpl#isJsweetCandy <em>Jsweet Candy</em>}</li>
  * </ul>
  *
  * @generated
@@ -191,6 +192,26 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * @ordered
 	 */
 	protected String artifactType = ARTIFACT_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isJsweetCandy() <em>Jsweet Candy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isJsweetCandy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean JSWEET_CANDY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isJsweetCandy() <em>Jsweet Candy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isJsweetCandy()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean jsweetCandy = JSWEET_CANDY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -384,6 +405,27 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isJsweetCandy() {
+		return jsweetCandy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJsweetCandy(boolean newJsweetCandy) {
+		boolean oldJsweetCandy = jsweetCandy;
+		jsweetCandy = newJsweetCandy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MapperPackage.JAVA_MAPPER__JSWEET_CANDY, oldJsweetCandy, jsweetCandy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -403,6 +445,8 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 				return getLibraryName();
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE:
 				return getArtifactType();
+			case MapperPackage.JAVA_MAPPER__JSWEET_CANDY:
+				return isJsweetCandy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -438,6 +482,9 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 				return;
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE:
 				setArtifactType((String)newValue);
+				return;
+			case MapperPackage.JAVA_MAPPER__JSWEET_CANDY:
+				setJsweetCandy((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -475,6 +522,9 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE:
 				setArtifactType(ARTIFACT_TYPE_EDEFAULT);
 				return;
+			case MapperPackage.JAVA_MAPPER__JSWEET_CANDY:
+				setJsweetCandy(JSWEET_CANDY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -503,6 +553,8 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 				return LIBRARY_NAME_EDEFAULT == null ? libraryName != null : !LIBRARY_NAME_EDEFAULT.equals(libraryName);
 			case MapperPackage.JAVA_MAPPER__ARTIFACT_TYPE:
 				return ARTIFACT_TYPE_EDEFAULT == null ? artifactType != null : !ARTIFACT_TYPE_EDEFAULT.equals(artifactType);
+			case MapperPackage.JAVA_MAPPER__JSWEET_CANDY:
+				return jsweetCandy != JSWEET_CANDY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -533,6 +585,8 @@ public class JavaMapperImpl extends TypeMapperImpl implements JavaMapper {
 		result.append(libraryName);
 		result.append(", artifactType: ");
 		result.append(artifactType);
+		result.append(", jsweetCandy: ");
+		result.append(jsweetCandy);
 		result.append(')');
 		return result.toString();
 	}

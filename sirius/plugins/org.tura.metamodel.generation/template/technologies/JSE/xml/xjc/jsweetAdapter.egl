@@ -24,6 +24,10 @@ public class TsAdapter extends PrinterAdapter {
 	
 	public TsAdapter(PrinterAdapter parentAdapter) {
 		super(parentAdapter);
+		addTypeMapping("java.util.List", "java.util.List");
+		addTypeMapping("java.util.Set", "java.util.Set");
+		addTypeMapping("java.util.ArrayList", "java.util.ArrayList");
+		
 	}
 	
 	public ModuleImportDescriptor getModuleImportDescriptor(CompilationUnitElement currentCompilationUnit,

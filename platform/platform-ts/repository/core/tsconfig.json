@@ -2,8 +2,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "sql-dsl/*": ["candies/typings/META-INF/resources/webjars/ts-sql-dsl/2.0/*"],
-      "dc-commons/*": ["candies/typings/META-INF/resources/webjars/commons/2.0/*"],
+      "sql-dsl/*": ["candies/typings/META-INF/resources/typings/ts-sql-dsl/2.0/*"],
+      "dc-commons/*": ["candies/typings/META-INF/resources/typings/commons/2.0/*"],
       "jdk/*": ["candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/*"]
     },
     "module" : "es2015",
@@ -13,11 +13,7 @@
     "declaration": true
   },
   "include": [
-    "src/**/*.ts",
-    "candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/bundle.d.ts",
-    "candies/typings/META-INF/resources/webjars/commons/2.0/commons.d.ts",
-    "candies/typings/META-INF/resources/webjars/ts-sql-dsl/2.0/ts-sql-dsl.d.ts"
-
+    "src/**/*.ts"
 
   ],
   "exclude": [

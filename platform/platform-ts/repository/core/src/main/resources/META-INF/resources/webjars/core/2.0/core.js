@@ -1,3 +1,5 @@
+var g; if (typeof window === 'undefined') { g = global;}else{ g = window;}  
+var java =  g['java'];
 /* Generated from Java with JSweet 2.0.1-SNAPSHOT - http://www.jsweet.org */
 import "jdk/bundle";
 export class DomainObject {

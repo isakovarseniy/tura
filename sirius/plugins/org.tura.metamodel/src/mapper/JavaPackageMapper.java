@@ -19,6 +19,7 @@ package mapper;
  *   <li>{@link mapper.JavaPackageMapper#getVersion <em>Version</em>}</li>
  *   <li>{@link mapper.JavaPackageMapper#getLibraryName <em>Library Name</em>}</li>
  *   <li>{@link mapper.JavaPackageMapper#getArtifactType <em>Artifact Type</em>}</li>
+ *   <li>{@link mapper.JavaPackageMapper#isJsweetCandy <em>Jsweet Candy</em>}</li>
  * </ul>
  *
  * @see mapper.MapperPackage#getJavaPackageMapper()
@@ -208,5 +209,32 @@ public interface JavaPackageMapper extends PackageMapper {
 	 * @generated
 	 */
 	void setArtifactType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Jsweet Candy</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Jsweet Candy</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Jsweet Candy</em>' attribute.
+	 * @see #setJsweetCandy(boolean)
+	 * @see mapper.MapperPackage#getJavaPackageMapper_JsweetCandy()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isJsweetCandy();
+
+	/**
+	 * Sets the value of the '{@link mapper.JavaPackageMapper#isJsweetCandy <em>Jsweet Candy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Jsweet Candy</em>' attribute.
+	 * @see #isJsweetCandy()
+	 * @generated
+	 */
+	void setJsweetCandy(boolean value);
 
 } // JavaPackageMapper

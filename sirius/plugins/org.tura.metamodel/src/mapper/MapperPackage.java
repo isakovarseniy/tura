@@ -341,13 +341,22 @@ public interface MapperPackage extends EPackage {
 	int JAVA_MAPPER__ARTIFACT_TYPE = TYPE_MAPPER_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Jsweet Candy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_MAPPER__JSWEET_CANDY = TYPE_MAPPER_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Java Mapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_MAPPER_FEATURE_COUNT = TYPE_MAPPER_FEATURE_COUNT + 8;
+	int JAVA_MAPPER_FEATURE_COUNT = TYPE_MAPPER_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link mapper.impl.JavaPackageMapperImpl <em>Java Package Mapper</em>}' class.
@@ -441,13 +450,22 @@ public interface MapperPackage extends EPackage {
 	int JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE = PACKAGE_MAPPER_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Jsweet Candy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_PACKAGE_MAPPER__JSWEET_CANDY = PACKAGE_MAPPER_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Java Package Mapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_PACKAGE_MAPPER_FEATURE_COUNT = PACKAGE_MAPPER_FEATURE_COUNT + 7;
+	int JAVA_PACKAGE_MAPPER_FEATURE_COUNT = PACKAGE_MAPPER_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link mapper.impl.JavaScriptMapperImpl <em>Java Script Mapper</em>}' class.
@@ -994,6 +1012,17 @@ public interface MapperPackage extends EPackage {
 	EAttribute getJavaMapper_ArtifactType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaMapper#isJsweetCandy <em>Jsweet Candy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Jsweet Candy</em>'.
+	 * @see mapper.JavaMapper#isJsweetCandy()
+	 * @see #getJavaMapper()
+	 * @generated
+	 */
+	EAttribute getJavaMapper_JsweetCandy();
+
+	/**
 	 * Returns the meta object for class '{@link mapper.JavaPackageMapper <em>Java Package Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1079,6 +1108,17 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJavaPackageMapper_ArtifactType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaPackageMapper#isJsweetCandy <em>Jsweet Candy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Jsweet Candy</em>'.
+	 * @see mapper.JavaPackageMapper#isJsweetCandy()
+	 * @see #getJavaPackageMapper()
+	 * @generated
+	 */
+	EAttribute getJavaPackageMapper_JsweetCandy();
 
 	/**
 	 * Returns the meta object for class '{@link mapper.JavaScriptMapper <em>Java Script Mapper</em>}'.
@@ -1501,6 +1541,14 @@ public interface MapperPackage extends EPackage {
 		EAttribute JAVA_MAPPER__ARTIFACT_TYPE = eINSTANCE.getJavaMapper_ArtifactType();
 
 		/**
+		 * The meta object literal for the '<em><b>Jsweet Candy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_MAPPER__JSWEET_CANDY = eINSTANCE.getJavaMapper_JsweetCandy();
+
+		/**
 		 * The meta object literal for the '{@link mapper.impl.JavaPackageMapperImpl <em>Java Package Mapper</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1565,6 +1613,14 @@ public interface MapperPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE = eINSTANCE.getJavaPackageMapper_ArtifactType();
+
+		/**
+		 * The meta object literal for the '<em><b>Jsweet Candy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_PACKAGE_MAPPER__JSWEET_CANDY = eINSTANCE.getJavaPackageMapper_JsweetCandy();
 
 		/**
 		 * The meta object literal for the '{@link mapper.impl.JavaScriptMapperImpl <em>Java Script Mapper</em>}' class.

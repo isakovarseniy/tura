@@ -130,6 +130,8 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
                  self.~artifactId=type.artifactId;
                  self.~groupId=type.groupId;
                  self.~version= type.version;
+                 self.~jsweetCandy = type.jsweetCandy;
+                 
                  if (type.libraryName <> null)
                      self.~library = type.libraryName;
                  else{
@@ -163,6 +165,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
                  self.~artifactId=pkgMp.artifactId;
                  self.~groupId=pkgMp.groupId;
                  self.~version= pkgMp.version;
+                 self.~jsweetCandy = pkgMp.jsweetCandy;
                  if (pkgMp.libraryName <> null)
                      self.~library = pkgMp.libraryName;
                  else{
@@ -193,6 +196,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
          self.~artifactId="Unable to find JavaMapper for type \""+ container+"." + tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~groupId="Unable to find JavaMapper for type \"" + container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~version= "Unable to find JavaMapper for type \"" + container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
+         self.~jsweetCandy = "Unable to find JavaMapper for type \"" + container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          
      }
 } 

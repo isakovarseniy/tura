@@ -17,6 +17,8 @@ operation  maven_build_runner(hash) {
 
     model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
     util.saveFile( path, "builder."+os_batch_extension(),out.toString());   
+    
+    
 }
 
  @template
@@ -41,6 +43,7 @@ operation  maven_builder(hash) {
 	         h.put("groupId",type.~groupId);
 	         h.put("artifactId",type.~artifactId);
 	         h.put("version",type.~version);
+	         h.put("jsweetCandy",type.~jsweetCandy);
 	         lib.put(type.~library,h);
          }
       }
@@ -57,6 +60,31 @@ operation  maven_builder(hash) {
      var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId;  
      var buffer = builder.process();
      util.saveFile( path, "pom.xml",buffer); 
+     
+    hash.put("path",path);
+     
+     
+      var candy : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/jsweetAdapter.egl",hash,TemplateFactory);
+     candy.process();
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/jsweetconfig.egl",hash,TemplateFactory);
+     candy.process();
+    
+      candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/tsconfig.egl",hash,TemplateFactory);
+     candy.process();
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/xjc/header_ts.egl",hash,TemplateFactory);
+     candy.process();
+
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/xjc/header_js.egl",hash,TemplateFactory);
+     candy.process();
+    
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/candymetadata.egl",hash,TemplateFactory);
+     candy.process();
+     
+     
+     
 }    
 
  @template

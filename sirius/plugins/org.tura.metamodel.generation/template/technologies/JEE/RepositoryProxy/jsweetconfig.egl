@@ -1,0 +1,18 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+${percent}${end}
+
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+%]
+
+
+{
+"adapters": [ "org.tura.jsweet.TsAdapter" ]
+}
+
+[%
+     util.saveFile( path,"jsweetconfig.json",out.toString());   
+%]
