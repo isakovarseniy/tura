@@ -7,7 +7,7 @@
    },
 
 
-"adapters": [ "org.tura.jsweet.TsAdapter" ]
+"adapters": [ "org.tura.jsweet.TsAdapterCommons" ]
 
 }
 

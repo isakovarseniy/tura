@@ -51,16 +51,16 @@ export class DefaulQueryFactory {
         try {
             let query : SelectQuery = Query.select(Query.c("x")).from(baseClass.getCanonicalName()).as("x");
             let condition : string = "WHERE";
-            for(let index121=searchCriteria.iterator();index121.hasNext();) {
-                let criteria = index121.next();
+            for(let index146=searchCriteria.iterator();index146.hasNext();) {
+                let criteria = index146.next();
                 {
                     ConditionConverter["_$wrappers"][/* Enum.valueOf */<any>ConditionConverter[condition]].getRestriction(query, Query.c(criteria.getName()));
                     query.op(/* Enum.valueOf */<any>Operator[criteria.getComparator()], criteria.getValue());
                     condition = "AND";
                 }
             }
-            for(let index122=orderCriteria.iterator();index122.hasNext();) {
-                let order = index122.next();
+            for(let index147=orderCriteria.iterator();index147.hasNext();) {
+                let order = index147.next();
                 {
                     query.orderBy(order.getName());
                     if(/* equals */(<any>((o1: any, o2: any) => { if(o1 && o1.equals) { return o1.equals(o2); } else { return o1 === o2; } })(order.getOrder(),/* Enum.name */SelectQuery.Order[SelectQuery.Order.ASC]))) query.asc(); else query.desc();
@@ -135,8 +135,8 @@ export class LazyList<T> extends java.util.AbstractList<T> {
 
     public reindex(index : number) {
         let map : java.util.HashMap<number, T> = <any>(<java.util.HashMap<number, T>>new java.util.HashMap<number, T>());
-        for(let index123=this.loaded.keySet().iterator();index123.hasNext();) {
-            let i = index123.next();
+        for(let index148=this.loaded.keySet().iterator();index148.hasNext();) {
+            let i = index148.next();
             {
                 let ni : number = i - this.startIndex + index;
                 map.put(<number>new Number(ni), this.loaded.get(i));
