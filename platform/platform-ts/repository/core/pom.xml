@@ -10,6 +10,7 @@
 
 	<groupId>org.tura.platform-ts.repository</groupId>
 	<artifactId>core</artifactId>
+    <packaging>jar</packaging>
 
 	<name>Tura :: Platform :: TS :: Repository :: Core</name>
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>

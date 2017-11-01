@@ -100,8 +100,8 @@ export class BasicRepository {
     }
     applyChanges(changes) {
         try {
-            for (let index121 = changes.iterator(); index121.hasNext();) {
-                let change = index121.next();
+            for (let index149 = changes.iterator(); index149.hasNext();) {
+                let change = index149.next();
                 {
                     let provider = this.cmdHash.get(/* getName */ (c => c["__class"] ? c["__class"] : c["name"])(change.constructor));
                     let cmd = provider.getCommand(/* getName */ (c => c["__class"] ? c["__class"] : c["name"])(change.constructor));

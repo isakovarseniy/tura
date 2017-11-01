@@ -6,9 +6,9 @@ import org.jsweet.transpiler.ModuleImportDescriptor;
 import org.jsweet.transpiler.extension.PrinterAdapter;
 import org.jsweet.transpiler.model.CompilationUnitElement;
 
-public class TsAdapter extends PrinterAdapter {
+public class TsAdapterCore extends PrinterAdapter {
 
-	public TsAdapter(PrinterAdapter parentAdapter) {
+	public TsAdapterCore(PrinterAdapter parentAdapter) {
 		super(parentAdapter);
 		addTypeMapping("java.util.List", "java.util.List");
 		addTypeMapping("java.util.HashMap", "java.util.HashMap");
