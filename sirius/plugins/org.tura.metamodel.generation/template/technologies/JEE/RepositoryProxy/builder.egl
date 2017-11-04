@@ -34,6 +34,8 @@ operation  maven_builder(hash) {
 
     var util = new Native('org.tura.metamodel.commons.Util');
     var lib = new Native("java.util.HashMap"); 
+    var pkg = new Native("java.util.HashMap"); 
+    
 
      var currentLib = component.getArtifactId()+"-"+component.getVersion()+".jar";
      for (type in alltypes){
@@ -45,11 +47,16 @@ operation  maven_builder(hash) {
 	         h.put("version",type.~version);
 	         h.put("jsweetCandy",type.~jsweetCandy);
 	         lib.put(type.~library,h);
+	         
+	         pkg.put(type.~package,type.~artifactId);
+	         
          }
       }
 
 
     hash.put("lib",lib);
+    hash.put("pkg",pkg);
+    
     util.populateTechnologies(hash,model_mapper);
 
   
@@ -72,9 +79,6 @@ operation  maven_builder(hash) {
       candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/tsconfig.egl",hash,TemplateFactory);
      candy.process();
     
-     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/header_ts.egl",hash,TemplateFactory);
-     candy.process();
-
      candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/header_js.egl",hash,TemplateFactory);
      candy.process();
     

@@ -90,7 +90,11 @@
 					<version>2.0</version>
 				</dependency>
 
-
+				<dependency>
+					<groupId>org.tura.platform-ts.datacontrol</groupId>
+					<artifactId>commons</artifactId>
+					<version>2.0</version>
+				</dependency>
 
 
 				<dependency>
@@ -219,6 +223,19 @@
 						<fileset>
 							<directory>${dollar}{project.basedir}/src/main/resources/META-INF/resources/</directory>
 						</fileset>
+						<fileset>
+							<directory>${dollar}{project.basedir}</directory>
+							<includes>
+							    <include>config.properties</include>
+							</includes>
+						</fileset>		
+						<fileset>
+							<directory>${dollar}{project.basedir}/src/main/resources</directory>
+							<includes>
+								<include>header_ts</include>
+							</includes>
+						</fileset>						
+										
 					</filesets>
 				</configuration>
 			</plugin>
