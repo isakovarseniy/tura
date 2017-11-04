@@ -29,7 +29,9 @@ public class TsAdapter extends PrinterAdapter {
 		addTypeMapping("java.util.Set", "java.util.Set");
 		addTypeMapping("java.util.ArrayList", "java.util.ArrayList");
 		addTypeMapping("java.util.HashMap", "java.util.HashMap");
+		addTypeMapping("java.util.Map", "java.util.Map");
 		addTypeMapping("java.util.AbstractList", "java.util.AbstractList");
+		addTypeMapping("java.io.Serializable", "java.io.Serializable");
 		
 	}
 	

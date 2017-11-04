@@ -12,7 +12,9 @@ ${percent}${end}
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "jdk/*": ["candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/*"]
+      "jdk/*": ["candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/*"],
+      "core/*": ["candies/typings/META-INF/resources/typings/core/2.0/*"]
+      
        [% for (h in lib.values()) { %]
        ,"[%=h.get("artifactId")%]/*":["candies/typings/META-INF/resources/typings/[%=h.get("artifactId")%]/[%=h.get("version")%]/*"]
        [% } %]      

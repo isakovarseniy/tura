@@ -9,8 +9,19 @@ ${percent}${end}
 %]
 
 import "jdk/bundle";
-
-
+import {ObjectControl} from "core/core";
+import {ProxyObjectUpdateListener} from "core/core";
+import {ProxyCommadStackProvider} from "core/core";
+import {ProxyRepositoryCommand} from "core/core";
+import {Repository} from "core/core";
+import {DataProvider} from "core/core";
 [%
+
+     for (type in alltypes){
+%]
+import {[%=type.name%]}  from "[%=type.~artifactId%]/[%=type.~artifactId%]";
+[%
+     }
+
      util.saveFile( path+"/src/main/resources","header_ts",out.toString());   
 %]
