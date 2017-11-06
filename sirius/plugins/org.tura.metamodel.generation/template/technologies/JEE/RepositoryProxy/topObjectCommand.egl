@@ -22,6 +22,10 @@ public class [%=cmdtype%]Top[%=masterType.~class%]Command implements org.tura.pl
 
 	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 
+	private Object deepClone(Object t){
+	    com.rits.cloning.Cloner c = new com.rits.cloning.Cloner();
+		return c.deepClone(t);
+	}
 
     public void set[%=util.mergeAndCapitalize(masterType.~class)%]([%=masterType.~fullName%] [%=util.mergeAndUnCapitalize(masterType.~class)%]){
        this.[%=util.mergeAndUnCapitalize(masterType.~class)%] = [%=util.mergeAndUnCapitalize(masterType.~class)%];
@@ -51,8 +55,7 @@ public class [%=cmdtype%]Top[%=masterType.~class%]Command implements org.tura.pl
    
         [%=masterType.~package%].[%=cmdtype%]Top[%=masterType.~class%]Data data = new [%=masterType.~package%].[%=cmdtype%]Top[%=masterType.~class%]Data();
 
-	     com.rits.cloning.Cloner c = new com.rits.cloning.Cloner();
-		 [%=masterType.~fullName%] cloned = c.deepClone([%=util.mergeAndUnCapitalize(masterType.~class)%]);
+		 [%=masterType.~fullName%] cloned = ([%=masterType.~fullName%])deepClone([%=util.mergeAndUnCapitalize(masterType.~class)%]);
          data.set[%=util.mergeAndCapitalize(masterType.name)%](cloned);
          
 		stackProvider.addCommand(data);

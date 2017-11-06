@@ -70,21 +70,10 @@ operation  maven_builder(hash) {
      
     hash.put("path",path);
      
-      var candy : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/jsweetAdapter.egl",hash,TemplateFactory);
+    
+      var candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/tsconfig.egl",hash,TemplateFactory);
      candy.process();
     
-     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/jsweetconfig.egl",hash,TemplateFactory);
-     candy.process();
-    
-      candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/tsconfig.egl",hash,TemplateFactory);
-     candy.process();
-    
-     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/header_js.egl",hash,TemplateFactory);
-     candy.process();
-    
-    
-     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/candymetadata.egl",hash,TemplateFactory);
-     candy.process();
      
      
      

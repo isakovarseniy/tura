@@ -14,6 +14,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
      var hash = new Native('java.util.HashMap');
      var templateStore = new Native('java.util.HashMap');
       var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     var pkg = new Native("java.util.HashMap"); 
 
 
 
@@ -28,6 +29,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    
       for(type in typeCollection){
          type.mappingType2Java(recipe,ingredient);
+	     pkg.put(type.~package,type.~artifactId);
+         
       }   
 	    
  
@@ -58,6 +61,26 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	   cmd.process();
       
       
-      } 
+      }
+	 var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId();  
+      
+    hash.put("path",path);
+    hash.put("pkg",pkg);
+    hash.put("alltypes",typeCollection);
+     
+      var candy : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/jsweetAdapter.egl",hash,TemplateFactory);
+     candy.process();
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/jsweetconfig.egl",hash,TemplateFactory);
+     candy.process();
+    
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/header_js.egl",hash,TemplateFactory);
+     candy.process();
+    
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/candymetadata.egl",hash,TemplateFactory);
+     candy.process();
+       
    }
 %]

@@ -26,6 +26,12 @@ public class [%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]
  	private [%=detailType.~fullName%] [%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%];
 
 	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
+	
+	
+	private Object deepClone(Object t){
+	    com.rits.cloning.Cloner c = new com.rits.cloning.Cloner();
+		return c.deepClone(t);
+	}
 
 [%
         if (noAssosiation){
@@ -146,8 +152,7 @@ operation  containtmentRelation ( masterType, detailType,property,recipe,ingredi
 		    %] 
 		    data.set[%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndUnCapitalize(masterType.~class)%].get[%=util.mergeAndCapitalize(pk.name)%]());
 	      [%}%]
-	     com.rits.cloning.Cloner c = new com.rits.cloning.Cloner();
-		 [%=detailType.~fullName%] cloned = c.deepClone([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%]);
+		 [%=detailType.~fullName%] cloned = ([%=detailType.~fullName%] )deepClone([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%]);
          data.set[%=util.mergeAndCapitalize(detailType.name)%][%=suffix%](cloned);
          
 		stackProvider.addCommand(data);

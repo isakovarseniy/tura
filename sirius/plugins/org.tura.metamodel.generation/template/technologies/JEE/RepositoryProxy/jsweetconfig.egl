@@ -2,6 +2,10 @@
 <#assign start = "[" >
 <#assign end = "]" >
 ${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+
 ${percent}${end}
 
  [%
@@ -9,8 +13,66 @@ ${percent}${end}
 %]
 
 
+
+
 {
-"adapters": [ "org.tura.jsweet.TsAdapter" ]
+	 "@Replace(' return _.deepClone(t);')": {
+	  "include": [
+ [%
+ 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+     var first = true;
+     
+     for (type in alltypes){
+		     
+		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+		     var topObject = true;
+		     for (rel in assosiations){
+		        
+			        var hash = rel.findTypeOfAssosiation(model_mapper);
+				    
+			        var masterType =   hash.get("masterType");
+			        var detailType = hash.get("detailType");
+			        var property =  hash.get("property");
+		            var containment = hash.get("containment");
+				    
+			
+			        if (detailType.uid == type.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"  and containment){
+			           topObject = false;
+			        }
+			        %]
+	  [%if ( not first){%],[%}%] "[%=type.~package%].proxy.commands.Add[%=detailType.~class%]2[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Command.deepClone(..)" 
+	  , "[%=type.~package%].proxy.commands.Remove[%=detailType.~class%]From[%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Command.deepClone(..)" 
+			        [%
+					first=false;	     
+		     }
+		     if (topObject  ){
+		     %]
+      [%if (not first){%],[%}%] "[%=type.~package%].proxy.commands.AddTop[%=type.~class%]Command.deepClone(..)" 
+     , "[%=type.~package%].proxy.commands.RemoveTop[%=type.~class%]Command.deepClone(..)" 
+		     
+		     [%
+					first=false;	     
+		     }
+ }
+%]
+]}
+
+[%
+     for (type in alltypes){
+%]
+	 ,"@Replace(' return new [%=type.~class%]Proxy(_.deepClone(this.object),null);')": {
+	  "include": ["[%=type.~package%].[%=type.~class%]Proxy.clone(..)"]}
+[%
+
+}
+%]
+
+
+
+
+,"adapters": [ "org.tura.jsweet.TsAdapter" ]
 }
 
 [%
