@@ -16,7 +16,7 @@ ${percent}${end}
 
 
 {
-	 "@Replace(' return _.deepClone(t);')": {
+	 "@Replace(' return cloneDeep(t);')": {
 	  "include": [
  [%
  
@@ -62,7 +62,7 @@ ${percent}${end}
 [%
      for (type in alltypes){
 %]
-	 ,"@Replace(' return new [%=type.~class%]Proxy(_.deepClone(this.object),null);')": {
+	 ,"@Replace(' return new [%=type.~class%]Proxy(cloneDeep(this.object),null);')": {
 	  "include": ["[%=type.~package%].[%=type.~class%]Proxy.clone(..)"]}
 [%
 

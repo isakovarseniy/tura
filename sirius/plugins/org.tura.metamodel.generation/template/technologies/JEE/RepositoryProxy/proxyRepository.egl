@@ -136,7 +136,7 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
     	org.tura.platform.repository.core.SearchResult  result =  transport.find(searchCriteria, orderCriteria, startIndex,endIndex, objectClass);
     	
     	@SuppressWarnings("rawtypes")
-		java.util.List  list = new java.util.ArrayList();
+		java.util.List<Object>  list = new java.util.ArrayList<Object>();
     	for (Object obj : result.getSearchResult()){
     		list.add(factory(obj,objectClass));
     	}

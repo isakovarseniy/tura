@@ -58,6 +58,7 @@ public class TsAdapter extends PrinterAdapter {
 				prop.store(output, null);
 				
 				Files.write(Paths.get("src/main/resources/header_ts"),("import \"jdk/bundle\"; \n").getBytes(),StandardOpenOption.CREATE);
+				Files.write(Paths.get("src/main/resources/header_ts"),("import {cloneDeep} from \"lodash\"; \n").getBytes(),StandardOpenOption.APPEND);
 			    Files.write(Paths.get("src/main/resources/header_ts"),("import {ObjectControl} from \"core/core\";\n").getBytes(),StandardOpenOption.APPEND);
 			    Files.write(Paths.get("src/main/resources/header_ts"),("import {ProxyObjectUpdateListener} from \"core/core\";\n").getBytes(),StandardOpenOption.APPEND);
 			    Files.write(Paths.get("src/main/resources/header_ts"),("import {ProxyCommadStackProvider} from \"core/core\";\n").getBytes(),StandardOpenOption.APPEND);
