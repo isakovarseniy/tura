@@ -20,7 +20,6 @@
 		<module>ts-sql-dsl</module>
 		<module>datacontrol</module>
 		<module>repository</module>
-		<module>test</module>
 	</modules>
 
 </project>

@@ -23,7 +23,6 @@
 		<module>primefaces-model</module>
 		<module>primefaces-selenium</module>
 		<module>repository</module>
-		<module>test</module>
 	</modules>
 
 </project>

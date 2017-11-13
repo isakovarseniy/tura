@@ -3,17 +3,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	
 	<parent>
-		<groupId>org.tura.platform-java</groupId>
-		<artifactId>test</artifactId>
+		<groupId>org.tura</groupId>
+		<artifactId>test-java</artifactId>
 		<version>2.0</version>
 	</parent>
-	
-	<groupId>org.tura.platform-java.test</groupId>
-	<artifactId>test-of-generated-nested-datacontrols</artifactId>
 
-	<name>Tura :: Platform :: Java :: Test :: Generated code :: Nested Data Control</name>
+	<groupId>org.tura.test-java</groupId>
+	<artifactId>test-of-generated-datacontrol</artifactId>
+
+	<name>Tura :: Platform :: Java :: Test :: Generated code :: DataControl</name>
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
@@ -37,32 +36,10 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.1-901.jdbc4</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-jpa-module-api</artifactId>
-			<version>${version.deltaspike}</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.deltaspike.modules</groupId>
-			<artifactId>deltaspike-jpa-module-impl</artifactId>
-			<version>${version.deltaspike}</version>
-			<scope>test</scope>
-		</dependency>
-
 
 		<dependency>
 			<groupId>org.tura.platform-java.datacontrol</groupId>
@@ -88,7 +65,19 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-jpa-module-api</artifactId>
+			<version>${version.deltaspike}</version>
+			<scope>compile</scope>
+		</dependency>
 
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-jpa-module-impl</artifactId>
+			<version>${version.deltaspike}</version>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -114,7 +103,7 @@
 			<artifactId>javaee-api</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.tura.platform-java.repository</groupId>
 			<artifactId>cdi</artifactId>
@@ -123,24 +112,22 @@
 
 		<dependency>
 			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>test-datacontrol-complex-object-model</artifactId>
+			<artifactId>test-datacontrol-simple-object-model</artifactId>
 			<version>1.0</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>hr-complex-model-jpa</artifactId>
+			<artifactId>hr-simple-model-jpa</artifactId>
 			<version>1.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>hr-complex-model-repository</artifactId>
+			<artifactId>hr-simple-model-repository</artifactId>
 			<version>1.0</version>
 		</dependency>
-
-
 
 	</dependencies>
 

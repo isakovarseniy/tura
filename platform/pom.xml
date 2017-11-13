@@ -85,6 +85,8 @@
 	<modules>
 		<module>platform-java</module>
 		<module>platform-ts</module>
+		<module>test-java</module>
+		<module>test-ts</module>
 	</modules>
 
 

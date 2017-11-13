@@ -4,17 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.tura.platform-ts</groupId>
-		<artifactId>test</artifactId>
+		<groupId>org.tura</groupId>
+		<artifactId>test-ts</artifactId>
 		<version>2.0</version>
 	</parent>
 
-	<groupId>org.tura.platform-ts.test</groupId>
+	<groupId>org.tura.test-ts</groupId>
 	<artifactId>test-ts-sql-dsl</artifactId>
 	<name>Tura :: Platform :: TypeScript :: Test :: Typescript SQL DSL</name>
 
 	<properties>
-		<src.dir>../../../platform-java/java-sql-dsl/src/test/java/</src.dir>
+		<src.dir>../../platform-java/java-sql-dsl/src/test/java/</src.dir>
 	</properties>
 
 

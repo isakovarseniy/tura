@@ -1493,22 +1493,22 @@ export abstract class Query<T extends Query<T>> implements Visitable {
 
     public whereReset() : T {
         this.whereClause = null;
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public where$com_octo_java_sql_exp_Column(column : Column) : T {
         this.whereClause = new OpExp(column);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public where$com_octo_java_sql_exp_Exp(newWhereClause : Exp) : T {
         this.whereClause = newWhereClause;
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public where$com_octo_java_sql_exp_Column$com_octo_java_sql_exp_Operator$java_lang_Object(column : Column, operator : Operator, value : any) : T {
         if(value != null) this.whereClause = new OpExp(column, operator, value);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public where(column? : any, operator? : any, value? : any) : any {
@@ -1525,67 +1525,67 @@ export abstract class Query<T extends Query<T>> implements Visitable {
 
     public where$com_octo_java_sql_exp_SQLFunc(func : SQLFunc) : T {
         this.whereClause = new OpExp(func);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public eq(value : any) : T {
         this.assertWhereClauseIsInitialized("eq");
         this.whereClause = this.whereClause.eq(value);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public eqOrIsNull(value : any) : T {
         this.assertWhereClauseIsInitialized("eq");
         this.whereClause = this.whereClause.eq(new Nullable(value));
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public neq(value : any) : T {
         this.assertWhereClauseIsInitialized("neq");
         this.whereClause = this.whereClause.neq(value);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public neqNullable(value : any) : T {
         this.assertWhereClauseIsInitialized("neq");
         this.whereClause = this.whereClause.neq(new Nullable(value));
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public geq(value : number) : T {
         this.assertWhereClauseIsInitialized("geq");
         this.whereClause = this.whereClause.geq(value);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public leq(value : number) : T {
         this.assertWhereClauseIsInitialized("leq");
         this.whereClause = this.whereClause.leq(value);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public like(value : string) : T {
         this.assertWhereClauseIsInitialized("like");
         this.whereClause = this.whereClause.like(value);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public in(...values : any[]) : T {
         this.assertWhereClauseIsInitialized("in");
         this.whereClause = (o => o.in.apply(o, values))(this.whereClause);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public notIn(...values : any[]) : T {
         this.assertWhereClauseIsInitialized("not in");
         this.whereClause = (o => o.notIn.apply(o, values))(this.whereClause);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public and$com_octo_java_sql_exp_Column(column : Column) : T {
         this.assertWhereClauseIsInitialized("and");
         this.whereClause = this.whereClause.and$com_octo_java_sql_exp_Column(column);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public and(column? : any) : any {
@@ -1601,25 +1601,25 @@ export abstract class Query<T extends Query<T>> implements Visitable {
     public and$com_octo_java_sql_exp_SQLFunc(func : SQLFunc) : T {
         this.assertWhereClauseIsInitialized("and");
         this.whereClause = this.whereClause.and$com_octo_java_sql_exp_SQLFunc(func);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public and$com_octo_java_sql_exp_Exp(exp : Exp) : T {
         this.assertWhereClauseIsInitialized("and");
         this.whereClause = this.whereClause.and$com_octo_java_sql_exp_Exp(exp);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public isNull() : T {
         this.assertWhereClauseIsInitialized("isNull");
         this.whereClause = this.whereClause.isNull();
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public isNotNull() : T {
         this.assertWhereClauseIsInitialized("isNotNull");
         this.whereClause = this.whereClause.isNotNull();
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     /**
@@ -1633,31 +1633,31 @@ export abstract class Query<T extends Query<T>> implements Visitable {
     public betweenOrOp(op : Operator, valueStart : any, valueEnd : any) : T {
         this.assertWhereClauseIsInitialized(op == null?null:Operator["_$wrappers"][op].getValue());
         this.whereClause = this.whereClause.betweenOrOp(op, valueStart, valueEnd);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public between(valueStart : any, valueEnd : any) : T {
         this.assertWhereClauseIsInitialized("between");
         this.whereClause = this.whereClause.between(valueStart, valueEnd);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public op(op : Operator, value : any) : T {
         this.assertWhereClauseIsInitialized(op == null?null:Operator["_$wrappers"][op].getValue());
         this.whereClause = this.whereClause.applyOperation(op, value);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public startWith(value : string) : T {
         this.assertWhereClauseIsInitialized("startWith");
         this.whereClause = this.whereClause.startWith(value);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public contains(value : string) : T {
         this.assertWhereClauseIsInitialized("contains");
         this.whereClause = this.whereClause.contains(value);
-        return <T><any>this;
+        return <T><any><any>this;
     }
 
     public static addFuncEvaluator(funcName : string, evaluator : JavaSQLFunc.Evaluable<string>) {

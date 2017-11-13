@@ -5,15 +5,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<parent>
-		<groupId>org.tura.platform-java</groupId>
-		<artifactId>test</artifactId>
+		<groupId>org.tura</groupId>
+		<artifactId>test-java</artifactId>
 		<version>2.0</version>
 	</parent>
 	
-	<groupId>org.tura.platform-java.test</groupId>
-	<artifactId>test-of-generated-jpa-objects</artifactId>
+	<groupId>org.tura.test-java</groupId>
+	<artifactId>test-of-generated-nested-datacontrols</artifactId>
 
-	<name>Tura :: Platform :: Java :: Test :: Generated code :: JPA</name>
+	<name>Tura :: Platform :: Java :: Test :: Generated code :: Nested Data Control</name>
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
@@ -47,6 +47,22 @@
 			<artifactId>postgresql</artifactId>
 			<version>9.1-901.jdbc4</version>
 		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-jpa-module-api</artifactId>
+			<version>${version.deltaspike}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-jpa-module-impl</artifactId>
+			<version>${version.deltaspike}</version>
+			<scope>test</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.tura.platform-java.datacontrol</groupId>
@@ -98,13 +114,31 @@
 			<artifactId>javaee-api</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.tura.platform-java.repository</groupId>
+			<artifactId>cdi</artifactId>
+		</dependency>
 
-	<dependency>
-		<groupId>org.tura.platform.test.generated-code</groupId>
-		<artifactId>test-objects-jpa</artifactId>
-		<version>1.0</version>
-			<scope>test</scope>
-	</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-datacontrol-complex-object-model</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>hr-complex-model-jpa</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>hr-complex-model-repository</artifactId>
+			<version>1.0</version>
+		</dependency>
 
 
 

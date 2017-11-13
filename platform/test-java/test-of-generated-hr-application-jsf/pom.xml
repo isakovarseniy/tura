@@ -5,17 +5,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.tura.platform-java</groupId>
-		<artifactId>test</artifactId>
+		<groupId>org.tura</groupId>
+		<artifactId>test-java</artifactId>
 		<version>2.0</version>
 	</parent>
 
-	<groupId>org.tura.platform-java.test</groupId>
-	<artifactId>test-of-generated-jpa-rest-repository</artifactId>
-
-	<name>Tura :: Platform :: Java :: Test :: Generated code :: REST :: JPA Repository</name>
-	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
-
+	<groupId>org.tura.test-java</groupId>
+	<artifactId>test-of-generated-hr-application-jsf</artifactId>
+	<packaging>jar</packaging>
 
 	<dependencyManagement>
 		<dependencies>
@@ -29,44 +26,24 @@
 		</dependencies>
 	</dependencyManagement>
 
+
+
 	<dependencies>
-
 		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>test-objects-restservice-repository</artifactId>
-			<type>war</type>
-			<version>1.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform-java.repository</groupId>
-			<artifactId>rest-client</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>javax.ws.rs-api</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jboss.resteasy</groupId>
-			<artifactId>resteasy-client</artifactId>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 
 
 		<dependency>
-			<groupId>org.jboss.resteasy</groupId>
-			<artifactId>resteasy-jackson-provider</artifactId>
+			<groupId>org.tura.platform-java</groupId>
+			<artifactId>primefaces-selenium</artifactId>
+			<version>2.0</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.fasterxml.jackson.module</groupId>
-			<artifactId>jackson-module-jaxb-annotations</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.tura.platform.test.generated-code</groupId>
-			<artifactId>test-objects-repository-proxy</artifactId>
+			<groupId>org.tura.example.ui</groupId>
+			<artifactId>hrform-pageobjects</artifactId>
 			<version>1.0</version>
 		</dependency>
 
@@ -119,7 +96,10 @@
 			<scope>test</scope>
 		</dependency>
 
+
+
 	</dependencies>
+
 	<build>
 		<testResources>
 			<testResource>
@@ -127,5 +107,4 @@
 			</testResource>
 		</testResources>
 	</build>
-
 </project>
