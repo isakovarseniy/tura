@@ -192,6 +192,11 @@
                                <move file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.tsq" 
                                tofile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.ts"/>								
 								
+								<exec executable="npm">
+								        <arg value="install" />
+								        <arg value="&#x002d;&#x002d;save" />
+                                        <arg value="@types/lodash" />
+								</exec>
 								<exec executable="${dollar}{user.home}/.jsweet-node_modules/bin/tsc"/>
 								
                                 <move file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.d.ts" 

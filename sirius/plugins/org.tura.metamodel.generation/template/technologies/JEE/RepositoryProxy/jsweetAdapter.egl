@@ -66,8 +66,8 @@ public class TsAdapter extends PrinterAdapter {
 			    Files.write(Paths.get("src/main/resources/header_ts"),("import {Repository} from \"core/core\";\n").getBytes(),StandardOpenOption.APPEND);
 			    Files.write(Paths.get("src/main/resources/header_ts"),("import {DataProvider} from \"core/core\";\n").getBytes(),StandardOpenOption.APPEND);
 			    Files.write(Paths.get("src/main/resources/header_ts"),("import {RepositoryException} from \"core/core\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {SearchCriteria} from \"commons/commons\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {OrderCriteria} from \"commons/commons\";\n").getBytes(),StandardOpenOption.APPEND);
+			    Files.write(Paths.get("src/main/resources/header_ts"),("import {SearchCriteria} from \"dc-commons/commons\";\n").getBytes(),StandardOpenOption.APPEND);
+			    Files.write(Paths.get("src/main/resources/header_ts"),("import {OrderCriteria} from \"dc-commons/commons\";\n").getBytes(),StandardOpenOption.APPEND);
 			    Files.write(Paths.get("src/main/resources/header_ts"),("import {SearchResult} from \"core/core\";\n").getBytes(),StandardOpenOption.APPEND);
 				
 			} catch (Exception e1) {
