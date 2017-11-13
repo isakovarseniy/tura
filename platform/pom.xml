@@ -225,7 +225,7 @@
 
 			<dependency>
 				<groupId>org.tura.platform-ts.datacontrol</groupId>
-				<artifactId>commons</artifactId>
+				<artifactId>dc-commons</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
 

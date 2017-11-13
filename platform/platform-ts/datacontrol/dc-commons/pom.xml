@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.tura.platform-ts</groupId>
+		<artifactId>datacontrol</artifactId>
+		<version>2.0</version>
+	</parent>
+
+	<groupId>org.tura.platform-ts.datacontrol</groupId>
+	<artifactId>dc-commons</artifactId>
+
+	<name>Tura :: Platform :: TS :: DataControl :: Commons</name>
+	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
+
+
+	<properties>
+		<src.dir>../../../platform-java/datacontrol/commons/src/main/java/</src.dir>
+	</properties>
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.jsweet</groupId>
+			<artifactId>j4ts</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform-ts</groupId>
+			<artifactId>ts-sql-dsl</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.jsweet</groupId>
+			<artifactId>jsweet-transpiler</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jsweet</groupId>
+			<artifactId>jsweet-core</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jsweet</groupId>
+				<artifactId>jsweet-maven-plugin</artifactId>
+				<version>${version.jsweet.transpiler}</version>
+				<executions>
+					<execution>
+						<id>generate-js</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>jsweet</goal>
+						</goals>
+						<configuration>
+							<verbose>true</verbose>
+							<outDir>${project.basedir}/target</outDir>
+							<tsOut>${project.basedir}/target</tsOut>
+							<tsOnly>true</tsOnly>
+							<workingDir>${project.basedir}</workingDir>
+							<targetVersion>ES6</targetVersion>
+							<module>es2015</module>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<concat
+									destfile="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.ts"
+									force="yes">
+									<filelist dir="${project.basedir}/target">
+
+										<file name="org/tura/platform/datacontrol/commons/ConditionConverter.ts" />
+										<file name="org/tura/platform/datacontrol/commons/Constants.ts" />
+										<file name="org/tura/platform/datacontrol/commons/DefaulQueryFactory.ts" />
+										<file name="org/tura/platform/datacontrol/commons/LazyList.ts" />
+										<file name="org/tura/platform/datacontrol/commons/OrderCriteria.ts" />
+										<file name="org/tura/platform/datacontrol/commons/PlatformConfig.ts" />
+										<file name="org/tura/platform/datacontrol/commons/SearchCriteria.ts" />
+										<file name="org/tura/platform/datacontrol/commons/TuraException.ts" />
+
+									</filelist>
+								</concat>
+								<exec executable="${user.home}/.jsweet-node_modules/bin/tsc"/>
+								
+                                <move file="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.d.ts" 
+                                           todir="${project.basedir}/src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}"/>								
+								
+								<concat
+									destfile="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.jsq"
+									force="yes">
+									<filelist dir="${project.basedir}/src/main/resources/">
+										<file name="header" />
+										<file name="META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.js" />
+									</filelist>
+								</concat>
+                               <delete file="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.js"/>
+                               <move file="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.jsq" 
+                               tofile="${project.basedir}/src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/${project.artifactId}.js"/>								
+								
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${project.basedir}/src/main/resources/META-INF/resources/</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+		</plugins>
+		<sourceDirectory>${src.dir}</sourceDirectory>
+	</build>
+
+</project>
