@@ -440,15 +440,6 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJavaMapper_JsweetCandy() {
-		return (EAttribute)javaMapperEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getJavaPackageMapper() {
 		return javaPackageMapperEClass;
 	}
@@ -767,7 +758,6 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__VERSION);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__LIBRARY_NAME);
 		createEAttribute(javaMapperEClass, JAVA_MAPPER__ARTIFACT_TYPE);
-		createEAttribute(javaMapperEClass, JAVA_MAPPER__JSWEET_CANDY);
 
 		javaPackageMapperEClass = createEClass(JAVA_PACKAGE_MAPPER);
 		createEAttribute(javaPackageMapperEClass, JAVA_PACKAGE_MAPPER__UID);
@@ -879,7 +869,6 @@ public class MapperPackageImpl extends EPackageImpl implements MapperPackage {
 		initEAttribute(getJavaMapper_Version(), ecorePackage.getEString(), "version", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_LibraryName(), ecorePackage.getEString(), "libraryName", null, 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaMapper_ArtifactType(), ecorePackage.getEString(), "artifactType", "jar", 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJavaMapper_JsweetCandy(), ecorePackage.getEBoolean(), "jsweetCandy", "false", 0, 1, JavaMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaPackageMapperEClass, JavaPackageMapper.class, "JavaPackageMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaPackageMapper_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, JavaPackageMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

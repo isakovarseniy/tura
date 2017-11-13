@@ -38,7 +38,6 @@ class JavaMapper extends TypeMapper{
    attr EString version;
    attr EString libraryName;
    attr EString artifactType = "jar";
-   attr EBoolean jsweetCandy = false;
 }
 
 

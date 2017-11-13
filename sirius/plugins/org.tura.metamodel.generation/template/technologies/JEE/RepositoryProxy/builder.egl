@@ -45,8 +45,6 @@ operation  maven_builder(hash) {
 	         h.put("groupId",type.~groupId);
 	         h.put("artifactId",type.~artifactId);
 	         h.put("version",type.~version);
-	         h.put("jsweetCandy",type.~jsweetCandy);
-	         lib.put(type.~library,h);
 	         
 	         pkg.put(type.~package,type.~artifactId);
 	         
