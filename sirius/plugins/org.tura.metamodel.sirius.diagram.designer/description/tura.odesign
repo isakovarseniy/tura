@@ -2592,6 +2592,28 @@
           <variables name="container" documentation="The semantic element corresponding to the view container."/>
         </create>
       </subItemMappings>
+      <subItemMappings name="JavaScript package mappers" domainClass="mapper.Mappers" semanticCandidatesExpression="feature:mapper">
+        <defaultStyle labelSize="12" labelExpression="Java Script package mappers">
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+        </defaultStyle>
+        <subItemMappings name="JavaScript package mapper" domainClass="mapper.JavaScriptPackageMapper" semanticCandidatesExpression="feature:mappers">
+          <defaultStyle labelSize="12" labelExpression="service:generateName">
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+        </subItemMappings>
+        <create name="Create JavaScript Package Mapper" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Mapping%20diagram']/@subItemMappings[name='JavaScript%20package%20mappers']">
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="mapper.JavaScriptPackageMapper" referenceName="mappers">
+              <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <variables name="root" documentation="The semantic element of the tree."/>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        </create>
+      </subItemMappings>
       <subItemMappings name="CSS mappers" domainClass="mapper.Mappers" semanticCandidatesExpression="feature:mapper">
         <defaultStyle labelSize="12" labelExpression="CSS mappers">
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='black']"/>

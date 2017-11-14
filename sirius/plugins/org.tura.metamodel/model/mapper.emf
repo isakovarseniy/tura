@@ -49,8 +49,8 @@ class JavaPackageMapper extends PackageMapper {
    attr EString version;
    attr EString libraryName;
    attr EString artifactType = "jar";
-   attr EBoolean jsweetCandy = false;
 }
+
 
 
 class JavaScriptMapper extends TypeMapper{
@@ -61,6 +61,18 @@ class JavaScriptMapper extends TypeMapper{
    attr EString version;
    attr EString artifactType = "jar";
 }
+
+
+class JavaScriptPackageMapper extends PackageMapper {
+    id attr EString uid;
+   attr EString mappedToPackageName;
+   attr EString artifactId;
+   attr EString groupId;
+   attr EString version;
+   attr EString libraryUrl;
+   attr EString artifactType = "jar";
+}
+
 
 class CSSMapper extends Mapper, style.StylePointer{
      id attr EString uid;

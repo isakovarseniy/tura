@@ -94,6 +94,15 @@ public interface MapperFactory extends EFactory {
 	JavaScriptMapper createJavaScriptMapper();
 
 	/**
+	 * Returns a new object of class '<em>Java Script Package Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Java Script Package Mapper</em>'.
+	 * @generated
+	 */
+	JavaScriptPackageMapper createJavaScriptPackageMapper();
+
+	/**
 	 * Returns a new object of class '<em>CSS Mapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

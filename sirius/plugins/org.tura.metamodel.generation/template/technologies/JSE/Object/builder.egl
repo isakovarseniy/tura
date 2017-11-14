@@ -32,16 +32,37 @@ operation  maven_builder(hash) {
 
     var util = new Native('org.tura.metamodel.commons.Util');
     var lib = new Native('java.util.HashMap');
+    var pkg = new Native('java.util.HashMap');
+    var packages = new Native('java.util.HashMap');
 
      var currentLib = component.getArtifactId()+"-"+component.getVersion()+".jar";
      for (type in alltypes){
         type.mappingType2Java(recipe,ingredient);
         if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  type.~library <> null and  type.~library.equals(currentLib)<>true ){
-            lib.put(type.~library,type);
+            pkg.put(type.~library,type);
+	        packages.put(type.~package,type.~artifactId);
         }
      }
+     for (type in alltypes){
+        type.mappingType2JavaScript(recipe,ingredient);
+        if (type.~mapper <> null  and  not type.~mapper.equals("NA")  ){
+	         var h = new Native("java.util.HashMap"); 
+	         h.put("groupId",type.~groupId);
+	         h.put("artifactId",type.~artifactId);
+	         h.put("version",type.~version);
+	         
+	         lib.put("type.~artifactId",h);
+         
+         	 packages.put(type.~package,type.~artifactId);
+           
+        }
+    }
+
 
     hash.put("lib",lib);
+    hash.put("pkg",pkg);
+    hash.put("packages",packages);
+    
     util.populateTechnologies(hash,model_mapper);
 
   
@@ -53,15 +74,15 @@ operation  maven_builder(hash) {
      var buffer = builder.process();
      util.saveFile( path, "pom.xml",buffer); 
      
-    hash.put("path",path);
+     hash.put("path",path);
     
-     var candy : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/xjc/jsweetAdapter.egl",hash,TemplateFactory);
+     var candy : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/jsweetAdapter.egl",hash,TemplateFactory);
      candy.process();
     
      candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/xjc/jsweetconfig.egl",hash,TemplateFactory);
      candy.process();
     
-     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/xjc/tsconfig.egl",hash,TemplateFactory);
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/tsconfig.egl",hash,TemplateFactory);
      candy.process();
 
      candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/xml/xjc/header_ts.egl",hash,TemplateFactory);

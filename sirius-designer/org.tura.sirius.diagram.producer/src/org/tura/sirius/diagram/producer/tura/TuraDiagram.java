@@ -29,6 +29,8 @@ import org.tura.sirius.diagram.producer.tura.config.mappers.JavaPackageMapperCon
 import org.tura.sirius.diagram.producer.tura.config.mappers.JavaPackageMappersConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.mappers.JavaScriptMapperConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.mappers.JavaScriptMappersConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.mappers.JavaScriptPackageMapperConfigurator;
+import org.tura.sirius.diagram.producer.tura.config.mappers.JavaScriptPackageMappersConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.mappers.JavaTypeMapperConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.mappers.JavaTypeMappersConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.mappers.RoleMapperConfigurator;
@@ -83,6 +85,7 @@ public class TuraDiagram {
         treeDiagram.addChild(JavaTypeMappersConfigurator.create().addChild(JavaTypeMapperConfigurator.create()));
         treeDiagram.addChild(JavaPackageMappersConfigurator.create().addChild(JavaPackageMapperConfigurator.create()));
         treeDiagram.addChild(JavaScriptMappersConfigurator.create().addChild(JavaScriptMapperConfigurator.create()));
+        treeDiagram.addChild(JavaScriptPackageMappersConfigurator.create().addChild(JavaScriptPackageMapperConfigurator.create()));
         treeDiagram.addChild(CSSMappersConfigurator.create().addChild(CSSMapperConfigurator.create()));
         treeDiagram.addChild(RoleMappersConfigurator.create().addChild(RoleMapperConfigurator.create()));
         treeDiagram.addChild(XMLPackageMappersConfigurator.create().addChild(XMLPackageMapperConfigurator.create()));

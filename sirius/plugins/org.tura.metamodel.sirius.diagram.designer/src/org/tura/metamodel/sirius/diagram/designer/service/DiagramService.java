@@ -76,6 +76,7 @@ import mapper.CSSMapper;
 import mapper.JavaMapper;
 import mapper.JavaPackageMapper;
 import mapper.JavaScriptMapper;
+import mapper.JavaScriptPackageMapper;
 import mapper.RoleMapper;
 import mapper.XMLPackageMapper;
 import mapper.XMLTypeMapper;
@@ -304,6 +305,11 @@ public class DiagramService {
 		return (String) new TypeGroupPointerName().getFeatureValue(mapper, null);
 	}
 
+	public String generateName(JavaScriptPackageMapper mapper) {
+		return (String) new TypeGroupPointerName().getFeatureValue(mapper, null);
+	}
+
+	
 	public String generateName(CSSMapper mapper) {
 		return (String) new StylePointerLibraryName().getFeatureValue(mapper, null);
 	}

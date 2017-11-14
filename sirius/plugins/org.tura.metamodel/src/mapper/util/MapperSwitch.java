@@ -134,6 +134,15 @@ public class MapperSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MapperPackage.JAVA_SCRIPT_PACKAGE_MAPPER: {
+				JavaScriptPackageMapper javaScriptPackageMapper = (JavaScriptPackageMapper)theEObject;
+				T result = caseJavaScriptPackageMapper(javaScriptPackageMapper);
+				if (result == null) result = casePackageMapper(javaScriptPackageMapper);
+				if (result == null) result = caseMapper(javaScriptPackageMapper);
+				if (result == null) result = casePackagePointer(javaScriptPackageMapper);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case MapperPackage.CSS_MAPPER: {
 				CSSMapper cssMapper = (CSSMapper)theEObject;
 				T result = caseCSSMapper(cssMapper);
@@ -289,6 +298,21 @@ public class MapperSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJavaScriptMapper(JavaScriptMapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Java Script Package Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Java Script Package Mapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJavaScriptPackageMapper(JavaScriptPackageMapper object) {
 		return null;
 	}
 

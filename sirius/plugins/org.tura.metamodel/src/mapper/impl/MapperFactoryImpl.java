@@ -64,6 +64,7 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 			case MapperPackage.JAVA_MAPPER: return createJavaMapper();
 			case MapperPackage.JAVA_PACKAGE_MAPPER: return createJavaPackageMapper();
 			case MapperPackage.JAVA_SCRIPT_MAPPER: return createJavaScriptMapper();
+			case MapperPackage.JAVA_SCRIPT_PACKAGE_MAPPER: return createJavaScriptPackageMapper();
 			case MapperPackage.CSS_MAPPER: return createCSSMapper();
 			case MapperPackage.ROLE_MAPPER: return createRoleMapper();
 			case MapperPackage.XML_PACKAGE_MAPPER: return createXMLPackageMapper();
@@ -151,6 +152,16 @@ public class MapperFactoryImpl extends EFactoryImpl implements MapperFactory {
 	public JavaScriptMapper createJavaScriptMapper() {
 		JavaScriptMapperImpl javaScriptMapper = new JavaScriptMapperImpl();
 		return javaScriptMapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JavaScriptPackageMapper createJavaScriptPackageMapper() {
+		JavaScriptPackageMapperImpl javaScriptPackageMapper = new JavaScriptPackageMapperImpl();
+		return javaScriptPackageMapper;
 	}
 
 	/**

@@ -214,6 +214,11 @@ public class MappersItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MapperPackage.Literals.MAPPERS__MAPPERS,
+				 MapperFactory.eINSTANCE.createJavaScriptPackageMapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MapperPackage.Literals.MAPPERS__MAPPERS,
 				 MapperFactory.eINSTANCE.createCSSMapper()));
 
 		newChildDescriptors.add

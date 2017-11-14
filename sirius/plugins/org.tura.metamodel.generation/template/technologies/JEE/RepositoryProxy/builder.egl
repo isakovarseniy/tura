@@ -35,6 +35,7 @@ operation  maven_builder(hash) {
     var util = new Native('org.tura.metamodel.commons.Util');
     var lib = new Native("java.util.HashMap"); 
     var pkg = new Native("java.util.HashMap"); 
+    var jslib = new Native("java.util.HashMap"); 
     
 
      var currentLib = component.getArtifactId()+"-"+component.getVersion()+".jar";
@@ -45,15 +46,33 @@ operation  maven_builder(hash) {
 	         h.put("groupId",type.~groupId);
 	         h.put("artifactId",type.~artifactId);
 	         h.put("version",type.~version);
+	         lib.put(type.~artifactId,h);
 	         
 	         pkg.put(type.~package,type.~artifactId);
 	         
          }
       }
 
+     for (type in alltypes){
+        type.mappingType2JavaScript(recipe,ingredient);
+        if (type.~mapper <> null  and  not type.~mapper.equals("NA")  ){
+	         var h = new Native("java.util.HashMap"); 
+	         h.put("groupId",type.~groupId);
+	         h.put("artifactId",type.~artifactId);
+	         h.put("version",type.~version);
+	         
+	         lib.put(type.~artifactId,h);
+	         jslib.put(type.~artifactId,h);
+           
+        }
+    }
+
 
     hash.put("lib",lib);
     hash.put("pkg",pkg);
+    hash.put("jslib",jslib);
+    
+    
     
     util.populateTechnologies(hash,model_mapper);
 

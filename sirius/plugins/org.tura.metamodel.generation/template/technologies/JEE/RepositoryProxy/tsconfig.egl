@@ -13,11 +13,11 @@ ${percent}${end}
     "baseUrl": "./",
     "paths": {
       "jdk/*": ["candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/*"],
-      "core/*": ["candies/typings/META-INF/resources/typings/core/2.0/*"],
-      "dc-commons/*": ["candies/typings/META-INF/resources/typings/commons/2.0/*"],
+      "repo-core/*": ["candies/typings/META-INF/resources/typings/repo-core/2.0/*"],
+      "dc-commons/*": ["candies/typings/META-INF/resources/typings/dc-commons/2.0/*"],
       "sql-dsl/*": ["candies/typings/META-INF/resources/typings/ts-sql-dsl/2.0/*"]
       
-       [% for (h in lib.values()) { %]
+       [% for (h in jslib.values()) { %]
        ,"[%=h.get("artifactId")%]/*":["candies/typings/META-INF/resources/typings/[%=h.get("artifactId")%]/[%=h.get("version")%]/*"]
        [% } %]      
       

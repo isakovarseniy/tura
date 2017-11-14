@@ -441,22 +441,13 @@ public interface MapperPackage extends EPackage {
 	int JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE = PACKAGE_MAPPER_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Jsweet Candy</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_PACKAGE_MAPPER__JSWEET_CANDY = PACKAGE_MAPPER_FEATURE_COUNT + 7;
-
-	/**
 	 * The number of structural features of the '<em>Java Package Mapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_PACKAGE_MAPPER_FEATURE_COUNT = PACKAGE_MAPPER_FEATURE_COUNT + 8;
+	int JAVA_PACKAGE_MAPPER_FEATURE_COUNT = PACKAGE_MAPPER_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link mapper.impl.JavaScriptMapperImpl <em>Java Script Mapper</em>}' class.
@@ -550,6 +541,106 @@ public interface MapperPackage extends EPackage {
 	int JAVA_SCRIPT_MAPPER_FEATURE_COUNT = TYPE_MAPPER_FEATURE_COUNT + 6;
 
 	/**
+	 * The meta object id for the '{@link mapper.impl.JavaScriptPackageMapperImpl <em>Java Script Package Mapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mapper.impl.JavaScriptPackageMapperImpl
+	 * @see mapper.impl.MapperPackageImpl#getJavaScriptPackageMapper()
+	 * @generated
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER = 8;
+
+	/**
+	 * The feature id for the '<em><b>Layers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER__LAYERS = PACKAGE_MAPPER__LAYERS;
+
+	/**
+	 * The feature id for the '<em><b>Package Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER__PACKAGE_REF = PACKAGE_MAPPER__PACKAGE_REF;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER__UID = PACKAGE_MAPPER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Mapped To Package Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME = PACKAGE_MAPPER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER__ARTIFACT_ID = PACKAGE_MAPPER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER__GROUP_ID = PACKAGE_MAPPER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER__VERSION = PACKAGE_MAPPER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Library Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER__LIBRARY_URL = PACKAGE_MAPPER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER__ARTIFACT_TYPE = PACKAGE_MAPPER_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Java Script Package Mapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_SCRIPT_PACKAGE_MAPPER_FEATURE_COUNT = PACKAGE_MAPPER_FEATURE_COUNT + 7;
+
+	/**
 	 * The meta object id for the '{@link mapper.impl.CSSMapperImpl <em>CSS Mapper</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -557,7 +648,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getCSSMapper()
 	 * @generated
 	 */
-	int CSS_MAPPER = 8;
+	int CSS_MAPPER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -612,7 +703,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getRoleMapper()
 	 * @generated
 	 */
-	int ROLE_MAPPER = 9;
+	int ROLE_MAPPER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -676,7 +767,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getXMLPackageMapper()
 	 * @generated
 	 */
-	int XML_PACKAGE_MAPPER = 10;
+	int XML_PACKAGE_MAPPER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -731,7 +822,7 @@ public interface MapperPackage extends EPackage {
 	 * @see mapper.impl.MapperPackageImpl#getXMLTypeMapper()
 	 * @generated
 	 */
-	int XML_TYPE_MAPPER = 11;
+	int XML_TYPE_MAPPER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Layers</b></em>' reference list.
@@ -1090,17 +1181,6 @@ public interface MapperPackage extends EPackage {
 	EAttribute getJavaPackageMapper_ArtifactType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link mapper.JavaPackageMapper#isJsweetCandy <em>Jsweet Candy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Jsweet Candy</em>'.
-	 * @see mapper.JavaPackageMapper#isJsweetCandy()
-	 * @see #getJavaPackageMapper()
-	 * @generated
-	 */
-	EAttribute getJavaPackageMapper_JsweetCandy();
-
-	/**
 	 * Returns the meta object for class '{@link mapper.JavaScriptMapper <em>Java Script Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1175,6 +1255,93 @@ public interface MapperPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJavaScriptMapper_ArtifactType();
+
+	/**
+	 * Returns the meta object for class '{@link mapper.JavaScriptPackageMapper <em>Java Script Package Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Java Script Package Mapper</em>'.
+	 * @see mapper.JavaScriptPackageMapper
+	 * @generated
+	 */
+	EClass getJavaScriptPackageMapper();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptPackageMapper#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see mapper.JavaScriptPackageMapper#getUid()
+	 * @see #getJavaScriptPackageMapper()
+	 * @generated
+	 */
+	EAttribute getJavaScriptPackageMapper_Uid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptPackageMapper#getMappedToPackageName <em>Mapped To Package Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapped To Package Name</em>'.
+	 * @see mapper.JavaScriptPackageMapper#getMappedToPackageName()
+	 * @see #getJavaScriptPackageMapper()
+	 * @generated
+	 */
+	EAttribute getJavaScriptPackageMapper_MappedToPackageName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptPackageMapper#getArtifactId <em>Artifact Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
+	 * @see mapper.JavaScriptPackageMapper#getArtifactId()
+	 * @see #getJavaScriptPackageMapper()
+	 * @generated
+	 */
+	EAttribute getJavaScriptPackageMapper_ArtifactId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptPackageMapper#getGroupId <em>Group Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see mapper.JavaScriptPackageMapper#getGroupId()
+	 * @see #getJavaScriptPackageMapper()
+	 * @generated
+	 */
+	EAttribute getJavaScriptPackageMapper_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptPackageMapper#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see mapper.JavaScriptPackageMapper#getVersion()
+	 * @see #getJavaScriptPackageMapper()
+	 * @generated
+	 */
+	EAttribute getJavaScriptPackageMapper_Version();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptPackageMapper#getLibraryUrl <em>Library Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Library Url</em>'.
+	 * @see mapper.JavaScriptPackageMapper#getLibraryUrl()
+	 * @see #getJavaScriptPackageMapper()
+	 * @generated
+	 */
+	EAttribute getJavaScriptPackageMapper_LibraryUrl();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mapper.JavaScriptPackageMapper#getArtifactType <em>Artifact Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Type</em>'.
+	 * @see mapper.JavaScriptPackageMapper#getArtifactType()
+	 * @see #getJavaScriptPackageMapper()
+	 * @generated
+	 */
+	EAttribute getJavaScriptPackageMapper_ArtifactType();
 
 	/**
 	 * Returns the meta object for class '{@link mapper.CSSMapper <em>CSS Mapper</em>}'.
@@ -1587,14 +1754,6 @@ public interface MapperPackage extends EPackage {
 		EAttribute JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE = eINSTANCE.getJavaPackageMapper_ArtifactType();
 
 		/**
-		 * The meta object literal for the '<em><b>Jsweet Candy</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JAVA_PACKAGE_MAPPER__JSWEET_CANDY = eINSTANCE.getJavaPackageMapper_JsweetCandy();
-
-		/**
 		 * The meta object literal for the '{@link mapper.impl.JavaScriptMapperImpl <em>Java Script Mapper</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1651,6 +1810,72 @@ public interface MapperPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JAVA_SCRIPT_MAPPER__ARTIFACT_TYPE = eINSTANCE.getJavaScriptMapper_ArtifactType();
+
+		/**
+		 * The meta object literal for the '{@link mapper.impl.JavaScriptPackageMapperImpl <em>Java Script Package Mapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mapper.impl.JavaScriptPackageMapperImpl
+		 * @see mapper.impl.MapperPackageImpl#getJavaScriptPackageMapper()
+		 * @generated
+		 */
+		EClass JAVA_SCRIPT_PACKAGE_MAPPER = eINSTANCE.getJavaScriptPackageMapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_PACKAGE_MAPPER__UID = eINSTANCE.getJavaScriptPackageMapper_Uid();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapped To Package Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_PACKAGE_MAPPER__MAPPED_TO_PACKAGE_NAME = eINSTANCE.getJavaScriptPackageMapper_MappedToPackageName();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_PACKAGE_MAPPER__ARTIFACT_ID = eINSTANCE.getJavaScriptPackageMapper_ArtifactId();
+
+		/**
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_PACKAGE_MAPPER__GROUP_ID = eINSTANCE.getJavaScriptPackageMapper_GroupId();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_PACKAGE_MAPPER__VERSION = eINSTANCE.getJavaScriptPackageMapper_Version();
+
+		/**
+		 * The meta object literal for the '<em><b>Library Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_PACKAGE_MAPPER__LIBRARY_URL = eINSTANCE.getJavaScriptPackageMapper_LibraryUrl();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_SCRIPT_PACKAGE_MAPPER__ARTIFACT_TYPE = eINSTANCE.getJavaScriptPackageMapper_ArtifactType();
 
 		/**
 		 * The meta object literal for the '{@link mapper.impl.CSSMapperImpl <em>CSS Mapper</em>}' class.

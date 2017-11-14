@@ -72,7 +72,7 @@
 
 
 
-       [% for (type in lib.values()) { %]
+       [% for (type in pkg.values()) { %]
 				<dependency>
 					<groupId>[%=type.~groupId%]</groupId>
 					<artifactId>[%=type.~artifactId%]</artifactId>

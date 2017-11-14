@@ -255,6 +255,29 @@ public class MapperItemProviderAdapterFactory extends MapperAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link mapper.JavaScriptPackageMapper} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JavaScriptPackageMapperItemProvider javaScriptPackageMapperItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mapper.JavaScriptPackageMapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJavaScriptPackageMapperAdapter() {
+		if (javaScriptPackageMapperItemProvider == null) {
+			javaScriptPackageMapperItemProvider = new JavaScriptPackageMapperItemProvider(this);
+		}
+
+		return javaScriptPackageMapperItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link mapper.CSSMapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

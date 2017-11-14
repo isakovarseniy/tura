@@ -52,7 +52,6 @@ public class JavaPackageMapperItemProvider extends PackageMapperItemProvider {
 			addVersionPropertyDescriptor(object);
 			addLibraryNamePropertyDescriptor(object);
 			addArtifactTypePropertyDescriptor(object);
-			addJsweetCandyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -212,28 +211,6 @@ public class JavaPackageMapperItemProvider extends PackageMapperItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Jsweet Candy feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addJsweetCandyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JavaPackageMapper_jsweetCandy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JavaPackageMapper_jsweetCandy_feature", "_UI_JavaPackageMapper_type"),
-				 MapperPackage.Literals.JAVA_PACKAGE_MAPPER__JSWEET_CANDY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns JavaPackageMapper.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -278,7 +255,6 @@ public class JavaPackageMapperItemProvider extends PackageMapperItemProvider {
 			case MapperPackage.JAVA_PACKAGE_MAPPER__VERSION:
 			case MapperPackage.JAVA_PACKAGE_MAPPER__LIBRARY_NAME:
 			case MapperPackage.JAVA_PACKAGE_MAPPER__ARTIFACT_TYPE:
-			case MapperPackage.JAVA_PACKAGE_MAPPER__JSWEET_CANDY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -229,7 +229,37 @@ operation type::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :I
            }
     }
     
-     if (self.~url = null ){
+     if (self.~url == null){
+	    for( appmapper in appmappers ){
+	         var pkg =  self.eContainer();
+	         var pkgUID = self.eContainer().uid;
+	         if (self.isTypeOf(type::TypeReference)){
+	             pkgUID = self.typeRef.eContainer().uid;
+	             pkg =  self.typeRef.eContainer();
+	         }
+"!!".println();	         
+	         var set = appmapper.mappers.select(r|r.isKindOf(mapper::JavaScriptPackageMapper) and r.packageRef.uid= pkgUID);
+             if ( set.size() <> 0 ){
+	              var pkgMp =  util.mapPackage(set,ingredient,pkg,maskType) ;
+	 
+	              if ( pkgMp <> null){
+		             self.~mapper="Type2JavaScript";
+		             self.~url=pkgMp.libraryUrl;
+		             self.~artifactId=pkgMp.artifactId;
+		             self.~groupId=pkgMp.groupId;
+		             self.~version= pkgMp.version;
+		             if ( pkgMp.artifactId<> null and pkgMp.version <> null ){
+		                    self.~library=pkgMp.artifactId+"-"+pkgMp.version+"."+pkgMp.artifactType;
+		             }else{
+		                    self.~library=null;
+		             }
+	              }  
+             }
+	     }
+     }
+    
+    
+     if (self.~url == null ){
          self.~mapper="NA";
 /*  Cannot throw exception */     
          util.traceIfDebug("Type2JavaScript","Unable to find Type2JavaScript for type \"" + self.name +"\" for ingredient \"" + ingredient.name +"\"");
