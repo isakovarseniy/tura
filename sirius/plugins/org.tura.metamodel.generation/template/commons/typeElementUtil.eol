@@ -237,7 +237,6 @@ operation type::TypeElement mappingType2JavaScript( recipe:Recipe, ingredient :I
 	             pkgUID = self.typeRef.eContainer().uid;
 	             pkg =  self.typeRef.eContainer();
 	         }
-"!!".println();	         
 	         var set = appmapper.mappers.select(r|r.isKindOf(mapper::JavaScriptPackageMapper) and r.packageRef.uid= pkgUID);
              if ( set.size() <> 0 ){
 	              var pkgMp =  util.mapPackage(set,ingredient,pkg,maskType) ;
