@@ -1,4 +1,3 @@
-<#assign dollar = "$" >
 		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
@@ -13,64 +12,7 @@
 
 			<name>[%=component.getName()%]:: Repository ::JPA</name>
 
-	<repositories>
-		<repository>
-			<id>maven-us.nuxeo.org</id>
-			<name>maven-us.nuxeo.org</name>
-			<url>http://maven.nuxeo.org/nexus/content/repositories/public-releases</url>
-		</repository>
-		<repository>
-			<id>jsweet-central</id>
-			<name>libs-release</name>
-			<url>http://repository.jsweet.org/artifactory/libs-release-local</url>
-		</repository>
-		<repository>
-			<snapshots />
-			<id>jsweet-snapshots</id>
-			<name>libs-snapshot</name>
-			<url>http://repository.jsweet.org/artifactory/libs-snapshot-local</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>jsweet-plugins-release</id>
-			<name>plugins-release</name>
-			<url>http://repository.jsweet.org/artifactory/plugins-release-local</url>
-		</pluginRepository>
-		<pluginRepository>
-			<snapshots />
-			<id>jsweet-plugins-snapshots</id>
-			<name>plugins-snapshot</name>
-			<url>http://repository.jsweet.org/artifactory/plugins-snapshot-local</url>
-		</pluginRepository>
-	</pluginRepositories>
-
-
 			<dependencies>
-			
-				<dependency>
-					<groupId>org.jsweet</groupId>
-					<artifactId>jsweet-transpiler</artifactId>
-					<version>2.0.1-SNAPSHOT</version>
-					<scope>provided</scope>
-				</dependency>
-		
-				<dependency>
-					<groupId>org.jsweet</groupId>
-					<artifactId>jsweet-core</artifactId>
-					<version>5-20170726</version>
-					<scope>provided</scope>
-				</dependency>
-			
-				<dependency>
-					<groupId>org.jsweet</groupId>
-					<artifactId>j4ts</artifactId>
-					<version>0.6.0-SNAPSHOT</version>
-					<scope>provided</scope>
-				</dependency>		
-			
-			
 				<dependency>
 					<groupId>javax</groupId>
 					<artifactId>javaee-api</artifactId>
@@ -79,23 +21,10 @@
 				</dependency>
 
 				<dependency>
-					<groupId>org.tura.platform-java.repository</groupId>
+					<groupId>org.tura.platform.repository</groupId>
 					<artifactId>core</artifactId>
 					<version>2.0</version>
 				</dependency>
-
-				<dependency>
-					<groupId>org.tura.platform-ts.repository</groupId>
-					<artifactId>repo-core</artifactId>
-					<version>2.0</version>
-				</dependency>
-
-				<dependency>
-					<groupId>org.tura.platform-ts.datacontrol</groupId>
-					<artifactId>dc-commons</artifactId>
-					<version>2.0</version>
-				</dependency>
-
 
 				<dependency>
 					<groupId>uk.com.robust-it</groupId>
@@ -114,6 +43,12 @@
 
 			</dependencies>
 
+			<repositories>
+				<repository>
+					<id>maven repository.dev.java.net</id>
+					<url>http://download.java.net/maven/2/</url>
+				</repository>
+			</repositories>
 
 [%
   var i =  Java.lastIndexOf("/");
@@ -133,119 +68,6 @@
 					<target>[%=Java.substring(i)%]</target>
 				</configuration>
 			</plugin>
-			
-            <plugin>
-				<groupId>org.jsweet</groupId>
-				<artifactId>jsweet-maven-plugin</artifactId>
-				<version>2.0.1-SNAPSHOT</version>
-				<executions>
-					<execution>
-						<id>generate-js</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>jsweet</goal>
-						</goals>
-						<configuration>
-							<verbose>true</verbose>
-							<outDir>${dollar}{project.basedir}/target</outDir>
-							<tsOut>${dollar}{project.basedir}/target</tsOut>
-							<tsOnly>true</tsOnly>
-							<workingDir>${dollar}{project.basedir}</workingDir>
-							<targetVersion>ES6</targetVersion>
-							<module>es2015</module>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>				
-
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
-				<executions>
-					<execution>
-						<id>default-cli</id>
-						<phase>process-sources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<concat
-									destfile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/[%=component.getArtifactId()%].ts"
-									force="yes">
-									<fileset dir="${dollar}{project.basedir}/target">
-                                        <include name="**/*.ts"/>
-										<exclude name="**/ObjectFactory.ts"/>
-										<exclude name="org/w3/**/*.*"/>
-										<exclude name="org/acme/**/*.*"/>
-									</fileset>
-								</concat>
-								<concat
-									destfile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.tsq"
-									force="yes">
-									<filelist dir="${dollar}{project.basedir}/src/main/resources/">
-										<file name="header_ts" />
-										<file name="META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.ts" />
-									</filelist>
-								</concat>
-                               <delete file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.ts"/>
-                               <move file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.tsq" 
-                               tofile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.ts"/>								
-								
-								<exec executable="npm">
-								        <arg value="install" />
-								        <arg value="&#x002d;&#x002d;save" />
-                                        <arg value="@types/lodash" />
-								</exec>
-								<exec executable="${dollar}{user.home}/.jsweet-node_modules/bin/tsc"/>
-								
-                                <move file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.d.ts" 
-                                           todir="${dollar}{project.basedir}/src/main/resources/META-INF/resources/typings/${dollar}{project.artifactId}/${dollar}{project.version}"/>								
-								
-								<concat
-									destfile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.jsq"
-									force="yes">
-									<filelist dir="${dollar}{project.basedir}/src/main/resources/">
-										<file name="header_js" />
-										<file name="META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.js" />
-									</filelist>
-								</concat>
-                               <delete file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.js"/>
-                               <move file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.jsq" 
-                               tofile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.js"/>								
-								
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			
-			
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${dollar}{project.basedir}/src/main/resources/META-INF/resources/</directory>
-						</fileset>
-						<fileset>
-							<directory>${dollar}{project.basedir}</directory>
-							<includes>
-							    <include>config.properties</include>
-							</includes>
-						</fileset>		
-						<fileset>
-							<directory>${dollar}{project.basedir}/src/main/resources</directory>
-							<includes>
-								<include>header_ts</include>
-							</includes>
-						</fileset>						
-										
-					</filesets>
-				</configuration>
-			</plugin>
-
-			
 		</plugins>
 	</build>	
 

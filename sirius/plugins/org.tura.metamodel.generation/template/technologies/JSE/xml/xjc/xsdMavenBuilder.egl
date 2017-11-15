@@ -16,41 +16,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	
-	<repositories>
-		<repository>
-			<id>maven-us.nuxeo.org</id>
-			<name>maven-us.nuxeo.org</name>
-			<url>http://maven.nuxeo.org/nexus/content/repositories/public-releases</url>
-		</repository>
-		<repository>
-			<id>jsweet-central</id>
-			<name>libs-release</name>
-			<url>http://repository.jsweet.org/artifactory/libs-release-local</url>
-		</repository>
-		<repository>
-			<snapshots />
-			<id>jsweet-snapshots</id>
-			<name>libs-snapshot</name>
-			<url>http://repository.jsweet.org/artifactory/libs-snapshot-local</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>jsweet-plugins-release</id>
-			<name>plugins-release</name>
-			<url>http://repository.jsweet.org/artifactory/plugins-release-local</url>
-		</pluginRepository>
-		<pluginRepository>
-			<snapshots />
-			<id>jsweet-plugins-snapshots</id>
-			<name>plugins-snapshot</name>
-			<url>http://repository.jsweet.org/artifactory/plugins-snapshot-local</url>
-		</pluginRepository>
-	</pluginRepositories>
-	
-	
-	
 [%
   var i =  Java.lastIndexOf("/");
   if (i <> -1){
@@ -59,30 +24,6 @@
     i = 0;
   }
 %]
-
-	<dependencies>
-
-		<dependency>
-			<groupId>org.jsweet</groupId>
-			<artifactId>jsweet-transpiler</artifactId>
-			<version>2.0.1-SNAPSHOT</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jsweet</groupId>
-			<artifactId>jsweet-core</artifactId>
-			<version>5-20170726</version>
-			<scope>provided</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.jsweet</groupId>
-			<artifactId>j4ts</artifactId>
-			<version>0.6.0-SNAPSHOT</version>
-		</dependency>		
-
-	</dependencies>
 
 	
 	<build>
@@ -94,7 +35,7 @@
 					<target>[%=Java.substring(i)%]</target>
 				</configuration>
 			</plugin>
-			
+		
 			<!-- Plugin required to build java classes from XSD using XJC -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -108,14 +49,13 @@
 					</execution>
 				</executions>
 			</plugin>
-			
 			<plugin>
 			    <groupId>com.google.code.maven-replacer-plugin</groupId>
 			    <artifactId>replacer</artifactId>
 			    <version>1.5.2</version>
 			    <executions>
 			        <execution>
-			            <phase>generate-sources</phase>
+			            <phase>process-resources</phase>
 			            <goals>
 			                <goal>replace</goal>
 			            </goals>
@@ -129,103 +69,7 @@
 			        <token>public Boolean is(.*)\(\)(\s*\{\s*.+\s*\})</token>
 			        <value>public Boolean get$1\(\)$2</value>
 			    </configuration>
-			</plugin>
-						
-            <plugin>
-				<groupId>org.jsweet</groupId>
-				<artifactId>jsweet-maven-plugin</artifactId>
-				<version>2.0.1-SNAPSHOT</version>
-				<executions>
-					<execution>
-						<id>generate-js</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>jsweet</goal>
-						</goals>
-						<configuration>
-							<verbose>true</verbose>
-							<outDir>${dollar}{project.basedir}/target</outDir>
-							<tsOut>${dollar}{project.basedir}/target</tsOut>
-							<tsOnly>true</tsOnly>
-							<workingDir>${dollar}{project.basedir}</workingDir>
-							<targetVersion>ES6</targetVersion>
-							<module>es2015</module>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>				
-			
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
-				<executions>
-					<execution>
-						<id>create bundle</id>
-						<phase>process-sources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<concat
-									destfile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/[%=component.getArtifactId()%].ts"
-									force="yes">
-									<fileset dir="${dollar}{project.basedir}/target">
-                                        <include name="**/*.ts"/>
-										<exclude name="**/ObjectFactory.ts"/>
-										<exclude name="org/w3/**/*.*"/>
-										<exclude name="org/acme/**/*.*"/>
-									</fileset>
-								</concat>
-								
-								<concat
-									destfile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.tsq"
-									force="yes">
-									<filelist dir="${dollar}{project.basedir}/src/main/resources/">
-										<file name="header_ts" />
-										<file name="META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.ts" />
-									</filelist>
-								</concat>
-                               <delete file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.ts"/>
-                               <move file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.tsq" 
-                               tofile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.ts"/>								
-								
-								<exec executable="${dollar}{user.home}/.jsweet-node_modules/bin/tsc"/>
-								
-                                <move file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.d.ts" 
-                                           todir="${dollar}{project.basedir}/src/main/resources/META-INF/resources/typings/${dollar}{project.artifactId}/${dollar}{project.version}"/>								
-								
-								<concat
-									destfile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.jsq"
-									force="yes">
-									<filelist dir="${dollar}{project.basedir}/src/main/resources/">
-										<file name="header_js" />
-										<file name="META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.js" />
-									</filelist>
-								</concat>
-                               <delete file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.js"/>
-                               <move file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.jsq" 
-                               tofile="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.js"/>								
-								
-								
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${dollar}{project.basedir}/src/main/resources/META-INF/resources/</directory>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-			
-			
+			</plugin>			
 			
 		</plugins>
 	</build>

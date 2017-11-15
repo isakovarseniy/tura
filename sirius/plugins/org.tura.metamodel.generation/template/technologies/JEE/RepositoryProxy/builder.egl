@@ -17,8 +17,6 @@ operation  maven_build_runner(hash) {
 
     model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
     util.saveFile( path, "builder."+os_batch_extension(),out.toString());   
-    
-    
 }
 
  @template
@@ -34,9 +32,6 @@ operation  maven_builder(hash) {
 
     var util = new Native('org.tura.metamodel.commons.Util');
     var lib = new Native("java.util.HashMap"); 
-    var pkg = new Native("java.util.HashMap"); 
-    var jslib = new Native("java.util.HashMap"); 
-    
 
      var currentLib = component.getArtifactId()+"-"+component.getVersion()+".jar";
      for (type in alltypes){
@@ -46,34 +41,12 @@ operation  maven_builder(hash) {
 	         h.put("groupId",type.~groupId);
 	         h.put("artifactId",type.~artifactId);
 	         h.put("version",type.~version);
-	         lib.put(type.~artifactId,h);
-	         
-	         pkg.put(type.~package,type.~artifactId);
-	         
+	         lib.put(type.~library,h);
          }
       }
 
-     for (type in alltypes){
-        type.mappingType2JavaScript(recipe,ingredient);
-        if (type.~mapper <> null  and  not type.~mapper.equals("NA")  ){
-	         var h = new Native("java.util.HashMap"); 
-	         h.put("groupId",type.~groupId);
-	         h.put("artifactId",type.~artifactId);
-	         h.put("version",type.~version);
-	         
-	         lib.put(type.~artifactId,h);
-	         jslib.put(type.~artifactId,h);
-           
-        }
-    }
-
 
     hash.put("lib",lib);
-    hash.put("pkg",pkg);
-    hash.put("jslib",jslib);
-    
-    
-    
     util.populateTechnologies(hash,model_mapper);
 
   
@@ -84,16 +57,6 @@ operation  maven_builder(hash) {
      var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId;  
      var buffer = builder.process();
      util.saveFile( path, "pom.xml",buffer); 
-     
-    hash.put("path",path);
-     
-    
-      var candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/tsconfig.egl",hash,TemplateFactory);
-     candy.process();
-    
-     
-     
-     
 }    
 
  @template
