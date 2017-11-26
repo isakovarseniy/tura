@@ -205,7 +205,7 @@
 
 
 			<dependency>
-				<groupId>org.tura.platform-java.test</groupId>
+				<groupId>org.tura.test-java</groupId>
 				<artifactId>commons-test</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>

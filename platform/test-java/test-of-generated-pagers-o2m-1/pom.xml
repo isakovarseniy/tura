@@ -58,7 +58,7 @@
 		</dependency>		
 
 		<dependency>
-			<groupId>org.tura.platform-java.test</groupId>
+			<groupId>org.tura.test-java</groupId>
 			<artifactId>commons-test</artifactId>
 		</dependency>		
 		
