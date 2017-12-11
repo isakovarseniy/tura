@@ -201,6 +201,40 @@
               <options uid="d6810c24-5ddc-4b95-931b-8a5d2091a4b0" value="99eb9b10-177e-4f16-a515-5e4c1ff7b5d4"/>
             </technologies>
           </artifacts>
+          <artifacts uid="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet jar" template="platform:/plugin/org.tura.metamodel.generation/template/pit/Builder/JSweet/mainModelBuilder.egl">
+            <configVariables uid="33be04b8-9632-44fd-8da3-4f3be7a3beea" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
+            <modelQuery uid="a88e8c60-e7f2-451b-9550-a8d6a1efb307" name="Query type" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type )  and r.oclAsType(tura::type::Type).name='${Type}')">
+              <parameters uid="b740d74b-179c-4401-b63d-bb1495173921" name="Repository"/>
+              <parameters uid="ec3cdaaa-e569-49f2-932e-acc41f4675c6" name="Package"/>
+              <parameters uid="4262dba0-ab41-41de-842f-07297833a729" name="Type"/>
+            </modelQuery>
+            <modelQuery uid="22bda0a0-0758-42ff-9df9-43713d0a39dc" name="Query package" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types">
+              <parameters uid="c1986f9f-ceb8-4780-878d-c11f8374defa" name="Repository"/>
+              <parameters uid="22d64355-fc36-4a57-9f00-0c24a6f17c5a" name="Package"/>
+            </modelQuery>
+            <modelQuery uid="584ed0bd-06d5-43ce-b5ce-78f6c2364780" name="Query component" query="domain::DomainApplications.allInstances()->collect(r|r.oclAsType(domain::DomainApplications).applications->select(r1|r1.oclAsType(domain::DomainApplication).name='${DomainApplication}').applicationPackages->select(r2|r2.oclAsType(tura::application::ApplicationGroup).name='${ApplicationGroup}').applications->select(r2|r2.oclAsType(tura::application::Application).name='${Application}' ).applicationRecipes->select(r3|r3.oclIsKindOf(tura::application::ApplicationRecipes)).recipes->select(r4|r4.oclAsType(tura::application::ApplicationRecipe).name='${ApplicationRecipe}' ).recipes->select(r5|r5.oclAsType(tura::recipe::Recipes).name='${Recipes}' ).recipe.ingredients->select(r6|r6.oclAsType(tura::recipe::Ingredient).name='${Ingredient}').components->select(r7|r7.oclAsType(tura::recipe::Component).name='${Component}'))&#xA;">
+              <parameters uid="12ea6bce-8223-476d-a611-9cc7285b3838" name="DomainApplication"/>
+              <parameters uid="4b5f69a7-1b94-4966-b9d8-a0a0ba22e7ce" name="ApplicationGroup"/>
+              <parameters uid="b6fe7830-f5fb-465a-8ad7-6d18c5ea3436" name="Application"/>
+              <parameters uid="56313163-1523-4261-ba33-cc4950003b55" name="ApplicationRecipe"/>
+              <parameters uid="b78500d8-f4d0-4697-9c7c-ceb993378b91" name="Recipes"/>
+              <parameters uid="a7c01f24-e182-4207-bd82-6cddb3b9c3bd" name="Ingredient"/>
+              <parameters uid="3eca02c9-2376-4235-93da-2fcbbed5cc48" name="Component"/>
+            </modelQuery>
+            <technologies uid="52914671-de59-4421-9c75-bea1a62690df" name="Java">
+              <options uid="54571d39-3671-4552-82be-a03e0b8c7d32" value="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26"/>
+              <options uid="284d5346-e394-49f3-88c8-af81c98b8716" value="f35d1165-d79f-41d9-a998-7c53da59d0f8"/>
+              <options uid="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a" value="99eb9b10-177e-4f16-a515-5e4c1ff7b5d4"/>
+            </technologies>
+            <technologies uid="b1770835-1bbe-432c-9e71-426d6225aa37" name="Builder implementation">
+              <options uid="c00dca88-11b5-4554-8baf-ff7883cdb481" value="b8dc44f4-aaaa-4447-94b2-4c26831416cc"/>
+              <options uid="648ef33c-a37d-4701-809c-85971998023e" value="0c5b8455-6af4-4b2f-aebf-9e87a82e66c1"/>
+            </technologies>
+            <technologies uid="03d12521-ff28-40d1-85a1-7a850babda1f" name="Builder type">
+              <options uid="fb5e5937-dee1-42f0-ac5b-d2e967da8ef9" value="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4"/>
+              <options uid="25a7909e-4821-4ffe-a307-4777c0d32a16" value="a8528dba-931e-4940-b800-522bf2cddb36"/>
+            </technologies>
+          </artifacts>
         </artifactPackages>
         <artifactPackages uid="05701dc4-c4ef-48cd-bb6a-9d56b6b1767a" name="UI application">
           <artifacts uid="54d7fea9-d143-4f4e-a894-7c2314f7cf42" name="Data control" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/model/mainModel.egl">
@@ -1986,6 +2020,83 @@
                   <recipe2Infrastructures uid="dbc26269-9c00-45bc-8dca-f10535597578" source="7ee0d7d5-b270-4c71-b18e-4201158b1152" target="5d499be9-cf3b-4ef5-8e72-85ceec683c6c"/>
                   <infrastructure2Configurations uid="db3778b0-c4cd-41fa-9e80-08f840c52643" source="5d499be9-cf3b-4ef5-8e72-85ceec683c6c" target="92392501-32c5-4c63-8efd-39a5793fa1b2"/>
                 </recipes>
+                <recipes uid="8f44c877-af38-4d6f-80a8-c5d936332242" name="TypeScript Proxy client">
+                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a d618d7da-b15b-4395-ae4c-40f5c49e29a3" uid="af1a4993-a8e0-4af2-86b0-62848e8536cd" name="TypeScript Proxy Clients">
+                    <ingredients uid="52f158b9-40ef-40f4-8e76-33656a6fa456" name="Typescript repository components" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="e9043ee5-9ae3-4d84-82b8-86b351e9f6b6" name="TypeScript HR model interface" skip="true" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-model-interface" groupId="org.tura.platform.test.generated-code" version="1.0">
+                        <mappers uid="454387a5-7e33-4641-8c9c-fb92613407e8" artifactRef="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet project builder ">
+                          <technologies techRef="52914671-de59-4421-9c75-bea1a62690df" valueRef="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a"/>
+                          <technologies techRef="b1770835-1bbe-432c-9e71-426d6225aa37" valueRef="c00dca88-11b5-4554-8baf-ff7883cdb481"/>
+                          <technologies techRef="03d12521-ff28-40d1-85a1-7a850babda1f" valueRef="fb5e5937-dee1-42f0-ac5b-d2e967da8ef9"/>
+                          <queries uid="1c09796e-9b71-4b41-bd29-4b65d7607576" name="Query package" queryRef="22bda0a0-0758-42ff-9df9-43713d0a39dc">
+                            <variables queryParamRef="c1986f9f-ceb8-4780-878d-c11f8374defa" value="HR domain"/>
+                            <variables queryParamRef="22d64355-fc36-4a57-9f00-0c24a6f17c5a" value="Model Interface"/>
+                          </queries>
+                          <queries uid="24fe75be-d21b-4599-9117-ebbb93589734" name="Query type" queryRef="a88e8c60-e7f2-451b-9550-a8d6a1efb307">
+                            <variables queryParamRef="b740d74b-179c-4401-b63d-bb1495173921" value="Base Repository"/>
+                            <variables queryParamRef="ec3cdaaa-e569-49f2-932e-acc41f4675c6" value="Model types"/>
+                            <variables queryParamRef="4262dba0-ab41-41de-842f-07297833a729" value="Base type"/>
+                          </queries>
+                          <queries uid="58353946-b825-412e-8ebc-e9f7c561449c" name="Query component" queryRef="584ed0bd-06d5-43ce-b5ce-78f6c2364780">
+                            <variables queryParamRef="12ea6bce-8223-476d-a611-9cc7285b3838" value="ERP"/>
+                            <variables queryParamRef="4b5f69a7-1b94-4966-b9d8-a0a0ba22e7ce" value="HR domain"/>
+                            <variables queryParamRef="b6fe7830-f5fb-465a-8ad7-6d18c5ea3436" value="HR application"/>
+                            <variables queryParamRef="56313163-1523-4261-ba33-cc4950003b55" value="Backend objects and services"/>
+                            <variables queryParamRef="b78500d8-f4d0-4697-9c7c-ceb993378b91" value="HR domain and presistence model"/>
+                            <variables queryParamRef="a7c01f24-e182-4207-bd82-6cddb3b9c3bd" value="Model interface"/>
+                            <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR model interface"/>
+                          </queries>
+                        </mappers>
+                      </components>
+                      <components xsi:type="tura.recipe:JavaComponent" order="1" uid="32a621ff-7ca9-4554-b4a8-a18bb9339842" name="TypeScript HR domain complex model" skip="true" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0">
+                        <mappers uid="bcee9d88-1824-46e0-a09e-ea086b06e5c7" artifactRef="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet project builder">
+                          <technologies techRef="b1770835-1bbe-432c-9e71-426d6225aa37" valueRef="c00dca88-11b5-4554-8baf-ff7883cdb481"/>
+                          <technologies techRef="52914671-de59-4421-9c75-bea1a62690df" valueRef="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a"/>
+                          <technologies techRef="03d12521-ff28-40d1-85a1-7a850babda1f" valueRef="25a7909e-4821-4ffe-a307-4777c0d32a16"/>
+                          <queries uid="9f303251-595b-4648-a5a5-cbed7040b5fc" name="Query package for classes" queryRef="22bda0a0-0758-42ff-9df9-43713d0a39dc">
+                            <variables queryParamRef="c1986f9f-ceb8-4780-878d-c11f8374defa" value="HR domain"/>
+                            <variables queryParamRef="22d64355-fc36-4a57-9f00-0c24a6f17c5a" value="Complex model"/>
+                          </queries>
+                          <queries uid="ee18c154-36bc-4aa9-bf20-435b19e5134e" name="Query component" queryRef="584ed0bd-06d5-43ce-b5ce-78f6c2364780">
+                            <variables queryParamRef="12ea6bce-8223-476d-a611-9cc7285b3838" value="ERP"/>
+                            <variables queryParamRef="4b5f69a7-1b94-4966-b9d8-a0a0ba22e7ce" value="HR domain"/>
+                            <variables queryParamRef="b6fe7830-f5fb-465a-8ad7-6d18c5ea3436" value="HR application"/>
+                            <variables queryParamRef="56313163-1523-4261-ba33-cc4950003b55" value="Backend objects and services"/>
+                            <variables queryParamRef="b78500d8-f4d0-4697-9c7c-ceb993378b91" value="HR domain and presistence model"/>
+                            <variables queryParamRef="a7c01f24-e182-4207-bd82-6cddb3b9c3bd" value="Complex  model serialization"/>
+                            <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR domain complex model"/>
+                          </queries>
+                        </mappers>
+                      </components>
+                      <components xsi:type="tura.recipe:JavaComponent" order="2" uid="7a8fd04e-3a5a-4f55-9279-0ae330fc3b8e" name="Typescript Simple  model serialization" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-simple-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0">
+                        <mappers uid="59cc02fb-c6d8-4037-ae60-4ae3758deb33" artifactRef="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet project builder">
+                          <technologies techRef="b1770835-1bbe-432c-9e71-426d6225aa37" valueRef="c00dca88-11b5-4554-8baf-ff7883cdb481"/>
+                          <technologies techRef="52914671-de59-4421-9c75-bea1a62690df" valueRef="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a"/>
+                          <technologies techRef="03d12521-ff28-40d1-85a1-7a850babda1f" valueRef="25a7909e-4821-4ffe-a307-4777c0d32a16"/>
+                          <queries uid="5c00b887-61e4-49ce-87b9-ba0c93afa095" name="Query package" queryRef="22bda0a0-0758-42ff-9df9-43713d0a39dc">
+                            <variables queryParamRef="c1986f9f-ceb8-4780-878d-c11f8374defa" value="HR domain"/>
+                            <variables queryParamRef="22d64355-fc36-4a57-9f00-0c24a6f17c5a" value="Simple model"/>
+                          </queries>
+                          <queries uid="d30fb88e-7b5d-4509-92ef-a5f42660ce82" name="Query component" queryRef="584ed0bd-06d5-43ce-b5ce-78f6c2364780">
+                            <variables queryParamRef="12ea6bce-8223-476d-a611-9cc7285b3838" value="ERP"/>
+                            <variables queryParamRef="4b5f69a7-1b94-4966-b9d8-a0a0ba22e7ce" value="HR domain"/>
+                            <variables queryParamRef="b6fe7830-f5fb-465a-8ad7-6d18c5ea3436" value="HR application"/>
+                            <variables queryParamRef="56313163-1523-4261-ba33-cc4950003b55" value="Backend objects and services"/>
+                            <variables queryParamRef="b78500d8-f4d0-4697-9c7c-ceb993378b91" value="HR domain and presistence model"/>
+                            <variables queryParamRef="a7c01f24-e182-4207-bd82-6cddb3b9c3bd" value="Simple  model serialization"/>
+                            <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR domain simple model"/>
+                          </queries>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                  </recipe>
+                  <configurations uid="8e34a215-0836-4779-9a0b-01f7c23345c9">
+                    <properties uid="20e85752-a4d2-4dfc-afaf-01d67008d84b" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
+                  </configurations>
+                  <infrastructures uid="75aae032-501a-4c8a-a57c-2f92338a094b" name="Development"/>
+                  <recipe2Infrastructures uid="3aeb2bee-178b-412d-82b7-1262ea3a2e74" source="af1a4993-a8e0-4af2-86b0-62848e8536cd" target="75aae032-501a-4c8a-a57c-2f92338a094b"/>
+                  <infrastructure2Configurations uid="1cef0e5a-3484-414d-a4b6-03460fd42d5f" source="75aae032-501a-4c8a-a57c-2f92338a094b" target="8e34a215-0836-4779-9a0b-01f7c23345c9"/>
+                </recipes>
               </recipes>
               <recipes uid="66d6cc9b-a6e1-40e0-b0cb-18c4c02274b2" name="UI">
                 <recipes uid="6c59b498-c8ad-4f2e-8b13-68919051c08f" name="HR forms">
@@ -2400,7 +2511,8 @@
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="1c50fed0-8776-47f1-91fb-e02b2d8f00ad" namespace="persistence.serializaton.object.platform.tura.org" typename="PersistenceObject"/>
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="8b94b9cd-b404-4243-bc7b-bf085d4163bd" uid="0e3ef534-9006-44a2-b217-343a56f29075" namespace="http://www.w3.org/2001/XMLSchema" typename="string"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9 4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="8b94b9cd-b404-4243-bc7b-bf085d4163bd" uid="599287c5-e649-426e-a446-75bcd2bc8c31" mappedToPackageName="java.lang" mappedToClassName="String"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="e5cbe290-395a-4dc4-b265-ed2f3fa092e9" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="core" groupId="org.tura.platform-java.repository" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec 0d88bb08-2150-462f-937d-70b99af379f9" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="e5cbe290-395a-4dc4-b265-ed2f3fa092e9" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="core" groupId="org.tura.platform-java.repository" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaScriptMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="2fb6c6e5-a9b0-4471-a9cb-522af2773585" libraryUrl="NA" artifactId="repo-core" groupId="org.tura.platform-ts.repository" version="2.0"/>
                 </mapper>
               </mappers>
               <mappers uid="cafba9fe-0d77-4612-8569-752443925068" name="HR controller business logic mapper">
