@@ -50,6 +50,10 @@ public class MappingTechnologyTechRef implements DropDownDataAdapter {
 	}
 
 	private String getName(TechLeaf leaf){
+		if (leaf == null){
+			return "";
+		}
+		
 		if (leaf.eContainer() instanceof TechLeaf){
 			return ((TechLeaf) (leaf.eContainer())).getName() + ":" + leaf.getName();
 		}else{

@@ -1,0 +1,99 @@
+[%
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+%]
+
+[% @template
+operation  maven_build_runner(hash) {
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+     
+    var configuration = hash.get("configuration");
+    var component = hash.get("component");
+    var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId;  
+    var model_mapper = hash.get("model_mapper");
+ %]
+[%=mavenBuilder_mavenCleanInstall(configuration, util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId,hash)%]
+[%    
+
+    model_mapper.artifactExecutionString=  os_shell_executor()+" "+path+"/"+"builder."+os_batch_extension();
+    util.saveFile( path, "builder."+os_batch_extension(),out.toString());   
+    
+    
+}
+
+ @template
+operation  maven_builder(hash) {
+
+    var recipe = hash.get("recipe");
+    var ingredient =  hash.get("ingredient");
+    var component = hash.get("component");
+    var model_mapper = hash.get("model_mapper");
+    var alltypes = hash.get("alltypes");
+    var configuration = hash.get("configuration");
+
+    var util = new Native('org.tura.metamodel.commons.Util');
+    var lib = new Native("java.util.HashMap"); 
+    var pkg = new Native("java.util.HashMap"); 
+    
+
+     var currentLib = component.getArtifactId()+"-"+component.getVersion()+".jar";
+     for (type in alltypes){
+        type.mappingType2Java(recipe,ingredient);
+        if (type.~mapper <> null  and  not type.~mapper.equals("NA") and  type.~library <> null and  type.~library.equals(currentLib)<>true ){
+	         var name = type.~fullName;
+
+             type.mappingType2JavaScript(recipe,ingredient);
+             if (type.~mapper <> null  and  not type.~mapper.equals("NA") and type.~library.equals(currentLib)<>true ){
+	            var h = new Native("java.util.HashMap"); 
+	            pkg.put(name,h);
+                h.put("jslib",type.~artifactId);
+                h.put("version",type.~version);
+                h.put("artifactId",type.~artifactId);
+                h.put("groupId",type.~groupId);
+                lib.put(type.~artifactId,h);
+             }
+         }
+      }
+
+    hash.put("lib",lib);
+    hash.put("pkg",pkg);
+    
+    
+    
+    util.populateTechnologies(hash,model_mapper);
+  
+     var builder : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/JSweet/MavenBuilder.egl",hash,TemplateFactory);
+     var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter"); 
+     builder.setFormatter(f);
+    
+     var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId;  
+     var buffer = builder.process();
+     
+     util.saveFile( path, "pom.xml",buffer); 
+     
+     hash.put("path",path);
+     
+    
+     var candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/JSweet/tsconfig.egl",hash,TemplateFactory);
+     candy.process();
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/JSweet/header_js.egl",hash,TemplateFactory);
+     candy.process();
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/JSweet/candymetadata.egl",hash,TemplateFactory);
+     candy.process();
+    
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/JSweet/jsweetAdapter.egl",hash,TemplateFactory);
+     candy.process();
+
+     candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JSE/Object/JSweet/jsweetconfig.egl",hash,TemplateFactory);
+     candy.process();
+    
+}    
+
+ @template
+operation  ant_builder(hash) {
+    
+ 
+}
+%]

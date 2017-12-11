@@ -1,0 +1,20 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+
+${percent}${end}
+
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+%]
+{
+"adapters": [ "org.tura.jsweet.TsAdapter" ]
+}
+
+[%
+     util.saveFile( path,"jsweetconfig.json",out.toString());   
+%]

@@ -1,0 +1,47 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Builder_implementation}.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/${Builder_type}/JSweet/builder.egl";
+ ${percent}${end}
+
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var alltypes = new Native('java.util.ArrayList');
+     var srcComponents = new Native('java.util.ArrayList');
+     var hash = new Native('java.util.HashMap');
+
+     var type;
+     var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
+
+     var types = util.runQuery(model_mapper,"Query type",model_mapper);
+     if (types <> null and types.size <> 0 ){
+         alltypes.addAll(types); 
+      }
+     types = util.runQuery(model_mapper,"Query package",model_mapper);
+     if (types <> null and types.size <> 0 ){
+         alltypes.addAll(types); 
+      }   
+
+     var src = util.runQuery(model_mapper,"Query component",model_mapper);
+     if (src <> null and src.size <> 0 ){
+         srcComponents.addAll(src); 
+      }   
+ 
+ 
+ 
+       hash.put("recipe",recipe);
+       hash.put("ingredient",ingredient);
+       hash.put("component",component);
+       hash.put("model_mapper",model_mapper);
+       hash.put("configuration",configuration);
+       hash.put("types",alltypes);
+       hash.put("alltypes",alltypes);
+       hash.put("srcComponents",srcComponents);
+     
+        util.populateTechnologies(hash,model_mapper);
+     
+       builder(hash);
+%]

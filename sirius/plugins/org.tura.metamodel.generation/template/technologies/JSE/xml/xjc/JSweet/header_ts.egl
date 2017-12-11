@@ -1,0 +1,16 @@
+<#assign dollar = "$" >
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+%]
+
+import "jdk/bundle";
+
+
+[%
+     util.saveFile( path+"/src/main/resources","header_ts",out.toString());   
+%]

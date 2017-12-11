@@ -1,0 +1,135 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+${percent}${end}
+
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+%]
+
+
+
+package org.tura.jsweet;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.Properties;
+
+import javax.lang.model.element.TypeElement;
+
+import org.jsweet.transpiler.ModuleImportDescriptor;
+import org.jsweet.transpiler.extension.PrinterAdapter;
+import org.jsweet.transpiler.model.CompilationUnitElement;
+
+public class TsAdapter extends PrinterAdapter {
+
+	public TsAdapter(PrinterAdapter parentAdapter) {
+		super(parentAdapter);
+
+		addTypeMapping("java.util.List", "java.util.List");
+		addTypeMapping("java.util.Collection", "java.util.Collection");
+		addTypeMapping("java.util.Set", "java.util.Set");
+		addTypeMapping("java.util.ArrayList", "java.util.ArrayList");
+		addTypeMapping("java.util.HashMap", "java.util.HashMap");
+		addTypeMapping("java.util.Map", "java.util.Map");
+		addTypeMapping("java.util.AbstractList", "java.util.AbstractList");
+		addTypeMapping("java.io.Serializable", "java.io.Serializable");
+
+	}
+
+
+	public ModuleImportDescriptor getModuleImportDescriptor(CompilationUnitElement currentCompilationUnit,
+			String importedName, TypeElement importedClass) {
+
+		Properties prop = new Properties();
+		FileInputStream input = null;
+		FileOutputStream output = null;
+		
+		try {
+			input = new FileInputStream("config.properties");
+			prop.load(input);
+		} catch (Exception e) {
+			try{
+				output = new FileOutputStream("config.properties");
+				prop.store(output, null);
+				
+				Files.write(Paths.get("src/main/resources/header_ts"),("import \"jdk/bundle\"; \n").getBytes(),StandardOpenOption.CREATE);
+				
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			
+		} finally {
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+				}
+			}
+			if (output != null) {
+				try {
+					output.close();
+				} catch (IOException e) {
+				}
+			}			
+			
+		}
+
+		String className = importedClass.toString();
+		
+       [% for (key in pkg.keySet()) { %]
+
+		if (className.equals("[%=key%]") && !prop.contains(className)) {
+			prop.put(className, className);
+			
+			try {
+				output = new FileOutputStream("config.properties");
+				prop.store(output, null);
+			} catch (Exception e) {
+				if (output != null) {
+					try {
+						output.close();
+					} catch (IOException e1) {
+					}
+				}
+
+			}
+			try {
+				Files.write(Paths.get("src/main/resources/header_ts"),
+						("import {" + importedClass.getSimpleName()
+								+ "} from \"[%=pkg.get(key).get("jslib")%]/[%=pkg.get(key).get("jslib")%]\"  \n")
+										.getBytes(),
+						StandardOpenOption.APPEND);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
+
+
+       [% } %]
+
+
+		
+
+		return null;
+	}
+
+	public boolean isSubstituteSuperTypes() {
+		return true;
+	}	
+
+
+}
+
+
+
+
+[%
+     util.saveFile( path+"/jsweet_extension/org/tura/jsweet","TsAdapter.java",out.toString());   
+%]

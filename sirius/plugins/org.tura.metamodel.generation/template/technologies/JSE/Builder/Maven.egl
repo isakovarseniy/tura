@@ -1,9 +1,8 @@
 [% @template
 operation  builder(hash) {
-    
          maven_builder(hash);
- 
 }
+
 
 
 @template
