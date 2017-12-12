@@ -17,17 +17,17 @@ ${percent}${end}
       "dc-commons/*": ["candies/typings/META-INF/resources/typings/dc-commons/2.0/*"],
       "sql-dsl/*": ["candies/typings/META-INF/resources/typings/ts-sql-dsl/2.0/*"]
       
-       [% for (h in jslib.values()) { %]
+       [% for (h in lib.values()) { %]
        ,"[%=h.get("artifactId")%]/*":["candies/typings/META-INF/resources/typings/[%=h.get("artifactId")%]/[%=h.get("version")%]/*"]
        [% } %]      
       
-    },    
+    },
+    
     "module" : "es2015",
     "target": "ES6",
     "moduleResolution": "classic",
     "sourceMap": true,
-    "declaration": true,
-    "skipLibCheck":true
+    "declaration": true
   },
   "include": [
     "src/**/*.ts"

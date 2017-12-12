@@ -12,6 +12,19 @@
 			<packaging>jar</packaging>
 
 			<name>[%=component.getName()%]:: Repository ::JPA</name>
+			
+	<properties>
+[%
+     var util = new Native('org.tura.metamodel.commons.Util');
+
+ for (cmp in srcComponents){
+ %]
+		<src.dir>[%=util.getComponentRoot( cmp.componentRoot,configuration)%]/[%=cmp.artifactId%]/src/main/java</src.dir>
+ [%
+ } 
+%]
+	</properties>
+			
 
 	<repositories>
 		<repository>
@@ -81,7 +94,6 @@
 				<dependency>
 					<groupId>uk.com.robust-it</groupId>
 					<artifactId>cloning</artifactId>
-					<scope>provided</scope>
 					<version>1.7.9</version>
 				</dependency>
 
@@ -180,6 +192,7 @@
 								        <arg value="&#x002d;&#x002d;save" />
                                         <arg value="@types/lodash" />
 								</exec>
+								
 								<exec executable="${dollar}{user.home}/.jsweet-node_modules/bin/tsc"/>
 								
                                 <move file="${dollar}{project.basedir}/src/main/resources/META-INF/resources/webjars/${dollar}{project.artifactId}/${dollar}{project.version}/${dollar}{project.artifactId}.d.ts" 
@@ -227,12 +240,7 @@
 					</filesets>
 				</configuration>
 			</plugin>
-
-			
 		</plugins>
+		<sourceDirectory>${dollar}{src.dir}</sourceDirectory>
 	</build>	
-
-
-
-
-		</project>
+</project>

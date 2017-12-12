@@ -1,0 +1,35 @@
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+
+ operation type::TypeElement jsweetCommandAdapter(model_mapper,pkg,h){
+ 
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+		     var type = self;
+		    if (self.isTypeOf(type::TypeReference)){
+		        type = self.typeRef;
+		    }
+		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+		     var topObject = true;
+		     for (rel in assosiations){
+		        
+			        var hash = rel.findTypeOfAssosiation(model_mapper);
+				    
+			        var masterType =   hash.get("masterType");
+			        var detailType = hash.get("detailType");
+			        var property =  hash.get("property");
+		            var containment = hash.get("containment");
+				    
+			
+			        if (detailType.uid == type.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"  and containment){
+			           topObject = false;
+			        }
+			        pkg.put(type.~package+".proxy.commands.Add"+detailType.~class+"2"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Command",h);
+                    pkg.put(type.~package+".proxy.commands.Remove"+detailType.~class+"From"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Command",h); 
+		     }
+		     if (topObject  ){
+			      pkg.put( type.~package+".proxy.commands.AddTop"+type.~class+"Command" ,h);
+			      pkg.put( type.~package+".proxy.commands.RemoveTop"+type.~class+"Command",h); 
+		     }
+}

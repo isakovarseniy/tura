@@ -32,6 +32,7 @@ public class TsAdapter extends PrinterAdapter {
 		super(parentAdapter);
 
 		addTypeMapping("java.util.List", "java.util.List");
+		addTypeMapping("java.util.Collection", "java.util.Collection");
 		addTypeMapping("java.util.Set", "java.util.Set");
 		addTypeMapping("java.util.ArrayList", "java.util.ArrayList");
 		addTypeMapping("java.util.HashMap", "java.util.HashMap");
@@ -58,17 +59,6 @@ public class TsAdapter extends PrinterAdapter {
 				prop.store(output, null);
 				
 				Files.write(Paths.get("src/main/resources/header_ts"),("import \"jdk/bundle\"; \n").getBytes(),StandardOpenOption.CREATE);
-				Files.write(Paths.get("src/main/resources/header_ts"),("import {cloneDeep} from \"lodash\"; \n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {ObjectControl} from \"repo-core/repo-core\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {ProxyObjectUpdateListener} from \"repo-core/repo-core\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {ProxyCommadStackProvider} from \"repo-core/repo-core\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {ProxyRepositoryCommand} from \"repo-core/repo-core\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {Repository} from \"repo-core/repo-core\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {DataProvider} from \"repo-core/repo-core\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {RepositoryException} from \"repo-core/repo-core\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {SearchCriteria} from \"dc-commons/dc-commons\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {OrderCriteria} from \"dc-commons/dc-commons\";\n").getBytes(),StandardOpenOption.APPEND);
-			    Files.write(Paths.get("src/main/resources/header_ts"),("import {SearchResult} from \"repo-core/repo-core\";\n").getBytes(),StandardOpenOption.APPEND);
 				
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -94,13 +84,8 @@ public class TsAdapter extends PrinterAdapter {
 		
        [% for (key in pkg.keySet()) { %]
 
-		if (className.contains("[%=key%]") && !prop.contains(className)) {
+		if (className.equals("[%=key%]") && !prop.contains(className)) {
 			prop.put(className, className);
-			if ( importedClass.getSimpleName().toString().endsWith("Command") || importedClass.getSimpleName().toString().endsWith("Proxy") 
-					|| importedClass.getSimpleName().toString().equals("ProxyRepository")
-					){
-				return null;
-			}
 			
 			try {
 				output = new FileOutputStream("config.properties");
@@ -117,7 +102,7 @@ public class TsAdapter extends PrinterAdapter {
 			try {
 				Files.write(Paths.get("src/main/resources/header_ts"),
 						("import {" + importedClass.getSimpleName()
-								+ "} from \"[%=pkg.get(key)%]/[%=pkg.get(key)%]\"  \n")
+								+ "} from \"[%=pkg.get(key).get("jslib")%]/[%=pkg.get(key).get("jslib")%]\"  \n")
 										.getBytes(),
 						StandardOpenOption.APPEND);
 			} catch (IOException e) {

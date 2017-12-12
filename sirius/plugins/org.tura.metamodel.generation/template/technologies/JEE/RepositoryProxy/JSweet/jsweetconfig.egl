@@ -24,8 +24,12 @@ ${percent}${end}
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
      var first = true;
      
-     for (type in alltypes){
+     for (tp in alltypes){
 		     
+		     var type = tp;
+		    if (tp.isTypeOf(type::TypeReference)){
+		        type = tp.typeRef;
+		    }
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
 		     var topObject = true;
 		     for (rel in assosiations){
@@ -60,7 +64,12 @@ ${percent}${end}
 ]}
 
 [%
-     for (type in alltypes){
+     for (tp in alltypes){
+	    var type = tp;
+	    if (tp.isTypeOf(type::TypeReference)){
+	        type = tp.typeRef;
+	    }
+     
 %]
 	 ,"@Replace(' return new [%=type.~class%]Proxy(cloneDeep(this.object),null);')": {
 	  "include": ["[%=type.~package%].[%=type.~class%]Proxy.clone(..)"]}
