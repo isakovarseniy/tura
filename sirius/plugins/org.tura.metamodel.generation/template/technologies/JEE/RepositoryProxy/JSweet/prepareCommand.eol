@@ -10,6 +10,9 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 		    if (self.isTypeOf(type::TypeReference)){
 		        type = self.typeRef;
 		    }
+		    
+		    pkg.put(type.~package+".Update"+type.~class+"Data",h); 
+		    
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
 		     var topObject = true;
 		     for (rel in assosiations){
@@ -25,11 +28,11 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 			        if (detailType.uid == type.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"  and containment){
 			           topObject = false;
 			        }
-			        pkg.put(type.~package+".proxy.commands.Add"+detailType.~class+"2"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Command",h);
-                    pkg.put(type.~package+".proxy.commands.Remove"+detailType.~class+"From"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Command",h); 
+			        pkg.put(type.~package+".Add"+detailType.~class+"2"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Data",h);
+                    pkg.put(type.~package+".Remove"+detailType.~class+"From"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Data",h); 
 		     }
 		     if (topObject  ){
-			      pkg.put( type.~package+".proxy.commands.AddTop"+type.~class+"Command" ,h);
-			      pkg.put( type.~package+".proxy.commands.RemoveTop"+type.~class+"Command",h); 
+			      pkg.put( type.~package+".AddTop"+type.~class+"Data" ,h);
+			      pkg.put( type.~package+".RemoveTop"+type.~class+"Data",h); 
 		     }
 }

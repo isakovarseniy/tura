@@ -64,13 +64,22 @@ ${percent}${end}
 ]}
 
 [%
+
+    var tmp = new Native("java.util.HashMap"); 
+
      for (tp in alltypes){
 	    var type = tp;
 	    if (tp.isTypeOf(type::TypeReference)){
 	        type = tp.typeRef;
 	    }
+	    tmp.put(type.~class,type);
+	   } 
+
+     for (tp in tmp.keySet){
+     	    var type = tmp.get(tp);
      
 %]
+
 	 ,"@Replace(' return new [%=type.~class%]Proxy(cloneDeep(this.object),null);')": {
 	  "include": ["[%=type.~package%].[%=type.~class%]Proxy.clone(..)"]}
 [%

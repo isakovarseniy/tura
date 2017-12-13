@@ -2128,6 +2128,10 @@
                             <variables queryParamRef="a7c01f24-e182-4207-bd82-6cddb3b9c3bd" value="Proxy for persistance objects repository"/>
                             <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="Proxy for JPA model repository"/>
                           </queries>
+                          <queries uid="b10be44d-cffc-41c1-ae07-dd6f78b4fa15" name="Query interface pkg" queryRef="22bda0a0-0758-42ff-9df9-43713d0a39dc">
+                            <variables queryParamRef="c1986f9f-ceb8-4780-878d-c11f8374defa" value="HR domain"/>
+                            <variables queryParamRef="22d64355-fc36-4a57-9f00-0c24a6f17c5a" value="Model Interface"/>
+                          </queries>
                         </mappers>
                       </components>
                     </ingredients>
