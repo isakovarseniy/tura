@@ -35,9 +35,8 @@ operation  maven_builder(hash) {
     var util = new Native('org.tura.metamodel.commons.Util');
     var lib = new Native("java.util.HashMap"); 
     var pkg = new Native("java.util.HashMap"); 
+    var nsHash = new Native("java.util.HashMap"); 
     
-    var cmdAdopt = new Native("java.util.HashMap"); 
-
      var currentLib = component.getArtifactId()+"-"+component.getVersion()+".jar";
      for (type in alltypes){
         type.mappingType2Java(recipe,ingredient);
@@ -52,15 +51,14 @@ operation  maven_builder(hash) {
                 h.put("version",type.~version);
                 h.put("artifactId",type.~artifactId);
                 h.put("groupId",type.~groupId);
+                h.put("class",type.~class);
+                h.put("package",type.~package);
                 lib.put(type.~artifactId,h);
-                type.jsweetCommandAdapter(model_mapper,cmdAdopt,h);
              }
          }
       }
-
     hash.put("lib",lib);
     hash.put("pkg",pkg);
-    
     
     
     util.populateTechnologies(hash,model_mapper);
@@ -89,7 +87,33 @@ operation  maven_builder(hash) {
      candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/JSweet/jsweetconfig.egl",hash,TemplateFactory);
      candy.process();
 
-     pkg.putAll(cmdAdopt);
+      
+      for(type in alltypes){
+         type.mappingType2XML(recipe,ingredient);
+        if (type.~mapper=="Type2XML" and  nsHash.get(type.~namespace) == null ){
+            var arr = new Native("java.util.HashMap"); 
+            nsHash.put(type.~namespace,arr);
+         }
+        if (type.~mapper=="Type2XML"){
+            nsHash.get(type.~namespace).put(type.~fullname,type);
+         }
+     }
+      
+    
+      for( targetnamespace in nsHash.keySet()  ){
+          for (type in nsHash.get(targetnamespace).values()) {
+	            var h = new Native("java.util.HashMap"); 
+                h.put("jslib",type.~artifactId);
+                h.put("version",type.~version);
+                h.put("artifactId",type.~artifactId);
+                h.put("groupId",type.~groupId);
+                h.put("class",type.~class);
+                h.put("package",type.~package);
+          
+            type.jsweetCommandAdapter(targetnamespace,model_mapper,pkg,h);
+          }
+      }
+
      candy  = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/JSweet/jsweetAdapter.egl",hash,TemplateFactory);
      candy.process();
     

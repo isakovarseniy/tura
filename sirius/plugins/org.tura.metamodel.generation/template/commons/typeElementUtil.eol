@@ -78,7 +78,7 @@ operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredie
          } 
 
          util.traceIfDebug("XMLMapper","Unable to find XMLMapper for type \"" + container+"."+tp.name+"\" for ingredient \"" + ingredient.name +"\"");
-         self.~mapper="Type2XML";
+         self.~mapper="NA";
          self.~class="Unable to find XMLMapper for type \"" + container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~namespace= "Unable to find XMLMapper for type \""+ container+"."+ tp.name +"\" for ingredient \"" + ingredient.name +"\"";
          self.~fullname=self.~namespace+"#"+self.~class;

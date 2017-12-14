@@ -2,37 +2,127 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
 
- operation type::TypeElement jsweetCommandAdapter(model_mapper,pkg,h){
- 
-     var util = new Native('org.tura.metamodel.commons.Util');
-     
-		     var type = self;
-		    if (self.isTypeOf(type::TypeReference)){
-		        type = self.typeRef;
-		    }
-		    
-		    pkg.put(type.~package+".Update"+type.~class+"Data",h); 
-		    
-		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
-		     var topObject = true;
-		     for (rel in assosiations){
-		        
-			        var hash = rel.findTypeOfAssosiation(model_mapper);
-				    
-			        var masterType =   hash.get("masterType");
-			        var detailType = hash.get("detailType");
-			        var property =  hash.get("property");
-		            var containment = hash.get("containment");
-				    
-			
-			        if (detailType.uid == type.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"  and containment){
-			           topObject = false;
-			        }
-			        pkg.put(type.~package+".Add"+detailType.~class+"2"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Data",h);
-                    pkg.put(type.~package+".Remove"+detailType.~class+"From"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Data",h); 
-		     }
-		     if (topObject  ){
-			      pkg.put( type.~package+".AddTop"+type.~class+"Data" ,h);
-			      pkg.put( type.~package+".RemoveTop"+type.~class+"Data",h); 
-		     }
+ operation type::TypeElement jsweetCommandAdapter(targetnamespace,model_mapper,pkg,h){
+    if (not self.isTypeOf(type::TypeReference)){
+	   self.updateData(targetnamespace,pkg,h);
+       self.addData(targetnamespace,model_mapper,pkg,h);
+       self.removeData(targetnamespace,model_mapper,pkg,h);
+       }
 }
+
+
+operation type::TypeElement  removeData ( targetnamespace,model_mapper,pkg,h){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid);
+     var topObject = true;
+     for (rel in assosiations){
+        var hash = rel.findTypeOfAssosiation(model_mapper);
+        var masterType =   hash.get("masterType");
+        var detailType = hash.get("detailType");
+        var property =  hash.get("property");
+        var containment = hash.get("containment");
+        
+        if (detailType.uid == self.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"  and containment){
+           topObject = false;
+        }
+        
+        if (hash.get("noAssosiation")){
+           removeNoAssosiationtRelation ( masterType, detailType,property,targetnamespace,pkg,h);
+        }else{
+	        if (hash.get("containment")){
+               removeContaintmentRelation( masterType, detailType,property,targetnamespace,pkg,h);
+	        }else{
+               removeNonContaintmentRelation ( masterType, detailType,property,targetnamespace,pkg,h);
+	        }
+        }
+     }
+     if (topObject  ){
+         removeTopObject ( self, targetnamespace,pkg,h);
+     }
+}
+
+
+
+operation type::TypeElement  addData ( targetnamespace,model_mapper,pkg,h){
+     var util = new Native('org.tura.metamodel.commons.Util');
+     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid);
+     var topObject = true;
+     for (rel in assosiations){
+        var hash = rel.findTypeOfAssosiation(model_mapper);
+        var masterType =   hash.get("masterType");
+        var detailType = hash.get("detailType");
+        var property =  hash.get("property");
+        var containment = hash.get("containment");
+        
+        if (detailType.uid == self.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many"  and containment){
+           topObject = false;
+        }
+        
+        if (hash.get("noAssosiation")){
+           addNoAssosiationtRelation ( masterType, detailType,property,targetnamespace,pkg,h);
+        }else{
+	        if (hash.get("containment")){
+              addContaintmentRelation( masterType, detailType,property,targetnamespace,pkg,h);
+	        }else{
+              addNonContaintmentRelation ( masterType, detailType,property,targetnamespace,pkg,h);
+	        }
+        }
+     }
+     if (topObject  ){
+        addTopObject ( self, targetnamespace,pkg,h);
+     }
+     
+}
+
+operation  removeTopObject ( masterType,targetnamespace,pkg,h){
+      pkg.put(h.get("package")+".RemoveTop"+masterType.~class+"Data",h);
+}
+
+
+operation  removeContaintmentRelation ( masterType, detailType,property,targetnamespace,pkg,h){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      pkg.put(h.get("package")+".Remove"+detailType.~class+"From"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Data",h);
+}
+
+operation  removeNonContaintmentRelation ( masterType, detailType,property,targetnamespace,pkg,h){
+     var util = new Native('org.tura.metamodel.commons.Util');
+      pkg.put(h.get("package")+".Remove"+detailType.~class+"From"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Data",h);
+}
+
+
+operation removeNoAssosiationtRelation ( masterType, detailType,property,targetnamespace,pkg,h){
+     var util = new Native('org.tura.metamodel.commons.Util');
+      pkg.put(h.get("package")+".Remove"+detailType.~class+"From"+masterType.~class+"OnNoAssosiation"+util.mergeAndCapitalize(property)+"Data",h);
+}
+
+
+
+operation  addTopObject ( masterType,targetnamespace,pkg,h){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      pkg.put(h.get("package")+".AddTop"+masterType.~class+"Data",h);
+}
+
+
+operation  addContaintmentRelation ( masterType, detailType,property,targetnamespace,pkg,h){
+      var util = new Native('org.tura.metamodel.commons.Util');
+      pkg.put(h.get("package")+".Add"+detailType.~class+"2"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Data",h);
+}
+
+operation  addNonContaintmentRelation ( masterType, detailType,property,targetnamespace,pkg,h){
+     var util = new Native('org.tura.metamodel.commons.Util');
+      pkg.put(h.get("package")+".Add"+detailType.~class+"2"+masterType.~class+"On"+util.mergeAndCapitalize(property)+"Data",h);
+}
+
+
+operation addNoAssosiationtRelation ( masterType, detailType,property,targetnamespace,pkg,h){
+     var util = new Native('org.tura.metamodel.commons.Util');
+      pkg.put(h.get("package")+".Add"+detailType.~class+"2"+masterType.~class+"OnNoAssosiation"+util.mergeAndCapitalize(property)+"Data",h);
+}
+
+operation type::TypeElement  updateData ( targetnamespace,pkg,h){
+       var util = new Native('org.tura.metamodel.commons.Util');
+      pkg.put(h.get("package")+".Update"+self.~class+"Data",h);
+ }
+ 
+
+
