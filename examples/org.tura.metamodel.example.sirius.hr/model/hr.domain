@@ -2023,9 +2023,9 @@
                   <infrastructure2Configurations uid="db3778b0-c4cd-41fa-9e80-08f840c52643" source="5d499be9-cf3b-4ef5-8e72-85ceec683c6c" target="92392501-32c5-4c63-8efd-39a5793fa1b2"/>
                 </recipes>
                 <recipes uid="8f44c877-af38-4d6f-80a8-c5d936332242" name="TypeScript Proxy client">
-                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 21d8af7b-7dbd-451d-a8e7-ee9d696646a4 d618d7da-b15b-4395-ae4c-40f5c49e29a3 5b7c1e6e-40fd-4ebc-91fb-ef1c8709e6cf" uid="af1a4993-a8e0-4af2-86b0-62848e8536cd" name="TypeScript Proxy Clients">
+                  <recipe mappers="c54eedbc-d293-4191-b916-900a5168677a 21d8af7b-7dbd-451d-a8e7-ee9d696646a4 f222b58b-cd61-4fe3-9a57-98f09aafac20 d618d7da-b15b-4395-ae4c-40f5c49e29a3 d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0 5b7c1e6e-40fd-4ebc-91fb-ef1c8709e6cf" uid="af1a4993-a8e0-4af2-86b0-62848e8536cd" name="TypeScript Proxy Clients">
                     <ingredients uid="52f158b9-40ef-40f4-8e76-33656a6fa456" name="Typescript repository components" controllerLayer="0d88bb08-2150-462f-937d-70b99af379f9">
-                      <components xsi:type="tura.recipe:JavaComponent" uid="e9043ee5-9ae3-4d84-82b8-86b351e9f6b6" name="TypeScript HR model interface" skip="true" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-model-interface" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="e9043ee5-9ae3-4d84-82b8-86b351e9f6b6" name="TypeScript HR model interface" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-model-interface" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="">
                         <mappers uid="454387a5-7e33-4641-8c9c-fb92613407e8" artifactRef="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet project builder ">
                           <technologies techRef="52914671-de59-4421-9c75-bea1a62690df" valueRef="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a"/>
                           <technologies techRef="b1770835-1bbe-432c-9e71-426d6225aa37" valueRef="c00dca88-11b5-4554-8baf-ff7883cdb481"/>
@@ -2049,8 +2049,14 @@
                             <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR model interface"/>
                           </queries>
                         </mappers>
+                        <mappers uid="ae557b33-c0ae-4ced-8360-9c163fdd0df5" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="TypeScript HR model interface Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/ts-hr-model-interface/builder.sh">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" order="1" uid="32a621ff-7ca9-4554-b4a8-a18bb9339842" name="TypeScript HR domain complex model" skip="true" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" order="2" uid="32a621ff-7ca9-4554-b4a8-a18bb9339842" name="TypeScript HR domain complex model serialization" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="bcee9d88-1824-46e0-a09e-ea086b06e5c7" artifactRef="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet project builder">
                           <technologies techRef="b1770835-1bbe-432c-9e71-426d6225aa37" valueRef="c00dca88-11b5-4554-8baf-ff7883cdb481"/>
                           <technologies techRef="52914671-de59-4421-9c75-bea1a62690df" valueRef="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a"/>
@@ -2069,8 +2075,14 @@
                             <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR domain complex model"/>
                           </queries>
                         </mappers>
+                        <mappers uid="cdba53d7-b4f3-49f2-9495-07f8c7207bfc" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="TypeScript HR domain complex model serialization Build runner">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" order="2" uid="7a8fd04e-3a5a-4f55-9279-0ae330fc3b8e" name="Typescript Simple  model serialization" skip="true" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-simple-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" order="1" uid="7a8fd04e-3a5a-4f55-9279-0ae330fc3b8e" name="Typescript Simple  model serialization" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-simple-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="59cc02fb-c6d8-4037-ae60-4ae3758deb33" artifactRef="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet project builder">
                           <technologies techRef="b1770835-1bbe-432c-9e71-426d6225aa37" valueRef="c00dca88-11b5-4554-8baf-ff7883cdb481"/>
                           <technologies techRef="52914671-de59-4421-9c75-bea1a62690df" valueRef="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a"/>
@@ -2089,8 +2101,14 @@
                             <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR domain simple model"/>
                           </queries>
                         </mappers>
+                        <mappers uid="13bb0a30-17b6-45ac-a387-f6a2209e9e2c" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Typescript Simple  model serialization Build runner">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" order="3" uid="79a3b2f4-d78f-4a43-954b-45d90e24de9a" name="Typescript Serialization model for persistence object" skip="true" componentRoot="${Generation path}/serviceLayer" artifactId="ts-test-objects-serialization" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" order="3" uid="79a3b2f4-d78f-4a43-954b-45d90e24de9a" name="Typescript Serialization model for persistence object" componentRoot="${Generation path}/serviceLayer" artifactId="ts-test-objects-serialization" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="00c7ce7f-8c78-411b-8dc2-55d9dae34b36" artifactRef="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet project builder">
                           <technologies techRef="b1770835-1bbe-432c-9e71-426d6225aa37" valueRef="c00dca88-11b5-4554-8baf-ff7883cdb481"/>
                           <technologies techRef="52914671-de59-4421-9c75-bea1a62690df" valueRef="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a"/>
@@ -2109,8 +2127,14 @@
                             <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="persistance serialization model"/>
                           </queries>
                         </mappers>
+                        <mappers uid="6f563a34-5ee4-41f8-b328-61a27a167076" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Typescript Serialization model for persistence object Build runner">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" order="4" uid="7c1ba62b-a788-4255-84fd-c0805b8499c9" name="Typescript Proxy for JPA model repository" componentRoot="${Generation path}/serviceLayer" artifactId="ts-test-objects-repository-proxy" groupId="org.tura.platform.test.generated-code" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" order="4" uid="7c1ba62b-a788-4255-84fd-c0805b8499c9" name="Typescript Proxy for JPA model repository" componentRoot="${Generation path}/serviceLayer" artifactId="ts-test-objects-repository-proxy" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="f660f23b-e8e1-4804-ad6a-d97306c6b642" artifactRef="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet project builder">
                           <technologies techRef="b1770835-1bbe-432c-9e71-426d6225aa37" valueRef="c00dca88-11b5-4554-8baf-ff7883cdb481"/>
                           <technologies techRef="52914671-de59-4421-9c75-bea1a62690df" valueRef="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a"/>
@@ -2133,11 +2157,78 @@
                             <variables queryParamRef="22d64355-fc36-4a57-9f00-0c24a6f17c5a" value="Model Interface"/>
                           </queries>
                         </mappers>
+                        <mappers uid="14b6c143-c3c0-4c51-b841-77e784784148" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Typescript Proxy for JPA model repository Build runner">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
+                      </components>
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" order="5" uid="2f951c83-028f-4d88-b739-e2d0be2cde6a" name="TypeScript Proxy for Simple model" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-simple-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0">
+                        <mappers uid="7dc053e9-09bb-4c08-8d37-1d6d8b64e498" artifactRef="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet project bulder">
+                          <technologies techRef="b1770835-1bbe-432c-9e71-426d6225aa37" valueRef="c00dca88-11b5-4554-8baf-ff7883cdb481"/>
+                          <technologies techRef="52914671-de59-4421-9c75-bea1a62690df" valueRef="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a"/>
+                          <technologies techRef="03d12521-ff28-40d1-85a1-7a850babda1f" valueRef="e33d8dc5-4061-45fd-8478-8966c9e95470"/>
+                          <queries uid="dcb0c352-6cfa-49ac-acd5-e016089a2b85" name="Query package" queryRef="22bda0a0-0758-42ff-9df9-43713d0a39dc">
+                            <variables queryParamRef="c1986f9f-ceb8-4780-878d-c11f8374defa" value="HR domain"/>
+                            <variables queryParamRef="22d64355-fc36-4a57-9f00-0c24a6f17c5a" value="Simple model"/>
+                          </queries>
+                          <queries uid="4ef946ce-5db0-48bb-bb15-a96cecc52690" name="Query component" queryRef="584ed0bd-06d5-43ce-b5ce-78f6c2364780">
+                            <variables queryParamRef="12ea6bce-8223-476d-a611-9cc7285b3838" value="ERP"/>
+                            <variables queryParamRef="4b5f69a7-1b94-4966-b9d8-a0a0ba22e7ce" value="HR domain"/>
+                            <variables queryParamRef="b6fe7830-f5fb-465a-8ad7-6d18c5ea3436" value="HR application"/>
+                            <variables queryParamRef="56313163-1523-4261-ba33-cc4950003b55" value="Backend objects and services"/>
+                            <variables queryParamRef="b78500d8-f4d0-4697-9c7c-ceb993378b91" value="HR domain and presistence model"/>
+                            <variables queryParamRef="a7c01f24-e182-4207-bd82-6cddb3b9c3bd" value="Proxy repository for simple model"/>
+                            <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR domain simple model"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="a4b8624f-6c98-4e58-828f-018d6954cbaf" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="TypeScript Proxy for Simple model Build runner">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
+                      </components>
+                      <components xsi:type="tura.recipe:JavaComponent" columns="2" order="6" uid="efca7f1d-a7f5-483c-bc24-9408060c0d58" name="TypeScript Proxy for Complex model" componentRoot="${Generation path}/serviceLayer" artifactId="ts-hr-complex-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0">
+                        <mappers uid="e4d34de9-76fd-41e4-ba69-371e1631a74c" artifactRef="943e7dc8-be2a-4991-a2d5-04d16a04622a" name="JSweet project builder">
+                          <technologies techRef="b1770835-1bbe-432c-9e71-426d6225aa37" valueRef="c00dca88-11b5-4554-8baf-ff7883cdb481"/>
+                          <technologies techRef="52914671-de59-4421-9c75-bea1a62690df" valueRef="7cf36e6f-727f-4a33-9380-e40b3b9e5d9a"/>
+                          <technologies techRef="03d12521-ff28-40d1-85a1-7a850babda1f" valueRef="e33d8dc5-4061-45fd-8478-8966c9e95470"/>
+                          <queries uid="5602d88e-9a6e-47cd-b5d7-56c03b26de48" name="Query package" queryRef="22bda0a0-0758-42ff-9df9-43713d0a39dc">
+                            <variables queryParamRef="c1986f9f-ceb8-4780-878d-c11f8374defa" value="HR domain"/>
+                            <variables queryParamRef="22d64355-fc36-4a57-9f00-0c24a6f17c5a" value="Complex model"/>
+                          </queries>
+                          <queries uid="5751d8c6-910a-4906-96f8-6bcd5de74c9e" name="Query  component" queryRef="584ed0bd-06d5-43ce-b5ce-78f6c2364780">
+                            <variables queryParamRef="12ea6bce-8223-476d-a611-9cc7285b3838" value="ERP"/>
+                            <variables queryParamRef="4b5f69a7-1b94-4966-b9d8-a0a0ba22e7ce" value="HR domain"/>
+                            <variables queryParamRef="b6fe7830-f5fb-465a-8ad7-6d18c5ea3436" value="HR application"/>
+                            <variables queryParamRef="56313163-1523-4261-ba33-cc4950003b55" value="Backend objects and services"/>
+                            <variables queryParamRef="b78500d8-f4d0-4697-9c7c-ceb993378b91" value="HR domain and presistence model"/>
+                            <variables queryParamRef="a7c01f24-e182-4207-bd82-6cddb3b9c3bd" value="Proxy repository for complex model"/>
+                            <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR domain complex model"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="5693de0c-8557-4ce6-880d-801b657af8d2" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="TypeScript Proxy for Complex model Buid runner">
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                        </mappers>
                       </components>
                     </ingredients>
+                    <deplymentStep mapper="ae557b33-c0ae-4ced-8360-9c163fdd0df5"/>
+                    <deplymentStep mapper="13bb0a30-17b6-45ac-a387-f6a2209e9e2c" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.0"/>
+                    <deplymentStep mapper="cdba53d7-b4f3-49f2-9495-07f8c7207bfc" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.1"/>
+                    <deplymentStep mapper="6f563a34-5ee4-41f8-b328-61a27a167076" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.2"/>
+                    <deplymentStep mapper="14b6c143-c3c0-4c51-b841-77e784784148" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.3"/>
+                    <deplymentStep mapper="a4b8624f-6c98-4e58-828f-018d6954cbaf" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.4"/>
+                    <deplymentStep mapper="5693de0c-8557-4ce6-880d-801b657af8d2" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.5"/>
+                    <startSeq uid="f097cd97-f867-442a-a08d-9805899b5f28" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.6"/>
                   </recipe>
                   <configurations uid="8e34a215-0836-4779-9a0b-01f7c23345c9">
                     <properties uid="20e85752-a4d2-4dfc-afaf-01d67008d84b" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
+                    <properties uid="f4b19da0-8bb1-45a2-ab3b-a99013f045ae" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
                   </configurations>
                   <infrastructures uid="75aae032-501a-4c8a-a57c-2f92338a094b" name="Development"/>
                   <recipe2Infrastructures uid="3aeb2bee-178b-412d-82b7-1262ea3a2e74" source="af1a4993-a8e0-4af2-86b0-62848e8536cd" target="75aae032-501a-4c8a-a57c-2f92338a094b"/>
@@ -2525,7 +2616,7 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="6b230e92-341d-474b-867c-56426579090b" mappedToPackageName="org.tura.platform.object.serializaton.persistence" mappedToClassName="PersistenceObject" artifactId="hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="d7636d4b-5360-45e3-b983-1abe14af04d4" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="0940b723-a40d-4c8c-9cc9-995413258694" artifactId="hr-complex-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="9b9f0c44-a99e-4004-abc0-6c123142c131" uid="cf71b43b-600b-4701-b4ab-e19047857418" mappedToPackageName="Just library definition( cannot be null )" mappedToClassName="Just library definition( cannot be null )" artifactId="hr-complex-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0"/>
-                  <mappers xsi:type="tura.mapper:JavaScriptPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="edbb0cb2-da79-4cb0-926f-51a4752c92db" mappedToPackageName="org.tura.platform.hr.objects.serialization" artifactId="hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0" libraryUrl="NA"/>
+                  <mappers xsi:type="tura.mapper:JavaScriptPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="edbb0cb2-da79-4cb0-926f-51a4752c92db" mappedToPackageName="org.tura.platform.hr.objects.serialization" artifactId="ts-hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0" libraryUrl="NA"/>
                 </mapper>
               </mappers>
               <mappers uid="0a60b0d3-0018-4642-a2d7-477a0ccb5b2c" name="Data control commands mapping">
@@ -2583,7 +2674,7 @@
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="048c2f8e-5b4d-453d-98ed-bd5da7907d76" namespace="serialization.objects.hr.platform.tura.org"/>
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="d7636d4b-5360-45e3-b983-1abe14af04d4" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="2ceabfc3-38c5-4bac-a115-060d340015be" artifactId="hr-simple-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="9b9f0c44-a99e-4004-abc0-6c123142c131" uid="cca10729-6840-4cc8-94da-700b0ad72748" mappedToPackageName="Just library definition( cannot be null )" mappedToClassName="Just library definition( cannot be null )" artifactId="hr-simple-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0"/>
-                  <mappers xsi:type="tura.mapper:JavaScriptPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="410f3eec-e507-4126-a679-5ff6c8e551d1" mappedToPackageName="org.tura.platform.hr.objects.serialization" artifactId="hr-simple-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0" libraryUrl="NA"/>
+                  <mappers xsi:type="tura.mapper:JavaScriptPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="410f3eec-e507-4126-a679-5ff6c8e551d1" mappedToPackageName="org.tura.platform.hr.objects.serialization" artifactId="ts-hr-simple-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0" libraryUrl="NA"/>
                 </mapper>
               </mappers>
               <mappers uid="4e8497b0-1a35-4ace-90cd-4359e7cbe666" name="HR model interface mapping">
