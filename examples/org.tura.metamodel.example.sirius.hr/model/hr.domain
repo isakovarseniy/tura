@@ -2075,7 +2075,7 @@
                             <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR domain complex model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="cdba53d7-b4f3-49f2-9495-07f8c7207bfc" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="TypeScript HR domain complex model serialization Build runner">
+                        <mappers uid="cdba53d7-b4f3-49f2-9495-07f8c7207bfc" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="TypeScript HR domain complex model serialization Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/ts-hr-complex-model-serialization/builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
@@ -2101,7 +2101,7 @@
                             <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR domain simple model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="13bb0a30-17b6-45ac-a387-f6a2209e9e2c" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Typescript Simple  model serialization Build runner">
+                        <mappers uid="13bb0a30-17b6-45ac-a387-f6a2209e9e2c" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Typescript Simple  model serialization Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/ts-hr-simple-model-serialization/builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
@@ -2127,7 +2127,7 @@
                             <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="persistance serialization model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="6f563a34-5ee4-41f8-b328-61a27a167076" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Typescript Serialization model for persistence object Build runner">
+                        <mappers uid="6f563a34-5ee4-41f8-b328-61a27a167076" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Typescript Serialization model for persistence object Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/ts-test-objects-serialization/builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
@@ -2157,7 +2157,7 @@
                             <variables queryParamRef="22d64355-fc36-4a57-9f00-0c24a6f17c5a" value="Model Interface"/>
                           </queries>
                         </mappers>
-                        <mappers uid="14b6c143-c3c0-4c51-b841-77e784784148" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Typescript Proxy for JPA model repository Build runner">
+                        <mappers uid="14b6c143-c3c0-4c51-b841-77e784784148" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Typescript Proxy for JPA model repository Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/ts-test-objects-repository-proxy/builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
@@ -2183,7 +2183,7 @@
                             <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR domain simple model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="a4b8624f-6c98-4e58-828f-018d6954cbaf" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="TypeScript Proxy for Simple model Build runner">
+                        <mappers uid="a4b8624f-6c98-4e58-828f-018d6954cbaf" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="TypeScript Proxy for Simple model Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/ts-hr-simple-model-proxy/builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
@@ -2209,7 +2209,7 @@
                             <variables queryParamRef="3eca02c9-2376-4235-93da-2fcbbed5cc48" value="HR domain complex model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="5693de0c-8557-4ce6-880d-801b657af8d2" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="TypeScript Proxy for Complex model Buid runner">
+                        <mappers uid="5693de0c-8557-4ce6-880d-801b657af8d2" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="TypeScript Proxy for Complex model Buid runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/ts-hr-complex-model-proxy/builder.sh">
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="93b6b9cd-3f8a-4a69-93ef-f179af2acd88"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
@@ -2217,14 +2217,14 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <deplymentStep mapper="ae557b33-c0ae-4ced-8360-9c163fdd0df5"/>
-                    <deplymentStep mapper="13bb0a30-17b6-45ac-a387-f6a2209e9e2c" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.0"/>
-                    <deplymentStep mapper="cdba53d7-b4f3-49f2-9495-07f8c7207bfc" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.1"/>
+                    <deplymentStep mapper="ae557b33-c0ae-4ced-8360-9c163fdd0df5" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.1"/>
+                    <deplymentStep mapper="13bb0a30-17b6-45ac-a387-f6a2209e9e2c" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.3"/>
+                    <deplymentStep mapper="cdba53d7-b4f3-49f2-9495-07f8c7207bfc" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.4"/>
                     <deplymentStep mapper="6f563a34-5ee4-41f8-b328-61a27a167076" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.2"/>
-                    <deplymentStep mapper="14b6c143-c3c0-4c51-b841-77e784784148" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.3"/>
-                    <deplymentStep mapper="a4b8624f-6c98-4e58-828f-018d6954cbaf" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.4"/>
-                    <deplymentStep mapper="5693de0c-8557-4ce6-880d-801b657af8d2" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.5"/>
-                    <startSeq uid="f097cd97-f867-442a-a08d-9805899b5f28" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.6"/>
+                    <deplymentStep mapper="14b6c143-c3c0-4c51-b841-77e784784148" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.5"/>
+                    <deplymentStep mapper="a4b8624f-6c98-4e58-828f-018d6954cbaf" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.6"/>
+                    <deplymentStep mapper="5693de0c-8557-4ce6-880d-801b657af8d2"/>
+                    <startSeq uid="f097cd97-f867-442a-a08d-9805899b5f28" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.3/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="8e34a215-0836-4779-9a0b-01f7c23345c9">
                     <properties uid="20e85752-a4d2-4dfc-afaf-01d67008d84b" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
