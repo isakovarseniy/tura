@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "sql-dsl/*": ["candies/typings/META-INF/resources/typings/ts-sql-dsl/2.0/*"],
+      "jdk/*": ["candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/*"],
+      "dc-commons/*": ["candies/typings/META-INF/resources/typings/dc-commons/2.0/*"],
+      "repo-core/*": ["candies/typings/META-INF/resources/typings/repo-core/2.0/*"],
+      "json-typescript-mapper/*":["node_modules/json-typescript-mapper/*"]
+    },
+    "module" : "ES6",
+    "target": "ES6",
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "typings/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+
+}

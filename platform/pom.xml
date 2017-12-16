@@ -109,8 +109,8 @@
 				<groupId>org.jsweet</groupId>
 				<artifactId>j4ts</artifactId>
 				<version>${version.j4ts}</version>
-			</dependency>		
-			
+			</dependency>
+
 
 			<dependency>
 				<groupId>org.wildfly</groupId>
@@ -222,6 +222,13 @@
 				<artifactId>ts-sql-dsl</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform-ts.repository</groupId>
+				<artifactId>repo-core</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>org.tura.platform-ts.datacontrol</groupId>
