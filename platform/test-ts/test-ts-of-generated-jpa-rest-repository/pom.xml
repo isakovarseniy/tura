@@ -32,6 +32,27 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>org.jsweet</groupId>
+			<artifactId>j4ts</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform-ts</groupId>
+			<artifactId>ts-sql-dsl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform-ts.datacontrol</groupId>
+			<artifactId>dc-commons</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform-ts.repository</groupId>
+			<artifactId>repo-core</artifactId>
+		</dependency>
+
+
+		<dependency>
 			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>test-objects-restservice-repository</artifactId>
 			<type>war</type>
@@ -39,8 +60,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.platform-java.repository</groupId>
-			<artifactId>rest-client</artifactId>
+			<groupId>org.tura.platform-ts.repository</groupId>
+			<artifactId>repo-client</artifactId>
 		</dependency>
 
 		<dependency>
@@ -67,6 +88,18 @@
 		<dependency>
 			<groupId>org.tura.platform.test.generated-code</groupId>
 			<artifactId>test-objects-repository-proxy</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>ts-test-objects-serialization</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>ts-test-objects-repository-proxy</artifactId>
 			<version>1.0</version>
 		</dependency>
 
@@ -121,11 +154,33 @@
 
 	</dependencies>
 	<build>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-			</testResource>
-		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>org.jsweet</groupId>
+				<artifactId>jsweet-maven-plugin</artifactId>
+				<version>${version.jsweet.transpiler}</version>
+				<executions>
+					<execution>
+						<id>generate-js</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>jsweet</goal>
+						</goals>
+						<configuration>
+							<verbose>true</verbose>
+							<outDir>${project.basedir}/target</outDir>
+							<tsOut>${project.basedir}/target</tsOut>
+							<tsOnly>true</tsOnly>
+							<workingDir>${project.basedir}</workingDir>
+							<targetVersion>ES6</targetVersion>
+							<module>es2015</module>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
 	</build>
+
 
 </project>

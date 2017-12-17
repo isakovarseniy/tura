@@ -5,7 +5,14 @@
       "root": ["./"],
       "alias": {
         "sql-dsl": "./candies/js/ts-sql-dsl-2.0",
-        "jdk": "./candies/js/j4ts-0.6.0-SNAPSHOT"
+        "jdk": "./candies/js/j4ts-0.6.0-SNAPSHOT",
+        "dc-commons": "./candies/js/dc-commons-2.0",
+        "repo-core": "./candies/js/repo-core-2.0",
+        "repo-client":"./candies/js/repo-client-2.0",
+        "json2typescript":"./node_modules/json2typescript",
+        "ts-hr-model-interface":"./candies/js/ts-hr-model-interface-1.0",
+        "ts-test-objects-repository-proxy":"./candies/js/ts-test-objects-repository-proxy-1.0",
+        "ts-test-objects-serialization":"./candies/js/ts-test-objects-serialization-1.0"
       }
     }]
   ]

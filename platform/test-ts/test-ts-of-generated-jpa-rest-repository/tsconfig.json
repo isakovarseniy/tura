@@ -3,14 +3,22 @@
     "baseUrl": "./",
     "paths": {
       "sql-dsl/*": ["candies/typings/META-INF/resources/typings/ts-sql-dsl/2.0/*"],
-      "jdk/*": ["candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/*"]
+      "jdk/*": ["candies/typings/META-INF/resources/typings/j4ts/0.6.0-SNAPSHOT/*"],
+      "axios/*":["node_modules/axios/*"],
+      "dc-commons/*": ["candies/typings/META-INF/resources/typings/dc-commons/2.0/*"],
+      "repo-core/*": ["candies/typings/META-INF/resources/typings/repo-core/2.0/*"],
+      "repo-client/*": ["candies/typings/META-INF/resources/typings/repo-client/2.0/*"],
+      "json2typescript/*":["node_modules/json2typescript/*"],
+      "ts-hr-model-interface/*":["candies/typings/META-INF/resources/typings/ts-hr-model-interface/1.0/*"],
+      "ts-test-objects-repository-proxy/*":["candies/typings/META-INF/resources/typings/ts-test-objects-repository-proxy/1.0/*"],
+      "ts-test-objects-serialization/*":["candies/typings/META-INF/resources/typings/ts-test-objects-serialization/1.0/*"]
     },
     "module" : "ES6",
     "target": "ES6",
     "sourceMap": true
   },
   "include": [
-    "target/**/*.ts",
+    "src/test/ts/**/*.ts",
     "typings/**/*.d.ts"
   ],
   "exclude": [
