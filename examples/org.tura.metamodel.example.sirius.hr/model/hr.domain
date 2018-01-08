@@ -1890,7 +1890,7 @@
                         <mappers uid="81ea40f0-7b50-47f4-a625-0ce92a44408d" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" uid="9885f08d-1c1d-4af3-acba-34795fb0ce34" name="Triggers" componentRoot="${External path 1}" artifactId="hr-simple-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0">
-                        <mappers uid="8767ffea-e368-449c-a79f-e0f8fb7bbb67" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.1/examples/hr-simple-model-repository-triggers/builder.sh">
+                        <mappers uid="8767ffea-e368-449c-a79f-e0f8fb7bbb67" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Simple model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.2/examples/hr-simple-model-repository-triggers/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -1923,7 +1923,7 @@
                         <mappers uid="cf2e94ba-c572-4d55-95b6-6ec132c5f3ef" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" uid="39db2632-0f22-4ddd-90c4-c70d5f8a9136" name="Triggers" componentRoot="${External path 1}" artifactId="hr-complex-model-repository-triggers" groupId="org.tura.example.service.hrform">
-                        <mappers uid="1705b9e9-6e3a-4d16-a241-59df0f9c4ee9" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.1/examples/hr-complex-model-repository-triggers/builder.sh">
+                        <mappers uid="1705b9e9-6e3a-4d16-a241-59df0f9c4ee9" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Complex model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.2/examples/hr-complex-model-repository-triggers/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -1956,7 +1956,7 @@
                         <mappers uid="3954b242-ef8f-4068-aeb3-d7038d4f5d81" artifactRef="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="Deployment descriptor"/>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" uid="2f5cdcb2-9ff8-4e8f-a296-fc47acba4b45" name="Triggers" componentRoot="${External path 1}" artifactId="jpa-test-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0">
-                        <mappers uid="b1ff4dce-af4e-4461-ad7a-043e233039ca" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA test model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.1/examples/jpa-test-model-repository-triggers/builder.sh">
+                        <mappers uid="b1ff4dce-af4e-4461-ad7a-043e233039ca" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA test model triggers builder" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.2/examples/jpa-test-model-repository-triggers/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -1975,7 +1975,7 @@
                   <configurations uid="92392501-32c5-4c63-8efd-39a5793fa1b2">
                     <properties uid="496fe712-a010-4538-92c7-08f7a162e686" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
                     <properties uid="72802fd8-f68a-431c-9887-ec747f7af701" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
-                    <properties uid="7567e3d5-c31f-42e0-993f-d6dc28cca0d8" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura.4.2.1/examples"/>
+                    <properties uid="7567e3d5-c31f-42e0-993f-d6dc28cca0d8" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura.4.2.2/examples"/>
                   </configurations>
                   <infrastructures uid="5d499be9-cf3b-4ef5-8e72-85ceec683c6c" name="Development"/>
                   <recipe2Infrastructures uid="dbc26269-9c00-45bc-8dca-f10535597578" source="7ee0d7d5-b270-4c71-b18e-4201158b1152" target="5d499be9-cf3b-4ef5-8e72-85ceec683c6c"/>

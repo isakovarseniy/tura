@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmn20="http://www.omg.org/bpmn20" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xmlns:java="http://www.java.com/javaTypes" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="_Db20IQL4EeatD9sQgSOy9g" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.4.1.Final-v20170829-1537-B1" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="__00C2D25E-9307-46BE-8AFD-D0DB405B6A39_TaskNameInputXItem" isCollection="false" structureRef="String"/>
+  <bpmn2:itemDefinition id="__00C2D25E-9307-46BE-8AFD-D0DB405B6A39_CommandClassInputXItem" isCollection="false" structureRef="String"/>
+  <bpmn2:itemDefinition id="__00C2D25E-9307-46BE-8AFD-D0DB405B6A39_PriorityInputXItem" isCollection="false" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="__00C2D25E-9307-46BE-8AFD-D0DB405B6A39_ResultOutputXItem" isCollection="false" structureRef="java.lang.Object"/>
+  <bpmn2:itemDefinition id="__170F70ED-D403-4265-9700-C98F08996BF3_TaskNameInputXItem" isCollection="false" structureRef="String"/>
+  <bpmn2:itemDefinition id="__170F70ED-D403-4265-9700-C98F08996BF3_CommandClassInputXItem" isCollection="false" structureRef="String"/>
+  <bpmn2:itemDefinition id="__170F70ED-D403-4265-9700-C98F08996BF3_PriorityInputXItem" isCollection="false" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="__170F70ED-D403-4265-9700-C98F08996BF3_ResultOutputXItem" isCollection="false" structureRef="java.lang.Object"/>
+  <bpmn2:process id="sales.analyzer.MonthlyFileLoad" drools:packageName="sales.analyzer" drools:version="1.0" name="Monthly file load" isExecutable="true">
+    <bpmn2:startEvent id="processStartEvent" drools:selectable="true" color:background-color="#9acd32" color:border-color="#000000" color:color="#000000" name="">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:task id="_170F70ED-D403-4265-9700-C98F08996BF3" drools:selectable="true" drools:taskName="async" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="File Loader">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[File Loader]]></drools:metaValue>
+        </drools:metaData>
+        <drools:metaData name="customAsync">
+          <drools:metaValue><![CDATA[false]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Db86wgL4EeatD9sQgSOy9g">
+        <bpmn2:dataInput id="_170F70ED-D403-4265-9700-C98F08996BF3_TaskNameInputX" drools:dtype="String" itemSubjectRef="__170F70ED-D403-4265-9700-C98F08996BF3_TaskNameInputXItem" name="TaskName"/>
+        <bpmn2:dataInput id="_170F70ED-D403-4265-9700-C98F08996BF3_CommandClassInputX" drools:dtype="String" itemSubjectRef="__170F70ED-D403-4265-9700-C98F08996BF3_CommandClassInputXItem" name="CommandClass"/>
+        <bpmn2:dataInput id="_170F70ED-D403-4265-9700-C98F08996BF3_PriorityInputX" drools:dtype="Integer" itemSubjectRef="__170F70ED-D403-4265-9700-C98F08996BF3_PriorityInputXItem" name="Priority"/>
+        <bpmn2:dataOutput id="_170F70ED-D403-4265-9700-C98F08996BF3_ResultOutputX" drools:dtype="java.lang.Object" itemSubjectRef="__170F70ED-D403-4265-9700-C98F08996BF3_ResultOutputXItem" name="Result"/>
+        <bpmn2:inputSet id="_Db86wwL4EeatD9sQgSOy9g">
+          <bpmn2:dataInputRefs>_170F70ED-D403-4265-9700-C98F08996BF3_CommandClassInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_170F70ED-D403-4265-9700-C98F08996BF3_PriorityInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_170F70ED-D403-4265-9700-C98F08996BF3_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Db86xAL4EeatD9sQgSOy9g">
+          <bpmn2:dataOutputRefs>_170F70ED-D403-4265-9700-C98F08996BF3_ResultOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Db86xQL4EeatD9sQgSOy9g">
+        <bpmn2:targetRef>_170F70ED-D403-4265-9700-C98F08996BF3_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Db86xgL4EeatD9sQgSOy9g">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Db86xwL4EeatD9sQgSOy9g">async</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Db86yAL4EeatD9sQgSOy9g">_170F70ED-D403-4265-9700-C98F08996BF3_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Db86yQL4EeatD9sQgSOy9g">
+        <bpmn2:targetRef>_170F70ED-D403-4265-9700-C98F08996BF3_CommandClassInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Db86ygL4EeatD9sQgSOy9g">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Db86ywL4EeatD9sQgSOy9g">sales.analyzer.process.async.commands.LoadFileCommand</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Db86zAL4EeatD9sQgSOy9g">_170F70ED-D403-4265-9700-C98F08996BF3_CommandClassInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Db86zQL4EeatD9sQgSOy9g">
+        <bpmn2:targetRef>_170F70ED-D403-4265-9700-C98F08996BF3_PriorityInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Db86zgL4EeatD9sQgSOy9g">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Db86zwL4EeatD9sQgSOy9g"><![CDATA[3]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Db860AL4EeatD9sQgSOy9g">_170F70ED-D403-4265-9700-C98F08996BF3_PriorityInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:endEvent id="_63CF9C07-E677-48C2-AC0C-65C2E0463ADD" drools:selectable="true" color:background-color="#ff6347" color:border-color="#000000" color:color="#000000" name="">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" drools:priority="1" sourceRef="processStartEvent" targetRef="_170F70ED-D403-4265-9700-C98F08996BF3"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" drools:priority="1" sourceRef="_170F70ED-D403-4265-9700-C98F08996BF3" targetRef="_63CF9C07-E677-48C2-AC0C-65C2E0463ADD"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_Db9h0AL4EeatD9sQgSOy9g">
+    <bpmndi:BPMNPlane id="_Db9h0QL4EeatD9sQgSOy9g" bpmnElement="sales.analyzer.MonthlyFileLoad">
+      <bpmndi:BPMNShape id="_Db-I4AL4EeatD9sQgSOy9g" bpmnElement="processStartEvent">
+        <dc:Bounds height="30.0" width="30.0" x="120.0" y="165.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1" labelStyle="BPMNLabelStyle_1"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Db-I5AL4EeatD9sQgSOy9g" bpmnElement="_170F70ED-D403-4265-9700-C98F08996BF3">
+        <dc:Bounds height="80.0" width="100.0" x="270.0" y="140.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="11.0" width="46.0" x="297.0" y="174.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Db-I6gL4EeatD9sQgSOy9g" bpmnElement="_63CF9C07-E677-48C2-AC0C-65C2E0463ADD">
+        <dc:Bounds height="28.0" width="28.0" x="520.0" y="166.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_3" labelStyle="BPMNLabelStyle_1"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_Db-I4AL4EeatD9sQgSOy9g" targetElement="_Db-I5AL4EeatD9sQgSOy9g">
+        <di:waypoint xsi:type="dc:Point" x="150.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="210.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="270.0" y="180.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_Db-I5AL4EeatD9sQgSOy9g" targetElement="_Db-I6gL4EeatD9sQgSOy9g">
+        <di:waypoint xsi:type="dc:Point" x="370.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="445.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="520.0" y="180.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="BPMNLabelStyle_1">
+      <dc:Font name="arial" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
