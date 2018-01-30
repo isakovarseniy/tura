@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendJSON="http://www.talend.org/json" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendJSON:JSONFileConnection xmi:id="_fB3v4PTuEeewJpBow4-aSA" name="countries" dataPackage="_fB3v5fTuEeewJpBow4-aSA" JSONFilePath="/Users/arseniy/Downloads/Countries-States-Cities-database-master/countries.json" Encoding="UTF-8" readbyMode="JSONPATH">
+    <schema xmi:id="_fB3v4fTuEeewJpBow4-aSA" LimitBoucle="50" AbsoluteXPathQuery="$.countries[*]">
+      <schemaTargets xmi:id="_fB3v4vTuEeewJpBow4-aSA" RelativeXPathQuery="id" TagName="id"/>
+      <schemaTargets xmi:id="_fB3v4_TuEeewJpBow4-aSA" RelativeXPathQuery="sortname" TagName="sortname"/>
+      <schemaTargets xmi:id="_fB3v5PTuEeewJpBow4-aSA" RelativeXPathQuery="name" TagName="name"/>
+    </schema>
+  </TalendJSON:JSONFileConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_fB3v5fTuEeewJpBow4-aSA" name="default" dataManager="_fB3v4PTuEeewJpBow4-aSA">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_fB8oYPTuEeewJpBow4-aSA" id="_Pz6X8PTuEeewJpBow4-aSA" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_fB8oYfTuEeewJpBow4-aSA" label="id_country" length="3" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_fB8oYvTuEeewJpBow4-aSA" label="sortname_country" length="2" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_fB8oY_TuEeewJpBow4-aSA" label="name_country" length="36" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>
