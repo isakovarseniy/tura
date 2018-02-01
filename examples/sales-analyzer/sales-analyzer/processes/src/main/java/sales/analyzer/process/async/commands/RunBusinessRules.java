@@ -9,6 +9,7 @@ import org.kie.api.executor.CommandContext;
 import org.kie.api.executor.ExecutionResults;
 
 import etl.run_rules_0_1.Run_rules;
+import sales.analyzer.process.commons.Constants;
 
 public class RunBusinessRules implements Command {
 

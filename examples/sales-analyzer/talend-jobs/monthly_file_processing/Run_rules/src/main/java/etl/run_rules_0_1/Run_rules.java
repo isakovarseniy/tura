@@ -46,6 +46,9 @@ import java.util.Comparator;
 
 
 
+	//the import part of tLibraryLoad_1
+	//import java.util.List;
+
 	//the import part of tJavaFlex_1
 	//import java.util.List;
 
@@ -303,6 +306,15 @@ private class TalendException extends Exception {
 	}
 }
 
+			public void tLibraryLoad_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tLibraryLoad_1_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
 			public void tFileInputDelimited_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 				
 				end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -330,6 +342,11 @@ private class TalendException extends Exception {
 					tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 			}
 			
+			public void tLibraryLoad_1_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+
+resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
+
+			}
 			public void tFileInputDelimited_1_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 
 resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
@@ -340,6 +357,167 @@ resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThrea
 
 
 
+
+public void tLibraryLoad_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+	globalMap.put("tLibraryLoad_1_SUBPROCESS_STATE", 0);
+
+ final boolean execStat = this.execStat;
+	
+		String iterateId = "";
+	
+	
+	String currentComponent = "";
+	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+	try {
+
+			String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
+			if( resumeEntryMethodName == null || resumeIt || globalResumeTicket){//start the resume
+				globalResumeTicket = true;
+
+
+
+		
+
+
+	
+	/**
+	 * [tLibraryLoad_1 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tLibraryLoad_1", false);
+		start_Hash.put("tLibraryLoad_1", System.currentTimeMillis());
+		
+	
+	currentComponent="tLibraryLoad_1";
+
+	
+		int tos_count_tLibraryLoad_1 = 0;
+		
+    	class BytesLimit65535_tLibraryLoad_1{
+    		public void limitLog4jByte() throws Exception{
+    			
+    		}
+    	}
+    	
+        new BytesLimit65535_tLibraryLoad_1().limitLog4jByte();
+
+
+
+ 
+
+
+
+/**
+ * [tLibraryLoad_1 begin ] stop
+ */
+	
+	/**
+	 * [tLibraryLoad_1 main ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLibraryLoad_1";
+
+	
+
+ 
+
+
+	tos_count_tLibraryLoad_1++;
+
+/**
+ * [tLibraryLoad_1 main ] stop
+ */
+	
+	/**
+	 * [tLibraryLoad_1 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLibraryLoad_1";
+
+	
+
+ 
+
+ok_Hash.put("tLibraryLoad_1", true);
+end_Hash.put("tLibraryLoad_1", System.currentTimeMillis());
+
+				if(execStat){   
+   	 				runStat.updateStatOnConnection("OnComponentOk1", 0, "ok");
+				}
+				tFileInputDelimited_1Process(globalMap);
+
+
+
+/**
+ * [tLibraryLoad_1 end ] stop
+ */
+				}//end the resume
+
+				
+
+
+
+	
+			}catch(java.lang.Exception e){	
+				
+				TalendException te = new TalendException(e, currentComponent, globalMap);
+				
+				throw te;
+			}catch(java.lang.Error error){	
+				
+					runStat.stopThreadStat();
+				
+				throw error;
+			}finally{
+				
+				try{
+					
+	
+	/**
+	 * [tLibraryLoad_1 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLibraryLoad_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tLibraryLoad_1 finally ] stop
+ */
+				}catch(java.lang.Exception e){	
+					//ignore
+				}catch(java.lang.Error error){
+					//ignore
+				}
+				resourceMap = null;
+			}
+		
+
+		globalMap.put("tLibraryLoad_1_SUBPROCESS_STATE", 1);
+	}
+	
 
 
 public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
@@ -1235,7 +1413,7 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 
 
 // start part of your Java code
-      
+sales.analyzer.process.commons.rule.impl.MonthlyFileRuleServiceImpl service = new sales.analyzer.process.commons.rule.impl.MonthlyFileRuleServiceImpl();      
 
 
  
@@ -1587,9 +1765,22 @@ if(row1 != null) {
 	        				row2.month_2_amount = row1.month_2_amount;
 	        				row2.month_3_amount = row1.month_3_amount;
 
-// here is the main part of the component,
-// a piece of code executed in the row
-// loop
+    
+sales.analyzer.process.commons.model.MonthlyFileRuleModel model = new sales.analyzer.process.commons.model.MonthlyFileRuleModel ();
+model.setCountry_id(row1.country_id);
+model.setId_state(row1.id_state);
+model.setId_city(row1.id_city);
+model.setProduct(row1.product);
+model.setName_country(row1.name_country);
+model.setName_state(row1.name_state);
+model.setName_city(row1.name_city);
+model.setAmount(row1.amount);
+model.setDate(row1.date);
+model.setMonth_1_amount(row1.month_1_amount);
+model.setMonth_2_amount(row1.month_2_amount);
+model.setMonth_3_amount(row1.month_3_amount);
+
+model = service.execute(model);    
 
 
  
@@ -2198,12 +2389,12 @@ this.globalResumeTicket = true;//to run tPreJob
 this.globalResumeTicket = false;//to run others jobs
 
 try {
-errorCode = null;tFileInputDelimited_1Process(globalMap);
+errorCode = null;tLibraryLoad_1Process(globalMap);
 if(!"failure".equals(status)) { status = "end"; }
-}catch (TalendException e_tFileInputDelimited_1) {
-globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", -1);
+}catch (TalendException e_tLibraryLoad_1) {
+globalMap.put("tLibraryLoad_1_SUBPROCESS_STATE", -1);
 
-e_tFileInputDelimited_1.printStackTrace();
+e_tLibraryLoad_1.printStackTrace();
 
 }
 
@@ -2379,6 +2570,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     64161 characters generated by Talend Open Studio for Data Integration 
- *     on the January 29, 2018 9:05:59 EST PM
+ *     67873 characters generated by Talend Open Studio for Data Integration 
+ *     on the January 31, 2018 8:26:02 EST PM
  ************************************************************************************************/

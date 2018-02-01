@@ -1,4 +1,4 @@
-package sales.analyzer.process.async.commands;
+package sales.analyzer.process.commons;
 
 public class Constants {
 	
@@ -9,6 +9,6 @@ public class Constants {
 	public static String PREPARE_DATA_JOB = "/monthly_file_processing/Prepare_to_rules_run/Prepare_to_rules_run_run.sh --context_param session=${session} --context_param date='yyyy-MM-dd;${data}'";
 	public static boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 	public static String  EXECUTION_ERROR = "Result";
-	
+	public static final String CONTAINER_ID = "sales-analyzer-container";
 
 }

@@ -1,0 +1,10 @@
+package sales.analyzer
+import sales.analyzer.process.commons.model.MonthlyFileRuleModel
+rule "r1"
+ 
+ when 
+  m :MonthlyFileRuleModel(  )
+ then
+//    System.out.println("Hello World, Drools");
+end
+ 

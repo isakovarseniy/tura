@@ -19,7 +19,15 @@
 
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>repo</id>
+			<url> https://mvnrepository.com/artifact/</url>
+		</repository>
+	</repositories>
+
 	<modules>
+		<module>rules-commons</module>
 		<module>processes</module>
 		<module>integration-testing</module>
 	</modules>
@@ -32,6 +40,27 @@
 				<artifactId>jbpm-services-api</artifactId>
 				<version>${version.drools}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>org.kie.server</groupId>
+				<artifactId>kie-server-services-common</artifactId>
+				<version>${version.drools}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.kie.server</groupId>
+				<artifactId>kie-server-services-drools</artifactId>
+				<version>${version.drools}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>rules-commons</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+
 
 			<dependency>
 				<groupId>org.wildfly</groupId>

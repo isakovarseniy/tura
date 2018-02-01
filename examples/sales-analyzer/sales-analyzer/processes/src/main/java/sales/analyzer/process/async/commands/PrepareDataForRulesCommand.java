@@ -10,6 +10,8 @@ import org.kie.api.executor.Command;
 import org.kie.api.executor.CommandContext;
 import org.kie.api.executor.ExecutionResults;
 
+import sales.analyzer.process.commons.Constants;
+
 public class PrepareDataForRulesCommand  implements Command {
 
 	private static final Logger LOGGER = Logger.getLogger(PrepareDataForRulesCommand.class.getName());

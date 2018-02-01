@@ -24,7 +24,8 @@ import org.kie.server.client.KieServicesFactory;
 import org.kie.server.client.ProcessServicesClient;
 import org.kie.server.client.QueryServicesClient;
 import org.kie.server.client.UserTaskServicesClient;
-import org.kie.server.api.model.instance.TaskInstance;
+
+import sales.analyzer.process.commons.Constants;
 
 
 @RunWith(Arquillian.class)
@@ -32,7 +33,6 @@ public class ImportProcessTest {
 
 	private static int RETRY = 100;
 	private static ReleaseId releaseId = new ReleaseId("sales-analyzer", "processes", "1.0.0-SNAPSHOT");
-	private static final String CONTAINER_ID = "sales-analyzer-container";
 	private static final String PROCESS_ID = "sales.analyzer.MonthlyFileLoad";
 	private static final String KIE_SERVER_URL = "http://localhost:8080/kie-server-6.5.0.Final-ee7/services/rest/server";
 	private static final String USERNAME = "kieserver";
@@ -50,7 +50,7 @@ public class ImportProcessTest {
 				KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, USERNAME,
 						PASSWORD);
 				KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
-				client.createContainer(CONTAINER_ID, new KieContainerResource(releaseId));
+				client.createContainer(Constants.CONTAINER_ID, new KieContainerResource(releaseId));
 				break;
 			} catch (Exception e) {
 				try {
@@ -65,7 +65,7 @@ public class ImportProcessTest {
 	public void dropContainer() {
 		KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, USERNAME, PASSWORD);
 		KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
-		client.disposeContainer(CONTAINER_ID);
+		client.disposeContainer(Constants.CONTAINER_ID);
 	}
 
 	@Test
@@ -76,21 +76,21 @@ public class ImportProcessTest {
 					PASSWORD);
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
-			Long procesInsatnceId = processClient.startProcess(CONTAINER_ID, PROCESS_ID, new HashMap<String, Object>());
+			Long procesInsatnceId = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, new HashMap<String, Object>());
 
 			UserTaskServicesClient userTaskServicesClient = client.getServicesClient(UserTaskServicesClient.class);
 
 			List<TaskSummary> tasks = userTaskServicesClient.findTasksAssignedAsPotentialOwner(null, 0, 40);
 			assertEquals(1, tasks.size());
 
-			userTaskServicesClient.claimTask(CONTAINER_ID, tasks.get(0).getId(), null);
-			userTaskServicesClient.startTask(CONTAINER_ID, tasks.get(0).getId(), null);
+			userTaskServicesClient.claimTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null);
+			userTaskServicesClient.startTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null);
 
 			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 
 			Map<String, Object> params = new HashMap<>();
 			params.put("dateOfFile", formatter.parse("01-10-2017"));
-			userTaskServicesClient.completeTask(CONTAINER_ID, tasks.get(0).getId(), null, params);
+			userTaskServicesClient.completeTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null, params);
 
 			QueryServicesClient queryClient = client.getServicesClient(QueryServicesClient.class);
 			waitForNode(FILE_LOAD_NODE, procesInsatnceId, queryClient);
@@ -99,10 +99,10 @@ public class ImportProcessTest {
 			assertEquals(1, tasks.size());
 			assertEquals(REVIEW_ERROR,tasks.get(0).getName()); 
 
-			userTaskServicesClient.claimTask(CONTAINER_ID, tasks.get(0).getId(), null);
-			userTaskServicesClient.startTask(CONTAINER_ID, tasks.get(0).getId(), null);
+			userTaskServicesClient.claimTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null);
+			userTaskServicesClient.startTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null);
 			
-			Map<String,Object> map = userTaskServicesClient.getTaskInputContentByTaskId(CONTAINER_ID, tasks.get(0).getId());
+			Map<String,Object> map = userTaskServicesClient.getTaskInputContentByTaskId(Constants.CONTAINER_ID, tasks.get(0).getId());
 			Boolean asyncResult = (Boolean) map.get("executionError");
 			
 			if (asyncResult == true ) {
@@ -110,7 +110,7 @@ public class ImportProcessTest {
 			}
 
 			params.put("direction", 0);
-			userTaskServicesClient.completeTask(CONTAINER_ID, tasks.get(0).getId(), null, params);
+			userTaskServicesClient.completeTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null, params);
 			
 			waitForNode(RUN_BUSINESS_RULES, procesInsatnceId, queryClient);
 			

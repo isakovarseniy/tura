@@ -8,6 +8,9 @@ import org.drools.core.process.instance.WorkItem;
 import org.kie.api.executor.Command;
 import org.kie.api.executor.CommandContext;
 import org.kie.api.executor.ExecutionResults;
+
+import sales.analyzer.process.commons.Constants;
+
 import java.util.logging.Logger;
 
 public class LoadFileCommand implements Command {

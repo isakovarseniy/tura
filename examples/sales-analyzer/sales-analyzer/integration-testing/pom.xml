@@ -47,6 +47,11 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>sales-analyzer</groupId>
+			<artifactId>rules-commons</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.jboss.arquillian.junit</groupId>

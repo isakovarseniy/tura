@@ -20,11 +20,16 @@
 			<artifactId>kie-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-core</artifactId>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>sales-analyzer</groupId>
+			<artifactId>rules-commons</artifactId>
 		</dependency>
 
 		<dependency>
@@ -33,18 +38,18 @@
 			<version>6.0.0</version>
 		</dependency>
 
-       <dependency>
+		<dependency>
 			<groupId>org.talend.libraries</groupId>
 			<artifactId>routines</artifactId>
 			<version>6.0.0</version>
-       </dependency>
+		</dependency>
 
 		<dependency>
 			<groupId>org.talend.libraries</groupId>
 			<artifactId>talend_file_enhanced_20070724</artifactId>
 			<version>6.0.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.talend.libraries</groupId>
 			<artifactId>run_rules_0_1</artifactId>
