@@ -14,7 +14,14 @@ public class MonthlyFileRuleModel {
 	private Float month_1_amount;
 	private Float month_2_amount;
 	private Float month_3_amount;
+	private boolean willCaseGenerate = false;
 	
+	public boolean isWillCaseGenerate() {
+		return willCaseGenerate;
+	}
+	public void setWillCaseGenerate(boolean willCaseGenerate) {
+		this.willCaseGenerate = willCaseGenerate;
+	}
 	public Long getCountry_id() {
 		return country_id;
 	}
