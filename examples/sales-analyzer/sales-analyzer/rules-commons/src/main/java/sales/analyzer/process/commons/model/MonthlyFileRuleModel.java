@@ -15,7 +15,14 @@ public class MonthlyFileRuleModel {
 	private Float month_2_amount;
 	private Float month_3_amount;
 	private boolean willCaseGenerate = false;
+	private boolean exception = false;
 	
+	public boolean isException() {
+		return exception;
+	}
+	public void setException(boolean exception) {
+		this.exception = exception;
+	}
 	public boolean isWillCaseGenerate() {
 		return willCaseGenerate;
 	}

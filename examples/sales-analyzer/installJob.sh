@@ -18,3 +18,4 @@ mvn install:install-file -Dfile="talend-jobs/monthly_file_processing/History_loa
 mvn install:install-file -Dfile="talend-jobs/monthly_file_processing/Monthly_file_validation/monthly_file_validation_0_1.jar" -DgroupId="org.talend.libraries" -DartifactId="monthly_file_validation_0_1"  -Dversion="6.0.0" -Dpackaging=jar
 mvn install:install-file -Dfile="talend-jobs/monthly_file_processing/Prepare_to_rules_run/prepare_to_rules_run_0_1.jar" -DgroupId="org.talend.libraries" -DartifactId="prepare_to_rules_run_0_1"  -Dversion="6.0.0" -Dpackaging=jar
 mvn install:install-file -Dfile="talend-jobs/monthly_file_processing/Run_rules/run_rules_0_1.jar" -DgroupId="org.talend.libraries" -DartifactId="run_rules_0_1"  -Dversion="6.0.0" -Dpackaging=jar
+mvn install:install-file -Dfile="talend-jobs/monthly_file_processing/Create_cases/create_cases_0_1.jar" -DgroupId="org.talend.libraries" -DartifactId="create_cases_0_1"  -Dversion="6.0.0" -Dpackaging=jar

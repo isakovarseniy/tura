@@ -72,6 +72,13 @@
 
 		<dependency>
 			<groupId>org.talend.libraries</groupId>
+			<artifactId>create_cases_0_1</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.talend.libraries</groupId>
 			<artifactId>run_rules_0_1</artifactId>
 			<version>6.0.0</version>
 		</dependency>

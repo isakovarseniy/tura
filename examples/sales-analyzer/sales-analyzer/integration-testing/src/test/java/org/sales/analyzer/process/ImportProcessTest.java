@@ -31,24 +31,27 @@ import sales.analyzer.process.commons.Constants;
 @RunWith(Arquillian.class)
 public class ImportProcessTest {
 
-	private static int RETRY = 100;
+	private static int RETRY = 300;
 	private static ReleaseId releaseId = new ReleaseId("sales-analyzer", "processes", "1.0.0-SNAPSHOT");
 	private static final String PROCESS_ID = "sales.analyzer.MonthlyFileLoad";
 	private static final String KIE_SERVER_URL = "http://localhost:8080/kie-server-6.5.0.Final-ee7/services/rest/server";
-	private static final String USERNAME = "kieserver";
-	private static final String PASSWORD = "kieserver";
 	private static final String FILE_LOAD_NODE = "File Loader";
 	private static final String REVIEW_ERROR = "Review error";
 //	private static final String PREPARE_DATA_FOR_RULES = "Prepare data for rule processing";
 	private static final String RUN_BUSINESS_RULES = "Run business rules";
+	private static final String REVIEW_BUSSINESS_RULES_RESULT = "Review bussiness rules result";
+	private static final String RUN_CASE_GENERATION = "Run case generation";
+	private static final String REVIEW_CEASE_GENERATION="Review cease generation";
+	
+	
 	
 
 	@Before
 	public void buildAndDeployArtifacts() {
 		for (int i = 0; i < 10; i++) {
 			try {
-				KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, USERNAME,
-						PASSWORD);
+				KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, Constants.USERNAME,
+						Constants.PASSWORD);
 				KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 				client.createContainer(Constants.CONTAINER_ID, new KieContainerResource(releaseId));
 				break;
@@ -63,7 +66,7 @@ public class ImportProcessTest {
 
 	@After
 	public void dropContainer() {
-		KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, USERNAME, PASSWORD);
+		KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, Constants.USERNAME, Constants.PASSWORD);
 		KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 		client.disposeContainer(Constants.CONTAINER_ID);
 	}
@@ -72,8 +75,8 @@ public class ImportProcessTest {
 	@RunAsClient
 	public void t0000_MonthlyDataLoader_HappyPath() {
 		try {
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, USERNAME,
-					PASSWORD);
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, Constants.USERNAME,
+					Constants.PASSWORD);
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
 			Long procesInsatnceId = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, new HashMap<String, Object>());
@@ -114,7 +117,41 @@ public class ImportProcessTest {
 			
 			waitForNode(RUN_BUSINESS_RULES, procesInsatnceId, queryClient);
 			
+			tasks = userTaskServicesClient.findTasksAssignedAsPotentialOwner(null, 0, 40);
+			assertEquals(1, tasks.size());
+			assertEquals(REVIEW_BUSSINESS_RULES_RESULT,tasks.get(0).getName()); 
 
+			userTaskServicesClient.claimTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null);
+			userTaskServicesClient.startTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null);
+			
+			map = userTaskServicesClient.getTaskInputContentByTaskId(Constants.CONTAINER_ID, tasks.get(0).getId());
+			asyncResult = (Boolean) map.get("executionError");
+			
+			if (asyncResult == true ) {
+				fail();
+			}
+
+			params.put("direction", 0);
+			userTaskServicesClient.completeTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null, params);
+			
+			
+			waitForNode(RUN_CASE_GENERATION, procesInsatnceId, queryClient);
+			
+			tasks = userTaskServicesClient.findTasksAssignedAsPotentialOwner(null, 0, 40);
+			assertEquals(1, tasks.size());
+			assertEquals(REVIEW_CEASE_GENERATION,tasks.get(0).getName()); 
+
+			userTaskServicesClient.claimTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null);
+			userTaskServicesClient.startTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null);
+			
+			map = userTaskServicesClient.getTaskInputContentByTaskId(Constants.CONTAINER_ID, tasks.get(0).getId());
+			asyncResult = (Boolean) map.get("executionError");
+			
+			if (asyncResult == true ) {
+				fail();
+			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

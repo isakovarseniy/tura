@@ -10,5 +10,8 @@ public class Constants {
 	public static boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 	public static String  EXECUTION_ERROR = "Result";
 	public static final String CONTAINER_ID = "sales-analyzer-container";
-
+	public static final String USERNAME = "kieserver";
+	public static final String PASSWORD = "kieserver";
+	public static final String CASE_INVESTIGATION_PROCESS = "sales.analyzer.SalesDropInvestigation";
+	
 }

@@ -780,9 +780,9 @@ public static class copyOfout1Struct implements routines.system.IPersistableRow<
 					return this.id;
 				}
 				
-			    public String date;
+			    public java.util.Date date;
 
-				public String getDate () {
+				public java.util.Date getDate () {
 					return this.date;
 				}
 				
@@ -814,6 +814,27 @@ public static class copyOfout1Struct implements routines.system.IPersistableRow<
 	    	dos.writeInt(intNum);
     	}
 	}
+
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
 
 	private String readString(ObjectInputStream dis) throws IOException{
 		String strReturn = null;
@@ -855,7 +876,7 @@ public static class copyOfout1Struct implements routines.system.IPersistableRow<
 		
 						this.id = readInteger(dis);
 					
-					this.date = readString(dis);
+					this.date = readDate(dis);
 					
 					this.session = readString(dis);
 					
@@ -881,9 +902,9 @@ public static class copyOfout1Struct implements routines.system.IPersistableRow<
 				
 						writeInteger(this.id,dos);
 					
-					// String
+					// java.util.Date
 				
-						writeString(this.date,dos);
+						writeDate(this.date,dos);
 					
 					// String
 				
@@ -903,7 +924,7 @@ public static class copyOfout1Struct implements routines.system.IPersistableRow<
 		sb.append(super.toString());
 		sb.append("[");
 		sb.append("id="+String.valueOf(id));
-		sb.append(",date="+date);
+		sb.append(",date="+String.valueOf(date));
 		sb.append(",session="+session);
 	    sb.append("]");
 
@@ -1339,7 +1360,7 @@ copyOfout1 = null;
 
 // # Output table : 'copyOfout1'
 copyOfout1_tmp.id = row11.id ;
-copyOfout1_tmp.date = "MonthlyData_"+TalendDate.formatDate("yyyy-MM-dd",TalendDate.addDate(context.start_date ,row11.id,"MM"))+".csv" ;
+copyOfout1_tmp.date = TalendDate.addDate(context.start_date ,row11.id,"MM") ;
 copyOfout1_tmp.session = context.session+"_"+row11.id;
 copyOfout1 = copyOfout1_tmp;
 // ###############################
@@ -1437,12 +1458,12 @@ if(copyOfout1 != null) {
 	
 		obj_tRunJob_1 = copyOfout1.date;
 		if(obj_tRunJob_1!=null) {
-			paraList_tRunJob_1.add("--context_param history_file_name=" + RuntimeUtils.tRunJobConvertContext(obj_tRunJob_1));
+			paraList_tRunJob_1.add("--context_param date=" + RuntimeUtils.tRunJobConvertContext(obj_tRunJob_1));
 		} else {
-			paraList_tRunJob_1.add("--context_param history_file_name=" + NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY);
+			paraList_tRunJob_1.add("--context_param date=" + NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY);
 		}
 		
-		parentContextMap_tRunJob_1.put("history_file_name", obj_tRunJob_1);
+		parentContextMap_tRunJob_1.put("date", obj_tRunJob_1);
 	
 	
 		etl.monthly_file_validation_0_1.Monthly_file_validation childJob_tRunJob_1 = new etl.monthly_file_validation_0_1.Monthly_file_validation();
@@ -7437,55 +7458,7 @@ out4Struct out4 = new out4Struct();
 	
 	
 					if(execStat){				
-	       				runStat.updateStatOnConnection("row7", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("row13", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("row5", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("row2", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("out5", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("row8", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("row1", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("out2", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("row6", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("OnComponentOk1", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("row12", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("row4", 3, 0);
-					}           			
-				
-					if(execStat){				
-	       				runStat.updateStatOnConnection("out3", 3, 0);
+	       				runStat.updateStatOnConnection("out4", 3, 0);
 					}           			
 				
 					if(execStat){				
@@ -7493,11 +7466,27 @@ out4Struct out4 = new out4Struct();
 					}           			
 				
 					if(execStat){				
-	       				runStat.updateStatOnConnection("row3", 3, 0);
+	       				runStat.updateStatOnConnection("row8", 3, 0);
 					}           			
 				
 					if(execStat){				
-	       				runStat.updateStatOnConnection("out6", 3, 0);
+	       				runStat.updateStatOnConnection("row4", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("row6", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("OnRowsEnd", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("out2", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("row7", 3, 0);
 					}           			
 				
 					if(execStat){				
@@ -7505,15 +7494,47 @@ out4Struct out4 = new out4Struct();
 					}           			
 				
 					if(execStat){				
+	       				runStat.updateStatOnConnection("row5", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("row3", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("row1", 3, 0);
+					}           			
+				
+					if(execStat){				
 	       				runStat.updateStatOnConnection("row9", 3, 0);
 					}           			
 				
 					if(execStat){				
-	       				runStat.updateStatOnConnection("out4", 3, 0);
+	       				runStat.updateStatOnConnection("OnComponentOk1", 3, 0);
 					}           			
 				
 					if(execStat){				
-	       				runStat.updateStatOnConnection("OnRowsEnd", 3, 0);
+	       				runStat.updateStatOnConnection("out6", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("out5", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("out3", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("row2", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("row13", 3, 0);
+					}           			
+				
+					if(execStat){				
+	       				runStat.updateStatOnConnection("row12", 3, 0);
 					}           			
 				
 				if(execStat){
@@ -14235,6 +14256,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     311256 characters generated by Talend Open Studio for Data Integration 
- *     on the January 31, 2018 8:25:34 EST PM
+ *     311723 characters generated by Talend Open Studio for Data Integration 
+ *     on the February 3, 2018 9:28:12 EST PM
  ************************************************************************************************/
