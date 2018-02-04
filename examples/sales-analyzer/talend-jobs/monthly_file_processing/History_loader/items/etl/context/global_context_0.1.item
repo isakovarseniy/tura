@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd">
+  <talendfile:ContextType xmi:id="_yq-cQPTUEeeTDoqkhdlj4g" confirmationNeeded="false" name="Default">
+    <contextParameter xmi:id="_I5_9oP5hEeeWaeejuvzlYg" comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" type="id_String" value="/Users/arseniy/"/>
+    <contextParameter xmi:id="_I5_9of5hEeeWaeejuvzlYg" comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" type="id_String" value="/Users/arseniy/"/>
+    <contextParameter xmi:id="_n0ijMP5hEeeWaeejuvzlYg" comment="" name="session" prompt="session?" promptNeeded="false" type="id_String" value="1"/>
+    <contextParameter xmi:id="_n0ijMf5hEeeWaeejuvzlYg" comment="" name="date" prompt="date?" promptNeeded="false" type="id_Date" value="2017-10-09 23:25:35"/>
+  </talendfile:ContextType>
+  <talendfile:ContextType xmi:id="_J9QKYP5hEeeWaeejuvzlYg" confirmationNeeded="false" name="Development">
+    <contextParameter xmi:id="_J9QKYf5hEeeWaeejuvzlYg" comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" type="id_String" value="/Users/arseniy/"/>
+    <contextParameter xmi:id="_J9QKYv5hEeeWaeejuvzlYg" comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" type="id_String" value="/Users/arseniy/"/>
+    <contextParameter xmi:id="_n0jKQP5hEeeWaeejuvzlYg" comment="" name="session" prompt="session?" promptNeeded="false" type="id_String" value="1"/>
+    <contextParameter xmi:id="_n0jKQf5hEeeWaeejuvzlYg" comment="" name="date" prompt="date?" promptNeeded="false" type="id_Date" value="2017-10-09 23:25:35"/>
+  </talendfile:ContextType>
+</xmi:XMI>

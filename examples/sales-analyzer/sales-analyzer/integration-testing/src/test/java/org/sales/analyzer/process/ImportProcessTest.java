@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,15 +38,15 @@ public class ImportProcessTest {
 	private static final String KIE_SERVER_URL = "http://localhost:8080/kie-server-6.5.0.Final-ee7/services/rest/server";
 	private static final String FILE_LOAD_NODE = "File Loader";
 	private static final String REVIEW_ERROR = "Review error";
-//	private static final String PREPARE_DATA_FOR_RULES = "Prepare data for rule processing";
+	@SuppressWarnings("unused")
+	private static final String PREPARE_DATA_FOR_RULES = "Prepare data for rule processing";
+	@SuppressWarnings("unused")
 	private static final String RUN_BUSINESS_RULES = "Run business rules";
 	private static final String REVIEW_BUSSINESS_RULES_RESULT = "Review bussiness rules result";
+	@SuppressWarnings("unused")
 	private static final String RUN_CASE_GENERATION = "Run case generation";
 	private static final String REVIEW_CEASE_GENERATION="Review cease generation";
 	
-	
-	
-
 	@Before
 	public void buildAndDeployArtifacts() {
 		for (int i = 0; i < 10; i++) {
@@ -96,7 +97,7 @@ public class ImportProcessTest {
 			userTaskServicesClient.completeTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null, params);
 
 			QueryServicesClient queryClient = client.getServicesClient(QueryServicesClient.class);
-			waitForNode(FILE_LOAD_NODE, procesInsatnceId, queryClient);
+			waitForNodeCompleated(FILE_LOAD_NODE, procesInsatnceId, queryClient);
 			
 			tasks = userTaskServicesClient.findTasksAssignedAsPotentialOwner(null, 0, 40);
 			assertEquals(1, tasks.size());
@@ -115,7 +116,7 @@ public class ImportProcessTest {
 			params.put("direction", 0);
 			userTaskServicesClient.completeTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null, params);
 			
-			waitForNode(RUN_BUSINESS_RULES, procesInsatnceId, queryClient);
+			waitForNodeStarted(new String[] {REVIEW_BUSSINESS_RULES_RESULT}, procesInsatnceId, queryClient);
 			
 			tasks = userTaskServicesClient.findTasksAssignedAsPotentialOwner(null, 0, 40);
 			assertEquals(1, tasks.size());
@@ -135,7 +136,7 @@ public class ImportProcessTest {
 			userTaskServicesClient.completeTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null, params);
 			
 			
-			waitForNode(RUN_CASE_GENERATION, procesInsatnceId, queryClient);
+			waitForNodeStarted( new String[] {REVIEW_CEASE_GENERATION}, procesInsatnceId, queryClient);
 			
 			tasks = userTaskServicesClient.findTasksAssignedAsPotentialOwner(null, 0, 40);
 			assertEquals(1, tasks.size());
@@ -158,19 +159,42 @@ public class ImportProcessTest {
 		}
 	}
 
-	public void waitForNode(String nodeName, Long procesInsatnceId, QueryServicesClient queryClient) throws Exception {
-		boolean found = false;
-		for (int i = 0; i < RETRY; i++) {
-			List<NodeInstance> completedNodes = queryClient.findCompletedNodeInstances(procesInsatnceId, 0, 100);
-			if (completedNodes.size() > 0 && completedNodes.get(completedNodes.size() - 1).getName().equals(nodeName)) {
-				found = true;
-				break;
+	public void waitForNodeCompleated(String[] nodeNames, Long procesInsatnceId, QueryServicesClient queryClient) throws Exception {
+		 List<String>  listOfNodes =  Arrays.asList(nodeNames);
+			boolean found = false;
+			for (int i = 0; i < RETRY; i++) {
+				List<NodeInstance> completedNodes = queryClient.findCompletedNodeInstances(procesInsatnceId, 0, 100);
+				if (completedNodes.size() > 0 && listOfNodes.contains( completedNodes.get(completedNodes.size() - 1).getName())) {
+					found = true;
+					break;
+				}
+				Thread.sleep(1000);
 			}
-			Thread.sleep(1000);
-		}
-		if (!found) {
-			throw new Exception("Node has not been fired");
-		}
-
+			if (!found) {
+				throw new Exception("Node has not been fired");
+			}
 	}
+
+	
+	public void waitForNodeCompleated(String nodeName, Long procesInsatnceId, QueryServicesClient queryClient) throws Exception {
+		waitForNodeCompleated( new String[] {nodeName} ,procesInsatnceId,queryClient);
+	}
+	
+	public void waitForNodeStarted(String[] nodeNames, Long procesInsatnceId, QueryServicesClient queryClient) throws Exception {
+		 List<String>  listOfNodes =  Arrays.asList(nodeNames);
+			boolean found = false;
+			for (int i = 0; i < RETRY; i++) {
+				List<NodeInstance> completedNodes = queryClient.findActiveNodeInstances(procesInsatnceId, 0, 100);
+				if (completedNodes.size() > 0 && listOfNodes.contains( completedNodes.get(completedNodes.size() - 1).getName())) {
+					found = true;
+					break;
+				}
+				Thread.sleep(1000);
+			}
+			if (!found) {
+				throw new Exception("Node has not been fired");
+			}
+	}
+	
+	
 }
