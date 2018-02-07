@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMapper="http://www.talend.org/mapper" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
   <context confirmationNeeded="false" name="Default">
-    <contextParameter comment="" name="date" prompt="date?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_Date" value="2017-10-09 23:25:35"/>
+    <contextParameter comment="" name="date" prompt="date?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_Date" value="2017-11-01 20:48:27"/>
     <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
     <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
     <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="1"/>
   </context>
   <context confirmationNeeded="false" name="Development">
-    <contextParameter comment="" name="date" prompt="date?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_Date" value="2017-10-09 23:25:35"/>
+    <contextParameter comment="" name="date" prompt="date?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_Date" value="2017-11-01 23:25:35"/>
     <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
     <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
     <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="1"/>

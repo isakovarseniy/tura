@@ -93,7 +93,7 @@ public class ImportProcessTest {
 			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 
 			Map<String, Object> params = new HashMap<>();
-			params.put("dateOfFile", formatter.parse("01-10-2017"));
+			params.put("dateOfFile", formatter.parse("01-11-2017"));
 			userTaskServicesClient.completeTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null, params);
 
 			QueryServicesClient queryClient = client.getServicesClient(QueryServicesClient.class);
