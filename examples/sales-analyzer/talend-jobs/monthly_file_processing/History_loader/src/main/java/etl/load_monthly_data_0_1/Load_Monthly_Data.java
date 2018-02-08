@@ -9970,10 +9970,6 @@ end_Hash.put("tAggregateRow_1_AGGOUT", System.currentTimeMillis());
 
 
 
-        int updateKeyCount_tJDBCOutput_3 = 1;
-        if(updateKeyCount_tJDBCOutput_3 < 1) {
-            throw new RuntimeException("For update, Schema must have a key");
-        }
 
 int nb_line_tJDBCOutput_3 = 0;
 int nb_line_update_tJDBCOutput_3 = 0;
@@ -9992,10 +9988,8 @@ boolean whetherReject_tJDBCOutput_3 = false;
 
 	java.sql.Connection connection_tJDBCOutput_3 = (java.sql.Connection)globalMap.get("conn_tJDBCConnection_1");
 
-		String update_tJDBCOutput_3 = "UPDATE " + "sales_analyzer.product_group_history" + " SET active_date = ?,create_date = ?,exp_date = ?,obj_status = ?,obj_type = ?,update_date = ?,optlock = ?,country_id = ?,country_name = ?,state_id = ?,state_name = ?,city_id = ?,city_name = ?,product = ?,amount = ?,history_date = ? WHERE obj_id = ?";
-		java.sql.PreparedStatement pstmtUpdate_tJDBCOutput_3 = connection_tJDBCOutput_3.prepareStatement(update_tJDBCOutput_3);
 		String insert_tJDBCOutput_3 = "INSERT INTO " + "sales_analyzer.product_group_history" + " (obj_id,active_date,create_date,exp_date,obj_status,obj_type,update_date,optlock,country_id,country_name,state_id,state_name,city_id,city_name,product,amount,history_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		java.sql.PreparedStatement pstmtInsert_tJDBCOutput_3 = connection_tJDBCOutput_3.prepareStatement(insert_tJDBCOutput_3);
+		java.sql.PreparedStatement pstmt_tJDBCOutput_3 = connection_tJDBCOutput_3.prepareStatement(insert_tJDBCOutput_3);
 		
 
 
@@ -10299,178 +10293,91 @@ if(out4 != null) {
 
 
         whetherReject_tJDBCOutput_3 = false;
-            int updateFlag_tJDBCOutput_3=0;
+                    if(out4.obj_id == null) {
+pstmt_tJDBCOutput_3.setNull(1, java.sql.Types.OTHER);
+} else {pstmt_tJDBCOutput_3.setObject(1, out4.obj_id);
+}
+
                     if(out4.active_date != null) {
-pstmtUpdate_tJDBCOutput_3.setTimestamp(1, new java.sql.Timestamp(out4.active_date.getTime()));
+pstmt_tJDBCOutput_3.setTimestamp(2, new java.sql.Timestamp(out4.active_date.getTime()));
 } else {
-pstmtUpdate_tJDBCOutput_3.setNull(1, java.sql.Types.TIMESTAMP);
+pstmt_tJDBCOutput_3.setNull(2, java.sql.Types.TIMESTAMP);
 }
 
                     if(out4.create_date != null) {
-pstmtUpdate_tJDBCOutput_3.setTimestamp(2, new java.sql.Timestamp(out4.create_date.getTime()));
+pstmt_tJDBCOutput_3.setTimestamp(3, new java.sql.Timestamp(out4.create_date.getTime()));
 } else {
-pstmtUpdate_tJDBCOutput_3.setNull(2, java.sql.Types.TIMESTAMP);
+pstmt_tJDBCOutput_3.setNull(3, java.sql.Types.TIMESTAMP);
 }
 
                     if(out4.exp_date != null) {
-pstmtUpdate_tJDBCOutput_3.setTimestamp(3, new java.sql.Timestamp(out4.exp_date.getTime()));
+pstmt_tJDBCOutput_3.setTimestamp(4, new java.sql.Timestamp(out4.exp_date.getTime()));
 } else {
-pstmtUpdate_tJDBCOutput_3.setNull(3, java.sql.Types.TIMESTAMP);
+pstmt_tJDBCOutput_3.setNull(4, java.sql.Types.TIMESTAMP);
 }
 
                     if(out4.obj_status == null) {
-pstmtUpdate_tJDBCOutput_3.setNull(4, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_3.setString(4, out4.obj_status);
+pstmt_tJDBCOutput_3.setNull(5, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_3.setString(5, out4.obj_status);
 }
 
                     if(out4.obj_type == null) {
-pstmtUpdate_tJDBCOutput_3.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_3.setString(5, out4.obj_type);
+pstmt_tJDBCOutput_3.setNull(6, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_3.setString(6, out4.obj_type);
 }
 
                     if(out4.update_date != null) {
-pstmtUpdate_tJDBCOutput_3.setTimestamp(6, new java.sql.Timestamp(out4.update_date.getTime()));
+pstmt_tJDBCOutput_3.setTimestamp(7, new java.sql.Timestamp(out4.update_date.getTime()));
 } else {
-pstmtUpdate_tJDBCOutput_3.setNull(6, java.sql.Types.TIMESTAMP);
+pstmt_tJDBCOutput_3.setNull(7, java.sql.Types.TIMESTAMP);
 }
 
                     if(out4.optlock == null) {
-pstmtUpdate_tJDBCOutput_3.setNull(7, java.sql.Types.INTEGER);
-} else {pstmtUpdate_tJDBCOutput_3.setInt(7, out4.optlock);
+pstmt_tJDBCOutput_3.setNull(8, java.sql.Types.INTEGER);
+} else {pstmt_tJDBCOutput_3.setInt(8, out4.optlock);
 }
 
-                    pstmtUpdate_tJDBCOutput_3.setLong(8, out4.country_id);
+                    pstmt_tJDBCOutput_3.setLong(9, out4.country_id);
 
                     if(out4.country_name == null) {
-pstmtUpdate_tJDBCOutput_3.setNull(9, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_3.setString(9, out4.country_name);
+pstmt_tJDBCOutput_3.setNull(10, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_3.setString(10, out4.country_name);
 }
 
-                    pstmtUpdate_tJDBCOutput_3.setLong(10, out4.state_id);
+                    pstmt_tJDBCOutput_3.setLong(11, out4.state_id);
 
                     if(out4.state_name == null) {
-pstmtUpdate_tJDBCOutput_3.setNull(11, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_3.setString(11, out4.state_name);
+pstmt_tJDBCOutput_3.setNull(12, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_3.setString(12, out4.state_name);
 }
 
-                    pstmtUpdate_tJDBCOutput_3.setLong(12, out4.city_id);
+                    pstmt_tJDBCOutput_3.setLong(13, out4.city_id);
 
                     if(out4.city_name == null) {
-pstmtUpdate_tJDBCOutput_3.setNull(13, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_3.setString(13, out4.city_name);
+pstmt_tJDBCOutput_3.setNull(14, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_3.setString(14, out4.city_name);
 }
 
                     if(out4.product == null) {
-pstmtUpdate_tJDBCOutput_3.setNull(14, java.sql.Types.VARCHAR);
-} else {pstmtUpdate_tJDBCOutput_3.setString(14, out4.product);
+pstmt_tJDBCOutput_3.setNull(15, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_3.setString(15, out4.product);
 }
 
-                    pstmtUpdate_tJDBCOutput_3.setBigDecimal(15, out4.amount);
+                    pstmt_tJDBCOutput_3.setBigDecimal(16, out4.amount);
 
                     if(out4.history_date != null) {
-pstmtUpdate_tJDBCOutput_3.setTimestamp(16, new java.sql.Timestamp(out4.history_date.getTime()));
+pstmt_tJDBCOutput_3.setTimestamp(17, new java.sql.Timestamp(out4.history_date.getTime()));
 } else {
-pstmtUpdate_tJDBCOutput_3.setNull(16, java.sql.Types.TIMESTAMP);
+pstmt_tJDBCOutput_3.setNull(17, java.sql.Types.TIMESTAMP);
 }
-
-                    if(out4.obj_id == null) {
-pstmtUpdate_tJDBCOutput_3.setNull(17, java.sql.Types.OTHER);
-} else {pstmtUpdate_tJDBCOutput_3.setObject(17, out4.obj_id);
-}
-
 
             try {
-                updateFlag_tJDBCOutput_3 = pstmtUpdate_tJDBCOutput_3.executeUpdate();
-                updatedCount_tJDBCOutput_3 = updatedCount_tJDBCOutput_3 + updateFlag_tJDBCOutput_3;
-            if(updateFlag_tJDBCOutput_3 == 0) {
-                        if(out4.obj_id == null) {
-pstmtInsert_tJDBCOutput_3.setNull(1, java.sql.Types.OTHER);
-} else {pstmtInsert_tJDBCOutput_3.setObject(1, out4.obj_id);
-}
-
-                        if(out4.active_date != null) {
-pstmtInsert_tJDBCOutput_3.setTimestamp(2, new java.sql.Timestamp(out4.active_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_3.setNull(2, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out4.create_date != null) {
-pstmtInsert_tJDBCOutput_3.setTimestamp(3, new java.sql.Timestamp(out4.create_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_3.setNull(3, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out4.exp_date != null) {
-pstmtInsert_tJDBCOutput_3.setTimestamp(4, new java.sql.Timestamp(out4.exp_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_3.setNull(4, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out4.obj_status == null) {
-pstmtInsert_tJDBCOutput_3.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_3.setString(5, out4.obj_status);
-}
-
-                        if(out4.obj_type == null) {
-pstmtInsert_tJDBCOutput_3.setNull(6, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_3.setString(6, out4.obj_type);
-}
-
-                        if(out4.update_date != null) {
-pstmtInsert_tJDBCOutput_3.setTimestamp(7, new java.sql.Timestamp(out4.update_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_3.setNull(7, java.sql.Types.TIMESTAMP);
-}
-
-                        if(out4.optlock == null) {
-pstmtInsert_tJDBCOutput_3.setNull(8, java.sql.Types.INTEGER);
-} else {pstmtInsert_tJDBCOutput_3.setInt(8, out4.optlock);
-}
-
-                        pstmtInsert_tJDBCOutput_3.setLong(9, out4.country_id);
-
-                        if(out4.country_name == null) {
-pstmtInsert_tJDBCOutput_3.setNull(10, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_3.setString(10, out4.country_name);
-}
-
-                        pstmtInsert_tJDBCOutput_3.setLong(11, out4.state_id);
-
-                        if(out4.state_name == null) {
-pstmtInsert_tJDBCOutput_3.setNull(12, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_3.setString(12, out4.state_name);
-}
-
-                        pstmtInsert_tJDBCOutput_3.setLong(13, out4.city_id);
-
-                        if(out4.city_name == null) {
-pstmtInsert_tJDBCOutput_3.setNull(14, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_3.setString(14, out4.city_name);
-}
-
-                        if(out4.product == null) {
-pstmtInsert_tJDBCOutput_3.setNull(15, java.sql.Types.VARCHAR);
-} else {pstmtInsert_tJDBCOutput_3.setString(15, out4.product);
-}
-
-                        pstmtInsert_tJDBCOutput_3.setBigDecimal(16, out4.amount);
-
-                        if(out4.history_date != null) {
-pstmtInsert_tJDBCOutput_3.setTimestamp(17, new java.sql.Timestamp(out4.history_date.getTime()));
-} else {
-pstmtInsert_tJDBCOutput_3.setNull(17, java.sql.Types.TIMESTAMP);
-}
-
-                    insertedCount_tJDBCOutput_3 = insertedCount_tJDBCOutput_3 + pstmtInsert_tJDBCOutput_3.executeUpdate();
-                    nb_line_tJDBCOutput_3++;
-                }else{
-                    nb_line_tJDBCOutput_3++;
-             }
-                } catch(java.lang.Exception e) {
-                    whetherReject_tJDBCOutput_3 = true;
-                        nb_line_tJDBCOutput_3++;
-                            System.err.print(e.getMessage());
-                }
+                insertedCount_tJDBCOutput_3 = insertedCount_tJDBCOutput_3 + pstmt_tJDBCOutput_3.executeUpdate();
+                nb_line_tJDBCOutput_3++;
+            } catch(java.lang.Exception e) {
+                whetherReject_tJDBCOutput_3 = true;
+                        System.err.print(e.getMessage());
+            }
 
  
 
@@ -10573,14 +10480,9 @@ end_Hash.put("tMap_4", System.currentTimeMillis());
 
 
 
-    if(pstmtUpdate_tJDBCOutput_3 != null){
+    if(pstmt_tJDBCOutput_3 != null) {
 
-        pstmtUpdate_tJDBCOutput_3.close();
-
-    }
-    if(pstmtInsert_tJDBCOutput_3 != null){
-
-        pstmtInsert_tJDBCOutput_3.close();
+        pstmt_tJDBCOutput_3.close();
 
     }
 
@@ -12835,6 +12737,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     288418 characters generated by Talend Open Studio for Data Integration 
- *     on the February 6, 2018 10:38:27 EST PM
+ *     284084 characters generated by Talend Open Studio for Data Integration 
+ *     on the February 7, 2018 9:25:52 EST PM
  ************************************************************************************************/

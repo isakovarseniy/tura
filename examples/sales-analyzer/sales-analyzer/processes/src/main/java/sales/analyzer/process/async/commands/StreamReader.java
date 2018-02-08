@@ -1,21 +1,40 @@
 package sales.analyzer.process.async.commands;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.function.Consumer;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class StreamReader implements Runnable {
 	private InputStream inputStream;
-	private Consumer<String> consumer;
+	private Class<?> loggerName;
+	private boolean isError;
 
-	public StreamReader(InputStream inputStream, Consumer<String> consumer) {
+	public StreamReader(InputStream inputStream, Class<?> loggerName, boolean isError) {
 		this.inputStream = inputStream;
-		this.consumer = consumer;
+		this.loggerName = loggerName;
+		this.isError = isError;
 	}
 
 	@Override
 	public void run() {
-		new BufferedReader(new InputStreamReader(inputStream)).lines().forEach(consumer);
+		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+		Logger log = LoggerFactory.getLogger(loggerName);
+
+		String inputLine;
+		try {
+			while ((inputLine = reader.readLine()) != null) {
+				if (isError) {
+					log.error(inputLine);
+				}else {
+					log.info(inputLine);
+				}
+			}
+		} catch (IOException e) {
+
+		}
 	}
 }
