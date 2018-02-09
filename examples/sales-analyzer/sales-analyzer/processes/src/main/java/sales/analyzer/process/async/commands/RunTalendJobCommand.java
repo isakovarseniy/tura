@@ -36,7 +36,7 @@ public abstract class RunTalendJobCommand implements Command {
 			Process process = new ProcessBuilder(args).start();
 
 			StreamReader infoStreamGobbler = new StreamReader(process.getInputStream(), this.getClass(), false);
-			StreamReader errorStreamGobbler = new StreamReader(process.getInputStream(), this.getClass(), true);
+			StreamReader errorStreamGobbler = new StreamReader(process.getErrorStream(), this.getClass(), true);
 			exErrorService.submit(errorStreamGobbler);
 			exInfoService.submit(infoStreamGobbler);
 

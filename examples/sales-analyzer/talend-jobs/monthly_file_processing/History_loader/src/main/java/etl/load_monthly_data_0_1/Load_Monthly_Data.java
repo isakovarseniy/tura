@@ -120,7 +120,7 @@ public class Load_Monthly_Data implements TalendJob {
 			if(date != null){
 				
 					String pattern_date = "yyyy-MM-dd HH:mm:ss";
-					String value_date = "2017-11-01 23:25:35";
+					String value_date = "2017-11-01 20:30:31";
 					String[] parts_date = value_date.split(";");
 					if(parts_date.length > 1){
 						pattern_date = parts_date[0];
@@ -438,6 +438,24 @@ private class TalendException extends Exception {
 					tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 			}
 			
+			public void tMap_4_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tJDBCOutput_3_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
 			public void tJDBCInput_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 				
 				end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -463,24 +481,6 @@ private class TalendException extends Exception {
 				status = "failure";
 				
 					tJDBCInput_1_onSubJobError(exception, errorComponent, globalMap);
-			}
-			
-			public void tMap_4_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
-				
-				end_Hash.put(errorComponent, System.currentTimeMillis());
-				
-				status = "failure";
-				
-					tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
-			}
-			
-			public void tJDBCOutput_3_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
-				
-				end_Hash.put(errorComponent, System.currentTimeMillis());
-				
-				status = "failure";
-				
-					tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 			}
 			
 			public void tAggregateRow_1_AGGOUT_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
@@ -8270,8 +8270,7 @@ pstmtInsert_tJDBCOutput_5.setNull(9, java.sql.Types.VARCHAR);
              }
                 } catch(java.lang.Exception e) {
                     whetherReject_tJDBCOutput_5 = true;
-                        nb_line_tJDBCOutput_5++;
-                            System.err.print(e.getMessage());
+                        throw(e);
                 }
 
  
@@ -8586,8 +8585,7 @@ pstmtInsert_tJDBCOutput_1.setNull(10, java.sql.Types.INTEGER);
              }
                 } catch(java.lang.Exception e) {
                     whetherReject_tJDBCOutput_1 = true;
-                        nb_line_tJDBCOutput_1++;
-                            System.err.print(e.getMessage());
+                        throw(e);
                 }
 
  
@@ -8899,8 +8897,7 @@ pstmtInsert_tJDBCOutput_2.setNull(10, java.sql.Types.INTEGER);
              }
                 } catch(java.lang.Exception e) {
                     whetherReject_tJDBCOutput_2 = true;
-                        nb_line_tJDBCOutput_2++;
-                            System.err.print(e.getMessage());
+                        throw(e);
                 }
 
  
@@ -9132,9 +9129,7 @@ pstmt_tJDBCOutput_4.setNull(17, java.sql.Types.TIMESTAMP);
                 nb_line_tJDBCOutput_4++;
             } catch(java.lang.Exception e) {
                 whetherReject_tJDBCOutput_4 = true;
-                        System.err.print(e.getMessage());
-            }
-            if(!whetherReject_tJDBCOutput_4) {
+                    throw(e);
             }
 
  
@@ -9881,10 +9876,6 @@ end_Hash.put("tMap_5", System.currentTimeMillis());
 ok_Hash.put("tJDBCOutput_4", true);
 end_Hash.put("tJDBCOutput_4", System.currentTimeMillis());
 
-				if(execStat){   
-   	 				runStat.updateStatOnConnection("OnComponentOk1", 0, "ok");
-				}
-				tJDBCInput_1Process(globalMap);
 
 
 
@@ -10376,7 +10367,9 @@ pstmt_tJDBCOutput_3.setNull(17, java.sql.Types.TIMESTAMP);
                 nb_line_tJDBCOutput_3++;
             } catch(java.lang.Exception e) {
                 whetherReject_tJDBCOutput_3 = true;
-                        System.err.print(e.getMessage());
+                    throw(e);
+            }
+            if(!whetherReject_tJDBCOutput_3) {
             }
 
  
@@ -10511,6 +10504,10 @@ end_Hash.put("tMap_4", System.currentTimeMillis());
 ok_Hash.put("tJDBCOutput_3", true);
 end_Hash.put("tJDBCOutput_3", System.currentTimeMillis());
 
+				if(execStat){   
+   	 				runStat.updateStatOnConnection("OnComponentOk1", 0, "ok");
+				}
+				tJDBCInput_1Process(globalMap);
 
 
 
@@ -11027,6 +11024,14 @@ end_Hash.put("tJDBCOutput_3", System.currentTimeMillis());
 public static class out6Struct implements routines.system.IPersistableRow<out6Struct> {
     final static byte[] commonByteArrayLock_ETL_Load_Monthly_Data = new byte[0];
     static byte[] commonByteArray_ETL_Load_Monthly_Data = new byte[0];
+	protected static final int DEFAULT_HASHCODE = 1;
+    protected static final int PRIME = 31;
+    protected int hashCode = DEFAULT_HASHCODE;
+    public boolean hashCodeDirty = true;
+
+    public String loopKey;
+
+
 
 	
 			    public Object obj_id;
@@ -11035,9 +11040,51 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 					return this.obj_id;
 				}
 				
-			    public Long country_id;
+			    public java.util.Date active_date;
 
-				public Long getCountry_id () {
+				public java.util.Date getActive_date () {
+					return this.active_date;
+				}
+				
+			    public java.util.Date create_date;
+
+				public java.util.Date getCreate_date () {
+					return this.create_date;
+				}
+				
+			    public java.util.Date exp_date;
+
+				public java.util.Date getExp_date () {
+					return this.exp_date;
+				}
+				
+			    public String obj_status;
+
+				public String getObj_status () {
+					return this.obj_status;
+				}
+				
+			    public String obj_type;
+
+				public String getObj_type () {
+					return this.obj_type;
+				}
+				
+			    public java.util.Date update_date;
+
+				public java.util.Date getUpdate_date () {
+					return this.update_date;
+				}
+				
+			    public Integer optlock;
+
+				public Integer getOptlock () {
+					return this.optlock;
+				}
+				
+			    public long country_id;
+
+				public long getCountry_id () {
 					return this.country_id;
 				}
 				
@@ -11047,9 +11094,9 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 					return this.country_name;
 				}
 				
-			    public Long state_id;
+			    public long state_id;
 
-				public Long getState_id () {
+				public long getState_id () {
 					return this.state_id;
 				}
 				
@@ -11059,9 +11106,9 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 					return this.state_name;
 				}
 				
-			    public Long city_id;
+			    public long city_id;
 
-				public Long getCity_id () {
+				public long getCity_id () {
 					return this.city_id;
 				}
 				
@@ -11077,20 +11124,104 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 					return this.product;
 				}
 				
-			    public Float amount;
+			    public BigDecimal amount;
 
-				public Float getAmount () {
+				public BigDecimal getAmount () {
 					return this.amount;
 				}
 				
-			    public java.util.Date date;
+			    public java.util.Date history_date;
 
-				public java.util.Date getDate () {
-					return this.date;
+				public java.util.Date getHistory_date () {
+					return this.history_date;
 				}
 				
 
 
+	@Override
+	public int hashCode() {
+		if (this.hashCodeDirty) {
+			final int prime = PRIME;
+			int result = DEFAULT_HASHCODE;
+	
+						result = prime * result + ((this.obj_id == null) ? 0 : this.obj_id.hashCode());
+					
+    		this.hashCode = result;
+    		this.hashCodeDirty = false;
+		}
+		return this.hashCode;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		final out6Struct other = (out6Struct) obj;
+		
+						if (this.obj_id == null) {
+							if (other.obj_id != null)
+								return false;
+						
+						} else if (!this.obj_id.equals(other.obj_id))
+						
+							return false;
+					
+
+		return true;
+    }
+
+	public void copyDataTo(out6Struct other) {
+
+		other.obj_id = this.obj_id;
+	            other.active_date = this.active_date;
+	            other.create_date = this.create_date;
+	            other.exp_date = this.exp_date;
+	            other.obj_status = this.obj_status;
+	            other.obj_type = this.obj_type;
+	            other.update_date = this.update_date;
+	            other.optlock = this.optlock;
+	            other.country_id = this.country_id;
+	            other.country_name = this.country_name;
+	            other.state_id = this.state_id;
+	            other.state_name = this.state_name;
+	            other.city_id = this.city_id;
+	            other.city_name = this.city_name;
+	            other.product = this.product;
+	            other.amount = this.amount;
+	            other.history_date = this.history_date;
+	            
+	}
+
+	public void copyKeysDataTo(out6Struct other) {
+
+		other.obj_id = this.obj_id;
+	            	
+	}
+
+
+
+
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
 
 	private String readString(ObjectInputStream dis) throws IOException{
 		String strReturn = null;
@@ -11121,27 +11252,26 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 			dos.write(byteArray);
     	}
     }
-
-	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
-		java.util.Date dateReturn = null;
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
         int length = 0;
         length = dis.readByte();
 		if (length == -1) {
-			dateReturn = null;
+			intReturn = null;
 		} else {
-	    	dateReturn = new Date(dis.readLong());
+	    	intReturn = dis.readInt();
 		}
-		return dateReturn;
+		return intReturn;
 	}
 
-    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
-		if(date1 == null) {
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
             dos.writeByte(-1);
 		} else {
 			dos.writeByte(0);
-	    	dos.writeLong(date1.getTime());
+	    	dos.writeInt(intNum);
     	}
-    }
+	}
 
     public void readData(ObjectInputStream dis) {
 
@@ -11153,43 +11283,37 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 		
 						this.obj_id = (Object) dis.readObject();
 					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.country_id = null;
-           				} else {
-           			    	this.country_id = dis.readLong();
-           				}
+					this.active_date = readDate(dis);
+					
+					this.create_date = readDate(dis);
+					
+					this.exp_date = readDate(dis);
+					
+					this.obj_status = readString(dis);
+					
+					this.obj_type = readString(dis);
+					
+					this.update_date = readDate(dis);
+					
+						this.optlock = readInteger(dis);
+					
+			        this.country_id = dis.readLong();
 					
 					this.country_name = readString(dis);
 					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.state_id = null;
-           				} else {
-           			    	this.state_id = dis.readLong();
-           				}
+			        this.state_id = dis.readLong();
 					
 					this.state_name = readString(dis);
 					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.city_id = null;
-           				} else {
-           			    	this.city_id = dis.readLong();
-           				}
+			        this.city_id = dis.readLong();
 					
 					this.city_name = readString(dis);
 					
 					this.product = readString(dis);
 					
-			            length = dis.readByte();
-           				if (length == -1) {
-           	    			this.amount = null;
-           				} else {
-           			    	this.amount = dis.readFloat();
-           				}
+						this.amount = (BigDecimal) dis.readObject();
 					
-					this.date = readDate(dis);
+					this.history_date = readDate(dis);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -11216,40 +11340,53 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 				
        			    	dos.writeObject(this.obj_id);
 					
-					// Long
+					// java.util.Date
 				
-						if(this.country_id == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeLong(this.country_id);
-		            	}
+						writeDate(this.active_date,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.exp_date,dos);
+					
+					// String
+				
+						writeString(this.obj_status,dos);
+					
+					// String
+				
+						writeString(this.obj_type,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.update_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.optlock,dos);
+					
+					// long
+				
+		            	dos.writeLong(this.country_id);
 					
 					// String
 				
 						writeString(this.country_name,dos);
 					
-					// Long
+					// long
 				
-						if(this.state_id == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeLong(this.state_id);
-		            	}
+		            	dos.writeLong(this.state_id);
 					
 					// String
 				
 						writeString(this.state_name,dos);
 					
-					// Long
+					// long
 				
-						if(this.city_id == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeLong(this.city_id);
-		            	}
+		            	dos.writeLong(this.city_id);
 					
 					// String
 				
@@ -11259,18 +11396,13 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 				
 						writeString(this.product,dos);
 					
-					// Float
+					// BigDecimal
 				
-						if(this.amount == null) {
-			                dos.writeByte(-1);
-						} else {
-               				dos.writeByte(0);
-           			    	dos.writeFloat(this.amount);
-		            	}
+       			    	dos.writeObject(this.amount);
 					
 					// java.util.Date
 				
-						writeDate(this.date,dos);
+						writeDate(this.history_date,dos);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -11286,6 +11418,13 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 		sb.append(super.toString());
 		sb.append("[");
 		sb.append("obj_id="+String.valueOf(obj_id));
+		sb.append(",active_date="+String.valueOf(active_date));
+		sb.append(",create_date="+String.valueOf(create_date));
+		sb.append(",exp_date="+String.valueOf(exp_date));
+		sb.append(",obj_status="+obj_status);
+		sb.append(",obj_type="+obj_type);
+		sb.append(",update_date="+String.valueOf(update_date));
+		sb.append(",optlock="+String.valueOf(optlock));
 		sb.append(",country_id="+String.valueOf(country_id));
 		sb.append(",country_name="+country_name);
 		sb.append(",state_id="+String.valueOf(state_id));
@@ -11294,7 +11433,7 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 		sb.append(",city_name="+city_name);
 		sb.append(",product="+product);
 		sb.append(",amount="+String.valueOf(amount));
-		sb.append(",date="+String.valueOf(date));
+		sb.append(",history_date="+String.valueOf(history_date));
 	    sb.append("]");
 
 	    return sb.toString();
@@ -11307,6 +11446,12 @@ public static class out6Struct implements routines.system.IPersistableRow<out6St
 
 		int returnValue = -1;
 		
+						returnValue = checkNullsAndCompare(this.obj_id, other.obj_id);
+						if(returnValue != 0) {
+							return returnValue;
+						}
+
+					
 	    return returnValue;
     }
 
@@ -11654,7 +11799,7 @@ boolean whetherReject_tJDBCOutput_6 = false;
 
 	java.sql.Connection connection_tJDBCOutput_6 = (java.sql.Connection)globalMap.get("conn_tJDBCConnection_1");
 
-		String insert_tJDBCOutput_6 = "INSERT INTO " + "sales_analyzer.product_group_history" + " (obj_id,country_id,country_name,state_id,state_name,city_id,city_name,product,amount,history_date) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String insert_tJDBCOutput_6 = "INSERT INTO " + "sales_analyzer.product_group_history" + " (obj_id,active_date,create_date,exp_date,obj_status,obj_type,update_date,optlock,country_id,country_name,state_id,state_name,city_id,city_name,product,amount,history_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		java.sql.PreparedStatement pstmt_tJDBCOutput_6 = connection_tJDBCOutput_6.prepareStatement(insert_tJDBCOutput_6);
 		
 
@@ -11783,7 +11928,7 @@ out6Struct out6_tmp = new out6Struct();
 		    
 			java.sql.Statement stmt_tJDBCInput_1 = conn_tJDBCInput_1.createStatement();
 
-		    String dbquery_tJDBCInput_1 = "\nselect  country_id,country_name,state_id,state_name,city_id,city_name,product from sales_analyzer.product_group_history where to_char( history_date,'MM-YYYY') ='"+ TalendDate.formatDate("MM-YYYY", TalendDate.addDate( (Date)(globalMap.get(((String)globalMap.get("tFileList_1_CURRENT_FILEPATH")))),-1,"MM"))+"'\nexcept\nselect  country_id,country_name,state_id,state_name,city_id,city_name,product from sales_analyzer.product_group_history where to_char( history_date,'MM-YYYY') ='"+ TalendDate.formatDate("MM-YYYY", (Date)(globalMap.get(((String)globalMap.get("tFileList_1_CURRENT_FILEPATH")))))+"'\n";
+		    String dbquery_tJDBCInput_1 = "\nselect  country_id,country_name,state_id,state_name,city_id,city_name,product from sales_analyzer.product_group_history where to_char( history_date,'MM-YYYY') ='"+ TalendDate.formatDate("MM-YYYY", TalendDate.addDate(  TalendDate.getFirstDayOfMonth(context.date),-1,"MM"))+"'\nexcept\nselect  country_id,country_name,state_id,state_name,city_id,city_name,product from sales_analyzer.product_group_history where to_char( history_date,'MM-YYYY') ='"+ TalendDate.formatDate("MM-YYYY",  TalendDate.getFirstDayOfMonth(context.date)) +"'\n";
 			
 
                        globalMap.put("tJDBCInput_1_QUERY",dbquery_tJDBCInput_1);
@@ -11936,6 +12081,13 @@ out6 = null;
 
 // # Output table : 'out6'
 out6_tmp.obj_id = java.util.UUID.randomUUID();
+out6_tmp.active_date = TalendDate.getCurrentDate();
+out6_tmp.create_date = TalendDate.getCurrentDate();
+out6_tmp.exp_date = TalendDate.parseDate("yyyy-MM-dd HH:mm:ss","2999-01-01 00:00:00") ;
+out6_tmp.obj_status = "NA";
+out6_tmp.obj_type = "NA";
+out6_tmp.update_date = TalendDate.getCurrentDate();
+out6_tmp.optlock = 0;
 out6_tmp.country_id = row12.country_id ;
 out6_tmp.country_name = row12.country_name ;
 out6_tmp.state_id = row12.state_id ;
@@ -11943,8 +12095,8 @@ out6_tmp.state_name = row12.state_name ;
 out6_tmp.city_id = row12.city_id ;
 out6_tmp.city_name = row12.city_name ;
 out6_tmp.product = row12.product ;
-out6_tmp.amount = (float)0;
-out6_tmp.date = (Date)(globalMap.get(((String)globalMap.get("tFileList_1_CURRENT_FILEPATH"))));
+out6_tmp.amount = BigDecimal.ZERO ;
+out6_tmp.history_date = TalendDate.getFirstDayOfMonth(context.date) ;
 out6 = out6_tmp;
 // ###############################
 
@@ -12007,50 +12159,77 @@ pstmt_tJDBCOutput_6.setNull(1, java.sql.Types.OTHER);
 } else {pstmt_tJDBCOutput_6.setObject(1, out6.obj_id);
 }
 
-                    if(out6.country_id == null) {
-pstmt_tJDBCOutput_6.setNull(2, java.sql.Types.INTEGER);
-} else {pstmt_tJDBCOutput_6.setLong(2, out6.country_id);
+                    if(out6.active_date != null) {
+pstmt_tJDBCOutput_6.setTimestamp(2, new java.sql.Timestamp(out6.active_date.getTime()));
+} else {
+pstmt_tJDBCOutput_6.setNull(2, java.sql.Types.TIMESTAMP);
 }
+
+                    if(out6.create_date != null) {
+pstmt_tJDBCOutput_6.setTimestamp(3, new java.sql.Timestamp(out6.create_date.getTime()));
+} else {
+pstmt_tJDBCOutput_6.setNull(3, java.sql.Types.TIMESTAMP);
+}
+
+                    if(out6.exp_date != null) {
+pstmt_tJDBCOutput_6.setTimestamp(4, new java.sql.Timestamp(out6.exp_date.getTime()));
+} else {
+pstmt_tJDBCOutput_6.setNull(4, java.sql.Types.TIMESTAMP);
+}
+
+                    if(out6.obj_status == null) {
+pstmt_tJDBCOutput_6.setNull(5, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_6.setString(5, out6.obj_status);
+}
+
+                    if(out6.obj_type == null) {
+pstmt_tJDBCOutput_6.setNull(6, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_6.setString(6, out6.obj_type);
+}
+
+                    if(out6.update_date != null) {
+pstmt_tJDBCOutput_6.setTimestamp(7, new java.sql.Timestamp(out6.update_date.getTime()));
+} else {
+pstmt_tJDBCOutput_6.setNull(7, java.sql.Types.TIMESTAMP);
+}
+
+                    if(out6.optlock == null) {
+pstmt_tJDBCOutput_6.setNull(8, java.sql.Types.INTEGER);
+} else {pstmt_tJDBCOutput_6.setInt(8, out6.optlock);
+}
+
+                    pstmt_tJDBCOutput_6.setLong(9, out6.country_id);
 
                     if(out6.country_name == null) {
-pstmt_tJDBCOutput_6.setNull(3, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_6.setString(3, out6.country_name);
+pstmt_tJDBCOutput_6.setNull(10, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_6.setString(10, out6.country_name);
 }
 
-                    if(out6.state_id == null) {
-pstmt_tJDBCOutput_6.setNull(4, java.sql.Types.INTEGER);
-} else {pstmt_tJDBCOutput_6.setLong(4, out6.state_id);
-}
+                    pstmt_tJDBCOutput_6.setLong(11, out6.state_id);
 
                     if(out6.state_name == null) {
-pstmt_tJDBCOutput_6.setNull(5, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_6.setString(5, out6.state_name);
+pstmt_tJDBCOutput_6.setNull(12, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_6.setString(12, out6.state_name);
 }
 
-                    if(out6.city_id == null) {
-pstmt_tJDBCOutput_6.setNull(6, java.sql.Types.INTEGER);
-} else {pstmt_tJDBCOutput_6.setLong(6, out6.city_id);
-}
+                    pstmt_tJDBCOutput_6.setLong(13, out6.city_id);
 
                     if(out6.city_name == null) {
-pstmt_tJDBCOutput_6.setNull(7, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_6.setString(7, out6.city_name);
+pstmt_tJDBCOutput_6.setNull(14, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_6.setString(14, out6.city_name);
 }
 
                     if(out6.product == null) {
-pstmt_tJDBCOutput_6.setNull(8, java.sql.Types.VARCHAR);
-} else {pstmt_tJDBCOutput_6.setString(8, out6.product);
+pstmt_tJDBCOutput_6.setNull(15, java.sql.Types.VARCHAR);
+} else {pstmt_tJDBCOutput_6.setString(15, out6.product);
 }
 
-                    if(out6.amount == null) {
-pstmt_tJDBCOutput_6.setNull(9, java.sql.Types.FLOAT);
-} else {pstmt_tJDBCOutput_6.setFloat(9, out6.amount);
-}
+                    pstmt_tJDBCOutput_6.setBigDecimal(16, out6.amount);
 
-                    if(out6.date != null) {
-pstmt_tJDBCOutput_6.setTimestamp(10, new java.sql.Timestamp(out6.date.getTime()));
+                    if(out6.history_date != null) {
+pstmt_tJDBCOutput_6.setTimestamp(17, new java.sql.Timestamp(out6.history_date.getTime()));
 } else {
-pstmt_tJDBCOutput_6.setNull(10, java.sql.Types.TIMESTAMP);
+pstmt_tJDBCOutput_6.setNull(17, java.sql.Types.TIMESTAMP);
 }
 
             try {
@@ -12058,7 +12237,7 @@ pstmt_tJDBCOutput_6.setNull(10, java.sql.Types.TIMESTAMP);
                 nb_line_tJDBCOutput_6++;
             } catch(java.lang.Exception e) {
                 whetherReject_tJDBCOutput_6 = true;
-                        System.err.print(e.getMessage());
+                    throw(e);
             }
 
  
@@ -12737,6 +12916,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     284084 characters generated by Talend Open Studio for Data Integration 
- *     on the February 7, 2018 9:25:52 EST PM
+ *     288426 characters generated by Talend Open Studio for Data Integration 
+ *     on the February 8, 2018 10:09:22 EST PM
  ************************************************************************************************/

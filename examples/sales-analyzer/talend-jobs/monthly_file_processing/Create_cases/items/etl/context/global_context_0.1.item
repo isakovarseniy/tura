@@ -10,6 +10,6 @@
     <contextParameter xmi:id="_J9QKYf5hEeeWaeejuvzlYg" comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" type="id_String" value="/Users/arseniy/"/>
     <contextParameter xmi:id="_J9QKYv5hEeeWaeejuvzlYg" comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" type="id_String" value="/Users/arseniy/"/>
     <contextParameter xmi:id="_n0jKQP5hEeeWaeejuvzlYg" comment="" name="session" prompt="session?" promptNeeded="false" type="id_String" value="1"/>
-    <contextParameter xmi:id="_n0jKQf5hEeeWaeejuvzlYg" comment="" name="date" prompt="date?" promptNeeded="false" type="id_Date" value="2017-11-01 23:25:35"/>
+    <contextParameter xmi:id="_n0jKQf5hEeeWaeejuvzlYg" comment="" name="date" prompt="date?" promptNeeded="false" type="id_Date" value="2017-11-01 20:30:31"/>
   </talendfile:ContextType>
 </xmi:XMI>

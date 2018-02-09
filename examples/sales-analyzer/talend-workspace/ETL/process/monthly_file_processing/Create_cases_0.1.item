@@ -7,7 +7,7 @@
     <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="1"/>
   </context>
   <context confirmationNeeded="false" name="Development">
-    <contextParameter comment="" name="date" prompt="date?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_Date" value="2017-11-01 23:25:35"/>
+    <contextParameter comment="" name="date" prompt="date?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_Date" value="2017-11-01 20:30:31"/>
     <contextParameter comment="" name="inputDirectory" prompt="inputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
     <contextParameter comment="" name="outputDirectory" prompt="outputDirectory?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="/Users/arseniy/"/>
     <contextParameter comment="" name="session" prompt="session?" promptNeeded="false" repositoryContextId="_yqsvcPTUEeeTDoqkhdlj4g" type="id_String" value="1"/>
