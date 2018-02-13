@@ -68,13 +68,17 @@
 			</dependency>
 
 			<dependency>
+				<groupId>sales-analyzer</groupId>
+				<artifactId>processes</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+
+			<dependency>
 				<groupId>org.jbpm</groupId>
 				<artifactId>jbpm-bpmn2</artifactId>
 				<version>${version.drools}</version>
 			</dependency>
-
-
-
 
 			<dependency>
 				<groupId>org.wildfly</groupId>
@@ -92,6 +96,12 @@
 				<groupId>javax</groupId>
 				<artifactId>javaee-api</artifactId>
 				<version>${version.javaee-api}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-persistence-jpa</artifactId>
+				<version>${version.drools}</version>
 			</dependency>
 
 			<dependency>
@@ -140,6 +150,12 @@
 				<version>${version.drools}</version>
 			</dependency>
 
+
+			<dependency>
+				<groupId>org.jbpm</groupId>
+				<artifactId>jbpm-kie-services</artifactId>
+				<version>${version.drools}</version>
+			</dependency>
 
 		</dependencies>
 

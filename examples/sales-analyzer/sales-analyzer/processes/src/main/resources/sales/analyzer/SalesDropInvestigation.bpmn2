@@ -4,7 +4,12 @@
   <bpmn2:itemDefinition id="ItemDefinition_10" isCollection="false" structureRef="java.lang.String"/>
   <bpmn2:itemDefinition id="ItemDefinition_11" isCollection="false" structureRef="java.lang.Integer"/>
   <bpmn2:itemDefinition id="ItemDefinition_12" isCollection="false" structureRef="java.lang.Boolean"/>
+  <bpmn2:itemDefinition id="ItemDefinition_26" isCollection="false" structureRef="sales.analyzer.process.CaseDetails"/>
   <bpmn2:process id="sales.analyzer.SalesDropInvestigation" drools:packageName="sales.analyzer" name="Sales drop investigation" isExecutable="true">
+    <bpmn2:extensionElements>
+      <drools:import name="sales.analyzer.process.CaseDetails"/>
+    </bpmn2:extensionElements>
+    <bpmn2:property id="caseDetails" itemSubjectRef="ItemDefinition_26" name="caseDetails"/>
     <bpmn2:startEvent id="StartEvent_1" name="Start Event 1">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
@@ -115,7 +120,7 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_UserTask_2" bpmnElement="UserTask_2" isExpanded="true">
         <dc:Bounds height="50.0" width="110.0" x="250.0" y="93.0"/>
-        <bpmndi:BPMNLabel labelStyle="BPMNLabelStyle_1">
+        <bpmndi:BPMNLabel id="BPMNLabel_2" labelStyle="BPMNLabelStyle_1">
           <dc:Bounds height="11.0" width="48.0" x="281.0" y="112.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
@@ -123,13 +128,13 @@
         <di:waypoint xsi:type="dc:Point" x="136.0" y="118.0"/>
         <di:waypoint xsi:type="dc:Point" x="193.0" y="118.0"/>
         <di:waypoint xsi:type="dc:Point" x="250.0" y="118.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="BPMNShape_UserTask_2" targetElement="BPMNShape_2">
         <di:waypoint xsi:type="dc:Point" x="360.0" y="118.0"/>
         <di:waypoint xsi:type="dc:Point" x="430.0" y="118.0"/>
         <di:waypoint xsi:type="dc:Point" x="500.0" y="118.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5"/>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
     <bpmndi:BPMNLabelStyle id="BPMNLabelStyle_1">

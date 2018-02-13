@@ -15,8 +15,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.kie.server.api.model.KieContainerResource;
-import org.kie.server.api.model.ReleaseId;
 import org.kie.server.api.model.instance.NodeInstance;
 import org.kie.server.api.model.instance.TaskSummary;
 import org.kie.server.client.KieServicesClient;
@@ -33,10 +31,7 @@ import sales.analyzer.process.commons.Constants;
 public class ImportProcessTest {
 
 	private static int RETRY = 300;
-	private static ReleaseId releaseId = new ReleaseId("sales-analyzer", "processes", "1.0.0-SNAPSHOT");
 	private static final String PROCESS_ID = "sales.analyzer.MonthlyFileLoad";
-	private static final String HEALTH_CHECK_PROCESS_ID = "sales.analyzer.HealthCheck";
-	private static final String KIE_SERVER_URL = "http://localhost:8080/kie-server-6.5.0.Final-ee7/services/rest/server";
 	private static final String FILE_LOAD_NODE = "File Loader";
 	private static final String REVIEW_ERROR = "Review error";
 	@SuppressWarnings("unused")
@@ -50,46 +45,19 @@ public class ImportProcessTest {
 	
 	@Before
 	public void buildAndDeployArtifacts() {
-		KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, Constants.USERNAME,
-				Constants.PASSWORD);
-		KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
-		for (int i = 0; i < 10; i++) {
-			try {
-				client.createContainer(Constants.CONTAINER_ID, new KieContainerResource(releaseId));
-				break;
-			} catch (Exception e) {
-				try {
-					Thread.sleep(500);
-				} catch (InterruptedException e1) {
-				}
-			}
-		}
-		for (int i = 0; i < 10; i++) {
-			try {
-				ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
-				processClient.startProcess(Constants.CONTAINER_ID, HEALTH_CHECK_PROCESS_ID, new HashMap<String, Object>());
-				break;
-			} catch (Exception e) {
-				try {
-					Thread.sleep(500);
-				} catch (InterruptedException e1) {
-				}
-			}
-		}
+		new TestCommons().buildAndDeployArtifacts();
 	}
 
 	@After
 	public void dropContainer() {
-		KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, Constants.USERNAME, Constants.PASSWORD);
-		KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
-		client.disposeContainer(Constants.CONTAINER_ID);
+		new TestCommons().dropContainer();
 	}
 
 	@Test
 	@RunAsClient
 	public void t0000_MonthlyDataLoader_HappyPath() {
 		try {
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(KIE_SERVER_URL, Constants.USERNAME,
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL, Constants.USERNAME,
 					Constants.PASSWORD);
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);

@@ -28,6 +28,19 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-persistence-jpa</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
 			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-services-api</artifactId>
 			<scope>test</scope>
@@ -52,6 +65,10 @@
 			<artifactId>rules-commons</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>sales-analyzer</groupId>
+			<artifactId>processes</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.arquillian.junit</groupId>
