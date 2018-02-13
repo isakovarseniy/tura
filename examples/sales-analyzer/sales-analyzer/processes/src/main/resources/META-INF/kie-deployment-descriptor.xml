@@ -12,7 +12,13 @@
             <parameters/>
         </marshalling-strategy>
     </marshalling-strategies>
-    <event-listeners/>
+    <event-listeners>
+       <event-listener>
+            <resolver>mvel</resolver>
+            <identifier>new sales.analyzer.process.SalesAnalyzerProcessEventListener()</identifier>
+            <parameters/>
+        </event-listener>
+    </event-listeners>
     <task-event-listeners/>
     <globals/>
     <work-item-handlers/>

@@ -14,5 +14,14 @@ public class Constants {
 	public static final String USERNAME = "kieserver";
 	public static final String PASSWORD = "kieserver";
 	public static final String CASE_INVESTIGATION_PROCESS = "sales.analyzer.SalesDropInvestigation";
+	public static final  String SALES_DROP_INVESTIGATION_PROCESS_ID = "sales.analyzer.SalesDropInvestigation";
+	public static final  String PROCESS_CONSTRUCTOR = "Init";
+	
+	public static final  String VAR_CITY = "city";
+	public static final  String VAR_STATE = "state";
+	public static final  String VAR_PRODUCT = "product";
+	public static final String VAR_CASEDETAILS="caseDetails";
+
+	
 	
 }
