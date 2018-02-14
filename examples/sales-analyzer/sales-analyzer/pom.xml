@@ -47,6 +47,13 @@
 				<version>${version.drools}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>org.jbpm</groupId>
+				<artifactId>jbpm-human-task-jpa</artifactId>
+				<version>${version.drools}</version>
+			</dependency>
+
+
 
 			<dependency>
 				<groupId>org.kie.server</groupId>

@@ -1,5 +1,7 @@
 package sales.analyzer.process;
 
+import org.jbpm.process.core.context.variable.VariableScope;
+import org.jbpm.process.instance.context.variable.VariableScopeInstance;
 import org.jbpm.ruleflow.instance.RuleFlowProcessInstance;
 import org.kie.api.event.process.ProcessCompletedEvent;
 import org.kie.api.event.process.ProcessEventListener;
@@ -7,8 +9,6 @@ import org.kie.api.event.process.ProcessNodeLeftEvent;
 import org.kie.api.event.process.ProcessNodeTriggeredEvent;
 import org.kie.api.event.process.ProcessStartedEvent;
 import org.kie.api.event.process.ProcessVariableChangedEvent;
-import org.jbpm.process.core.context.variable.VariableScope;
-import org.jbpm.process.instance.context.variable.VariableScopeInstance;
 
 import sales.analyzer.process.commons.Constants;
 
@@ -55,16 +55,16 @@ public class SalesAnalyzerProcessEventListener implements  ProcessEventListener{
 					String city = (String) variableScopeInstance.getVariable(Constants.VAR_CITY); 
 					
 					CaseDetails caseDetails = new CaseDetails();
-					caseDetails.setProduct(product);
-					caseDetails.setState(state);
-					caseDetails.setCity(city);
+					BusinessInfo info = new BusinessInfo();
+					info.setProduct(product);
+					info.setState(state);
+					info.setCity(city);
+					
+					caseDetails.setInfo(info);
 				    variableScopeInstance.setVariable(Constants.VAR_CASEDETAILS, caseDetails);
-				    
 				}				
 			}
 		}
-		
-		
 	}
 
 	@Override

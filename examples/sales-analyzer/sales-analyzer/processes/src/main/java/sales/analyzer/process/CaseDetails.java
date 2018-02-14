@@ -1,6 +1,7 @@
 package sales.analyzer.process;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,20 +20,18 @@ public class CaseDetails extends VariableEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	@GeneratedValue(strategy =GenerationType.SEQUENCE, generator = "CASEDETAILS_ID_GENERATOR")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CASEDETAILS_ID_GENERATOR")
 	@Id
 	@SequenceGenerator(name = "CASEDETAILS_ID_GENERATOR", sequenceName = "CASEDETAILS_ID_SEQ")
 	private Long id;
 
-	private String state;
-	private String city;
-	private String product;
+	@Embedded
+	private BusinessInfo info;
 
-    @Version
-    @Column(name = "OPTLOCK")
-    private int    version;
-	
-	
+	@Version
+	@Column(name = "OPTLOCK")
+	private int version;
+
 	public int getVersion() {
 		return version;
 	}
@@ -44,33 +43,17 @@ public class CaseDetails extends VariableEntity {
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getState() {
-		return state;
+
+	public BusinessInfo getInfo() {
+		return info;
 	}
 
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getProduct() {
-		return product;
-	}
-
-	public void setProduct(String product) {
-		this.product = product;
+	public void setInfo(BusinessInfo info) {
+		this.info = info;
 	}
 
 }
