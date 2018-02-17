@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kie.server.api.model.definition.QueryDefinition;
 import org.kie.server.api.model.instance.ProcessInstance;
+import org.kie.server.api.model.instance.TaskInstance;
 import org.kie.server.client.KieServicesClient;
 import org.kie.server.client.KieServicesConfiguration;
 import org.kie.server.client.KieServicesFactory;
@@ -65,6 +66,14 @@ public class CaseProcessingTest {
 				//Query not found
 			}
 			
+			try {
+			queryClient.getQuery("getAllTaskiInstancesForCase");
+			queryClient.unregisterQuery("getAllTaskiInstancesForCase");
+			}catch(Exception e) {
+				//Query not found
+			}
+
+			
 			QueryDefinition query = new QueryDefinition();
 			query.setName("getAllCaseDetailsInstances");
 			query.setSource("java:jboss/datasources/ExampleDS");
@@ -77,13 +86,42 @@ public class CaseProcessingTest {
 
 			queryClient.registerQuery(query);
 			
+			query = new QueryDefinition();
+			query.setName("getAllTaskiInstancesForCase");
+			query.setSource("java:jboss/datasources/ExampleDS");
+			query.setTarget(Target.TASK.name());
+			query.setExpression(
+					"SELECT TSK.* FROM TASK TSK \n" + 
+							"INNER JOIN TASKEXTENDEDINFO INFO ON INFO.TASKID=tsk.ID\n" + 
+							"WHERE  INFO.CITY='Toronto' AND INFO.PRODUCT='Product02' AND INFO.STATE='Ontario'"
+		     );
+			
+			queryClient.registerQuery(query);
+			
+			
 			Collection<ProcessInstance> instances = queryClient.query("getAllCaseDetailsInstances", "ProcessInstances",0,100,ProcessInstance.class );
-			for (ProcessInstance p :instances) {
+			boolean isFind =false;
+			for (ProcessInstance p : instances) {
 				if (p.getId().equals(procesInsatnceId) ) {
-					return;
+					isFind = true;
 				}
 			}
-			fail();
+			if (!isFind) {
+			    fail();
+			}
+			
+			Collection<TaskInstance> tasks = queryClient.query("getAllTaskiInstancesForCase", "UserTasks",0,100,TaskInstance.class );
+			isFind =false;
+			for (TaskInstance t : tasks) {
+				if (t.getProcessInstanceId().equals(procesInsatnceId) ) {
+					isFind = true;
+				}
+			}
+			if (!isFind) {
+			    fail();
+			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
