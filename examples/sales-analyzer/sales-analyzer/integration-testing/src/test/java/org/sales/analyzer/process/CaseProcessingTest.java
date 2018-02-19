@@ -5,8 +5,10 @@ import static org.junit.Assert.fail;
 import java.util.Collection;
 import java.util.HashMap;
 
+import org.jboss.arquillian.container.test.api.ContainerController;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jbpm.services.api.query.model.QueryDefinition.Target;
 import org.junit.After;
 import org.junit.Before;
@@ -29,6 +31,8 @@ public class CaseProcessingTest {
 
 	private String PROCESS_ID = "sales.analyzer.SalesDropInvestigation";
 
+	@ArquillianResource
+    private ContainerController controller;	
 	
 	@Before
 	public void buildAndDeployArtifacts() {

@@ -82,6 +82,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.kie.server</groupId>
+			<artifactId>kie-server</artifactId>
+			<version>${version.drools}</version>
+			<type>war</type>
+			<classifier>ee7</classifier>
+		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.shrinkwrap.resolver</groupId>
@@ -118,6 +125,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>sales-analyzer</groupId>
+			<artifactId>config-integration-testing</artifactId>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<testResources>
@@ -125,6 +137,59 @@
 				<directory>src/test/resources</directory>
 			</testResource>
 		</testResources>
+		<plugins>
+
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.wildfly</groupId>
+									<artifactId>wildfly-dist</artifactId>
+									<version>${version.wildfly}</version>
+									<type>zip</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>process-test-sources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>java</executable>
+							<arguments>
+								<argument>-classpath</argument>
+								<classpath />
+								<argument>org.tura.comfiguration.recipe.SalesAnalyzerRecipe</argument>
+								<argument>${project.build.directory}/wildfly-${version.wildfly}</argument>
+								<argument>${project.build.directory}/../../../../..</argument>
+							</arguments>
+							<includeProjectDependencies>true</includeProjectDependencies>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+
 	</build>
 
 
