@@ -5,7 +5,7 @@ import org.tura.comfiguration.artifacts.CopyArtifact;
 public class CopyUsers extends CopyArtifact<CopyUsers>{
 
     private static String targetPath = "${JBOSS_HOME}/standalone/configuration";
-    private static String targetName = "application-roles.properties";
+    private static String targetName = "application-users.properties";
     private static String sourceName = "${application}/${JBOSS_VERSION}/assets/application-users.properties";
     
 	

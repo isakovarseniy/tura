@@ -15,7 +15,7 @@ public class TestCommons {
 
 	public static final String HEALTH_CHECK_PROCESS_ID = "sales.analyzer.HealthCheck";
 	public static ReleaseId releaseId = new ReleaseId("sales-analyzer", "processes", "1.0.0-SNAPSHOT");
-	public static final String KIE_SERVER_URL = "http://localhost:8080/kie-server-6.5.0.Final-ee7/services/rest/server";
+	public static final String KIE_SERVER_URL = "http://localhost:8080/kie-server/services/rest/server";
 
 	
 	public void buildAndDeployArtifacts() {
