@@ -36,7 +36,7 @@
     </extensions>
 
     <system-properties>
-       ${kjar_properties}
+       ${kieserver_properties}
     </system-properties>
 
 

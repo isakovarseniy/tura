@@ -82,9 +82,9 @@ public class CaseProcessingTest {
 			query.setName("getAllCaseDetailsInstances");
 			query.setSource("java:jboss/datasources/ExampleDS");
 			query.setTarget(Target.PROCESS.name());
-			query.setExpression("SELECT pl.* FROM PROCESSINSTANCELOG pl \n" + 
-					"INNER JOIN MAPPEDVARIABLE mv  ON PL.PROCESSINSTANCEID = MV.PROCESSINSTANCEID\n" + 
-					"INNER JOIN CASEDETAILS CD ON MV.VARIABLEID=CD.ID\n"+
+			query.setExpression("SELECT pl.* FROM KIESERVER.PROCESSINSTANCELOG pl \n" + 
+					"INNER JOIN KIESERVER.MAPPEDVARIABLE mv  ON PL.PROCESSINSTANCEID = MV.PROCESSINSTANCEID\n" + 
+					"INNER JOIN KIESERVER.CASEDETAILS CD ON MV.VARIABLEID=CD.ID\n"+
 					"WHERE CD.CITY='Toronto' AND CD.PRODUCT='Product02' AND CD.STATE='Ontario'"
 					);
 
@@ -95,8 +95,8 @@ public class CaseProcessingTest {
 			query.setSource("java:jboss/datasources/ExampleDS");
 			query.setTarget(Target.TASK.name());
 			query.setExpression(
-					"SELECT TSK.* FROM TASK TSK \n" + 
-							"INNER JOIN TASKEXTENDEDINFO INFO ON INFO.TASKID=tsk.ID\n" + 
+					"SELECT TSK.* FROM KIESERVER.TASK TSK \n" + 
+							"INNER JOIN KIESERVER.TASKEXTENDEDINFO INFO ON INFO.TASKID=tsk.ID\n" + 
 							"WHERE  INFO.CITY='Toronto' AND INFO.PRODUCT='Product02' AND INFO.STATE='Ontario'"
 		     );
 			

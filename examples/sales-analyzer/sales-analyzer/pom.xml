@@ -19,6 +19,7 @@
 		<version.org.wildfly.core>2.2.0.Final</version.org.wildfly.core>
 		<version.org.wildfly.extras.creaper>1.6.1</version.org.wildfly.extras.creaper>
 		<version.wildfly>10.1.0.Final</version.wildfly>
+		<version.h2>1.3.175</version.h2>
 
 	</properties>
 
@@ -204,6 +205,11 @@
 				<version>${version.org.wildfly.core}</version>
 			</dependency>
 
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+				<version>${version.h2}</version>
+		</dependency>
 
 		</dependencies>
 

@@ -22,7 +22,7 @@ public class CaseDetails extends VariableEntity {
 
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CASEDETAILS_ID_GENERATOR")
 	@Id
-	@SequenceGenerator(name = "CASEDETAILS_ID_GENERATOR", sequenceName = "CASEDETAILS_ID_SEQ")
+	@SequenceGenerator(name = "CASEDETAILS_ID_GENERATOR", sequenceName = "KIESERVER.CASEDETAILS_ID_SEQ")
 	private Long id;
 
 	@Embedded

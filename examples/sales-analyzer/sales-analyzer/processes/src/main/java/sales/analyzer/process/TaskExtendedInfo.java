@@ -14,7 +14,7 @@ public class TaskExtendedInfo {
 
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TASKEXTENDETINFO_ID_GENERATOR")
 	@Id
-	@SequenceGenerator(name = "TASKEXTENDETINFO_ID_GENERATOR", sequenceName = "TASKEXTENDETINFO_ID_SEQ")
+	@SequenceGenerator(name = "TASKEXTENDETINFO_ID_GENERATOR", sequenceName = "KIESERVER.TASKEXTENDETINFO_ID_SEQ")
 	private Long id;
 
 	private Long taskId;

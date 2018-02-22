@@ -43,7 +43,6 @@
 		<dependency>
 			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-services-api</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 
@@ -73,13 +72,11 @@
 		<dependency>
 			<groupId>org.jboss.arquillian.junit</groupId>
 			<artifactId>arquillian-junit-container</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -122,12 +119,16 @@
 		<dependency>
 			<groupId>org.wildfly</groupId>
 			<artifactId>wildfly-arquillian-container-managed</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>sales-analyzer</groupId>
 			<artifactId>config-integration-testing</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 		</dependency>
 
 	</dependencies>

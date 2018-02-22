@@ -390,13 +390,13 @@
   </node>
   <node componentName="tJDBCConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="-32" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJDBCConnection_1" show="false"/>
-    <elementParameter field="TEXT" name="URL" value="&quot;jdbc:postgresql:data_warehouse&quot;"/>
+    <elementParameter field="TEXT" name="URL" value="&quot;jdbc:h2:~/SalesAnalyzerDB;AUTO_SERVER=TRUE&quot;"/>
     <elementParameter field="TABLE" name="DRIVER_JAR">
-      <elementValue elementRef="JAR_NAME" value="postgresql-9.4-1201.jdbc41.jar"/>
+      <elementValue elementRef="JAR_NAME" value="h2-1.3.175.jar"/>
     </elementParameter>
-    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;org.postgresql.Driver&quot;"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;arseniy&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="Jthx/erwJcQ8CPSZCidmSQ=="/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;org.h2.Driver&quot;"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;sa&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="sxXnCJx/lOU="/>
     <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="CHECK" name="USE_SHARED_CONNECTION" value="false"/>

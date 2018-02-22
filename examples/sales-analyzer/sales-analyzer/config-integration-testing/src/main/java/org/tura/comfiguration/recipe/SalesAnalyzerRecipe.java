@@ -1,5 +1,6 @@
 package org.tura.comfiguration.recipe;
 
+import org.tura.comfiguration.artifacts.jboss.CopyH2Jar;
 import org.tura.comfiguration.artifacts.jboss.CopyRoles;
 import org.tura.comfiguration.artifacts.jboss.CopyUsers;
 import org.tura.comfiguration.artifacts.jboss.DoDeploy;
@@ -40,8 +41,19 @@ public class SalesAnalyzerRecipe {
                          .addProperties("TURA_SOURCE_LOCATION", tura_home)
                          .setRelativeLocation("config/main")
                          .run();
-     
+  
+                  new Module(jboss_home)
+                         .setApplication("sales-analyzer")
+                         .setServerType("wildfly-10.1.0.Final")
+                         .addConfigPath("h2/file-db")
+                        .setRelativeLocation("system/layers/base/com/h2database/h2/main")
+                        .run();
                   
+                  new CopyH2Jar(jboss_home)
+                         .setApplication("sales-analyzer")
+                         .setServerType("wildfly-10.1.0.Final")
+                         .copyFromExternal();
+
                   new CopyRoles(jboss_home)
                          .setApplication("sales-analyzer")
                          .setServerType("wildfly-10.1.0.Final")

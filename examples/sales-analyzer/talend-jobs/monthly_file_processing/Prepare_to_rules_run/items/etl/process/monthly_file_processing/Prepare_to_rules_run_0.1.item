@@ -120,13 +120,13 @@
   </parameters>
   <node componentName="tJDBCConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="-32" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJDBCConnection_1" show="false"/>
-    <elementParameter field="TEXT" name="URL" value="&quot;jdbc:postgresql:data_warehouse&quot;"/>
+    <elementParameter field="TEXT" name="URL" value="&quot;jdbc:h2:~/SalesAnalyzerDB;AUTO_SERVER=TRUE&quot;"/>
     <elementParameter field="TABLE" name="DRIVER_JAR">
-      <elementValue elementRef="JAR_NAME" value="postgresql-9.4-1201.jdbc41.jar"/>
+      <elementValue elementRef="JAR_NAME" value="h2-1.3.175.jar"/>
     </elementParameter>
-    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;org.postgresql.Driver&quot;"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;arseniy&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="Jthx/erwJcQ8CPSZCidmSQ=="/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;org.h2.Driver&quot;"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;sa&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="sxXnCJx/lOU="/>
     <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="CHECK" name="USE_SHARED_CONNECTION" value="false"/>
@@ -360,7 +360,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT  * FROM sales_analyzer.product_group_history where history_date between  to_date('&quot;&#xA;+&#xA;TalendDate.formatDate(&quot;yyyyMMdd&quot;,TalendDate.addDate( TalendDate.getFirstDayOfMonth(context.date),-2,&quot;MM&quot;))&#xA;&#xA;+&quot;','YYYYMMDD') and to_date('&quot;+TalendDate.formatDate(&quot;yyyyMMdd&quot;, TalendDate.addDate(TalendDate.getFirstDayOfMonth(context.date),-1,&quot;dd&quot;)) +&quot;','YYYYMMDD')&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT  * FROM sales_analyzer.product_group_history where history_date between  PARSEDATETIME('&quot;&#xA;+&#xA;TalendDate.formatDate(&quot;yyyyMMdd&quot;,TalendDate.addDate( TalendDate.getFirstDayOfMonth(context.date),-2,&quot;MM&quot;))&#xA;&#xA;+&quot;','YYYYMMDD') and PARSEDATETIME('&quot;+TalendDate.formatDate(&quot;yyyyMMdd&quot;, TalendDate.addDate(TalendDate.getFirstDayOfMonth(context.date),-1,&quot;dd&quot;)) +&quot;','yyyyMMdd')&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime" show="false"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false" show="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
