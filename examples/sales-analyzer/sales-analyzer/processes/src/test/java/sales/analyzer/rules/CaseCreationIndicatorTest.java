@@ -61,6 +61,29 @@ public class CaseCreationIndicatorTest {
 
 	}
 	
+	@Test
+	public void ruleNoCaseGenerationTest1() {
+		try {
+			KieServices ks = KieServices.Factory.get();
+			KieContainer kContainer = ks.getKieClasspathContainer();
+			KieSession kSession = kContainer.newKieSession();
+
+			MonthlyFileRuleModel model = new MonthlyFileRuleModel();
+
+			model.setMonth_1_amount((float) 0.0);
+			model.setMonth_2_amount((float) 20.0);
+			model.setMonth_3_amount((float) 30.0);
+
+			kSession.insert(model);
+			kSession.fireAllRules();
+
+			assertFalse(model.isWillCaseGenerate());
+
+		} catch (Exception e) {
+			fail();
+		}
+
+	}
 	
 	
 }

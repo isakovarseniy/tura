@@ -2,6 +2,7 @@ package org.tura.comfiguration.recipe;
 
 import org.tura.comfiguration.artifacts.jboss.CopyH2Jar;
 import org.tura.comfiguration.artifacts.jboss.CopyRoles;
+import org.tura.comfiguration.artifacts.jboss.CopySalesAnalyzerDB;
 import org.tura.comfiguration.artifacts.jboss.CopyUsers;
 import org.tura.comfiguration.artifacts.jboss.DoDeploy;
 import org.tura.comfiguration.artifacts.jboss.Module;
@@ -68,6 +69,12 @@ public class SalesAnalyzerRecipe {
                   new DoDeploy(jboss_home,"kie-server.war")
                           .setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/kie/server/kie-server/6.5.0.Final/kie-server-6.5.0.Final-ee7.war")
                           .doDeployExploaded();
+                  
+                  new CopySalesAnalyzerDB()
+                         .setApplication("sales-analyzer")
+                         .copyFromClassPath();
+                  
+                  
                   
 	}
 }

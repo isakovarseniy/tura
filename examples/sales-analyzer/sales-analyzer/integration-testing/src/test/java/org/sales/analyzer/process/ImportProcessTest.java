@@ -64,8 +64,10 @@ public class ImportProcessTest {
 			Long procesInsatnceId = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, new HashMap<String, Object>());
 
 			UserTaskServicesClient userTaskServicesClient = client.getServicesClient(UserTaskServicesClient.class);
+			List<String> status = Arrays.asList(new String[] {"Ready"});
 
-			List<TaskSummary> tasks = userTaskServicesClient.findTasksAssignedAsPotentialOwner(null, 0, 40);
+			
+			List<TaskSummary> tasks = userTaskServicesClient.findTasksByStatusByProcessInstanceId(procesInsatnceId, status, 0, 40);
 			assertEquals(1, tasks.size());
 
 			userTaskServicesClient.claimTask(Constants.CONTAINER_ID, tasks.get(0).getId(), null);
@@ -80,7 +82,7 @@ public class ImportProcessTest {
 			QueryServicesClient queryClient = client.getServicesClient(QueryServicesClient.class);
 			waitForNodeCompleated(FILE_LOAD_NODE, procesInsatnceId, queryClient);
 			
-			tasks = userTaskServicesClient.findTasksAssignedAsPotentialOwner(null, 0, 40);
+			 tasks = userTaskServicesClient.findTasksByStatusByProcessInstanceId(procesInsatnceId, status, 0, 40);
 			assertEquals(1, tasks.size());
 			assertEquals(REVIEW_ERROR,tasks.get(0).getName()); 
 
@@ -99,7 +101,7 @@ public class ImportProcessTest {
 			
 			waitForNodeStarted(new String[] {REVIEW_BUSSINESS_RULES_RESULT}, procesInsatnceId, queryClient);
 			
-			tasks = userTaskServicesClient.findTasksAssignedAsPotentialOwner(null, 0, 40);
+			tasks = userTaskServicesClient.findTasksByStatusByProcessInstanceId(procesInsatnceId, status, 0, 40);
 			assertEquals(1, tasks.size());
 			assertEquals(REVIEW_BUSSINESS_RULES_RESULT,tasks.get(0).getName()); 
 
@@ -119,7 +121,7 @@ public class ImportProcessTest {
 			
 			waitForNodeStarted( new String[] {REVIEW_CEASE_GENERATION}, procesInsatnceId, queryClient);
 			
-			tasks = userTaskServicesClient.findTasksAssignedAsPotentialOwner(null, 0, 40);
+			tasks = userTaskServicesClient.findTasksByStatusByProcessInstanceId(procesInsatnceId, status, 0, 40);
 			assertEquals(1, tasks.size());
 			assertEquals(REVIEW_CEASE_GENERATION,tasks.get(0).getName()); 
 

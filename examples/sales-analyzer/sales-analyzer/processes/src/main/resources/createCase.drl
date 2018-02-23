@@ -3,7 +3,9 @@ import sales.analyzer.process.commons.model.MonthlyFileRuleModel
 rule "Is create case"
  
  when 
-    m:MonthlyFileRuleModel( month_1_amount < month_2_amount  ,  month_2_amount < month_3_amount )
+    m:MonthlyFileRuleModel( month_1_amount >0 , month_2_amount > 0, month_3_amount > 0 
+                                             , month_1_amount < month_2_amount  ,  month_2_amount < month_3_amount  
+                                             )
  then
     m.setWillCaseGenerate(true);
 end
