@@ -1,4 +1,4 @@
-package org.tura.comfiguration.artifacts.jboss;
+package org.tura.comfiguration.commons;
 
 import java.io.File;
 

@@ -2,11 +2,12 @@ package org.tura.comfiguration.recipe;
 
 import org.tura.comfiguration.artifacts.jboss.CopyH2Jar;
 import org.tura.comfiguration.artifacts.jboss.CopyRoles;
-import org.tura.comfiguration.artifacts.jboss.CopySalesAnalyzerDB;
 import org.tura.comfiguration.artifacts.jboss.CopyUsers;
 import org.tura.comfiguration.artifacts.jboss.DoDeploy;
 import org.tura.comfiguration.artifacts.jboss.Module;
 import org.tura.comfiguration.artifacts.jboss.StendaloneFullXml;
+import org.tura.comfiguration.commons.CopyMonthlyFiles;
+import org.tura.comfiguration.commons.CopySalesAnalyzerDB;
 
 public class SalesAnalyzerRecipe {
 	
@@ -73,6 +74,11 @@ public class SalesAnalyzerRecipe {
                   new CopySalesAnalyzerDB()
                          .setApplication("sales-analyzer")
                          .copyFromClassPath();
+                  
+                  new CopyMonthlyFiles()
+                          .setApplication("sales-analyzer")
+                          .copyFromClassPath();
+                  
                   
                   
                   
