@@ -39,7 +39,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-services-api</artifactId>
@@ -57,7 +56,6 @@
 			<artifactId>kie-server-client</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 
 		<dependency>
 			<groupId>sales-analyzer</groupId>
@@ -82,15 +80,28 @@
 		<dependency>
 			<groupId>org.kie.server</groupId>
 			<artifactId>kie-server</artifactId>
-			<version>${version.drools}</version>
+			<version>${drools-version}</version>
 			<type>war</type>
 			<classifier>ee7</classifier>
+		</dependency>
+
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>keycloak-server-overlay</artifactId>
+			<version>${keycloak-version}</version>
+			<type>zip</type>
 		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.shrinkwrap.resolver</groupId>
 			<artifactId>shrinkwrap-resolver-api-maven</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.jboss.shrinkwrap.resolver</groupId>
 			<artifactId>shrinkwrap-resolver-impl-maven</artifactId>
@@ -154,7 +165,7 @@
 								<artifactItem>
 									<groupId>org.wildfly</groupId>
 									<artifactId>wildfly-dist</artifactId>
-									<version>${version.wildfly}</version>
+									<version>${wildfly-version}</version>
 									<type>zip</type>
 									<overWrite>false</overWrite>
 									<outputDirectory>${project.build.directory}</outputDirectory>
@@ -179,7 +190,7 @@
 								<argument>-classpath</argument>
 								<classpath />
 								<argument>org.tura.comfiguration.recipe.SalesAnalyzerRecipe</argument>
-								<argument>${project.build.directory}/wildfly-${version.wildfly}</argument>
+								<argument>${project.build.directory}/wildfly-${wildfly-version}</argument>
 								<argument>${project.build.directory}/../../../../..</argument>
 							</arguments>
 							<includeProjectDependencies>true</includeProjectDependencies>

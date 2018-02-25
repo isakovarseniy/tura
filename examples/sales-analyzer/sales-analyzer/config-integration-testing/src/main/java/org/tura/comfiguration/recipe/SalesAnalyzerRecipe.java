@@ -3,6 +3,7 @@ package org.tura.comfiguration.recipe;
 import org.tura.comfiguration.artifacts.jboss.CopyH2Jar;
 import org.tura.comfiguration.artifacts.jboss.CopyRoles;
 import org.tura.comfiguration.artifacts.jboss.CopyUsers;
+import org.tura.comfiguration.artifacts.jboss.DeployKeyCloak;
 import org.tura.comfiguration.artifacts.jboss.DoDeploy;
 import org.tura.comfiguration.artifacts.jboss.Module;
 import org.tura.comfiguration.artifacts.jboss.StendaloneFullXml;
@@ -79,6 +80,11 @@ public class SalesAnalyzerRecipe {
                           .setApplication("sales-analyzer")
                           .copyFromClassPath();
                   
+                  
+                  new DeployKeyCloak(jboss_home)
+                  .setApplication("sales-analyzer")
+                  .setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/keycloak/keycloak-server-overlay/3.2.0.Final/keycloak-server-overlay-3.2.0.Final.zip")
+                  .doDeploy();
                   
                   
                   
