@@ -57,8 +57,10 @@ public class ImportProcessTest {
 	@RunAsClient
 	public void t0000_MonthlyDataLoader_HappyPath() {
 		try {
-			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL, Constants.USERNAME,
-					Constants.PASSWORD);
+			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL, null,
+					null);
+			config.setCredentialsProvider(new OAuthCredentialsProvider(new TestCommons().getToken()));
+			
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);
 			Long procesInsatnceId = processClient.startProcess(Constants.CONTAINER_ID, PROCESS_ID, new HashMap<String, Object>());
