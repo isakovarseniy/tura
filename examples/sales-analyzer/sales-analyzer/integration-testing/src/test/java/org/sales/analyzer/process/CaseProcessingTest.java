@@ -35,12 +35,12 @@ public class CaseProcessingTest {
     private ContainerController controller;	
 	
 	@Before
-	public void buildAndDeployArtifacts() {
+	public void buildAndDeployArtifacts() throws Exception{
 		new TestCommons().buildAndDeployArtifacts();
 	}
 
 	@After
-	public void dropContainer() {
+	public void dropContainer() throws Exception {
 		new TestCommons().dropContainer();
 	}
 
@@ -51,6 +51,7 @@ public class CaseProcessingTest {
 		try {
 			KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(TestCommons.KIE_SERVER_URL, Constants.USERNAME,
 					Constants.PASSWORD);
+			config.setCredentialsProvider(new OAuthCredentialsProvider(new TestCommons().getToken()));
 			
 			KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
 			ProcessServicesClient processClient = client.getServicesClient(ProcessServicesClient.class);

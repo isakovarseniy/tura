@@ -22,7 +22,7 @@
 		<h2-version>1.3.175</h2-version>
 		<keycloak-version>3.2.0.Final</keycloak-version>
 		<slf4j-version>1.6.1</slf4j-version>
-
+		<commons-httpclient-version>3.1</commons-httpclient-version>
 	</properties>
 
 	<repositories>
@@ -41,6 +41,36 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+				<version>${commons-httpclient-version}</version>
+			</dependency>
+
+
+
+			<dependency>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-wildfly-adapter-dist</artifactId>
+				<version>${keycloak-version}</version>
+				<type>zip</type>
+			</dependency>
+
+			<dependency>
+				<groupId>org.keycloak</groupId>
+				<artifactId>keycloak-server-overlay</artifactId>
+				<version>${keycloak-version}</version>
+				<type>zip</type>
+			</dependency>
+
+			<dependency>
+				<groupId>org.kie.server</groupId>
+				<artifactId>kie-server</artifactId>
+				<version>${drools-version}</version>
+				<type>war</type>
+				<classifier>ee7</classifier>
+			</dependency>
 
 			<dependency>
 				<groupId>org.jbpm</groupId>
@@ -207,17 +237,17 @@
 				<version>${org.wildfly.core-version}</version>
 			</dependency>
 
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
 				<version>${h2-version}</version>
-		</dependency>
+			</dependency>
 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>${slf4j-version}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>${slf4j-version}</version>
+			</dependency>
 
 
 

@@ -28,6 +28,11 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
@@ -80,7 +85,6 @@
 		<dependency>
 			<groupId>org.kie.server</groupId>
 			<artifactId>kie-server</artifactId>
-			<version>${drools-version}</version>
 			<type>war</type>
 			<classifier>ee7</classifier>
 		</dependency>
@@ -88,7 +92,6 @@
 		<dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-server-overlay</artifactId>
-			<version>${keycloak-version}</version>
 			<type>zip</type>
 		</dependency>
 
@@ -96,11 +99,8 @@
 		<dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-wildfly-adapter-dist</artifactId>
-			<version>${keycloak-version}</version>
 			<type>zip</type>
 		</dependency>
-
-
 
 		<dependency>
 			<groupId>org.jboss.shrinkwrap.resolver</groupId>

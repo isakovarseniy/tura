@@ -9,6 +9,5 @@ embed-server --server-config=standalone-full.xml
 /subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=resource,value=kie-server)
 /subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=principal-attribute,value=preferred_username)
 /subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=enable-basic-auth,value=true)
-/subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=realm-public-key,value=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrVrCuTtArbgaZzL1hvh0xtL5mc7o0NqPVnYXkLvgcwiC3BjLGw1tGEGoJaXDuSaRllobm53JBhjx33UNv+5z/UMG4kytBWxheNVKnL6GgqlNabMaFfPLPCF8kAgKnsi79NMo+n6KnSY8YeUmec/p2vjO2NjsSAVcWEQMVhJ31LwIDAQAB)
-/subsystem=keycloak/secure-deployment=kie-server.war/credential=secret/:add(value=03c2b267-7f64-4647-8566-572be673f5fa)
-
+/subsystem=keycloak/secure-deployment=kie-server.war/:write-attribute(name=realm-public-key,value=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiIr58F9sMY/SI1aumXQKHerLHqmYi1wgnb3BMDWmKZqA2cId+rE2mlzr65L3oASOoCCEescxN2P1jqU+2IxVsze29HT6RzIdThXrOc+uZA6IhI82ofiAJu8IYQZmJg5tEhNgVn36tUZkWpDT/gxkS4J7S5NN+BJDPn4D6RAq6LHvxqcMs5djpl5jFJ+76CFG494Z1nEcC+k1BtRr0RR52ogMIDeN6yLAqp5WyYZkvAdDwudOuCBwdWwSUJ1aUoafsPOdAOTJNS02D9wbfuXwdBREa7L6LCDpig2kjWFCvfl7dc3gzy13xUOvBp+B/PH1DwGmhDw49vOGIemFm3G99QIDAQAB)
+/subsystem=keycloak/secure-deployment=kie-server.war/credential=secret/:add(value=4fb2c893-27f1-4c50-a114-66778d019dae)
