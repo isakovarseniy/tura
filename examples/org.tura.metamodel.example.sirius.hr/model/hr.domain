@@ -7050,6 +7050,62 @@
             </applicationMessages>
           </applications>
         </applicationPackages>
+        <applicationPackages uid="41e5ab3e-f0cc-4354-aba7-b35bb7e86999" name="CRM">
+          <applications uid="ca9ee2fa-d7c0-46de-9d0a-2014133a18c9" name="Sales Analysis">
+            <applicationRecipes uid="24419866-8f4b-4dd7-93e8-52fb153ca2a2" name="Recipes"/>
+            <applicationMappers uid="5c330ab8-2da1-4325-9841-1d06fea631e9" name="Mappers"/>
+            <applicationUILayer uid="64774538-1e6e-45b7-b60d-2df8ddce8708" name="UILayer">
+              <applicationUIPackages uid="69e617fe-f87c-4bea-8822-4b5ba94db1b8" name="Analysis">
+                <forms uid="ca987224-8b71-4ecd-b66b-d2034961d138" name="Sales events review">
+                  <view uid="3c6b73d5-3d77-484e-acaf-ec9cd8ff57c0">
+                    <canvases xsi:type="tura.form:Window" uid="ea4c8af4-40d0-4755-b5a1-dd57e185a665" name="Sales reviw window">
+                      <style uid="b49c1806-a82e-437d-8841-c0e72ac1b1fa"/>
+                      <viewElement xsi:type="tura.form:ViewPort" uid="04d4e5ae-dec5-4c76-9564-b0e4064dc545" name="review window port">
+                        <style uid="dc729a67-9ac4-40b5-b64b-4dbfb5c335c2"/>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="9358b8ce-9e9d-4427-a952-cd4675eb32a2" name="Rollout Canvas" defaultCanvas="true">
+                      <style uid="ad167722-9321-49e5-a72d-b7f742579277"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="01eacc45-25ba-44ec-af06-2b378a651a8e" name="Rollout">
+                        <style uid="74cc55d5-20ff-4702-a56a-3d20fe97a763"/>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="41b1f2b3-fe1e-482b-a767-cfee2a4ccb41" name="Work Items Canvas">
+                      <style uid="a4f5b8bc-a547-43c5-ad11-87f8f9a7d665"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="9c29d342-ab2b-4a45-a943-91094d53effb" name="WorkItems">
+                        <style uid="1f80e48e-7935-4268-adec-e3a633fd0912"/>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="c4ad5814-8e32-448a-acb7-720956304fdf" name="Assign Canvas">
+                      <style uid="fa3d3de6-a2c1-4708-8116-dbe4f0c7aed1"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="f6da3f7e-7ab6-4d49-8c1a-7946b1ec52ae" name="Assign">
+                        <style uid="b0e50c47-42f0-43cd-88bd-4936d83337f3"/>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="00211efa-9c9f-4e2f-b4bb-87492112fdaf" name="Close Canvas">
+                      <style uid="d56091e8-2f95-46b3-a85a-b6bdec726c45"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="ea5f018a-5bc6-41bf-9181-13aa263517e0" name="Close">
+                        <style uid="56704a35-1e74-4b45-8b72-03b895ecd2f5"/>
+                      </viewElement>
+                    </canvases>
+                    <viewInheritances uid="257a811b-3d46-4b96-a42c-4df4431e31a6" source="04d4e5ae-dec5-4c76-9564-b0e4064dc545" target="9358b8ce-9e9d-4427-a952-cd4675eb32a2"/>
+                    <viewInheritances uid="35af4f90-f7c8-474c-bb69-22eb3b5f63bc" source="04d4e5ae-dec5-4c76-9564-b0e4064dc545" target="41b1f2b3-fe1e-482b-a767-cfee2a4ccb41"/>
+                    <viewInheritances uid="b027fa82-84ec-423a-97d2-4d642c149089" source="04d4e5ae-dec5-4c76-9564-b0e4064dc545" target="c4ad5814-8e32-448a-acb7-720956304fdf"/>
+                    <viewInheritances uid="2e4f8165-3446-407e-bd42-336664ab1255" source="04d4e5ae-dec5-4c76-9564-b0e4064dc545" target="00211efa-9c9f-4e2f-b4bb-87492112fdaf"/>
+                  </view>
+                  <datacontrols uid="d4828452-e089-4fee-a5bd-497a7ba90f49"/>
+                </forms>
+              </applicationUIPackages>
+            </applicationUILayer>
+            <applicationInfrastructureLayer uid="b02add19-22db-4397-9f72-84334d3bbc87" name="Infrastructure"/>
+            <applicationStyle uid="95b13491-6504-4ddb-a188-effcb7cdea59" name="Style Libraries"/>
+            <applicationRole uid="b0d8098a-554f-426a-b954-ad550291c749" name="Security"/>
+            <applicationMessages uid="d9397861-82e9-43f6-8dad-7657a4322c26" name="Application message libraries">
+              <messageLibraries uid="aafd1a0e-dc69-4493-82d2-2db4e86edb59" name="Message libraries"/>
+              <applicationLanguages uid="fc558c21-92f5-4ef9-9da6-8d4d0172a196" name="Languages"/>
+            </applicationMessages>
+          </applications>
+        </applicationPackages>
       </applications>
     </domainApplications>
   </tura.domain:Domain>
