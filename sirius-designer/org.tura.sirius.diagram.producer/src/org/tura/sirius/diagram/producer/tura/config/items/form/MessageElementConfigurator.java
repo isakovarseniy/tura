@@ -119,7 +119,7 @@ public class MessageElementConfigurator implements NodeConfigurator {
 		tool.setMask(ToolHelper.getEditMaskVariables("{0}"));
 		InitialOperation opr = ToolHelper.createInitialOperation();
 		tool.setInitialOperation(opr);
-		opr.setFirstModelOperations(ToolHelper.createSet("name", "var:0"));
+		opr.setFirstModelOperations(ToolHelper.createSet("label", "var:0"));
 
 		ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("MessageElement" + tNode.class.getName());
 

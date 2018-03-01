@@ -5,16 +5,21 @@ import java.util.List;
 
 import org.eclipse.sirius.diagram.LabelPosition;
 import org.eclipse.sirius.diagram.description.ConditionalNodeStyleDescription;
+import org.eclipse.sirius.diagram.description.ContainerMapping;
 import org.eclipse.sirius.diagram.description.NodeMapping;
 import org.eclipse.sirius.diagram.description.style.NodeStyleDescription;
 import org.eclipse.sirius.diagram.description.style.StyleFactory;
 import org.eclipse.sirius.diagram.description.style.WorkspaceImageDescription;
+import org.eclipse.sirius.diagram.description.tool.ContainerDropDescription;
 import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
 import org.eclipse.sirius.diagram.description.tool.NodeCreationDescription;
 import org.eclipse.sirius.diagram.description.tool.ToolFactory;
 import org.eclipse.sirius.viewpoint.LabelAlignment;
 import org.eclipse.sirius.viewpoint.description.tool.Case;
+import org.eclipse.sirius.viewpoint.description.tool.ChangeContext;
 import org.eclipse.sirius.viewpoint.description.tool.CreateInstance;
+import org.eclipse.sirius.viewpoint.description.tool.DragSource;
+import org.eclipse.sirius.viewpoint.description.tool.InitialContainerDropOperation;
 import org.eclipse.sirius.viewpoint.description.tool.InitialNodeCreationOperation;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 import org.eclipse.sirius.viewpoint.description.tool.Switch;
@@ -22,6 +27,7 @@ import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
 import org.tura.sirius.dsl.config.NodeConfigurator;
 import org.tura.sirius.dsl.config.ObjectWrapper;
 import org.tura.sirius.dsl.diagram.ToolHelper;
+import org.tura.sirius.dsl.diagram.tContainer;
 import org.tura.sirius.dsl.diagram.tNode;
 import org.tura.sirius.dsl.viewpoint.tRoot;
 
@@ -91,6 +97,9 @@ public class DropDownSelectionConfigurator implements NodeConfigurator {
 		tool = getDirectEditLabel();
 		list.add(tool);
 
+		tool = getDrugAndDrop();
+		list.add(tool);
+		
 		return list;
 	}
 
@@ -151,6 +160,50 @@ public class DropDownSelectionConfigurator implements NodeConfigurator {
 		return tool;
 	}
 
+	
+	private static ToolEntry getDrugAndDrop() {
+		ContainerDropDescription tool = org.eclipse.sirius.diagram.description.tool.ToolFactory.eINSTANCE
+				.createContainerDropDescription();
+		tool.setName("DropDown to LayerHolder");
+		tool.setOldContainer(ToolHelper.createDropContainerVariable("oldSemanticContainer"));
+		tool.setNewContainer(ToolHelper.createDropContainerVariable("newSemanticContainer"));
+		tool.setElement(ToolHelper.createElementDropVariable("element"));
+		tool.setNewViewContainer(ToolHelper.createContainerViewVariable("newContainerView"));
+		tool.setDragSource(DragSource.BOTH_LITERAL);
+
+		InitialContainerDropOperation opr = ToolHelper.createInitialDropDownOperation();
+		tool.setInitialOperation(opr);
+
+		ChangeContext c1 = org.eclipse.sirius.viewpoint.description.tool.ToolFactory.eINSTANCE.createChangeContext();
+		c1.setBrowseExpression("var:newSemanticContainer");
+		opr.setFirstModelOperations(c1);
+
+		c1.getSubModelOperations().add(ToolHelper.createSet("children", "var:element"));
+
+		ObjectWrapper w = (ObjectWrapper) tRoot.context.get("LayerHolder" + tContainer.class.getName());
+		ContainerMapping container = (ContainerMapping) w.getWrapedObject();
+
+		w = (ObjectWrapper) tRoot.context.get("LayerHolderinTableColumn" + tContainer.class.getName());
+		ContainerMapping tableContainer = (ContainerMapping) w.getWrapedObject();
+
+		w = (ObjectWrapper) tRoot.context.get("LayerHolderinTreeColumn" + tContainer.class.getName());
+		ContainerMapping treeContainer = (ContainerMapping) w.getWrapedObject();
+		for (int i = 0; i < 5; i++) {
+			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("DropDownSelection" + i + tNode.class.getName());
+
+			NodeMapping mapper = (NodeMapping) wrapper.getWrapedObject();
+			if (mapper == null) {
+				throw new RuntimeException("Tool mapping is null");
+			}
+			container.getDropDescriptions().add(tool);
+			tableContainer.getDropDescriptions().add(tool);
+			treeContainer.getDropDescriptions().add(tool);
+			tool.getMappings().add(mapper);
+		}
+		return tool;
+	}
+	
+	
 	public List<ConditionalNodeStyleDescription> getConditionalStyle() {
 		return null;
 	}

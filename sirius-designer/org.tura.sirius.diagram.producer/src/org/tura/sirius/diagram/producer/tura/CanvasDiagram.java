@@ -40,8 +40,7 @@ public class CanvasDiagram {
 				.addChild(DropDownSelectionConfigurator.create("0")).addChild(ImageConfigurator.create("0"))
 				.addChild(InputTextConfigurator.create("0")).addChild(OutputTextConfigurator.create("0"))
 				.addChild(PasswordConfigurator.create("0"))
-				.addChild(
-						LabelConfigurator.create("0"))
+				.addChild(LabelConfigurator.create("0"))
 				.addChild(
 						TableConfigurator.create()
 								.addChild(

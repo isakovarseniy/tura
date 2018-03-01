@@ -138,7 +138,7 @@ public class LabelConfigurator implements NodeConfigurator {
 		tool.setMask(ToolHelper.getEditMaskVariables("{0}"));
 		InitialOperation opr = ToolHelper.createInitialOperation();
 		tool.setInitialOperation(opr);
-		opr.setFirstModelOperations(ToolHelper.createSet("name", "var:0"));
+		opr.setFirstModelOperations(ToolHelper.createSet("label", "var:0"));
 		for (int i = 0; i < 5; i++) {
 			ObjectWrapper wrapper = (ObjectWrapper) tRoot.context.get("Label" + i + tNode.class.getName());
 

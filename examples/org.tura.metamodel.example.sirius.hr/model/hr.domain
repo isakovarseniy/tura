@@ -3151,6 +3151,7 @@
                               <element xsi:type="tura.form:InputText" uid="b3679c03-c017-40b1-8efb-5630c01fd3dd" valuePointer="e8e1a14d-3c6d-4a44-b57d-8bd0629657c0"/>
                             </cols>
                             <cols uid="0edae19d-a07a-466e-98bb-6fbafa4ad67a" label="Department name">
+                              <style uid="72959b40-ea73-48e7-bd38-7321a05c21b2"/>
                               <multiLangLabel uid="54306333-64e4-4eb9-ad1e-03537f6781a2" value="Application Message Libraries.HR Controller.DEPARTMENTS_TABLE_DEPARTMENT_NAME_COLUMN">
                                 <expression objRef="42709504-6bab-4ef1-8090-e2f7498c506a" expressionType="ApplicationMessageLibraryImpl"/>
                                 <expression objRef="826e98d3-5af4-44d7-8b55-20db2c7ced64" order="1" expressionType="MessageLibraryImpl"/>
@@ -7068,30 +7069,231 @@
                       <style uid="ad167722-9321-49e5-a72d-b7f742579277"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="01eacc45-25ba-44ec-af06-2b378a651a8e" name="Rollout">
                         <style uid="74cc55d5-20ff-4702-a56a-3d20fe97a763"/>
+                        <baseCanvas uid="b1bc6232-23e3-4abe-8341-ca473bf0561d">
+                          <children xsi:type="tura.form:Tree" uid="682ea1ef-e011-47cc-b368-95b62c3673a5" label="Rollout table">
+                            <multiLangLabel uid="e63524bf-53de-47c6-a236-49614733702c"/>
+                            <cols uid="5b44c3e4-30b8-4dc9-a2ba-706e69e4a3ff" label="State">
+                              <style uid="ba006585-7aea-479a-b09f-91618fd21696"/>
+                              <multiLangLabel uid="0c2305f7-cd83-4588-aa66-068cc8fcb3ee"/>
+                              <element xsi:type="tura.form:OutputText" uid="9e53701d-004a-4b4c-8d13-2bcf6b3e71b7"/>
+                            </cols>
+                            <cols uid="534b2f62-924a-4818-8cd8-28aa3ffab149" label="City">
+                              <element xsi:type="tura.form:OutputText" uid="692767be-883b-446d-94da-f06a174b07cc"/>
+                            </cols>
+                            <cols uid="79ac34ba-7fbc-4328-ad26-f7bb56c1868a" label="Assign to"/>
+                            <cols uid="3b470adc-6e38-4f41-8b25-40a916e162dc" label="Number"/>
+                          </children>
+                        </baseCanvas>
                       </viewElement>
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="41b1f2b3-fe1e-482b-a767-cfee2a4ccb41" name="Work Items Canvas">
                       <style uid="a4f5b8bc-a547-43c5-ad11-87f8f9a7d665"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="9c29d342-ab2b-4a45-a943-91094d53effb" name="WorkItems">
                         <style uid="1f80e48e-7935-4268-adec-e3a633fd0912"/>
+                        <baseCanvas uid="4b896b56-0207-4083-810f-8fb2c57ed93b">
+                          <children xsi:type="tura.form:Table" uid="104d965f-253d-4210-8bfa-0577367e9cec" columns="6" label="Work Items table">
+                            <cols uid="e9f9e366-f16a-4478-a7b8-ecef76377bd5" label="State">
+                              <element xsi:type="tura.form:OutputText" uid="60152af1-27ec-4d29-87ce-08650f9a7217"/>
+                            </cols>
+                            <cols order="1" uid="dcf4bebc-27d6-4e0d-bb9d-aebd7e2e239e" label="City">
+                              <element xsi:type="tura.form:OutputText" uid="5c741ffe-1572-47b3-8ced-93c7987d0674"/>
+                            </cols>
+                            <cols order="2" uid="16e02aa9-5be8-4a89-a540-07d3fb57ee65" label="Product"/>
+                            <cols order="3" uid="40e32a37-21e4-4aa5-9922-57c292459e50" label="Case Id"/>
+                            <cols order="4" uid="35b54c9a-afce-44b1-9410-95501498130f" label="Status">
+                              <element xsi:type="tura.form:OutputText" uid="16767c64-f8f0-4ed6-a903-7e3218a25b2a"/>
+                            </cols>
+                            <cols order="5" uid="68407a21-4947-4b1e-8868-323e99dc37c2" label="Assign to"/>
+                          </children>
+                        </baseCanvas>
                       </viewElement>
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="c4ad5814-8e32-448a-acb7-720956304fdf" name="Assign Canvas">
                       <style uid="fa3d3de6-a2c1-4708-8116-dbe4f0c7aed1"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="f6da3f7e-7ab6-4d49-8c1a-7946b1ec52ae" name="Assign">
                         <style uid="b0e50c47-42f0-43cd-88bd-4936d83337f3"/>
+                        <baseCanvas uid="63114ff2-a43d-4001-b197-54aa060b9c88">
+                          <children xsi:type="tura.form:LayerHolder" uid="57c2789a-f7af-4e29-b75a-81d93b062722" columns="3">
+                            <children xsi:type="tura.form:OutputText" uid="cddc27e8-36fc-4cf7-a93a-d218fc5dad4b"/>
+                            <children xsi:type="tura.form:Button" order="1" uid="b3c2e267-6b6b-4ab8-bdd4-31b22687c57c" label="Select user"/>
+                            <children xsi:type="tura.form:Button" order="2" uid="cad70786-aeb5-41b8-94c2-09a53b549005" label="Assign to">
+                              <style uid="02f44f58-90c6-4c72-8201-afe674d0e69f"/>
+                              <required uid="994f4e83-3e41-4aac-92a5-0b02a62569ee"/>
+                              <multiLangLabel uid="01118d52-6585-4ef0-b0c5-b163754809ee"/>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="1" uid="cbe42d6d-0b5b-42a9-992e-23cf498592b6">
+                            <children xsi:type="tura.form:Table" uid="e2cf2969-19ce-466a-b3c7-793e04025a1d" columns="7" label="Work Item table">
+                              <cols order="1" uid="c4ca7881-1f7d-4e27-8179-52a083c7dc8a" label="State">
+                                <element xsi:type="tura.form:OutputText" uid="c497b6ac-3305-4157-a8a7-337e52f490f8"/>
+                              </cols>
+                              <cols order="2" uid="22a98212-f06e-46ad-9a8d-a76da96f1826" label="City">
+                                <element xsi:type="tura.form:OutputText" uid="b0e80711-3e33-409b-b965-84046c2d4360"/>
+                              </cols>
+                              <cols order="3" uid="608f3da5-b03b-4650-8fda-c12bf1163bcc" label="Assign to"/>
+                              <cols order="4" uid="9ba7639e-692c-4d34-8a3c-f24f7b71881d" label="Status">
+                                <element xsi:type="tura.form:OutputText" uid="eaa29e46-d1ed-433c-8e4b-4d9bfadbd6d3"/>
+                              </cols>
+                              <cols uid="a2c2ea75-8b50-4be7-97aa-7f93936353a7" label="Select">
+                                <element xsi:type="tura.form:CheckBox" uid="34dc1a39-2d69-41a6-937f-cab7f9138a1b"/>
+                              </cols>
+                              <cols order="5" uid="3e0919c4-554f-4a4c-a36e-c0650ecd0755" label="Created">
+                                <element xsi:type="tura.form:OutputText" uid="60b382cf-92ac-471d-b0ef-458b3c2d8469"/>
+                              </cols>
+                              <cols order="6" uid="140b7a4e-890f-4cd7-a22c-40e3d95a55e0" label="Due date">
+                                <element xsi:type="tura.form:OutputText" uid="060d6f3f-c3d6-4a7f-8bb1-6fede0bff968"/>
+                              </cols>
+                            </children>
+                          </children>
+                        </baseCanvas>
                       </viewElement>
                     </canvases>
                     <canvases xsi:type="tura.form:Canvas" uid="00211efa-9c9f-4e2f-b4bb-87492112fdaf" name="Close Canvas">
                       <style uid="d56091e8-2f95-46b3-a85a-b6bdec726c45"/>
                       <viewElement xsi:type="tura.form:ViewArea" uid="ea5f018a-5bc6-41bf-9181-13aa263517e0" name="Close">
                         <style uid="56704a35-1e74-4b45-8b72-03b895ecd2f5"/>
+                        <baseCanvas uid="1ecb50b9-4ea8-4e15-9bb0-3057986c6b5f">
+                          <children xsi:type="tura.form:LayerHolder" uid="e58e88d8-1c98-4bae-b184-9a53bc7ec8bf" columns="2">
+                            <children xsi:type="tura.form:Button" uid="35af2fde-e6b8-4eb8-b5dc-b96cdc184110" label="Close"/>
+                            <children xsi:type="tura.form:Button" order="1" uid="931ef335-502a-418e-b696-685692f37e3e" label="Bulk close"/>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="1" uid="e47a66e3-59ce-4d96-bf16-40c889a8ab38">
+                            <children xsi:type="tura.form:Table" uid="718578bd-7185-49b4-a638-07829fb1acae" columns="7" label="Work items">
+                              <cols order="1" uid="6ba08f95-3425-4c01-b5b6-0bec2af3e0c2" label="State">
+                                <element xsi:type="tura.form:OutputText" uid="bde74f4e-e49b-4620-a7f3-d3c2dacc2d67"/>
+                              </cols>
+                              <cols uid="b7542c51-4da5-4d2b-a516-535ace55711f" label="Select">
+                                <element xsi:type="tura.form:CheckBox" uid="9592aaa8-5523-47be-a252-5f9ca3bd10f2"/>
+                              </cols>
+                              <cols order="2" uid="39d922c2-1d54-403c-8e3e-5c627f98365c" label="City">
+                                <element xsi:type="tura.form:OutputText" uid="25aa9de2-a515-4fe3-81a4-1ead8bc19233"/>
+                              </cols>
+                              <cols order="6" uid="f813957c-143a-4b15-a173-c81140b31af5" label="Due date">
+                                <element xsi:type="tura.form:OutputText" uid="5a5d281f-1d04-4e79-b821-da2985166eaf"/>
+                              </cols>
+                              <cols order="3" uid="98daba09-e94c-46d5-8ef8-a12f0a576e84" label="Assign to"/>
+                              <cols order="4" uid="53fa3740-bc0c-4d3f-9399-699a41b5ff6d" label="Status">
+                                <element xsi:type="tura.form:OutputText" uid="50da277f-774a-426a-a498-e3a4452890ce"/>
+                              </cols>
+                              <cols order="5" uid="79909a7d-34a3-4e99-b825-d26f780382cb" label="Created">
+                                <element xsi:type="tura.form:OutputText" uid="98666828-374b-415b-a101-72acfde09bee"/>
+                              </cols>
+                            </children>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="e776991d-80e3-4328-8d1f-a1abc9d5aa56" name="Case Canvas">
+                      <style uid="9fef2350-b849-4569-a4ac-0e37940d82f7"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="c7dde5ec-329d-4fe2-ae58-9a8621ffa749" name="Case header">
+                        <style uid="1f72b5d4-a14e-4177-982e-57f618b68150"/>
+                        <baseCanvas uid="4bb47802-7bee-4231-ad0b-15aa60c3aa0c" columns="7">
+                          <children xsi:type="tura.form:LayerHolder" uid="a02bc6fb-c305-462c-8ef2-ea0b867c5453">
+                            <children xsi:type="tura.form:LayerHolder" uid="0e02c414-65d2-44c7-bf84-71a03ca984e4">
+                              <children xsi:type="tura.form:Label" uid="3092ffc0-f0a2-4234-aab0-711bea13e438" label="State"/>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="0840e514-b7c0-4919-a273-4c784e71976e">
+                              <children xsi:type="tura.form:OutputText" uid="a0b36f4d-ea72-4025-a05c-4483a109819a"/>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="1" uid="55afd4e2-7f87-4997-a549-f859a13a3f39">
+                            <children xsi:type="tura.form:LayerHolder" uid="28ccc01b-cbe5-4e0a-ba41-a272151a7bd8">
+                              <children xsi:type="tura.form:Label" uid="520043ca-43ef-4068-a25b-03a92cf0ba84" label="Product"/>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="51808a5c-6a61-4bf1-a719-0b46a2f141cd">
+                              <children xsi:type="tura.form:OutputText" uid="48e847d3-0d48-4a7b-a4af-d96a922319a2"/>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="2" uid="dda162ee-14dd-4594-9576-f66187e71d4c">
+                            <children xsi:type="tura.form:LayerHolder" uid="30c7d1e3-96f2-4403-bd57-2df894ef2b39">
+                              <children xsi:type="tura.form:Label" uid="adcfd391-8bde-4104-8885-14760a84ed6d" label="City"/>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="a106824d-f7d3-4670-9bdc-a55769633a90">
+                              <children xsi:type="tura.form:OutputText" uid="fac3232b-9465-48e4-8eed-60093aa26f85"/>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="6" uid="499d5ca4-455e-48d6-9486-557fa5c4cf44">
+                            <children xsi:type="tura.form:LayerHolder" uid="9036d998-2c05-4ae6-a4c1-cf17c4ddf87f">
+                              <children xsi:type="tura.form:Label" uid="a55c5fa1-2d04-4e30-af25-70b0aee8bef5" label="Due date"/>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="5863bcfb-108b-4282-9e3a-3bd06ae2cbaf">
+                              <children xsi:type="tura.form:OutputText" uid="1b62d066-d66b-41ff-8eea-3f0ce221b62c"/>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="3" uid="489ef4db-abb6-41aa-9e36-bbc662530976">
+                            <children xsi:type="tura.form:LayerHolder" uid="4bb60fcd-642f-492e-b37c-c7faccafc956">
+                              <children xsi:type="tura.form:Label" uid="52c97490-b0b6-42f6-bdd7-968baa867a97" label="Status"/>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="190cdbf4-585a-4458-8747-c8f4afabbba7">
+                              <children xsi:type="tura.form:OutputText" uid="6874bcd5-634b-477a-9b01-a3993f0c48a8"/>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="4" uid="096ebd2d-5f07-4464-8bad-070e1f50a474">
+                            <children xsi:type="tura.form:LayerHolder" uid="23b8375f-062b-491a-8c98-ca203927437e">
+                              <children xsi:type="tura.form:Label" uid="aff72121-b9a7-40d2-9517-45ef491284f2" label="Assign to"/>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="4e22797a-f0b1-41ac-9f0d-cf963e4d617e">
+                              <children xsi:type="tura.form:OutputText" uid="94fbb4f7-d4ed-4526-afcb-6b831a252897"/>
+                            </children>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="5" uid="5ff9af32-390a-4a67-9eaa-352397c127d3">
+                            <children xsi:type="tura.form:LayerHolder" uid="ece74c36-f616-4d32-ab99-da3ef4df9d56">
+                              <children xsi:type="tura.form:Label" uid="c282c7d2-3c7f-4ac8-91be-8e4c240be677" label="Created"/>
+                            </children>
+                            <children xsi:type="tura.form:LayerHolder" order="1" uid="92897155-2137-4cdd-8557-c5aa0c1f907e">
+                              <children xsi:type="tura.form:OutputText" uid="d7f4f97e-2cee-40c9-b703-3c972b333379"/>
+                            </children>
+                          </children>
+                        </baseCanvas>
+                      </viewElement>
+                      <viewElement xsi:type="tura.form:ViewPort" order="1" uid="921e1780-ffba-41a2-afe1-35dbdfe384ec" name="Case details">
+                        <style uid="4b663069-31a1-4ec6-b6c9-e3818e462aca"/>
+                      </viewElement>
+                    </canvases>
+                    <canvases xsi:type="tura.form:Canvas" uid="ec959533-2762-48ae-bab2-fb82c45b7fad" name="Sales drop case">
+                      <style uid="4cd52962-fa08-4108-8fa0-c75f08493397"/>
+                      <viewElement xsi:type="tura.form:ViewArea" uid="de69a28c-2d85-45ee-b816-4810d1a473dc" name="Sales Drop case details">
+                        <style uid="a917ea8c-175b-4ea6-b947-d102ebd5bebd"/>
+                        <baseCanvas uid="40c7989a-0c74-43f7-aabd-ae318cd5a5f6">
+                          <children xsi:type="tura.form:Table" uid="eb132d5b-6763-4231-b55f-f7409d6d5387" columns="7" label="Case history table">
+                            <cols uid="a3adadb2-9112-4fdc-ab6c-4f6fa4f4afad" label="Date">
+                              <element xsi:type="tura.form:OutputText" uid="2524da4f-bedc-4fc2-a22d-1a2320db8e97"/>
+                            </cols>
+                            <cols order="1" uid="853f5fb1-0ce0-490b-b4b8-72372e37c5bd" label="Case id"/>
+                            <cols order="2" uid="6516dd54-1edc-4649-96c7-bccb8016307c" label="Amount">
+                              <element xsi:type="tura.form:OutputText" uid="aa9c0304-1124-4d0e-8cf8-07191b2f8fc1"/>
+                            </cols>
+                            <cols order="3" uid="2481e5ab-a34d-4b3f-a94e-124b67e77c04" label="Status">
+                              <element xsi:type="tura.form:OutputText" uid="60ce308d-aafa-4485-ba6b-26c9a7f56acd"/>
+                            </cols>
+                            <cols order="4" uid="377c42a2-967b-49cf-a2d3-df5a6171b830" label="Resolution">
+                              <element xsi:type="tura.form:OutputText" uid="c0dd8ad1-e51d-4fcf-96ca-e4f4d7b130f5"/>
+                            </cols>
+                          </children>
+                          <children xsi:type="tura.form:LayerHolder" order="1" uid="69bf679d-983c-4465-9f10-fe28466c4532">
+                            <children xsi:type="tura.form:LayerHolder" uid="18d653c5-0529-407e-a188-1a16e52a3a8a" columns="2">
+                              <children xsi:type="tura.form:Label" uid="e0fc3ead-65a4-4c37-8555-f200a6ffb55c" label="Suggested resolution"/>
+                              <children xsi:type="tura.form:Label" order="2" uid="60f2e49d-7f45-45a5-a59a-93ed72a748b3" label="Approved resolution"/>
+                              <children xsi:type="tura.form:DropDownSelection" order="1" uid="355261a6-cf2e-49e4-8405-c59c3e713916"/>
+                              <children xsi:type="tura.form:DropDownSelection" order="3" uid="4e2be78b-e2b6-4adc-b990-35e3345d9381"/>
+                            </children>
+                            <children xsi:type="tura.form:Label" order="1" uid="192985f9-685e-47c2-9386-87289f00fb26" label="Comments"/>
+                            <children xsi:type="tura.form:LayerHolder" order="2" uid="e477a74a-9879-4627-a778-0fec52eeb2a2" columns="4">
+                              <children xsi:type="tura.form:Button" uid="098665b0-11e9-4e2d-a2b1-c2eca72f468a" label="Save"/>
+                              <children xsi:type="tura.form:Button" order="1" uid="55065ad7-5814-4137-8840-9dd923c54fdd" label="Rallback"/>
+                              <children xsi:type="tura.form:Button" order="2" uid="3ed837cf-2d81-4da9-8239-d39bc01b81f4" label="Close"/>
+                              <children xsi:type="tura.form:Button" order="3" uid="453743e0-fd3e-421b-a2ee-a9c5e57f97aa" label="Approve"/>
+                            </children>
+                          </children>
+                        </baseCanvas>
                       </viewElement>
                     </canvases>
                     <viewInheritances uid="257a811b-3d46-4b96-a42c-4df4431e31a6" source="04d4e5ae-dec5-4c76-9564-b0e4064dc545" target="9358b8ce-9e9d-4427-a952-cd4675eb32a2"/>
                     <viewInheritances uid="35af4f90-f7c8-474c-bb69-22eb3b5f63bc" source="04d4e5ae-dec5-4c76-9564-b0e4064dc545" target="41b1f2b3-fe1e-482b-a767-cfee2a4ccb41"/>
                     <viewInheritances uid="b027fa82-84ec-423a-97d2-4d642c149089" source="04d4e5ae-dec5-4c76-9564-b0e4064dc545" target="c4ad5814-8e32-448a-acb7-720956304fdf"/>
                     <viewInheritances uid="2e4f8165-3446-407e-bd42-336664ab1255" source="04d4e5ae-dec5-4c76-9564-b0e4064dc545" target="00211efa-9c9f-4e2f-b4bb-87492112fdaf"/>
+                    <viewInheritances uid="5df2999e-b079-4739-bfc1-978f3f0f1904" source="04d4e5ae-dec5-4c76-9564-b0e4064dc545" target="e776991d-80e3-4328-8d1f-a1abc9d5aa56"/>
+                    <viewInheritances uid="00a0ec0f-f9c5-4238-800e-1d72d335ae5c" source="921e1780-ffba-41a2-afe1-35dbdfe384ec" target="ec959533-2762-48ae-bab2-fb82c45b7fad"/>
                   </view>
                   <datacontrols uid="d4828452-e089-4fee-a5bd-497a7ba90f49"/>
                 </forms>
