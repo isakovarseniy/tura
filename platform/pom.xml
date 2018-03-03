@@ -41,8 +41,7 @@
 		<version.resteasy-client>3.0.2.Final</version.resteasy-client>
 		<version.javax.ws.rs-api>2.0.1</version.javax.ws.rs-api>
 		<version.wildfly-arquillian-container-managed>8.1.0.Final</version.wildfly-arquillian-container-managed>
-
-
+		<wildfly-version>10.1.0.Final</wildfly-version>
 	</properties>
 
 	<repositories>
