@@ -20,14 +20,14 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
       
       
       public class Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command implements org.tura.platform.repository.core.Command {
-         javax.persistence.EntityManager em;
-	     public void setEntityManager(javax.persistence.EntityManager em){
-	           this.em=em;
+         org.tura.platform.repository.core.PersistenceProvider pp;
+	     public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+	           this.pp=pp;
 	     }
 	     
 	     
-	     public Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(javax.persistence.EntityManager em){
-	        this.em=em;
+	     public Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(org.tura.platform.repository.core.PersistenceProvider pp){
+	        this.pp=pp;
 	     }
 	     
         public Object execute( Object obj ){
@@ -36,8 +36,8 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
            [%=PK(masterType,"pkMaster","data",t2model.get(masterType).get("fullName"),recipe,ingredient,util.mergeAndCapitalize(masterType.name))%]
            [%=PK(detailType,"pkDetail","data",t2model.get(detailType).get("fullName"),recipe,ingredient,util.mergeAndCapitalize(detailType.name))%]
 
-           [%=t2model.get(masterType).get("fullName")%] [%=util.mergeAndUnCapitalize(t2model.get(masterType).get("class"))%] = em.find([%=t2model.get(masterType).get("fullName")%].class ,pkMaster);
-           [%=t2model.get(detailType).get("fullName")%] [%=util.mergeAndUnCapitalize(t2model.get(detailType).get("class"))%] = em.find([%=t2model.get(detailType).get("fullName")%].class ,pkDetail);
+           [%=t2model.get(masterType).get("fullName")%] [%=util.mergeAndUnCapitalize(t2model.get(masterType).get("class"))%] = pp.find([%=t2model.get(masterType).get("fullName")%].class ,pkMaster);
+           [%=t2model.get(detailType).get("fullName")%] [%=util.mergeAndUnCapitalize(t2model.get(detailType).get("class"))%] = pp.find([%=t2model.get(detailType).get("fullName")%].class ,pkDetail);
            
            
            

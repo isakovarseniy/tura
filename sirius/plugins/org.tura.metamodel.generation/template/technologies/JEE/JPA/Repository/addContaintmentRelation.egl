@@ -19,25 +19,24 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
       
       
       public class Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command implements org.tura.platform.repository.core.Command {
-         javax.persistence.EntityManager em;
-	     public void setEntityManager(javax.persistence.EntityManager em){
-	           this.em=em;
+         org.tura.platform.repository.core.PersistenceProvider pp;
+	     public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+	           this.pp=pp;
 	     }
 	     
-	    public Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(javax.persistence.EntityManager em){
-	      this.em=em;
+	    public Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(org.tura.platform.repository.core.PersistenceProvider pp){
+	      this.pp=pp;
 	    } 
 	     
         public Object execute( Object obj ){
            [%=t2view.get(masterType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data data = ([%=t2view.get(masterType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data) obj;
            [%=PK(masterType,"pk","data",t2model.get(masterType).get("fullName"),recipe,ingredient)%]
-           [%=t2model.get(masterType).get("fullName")%] jpa = em.find([%=t2model.get(masterType).get("fullName")%].class,pk);
-           [%=t2view.get(masterType).get("package")%].commands.Load[%=t2view.get(masterType).get("class")%]Command serializer = new [%=t2view.get(masterType).get("package")%].commands.Load[%=t2view.get(masterType).get("class")%]Command(em);
+           [%=t2model.get(masterType).get("fullName")%] jpa = pp.find([%=t2model.get(masterType).get("fullName")%].class,pk);
+           [%=t2view.get(masterType).get("package")%].commands.Load[%=t2view.get(masterType).get("class")%]Command serializer = new [%=t2view.get(masterType).get("package")%].commands.Load[%=t2view.get(masterType).get("class")%]Command();
 
            java.util.HashMap<String, Object> context = new java.util.HashMap<String, Object> ();
            java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule> ();
 
-           serializer.setEntityManager(em);
            [%=t2view.get(masterType).get("fullName")%]  [%=util.mergeAndUnCapitalize(t2view.get(masterType).get("class"))%] = serializer.load(jpa,context,rules);
            for (org.tura.platform.repository.core.Rule r:rules.values()){
               r.execute();
@@ -78,7 +77,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
       %]
            
            [%=t2view.get(masterType).get("package")%].commands.InternalAdd[%=t2view.get(detailType).get("class")%]Command cmd = new [%=t2view.get(masterType).get("package")%].commands.InternalAdd[%=t2view.get(detailType).get("class")%]Command();
-           cmd.setEntityManager(em);
+           cmd.setPersistenceProvider(pp);
            rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule> ();
            cmd.insert(data.get[%=t2view.get(detailType).get("class")%][%=suffix%](),rules);
            for (org.tura.platform.repository.core.Rule r:rules.values()){

@@ -10,22 +10,13 @@ package [%=t2view.get(type).get("package")%].commands;
 
 public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.platform.repository.core.Command{
 
-    private javax.persistence.EntityManager em;
     private org.tura.platform.repository.core.Repository repository;
      
-     
-     public void setEntityManager(javax.persistence.EntityManager em){
-           this.em=em;
-     }
-
-
-     public Load[%=t2view.get(type).get("class")%]Command (javax.persistence.EntityManager em,org.tura.platform.repository.core.Repository repository){
+     public Load[%=t2view.get(type).get("class")%]Command (org.tura.platform.repository.core.Repository repository){
         this.repository = repository;
-        this.em=em;
      }
 
-     public Load[%=t2view.get(type).get("class")%]Command (javax.persistence.EntityManager em){
-        this.em=em;
+     public Load[%=t2view.get(type).get("class")%]Command (){
      }
 
 
@@ -107,8 +98,7 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
  				  [%=t2view.get(hash.get("target")).get("fullName")%] obj[%=suffix%] = ([%=t2view.get(hash.get("target")).get("fullName")%] )context.get(key[%=hash.get("sourceMethodName")%].toString());
                   if (obj[%=suffix%] == null){
                  
-                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](em,repository); 
-                 cmd[%=suffix%].setEntityManager(em);
+                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](repository); 
                  obj[%=suffix%] = cmd[%=suffix%].load(target[%=suffix%],context,rules);
                  context.put(key[%=hash.get("sourceMethodName")%].toString(),obj[%=suffix%]);
                  }
@@ -158,8 +148,7 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
 				  [%=t2view.get(hash.get("source")).get("fullName")%] obj[%=suffix%] = ([%=t2view.get(hash.get("source")).get("fullName")%] )context.get(key[%=hash.get("targetMethodName")%].toString());
                   if (obj[%=suffix%] == null){
                  
-                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](em,repository); 
-                 cmd[%=suffix%].setEntityManager(em);
+                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](repository); 
                  obj[%=suffix%] = cmd[%=suffix%].load(source[%=suffix%],context,rules);
                  context.put(key[%=hash.get("targetMethodName")%].toString(),obj[%=suffix%]);
                  }

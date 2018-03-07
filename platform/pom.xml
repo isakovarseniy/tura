@@ -272,6 +272,13 @@
 				<version>${version.tura-platform}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>jpa</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
+
+
 
 		</dependencies>
 

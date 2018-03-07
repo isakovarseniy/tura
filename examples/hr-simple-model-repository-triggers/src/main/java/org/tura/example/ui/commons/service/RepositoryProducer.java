@@ -36,7 +36,6 @@ import javax.inject.Inject;
 
 import org.tura.platform.repository.cdi.RepositoryExtension;
 import org.tura.platform.repository.core.DataProvider;
-import org.tura.platform.repository.core.ExtendedQuery;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.Triggers;
 
@@ -63,9 +62,6 @@ public class RepositoryProducer {
 				provider.setTriggers(triggers);
 			}
 			
-			for (ExtendedQuery query: getExtendedQuery()) {
-				provider.setExtendedQuery(query);
-			}
 		}
 		return repository;
 	}
@@ -88,21 +84,6 @@ public class RepositoryProducer {
 	}
 
 	
-	private  List<ExtendedQuery> getExtendedQuery() {
-
-		ArrayList<ExtendedQuery> array = new ArrayList<>();
-
-		for (Bean<?> bean : repositoryExtension.getCustomQueryBeans()) {
-			BeanManager bm = CDI.current().getBeanManager();
-
-			CreationalContext<?> ctx = bm.createCreationalContext(bean);
-			ExtendedQuery provider = (ExtendedQuery) bm.getReference(bean, ExtendedQuery.class, ctx);
-
-			array.add(provider);
-		}
-
-		return array;
-	}
 	
 
 	private  List<Triggers> getQueryTriggers() {

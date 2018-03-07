@@ -10,11 +10,11 @@ package [%=t2model.get(type).get("package")%].rules;
 public class Remove[%=t2model.get(type).get("class")%]JpaRule implements org.tura.platform.repository.core.Rule {
 
       private [%=PK(type,"entityPk", t2model.get(type).get("fullName"),recipe,ingredient)%]; 
-      private javax.persistence.EntityManager em;
 
-     public void setEntityManager(javax.persistence.EntityManager em){
-           this.em=em;
-     }
+      org.tura.platform.repository.core.PersistenceProvider pp;
+      public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+           this.pp=pp;
+      }
       
       public void setEntityPk([%=PK(type,"entityPk", t2model.get(type).get("fullName"),recipe,ingredient)%] ){
          this.entityPk = entityPk;
@@ -29,8 +29,8 @@ public class Remove[%=t2model.get(type).get("class")%]JpaRule implements org.tur
 
       public void execute(){
       
-                 [%=t2model.get(type).get("fullName")%] entity = em.find([%=t2model.get(type).get("fullName")%].class ,entityPk);  
-                 em.remove(entity);
+                 [%=t2model.get(type).get("fullName")%] entity = pp.find([%=t2model.get(type).get("fullName")%].class ,entityPk);  
+                 pp.remove(entity);
       }
 
 

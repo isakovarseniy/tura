@@ -34,45 +34,37 @@ import javax.inject.Inject;
 import org.tura.platform.repository.cdi.Repo;
 import org.tura.platform.repository.cdi.RepositoryExtension;
 import org.tura.platform.repository.core.DataProvider;
-import org.tura.platform.repository.core.ExtendedQuery;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.Triggers;
 
-
 public class RepositoryProducer {
-	
+
 	@Inject
 	private RepositoryExtension repositoryExtension;
-	
+
 	@Inject
 	private LocalTransactionRepository repository;
-	
-	
+
 	@Inject
-	 private BeanManager beanManager;
-	
-	
-    @Produces
+	private BeanManager beanManager;
+
+	@Produces
 	@Repo("repository")
 	public Repository getRepository(InjectionPoint injectionPoint) {
 
-		for ( DataProvider provider : getDataProviders()){
+		for (DataProvider provider : getDataProviders()) {
 			provider.setRepository(repository);
 			provider.init();
 
-			for (Triggers triggers: getQueryTriggers()) {
+			for (Triggers triggers : getQueryTriggers()) {
 				provider.setTriggers(triggers);
 			}
-			
-			for (ExtendedQuery query: getExtendedQuery()) {
-				provider.setExtendedQuery(query);
-			}
+
 		}
 		return repository;
 	}
 
-    
-	private  List<DataProvider> getDataProviders() {
+	private List<DataProvider> getDataProviders() {
 
 		ArrayList<DataProvider> array = new ArrayList<>();
 
@@ -87,24 +79,7 @@ public class RepositoryProducer {
 		return array;
 	}
 
-	
-	private  List<ExtendedQuery> getExtendedQuery() {
-
-		ArrayList<ExtendedQuery> array = new ArrayList<>();
-
-		for (Bean<?> bean : repositoryExtension.getCustomQueryBeans()) {
-
-			CreationalContext<?> ctx = beanManager.createCreationalContext(bean);
-			ExtendedQuery provider = (ExtendedQuery) beanManager.getReference(bean, ExtendedQuery.class, ctx);
-
-			array.add(provider);
-		}
-
-		return array;
-	}
-	
-
-	private  List<Triggers> getQueryTriggers() {
+	private List<Triggers> getQueryTriggers() {
 
 		ArrayList<Triggers> array = new ArrayList<>();
 
@@ -118,7 +93,5 @@ public class RepositoryProducer {
 
 		return array;
 	}
-	
-	
-	
+
 }

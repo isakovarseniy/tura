@@ -22,10 +22,10 @@
 package org.tura.platform.test;
 
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 
 import org.tura.platform.hr.objects.serialization.ComplexModelDataProvider;
 import org.tura.platform.repository.cdi.ObjectProvider;
+import org.tura.platform.repository.core.PersistenceProvider;
 import org.tura.platform.repository.core.PrImaryKeyStrategy;
 
 @ObjectProvider
@@ -33,8 +33,8 @@ public class ComplexModelDataProviderCDI extends ComplexModelDataProvider{
 
 	@Override
 	@Inject
-    public void setEntityManager(EntityManager em) {
-		super.setEntityManager(em);
+    public void setPersistenceProvider(PersistenceProvider pp) {
+		super.setPersistenceProvider(pp);
     }
 
 	@Override

@@ -19,20 +19,20 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
       
       
       public class Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command implements org.tura.platform.repository.core.Command {
-         javax.persistence.EntityManager em;
-	     public void setEntityManager(javax.persistence.EntityManager em){
-	           this.em=em;
+         org.tura.platform.repository.core.PersistenceProvider pp;
+	     public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+	           this.pp=pp;
 	     }
 	     
-	     public Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(javax.persistence.EntityManager em){
-	        this.em=em;
+	     public Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(org.tura.platform.repository.core.PersistenceProvider pp){
+	        this.pp=pp;
 	     }
 	     
         public Object execute( Object obj ){
            [%=t2view.get(masterType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data data = ([%=t2view.get(masterType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data) obj;
 
            [%=t2view.get(masterType).get("package")%].commands.InternalRemove[%=t2view.get(detailType).get("class")%]Command cmd = new [%=t2view.get(masterType).get("package")%].commands.InternalRemove[%=t2view.get(detailType).get("class")%]Command();
-           cmd.setEntityManager(em);
+           cmd.setPersistenceProvider(pp);
            java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule> ();
            cmd.remove(data.get[%=t2view.get(detailType).get("class")%][%=suffix%](),rules);
            for (org.tura.platform.repository.core.Rule r:rules.values()){

@@ -11,10 +11,10 @@ package [%=t2view.get(type).get("package")%].commands;
 
 public class InternalAdd[%=t2view.get(type).get("class")%]Command{
 
-     javax.persistence.EntityManager em;
-     public void setEntityManager(javax.persistence.EntityManager em){
-           this.em=em;
-     }
+         org.tura.platform.repository.core.PersistenceProvider pp;
+	     public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+	           this.pp=pp;
+	     }
 
         public void  insert([%=t2view.get(tp).get("fullName")%] obj,java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules){
         
@@ -31,7 +31,7 @@ public class InternalAdd[%=t2view.get(type).get("class")%]Command{
 		               break;
 		            }
 		         }%]  
-		   em.persist(jpa);
+		   pp.persist(jpa);
          [%
            var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
         %]
@@ -103,13 +103,13 @@ operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
                 
                  
                  [%=serializer%] cmd[%=suffix%]  = new [%=serializer%] ();
-                 cmd[%=suffix%].setEntityManager(em); 
+                 cmd[%=suffix%].setPersistenceProvider(pp); 
                  cmd[%=suffix%].insert(target[%=suffix%],rules); 
  
                  [%=PK(rel.target,"pk"+suffix,"target"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
 
                 [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule rule[%=suffix%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule();
-                rule[%=suffix%].setEntityManager(em);
+                rule[%=suffix%].setPersistenceProvider(pp);
                 rule[%=suffix%].setSourcePk(pk);
                 rule[%=suffix%].setTargetPk(pk[%=suffix%]);
                 rules.put(rule[%=suffix%].getKey(), rule[%=suffix%]);
@@ -150,14 +150,14 @@ operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
                 
                  
                   [%=serializer%] cmd[%=suffix%]  = new [%=serializer%] ();
-                  cmd[%=suffix%].setEntityManager(em); 
+                  cmd[%=suffix%].setPersistenceProvider(pp); 
                   cmd[%=suffix%].insert(source[%=suffix%],rules); 
 
                  [%=PK(rel.source,"pk"+suffix,"source"+suffix,t2model.get(rel.source).get("fullName"),recipe,ingredient)%]   
 
                 [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule rule[%=suffix%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule();
 
-                rule[%=suffix%].setEntityManager(em);
+                rule[%=suffix%].setPersistenceProvider(pp);
                 rule[%=suffix%].setSourcePk(pk[%=suffix%]);
                 rule[%=suffix%].setTargetPk(pk);
                 rules.put(rule[%=suffix%].getKey(), rule[%=suffix%]);
@@ -200,7 +200,7 @@ operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
                  [%=PK(rel.target,"pk"+suffix,"target"+suffix,t2model.get(rel.target).get("fullName"),recipe,ingredient)%]   
 
                 [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule rule[%=suffix%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule();
-                rule[%=suffix%].setEntityManager(em);
+                rule[%=suffix%].setPersistenceProvider(pp);
                 rule[%=suffix%].setSourcePk(pk);
                 rule[%=suffix%].setTargetPk(pk[%=suffix%]);
                 rules.put(rule[%=suffix%].getKey(), rule[%=suffix%]);
@@ -241,7 +241,7 @@ operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
 
                 [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule rule[%=suffix%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule();
 
-                rule[%=suffix%].setEntityManager(em);
+                rule[%=suffix%].setPersistenceProvider(pp);
                 rule[%=suffix%].setSourcePk(pk[%=suffix%]);
                 rule[%=suffix%].setTargetPk(pk);
                 rules.put(rule[%=suffix%].getKey(), rule[%=suffix%]);
@@ -289,7 +289,7 @@ operation add(recipe,ingredient,t2model,t2view,model_mapper,assosiations,type){
 
                 [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule rule[%=suffix%] = new [%=t2model.get(rel.source).get("package")%].rules.Add[%=t2model.get(rel.source).get("class")%][%=rel.type%][%=t2model.get(rel.target).get("class")%]JpaRule();
 
-                rule[%=suffix%].setEntityManager(em);
+                rule[%=suffix%].setPersistenceProvider(pp);
                 rule[%=suffix%].setSourcePk(pk[%=suffix%]);
                 rule[%=suffix%].setTargetPk(pk);
                 rules.put(rule[%=suffix%].getKey(), rule[%=suffix%]);

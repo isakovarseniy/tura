@@ -11,11 +11,11 @@ public class Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%
 
       private [%=PK(rel.source,"sourcePk", t2model.get(rel.source).get("fullName"),recipe,ingredient)%]; 
       private [%=PK(rel.target,"targetPk", t2model.get(rel.target).get("fullName"),recipe,ingredient)%] ;
-      private javax.persistence.EntityManager em;
-
-     public void setEntityManager(javax.persistence.EntityManager em){
-           this.em=em;
-     }
+      
+      org.tura.platform.repository.core.PersistenceProvider pp;
+      public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+           this.pp=pp;
+      }
       
       public void setSourcePk([%=PK(rel.source,"sourcePk", t2model.get(rel.source).get("fullName"),recipe,ingredient)%] ){
          this.sourcePk = sourcePk;
@@ -36,8 +36,8 @@ public class Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%
 
       public void execute(){
       
-                 [%=t2model.get(rel.source).get("fullName")%] source = em.find([%=t2model.get(rel.source).get("fullName")%].class ,sourcePk);  
-                 [%=t2model.get(rel.target).get("fullName")%] target = em.find([%=t2model.get(rel.target).get("fullName")%].class ,targetPk);  
+                 [%=t2model.get(rel.source).get("fullName")%] source = pp.find([%=t2model.get(rel.source).get("fullName")%].class ,sourcePk);  
+                 [%=t2model.get(rel.target).get("fullName")%] target = pp.find([%=t2model.get(rel.target).get("fullName")%].class ,targetPk);  
                  
       [%
       

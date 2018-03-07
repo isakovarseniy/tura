@@ -19,13 +19,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.test;
 
-public interface ExtendedQuery {
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
-	String getCalssName();
-	String getQueryName();
-	String findObjectsQuery();
-	String findNumberOfRowsQuery();
+import org.tura.platform.object.persistence.JPAPersistenceProvider;
+import org.tura.platform.repository.core.PersistenceProvider;
+
+public class PersistenceProviderProducer {
+
+	@Inject
+	private EntityManager em;
+	
+    @Produces
+    @ApplicationScoped
+    protected PersistenceProvider createPersistenceProvider(){
+    	return new JPAPersistenceProvider(em); 
+    }
 	
 }

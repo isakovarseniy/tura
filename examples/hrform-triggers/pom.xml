@@ -38,8 +38,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.tura.example.ui</groupId>
-			<artifactId>hrform-interface</artifactId>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>hr-model-interface</artifactId>
 			<version>1.0</version>
 		</dependency>
 

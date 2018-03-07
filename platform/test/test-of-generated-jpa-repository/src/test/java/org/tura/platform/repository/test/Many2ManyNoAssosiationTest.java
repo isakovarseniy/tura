@@ -41,6 +41,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.object.persistence.JPAPersistenceProvider;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
@@ -115,7 +116,7 @@ public class Many2ManyNoAssosiationTest {
 		commandStack = new ArrayList<>();
 		
 		JPATestPackageDataProvider dataProvider = new JPATestPackageDataProvider();
-		dataProvider.setEntityManager(em);
+		dataProvider.setPersistenceProvider(new JPAPersistenceProvider(em));
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
 		dataProvider.init();

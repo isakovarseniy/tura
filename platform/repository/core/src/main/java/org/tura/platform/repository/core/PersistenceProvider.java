@@ -19,29 +19,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.test;
+package org.tura.platform.repository.core;
 
-import javax.inject.Inject;
+import java.util.List;
 
-import org.tura.platform.hr.objects.serialization.SimpleModelDataProvider;
-import org.tura.platform.repository.cdi.ObjectProvider;
-import org.tura.platform.repository.core.PersistenceProvider;
-import org.tura.platform.repository.core.PrImaryKeyStrategy;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 
-@ObjectProvider
-public class SimpleModelDataProviderCDI extends SimpleModelDataProvider{
-
-	@Override
-	@Inject
-    public void setPersistenceProvider(PersistenceProvider pp) {
-		super.setPersistenceProvider(pp);
-    }
-
-	@Override
-	@Inject
-    public void setPkStrategy(PrImaryKeyStrategy pkStrategy) {
-		super.setPkStrategy(pkStrategy);
-    }
-
+public interface PersistenceProvider {
 	
+   public void persist(Object entity) ;
+   public void remove(Object entity) ;
+   public <T> T find(Class<T> clazz , Object pk) ;
+   public List<?> findObjectsQuery(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,Integer endIndex, Object ...args )  throws Exception;
+   public long findNumberOfRowsQuery(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria , Object ...args)  throws Exception;
+
 }

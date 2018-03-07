@@ -22,9 +22,9 @@
 package org.tura.example.ui.commons.service;
 
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 
 import org.tura.platform.repository.cdi.ObjectProvider;
+import org.tura.platform.repository.core.PersistenceProvider;
 import org.tura.platform.repository.core.PrImaryKeyStrategy;
 
 import objects.test.serialazable.jpa.JPATestPackageDataProvider;
@@ -34,8 +34,8 @@ public class JPATestModelDataProviderCDI extends JPATestPackageDataProvider{
 
 	@Override
 	@Inject
-    public void setEntityManager(EntityManager em) {
-		super.setEntityManager(em);
+    public void setPersistenceProvider(PersistenceProvider pp) {
+		super.setPersistenceProvider(pp);
     }
 
 	@Override

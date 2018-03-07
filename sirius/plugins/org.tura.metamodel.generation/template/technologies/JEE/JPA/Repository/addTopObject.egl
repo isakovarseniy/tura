@@ -21,12 +21,13 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
       
       public class AddTop[%=t2view.get(type).get("class")%]Command implements org.tura.platform.repository.core.Command {
       
-         javax.persistence.EntityManager em;
-	     public void setEntityManager(javax.persistence.EntityManager em){
-	           this.em=em;
+         org.tura.platform.repository.core.PersistenceProvider pp;
+	     public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+	           this.pp=pp;
 	     }
-	     public AddTop[%=t2view.get(type).get("class")%]Command( javax.persistence.EntityManager em){
-	        this.em=em;
+
+	     public AddTop[%=t2view.get(type).get("class")%]Command(org.tura.platform.repository.core.PersistenceProvider pp){
+	        this.pp=pp;
 	     }
 	     
         public Object execute( Object obj ){
@@ -36,7 +37,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
           
           [%=t2view.get(type).get("package")%].commands.InternalAdd[%=t2view.get(type).get("class")%]Command cmd = new [%=t2view.get(type).get("package")%].commands.InternalAdd[%=t2view.get(type).get("class")%]Command();
           java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule> ();
-          cmd.setEntityManager(em);
+          cmd.setPersistenceProvider(pp);
           cmd.insert(serialObj, rules);
            for (org.tura.platform.repository.core.Rule r:rules.values()){
               r.execute();

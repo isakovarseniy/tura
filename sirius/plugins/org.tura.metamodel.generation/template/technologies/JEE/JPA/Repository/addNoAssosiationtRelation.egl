@@ -20,13 +20,13 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
       
       
       public class Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command implements org.tura.platform.repository.core.Command {
-         javax.persistence.EntityManager em;
-	     public void setEntityManager(javax.persistence.EntityManager em){
-	           this.em=em;
+         org.tura.platform.repository.core.PersistenceProvider pp;
+	     public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+	           this.pp=pp;
 	     }
 	     
-	     public Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(javax.persistence.EntityManager em){
-	        this.em=em;
+	     public Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(org.tura.platform.repository.core.PersistenceProvider pp){
+	        this.pp=pp;
 	     }
 	     
         public Object execute( Object obj ){
@@ -38,7 +38,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
            [%=t2model.get(masterType).get("package")%].rules.Add[%=t2model.get(masterType).get("class")%][%=rel.type.toString()%][%=t2model.get(detailType).get("class")%]JpaRule rule = new [%=t2model.get(masterType).get("package")%].rules.Add[%=t2model.get(masterType).get("class")%][%=rel.type.toString()%][%=t2model.get(detailType).get("class")%]JpaRule();
 	        rule.setSourcePk(pkMaster);
 	        rule.setTargetPk(pkDetail);
-	        rule.setEntityManager(em);
+	        rule.setPersistenceProvider(pp);
 	        rule.execute();
 	        
 	        return null;

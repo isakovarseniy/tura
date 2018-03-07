@@ -19,29 +19,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.test;
+package org.tura.example.ui.commons.service;
 
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
-import org.tura.platform.hr.objects.serialization.SimpleModelDataProvider;
-import org.tura.platform.repository.cdi.ObjectProvider;
+import org.tura.platform.object.persistence.JPAPersistenceProvider;
 import org.tura.platform.repository.core.PersistenceProvider;
-import org.tura.platform.repository.core.PrImaryKeyStrategy;
 
-@ObjectProvider
-public class SimpleModelDataProviderCDI extends SimpleModelDataProvider{
+public class PersistenceProviderProducer {
 
-	@Override
 	@Inject
-    public void setPersistenceProvider(PersistenceProvider pp) {
-		super.setPersistenceProvider(pp);
+	private EntityManager em;
+	
+    @Produces
+    @RequestScoped
+    protected PersistenceProvider createPersistenceProvider(){
+    	return new JPAPersistenceProvider(em); 
     }
-
-	@Override
-	@Inject
-    public void setPkStrategy(PrImaryKeyStrategy pkStrategy) {
-		super.setPkStrategy(pkStrategy);
-    }
-
 	
 }
