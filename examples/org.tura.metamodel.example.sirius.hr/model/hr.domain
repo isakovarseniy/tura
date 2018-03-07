@@ -83,7 +83,7 @@
             </technologies>
             <hints uid="1610a78f-bda5-4b69-a443-e391f7457d2b" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
           </artifacts>
-          <artifacts uid="2b04954c-cf6c-46b7-a448-b97377be6839" name="Persistence model repository" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/mainJPARepository.egl">
+          <artifacts uid="2b04954c-cf6c-46b7-a448-b97377be6839" name="Persistence model repository" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/mainJPARepository.egl">
             <configVariables uid="5de71e73-e81c-4f59-8d00-50c2d9dc29fc" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
             <modelQuery uid="cdf258ce-9311-4971-bd60-197bb0021022" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
               <parameters uid="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" name="Repository"/>
@@ -115,7 +115,7 @@
               <options uid="72639b34-c455-4b47-87da-f714cffb9bd2" value="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4"/>
               <options uid="a55eb81d-9d80-4ce9-90cd-ef478f7459de" value="9a7c8d7e-f51c-4492-b919-916d503d649d"/>
               <options uid="a402227e-405e-4074-ae16-33b2f8a07b39" value="a8528dba-931e-4940-b800-522bf2cddb36"/>
-              <options uid="f9acb5da-4729-4339-ae8a-8355a3035459" value="85a00552-1cc3-4465-80ac-4201c352cd5d"/>
+              <options uid="f9acb5da-4729-4339-ae8a-8355a3035459" value="8799e862-e16e-4455-84a6-d3169ada402e"/>
               <options uid="d9e3a392-75f8-4c7f-a64d-b783675fcd26" value="48b0f660-5827-4f55-bf5e-3a9e90b139cc"/>
               <options uid="3fc6f641-34db-45cb-a4ed-a790465e1460" value="f450508f-626d-4381-9f9d-03c2a0454e63"/>
               <options uid="b93cf394-bb0f-443f-8983-caf7202acbbd" value="a76f07be-f346-4b06-8186-fb217bf52a03"/>
@@ -146,7 +146,7 @@
               <options uid="5516fd5e-e5b1-4fb3-aba7-07325b517be7" value="f52da8a4-ca3f-49ac-9328-5504ce7b49b6"/>
               <options uid="3c0efdaa-5641-438e-830c-67905a0982e1" value="2e39e023-cf18-477b-a88d-caabe0c76d39"/>
               <options uid="18beeaab-aaf4-4bf6-bf36-dd140e15098c" value="a8528dba-931e-4940-b800-522bf2cddb36"/>
-              <options uid="a6ed3581-8c02-4249-b3cc-4cf664d85966" value="85a00552-1cc3-4465-80ac-4201c352cd5d"/>
+              <options uid="a6ed3581-8c02-4249-b3cc-4cf664d85966" value="8799e862-e16e-4455-84a6-d3169ada402e"/>
               <options uid="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e" value="48b0f660-5827-4f55-bf5e-3a9e90b139cc"/>
               <options uid="0f1005fd-cee5-4792-ba0b-bb04144d4905" value="f450508f-626d-4381-9f9d-03c2a0454e63"/>
               <options uid="6da7cd59-30d6-46be-95b1-187688dc9820" value="a76f07be-f346-4b06-8186-fb217bf52a03"/>
@@ -405,7 +405,6 @@
           <configVariables uid="b374473f-5332-44d2-ae43-176f3e586a3b" name="persistence_unit"/>
           <techLeafs uid="10a45ded-af3f-4352-b39a-bd79b9679b3e" name="Hibernate"/>
           <techLeafs uid="c68dc461-8beb-4123-9051-fe038394fe2d" name="EclipseLink"/>
-          <techLeafs uid="85a00552-1cc3-4465-80ac-4201c352cd5d" name="Repository"/>
         </techLeafs>
         <techLeafs uid="a41ae77f-a69f-438c-9d80-6b23ca3aa2e4" name="Domain_model">
           <hints uid="9ac4e017-6f79-46c6-b411-ba78189b6742" name="Domain Object"/>
@@ -456,6 +455,7 @@
         <techLeafs uid="48b0f660-5827-4f55-bf5e-3a9e90b139cc" name="RepositoryProxy">
           <hints uid="00bf6826-995f-43e0-b82d-3cf0e1b27ee3" name="Serializable Object"/>
         </techLeafs>
+        <techLeafs uid="8799e862-e16e-4455-84a6-d3169ada402e" name="Repository"/>
       </techLeafs>
       <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="JSE">
         <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Implements"/>

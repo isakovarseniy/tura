@@ -1,7 +1,7 @@
  [%
 
 
-operation type::TypeElement  addCommand ( recipe,ingredient,model_mapper,t2view,t2model,path){
+operation type::TypeElement  removeCommand ( recipe,ingredient,model_mapper,t2view,t2model,path){
      var util = new Native('org.tura.metamodel.commons.Util');
      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid);
      var topObject = true;
@@ -21,22 +21,22 @@ operation type::TypeElement  addCommand ( recipe,ingredient,model_mapper,t2view,
 	    }
         
         if (hash.get("noAssosiation")){
-           addNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel);
+           removeNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel);
         }else{
 	        if (hash.get("containment")){
-              addContaintmentRelation( masterType, detailType,property,recipe,ingredient,suffix,t2view,t2model,path,rel,model_mapper);
+              removeContaintmentRelation( masterType, detailType,property,recipe,ingredient,suffix,t2view,t2model,path,rel);
 	        }else{
-             addNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel,model_mapper);
+             removeNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel);
 	        }
         }
      }
      if (topObject  ){
-        addTopObject ( self, recipe,ingredient,t2view,t2model,path);
+        removeTopObject ( self, recipe,ingredient,t2view,t2model,path);
      }
      
 }
 
-operation  addContaintmentRelation ( masterType, detailType,property,recipe,ingredient,suffix,t2view,t2model,path,rel,model_mapper){
+operation  removeContaintmentRelation ( masterType, detailType,property,recipe,ingredient,suffix,t2view,t2model,path,rel){
      var util = new Native('org.tura.metamodel.commons.Util');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
 	  
@@ -50,17 +50,16 @@ operation  addContaintmentRelation ( masterType, detailType,property,recipe,ingr
      hash.put("t2view",t2view);
      hash.put("t2model",t2model);
      hash.put("rel",rel);
-     hash.put("model_mapper",model_mapper);
 	  
-	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/addContaintmentRelation.egl",hash,TemplateFactory);
+	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/removeContaintmentRelation.egl",hash,TemplateFactory);
 	 cmd.setFormatter(f);
 	 var buffer = cmd.process();
 
-     util.saveFile( path+t2view.get(masterType).get("package").replaceAll("\\.","\\/")+"/commands","Add"+t2view.get(detailType).get("class")+"2"+t2view.get(masterType).get("class")+"On"+util.mergeAndCapitalize(property)+"Command.java",buffer);   
+     util.saveFile( path+t2view.get(masterType).get("package").replaceAll("\\.","\\/")+"/commands","Remove"+t2view.get(detailType).get("class")+"From"+t2view.get(masterType).get("class")+"On"+util.mergeAndCapitalize(property)+"Command.java",buffer);   
 
 }
 
-operation addNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel){
+operation removeNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel){
 
      var util = new Native('org.tura.metamodel.commons.Util');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
@@ -75,15 +74,15 @@ operation addNoAssosiationtRelation ( masterType, detailType,property,recipe,ing
      hash.put("t2model",t2model);
      hash.put("rel",rel);
 	  
-	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/addNoAssosiationtRelation.egl",hash,TemplateFactory);
+	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/removeNoAssosiationtRelation.egl",hash,TemplateFactory);
 	 cmd.setFormatter(f);
 	 var buffer = cmd.process();
 
-     util.saveFile( path+t2view.get(masterType).get("package").replaceAll("\\.","\\/")+"/commands","Add"+t2view.get(detailType).get("class")+"2"+t2view.get(masterType).get("class")+"On"+util.mergeAndCapitalize(property)+"Command.java",buffer);   
+     util.saveFile( path+t2view.get(masterType).get("package").replaceAll("\\.","\\/")+"/commands","Remove"+t2view.get(detailType).get("class")+"From"+t2view.get(masterType).get("class")+"On"+util.mergeAndCapitalize(property)+"Command.java",buffer);   
 
 }
 
-operation    addNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel,model_mapper){
+operation    removeNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel){
 
      var util = new Native('org.tura.metamodel.commons.Util');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
@@ -97,19 +96,18 @@ operation    addNonContaintmentRelation ( masterType, detailType,property,recipe
      hash.put("t2view",t2view);
      hash.put("t2model",t2model);
      hash.put("rel",rel);
-     hash.put("model_mapper",model_mapper);
 	  
-	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/addNonContaintmentRelation.egl",hash,TemplateFactory);
+	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/removeNonContaintmentRelation.egl",hash,TemplateFactory);
 	 cmd.setFormatter(f);
 	 var buffer = cmd.process();
 
-     util.saveFile( path+t2view.get(masterType).get("package").replaceAll("\\.","\\/")+"/commands","Add"+t2view.get(detailType).get("class")+"2"+t2view.get(masterType).get("class")+"On"+util.mergeAndCapitalize(property)+"Command.java",buffer);   
+     util.saveFile( path+t2view.get(masterType).get("package").replaceAll("\\.","\\/")+"/commands","Remove"+t2view.get(detailType).get("class")+"From"+t2view.get(masterType).get("class")+"On"+util.mergeAndCapitalize(property)+"Command.java",buffer);   
 
 
 
 }
 
-operation   addTopObject ( type, recipe,ingredient,t2view,t2model,path){
+operation   removeTopObject ( type, recipe,ingredient,t2view,t2model,path){
 
      var util = new Native('org.tura.metamodel.commons.Util');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
@@ -121,11 +119,11 @@ operation   addTopObject ( type, recipe,ingredient,t2view,t2model,path){
      hash.put("t2view",t2view);
      hash.put("t2model",t2model);
 	  
-	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/addTopObject.egl",hash,TemplateFactory);
+	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/removeTopObject.egl",hash,TemplateFactory);
 	 cmd.setFormatter(f);
 	 var buffer = cmd.process();
 
-     util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands","AddTop"+t2view.get(type).get("class")+"Command.java",buffer);   
+     util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands","RemoveTop"+t2view.get(type).get("class")+"Command.java",buffer);   
 
 }
 

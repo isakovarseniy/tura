@@ -5,9 +5,9 @@ ${start}${percent}
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
-import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/AddObjectCommand.egl";
-import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/RemoveObjectCommand.egl";
-import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/repositoryCommon.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/AddObjectCommand.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/RemoveObjectCommand.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
 
 
  ${percent}${end}
@@ -76,19 +76,19 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 		    
 	    util.populateTechnologies(hash,model_mapper);
 		
-	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/loadObjectCommand.egl",hash,TemplateFactory,templateStore);
+	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/loadObjectCommand.egl",hash,TemplateFactory,templateStore);
 	    serializer.setFormatter(f);
 	    var buffer = serializer.process();
 	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Load"+t2view.get(type).get("class")+"Command.java",buffer);   
          
 
-	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/AddInternalObjectCommand.egl",hash,TemplateFactory,templateStore);
+	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/AddInternalObjectCommand.egl",hash,TemplateFactory,templateStore);
 	    serializer.setFormatter(f);
 	    var buffer = serializer.process();
 	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "InternalAdd"+t2view.get(type).get("class")+"Command.java",buffer);   
 
 
-	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/RemoveInternalObjectCommand.egl",hash,TemplateFactory,templateStore);
+	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/RemoveInternalObjectCommand.egl",hash,TemplateFactory,templateStore);
 	    serializer.setFormatter(f);
 	    var buffer = serializer.process();
 	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "InternalRemove"+t2view.get(type).get("class")+"Command.java",buffer);   
@@ -97,7 +97,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
         type.addCommand(recipe,ingredient,model_mapper,t2view,t2model,path);
         type.removeCommand(recipe,ingredient,model_mapper,t2view,t2model,path);
         
-		var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/UpdateObjectCommand.egl",hash,TemplateFactory,templateStore);
+		var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/UpdateObjectCommand.egl",hash,TemplateFactory,templateStore);
 		serializer.setFormatter(f);
 		var buffer = serializer.process();
 		util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Update"+t2view.get(type).get("class")+"Command.java",buffer);   
@@ -116,7 +116,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 
 	       hash.put("rel",rel);
  		
-		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/loadObjectRule.egl",hash,TemplateFactory,templateStore);
+		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/loadObjectRule.egl",hash,TemplateFactory,templateStore);
 		   rule.setFormatter(f);
 		   var buffer = rule.process();
 		   
@@ -127,7 +127,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
   		for ( rel in allRel  ){
 	       hash.put("rel",rel);
  		
-		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/jpaAddRule.egl",hash,TemplateFactory,templateStore);
+		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/jpaAddRule.egl",hash,TemplateFactory,templateStore);
 		   rule.setFormatter(f);
 		   var buffer = rule.process();
 		   util.saveFile( path+t2model.get(rel.source).get("package").replaceAll("\\.","\\/")+"/rules", "Add"+t2model.get(rel.source).get("class") + rel.type.toString() +t2model.get(rel.target).get("class")+"JpaRule.java",buffer);   
@@ -142,7 +142,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
         }
 	       hash.put("type",type);
  		
-		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/jpaRemoveRule.egl",hash,TemplateFactory,templateStore);
+		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/jpaRemoveRule.egl",hash,TemplateFactory,templateStore);
 		   rule.setFormatter(f);
 		   var buffer = rule.process();
 		   
@@ -152,7 +152,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
       if (t2model.size() <> 0){
           var dataprovider = util.mergeAndCapitalize(hash.get("type").eContainer().name);
           hash.put("dataprovider",dataprovider);
-	 	  var mapper : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/dataProvider.egl",hash,TemplateFactory);
+	 	  var mapper : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/dataProvider.egl",hash,TemplateFactory);
 		  mapper.setFormatter(f);
 		  var buffer = mapper.process();
 			   

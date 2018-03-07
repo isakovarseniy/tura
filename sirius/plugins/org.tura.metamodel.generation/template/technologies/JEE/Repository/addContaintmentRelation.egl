@@ -5,7 +5,7 @@ ${start}${percent}
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
-import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/JPA/Repository/repositoryCommon.egl";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
 
 
  ${percent}${end}
