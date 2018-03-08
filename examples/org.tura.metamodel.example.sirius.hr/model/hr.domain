@@ -85,12 +85,12 @@
           </artifacts>
           <artifacts uid="2b04954c-cf6c-46b7-a448-b97377be6839" name="Persistence model repository" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/mainJPARepository.egl">
             <configVariables uid="5de71e73-e81c-4f59-8d00-50c2d9dc29fc" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="cdf258ce-9311-4971-bd60-197bb0021022" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Entity Object}')->size()>0)">
+            <modelQuery uid="cdf258ce-9311-4971-bd60-197bb0021022" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
               <parameters uid="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" name="Repository"/>
               <parameters uid="31c1633d-e431-47c9-b306-f880c5114864" name="Package"/>
             </modelQuery>
-            <hints uid="031451fe-d3a7-4028-991a-eb5dbb739b6b" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <hints uid="cac1830c-5b47-409d-9118-26bbe69c8ea0" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
+            <hints uid="c6408cd9-39b7-4117-b878-b9c99c7a1422" name="Serializable Object" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
           </artifacts>
         </artifactPackages>
         <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
