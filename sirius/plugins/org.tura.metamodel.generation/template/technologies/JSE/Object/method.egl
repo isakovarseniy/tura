@@ -1,4 +1,11 @@
-[%@template
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+
+
+
+@template
 operation  method_definition( type , hash  ) {
     var recipe = hash.get("recipe");
     var ingredient =  hash.get("ingredient");
@@ -26,43 +33,87 @@ operation  method_definition( type , hash  ) {
 [%}%]
 
 	[%
+	
+	  var properties = new Native('java.util.ArrayList');
 	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
       for (rel in assosiations){
-        var target = rel.target;
-	    if (target.isKindOf(type::TypeReference )){
-	         target = target.typeRef;
-	    }
-         var sourceMethodName = util.mergeAndCapitalize(target.name);
-
-         if (rel.sourceOperation.isDefined())
-             sourceMethodName = util.mergeAndCapitalize(rel.sourceOperation);
-         var sourceProperty =  util.mergeAndUnCapitalize(sourceMethodName);
       
-      
-    if ( not skipVar ){
+         var hash = rel.sourceSideNamesCalculation();
+         
+         if (properties.contains(hash.get("sourceProperty"))){
+            continue;
+         }else{
+           properties.add(hash.get("sourceProperty"));
+         }
+         
+	    if ( not skipVar ){
 	  	     switch  (rel.type.toString()){
-	         case "One2One" : %] private [%=target.~fullName%]  [%=sourceProperty%];[%
-	         case "One2Many" : %]  private java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
-	         case "Many2Many" : %] private java.util.Collection<[%=target.~fullName%]>  [%=sourceProperty%];[%
+	         case "One2One" : %] private [%=hash.get("target").~fullName%]  [%=hash.get("sourceProperty")%];[%
+	         case "One2Many" : %]  private java.util.Collection<[%=hash.get("target").~fullName%]>  [%=hash.get("sourceProperty")%];[%
+	         case "Many2Many" : %] private java.util.Collection<[%=hash.get("target").~fullName%]>  [%=hash.get("sourceProperty")%];[%
 	         }
+	    }      
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public [%=hash.get("target").~fullName%]  get[%=hash.get("sourceMethodName")%]()[%
+         case "One2Many" : %] public java.util.Collection<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]()[%
+         case "Many2Many" : %] public java.util.Collection<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]()[%
+         }                
+	    if ( not skipVar ){
+         %] { return [%=hash.get("sourceProperty")%]; } [%
+        }else{
+         %] ; [%
+        }         
+  	     switch  (rel.type.toString()){
+         case "One2One" : %] public  void set[%=hash.get("sourceMethodName")%]([%=hash.get("target").~fullName%]  [%=hash.get("sourceProperty")%])[%
+         case "One2Many" : %] public  void  set[%=hash.get("sourceMethodName")%](java.util.Collection<[%=hash.get("target").~fullName%]> [%=hash.get("sourceProperty")%])[%
+         case "Many2Many" : %] public  void  set[%=hash.get("sourceMethodName")%](java.util.Collection<[%=hash.get("target").~fullName%]> [%=hash.get("sourceProperty")%])[%
+         }                
+	    if ( not skipVar ){
+         %] { this.[%=hash.get("sourceProperty")%]=[%=hash.get("sourceProperty")%]; } [%
+        }else{
+         %] ; [%
+        }         
+      }
+	%]
+
+	[%
+	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
+      for (rel in assosiations){
+      
+         var hash = rel.targetSideNamesCalculation();
+      
+         if (properties.contains(hash.get("targetProperty"))){
+            continue;
+         }else{
+           properties.add(hash.get("targetProperty"));
          }
       
+      
+	    if ( not skipVar ){
+	  	     switch  (rel.type.toString()){
+	         case "One2One" : %] private [%=hash.get("source").~fullName%]  [%=hash.get("targetProperty")%];[%
+	         case "One2Many" : %] private [%=hash.get("source").~fullName%]  [%=hash.get("targetProperty")%];[%
+	         case "Many2Many" : %] private java.util.Collection<[%=hash.get("source").~fullName%]>  [%=hash.get("targetProperty")%];[%
+	         }
+	     }
   	     switch  (rel.type.toString()){
-         case "One2One" : %] public [%=target.~fullName%]  get[%=sourceMethodName%]()[%
-         case "One2Many" : %] public java.util.Collection<[%=target.~fullName%]>  get[%=sourceMethodName%]()[%
-         case "Many2Many" : %] public java.util.Collection<[%=target.~fullName%]>  get[%=sourceMethodName%]()[%
+         case "One2One" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]()[%
+         case "One2Many" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]()[%
+         case "Many2Many" : %] public java.util.Collection<[%=hash.get("source").~fullName%]>  get[%=hash.get("targetMethodName")%]()[%
          }                
-         %] [%=getMethod(util.mergeAndUnCapitalize(sourceProperty))%] [%
-         
+         %] { return [%=hash.get("targetProperty")%]; } [%
+
   	     switch  (rel.type.toString()){
-         case "One2One" : %] public  void set[%=sourceMethodName%]([%=target.~fullName%]  [%=sourceProperty%])[%
-         case "One2Many" : %] public  void  set[%=sourceMethodName%](java.util.Collection<[%=target.~fullName%]> [%=sourceProperty%])[%
-         case "Many2Many" : %] public  void  set[%=sourceMethodName%](java.util.Collection<[%=target.~fullName%]> [%=sourceProperty%])[%
+         case "One2One" : %] public  void  set[%=hash.get("targetMethodName")%]([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%])[%
+         case "One2Many" : %] public void set[%=hash.get("targetMethodName")%]([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%])[%
+         case "Many2Many" : %] public  void set[%=hash.get("targetMethodName")%](java.util.Collection<[%=hash.get("source").~fullName%]> [%=hash.get("targetProperty")%])[%
          }                
-         %] [%=setMethod(util.mergeAndUnCapitalize(sourceProperty))%] [%
+         %] { this.[%=hash.get("targetProperty")%]=[%=hash.get("targetProperty")%]; } [%
+
 
       }
 	%]
+
 
 [%
 }
