@@ -62,7 +62,7 @@ operation type::TypeElement mappingType2XML( recipe:Recipe, ingredient :Ingredie
  
               if ( pkgMp <> null){
                  self.~mapper="Type2XML";
-                 self.~class=util.mergeAndCapitalize(self.name);
+                 self.~class=util.mergeAndCapitalize(tp.name);
                  self.~namespace= pkgMp.namespace;
                  self.~fullname=self.~namespace+"#"+self.~class;
               }  

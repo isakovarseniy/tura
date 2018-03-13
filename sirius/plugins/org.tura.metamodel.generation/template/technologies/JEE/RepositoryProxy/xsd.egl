@@ -31,9 +31,14 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
  		for (connector in domainConnectors){
  			connector.source.mappingType2XML(recipe,ingredient);
  			connector.target.mappingType2XML(recipe,ingredient);
+ 			var nm = connector.target.name;
+ 			if (connector.target.isTypeOf(type::TypeReference)){
+ 			    nm = connector.target.typeRef.name;
+ 			}
+ 			
  		%]
  		
- 		<xs:element name="[%=util.mergeAndUnCapitalize(connector.target.name)%]"  type= "[%=getNamespace(connector.target.~namespace,targetnamespace,fullHash,returnHash)%][%=connector.target.~class%]"   maxOccurs="unbounded"/> 
+ 		<xs:element name="[%=util.mergeAndUnCapitalize(nm)%]"  type= "[%=getNamespace(connector.target.~namespace,targetnamespace,fullHash,returnHash)%][%=connector.target.~class%]"   maxOccurs="unbounded"/> 
  		[%
  		}			
 			
@@ -121,6 +126,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
       %][%=commandData (recipe,ingredient,targetnamespace,fullHash,returnHash,model_mapper,typeCollection)%][%
 
 operation getNamespace(namespace,targetNamespace,fullHash,returnHash){
+  var util = new Native('org.tura.metamodel.commons.Util');
   if ("http://www.w3.org/2001/XMLSchema".equals(namespace)){
      return "xs:";
   }
