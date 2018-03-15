@@ -42,9 +42,7 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchRequest;
 import org.tura.platform.repository.core.SearchResult;
 
-import com.fasterxml.jackson.databind.AnnotationIntrospector;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
 
 public class RestClientRepository implements Repository {
 
@@ -119,8 +117,6 @@ public class RestClientRepository implements Repository {
 			MultivaluedMap<String, String> map = response.readEntity(MultivaluedHashMap.class);
 			
 			ObjectMapper mapper = new ObjectMapper();
-		    AnnotationIntrospector introspector = new JaxbAnnotationIntrospector();
-		    mapper.setAnnotationIntrospector(introspector);
 		    ArrayList<Object> list = new ArrayList<>();
 		    
 			for (int i  = 0; ;i++){
@@ -163,8 +159,6 @@ public class RestClientRepository implements Repository {
 			client = ClientBuilder.newClient();
 
 			ObjectMapper mapper = new ObjectMapper();
-			AnnotationIntrospector introspector = new JaxbAnnotationIntrospector();
-			mapper.setAnnotationIntrospector(introspector);
 
 			MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
 

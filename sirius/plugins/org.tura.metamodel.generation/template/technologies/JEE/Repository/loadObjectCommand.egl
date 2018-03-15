@@ -41,6 +41,7 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
         [%=t2view.get(tp).get("fullName")%] obj = new [%=t2view.get(tp).get("fullName")%]();
         obj.setAttached(true);
         context.put(key.toString(),obj);
+        obj.setSerializationid(key.toString());
         [%=addLoadRules(tp,recipe,ingredient,t2model,t2view,model_mapper)%]
         [%=addLoadNoAssosiationRules(tp,recipe,ingredient,t2model,t2view,model_mapper)%]
         [%=addLoadDomainConnectorRules(tp,recipe,ingredient,t2model,t2view,model_mapper)%]

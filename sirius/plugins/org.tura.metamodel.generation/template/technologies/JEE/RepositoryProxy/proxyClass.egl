@@ -323,11 +323,6 @@ operation type::Assosiation one2oneSrcNo(recipe,ingredient,model_mapper){
 operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
      var hash = self.findTypeOfAssosiation(model_mapper);
      var masterType =   hash.get("masterType");
-     
-     if ( not masterType.uid.equals(self.source.uid)){
-        return;
-     }
-     
      var detailType = hash.get("detailType");
      var property =  hash.get("property");
      var suffix="";
@@ -350,10 +345,14 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
      
      @Override
      public void set[%=hash.get("sourceMethodName")%] ([%=hash.get("target").~fullName%] [%=hash.get("sourceProperty")%]){
+     [%
+        if (masterType.uid == self.source.uid ){
+        %]
        try{
 		   if ( object.getAttached() == null || !object.getAttached()){
 		        if ([%=hash.get("sourceProperty")%] != null){
 	               object.set[%=hash.get("sourceMethodName")%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+	               (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
 	             }else{
 	               object.set[%=hash.get("sourceMethodName")%](null);
 	             }
@@ -376,11 +375,22 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 		
 		        if (command2.prepare()){
 		            object.set[%=hash.get("sourceMethodName")%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+		            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
 		        }
 		     }
 	     }catch(Exception e){
             throw new RuntimeException(e);
           }
+	     
+        [%
+        }else{
+        %]
+            	throw new UnsupportedOperationException();
+        [%
+        
+        }
+     
+     %]
      }
      [%  
 }
@@ -414,6 +424,7 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
     		try{
 		    	  if ( object.getAttached() == null || !object.getAttached()){
 	    	            object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+	    	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
 	    	            return;
 	    	    	}
 	    	    	
@@ -424,6 +435,7 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
 	
 	    	        if (command.prepare()){
 	    	            object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+	    	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().set[%=hash.get("targetMethodName")%](object);
 	    	        }
 	          }catch(Exception e){
 	            throw new RuntimeException(e);
@@ -434,6 +446,7 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
        	    public [%=hash.get("target").~fullName%] remove(int index) {
        	    try{
 		    	if ( object.getAttached() == null || !object.getAttached()){
+	    	    		object.get[%=hash.get("sourceMethodName")%]().get(index).set[%=hash.get("targetMethodName")%](null);
 	    	            return object.get[%=hash.get("sourceMethodName")%]().remove(index);
 	    	    	}
 	    	    	
@@ -444,6 +457,7 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
 		            command.setStackProvider(stackProvider);
 	
 	    	        if (command.prepare()){
+	    	    		object.get[%=hash.get("sourceMethodName")%]().get(index).set[%=hash.get("targetMethodName")%](null);
 	    	            return object.get[%=hash.get("sourceMethodName")%]().remove(index);
 	    	        }
 	    	        return null;
@@ -524,6 +538,7 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
     		try{
 		    	if ( object.getAttached() == null || !object.getAttached()){
 	    	            object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+	    	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().get[%=hash.get("targetMethodName")%]().add(object);
 	    	            return;
 	    	    	}
 	    	    	
@@ -534,6 +549,7 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
 	 
 	    	        if (command.prepare()){
 	    	            object.get[%=hash.get("sourceMethodName")%]().add(i,(([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+	    	            (([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject().get[%=hash.get("targetMethodName")%]().add(object);
 	    	        }
 	          }catch(Exception e){
 	            throw new RuntimeException(e);
@@ -545,6 +561,7 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
        	    try{
 		    	if ( object.getAttached() == null || !object.getAttached()){
 	    	    		[%=detailType.~fullName%] m=  object.get[%=hash.get("sourceMethodName")%]().remove(index);
+	    	    		m.get[%=hash.get("targetMethodName")%]().remove(object);
 	    	            return m;
 	    	    	}
 	    	    	
@@ -556,6 +573,7 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
 	
 	    	        if (command.prepare()){
 	    	    		[%=detailType.~fullName%] m=  object.get[%=hash.get("sourceMethodName")%]().remove(index);
+	    	    		m.get[%=hash.get("targetMethodName")%]().remove(object);
 	    	            return m;
 	    	        }
 	    	        return null;
@@ -691,11 +709,6 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 
      var hash = self.findTypeOfAssosiation(model_mapper);
      var masterType =   hash.get("masterType");
-     
-     if ( not masterType.uid.equals(self.target.uid)){
-        return;
-     }
-     
      var detailType = hash.get("detailType");
      var property =  hash.get("property");
      var suffix="";
@@ -719,10 +732,14 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
      
      @Override
      public void set[%=hash.get("targetMethodName")%] ([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
+     [%
+        if (masterType.uid == self.target.uid ){
+        %]
         try{
 			   if ( object.getAttached() == null || !object.getAttached()){
 			     if ([%=hash.get("targetProperty")%] != null){
 		            object.set[%=hash.get("targetMethodName")%](  (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+		            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().set[%=hash.get("sourceMethodName")%](object);
 		           }else{
 		              object.set[%=hash.get("targetMethodName")%](  null );
 		           }
@@ -745,11 +762,22 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 			
 			        if (command2.prepare()){
 			            object.set[%=hash.get("targetMethodName")%]((([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+			            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().set[%=hash.get("sourceMethodName")%](object);
 			        }
 			       }
           }catch(Exception e){
             throw new RuntimeException(e);
           }
+        [%
+        }else{
+        %]
+            	throw new UnsupportedOperationException();
+        [%
+        
+        }
+     
+     %]
+     
      }
      [%  
 }
@@ -849,7 +877,35 @@ operation type::Assosiation one2manyTrgNo(recipe,ingredient,model_mapper){
 
 @template
 operation type::Assosiation one2manyTrgRel(recipe,ingredient,model_mapper){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+     
 
+     hash = self.targetSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("source").mappingType2Java(recipe,ingredient);
+     if (masterType.uid == self.target.uid ){
+     %]   Should not have this !!!!  [%
+     }else{
+     %]
+     @Override
+     public [%=hash.get("source").~fullName%] get[%=hash.get("targetMethodName")%](){
+         return new [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%](),stackProvider);
+     }
+
+     @Override
+     public void set[%=hash.get("targetMethodName")%]( [%=hash.get("source").~fullName%]  [%=hash.get("sourceProperty")%]){
+          throw new UnsupportedOperationException();
+     }
+     [%
+     }
 }
 
 @template
@@ -858,6 +914,97 @@ operation type::Assosiation many2manyTrgNo(recipe,ingredient,model_mapper){
 
 @template
 operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
+     var hash = self.findTypeOfAssosiation(model_mapper);
+     var masterType =   hash.get("masterType");
+     var detailType = hash.get("detailType");
+     var property =  hash.get("property");
+     var suffix="";
+     if (masterType.~class == detailType.~class ){
+        suffix="Detail";
+     }
+     
 
+     hash = self.targetSideNamesCalculation();
+     var util = new Native('org.tura.metamodel.commons.Util');
+     
+     hash.get("source").mappingType2Java(recipe,ingredient);
+     if (masterType.uid == self.target.uid ){
+     %]
+     [%
+     }else{
+     %]
+     @Override
+     public java.util.List<[%=hash.get("source").~fullName%]> get[%=hash.get("targetMethodName")%](){
+    	return new java.util.AbstractList<[%=hash.get("source").~fullName%]>() {
+    		
+    		@Override
+    		public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
+    		   try{
+			    	if ( object.getAttached() == null || !object.getAttached()){
+		    	            object.get[%=hash.get("targetMethodName")%]().add(i,[%=hash.get("targetProperty")%]);
+		    	            [%=hash.get("targetProperty")%].get[%=hash.get("sourceMethodName")%]().add(object);
+		    	            return;
+		    	    	}
+		    	    	
+		                [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+		    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%]([%=hash.get("targetProperty")%]);
+		    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object);
+			            command.setStackProvider(stackProvider);
+		
+		    	        if (command.prepare()){
+		    	            object.get[%=hash.get("targetMethodName")%]().add(i,[%=hash.get("targetProperty")%]);
+		    	            [%=hash.get("targetProperty")%].get[%=hash.get("sourceMethodName")%]().add(object);
+		    	        }
+		          }catch(Exception e){
+		            throw new RuntimeException(e);
+		          }
+    		}
+
+       		@Override
+       	    public [%=hash.get("source").~fullName%] remove(int index) {
+       	     try{
+		    	  if ( object.getAttached() == null || !object.getAttached()){
+	    	    		[%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
+	    	    		m.get[%=hash.get("sourceMethodName")%]().remove(m);
+	    	            return m;
+	    	    	}
+	    	    	
+	    	      [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	
+	    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object.get[%=hash.get("targetMethodName")%]().get(index));
+	    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object);
+		            command.setStackProvider(stackProvider);
+	
+	    	        if (command.prepare()){
+	    	    		[%=masterType.~fullName%] m = object.get[%=hash.get("targetMethodName")%]().get(index);
+	    	    		m.get[%=hash.get("sourceMethodName")%]().remove(m);
+	    	            return m;
+	    	        }
+	    	        return null;
+		          }catch(Exception e){
+		            throw new RuntimeException(e);
+		          }
+    	    }
+
+    		
+			@Override
+			public [%=hash.get("source").~fullName%] get(int index) {
+				[%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%] = object.get[%=hash.get("targetMethodName")%]().get(index);
+				if ([%=hash.get("targetProperty")%] instanceof [%=hash.get("source").~fullName%]Proxy){
+					return [%=hash.get("targetProperty")%];
+				}else{
+				   return new [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%]().get(index),stackProvider);
+				}
+			}
+
+			@Override
+			public int size() {
+				return object.get[%=hash.get("targetMethodName")%]().size();
+			}
+    		
+		};
+     }
+     [%
+     }
 }
 %]

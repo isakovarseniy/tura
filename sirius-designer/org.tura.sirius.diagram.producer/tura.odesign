@@ -4681,6 +4681,16 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#/0/@systemColors/@entries[name='white']"/>
             </defaultStyle>
           </subItemMappings>
+          <create name="Create Primitive" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20types']/@subItemMappings[name='Primitive%20package']">
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="type.Primitive" referenceName="primitives">
+                <subModelOperations xsi:type="tool:SetValue" featureName="uid" valueExpression="service:generateUID"/>
+              </subModelOperations>
+            </firstModelOperation>
+            <variables name="root" documentation="The semantic element of the tree."/>
+            <variables name="element" documentation="The currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+          </create>
         </subItemMappings>
         <create name="Create Domain type repository" mapping="//@ownedViewpoints[name='Domain%20tree']/@ownedRepresentations[name='Domain%20tree']/@subItemMappings[name='Domain%20types']">
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">

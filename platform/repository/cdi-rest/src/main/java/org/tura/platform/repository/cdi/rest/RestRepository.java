@@ -23,7 +23,6 @@ package org.tura.platform.repository.cdi.rest;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -34,7 +33,6 @@ import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.cdi.Repo;
 import org.tura.platform.repository.core.DataProvider;
@@ -43,9 +41,7 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchRequest;
 import org.tura.platform.repository.core.SearchResult;
 
-import com.fasterxml.jackson.databind.AnnotationIntrospector;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
 
 
 
@@ -88,8 +84,6 @@ public class RestRepository {
 			SearchResult result = repository.find(request.getSearch(), request.getOrder(), request.getStartIndex(), request.getEndIndex(), request.getObjectClass());
 
 			ObjectMapper mapper = new ObjectMapper();
-			AnnotationIntrospector introspector = new JaxbAnnotationIntrospector();
-			mapper.setAnnotationIntrospector(introspector);
 
 			MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
 			formData.add("size",  new Long(result.getNumberOfRows()).toString());
@@ -124,8 +118,6 @@ public class RestRepository {
 	public Response applyChanges(MultivaluedMap<String,String> map) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-		    AnnotationIntrospector introspector = new JaxbAnnotationIntrospector();
-		    mapper.setAnnotationIntrospector(introspector);
 		    ArrayList<Object> list = new ArrayList<>();
 		    
 			for (int i  = 0; ;i++){

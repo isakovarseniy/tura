@@ -7,6 +7,10 @@
         %]xmlns:[%=namespace%]="[%=returnHash.get(namespace)%]"[%
        }
  %]
+   xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+   xmlns:annox="http://annox.dev.java.net" 
+   jaxb:version="2.1" 
+   jaxb:extensionBindingPrefixes="annox"
  elementFormDefault="qualified"> 
  [%
        for (namespace in returnHash.keySet()){

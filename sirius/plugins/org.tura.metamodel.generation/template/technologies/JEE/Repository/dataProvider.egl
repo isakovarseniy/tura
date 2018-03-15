@@ -148,6 +148,7 @@ public class [%=dataprovider%]DataProvider implements org.tura.platform.reposito
             if (pkStrategy != null){
             	pkStrategy.generatePk(obj);
             }
+            org.tura.platform.datacontrol.commons.Reflection.callTyped(obj,"setSerializationid" , String.class,java.util.UUID.randomUUID().toString().replaceAll("\\-",""));
 			return obj;
 		} catch (Exception e) {
 			throw new org.tura.platform.repository.core.RepositoryException(e);

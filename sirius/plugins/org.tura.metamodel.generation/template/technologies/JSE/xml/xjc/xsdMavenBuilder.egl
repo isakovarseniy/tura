@@ -25,6 +25,15 @@
   }
 %]
 
+	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.9.4</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
 	
 	<build>
 		<plugins>
@@ -36,19 +45,46 @@
 				</configuration>
 			</plugin>
 		
-			<!-- Plugin required to build java classes from XSD using XJC -->
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>2.2</version>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
 				<executions>
 					<execution>
 						<goals>
-							<goal>xjc</goal>
+							<goal>generate</goal>
 						</goals>
+						<configuration>
+							<extension>true</extension>
+							<args>
+								<arg>-Xannotate</arg>
+							</args>
+							<plugins>
+								<plugin>
+									<groupId>org.jvnet.jaxb2_commons</groupId>
+									<artifactId>jaxb2-basics-annotate</artifactId>
+									<version>1.0.4</version>
+								</plugin>
+								<plugin>
+									<groupId>com.fasterxml.jackson.core</groupId>
+									<artifactId>jackson-annotations</artifactId>
+									<version>2.9.4</version>
+								</plugin>
+								
+							</plugins>						
+							<schemaDirectory>src/main/xsd</schemaDirectory>
+							<schemaIncludes>
+								<include>*.xsd</include>
+							</schemaIncludes>
+							<bindingDirectory>src/main/xjb</bindingDirectory>
+							<bindingIncludes>
+								<include>**/*.xjb</include>
+							</bindingIncludes>
+						</configuration>
+
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
 			    <groupId>com.google.code.maven-replacer-plugin</groupId>
 			    <artifactId>replacer</artifactId>
@@ -64,7 +100,7 @@
 			    <configuration>
 			        <basedir>${dollar}{project.basedir}</basedir>
 			        <includes>
-			            <include>target/generated-sources/jaxb/**/*.java</include>
+			            <include>target/generated-sources/xjc/**/*.java</include>
 			        </includes>
 			        <token>public Boolean is(.*)\(\)(\s*\{\s*.+\s*\})</token>
 			        <value>public Boolean get$1\(\)$2</value>
