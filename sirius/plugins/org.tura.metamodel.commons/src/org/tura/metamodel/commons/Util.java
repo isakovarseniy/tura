@@ -294,6 +294,7 @@ public class Util {
 
 	public static String mergeAndCapitalize(String name) {
 		if (name != null ){
+			name = name.replace("_", " ");
 			String[] ls = StringUtils.split(name, " ");
 			for (int i = 0; i < ls.length; i++) {
 				ls[i] = StringUtils.capitalize(ls[i]);
@@ -306,6 +307,7 @@ public class Util {
 
 	public static String mergeAndUnCapitalize(String name) {
 		if (name != null ){
+			name = name.replace("_", " ");
 			String[] ls = StringUtils.split(name, " ");
 			for (int i = 0; i < ls.length; i++) {
 				ls[i] = StringUtils.capitalize(ls[i]);

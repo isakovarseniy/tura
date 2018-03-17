@@ -1417,9 +1417,11 @@
         <repositoryPackages uid="868d14bc-9e78-4bf9-b08a-e082b33bac0f" name="KeyCloak">
           <types xsi:type="tura.type:Type" uid="68b54791-f4c6-40ff-a475-0e5f55b72369" name="User">
             <classifiers uid="29a92c04-6b1e-43ed-a2a1-8ca6ccb28afa" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="e4aed0d2-adad-49c3-8017-ece84ca52b5c" name="obj_id" pk="true"/>
           </types>
           <types xsi:type="tura.type:Type" uid="6f829f95-55fd-4dfe-b375-05f257bb2802" name="Role">
             <classifiers uid="cd537378-e55a-4ba6-a315-3fa0971b8f66" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="d777ee00-48b7-4ef6-adf7-1017e7707670" name="obj_id" pk="true"/>
           </types>
           <relationships xsi:type="tura.type:Assosiation" uid="06c04b63-d459-4369-a518-bb264310c710" source="68b54791-f4c6-40ff-a475-0e5f55b72369" target="6f829f95-55fd-4dfe-b375-05f257bb2802" type="One2Many" containment="Non" targetOperation=""/>
         </repositoryPackages>
@@ -1427,30 +1429,30 @@
           <types xsi:type="tura.type:Type" uid="2041e5cd-03ec-4169-a55f-3750c640f790" name="State">
             <classifiers uid="e596a0d8-7b6d-47da-b9ec-d5dfe8ca0562" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <classifiers uid="7abc0117-89c2-4101-a387-ebf4333ee97c" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
-            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="1e381513-8390-44c3-ba4a-f63cfe51da4d" name="obj_id " pk="true"/>
+            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="1e381513-8390-44c3-ba4a-f63cfe51da4d" name="obj_Id" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="f610fc2a-9859-480f-b555-9c1c414a82a4" name="name"/>
           </types>
           <types xsi:type="tura.type:Type" uid="449d1a03-82be-4018-8df3-e472502af2ce" name="City">
             <classifiers uid="8de6d402-7d11-4ab4-b607-7153ff6eeed0" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <classifiers uid="e8e9dc02-44f1-4960-af80-d03a7733c2de" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
-            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="324d156d-790c-417c-9247-ec692d4226af" name="obj_id" pk="true"/>
+            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="324d156d-790c-417c-9247-ec692d4226af" name="obj_Id" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="8f1a8e76-4c86-4cca-a052-1600b13efe55" name="name"/>
           </types>
           <types xsi:type="tura.type:Type" uid="7c0a0618-b7d0-4069-9a65-aab91107a314" name="Country">
             <classifiers uid="889ffaf5-5c55-4a05-9d64-0e7135c5d626" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <classifiers uid="235ccbc4-e0dd-439c-b75b-57c25a19432f" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
-            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="81a7d5d7-3993-4193-aa58-33326fa26d3e" name="obj_id" pk="true"/>
+            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="81a7d5d7-3993-4193-aa58-33326fa26d3e" name="obj_Id" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="546b07e0-0719-4feb-baba-cee7375e9077" name="name"/>
           </types>
           <types xsi:type="tura.type:Type" uid="019fce0b-b5a7-4882-8c03-52c94f2b11f8" name="Product group history">
             <classifiers uid="70a6f958-60b8-4c4b-b41e-229154843602" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <classifiers uid="d0847d5f-c43f-4a41-9bca-7f28a6a720f5" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="86f857d6-3c28-46ff-a0c7-ce532596318a" name="country_id"/>
-            <attributes typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="9641e558-f6c1-4c77-9b0d-2b9a632b8729" name="obj_id" pk="true"/>
+            <attributes typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="9641e558-f6c1-4c77-9b0d-2b9a632b8729" name="obj_Id" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="ba81a903-5d00-4340-9ab2-abbf25ccd1a9" name="country_name"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="f4eeb2a7-443b-4660-808b-6651f19d6944" name="state_id"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="f77c8ddd-4128-4045-93aa-4c8a13452b60" name="state_name"/>
-            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="82db3b84-0e73-4c40-bd89-81612c0b490c" name="city_id"/>
+            <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="82db3b84-0e73-4c40-bd89-81612c0b490c" name="city_Id"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d9bbdbca-fd1e-4555-8cd5-9a117b55808a" name="city_name"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="82e413a1-1bec-412c-920f-138215328c39" name="product"/>
             <attributes typeRef="cfc6edf0-9e4f-4b4a-a0c1-ee2ef033b383" uid="84deda97-c439-4cdb-958d-4f8acfd90359" name="amount"/>
@@ -1459,14 +1461,14 @@
           <types xsi:type="tura.type:Type" uid="d145e66d-8468-4309-ae17-4bc85378d672" name="Permissions">
             <classifiers uid="c406e209-7625-4659-82ba-d817cec406e4" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <classifiers uid="de0b3658-7111-43fe-8d64-41bb08a984b9" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
-            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="dcd17be3-1499-48dd-ab3b-6662d2d8ed67" name="obj_id "/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="dcd17be3-1499-48dd-ab3b-6662d2d8ed67" name="obj_Id" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d8f30a03-5366-42d7-a2a4-e3c51480fa50" name="code"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="88f3c3d1-48f8-4ac5-8da3-885dfe792daf" name="description"/>
           </types>
           <types xsi:type="tura.type:Type" uid="f60a553d-c740-4f24-9c09-44159d89b55f" name="WriteupOutcome">
             <classifiers uid="eaa166d7-af63-4a0b-8be2-952d5b92130a" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
             <classifiers uid="75e1318e-cd53-430e-90b8-190f6ae7bb18" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
-            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="f0b409ea-0528-42be-b33b-f357c067d3b8" name="obj_id" pk="true"/>
+            <attributes typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="f0b409ea-0528-42be-b33b-f357c067d3b8" name="obj_Id" pk="true"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="023956c9-18ee-47da-bd30-245429e5a60b" name="case status"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="d05f9830-2194-486e-8a60-354b1089eac3" name="comments"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="3a3620e1-6764-4e9a-863e-3fa0d8e698c2" name="case resolution"/>
@@ -1476,7 +1478,7 @@
           <types xsi:type="tura.type:Type" uid="3cfdf213-1f3f-461c-aec2-cdc313e51bd1" name="Product history">
             <classifiers uid="ffefa2ec-ffe1-47a0-929a-f39677f1aaee" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <classifiers uid="892e63a6-6b10-4abf-b584-a43362f79277" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
-            <attributes typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="40435a33-66e5-4a32-84f1-c5d3347a609f" name="obj_id" pk="true"/>
+            <attributes typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="40435a33-66e5-4a32-84f1-c5d3347a609f" name="obj_Id" pk="true"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="2a7b9bfa-c2af-4762-bf4d-60fafbb65601" name="country_id"/>
             <attributes typeRef="1dab40f4-4049-480e-a206-023fd51fae31" uid="60dd3bd5-7a17-441a-a329-a89c58a2da5e" name="country_name"/>
             <attributes typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="614489d9-44d5-4458-a454-794cba60bb60" name="state_id"/>
@@ -7240,8 +7242,8 @@
               <recipes uid="9c7c43f2-4a91-4f6a-8386-0b6f5884cdfb" name="Analysis">
                 <recipes uid="af390b23-3ad7-4956-adee-d35999b7ef1f" name="Recipe">
                   <recipe mappers="d4fa82b7-af79-41cb-a450-74d234ec4404 b967e6c3-0736-40b4-b482-0a563c758f53" uid="be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3" name="Recipe">
-                    <ingredients uid="3999e872-6baa-487e-aef1-45c6b8e17e6c" name="Persistance object" skip="true" controllerLayer="0ca0831c-21f1-4871-a838-1b896484121b">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="5f6bd403-7aca-4f1b-b871-2350e78cac45" name="JBPM Service " componentRoot="${Generation path}/serviceLayer" artifactId="jbpm-persistence-model" groupId="org.tura.sales-analyzer" version="1.0">
+                    <ingredients uid="3999e872-6baa-487e-aef1-45c6b8e17e6c" name="Persistance object" controllerLayer="0ca0831c-21f1-4871-a838-1b896484121b">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="5f6bd403-7aca-4f1b-b871-2350e78cac45" name="JBPM Service " componentRoot="${Generation path}/serviceLayer" artifactId="jbpm-persistence-model" groupId="org.tura.sales-analyzer" version="1.0">
                         <mappers uid="f5884645-28cd-41d8-a4d7-73e2b6700f17" artifactRef="591cd55f-d3ac-4074-85b3-7578e37c6aad" name="JBPM service persistence objects" artifactExecutionString="">
                           <queries uid="ca51f24b-42d0-4b50-90ef-d974127c12ee" name="Query classes" queryRef="2f122165-6dcb-4620-8d63-15c0c9dc0270">
                             <variables queryParamRef="83d58dc0-4297-4c19-b869-f879e3c81674" value="Sales Analyzer"/>
@@ -7253,8 +7255,14 @@
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                         </mappers>
+                        <mappers uid="283eb427-0b29-47d9-b738-685a89690842" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JBPM persistance object build runner" artifactRoot="" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/jbpm-persistence-model/builder.sh">
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                        </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" columns="2" order="1" uid="2cbb1814-f6ab-40a0-bc82-eb7ce77acea0" name="Database " componentRoot="${Generation path}/serviceLayer" artifactId="db-persistence-model" groupId="org.tura.sales-analyzer" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" order="1" uid="2cbb1814-f6ab-40a0-bc82-eb7ce77acea0" name="Database " componentRoot="${Generation path}/serviceLayer" artifactId="db-persistence-model" groupId="org.tura.sales-analyzer" version="1.0">
                         <mappers uid="f9be98f4-656b-4495-a580-e89e1e450d41" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Database service persistence object">
                           <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="c06c65f3-8bff-4a65-bf5b-3594fecd5412"/>
                           <queries uid="cc160a62-016c-4a4c-8616-2e212ffb0c01" name="Query classes" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
@@ -7267,10 +7275,16 @@
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                         </mappers>
+                        <mappers uid="df1ec71e-5c76-4dd2-b25d-94d897087c36" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="DB persistance object Build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/db-persistence-model/builder.sh">
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="5516fd5e-e5b1-4fb3-aba7-07325b517be7"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                        </mappers>
                       </components>
                     </ingredients>
                     <ingredients order="1" uid="64e6dd6f-d497-402a-a36c-c3dac28a5c98" name="Serialized objects" controllerLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a">
-                      <components xsi:type="tura.recipe:JavaComponent" columns="2" uid="b2b86f04-e027-40ca-8ca1-83ae8d93437d" name="Serialization" componentRoot="${Generation path}/serviceLayer" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b2b86f04-e027-40ca-8ca1-83ae8d93437d" name="Serialization" componentRoot="${Generation path}/serviceLayer" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0">
                         <mappers uid="a61d9cc7-a089-47d4-8463-13bf0fb1b015" artifactRef="01788d3b-cb04-49a4-ac90-fe9863806de4" name="Serialized objects">
                           <queries uid="d370ef61-5aa7-41ac-9da1-30ff66a25b05" name="Query db classes" queryRef="f221359a-9578-422c-8dda-d4a8f1ddbfbf">
                             <variables queryParamRef="24d765fa-9d81-488b-8f84-5bdf72735276" value="Sales Analyzer"/>
@@ -7290,11 +7304,112 @@
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                         </mappers>
+                        <mappers uid="97dfd24c-3fa7-4494-8fde-9d5c0f91311b" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Serialization build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/serialized-model/builder.sh">
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="18beeaab-aaf4-4bf6-bf36-dd140e15098c"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                        </mappers>
                       </components>
                     </ingredients>
+                    <ingredients order="3" uid="d09c96fe-d3e9-48f0-bbc7-8f202be7c09c" name="Proxy  Repository" controllerLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="4" uid="ce154fa7-a23b-4ff7-8a2d-ca04732d6b54" name="Proxy" componentRoot="${Generation path}/serviceLayer" artifactId="proxy-repository" groupId="org.tura.sales-analyzer" version="1.0">
+                        <mappers uid="240dc3ba-43ce-4c61-9ae9-9959ed557517" artifactRef="65fb1b82-2f31-4727-b90e-0fc346ff3cc9" name="Repository Proxy objects">
+                          <queries uid="3e7f470b-8392-4588-a7d6-fa5c8eea940c" name="Query db classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
+                            <variables queryParamRef="52de4dda-86be-4a4d-a3ce-0d093cf014b2" value="Sales Analyzer"/>
+                            <variables queryParamRef="cbba536e-3b02-44dc-8a9b-2fdec45575c6" value="database"/>
+                          </queries>
+                          <queries uid="fad3b16c-8ac3-4cf6-bd1d-ef637a5e7c44" name="Query jbpm classes" queryRef="f221359a-9578-422c-8dda-d4a8f1ddbfbf">
+                            <variables queryParamRef="24d765fa-9d81-488b-8f84-5bdf72735276" value="Sales Analyzer"/>
+                            <variables queryParamRef="01e38189-3ce8-4b79-a168-0f4c321d9423" value="JBPM"/>
+                          </queries>
+                          <queries uid="58131e70-e1ee-4dfc-9621-30cd8fabd35d" name="Query keycloak classes" queryRef="f221359a-9578-422c-8dda-d4a8f1ddbfbf">
+                            <variables queryParamRef="24d765fa-9d81-488b-8f84-5bdf72735276" value="Sales Analyzer"/>
+                            <variables queryParamRef="01e38189-3ce8-4b79-a168-0f4c321d9423" value="KeyCloak"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="0fe956a4-cbaa-498b-b762-010fccd33f65" artifactRef="c50ac7ac-fd3a-4f87-8cfd-0553fbd88407" name="Repository Proxy command">
+                          <queries uid="0df01918-6c70-423a-9c63-c86adbbaf593" name="Query db classes" queryRef="ee3f89fb-6e9e-46bd-b407-e340472a5778">
+                            <variables queryParamRef="60d5d7fc-5e66-47b4-889b-543c10ca0879" value="Sales Analyzer"/>
+                            <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="database"/>
+                          </queries>
+                          <queries uid="6a0cb03a-1380-432c-9407-37b504ec5555" name="Query jbpm classes" queryRef="ee3f89fb-6e9e-46bd-b407-e340472a5778">
+                            <variables queryParamRef="60d5d7fc-5e66-47b4-889b-543c10ca0879" value="Sales Analyzer"/>
+                            <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="JBPM"/>
+                          </queries>
+                          <queries uid="248fa1d6-fbb7-4a32-a83d-e18d79b8f61a" name="Query keycloak classes" queryRef="ee3f89fb-6e9e-46bd-b407-e340472a5778">
+                            <variables queryParamRef="60d5d7fc-5e66-47b4-889b-543c10ca0879" value="Sales Analyzer"/>
+                            <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="KeyCloak"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="f714e975-3ac0-4271-93b3-02871ce6e313" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Proxy repository builder">
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="d9e3a392-75f8-4c7f-a64d-b783675fcd26"/>
+                          <queries uid="535d0b39-7f37-43f4-900a-21f6c8bff1b9" name="Query db classes" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Sales Analyzer"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="database"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="fbae1102-f1f4-423e-9ab2-6258c9e590fd" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Proxy repository build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/proxy-repository/builder.sh">
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                    <ingredients order="2" uid="bf5643c8-9774-4782-8c94-1c116cb26300" name="Repository" vewLayer="3e104a13-ff17-4147-a5de-1b37e42ac68a" modelLayer="0ca0831c-21f1-4871-a838-1b896484121b">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="ca983db0-6505-4f5b-83ab-0fc8834e7ee0" name="Repository" componentRoot="${Generation path}/serviceLayer" artifactId="persistence-repository" groupId="org.tura.sales-analyzer" version="1.0">
+                        <mappers uid="98a58836-2fa1-4c84-95ce-200b2ccc1bfe" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Persistence model repository">
+                          <queries uid="b4131cbf-6284-460a-bc55-725db07b553f" name="Query db classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
+                            <variables queryParamRef="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" value="Sales Analyzer"/>
+                            <variables queryParamRef="31c1633d-e431-47c9-b306-f880c5114864" value="database"/>
+                          </queries>
+                          <queries uid="54cfa768-ef08-4714-895a-1d4b244e58db" name="Query jbpm classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
+                            <variables queryParamRef="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" value="Sales Analyzer"/>
+                            <variables queryParamRef="31c1633d-e431-47c9-b306-f880c5114864" value="JBPM"/>
+                          </queries>
+                          <queries uid="27a7f3ee-f840-4c1a-aab1-60800df37fd9" name="Query keycloak classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
+                            <variables queryParamRef="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" value="Sales Analyzer"/>
+                            <variables queryParamRef="31c1633d-e431-47c9-b306-f880c5114864" value="KeyCloak"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="b26c1501-e390-45e0-850b-c70d8c345ad3" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Repository builder">
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="f9acb5da-4729-4339-ae8a-8355a3035459"/>
+                          <queries uid="4d480528-54b1-4b75-91e9-92934c8bc23f" name="Query db classes" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Sales Analyzer"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="database"/>
+                          </queries>
+                          <queries uid="eebfb4bc-47fe-4adc-9964-a5272dd47f20" name="Query jbpm classes" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Sales Analyzer"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="JBPM"/>
+                          </queries>
+                          <queries uid="0663c81e-f2c3-4a7b-a12e-266b29ab84e9" name="Query keycloak classes" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
+                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Sales Analyzer"/>
+                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="KeyCloak"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="3dcc656e-9d88-44f5-8d88-b52b103c56ad" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Repository builder runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/persistence-repository/builder.sh">
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                    <deplymentStep mapper="283eb427-0b29-47d9-b738-685a89690842" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.1"/>
+                    <deplymentStep mapper="df1ec71e-5c76-4dd2-b25d-94d897087c36" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.2"/>
+                    <deplymentStep mapper="97dfd24c-3fa7-4494-8fde-9d5c0f91311b" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.3"/>
+                    <deplymentStep mapper="fbae1102-f1f4-423e-9ab2-6258c9e590fd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.4"/>
+                    <deplymentStep mapper="3dcc656e-9d88-44f5-8d88-b52b103c56ad"/>
+                    <startSeq uid="6b5861b6-6e34-445d-9405-4b16df695d73" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.1/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="cd21c6bc-3948-4d86-b122-89a596089a1d">
                     <properties uid="d6dc5122-25ae-4f36-a7d1-363d4dd28c07" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
+                    <properties uid="35022d24-73e1-471b-a6e4-c7dd89d3e4f4" confVarRef="7ad955eb-6fb9-46ca-8005-519cedacf668" value="/Users/arseniy/tools/apache-maven-3.2.2"/>
                   </configurations>
                   <infrastructures uid="92f00187-c3de-4091-8eca-850df9713ef5" name="Dev"/>
                   <recipe2Infrastructures uid="77716115-91c8-48e3-a0aa-ffd3994aa553" source="be05f6ff-7dc2-4ff5-bea1-dba53a6e76c3" target="92f00187-c3de-4091-8eca-850df9713ef5"/>
@@ -7323,8 +7438,9 @@
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="4d35b84f-9048-432a-906c-b088dc045328" uid="2b5e3324-b807-41f1-beaf-f1c7af78d9ec" namespace="http://www.w3.org/2001/XMLSchema" typename="date"/>
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="a943b86a-3c64-4611-8d20-5aba3fd98b09" uid="6f189dc8-907b-42ef-a69a-16c7a8cca092" namespace="http://www.w3.org/2001/XMLSchema" typename="integer"/>
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="95297eb7-ea83-4677-b4bb-b7fd1ff97e04" uid="be171b31-eb9d-4829-9bd9-5878a18b1ab6" namespace="http://www.w3.org/2001/XMLSchema" typename="long"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="4a546372-2493-41dd-bc79-f4c34ce51817" mappedToPackageName="java.util" mappedToClassName="UUID"/>
-                  <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="50057c12-47db-4c20-94a9-f3dae11351f7" namespace="http://www.w3.org/2001/XMLSchema" typename="string"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="4a546372-2493-41dd-bc79-f4c34ce51817" mappedToPackageName="java.util" mappedToClassName="UUID"/>
+                  <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a 0ca0831c-21f1-4871-a838-1b896484121b" typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="50057c12-47db-4c20-94a9-f3dae11351f7" namespace="http://www.w3.org/2001/XMLSchema" typename="string"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="fa2406e6-8810-465c-a5d8-14c807a4c4a9 3e104a13-ff17-4147-a5de-1b37e42ac68a" typeRef="a736845a-e2f0-4716-88ac-c261a1bf5b7b" uid="9e5db867-58aa-4cd7-a6f2-c95d7e254335" mappedToClassName="String"/>
                 </mapper>
               </mappers>
               <mappers uid="e63677fe-9a8a-4fd0-834f-435cf999049e" name="Type mappers">
@@ -7335,8 +7451,10 @@
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="7c396b34-4bca-4544-b4c4-dd4495278b38" uid="262bb729-c05b-4f09-a372-9120569ebf35" mappedToPackageName="org.tura.salesanalyzer.serialized.jbpm" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0"/>
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="7c396b34-4bca-4544-b4c4-dd4495278b38" uid="0bf9dc46-22ca-40b3-8c1d-e3fc4d154526" namespace="jbpm.serialized.salesanalyzer.tura.org"/>
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="3bc0dd48-5343-484d-9b6b-df21c87250bc" uid="6c81af06-25e6-48bf-8239-0525e8d998bf" namespace="db.serialized.salesanalyzer.tura.org"/>
-                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" uid="62e437d5-6ded-4e9d-8dc6-b410076698cb" mappedToPackageName="org.tura.salesanalyzer.serialized.keycloak" artifactId="keycloak-serialized-model" groupId="org.tura.sales-analyzer" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" uid="62e437d5-6ded-4e9d-8dc6-b410076698cb" mappedToPackageName="org.tura.salesanalyzer.serialized.keycloak" artifactId="serialized-model" groupId="org.tura.sales-analyzer" version="1.0"/>
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="3e104a13-ff17-4147-a5de-1b37e42ac68a" packageRef="868d14bc-9e78-4bf9-b08a-e082b33bac0f" uid="f1a8fed5-19d6-4c95-a886-ed4a37a04d5c" namespace="keycloak.serialized.salesanalyzer.tura.org"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="68b54791-f4c6-40ff-a475-0e5f55b72369" uid="98e44321-1172-403b-8992-5ba1ef1bf28a" mappedToPackageName="org.keycloak.representations.idm" mappedToClassName="UserRepresentation" artifactId="keycloak-core" groupId="org.keycloak" version="3.2.0.Final"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0ca0831c-21f1-4871-a838-1b896484121b" typeRef="6f829f95-55fd-4dfe-b375-05f257bb2802" uid="407f0d3a-4ecb-460e-a297-fab34e92d57f" mappedToPackageName="org.keycloak.representations.idm" mappedToClassName="RoleRepresentation" artifactId="keycloak-core" groupId="org.keycloak" version="3.2.0.Final"/>
                 </mapper>
               </mappers>
               <appLayers uid="0ca0831c-21f1-4871-a838-1b896484121b" name="Persistence layer"/>

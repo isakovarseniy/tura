@@ -141,14 +141,15 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
               }  
           }    
      }
-
      if (self.~class = null and tp <> null and not self.isTypeOf(type::Primitive)){
 	    for( appmapper in appmappers ){
 	         var pkg =  self.eContainer();
 	         var pkgUID = self.eContainer().uid;
+	         tp = self;
 	         if (self.isTypeOf(type::TypeReference)){
 	             pkgUID = self.typeRef.eContainer().uid;
 	             pkg =  self.typeRef.eContainer();
+	             tp = self.typeRef;
 	         }
 	         
 	         var set = appmapper.mappers.select(r|r.isKindOf(mapper::JavaPackageMapper) and r.packageRef.uid= pkgUID);
@@ -157,7 +158,7 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
  
               if ( pkgMp <> null){
                  self.~mapper="Type2Java";
-                 self.~class=util.mergeAndCapitalize(self.name);
+                 self.~class=util.mergeAndCapitalize(tp.name);
                  self.~package= pkgMp.mappedToPackageName;
                  self.~fullName=pkgMp.mappedToPackageName+"."+self.~class;
                  self.~artifactId=pkgMp.artifactId;
@@ -176,7 +177,6 @@ operation type::TypeElement mappingType2Java( recipe:Recipe, ingredient :Ingredi
              }
 	     }
      }
-
      if (self.~class = null and tp <> null){
 /*  Cannot throw exception */     
          var container = "Primitives";
