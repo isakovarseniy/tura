@@ -40,8 +40,9 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
          nsHash.get(type.~namespace).get(0).put(type.~fullname,type);
       }
  
+      var path; 
       for( targetnamespace in nsHash.keySet()  ){
-		var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/xsd/";  
+		path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/xsd/";  
         var returnHash = new Native('java.util.HashMap');
 		hash.put("returnHash",returnHash);
 		hash.put("fullCollection",typeCollection);
@@ -68,6 +69,14 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
       
       } 
 
+	    var xsdHeader : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/simpleTypeExtension.egl",hash,TemplateFactory);
+	    xsdHeader.setFormatter(f);
+	    var buffer = xsdHeader.process();
+	    
+	    util.saveFile( path, "extension.xsd",buffer);   
+
+
+
 		var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/xjb/";  
 
 	    var jaxbBinding : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/jaxbBinding.egl",hash,TemplateFactory);
@@ -85,6 +94,11 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    
 	    util.saveFile( path, "DateAdapter.java",buffer);   
 
+	    var dateadapter : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/uuidAdapter.egl",hash,TemplateFactory);
+	    dateadapter.setFormatter(f);
+	    var buffer = dateadapter.process();
+	    
+	    util.saveFile( path, "UuidConverter.java",buffer);   
 
    }
 %]

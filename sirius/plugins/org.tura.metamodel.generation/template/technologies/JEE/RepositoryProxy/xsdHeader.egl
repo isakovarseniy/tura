@@ -7,16 +7,22 @@
         %]xmlns:[%=namespace%]="[%=returnHash.get(namespace)%]" [%
        }
  %]
+   xmlns:ex="extension.simpletype.tura.org"
    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
    xmlns:annox="http://annox.dev.java.net" 
    jaxb:version="2.1" 
    jaxb:extensionBindingPrefixes="annox"
- elementFormDefault="qualified"> 
+ elementFormDefault="qualified">
+ 
+      
  [%
        for (namespace in returnHash.keySet()){
       %]<xs:import namespace="[%=returnHash.get(namespace)%]" schemaLocation="schema_[%=fullHash.get(returnHash.get(namespace)).get(1)%].xsd"/>[%
        }
  %]
+
+     <xs:import namespace="extension.simpletype.tura.org" schemaLocation="extension.xsd"/>
+
 
     [%=body%]
 
