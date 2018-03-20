@@ -21,23 +21,8 @@
  */
 package org.tura.platform.repository.test;
 
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.persistence.JPAPersistenceProvider;
-import org.tura.platform.repository.core.BasicRepository;
-import org.tura.platform.repository.core.Repository;
-import org.tura.platform.repository.core.SearchResult;
-import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-
-import objects.test.serialazable.jpa.JPATestPackageDataProvider;
-import objects.test.serialazable.jpa.One2One4A;
-import objects.test.serialazable.jpa.One2One4B;
-import objects.test.serialazable.jpa.ProxyRepository;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +36,21 @@ import org.h2.tools.Server;
 import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.object.persistence.JPAPersistenceProvider;
+import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.provider.DefaultDataProvider;
+
+import objects.test.serialazable.jpa.One2One4A;
+import objects.test.serialazable.jpa.One2One4B;
+import objects.test.serialazable.jpa.ProxyRepository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class One2OneNoAssosiationTest {
@@ -115,7 +115,7 @@ public class One2OneNoAssosiationTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		JPATestPackageDataProvider dataProvider = new JPATestPackageDataProvider();
+		DefaultDataProvider dataProvider = new DefaultDataProvider();
 		dataProvider.setPersistenceProvider(new JPAPersistenceProvider(em));
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());

@@ -1430,6 +1430,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage {
 		javaComponentEClass.getESuperTypes().add(this.getComponent());
 		modelMapperEClass.getESuperTypes().add(this.getArtifactRef());
 		modelMapperEClass.getESuperTypes().add(theCommonPackage.getOrderable());
+		modelMapperEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(recipesEClass, Recipes.class, "Recipes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

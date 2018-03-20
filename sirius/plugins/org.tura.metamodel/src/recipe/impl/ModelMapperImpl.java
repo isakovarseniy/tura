@@ -2,6 +2,9 @@
  */
 package recipe.impl;
 
+import artifact.ArtifactPackage;
+import artifact.Categorized;
+import artifact.Classifier;
 import common.CommonPackage;
 import common.Orderable;
 
@@ -34,6 +37,7 @@ import recipe.RecipePackage;
  * </p>
  * <ul>
  *   <li>{@link recipe.impl.ModelMapperImpl#getOrder <em>Order</em>}</li>
+ *   <li>{@link recipe.impl.ModelMapperImpl#getClassifiers <em>Classifiers</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getName <em>Name</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getArtifactRoot <em>Artifact Root</em>}</li>
  *   <li>{@link recipe.impl.ModelMapperImpl#getTechnologies <em>Technologies</em>}</li>
@@ -64,6 +68,16 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * @ordered
 	 */
 	protected int order = ORDER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getClassifiers() <em>Classifiers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassifiers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Classifier> classifiers;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -210,6 +224,18 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Classifier> getClassifiers() {
+		if (classifiers == null) {
+			classifiers = new EObjectContainmentEList<Classifier>(Classifier.class, this, RecipePackage.MODEL_MAPPER__CLASSIFIERS);
+		}
+		return classifiers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getName() {
 		return name;
 	}
@@ -321,6 +347,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
+				return ((InternalEList<?>)getClassifiers()).basicRemove(otherEnd, msgs);
 			case RecipePackage.MODEL_MAPPER__TECHNOLOGIES:
 				return ((InternalEList<?>)getTechnologies()).basicRemove(otherEnd, msgs);
 			case RecipePackage.MODEL_MAPPER__QUERIES:
@@ -339,6 +367,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 		switch (featureID) {
 			case RecipePackage.MODEL_MAPPER__ORDER:
 				return getOrder();
+			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
+				return getClassifiers();
 			case RecipePackage.MODEL_MAPPER__NAME:
 				return getName();
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
@@ -366,6 +396,10 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 		switch (featureID) {
 			case RecipePackage.MODEL_MAPPER__ORDER:
 				setOrder((Integer)newValue);
+				return;
+			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
+				getClassifiers().clear();
+				getClassifiers().addAll((Collection<? extends Classifier>)newValue);
 				return;
 			case RecipePackage.MODEL_MAPPER__NAME:
 				setName((String)newValue);
@@ -402,6 +436,9 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 			case RecipePackage.MODEL_MAPPER__ORDER:
 				setOrder(ORDER_EDEFAULT);
 				return;
+			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
+				getClassifiers().clear();
+				return;
 			case RecipePackage.MODEL_MAPPER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -434,6 +471,8 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 		switch (featureID) {
 			case RecipePackage.MODEL_MAPPER__ORDER:
 				return order != ORDER_EDEFAULT;
+			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
+				return classifiers != null && !classifiers.isEmpty();
 			case RecipePackage.MODEL_MAPPER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RecipePackage.MODEL_MAPPER__ARTIFACT_ROOT:
@@ -463,6 +502,12 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 				default: return -1;
 			}
 		}
+		if (baseClass == Categorized.class) {
+			switch (derivedFeatureID) {
+				case RecipePackage.MODEL_MAPPER__CLASSIFIERS: return ArtifactPackage.CATEGORIZED__CLASSIFIERS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -476,6 +521,12 @@ public class ModelMapperImpl extends ArtifactRefImpl implements ModelMapper {
 		if (baseClass == Orderable.class) {
 			switch (baseFeatureID) {
 				case CommonPackage.ORDERABLE__ORDER: return RecipePackage.MODEL_MAPPER__ORDER;
+				default: return -1;
+			}
+		}
+		if (baseClass == Categorized.class) {
+			switch (baseFeatureID) {
+				case ArtifactPackage.CATEGORIZED__CLASSIFIERS: return RecipePackage.MODEL_MAPPER__CLASSIFIERS;
 				default: return -1;
 			}
 		}

@@ -23,13 +23,13 @@ package org.tura.platform.test;
 
 import javax.inject.Inject;
 
-import org.tura.platform.hr.objects.serialization.ComplexModelDataProvider;
 import org.tura.platform.repository.cdi.ObjectProvider;
 import org.tura.platform.repository.core.PersistenceProvider;
 import org.tura.platform.repository.core.PrImaryKeyStrategy;
+import org.tura.provider.DefaultDataProvider;
 
 @ObjectProvider
-public class ComplexModelDataProviderCDI extends ComplexModelDataProvider{
+public class ComplexModelDataProviderCDI extends DefaultDataProvider{
 
 	@Override
 	@Inject

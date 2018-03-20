@@ -982,13 +982,22 @@ public interface RecipePackage extends EPackage {
 	int MODEL_MAPPER__ORDER = ARTIFACT_REF_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_MAPPER__CLASSIFIERS = ARTIFACT_REF_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__NAME = ARTIFACT_REF_FEATURE_COUNT + 1;
+	int MODEL_MAPPER__NAME = ARTIFACT_REF_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Root</b></em>' attribute.
@@ -997,7 +1006,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__ARTIFACT_ROOT = ARTIFACT_REF_FEATURE_COUNT + 2;
+	int MODEL_MAPPER__ARTIFACT_ROOT = ARTIFACT_REF_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Technologies</b></em>' containment reference list.
@@ -1006,7 +1015,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__TECHNOLOGIES = ARTIFACT_REF_FEATURE_COUNT + 3;
+	int MODEL_MAPPER__TECHNOLOGIES = ARTIFACT_REF_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Queries</b></em>' containment reference list.
@@ -1015,7 +1024,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__QUERIES = ARTIFACT_REF_FEATURE_COUNT + 4;
+	int MODEL_MAPPER__QUERIES = ARTIFACT_REF_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Execution String</b></em>' attribute.
@@ -1024,7 +1033,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__ARTIFACT_EXECUTION_STRING = ARTIFACT_REF_FEATURE_COUNT + 5;
+	int MODEL_MAPPER__ARTIFACT_EXECUTION_STRING = ARTIFACT_REF_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Skip</b></em>' attribute.
@@ -1033,7 +1042,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER__SKIP = ARTIFACT_REF_FEATURE_COUNT + 6;
+	int MODEL_MAPPER__SKIP = ARTIFACT_REF_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Model Mapper</em>' class.
@@ -1042,7 +1051,7 @@ public interface RecipePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 7;
+	int MODEL_MAPPER_FEATURE_COUNT = ARTIFACT_REF_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link recipe.impl.PropertyImpl <em>Property</em>}' class.

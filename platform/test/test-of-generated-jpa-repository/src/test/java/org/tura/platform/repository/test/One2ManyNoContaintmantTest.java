@@ -46,8 +46,8 @@ import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.provider.DefaultDataProvider;
 
-import objects.test.serialazable.jpa.JPATestPackageDataProvider;
 import objects.test.serialazable.jpa.One2Many1A;
 import objects.test.serialazable.jpa.One2Many1B;
 import objects.test.serialazable.jpa.ProxyRepository;
@@ -114,7 +114,7 @@ public class One2ManyNoContaintmantTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		JPATestPackageDataProvider dataProvider = new JPATestPackageDataProvider();
+		DefaultDataProvider dataProvider = new DefaultDataProvider();
 		dataProvider.setPersistenceProvider(new JPAPersistenceProvider(em));
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());

@@ -26,11 +26,11 @@ import javax.inject.Inject;
 import org.tura.platform.repository.cdi.ObjectProvider;
 import org.tura.platform.repository.core.PersistenceProvider;
 import org.tura.platform.repository.core.PrImaryKeyStrategy;
+import org.tura.provider.DefaultDataProvider;
 
-import objects.test.serialazable.jpa.JPATestPackageDataProvider;
 
 @ObjectProvider
-public class JPATestModelDataProviderCDI extends JPATestPackageDataProvider{
+public class JPATestModelDataProviderCDI extends DefaultDataProvider{
 
 	@Override
 	@Inject

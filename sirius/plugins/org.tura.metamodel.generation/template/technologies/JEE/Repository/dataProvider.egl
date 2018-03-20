@@ -6,7 +6,7 @@
   
  var util = new Native('org.tura.metamodel.commons.Util');
  %]
-package [%=t2view.get(type).get("package")%];  
+package [%=dataproviderPackage%];  
 
 public class [%=dataprovider%]DataProvider implements org.tura.platform.repository.core.DataProvider{
 

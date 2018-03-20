@@ -50,24 +50,34 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	    hash.put("t2model",t2model);
 	    hash.put("t2view",t2view);
 
-	    hash.put("type",type);
 	    hash.put("recipe",recipe);
 	    hash.put("ingredient",ingredient);
 	    hash.put("component",component);
 	    hash.put("model_mapper",model_mapper);
-	    hash.put("path",path);
  
  
       var path = util.getComponentRoot( component.getComponentRoot,configuration)+"/"+component.getArtifactId()+"/src/main/java/";  
          
       if (t2model.size() <> 0){
-          var dataprovider = util.mergeAndCapitalize(hash.get("type").eContainer().name);
+          var list = model_mapper.findAllClassifiers( util.getHint(model_mapper,"DataProvider") );
+          var dataprovider = "Default";
+          if (list.size() <> 0 ){
+            dataprovider = list.get(0).details;
+          }
+          list = model_mapper.findAllClassifiers(util.getHint(model_mapper,"DataProviderPackage"));
+          var dataproviderPackage = "org.tura.provider";
+          if (list.size() <> 0 ){
+            dataproviderPackage = list.get(0).details;
+          }
+          
           hash.put("dataprovider",dataprovider);
+          hash.put("dataproviderPackage",dataproviderPackage);
+          
 	 	  var mapper : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/dataProvider.egl",hash,TemplateFactory);
 		  mapper.setFormatter(f);
 		  var buffer = mapper.process();
 			   
-		  util.saveFile( path+t2view.get(hash.get("type")).get("package").replaceAll("\\.","\\/"),dataprovider+"DataProvider.java",buffer);   
+		  util.saveFile( path+dataproviderPackage.replaceAll("\\.","\\/"),dataprovider+"DataProvider.java",buffer);   
      }
  
    }

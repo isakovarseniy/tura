@@ -2,6 +2,7 @@
  */
 package recipe.util;
 
+import artifact.Categorized;
 import common.HTMLLayerHolder;
 import common.Orderable;
 
@@ -161,6 +162,10 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseOrderable(Orderable object) {
 				return createOrderableAdapter();
+			}
+			@Override
+			public Adapter caseCategorized(Categorized object) {
+				return createCategorizedAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -501,6 +506,20 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOrderableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link artifact.Categorized <em>Categorized</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see artifact.Categorized
+	 * @generated
+	 */
+	public Adapter createCategorizedAdapter() {
 		return null;
 	}
 

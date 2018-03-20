@@ -109,7 +109,7 @@ class Configuration{
    val HashProperty[*] hashProperties; 
 }
 
-class ModelMapper extends ArtifactRef,common.Orderable{
+class ModelMapper extends ArtifactRef,common.Orderable , artifact.Categorized{
    attr EString name;
    attr EString artifactRoot;
    val MappingTecnologiy[*] technologies;

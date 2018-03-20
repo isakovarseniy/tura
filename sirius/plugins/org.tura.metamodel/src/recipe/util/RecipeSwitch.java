@@ -2,6 +2,7 @@
  */
 package recipe.util;
 
+import artifact.Categorized;
 import common.HTMLLayerHolder;
 import common.Orderable;
 
@@ -162,6 +163,7 @@ public class RecipeSwitch<T> extends Switch<T> {
 				T result = caseModelMapper(modelMapper);
 				if (result == null) result = caseArtifactRef(modelMapper);
 				if (result == null) result = caseOrderable(modelMapper);
+				if (result == null) result = caseCategorized(modelMapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -553,6 +555,21 @@ public class RecipeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOrderable(Orderable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Categorized</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Categorized</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategorized(Categorized object) {
 		return null;
 	}
 

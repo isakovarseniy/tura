@@ -23,13 +23,13 @@ package org.tura.example.ui.commons.service;
 
 import javax.inject.Inject;
 
-import org.tura.platform.hr.objects.serialization.SimpleModelDataProvider;
 import org.tura.platform.repository.cdi.ObjectProvider;
 import org.tura.platform.repository.core.PersistenceProvider;
 import org.tura.platform.repository.core.PrImaryKeyStrategy;
+import org.tura.provider.DefaultDataProvider;
 
 @ObjectProvider
-public class SimpleModelDataProviderCDI extends SimpleModelDataProvider{
+public class SimpleModelDataProviderCDI extends DefaultDataProvider{
 
 	@Override
 	@Inject

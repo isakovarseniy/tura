@@ -3,6 +3,8 @@
 package recipe.provider;
 
 
+import artifact.ArtifactFactory;
+import artifact.ArtifactPackage;
 import common.CommonPackage;
 
 import java.util.Collection;
@@ -181,6 +183,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS);
 			childrenFeatures.add(RecipePackage.Literals.MODEL_MAPPER__TECHNOLOGIES);
 			childrenFeatures.add(RecipePackage.Literals.MODEL_MAPPER__QUERIES);
 		}
@@ -245,6 +248,7 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 			case RecipePackage.MODEL_MAPPER__SKIP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case RecipePackage.MODEL_MAPPER__CLASSIFIERS:
 			case RecipePackage.MODEL_MAPPER__TECHNOLOGIES:
 			case RecipePackage.MODEL_MAPPER__QUERIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -263,6 +267,11 @@ public class ModelMapperItemProvider extends ArtifactRefItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactPackage.Literals.CATEGORIZED__CLASSIFIERS,
+				 ArtifactFactory.eINSTANCE.createClassifier()));
 
 		newChildDescriptors.add
 			(createChildParameter

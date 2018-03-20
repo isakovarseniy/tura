@@ -46,10 +46,10 @@ import org.tura.platform.repository.core.Repository;
 import org.tura.platform.test.Factory;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
+import org.tura.provider.DefaultDataProvider;
 
 import objects.test.serialazable.jpa.Department1;
 import objects.test.serialazable.jpa.Employee1;
-import objects.test.serialazable.jpa.JPATestPackageDataProvider;
 import objects.test.serialazable.jpa.ProxyRepository;
 import objects.test.serialazable.jpa.pager.Department1Pager;
 import objects.test.serialazable.jpa.pager.Employee1Pager;
@@ -70,7 +70,7 @@ public class FactoryDC implements Factory {
 
 		repository = new BasicRepository();
 		
-		JPATestPackageDataProvider dataProvider = new JPATestPackageDataProvider();
+		DefaultDataProvider dataProvider = new DefaultDataProvider();
 		dataProvider.setPersistenceProvider(new JPAPersistenceProvider(em));
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());

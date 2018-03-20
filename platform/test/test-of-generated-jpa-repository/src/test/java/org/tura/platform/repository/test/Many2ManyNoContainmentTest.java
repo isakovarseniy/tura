@@ -46,9 +46,9 @@ import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.provider.DefaultDataProvider;
 
 import objects.test.serialazable.jpa.AddMany2Many1B2Many2Many1AOnMany2Many1BData;
-import objects.test.serialazable.jpa.JPATestPackageDataProvider;
 import objects.test.serialazable.jpa.Many2Many1A;
 import objects.test.serialazable.jpa.Many2Many1B;
 import objects.test.serialazable.jpa.ProxyRepository;
@@ -116,7 +116,7 @@ public class Many2ManyNoContainmentTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		JPATestPackageDataProvider dataProvider = new JPATestPackageDataProvider();
+		DefaultDataProvider dataProvider = new DefaultDataProvider();
 		dataProvider.setPersistenceProvider(new JPAPersistenceProvider(em));
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());

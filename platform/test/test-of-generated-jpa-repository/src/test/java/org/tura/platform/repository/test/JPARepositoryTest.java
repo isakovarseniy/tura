@@ -50,12 +50,12 @@ import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.provider.DefaultDataProvider;
 
 import objects.test.serialazable.jpa.AddCustomer2LocationOnNoAssosiationCustomerData;
 import objects.test.serialazable.jpa.Client;
 import objects.test.serialazable.jpa.Customer;
 import objects.test.serialazable.jpa.File;
-import objects.test.serialazable.jpa.JPATestPackageDataProvider;
 import objects.test.serialazable.jpa.Location;
 import objects.test.serialazable.jpa.MailAddress;
 import objects.test.serialazable.jpa.Order;
@@ -125,7 +125,7 @@ public class JPARepositoryTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		JPATestPackageDataProvider dataProvider = new JPATestPackageDataProvider();
+		DefaultDataProvider dataProvider = new DefaultDataProvider();
 		dataProvider.setPersistenceProvider(new JPAPersistenceProvider(em));
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
