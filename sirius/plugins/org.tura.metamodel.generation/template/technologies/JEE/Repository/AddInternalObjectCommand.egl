@@ -31,7 +31,7 @@ public class InternalAdd[%=t2view.get(type).get("class")%]Command{
 		               break;
 		            }
 		         }%]  
-		   pp.persist(jpa);
+		   pp.insert(jpa);
          [%
            var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
         %]

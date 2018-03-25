@@ -1,0 +1,74 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
+
+
+ ${percent}${end}
+ 
+ 
+
+[%
+      var util = new Native('org.tura.metamodel.commons.Util');
+%]
+
+     package [%=t2view.get(masterType).get("package")%].commands;  
+      
+      
+      public class Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command implements org.tura.platform.repository.core.Command {
+         org.tura.platform.repository.core.PersistenceProvider pp;
+	     public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+	           this.pp=pp;
+	     }
+	     
+	    public Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Command(org.tura.platform.repository.core.PersistenceProvider pp){
+	       this.pp=pp;
+	    } 
+	     
+        public Object execute( Object obj ){
+           [%=t2view.get(masterType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data data = ([%=t2view.get(masterType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data) obj;
+
+           [%=PK(masterType,"pkMaster","data",t2model.get(masterType).get("fullName"),recipe,ingredient,util.mergeAndCapitalize(masterType.name))%]
+           [%=PK(detailType,"pkDetail","data",t2model.get(detailType).get("fullName"),recipe,ingredient,util.mergeAndCapitalize(detailType.name))%]
+
+           [%=t2model.get(masterType).get("fullName")%] [%=util.mergeAndUnCapitalize(t2model.get(masterType).get("class"))%] = pp.find([%=t2model.get(masterType).get("fullName")%].class ,pkMaster);
+           [%=t2model.get(detailType).get("fullName")%] [%=util.mergeAndUnCapitalize(t2model.get(detailType).get("class"))%] = pp.find([%=t2model.get(detailType).get("fullName")%].class ,pkDetail);
+           
+           
+           
+      [%
+                  var source = util.mergeAndUnCapitalize(t2model.get(masterType).get("class"));
+                  var target = util.mergeAndUnCapitalize(t2model.get(detailType).get("class"));
+                  if (masterType == rel.target){
+                     target = util.mergeAndUnCapitalize(t2model.get(masterType).get("class"));
+                     source = util.mergeAndUnCapitalize(t2model.get(detailType).get("class"));
+                  }
+           
+           
+                     var hash = rel.sourceSideNamesCalculation();
+
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]     [%=source%].set[%=hash.get("sourceMethodName")%](null);[%
+			         case "One2Many" : %]   [%=source%].get[%=hash.get("sourceMethodName")%]().remove([%=target%]);[%
+			         case "Many2Many" : %] [%=source%].get[%=hash.get("sourceMethodName")%]().remove([%=target%]);[%
+			         }           
+			         
+	
+	                var hash = rel.targetSideNamesCalculation();
+			         
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]  [%=target%].set[%=hash.get("targetMethodName")%](null);[%
+			         case "One2Many" : %] [%=target%].set[%=hash.get("targetMethodName")%](null);[%
+			         case "Many2Many" : %]   [%=target%].get[%=hash.get("targetMethodName")%]().remove([%=source%]);[%
+			         }                
+      %]
+
+            return null;
+        }
+        
+   }     

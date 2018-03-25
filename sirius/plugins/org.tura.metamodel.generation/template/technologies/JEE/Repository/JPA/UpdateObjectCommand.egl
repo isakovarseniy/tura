@@ -1,0 +1,53 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
+  
+ var util = new Native('org.tura.metamodel.commons.Util');
+ var tp = type;
+ %]
+package [%=t2view.get(type).get("package")%].commands;  
+
+
+
+public class Update[%=t2view.get(type).get("class")%]Command implements org.tura.platform.repository.core.Command {
+
+     org.tura.platform.repository.core.PersistenceProvider pp;
+     public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+           this.pp=pp;
+     }
+
+    public Update[%=t2view.get(type).get("class")%]Command(org.tura.platform.repository.core.PersistenceProvider pp){
+           this.pp=pp;
+    }
+
+    public Object execute(Object obj  ){
+        [%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%]Data data = ([%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%]Data)obj;
+       
+         [%=PK(type,"pk","data",t2model.get(type).get("fullName"),recipe,ingredient)%]
+         
+         [%=t2model.get(type).get("fullName")%] jpa = pp.find([%=t2model.get(type).get("fullName")%].class ,pk);
+         
+         [%
+           for (attribute in type.attributes){
+	        if (type.~skipAttributes.contains(attribute) or  type.~bindedAttribute.contains(attribute)){
+		        continue; 
+		     }
+            if (attribute.pk){
+               continue;
+            }
+         
+         %]
+            if (data.getIsUpdated[%=util.mergeAndCapitalize(attribute.name)%]() != null && data.getIsUpdated[%=util.mergeAndCapitalize(attribute.name)%]() ){
+                 jpa.set[%=util.mergeAndCapitalize(attribute.name)%](data.get[%=util.mergeAndCapitalize(attribute.name)%]());
+            }
+         [%
+         }
+         %]
+
+
+            
+        return null;    
+    }
+}

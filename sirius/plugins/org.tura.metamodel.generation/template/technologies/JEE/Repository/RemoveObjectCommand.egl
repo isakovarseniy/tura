@@ -1,7 +1,7 @@
  [%
 
 
-operation type::TypeElement  removeCommand ( recipe,ingredient,model_mapper,t2view,t2model,path){
+operation type::TypeElement  removeCommand ( recipe,ingredient,model_mapper,t2view,t2model,path,technologies){
      var util = new Native('org.tura.metamodel.commons.Util');
      var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = self.uid);
      var topObject = true;
@@ -21,12 +21,12 @@ operation type::TypeElement  removeCommand ( recipe,ingredient,model_mapper,t2vi
 	    }
         
         if (hash.get("noAssosiation")){
-           removeNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel);
+           removeNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel,technologies);
         }else{
 	        if (hash.get("containment")){
               removeContaintmentRelation( masterType, detailType,property,recipe,ingredient,suffix,t2view,t2model,path,rel);
 	        }else{
-             removeNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel);
+             removeNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel,technologies);
 	        }
         }
      }
@@ -59,7 +59,7 @@ operation  removeContaintmentRelation ( masterType, detailType,property,recipe,i
 
 }
 
-operation removeNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel){
+operation removeNoAssosiationtRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel,technologies){
 
      var util = new Native('org.tura.metamodel.commons.Util');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
@@ -74,7 +74,7 @@ operation removeNoAssosiationtRelation ( masterType, detailType,property,recipe,
      hash.put("t2model",t2model);
      hash.put("rel",rel);
 	  
-	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/removeNoAssosiationtRelation.egl",hash,TemplateFactory);
+	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/"+technologies+"/removeNoAssosiationtRelation.egl",hash,TemplateFactory);
 	 cmd.setFormatter(f);
 	 var buffer = cmd.process();
 
@@ -82,7 +82,7 @@ operation removeNoAssosiationtRelation ( masterType, detailType,property,recipe,
 
 }
 
-operation    removeNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel){
+operation    removeNonContaintmentRelation ( masterType, detailType,property,recipe,ingredient,t2view,t2model,path,rel,technologies){
 
      var util = new Native('org.tura.metamodel.commons.Util');
      var f = new Native("org.tura.metamodel.generation.JavaFormatter"); 
@@ -97,7 +97,7 @@ operation    removeNonContaintmentRelation ( masterType, detailType,property,rec
      hash.put("t2model",t2model);
      hash.put("rel",rel);
 	  
-	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/removeNonContaintmentRelation.egl",hash,TemplateFactory);
+	 var cmd : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/"+technologies+"/removeNonContaintmentRelation.egl",hash,TemplateFactory);
 	 cmd.setFormatter(f);
 	 var buffer = cmd.process();
 

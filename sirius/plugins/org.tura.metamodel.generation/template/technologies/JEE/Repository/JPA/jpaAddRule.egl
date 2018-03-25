@@ -1,0 +1,82 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ 
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=t2model.get(rel.source).get("package")%].rules;  
+
+public class Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%][%=t2model.get(rel.target).get("class")%]JpaRule implements org.tura.platform.repository.core.Rule {
+
+      private [%=PK(rel.source,"sourcePk", t2model.get(rel.source).get("fullName"),recipe,ingredient)%]; 
+      private [%=PK(rel.target,"targetPk", t2model.get(rel.target).get("fullName"),recipe,ingredient)%] ;
+      
+      org.tura.platform.repository.core.PersistenceProvider pp;
+      public void setPersistenceProvider(org.tura.platform.repository.core.PersistenceProvider pp){
+           this.pp=pp;
+      }
+      
+      public void setSourcePk([%=PK(rel.source,"sourcePk", t2model.get(rel.source).get("fullName"),recipe,ingredient)%] ){
+         this.sourcePk = sourcePk;
+      }
+
+      public void setTargetPk([%=PK(rel.target,"targetPk", t2model.get(rel.target).get("fullName"),recipe,ingredient)%]){
+         this.targetPk = targetPk;
+      }
+      
+      public String getKey(){
+		  StringBuffer key = new StringBuffer();
+		   key.append(sourcePk.toString());
+		   key.append("[%=t2model.get(rel.source).get("fullName")%]");
+		   key.append(targetPk.toString());
+		   key.append("[%=t2model.get(rel.target).get("fullName")%]");
+		  return key.toString();
+      }
+
+      public void execute(){
+      
+                 [%=t2model.get(rel.source).get("fullName")%] source = pp.find([%=t2model.get(rel.source).get("fullName")%].class ,sourcePk);  
+                 [%=t2model.get(rel.target).get("fullName")%] target = pp.find([%=t2model.get(rel.target).get("fullName")%].class ,targetPk);  
+                 
+      [%
+      
+                     var hash = rel.sourceSideNamesCalculation();
+
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]     source.set[%=hash.get("sourceMethodName")%](target);[%
+			         case "One2Many" : %]   if (source.get[%=hash.get("sourceMethodName")%]() ==null ){  source.set[%=hash.get("sourceMethodName")%]( new java.util.ArrayList< [%=t2model.get(rel.target).get("fullName")%]>()); }     source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+			         case "Many2Many" : %] if (source.get[%=hash.get("sourceMethodName")%]() == null ){  source.set[%=hash.get("sourceMethodName")%]( new java.util.ArrayList< [%=t2model.get(rel.target).get("fullName")%]>()); }     source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+			         }           
+			         
+	
+	                var hash = rel.targetSideNamesCalculation();
+			         
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]  target.set[%=hash.get("targetMethodName")%](source);[%
+			         case "One2Many" : %] target.set[%=hash.get("targetMethodName")%](source);[%
+			         case "Many2Many" : %] if ( target.get[%=hash.get("targetMethodName")%]() == null ){target.set[%=hash.get("targetMethodName")%](new java.util.ArrayList<[%=t2model.get(rel.source).get("fullName")%]>() ); }    target.get[%=hash.get("targetMethodName")%]().add(source);[%
+			         }                
+      %]
+      }
+
+
+
+}
+[%
+@template
+ operation PK (type,name,objFullName,recipe,ingredient){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if (type.~primaryKey.size()>1){%]
+         [%=objFullName%]PK [%=name%]
+		   [%
+       }else{
+          var field = type.~primaryKey.get(0);
+          field.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=field.typeRef.~fullName%]   [%=name%]
+       [%}
+}
+
+%]
