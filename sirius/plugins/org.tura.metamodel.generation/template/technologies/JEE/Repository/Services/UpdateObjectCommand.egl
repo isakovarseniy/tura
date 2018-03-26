@@ -27,7 +27,8 @@ public class Update[%=t2view.get(type).get("class")%]Command implements org.tura
        
          [%=PK(type,"pk","data",t2model.get(type).get("fullName"),recipe,ingredient)%]
          
-         [%=t2model.get(type).get("fullName")%] jpa = pp.find([%=t2model.get(type).get("fullName")%].class ,pk);
+         java.util.HashMap<String,Object> fields = new java.util.HashMap<String,Object>();
+         
          
          [%
            for (attribute in type.attributes){
@@ -40,14 +41,12 @@ public class Update[%=t2view.get(type).get("class")%]Command implements org.tura
          
          %]
             if (data.getIsUpdated[%=util.mergeAndCapitalize(attribute.name)%]() != null && data.getIsUpdated[%=util.mergeAndCapitalize(attribute.name)%]() ){
-                 jpa.set[%=util.mergeAndCapitalize(attribute.name)%](data.get[%=util.mergeAndCapitalize(attribute.name)%]());
+                fields.put("[%=util.mergeAndCapitalize(attribute.name)%]",data.get[%=util.mergeAndCapitalize(attribute.name)%]);
             }
          [%
          }
          %]
-
-
-            
+         pp.update(pk,fields,[%=t2model.get(type).get("fullName")%].class);
         return null;    
     }
 }
