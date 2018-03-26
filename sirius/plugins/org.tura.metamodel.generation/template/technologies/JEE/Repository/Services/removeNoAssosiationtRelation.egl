@@ -36,11 +36,38 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
            [%=PK(masterType,"pkMaster","data",t2model.get(masterType).get("fullName"),recipe,ingredient,util.mergeAndCapitalize(masterType.name))%]
            [%=PK(detailType,"pkDetail","data",t2model.get(detailType).get("fullName"),recipe,ingredient,util.mergeAndCapitalize(detailType.name))%]
 
+           [%=t2model.get(masterType).get("fullName")%] [%=util.mergeAndUnCapitalize(t2model.get(masterType).get("class"))%] = pp.find([%=t2model.get(masterType).get("fullName")%].class ,pkMaster);
+           [%=t2model.get(detailType).get("fullName")%] [%=util.mergeAndUnCapitalize(t2model.get(detailType).get("class"))%] = pp.find([%=t2model.get(detailType).get("fullName")%].class ,pkDetail);
+           
+           
+           
       [%
-                  var hashSrc = rel.sourceSideNamesCalculation();
-      	          var hashTrg = rel.targetSideNamesCalculation();
+                  var source = util.mergeAndUnCapitalize(t2model.get(masterType).get("class"));
+                  var target = util.mergeAndUnCapitalize(t2model.get(detailType).get("class"));
+                  if (masterType == rel.target){
+                     target = util.mergeAndUnCapitalize(t2model.get(masterType).get("class"));
+                     source = util.mergeAndUnCapitalize(t2model.get(detailType).get("class"));
+                  }
+           
+           
+                     var hash = rel.sourceSideNamesCalculation();
+
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]     [%=source%].set[%=hash.get("sourceMethodName")%](null);[%
+			         case "One2Many" : %]   [%=source%].get[%=hash.get("sourceMethodName")%]().remove([%=target%]);[%
+			         case "Many2Many" : %] [%=source%].get[%=hash.get("sourceMethodName")%]().remove([%=target%]);[%
+			         }           
+			         
+	
+	                var hash = rel.targetSideNamesCalculation();
+			         
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]  [%=target%].set[%=hash.get("targetMethodName")%](null);[%
+			         case "One2Many" : %] [%=target%].set[%=hash.get("targetMethodName")%](null);[%
+			         case "Many2Many" : %]   [%=target%].get[%=hash.get("targetMethodName")%]().remove([%=source%]);[%
+			         }                
       %]
-                 pp.disconnect(pkMaster,"[%=hashSrc.get("sourceMethodName")%]",pkDetail,"[%=hashTrg.get("targetMethodName")%]","[%=rel.type.toString()%]");
 
            return null;
         }

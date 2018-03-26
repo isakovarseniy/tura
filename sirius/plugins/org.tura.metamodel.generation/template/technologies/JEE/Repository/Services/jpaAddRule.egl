@@ -35,17 +35,30 @@ public class Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%
       }
 
       public void execute(){
-      [%
-                 var hashSrc = rel.sourceSideNamesCalculation();
-                 var hashTrg = rel.targetSideNamesCalculation();
-      
-      %]
       
                  [%=t2model.get(rel.source).get("fullName")%] source = pp.find([%=t2model.get(rel.source).get("fullName")%].class ,sourcePk);  
                  [%=t2model.get(rel.target).get("fullName")%] target = pp.find([%=t2model.get(rel.target).get("fullName")%].class ,targetPk);  
-          
-                 pp.connect(sourcePk,"[%=hashSrc.get("sourceMethodName")%]",targetPk,"[%=hashTrg.get("targetMethodName")%]","[%=rel.type.toString()%]");
-          
+                 
+      [%
+      
+                     var hash = rel.sourceSideNamesCalculation();
+
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]     source.set[%=hash.get("sourceMethodName")%](target);[%
+			         case "One2Many" : %]   if (source.get[%=hash.get("sourceMethodName")%]() ==null ){  source.set[%=hash.get("sourceMethodName")%]( new java.util.ArrayList< [%=t2model.get(rel.target).get("fullName")%]>()); }     source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+			         case "Many2Many" : %] if (source.get[%=hash.get("sourceMethodName")%]() == null ){  source.set[%=hash.get("sourceMethodName")%]( new java.util.ArrayList< [%=t2model.get(rel.target).get("fullName")%]>()); }     source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+			         }           
+			         
+	
+	                var hash = rel.targetSideNamesCalculation();
+			         
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]  target.set[%=hash.get("targetMethodName")%](source);[%
+			         case "One2Many" : %] target.set[%=hash.get("targetMethodName")%](source);[%
+			         case "Many2Many" : %] if ( target.get[%=hash.get("targetMethodName")%]() == null ){target.set[%=hash.get("targetMethodName")%](new java.util.ArrayList<[%=t2model.get(rel.source).get("fullName")%]>() ); }    target.get[%=hash.get("targetMethodName")%]().add(source);[%
+			         }                
+      %]
       }
 
 
