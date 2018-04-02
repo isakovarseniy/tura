@@ -22,13 +22,17 @@
 package org.tura.platform.repository.core;
 
 import java.util.List;
+import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 
 public interface PersistenceProvider {
 	
-   public void persist(Object entity) ;
+   public void insert(Object entity) ;
+   public void update(Object pk, Map<String, Object> fields, Class<?> clazz);
+   public void connect(Object srcPk, String srcMethod,Class<?> srcType,Object trgPk, String trgMethod,Class<?> trgType, String relation );
+   public void disconnect(Object srcPk, String srcMethod,Class<?> srcType,Object trgPk, String trgMethod,Class<?> trgType, String relation );
    public void remove(Object entity) ;
    public <T> T find(Class<T> clazz , Object pk) ;
    public List<?> findObjectsQuery(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,Integer endIndex, Object ...args )  throws Exception;

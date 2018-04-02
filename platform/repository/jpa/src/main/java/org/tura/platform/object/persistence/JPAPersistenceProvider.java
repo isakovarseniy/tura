@@ -24,6 +24,7 @@ package org.tura.platform.object.persistence;
 import static com.octo.java.sql.query.Query.c;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -44,7 +45,7 @@ public class JPAPersistenceProvider implements PersistenceProvider {
 	}
 
 	@Override
-	public void persist(Object entity) {
+	public void insert(Object entity) {
 		em.persist(entity);
 	}
 
@@ -95,6 +96,25 @@ public class JPAPersistenceProvider implements PersistenceProvider {
 			query.setParameter(param, dslQuery.getParams().get(param));
 		}
 		return (long) query.getSingleResult();
+	}
+
+	@Override
+	public void update(Object pk, Map<String, Object> fields, Class<?> clazz) {
+		throw new UnsupportedOperationException();		
+	}
+
+	@Override
+	public void connect(Object srcPk, String srcMethod, Class<?> srcType, Object trgPk, String trgMethod,
+			Class<?> trgType, String relation) {
+		throw new UnsupportedOperationException();		
+		
+	}
+
+	@Override
+	public void disconnect(Object srcPk, String srcMethod, Class<?> srcType, Object trgPk, String trgMethod,
+			Class<?> trgType, String relation) {
+		throw new UnsupportedOperationException();		
+		
 	}
 
 }

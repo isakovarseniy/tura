@@ -76,7 +76,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 		    
 	    util.populateTechnologies(hash,model_mapper);
 		
-	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/${Persistance_type}/loadObjectCommand.egl",hash,TemplateFactory,templateStore);
+	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/loadObjectCommand.egl",hash,TemplateFactory,templateStore);
 	    serializer.setFormatter(f);
 	    var buffer = serializer.process();
 	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Load"+t2view.get(type).get("class")+"Command.java",buffer);   

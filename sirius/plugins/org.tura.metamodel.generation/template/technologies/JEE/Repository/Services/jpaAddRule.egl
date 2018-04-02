@@ -35,13 +35,13 @@ public class Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%
       }
 
       public void execute(){
-                 
+      
       [%
                     var hashSrc = rel.sourceSideNamesCalculation();
 	                var hashTrg = rel.targetSideNamesCalculation();
       %]
       
-      pp.connect(sourcePk,"[%=hashSrc.get("sourceMethodName")%]", [%=t2model.get(rel.source).get("fullName")%].class,targetPk,"[%=hashTrg.get("targetMethodName")%]",[%=t2model.get(rel.target).get("fullName")%].class);
+      pp.connect(sourcePk,"[%=hashSrc.get("sourceMethodName")%]",[%=t2model.get(rel.source).get("fullName")%].class , targetPk,"[%=hashTrg.get("targetMethodName")%]",[%=t2model.get(rel.target).get("fullName")%].class ,"[%=rel.type.toString()%]");
       
       }
 

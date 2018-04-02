@@ -22,6 +22,6 @@
 package org.tura.platform.repository.core;
 
 public interface Command {
-	public Object execute(Object data);
+	public Object execute(Object data) throws Exception ;
 	
 }

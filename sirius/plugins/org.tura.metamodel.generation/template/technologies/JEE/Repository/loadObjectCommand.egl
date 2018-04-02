@@ -11,12 +11,6 @@ package [%=t2view.get(type).get("package")%].commands;
 public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.platform.repository.core.Command{
 
     private org.tura.platform.repository.core.Repository repository;
- 	private	 java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriterias ;
-  	private  java.util.ArrayList<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriterias ;
-  	private  org.tura.platform.datacontrol.commons.SearchCriteria criteria;
-  	private  org.tura.platform.repository.core.SearchResult result;
-     
-     
      
      public Load[%=t2view.get(type).get("class")%]Command (org.tura.platform.repository.core.Repository repository){
         this.repository = repository;
@@ -84,27 +78,20 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
 
                 var hash = rel.sourceSideNamesCalculation();
 		         
- 		      %]
- 		       searchCriterias =  new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
- 		      [%
- 		         for (lnk in rel.links){
-		         %]
- 		               criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
- 		               criteria.setName("[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]");
- 		               criteria.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
- 		               criteria.setValue(jpa.get[%=util.mergeAndCapitalize(lnk.masterField.name)%]());
- 		               searchCriterias.add(criteria);
-		         [%
-		         }
- 		         %]      
-			     result = pp.find(searchCriterias, orderCriterias, 0, 100, "[%=rel.target.~fullName%]");
-		         java.util.Collection<[%=t2model.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   result.getResults(); if (targets[%=hash.get("sourceMethodName")%]  != null){  [%
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]  [%=t2model.get(hash.get("target")).get("fullName")%]  target[%=hash.get("sourceMethodName")%] =  jpa.get[%=hash.get("sourceMethodName")%]();  if(target[%=hash.get("sourceMethodName")%] != null){ [%
+		         case "One2Many" : %] java.util.Collection<[%=t2model.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%](); if(targets[%=hash.get("sourceMethodName")%] != null){  [%
+		         case "Many2Many" : %] java.util.Collection<[%=t2model.get(hash.get("target")).get("fullName")%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%](); if(targets[%=hash.get("sourceMethodName")%] != null){  [%
+		         }                
 
                  var suffix =hash.get("sourceMethodName");
                  var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
                  r = r.toLowerCase();
-                 
-		         %] for ([%=t2model.get(hash.get("target")).get("fullName")%] target[%=suffix%] : targets[%=hash.get("sourceMethodName")%]) {[%
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] for ([%=t2model.get(hash.get("target")).get("fullName")%] target[%=suffix%] : targets[%=hash.get("sourceMethodName")%]) {[%
+		         case "Many2Many" : %] for ([%=t2model.get(hash.get("target")).get("fullName")%] target[%=suffix%] : targets[%=hash.get("sourceMethodName")%]) {[%
+		         }         
 		                
                  %] 
                   [%=stringPK(hash.get("target"),"key"+hash.get("sourceMethodName"), "target"+suffix,t2model.get(hash.get("target")).get("fullName"))%]
@@ -120,8 +107,13 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
                  [%=r%].setTarget(obj[%=suffix%]);
                  rules.put([%=r%] .getKey(),[%=r%] );
                  
-                 }}
                  [%
+
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] }[%
+		         case "One2Many" : %] }}[%
+		         case "Many2Many" : %]}}[%
+		         }         
 		         
 		     }    
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.source.uid <> t.target.uid);
@@ -134,29 +126,24 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
                 var hash = rel.targetSideNamesCalculation();
                 var suffix =hash.get("sourceMethodName");
 		         
-		          		      %]
- 		       searchCriterias =  new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
- 		      [%
- 		         for (lnk in rel.links){
-		         %]
- 		               criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
- 		               criteria.setName("[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]");
- 		               criteria.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
- 		               criteria.setValue(jpa.get[%=util.mergeAndCapitalize(lnk.masterField.name)%]());
- 		               searchCriterias.add(criteria);
-		         [%
-		         }
-		         %]
 		         
-		         result = pp.find(searchCriterias, orderCriterias, 0, 100, "[%=rel.source.~fullName%]");
-		         java.util.Collection<[%=t2model.get(hash.get("source")).get("fullName")%]> sources[%=hash.get("targetMethodName")%] = result.getResults();  if(sources[%=hash.get("targetMethodName")%] != null){[%
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]  [%=t2model.get(hash.get("source")).get("fullName")%]    source[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();  if(source[%=hash.get("targetMethodName")%] != null){ [%
+		         case "One2Many" : %] [%=t2model.get(hash.get("source")).get("fullName")%]    source[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();  if(source[%=hash.get("targetMethodName")%] != null){[%
+		         case "Many2Many" : %] java.util.Collection<[%=t2model.get(hash.get("source")).get("fullName")%]> sources[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();  if(sources[%=hash.get("targetMethodName")%] != null){[%
+		         }                
 
                  var suffix=hash.get("targetMethodName");
                  var r = t2model.get(rel.source).get("class")+rel.type.toString()+t2model.get(rel.target).get("class");
                  r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] [%
+		         case "Many2Many" : %] for ([%=t2model.get(hash.get("source")).get("fullName")%] source[%=suffix%] : sources[%=hash.get("targetMethodName")%]) {[%
+		         }         
+		                
+                 %] 
                  
-		         %] for ([%=t2model.get(hash.get("source")).get("fullName")%] source[%=suffix%] : sources[%=hash.get("targetMethodName")%]) {
-		         
                   [%=stringPK(hash.get("source"),"key"+hash.get("targetMethodName"), "source"+suffix,t2model.get(hash.get("source")).get("fullName"))%]
 				  [%=t2view.get(hash.get("source")).get("fullName")%] obj[%=suffix%] = ([%=t2view.get(hash.get("source")).get("fullName")%] )context.get(key[%=hash.get("targetMethodName")%].toString());
                   if (obj[%=suffix%] == null){
@@ -170,7 +157,13 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
                  [%=r%].setTarget(obj);
                  rules.put([%=r%].getKey(),[%=r%]);
                  
-                ]}}[%
+                 [%
+
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] }[%
+		         case "One2Many" : %]} [%
+		         case "Many2Many" : %]}}[%
+		         }         
 		         
 		     }
 		
@@ -195,32 +188,12 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
 		         }
 
                 var hash = rel.targetSideNamesCalculation();
-		          		      %]
- 		       searchCriterias =  new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
- 		      [%
- 		         for (lnk in rel.links){
-		         %]
- 		               criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
- 		               criteria.setName("[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]");
- 		               criteria.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
- 		               criteria.setValue(jpa.get[%=util.mergeAndCapitalize(lnk.masterField.name)%]());
- 		               searchCriterias.add(criteria);
-		         [%
-		         }
-		         %]
-		         result = pp.find(searchCriterias, orderCriterias, 0, 100, "[%=rel.source.~fullName%]");
-		         if ( result.getNumberOfRecord() > 0){
-		         
-		           [%=t2model.get(hash.get("source")).get("fullName")%] jpaRemote = result.getResults().get(0);
 
-		         [%
 		  	     switch  (rel.type.toString()){
-		         case "One2One" : %]  [%=serializerDetails(rel,"jpaRemote","obj")%]  [%
-		         case "One2Many" : %] [%=serializerDetails(rel,"jpaRemote","obj")%]   [%
+		         case "One2One" : %]  [%=serializerDetails(rel,"jpa.get"+hash.get("targetMethodName")+"()","obj")%]  [%
+		         case "One2Many" : %] [%=serializerDetails(rel,"jpa.get"+hash.get("targetMethodName")+"()","obj")%]   [%
 		         case "Many2Many" : %] [%
 		         }
-		         
-		         %]}[%
 		     }
 		
             if (tp.~extension.isDefined()){
@@ -243,10 +216,14 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
  		     for (connector in domainConnectors){
  		     
  		     if (first){
- 		          first = false;
  		     %]
  		     if (repository != null){ 
+ 		       java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriterias =  null;
+  		       java.util.ArrayList<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriterias =  null;
+  		       org.tura.platform.datacontrol.commons.SearchCriteria criteria = null;
+  		       org.tura.platform.repository.core.SearchResult result = null;
  		      [% 
+ 		          first = false;
  		      }
  		      %]
  		       searchCriterias =  new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
@@ -271,14 +248,13 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
 			           if (result.getNumberOfRows()>0){
 			               obj.get[%=connector.target.~class%]().addAll((java.util.Collection<? extends [%=connector.target.~fullName%]>) result.getSearchResult());
 			           }
-		     }
 		[%
-            if (tp.~extension.isDefined()){
-               tp = tp.~extension;
-            }else{
-               break;
-            }
          }
+        if (tp.~extension.isDefined()){
+           tp = tp.~extension;
+        }else{
+           break;
+        }
      }
      if (not first){
      %]}[%

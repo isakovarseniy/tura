@@ -28,7 +28,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	      this.pp=pp;
 	    } 
 	     
-        public Object execute( Object obj ){
+        public Object execute( Object obj ) throws Exception{
            [%=t2view.get(masterType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data data = ([%=t2view.get(masterType).get("package")%].Add[%=t2view.get(detailType).get("class")%]2[%=t2view.get(masterType).get("class")%]On[%=util.mergeAndCapitalize(property)%]Data) obj;
            [%=PK(masterType,"pk","data",t2model.get(masterType).get("fullName"),recipe,ingredient)%]
            [%=t2model.get(masterType).get("fullName")%] jpa = pp.find([%=t2model.get(masterType).get("fullName")%].class,pk);

@@ -35,23 +35,22 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 
            [%=PK(masterType,"pkMaster","data",t2model.get(masterType).get("fullName"),recipe,ingredient,util.mergeAndCapitalize(masterType.name))%]
            [%=PK(detailType,"pkDetail","data",t2model.get(detailType).get("fullName"),recipe,ingredient,util.mergeAndCapitalize(detailType.name))%]
-           
+
       [%
                   var source = util.mergeAndUnCapitalize(t2model.get(masterType).get("fullName"));
-                  var sourcePk="pkMaster";
+                  var sourcePK = "pkMaster";
                   var target = util.mergeAndUnCapitalize(t2model.get(detailType).get("fullName"));
-                  var targetPk = "pkDetail";
+                  var targetPK="pkDetail";
                   if (masterType == rel.target){
                      target = util.mergeAndUnCapitalize(t2model.get(masterType).get("fullName"));
-                     targetPk = "pkMaster";
+                     targetPK = "pkMaster";
                      source = util.mergeAndUnCapitalize(t2model.get(detailType).get("fullName"));
-                     sourcePk="pkDetail";
+                     sourcePK="pkDetail";
                   }
-                 var hashSrc = rel.sourceSideNamesCalculation();
-	             var hashTrg = rel.targetSideNamesCalculation();
+                var hashSrc = rel.sourceSideNamesCalculation();
+                var hashTrg = rel.targetSideNamesCalculation();
       %]
-      
-        pp.disconnect([%=sourcePk%],"[%=hash.get("sourceMethodName")%]",[%=source%].class,[%=targetPk%],"[%=hash.get("targetMethodName")%]",[%=target%].class);
+         pp.disconnect([%=sourcePK%],"[%=hashSrc.get("sourceMethodName")%]", [%=source%].class,[%=targetPK%],"[%=hashTrg.get("targetMethodName")%]", [%=target%].class,"[%=rel.type.toString()%]");
 
            return null;
         }

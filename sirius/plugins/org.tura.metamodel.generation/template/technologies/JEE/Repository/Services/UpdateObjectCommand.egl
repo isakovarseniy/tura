@@ -41,7 +41,7 @@ public class Update[%=t2view.get(type).get("class")%]Command implements org.tura
          
          %]
             if (data.getIsUpdated[%=util.mergeAndCapitalize(attribute.name)%]() != null && data.getIsUpdated[%=util.mergeAndCapitalize(attribute.name)%]() ){
-                fields.put("[%=util.mergeAndCapitalize(attribute.name)%]",data.get[%=util.mergeAndCapitalize(attribute.name)%]);
+                fields.put("[%=util.mergeAndCapitalize(attribute.name)%]",data.get[%=util.mergeAndCapitalize(attribute.name)%]());
             }
          [%
          }
