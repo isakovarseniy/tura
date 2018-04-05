@@ -1790,11 +1790,17 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="JPA test package"/>
                           </queries>
                         </mappers>
-                        <mappers uid="6574d85d-0be1-47eb-9d0d-d445df7a1dc7" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner SPA repository">
+                        <mappers uid="6574d85d-0be1-47eb-9d0d-d445df7a1dc7" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner SPA repository" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-service-repository/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="5c4c17a0-3463-49e3-bf48-0097bcde7769"/>
+                        </mappers>
+                        <mappers uid="f1af9985-df10-40be-bf3d-8b0265793ca6" artifactRef="01ffd604-6a3b-4666-812f-afbbe5df4d3c" name="DataProvider">
+                          <queries uid="26a8d34f-6806-41e7-897e-183aa131c878" name="Query classes" queryRef="8d38ce94-308b-4d88-84a0-c0cb27d0245b">
+                            <variables queryParamRef="b3fd125c-0d31-4907-92cb-4fa2c5c12b46" value="Testing repository"/>
+                            <variables queryParamRef="b8f809e3-824e-49f6-8cab-2d6e10cecc91" value="JPA test package"/>
+                          </queries>
                         </mappers>
                       </components>
                     </ingredients>
@@ -1817,7 +1823,7 @@
                             <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Persistence Base type implementation"/>
                           </queries>
                         </mappers>
-                        <mappers uid="8c2c2303-0817-4f4f-9faa-74d238d0ba7f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner for SPA objects">
+                        <mappers uid="8c2c2303-0817-4f4f-9faa-74d238d0ba7f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner for SPA objects" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-spa/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
