@@ -1,0 +1,102 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ 
+ var util = new Native('org.tura.metamodel.commons.Util');
+%]
+package [%=type.~package%];  
+
+public class [%=type.~class%]PK implements java.io.Serializable{
+
+	private static final long serialVersionUID = 1L;
+
+     [% 
+         for (field in type.~primaryKey){
+            field.typeRef.mappingType2Java(recipe,ingredient);
+           %]
+           private [%=field.typeRef.~fullName%] [%=field.name%]; 
+           [% 
+         }
+     
+     %]
+     
+
+     [% 
+         for (field in type.~primaryKey){
+           %]
+           public void set[%=util.mergeAndCapitalize(field.name)%]( [%=field.typeRef.~fullName%] [%=field.name%]){
+               this.[%=field.name%]=[%=field.name%];
+           } 
+           
+           public [%=field.typeRef.~fullName%] get[%=util.mergeAndCapitalize(field.name)%]( ){
+               return [%=field.name%];
+           } 
+           [% 
+         }
+     
+     %]
+     
+   @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof [%=type.~package%].[%=type.~class%]PK){
+            [%=type.~package%].[%=type.~class%]PK type = ([%=type.~package%].[%=type.~class%]PK) obj;
+ 
+      [% 
+         for (field in type.~primaryKey){
+           %]
+            if(!type.get[%=util.mergeAndCapitalize(field.name)%]( ).equals([%=field.name%])){
+                return false;
+            }
+           [% 
+         }
+     %]
+            return true;
+        }
+ 
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+         int i = 0;
+        [% 
+         for (field in type.~primaryKey){
+           %]
+           i = i +[%=field.name%].hashCode();
+           [% 
+         }
+     %]
+        return i;
+    }
+
+    public boolean isNull(){
+         boolean r = true;
+        [% 
+         for (field in type.~primaryKey){
+           %]
+           r = r &([%=field.name%] == null);
+           [% 
+         }
+     %]
+        return r;    
+    
+    }
+
+
+    @Override
+    public String toString() {
+         String str = "[%=type.~package%].[%=type.~class%]PK";
+        [% 
+         for (field in type.~primaryKey){
+           %]
+           str = str +" [%=field.name%] = " +[%=field.name%].toString();
+           [% 
+         }
+     %]
+        return str;
+    }
+
+
+
+
+}

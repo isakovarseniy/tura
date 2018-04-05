@@ -35,6 +35,7 @@
             </modelQuery>
             <technologies uid="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" name="Entity implementation">
               <options uid="c06c65f3-8bff-4a65-bf5b-3594fecd5412" value="f52da8a4-ca3f-49ac-9328-5504ce7b49b6"/>
+              <options uid="1cf2a25f-3c5a-4103-ba68-401434050c12" value="33370481-f775-43ba-8757-f7689c0ed62b"/>
             </technologies>
             <hints uid="9591d781-747b-4491-b9ba-a8ea10a24361" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
             <hints uid="c1cbc560-6541-4b7f-97c8-b419413fa0eb" name="Bean validation" hint="55406073-2639-498f-b8ee-f121395f99e3"/>
@@ -134,6 +135,7 @@
               <options uid="d9e3a392-75f8-4c7f-a64d-b783675fcd26" value="48b0f660-5827-4f55-bf5e-3a9e90b139cc"/>
               <options uid="3fc6f641-34db-45cb-a4ed-a790465e1460" value="f450508f-626d-4381-9f9d-03c2a0454e63"/>
               <options uid="b93cf394-bb0f-443f-8983-caf7202acbbd" value="a76f07be-f346-4b06-8186-fb217bf52a03"/>
+              <options uid="ef7c2d5f-7805-4b80-a8d4-bacaa55e415e" value="33370481-f775-43ba-8757-f7689c0ed62b"/>
             </technologies>
             <technologies uid="dd41c97a-4e6a-4e00-8651-8f9efb82348f" name="Java">
               <options uid="c1d71c81-59fc-449d-a43a-b6b56f0ebee2" value="327b0bd5-1f34-4cc3-8e46-cdcde8d18d26"/>
@@ -165,6 +167,7 @@
               <options uid="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e" value="48b0f660-5827-4f55-bf5e-3a9e90b139cc"/>
               <options uid="0f1005fd-cee5-4792-ba0b-bb04144d4905" value="f450508f-626d-4381-9f9d-03c2a0454e63"/>
               <options uid="6da7cd59-30d6-46be-95b1-187688dc9820" value="a76f07be-f346-4b06-8186-fb217bf52a03"/>
+              <options uid="5c4c17a0-3463-49e3-bf48-0097bcde7769" value="33370481-f775-43ba-8757-f7689c0ed62b"/>
             </technologies>
           </artifacts>
           <artifacts uid="e7d86967-d594-4f25-8b34-5211665bf367" name="Build MVC application" template="platform:/plugin/org.tura.metamodel.generation/template/pit/mvc/mainMVCApplicationBuilder.egl">
@@ -476,6 +479,7 @@
           <techLeafs uid="68b7988b-e564-4fae-9862-cf8ec7c3ffde" name="JPA"/>
           <techLeafs uid="dbfdb8e2-1292-4e23-9eef-394d7152385f" name="Services"/>
         </techLeafs>
+        <techLeafs uid="33370481-f775-43ba-8757-f7689c0ed62b" name="SPA"/>
       </techLeafs>
       <techLeafs uid="7914b840-d59b-47a7-91fe-d5507fc1ebc1" name="JSE">
         <hints uid="a16caa5b-e156-4d25-aebf-3466ae7ebce0" name="Implements"/>
@@ -1738,7 +1742,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="6" uid="308d974e-1723-4d3d-b794-43be2805242a" name="Data Control components" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
+                    <ingredients order="7" uid="308d974e-1723-4d3d-b794-43be2805242a" name="Data Control components" controllerLayer="31dc2714-08fe-4185-b17e-02b0ae92e6ec">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="f9ea1171-9e27-476f-b1fb-7e2958a3871f" name="Pager object" componentRoot="${Generation path}/uiLayer" artifactId="test-objects-pagers" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.tura.jpa.test">
                         <mappers uid="f4f882dd-7b84-42f5-87e8-59ea8ee110b7" artifactRef="c2c2a8d3-4b1e-410a-9ade-0971d5a0bef3" name="Pager">
                           <queries uid="a11cea5d-02b9-4c03-9f40-42e7a451dbca" name="Query package for classes" queryRef="3c725660-a8c5-443b-9533-53daab6f1eee">
@@ -1768,7 +1772,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="5" uid="b201f161-7835-4716-8c11-86bf97e45f45" name="Service based object repository" skip="true">
+                    <ingredients mappers="8dbe09b8-5be9-47cd-bfb3-90cd95ffccb8" order="5" uid="b201f161-7835-4716-8c11-86bf97e45f45" name="Service based object repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="81bab9d2-35fe-4408-9b60-61d603ec6616" name="Service based repository" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-service-repository" groupId="org.tura.platform.test.generated-code" version="1.0">
                         <mappers uid="8d4f8d6c-00bb-4c38-81cf-46d042b7e4e1" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <technologies techRef="ba60e111-ec39-4914-affe-811c2e2bc7e1" valueRef="ce2c2ec5-33d1-4cd4-9903-7e13571f4b45"/>
@@ -1786,6 +1790,39 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="JPA test package"/>
                           </queries>
                         </mappers>
+                        <mappers uid="6574d85d-0be1-47eb-9d0d-d445df7a1dc7" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner SPA repository">
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="5c4c17a0-3463-49e3-bf48-0097bcde7769"/>
+                        </mappers>
+                      </components>
+                    </ingredients>
+                    <ingredients mappers="8dbe09b8-5be9-47cd-bfb3-90cd95ffccb8" order="6" uid="fa07b71d-ea49-4828-aaf3-17addaf45e6f" name="Persistance SPA objects" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                      <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b86d5c72-c355-46c3-9230-1d31c2bdf196" name="Persistence model" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-spa" groupId="org.tura.platform.test.generated-code" version="1.0">
+                        <mappers uid="b0234af0-876d-472a-a947-f0f972dd6785" artifactRef="bb896d3f-e7d0-4114-9bfc-83a2e775bcdf" name="Entity generator">
+                          <technologies techRef="8107bfd2-0df4-4d87-866a-6a2baee6bc5d" valueRef="1cf2a25f-3c5a-4103-ba68-401434050c12"/>
+                          <queries uid="cc6f8f81-32ed-46b9-b03b-8cdb72bf1fa5" name="Query package for classes" queryRef="1d4ea6bf-dc2c-49f0-a34b-9565fbb2ed3f">
+                            <variables queryParamRef="d600605a-1411-447a-9c1e-1a8ef10a2a28" value="Testing repository"/>
+                            <variables queryParamRef="cdabc42b-e03f-4da6-828e-37aaea8a64a1" value="JPA test package"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="e36b39e7-8d31-43ba-ab90-a2186f29b951" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Persistence object builder">
+                          <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="ef7c2d5f-7805-4b80-a8d4-bacaa55e415e"/>
+                          <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
+                          <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
+                          <queries uid="3fb923c0-3a0f-483c-93ed-f8ad3933b260" name="Query Per. Base type impl classes" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Base Repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="Model types"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="Persistence Base type implementation"/>
+                          </queries>
+                        </mappers>
+                        <mappers uid="8c2c2303-0817-4f4f-9faa-74d238d0ba7f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Build runner for SPA objects">
+                          <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
+                          <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
+                          <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
+                          <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="5c4c17a0-3463-49e3-bf48-0097bcde7769"/>
+                        </mappers>
                       </components>
                     </ingredients>
                     <deplymentStep mapper="24ea5cb4-5cc5-43df-beac-047f6f661d78" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.1"/>
@@ -1793,7 +1830,9 @@
                     <deplymentStep mapper="ed3fba79-6854-4a72-92a6-725b77fd56bd" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.3"/>
                     <deplymentStep mapper="55c762dd-0383-4265-bb38-05b6e3b44559" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.4"/>
                     <deplymentStep mapper="9bb17021-f9c5-4a40-985b-cdc28bf9679f" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.5"/>
-                    <deplymentStep mapper="ac990734-7c7d-4545-a2e9-3a639dece9ac"/>
+                    <deplymentStep mapper="ac990734-7c7d-4545-a2e9-3a639dece9ac" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.7"/>
+                    <deplymentStep mapper="6574d85d-0be1-47eb-9d0d-d445df7a1dc7"/>
+                    <deplymentStep mapper="8c2c2303-0817-4f4f-9faa-74d238d0ba7f" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.6"/>
                     <startSeq uid="11a6c073-aba1-43e8-8162-e58bea27fe67" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.0/@recipes.0/@recipe/@deplymentStep.0"/>
                   </recipe>
                   <configurations uid="ed16267e-2d82-4b6a-b779-9a4a36855c2a">
@@ -2609,6 +2648,7 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="6b230e92-341d-474b-867c-56426579090b" mappedToPackageName="org.tura.platform.object.serializaton.persistence" mappedToClassName="PersistenceObject" artifactId="hr-complex-model-serialization" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="d7636d4b-5360-45e3-b983-1abe14af04d4" packageRef="3f6a726e-b9ce-44c3-8c8d-f86878d1077e" uid="0940b723-a40d-4c8c-9cc9-995413258694" artifactId="hr-complex-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="9b9f0c44-a99e-4004-abc0-6c123142c131" uid="cf71b43b-600b-4701-b4ab-e19047857418" mappedToPackageName="Just library definition( cannot be null )" mappedToClassName="Just library definition( cannot be null )" artifactId="hr-complex-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="5975fd2e-1840-401b-ac3a-c2eaf586d617" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="jpa" groupId="org.tura.platform.repository" version="2.0"/>
                 </mapper>
               </mappers>
               <mappers uid="0a60b0d3-0018-4642-a2d7-477a0ccb5b2c" name="Data control commands mapping">
@@ -2635,7 +2675,6 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" uid="59acb2af-4400-4248-90ec-4b5ed5303c46" mappedToPackageName="org.tura.platform.primefaces.lib" mappedToClassName="SystemLibrary" artifactId="primefaces-model" groupId="org.tura.platform" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaScriptMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="74f6e110-73a0-4c30-bc42-426cde36ac40" uid="51e96293-ab38-4c47-adbd-0f9c0eac305b" libraryUrl="clientSystemLibrary.js" artifactId="hrresources" groupId="org.tura.example.service" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="1d17cd28-17dc-4964-bb46-63e1a4003517" uid="e78e23cd-7fd8-4e4c-ae9b-464f4c5ed7ac" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="f07b6531-021a-4b2d-baa4-d28fa79a4053" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="jpa" groupId="org.tura.platform.repository" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="1d17cd28-17dc-4964-bb46-63e1a4003517" uid="d7802112-623c-4771-a623-12a9272369f4" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager"/>
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="1c50fed0-8776-47f1-91fb-e02b2d8f00ad" namespace="persistence.serializaton.object.platform.tura.org" typename="PersistenceObject"/>
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="8b94b9cd-b404-4243-bc7b-bf085d4163bd" uid="0e3ef534-9006-44a2-b217-343a56f29075" namespace="http://www.w3.org/2001/XMLSchema" typename="string"/>
@@ -2665,6 +2704,7 @@
                   <mappers xsi:type="tura.mapper:XMLPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="048c2f8e-5b4d-453d-98ed-bd5da7907d76" namespace="serialization.objects.hr.platform.tura.org"/>
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="d7636d4b-5360-45e3-b983-1abe14af04d4" packageRef="dc9cc4d3-746d-4962-bbd2-bc0eba0cc9ba" uid="2ceabfc3-38c5-4bac-a115-060d340015be" artifactId="hr-simple-model-proxy" groupId="org.tura.platform.test.generated-code" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="9b9f0c44-a99e-4004-abc0-6c123142c131" uid="cca10729-6840-4cc8-94da-700b0ad72748" mappedToPackageName="Just library definition( cannot be null )" mappedToClassName="Just library definition( cannot be null )" artifactId="hr-simple-model-repository-triggers" groupId="org.tura.example.service.hrform" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="156b6924-3318-4afb-8d82-354f6ae2bb55" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="jpa" groupId="org.tura.platform.repository" version="2.0"/>
                 </mapper>
               </mappers>
               <mappers uid="4e8497b0-1a35-4ace-90cd-4359e7cbe666" name="HR model interface mapping">
@@ -2682,6 +2722,13 @@
               <mappers uid="eec72101-5e5b-4472-9434-68a1c503f8fa" name="Test packages mapper for JPA">
                 <mapper uid="29799371-0008-4a11-8bed-15a898159007">
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="956307b0-1089-45df-bbd8-fcdbc41a888a" mappedToPackageName="org.tura.jpa.test" artifactId="test-objects-jpa" groupId="org.tura.platform.test.generated-code" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="36cdfc49-5c3b-4153-a2cf-4789d060f758" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="jpa" groupId="org.tura.platform.repository" version="2.0"/>
+                </mapper>
+              </mappers>
+              <mappers uid="7793f0fe-9017-4b64-bf8f-5f8169a642f8" name="Test packages mapper for SPA">
+                <mapper uid="8dbe09b8-5be9-47cd-bfb3-90cd95ffccb8">
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="24f87ffe-3261-4fe7-b9c6-6c7a09ba850f" mappedToPackageName="org.tura.jpa.test" artifactId="test-objects-spa" groupId="org.tura.platform.test.generated-code" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="7a5e40ba-fc30-4c07-8b22-086b5244aa55" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="spa" groupId="org.tura.platform.repository" version="2.0"/>
                 </mapper>
               </mappers>
               <appLayers uid="4bd41a2c-2b37-4d25-8a19-e97a60f95715" name="Persistence layer"/>
