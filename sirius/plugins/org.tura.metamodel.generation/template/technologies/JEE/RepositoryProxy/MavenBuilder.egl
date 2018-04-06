@@ -10,7 +10,7 @@
 
 			<packaging>jar</packaging>
 
-			<name>[%=component.getName()%]:: Repository ::JPA</name>
+			<name>[%=component.getName()%]:: Repository Proxy</name>
 
 			<dependencies>
 				<dependency>

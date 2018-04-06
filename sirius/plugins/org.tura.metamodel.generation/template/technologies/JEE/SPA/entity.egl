@@ -2,12 +2,21 @@
  import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
  import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
  import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
  
  var util = new Native('org.tura.metamodel.commons.Util');
 %]
 package [%=type.~package%];  
 
 public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%=type.~extension.~fullName%]  [%}%] {
+
+        private org.tura.platform.repository.core.PersistenceProvider pp;
+        public [%=type.~class%](org.tura.platform.repository.core.PersistenceProvider pp){
+            this.pp=pp;
+        }
+
+        public [%=type.~class%](){
+        }
 
 
 [%for ( field in type.attributes){
@@ -34,19 +43,21 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
       for (rel in assosiations){
       
          var hash = rel.sourceSideNamesCalculation();
+         var collection = true;
+         
          
   	     switch  (rel.type.toString()){
-         case "One2One" : %] private [%=hash.get("target").~fullName%]  [%=hash.get("sourceProperty")%];[%
+         case "One2One" : collection = false;%] private [%=hash.get("target").~fullName%]  [%=hash.get("sourceProperty")%];[%
          case "One2Many" : %]  private java.util.Collection<[%=hash.get("target").~fullName%]>  [%=hash.get("sourceProperty")%];[%
          case "Many2Many" : %] private java.util.Collection<[%=hash.get("target").~fullName%]>  [%=hash.get("sourceProperty")%];[%
          }
       
   	     switch  (rel.type.toString()){
-         case "One2One" : %] public [%=hash.get("target").~fullName%]  get[%=hash.get("sourceMethodName")%]()[%
-         case "One2Many" : %] public java.util.Collection<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]()[%
-         case "Many2Many" : %] public java.util.Collection<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]()[%
+         case "One2One" : %] public [%=hash.get("target").~fullName%]  get[%=hash.get("sourceMethodName")%]() throws Exception[%
+         case "One2Many" : %] public java.util.Collection<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]() throws Exception[%
+         case "Many2Many" : %] public java.util.Collection<[%=hash.get("target").~fullName%]>  get[%=hash.get("sourceMethodName")%]() throws Exception[%
          }                
-         %] { return [%=hash.get("sourceProperty")%]; } [%
+         %] {   [%=loadDetails(hash,"sourceProperty",rel,type,hash.get("target"),recipe,ingredient,collection)%]} [%
          
   	     switch  (rel.type.toString()){
          case "One2One" : %] public  void set[%=hash.get("sourceMethodName")%]([%=hash.get("target").~fullName%]  [%=hash.get("sourceProperty")%])[%
@@ -64,20 +75,23 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
       for (rel in assosiations){
       
          var hash = rel.targetSideNamesCalculation();
+         
+         var collection = false;
       
       
   	     switch  (rel.type.toString()){
          case "One2One" : %] private [%=hash.get("source").~fullName%]  [%=hash.get("targetProperty")%];[%
          case "One2Many" : %] private [%=hash.get("source").~fullName%]  [%=hash.get("targetProperty")%];[%
-         case "Many2Many" : %] private java.util.Collection<[%=hash.get("source").~fullName%]>  [%=hash.get("targetProperty")%];[%
+         case "Many2Many" : collection = true;%] private java.util.Collection<[%=hash.get("source").~fullName%]>  [%=hash.get("targetProperty")%];[%
          }
       
   	     switch  (rel.type.toString()){
-         case "One2One" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]()[%
-         case "One2Many" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]()[%
-         case "Many2Many" : %] public java.util.Collection<[%=hash.get("source").~fullName%]>  get[%=hash.get("targetMethodName")%]()[%
+         case "One2One" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]() throws Exception[%
+         case "One2Many" : %] public [%=hash.get("source").~fullName%]  get[%=hash.get("targetMethodName")%]() throws Exception[%
+         case "Many2Many" : %] public java.util.Collection<[%=hash.get("source").~fullName%]>  get[%=hash.get("targetMethodName")%]() throws Exception[%
          }                
-         %] { return [%=hash.get("targetProperty")%]; } [%
+         %] {   [%=loadDetails(hash,"targetProperty",rel,type,hash.get("source"),recipe,ingredient,collection)%]} [%
+         
 
   	     switch  (rel.type.toString()){
          case "One2One" : %] public  void  set[%=hash.get("targetMethodName")%]([%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%])[%
@@ -90,3 +104,39 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
       }
 	%]
 }
+[%
+@template
+operation loadDetails(hash,property,rel,type,detail,recipe,ingredient,collection){
+ %]
+       if ([%=hash.get(property)%] == null){
+          [%=PK(type,"pk","this",type.~fullName,recipe,ingredient)%]
+  		  java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriterias =  new  java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
+  		  java.util.ArrayList<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriterias =  new  java.util.ArrayList<org.tura.platform.datacontrol.commons.OrderCriteria>();
+  		  
+  		  org.tura.platform.datacontrol.commons.SearchCriteria criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
+ 		  criteria.setName("parentPk");
+ 		  criteria.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
+ 		  criteria.setValue(pk);
+ 		  searchCriterias.add(criteria);
+  		  
+  		  criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
+ 		  criteria.setName("parentPkClass");
+ 		  criteria.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
+ 		  criteria.setValue("[%=type.~fullName%]");
+ 		  searchCriterias.add(criteria);
+  		  
+          @SuppressWarnings("unchecked")
+  		  java.util.List<[%=detail.~fullName%]> list = ( java.util.List<[%=detail.~fullName%]>)  pp.findObjectsQuery(searchCriterias,orderCriterias,0, -1,"[%=detail.~fullName%]");
+          [% if (collection){ %]
+                  [%=hash.get(property)%] = list;
+          [% }else{%]
+             if (list.size()>0){
+                  [%=hash.get(property)%] = list.get(0);
+              } 
+          [% }%]
+       }
+       return [%=hash.get(property)%];
+       
+ [%  
+}
+%]

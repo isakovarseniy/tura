@@ -8,9 +8,9 @@
 			<artifactId>[%=component.getArtifactId()%]</artifactId>
 			<version>[%=component.getVersion()%]</version>
 
-			<packaging>ejb</packaging>
+			<packaging>jar</packaging>
 
-			<name>[%=component.getName()%]:: EJB</name>
+			<name>[%=component.getName()%]</name>
 
 			<dependencies>
 

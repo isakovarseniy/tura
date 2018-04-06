@@ -20,7 +20,7 @@ public class InternalRemove[%=t2view.get(type).get("class")%]Command{
         var tp = type;
        %]
         
-        public void  remove([%=t2view.get(tp).get("fullName")%] obj, java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules){
+        public void  remove([%=t2view.get(tp).get("fullName")%] obj, java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules) throws Exception{
           [%=PK(type,"pkRemove","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]
           [%=t2model.get(tp).get("fullName")%] jpa = pp.find([%=t2model.get(tp).get("fullName")%].class,pkRemove);
            [%=t2model.get(tp).get("package")%].rules.Remove[%=t2model.get(tp).get("class")%]JpaRule rule = new   [%=t2model.get(tp).get("package")%].rules.Remove[%=t2model.get(tp).get("class")%]JpaRule();
