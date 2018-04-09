@@ -68,6 +68,13 @@
 		<dependencies>
 
 			<dependency>
+				<groupId>org.tura.platform.test</groupId>
+				<artifactId>commons-test-repository</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
+
+
+			<dependency>
 				<groupId>org.wildfly</groupId>
 				<artifactId>wildfly-arquillian-container-managed</artifactId>
 				<version>${version.wildfly-arquillian-container-managed}</version>

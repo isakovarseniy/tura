@@ -21,9 +21,6 @@
  */
 package org.tura.platform.repository.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -37,23 +34,17 @@ import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
-import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPAPersistenceProvider;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Repository;
-import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.provider.DefaultDataProvider;
 
-import objects.test.serialazable.jpa.One2One4A;
-import objects.test.serialazable.jpa.One2One4B;
 import objects.test.serialazable.jpa.ProxyRepository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class One2OneNoAssosiationTest {
+public class One2OneNoAssosiationTest extends  One2OneNoAssosiationAbstractTest{
 
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
@@ -111,7 +102,7 @@ public class One2OneNoAssosiationTest {
 
 	}	
 	
-	private ProxyRepository getRepository() {
+	public ProxyRepository getRepository() {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
@@ -126,68 +117,10 @@ public class One2OneNoAssosiationTest {
 		
 	}
 
-	
-	@Test
-	public void t0000_One2One1() {
-		try {
-			ProxyRepository repository = getRepository();
 
-			em.getTransaction().begin();
-			
-			One2One4A o1 = (One2One4A) repository.create(One2One4A.class.getName());
-			
-			One2One4B o2 = (One2One4B) repository.create(One2One4B.class.getName());
-			
-			repository.insert(o2, One2One4B.class.getName());
-			repository.insert(o1, One2One4A.class.getName());
-			o2.setRef(o1.getObjId());
-			repository.applyChanges(null);
-			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
+	@Override
+	public EntityManager getEntityManager() {
+		return em;
+	}
 
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4A.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-			o1 = (One2One4A) result.getSearchResult().get(0);
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4B.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-
-			o2 = (One2One4B) result.getSearchResult().get(0);
-			assertEquals( o1.getObjId(),  o2.getRef());
-			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-
-			o1 = (One2One4A) repository.create(One2One4A.class.getName());
-			repository.insert(o1, One2One4A.class.getName());
-			o2.setRef(o1.getObjId());
-			
-			repository.applyChanges(null);
-			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4A.class.getName());
-			assertEquals(2,result.getSearchResult().size());
-			o1 = (One2One4A) result.getSearchResult().get(0);
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4B.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-
-			em.getTransaction().commit();
-			
-			
-		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
-			e.printStackTrace();
-			fail();
-		}
-	}	
-	
 }
