@@ -34,7 +34,7 @@ public class Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%
 		  return key.toString();
       }
 
-      public void execute(){
+      public void execute()  throws Exception{
       
       [%
                     var hashSrc = rel.sourceSideNamesCalculation();

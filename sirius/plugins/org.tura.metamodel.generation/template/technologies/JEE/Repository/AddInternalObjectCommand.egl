@@ -16,9 +16,22 @@ public class InternalAdd[%=t2view.get(type).get("class")%]Command{
 	           this.pp=pp;
 	     }
 
-        public void  insert([%=t2view.get(tp).get("fullName")%] obj,java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules){
-        
+        public void  insert([%=t2view.get(tp).get("fullName")%] obj,java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules) throws Exception {
+
+         [%
+          if (technologies.equals("JEE/Repository/Services")){ 
+         %]
+          [%=t2model.get(tp).get("fullName")%] jpa = new [%=t2model.get(tp).get("fullName")%](pp);
+         [%
+          }else{
+         %]
           [%=t2model.get(tp).get("fullName")%] jpa = new [%=t2model.get(tp).get("fullName")%]();
+         [%
+          } 
+         %]
+          
+          
+          
           [%=PK(tp,"pk","obj",t2model.get(tp).get("fullName"),recipe,ingredient)%]   
           
 		         [% 
@@ -31,7 +44,7 @@ public class InternalAdd[%=t2view.get(type).get("class")%]Command{
 		               break;
 		            }
 		         }%]  
-		   pp.insert(jpa);
+		   pp.insert(jpa,pk, [%=t2model.get(tp).get("fullName")%].class);
          [%
            var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
         %]

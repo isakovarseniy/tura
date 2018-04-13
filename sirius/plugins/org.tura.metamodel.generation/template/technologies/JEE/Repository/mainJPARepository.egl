@@ -73,6 +73,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	    hash.put("component",component);
 	    hash.put("model_mapper",model_mapper);
 	    hash.put("path",path);
+	    hash.put("technologies","${Persistance_type}");
 		    
 	    util.populateTechnologies(hash,model_mapper);
 		

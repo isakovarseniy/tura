@@ -45,12 +45,12 @@ public class JPAPersistenceProvider implements PersistenceProvider {
 	}
 
 	@Override
-	public void insert(Object entity) {
+	public void insert(Object entity,Object pk, Class<?> clazz) {
 		em.persist(entity);
 	}
 
 	@Override
-	public void remove(Object entity) {
+	public void remove(Object entity,Object pk, Class<?> clazz) {
 		em.remove(entity);
 
 	}

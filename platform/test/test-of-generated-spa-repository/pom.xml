@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.tura.platform</groupId>
+		<artifactId>test</artifactId>
+		<version>2.0</version>
+	</parent>
+
+	<groupId>org.tura.platform.test</groupId>
+	<artifactId>test-of-generated-spa-repository</artifactId>
+
+	<name>Tura :: Platform :: Test :: Generated code :: SPA Repository</name>
+	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
+
+	<dependencies>
+
+
+		<dependency>
+			<groupId>org.tura.platform.test</groupId>
+			<artifactId>commons-test-repository</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>core</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-objects-service-repository</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-objects-jpa</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+
+
+	</dependencies>
+
+</project>

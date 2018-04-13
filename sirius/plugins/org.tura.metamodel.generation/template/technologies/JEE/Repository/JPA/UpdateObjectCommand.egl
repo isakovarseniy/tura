@@ -22,7 +22,7 @@ public class Update[%=t2view.get(type).get("class")%]Command implements org.tura
            this.pp=pp;
     }
 
-    public Object execute(Object obj  ){
+    public Object execute(Object obj  )  throws Exception {
         [%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%]Data data = ([%=t2view.get(type).get("package")%].Update[%=t2view.get(type).get("class")%]Data)obj;
        
          [%=PK(type,"pk","data",t2model.get(type).get("fullName"),recipe,ingredient)%]

@@ -30,7 +30,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	        this.pp=pp;
 	     }
 	     
-        public Object execute( Object obj ){
+        public Object execute( Object obj )  throws Exception{
            [%=t2view.get(masterType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data data = ([%=t2view.get(masterType).get("package")%].Remove[%=t2view.get(detailType).get("class")%]From[%=t2view.get(masterType).get("class")%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data) obj;
 
            [%=PK(masterType,"pkMaster","data",t2model.get(masterType).get("fullName"),recipe,ingredient,util.mergeAndCapitalize(masterType.name))%]

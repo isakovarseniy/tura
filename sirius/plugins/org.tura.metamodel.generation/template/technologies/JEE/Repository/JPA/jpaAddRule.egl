@@ -34,7 +34,7 @@ public class Add[%=t2model.get(rel.source).get("class")%][%=rel.type.toString()%
 		  return key.toString();
       }
 
-      public void execute(){
+      public void execute()  throws Exception{
       
                  [%=t2model.get(rel.source).get("fullName")%] source = pp.find([%=t2model.get(rel.source).get("fullName")%].class ,sourcePk);  
                  [%=t2model.get(rel.target).get("fullName")%] target = pp.find([%=t2model.get(rel.target).get("fullName")%].class ,targetPk);  

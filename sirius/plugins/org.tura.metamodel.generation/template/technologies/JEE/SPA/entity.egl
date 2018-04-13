@@ -15,9 +15,6 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
             this.pp=pp;
         }
 
-        public [%=type.~class%](){
-        }
-
 
 [%for ( field in type.attributes){
      if (type.~skipAttributes.contains(field) )
@@ -125,8 +122,15 @@ operation loadDetails(hash,property,rel,type,detail,recipe,ingredient,collection
  		  criteria.setValue("[%=type.~fullName%]");
  		  searchCriterias.add(criteria);
   		  
+  		  criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
+ 		  criteria.setName("property");
+ 		  criteria.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
+ 		  criteria.setValue("[%=hash.get(property)%]");
+ 		  searchCriterias.add(criteria);  		  
+  		  
+  		  
           @SuppressWarnings("unchecked")
-  		  java.util.List<[%=detail.~fullName%]> list = ( java.util.List<[%=detail.~fullName%]>)  pp.findObjectsQuery(searchCriterias,orderCriterias,0, -1,"[%=detail.~fullName%]");
+  		  java.util.List<[%=detail.~fullName%]> list = ( java.util.List<[%=detail.~fullName%]>)  pp.findObjectsQuery(searchCriterias,orderCriterias,0, 40,"[%=detail.~fullName%]");
           [% if (collection){ %]
                   [%=hash.get(property)%] = list;
           [% }else{%]

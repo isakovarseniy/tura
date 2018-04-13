@@ -1,0 +1,93 @@
+<!--
+
+    Tura - application generation platform
+
+    Copyright (c) 2012 - 2015, Arseniy Isakov
+
+    This project includes software developed by Arseniy Isakov
+    http://sourceforge.net/p/tura/wiki/Home/
+
+    Licensed under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License. You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on
+    an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied. See the License for the
+    specific language governing permissions and limitations
+    under the License.
+
+-->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="JPARepository" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<class>org.tura.jpa.test.One2One1A</class>
+		<class>org.tura.jpa.test.One2One2A</class>
+		<class>org.tura.jpa.test.One2Many3B</class>
+		<class>org.tura.jpa.test.One2Many1A</class>
+		<class>org.tura.jpa.test.MailAddress</class>
+		<class>org.tura.jpa.test.One2One2B</class>
+		<class>org.tura.jpa.test.Location</class>
+		<class>org.tura.jpa.test.One2One4A</class>
+		<class>org.tura.jpa.test.Many2Many2B</class>
+		<class>org.tura.jpa.test.Many2Many2A</class>
+		<class>org.tura.jpa.test.Vehicle</class>
+		<class>org.tura.jpa.test.Customer</class>
+		<class>org.tura.jpa.test.Person</class>
+		<class>org.tura.jpa.test.Client</class>
+		<class>org.tura.jpa.test.Many2Many1A</class>
+		<class>org.tura.jpa.test.One2One3A</class>
+		<class>org.tura.jpa.test.One2Many2A</class>
+		<class>org.tura.jpa.test.One2Many3A</class>
+		<class>org.tura.jpa.test.One2Many1B</class>
+		<class>org.tura.jpa.test.One2Many2B</class>
+		<class>org.tura.jpa.test.Order</class>
+		<class>org.tura.jpa.test.One2One1B</class>
+		<class>org.tura.jpa.test.File</class>
+		<class>org.tura.jpa.test.Many2Many1B</class>
+		<class>org.tura.jpa.test.Phone</class>
+		<class>org.tura.jpa.test.One2One3B</class>
+		<class>org.tura.jpa.test.One2One4B</class>
+		<class>org.tura.jpa.test.IndepObject1</class>
+		<class>org.tura.jpa.test.IndepObject2</class>
+		
+		<class>org.tura.platform.object.persistence.ObjectsID</class>
+     
+
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/JPARepository" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name = "hibernate.show_sql" value = "false" />
+			
+			<!--   property name="javax.persistence.jdbc.user" value="arseniy" />
+			<property name="javax.persistence.jdbc.password" value="postgres" />
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/arseniy" />
+			
+			
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.default_schema" value="HR"/>
+			<property name = "hibernate.show_sql" value = "true" />
+			<property name="hibernate.classloading.use_current_tccl_as_parent" value="false" /-->			
+			
+			
+			
+		</properties>
+	</persistence-unit>
+
+
+
+</persistence>
+

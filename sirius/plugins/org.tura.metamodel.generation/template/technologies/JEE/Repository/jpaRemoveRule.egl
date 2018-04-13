@@ -27,10 +27,10 @@ public class Remove[%=t2model.get(type).get("class")%]JpaRule implements org.tur
 		  return key.toString();
       }
 
-      public void execute(){
+      public void execute()  throws Exception{
       
                  [%=t2model.get(type).get("fullName")%] entity = pp.find([%=t2model.get(type).get("fullName")%].class ,entityPk);  
-                 pp.remove(entity);
+                 pp.remove(entity,entityPk,[%=t2model.get(type).get("fullName")%].class);
       }
 
 

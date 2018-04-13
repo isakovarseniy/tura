@@ -25,7 +25,7 @@ import java.util.Date;
 
 import org.tura.platform.object.TuraObject;
 
-public class PersistenceObject  implements TuraObject{
+public class PersistenceObjectSpa  implements TuraObject{
 
 	private Long objId;
 

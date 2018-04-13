@@ -2733,8 +2733,8 @@
               </mappers>
               <mappers uid="7793f0fe-9017-4b64-bf8f-5f8169a642f8" name="Test packages mapper for SPA">
                 <mapper uid="8dbe09b8-5be9-47cd-bfb3-90cd95ffccb8">
-                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="24f87ffe-3261-4fe7-b9c6-6c7a09ba850f" mappedToPackageName="org.tura.jpa.test" artifactId="test-objects-spa" groupId="org.tura.platform.test.generated-code" version="1.0"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="7a5e40ba-fc30-4c07-8b22-086b5244aa55" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="spa" groupId="org.tura.platform.repository" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" packageRef="2be392a0-795a-4751-9883-491c90520d9e" uid="24f87ffe-3261-4fe7-b9c6-6c7a09ba850f" mappedToPackageName="org.tura.spa.test" artifactId="test-objects-spa" groupId="org.tura.platform.test.generated-code" version="1.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="7a5e40ba-fc30-4c07-8b22-086b5244aa55" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObjectSpa" artifactId="spa" groupId="org.tura.platform.repository" version="2.0"/>
                 </mapper>
               </mappers>
               <appLayers uid="4bd41a2c-2b37-4d25-8a19-e97a60f95715" name="Persistence layer"/>
