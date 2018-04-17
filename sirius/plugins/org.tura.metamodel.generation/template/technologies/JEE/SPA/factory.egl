@@ -1,0 +1,58 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
+  
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package org.tura.factory;  
+
+public class Factory {
+
+     public static Object load( Class<?> clazz, org.tura.platform.object.persistence.ObjectLoader loader ) throws Exception{
+     
+                  switch ( clazz.getName()  ){
+                  [%
+                      for(type in types){
+                  %]
+                  case "[%=type.~fullName%]":
+                               return new [%=type.~package%].commands.Loader[%=type.~class%]Command(loader).execute();
+                  [%
+	                	 if (type.~primaryKey.isDefined() and type.~primaryKey.size() >1 ){
+                  %]
+                  case "[%=type.~package%].[%=type.~class%]PK":
+                               return new [%=type.~package%].commands.Loader[%=type.~class%]PKCommand(loader).execute();
+                  [%
+	                	 }
+                      }
+                  %]
+                  }
+         throw new Exception("Could not find loader");
+     }
+
+
+     public static void decouple( Class<?> clazz, Object jpa , org.tura.platform.object.persistence.ObjectDecoupler decoupler ) throws Exception{
+     
+                  switch ( clazz.getName()  ){
+                  [%
+                      for(type in types){
+                  %]
+                  case "[%=type.~fullName%]":
+                               new [%=type.~package%].commands.Decoupler[%=type.~class%]Command(decoupler).decouple(([%=type.~fullName%]) jpa);
+                  [%
+	                	 if (type.~primaryKey.isDefined() and type.~primaryKey.size() >1 ){
+                  %]
+                  case "[%=type.~package%].[%=type.~class%]PK":
+                               new [%=type.~package%].commands.Decoupler[%=type.~class%]PKCommand(decoupler).execute(([%=type.~package%].[%=type.~class%]PK)jpa);
+                  [%
+	                	 }
+                      }
+                  %]
+                  }
+         throw new Exception("Could not find decoupler");
+     }
+
+
+
+}

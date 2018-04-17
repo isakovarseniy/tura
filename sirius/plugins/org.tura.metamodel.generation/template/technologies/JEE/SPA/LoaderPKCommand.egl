@@ -1,0 +1,52 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
+  
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=type.~package%].commands;  
+
+public class Loader[%=type.~class%]PKCommand {
+
+    private org.tura.platform.object.persistence.ObjectLoader mapper;
+     
+     public Loader[%=type.~class%]PKCommand (org.tura.platform.object.persistence.ObjectLoader mapper){
+        this.mapper = mapper;
+     }
+
+
+       public [%=type.~package%].[%=type.~class%]PK  execute() throws Exception{
+
+        [%=type.~package%].[%=type.~class%]PK pk =  mapper.newInstance([%=type.~package%].[%=type.~class%]PK.class );
+        
+        mapper.startObjectLoading( [%=type.~package%].[%=type.~class%]PK.class, pk);
+
+        [%=addLoadRules(type,recipe,ingredient,model_mapper)%]
+        
+
+        mapper.endObjectLoading( [%=type.~package%].[%=type.~class%]PK.class, pk);
+
+         return pk;
+       }
+     }
+[%     
+@template
+ operation addLoadRules (type,recipe,ingredient,model_mapper){
+         var util = new Native('org.tura.metamodel.commons.Util');
+ 
+ 		for ( field in type.~primaryKey){
+        	%]
+        	if (mapper.isLoadProperty([%=type.~package%].[%=type.~class%]PK.class,  "[%=util.mergeAndCapitalize(field.name)%]", [%=field.typeRef.~fullName%].class) ){
+        	  pk.set[%=util.mergeAndCapitalize(field.name)%]( ([%=field.typeRef.~fullName%]) mapper.getValue([%=type.~package%].[%=type.~class%]PK.class,  "[%=util.mergeAndCapitalize(field.name)%]", [%=field.typeRef.~fullName%].class ));
+ 			}
+ 			[%
+ 			}
+
+        %]
+ 			  mapper.endPropertiesLoading([%=type.~package%].[%=type.~class%]PK.class,pk);
+ 		[%	  
+}
+
+%]

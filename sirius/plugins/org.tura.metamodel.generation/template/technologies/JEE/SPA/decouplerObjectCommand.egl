@@ -1,0 +1,155 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
+  
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=type.~package%].commands;  
+
+public class Decoupler[%=type.~class%]Command {
+
+    private org.tura.platform.object.persistence.ObjectDecoupler decoupler;
+     
+     public Decoupler[%=type.~class%]Command (org.tura.platform.object.persistence.ObjectDecoupler decoupler){
+        this.decoupler = decoupler;
+     }
+
+       [% 
+         var tp = type;
+       %]
+       public void decouple([%=tp.~fullName%] jpa) throws Exception{
+         
+         decoupler.startObjectDecouple([%=tp.~fullName%].class, jpa);
+        [%=addLoadRules(tp,recipe,ingredient,model_mapper)%]
+         decoupler.endObjectDecouple([%=tp.~fullName%].class, jpa);
+        
+       }
+     }
+[%     
+@template
+ operation addLoadRules (type,recipe,ingredient,model_mapper){
+         var util = new Native('org.tura.metamodel.commons.Util');
+         var tp = type;
+ 
+         while  (1 == 1) {
+         %]
+          [%=decouplerSerializer(tp,type.~skipAttributes,  tp.~fullName, "jpa")%]
+         [%  
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+         }           
+        %]
+ 			  decoupler.endPropertiesSavings([%=type.~fullName%].class,jpa);
+        [%         
+         
+         var tp = type;
+         while  (1 == 1) {
+         
+		     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
+		     for (rel in assosiations){
+                var serializer = rel.target.~package+".commands.Decoupler"+rel.target.~class+"Command";
+
+                var hash = rel.sourceSideNamesCalculation();
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]  [%=hash.get("target").~fullName%]  target[%=hash.get("sourceMethodName")%] =  jpa.get[%=hash.get("sourceMethodName")%]();  if(target[%=hash.get("sourceMethodName")%] != null && decoupler.isSaveRelation([%=hash.get("source").~fullName%].class,[%=hash.get("target").~fullName%].class,"[%=hash.get("sourceMethodName")%]","[%=rel.type.toString()%]" )){ [%
+		         case "One2Many" : %] java.util.Collection<[%=hash.get("target").~fullName%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%](); if(targets[%=hash.get("sourceMethodName")%] != null && decoupler.isSaveRelation([%=hash.get("source").~fullName%].class,[%=hash.get("target").~fullName%].class,"[%=hash.get("sourceMethodName")%]","[%=rel.type.toString()%]" )){  [%
+		         case "Many2Many" : %] java.util.Collection<[%=hash.get("target").~fullName%]>  targets[%=hash.get("sourceMethodName")%] =   jpa.get[%=hash.get("sourceMethodName")%](); if(targets[%=hash.get("sourceMethodName")%] != null && decoupler.isSaveRelation([%=hash.get("source").~fullName%].class,[%=hash.get("target").~fullName%].class,"[%=hash.get("sourceMethodName")%]","[%=rel.type.toString()%]")){  [%
+		         }                
+                  %]
+                   decoupler.startSavingRelation([%=hash.get("source").~fullName%].class,[%=hash.get("target").~fullName%].class,"[%=hash.get("sourceMethodName")%]","[%=rel.type.toString()%]",jpa);
+                  [%
+                 var suffix =hash.get("sourceMethodName");
+                 var r = rel.source.~class+rel.type.toString()+rel.target.~class;
+                 r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] for ([%=hash.get("target").~fullName%] target[%=suffix%] : targets[%=hash.get("sourceMethodName")%]) {[%
+		         case "Many2Many" : %] for ([%=hash.get("target").~fullName%] target[%=suffix%] : targets[%=hash.get("sourceMethodName")%]) {[%
+		         }         
+		                
+                 %] 
+                 
+                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](decoupler); 
+                 cmd[%=suffix%].decouple(target[%=suffix%]);
+                 
+                 [%
+
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%=endSavingRelation(hash,rel)%]}[%
+		         case "One2Many" : %] } [%=endSavingRelation(hash,rel)%]}[%
+		         case "Many2Many" : %]}[%=endSavingRelation(hash,rel)%]}[%
+		         }         
+		         
+		     }    
+		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.source.uid <> t.target.uid);
+		     for (rel in assosiations){
+
+                var serializer = rel.source.~package+".commands.Decoupler"+rel.source.~class+"Command";
+                var hash = rel.targetSideNamesCalculation();
+                var suffix =hash.get("sourceMethodName");
+		         
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]  [%=hash.get("source").~fullName%]    source[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();  if(source[%=hash.get("targetMethodName")%] != null && decoupler.isSaveRelation([%=hash.get("target").~fullName%].class,[%=hash.get("source").~fullName%].class,"[%=hash.get("targetMethodName")%]","[%=rel.type.toString()%]" )){ [%
+		         case "One2Many" : %] [%=hash.get("source").~fullName%]    source[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();  if(source[%=hash.get("targetMethodName")%] != null && decoupler.isSaveRelation([%=hash.get("target").~fullName%].class,[%=hash.get("source").~fullName%].class,"[%=hash.get("targetMethodName")%]","[%=rel.type.toString()%]")){[%
+		         case "Many2Many" : %] java.util.Collection<[%=hash.get("source").~fullName%]> sources[%=hash.get("targetMethodName")%] = jpa.get[%=hash.get("targetMethodName")%]();  if(sources[%=hash.get("targetMethodName")%] != null && decoupler.isSaveRelation([%=hash.get("target").~fullName%].class,[%=hash.get("source").~fullName%].class,"[%=hash.get("targetMethodName")%]","[%=rel.type.toString()%]")){[%
+		         }                
+                  %]
+                   decoupler.startSavingRelation([%=hash.get("target").~fullName%].class,[%=hash.get("source").~fullName%].class,"[%=hash.get("targetMethodName")%]","[%=rel.type.toString()%]",jpa);
+                  [%
+
+                 var suffix=hash.get("targetMethodName");
+                 var r = rel.source.~class+rel.type.toString()+rel.target.~class;
+                 r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%
+		         case "One2Many" : %] [%
+		         case "Many2Many" : %] for ([%=hash.get("source").~fullName%] source[%=suffix%] : sources[%=hash.get("targetMethodName")%]) {[%
+		         }         
+		                
+                 %] 
+                 
+                 
+                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](decoupler); 
+                 cmd[%=suffix%].decouple(source[%=suffix%]);
+                 [%
+
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] [%=endSavingRelation2(hash,rel)%]}[%
+		         case "One2Many" : %] [%=endSavingRelation2(hash,rel)%]} [%
+		         case "Many2Many" : %]} [%=endSavingRelation2(hash,rel)%]}[%
+		         }         
+		         
+		     }
+		
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+         }  
+}
+
+@template
+operation  endSavingRelation (hash,rel){
+%]
+                   decoupler.endSavingRelation([%=hash.get("source").~fullName%].class,[%=hash.get("target").~fullName%].class,"[%=hash.get("sourceMethodName")%]","[%=rel.type.toString()%]",jpa);
+[%
+
+ }
+
+
+@template
+operation  endSavingRelation2 (hash,rel){
+%]
+                 decoupler.endSavingRelation([%=hash.get("target").~fullName%].class,[%=hash.get("source").~fullName%].class,"[%=hash.get("targetMethodName")%]","[%=rel.type.toString()%]",jpa);
+[%
+
+ }
+%]

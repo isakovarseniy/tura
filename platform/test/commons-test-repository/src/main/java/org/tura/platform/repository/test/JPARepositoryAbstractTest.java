@@ -31,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -38,19 +39,30 @@ import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
+import objects.test.serialazable.jpa.AddCustomer2LocationOnNoAssosiationCustomerData;
 import objects.test.serialazable.jpa.Client;
+import objects.test.serialazable.jpa.Customer;
 import objects.test.serialazable.jpa.File;
+import objects.test.serialazable.jpa.Location;
 import objects.test.serialazable.jpa.MailAddress;
+import objects.test.serialazable.jpa.Order;
 import objects.test.serialazable.jpa.Person;
 import objects.test.serialazable.jpa.Phone;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.Vehicle;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public abstract class JPARepositoryAbstractTest {
 
 	public abstract EntityManager getEntityManager();
 	public abstract ProxyRepository getRepository();
+	@SuppressWarnings("rawtypes")
+	public abstract List getCommandStack();
+	public abstract ProxyCommadStackProvider getStackProvider();
+	
+	
 
 	@Test
 	public void t0000_saveObject() {
@@ -204,6 +216,88 @@ public abstract class JPARepositoryAbstractTest {
 					File.class.getName());
 			list = result.getSearchResult();
 			assertEquals(0, list.size());
+
+			getEntityManager().getTransaction().commit();
+
+		} catch (Exception e) {
+			if (getEntityManager().getTransaction().isActive()) {
+				getEntityManager().getTransaction().rollback();
+			}
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	public void t0002_insertIndependentObject() {
+		try {
+
+			ProxyRepository repository = getRepository();
+
+			getEntityManager().getTransaction().begin();
+
+			Customer customer = (Customer) repository.create(Customer.class.getName());
+			customer.setCustomerName("Customer 1");
+			repository.insert(customer, Customer.class.getName());
+
+			Location location = (Location) repository.create(Location.class.getName());
+			location.setCity("City");
+			location.setStreet("Street");
+			repository.insert(location, Location.class.getName());
+
+			AddCustomer2LocationOnNoAssosiationCustomerData m2m = new AddCustomer2LocationOnNoAssosiationCustomerData();
+
+			m2m.setCustomerCustomerId(customer.getCustomerId());
+			m2m.setLocationObjId(location.getObjId());
+			getStackProvider().addCommand(m2m);
+
+			Vehicle vehicle = (Vehicle) repository.create(Vehicle.class.getName());
+			vehicle.setModel("Honda");
+			repository.insert(vehicle, Vehicle.class.getName());
+
+			Order order = (Order) repository.create(Order.class.getName());
+			order.setCustomer(customer.getCustomerId());
+			order.setModel(vehicle.getModel());
+			order.setVehicleId(vehicle.getObjId());
+			repository.insert(order, Order.class.getName());
+
+			repository.applyChanges(null);
+
+			getEntityManager().getTransaction().commit();
+
+			getEntityManager().getTransaction().begin();
+			Query query = getEntityManager().createQuery("from Location");
+			List<org.tura.jpa.test.Location> listLocatioin = query.getResultList();
+			org.tura.jpa.test.Location loc = listLocatioin.iterator().next();
+			assertEquals(1, loc.getCustomer().size());
+
+			query = getEntityManager().createQuery("from Customer");
+			List<org.tura.jpa.test.Customer> listCustomer = query.getResultList();
+			org.tura.jpa.test.Customer ctr = listCustomer.iterator().next();
+			assertEquals(1, ctr.getLocation().size());
+
+			getEntityManager().getTransaction().commit();
+
+			getCommandStack().clear();
+
+			getEntityManager().getTransaction().begin();
+
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, Customer.class.getName());
+			List<Customer> cList = (List<Customer>) result.getSearchResult();
+			assertEquals(1, cList.size());
+			customer = cList.iterator().next();
+			repository.remove(customer, Customer.class.getName());
+
+			repository.applyChanges(null);
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
+					Order.class.getName());
+			List<Order> oList = (List<Order>) result.getSearchResult();
+			assertEquals(1, oList.size());
 
 			getEntityManager().getTransaction().commit();
 

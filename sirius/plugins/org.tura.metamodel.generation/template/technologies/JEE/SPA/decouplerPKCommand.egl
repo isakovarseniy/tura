@@ -1,0 +1,46 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
+  
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=type.~package%].commands;  
+
+public class Decoupler[%=type.~class%]PKCommand {
+
+    private org.tura.platform.object.persistence.ObjectDecoupler decoupler;
+     
+     public Decoupler[%=type.~class%]PKCommand (org.tura.platform.object.persistence.ObjectDecoupler decoupler){
+        this.decoupler = decoupler;
+     }
+
+       [% 
+         var tp = type;
+       %]
+       public void execute([%=type.~package%].[%=type.~class%]PK pk) throws Exception{
+         
+         decoupler.startObjectDecouple([%=type.~package%].[%=type.~class%]PK.class, pk);
+        [%=addLoadRules(tp,recipe,ingredient,model_mapper)%]
+         decoupler.endObjectDecouple([%=type.~package%].[%=type.~class%]PK.class, pk);
+        
+       }
+     }
+[%     
+@template
+ operation addLoadRules (type,recipe,ingredient,model_mapper){
+         var util = new Native('org.tura.metamodel.commons.Util');
+ 
+ 		for ( field in type.~primaryKey){
+        	%]
+        	if (decoupler.isSaveProperty([%=type.~package%].[%=type.~class%]PK.class,  "[%=util.mergeAndCapitalize(field.name)%]", [%=field.typeRef.~fullName%].class) ){
+        	  decoupler.setValue([%=type.~package%].[%=type.~class%]PK.class,  "[%=util.mergeAndCapitalize(field.name)%]", pk.get[%=util.mergeAndCapitalize(field.name)%]() );
+ 			}
+ 			[%}
+ 
+        %]
+ 			  decoupler.endPropertiesSavings([%=type.~package%].[%=type.~class%]PK.class,pk);
+        [%         
+}
+%]

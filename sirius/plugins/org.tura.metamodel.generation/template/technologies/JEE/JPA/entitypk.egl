@@ -89,7 +89,9 @@ public class [%=type.~class%]PK implements java.io.Serializable{
         [% 
          for (field in type.~primaryKey){
            %]
-           str = str +" [%=field.name%] = " +[%=field.name%].toString();
+           if ([%=field.name%] != null){
+              str = str +" [%=field.name%] = " +[%=field.name%].toString();
+           }
            [% 
          }
      %]

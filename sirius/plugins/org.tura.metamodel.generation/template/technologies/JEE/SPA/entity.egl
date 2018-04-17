@@ -117,10 +117,17 @@ operation loadDetails(hash,property,rel,type,detail,recipe,ingredient,collection
  		  searchCriterias.add(criteria);
   		  
   		  criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
- 		  criteria.setName("parentPkClass");
+ 		  criteria.setName("parentClass");
  		  criteria.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
  		  criteria.setValue("[%=type.~fullName%]");
  		  searchCriterias.add(criteria);
+
+  		  criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
+ 		  criteria.setName("parentObject");
+ 		  criteria.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
+ 		  criteria.setValue(this);
+ 		  searchCriterias.add(criteria);
+
   		  
   		  criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
  		  criteria.setName("property");
@@ -130,7 +137,7 @@ operation loadDetails(hash,property,rel,type,detail,recipe,ingredient,collection
   		  
   		  
           @SuppressWarnings("unchecked")
-  		  java.util.List<[%=detail.~fullName%]> list = ( java.util.List<[%=detail.~fullName%]>)  pp.findObjectsQuery(searchCriterias,orderCriterias,0, 40,"[%=detail.~fullName%]");
+  		  java.util.List<[%=detail.~fullName%]> list = ( java.util.List<[%=detail.~fullName%]>)  pp.findObjectsQuery(searchCriterias,orderCriterias,0, -1,"[%=detail.~fullName%]");
           [% if (collection){ %]
                   [%=hash.get(property)%] = list;
           [% }else{%]

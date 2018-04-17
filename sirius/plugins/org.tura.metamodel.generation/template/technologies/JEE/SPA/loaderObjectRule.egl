@@ -1,0 +1,64 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ 
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=rel.source.~package%].rules;  
+
+public class Loader[%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]Rule implements org.tura.platform.repository.core.Rule {
+
+      private [%=rel.source.~fullName%]  source;
+      private [%=rel.target.~fullName%] target;
+      
+      public void setSource([%=rel.source.~fullName%] source){
+         this.source = source;
+      }
+
+      public void setTarget([%=rel.target.~fullName%] target){
+         this.target = target;
+      }
+      
+      public String getKey(){
+		  StringBuffer key = new StringBuffer();
+		  [%for ( field in rel.source.~primaryKey){%]
+		   key.append(source.get[%=util.mergeAndCapitalize(field.name)%]());
+		   [%}%]
+		  key.append("[%=rel.source.~fullName%]");
+
+		  [%for ( field in rel.target.~primaryKey){%]
+		   key.append(target.get[%=util.mergeAndCapitalize(field.name)%]());
+		   [%}%]
+		  key.append("[%=rel.target.~fullName%]");
+		  
+		  return key.toString();
+      }
+
+      public void execute() throws Exception{
+      [%
+      
+                 var hash = rel.sourceSideNamesCalculation();
+      
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]     source.set[%=hash.get("sourceMethodName")%](target);[%
+		         case "One2Many" : %]   source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+		         case "Many2Many" : %] source.get[%=hash.get("sourceMethodName")%]().add(target);[%
+		         }           
+		         
+
+	                var hash = rel.targetSideNamesCalculation();
+			         
+			  	     switch  (rel.type.toString()){
+			         case "One2One" : %]  target.set[%=hash.get("targetMethodName")%](source);[%
+			         case "One2Many" : %] target.set[%=hash.get("targetMethodName")%](source);[%
+			         case "Many2Many" : %] target.get[%=hash.get("targetMethodName")%]().add(source);[%
+		         }                
+		              
+      %]
+      }
+
+
+
+}
+ 

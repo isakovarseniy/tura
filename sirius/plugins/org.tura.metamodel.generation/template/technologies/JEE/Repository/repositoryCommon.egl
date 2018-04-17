@@ -11,6 +11,36 @@
  }
  
  
+ @template
+ operation mapperSerializer (type,skipAttributes, fullName, outObj){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( field in type.attributes){
+		     if (skipAttributes.contains(field) ){
+		        continue; 
+		     }   
+        	%]
+        	if (mapper.isLoadProperty([%=fullName%].class,  "[%=util.mergeAndCapitalize(field.name)%]", [%=field.typeRef.~fullName%].class) ){
+        	  [%=outObj%].set[%=util.mergeAndCapitalize(field.name)%]( ([%=field.typeRef.~fullName%]) mapper.getValue([%=fullName%].class,  "[%=util.mergeAndCapitalize(field.name)%]", [%=field.typeRef.~fullName%].class ));
+ 			}
+ 			[%}
+ }
+
+
+ @template
+ operation decouplerSerializer (type,skipAttributes, fullName, outObj){
+        var util = new Native('org.tura.metamodel.commons.Util');
+		for ( field in type.attributes){
+		     if (skipAttributes.contains(field) ){
+		        continue; 
+		     }   
+        	%]
+        	if (decoupler.isSaveProperty([%=fullName%].class,  "[%=util.mergeAndCapitalize(field.name)%]", [%=field.typeRef.~fullName%].class) ){
+        	  decoupler.setValue([%=fullName%].class,  "[%=util.mergeAndCapitalize(field.name)%]", [%=outObj%].get[%=util.mergeAndCapitalize(field.name)%]() );
+ 			}
+ 			[%}
+ }
+
+ 
 @template
  operation serializerDetails (rel, inObj, outObj){
         var util = new Native('org.tura.metamodel.commons.Util');
@@ -21,6 +51,10 @@
         	}
  			[%}
  } 
+
+
+
+
 
 
 @template

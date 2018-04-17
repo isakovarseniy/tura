@@ -1,0 +1,173 @@
+[%
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
+  
+ var util = new Native('org.tura.metamodel.commons.Util');
+ %]
+package [%=type.~package%].commands;  
+
+public class Loader[%=type.~class%]Command {
+
+    private org.tura.platform.object.persistence.ObjectLoader mapper;
+     
+     public Loader[%=type.~class%]Command (org.tura.platform.object.persistence.ObjectLoader mapper){
+        this.mapper = mapper;
+     }
+
+
+        public Object execute(  ) throws Exception {
+			java.util.HashMap<String, org.tura.platform.repository.core.Rule> rules = new java.util.HashMap<String, org.tura.platform.repository.core.Rule>();
+			java.util.HashMap<String, Object> context = new java.util.HashMap<String, Object>();
+			Object loadedObject = load( context,rules );
+		    for (org.tura.platform.repository.core.Rule rule:rules.values()){
+			   rule.execute();
+		    }
+			return loadedObject;
+        }
+       [% 
+         var tp = type;
+       %]
+       public [%=tp.~fullName%]  load(java.util.HashMap<String,Object> context,java.util.HashMap<String,org.tura.platform.repository.core.Rule> rules) throws Exception{
+
+        [%=tp.~fullName%] jpa =  mapper.newInstance([%=tp.~fullName%].class );
+        
+        mapper.startObjectLoading( [%=tp.~fullName%].class, jpa);
+
+        [%=addLoadRules(tp,recipe,ingredient,model_mapper)%]
+        
+        [%=stringPK(tp,"key","jpa",tp.~fullName)%]
+        context.put(key.toString(),jpa);
+
+        mapper.endObjectLoading( [%=tp.~fullName%].class, jpa);
+
+         return jpa;
+       }
+     }
+[%     
+@template
+ operation addLoadRules (type,recipe,ingredient,model_mapper){
+         var util = new Native('org.tura.metamodel.commons.Util');
+         var tp = type;
+ 
+         while  (1 == 1) {
+         %]
+          [%=mapperSerializer(tp,type.~skipAttributes,  tp.~fullName, "jpa")%]
+         [%  
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+         }           
+        %]
+ 			  mapper.endPropertiesLoading([%=type.~fullName%].class,jpa);
+        [%         
+         var tp = type;
+         while  (1 == 1) {
+         
+		     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
+		     for (rel in assosiations){
+
+                var serializer = rel.target.~package+".commands.Loader"+rel.target.~class+"Command";
+
+                var hash = rel.sourceSideNamesCalculation();
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]   [%
+		         case "One2Many" : %] jpa.set[%=hash.get("sourceMethodName")%] (  new java.util.ArrayList<[%=hash.get("target").~fullName%]>()); [%
+		         case "Many2Many" : %] jpa.set[%=hash.get("sourceMethodName")%] (  new java.util.ArrayList<[%=hash.get("target").~fullName%]>());  [%
+		         }                
+
+                 var suffix =hash.get("sourceMethodName");
+                 var r = rel.source.~class+rel.type.toString()+rel.target.~class;
+                 r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] if ( mapper.isLoadRelation([%=hash.get("source").~fullName%].class,[%=hash.get("target").~fullName%].class,"[%=hash.get("sourceMethodName")%]","[%=rel.type%]"  ) ) {[%
+		         case "One2Many" : %] while ( mapper.isLoadRelation([%=hash.get("source").~fullName%].class,[%=hash.get("target").~fullName%].class,"[%=hash.get("sourceMethodName")%]","[%=rel.type%]"  ))  {[%
+		         case "Many2Many" : %] while ( mapper.isLoadRelation([%=hash.get("source").~fullName%].class,[%=hash.get("target").~fullName%].class,"[%=hash.get("sourceMethodName")%]","[%=rel.type%]"  ))  {[%
+		         }         
+		                
+                  %]
+                   mapper.startLoadRelation([%=hash.get("source").~fullName%].class,[%=hash.get("target").~fullName%].class,"[%=hash.get("sourceMethodName")%]","[%=rel.type.toString()%]",jpa);
+                 
+                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](mapper); 
+                 [%=hash.get("target").~fullName%] obj[%=suffix%] = cmd[%=suffix%].load(context,rules);
+                  [%=stringPK(hash.get("target"),"key"+hash.get("sourceMethodName"), "obj"+suffix,hash.get("target").~fullName)%]
+                 context.put(key[%=hash.get("sourceMethodName")%].toString(),obj[%=suffix%]);
+
+                 [%=rel.source.~package%].rules.Loader[%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]Rule   [%=r%] = new [%=rel.source.~package%].rules.Loader[%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]Rule();
+                 [%=r%].setSource(jpa);
+                 [%=r%].setTarget(obj[%=suffix%]);
+                 rules.put([%=r%] .getKey(),[%=r%] );
+                 
+                 mapper.endLoadRelation([%=hash.get("source").~fullName%].class,[%=hash.get("target").~fullName%].class,"[%=hash.get("sourceMethodName")%]","[%=rel.type.toString()%]",jpa);
+                 
+                 [%
+
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] }[%
+		         case "One2Many" : %] }[%
+		         case "Many2Many" : %]}[%
+		         }         
+		         
+		     }    
+		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.source.uid <> t.target.uid);
+		     for (rel in assosiations){
+
+                var serializer = rel.source.~package+".commands.Loader"+rel.source.~class+"Command";
+                var hash = rel.targetSideNamesCalculation();
+                var suffix =hash.get("sourceMethodName");
+		         
+		         
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]   [%
+		         case "One2Many" : %] [%
+		         case "Many2Many" : %] jpa.set[%=hash.get("targetMethodName")%] (  new java.util.ArrayList<[%=hash.get("source").~fullName%]>());[%
+		         }                
+
+                 var suffix=hash.get("targetMethodName");
+                 var r = rel.source.~class+rel.type.toString()+rel.target.~class;
+                 r = r.toLowerCase();
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %] if ( mapper.isLoadRelation([%=hash.get("target").~fullName%].class,[%=hash.get("source").~fullName%].class,"[%=hash.get("targetMethodName")%]","[%=rel.type%]"  ))  {  [%
+		         case "One2Many" : %] while ( mapper.isLoadRelation([%=hash.get("target").~fullName%].class,[%=hash.get("source").~fullName%].class,"[%=hash.get("targetMethodName")%]","[%=rel.type%]"  ))  {  [%
+		         case "Many2Many" : %]while ( mapper.isLoadRelation([%=hash.get("target").~fullName%].class,[%=hash.get("source").~fullName%].class,"[%=hash.get("targetMethodName")%]","[%=rel.type%]"  ))  { [%
+		         }         
+		                
+                  %]
+                   mapper.startLoadRelation([%=hash.get("target").~fullName%].class,[%=hash.get("source").~fullName%].class,"[%=hash.get("targetMethodName")%]","[%=rel.type.toString()%]",jpa);
+                 
+                 
+                 [%=serializer%] cmd[%=suffix%] = new [%=serializer%](mapper); 
+                 [%=hash.get("source").~fullName%] obj[%=suffix%] = cmd[%=suffix%].load(context,rules);
+                  [%=stringPK(hash.get("source"),"key"+hash.get("targetMethodName"), "obj"+suffix,hash.get("source").~fullName)%]
+                 context.put(key[%=hash.get("targetMethodName")%].toString(),obj[%=suffix%]);
+
+                 [%=rel.source.~package%].rules.Loader[%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]Rule   [%=r%] = new [%=rel.source.~package%].rules.Loader[%=rel.source.~class%][%=rel.type.toString()%][%=rel.target.~class%]Rule();
+                 [%=r%].setSource(obj[%=suffix%]);
+                 [%=r%].setTarget(jpa);
+                 rules.put([%=r%].getKey(),[%=r%]);
+                 
+                 mapper.endLoadRelation([%=hash.get("target").~fullName%].class,[%=hash.get("source").~fullName%].class,"[%=hash.get("targetMethodName")%]","[%=rel.type.toString()%]",jpa);
+                 
+                 [%
+
+		  	     switch  (rel.type.toString()){
+		         case "One2One" : %]    }[%
+		         case "One2Many" : %] }[%
+		         case "Many2Many" : %] }[%
+		         }         
+		         
+		     }
+		
+            if (tp.~extension.isDefined()){
+               tp = tp.~extension;
+            }else{
+               break;
+            }
+         }  
+}
+
+%]
