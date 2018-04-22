@@ -251,11 +251,6 @@ public class TypeGroupItemProvider
 			(createChildParameter
 				(TypePackage.Literals.TYPE_GROUP__RELATIONSHIPS,
 				 TypeFactory.eINSTANCE.createAssosiation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypePackage.Literals.TYPE_GROUP__RELATIONSHIPS,
-				 TypeFactory.eINSTANCE.createDomainConnector()));
 	}
 
 	/**

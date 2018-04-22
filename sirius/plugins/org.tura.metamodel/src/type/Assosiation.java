@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link type.Assosiation#getType <em>Type</em>}</li>
  *   <li>{@link type.Assosiation#getContainment <em>Containment</em>}</li>
+ *   <li>{@link type.Assosiation#isInternal <em>Internal</em>}</li>
  *   <li>{@link type.Assosiation#getLinks <em>Links</em>}</li>
  *   <li>{@link type.Assosiation#getSourceOperation <em>Source Operation</em>}</li>
  *   <li>{@link type.Assosiation#getTargetOperation <em>Target Operation</em>}</li>
@@ -83,6 +84,32 @@ public interface Assosiation extends Relationship {
 	 * @generated
 	 */
 	void setContainment(Containment value);
+
+	/**
+	 * Returns the value of the '<em><b>Internal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Internal</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Internal</em>' attribute.
+	 * @see #setInternal(boolean)
+	 * @see type.TypePackage#getAssosiation_Internal()
+	 * @model
+	 * @generated
+	 */
+	boolean isInternal();
+
+	/**
+	 * Sets the value of the '{@link type.Assosiation#isInternal <em>Internal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Internal</em>' attribute.
+	 * @see #isInternal()
+	 * @generated
+	 */
+	void setInternal(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Links</b></em>' containment reference list.

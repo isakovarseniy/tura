@@ -66,7 +66,6 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 			case TypePackage.TYPE_POINTER: return createTypePointer();
 			case TypePackage.PACKAGE_POINTER: return createPackagePointer();
 			case TypePackage.ASSOSIATION: return createAssosiation();
-			case TypePackage.DOMAIN_CONNECTOR: return createDomainConnector();
 			case TypePackage.LINK: return createLink();
 			case TypePackage.ATTRIBUTE: return createAttribute();
 			case TypePackage.OPERATION: return createOperation();
@@ -206,16 +205,6 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
 	public Assosiation createAssosiation() {
 		AssosiationImpl assosiation = new AssosiationImpl();
 		return assosiation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DomainConnector createDomainConnector() {
-		DomainConnectorImpl domainConnector = new DomainConnectorImpl();
-		return domainConnector;
 	}
 
 	/**

@@ -466,13 +466,22 @@ public interface TypePackage extends EPackage {
 	int ASSOSIATION__CONTAINMENT = RELATIONSHIP_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Internal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOSIATION__INTERNAL = RELATIONSHIP_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__LINKS = RELATIONSHIP_FEATURE_COUNT + 2;
+	int ASSOSIATION__LINKS = RELATIONSHIP_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Source Operation</b></em>' attribute.
@@ -481,7 +490,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__SOURCE_OPERATION = RELATIONSHIP_FEATURE_COUNT + 3;
+	int ASSOSIATION__SOURCE_OPERATION = RELATIONSHIP_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Target Operation</b></em>' attribute.
@@ -490,7 +499,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__TARGET_OPERATION = RELATIONSHIP_FEATURE_COUNT + 4;
+	int ASSOSIATION__TARGET_OPERATION = RELATIONSHIP_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Many2many Helper</b></em>' containment reference.
@@ -499,7 +508,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION__MANY2MANY_HELPER = RELATIONSHIP_FEATURE_COUNT + 5;
+	int ASSOSIATION__MANY2MANY_HELPER = RELATIONSHIP_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Assosiation</em>' class.
@@ -508,89 +517,7 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOSIATION_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 6;
-
-	/**
-	 * The meta object id for the '{@link type.impl.DomainConnectorImpl <em>Domain Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see type.impl.DomainConnectorImpl
-	 * @see type.impl.TypePackageImpl#getDomainConnector()
-	 * @generated
-	 */
-	int DOMAIN_CONNECTOR = 9;
-
-	/**
-	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_CONNECTOR__CLASSIFIERS = RELATIONSHIP__CLASSIFIERS;
-
-	/**
-	 * The feature id for the '<em><b>Uid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_CONNECTOR__UID = RELATIONSHIP__UID;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_CONNECTOR__SOURCE = RELATIONSHIP__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_CONNECTOR__TARGET = RELATIONSHIP__TARGET;
-
-	/**
-	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_CONNECTOR__LINKS = RELATIONSHIP_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Source Operation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_CONNECTOR__SOURCE_OPERATION = RELATIONSHIP_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Target Operation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_CONNECTOR__TARGET_OPERATION = RELATIONSHIP_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Domain Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_CONNECTOR_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 3;
+	int ASSOSIATION_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link type.impl.LinkImpl <em>Link</em>}' class.
@@ -600,7 +527,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getLink()
 	 * @generated
 	 */
-	int LINK = 10;
+	int LINK = 9;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -646,7 +573,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 11;
+	int ATTRIBUTE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -710,7 +637,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 12;
+	int OPERATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Grants</b></em>' containment reference list.
@@ -783,7 +710,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getPrimitive()
 	 * @generated
 	 */
-	int PRIMITIVE = 13;
+	int PRIMITIVE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -820,7 +747,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 14;
+	int TYPE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -884,7 +811,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getTypeReference()
 	 * @generated
 	 */
-	int TYPE_REFERENCE = 15;
+	int TYPE_REFERENCE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -930,7 +857,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 16;
+	int PARAMETER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -985,7 +912,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getReturnValue()
 	 * @generated
 	 */
-	int RETURN_VALUE = 17;
+	int RETURN_VALUE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Type Ref</b></em>' reference.
@@ -1022,7 +949,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getEnumerator()
 	 * @generated
 	 */
-	int ENUMERATOR = 18;
+	int ENUMERATOR = 17;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1068,7 +995,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getEnumAttribute()
 	 * @generated
 	 */
-	int ENUM_ATTRIBUTE = 19;
+	int ENUM_ATTRIBUTE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Classifiers</b></em>' containment reference list.
@@ -1123,7 +1050,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getMethodPointer()
 	 * @generated
 	 */
-	int METHOD_POINTER = 20;
+	int METHOD_POINTER = 19;
 
 	/**
 	 * The feature id for the '<em><b>Method Ref</b></em>' reference.
@@ -1151,7 +1078,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getAttributePointer()
 	 * @generated
 	 */
-	int ATTRIBUTE_POINTER = 21;
+	int ATTRIBUTE_POINTER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Attribute Ref</b></em>' reference.
@@ -1179,7 +1106,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getRelationType()
 	 * @generated
 	 */
-	int RELATION_TYPE = 22;
+	int RELATION_TYPE = 21;
 
 	/**
 	 * The meta object id for the '{@link type.Containment <em>Containment</em>}' enum.
@@ -1189,7 +1116,7 @@ public interface TypePackage extends EPackage {
 	 * @see type.impl.TypePackageImpl#getContainment()
 	 * @generated
 	 */
-	int CONTAINMENT = 23;
+	int CONTAINMENT = 22;
 
 
 	/**
@@ -1437,6 +1364,17 @@ public interface TypePackage extends EPackage {
 	EAttribute getAssosiation_Containment();
 
 	/**
+	 * Returns the meta object for the attribute '{@link type.Assosiation#isInternal <em>Internal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Internal</em>'.
+	 * @see type.Assosiation#isInternal()
+	 * @see #getAssosiation()
+	 * @generated
+	 */
+	EAttribute getAssosiation_Internal();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link type.Assosiation#getLinks <em>Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1479,49 +1417,6 @@ public interface TypePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAssosiation_Many2manyHelper();
-
-	/**
-	 * Returns the meta object for class '{@link type.DomainConnector <em>Domain Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Domain Connector</em>'.
-	 * @see type.DomainConnector
-	 * @generated
-	 */
-	EClass getDomainConnector();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link type.DomainConnector#getLinks <em>Links</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Links</em>'.
-	 * @see type.DomainConnector#getLinks()
-	 * @see #getDomainConnector()
-	 * @generated
-	 */
-	EReference getDomainConnector_Links();
-
-	/**
-	 * Returns the meta object for the attribute '{@link type.DomainConnector#getSourceOperation <em>Source Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Source Operation</em>'.
-	 * @see type.DomainConnector#getSourceOperation()
-	 * @see #getDomainConnector()
-	 * @generated
-	 */
-	EAttribute getDomainConnector_SourceOperation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link type.DomainConnector#getTargetOperation <em>Target Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Target Operation</em>'.
-	 * @see type.DomainConnector#getTargetOperation()
-	 * @see #getDomainConnector()
-	 * @generated
-	 */
-	EAttribute getDomainConnector_TargetOperation();
 
 	/**
 	 * Returns the meta object for class '{@link type.Link <em>Link</em>}'.
@@ -2130,6 +2025,14 @@ public interface TypePackage extends EPackage {
 		EAttribute ASSOSIATION__CONTAINMENT = eINSTANCE.getAssosiation_Containment();
 
 		/**
+		 * The meta object literal for the '<em><b>Internal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSOSIATION__INTERNAL = eINSTANCE.getAssosiation_Internal();
+
+		/**
 		 * The meta object literal for the '<em><b>Links</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2160,40 +2063,6 @@ public interface TypePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ASSOSIATION__MANY2MANY_HELPER = eINSTANCE.getAssosiation_Many2manyHelper();
-
-		/**
-		 * The meta object literal for the '{@link type.impl.DomainConnectorImpl <em>Domain Connector</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see type.impl.DomainConnectorImpl
-		 * @see type.impl.TypePackageImpl#getDomainConnector()
-		 * @generated
-		 */
-		EClass DOMAIN_CONNECTOR = eINSTANCE.getDomainConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Links</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOMAIN_CONNECTOR__LINKS = eINSTANCE.getDomainConnector_Links();
-
-		/**
-		 * The meta object literal for the '<em><b>Source Operation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOMAIN_CONNECTOR__SOURCE_OPERATION = eINSTANCE.getDomainConnector_SourceOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Target Operation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOMAIN_CONNECTOR__TARGET_OPERATION = eINSTANCE.getDomainConnector_TargetOperation();
 
 		/**
 		 * The meta object literal for the '{@link type.impl.LinkImpl <em>Link</em>}' class.

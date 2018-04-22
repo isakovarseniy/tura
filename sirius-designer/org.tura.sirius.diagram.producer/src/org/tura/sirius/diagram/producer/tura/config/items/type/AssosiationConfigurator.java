@@ -99,6 +99,12 @@ public class AssosiationConfigurator implements EdgeConfigurator {
 		conditionalNANNoAssosiation.setPredicateExpression("service:checkIfNONContainmentNoAssosiation");
 		conditionalNANNoAssosiation.setStyle(getStyleNonContainmentNoAssosiation());
 
+		ConditionalEdgeStyleDescription conditionalInternalAssosiation = DescriptionFactory.eINSTANCE
+				.createConditionalEdgeStyleDescription();
+		conditionalInternalAssosiation.setPredicateExpression("service:checkIfInternalAssosiation");
+		conditionalInternalAssosiation.setStyle(getStyleInternalAssosiation());
+		
+		
 		List<ConditionalEdgeStyleDescription> ls = new ArrayList<>();
 		ls.add(conditionalSrc);
 		ls.add(conditionalTrg);
@@ -106,10 +112,19 @@ public class AssosiationConfigurator implements EdgeConfigurator {
 		ls.add(conditionalSrcNoAssosiation);
 		ls.add(conditionalTrgNoAssosiation);
 		ls.add(conditionalNANNoAssosiation);
+		ls.add(conditionalInternalAssosiation);
 
 		return ls;
 	}
 
+	
+	private EdgeStyleDescription getStyleInternalAssosiation() {
+		EdgeStyleDescription style = getStyleSourceContainment();
+		SystemColor color = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("blue");
+		style.setStrokeColor(color);
+		return style;
+	}
+	
 	private EdgeStyleDescription getStyleSourceContainmentNoAssosiation() {
 		EdgeStyleDescription style = getStyleSourceContainment();
 		SystemColor color = EnvironmentSystemColorFactory.getDefault().getSystemColorDescription("red");

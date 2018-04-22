@@ -44,7 +44,6 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
         obj.setSerializationid(key.toString());
         [%=addLoadRules(tp,recipe,ingredient,t2model,t2view,model_mapper)%]
         [%=addLoadNoAssosiationRules(tp,recipe,ingredient,t2model,t2view,model_mapper)%]
-        [%=addLoadDomainConnectorRules(tp,recipe,ingredient,t2model,t2view,model_mapper)%]
         
          return obj;
        }
@@ -204,55 +203,6 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
             }
          }  
 }
-
-
-@template
- operation addLoadDomainConnectorRules (type,recipe,ingredient,t2model,t2view,model_mapper){
-         var util = new Native('org.tura.metamodel.commons.Util');
-         var tp = type;
-    %] if (repository != null){ 
- 		       java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriterias =  null;
-  		       java.util.ArrayList<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriterias =  null;
-  		       org.tura.platform.datacontrol.commons.SearchCriteria criteria = null;
-  		       org.tura.platform.repository.core.SearchResult result = null;
-    [%
-         while  (1 == 1) {
- 		     var domainConnectors = type::DomainConnector.allInstances()->select(t|t.source.uid = type.uid);
- 		     for (connector in domainConnectors){
- 		     %]
- 		       searchCriterias =  new java.util.ArrayList<org.tura.platform.datacontrol.commons.SearchCriteria>();
-  		       orderCriterias =  new java.util.ArrayList<org.tura.platform.datacontrol.commons.OrderCriteria>();
- 		     [%
- 		         for (lnk in connector.links){
- 		             %]
- 		               criteria = new org.tura.platform.datacontrol.commons.SearchCriteria();
- 		               criteria.setName("[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]");
- 		               criteria.setComparator(com.octo.java.sql.exp.Operator.EQ.name());
- 		               criteria.setValue(jpa.get[%=util.mergeAndCapitalize(lnk.masterField.name)%]());
- 		               searchCriterias.add(criteria);
- 		               try {
-			               result = repository.find(searchCriterias, orderCriterias, 0, -1, "[%=connector.target.~fullName%]");
-			          } catch (org.tura.platform.repository.core.RepositoryException e) {
-			             throw new RuntimeException(e);
-			          }
-			               
-			           if (result.getNumberOfRows()>0){
-			               obj.get[%=connector.target.~class%]().addAll((java.util.Collection<? extends [%=connector.target.~fullName%]>) result.getSearchResult());
-			           }
- 		             [%
- 		     
- 		         }
-		     }
-		
-            if (tp.~extension.isDefined()){
-               tp = tp.~extension;
-            }else{
-               break;
-            }
-         }  
-         %]}[%
-}
-
 
 %]     
  

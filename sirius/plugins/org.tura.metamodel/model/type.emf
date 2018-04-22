@@ -59,18 +59,12 @@ enum Containment {
 class Assosiation extends Relationship{
    attr RelationType type;
    attr Containment containment;
+   attr EBoolean internal;
    val Link[*]  links; 
    attr EString sourceOperation;
    attr EString targetOperation;
    val TypePointer many2manyHelper;
 }
-
-class DomainConnector  extends Relationship{
-   val Link[*]  links; 
-   attr EString sourceOperation;
-   attr EString targetOperation;
-}
-
 
 class Link{
     id attr EString uid;

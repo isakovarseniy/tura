@@ -430,7 +430,11 @@ public class DiagramService {
 	
 	
 	public String generateSourceName(Assosiation assosiation) {
-		if (assosiation.getType().equals(RelationType.MANY2_MANY)) {
+		if (assosiation.getType().equals(RelationType.MANY2_MANY) && assosiation.isInternal() ) {
+			return "Error  !!!!!!!!!!!!!!!!!!";
+		}
+		
+		if (assosiation.getType().equals(RelationType.MANY2_MANY)  ) {
 			return "1..n";
 		} else {
 			return "1";
@@ -438,6 +442,10 @@ public class DiagramService {
 	}
 
 	public String generateTargetName(Assosiation assosiation) {
+		if (assosiation.getType().equals(RelationType.MANY2_MANY) && assosiation.isInternal() ) {
+			return "Error  !!!!!!!!!!!!!!!!!!";
+		}
+
 		if (assosiation.getType().equals(RelationType.ONE2_ONE)) {
 			return "1";
 		} else {
@@ -633,28 +641,51 @@ public class DiagramService {
 	}
 	
 	public boolean checkIfSourcetContainment(Assosiation assosiation){
+		if (assosiation.isInternal() ){
+			return false;
+		}
 		return Containment.SOURCE.equals(assosiation.getContainment())&!checkIfNOAssosiatioin(assosiation);  
 	}
 
 	public boolean checkIfTargetContainment(Assosiation assosiation){
+		if (assosiation.isInternal() ){
+			return false;
+		}
 		return Containment.TARGET.equals(assosiation.getContainment())&!checkIfNOAssosiatioin(assosiation);  
 	}
 	
 	public boolean checkIfNONContainment(Assosiation assosiation){
+		if (assosiation.isInternal() ){
+			return false;
+		}
 		return Containment.NON.equals(assosiation.getContainment())&!checkIfNOAssosiatioin(assosiation);  
 	}
 	
 	
 	public boolean checkIfSourcetContainmentNoAssosiation(Assosiation assosiation){
+		if (assosiation.isInternal() ){
+			return false;
+		}
 		return Containment.SOURCE.equals(assosiation.getContainment())&checkIfNOAssosiatioin(assosiation);  
 	}
 
 	public boolean checkIfTargetContainmentNoAssosiation(Assosiation assosiation){
+		if (assosiation.isInternal() ){
+			return false;
+		}
 		return Containment.TARGET.equals(assosiation.getContainment())&checkIfNOAssosiatioin(assosiation);  
 	}
 	
 	public boolean checkIfNONContainmentNoAssosiation(Assosiation assosiation){
+		if (assosiation.isInternal() ){
+			return false;
+		}
 		return Containment.NON.equals(assosiation.getContainment())&checkIfNOAssosiatioin(assosiation);  
+	}	
+	
+
+	public boolean checkIfInternalAssosiation(Assosiation assosiation){
+		return assosiation.isInternal();  
 	}	
 	
 	

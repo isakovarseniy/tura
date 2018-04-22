@@ -156,13 +156,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass domainConnectorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass linkEClass = null;
 
 	/**
@@ -564,8 +557,17 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAssosiation_Internal() {
+		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getAssosiation_Links() {
-		return (EReference)assosiationEClass.getEStructuralFeatures().get(2);
+		return (EReference)assosiationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -574,15 +576,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * @generated
 	 */
 	public EAttribute getAssosiation_SourceOperation() {
-		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAssosiation_TargetOperation() {
 		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -591,44 +584,17 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAssosiation_TargetOperation() {
+		return (EAttribute)assosiationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getAssosiation_Many2manyHelper() {
-		return (EReference)assosiationEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDomainConnector() {
-		return domainConnectorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDomainConnector_Links() {
-		return (EReference)domainConnectorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDomainConnector_SourceOperation() {
-		return (EAttribute)domainConnectorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDomainConnector_TargetOperation() {
-		return (EAttribute)domainConnectorEClass.getEStructuralFeatures().get(2);
+		return (EReference)assosiationEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1014,15 +980,11 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		assosiationEClass = createEClass(ASSOSIATION);
 		createEAttribute(assosiationEClass, ASSOSIATION__TYPE);
 		createEAttribute(assosiationEClass, ASSOSIATION__CONTAINMENT);
+		createEAttribute(assosiationEClass, ASSOSIATION__INTERNAL);
 		createEReference(assosiationEClass, ASSOSIATION__LINKS);
 		createEAttribute(assosiationEClass, ASSOSIATION__SOURCE_OPERATION);
 		createEAttribute(assosiationEClass, ASSOSIATION__TARGET_OPERATION);
 		createEReference(assosiationEClass, ASSOSIATION__MANY2MANY_HELPER);
-
-		domainConnectorEClass = createEClass(DOMAIN_CONNECTOR);
-		createEReference(domainConnectorEClass, DOMAIN_CONNECTOR__LINKS);
-		createEAttribute(domainConnectorEClass, DOMAIN_CONNECTOR__SOURCE_OPERATION);
-		createEAttribute(domainConnectorEClass, DOMAIN_CONNECTOR__TARGET_OPERATION);
 
 		linkEClass = createEClass(LINK);
 		createEAttribute(linkEClass, LINK__UID);
@@ -1111,7 +1073,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		referencesEClass.getESuperTypes().add(this.getRelationship());
 		generalizationEClass.getESuperTypes().add(this.getRelationship());
 		assosiationEClass.getESuperTypes().add(this.getRelationship());
-		domainConnectorEClass.getESuperTypes().add(this.getRelationship());
 		attributeEClass.getESuperTypes().add(this.getTypePointer());
 		attributeEClass.getESuperTypes().add(theArtifactPackage.getCategorized());
 		operationEClass.getESuperTypes().add(thePermissionPackage.getSecured());
@@ -1158,15 +1119,11 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 		initEClass(assosiationEClass, Assosiation.class, "Assosiation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAssosiation_Type(), this.getRelationType(), "type", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssosiation_Containment(), this.getContainment(), "containment", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssosiation_Internal(), ecorePackage.getEBoolean(), "internal", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssosiation_Links(), this.getLink(), null, "links", null, 0, -1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssosiation_SourceOperation(), ecorePackage.getEString(), "sourceOperation", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssosiation_TargetOperation(), ecorePackage.getEString(), "targetOperation", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssosiation_Many2manyHelper(), this.getTypePointer(), null, "many2manyHelper", null, 0, 1, Assosiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(domainConnectorEClass, DomainConnector.class, "DomainConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDomainConnector_Links(), this.getLink(), null, "links", null, 0, -1, DomainConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDomainConnector_SourceOperation(), ecorePackage.getEString(), "sourceOperation", null, 0, 1, DomainConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDomainConnector_TargetOperation(), ecorePackage.getEString(), "targetOperation", null, 0, 1, DomainConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLink_Uid(), ecorePackage.getEString(), "uid", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

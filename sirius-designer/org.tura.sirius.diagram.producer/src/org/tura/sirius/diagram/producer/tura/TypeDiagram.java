@@ -6,7 +6,6 @@ import java.util.List;
 import org.tura.sirius.diagram.producer.tura.config.items.type.AssosiationConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.type.AttributeConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.type.AttributesConfigurator;
-import org.tura.sirius.diagram.producer.tura.config.items.type.DomainConnectorConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.type.EnumValueConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.type.EnumValuesConfigurator;
 import org.tura.sirius.diagram.producer.tura.config.items.type.EnumeratorConfigurator;
@@ -38,8 +37,6 @@ public class TypeDiagram {
 		tEdge e = AssosiationConfigurator.create();
 		list.add(e);
 
-		e = DomainConnectorConfigurator.create();
-		list.add(e);
 
 		e = GeneralizationConfigurator.create();
 		list.add(e);
@@ -54,7 +51,6 @@ public class TypeDiagram {
 		nodeToolSection.addChildrens(TypeReferenceConfigurator.getTools());
 
 		tToolSection edgeToolSection = new tToolSection("Connections");
-		edgeToolSection.addChildrens(DomainConnectorConfigurator.getTools());
 		edgeToolSection.addChildrens(AssosiationConfigurator.getTools());
 		edgeToolSection.addChildrens(GeneralizationConfigurator.getTools());
 		list.add(edgeToolSection);
