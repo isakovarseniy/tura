@@ -34,6 +34,10 @@ public interface ObjectControl {
 	
 	String getKey();
 	
+    RepoObjectKey getPrmaryKey() throws Exception;
+
+    RepoKeyPath getPath() throws Exception;
+
 	Map<String,Object> getAttributes();
 	
 	void addListener( ProxyObjectUpdateListener listener);

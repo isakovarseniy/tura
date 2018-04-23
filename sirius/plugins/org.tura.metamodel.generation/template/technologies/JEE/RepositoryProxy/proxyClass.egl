@@ -88,6 +88,51 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 		  return key.toString();
       }
     
+       public org.tura.platform.repository.core.RepoObjectKey getPrmaryKey() throws Exception{
+          org.tura.platform.repository.core.RepoObjectKey key = new  org.tura.platform.repository.core.RepoObjectKey();
+          key.setType("[%=tp.~fullName%]");
+		  [%for ( field in tp.~primaryKey){%]
+ 		   if (getWrappedObject().get[%=util.mergeAndCapitalize(field.name)%]() == null){
+ 		       throw new Exception("Object primary key [%=field.name%]  is null");
+ 		   }else{
+		   [%
+		     field.typeRef.mappingType2Java(recipe,ingredient);
+		   %]
+ 		   org.tura.platform.repository.core.FieldValue value = new org.tura.platform.repository.core.FieldValue("[%=util.mergeAndCapitalize(field.name)%]","[%=field.typeRef.~fullName%]",getWrappedObject().get[%=util.mergeAndCapitalize(field.name)%]().toString());
+		   key.addValue(value);
+		   }
+		   [%}%]
+
+		  return key;
+      }
+    
+      public org.tura.platform.repository.core.RepoKeyPath getPath() throws Exception{
+      [%
+	     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.target.uid <> t.source.uid and t.internal);
+         if (assosiations.size() <> 0){
+	          for (rel in assosiations){
+			     var hash = rel.targetSideNamesCalculation();
+			     %]
+	              if (get[%=hash.get("targetMethodName")%]() != null){
+	                 org.tura.platform.repository.core.RepoKeyPath path = ((org.tura.platform.repository.core.ObjectControl) get[%=hash.get("targetMethodName")%]()).getPath();   
+                     path.addRepoObjectKey("[%=hash.get("sourceMethodName")%]" ,getPrmaryKey());
+                     return path;
+	              }		     
+			     [%
+	         }
+	         %]
+	           throw new Exception ("Object is not connected to the parent object");
+	         [%
+	         
+         }else{
+         %]
+           org.tura.platform.repository.core.RepoKeyPath path = new org.tura.platform.repository.core.RepoKeyPath ();
+           path.addRepoObjectKey(null,getPrmaryKey());
+           return path;
+         [%
+         }
+      %]
+      }
     
     @Override
     public String toString(){
