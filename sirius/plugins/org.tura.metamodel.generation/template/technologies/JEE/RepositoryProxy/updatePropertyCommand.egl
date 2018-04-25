@@ -16,16 +16,16 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
  
  
 	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
-  	private [%=type.~fullName%] [%=util.mergeAndCapitalize(type.~class)%];
+  	private [%=type.~package%].[%=type.~class%]Proxy [%=util.mergeAndUnCapitalize(type.~class)%];
 	private	[%=type.~package%].Update[%=type.~class%]Data data = new [%=type.~package%].Update[%=type.~class%]Data();
 
 
   	public [%=type.~fullName%] get[%=type.~class%]() {
-		return [%=util.mergeAndCapitalize(type.~class)%];
+		return [%=util.mergeAndUnCapitalize(type.~class)%];
 	}
  
- 	public void set[%=type.~class%]([%=type.~fullName%] [%=util.mergeAndCapitalize(type.~class)%]) {
-		this.[%=util.mergeAndCapitalize(type.~class)%] = [%=util.mergeAndCapitalize(type.~class)%];
+ 	public void set[%=type.~class%]([%=type.~package%].[%=type.~class%]Proxy [%=util.mergeAndUnCapitalize(type.~class)%]) {
+		this.[%=util.mergeAndUnCapitalize(type.~class)%] = [%=util.mergeAndUnCapitalize(type.~class)%];
 	}
  
  	public org.tura.platform.repository.proxy.ProxyCommadStackProvider getStackProvider() {
@@ -62,13 +62,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
         }
 %]	  	
   	  if (isUpdated){
-		[%
-	      for (pk in type.~primaryKey){ 
-	      %]
-	      data.set[%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndCapitalize(type.~class)%].get[%=util.mergeAndCapitalize(pk.name)%]());
-	      [%
-	      }
-		%]
+	    data.set[%=util.mergeAndCapitalize(type.~class)%]Pk ([%=util.mergeAndUnCapitalize(type.~class)%].getPath());
 		stackProvider.addCommand(data);
   	  }
   	  return isUpdated;

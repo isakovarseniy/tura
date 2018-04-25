@@ -22,6 +22,13 @@
 			<jxb:javaType name="java.util.UUID" parseMethod="org.acme.foo.UuidConverter.parse" printMethod="org.acme.foo.UuidConverter.print"/>
 		</jxb:bindings>        
 	</jxb:bindings>          
+
+	<jxb:bindings  schemaLocation="../xsd/extension.xsd" >
+		<jxb:bindings  node="//xs:simpleType[@name='key']">
+			<jxb:javaType name="org.tura.platform.repository.core.RepoKeyPath" parseMethod="org.acme.foo.RepoKeyPathConverter.parse" printMethod="org.acme.foo.RepoKeyPathConverter.print"/>
+		</jxb:bindings>        
+	</jxb:bindings>          
+
         
                              
 </jxb:bindings>

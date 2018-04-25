@@ -23,45 +23,25 @@ package [%=masterType.~package%].proxy.commands;
 
 public class [%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Command implements org.tura.platform.repository.proxy.ProxyRepositoryCommand{
 
- 	private [%=detailType.~fullName%] [%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%];
+ 	private [%=masterType.~package%].[%=masterType.~class%]Proxy   [%=util.mergeAndUnCapitalize(masterType.~class)%];
+ 	private [%=detailType.~package%].[%=detailType.~class%]Proxy [%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%];
 
 	private org.tura.platform.repository.proxy.ProxyCommadStackProvider stackProvider;
 
-[%
-        if (noAssosiation){
-	        for ( lnk in rel.links){
-	            var attr = lnk.masterField;
-			    attr.typeRef.mappingType2Java(recipe,ingredient);
-			%]
-			private [%=attr.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(attr.name)%];
-			public [%=attr.typeRef.~fullName%]  get[%=util.mergeAndCapitalize(masterType.~class)%][%=util.mergeAndCapitalize(attr.name)%](){
-			    return [%=util.mergeAndUnCapitalize(attr.name)%];
-			}
-			
-			public void set[%=util.mergeAndCapitalize(masterType.~class)%][%=util.mergeAndCapitalize(attr.name)%]( [%=attr.typeRef.~fullName%]   [%=util.mergeAndUnCapitalize(attr.name)%]){
-			    this.[%=util.mergeAndUnCapitalize(attr.name)%]=[%=util.mergeAndUnCapitalize(attr.name)%];
-			}
-			[%    
-        }
-        }else{
-   %]
- 	private [%=masterType.~fullName%] [%=util.mergeAndUnCapitalize(masterType.~class)%];
-
-    public void set[%=util.mergeAndCapitalize(masterType.~class)%]([%=masterType.~fullName%] [%=util.mergeAndUnCapitalize(masterType.~class)%]){
+    public void set[%=util.mergeAndCapitalize(masterType.~class)%]([%=masterType.~package%].[%=masterType.~class%]Proxy [%=util.mergeAndUnCapitalize(masterType.~class)%]){
        this.[%=util.mergeAndUnCapitalize(masterType.~class)%] = [%=util.mergeAndUnCapitalize(masterType.~class)%];
     }
    
-    public [%=masterType.~fullName%] get[%=util.mergeAndCapitalize(masterType.~class)%](){
+    public [%=masterType.~package%].[%=masterType.~class%]Proxy get[%=util.mergeAndCapitalize(masterType.~class)%](){
         return [%=util.mergeAndUnCapitalize(masterType.~class)%];
     }
-   [%     
-        }
-%]
-    public void set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%]([%=detailType.~fullName%] [%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%]){
+
+
+    public void set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%]([%=detailType.~package%].[%=detailType.~class%]Proxy [%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%]){
        this.[%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%] = [%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%];
     }
    
-    public [%=detailType.~fullName%] get[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](){
+    public [%=detailType.~package%].[%=detailType.~class%]Proxy get[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](){
         return [%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%];
     }
 
@@ -75,42 +55,6 @@ public class [%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]
 	}
  
  	public boolean prepare() throws Exception{
-[%
-
-        if (not noAssosiation){
-
-%]
- 	   if ([%=util.mergeAndUnCapitalize(masterType.~class)%] == null ){
- 	     return false;
- 	   }
- 	   
- 	   if ([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%] == null ){
- 	     return false;
- 	   }
-
-[%}else{
-           %] boolean b = true;  [%
-	        for ( lnk in rel.links){
-	            var attr = lnk.masterField;
-			%]
-			b = b& ([%=util.mergeAndUnCapitalize(attr.name)%] == null);
-			[%    
-        }
-
-%]
- 	   if (b ){
- 	     return false;
- 	   }
- 	   
- 	   if ([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%] == null ){
- 	     return false;
- 	   }
-
-[%
-}
-%] 	   
- 	   
-
        [%=cmdtype.toLowerCase()%]();
        return true;
 
@@ -140,14 +84,12 @@ operation  containtmentRelation ( masterType, detailType,property,recipe,ingredi
       var util = new Native('org.tura.metamodel.commons.Util');
       %]
       [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data data = new [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data();
-          [%
-	      for (pk in masterType.~primaryKey){ 
-		    pk.typeRef.mappingType2Java(recipe,ingredient);
-		    %] 
-		    data.set[%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndUnCapitalize(masterType.~class)%].get[%=util.mergeAndCapitalize(pk.name)%]());
-	      [%}%]
+
+		 data.set[%=util.mergeAndCapitalize(masterType.~class)%]Pk([%=util.mergeAndUnCapitalize(masterType.~class)%].getPath());
+
+
 	     com.rits.cloning.Cloner c = new com.rits.cloning.Cloner();
-		 [%=detailType.~fullName%] cloned = c.deepClone([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%]);
+		 [%=detailType.~fullName%] cloned = c.deepClone([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%].getWrappedObject());
          data.set[%=util.mergeAndCapitalize(detailType.name)%][%=suffix%](cloned);
          
 		stackProvider.addCommand(data);
@@ -162,19 +104,9 @@ operation  nonContaintmentRelation ( masterType, detailType,property,recipe,ingr
      var util = new Native('org.tura.metamodel.commons.Util');
     %]
       [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data data = new [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]On[%=util.mergeAndCapitalize(property)%]Data();
-           [%
-	      for (pk in masterType.~primaryKey){ 
-		    pk.typeRef.mappingType2Java(recipe,ingredient);
-		    %] 
-		    data.set[%=util.mergeAndCapitalize(masterType.name)%][%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndUnCapitalize(masterType.~class)%].get[%=util.mergeAndCapitalize(pk.name)%]());
-	      [%}%]
+		    data.set[%=util.mergeAndCapitalize(masterType.~class)%]Pk([%=util.mergeAndUnCapitalize(masterType.~class)%].getPath());
  
-           [%
-	      for (pk in detailType.~primaryKey){ 
-		    pk.typeRef.mappingType2Java(recipe,ingredient);
-		    %] 
-		    data.set[%=util.mergeAndCapitalize(detailType.name)%][%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%].get[%=util.mergeAndCapitalize(pk.name)%]());
-	      [%}%]
+		    data.set[%=util.mergeAndCapitalize(detailType.name)%][%=suffix%]Pk([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%].getPath());
  
 		stackProvider.addCommand(data);
      
@@ -187,18 +119,9 @@ operation noAssosiationtRelation ( masterType, detailType,property,recipe,ingred
      var util = new Native('org.tura.metamodel.commons.Util');
     %]
       [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data data = new [%=masterType.~package%].[%=cmdtype%][%=detailType.~class%][%=hyphen%][%=masterType.~class%]OnNoAssosiation[%=util.mergeAndCapitalize(property)%]Data();
-           [%
-	        for ( lnk in rel.links){
-		    %] 
-		    data.set[%=util.mergeAndCapitalize(masterType.name)%][%=util.mergeAndCapitalize(lnk.masterField.name)%]([%=util.mergeAndUnCapitalize(lnk.masterField.name)%]);
-	      [%}%]
+		    data.set[%=util.mergeAndCapitalize(masterType.name)%]Pk([%=util.mergeAndUnCapitalize(masterType.~class)%].getPath());
  
-           [%
-	      for (pk in detailType.~primaryKey){ 
-		    pk.typeRef.mappingType2Java(recipe,ingredient);
-		    %] 
-		    data.set[%=util.mergeAndCapitalize(detailType.name)%][%=util.mergeAndCapitalize(pk.name)%]([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%].get[%=util.mergeAndCapitalize(pk.name)%]());
-	      [%}%]
+		    data.set[%=util.mergeAndCapitalize(detailType.name)%][%=suffix%]Pk([%=util.mergeAndUnCapitalize(detailType.~class)%][%=suffix%].getPath());
  
 		stackProvider.addCommand(data);
 		

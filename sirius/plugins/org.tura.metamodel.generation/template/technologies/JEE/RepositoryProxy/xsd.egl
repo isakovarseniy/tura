@@ -6,7 +6,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElem
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
-import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/xsdCommands.egl";
 
  ${percent}${end}
  [%
@@ -106,7 +105,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
        }
       }
       
-      %][%=commandData (recipe,ingredient,targetnamespace,fullHash,returnHash,model_mapper,typeCollection)%][%
 
 operation getNamespace(namespace,targetNamespace,fullHash,returnHash){
   var util = new Native('org.tura.metamodel.commons.Util');

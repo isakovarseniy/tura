@@ -1,0 +1,24 @@
+package org.acme.foo;
+
+import org.codehaus.jackson.map.ObjectMapper;
+import org.tura.platform.repository.core.RepoKeyPath;
+
+public class RepoKeyPathConverter {
+    public static RepoKeyPath parse(String xmlValue) {
+    	try{
+    	ObjectMapper mapper = new ObjectMapper();
+    	return mapper.readValue(xmlValue, RepoKeyPath.class);
+    	}catch(Exception e){
+    		throw new RuntimeException(e);
+    	}
+    }
+
+    public static String print(RepoKeyPath value) {
+    	try{
+    	ObjectMapper mapper = new ObjectMapper();
+    	return mapper.writeValueAsString(value);
+    	}catch(Exception e){
+    		throw new RuntimeException(e);
+    	}
+    }
+}

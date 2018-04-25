@@ -1763,12 +1763,6 @@
                             <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="JPA test package"/>
                           </queries>
                         </mappers>
-                        <mappers uid="78c30414-5e18-4764-b90f-e971b209187c" artifactRef="c50ac7ac-fd3a-4f87-8cfd-0553fbd88407" name="Repository proxy command">
-                          <queries uid="22cd2b39-04f1-4ae5-8843-d91b76195387" name="Query package for classes" queryRef="ee3f89fb-6e9e-46bd-b407-e340472a5778">
-                            <variables queryParamRef="60d5d7fc-5e66-47b4-889b-543c10ca0879" value="Testing repository"/>
-                            <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="JPA test package"/>
-                          </queries>
-                        </mappers>
                         <mappers uid="9bb17021-f9c5-4a40-985b-cdc28bf9679f" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Repository proxy build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-repository-proxy/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="3c1f4466-b2b7-4e1b-8061-e96d9b4fea3e"/>

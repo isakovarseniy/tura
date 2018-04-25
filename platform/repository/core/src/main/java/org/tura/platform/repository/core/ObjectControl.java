@@ -29,7 +29,9 @@ import org.tura.platform.repository.proxy.ProxyObjectUpdateListener;
 public interface ObjectControl {
 	
 	Boolean getAttached();
-	
+
+	void setAttached(Boolean attached);
+
 	Object getWrappedObject();
 	
 	String getKey();

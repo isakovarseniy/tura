@@ -24,6 +24,8 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 %]
 {
 
+	private static final long serialVersionUID = 1L;
+
     private [%=tp.~fullName%] object;
     private java.util.Map <String,Object> attributes = new java.util.HashMap<String,Object>();
     private java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>  listeners= new java.util.ArrayList<org.tura.platform.repository.proxy.ProxyObjectUpdateListener>();
@@ -191,11 +193,12 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 					     notifyListner(this,"[%=util.mergeAndUnCapitalize(field.name)%]");
 			            return;
 			    	}
-			    	[%=tp.~package%].proxy.commands.Update[%=tp.~class%]Command command = new [%=tp.~package%].proxy.commands.Update[%=tp.~class%]Command();
+			    	org.tura.platform.repository.operation.UpdateObjectOperation command = new org.tura.platform.repository.operation.UpdateObjectOperation();
 			
-			        command.set[%=tp.~class%](object);
-			        command.setNew[%=util.mergeAndCapitalize(field.name)%]Value([%=util.mergeAndUnCapitalize(field.name)%]);
-			        command.setOld[%=util.mergeAndCapitalize(field.name)%]Value(object.get[%=util.mergeAndCapitalize(field.name)%]());
+			        command.setProxy(this);
+			        command.setNewValue([%=util.mergeAndUnCapitalize(field.name)%]);
+			        command.setOldValue(object.get[%=util.mergeAndCapitalize(field.name)%]());
+			        command.setProperty("[%=util.mergeAndCapitalize(field.name)%]");
 			        command.setStackProvider(stackProvider);
 			        if (command.prepare()){
 			            object.set[%=util.mergeAndCapitalize(field.name)%]([%=util.mergeAndUnCapitalize(field.name)%]);
@@ -315,6 +318,11 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
         suffix="Detail";
      }
 
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
+
      hash = self.sourceSideNamesCalculation();
      var util = new Native('org.tura.metamodel.commons.Util');
      
@@ -344,18 +352,17 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 	            return;
 	   	    }
 	   	    
-	    	[%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
-	
-	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
-	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object.get[%=hash.get("sourceMethodName")%]());
+	   	    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+	    	command.setMaster(this);
+	        command.setDetail(  ([%=hash.get("target").~fullName%]Proxy)   (this.get[%=hash.get("sourceMethodName")%]()));
 		    command.setStackProvider(stackProvider);
 	        command.prepare();
 	        
 	          if ([%=hash.get("sourceProperty")%] != null){
-		    	[%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	          	org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
 		
-		    	command2.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
-		        command2.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
+		    	command2.setMaster(this);
+		        command2.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
 		        command2.setStackProvider(stackProvider);
 		
 		        if (command2.prepare()){
@@ -391,6 +398,10 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
      if (masterType.~class == detailType.~class ){
         suffix="Detail";
      }
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
      
 
      hash = self.sourceSideNamesCalculation();
@@ -413,7 +424,7 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
 	    	            return;
 	    	    	}
 	    	    	
-	                [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	          	    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
 	    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
 	    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
 		            command.setStackProvider(stackProvider);
@@ -435,8 +446,7 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
 	    	            return object.get[%=hash.get("sourceMethodName")%]().remove(index);
 	    	    	}
 	    	    	
-	    	      [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
-	
+	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
 	    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
 	    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object.get[%=hash.get("sourceMethodName")%]().get(index));
 		            command.setStackProvider(stackProvider);
@@ -505,6 +515,10 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
      if (masterType.~class == detailType.~class ){
         suffix="Detail";
      }
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
      
 
      hash = self.sourceSideNamesCalculation();
@@ -527,7 +541,7 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
 	    	            return;
 	    	    	}
 	    	    	
-	                [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	          	    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
 	    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
 	    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%]((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]).getWrappedObject());
 		            command.setStackProvider(stackProvider);
@@ -550,8 +564,7 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
 	    	            return m;
 	    	    	}
 	    	    	
-	    	      [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
-	
+	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
 	    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
 	    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object.get[%=hash.get("sourceMethodName")%]().get(index));
 		            command.setStackProvider(stackProvider);
@@ -604,6 +617,12 @@ operation type::Assosiation one2oneTrgNo(recipe,ingredient,model_mapper){
      if (masterType.~class == detailType.~class ){
         suffix="Detail";
      }
+     
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
+     
      masterType.mappingType2Java(recipe,ingredient);
      detailType.mappingType2Java(recipe,ingredient);
 
@@ -648,7 +667,7 @@ operation type::Assosiation one2oneTrgNo(recipe,ingredient,model_mapper){
 				    	is[%=util.mergeAndCapitalize(nk.detailField.name)%] = false;
 		              [%}%]
 	
-				      [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	   	             org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
 				      [%
 		               for (nk in self.links){
 				      %]
@@ -662,7 +681,7 @@ operation type::Assosiation one2oneTrgNo(recipe,ingredient,model_mapper){
 				        
 				        if ([%=util.mergeAndUnCapitalize(lnk.detailField.name)%] != null){
 	
-					      [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	          	          org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
 	                      command2.setStackProvider(stackProvider);
 					      [%
 			               for (nk in self.links){
@@ -700,6 +719,10 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
      if (masterType.~class == detailType.~class ){
         suffix="Detail";
      }
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
 
      hash = self.targetSideNamesCalculation();
      var util = new Native('org.tura.metamodel.commons.Util');
@@ -731,18 +754,17 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 		            return;
 		   	    }
 		   	    
-		    	[%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
-		
-		    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
-		        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object.get[%=hash.get("targetMethodName")%]());
+	   	        org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+		    	command.setMaster(this);
+		        command.setDetail(([%=hash.get("source").~fullName%]Proxy)(this.get[%=hash.get("targetMethodName")%]()));
 			    command.setStackProvider(stackProvider);
 		        command.prepare();
 		
 		           if ([%=hash.get("targetProperty")%] != null){
-			    	[%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	          	    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
 			
-			    	command2.set[%=util.mergeAndCapitalize(masterType.~class)%](object);
-			        command2.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%]((([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+			    	command2.setMaster(this);
+			        command2.setDetail((([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]));
 			        command2.setStackProvider(stackProvider);
 			
 			        if (command2.prepare()){
@@ -778,6 +800,12 @@ operation type::Assosiation one2manyTrgNo(recipe,ingredient,model_mapper){
      if (masterType.~class == detailType.~class ){
         suffix="Detail";
      }
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
+     
+     
      masterType.mappingType2Java(recipe,ingredient);
      detailType.mappingType2Java(recipe,ingredient);
 
@@ -822,7 +850,7 @@ operation type::Assosiation one2manyTrgNo(recipe,ingredient,model_mapper){
 			    	is[%=util.mergeAndCapitalize(nk.detailField.name)%] = false;
 	              [%}%]
 
-			      [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	   	         org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
 			      [%
 	               for (nk in self.links){
 			      %]
@@ -834,7 +862,7 @@ operation type::Assosiation one2manyTrgNo(recipe,ingredient,model_mapper){
 			        command.setStackProvider(stackProvider);
 			        command.prepare();
 
-				      [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command2 = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	          	      org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
 			          command2.setStackProvider(stackProvider);
 				      [%
 		               for (nk in self.links){
@@ -871,6 +899,10 @@ operation type::Assosiation one2manyTrgRel(recipe,ingredient,model_mapper){
         suffix="Detail";
      }
      
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
 
      hash = self.targetSideNamesCalculation();
      var util = new Native('org.tura.metamodel.commons.Util');
@@ -907,6 +939,10 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
      if (masterType.~class == detailType.~class ){
         suffix="Detail";
      }
+     var containment = "";
+     if (hash.get("containment")){
+        containment = "Containment";
+     }
      
 
      hash = self.targetSideNamesCalculation();
@@ -931,7 +967,7 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
 		    	            return;
 		    	    	}
 		    	    	
-		                [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Add[%=util.mergeAndCapitalize(detailType.~class )%]2[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
+	          	        org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
 		    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%]([%=hash.get("targetProperty")%]);
 		    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object);
 			            command.setStackProvider(stackProvider);
@@ -954,8 +990,7 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
 	    	            return m;
 	    	    	}
 	    	    	
-	    	      [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command command = new [%=masterType.~package%].proxy.commands.Remove[%=util.mergeAndCapitalize(detailType.~class )%]From[%=util.mergeAndCapitalize(masterType.~class )%]On[%=util.mergeAndCapitalize(property)%]Command();
-	
+	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
 	    	    	command.set[%=util.mergeAndCapitalize(masterType.~class)%](object.get[%=hash.get("targetMethodName")%]().get(index));
 	    	        command.set[%=util.mergeAndCapitalize(detailType.~class)%][%=suffix%](object);
 		            command.setStackProvider(stackProvider);

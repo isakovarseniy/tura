@@ -100,5 +100,14 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	    
 	    util.saveFile( path, "UuidConverter.java",buffer);   
 
+
+	    var repoKeyPathAdapter : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/repoKeyPathAdapter.egl",hash,TemplateFactory);
+	    repoKeyPathAdapter.setFormatter(f);
+	    var buffer = repoKeyPathAdapter.process();
+	    
+	    util.saveFile( path, "RepoKeyPathConverter.java",buffer);   
+
+
+
    }
 %]
