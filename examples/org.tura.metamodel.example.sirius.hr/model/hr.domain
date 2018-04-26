@@ -380,15 +380,6 @@
             <hints uid="6cdbc067-4aee-4749-bfcc-026a8eb9a1ed" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
             <hints uid="31c5ffec-212d-455b-b2ff-2b5f104b7400" name="Serializable Object" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
           </artifacts>
-          <artifacts uid="c50ac7ac-fd3a-4f87-8cfd-0553fbd88407" name="Repository Proxy command" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/RepositoryProxy/mainProxyCommands.egl">
-            <configVariables uid="f56445bd-33c0-4e52-b81d-8571b41b8036" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="ee3f89fb-6e9e-46bd-b407-e340472a5778" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
-              <parameters uid="60d5d7fc-5e66-47b4-889b-543c10ca0879" name="Repository"/>
-              <parameters uid="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" name="Package"/>
-            </modelQuery>
-            <hints uid="617b5798-0fc2-4e26-a63d-57d70c3826a2" name="No Assosiation" hint="b9361b9f-0c27-4f3f-af14-485d0dd5bc05"/>
-            <hints uid="429f1867-3c07-449e-81de-f0c529fec44b" name="Serializable Object" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
-          </artifacts>
         </artifactPackages>
         <artifactPackages uid="7cb48e41-65d4-45d5-b623-dcaafe6eef0b" name="REST artifacts">
           <artifacts uid="bdb0ab57-4a80-47af-b1f9-9faf4ecbbe27" name="RESTEasy JBOSS deployment descriptor" description="" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Application_server/RedHat-EAP.v7.0.0/REST/RESTEasy/mainDeploymentDescriptor.egl"/>
@@ -1925,12 +1916,6 @@
                             <variables queryParamRef="cbba536e-3b02-44dc-8a9b-2fdec45575c6" value="Complex model"/>
                           </queries>
                         </mappers>
-                        <mappers uid="38d77645-5ad5-4084-95a5-7aa776441b06" artifactRef="c50ac7ac-fd3a-4f87-8cfd-0553fbd88407" name="Repository proxy command">
-                          <queries uid="80612288-f3d0-4edb-b07c-f831640d3b7d" name="Query package for classes" queryRef="ee3f89fb-6e9e-46bd-b407-e340472a5778">
-                            <variables queryParamRef="60d5d7fc-5e66-47b4-889b-543c10ca0879" value="HR domain"/>
-                            <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="Complex model"/>
-                          </queries>
-                        </mappers>
                         <mappers uid="fe64fe3d-01a1-4fee-8ede-fb189d23ee47" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Complex model repository proxy builder">
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="d9e3a392-75f8-4c7f-a64d-b783675fcd26"/>
@@ -2012,12 +1997,6 @@
                           <queries uid="23b03381-1ed5-43af-bfe6-0d1892a31632" name="Query package for classes" queryRef="69662b7f-94e7-4dbf-946a-a717aeb29210">
                             <variables queryParamRef="52de4dda-86be-4a4d-a3ce-0d093cf014b2" value="HR domain"/>
                             <variables queryParamRef="cbba536e-3b02-44dc-8a9b-2fdec45575c6" value="Simple model"/>
-                          </queries>
-                        </mappers>
-                        <mappers uid="96bdb4e8-d85c-4cdf-8e79-38280a5b261b" artifactRef="c50ac7ac-fd3a-4f87-8cfd-0553fbd88407" name="Repository proxy command">
-                          <queries uid="4c069074-b9fd-48d8-81a3-5597105bba19" name="Query package for classes" queryRef="ee3f89fb-6e9e-46bd-b407-e340472a5778">
-                            <variables queryParamRef="60d5d7fc-5e66-47b4-889b-543c10ca0879" value="HR domain"/>
-                            <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="Simple model"/>
                           </queries>
                         </mappers>
                         <mappers uid="6d5029b6-5870-4d75-9222-918a2563ac66" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Simple model repository proxy builder">
@@ -7421,18 +7400,18 @@
                             <variables queryParamRef="01e38189-3ce8-4b79-a168-0f4c321d9423" value="KeyCloak"/>
                           </queries>
                         </mappers>
-                        <mappers uid="0fe956a4-cbaa-498b-b762-010fccd33f65" artifactRef="c50ac7ac-fd3a-4f87-8cfd-0553fbd88407" name="Repository Proxy command">
-                          <queries uid="0df01918-6c70-423a-9c63-c86adbbaf593" name="Query db classes" queryRef="ee3f89fb-6e9e-46bd-b407-e340472a5778">
-                            <variables queryParamRef="60d5d7fc-5e66-47b4-889b-543c10ca0879" value="Sales Analyzer"/>
-                            <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="database"/>
+                        <mappers uid="0fe956a4-cbaa-498b-b762-010fccd33f65" name="Repository Proxy command">
+                          <queries uid="0df01918-6c70-423a-9c63-c86adbbaf593" name="Query db classes">
+                            <variables value="Sales Analyzer"/>
+                            <variables value="database"/>
                           </queries>
-                          <queries uid="6a0cb03a-1380-432c-9407-37b504ec5555" name="Query jbpm classes" queryRef="ee3f89fb-6e9e-46bd-b407-e340472a5778">
-                            <variables queryParamRef="60d5d7fc-5e66-47b4-889b-543c10ca0879" value="Sales Analyzer"/>
-                            <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="JBPM"/>
+                          <queries uid="6a0cb03a-1380-432c-9407-37b504ec5555" name="Query jbpm classes">
+                            <variables value="Sales Analyzer"/>
+                            <variables value="JBPM"/>
                           </queries>
-                          <queries uid="248fa1d6-fbb7-4a32-a83d-e18d79b8f61a" name="Query keycloak classes" queryRef="ee3f89fb-6e9e-46bd-b407-e340472a5778">
-                            <variables queryParamRef="60d5d7fc-5e66-47b4-889b-543c10ca0879" value="Sales Analyzer"/>
-                            <variables queryParamRef="8f7dd6da-dd88-40b4-83d3-9ac13b8587ad" value="KeyCloak"/>
+                          <queries uid="248fa1d6-fbb7-4a32-a83d-e18d79b8f61a" name="Query keycloak classes">
+                            <variables value="Sales Analyzer"/>
+                            <variables value="KeyCloak"/>
                           </queries>
                         </mappers>
                         <mappers uid="f714e975-3ac0-4271-93b3-02871ce6e313" artifactRef="c8972d92-123c-49f8-bf5d-1f44cd2f5371" name="Proxy repository builder">
