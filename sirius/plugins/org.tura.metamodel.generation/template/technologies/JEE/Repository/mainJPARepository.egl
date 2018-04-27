@@ -110,9 +110,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
  		allRel.addAll(assosiations);
  		
  		for ( rel in allRel  ){
-	       if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-	              continue;
-	       }
 
 	       hash.put("rel",rel);
  		

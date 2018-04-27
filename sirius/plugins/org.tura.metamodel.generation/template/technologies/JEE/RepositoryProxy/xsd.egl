@@ -37,31 +37,52 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 			
 		  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
 	      for (rel in assosiations){
-	         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-	                continue;
-	         }
+
 
             var hash = rel.sourceSideNamesCalculation();
-	      
-	  	     switch  (rel.type.toString()){
-	         case "One2One" : %]    <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]"/>[%
-	         case "One2Many" : %]  <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]"   maxOccurs="unbounded"/> [%
-	         case "Many2Many" : %]  <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]"   maxOccurs="unbounded"/> [%
+            
+            var annotation = "Assosiation";
+            if (rel.internal){
+              annotation = "Internal";
 	         }
+	  	     switch  (rel.type.toString()){
+	         case "One2One" : %]    <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]">[%
+	         case "One2Many" : %]  <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]"   maxOccurs="unbounded"> [%
+	         case "Many2Many" : %]  <xs:element name="[%=hash.get("sourceProperty")%]"  type=  "[%=getNamespace(hash.get("target").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("target").~class%]"   maxOccurs="unbounded"> [%
+	         }
+            %]
+	          <xs:annotation>
+				 <xs:appinfo>
+					<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](mappedBy=[%=hash.get("target").~class%].class, property="[%=hash.get("targetProperty")%]", containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" )</annox:annotate>
+				</xs:appinfo>
+			  </xs:annotation>
+	         </xs:element>
+            [%
 	      }
 
 	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid);
       for (rel in assosiations){
-	    if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-	          continue;
-	    }
          var hash = rel.targetSideNamesCalculation();
+            var annotation = "Assosiation";
+            if (rel.internal){
+              annotation = "Internal";
+	         }
       
   	     switch  (rel.type.toString()){
-         case "One2One" : %]     <xs:element name="[%=hash.get("targetProperty")%]" type="[%=getNamespace(hash.get("source").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("source").~class%]" />[%
-         case "One2Many" : %]   <xs:element name="[%=hash.get("targetProperty")%]" type="[%=getNamespace(hash.get("source").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("source").~class%]" />[%
-         case "Many2Many" : %] <xs:element name="[%=hash.get("targetProperty")%]" type="[%=getNamespace(hash.get("source").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("source").~class%]"  maxOccurs="unbounded"/>[%
-         }                
+         case "One2One" : %]     <xs:element name="[%=hash.get("targetProperty")%]" type="[%=getNamespace(hash.get("source").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("source").~class%]" >[%
+         case "One2Many" : %]   <xs:element name="[%=hash.get("targetProperty")%]" type="[%=getNamespace(hash.get("source").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("source").~class%]" >[%
+         case "Many2Many" : %] <xs:element name="[%=hash.get("targetProperty")%]" type="[%=getNamespace(hash.get("source").~namespace,targetnamespace,fullHash,returnHash)%][%=hash.get("source").~class%]"  maxOccurs="unbounded">[%
+         }
+            %]
+          <xs:annotation>
+			 <xs:appinfo>
+				<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](mappedBy=[%=hash.get("source").~class%].class, property="[%=hash.get("sourceProperty")%]" , containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" )</annox:annotate>
+			</xs:appinfo>
+		  </xs:annotation>
+	     </xs:element>
+            [%
+         
+                         
 
       }
 	    if (tp.~extension.isDefined()){
@@ -76,9 +97,6 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 
  		var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
  		for ( rel in assosiations  ){
-	       if ( not rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-	              continue;
-	       }
 
 	       if ( rel.type.toString()<>"Many2Many"   ){
 	              continue;

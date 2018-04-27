@@ -3,67 +3,45 @@
      var masterType;
      var detailType;
      var property;
-     var noAssosiation=false;
      var containment=false; 
      
      
-	 if ( self.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-	         noAssosiation = true;
-	         masterType = self.source;
-	         detailType = self.target;
-	         if (self.type.toString() <> "Many2Many"){
-	           var check = true;
-	           for (lnk in self.links){
-	               if (not lnk.masterField.pk){
-	                 check = false;
-	                 break;
-	               }
-	           }
-	           if (check == false){
-	              detailType = self.source;
-	              masterType = self.target;
-	           }
-	         }
-	         property = util.mergeAndCapitalize(detailType.name);
+     if( self.type.toString() =="One2Many"  ){
+         masterType = self.source;
+         detailType = self.target;
+         property = util.mergeAndCapitalize(detailType.name);
+         if (self.containment.toString() == "Source"){
+           containment=true;
+         }
+     }
+     if( self.type.toString() == "One2One" and (self.containment.toString()=="Source" or self.containment.toString()=="Non") ){
+         masterType = self.source;
+         detailType = self.target;
+         property = util.mergeAndCapitalize(detailType.name);
+         if (self.containment.toString() == "Source"){
+           containment=true;
+         }
+     }
+     if( self.type.toString() == "One2One" and self.containment.toString()=="Target"  ){
+         masterType = self.target;
+         detailType = self.source;
+         property = util.mergeAndCapitalize(detailType.name);
+         if (self.containment.toString() == "Target"){
+           containment=true;
+         }
+         
+     }
 
-	 }else{
-	     if( self.type.toString() =="One2Many"  ){
-	         masterType = self.source;
-	         detailType = self.target;
-	         property = util.mergeAndCapitalize(detailType.name);
-	         if (self.containment.toString() == "Source"){
-	           containment=true;
-	         }
-	     }
-	     if( self.type.toString() == "One2One" and (self.containment.toString()=="Source" or self.containment.toString()=="Non") ){
-	         masterType = self.source;
-	         detailType = self.target;
-	         property = util.mergeAndCapitalize(detailType.name);
-	         if (self.containment.toString() == "Source"){
-	           containment=true;
-	         }
-	     }
-	     if( self.type.toString() == "One2One" and self.containment.toString()=="Target"  ){
-	         masterType = self.target;
-	         detailType = self.source;
-	         property = util.mergeAndCapitalize(detailType.name);
-	         if (self.containment.toString() == "Target"){
-	           containment=true;
-	         }
-	         
-	     }
-
-	     if( self.type.toString() == "Many2Many"  ){
-	         masterType = self.source;
-	         detailType = self.target;
-	         property = util.mergeAndCapitalize(detailType.name);
-	     }
-	 }
+     if( self.type.toString() == "Many2Many"  ){
+         masterType = self.source;
+         detailType = self.target;
+         property = util.mergeAndCapitalize(detailType.name);
+     }
+	     
      var hash = new Native('java.util.HashMap');
      hash.put("masterType",masterType);
      hash.put("detailType",detailType);
      hash.put("property",property);
-     hash.put("noAssosiation",noAssosiation);
      hash.put("containment",containment);
      hash.put("masterContainment",containment);
 
@@ -140,11 +118,7 @@
              skipAttributes.add(lnk.detailField);
          }
          
-         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-	         for (lnk in rel.links){
-	             bindedAttribute.add(lnk.detailField);
-	         }
-         }
+
      }           
     self.~skipAttributes=skipAttributes;
     self.~bindedAttribute=bindedAttribute;
@@ -195,8 +169,10 @@ operation type::Assosiation  sourceSideNamesCalculation(){
    if (self.source.uid = self.target.uid){
       suffix = "Master";
    }
-    
-    
+    var containment = false;
+    if (self.containment.toString() == "Source"){
+           containment=true;
+    }
      var sourceMethodName = util.mergeAndCapitalize(target.name);
 
      if (self.sourceOperation.isDefined()){
@@ -221,6 +197,7 @@ operation type::Assosiation  sourceSideNamesCalculation(){
      hash.put("targetProperty",targetProperty);
      hash.put("target",target);
      hash.put("source",source);
+     hash.put("containment",containment);
 
       return hash;
 }
@@ -237,6 +214,12 @@ operation type::Assosiation  targetSideNamesCalculation(){
    if (self.source.uid = self.target.uid){
       suffix = "Master";
    }
+  
+    var containment = false;
+    if (self.containment.toString() == "Target"){
+           containment=true;
+    }
+  
   
      var targetMethodName = util.mergeAndCapitalize(source.name+suffix);
      if (self.targetOperation.isDefined())
@@ -260,6 +243,7 @@ operation type::Assosiation  targetSideNamesCalculation(){
      hash.put("targetProperty",targetProperty);
      hash.put("source",source);
      hash.put("target",target);
+     hash.put("containment",containment);
 
       return hash;
 

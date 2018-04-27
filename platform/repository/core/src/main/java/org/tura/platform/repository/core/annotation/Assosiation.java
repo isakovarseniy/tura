@@ -19,18 +19,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.operation;
+package org.tura.platform.repository.core.annotation;
 
-public class AddTopObjectData  extends ProxyData{
-	
-	public Object object;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-	public Object getObject() {
-		return object;
-	}
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 
-	public void setObject(Object object) {
-		this.object = object;
-	}
-
+@Retention(RUNTIME)
+@Target({ METHOD})
+public @interface Assosiation {
+	Class<?> mappedBy();
+	String property();
+	boolean  containment() default false;
+	String type();
 }

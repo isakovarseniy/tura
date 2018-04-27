@@ -70,9 +70,7 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
          
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid);
 		     for (rel in assosiations){
-		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-		                continue;
-		         }
+
                 var serializer = t2view.get(rel.target).get("package")+".commands.Load"+t2view.get(rel.target).get("class")+"Command";
 
                 var hash = rel.sourceSideNamesCalculation();
@@ -118,9 +116,6 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
 		     }    
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.source.uid <> t.target.uid);
 		     for (rel in assosiations){
-		         if ( rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-		                continue;
-		         }
 
                 var serializer = t2view.get(rel.source).get("package")+".commands.Load"+t2view.get(rel.source).get("class")+"Command";
                 var hash = rel.targetSideNamesCalculation();
@@ -183,9 +178,6 @@ public class Load[%=t2view.get(type).get("class")%]Command implements org.tura.p
          while  (1 == 1) {
 		     var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid);
 		     for (rel in assosiations){
-		         if ( not rel.findClassifier(util.getHint(model_mapper,"No Assosiation"))){
-		                continue;
-		         }
 
                 var hash = rel.targetSideNamesCalculation();
 		         
