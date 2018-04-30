@@ -19,9 +19,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.operation;
+package org.tura.platform.repository.data;
 
-public class ProxyOperation {
+public class ProxyData {
 
 	String relationType;
 	String masterProperty;
@@ -46,11 +46,5 @@ public class ProxyOperation {
 		this.detailProperty = detailProperty;
 	}
 
-	protected void populate(ProxyData data){
-		data.setDetailProperty(detailProperty);
-		data.setMasterProperty(masterProperty);
-		data.setRelationType(relationType);
-	}
-	
 	
 }

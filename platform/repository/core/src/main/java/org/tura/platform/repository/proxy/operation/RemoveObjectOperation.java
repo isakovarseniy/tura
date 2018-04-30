@@ -19,59 +19,55 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.operation;
+package org.tura.platform.repository.proxy.operation;
 
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.data.ProxyOperation;
+import org.tura.platform.repository.data.RemoveObjectData;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
-import com.rits.cloning.Cloner;
+public class RemoveObjectOperation extends ProxyOperation{
 
-public class AddTopObjectOperation extends ProxyOperation{
-	
-	private ObjectControl proxy ;
+	private ObjectControl master;
+	private ObjectControl detail;
     private ProxyCommadStackProvider stackProvider;
-	
-
+    
+    
+	public ObjectControl getMaster() {
+		return master;
+	}
+	public void setMaster(ObjectControl master) {
+		this.master = master;
+	}
+	public ObjectControl getDetail() {
+		return detail;
+	}
+	public void setDetail(ObjectControl detail) {
+		this.detail = detail;
+	}
 	public ProxyCommadStackProvider getStackProvider() {
 		return stackProvider;
 	}
-
 	public void setStackProvider(ProxyCommadStackProvider stackProvider) {
 		this.stackProvider = stackProvider;
 	}
 
-	
-    public ObjectControl getProxy() {
-		return proxy;
-	}
-
-	public void setProxy(ObjectControl proxy) {
-		this.proxy = proxy;
-	}
-
-	
-	
-	public boolean prepare() throws Exception {
-        add();
+    public boolean prepare() throws Exception {
+        remove();
         return true;
-    }
-    
 
-    public void add() throws Exception {
-    	AddTopObjectData data = new AddTopObjectData();
+    }
+
+    public void remove() throws Exception {
+    	RemoveObjectData data = new RemoveObjectData();
     	populate(data);
 
-        Cloner c = new Cloner();
-        Object cloned = c.deepClone(proxy.getWrappedObject());
-        data.setObject(cloned);
+        data.setMasterPk(master.getPath());
+
+        data.setDetailPk(master.getPath());
 
         stackProvider.addCommand(data);
 
-        proxy.setAttached(true);
 
     }
-	
-	
-	
-
 }

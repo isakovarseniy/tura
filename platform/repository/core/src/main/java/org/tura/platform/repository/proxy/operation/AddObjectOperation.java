@@ -19,12 +19,14 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.operation;
+package org.tura.platform.repository.proxy.operation;
 
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.data.AddObjectData;
+import org.tura.platform.repository.data.ProxyOperation;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
-public class RemoveObjectOperation extends ProxyOperation{
+public class AddObjectOperation extends ProxyOperation{
 
 	private ObjectControl master;
 	private ObjectControl detail;
@@ -51,13 +53,13 @@ public class RemoveObjectOperation extends ProxyOperation{
 	}
 
     public boolean prepare() throws Exception {
-        remove();
+        add();
         return true;
 
     }
 
-    public void remove() throws Exception {
-    	RemoveObjectData data = new RemoveObjectData();
+    public void add() throws Exception {
+    	AddObjectData data = new AddObjectData();
     	populate(data);
 
         data.setMasterPk(master.getPath());

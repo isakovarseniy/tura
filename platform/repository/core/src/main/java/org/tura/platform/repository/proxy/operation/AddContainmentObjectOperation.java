@@ -19,14 +19,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.operation;
+package org.tura.platform.repository.proxy.operation;
 
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.data.AddContainmentObjectData;
+import org.tura.platform.repository.data.ProxyOperation;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import com.rits.cloning.Cloner;
 
-public class RemoveContainmentObjectOperation extends ProxyOperation{
+public class AddContainmentObjectOperation extends ProxyOperation{
 	
 	private ObjectControl master;
 	private ObjectControl detail;
@@ -56,16 +58,17 @@ public class RemoveContainmentObjectOperation extends ProxyOperation{
     }
 
     public boolean prepare() throws Exception {
-        remove();
+        add();
         return true;
 
     }
 
-    public void remove() throws Exception {
-    	RemoveContainmentObjectData data = new RemoveContainmentObjectData();
+    public void add() throws Exception {
+    	AddContainmentObjectData data = new AddContainmentObjectData();
     	populate(data);
 
         data.setMasterPk(master.getPath());
+        
 
         Cloner c = new Cloner();
         Object cloned = c.deepClone(detail.getWrappedObject());
@@ -73,6 +76,7 @@ public class RemoveContainmentObjectOperation extends ProxyOperation{
 
         stackProvider.addCommand(data);
 
+        detail.setAttached(true);
 
     }
 	

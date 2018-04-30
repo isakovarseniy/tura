@@ -19,26 +19,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.repository.data;
 
-import java.util.List;
+import org.tura.platform.repository.core.RepoKeyPath;
 
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
-
-public interface DataProvider {
-
-	public Object create(String objectClass) throws RepositoryException;
-
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException;
-
-	public void setRepository(Repository repository);
-
-	public void init();
-
-	public void setTriggers(Triggers triggers);
+public class RemoveContainmentObjectData  extends ProxyData{
 	
-	public Command getCommand(String clazz) throws Exception;
+	private RepoKeyPath masterPk;
+	private Object object;
+	
+	
+	public RepoKeyPath getMasterPk() {
+		return masterPk;
+	}
+	public void setMasterPk(RepoKeyPath masterPk) {
+		this.masterPk = masterPk;
+	}
+	public Object getObject() {
+		return object;
+	}
+	public void setObject(Object object) {
+		this.object = object;
+	}
+	
 
 }

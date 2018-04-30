@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.operation;
+package org.tura.platform.repository.data;
 
 public class AddTopObjectData  extends ProxyData{
 	

@@ -26,7 +26,11 @@
 			<groupId>uk.com.robust-it</groupId>
 			<artifactId>cloning</artifactId>
 		</dependency>
-
+		
+		<dependency>
+		    <groupId>commons-lang</groupId>
+		    <artifactId>commons-lang</artifactId>
+		</dependency>
 
 	</dependencies>
 </project>

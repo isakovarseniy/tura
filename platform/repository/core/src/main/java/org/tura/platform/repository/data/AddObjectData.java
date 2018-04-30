@@ -19,12 +19,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.proxy;
+package org.tura.platform.repository.data;
 
-public interface ProxyRepositoryCommand {
-	
-	public boolean prepare() throws Exception;
-	
-	
+import org.tura.platform.repository.core.RepoKeyPath;
 
+public class AddObjectData  extends ProxyData{
+
+	private RepoKeyPath masterPk;
+	private RepoKeyPath detailPk;
+	
+	
+	public RepoKeyPath getMasterPk() {
+		return masterPk;
+	}
+	public void setMasterPk(RepoKeyPath masterPk) {
+		this.masterPk = masterPk;
+	}
+	public RepoKeyPath getDetailPk() {
+		return detailPk;
+	}
+	public void setDetailPk(RepoKeyPath detailPk) {
+		this.detailPk = detailPk;
+	}
+	
 }

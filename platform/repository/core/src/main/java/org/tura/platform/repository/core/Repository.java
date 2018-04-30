@@ -28,10 +28,6 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 
 public interface Repository {
 
-	public void addProvider(DataProvider provider, String objectClass) ;
-	
-	public void addCommand(DataProvider provider, String dataClass);
-	
 	public Object create(String objectClass) throws RepositoryException ;
 
 	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,

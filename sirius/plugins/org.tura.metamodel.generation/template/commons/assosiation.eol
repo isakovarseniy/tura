@@ -173,6 +173,11 @@ operation type::Assosiation  sourceSideNamesCalculation(){
     if (self.containment.toString() == "Source"){
            containment=true;
     }
+    if (self.internal){
+           containment=true;
+    }
+    
+    
      var sourceMethodName = util.mergeAndCapitalize(target.name);
 
      if (self.sourceOperation.isDefined()){
@@ -218,6 +223,9 @@ operation type::Assosiation  targetSideNamesCalculation(){
     var containment = false;
     if (self.containment.toString() == "Target"){
            containment=true;
+    }
+    if (self.internal){
+           containment=false;
     }
   
   

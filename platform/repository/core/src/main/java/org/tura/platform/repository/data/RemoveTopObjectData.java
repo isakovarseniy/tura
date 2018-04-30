@@ -19,35 +19,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.operation;
+package org.tura.platform.repository.data;
 
-import org.tura.platform.repository.core.RepoKeyPath;
-
-public class UpdateObjectData {
-
-	private RepoKeyPath pk;
-	private Object value;
-	private String property;
-	public RepoKeyPath getPk() {
-		return pk;
-	}
-	public void setPk(RepoKeyPath pk) {
-		this.pk = pk;
-	}
-	public Object getValue() {
-		return value;
-	}
-	public void setValue(Object value) {
-		this.value = value;
-	}
-	public String getProperty() {
-		return property;
-	}
-	public void setProperty(String property) {
-		this.property = property;
-	}
-
+public class RemoveTopObjectData  extends ProxyData{
 	
-	
-	
+	public Object object;
+
+	public Object getObject() {
+		return object;
+	}
+
+	public void setObject(Object object) {
+		this.object = object;
+	}
+
 }

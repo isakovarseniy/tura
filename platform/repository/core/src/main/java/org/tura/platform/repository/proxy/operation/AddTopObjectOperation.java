@@ -19,15 +19,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.operation;
+package org.tura.platform.repository.proxy.operation;
 
 import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.data.AddTopObjectData;
+import org.tura.platform.repository.data.ProxyOperation;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import com.rits.cloning.Cloner;
 
-public class RemoveTopObjectOperation extends ProxyOperation{
-
+public class AddTopObjectOperation extends ProxyOperation{
+	
 	private ObjectControl proxy ;
     private ProxyCommadStackProvider stackProvider;
 	
@@ -48,15 +50,17 @@ public class RemoveTopObjectOperation extends ProxyOperation{
 	public void setProxy(ObjectControl proxy) {
 		this.proxy = proxy;
 	}
+
 	
-    
-    public boolean prepare() throws Exception {
-        remove();
+	
+	public boolean prepare() throws Exception {
+        add();
         return true;
     }
+    
 
-    public void remove() throws Exception {
-    	RemoveTopObjectData data = new RemoveTopObjectData();
+    public void add() throws Exception {
+    	AddTopObjectData data = new AddTopObjectData();
     	populate(data);
 
         Cloner c = new Cloner();
@@ -65,9 +69,11 @@ public class RemoveTopObjectOperation extends ProxyOperation{
 
         stackProvider.addCommand(data);
 
+        proxy.setAttached(true);
 
     }
+	
+	
+	
 
-    
-    
 }

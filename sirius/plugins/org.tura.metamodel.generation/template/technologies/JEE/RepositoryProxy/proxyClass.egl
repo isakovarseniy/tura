@@ -193,7 +193,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 					     notifyListner(this,"[%=util.mergeAndUnCapitalize(field.name)%]");
 			            return;
 			    	}
-			    	org.tura.platform.repository.operation.UpdateObjectOperation command = new org.tura.platform.repository.operation.UpdateObjectOperation();
+			    	org.tura.platform.repository.proxy.operation.UpdateObjectOperation command = new org.tura.platform.repository.proxy.operation.UpdateObjectOperation();
 			
 			        command.setProxy(this);
 			        command.setNewValue([%=util.mergeAndUnCapitalize(field.name)%]);
@@ -319,24 +319,24 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 	            return;
 	   	    }
 	   	    
-	   	    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+	   	    org.tura.platform.repository.proxy.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.proxy.operation.Remove[%=containment%]ObjectOperation();
 	    	command.setMaster(this);
 	        command.setDetail(  ([%=hash.get("target").~fullName%]Proxy)   (this.get[%=hash.get("sourceMethodName")%]()));
 		    command.setStackProvider(stackProvider);
 			command.setRelationType("One2One");
 			command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			command.getDetailProperty("[%=hash.get("sourceMethodName")%]");
+			command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
 
 	        command.prepare();
 	        
 	          if ([%=hash.get("sourceProperty")%] != null){
-	          	org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+	          	org.tura.platform.repository.proxy.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.proxy.operation.Add[%=containment%]ObjectOperation();
 		
 		    	command2.setMaster(this);
 		        command2.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
 			    command2.setRelationType("One2One");
 			    command2.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			    command2.getDetailProperty("[%=hash.get("sourceMethodName")%]");
+			    command2.setDetailProperty("[%=hash.get("sourceMethodName")%]");
 			    
 		        command2.setStackProvider(stackProvider);
 		
@@ -399,12 +399,12 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
 	    	            return;
 	    	    	}
 	    	    	
-	          	    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+	          	    org.tura.platform.repository.proxy.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.proxy.operation.Add[%=containment%]ObjectOperation();
 	    	    	command.setMaster( [%=hash.get("source").~class%]Proxy.this);
 	    	        command.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
 			        command.setRelationType("One2Many");
 			        command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			        command.getDetailProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
 		            command.setStackProvider(stackProvider);
 	
 	    	        if (command.prepare()){
@@ -424,12 +424,12 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
 	    	            return object.get[%=hash.get("sourceMethodName")%]().remove(index);
 	    	    	}
 	    	    	
-	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+	   	            org.tura.platform.repository.proxy.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.proxy.operation.Remove[%=containment%]ObjectOperation();
 	    	    	command.setMaster([%=hash.get("source").~class%]Proxy.this);
 	    	        command.setDetail(([%=detailType.~package%].[%=detailType.~class%]Proxy)([%=hash.get("source").~class%]Proxy.this.get[%=hash.get("sourceMethodName")%]().get(index)));
 			        command.setRelationType("One2Many");
 			        command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			        command.getDetailProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
 		            command.setStackProvider(stackProvider);
 	
 	    	        if (command.prepare()){
@@ -513,12 +513,12 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
 	    	            return;
 	    	    	}
 	    	    	
-	          	    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+	          	    org.tura.platform.repository.proxy.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.proxy.operation.Add[%=containment%]ObjectOperation();
 	    	    	command.setMaster ( [%=masterType.~class%]Proxy.this );
 	    	        command.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
 			        command.setRelationType("Many2Many");
 			        command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			        command.getDetailProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
 		            command.setStackProvider(stackProvider);
 	 
 	    	        if (command.prepare()){
@@ -539,13 +539,13 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
 	    	            return m;
 	    	    	}
 	    	    	
-	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+	   	            org.tura.platform.repository.proxy.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.proxy.operation.Remove[%=containment%]ObjectOperation();
 	    	    	command.setMaster ( [%=masterType.~class%]Proxy.this );
 	    	        command.setDetail( (org.tura.platform.repository.core.ObjectControl)  (  [%=masterType.~class%]Proxy.this.get[%=hash.get("sourceMethodName")%]().get(index)));
 		            command.setStackProvider(stackProvider);
 				    command.setRelationType("Many2Many");
 			        command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			        command.getDetailProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
 	
 	    	        if (command.prepare()){
 	    	    		[%=detailType.~fullName%] m=  object.get[%=hash.get("sourceMethodName")%]().remove(index);
@@ -632,24 +632,24 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 		            return;
 		   	    }
 		   	    
-	   	        org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+	   	        org.tura.platform.repository.proxy.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.proxy.operation.Remove[%=containment%]ObjectOperation();
 		    	command.setMaster(this);
 		        command.setDetail(([%=hash.get("source").~fullName%]Proxy)(this.get[%=hash.get("targetMethodName")%]()));
 			    command.setStackProvider(stackProvider);
 			    command.setRelationType("One2One");
 			    command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			    command.getDetailProperty("[%=hash.get("targetMethodName")%]");
+			    command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 			    
 		        command.prepare();
 		
 		           if ([%=hash.get("targetProperty")%] != null){
-	          	    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+	          	    org.tura.platform.repository.proxy.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.proxy.operation.Add[%=containment%]ObjectOperation();
 			
 			    	command2.setMaster(this);
 			        command2.setDetail((([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]));
 			        command2.setRelationType("One2One");
 			        command2.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			        command2.getDetailProperty("[%=hash.get("targetMethodName")%]");
+			        command2.setDetailProperty("[%=hash.get("targetMethodName")%]");
 			        command2.setStackProvider(stackProvider);
 			
 			        if (command2.prepare()){
@@ -752,12 +752,12 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
 		    	            return;
 		    	    	}
 		    	    	
-	          	        org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
+	          	        org.tura.platform.repository.proxy.operation.Add[%=containment%]ObjectOperation command = new org.tura.platform.repository.proxy.operation.Add[%=containment%]ObjectOperation();
 		    	    	command.setMaster( ([%=util.mergeAndCapitalize(masterType.~class)%]Proxy) [%=hash.get("targetProperty")%]);
 		    	        command.setDetail(  [%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this);
 			            command.setRelationType("Many2Many");
 			            command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			            command.getDetailProperty("[%=hash.get("targetMethodName")%]");
+			            command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 			            command.setStackProvider(stackProvider);
 		
 		    	        if (command.prepare()){
@@ -778,12 +778,12 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
 	    	            return m;
 	    	    	}
 	    	    	
-	   	            org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
+	   	            org.tura.platform.repository.proxy.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.proxy.operation.Remove[%=containment%]ObjectOperation();
 	    	    	command.setMaster( (ObjectControl) ([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this.get[%=hash.get("targetMethodName")%]().get(index)));
 	    	        command.setDetail([%=util.mergeAndCapitalize(detailType.~class)%]Proxy.this );
 			        command.setRelationType("Many2Many");
 			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			        command.getDetailProperty("[%=hash.get("targetMethodName")%]");
+			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 		            command.setStackProvider(stackProvider);
 	
 	    	        if (command.prepare()){

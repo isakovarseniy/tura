@@ -19,32 +19,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.operation;
+package org.tura.platform.repository.data;
 
-public class ProxyData {
+import org.tura.platform.repository.core.RepoKeyPath;
 
-	String relationType;
-	String masterProperty;
-	String detailProperty;
+public class AddContainmentObjectData extends ProxyData{
 	
-	public String getRelationType() {
-		return relationType;
-	}
-	public void setRelationType(String relationType) {
-		this.relationType = relationType;
-	}
-	public String getMasterProperty() {
-		return masterProperty;
-	}
-	public void setMasterProperty(String masterProperty) {
-		this.masterProperty = masterProperty;
-	}
-	public String getDetailProperty() {
-		return detailProperty;
-	}
-	public void setDetailProperty(String detailProperty) {
-		this.detailProperty = detailProperty;
-	}
-
+	private RepoKeyPath masterPk;
+	private Object object;
 	
+	
+	public RepoKeyPath getMasterPk() {
+		return masterPk;
+	}
+	public void setMasterPk(RepoKeyPath masterPk) {
+		this.masterPk = masterPk;
+	}
+	public Object getObject() {
+		return object;
+	}
+	public void setObject(Object object) {
+		this.object = object;
+	}
+	
+
 }
