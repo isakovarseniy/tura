@@ -22,7 +22,9 @@
 package org.tura.platform.repository.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -83,8 +85,16 @@ public class BasicRepository implements Repository {
 			List<Object> records = new ArrayList<>();
 
 			for (Object object : list) {
-				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria);
-				records.add(loader.loader(object, persistanceClass));
+				Map<String,Object> context = new HashMap<>();
+				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria,context);
+				records.add(loader.loader(object,  provider.getPrimaryKey(object), persistanceClass));
+
+				@SuppressWarnings("unchecked")
+				List<Rule> rules = (List<Rule>) context.get(RelationAdapter.RULES_LIST);
+				for(Rule rule : rules){
+					rule.execute();
+				}
+				
 			}
 
 			return new SearchResult(records, numberOfRows);

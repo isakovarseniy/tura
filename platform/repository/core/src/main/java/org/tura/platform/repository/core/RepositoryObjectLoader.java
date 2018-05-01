@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
@@ -21,13 +22,16 @@ public class RepositoryObjectLoader {
 	static int MAX_ROW_NUMBER = 50;
 	static String PARENT_PERSISTANCE_OBJECT = "parentPersistanceObject";
 	static String PARENT_REPOSITORY_OBJECT = "parentRepositoryObject";
+	static String LOADED_OBJECTS = "LOADED_OBJECTS";
 
 	List<SearchCriteria> search;
 	List<OrderCriteria> order;
+	Map<String, Object> context;
 
-	public RepositoryObjectLoader(List<SearchCriteria> search, List<OrderCriteria> order) {
+	public RepositoryObjectLoader(List<SearchCriteria> search, List<OrderCriteria> order, Map<String, Object> context) {
 		this.search = search;
 		this.order = order;
+		this.context = context;
 	}
 
 	public void populate(Object persistenceObject, Object repositoryObject) throws RepositoryException {
@@ -40,8 +44,8 @@ public class RepositoryObjectLoader {
 		mapper.copyFromPersistence2Repository(persistenceObject, repositoryObject);
 	}
 
-	public RelationAdapter getRelationProcessor(Method method) {
-		return RelationBuilder.build(method);
+	public RelationAdapter getRelationProcessor(Class<?> clazz, Method method) {
+		return RelationBuilder.build(clazz,method,context);
 	}
 
 	public Object instantiateObject(Class<?> repositoryClass) throws Exception {
@@ -60,12 +64,11 @@ public class RepositoryObjectLoader {
 		return Registry.getInstance().skipRelation(repositoryObject.getClass(), method);
 	}
 
-
 	public void internalLoader(Object repositoryObject, boolean fromInternalClass) throws Exception {
 		List<Method> internalAssosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Internal.class);
 		for (Method method : internalAssosiations) {
-			RelationAdapter processor = getRelationProcessor(method);
-			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order);
+			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method);
+			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context);
 
 			for (Object object : processor.getListOfRepositoryObjects(repositoryObject)) {
 				loader.internalLoader(object, true);
@@ -76,7 +79,22 @@ public class RepositoryObjectLoader {
 		}
 	}
 
-	public Object loader(Object persistenceObject, Class<?> repositoryClass) throws RepositoryException {
+	public Object loader(Object persistenceObject,  Object persistenceObjectPK , Class<?> repositoryClass) throws RepositoryException {
+            @SuppressWarnings("unchecked")
+			List<Object> loadedObjects = (List<Object>) context.get(LOADED_OBJECTS);
+            if(loadedObjects == null){
+            	loadedObjects = new ArrayList<>();
+            	context.put(LOADED_OBJECTS, loadedObjects);
+            }
+            if (loadedObjects.contains(persistenceObjectPK)){
+            	return null;
+            }else{
+            	return loader(persistenceObject,repositoryClass);
+            }
+	}	
+	
+	
+	private  Object loader(Object persistenceObject, Class<?> repositoryClass) throws RepositoryException {
 		try {
 			Object repositoryObject = instantiateObject(repositoryClass);
 			populate(repositoryObject, persistenceObject);
@@ -98,11 +116,11 @@ public class RepositoryObjectLoader {
 		List<Method> assosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Assosiation.class);
 
 		for (Method method : assosiations) {
-			if (skipRelation(repositoryObject,method )){
+			if (skipRelation(repositoryObject, method)) {
 				continue;
 			}
 			Assosiation assosiation = method.getAnnotation(Assosiation.class);
-			RelationAdapter processor = getRelationProcessor(method);
+			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method);
 
 			PersistenceProvider provider = findProvider(assosiation.mappedBy().getName());
 			Class<?> persistanceClass = findPersistanceClass(assosiation.mappedBy().getName());
@@ -116,13 +134,14 @@ public class RepositoryObjectLoader {
 			List<?> list = provider.findObjects(newSearch, order, 0, MAX_ROW_NUMBER, persistanceClass);
 
 			for (Object object : list) {
-				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order);
-				Object loadedObject = loader.loader(object, assosiation.mappedBy());
-				processor.process(repositoryObject, loadedObject);
+				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context );
+				Object loadedObject = loader.loader(object, provider.getPrimaryKey(object) , assosiation.mappedBy());
+				if (loadedObject != null){
+				   processor.process(repositoryObject, loadedObject);
+				}
 			}
 		}
 	}
-
 
 	private List<SearchCriteria> prepareSearchCriteria(Object persistenceObject, Object repositoryObject) {
 

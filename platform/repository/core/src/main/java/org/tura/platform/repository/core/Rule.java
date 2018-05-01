@@ -22,5 +22,5 @@
 package org.tura.platform.repository.core;
 
 public interface Rule {
-      public void execute();
+      public void execute() throws Exception;
 }

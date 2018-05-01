@@ -31,6 +31,7 @@ public interface PersistenceProvider {
    public void persist(Object entity) ;
    public void remove(Object entity) ;
    public <T> T find(Class<T> clazz , Object pk) ;
+   public <T> T getPrimaryKey(Object entity) ;
    public List<?> findObjects(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,Integer endIndex, Object ...args )  throws Exception;
    public long findNumberOfRowsQuery(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria , Object ...args)  throws Exception;
 
