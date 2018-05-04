@@ -8,7 +8,7 @@ import java.util.Map;
 import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.annotation.Assosiation;
 import org.tura.platform.repository.core.annotation.Internal;
-import org.tura.platform.repository.core.relatioin.processor.RelationBuilder;
+import org.tura.platform.repository.core.relatioin.RelationBuilder;
 
 public class RepositoryHelper {
 

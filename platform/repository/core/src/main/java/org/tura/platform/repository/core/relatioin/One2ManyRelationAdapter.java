@@ -1,4 +1,4 @@
-package org.tura.platform.repository.core.relatioin.processor;
+package org.tura.platform.repository.core.relatioin;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;

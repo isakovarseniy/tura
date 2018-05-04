@@ -1,4 +1,4 @@
-package org.tura.platform.repository.core.relatioin.processor;
+package org.tura.platform.repository.core.relatioin;
 
 import org.tura.platform.repository.core.PersistenceProvider;
 import org.tura.platform.repository.core.Registry;

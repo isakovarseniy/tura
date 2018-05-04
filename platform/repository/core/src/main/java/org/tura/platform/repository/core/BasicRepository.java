@@ -28,6 +28,13 @@ import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.data.AddContainmentObjectData;
+import org.tura.platform.repository.data.AddObjectData;
+import org.tura.platform.repository.data.AddTopObjectData;
+import org.tura.platform.repository.data.RemoveContainmentObjectData;
+import org.tura.platform.repository.data.RemoveObjectData;
+import org.tura.platform.repository.data.RemoveTopObjectData;
+import org.tura.platform.repository.data.UpdateObjectData;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
@@ -73,9 +80,9 @@ public class BasicRepository implements Repository {
 		try {
 			PersistenceProvider provider = findProvider(repositoryClass);
 			Class<?> persistanceClass = findPersistanceClass(repositoryClass);
-			
-			PreQueryTrigger preQueryTrigger =   findPreQueryTrigger(repositoryClass);
-			if (preQueryTrigger != null){
+
+			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(repositoryClass);
+			if (preQueryTrigger != null) {
 				preQueryTrigger.preQueryTrigger(searchCriteria, orderCriteria);
 			}
 
@@ -85,16 +92,16 @@ public class BasicRepository implements Repository {
 			List<Object> records = new ArrayList<>();
 
 			for (Object object : list) {
-				Map<String,Object> context = new HashMap<>();
-				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria,context);
-				records.add(loader.loader(object,  provider.getPrimaryKey(object), persistanceClass));
+				Map<String, Object> context = new HashMap<>();
+				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context);
+				records.add(loader.loader(object, provider.getPrimaryKey(object), persistanceClass));
 
 				@SuppressWarnings("unchecked")
-				List<Rule> rules = (List<Rule>) context.get(RelationAdapter.RULES_LIST);
-				for(Rule rule : rules){
+				List<Rule> rules = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);
+				for (Rule rule : rules) {
 					rule.execute();
 				}
-				
+
 			}
 
 			return new SearchResult(records, numberOfRows);
@@ -109,9 +116,34 @@ public class BasicRepository implements Repository {
 	public void applyChanges(List changes) throws RepositoryException {
 		try {
 			for (Object change : changes) {
-				DataProvider provider = cmdHash.get(change.getClass().getName());
-				Command cmd = provider.getCommand(change.getClass().getName());
-				cmd.execute(change);
+				if (change instanceof AddContainmentObjectData) {
+					new RepositoryObjectInstaller().add((AddContainmentObjectData) change);
+
+				}
+				if (change instanceof AddObjectData) {
+					new RepositoryObjectInstaller().add((AddObjectData) change);
+				}
+
+				if (change instanceof AddTopObjectData) {
+					new RepositoryObjectInstaller().add((AddTopObjectData) change);
+				}
+
+				if (change instanceof RemoveContainmentObjectData) {
+					new RepositoryObjectRemover().remove((RemoveContainmentObjectData) change);
+				}
+
+				if (change instanceof RemoveObjectData) {
+					new RepositoryObjectRemover().remove((RemoveObjectData) change);
+				}
+
+				if (change instanceof RemoveTopObjectData) {
+					new RepositoryObjectRemover().remove((RemoveTopObjectData) change);
+				}
+
+				if (change instanceof UpdateObjectData) {
+					new RepositoryObjectUpdate().update((UpdateObjectData) change);
+				}
+
 			}
 		} catch (Exception e) {
 			throw new RepositoryException(e);

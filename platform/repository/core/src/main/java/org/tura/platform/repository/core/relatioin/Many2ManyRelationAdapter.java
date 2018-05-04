@@ -1,4 +1,4 @@
-package org.tura.platform.repository.core.relatioin.processor;
+package org.tura.platform.repository.core.relatioin;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -62,7 +62,7 @@ public class Many2ManyRelationAdapter implements RelationAdapter {
 	
 	
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Object> getListOfRepositoryObjects(Object repositoryObject) throws Exception {
 		List list =  (List) method.invoke(repositoryObject);

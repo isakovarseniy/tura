@@ -40,5 +40,6 @@ public interface PersistenceProvider {
    public void disconnectDetailFromMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty);
    public void connectMasterToDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty);
    public void connectDetailToMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty);
+   public void update(RepoKeyPath pk, String property, Object value);
 
 }

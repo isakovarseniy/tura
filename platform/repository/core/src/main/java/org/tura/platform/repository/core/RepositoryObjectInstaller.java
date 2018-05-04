@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.tura.platform.repository.core.annotation.Assosiation;
-import org.tura.platform.repository.core.relatioin.processor.ConnectObjectRule;
+import org.tura.platform.repository.core.relatioin.ConnectObjectRule;
 import org.tura.platform.repository.data.AddContainmentObjectData;
 import org.tura.platform.repository.data.AddObjectData;
 import org.tura.platform.repository.data.AddTopObjectData;
