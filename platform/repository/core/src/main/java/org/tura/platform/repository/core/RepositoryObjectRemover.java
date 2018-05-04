@@ -77,13 +77,14 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 		Class<?> repositoryClass = repositoryObject.getClass();
 		List<Method> methods = RepositoryObjectLoader.getMethodsAnnotatedWith(repositoryClass, Assosiation.class);
 		for (Method m : methods) {
+			List<Object> children = getDisconnectedChildren(m, repositoryObject,context);
 			Assosiation assosiaton = m.getAnnotation(Assosiation.class);
 			if (assosiaton.containment()) {
-				goDeeper(m, repositoryObject);
-				disconnect(m, repositoryObject);
+				goDeeper(repositoryObject, children);
+				disconnect(m, repositoryObject,children);
 				removeChildren(m, repositoryObject);
 			} else {
-				disconnect(m, repositoryObject);
+				disconnect(m, repositoryObject,children);
 			}
 		}
 
@@ -105,9 +106,7 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 		}
 	}
 
-	private void goDeeper(Method m, Object repositoryObject) throws Exception {
-		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m,context);
-		List<Object> children = processor.getListOfRepositoryObjects(repositoryObject);
+	private void goDeeper(Object repositoryObject,List<Object> children) throws Exception {
 		for (Object obj : children) {
 			walker(obj);
 		}
@@ -135,16 +134,15 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 
 	}
 
-	private void disconnect(Method m, Object repositoryObject) throws Exception {
+	private void disconnect(Method m, Object repositoryObject,List<Object> children) throws Exception {
 		RepoKeyPath masterPk = findPk(repositoryObject);
-
 		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
-		List<Object> children = processor.getListOfRepositoryObjects(repositoryObject);
 		for (Object obj : children) {
 			processor.disconnectRepositoryObject(repositoryObject, obj);
 			RepoKeyPath detailPk = findPk(obj);
-			disconnect(masterPk, processor.getMasterProperty(), detailPk, processor.getDetailProperty());
+			disconnect(masterPk, processor.getMasterProperty(repositoryObject, obj), detailPk, processor.getDetailProperty(repositoryObject, obj));
 		}
 	}
 
 }
+

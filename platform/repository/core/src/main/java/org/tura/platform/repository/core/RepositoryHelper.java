@@ -3,6 +3,7 @@ package org.tura.platform.repository.core;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
@@ -47,6 +48,14 @@ public class RepositoryHelper {
 		return control.getPath();
 	}
 
+	protected List<Object> getDisconnectedChildren(Method m, Object repositoryObject,Map<String, Object> context)throws Exception {
+		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
+		List<Object> children = processor.getListOfRepositoryObjects(repositoryObject);
+		for (Object obj : children) {
+			processor.disconnectRepositoryObject(repositoryObject, obj);
+		}
+		return children;
+	}
 	
 	
 }

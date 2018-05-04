@@ -74,28 +74,25 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		List<Method> methods = RepositoryObjectLoader.getMethodsAnnotatedWith(repositoryClass, Assosiation.class);
 		for (Method m : methods) {
 			Assosiation assosiaton = m.getAnnotation(Assosiation.class);
+			List<Object> children = getDisconnectedChildren(m, repositoryObject,context);
 			if (assosiaton.containment()) {
-				goDeeper(m, repositoryObject);
-				addChildren(m, repositoryObject);
-				connect(m, repositoryObject);
+				goDeeper(repositoryObject,children);
+				addChildren(children);
+				connect(m, repositoryObject,children);
 			} else {
-				connect(m, repositoryObject);
+				connect(m, repositoryObject, children);
 			}
 		}
 
 	}
 
-	private void addChildren(Method m, Object repositoryObject) throws Exception {
-		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
-		List<Object> children = processor.getListOfRepositoryObjects(repositoryObject);
+	private void addChildren(List<Object> children) throws Exception {
 		for (Object obj : children) {
 			addObject(obj);
 		}
 	}
 
-	private void goDeeper(Method m, Object repositoryObject) throws Exception {
-		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
-		List<Object> children = processor.getListOfRepositoryObjects(repositoryObject);
+	private void goDeeper(Object repositoryObject,List<Object> children) throws Exception {
 		for (Object obj : children) {
 			walker(obj);
 		}
@@ -135,17 +132,16 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		addObjects.add(rule);
 
 	}
+	
 
-	private void connect(Method m, Object repositoryObject) throws Exception {
+	private void connect(Method m, Object repositoryObject, List<Object> children) throws Exception {
 		RepoKeyPath masterPk = findPk(repositoryObject);
-
 		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
-		List<Object> children = processor.getListOfRepositoryObjects(repositoryObject);
 		for (Object obj : children) {
-			processor.disconnectRepositoryObject(repositoryObject, obj);
 			RepoKeyPath detailPk = findPk(obj);
-			connect(masterPk, processor.getMasterProperty(), detailPk, processor.getDetailProperty());
+			connect(masterPk, processor.getMasterProperty(repositoryObject, obj), detailPk, processor.getDetailProperty(repositoryObject, obj));
 		}
 	}
 
 }
+
