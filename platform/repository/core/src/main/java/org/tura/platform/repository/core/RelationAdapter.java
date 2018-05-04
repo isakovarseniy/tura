@@ -4,10 +4,15 @@ import java.util.List;
 
 public interface RelationAdapter {
 	
-	static String RULES_LIST = "RULES_LIST";
 	
-	void process (Object master, Object detail) throws Exception;
+	void connectRepositoryObjects (Object master, Object detail) throws Exception;
 	
-	List<?> getListOfRepositoryObjects(Object repositoryObject) throws Exception;
+	List<Object> getListOfRepositoryObjects(Object repositoryObject) throws Exception;
+
+	void disconnectRepositoryObject(Object repositoryObject, Object obj);
+
+	String getMasterProperty();
+
+	String getDetailProperty();
 
 }

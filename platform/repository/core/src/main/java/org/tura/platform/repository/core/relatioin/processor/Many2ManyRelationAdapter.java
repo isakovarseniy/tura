@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.RelationAdapter;
+import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.core.Rule;
 import org.tura.platform.repository.core.annotation.Assosiation;
 
@@ -24,7 +25,7 @@ public class Many2ManyRelationAdapter implements RelationAdapter {
 	
 	
 	@Override
-	public void process(Object obj1, Object obj2) throws Exception {
+	public void connectRepositoryObjects(Object obj1, Object obj2) throws Exception {
 		Method masterMethod = null;
 		Method detailMethod = null;
 		Object  master = null;
@@ -44,7 +45,7 @@ public class Many2ManyRelationAdapter implements RelationAdapter {
 		Rule rule = new Many2ManyRepositoryRuleObject(master, detail, masterMethod, detailMethod);
 
 		@SuppressWarnings("unchecked")
-		List<Rule> list = (List<Rule>) context.get(RULES_LIST);
+		List<Rule> list = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);
 		list.add(rule);
 
 	}
@@ -63,7 +64,7 @@ public class Many2ManyRelationAdapter implements RelationAdapter {
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public List<?> getListOfRepositoryObjects(Object repositoryObject) throws Exception {
+	public List<Object> getListOfRepositoryObjects(Object repositoryObject) throws Exception {
 		List list =  (List) method.invoke(repositoryObject);
 		if (list == null){
 			return new ArrayList<>();

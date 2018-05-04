@@ -11,18 +11,18 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.annotation.Assosiation;
 import org.tura.platform.repository.core.annotation.Internal;
-import org.tura.platform.repository.core.relatioin.processor.RelationBuilder;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 import com.octo.java.sql.exp.Operator;
 
-public class RepositoryObjectLoader {
+public class RepositoryObjectLoader  extends RepositoryHelper{
 
 	static int MAX_ROW_NUMBER = 50;
 	static String PARENT_PERSISTANCE_OBJECT = "parentPersistanceObject";
 	static String PARENT_REPOSITORY_OBJECT = "parentRepositoryObject";
 	static String LOADED_OBJECTS = "LOADED_OBJECTS";
+	public static String RULES_LIST = "RULES_LIST";
 
 	List<SearchCriteria> search;
 	List<OrderCriteria> order;
@@ -44,9 +44,6 @@ public class RepositoryObjectLoader {
 		mapper.copyFromPersistence2Repository(persistenceObject, repositoryObject);
 	}
 
-	public RelationAdapter getRelationProcessor(Class<?> clazz, Method method) {
-		return RelationBuilder.build(clazz,method,context);
-	}
 
 	public Object instantiateObject(Class<?> repositoryClass) throws Exception {
 		return repositoryClass.newInstance();
@@ -67,7 +64,7 @@ public class RepositoryObjectLoader {
 	public void internalLoader(Object repositoryObject, boolean fromInternalClass) throws Exception {
 		List<Method> internalAssosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Internal.class);
 		for (Method method : internalAssosiations) {
-			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method);
+			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method,context);
 			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context);
 
 			for (Object object : processor.getListOfRepositoryObjects(repositoryObject)) {
@@ -120,7 +117,7 @@ public class RepositoryObjectLoader {
 				continue;
 			}
 			Assosiation assosiation = method.getAnnotation(Assosiation.class);
-			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method);
+			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method,context);
 
 			PersistenceProvider provider = findProvider(assosiation.mappedBy().getName());
 			Class<?> persistanceClass = findPersistanceClass(assosiation.mappedBy().getName());
@@ -137,7 +134,7 @@ public class RepositoryObjectLoader {
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context );
 				Object loadedObject = loader.loader(object, provider.getPrimaryKey(object) , assosiation.mappedBy());
 				if (loadedObject != null){
-				   processor.process(repositoryObject, loadedObject);
+				   processor.connectRepositoryObjects(repositoryObject, loadedObject);
 				}
 			}
 		}
@@ -168,9 +165,6 @@ public class RepositoryObjectLoader {
 
 	}
 
-	private PersistenceProvider findProvider(String repositoryClass) throws RepositoryException {
-		return Registry.getInstance().findProvider(repositoryClass);
-	}
 
 	private Class<?> findPersistanceClass(String repositoryClass) throws RepositoryException {
 		try {

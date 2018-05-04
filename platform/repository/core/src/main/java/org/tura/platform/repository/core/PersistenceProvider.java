@@ -34,5 +34,11 @@ public interface PersistenceProvider {
    public <T> T getPrimaryKey(Object entity) ;
    public List<?> findObjects(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,Integer endIndex, Object ...args )  throws Exception;
    public long findNumberOfRowsQuery(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria , Object ...args)  throws Exception;
+   public void removeInternal(RepoKeyPath masterPk, String masterProperty, Object detailObject, String detailProperty);
+   public void addInternal(RepoKeyPath masterPk, String masterProperty, Object detailObject, String detailProperty);
+   public void disconnectMasterFromDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty);
+   public void disconnectDetailFromMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty);
+   public void connectMasterToDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty);
+   public void connectDetailToMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty);
 
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.RelationAdapter;
+import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.core.Rule;
 import org.tura.platform.repository.core.annotation.Assosiation;
 
@@ -23,7 +24,7 @@ public class One2OneRelationAdapter implements RelationAdapter {
 	}
 
 	@Override
-	public void process(Object obj1, Object obj2) throws Exception {
+	public void connectRepositoryObjects(Object obj1, Object obj2) throws Exception {
 		Method masterMethod = null;
 		Method detailMethod = null;
 		Object master = obj1;
@@ -40,7 +41,7 @@ public class One2OneRelationAdapter implements RelationAdapter {
 		Rule rule = new One2OneRepositoryRuleObject(master, detail, masterMethod, detailMethod);
 
 		@SuppressWarnings("unchecked")
-		List<Rule> list = (List<Rule>) context.get(RULES_LIST);
+		List<Rule> list = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);
 		list.add(rule);
 	}
 
@@ -55,7 +56,7 @@ public class One2OneRelationAdapter implements RelationAdapter {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public List<?> getListOfRepositoryObjects(Object repositoryObject) throws Exception {
+	public List<Object> getListOfRepositoryObjects(Object repositoryObject) throws Exception {
 		List  list = new ArrayList<>();
 		Object obj = method.invoke(repositoryObject);
 		if (obj != null){
