@@ -82,8 +82,8 @@ public class One2OneRelationAdapter extends RelationAdapter {
 			detailMethod = method;
 		}
 		
-		masterMethod.invoke(master, null);
-		detailMethod.invoke(detail, null);
+		masterMethod.invoke(master, (Object[]) null);
+		detailMethod.invoke(detail, (Object[]) null);
 		
 	}
 

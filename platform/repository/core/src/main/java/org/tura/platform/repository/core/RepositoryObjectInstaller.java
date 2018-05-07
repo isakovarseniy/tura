@@ -61,12 +61,26 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
-
 	}
 
+	
+	public void populate(Object repositoryObject, Object persistenceObject) throws RepositoryException {
+		Mapper mapper = Registry.getInstance().findMapper(persistenceObject.getClass().getName(),
+				repositoryObject.getClass().getName());
+		if (mapper == null) {
+			throw new RepositoryException("Cannot find mapper from " + persistenceObject.getClass().getName() + " to "
+					+ repositoryObject.getClass().getName());
+		}
+		mapper.copyFromRepository2Persistence(repositoryObject, persistenceObject);
+	}
+	
+	
 	private void addObject(Object repositoryObject) throws Exception {
 		PersistenceProvider pr = findProvider(repositoryObject.getClass().getName());
-		pr.persist(repositoryObject);
+		String persistanceClass =   Registry.getInstance().findPersistanceClass(repositoryObject.getClass().getName());
+		Object persistanceObject = pr.instantiate(Class.forName(persistanceClass));
+		populate(repositoryObject,persistanceObject); 
+		pr.persist(persistanceObject);
 	}
 
 	private void walker(Object repositoryObject) throws Exception {

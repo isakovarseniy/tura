@@ -134,7 +134,7 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 
 		List list = (List) masterMethod.invoke(master);
 		list.remove(detail);
-		detailMethod.invoke(detail,null);
+		detailMethod.invoke(detail,(Object[]) null);
 	}
 
 	@Override

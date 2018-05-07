@@ -38,11 +38,7 @@ import org.tura.platform.repository.data.UpdateObjectData;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
-public class BasicRepository implements Repository {
-
-	private PersistenceProvider findProvider(String repositoryClass) throws RepositoryException {
-		return Registry.getInstance().findProvider(repositoryClass);
-	}
+public class BasicRepository extends RepositoryHelper implements Repository {
 
 	private Class<?> findPersistanceClass(String repositoryClass) throws RepositoryException {
 		try {
@@ -94,7 +90,7 @@ public class BasicRepository implements Repository {
 			for (Object object : list) {
 				Map<String, Object> context = new HashMap<>();
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context);
-				records.add(loader.loader(object, provider.getPrimaryKey(object), persistanceClass));
+				records.add(loader.loader(object, getPersistancePrimaryKey(object), persistanceClass));
 
 				@SuppressWarnings("unchecked")
 				List<Rule> rules = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);

@@ -62,9 +62,13 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 	}
 
 	@SuppressWarnings("unchecked")
-	private void removeObject(Object repositoryObject) throws RepositoryException {
+	private void removeObject(Object repositoryObject) throws Exception {
 		RemoveObjectRule rule = new RemoveObjectRule();
-		rule.setObject(repositoryObject);
+		
+		RepoKeyPath pk =   findPk(repositoryObject);
+		rule.setPk(pk);
+		rule.setRepositoryClass(repositoryObject.getClass());
+		
 		List<Object> removeObjects = (List<Object>) context.get(REMOVE_OBJECTS);
 		if (removeObjects == null) {
 			removeObjects = new ArrayList<>();

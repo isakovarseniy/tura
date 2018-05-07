@@ -39,6 +39,7 @@ public class Registry {
 
 	public void addClassMapping(String repositoryClass, String persistanceClass) {
 		classMapper.put(repositoryClass, persistanceClass);
+		classMapper.put(persistanceClass, repositoryClass);
 	}
 
 	public void addTrigger(String repositoryClass, Object trigger) {
@@ -73,11 +74,22 @@ public class Registry {
 	public String findPersistanceClass(String repositoryClass) throws RepositoryException {
 		String persistanceClass = classMapper.get(repositoryClass);
 		if (persistanceClass == null) {
-			throw new RepositoryException("Unsupporable class " + repositoryClass);
+			throw new RepositoryException("Unsupporable class persistance class for " + repositoryClass);
 		}
 		return persistanceClass;
 
 	}
+	
+	public String findRepositoryClass(String persistanceClass) throws RepositoryException {
+		String repositoryClass = classMapper.get(persistanceClass);
+		if (repositoryClass == null) {
+			throw new RepositoryException("Unsupporable class repository class for  " + persistanceClass);
+		}
+		return persistanceClass;
+
+	}
+	
+	
 
 	public PostCreateTrigger findPostCreateTrigger(String repositoryClass) {
 		return postCreateTriggers.get(repositoryClass);

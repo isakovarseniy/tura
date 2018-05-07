@@ -132,13 +132,14 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 
 			for (Object object : list) {
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context );
-				Object loadedObject = loader.loader(object, provider.getPrimaryKey(object) , assosiation.mappedBy());
+				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object) , assosiation.mappedBy());
 				if (loadedObject != null){
 				   processor.connectRepositoryObjects(repositoryObject, loadedObject);
 				}
 			}
 		}
 	}
+
 
 	private List<SearchCriteria> prepareSearchCriteria(Object persistenceObject, Object repositoryObject) {
 
