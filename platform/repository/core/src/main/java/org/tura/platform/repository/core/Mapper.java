@@ -16,6 +16,6 @@ public interface Mapper {
 	List<Object> connectMasterToDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,String detailProperty);
 	List<Object> connectDetailToMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,String detailProperty);
 	List<Object> update(RepoKeyPath pk, String property, Object value);
-	
 
 }
+

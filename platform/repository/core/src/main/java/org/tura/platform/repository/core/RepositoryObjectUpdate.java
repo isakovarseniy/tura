@@ -1,5 +1,7 @@
 package org.tura.platform.repository.core;
 
+import java.util.List;
+
 import org.tura.platform.repository.data.UpdateObjectData;
 
 public class RepositoryObjectUpdate extends RepositoryHelper {
@@ -8,8 +10,10 @@ public class RepositoryObjectUpdate extends RepositoryHelper {
 		try {
 			String repositoryClassName = data.getPk().getPath().get(data.getPk().getPath().size()-1).getType();
 
-			PersistenceProvider pr  = findProvider(repositoryClassName);
-			pr.update(data.getPk(), data.getProperty() , data.getValue());
+			Repository pr = findProvider(repositoryClassName);
+			Mapper mapper = findMapper(repositoryClassName);
+			List<Object> commands = mapper.update(data.getPk(), data.getProperty() , data.getValue());
+			pr.applyChanges(commands);
 			
 		} catch (Exception e) {
 			throw new RepositoryException(e);
@@ -17,3 +21,4 @@ public class RepositoryObjectUpdate extends RepositoryHelper {
 	}
 
 }
+

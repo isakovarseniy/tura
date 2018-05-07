@@ -1,45 +1,44 @@
 package org.tura.platform.repository.core.relatioin;
 
-import org.tura.platform.repository.core.PersistenceProvider;
-import org.tura.platform.repository.core.Registry;
-import org.tura.platform.repository.core.RepoKeyPath;
-import org.tura.platform.repository.core.RepositoryException;
+import java.util.List;
+
+import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.Rule;
 
 public class RemoveObjectRule implements Rule{
 	
-	public RepoKeyPath getPk() {
-		return pk;
-	}
-
-
-	public void setPk(RepoKeyPath pk) {
-		this.pk = pk;
-	}
-
-
-	public Class<?> getRepositoryClass() {
-		return repositoryClass;
-	}
-
-
-	public void setRepositoryClass(Class<?> repositoryClass) {
-		this.repositoryClass = repositoryClass;
-	}
-
-
-	RepoKeyPath pk;
-	Class<?> repositoryClass ;
-
-
-	private PersistenceProvider findProvider(String repositoryClass) throws RepositoryException {
-		return Registry.getInstance().findProvider(repositoryClass);
-	}
+	List<Object> changes;
+	Repository provider;
 	
 	
+
 	@Override
 	public void execute() throws Exception {
-		findProvider(repositoryClass.getName()).remove(pk);
+		provider.applyChanges(changes);
+	}
+
+
+
+	public List<Object> getChanges() {
+		return changes;
+	}
+
+
+
+	public void setChanges(List<Object> changes) {
+		this.changes = changes;
+	}
+
+
+
+	public Repository getProvider() {
+		return provider;
+	}
+
+
+
+	public void setProvider(Repository provider) {
+		this.provider = provider;
 	}
 
 }

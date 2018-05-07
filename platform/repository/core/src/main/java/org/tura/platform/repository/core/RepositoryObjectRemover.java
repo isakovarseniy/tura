@@ -63,11 +63,14 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 
 	@SuppressWarnings("unchecked")
 	private void removeObject(Object repositoryObject) throws Exception {
-		RemoveObjectRule rule = new RemoveObjectRule();
 		
-		RepoKeyPath pk =   findPk(repositoryObject);
-		rule.setPk(pk);
-		rule.setRepositoryClass(repositoryObject.getClass());
+		Repository pr = findProvider(repositoryObject.getClass().getName());
+		Mapper mapper = findMapper(repositoryObject.getClass().getName());
+		List<Object> commands = mapper.addObject(repositoryObject);
+		
+		RemoveObjectRule rule = new RemoveObjectRule();
+		rule.setProvider(pr);
+		rule.setChanges(commands);
 		
 		List<Object> removeObjects = (List<Object>) context.get(REMOVE_OBJECTS);
 		if (removeObjects == null) {
@@ -119,22 +122,30 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 
 	private void disconnect(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty)
 			throws Exception {
+		
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
-		String detailClassName = detailPk.getPath().get(0).getType();
-
-		PersistenceProvider pr = findProvider(masterClassName);
-		pr.disconnectMasterFromDetail(masterPk, masterProperty, detailPk, detailProperty);
-
-		pr = findProvider(detailClassName);
-		pr.disconnectDetailFromMaster(masterPk, masterProperty, detailPk, detailProperty);
+		Repository masterProvider = findProvider(masterClassName);
+		Mapper mapperMaster = findMapper(masterClassName);
+		List<Object> masterChanges = mapperMaster.disconnectMasterFromDetail(masterPk, masterProperty, detailPk, detailProperty);
+		
+		String detailClassName = detailPk.getPath().get(detailPk.getPath().size() - 1).getType();
+		Repository detailProvider = findProvider(detailClassName);
+		Mapper mapperDetail = findMapper(detailClassName);
+		List<Object> detailChanges = mapperDetail.disconnectDetailFromMaster(masterPk, masterProperty, detailPk, detailProperty);
+		
+		
+		masterProvider.applyChanges(masterChanges);
+		detailProvider.applyChanges(detailChanges);
 
 	}
 
 	private void updateInternal(RepoKeyPath masterPk, String masterProperty, Object detailObject, String detailProperty)
 			throws Exception {
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
-		PersistenceProvider pr = findProvider(masterClassName);
-		pr.removeInternal(masterPk, masterProperty, detailObject, detailProperty);
+		Repository pr = findProvider(masterClassName);
+		Mapper mapper = findMapper(masterClassName);
+		List<Object> commands = mapper.removeInternal(masterPk, masterProperty, detailObject, detailProperty);
+		pr.applyChanges(commands);
 
 	}
 
