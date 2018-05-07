@@ -34,8 +34,14 @@ public class RepositoryHelper {
 	}
 	
 	
-	protected PersistenceProvider findProvider(String repositoryClass) throws RepositoryException {
+	protected Repository findProvider(String repositoryClass) throws RepositoryException {
 		return Registry.getInstance().findProvider(repositoryClass);
+	}
+	
+	protected Mapper findMapper(String repositoryClass) throws RepositoryException{
+		String persistanceClass = Registry.getInstance().findPersistanceClass(repositoryClass);
+		return Registry.getInstance().findMapper(persistanceClass, repositoryClass);
+		
 	}
 	
 

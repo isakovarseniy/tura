@@ -28,7 +28,6 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
-
 	}
 
 	public void add(AddContainmentObjectData data) throws RepositoryException {
@@ -62,25 +61,13 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 			throw new RepositoryException(e);
 		}
 	}
-
-	
-	public void populate(Object repositoryObject, Object persistenceObject) throws RepositoryException {
-		Mapper mapper = Registry.getInstance().findMapper(persistenceObject.getClass().getName(),
-				repositoryObject.getClass().getName());
-		if (mapper == null) {
-			throw new RepositoryException("Cannot find mapper from " + persistenceObject.getClass().getName() + " to "
-					+ repositoryObject.getClass().getName());
-		}
-		mapper.copyFromRepository2Persistence(repositoryObject, persistenceObject);
-	}
 	
 	
 	private void addObject(Object repositoryObject) throws Exception {
-		PersistenceProvider pr = findProvider(repositoryObject.getClass().getName());
-		String persistanceClass =   Registry.getInstance().findPersistanceClass(repositoryObject.getClass().getName());
-		Object persistanceObject = pr.instantiate(Class.forName(persistanceClass));
-		populate(repositoryObject,persistanceObject); 
-		pr.persist(persistanceObject);
+		Repository pr = findProvider(repositoryObject.getClass().getName());
+		Mapper mapper = findMapper(repositoryObject.getClass().getName());
+		List<Object> commands = mapper.addObject(repositoryObject);
+		pr.applyChanges(commands);
 	}
 
 	private void walker(Object repositoryObject) throws Exception {
@@ -97,7 +84,6 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 				connect(m, repositoryObject, children);
 			}
 		}
-
 	}
 
 	private void addChildren(List<Object> children) throws Exception {
@@ -110,15 +96,15 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		for (Object obj : children) {
 			walker(obj);
 		}
-
 	}
 
 	private void updateInternal(RepoKeyPath masterPk, String masterProperty, Object detailObject, String detailProperty)
 			throws Exception {
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
-		PersistenceProvider pr = findProvider(masterClassName);
-		pr.addInternal(masterPk, masterProperty, detailObject, detailProperty);
-
+		Repository pr = findProvider(masterClassName);
+		Mapper mapper = findMapper(masterClassName);
+		List<Object> commands = mapper.addInternal(masterPk, masterProperty, detailObject, detailProperty);
+		pr.applyChanges(commands);
 	}
 
 	private void processRules() throws Exception {
@@ -132,12 +118,24 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 	@SuppressWarnings("unchecked")
 	private void connect(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty)
 			throws Exception {
-		ConnectObjectRule rule = new ConnectObjectRule();
-		rule.setMasterPk(masterPk);
-		rule.setDetailPk(detailPk);
-		rule.setMasterProperty(masterProperty);
-		rule.setDetailProperty(detailProperty);
 
+		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
+		Repository masterProvider = findProvider(masterClassName);
+		Mapper mapperMaster = findMapper(masterClassName);
+		List<Object> masterChanges = mapperMaster.connectMasterToDetail(masterPk, masterProperty, detailPk, detailProperty);
+		
+		String detailClassName = detailPk.getPath().get(detailPk.getPath().size() - 1).getType();
+		Repository detailProvider = findProvider(detailClassName);
+		Mapper mapperDetail = findMapper(detailClassName);
+		List<Object> detailChanges = mapperDetail.connectDetailToMaster(masterPk, masterProperty, detailPk, detailProperty);
+		
+		ConnectObjectRule rule = new ConnectObjectRule();
+		rule.setMasterChanges(masterChanges);
+		rule.setMasterProvider(masterProvider);
+		rule.setDetailChanges(detailChanges);
+		rule.setDetailProvider(detailProvider);
+
+		
 		List<Object> addObjects = (List<Object>) context.get(ADDED_OBJECTS);
 		if (addObjects == null) {
 			addObjects = new ArrayList<>();
@@ -147,7 +145,6 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 
 	}
 	
-
 	private void connect(Method m, Object repositoryObject, List<Object> children) throws Exception {
 		RepoKeyPath masterPk = findPk(repositoryObject);
 		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);

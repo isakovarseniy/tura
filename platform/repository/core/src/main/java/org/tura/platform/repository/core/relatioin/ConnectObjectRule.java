@@ -1,60 +1,55 @@
 package org.tura.platform.repository.core.relatioin;
 
-import org.tura.platform.repository.core.PersistenceProvider;
-import org.tura.platform.repository.core.RepoKeyPath;
+import java.util.List;
+
+import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.Rule;
 
 public class ConnectObjectRule extends RepositoryHelper implements Rule {
 
-	RepoKeyPath masterPk;
-	String masterProperty;
-	RepoKeyPath detailPk;
-	String detailProperty;
+	List<Object> masterChanges;
+	Repository masterProvider;
 
-	public RepoKeyPath getMasterPk() {
-		return masterPk;
+	List<Object> detailChanges;
+	Repository detailProvider;
+
+	public List<Object> getMasterChanges() {
+		return masterChanges;
 	}
 
-	public void setMasterPk(RepoKeyPath masterPk) {
-		this.masterPk = masterPk;
+	public void setMasterChanges(List<Object> masterChanges) {
+		this.masterChanges = masterChanges;
 	}
 
-	public String getMasterProperty() {
-		return masterProperty;
+	public Repository getMasterProvider() {
+		return masterProvider;
 	}
 
-	public void setMasterProperty(String masterProperty) {
-		this.masterProperty = masterProperty;
+	public void setMasterProvider(Repository masterProvider) {
+		this.masterProvider = masterProvider;
 	}
 
-	public RepoKeyPath getDetailPk() {
-		return detailPk;
+	public List<Object> getDetailChanges() {
+		return detailChanges;
 	}
 
-	public void setDetailPk(RepoKeyPath detailPk) {
-		this.detailPk = detailPk;
+	public void setDetailChanges(List<Object> detailChanges) {
+		this.detailChanges = detailChanges;
 	}
 
-	public String getDetailProperty() {
-		return detailProperty;
+	public Repository getDetailProvider() {
+		return detailProvider;
 	}
 
-	public void setDetailProperty(String detailProperty) {
-		this.detailProperty = detailProperty;
+	public void setDetailProvider(Repository detailProvider) {
+		this.detailProvider = detailProvider;
 	}
 
 	@Override
 	public void execute() throws Exception {
-		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
-		String detailClassName = detailPk.getPath().get(0).getType();
-
-		PersistenceProvider pr = findProvider(masterClassName);
-		pr.connectMasterToDetail(masterPk, masterProperty, detailPk, detailProperty);
-
-		pr = findProvider(detailClassName);
-		pr.connectDetailToMaster(masterPk, masterProperty, detailPk, detailProperty);
-
+		masterProvider.applyChanges(getMasterChanges());
+		detailProvider.applyChanges(getDetailChanges());
 	}
 
 }

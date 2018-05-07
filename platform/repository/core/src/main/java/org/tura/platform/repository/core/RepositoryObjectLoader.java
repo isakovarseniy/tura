@@ -119,7 +119,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 			Assosiation assosiation = method.getAnnotation(Assosiation.class);
 			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method,context);
 
-			PersistenceProvider provider = findProvider(assosiation.mappedBy().getName());
+			Repository provider = findProvider(assosiation.mappedBy().getName());
 			Class<?> persistanceClass = findPersistanceClass(assosiation.mappedBy().getName());
 
 			List<SearchCriteria> newSearch = prepareSearchCriteria(persistenceObject, repositoryObject);
@@ -128,9 +128,9 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 				preQueryTrigger.preQueryTrigger(newSearch, order);
 			}
 
-			List<?> list = provider.findObjects(newSearch, order, 0, MAX_ROW_NUMBER, persistanceClass);
+			SearchResult result = provider.find(newSearch, order, 0, MAX_ROW_NUMBER, persistanceClass.getName());
 
-			for (Object object : list) {
+			for (Object object : result.getSearchResult()) {
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context );
 				Object loadedObject = loader.loader(object, getPersistancePrimaryKey(object) , assosiation.mappedBy());
 				if (loadedObject != null){

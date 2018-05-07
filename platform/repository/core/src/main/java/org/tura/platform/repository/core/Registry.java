@@ -11,7 +11,7 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 public class Registry {
 
-	private Map<String, PersistenceProvider> providers = new HashMap<>();
+	private Map<String, Repository> providers = new HashMap<>();
 	private Map<String, String> classMapper = new HashMap<>();
 	private Map<String, PostCreateTrigger> postCreateTriggers = new HashMap<>();
 	private Map<String, PreQueryTrigger> preQueryTriggers = new HashMap<>();
@@ -33,7 +33,7 @@ public class Registry {
 		skipRelation.put(repositoryClass.getName() + "On" + relation, true);
 	}
 
-	public void addProvider(String persistanceClass, PersistenceProvider provider) {
+	public void addProvider(String persistanceClass, Repository provider) {
 		providers.put(persistanceClass, provider);
 	}
 
@@ -59,12 +59,12 @@ public class Registry {
 		mappers.put(persistanceClass + "2" + repositoryClass, mapper);
 	}
 
-	public PersistenceProvider findProvider(String repositoryClass) throws RepositoryException {
+	public Repository findProvider(String repositoryClass) throws RepositoryException {
 		String persistanceClass = classMapper.get(repositoryClass);
 		if (persistanceClass == null) {
 			throw new RepositoryException("Unsupporable class " + repositoryClass);
 		}
-		PersistenceProvider provider = providers.get(persistanceClass);
+		Repository provider = providers.get(persistanceClass);
 		if (provider == null) {
 			throw new RepositoryException("Unsupporable class " + repositoryClass);
 		}

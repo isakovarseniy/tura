@@ -74,7 +74,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			Integer endIndex, String repositoryClass) throws RepositoryException {
 
 		try {
-			PersistenceProvider provider = findProvider(repositoryClass);
+			Repository provider = findProvider(repositoryClass);
 			Class<?> persistanceClass = findPersistanceClass(repositoryClass);
 
 			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(repositoryClass);
@@ -82,12 +82,11 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 				preQueryTrigger.preQueryTrigger(searchCriteria, orderCriteria);
 			}
 
-			List<?> list = provider.findObjects(searchCriteria, orderCriteria, startIndex, endIndex, persistanceClass);
-			Long numberOfRows = provider.findNumberOfRowsQuery(searchCriteria, orderCriteria);
+			SearchResult result = provider.find(searchCriteria, orderCriteria, startIndex, endIndex, persistanceClass.getName());
 
 			List<Object> records = new ArrayList<>();
 
-			for (Object object : list) {
+			for (Object object : result.getSearchResult()) {
 				Map<String, Object> context = new HashMap<>();
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context);
 				records.add(loader.loader(object, getPersistancePrimaryKey(object), persistanceClass));
@@ -99,8 +98,9 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 				}
 
 			}
+			result.setSearchResult(records);
 
-			return new SearchResult(records, numberOfRows);
+			return result;
 
 		} catch (Exception e) {
 			throw new RepositoryException(e);
