@@ -7,11 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.tura.platform.repository.RepositoryException;
+import org.tura.platform.repository.Rule;
 import org.tura.platform.repository.core.annotation.Assosiation;
 import org.tura.platform.repository.core.relatioin.RemoveObjectRule;
 import org.tura.platform.repository.data.RemoveContainmentObjectData;
 import org.tura.platform.repository.data.RemoveObjectData;
 import org.tura.platform.repository.data.RemoveTopObjectData;
+import org.tura.platform.repository.Repository;
 
 public class RepositoryObjectRemover extends RepositoryHelper {
 

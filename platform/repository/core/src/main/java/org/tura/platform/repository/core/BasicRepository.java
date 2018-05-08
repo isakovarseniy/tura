@@ -28,6 +28,9 @@ import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.RepositoryException;
+import org.tura.platform.repository.Rule;
+import org.tura.platform.repository.SearchResult;
 import org.tura.platform.repository.data.AddContainmentObjectData;
 import org.tura.platform.repository.data.AddObjectData;
 import org.tura.platform.repository.data.AddTopObjectData;
@@ -37,6 +40,7 @@ import org.tura.platform.repository.data.RemoveTopObjectData;
 import org.tura.platform.repository.data.UpdateObjectData;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
+import org.tura.platform.repository.Repository;
 
 public class BasicRepository extends RepositoryHelper implements Repository {
 

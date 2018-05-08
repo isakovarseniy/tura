@@ -2,7 +2,7 @@ package org.tura.platform.repository.core.relatioin;
 
 import java.lang.reflect.Method;
 
-import org.tura.platform.repository.core.Rule;
+import org.tura.platform.repository.Rule;
 
 public class One2OneRepositoryRuleObject implements Rule{
 	

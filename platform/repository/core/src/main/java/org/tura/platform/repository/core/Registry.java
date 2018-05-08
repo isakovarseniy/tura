@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.tura.platform.repository.RepositoryException;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
+import org.tura.platform.repository.Repository;
 
 public class Registry {
 

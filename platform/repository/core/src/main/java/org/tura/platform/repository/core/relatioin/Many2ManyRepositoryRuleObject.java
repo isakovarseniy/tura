@@ -3,7 +3,7 @@ package org.tura.platform.repository.core.relatioin;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.tura.platform.repository.core.Rule;
+import org.tura.platform.repository.Rule;
 
 public class Many2ManyRepositoryRuleObject implements Rule {
 

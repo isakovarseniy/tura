@@ -34,12 +34,12 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.RepositoryException;
+import org.tura.platform.repository.SearchRequest;
+import org.tura.platform.repository.SearchResult;
 import org.tura.platform.repository.cdi.Repo;
 import org.tura.platform.repository.core.DataProvider;
-import org.tura.platform.repository.core.Repository;
-import org.tura.platform.repository.core.RepositoryException;
-import org.tura.platform.repository.core.SearchRequest;
-import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.triggers.Repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

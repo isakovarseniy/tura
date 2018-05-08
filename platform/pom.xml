@@ -151,6 +151,13 @@
 				<artifactId>cdi</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>commons</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>org.tura.platform.repository</groupId>

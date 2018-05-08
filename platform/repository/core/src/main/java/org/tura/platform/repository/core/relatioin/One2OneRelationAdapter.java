@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.Rule;
 import org.tura.platform.repository.core.RelationAdapter;
 import org.tura.platform.repository.core.RepositoryObjectLoader;
-import org.tura.platform.repository.core.Rule;
 import org.tura.platform.repository.core.annotation.Assosiation;
 
 public class One2OneRelationAdapter extends RelationAdapter {

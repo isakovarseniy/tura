@@ -36,8 +36,8 @@ import javax.inject.Inject;
 
 import org.tura.platform.repository.cdi.RepositoryExtension;
 import org.tura.platform.repository.core.DataProvider;
-import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.Triggers;
+import org.tura.platform.repository.triggers.Repository;
 
 
 @Alternative

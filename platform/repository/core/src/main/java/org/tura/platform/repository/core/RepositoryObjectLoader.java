@@ -9,10 +9,13 @@ import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.RepositoryException;
+import org.tura.platform.repository.SearchResult;
 import org.tura.platform.repository.core.annotation.Assosiation;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
+import org.tura.platform.repository.Repository;
 
 import com.octo.java.sql.exp.Operator;
 

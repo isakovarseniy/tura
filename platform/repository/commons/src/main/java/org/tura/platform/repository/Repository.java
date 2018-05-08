@@ -19,34 +19,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.repository;
 
 import java.util.List;
 
-public class SearchResult {
-	private List<?> searchResult;
-	private long numberOfRows;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
+
+public interface Repository {
+
+	public Object create(String objectClass) throws RepositoryException ;
+
+	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
+			Integer endIndex, String objectClass) throws RepositoryException ;
+
+	public void insert( Object obj , String objectClass) throws RepositoryException;
 	
-	public SearchResult( List<?> searchResult,long numberOfRows){
-		this.searchResult=searchResult;
-		this.numberOfRows=numberOfRows;
-		
-	}
+	public void remove( Object obj , String objectClass) throws RepositoryException;
 	
-	public List<?> getSearchResult() {
-		return searchResult;
-	}
-
-	public void setSearchResult(List<?> searchResult) {
-		this.searchResult = searchResult;
-	}
-
-	public long getNumberOfRows() {
-		return numberOfRows;
-	}
-
-	public void setNumberOfRows(long numberOfRows) {
-		this.numberOfRows = numberOfRows;
-	}
+    @SuppressWarnings("rawtypes")
+	public void applyChanges(List changes) throws RepositoryException;
 	
 }

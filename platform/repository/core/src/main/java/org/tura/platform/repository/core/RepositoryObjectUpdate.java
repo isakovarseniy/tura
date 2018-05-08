@@ -2,7 +2,9 @@ package org.tura.platform.repository.core;
 
 import java.util.List;
 
+import org.tura.platform.repository.RepositoryException;
 import org.tura.platform.repository.data.UpdateObjectData;
+import org.tura.platform.repository.Repository;
 
 public class RepositoryObjectUpdate extends RepositoryHelper {
 

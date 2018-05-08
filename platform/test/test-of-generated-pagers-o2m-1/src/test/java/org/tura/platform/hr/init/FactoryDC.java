@@ -40,9 +40,9 @@ import org.tura.platform.datacontrol.metainfo.PropertyLink;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
-import org.tura.platform.object.persistence.JPAPersistenceProvider;
+import org.tura.platform.object.persistence.JPARepository;
 import org.tura.platform.repository.core.BasicRepository;
-import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.triggers.Repository;
 import org.tura.platform.test.Factory;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
@@ -71,7 +71,7 @@ public class FactoryDC implements Factory {
 		repository = new BasicRepository();
 		
 		DefaultDataProvider dataProvider = new DefaultDataProvider();
-		dataProvider.setPersistenceProvider(new JPAPersistenceProvider(em));
+		dataProvider.setPersistenceProvider(new JPARepository(em));
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
 		dataProvider.init();

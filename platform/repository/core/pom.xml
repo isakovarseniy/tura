@@ -16,20 +16,26 @@
 	<url>http://sourceforge.net/p/tura/wiki/Home/</url>
 
 	<dependencies>
-	
+
+		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>commons</artifactId>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.tura.platform.datacontrol</groupId>
 			<artifactId>commons</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>uk.com.robust-it</groupId>
 			<artifactId>cloning</artifactId>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>commons-lang</groupId>
-		    <artifactId>commons-lang</artifactId>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
 		</dependency>
 
 	</dependencies>

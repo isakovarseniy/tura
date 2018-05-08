@@ -19,25 +19,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.repository;
 
-import java.util.List;
-
-import org.tura.platform.datacontrol.commons.OrderCriteria;
-import org.tura.platform.datacontrol.commons.SearchCriteria;
-
-public interface Repository {
-
-	public Object create(String objectClass) throws RepositoryException ;
-
-	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
-			Integer endIndex, String objectClass) throws RepositoryException ;
-
-	public void insert( Object obj , String objectClass) throws RepositoryException;
-	
-	public void remove( Object obj , String objectClass) throws RepositoryException;
-	
-    @SuppressWarnings("rawtypes")
-	public void applyChanges(List changes) throws RepositoryException;
-	
+public interface Rule {
+      public void execute() throws Exception;
 }

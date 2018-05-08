@@ -2,9 +2,9 @@ package org.tura.platform.repository.core.relatioin;
 
 import java.util.List;
 
-import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryHelper;
-import org.tura.platform.repository.core.Rule;
+import org.tura.platform.repository.Repository;
+import org.tura.platform.repository.Rule;
 
 public class ConnectObjectRule extends RepositoryHelper implements Rule {
 

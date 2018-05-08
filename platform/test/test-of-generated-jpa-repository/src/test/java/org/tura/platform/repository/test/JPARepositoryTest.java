@@ -45,11 +45,11 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.persistence.JPAPersistenceProvider;
+import org.tura.platform.object.persistence.JPARepository;
+import org.tura.platform.repository.SearchResult;
 import org.tura.platform.repository.core.BasicRepository;
-import org.tura.platform.repository.core.Repository;
-import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.platform.repository.triggers.Repository;
 import org.tura.provider.DefaultDataProvider;
 
 import objects.test.serialazable.jpa.AddCustomer2LocationOnNoAssosiationCustomerData;
@@ -126,7 +126,7 @@ public class JPARepositoryTest {
 		commandStack = new ArrayList<>();
 		
 		DefaultDataProvider dataProvider = new DefaultDataProvider();
-		dataProvider.setPersistenceProvider(new JPAPersistenceProvider(em));
+		dataProvider.setPersistenceProvider(new JPARepository(em));
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
 		dataProvider.init();

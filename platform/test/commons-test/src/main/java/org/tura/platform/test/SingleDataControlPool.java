@@ -59,8 +59,8 @@ import org.tura.platform.datacontrol.data.ShiftControlData;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.repository.core.ObjectControl;
-import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.platform.repository.triggers.Repository;
 import org.tura.platform.test.hr.model.DepartmentType;
 
 import com.octo.java.sql.exp.Operator;

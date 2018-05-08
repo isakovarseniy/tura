@@ -26,7 +26,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import org.tura.platform.object.persistence.JPAPersistenceProvider;
+import org.tura.platform.object.persistence.JPARepository;
 import org.tura.platform.repository.core.PersistenceProvider;
 
 public class PersistenceProviderProducer {
@@ -37,7 +37,7 @@ public class PersistenceProviderProducer {
     @Produces
     @ApplicationScoped
     protected PersistenceProvider createPersistenceProvider(){
-    	return new JPAPersistenceProvider(em); 
+    	return new JPARepository(em); 
     }
 	
 }

@@ -19,23 +19,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.repository;
 
-import java.util.List;
+public class RepositoryException extends Exception{
+	private static final long serialVersionUID = 5383770471837645080L;
 
-public abstract class Triggers {
-	
-	public abstract String getCalssName();
-	public abstract String getQueryName();
-
-	
-	public void preQueryTrigger(List<org.tura.platform.datacontrol.commons.SearchCriteria> searchCriteria, List<org.tura.platform.datacontrol.commons.OrderCriteria> orderCriteria){
-		
+	public RepositoryException(Exception e) {
+		super(e);
 	}
 
-	public void postQueryTrigger(Object obj){
-		
+	public RepositoryException(String message) {
+		super(message);
 	}
-	
-	
+
+
 }

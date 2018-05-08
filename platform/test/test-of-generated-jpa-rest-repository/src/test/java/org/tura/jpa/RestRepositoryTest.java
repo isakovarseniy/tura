@@ -40,8 +40,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.SearchResult;
 import org.tura.platform.repository.client.rest.RestClientRepository;
-import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import objects.test.serialazable.jpa.One2One1A;
