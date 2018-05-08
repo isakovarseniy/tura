@@ -19,45 +19,38 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class RepoObjectKey {
-
-	private List <FieldValue> key = new ArrayList<>();
+public class FieldValue {
+	private String name;
 	private String type;
-	private String relation;
+	private String value;
 	
-	public void addValue (FieldValue value){
-		key.add(value);
+	public FieldValue( String name, String type,String value){
+		this.name = name;
+		this.type = type;
+		this.value = value;
 	}
-
-	public List<FieldValue> getKey() {
-		return key;
+	
+	public String getName() {
+		return name;
 	}
-
-	public void setKey(List<FieldValue> key) {
-		this.key = key;
+	public void setName(String name) {
+		this.name = name;
 	}
-
 	public String getType() {
 		return type;
 	}
-
 	public void setType(String type) {
 		this.type = type;
 	}
-
-	public String getRelation() {
-		return relation;
+	public String getValue() {
+		return value;
+	}
+	public void setValue(String value) {
+		this.value = value;
 	}
 
-	public void setRelation(String relation) {
-		this.relation = relation;
-	}
-	
 	
 	
 }

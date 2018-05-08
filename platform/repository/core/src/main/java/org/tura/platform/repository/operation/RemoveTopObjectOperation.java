@@ -19,68 +19,57 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.proxy.operation;
+package org.tura.platform.repository.operation;
 
-import org.tura.platform.repository.core.ObjectControl;
-import org.tura.platform.repository.data.AddContainmentObjectData;
+import org.tura.platform.repository.ObjectControl;
 import org.tura.platform.repository.data.ProxyOperation;
+import org.tura.platform.repository.data.RemoveTopObjectData;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import com.rits.cloning.Cloner;
 
-public class AddContainmentObjectOperation extends ProxyOperation{
-	
-	private ObjectControl master;
-	private ObjectControl detail;
+public class RemoveTopObjectOperation extends ProxyOperation{
+
+	private ObjectControl proxy ;
     private ProxyCommadStackProvider stackProvider;
 	
-	
-	public ObjectControl getMaster() {
-		return master;
-	}
-	public void setMaster(ObjectControl master) {
-		this.master = master;
-	}
-	public ObjectControl getDetail() {
-		return detail;
-	}
-	public void setDetail(ObjectControl detail) {
-		this.detail = detail;
-	}
-	
-	
-    public ProxyCommadStackProvider getStackProvider() {
-        return stackProvider;
-    }
 
-    public void setStackProvider(ProxyCommadStackProvider stackProvider) {
-        this.stackProvider = stackProvider;
-    }
+	public ProxyCommadStackProvider getStackProvider() {
+		return stackProvider;
+	}
 
+	public void setStackProvider(ProxyCommadStackProvider stackProvider) {
+		this.stackProvider = stackProvider;
+	}
+
+	
+    public ObjectControl getProxy() {
+		return proxy;
+	}
+
+	public void setProxy(ObjectControl proxy) {
+		this.proxy = proxy;
+	}
+	
+    
     public boolean prepare() throws Exception {
-        add();
+        remove();
         return true;
-
     }
 
-    public void add() throws Exception {
-    	AddContainmentObjectData data = new AddContainmentObjectData();
+    public void remove() throws Exception {
+    	RemoveTopObjectData data = new RemoveTopObjectData();
     	populate(data);
 
-        data.setMasterPk(master.getPath());
-        
-
         Cloner c = new Cloner();
-        Object cloned = c.deepClone(detail.getWrappedObject());
+        Object cloned = c.deepClone(proxy.getWrappedObject());
         data.setObject(cloned);
 
         stackProvider.addCommand(data);
 
-        detail.setAttached(true);
 
     }
-	
-	
-	
 
+    
+    
 }

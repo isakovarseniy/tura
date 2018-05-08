@@ -19,38 +19,36 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.repository;
 
-public class FieldValue {
-	private String name;
-	private String type;
-	private String value;
-	
-	public FieldValue( String name, String type,String value){
-		this.name = name;
-		this.type = type;
-		this.value = value;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public String getValue() {
-		return value;
-	}
-	public void setValue(String value) {
-		this.value = value;
-	}
+import java.util.Map;
 
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.platform.repository.proxy.ProxyObjectUpdateListener;
+
+public interface ObjectControl {
 	
+	Boolean getAttached();
+
+	void setAttached(Boolean attached);
+
+	Object getWrappedObject();
 	
+	String getKey();
+	
+    RepoObjectKey getPrmaryKey() throws Exception;
+
+    RepoKeyPath getPath() throws Exception;
+
+	Map<String,Object> getAttributes();
+	
+	void addListener( ProxyObjectUpdateListener listener);
+	
+    void setStackProvider(ProxyCommadStackProvider stackProvider);
+    
+    ObjectControl clone(); 
+    
+
+
+
 }

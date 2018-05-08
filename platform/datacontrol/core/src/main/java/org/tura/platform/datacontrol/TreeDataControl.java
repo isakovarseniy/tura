@@ -36,7 +36,7 @@ import org.tura.platform.datacontrol.event.RowCreatedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
-import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.ObjectControl;
 
 public abstract class TreeDataControl implements IDataControl, EventListener {
 

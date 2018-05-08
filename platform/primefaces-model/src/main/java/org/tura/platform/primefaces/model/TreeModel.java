@@ -45,7 +45,7 @@ import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.event.MasterRowChangedEvent;
 import org.tura.platform.datacontrol.event.RowCreatedEvent;
 import org.tura.platform.datacontrol.event.RowRemovedEvent;
-import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.ObjectControl;
 
 public class TreeModel {
 

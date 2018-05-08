@@ -53,7 +53,7 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.event.Event;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
-import org.tura.platform.repository.triggers.Repository;
+import org.tura.platform.repository.Repository;
 import org.tura.platform.test.hr.model.DepartmentType;
 
 import com.octo.java.sql.exp.Operator;

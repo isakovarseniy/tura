@@ -49,7 +49,7 @@ import org.tura.platform.object.persistence.JPARepository;
 import org.tura.platform.repository.SearchResult;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-import org.tura.platform.repository.triggers.Repository;
+import org.tura.platform.repository.Repository;
 import org.tura.provider.DefaultDataProvider;
 
 import objects.test.serialazable.jpa.AddCustomer2LocationOnNoAssosiationCustomerData;

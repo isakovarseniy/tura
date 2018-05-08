@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.tura.platform.repository.CommandProducer;
+import org.tura.platform.repository.RepoKeyPath;
+import org.tura.platform.repository.Repository;
 import org.tura.platform.repository.RepositoryException;
 import org.tura.platform.repository.Rule;
 import org.tura.platform.repository.core.annotation.Assosiation;
@@ -14,7 +17,6 @@ import org.tura.platform.repository.core.relatioin.RemoveObjectRule;
 import org.tura.platform.repository.data.RemoveContainmentObjectData;
 import org.tura.platform.repository.data.RemoveObjectData;
 import org.tura.platform.repository.data.RemoveTopObjectData;
-import org.tura.platform.repository.Repository;
 
 public class RepositoryObjectRemover extends RepositoryHelper {
 
@@ -68,8 +70,8 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 	private void removeObject(Object repositoryObject) throws Exception {
 		
 		Repository pr = findProvider(repositoryObject.getClass().getName());
-		Mapper mapper = findMapper(repositoryObject.getClass().getName());
-		List<Object> commands = mapper.addObject(repositoryObject);
+		CommandProducer cmp = findCommandProducer(repositoryObject.getClass().getName());
+		List<Object> commands = cmp.addObject(repositoryObject);
 		
 		RemoveObjectRule rule = new RemoveObjectRule();
 		rule.setProvider(pr);
@@ -128,14 +130,13 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 		
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
 		Repository masterProvider = findProvider(masterClassName);
-		Mapper mapperMaster = findMapper(masterClassName);
-		List<Object> masterChanges = mapperMaster.disconnectMasterFromDetail(masterPk, masterProperty, detailPk, detailProperty);
+		CommandProducer cmpMaster = findCommandProducer(masterClassName);
+		List<Object> masterChanges = cmpMaster.disconnectMasterFromDetail(masterPk, masterProperty, detailPk, detailProperty);
 		
 		String detailClassName = detailPk.getPath().get(detailPk.getPath().size() - 1).getType();
 		Repository detailProvider = findProvider(detailClassName);
-		Mapper mapperDetail = findMapper(detailClassName);
-		List<Object> detailChanges = mapperDetail.disconnectDetailFromMaster(masterPk, masterProperty, detailPk, detailProperty);
-		
+		CommandProducer cmpDetail = findCommandProducer(masterClassName);
+		List<Object> detailChanges = cmpDetail.disconnectDetailFromMaster(masterPk, masterProperty, detailPk, detailProperty);
 		
 		masterProvider.applyChanges(masterChanges);
 		detailProvider.applyChanges(detailChanges);
@@ -146,8 +147,9 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 			throws Exception {
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
 		Repository pr = findProvider(masterClassName);
-		Mapper mapper = findMapper(masterClassName);
-		List<Object> commands = mapper.removeInternal(masterPk, masterProperty, detailObject, detailProperty);
+		CommandProducer cmp = findCommandProducer(masterClassName);
+		
+		List<Object> commands = cmp.removeInternal(masterPk, masterProperty, detailObject, detailProperty);
 		pr.applyChanges(commands);
 
 	}

@@ -11,6 +11,11 @@ import org.tura.platform.repository.RepositoryException;
 import org.tura.platform.repository.core.annotation.Assosiation;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.core.relatioin.RelationBuilder;
+import org.tura.platform.repository.CommandProducer;
+import org.tura.platform.repository.Mapper;
+import org.tura.platform.repository.ObjectControl;
+import org.tura.platform.repository.RepoKeyPath;
+import org.tura.platform.repository.RepoObjectKey;
 import org.tura.platform.repository.Repository;
 
 public class RepositoryHelper {
@@ -46,7 +51,11 @@ public class RepositoryHelper {
 		
 	}
 	
-
+   protected CommandProducer findCommandProducer(String repositoryClass) throws RepositoryException{
+	   return Registry.getInstance().findCommandProduce(repositoryClass) ;
+   }
+	
+	
 	protected RepoKeyPath findPk(Object object) throws Exception {
 		Class<?> repositoryClass = object.getClass();
 		Class<?> proxyClass = Class.forName( repositoryClass.getName()+"Proxy");

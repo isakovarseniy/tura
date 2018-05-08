@@ -19,57 +19,62 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.proxy.operation;
+package org.tura.platform.repository.operation;
 
-import org.tura.platform.repository.core.ObjectControl;
-import org.tura.platform.repository.data.AddTopObjectData;
+import org.tura.platform.repository.ObjectControl;
 import org.tura.platform.repository.data.ProxyOperation;
+import org.tura.platform.repository.data.RemoveContainmentObjectData;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import com.rits.cloning.Cloner;
 
-public class AddTopObjectOperation extends ProxyOperation{
+public class RemoveContainmentObjectOperation extends ProxyOperation{
 	
-	private ObjectControl proxy ;
+	private ObjectControl master;
+	private ObjectControl detail;
     private ProxyCommadStackProvider stackProvider;
 	
-
-	public ProxyCommadStackProvider getStackProvider() {
-		return stackProvider;
-	}
-
-	public void setStackProvider(ProxyCommadStackProvider stackProvider) {
-		this.stackProvider = stackProvider;
-	}
-
 	
-    public ObjectControl getProxy() {
-		return proxy;
+	public ObjectControl getMaster() {
+		return master;
 	}
-
-	public void setProxy(ObjectControl proxy) {
-		this.proxy = proxy;
+	public void setMaster(ObjectControl master) {
+		this.master = master;
 	}
-
+	public ObjectControl getDetail() {
+		return detail;
+	}
+	public void setDetail(ObjectControl detail) {
+		this.detail = detail;
+	}
 	
 	
-	public boolean prepare() throws Exception {
-        add();
-        return true;
+    public ProxyCommadStackProvider getStackProvider() {
+        return stackProvider;
     }
-    
 
-    public void add() throws Exception {
-    	AddTopObjectData data = new AddTopObjectData();
+    public void setStackProvider(ProxyCommadStackProvider stackProvider) {
+        this.stackProvider = stackProvider;
+    }
+
+    public boolean prepare() throws Exception {
+        remove();
+        return true;
+
+    }
+
+    public void remove() throws Exception {
+    	RemoveContainmentObjectData data = new RemoveContainmentObjectData();
     	populate(data);
 
+        data.setMasterPk(master.getPath());
+
         Cloner c = new Cloner();
-        Object cloned = c.deepClone(proxy.getWrappedObject());
+        Object cloned = c.deepClone(detail.getWrappedObject());
         data.setObject(cloned);
 
         stackProvider.addCommand(data);
 
-        proxy.setAttached(true);
 
     }
 	

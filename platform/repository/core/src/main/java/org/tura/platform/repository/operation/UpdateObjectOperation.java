@@ -19,9 +19,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.proxy.operation;
+package org.tura.platform.repository.operation;
 
-import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.ObjectControl;
 import org.tura.platform.repository.data.UpdateObjectData;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 

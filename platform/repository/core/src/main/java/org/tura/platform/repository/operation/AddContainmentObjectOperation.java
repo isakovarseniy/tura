@@ -19,20 +19,22 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.proxy.operation;
+package org.tura.platform.repository.operation;
 
-import org.tura.platform.repository.core.ObjectControl;
-import org.tura.platform.repository.data.AddObjectData;
+import org.tura.platform.repository.ObjectControl;
+import org.tura.platform.repository.data.AddContainmentObjectData;
 import org.tura.platform.repository.data.ProxyOperation;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
-public class AddObjectOperation extends ProxyOperation{
+import com.rits.cloning.Cloner;
 
+public class AddContainmentObjectOperation extends ProxyOperation{
+	
 	private ObjectControl master;
 	private ObjectControl detail;
     private ProxyCommadStackProvider stackProvider;
-    
-    
+	
+	
 	public ObjectControl getMaster() {
 		return master;
 	}
@@ -45,12 +47,15 @@ public class AddObjectOperation extends ProxyOperation{
 	public void setDetail(ObjectControl detail) {
 		this.detail = detail;
 	}
-	public ProxyCommadStackProvider getStackProvider() {
-		return stackProvider;
-	}
-	public void setStackProvider(ProxyCommadStackProvider stackProvider) {
-		this.stackProvider = stackProvider;
-	}
+	
+	
+    public ProxyCommadStackProvider getStackProvider() {
+        return stackProvider;
+    }
+
+    public void setStackProvider(ProxyCommadStackProvider stackProvider) {
+        this.stackProvider = stackProvider;
+    }
 
     public boolean prepare() throws Exception {
         add();
@@ -59,15 +64,23 @@ public class AddObjectOperation extends ProxyOperation{
     }
 
     public void add() throws Exception {
-    	AddObjectData data = new AddObjectData();
+    	AddContainmentObjectData data = new AddContainmentObjectData();
     	populate(data);
 
         data.setMasterPk(master.getPath());
+        
 
-        data.setDetailPk(master.getPath());
+        Cloner c = new Cloner();
+        Object cloned = c.deepClone(detail.getWrappedObject());
+        data.setObject(cloned);
 
         stackProvider.addCommand(data);
 
+        detail.setAttached(true);
 
     }
+	
+	
+	
+
 }

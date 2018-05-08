@@ -19,12 +19,29 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.proxy;
+package org.tura.platform.repository;
 
-import org.tura.platform.repository.core.ObjectControl;
+import java.util.ArrayList;
+import java.util.List;
 
-public interface ProxyObjectUpdateListener {
+public class RepoKeyPath {
 
-    public void listener( ObjectControl  obj , String property ) throws  Exception;
+	private List<RepoObjectKey>  path = new ArrayList<>();
+	
+	
+	public void addRepoObjectKey (String relation , RepoObjectKey key){
+		key.setRelation(relation);
+		path.add(key);
+	}
 
+
+	public List<RepoObjectKey> getPath() {
+		return path;
+	}
+
+
+	public void setPath(List<RepoObjectKey> path) {
+		this.path = path;
+	}
+	
 }

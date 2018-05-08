@@ -15,6 +15,7 @@ import org.tura.platform.repository.core.annotation.Assosiation;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
+import org.tura.platform.repository.Mapper;
 import org.tura.platform.repository.Repository;
 
 import com.octo.java.sql.exp.Operator;

@@ -41,7 +41,7 @@ import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
 import org.tura.platform.object.persistence.JPARepository;
 import org.tura.platform.repository.core.BasicRepository;
-import org.tura.platform.repository.triggers.Repository;
+import org.tura.platform.repository.Repository;
 import org.tura.platform.test.Factory;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;

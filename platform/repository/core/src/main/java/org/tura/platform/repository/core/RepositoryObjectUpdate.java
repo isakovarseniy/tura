@@ -2,9 +2,10 @@ package org.tura.platform.repository.core;
 
 import java.util.List;
 
+import org.tura.platform.repository.CommandProducer;
+import org.tura.platform.repository.Repository;
 import org.tura.platform.repository.RepositoryException;
 import org.tura.platform.repository.data.UpdateObjectData;
-import org.tura.platform.repository.Repository;
 
 public class RepositoryObjectUpdate extends RepositoryHelper {
 
@@ -13,8 +14,9 @@ public class RepositoryObjectUpdate extends RepositoryHelper {
 			String repositoryClassName = data.getPk().getPath().get(data.getPk().getPath().size()-1).getType();
 
 			Repository pr = findProvider(repositoryClassName);
-			Mapper mapper = findMapper(repositoryClassName);
-			List<Object> commands = mapper.update(data.getPk(), data.getProperty() , data.getValue());
+			CommandProducer cmp = findCommandProducer(repositoryClassName);
+			
+			List<Object> commands = cmp.update(data.getPk(), data.getProperty() , data.getValue());
 			pr.applyChanges(commands);
 			
 		} catch (Exception e) {

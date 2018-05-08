@@ -45,10 +45,9 @@ import org.tura.platform.object.persistence.JPARepository;
 import org.tura.platform.repository.SearchResult;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-import org.tura.platform.repository.triggers.Repository;
+import org.tura.platform.repository.Repository;
 import org.tura.provider.DefaultDataProvider;
 
-import objects.test.serialazable.jpa.AddMany2Many1B2Many2Many1AOnMany2Many1BData;
 import objects.test.serialazable.jpa.Many2Many1A;
 import objects.test.serialazable.jpa.Many2Many1B;
 import objects.test.serialazable.jpa.ProxyRepository;

@@ -44,7 +44,7 @@ import org.tura.platform.datacontrol.pool.Pool;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
 import org.tura.platform.datacontrol.shift.ShiftControl;
-import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.ObjectControl;
 
 import com.octo.java.sql.query.SelectQuery;
 

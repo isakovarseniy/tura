@@ -35,7 +35,7 @@ import org.josql.QueryResults;
 import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.data.PoolData;
 import org.tura.platform.datacontrol.shift.ShiftControl;
-import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.ObjectControl;
 
 import com.octo.java.sql.query.QueryException;
 import com.octo.java.sql.query.SelectQuery;

@@ -19,55 +19,61 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.proxy.operation;
+package org.tura.platform.repository.operation;
 
-import org.tura.platform.repository.core.ObjectControl;
+import org.tura.platform.repository.ObjectControl;
+import org.tura.platform.repository.data.AddTopObjectData;
 import org.tura.platform.repository.data.ProxyOperation;
-import org.tura.platform.repository.data.RemoveObjectData;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
-public class RemoveObjectOperation extends ProxyOperation{
+import com.rits.cloning.Cloner;
 
-	private ObjectControl master;
-	private ObjectControl detail;
+public class AddTopObjectOperation extends ProxyOperation{
+	
+	private ObjectControl proxy ;
     private ProxyCommadStackProvider stackProvider;
-    
-    
-	public ObjectControl getMaster() {
-		return master;
-	}
-	public void setMaster(ObjectControl master) {
-		this.master = master;
-	}
-	public ObjectControl getDetail() {
-		return detail;
-	}
-	public void setDetail(ObjectControl detail) {
-		this.detail = detail;
-	}
+	
+
 	public ProxyCommadStackProvider getStackProvider() {
 		return stackProvider;
 	}
+
 	public void setStackProvider(ProxyCommadStackProvider stackProvider) {
 		this.stackProvider = stackProvider;
 	}
 
-    public boolean prepare() throws Exception {
-        remove();
+	
+    public ObjectControl getProxy() {
+		return proxy;
+	}
+
+	public void setProxy(ObjectControl proxy) {
+		this.proxy = proxy;
+	}
+
+	
+	
+	public boolean prepare() throws Exception {
+        add();
         return true;
-
     }
+    
 
-    public void remove() throws Exception {
-    	RemoveObjectData data = new RemoveObjectData();
+    public void add() throws Exception {
+    	AddTopObjectData data = new AddTopObjectData();
     	populate(data);
 
-        data.setMasterPk(master.getPath());
-
-        data.setDetailPk(master.getPath());
+        Cloner c = new Cloner();
+        Object cloned = c.deepClone(proxy.getWrappedObject());
+        data.setObject(cloned);
 
         stackProvider.addCommand(data);
 
+        proxy.setAttached(true);
 
     }
+	
+	
+	
+
 }

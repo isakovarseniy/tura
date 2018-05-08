@@ -9,6 +9,8 @@ import org.tura.platform.repository.RepositoryException;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
+import org.tura.platform.repository.CommandProducer;
+import org.tura.platform.repository.Mapper;
 import org.tura.platform.repository.Repository;
 
 public class Registry {
@@ -20,7 +22,10 @@ public class Registry {
 	private Map<String, PostQueryTrigger> postQueryTriggers = new HashMap<>();
 	private Map<String, Mapper> mappers = new HashMap<>();
 	private Map<String , Boolean> skipRelation = new HashMap<>();
+	private Map<Repository , CommandProducer> commandProducers = new HashMap<>();
 
+	
+	
 	private static Registry instance = new Registry();
 
 	private Registry() {
@@ -31,6 +36,11 @@ public class Registry {
 		return instance;
 	}
 
+	
+	public void addCommandProducer(Repository repository, CommandProducer commandProducer){
+		commandProducers.put(repository, commandProducer);
+	}
+	
 	public void addSkipRelationRule(Class<?> repositoryClass, String relation) {
 		skipRelation.put(repositoryClass.getName() + "On" + relation, true);
 	}
@@ -80,6 +90,16 @@ public class Registry {
 		}
 		return persistanceClass;
 
+	}
+	
+	
+	public CommandProducer findCommandProduce(String repositoryClass) throws RepositoryException{
+		Repository repository  = findProvider(repositoryClass);
+		CommandProducer commandProducer =  commandProducers.get(repository);
+		if(commandProducer == null){
+			throw new RepositoryException("Unsupporable command producer for  " + repositoryClass);
+		}
+		return commandProducer;
 	}
 	
 	public String findRepositoryClass(String persistanceClass) throws RepositoryException {

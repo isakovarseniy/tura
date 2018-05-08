@@ -38,8 +38,7 @@ import org.tura.platform.repository.RepositoryException;
 import org.tura.platform.repository.SearchRequest;
 import org.tura.platform.repository.SearchResult;
 import org.tura.platform.repository.cdi.Repo;
-import org.tura.platform.repository.core.DataProvider;
-import org.tura.platform.repository.triggers.Repository;
+import org.tura.platform.repository.Repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -51,14 +50,6 @@ public class RestRepository {
 	@Inject
 	@Repo("repository")
 	private Repository repository;
-
-	public void addProvider(DataProvider provider, String objectClass) {
-
-	}
-
-	public void addCommand(DataProvider provider, String dataClass) {
-
-	}
 
 	@GET
 	@Path("create/{id}")
