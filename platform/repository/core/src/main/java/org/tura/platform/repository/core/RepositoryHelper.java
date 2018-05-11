@@ -1,3 +1,24 @@
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2017, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.repository.core;
 
 import java.lang.annotation.Annotation;
@@ -7,16 +28,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
-import org.tura.platform.repository.RepositoryException;
-import org.tura.platform.repository.core.annotation.Assosiation;
+import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.core.relatioin.RelationBuilder;
-import org.tura.platform.repository.CommandProducer;
-import org.tura.platform.repository.Mapper;
-import org.tura.platform.repository.ObjectControl;
-import org.tura.platform.repository.RepoKeyPath;
-import org.tura.platform.repository.RepoObjectKey;
-import org.tura.platform.repository.Repository;
 
 public class RepositoryHelper {
 
@@ -27,7 +41,7 @@ public class RepositoryHelper {
 		RepoObjectKey repoObjectKey = masterPk.getPath().get(sizepk - 1);
 		Class<?> clazz = Class.forName(repoObjectKey.getType());
 		Method method = clazz.getMethod("get" + WordUtils.capitalize(masterProperty));
-		Annotation annotation = method.getAnnotation(Assosiation.class);
+		Annotation annotation = method.getAnnotation(Association.class);
 		if (annotation == null) {
 			annotation = method.getAnnotation(Internal.class);
 		}

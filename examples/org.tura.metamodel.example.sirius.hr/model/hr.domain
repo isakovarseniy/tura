@@ -90,16 +90,7 @@
               <parameters uid="31c1633d-e431-47c9-b306-f880c5114864" name="Package"/>
             </modelQuery>
             <hints uid="c6408cd9-39b7-4117-b878-b9c99c7a1422" name="Serializable Object" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
-          </artifacts>
-          <artifacts uid="01ffd604-6a3b-4666-812f-afbbe5df4d3c" name="DataPovider" template="platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/mainDataProvider.egl">
-            <configVariables uid="7f9f1eae-a56e-4116-b4ab-ae4a8ae1b7e2" name="Generation path" var="c8917447-70ac-417c-b397-d966f2b057ad"/>
-            <modelQuery uid="8d38ce94-308b-4d88-84a0-c0cb27d0245b" name="Query model classes" query="domain::DomainTypesRepository.allInstances()->select(r|r.oclAsType(domain::DomainTypesRepository).name='${Repository}').repositoryPackages->select(r|r.oclAsType(tura::type::TypeGroup).name='${Package}' ).types->select(r|r.oclIsKindOf(tura::type::Type ) and r.oclAsType(artifact::Categorized).classifiers->select(q|q.oclAsType(artifact::Classifier ).hint.uid='@{Serializable Object}')->size()>0)">
-              <parameters uid="b3fd125c-0d31-4907-92cb-4fa2c5c12b46" name="Repository"/>
-              <parameters uid="b8f809e3-824e-49f6-8cab-2d6e10cecc91" name="Package"/>
-            </modelQuery>
-            <hints uid="3691eeee-995c-4e5c-ad8c-f0c02d0afc4f" name="Serializable Object" hint="00bf6826-995f-43e0-b82d-3cf0e1b27ee3"/>
-            <hints uid="6df48506-a169-425f-8708-ec2695e0de96" name="DataProvider" hint="a28a26b3-9c8d-45ba-ab37-4c2cc1a13f0a"/>
-            <hints uid="55644e55-003e-4dc7-8e5a-9f70851292b5" name="DataProviderPackage" hint="4344e575-83a8-4595-84b7-0414256a6c87"/>
+            <hints uid="be8cfd6c-9fe9-4b5b-8a5f-0ebb59581505" name="Entity Object" hint="b335d5d7-6d63-47de-a24b-246a55e48ad8"/>
           </artifacts>
         </artifactPackages>
         <artifactPackages uid="c31d2ced-ea2a-4113-b40a-0d43c1c63f7d" name="Services"/>
@@ -1694,7 +1685,7 @@
                         </mappers>
                       </components>
                     </ingredients>
-                    <ingredients order="2" uid="14bc11a6-ef32-4a75-a76c-6433dea53faf" name="Persistance objects repository" skip="true" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
+                    <ingredients order="2" uid="14bc11a6-ef32-4a75-a76c-6433dea53faf" name="Persistance objects repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="dda9b19e-e5a0-4baf-acba-4535993afa81" name="JPA model repository" componentRoot="${Generation path}/serviceLayer" artifactId="test-objects-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="">
                         <mappers uid="4ad64e23-f0df-4d9c-9f46-0e8d9e64a024" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Repository">
                           <queries uid="40469a6e-dadc-4f41-8f40-fde93c40b334" name="Query package for classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
@@ -1716,12 +1707,6 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
-                        </mappers>
-                        <mappers uid="b7bcb926-0d39-47fc-8fb0-a22406338740" artifactRef="01ffd604-6a3b-4666-812f-afbbe5df4d3c" name="DataProvider">
-                          <queries uid="5638e726-69e0-4085-acd3-1d77312c7ee0" name="Query package for classes" queryRef="8d38ce94-308b-4d88-84a0-c0cb27d0245b">
-                            <variables queryParamRef="b3fd125c-0d31-4907-92cb-4fa2c5c12b46" value="Testing repository"/>
-                            <variables queryParamRef="b8f809e3-824e-49f6-8cab-2d6e10cecc91" value="JPA test package"/>
-                          </queries>
                         </mappers>
                       </components>
                     </ingredients>
@@ -1830,10 +1815,10 @@
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                         </mappers>
-                        <mappers uid="13d00a08-a9ee-40cf-8712-ae86e8dd8870" artifactRef="01ffd604-6a3b-4666-812f-afbbe5df4d3c" name="Data Provider">
-                          <queries uid="9765094c-bfe1-45f4-8692-a7e9ba8e7b31" name="Query package for classes" queryRef="8d38ce94-308b-4d88-84a0-c0cb27d0245b">
-                            <variables queryParamRef="b3fd125c-0d31-4907-92cb-4fa2c5c12b46" value="HR domain"/>
-                            <variables queryParamRef="b8f809e3-824e-49f6-8cab-2d6e10cecc91" value="Simple model"/>
+                        <mappers uid="13d00a08-a9ee-40cf-8712-ae86e8dd8870" name="Data Provider">
+                          <queries uid="9765094c-bfe1-45f4-8692-a7e9ba8e7b31" name="Query package for classes">
+                            <variables value="HR domain"/>
+                            <variables value="Simple model"/>
                           </queries>
                         </mappers>
                       </components>
@@ -2027,10 +2012,10 @@
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
                         </mappers>
-                        <mappers uid="3393c2fe-9f57-4261-9229-e51037b8513b" artifactRef="01ffd604-6a3b-4666-812f-afbbe5df4d3c" name="DataProvider">
-                          <queries uid="990fb4c8-e39b-43aa-9fc7-08b4df18c042" name="Query package for classes" queryRef="8d38ce94-308b-4d88-84a0-c0cb27d0245b">
-                            <variables queryParamRef="b3fd125c-0d31-4907-92cb-4fa2c5c12b46" value="HR domain"/>
-                            <variables queryParamRef="b8f809e3-824e-49f6-8cab-2d6e10cecc91" value="Complex model"/>
+                        <mappers uid="3393c2fe-9f57-4261-9229-e51037b8513b" name="DataProvider">
+                          <queries uid="990fb4c8-e39b-43aa-9fc7-08b4df18c042" name="Query package for classes">
+                            <variables value="HR domain"/>
+                            <variables value="Complex model"/>
                           </queries>
                         </mappers>
                       </components>
@@ -7458,25 +7443,25 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                         </mappers>
-                        <mappers uid="d1a89d98-fa71-4c0a-bd29-d7508b27a30f" artifactRef="01ffd604-6a3b-4666-812f-afbbe5df4d3c" name="DB data provider">
+                        <mappers uid="d1a89d98-fa71-4c0a-bd29-d7508b27a30f" name="DB data provider">
                           <classifiers uid="f2182fc2-3b2d-4d1f-9500-9bdc9a197263" hint="a28a26b3-9c8d-45ba-ab37-4c2cc1a13f0a" details="DBDataPovider"/>
-                          <queries uid="5e064377-3840-48eb-937a-bb72775a5229" name="Query db classes" queryRef="8d38ce94-308b-4d88-84a0-c0cb27d0245b">
-                            <variables queryParamRef="b3fd125c-0d31-4907-92cb-4fa2c5c12b46" value="Sales Analyzer"/>
-                            <variables queryParamRef="b8f809e3-824e-49f6-8cab-2d6e10cecc91" value="database"/>
+                          <queries uid="5e064377-3840-48eb-937a-bb72775a5229" name="Query db classes">
+                            <variables value="Sales Analyzer"/>
+                            <variables value="database"/>
                           </queries>
                         </mappers>
-                        <mappers uid="1687654d-9f21-4191-a620-f689c9261d85" artifactRef="01ffd604-6a3b-4666-812f-afbbe5df4d3c" name="JBPM data provider">
+                        <mappers uid="1687654d-9f21-4191-a620-f689c9261d85" name="JBPM data provider">
                           <classifiers uid="6cf0d642-26e4-4f4c-84ec-538ecad2f1bf" hint="a28a26b3-9c8d-45ba-ab37-4c2cc1a13f0a" details="JBPMDataPovider"/>
-                          <queries uid="093d658c-3da8-4ae2-99aa-5b64d038ca94" name="Query jbpm classes" queryRef="8d38ce94-308b-4d88-84a0-c0cb27d0245b">
-                            <variables queryParamRef="b3fd125c-0d31-4907-92cb-4fa2c5c12b46" value="Sales Analyzer"/>
-                            <variables queryParamRef="b8f809e3-824e-49f6-8cab-2d6e10cecc91" value="JBPM"/>
+                          <queries uid="093d658c-3da8-4ae2-99aa-5b64d038ca94" name="Query jbpm classes">
+                            <variables value="Sales Analyzer"/>
+                            <variables value="JBPM"/>
                           </queries>
                         </mappers>
-                        <mappers uid="10cf53b4-9899-4fd3-a842-7c1d173291ac" artifactRef="01ffd604-6a3b-4666-812f-afbbe5df4d3c" name="Keycloak data provider">
+                        <mappers uid="10cf53b4-9899-4fd3-a842-7c1d173291ac" name="Keycloak data provider">
                           <classifiers uid="57b99404-aa25-44f2-aca3-335bda2d2314" hint="a28a26b3-9c8d-45ba-ab37-4c2cc1a13f0a" details="KeyCloakDataPovider"/>
-                          <queries uid="0a5d0d8f-21e5-4da2-a01f-56649ed7aaeb" name="Query keycloak classes" queryRef="8d38ce94-308b-4d88-84a0-c0cb27d0245b">
-                            <variables queryParamRef="b3fd125c-0d31-4907-92cb-4fa2c5c12b46" value="Sales Analyzer"/>
-                            <variables queryParamRef="b8f809e3-824e-49f6-8cab-2d6e10cecc91" value="KeyCloak"/>
+                          <queries uid="0a5d0d8f-21e5-4da2-a01f-56649ed7aaeb" name="Query keycloak classes">
+                            <variables value="Sales Analyzer"/>
+                            <variables value="KeyCloak"/>
                           </queries>
                         </mappers>
                       </components>

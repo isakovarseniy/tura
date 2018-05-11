@@ -26,8 +26,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import org.tura.platform.repository.RepositoryException;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.RepositoryException;
 
 public class LocalTransactionRepository extends BasicRepository {
 	

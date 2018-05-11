@@ -40,7 +40,7 @@ import org.tura.platform.datacontrol.event.RowRemovedEvent;
 import org.tura.platform.datacontrol.metainfo.DependecyProperty;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.datacontrol.shift.ShiftControl;
-import org.tura.platform.repository.ObjectControl;
+import org.tura.platform.repository.core.ObjectControl;
 
 
 public abstract class DataControl<T> extends MetaInfoHolder implements IDataControl {

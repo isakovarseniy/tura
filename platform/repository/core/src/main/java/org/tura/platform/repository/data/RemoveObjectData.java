@@ -21,7 +21,7 @@
  */
 package org.tura.platform.repository.data;
 
-import org.tura.platform.repository.RepoKeyPath;
+import org.tura.platform.repository.core.RepoKeyPath;
 
 public class RemoveObjectData  extends ProxyData{
 

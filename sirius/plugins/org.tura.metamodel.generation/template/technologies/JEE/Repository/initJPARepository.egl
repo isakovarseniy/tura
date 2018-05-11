@@ -1,0 +1,67 @@
+<#assign percent = "%" >
+<#assign start = "[" >
+<#assign end = "]" >
+${start}${percent} 
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
+ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
+
+ ${percent}${end}
+ [%
+      var util = new Native('org.tura.metamodel.commons.Util');
+      
+ %]
+ 
+ package [%=savepackage%];
+ 
+ import org.tura.platform.repository.core.Registry;
+ 
+ public class InitJPARepository{
+ 
+     org.tura.platform.object.persistence.JPARepository repository;
+     
+     public InitJPARepository(JPARepository repository){
+         this.repository = repository;
+     }
+ 
+    public void initProvider(){
+    
+       [%
+         for(type in typeCollection){
+		       if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
+		           continue;
+		        }
+       %] 
+        Registry.getInstance().addProvider("[%=t2model.get(type).get("fullName")%]",repository);
+       [%
+       }
+       %] 
+    }
+ 
+     public void initClassMapping(){
+    
+       [%
+         for(type in typeCollection){
+		       if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
+		           continue;
+		        }
+       %] 
+        Registry.getInstance().addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
+        Registry.getInstance().addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
+        
+       [%
+       }
+       %] 
+    
+    }
+
+     public void initCommandProducer(){
+        Registry.getInstance().addCommandProducer(repository,new org.tura.platform.object.persistence.JPACommandProducer());
+     }
+ 
+  
+ 
+ 
+ }
+ 

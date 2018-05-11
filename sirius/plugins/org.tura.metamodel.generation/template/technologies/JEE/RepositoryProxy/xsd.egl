@@ -41,7 +41,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 
             var hash = rel.sourceSideNamesCalculation();
             
-            var annotation = "Assosiation";
+            var annotation = "Association";
             if (rel.internal){
               annotation = "Internal";
 	         }
@@ -63,7 +63,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid);
       for (rel in assosiations){
          var hash = rel.targetSideNamesCalculation();
-            var annotation = "Assosiation";
+            var annotation = "Association";
             if (rel.internal){
               annotation = "Internal";
 	         }

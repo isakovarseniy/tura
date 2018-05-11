@@ -5,8 +5,6 @@ ${start}${percent}
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/typeElementUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/categorizedUtil.eol";
 import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiation.eol";
-import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/AddObjectCommand.egl";
-import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/RemoveObjectCommand.egl";
 import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/repositoryCommon.egl";
 
 
@@ -41,6 +39,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 	       type.collectType(typeCollection,model_mapper,null,null,null);
 	    }
 
+	  var savepackage = null;
 	    
       for(type in typeCollection){
          type.mappingType2Java(recipe,ingredient,'MODEL');
@@ -64,6 +63,10 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
         if (not type.~primaryKey.isDefined()  ){
            continue;
         }
+       if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
+           continue;
+        }
+        
 	    hash.put("t2model",t2model);
 	    hash.put("t2view",t2view);
 
@@ -76,74 +79,23 @@ import "platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE
 		    
 	    util.populateTechnologies(hash,model_mapper);
 		
-	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/loadObjectCommand.egl",hash,TemplateFactory,templateStore);
+		
+	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/mapperClass.egl",hash,TemplateFactory,templateStore);
 	    serializer.setFormatter(f);
 	    var buffer = serializer.process();
-	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Load"+t2view.get(type).get("class")+"Command.java",buffer);   
-         
-
-	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/AddInternalObjectCommand.egl",hash,TemplateFactory,templateStore);
-	    serializer.setFormatter(f);
-	    var buffer = serializer.process();
-	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "InternalAdd"+t2view.get(type).get("class")+"Command.java",buffer);   
-
-
-	    var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/RemoveInternalObjectCommand.egl",hash,TemplateFactory,templateStore);
-	    serializer.setFormatter(f);
-	    var buffer = serializer.process();
-	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "InternalRemove"+t2view.get(type).get("class")+"Command.java",buffer);   
-
-
-        type.addCommand(recipe,ingredient,model_mapper,t2view,t2model,path);
-        type.removeCommand(recipe,ingredient,model_mapper,t2view,t2model,path);
-        
-		var serializer : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/UpdateObjectCommand.egl",hash,TemplateFactory,templateStore);
-		serializer.setFormatter(f);
-		var buffer = serializer.process();
-		util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/commands", "Update"+t2view.get(type).get("class")+"Command.java",buffer);   
-        
-
-        var allRel = new Native('java.util.ArrayList');
- 		var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
- 		allRel.addAll(assosiations);
- 		assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
- 		allRel.addAll(assosiations);
+	    util.saveFile( path+t2view.get(type).get("package").replaceAll("\\.","\\/")+"/mapper", t2view.get(type).get("class")+"Mapper.java",buffer);   
  		
- 		for ( rel in allRel  ){
+ 		savepackage = t2view.get(type).get("package");
 
-	       hash.put("rel",rel);
- 		
-		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/loadObjectRule.egl",hash,TemplateFactory,templateStore);
-		   rule.setFormatter(f);
-		   var buffer = rule.process();
-		   
-		   util.saveFile( path+t2view.get(rel.source).get("package").replaceAll("\\.","\\/")+"/rules", "Load"+t2view.get(rel.source).get("class") + rel.type.toString() +t2view.get(rel.target).get("class")+"Rule.java",buffer);   
- 		
- 		}
- 
-  		for ( rel in allRel  ){
-	       hash.put("rel",rel);
- 		
-		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/jpaAddRule.egl",hash,TemplateFactory,templateStore);
-		   rule.setFormatter(f);
-		   var buffer = rule.process();
-		   util.saveFile( path+t2model.get(rel.source).get("package").replaceAll("\\.","\\/")+"/rules", "Add"+t2model.get(rel.source).get("class") + rel.type.toString() +t2model.get(rel.target).get("class")+"JpaRule.java",buffer);   
-
- 		}
- 		
-    }
-    
-      for(type in t2model.keySet()){
-        if (not type.~primaryKey.isDefined()  ){
-           continue;
-        }
-	       hash.put("type",type);
- 		
-		   var rule : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/jpaRemoveRule.egl",hash,TemplateFactory,templateStore);
-		   rule.setFormatter(f);
-		   var buffer = rule.process();
-		   
-		   util.saveFile( path+t2model.get(type).get("package").replaceAll("\\.","\\/")+"/rules", "Remove"+t2model.get(type).get("class") +"JpaRule.java",buffer);   
-     } 	
    }
+     if (savepackage <> null){   
+     	hash.put("savepackage",savepackage);
+     	hash.put("typeCollection",typeCollection);
+	    var init : Template = util.loadTemplate("platform:/plugin/org.tura.metamodel.generation/template/technologies/JEE/Repository/initJPARepository.egl",hash,TemplateFactory,templateStore);
+	    init.setFormatter(f);
+	    var buffer = init.process();
+	    util.saveFile( path+savepackage.replaceAll("\\.","\\/"), "InitJPARepository.java",buffer);   
+     }
+   
+ }  
 %]

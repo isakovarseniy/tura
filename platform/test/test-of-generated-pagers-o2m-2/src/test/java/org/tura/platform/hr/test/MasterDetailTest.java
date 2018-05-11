@@ -22,7 +22,7 @@
 package org.tura.platform.hr.test;
 
 import org.tura.platform.datacontrol.commons.Constants;
-import org.tura.platform.repository.ObjectControl;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.test.MasterDetail;
 import org.tura.platform.test.hr.model.EmployeeType;
 

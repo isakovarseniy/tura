@@ -42,7 +42,7 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.shift.ShiftConstants;
-import org.tura.platform.repository.Repository;
+import org.tura.platform.repository.core.Repository;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
 

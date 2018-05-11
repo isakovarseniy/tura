@@ -43,7 +43,7 @@ import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.Pager;
 import org.tura.platform.datacontrol.pool.PoolCommand;
 import org.tura.platform.datacontrol.pool.PoolElement;
-import org.tura.platform.repository.ObjectControl;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
 

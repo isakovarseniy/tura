@@ -21,7 +21,7 @@
  */
 package org.tura.platform.repository.operation;
 
-import org.tura.platform.repository.ObjectControl;
+import org.tura.platform.repository.core.ObjectControl;
 import org.tura.platform.repository.data.ProxyOperation;
 import org.tura.platform.repository.data.RemoveContainmentObjectData;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;

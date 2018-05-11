@@ -41,9 +41,9 @@ import org.tura.platform.object.persistence.operation.DisconnectOperation;
 import org.tura.platform.object.persistence.operation.PersistOperation;
 import org.tura.platform.object.persistence.operation.RemoveOperation;
 import org.tura.platform.object.persistence.operation.UpdateOperation;
-import org.tura.platform.repository.Repository;
-import org.tura.platform.repository.RepositoryException;
-import org.tura.platform.repository.SearchResult;
+import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 

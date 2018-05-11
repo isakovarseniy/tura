@@ -1,3 +1,24 @@
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2017, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.repository.core.relatioin;
 
 import java.lang.reflect.Method;
@@ -9,10 +30,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
-import org.tura.platform.repository.Rule;
 import org.tura.platform.repository.core.RelationAdapter;
 import org.tura.platform.repository.core.RepositoryObjectLoader;
-import org.tura.platform.repository.core.annotation.Assosiation;
+import org.tura.platform.repository.core.Rule;
+import org.tura.platform.repository.core.annotation.Association;
 
 public class One2ManyRelationAdapter extends RelationAdapter {
 
@@ -93,7 +114,7 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 				return method;
 			}
 		}
-		Assosiation assosiation = method.getAnnotation(Assosiation.class);
+		Association assosiation = method.getAnnotation(Association.class);
 		Class <?> remoteClass = assosiation.mappedBy();
 		Method remoteMethod = remoteClass.getMethod("get"+ WordUtils.capitalize(assosiation.property()) , List.class );
 		return remoteMethod;
@@ -105,7 +126,7 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 			Type[] args =((ParameterizedType) returnType).getActualTypeArguments();
 			Type arg = args[0];
 
-			Assosiation assosiation = method.getAnnotation(Assosiation.class);
+			Association assosiation = method.getAnnotation(Association.class);
 			Class <?> remoteClass = assosiation.mappedBy();
 			Method remoteMethod = remoteClass.getMethod("set"+ WordUtils.capitalize(assosiation.property()) , (Class<?>) arg );
 			return remoteMethod;

@@ -36,10 +36,10 @@ import javax.ws.rs.core.Response;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.repository.RepositoryException;
-import org.tura.platform.repository.SearchRequest;
-import org.tura.platform.repository.SearchResult;
-import org.tura.platform.repository.Repository;
+import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.SearchRequest;
+import org.tura.platform.repository.core.SearchResult;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

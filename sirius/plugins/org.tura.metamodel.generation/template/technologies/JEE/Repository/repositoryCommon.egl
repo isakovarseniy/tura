@@ -59,6 +59,28 @@
        [%}
 }
 
+@template
+ operation PKRepoObjectKey(type,name,obj,objFullName,recipe,ingredient){
+       var util = new Native('org.tura.metamodel.commons.Util');
+       if(not type.~primaryKey.isDefined() or type.~primaryKey.size()==0){
+         util.traceIfDebug("Error","Object "+type.name+" doesn't have primary key");
+       }
+       if (type.~primaryKey.size()>1){%]
+        [%=objFullName%]PK [%=name%] = new  [%=objFullName%]PK();
+		  [%for ( field in type.~primaryKey){
+		            field.typeRef.mappingType2Java(recipe,ingredient);
+		  %]
+		   [%=name%].set[%=util.mergeAndCapitalize(field.name)%]( ([%=field.typeRef.~fullName%] ) find( "[%=util.mergeAndCapitalize(field.name)%]",[%=obj%]));
+		   [%}
+       }else{
+          var field = type.~primaryKey.get(0);
+          field.typeRef.mappingType2Java(recipe,ingredient);
+       %]
+        [%=field.typeRef.~fullName%]   [%=name%] = ([%=field.typeRef.~fullName%] ) find( "[%=util.mergeAndCapitalize(field.name)%]",[%=obj%]);
+       [%}
+}
+
+
 
 @template
  operation PKDetails (type,name,obj,objFullName,recipe,ingredient,rel){
