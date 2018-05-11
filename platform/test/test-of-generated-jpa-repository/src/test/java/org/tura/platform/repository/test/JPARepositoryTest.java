@@ -51,9 +51,7 @@ import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-import org.tura.provider.DefaultDataProvider;
 
-import objects.test.serialazable.jpa.AddCustomer2LocationOnNoAssosiationCustomerData;
 import objects.test.serialazable.jpa.Client;
 import objects.test.serialazable.jpa.Customer;
 import objects.test.serialazable.jpa.File;
