@@ -40,6 +40,7 @@ public class Registry {
 	private Map<String, Mapper> mappers = new HashMap<>();
 	private Map<String , Boolean> skipRelation = new HashMap<>();
 	private Map<Repository , CommandProducer> commandProducers = new HashMap<>();
+	private PrImaryKeyStrategy prImaryKeyStrategy;
 
 	
 	
@@ -58,6 +59,14 @@ public class Registry {
 		return instance;
 	}
 
+	public void setPrImaryKeyStrategy(PrImaryKeyStrategy prImaryKeyStrategy){
+		this.prImaryKeyStrategy = prImaryKeyStrategy;
+	}
+	
+	public PrImaryKeyStrategy getPrImaryKeyStrategy(){
+		return prImaryKeyStrategy;
+	}
+	
 	
 	public void addCommandProducer(Repository repository, CommandProducer commandProducer){
 		commandProducers.put(repository, commandProducer);
@@ -129,7 +138,7 @@ public class Registry {
 		if (repositoryClass == null) {
 			throw new RepositoryException("Unsupporable class repository class for  " + persistanceClass);
 		}
-		return persistanceClass;
+		return repositoryClass;
 
 	}
 	
@@ -148,7 +157,7 @@ public class Registry {
 	}
 
 	public Mapper findMapper(String persistanceClass, String repositoryClass) {
-		return mappers.get(persistanceClass + "2+" + repositoryClass);
+		return mappers.get(persistanceClass + "2" + repositoryClass);
 	}
 
 	public boolean skipRelation(Class<?> repositoryClass, Method method) {

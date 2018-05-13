@@ -60,14 +60,25 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		try {
 			findPersistanceClass(repositoryClass);
 			Object repositoryObject = Class.forName(repositoryClass).newInstance();
+
+			PrImaryKeyStrategy prImaryKeyStrategy = findPrImaryKeyStrategy();
+			if (prImaryKeyStrategy != null){
+				prImaryKeyStrategy.generatePk(repositoryObject);
+			}
+
 			PostCreateTrigger trigger = findPostCreateTrigger(repositoryClass);
 			if (trigger != null) {
 				trigger.postCreate(repositoryObject);
 			}
+			
 			return repositoryObject;
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
+	}
+
+	private PrImaryKeyStrategy findPrImaryKeyStrategy() {
+		return Registry.getInstance().getPrImaryKeyStrategy();
 	}
 
 	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
@@ -89,7 +100,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			for (Object object : result.getSearchResult()) {
 				Map<String, Object> context = new HashMap<>();
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context);
-				records.add(loader.loader(object, getPersistancePrimaryKey(object), persistanceClass));
+				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName( repositoryClass)));
 
 				@SuppressWarnings("unchecked")
 				List<Rule> rules = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);
@@ -114,30 +125,36 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			for (Object change : changes) {
 				if (change instanceof AddContainmentObjectData) {
 					new RepositoryObjectInstaller().add((AddContainmentObjectData) change);
-
+					continue;
 				}
 				if (change instanceof AddObjectData) {
 					new RepositoryObjectInstaller().add((AddObjectData) change);
+					continue;
 				}
 
 				if (change instanceof AddTopObjectData) {
 					new RepositoryObjectInstaller().add((AddTopObjectData) change);
+					continue;
 				}
 
 				if (change instanceof RemoveContainmentObjectData) {
 					new RepositoryObjectRemover().remove((RemoveContainmentObjectData) change);
+					continue;
 				}
 
 				if (change instanceof RemoveObjectData) {
 					new RepositoryObjectRemover().remove((RemoveObjectData) change);
+					continue;
 				}
 
 				if (change instanceof RemoveTopObjectData) {
 					new RepositoryObjectRemover().remove((RemoveTopObjectData) change);
+					continue;
 				}
 
 				if (change instanceof UpdateObjectData) {
 					new RepositoryObjectUpdate().update((UpdateObjectData) change);
+					continue;
 				}
 
 			}

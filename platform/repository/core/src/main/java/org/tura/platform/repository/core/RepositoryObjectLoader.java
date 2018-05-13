@@ -40,8 +40,12 @@ import com.octo.java.sql.exp.Operator;
 public class RepositoryObjectLoader  extends RepositoryHelper{
 
 	static int MAX_ROW_NUMBER = 50;
-	static String PARENT_PERSISTANCE_OBJECT = "parentPersistanceObject";
-	static String PARENT_REPOSITORY_OBJECT = "parentRepositoryObject";
+	public static String PARENT_PERSISTANCE_OBJECT = "parentPersistanceObject";
+	public static String PARENT_REPOSITORY_OBJECT = "parentRepositoryObject";
+	public static String PARENT_CHIELD_RELATION = "parentChildRelatioin";
+	public static String PARENT_CHIELD_RELATION_TYPE = "parentChildRelatioinType";
+	
+	
 	static String LOADED_OBJECTS = "LOADED_OBJECTS";
 	public static String RULES_LIST = "RULES_LIST";
 
@@ -115,7 +119,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 	private  Object loader(Object persistenceObject, Class<?> repositoryClass) throws RepositoryException {
 		try {
 			Object repositoryObject = instantiateObject(repositoryClass);
-			populate(repositoryObject, persistenceObject);
+			populate(persistenceObject,repositoryObject);
 			internalLoader(repositoryObject, false);
 			query(repositoryObject, persistenceObject);
 
@@ -143,7 +147,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 			Repository provider = findProvider(assosiation.mappedBy().getName());
 			Class<?> persistanceClass = findPersistanceClass(assosiation.mappedBy().getName());
 
-			List<SearchCriteria> newSearch = prepareSearchCriteria(persistenceObject, repositoryObject);
+			List<SearchCriteria> newSearch = prepareSearchCriteria(persistenceObject, repositoryObject,assosiation, method.getName().substring(3));
 			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(repositoryObject.getClass());
 			if (preQueryTrigger != null) {
 				preQueryTrigger.preQueryTrigger(newSearch, order);
@@ -162,7 +166,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 	}
 
 
-	private List<SearchCriteria> prepareSearchCriteria(Object persistenceObject, Object repositoryObject) {
+	private List<SearchCriteria> prepareSearchCriteria(Object persistenceObject, Object repositoryObject,Association assosiation, String property) {
 
 		List<SearchCriteria> newSearch = new ArrayList<>();
 		for (SearchCriteria sc : search) {
@@ -183,6 +187,19 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 		criteria.setValue(repositoryObject);
 		newSearch.add(criteria);
 
+		criteria = new SearchCriteria();
+		criteria.setName(PARENT_CHIELD_RELATION);
+		criteria.setComparator(Operator.EQ.name());
+		criteria.setValue(property);
+		newSearch.add(criteria);
+		
+		criteria = new SearchCriteria();
+		criteria.setName(PARENT_CHIELD_RELATION_TYPE);
+		criteria.setComparator(Operator.EQ.name());
+		criteria.setValue(assosiation.type());
+		newSearch.add(criteria);
+		
+		
 		return newSearch;
 
 	}

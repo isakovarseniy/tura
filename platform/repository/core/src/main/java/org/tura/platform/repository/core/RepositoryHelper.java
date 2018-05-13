@@ -31,6 +31,7 @@ import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.core.relatioin.RelationBuilder;
+import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 public class RepositoryHelper {
 
@@ -74,8 +75,8 @@ public class RepositoryHelper {
 		Class<?> repositoryClass = object.getClass();
 		Class<?> proxyClass = Class.forName( repositoryClass.getName()+"Proxy");
 		
-		Constructor<?> c = proxyClass.getConstructor(repositoryClass);
-		ObjectControl control = (ObjectControl) c.newInstance(object);
+		Constructor<?> c = proxyClass.getConstructor(repositoryClass,ProxyCommadStackProvider.class);
+		ObjectControl control = (ObjectControl) c.newInstance(object,null);
 		return control.getPath();
 	}
 

@@ -43,11 +43,13 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPARepository;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.provider.DefaultDataProvider;
 
+import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.Many2Many1A;
 import objects.test.serialazable.jpa.Many2Many1B;
 import objects.test.serialazable.jpa.ProxyRepository;
@@ -112,19 +114,19 @@ public class Many2ManyNoContainmentTest {
 	}
 
 	private ProxyRepository getRepository() {
+		Registry.newInstance();
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		DefaultDataProvider dataProvider = new DefaultDataProvider();
-		dataProvider.setPersistenceProvider(new JPARepository(em));
-		dataProvider.setRepository(repository);
-		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
-		dataProvider.init();
-		
+		InitJPARepository init = new InitJPARepository(new JPARepository(em));
+		init.initClassMapping();
+		init.initCommandProducer();
+		init.initProvider();
 		
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
+
 	
 	@Test
 	public void t0000_One2Many() {

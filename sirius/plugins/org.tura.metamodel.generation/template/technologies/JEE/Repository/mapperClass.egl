@@ -74,5 +74,31 @@ ${start}${percent}
 	    return obj;
 	    
 	    }
+	    
+	    
+	    	    public Object copyFromRepository2Persistence( Object repositoryObject){
+	    
+	    [%=t2model.get(type).get("fullName")%] jpa = new  [%=t2model.get(type).get("fullName")%] ();
+	    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
+	    
+	    [%
+	       var tp = type;
+	        while  (1 == 1) {
+	         %]
+	          [%=serializer(tp,type.~skipAttributes,"obj","jpa")%]
+	         [%  
+	            if (tp.~extension.isDefined()){
+	               tp = tp.~extension;
+	            }else{
+	               break;
+	            }
+	         }     	    
+	    
+	    %]
+	    return jpa;
+	    
+	    }
+ 
+	    
  
  }

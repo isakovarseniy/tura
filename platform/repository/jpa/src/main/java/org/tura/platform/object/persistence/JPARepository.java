@@ -25,6 +25,7 @@ import static com.octo.java.sql.query.Query.c;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -43,6 +44,7 @@ import org.tura.platform.object.persistence.operation.RemoveOperation;
 import org.tura.platform.object.persistence.operation.UpdateOperation;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
@@ -120,14 +122,27 @@ public class JPARepository implements Repository {
 			Integer endIndex, String objectClass) throws RepositoryException {
 
 		try {
+			SearchCriteria parentPersistenceObject =   extractAndRemove(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT,searchCriteria);
+			extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT,searchCriteria);
+			SearchCriteria parentChildRelation = extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
+			SearchCriteria parentChildRelationType = extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE,searchCriteria);
 
+			if (parentPersistenceObject != null && parentPersistenceObject.getValue().getClass().isAnnotationPresent(Entity.class) ){
+				String relationType = (String) parentChildRelationType.getValue();
+				String property = (String) parentChildRelation.getValue();
+				Object persistenceObject = parentPersistenceObject.getValue();
+               
+				List<?> list = new  JPACommandProducer().findChildren(persistenceObject, relationType, property);
+				return new SearchResult(list, list.size());
+			}
+			
 			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(objectClass);
 			if (preQueryTrigger != null) {
 				preQueryTrigger.preQueryTrigger(searchCriteria, orderCriteria);
 			}
 
 			List<?> searchResult = findObjectsQuery (searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
-			long numberOfRows = findNumberOfRowsQuery(searchCriteria, orderCriteria );
+			long numberOfRows = findNumberOfRowsQuery(searchCriteria, orderCriteria ,objectClass);
 
 			return new SearchResult(searchResult, numberOfRows);
 
@@ -135,6 +150,18 @@ public class JPARepository implements Repository {
 			throw new RepositoryException(e);
 		}
 
+	}
+
+	private SearchCriteria extractAndRemove(String parameter, List<SearchCriteria> search) {
+		SearchCriteria result = null;
+		for ( SearchCriteria sc : search){
+			if (sc.getName().equals(parameter)){
+				search.remove(sc);
+				result = sc;
+				break;
+			}
+		}
+		return result;
 	}
 
 	@Override
@@ -157,22 +184,26 @@ public class JPARepository implements Repository {
 			for (Object change : changes) {
 				if (change instanceof ConnectData) {
 					new ConnectOperation(em).execute((ConnectData) change);
-
+					continue;
 				}
 				if (change instanceof DisconnectData) {
 					new DisconnectOperation(em).execute((DisconnectData) change);
+					continue;
 				}
 
 				if (change instanceof PersistData) {
 					new PersistOperation(em).execute((PersistData) change);
+					continue;
 				}
 
 				if (change instanceof RemoveData) {
 					new RemoveOperation(em).execute((RemoveData) change);
+					continue;
 				}
 
 				if (change instanceof UpdateData) {
 					new UpdateOperation(em).execute((UpdateData) change);
+					continue;
 				}
 			}
 		} catch (Exception e) {

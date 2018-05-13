@@ -34,7 +34,7 @@ public enum RelEnul {
 		this.operation = operation;
 	}
 	
-	RelOperation getOperation(){
+	public RelOperation getOperation(){
 		return operation;
 	}
 	

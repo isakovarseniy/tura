@@ -128,11 +128,11 @@ public class Many2ManyRelationAdapter extends RelationAdapter {
 		String detailProperty = null;
 
 		if (obj1.getClass().equals(clazz)){
-			masterProperty = WordUtils.uncapitalize( method.getName().substring(2));
-			detailProperty = WordUtils.uncapitalize( getRemoteGetMethod().getName().substring(2));
+			masterProperty = WordUtils.uncapitalize( method.getName().substring(3));
+			detailProperty = WordUtils.uncapitalize( getRemoteGetMethod().getName().substring(3));
 		}else{
 			detailProperty = WordUtils.uncapitalize( method.getName().substring(2));
-			masterProperty = WordUtils.uncapitalize( getRemoteGetMethod().getName().substring(2));
+			masterProperty = WordUtils.uncapitalize( getRemoteGetMethod().getName().substring(3));
 		}
 
 		

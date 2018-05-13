@@ -54,11 +54,11 @@ public class One2OneRelationAdapter extends RelationAdapter {
 		
 
 		if (clazz.getName().equals(obj1.getClass().getName())) {
-			masterMethod = method;
+			masterMethod = getLocalSetMethod();
 			detailMethod = getRemoteSetMethod();
 		} else {
 			masterMethod = getRemoteSetMethod();
-			detailMethod = method;
+			detailMethod = getLocalSetMethod();
 		}
 		Rule rule = new One2OneRepositoryRuleObject(master, detail, masterMethod, detailMethod);
 
@@ -76,6 +76,14 @@ public class One2OneRelationAdapter extends RelationAdapter {
 		return remoteClass.getMethod(remoteSetName, new Class[] { clazz });
 	}
 
+	private Method getLocalSetMethod() throws Exception {
+		String  methodName = "set"+method.getName().substring(3);
+		Method m = clazz.getDeclaredMethod(methodName, method.getReturnType());
+		return m;
+	}
+	
+	
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List<Object> getListOfRepositoryObjects(Object repositoryObject) throws Exception {
@@ -96,15 +104,15 @@ public class One2OneRelationAdapter extends RelationAdapter {
 		
 
 		if (clazz.getName().equals(obj1.getClass().getName())) {
-			masterMethod = method;
+			masterMethod = getLocalSetMethod();
 			detailMethod = getRemoteSetMethod();
 		} else {
 			masterMethod = getRemoteSetMethod();
-			detailMethod = method;
+			detailMethod = getLocalSetMethod();
 		}
 		
-		masterMethod.invoke(master, (Object[]) null);
-		detailMethod.invoke(detail, (Object[]) null);
+		masterMethod.invoke(master, new Object[] {null}  );
+		detailMethod.invoke(detail, new Object[] {null});
 		
 	}
 
@@ -114,11 +122,11 @@ public class One2OneRelationAdapter extends RelationAdapter {
 		String detailProperty = null;
 		
 		if (obj1.getClass().equals(clazz)){
-			masterProperty = WordUtils.uncapitalize( method.getName().substring(2));
-			detailProperty = WordUtils.uncapitalize( getRemoteSetMethod().getName().substring(2));
+			masterProperty = WordUtils.uncapitalize( method.getName().substring(3));
+			detailProperty = WordUtils.uncapitalize( getRemoteSetMethod().getName().substring(3));
 		}else{
-			detailProperty = WordUtils.uncapitalize( method.getName().substring(2));
-			masterProperty = WordUtils.uncapitalize( getRemoteSetMethod().getName().substring(2));
+			detailProperty = WordUtils.uncapitalize( method.getName().substring(3));
+			masterProperty = WordUtils.uncapitalize( getRemoteSetMethod().getName().substring(3));
 		}
 
 		Map<String,String> map = new HashMap<>();

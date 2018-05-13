@@ -155,7 +155,7 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 
 		List list = (List) masterMethod.invoke(master);
 		list.remove(detail);
-		detailMethod.invoke(detail,(Object[]) null);
+		detailMethod.invoke(detail, new Object[] {null});
 	}
 
 	@Override
@@ -164,11 +164,11 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 		String detailProperty = null;
 
 		if (obj1.getClass().equals(clazz)){
-			masterProperty = WordUtils.uncapitalize( getMasterMethod().getName().substring(2));
-			detailProperty = WordUtils.uncapitalize( getDetailMethod().getName().substring(2));
+			masterProperty = WordUtils.uncapitalize( getMasterMethod().getName().substring(3));
+			detailProperty = WordUtils.uncapitalize( getDetailMethod().getName().substring(3));
 		}else{
-			detailProperty = WordUtils.uncapitalize( getDetailMethod().getName().substring(2));
-			masterProperty = WordUtils.uncapitalize( getMasterMethod().getName().substring(2));
+			detailProperty = WordUtils.uncapitalize( getDetailMethod().getName().substring(3));
+			masterProperty = WordUtils.uncapitalize( getMasterMethod().getName().substring(3));
 		}
 
 		

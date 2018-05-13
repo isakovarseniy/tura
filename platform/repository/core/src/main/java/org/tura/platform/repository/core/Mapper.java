@@ -26,6 +26,7 @@ public interface Mapper {
 	Object getPrimaryKey(Object persistenceObject) throws RepositoryException;
   	Object getPrimaryKey(RepoObjectKey objKey) throws RepositoryException;
 	Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject);
+	Object copyFromRepository2Persistence(Object repositoryObject);
 
 }
 

@@ -22,6 +22,8 @@
 package org.tura.platform.object.persistence.operation;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
 
@@ -41,4 +43,20 @@ public class One2One implements RelOperation {
 		m.invoke(master, new Object[]{});
 	}
 
+	
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List getChildren(Object object, String property) throws Exception {
+		String methodName = "get"+WordUtils.capitalize(property);
+		Method method = object.getClass().getDeclaredMethod(methodName, new Class[]{});
+		
+		Object obj = method.invoke(object, new Object[]{});
+		List list = new ArrayList<>();
+		if (obj != null){
+			list.add(obj);
+		}
+		return list;
+	}	
+	
 }

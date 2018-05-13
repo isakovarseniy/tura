@@ -31,6 +31,7 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
 	       try{
 	           org.tura.platform.repository.operation.AddTopObjectOperation cmd = new  org.tura.platform.repository.operation.AddTopObjectOperation();
                cmd.setStackProvider(stackProvider);
+               cmd.setProxy((org.tura.platform.repository.core.ObjectControl) obj);
                cmd.prepare();
         	}catch(Exception e){
                 throw new RepositoryException(e);
@@ -48,6 +49,7 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
 	       try{
 	           org.tura.platform.repository.operation.RemoveTopObjectOperation cmd = new  org.tura.platform.repository.operation.RemoveTopObjectOperation();
                cmd.setStackProvider(stackProvider);
+               cmd.setProxy((org.tura.platform.repository.core.ObjectControl) obj);
                cmd.prepare();
         	}catch(Exception e){
                 throw new RepositoryException(e);

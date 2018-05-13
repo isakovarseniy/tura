@@ -34,27 +34,28 @@ import org.tura.platform.object.persistence.data.DisconnectData;
 import org.tura.platform.object.persistence.data.PersistData;
 import org.tura.platform.object.persistence.data.RemoveData;
 import org.tura.platform.object.persistence.data.UpdateData;
+import org.tura.platform.object.persistence.operation.RelEnul;
 import org.tura.platform.repository.core.CommandProducer;
 import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 
-public class JPACommandProducer implements CommandProducer {
+public class JPACommandProducer extends RepositoryHelper implements CommandProducer {
 
-	public  Object getPrimaryKey(RepoKeyPath pk) throws RepositoryException{
-		RepoObjectKey objKey =  pk.getPath().get(0);
-		String repositoryClass =   objKey.getType();
-		String persistanceClass = Registry.getInstance().findPersistanceClass(repositoryClass);
-		Mapper  mapper = Registry.getInstance().findMapper(persistanceClass, repositoryClass);
+	public Object getPrimaryKey(RepoKeyPath pk) throws RepositoryException {
+		RepoObjectKey objKey = pk.getPath().get(0);
+		String repositoryClass = objKey.getType();
+		Mapper mapper = findMapper(repositoryClass);
 		return mapper.getPrimaryKey(objKey);
-		
+
 	}
 
-	public  String getPersistanceClassName(RepoKeyPath pk) throws RepositoryException{
+	public String getPersistanceClassName(RepoKeyPath pk) throws RepositoryException {
 		String repositoryClass = pk.getPath().get(0).getType();
 		return Registry.getInstance().findPersistanceClass(repositoryClass);
 	}
@@ -79,9 +80,9 @@ public class JPACommandProducer implements CommandProducer {
 			relationType = ((Internal) a).type();
 		}
 		if ("One2Many".equals(relationType)) {
-			if (findAnnotationType(m)){
+			if (findAnnotationType(m)) {
 				return "One2Many";
-			}else{
+			} else {
 				return "Many2One";
 			}
 		}
@@ -89,10 +90,14 @@ public class JPACommandProducer implements CommandProducer {
 	}
 
 	@Override
-	public List<Object> removeObject(Object repositoryObject) {
+	public List<Object> removeObject(Object repositoryObject) throws RepositoryException {
 		ArrayList<Object> list = new ArrayList<>();
 		RemoveData data = new RemoveData();
-		data.setObject(repositoryObject);
+
+		Mapper mapper = findMapper(repositoryObject.getClass().getName());
+		Object persistanceObject = mapper.copyFromRepository2Persistence(repositoryObject);
+		data.setObject(persistanceObject);
+
 		list.add(data);
 		return list;
 	}
@@ -104,10 +109,14 @@ public class JPACommandProducer implements CommandProducer {
 	}
 
 	@Override
-	public List<Object> addObject(Object repositoryObject) {
+	public List<Object> addObject(Object repositoryObject) throws RepositoryException {
 		ArrayList<Object> list = new ArrayList<>();
 		PersistData data = new PersistData();
-		data.setObject(repositoryObject);
+
+		Mapper mapper = findMapper(repositoryObject.getClass().getName());
+		Object persistanceObject = mapper.copyFromRepository2Persistence(repositoryObject);
+		data.setObject(persistanceObject);
+
 		list.add(data);
 		return list;
 	}
@@ -121,67 +130,92 @@ public class JPACommandProducer implements CommandProducer {
 	@Override
 	public List<Object> disconnectMasterFromDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		ArrayList<Object> list = new ArrayList<>();
+		try {
+			ArrayList<Object> list = new ArrayList<>();
 
-		DisconnectData data = new DisconnectData();
-		data.setMasterPk(getPrimaryKey(masterPk));
-		data.setMasterProperty(masterProperty);
-		data.setMasterClassName(getPersistanceClassName(masterPk));
-		data.setDetailPk(getPrimaryKey(detailPk));
-		data.setDetailClassName(getPersistanceClassName(detailPk));
+			DisconnectData data = new DisconnectData();
+			data.setMasterPk(getPrimaryKey(masterPk));
+			data.setMasterProperty(masterProperty);
+			data.setRelation(getRelationType(masterPk, masterProperty));
+			data.setMasterClassName(getPersistanceClassName(masterPk));
+			data.setDetailPk(getPrimaryKey(detailPk));
+			data.setDetailClassName(getPersistanceClassName(detailPk));
 
-		list.add(data);
-		return list;
+			list.add(data);
+			return list;
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+
+		}
 	}
 
 	@Override
 	public List<Object> disconnectDetailFromMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		ArrayList<Object> list = new ArrayList<>();
+		try {
 
-		DisconnectData data = new DisconnectData();
-		data.setMasterPk(getPrimaryKey(detailPk));
-		data.setMasterProperty(detailProperty);
-		data.setMasterClassName(getPersistanceClassName(detailPk));
+			ArrayList<Object> list = new ArrayList<>();
 
-		data.setDetailPk(getPrimaryKey(masterPk));
-		data.setDetailClassName(getPersistanceClassName(masterPk));
+			DisconnectData data = new DisconnectData();
+			data.setMasterPk(getPrimaryKey(detailPk));
+			data.setMasterProperty(detailProperty);
+			data.setMasterClassName(getPersistanceClassName(detailPk));
+			data.setRelation(getRelationType(masterPk, masterProperty));
+			data.setDetailPk(getPrimaryKey(masterPk));
+			data.setDetailClassName(getPersistanceClassName(masterPk));
 
-		list.add(data);
-		return list;
+			list.add(data);
+			return list;
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+
+		}
+
 	}
 
 	@Override
 	public List<Object> connectMasterToDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		ArrayList<Object> list = new ArrayList<>();
+		try {
+			ArrayList<Object> list = new ArrayList<>();
 
-		ConnectData data = new ConnectData();
-		data.setMasterPk(getPrimaryKey(masterPk));
-		data.setMasterProperty(masterProperty);
-		data.setMasterClassName(getPersistanceClassName(masterPk));
-		data.setDetailPk(getPrimaryKey(detailPk));
-		data.setDetailClassName(getPersistanceClassName(detailPk));
+			ConnectData data = new ConnectData();
+			data.setMasterPk(getPrimaryKey(masterPk));
+			data.setMasterProperty(masterProperty);
+			data.setMasterClassName(getPersistanceClassName(masterPk));
+			data.setRelation(getRelationType(masterPk, masterProperty));
+			data.setDetailPk(getPrimaryKey(detailPk));
+			data.setDetailClassName(getPersistanceClassName(detailPk));
 
-		list.add(data);
-		return list;
+			list.add(data);
+			return list;
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+
+		}
 	}
 
 	@Override
 	public List<Object> connectDetailToMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		ArrayList<Object> list = new ArrayList<>();
+		try {
+			ArrayList<Object> list = new ArrayList<>();
 
-		ConnectData data = new ConnectData();
-		data.setMasterPk(getPrimaryKey(detailPk));
-		data.setMasterProperty(detailProperty);
-		data.setMasterClassName(getPersistanceClassName(detailPk));
+			ConnectData data = new ConnectData();
+			data.setMasterPk(getPrimaryKey(detailPk));
+			data.setMasterProperty(detailProperty);
+			data.setMasterClassName(getPersistanceClassName(detailPk));
+			data.setRelation(getRelationType(masterPk, masterProperty));
+			data.setDetailPk(getPrimaryKey(masterPk));
+			data.setDetailClassName(getPersistanceClassName(masterPk));
 
-		data.setDetailPk(getPrimaryKey(masterPk));
-		data.setDetailClassName(getPersistanceClassName(masterPk));
+			list.add(data);
+			return list;
+		} catch (Exception e) {
+			throw new RepositoryException(e);
 
-		list.add(data);
-		return list;
+		}
+
 	}
 
 	@Override
@@ -197,6 +231,21 @@ public class JPACommandProducer implements CommandProducer {
 		list.add(data);
 
 		return list;
+	}
+
+	public List<?> findChildren(Object persistenceObject, String relationType, String property) throws Exception {
+
+		if ("One2Many".equals(relationType)) {
+			String methodName = "get" + WordUtils.capitalize((String) property);
+			Method m = persistenceObject.getClass().getDeclaredMethod(methodName);
+			if (findAnnotationType(m)) {
+				relationType = "One2Many";
+			} else {
+				relationType = "Many2One";
+			}
+		}
+		return RelEnul.valueOf(relationType).getOperation().getChildren(persistenceObject, property);
+
 	}
 
 	private boolean findAnnotationType(Method method) {

@@ -43,15 +43,15 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPARepository;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-import org.tura.provider.DefaultDataProvider;
 
+import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.One2One3A;
 import objects.test.serialazable.jpa.One2One3B;
 import objects.test.serialazable.jpa.ProxyRepository;
-
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class One2OneNoContainmentTest {
@@ -60,13 +60,13 @@ public class One2OneNoContainmentTest {
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
 
-	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider() {
 
 		@SuppressWarnings("unchecked")
 		@Override
 		public void addCommand(Object cmd) throws Exception {
 			commandStack.add(cmd);
-			
+
 		}
 
 		@SuppressWarnings("unchecked")
@@ -78,53 +78,49 @@ public class One2OneNoContainmentTest {
 		@Override
 		public void clear() throws Exception {
 			commandStack.clear();
-			
+
 		}
-		
-	};	
-	
-	
+
+	};
+
 	private static Logger logger;
 	private static Server server;
 
-	
 	@AfterClass
 	public static void afterClass() throws Exception {
 		server.stop();
 	}
-	
-	
+
 	@BeforeClass
 	public static void beforeClass() throws Exception {
-		server = Server.createTcpServer().start();
+			server = Server.createTcpServer().start();
 
-		logger = Logger.getLogger("InfoLogging");
-		logger.setUseParentHandlers(false);
-		// ConsoleHandler handler = new ConsoleHandler();
-		// handler.setFormatter(new LogFormatter());
-		// logger.addHandler(handler);
-		// logger.setLevel(Level.INFO);
+			logger = Logger.getLogger("InfoLogging");
+			logger.setUseParentHandlers(false);
+			// ConsoleHandler handler = new ConsoleHandler();
+			// handler.setFormatter(new LogFormatter());
+			// logger.addHandler(handler);
+			// logger.setLevel(Level.INFO);
 
-		Configuration config = new Configuration();
-		config.addResource("META-INF/persistence.xml");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
-		em = emf.createEntityManager();
-
+			Configuration config = new Configuration();
+			config.addResource("META-INF/persistence.xml");
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
+			em = emf.createEntityManager();
 	}
 
 	private ProxyRepository getRepository() {
+		Registry.newInstance();
+		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
-		
-		DefaultDataProvider dataProvider = new DefaultDataProvider();
-		dataProvider.setPersistenceProvider(new JPARepository(em));
-		dataProvider.setRepository(repository);
-		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
-		dataProvider.init();
-		
-		
-		return  new ProxyRepository(repository,stackProvider);
-		
+
+		InitJPARepository init = new InitJPARepository(new JPARepository(em));
+		init.initClassMapping();
+		init.initCommandProducer();
+		init.initProvider();
+
+		return new ProxyRepository(repository, stackProvider);
+
 	}
 
 	@Test
@@ -133,43 +129,45 @@ public class One2OneNoContainmentTest {
 			ProxyRepository repository = getRepository();
 
 			em.getTransaction().begin();
-			
+
 			One2One3A o1 = (One2One3A) repository.create(One2One3A.class.getName());
-			
+
 			One2One3B o2 = (One2One3B) repository.create(One2One3B.class.getName());
-			
+
 			repository.insert(o2, One2One3B.class.getName());
 			o1.setOne2One3B(o2);
 			repository.insert(o1, One2One3A.class.getName());
 			repository.applyChanges(null);
-			
+
 			em.getTransaction().commit();
-			
+
 			em.getTransaction().begin();
 
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One3A.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-			
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
+					One2One3A.class.getName());
+			assertEquals(1, result.getSearchResult().size());
+
 			o2 = (One2One3B) repository.create(One2One3B.class.getName());
 			repository.insert(o2, One2One3B.class.getName());
 			o1.setOne2One3B(o2);
-			
+
 			assertEquals(commandStack.size(), 3);
-			
+
 			repository.applyChanges(null);
-			
+
 			em.getTransaction().commit();
 
 			em.getTransaction().begin();
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One3B.class.getName());
-			assertEquals(2,result.getSearchResult().size());
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One3A.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-			
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
+					One2One3B.class.getName());
+			assertEquals(2, result.getSearchResult().size());
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
+					One2One3A.class.getName());
+			assertEquals(1, result.getSearchResult().size());
+
 			em.getTransaction().commit();
-			
 
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -180,7 +178,7 @@ public class One2OneNoContainmentTest {
 		}
 
 	}
-	
+
 	@Test
 	public void t0001_One2One1() {
 		try {
@@ -188,23 +186,25 @@ public class One2OneNoContainmentTest {
 
 			em.getTransaction().begin();
 
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One3A.class.getName());
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
+					One2One3A.class.getName());
 			One2One3A o1 = (One2One3A) result.getSearchResult().get(0);
-			
+
 			repository.remove(o1, One2One3A.class.getName());
 			repository.applyChanges(null);
 			em.getTransaction().commit();
-			
+
 			em.getTransaction().begin();
 
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One3B.class.getName());
-			assertEquals(2,result.getSearchResult().size());
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One3A.class.getName());
-			assertEquals(0,result.getSearchResult().size());
-			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
+					One2One3B.class.getName());
+			assertEquals(2, result.getSearchResult().size());
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
+					One2One3A.class.getName());
+			assertEquals(0, result.getSearchResult().size());
+
 			em.getTransaction().commit();
-			
 
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -213,6 +213,6 @@ public class One2OneNoContainmentTest {
 			e.printStackTrace();
 			fail();
 		}
-	
+
 	}
 }

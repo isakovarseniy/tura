@@ -22,6 +22,7 @@
 package org.tura.platform.object.persistence.operation;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
@@ -45,6 +46,19 @@ public class Many2Many implements RelOperation{
 		List list = (List) m.invoke(master, new Object[]{});
 		list.remove(detail);
 		
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List getChildren(Object object, String property) throws Exception {
+		String methodName = "get"+WordUtils.capitalize(property);
+		Method method = object.getClass().getDeclaredMethod(methodName, new Class[]{});
+		
+		List list = (List) method.invoke(object);
+		if (list == null){
+			return new ArrayList<>();
+		}
+		return list;
 	}
 	
 

@@ -51,7 +51,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 			        var property =  hash.get("property");
 		            var containment = hash.get("containment");
 
-			        if (detailType.uid == type.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many" ){
+			        if (detailType.uid == type.uid  and   rel.type.toString() <> "Many2Many"  and containment){
 			           topObject = false;
 			        }else{
 			           continue;
@@ -83,7 +83,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 				        var property =  hash.get("property");
 			            var containment = hash.get("containment");
 	
-				        if (detailType.uid == type.uid  and not hash.get("noAssosiation") and  rel.type.toString() <> "Many2Many" ){
+			           if (detailType.uid == type.uid  and   rel.type.toString() <> "Many2Many"  and containment){
 				           topObject = false;
 				        }else{
 				           continue;

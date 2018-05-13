@@ -82,8 +82,7 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 			throw new RepositoryException(e);
 		}
 	}
-	
-	
+
 	private void addObject(Object repositoryObject) throws Exception {
 		Repository pr = findProvider(repositoryObject.getClass().getName());
 		CommandProducer cmp = findCommandProducer(repositoryObject.getClass().getName());
@@ -96,11 +95,11 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		List<Method> methods = RepositoryObjectLoader.getMethodsAnnotatedWith(repositoryClass, Association.class);
 		for (Method m : methods) {
 			Association assosiaton = m.getAnnotation(Association.class);
-			List<Object> children = getDisconnectedChildren(m, repositoryObject,context);
+			List<Object> children = getDisconnectedChildren(m, repositoryObject, context);
 			if (assosiaton.containment()) {
-				goDeeper(repositoryObject,children);
+				goDeeper(repositoryObject, children);
 				addChildren(children);
-				connect(m, repositoryObject,children);
+				connect(m, repositoryObject, children);
 			} else {
 				connect(m, repositoryObject, children);
 			}
@@ -113,7 +112,7 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		}
 	}
 
-	private void goDeeper(Object repositoryObject,List<Object> children) throws Exception {
+	private void goDeeper(Object repositoryObject, List<Object> children) throws Exception {
 		for (Object obj : children) {
 			walker(obj);
 		}
@@ -131,8 +130,10 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 	private void processRules() throws Exception {
 		@SuppressWarnings("unchecked")
 		List<Rule> rules = (List<Rule>) context.get(ADDED_OBJECTS);
-		for (Rule rule : rules) {
-			rule.execute();
+		if (rules != null) {
+			for (Rule rule : rules) {
+				rule.execute();
+			}
 		}
 	}
 
@@ -143,20 +144,21 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
 		Repository masterProvider = findProvider(masterClassName);
 		CommandProducer cmpMaster = findCommandProducer(masterClassName);
-		List<Object> masterChanges = cmpMaster.connectMasterToDetail(masterPk, masterProperty, detailPk, detailProperty);
-		
+		List<Object> masterChanges = cmpMaster.connectMasterToDetail(masterPk, masterProperty, detailPk,
+				detailProperty);
+
 		String detailClassName = detailPk.getPath().get(detailPk.getPath().size() - 1).getType();
 		Repository detailProvider = findProvider(detailClassName);
-		CommandProducer cmpDetail  = findCommandProducer(masterClassName);
-		List<Object> detailChanges = cmpDetail.connectDetailToMaster(masterPk, masterProperty, detailPk, detailProperty);
-		
+		CommandProducer cmpDetail = findCommandProducer(masterClassName);
+		List<Object> detailChanges = cmpDetail.connectDetailToMaster(masterPk, masterProperty, detailPk,
+				detailProperty);
+
 		ConnectObjectRule rule = new ConnectObjectRule();
 		rule.setMasterChanges(masterChanges);
 		rule.setMasterProvider(masterProvider);
 		rule.setDetailChanges(detailChanges);
 		rule.setDetailProvider(detailProvider);
 
-		
 		List<Object> addObjects = (List<Object>) context.get(ADDED_OBJECTS);
 		if (addObjects == null) {
 			addObjects = new ArrayList<>();
@@ -165,15 +167,15 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		addObjects.add(rule);
 
 	}
-	
+
 	private void connect(Method m, Object repositoryObject, List<Object> children) throws Exception {
 		RepoKeyPath masterPk = findPk(repositoryObject);
 		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
 		for (Object obj : children) {
 			RepoKeyPath detailPk = findPk(obj);
-			connect(masterPk, processor.getMasterProperty(repositoryObject, obj), detailPk, processor.getDetailProperty(repositoryObject, obj));
+			connect(masterPk, processor.getMasterProperty(repositoryObject, obj), detailPk,
+					processor.getDetailProperty(repositoryObject, obj));
 		}
 	}
 
 }
-

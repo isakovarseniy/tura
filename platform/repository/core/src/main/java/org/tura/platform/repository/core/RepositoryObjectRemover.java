@@ -87,7 +87,7 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 		
 		Repository pr = findProvider(repositoryObject.getClass().getName());
 		CommandProducer cmp = findCommandProducer(repositoryObject.getClass().getName());
-		List<Object> commands = cmp.addObject(repositoryObject);
+		List<Object> commands = cmp.removeObject(repositoryObject);
 		
 		RemoveObjectRule rule = new RemoveObjectRule();
 		rule.setProvider(pr);
