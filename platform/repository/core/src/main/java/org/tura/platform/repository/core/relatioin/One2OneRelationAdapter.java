@@ -64,6 +64,10 @@ public class One2OneRelationAdapter extends RelationAdapter {
 
 		@SuppressWarnings("unchecked")
 		List<Rule> list = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);
+		if (list == null){
+			list = new ArrayList<>();
+			context.put(RepositoryObjectLoader.RULES_LIST, list);
+		}
 		list.add(rule);
 	}
 

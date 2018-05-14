@@ -111,6 +111,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
             if (loadedObjects.contains(persistenceObjectPK)){
             	return null;
             }else{
+            	loadedObjects.add(persistenceObjectPK);
             	return loader(persistenceObject,repositoryClass);
             }
 	}	
@@ -205,13 +206,6 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 	}
 
 
-	private Class<?> findPersistanceClass(String repositoryClass) throws RepositoryException {
-		try {
-			return Class.forName(Registry.getInstance().findPersistanceClass(repositoryClass));
-		} catch (Exception e) {
-			throw new RepositoryException(e);
-		}
-	}
 
 	public static List<Method> getMethodsAnnotatedWith(final Class<?> type,
 			final Class<? extends Annotation> annotation) {

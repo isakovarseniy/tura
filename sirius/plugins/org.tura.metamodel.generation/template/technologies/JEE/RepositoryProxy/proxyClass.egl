@@ -152,7 +152,39 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
      return str;
     }
     
+    @Override
+    public void setAttached(Boolean attachment){
+        this.object.setAttached(true);
     [%
+    var type = tp;
+    while (1 == 1){
+	     var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid and ( t.containment.toString().equals("Source") or t.internal) );
+	 	 for ( rel in assosiations  ){
+		  	 switch  (rel.type.toString()){
+		         case "One2One" :  %][%=rel.one2oneSrcAttachment(recipe,ingredient,model_mapper)%][%
+		         case "One2Many" : %][%=rel.one2manySrcAttachment(recipe,ingredient,model_mapper)%][%
+		         case "Many2Many" : %][%
+		     }
+	         
+	     }			
+		  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and  t.containment.toString().equals("Target") );
+	      for (rel in assosiations){
+		  	 switch  (rel.type.toString()){
+		         case "One2One" :  %][%=rel.one2oneTrgAttachment(recipe,ingredient,model_mapper)%][%
+		         case "One2Many" : %][%
+		         case "Many2Many" : %][%
+		     }
+	      }		
+	      
+	    if (type.~extension.isDefined()){
+	       type = type.~extension;
+	    }else{
+	       break;
+	    }
+  }
+%]
+}
+[%
     
     var type = tp;
     while (1 == 1){
@@ -241,6 +273,36 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 }        
       
 [%
+
+@template
+operation type::Assosiation one2oneSrcAttachment(recipe,ingredient,model_mapper){
+     var hash = self.sourceSideNamesCalculation();
+     %]
+         (( org.tura.platform.repository.core.ObjectControl )this.get[%=hash.get("sourceMethodName")%]()).setAttached(true);
+     [%
+} 
+
+@template
+operation type::Assosiation one2manySrcAttachment(recipe,ingredient,model_mapper){
+     var hash = self.sourceSideNamesCalculation();
+     hash.get("target").mappingType2Java(recipe,ingredient);
+     
+     %]
+     for ( [%=hash.get("target").~fullName%] t : this.get[%=hash.get("sourceMethodName")%]() ){
+           (( org.tura.platform.repository.core.ObjectControl )t).setAttached(true);
+     }
+     [%
+
+} 
+
+@template
+operation type::Assosiation one2oneTrgAttachment(recipe,ingredient,model_mapper){
+     var hash = self.targetSideNamesCalculation();
+     %]
+      (( org.tura.platform.repository.core.ObjectControl ) this.get[%=hash.get("targetMethodName")%]()).setAttached(true);
+     [%
+} 
+
 @template
 operation type::Assosiation one2oneSrc(recipe,ingredient,model_mapper){
           %][%=self.one2oneSrcRel(recipe,ingredient,model_mapper)%][%
@@ -324,8 +386,8 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 	        command.setDetail(  ([%=hash.get("target").~fullName%]Proxy)   (this.get[%=hash.get("sourceMethodName")%]()));
 		    command.setStackProvider(stackProvider);
 			command.setRelationType("One2One");
-			command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
+			command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+			command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 
 	        command.prepare();
 	        
@@ -335,8 +397,8 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 		    	command2.setMaster(this);
 		        command2.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
 			    command2.setRelationType("One2One");
-			    command2.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			    command2.setDetailProperty("[%=hash.get("sourceMethodName")%]");
+			    command2.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+			    command2.setDetailProperty("[%=hash.get("targetMethodName")%]");
 			    
 		        command2.setStackProvider(stackProvider);
 		

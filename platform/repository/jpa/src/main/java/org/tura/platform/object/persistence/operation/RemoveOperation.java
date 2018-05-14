@@ -24,8 +24,9 @@ package org.tura.platform.object.persistence.operation;
 import javax.persistence.EntityManager;
 
 import org.tura.platform.object.persistence.data.RemoveData;
+import org.tura.platform.repository.core.RepositoryHelper;
 
-public class RemoveOperation {
+public class RemoveOperation extends RepositoryHelper{
 	
 	EntityManager em;
 	
@@ -34,9 +35,9 @@ public class RemoveOperation {
 	}
 	
 	public void execute(RemoveData data) throws Exception {
-		em.remove(data.getObject());
+		Object pk = getPersistancePrimaryKey(data.getObject());
+		Class<?> persistanceClass =  data.getObject().getClass();
+		Object p = em.find(persistanceClass, pk);
+		em.remove(p);
 	}
-	
-	
-
 }

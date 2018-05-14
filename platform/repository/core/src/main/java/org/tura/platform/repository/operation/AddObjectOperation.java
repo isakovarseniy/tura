@@ -64,7 +64,7 @@ public class AddObjectOperation extends ProxyOperation{
 
         data.setMasterPk(master.getPath());
 
-        data.setDetailPk(master.getPath());
+        data.setDetailPk(detail.getPath());
 
         stackProvider.addCommand(data);
 

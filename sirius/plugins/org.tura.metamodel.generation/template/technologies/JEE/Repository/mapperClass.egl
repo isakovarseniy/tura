@@ -19,9 +19,23 @@ ${start}${percent}
  public class [%=t2view.get(type).get("class")%]Mapper implements org.tura.platform.repository.core.Mapper{
  
  
-      	public Object getPrimaryKey(org.tura.platform.repository.core.RepoObjectKey objKey)throws RepositoryException {
+       	public Object getPrimaryKey(org.tura.platform.repository.core.RepoObjectKey objKey)throws RepositoryException {
 	    	try{
 		      	[%=PKRepoObjectKey(type,"pk","objKey.getKey()",t2model.get(type).get("fullName"),recipe,ingredient)%]   
+		      	return pk;
+	    	}catch(Exception e){
+	    		throw new RepositoryException(e);
+	    	}
+      	
+        }
+ 
+ 
+ 
+      	public Object getPrimaryKeyFromRepoObject(Object repositoryObject) throws RepositoryException {
+	    	try{
+			    [%=t2view.get(type).get("fullName")%] obj = ( [%=t2view.get(type).get("fullName")%]) repositoryObject;
+		      	
+		      	[%=PK(type,"pk","obj",t2model.get(type).get("fullName"),recipe,ingredient)%]   
 		      	return pk;
 	    	}catch(Exception e){
 	    		throw new RepositoryException(e);

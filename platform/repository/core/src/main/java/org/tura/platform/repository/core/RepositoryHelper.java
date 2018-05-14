@@ -36,6 +36,16 @@ import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 public class RepositoryHelper {
 
 	
+	protected  Class<?> findPersistanceClass(String repositoryClass) throws RepositoryException {
+		try {
+			return Class.forName(Registry.getInstance().findPersistanceClass(repositoryClass));
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+		}
+	}
+	
+	
+	
 	protected Annotation getMasterAnnotation(RepoKeyPath masterPk, String masterProperty)
 			throws ClassNotFoundException, NoSuchMethodException, SecurityException {
 		int sizepk = masterPk.getPath().size();

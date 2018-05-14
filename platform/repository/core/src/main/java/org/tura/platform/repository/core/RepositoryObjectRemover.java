@@ -84,15 +84,15 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 
 	@SuppressWarnings("unchecked")
 	private void removeObject(Object repositoryObject) throws Exception {
-		
+
 		Repository pr = findProvider(repositoryObject.getClass().getName());
 		CommandProducer cmp = findCommandProducer(repositoryObject.getClass().getName());
 		List<Object> commands = cmp.removeObject(repositoryObject);
-		
+
 		RemoveObjectRule rule = new RemoveObjectRule();
 		rule.setProvider(pr);
 		rule.setChanges(commands);
-		
+
 		List<Object> removeObjects = (List<Object>) context.get(REMOVE_OBJECTS);
 		if (removeObjects == null) {
 			removeObjects = new ArrayList<>();
@@ -105,14 +105,14 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 		Class<?> repositoryClass = repositoryObject.getClass();
 		List<Method> methods = RepositoryObjectLoader.getMethodsAnnotatedWith(repositoryClass, Association.class);
 		for (Method m : methods) {
-			List<Object> children = getDisconnectedChildren(m, repositoryObject,context);
+			List<Object> children = getDisconnectedChildren(m, repositoryObject, context);
 			Association assosiaton = m.getAnnotation(Association.class);
 			if (assosiaton.containment()) {
 				goDeeper(repositoryObject, children);
-				disconnect(m, repositoryObject,children);
+				disconnect(m, repositoryObject, children);
 				removeChildren(m, repositoryObject);
 			} else {
-				disconnect(m, repositoryObject,children);
+				disconnect(m, repositoryObject, children);
 			}
 		}
 
@@ -129,12 +129,14 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 	private void processRules() throws Exception {
 		@SuppressWarnings("unchecked")
 		List<Rule> rules = (List<Rule>) context.get(REMOVE_OBJECTS);
-		for (Rule rule : rules) {
-			rule.execute();
+		if (rules != null) {
+			for (Rule rule : rules) {
+				rule.execute();
+			}
 		}
 	}
 
-	private void goDeeper(Object repositoryObject,List<Object> children) throws Exception {
+	private void goDeeper(Object repositoryObject, List<Object> children) throws Exception {
 		for (Object obj : children) {
 			walker(obj);
 		}
@@ -143,17 +145,19 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 
 	private void disconnect(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk, String detailProperty)
 			throws Exception {
-		
+
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
 		Repository masterProvider = findProvider(masterClassName);
 		CommandProducer cmpMaster = findCommandProducer(masterClassName);
-		List<Object> masterChanges = cmpMaster.disconnectMasterFromDetail(masterPk, masterProperty, detailPk, detailProperty);
-		
+		List<Object> masterChanges = cmpMaster.disconnectMasterFromDetail(masterPk, masterProperty, detailPk,
+				detailProperty);
+
 		String detailClassName = detailPk.getPath().get(detailPk.getPath().size() - 1).getType();
 		Repository detailProvider = findProvider(detailClassName);
 		CommandProducer cmpDetail = findCommandProducer(masterClassName);
-		List<Object> detailChanges = cmpDetail.disconnectDetailFromMaster(masterPk, masterProperty, detailPk, detailProperty);
-		
+		List<Object> detailChanges = cmpDetail.disconnectDetailFromMaster(masterPk, masterProperty, detailPk,
+				detailProperty);
+
 		masterProvider.applyChanges(masterChanges);
 		detailProvider.applyChanges(detailChanges);
 
@@ -164,21 +168,21 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
 		Repository pr = findProvider(masterClassName);
 		CommandProducer cmp = findCommandProducer(masterClassName);
-		
+
 		List<Object> commands = cmp.removeInternal(masterPk, masterProperty, detailObject, detailProperty);
 		pr.applyChanges(commands);
 
 	}
 
-	private void disconnect(Method m, Object repositoryObject,List<Object> children) throws Exception {
+	private void disconnect(Method m, Object repositoryObject, List<Object> children) throws Exception {
 		RepoKeyPath masterPk = findPk(repositoryObject);
 		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
 		for (Object obj : children) {
 			processor.disconnectRepositoryObject(repositoryObject, obj);
 			RepoKeyPath detailPk = findPk(obj);
-			disconnect(masterPk, processor.getMasterProperty(repositoryObject, obj), detailPk, processor.getDetailProperty(repositoryObject, obj));
+			disconnect(masterPk, processor.getMasterProperty(repositoryObject, obj), detailPk,
+					processor.getDetailProperty(repositoryObject, obj));
 		}
 	}
 
 }
-

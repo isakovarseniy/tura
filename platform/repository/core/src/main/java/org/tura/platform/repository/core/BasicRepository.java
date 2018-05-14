@@ -40,14 +40,6 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 public class BasicRepository extends RepositoryHelper implements Repository {
 
-	private Class<?> findPersistanceClass(String repositoryClass) throws RepositoryException {
-		try {
-			return Class.forName(Registry.getInstance().findPersistanceClass(repositoryClass));
-		} catch (Exception e) {
-			throw new RepositoryException(e);
-		}
-	}
-
 	private PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws RepositoryException {
 		return Registry.getInstance().findPostCreateTrigger(repositoryClass);
 	}
@@ -62,7 +54,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			Object repositoryObject = Class.forName(repositoryClass).newInstance();
 
 			PrImaryKeyStrategy prImaryKeyStrategy = findPrImaryKeyStrategy();
-			if (prImaryKeyStrategy != null){
+			if (prImaryKeyStrategy != null) {
 				prImaryKeyStrategy.generatePk(repositoryObject);
 			}
 
@@ -70,7 +62,7 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 			if (trigger != null) {
 				trigger.postCreate(repositoryObject);
 			}
-			
+
 			return repositoryObject;
 		} catch (Exception e) {
 			throw new RepositoryException(e);
@@ -93,19 +85,22 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 				preQueryTrigger.preQueryTrigger(searchCriteria, orderCriteria);
 			}
 
-			SearchResult result = provider.find(searchCriteria, orderCriteria, startIndex, endIndex, persistanceClass.getName());
+			SearchResult result = provider.find(searchCriteria, orderCriteria, startIndex, endIndex,
+					persistanceClass.getName());
 
 			List<Object> records = new ArrayList<>();
 
 			for (Object object : result.getSearchResult()) {
 				Map<String, Object> context = new HashMap<>();
 				RepositoryObjectLoader loader = new RepositoryObjectLoader(searchCriteria, orderCriteria, context);
-				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName( repositoryClass)));
+				records.add(loader.loader(object, getPersistancePrimaryKey(object), Class.forName(repositoryClass)));
 
 				@SuppressWarnings("unchecked")
 				List<Rule> rules = (List<Rule>) context.get(RepositoryObjectLoader.RULES_LIST);
-				for (Rule rule : rules) {
-					rule.execute();
+				if (rules != null) {
+					for (Rule rule : rules) {
+						rule.execute();
+					}
 				}
 
 			}
