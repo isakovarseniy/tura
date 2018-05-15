@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.relatioin.RemoveObjectRule;
 import org.tura.platform.repository.data.RemoveContainmentObjectData;
@@ -42,7 +43,7 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 	public void remove(RemoveTopObjectData data) throws RepositoryException {
 		try {
 			Object repositoryObject = data.getObject();
-			walker(repositoryObject);
+			walker(repositoryObject,null);
 			removeObject(repositoryObject);
 			processRules();
 
@@ -54,7 +55,7 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 	public void remove(RemoveContainmentObjectData data) throws RepositoryException {
 		try {
 			Object repositoryObject = data.getObject();
-			walker(repositoryObject);
+			walker(repositoryObject,null);
 
 			Annotation annotation = getMasterAnnotation(data.getMasterPk(), data.getMasterProperty());
 			if (annotation instanceof Association) {
@@ -101,16 +102,23 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 		removeObjects.add(rule);
 	}
 
-	private void walker(Object repositoryObject) throws Exception {
+	private void walker(Object repositoryObject, String parentProperty) throws Exception {
 		Class<?> repositoryClass = repositoryObject.getClass();
 		List<Method> methods = RepositoryObjectLoader.getMethodsAnnotatedWith(repositoryClass, Association.class);
 		for (Method m : methods) {
+			if (parentProperty != null){
+				String methodName= "get"+WordUtils.capitalize(parentProperty);
+				if (methodName.equals(m.getName())){
+					continue;
+				}
+			}
 			List<Object> children = getDisconnectedChildren(m, repositoryObject, context);
 			Association assosiaton = m.getAnnotation(Association.class);
 			if (assosiaton.containment()) {
-				goDeeper(repositoryObject, children);
+				String property = assosiaton.property();
+				goDeeper(repositoryObject, children, property);
 				disconnect(m, repositoryObject, children);
-				removeChildren(m, repositoryObject);
+				removeChildren(children);
 			} else {
 				disconnect(m, repositoryObject, children);
 			}
@@ -118,9 +126,7 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 
 	}
 
-	private void removeChildren(Method m, Object repositoryObject) throws Exception {
-		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
-		List<Object> children = processor.getListOfRepositoryObjects(repositoryObject);
+	private void removeChildren(List<Object> children ) throws Exception {
 		for (Object obj : children) {
 			removeObject(obj);
 		}
@@ -136,9 +142,9 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 		}
 	}
 
-	private void goDeeper(Object repositoryObject, List<Object> children) throws Exception {
+	private void goDeeper(Object repositoryObject, List<Object> children, String parentProperty) throws Exception {
 		for (Object obj : children) {
-			walker(obj);
+			walker(obj,parentProperty);
 		}
 
 	}

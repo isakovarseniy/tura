@@ -54,15 +54,15 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 		Object master = null;
 		Object detail = null;
 
-		if (findAnnotationType(master)) {
+		if (findAnnotationType(obj1)) {
 			master = obj1;
 			detail = obj2;
 		} else {
 			master = obj2;
 			detail = obj1;
 		}
-		masterMethod = getMasterMethod();
-		detailMethod = getDetailMethod();
+		masterMethod = getListMethod();
+		detailMethod = getSetMethod();
 
 		Rule rule = new One2ManyRepositoryRuleObject(master, detail, masterMethod, detailMethod);
 
@@ -80,6 +80,9 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 	@Override
 	public List<Object> getListOfRepositoryObjects(Object repositoryObject) throws Exception {
 		Object obj = method.invoke(repositoryObject);
+		if (obj == null){
+			return new ArrayList<>();
+		}
 		if (obj instanceof List) {
 			return (List<Object>) obj;
 		} else {
@@ -94,7 +97,7 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 		Type returnType = method.getGenericReturnType();
 		if (returnType instanceof ParameterizedType) {
 			ParameterizedType type = (ParameterizedType) returnType;
-			if (type.getRawType().getClass().getName().equals(List.class.getName())) {
+			if (  ((Class<?>) type.getRawType()).getName().equals(List.class.getName())) {
 				one2many = true;
 			} else {
 				one2many = false;
@@ -110,32 +113,30 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 
 	}
 
-	private Method getMasterMethod() throws Exception {
+	private Method getListMethod() throws Exception {
 		Type returnType = method.getGenericReturnType();
 		if (returnType instanceof ParameterizedType) {
 			ParameterizedType type = (ParameterizedType) returnType;
-			if ( type.getRawType().getClass().getName().equals(List.class.getName())){
+			if ( (( Class<?>)type.getRawType()).getName().equals(List.class.getName())){
 				return method;
 			}
 		}
 		Association assosiation = method.getAnnotation(Association.class);
 		Class <?> remoteClass = assosiation.mappedBy();
-		Method remoteMethod = remoteClass.getMethod("get"+ WordUtils.capitalize(assosiation.property()) , List.class );
+		Method remoteMethod = remoteClass.getMethod("get"+ WordUtils.capitalize(assosiation.property()) );
 		return remoteMethod;
 	}
 
-	private Method getDetailMethod() throws Exception {
+	private Method getSetMethod() throws Exception {
 		Type returnType = method.getGenericReturnType();
+		Association assosiation = method.getAnnotation(Association.class);
+		Class <?> remoteClass = assosiation.mappedBy();
 		if (returnType instanceof ParameterizedType) {
-			Type[] args =((ParameterizedType) returnType).getActualTypeArguments();
-			Type arg = args[0];
-
-			Association assosiation = method.getAnnotation(Association.class);
-			Class <?> remoteClass = assosiation.mappedBy();
-			Method remoteMethod = remoteClass.getMethod("set"+ WordUtils.capitalize(assosiation.property()) , (Class<?>) arg );
+			Method remoteMethod = remoteClass.getMethod("set"+ WordUtils.capitalize(assosiation.property()) , clazz );
 			return remoteMethod;
 		}else{
-			return method;
+			Method m = clazz.getMethod("set"+ WordUtils.capitalize(method.getName().substring(3)) , remoteClass );
+			return m;
 		}
 	}
 
@@ -147,15 +148,16 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 		Object master = null;
 		Object detail= null;
 
-		if (findAnnotationType(master)){
+		if (findAnnotationType(obj1)) {
 			master = obj1;
 			detail = obj2;
-		}else{
+		} else {
 			master = obj2;
 			detail = obj1;
 		}
-		masterMethod = getMasterMethod();
-		detailMethod = getDetailMethod();
+		masterMethod = getListMethod();
+		detailMethod = getSetMethod();
+
 
 		List list = (List) masterMethod.invoke(master);
 		list.remove(detail);
@@ -167,12 +169,12 @@ public class One2ManyRelationAdapter extends RelationAdapter {
 		String masterProperty = null;
 		String detailProperty = null;
 
-		if (obj1.getClass().equals(clazz)){
-			masterProperty = WordUtils.uncapitalize( getMasterMethod().getName().substring(3));
-			detailProperty = WordUtils.uncapitalize( getDetailMethod().getName().substring(3));
+		if (findAnnotationType(obj1)) {
+			masterProperty = WordUtils.uncapitalize( getListMethod().getName().substring(3));
+			detailProperty = WordUtils.uncapitalize( getSetMethod().getName().substring(3));
 		}else{
-			detailProperty = WordUtils.uncapitalize( getDetailMethod().getName().substring(3));
-			masterProperty = WordUtils.uncapitalize( getMasterMethod().getName().substring(3));
+			detailProperty = WordUtils.uncapitalize( getListMethod().getName().substring(3));
+			masterProperty = WordUtils.uncapitalize( getSetMethod().getName().substring(3));
 		}
 
 		

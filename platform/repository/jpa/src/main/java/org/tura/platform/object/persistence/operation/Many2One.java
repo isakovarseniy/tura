@@ -41,7 +41,7 @@ public class Many2One  implements RelOperation{
 	public void disconnect(Object master, Object detail, String property) throws Exception {
 		String name = "set"+WordUtils.capitalize(property);
 		Method m = master.getClass().getDeclaredMethod(name, detail.getClass());
-		m.invoke(master, new Object[]{});
+		m.invoke(master, new Object[]{null});
 	}
 
 	

@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.relatioin.ConnectObjectRule;
 import org.tura.platform.repository.data.AddContainmentObjectData;
@@ -42,7 +43,7 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 	public void add(AddTopObjectData data) throws RepositoryException {
 		try {
 			Object repositoryObject = data.getObject();
-			walker(repositoryObject);
+			walker(repositoryObject,null);
 			addObject(repositoryObject);
 			processRules();
 
@@ -55,7 +56,7 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 
 		try {
 			Object repositoryObject = data.getObject();
-			walker(repositoryObject);
+			walker(repositoryObject,null);
 
 			Annotation annotation = getMasterAnnotation(data.getMasterPk(), data.getMasterProperty());
 			if (annotation instanceof Association) {
@@ -90,14 +91,21 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		pr.applyChanges(commands);
 	}
 
-	private void walker(Object repositoryObject) throws Exception {
+	private void walker(Object repositoryObject, String parentProperty) throws Exception {
 		Class<?> repositoryClass = repositoryObject.getClass();
 		List<Method> methods = RepositoryObjectLoader.getMethodsAnnotatedWith(repositoryClass, Association.class);
 		for (Method m : methods) {
+			if (parentProperty != null){
+				String methodName= "get"+WordUtils.capitalize(parentProperty);
+				if (methodName.equals(m.getName())){
+					continue;
+				}
+			}
 			Association assosiaton = m.getAnnotation(Association.class);
 			List<Object> children = getDisconnectedChildren(m, repositoryObject, context);
 			if (assosiaton.containment()) {
-				goDeeper(repositoryObject, children);
+				String property = assosiaton.property();
+				goDeeper(repositoryObject, children,property);
 				addChildren(children);
 				connect(m, repositoryObject, children);
 			} else {
@@ -112,9 +120,9 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		}
 	}
 
-	private void goDeeper(Object repositoryObject, List<Object> children) throws Exception {
+	private void goDeeper(Object repositoryObject, List<Object> children, String parentProperty) throws Exception {
 		for (Object obj : children) {
-			walker(obj);
+			walker(obj,parentProperty);
 		}
 	}
 

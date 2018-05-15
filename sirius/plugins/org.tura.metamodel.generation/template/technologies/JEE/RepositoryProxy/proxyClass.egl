@@ -465,8 +465,8 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
 	    	    	command.setMaster( [%=hash.get("source").~class%]Proxy.this);
 	    	        command.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
 			        command.setRelationType("One2Many");
-			        command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			        command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 		            command.setStackProvider(stackProvider);
 	
 	    	        if (command.prepare()){
@@ -490,8 +490,8 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
 	    	    	command.setMaster([%=hash.get("source").~class%]Proxy.this);
 	    	        command.setDetail(([%=detailType.~package%].[%=detailType.~class%]Proxy)([%=hash.get("source").~class%]Proxy.this.get[%=hash.get("sourceMethodName")%]().get(index)));
 			        command.setRelationType("One2Many");
-			        command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			        command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 		            command.setStackProvider(stackProvider);
 	
 	    	        if (command.prepare()){
@@ -699,8 +699,8 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 		        command.setDetail(([%=hash.get("source").~fullName%]Proxy)(this.get[%=hash.get("targetMethodName")%]()));
 			    command.setStackProvider(stackProvider);
 			    command.setRelationType("One2One");
-			    command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			    command.setDetailProperty("[%=hash.get("targetMethodName")%]");
+			    command.setMasterProperty("[%=hash.get("targetMethodName")%]");
+			    command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
 			    
 		        command.prepare();
 		
@@ -710,8 +710,8 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 			    	command2.setMaster(this);
 			        command2.setDetail((([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]));
 			        command2.setRelationType("One2One");
-			        command2.setMasterProperty("[%=hash.get("sourceMethodName")%]");
-			        command2.setDetailProperty("[%=hash.get("targetMethodName")%]");
+			        command2.setMasterProperty("[%=hash.get("targetMethodName")%]");
+			        command2.setDetailProperty("[%=hash.get("sourceMethodName")%]");
 			        command2.setStackProvider(stackProvider);
 			
 			        if (command2.prepare()){

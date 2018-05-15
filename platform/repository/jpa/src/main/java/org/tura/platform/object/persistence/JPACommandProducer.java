@@ -26,6 +26,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
@@ -160,7 +161,7 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 			data.setMasterPk(getPrimaryKey(detailPk));
 			data.setMasterProperty(detailProperty);
 			data.setMasterClassName(getPersistanceClassName(detailPk));
-			data.setRelation(getRelationType(masterPk, masterProperty));
+			data.setRelation(getRelationType(detailPk, detailProperty));
 			data.setDetailPk(getPrimaryKey(masterPk));
 			data.setDetailClassName(getPersistanceClassName(masterPk));
 
@@ -205,7 +206,7 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 			data.setMasterPk(getPrimaryKey(detailPk));
 			data.setMasterProperty(detailProperty);
 			data.setMasterClassName(getPersistanceClassName(detailPk));
-			data.setRelation(getRelationType(masterPk, masterProperty));
+			data.setRelation(getRelationType(detailPk, detailProperty));
 			data.setDetailPk(getPrimaryKey(masterPk));
 			data.setDetailClassName(getPersistanceClassName(masterPk));
 
@@ -253,7 +254,10 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 		Type returnType = method.getGenericReturnType();
 		if (returnType instanceof ParameterizedType) {
 			ParameterizedType type = (ParameterizedType) returnType;
-			if (type.getRawType().getClass().getName().equals(List.class.getName())) {
+			if (  ((Class<?>) type.getRawType()).getName().equals(Collection.class.getName())
+            ||
+            ((Class<?>) type.getRawType()).getName().equals(List.class.getName())
+					) {
 				one2many = true;
 			} else {
 				one2many = false;

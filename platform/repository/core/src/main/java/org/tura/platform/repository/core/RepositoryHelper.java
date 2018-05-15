@@ -24,6 +24,7 @@ package org.tura.platform.repository.core;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -92,7 +93,8 @@ public class RepositoryHelper {
 
 	protected List<Object> getDisconnectedChildren(Method m, Object repositoryObject,Map<String, Object> context)throws Exception {
 		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
-		List<Object> children = processor.getListOfRepositoryObjects(repositoryObject);
+		List<Object> children = new ArrayList<>();
+		children.addAll( processor.getListOfRepositoryObjects(repositoryObject));
 		for (Object obj : children) {
 			processor.disconnectRepositoryObject(repositoryObject, obj);
 		}
