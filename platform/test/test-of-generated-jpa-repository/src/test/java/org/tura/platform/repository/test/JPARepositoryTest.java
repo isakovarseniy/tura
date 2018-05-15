@@ -123,6 +123,7 @@ public class JPARepositoryTest {
 
 	private ProxyRepository getRepository() {
 		Registry.newInstance();
+		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
@@ -318,20 +319,15 @@ public class JPARepositoryTest {
 			location.setStreet("Street");
 			repository.insert(location, Location.class.getName());
 
-			AddCustomer2LocationOnNoAssosiationCustomerData m2m =new AddCustomer2LocationOnNoAssosiationCustomerData();
+			customer.getLocation().add(location);
 			
-			m2m.setCustomerCustomerId(customer.getCustomerId());
-			m2m.setLocationObjId(location.getObjId());
-			stackProvider.addCommand(m2m);
-
 			Vehicle vehicle = (Vehicle) repository.create(Vehicle.class.getName());
 			vehicle.setModel("Honda");
 			repository.insert(vehicle, Vehicle.class.getName());
 
 			Order order = (Order) repository.create(Order.class.getName());
-			order.setCustomer(customer.getCustomerId());
-			order.setModel(vehicle.getModel());
-			order.setVehicleId(vehicle.getObjId());
+			order.setCustomer(customer);
+			order.setVehicle(vehicle);
 			repository.insert(order, Order.class.getName());
 
 			repository.applyChanges(null);

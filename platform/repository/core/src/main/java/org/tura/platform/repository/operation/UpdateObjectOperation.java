@@ -112,6 +112,7 @@ public class UpdateObjectOperation {
     	UpdateObjectData data =  new UpdateObjectData();
     	
         data.setValue(newValue);
+        data.setProperty(property);
         data.setPk(proxy.getPath());
         stackProvider.addCommand(data);
         

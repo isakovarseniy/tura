@@ -226,7 +226,7 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 		UpdateData data = new UpdateData();
 		data.setProperty(property);
 		data.setValue(value);
-		data.setClassName(pk.getPath().get(0).getType());
+		data.setClassName(  getPersistanceClassName(pk));
 		data.setPk(getPrimaryKey(pk));
 
 		list.add(data);

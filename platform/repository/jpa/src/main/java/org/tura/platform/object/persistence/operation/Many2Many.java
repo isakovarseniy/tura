@@ -23,6 +23,7 @@ package org.tura.platform.object.persistence.operation;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
@@ -35,6 +36,13 @@ public class Many2Many implements RelOperation{
 		String name = "get"+WordUtils.capitalize(property);
 		Method m = master.getClass().getDeclaredMethod(name, new Class<?>[]{} );
 		List list = (List) m.invoke(master, new Object[]{});
+		if (list == null){
+			list = new ArrayList<>();
+			name = "set"+WordUtils.capitalize(property);
+			m = master.getClass().getDeclaredMethod(name, Collection.class );
+			m.invoke(master, list);
+		}
+		
 		list.add(detail);
 	}
 

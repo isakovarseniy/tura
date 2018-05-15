@@ -278,7 +278,9 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
 operation type::Assosiation one2oneSrcAttachment(recipe,ingredient,model_mapper){
      var hash = self.sourceSideNamesCalculation();
      %]
+     if ((( org.tura.platform.repository.core.ObjectControl )this.get[%=hash.get("sourceMethodName")%]()) !=null ){
          (( org.tura.platform.repository.core.ObjectControl )this.get[%=hash.get("sourceMethodName")%]()).setAttached(true);
+      }
      [%
 } 
 
@@ -299,7 +301,9 @@ operation type::Assosiation one2manySrcAttachment(recipe,ingredient,model_mapper
 operation type::Assosiation one2oneTrgAttachment(recipe,ingredient,model_mapper){
      var hash = self.targetSideNamesCalculation();
      %]
+     if ((( org.tura.platform.repository.core.ObjectControl ) this.get[%=hash.get("targetMethodName")%]()) != null){
       (( org.tura.platform.repository.core.ObjectControl ) this.get[%=hash.get("targetMethodName")%]()).setAttached(true);
+     }
      [%
 } 
 
