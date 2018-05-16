@@ -384,7 +384,7 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 	             }
 	            return;
 	   	    }
-	   	    
+	   	    if (([%=hash.get("target").~fullName%]Proxy)   (this.get[%=hash.get("sourceMethodName")%]()) != null){
 	   	    org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
 	    	command.setMaster(this);
 	        command.setDetail(  ([%=hash.get("target").~fullName%]Proxy)   (this.get[%=hash.get("sourceMethodName")%]()));
@@ -394,7 +394,7 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
 			command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 
 	        command.prepare();
-	        
+	        }
 	          if ([%=hash.get("sourceProperty")%] != null){
 	          	org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
 		
@@ -418,7 +418,7 @@ operation type::Assosiation one2oneSrcRel(recipe,ingredient,model_mapper){
         [%
         }else{
         %]
-            	throw new UnsupportedOperationException();
+           [%=hash.get("sourceProperty")%].set[%=hash.get("targetMethodName")%](this);
         [%
         
         }
@@ -535,8 +535,8 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
      }
 
      @Override
-     public void  set[%=hash.get("sourceMethodName")%]( [%=hash.get("target").~fullName%]  [%=hash.get("targetPropertyt")%]){
-          throw new UnsupportedOperationException();
+     public void  set[%=hash.get("sourceMethodName")%]( [%=hash.get("target").~fullName%]  [%=hash.get("sourceProperty")%]){
+          [%=hash.get("sourceProperty")%].get[%=hash.get("targetMethodName")%].add(this);
      }
      [%
      }
@@ -698,6 +698,7 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 		            return;
 		   	    }
 		   	    
+		   	    if(([%=hash.get("source").~fullName%]Proxy)(this.get[%=hash.get("targetMethodName")%]()) != null){
 	   	        org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation command = new org.tura.platform.repository.operation.Remove[%=containment%]ObjectOperation();
 		    	command.setMaster(this);
 		        command.setDetail(([%=hash.get("source").~fullName%]Proxy)(this.get[%=hash.get("targetMethodName")%]()));
@@ -707,6 +708,7 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
 			    command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
 			    
 		        command.prepare();
+		        }
 		
 		           if ([%=hash.get("targetProperty")%] != null){
 	          	    org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation command2 = new org.tura.platform.repository.operation.Add[%=containment%]ObjectOperation();
@@ -729,7 +731,7 @@ operation type::Assosiation one2oneTrgRel(recipe,ingredient,model_mapper){
         [%
         }else{
         %]
-            	throw new UnsupportedOperationException();
+           [%=hash.get("targetProperty")%].set[%=hash.get("sourceMethodName")%](this);
         [%
         
         }
@@ -772,8 +774,8 @@ operation type::Assosiation one2manyTrgRel(recipe,ingredient,model_mapper){
      }
 
      @Override
-     public void set[%=hash.get("targetMethodName")%]( [%=hash.get("source").~fullName%]  [%=hash.get("sourceProperty")%]){
-          throw new UnsupportedOperationException();
+     public void set[%=hash.get("targetMethodName")%]( [%=hash.get("source").~fullName%]  [%=hash.get("targetProperty")%]){
+     [%=hash.get("targetProperty")%].get[%=hash.get("sourceMethodName")%]().add(this);
      }
      [%
      }
@@ -813,8 +815,8 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
     		public void add(int i , [%=hash.get("source").~fullName%] [%=hash.get("targetProperty")%]){
     		   try{
 			    	if ( object.getAttached() == null || !object.getAttached()){
-		    	            object.get[%=hash.get("targetMethodName")%]().add(i,[%=hash.get("targetProperty")%]);
-		    	            [%=hash.get("targetProperty")%].get[%=hash.get("sourceMethodName")%]().add(object);
+	    	            object.get[%=hash.get("targetMethodName")%]().add(i,(([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+	    	            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().get[%=hash.get("sourceMethodName")%]().add(object);
 		    	            return;
 		    	    	}
 		    	    	
@@ -827,8 +829,8 @@ operation type::Assosiation many2manyTrgRel(recipe,ingredient,model_mapper){
 			            command.setStackProvider(stackProvider);
 		
 		    	        if (command.prepare()){
-		    	            object.get[%=hash.get("targetMethodName")%]().add(i,[%=hash.get("targetProperty")%]);
-		    	            [%=hash.get("targetProperty")%].get[%=hash.get("sourceMethodName")%]().add(object);
+		    	            object.get[%=hash.get("targetMethodName")%]().add(i,(([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject());
+		    	            (([%=hash.get("source").~fullName%]Proxy)[%=hash.get("targetProperty")%]).getWrappedObject().get[%=hash.get("sourceMethodName")%]().add(object);
 		    	        }
 		          }catch(Exception e){
 		            throw new RuntimeException(e);
