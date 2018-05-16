@@ -859,9 +859,6 @@
           <relationships xsi:type="tura.type:Assosiation" uid="0ed57489-1438-45fb-a3a3-83e6ae9a0be0" source="fed60ae4-f645-4957-b0d3-dca4d7016fc1" target="049d4077-cc33-4bb0-9f16-fb449da9c7ae" type="Many2Many">
             <links uid="96d9b4ca-f81f-47fc-b207-17de670c1157" masterField="89744ee7-460f-4c25-b836-13a5a9561cde" detailField="b9051dad-97ae-44e4-a5fa-e102fb9ac4e5"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="4236d9ae-0dbb-41a3-99f6-1fa5b22309c0" source="a7abe28d-b992-4d55-bfab-19a3a93d66f3" target="4e8bc0bd-5d65-4d39-855e-2a2a4d8f1f76" type="Many2Many">
-            <links uid="e692c052-100f-47f8-b173-a3a0421b901d" masterField="ca180226-65db-43cb-9aa4-def9addc2186" detailField="ee1a5a37-44dc-4f3a-b711-538e82d964b3"/>
-          </relationships>
           <relationships xsi:type="tura.type:Generalization" uid="2311aabd-b8f3-4f8f-a87c-0176715ea0f9" source="e21fec1a-bbeb-489d-b9e0-bcc891fa3d8c" target="72c1beb7-af72-48e8-854c-8f780d07c0f0">
             <classifiers uid="c8448621-e3f5-40cf-beb4-73b7889492b6" hint="b90dae78-c0f8-4049-b6ae-8596aa802c54"/>
           </relationships>
@@ -890,6 +887,9 @@
           <relationships xsi:type="tura.type:Assosiation" uid="099c87db-6edb-4126-8abe-58e5451c0e22" source="d22704ed-3954-4b3f-899f-8b95a853aa35" target="26319e3f-e4bf-4d02-8d3d-e83e0143c06e"/>
           <relationships xsi:type="tura.type:Assosiation" uid="231fb4fd-bfdd-4683-926e-33884c000787" source="26319e3f-e4bf-4d02-8d3d-e83e0143c06e" target="d83f4a23-dd51-424f-94ce-1201372d4166" internal="true"/>
           <relationships xsi:type="tura.type:Assosiation" uid="bb7f445c-8cb0-487c-bac9-ea5de683335b" source="83f772f9-eb1d-4387-bf8a-30c9059e78f2" target="d83f4a23-dd51-424f-94ce-1201372d4166"/>
+          <relationships xsi:type="tura.type:Assosiation" uid="67746559-3a6a-4b13-a724-98b1b0324ffc" source="4e8bc0bd-5d65-4d39-855e-2a2a4d8f1f76" target="a7abe28d-b992-4d55-bfab-19a3a93d66f3" type="Many2Many">
+            <links uid="6585e3d7-5f8f-4984-83a5-349f9c803763" masterField="ee1a5a37-44dc-4f3a-b711-538e82d964b3" detailField="ca180226-65db-43cb-9aa4-def9addc2186"/>
+          </relationships>
         </repositoryPackages>
         <repositoryPackages uid="606e5926-7b6c-4685-a788-3a4d4aa4b932" name="Domain model test package">
           <types xsi:type="tura.type:Type" uid="f05f5088-03b8-4044-9388-1ac846647766" name="Client">

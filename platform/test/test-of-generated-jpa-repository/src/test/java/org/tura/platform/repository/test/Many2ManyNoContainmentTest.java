@@ -47,7 +47,6 @@ import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-import org.tura.provider.DefaultDataProvider;
 
 import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.Many2Many1A;
@@ -115,6 +114,7 @@ public class Many2ManyNoContainmentTest {
 
 	private ProxyRepository getRepository() {
 		Registry.newInstance();
+		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
@@ -141,10 +141,7 @@ public class Many2ManyNoContainmentTest {
 			Many2Many1B o2 = (Many2Many1B) repository.create(Many2Many1B.class.getName());
 			repository.insert(o2, Many2Many1B.class.getName());
 			
-			AddMany2Many1B2Many2Many1AOnMany2Many1BData m2m = new AddMany2Many1B2Many2Many1AOnMany2Many1BData();
-			m2m.setMany2Many1AObjId(o1.getObjId());
-			m2m.setMany2Many1BObjId(o2.getObjId());
-			stackProvider.addCommand(m2m);
+			o1.getMany2Many1B().add(o2);
 			
 			repository.applyChanges(null);
 			em.getTransaction().commit();
@@ -155,11 +152,17 @@ public class Many2ManyNoContainmentTest {
 					new ArrayList<OrderCriteria>(), 0, 100, Many2Many1A.class.getName());
 
 			assertEquals(1, result.getSearchResult().size());
+			
+			o1 = (Many2Many1A) result.getSearchResult().get(0);
+			assertEquals(1, o1.getMany2Many1B().size());
+			
 
 			result =  repository.find(new ArrayList<SearchCriteria>(),
 					new ArrayList<OrderCriteria>(), 0, 100, Many2Many1B.class.getName());
 			
 			assertEquals(1, result.getSearchResult().size());
+			o2 = (Many2Many1B) result.getSearchResult().get(0);
+			assertEquals(1, o2.getMany2Many1A().size());
 
 
 			em.getTransaction().commit();

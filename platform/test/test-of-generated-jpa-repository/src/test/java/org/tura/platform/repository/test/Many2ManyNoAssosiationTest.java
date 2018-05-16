@@ -43,12 +43,12 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPARepository;
 import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
-import org.tura.provider.DefaultDataProvider;
 
-import objects.test.serialazable.jpa.AddMany2Many2B2Many2Many2AOnNoAssosiationMany2Many2BData;
+import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.Many2Many2A;
 import objects.test.serialazable.jpa.Many2Many2B;
 import objects.test.serialazable.jpa.ProxyRepository;
@@ -112,19 +112,20 @@ public class Many2ManyNoAssosiationTest {
 	}
 
 	private ProxyRepository getRepository() {
+		Registry.newInstance();
+		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		DefaultDataProvider dataProvider = new DefaultDataProvider();
-		dataProvider.setPersistenceProvider(new JPARepository(em));
-		dataProvider.setRepository(repository);
-		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
-		dataProvider.init();
-		
+		InitJPARepository init = new InitJPARepository(new JPARepository(em));
+		init.initClassMapping();
+		init.initCommandProducer();
+		init.initProvider();
 		
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
+	
 	
 	@Test
 	public void t0000_One2Many() {
@@ -139,13 +140,10 @@ public class Many2ManyNoAssosiationTest {
 			Many2Many2B o2 = (Many2Many2B) repository.create(Many2Many2B.class.getName());
 			repository.insert(o2, Many2Many2B.class.getName());
 			
-			AddMany2Many2B2Many2Many2AOnNoAssosiationMany2Many2BData m2m = new AddMany2Many2B2Many2Many2AOnNoAssosiationMany2Many2BData();
-			
-			m2m.setMany2Many2AObjId(o1.getObjId());
-			m2m.setMany2Many2BObjId(o2.getObjId());
-			stackProvider.addCommand(m2m);
+			o1.getMany2Many2B().add(o2);
 			
 			repository.applyChanges(null);
+
 			em.getTransaction().commit();
 			
 			em.getTransaction().begin();
@@ -154,11 +152,16 @@ public class Many2ManyNoAssosiationTest {
 					new ArrayList<OrderCriteria>(), 0, 100, Many2Many2A.class.getName());
 
 			assertEquals(1, result.getSearchResult().size());
+			o1 = (Many2Many2A) result.getSearchResult().get(0);
+			assertEquals(1, o1.getMany2Many2B().size());
 
+			
 			result =  repository.find(new ArrayList<SearchCriteria>(),
 					new ArrayList<OrderCriteria>(), 0, 100, Many2Many2B.class.getName());
 			
 			assertEquals(1, result.getSearchResult().size());
+			o2 = (Many2Many2B) result.getSearchResult().get(0);
+			assertEquals(1, o2.getMany2Many2A().size());
 
 
 			em.getTransaction().commit();

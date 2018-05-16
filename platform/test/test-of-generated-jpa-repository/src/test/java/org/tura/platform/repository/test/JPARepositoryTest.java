@@ -328,7 +328,6 @@ public class JPARepositoryTest {
 			Order order = (Order) repository.create(Order.class.getName());
 			order.setCustomer(customer);
 			order.setVehicle(vehicle);
-			repository.insert(order, Order.class.getName());
 
 			repository.applyChanges(null);
 			
@@ -364,7 +363,7 @@ public class JPARepositoryTest {
 			result = repository.find(new ArrayList<SearchCriteria>(),
 					new ArrayList<OrderCriteria>(), 0, 100, Order.class.getName());
 			List<Order> oList = (List<Order>) result.getSearchResult();
-			assertEquals(1, oList.size());
+			assertEquals(0, oList.size());
 
 			em.getTransaction().commit();
 

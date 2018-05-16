@@ -583,8 +583,8 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
 	    	    	command.setMaster ( [%=masterType.~class%]Proxy.this );
 	    	        command.setDetail((([%=hash.get("target").~fullName%]Proxy)[%=hash.get("sourceProperty")%]));
 			        command.setRelationType("Many2Many");
-			        command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			        command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 		            command.setStackProvider(stackProvider);
 	 
 	    	        if (command.prepare()){
@@ -610,8 +610,8 @@ operation type::Assosiation many2manySrcRel(recipe,ingredient,model_mapper){
 	    	        command.setDetail( (org.tura.platform.repository.core.ObjectControl)  (  [%=masterType.~class%]Proxy.this.get[%=hash.get("sourceMethodName")%]().get(index)));
 		            command.setStackProvider(stackProvider);
 				    command.setRelationType("Many2Many");
-			        command.setMasterProperty("[%=hash.get("targetMethodName")%]");
-			        command.setDetailProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setMasterProperty("[%=hash.get("sourceMethodName")%]");
+			        command.setDetailProperty("[%=hash.get("targetMethodName")%]");
 	
 	    	        if (command.prepare()){
 	    	    		[%=detailType.~fullName%] m=  object.get[%=hash.get("sourceMethodName")%]().remove(index);
