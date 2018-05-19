@@ -850,10 +850,10 @@
           <relationships xsi:type="tura.type:Assosiation" uid="075a7c2c-eb49-4012-8c3d-76ef5f759983" source="297b4a39-ddbe-4928-aa3d-38f3af1706d5" target="79ab7d60-e589-4ddb-ac46-d2a6eb132c28" type="One2Many">
             <links uid="36f43eba-e55f-4d38-9194-99929308a7fb" masterField="444072e8-4fdb-47f8-90c0-ae8e3766cf04" detailField="6cd59e62-d1d1-4e06-a61a-5367762fbfd6"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="7efe288c-c22a-4628-9765-056fd77767d9" source="7bf215ad-5078-4239-8082-c0e4c11d4958" target="388a1512-de7b-4dad-a916-869f6e07addf">
+          <relationships xsi:type="tura.type:Assosiation" uid="7efe288c-c22a-4628-9765-056fd77767d9" source="7bf215ad-5078-4239-8082-c0e4c11d4958" target="388a1512-de7b-4dad-a916-869f6e07addf" containment="Non">
             <links uid="9d849b8e-c809-40a0-aeb1-0b3a410268ca" masterField="ec6e234a-1506-4b5c-b667-d1cd852c5be9" detailField="44836536-572b-4c49-8952-c295f0a1af11"/>
           </relationships>
-          <relationships xsi:type="tura.type:Assosiation" uid="9509a6a3-9ac0-4511-864f-2c48eef0525f" source="3fdcea1c-5644-465e-b20c-93129203ebba" target="3b8cb054-6d7d-4fbb-80d7-b29f58bfaf9f" type="One2Many">
+          <relationships xsi:type="tura.type:Assosiation" uid="9509a6a3-9ac0-4511-864f-2c48eef0525f" source="3fdcea1c-5644-465e-b20c-93129203ebba" target="3b8cb054-6d7d-4fbb-80d7-b29f58bfaf9f" type="One2Many" containment="Non">
             <links uid="96423cf1-1a96-4b75-aee9-effa24116b09" masterField="308720c5-4c38-4e79-b39a-b7d6fe14920b" detailField="f20fc643-a394-4ec2-965c-6d3b9e035fab"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="0ed57489-1438-45fb-a3a3-83e6ae9a0be0" source="fed60ae4-f645-4957-b0d3-dca4d7016fc1" target="049d4077-cc33-4bb0-9f16-fb449da9c7ae" type="Many2Many">
@@ -875,7 +875,7 @@
             <classifiers uid="0e2148ef-10fc-4b22-9933-ef9e9c0aa26e" hint="b90dae78-c0f8-4049-b6ae-8596aa802c54"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="df9d05dc-c665-4440-8562-66c719a95b6d" source="cc22aac1-9050-4d18-8fd7-66e4075dcfc8" target="2c258304-0407-4b7b-833c-2cecbae1a494" internal="true"/>
-          <relationships xsi:type="tura.type:Assosiation" uid="89278eac-169f-4ac8-9fce-3b76e48aa178" source="1774c5bf-9736-4b2d-ab54-a927ba5396f4" target="b911fe37-d827-45e9-ad4e-6a0e90a05c13">
+          <relationships xsi:type="tura.type:Assosiation" uid="89278eac-169f-4ac8-9fce-3b76e48aa178" source="1774c5bf-9736-4b2d-ab54-a927ba5396f4" target="b911fe37-d827-45e9-ad4e-6a0e90a05c13" type="One2Many" containment="Non">
             <links uid="7e9191d3-3603-495a-99ad-1d736c4c004e" masterField="3547bec4-8e40-4eed-995f-3e31fab8f675" detailField="1a14f4eb-c324-4b3a-9576-cb49830acca2"/>
           </relationships>
           <relationships xsi:type="tura.type:Assosiation" uid="0a0ff22e-1a78-4445-ba1e-3826144e5949" source="cc22aac1-9050-4d18-8fd7-66e4075dcfc8" target="147b2fab-0774-45ae-b135-60f11447027a" internal="true"/>
@@ -1815,12 +1815,6 @@
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                         </mappers>
-                        <mappers uid="13d00a08-a9ee-40cf-8712-ae86e8dd8870" name="Data Provider">
-                          <queries uid="9765094c-bfe1-45f4-8692-a7e9ba8e7b31" name="Query package for classes">
-                            <variables value="HR domain"/>
-                            <variables value="Simple model"/>
-                          </queries>
-                        </mappers>
                       </components>
                     </ingredients>
                     <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="1" uid="a03d9042-d13e-40b9-acc8-c09c7a2188bd" name="Complex model persistence" controllerLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
@@ -2011,12 +2005,6 @@
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="a6ed3581-8c02-4249-b3cc-4cf664d85966"/>
-                        </mappers>
-                        <mappers uid="3393c2fe-9f57-4261-9229-e51037b8513b" name="DataProvider">
-                          <queries uid="990fb4c8-e39b-43aa-9fc7-08b4df18c042" name="Query package for classes">
-                            <variables value="HR domain"/>
-                            <variables value="Complex model"/>
-                          </queries>
                         </mappers>
                       </components>
                     </ingredients>

@@ -56,7 +56,7 @@ import objects.test.serialazable.jpa.One2Many3B;
 import objects.test.serialazable.jpa.ProxyRepository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class One2ManyNoAssosiationTest {
+public class One2ManyTest {
 
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
@@ -115,6 +115,7 @@ public class One2ManyNoAssosiationTest {
 
 	private ProxyRepository getRepository() {
 		Registry.newInstance();
+		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
@@ -126,6 +127,7 @@ public class One2ManyNoAssosiationTest {
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
+
 
 
 	@Test
@@ -140,12 +142,12 @@ public class One2ManyNoAssosiationTest {
 			repository.insert(o1, One2Many3A.class.getName());
 			
 			One2Many3B o2 = (One2Many3B) repository.create(One2Many3B.class.getName());
-			o2.setRef(o1.getObjId());
 			repository.insert(o2, One2Many3B.class.getName());
+			o2.setOne2Many3A(o1);
 		
 			o2 = (One2Many3B) repository.create(One2Many3B.class.getName());
-			o2.setRef(o1.getObjId());
 			repository.insert(o2, One2Many3B.class.getName());
+			o2.setOne2Many3A(o1);
 			
 			
 			repository.applyChanges(null);
@@ -163,7 +165,7 @@ public class One2ManyNoAssosiationTest {
 			
 			for (Object o : result.getSearchResult()){
 				One2Many3B o3 = (One2Many3B) o;
-				assertEquals(o1.getObjId(), o3.getRef());
+				assertEquals(o1.getObjId(), o3.getOne2Many3A().getObjId());
 			}
 			
 			
@@ -189,13 +191,11 @@ public class One2ManyNoAssosiationTest {
 			
 			for (Object o : result.getSearchResult()){
 				One2Many3B o3 = (One2Many3B) o;
-				assertEquals(o1.getObjId(), o3.getRef());
+				assertEquals(o1.getObjId(), o3.getOne2Many3A().getObjId());
 			}
 			
 			
 			em.getTransaction().commit();
-			
-			
 			
 			
 			em.getTransaction().begin();
@@ -222,12 +222,12 @@ public class One2ManyNoAssosiationTest {
 			em.getTransaction().begin();
 
 			o2 = (One2Many3B) repository.create(One2Many3B.class.getName());
-			o2.setRef(o1.getObjId());
 			repository.insert(o2, One2Many3B.class.getName());
+			o2.setOne2Many3A(o1);
 		
 			o2 = (One2Many3B) repository.create(One2Many3B.class.getName());
-			o2.setRef(o1.getObjId());
 			repository.insert(o2, One2Many3B.class.getName());
+			o2.setOne2Many3A(o1);
 			
 			repository.applyChanges(null);
 			

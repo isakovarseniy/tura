@@ -55,7 +55,7 @@ import objects.test.serialazable.jpa.ProxyRepository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class Many2ManyNoAssosiationTest {
+public class Many2ManyTest {
 
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")

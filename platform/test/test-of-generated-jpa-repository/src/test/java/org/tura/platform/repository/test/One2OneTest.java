@@ -54,7 +54,7 @@ import objects.test.serialazable.jpa.One2One4B;
 import objects.test.serialazable.jpa.ProxyRepository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class One2OneNoAssosiationTest {
+public class One2OneTest {
 
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
@@ -114,6 +114,7 @@ public class One2OneNoAssosiationTest {
 	
 	private ProxyRepository getRepository() {
 		Registry.newInstance();
+		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
@@ -125,6 +126,7 @@ public class One2OneNoAssosiationTest {
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
+
 
 
 	
@@ -141,7 +143,7 @@ public class One2OneNoAssosiationTest {
 			
 			repository.insert(o2, One2One4B.class.getName());
 			repository.insert(o1, One2One4A.class.getName());
-			o2.setRef(o1.getObjId());
+			o2.setOne2One4A(o1);
 			repository.applyChanges(null);
 			
 			em.getTransaction().commit();
@@ -156,7 +158,7 @@ public class One2OneNoAssosiationTest {
 			assertEquals(1,result.getSearchResult().size());
 
 			o2 = (One2One4B) result.getSearchResult().get(0);
-			assertEquals( o1.getObjId(),  o2.getRef());
+			assertEquals( o1.getObjId(),  o2.getOne2One4A().getObjId());
 			
 			em.getTransaction().commit();
 			
@@ -164,7 +166,7 @@ public class One2OneNoAssosiationTest {
 
 			o1 = (One2One4A) repository.create(One2One4A.class.getName());
 			repository.insert(o1, One2One4A.class.getName());
-			o2.setRef(o1.getObjId());
+			o2.setOne2One4A(o1);
 			
 			repository.applyChanges(null);
 			

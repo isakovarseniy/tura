@@ -37,6 +37,11 @@ public class DisconnectOperation {
 		Object master = em.find(Class.forName(data.getMasterClassName()), data.getMasterPk());
 		Object detail = em.find(Class.forName(data.getDetailClassName()), data.getDetailPk());
 		
+		if (master == null || detail == null){
+			//Seems objects already disconnected and removed previosly
+			return;
+		}
+		
 		RelOperation operation =  RelEnul.valueOf(data.getRelation()).getOperation();
 		operation.disconnect(master, detail, data.getMasterProperty());
 		

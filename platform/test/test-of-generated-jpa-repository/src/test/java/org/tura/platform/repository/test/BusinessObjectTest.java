@@ -21,8 +21,7 @@
  */
 package org.tura.platform.repository.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,6 +114,7 @@ public class BusinessObjectTest {
 
 	private ProxyRepository getRepository() {
 		Registry.newInstance();
+		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
@@ -194,7 +194,6 @@ public class BusinessObjectTest {
 	public void t0001_loadObject() {
 		try {
 			ProxyRepository repository = getRepository();
-
 			em.getTransaction().begin();
 			
 			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
@@ -218,7 +217,108 @@ public class BusinessObjectTest {
 			
 			em.getTransaction().commit();
 			
+			em.getTransaction().begin();
+			repository.remove(o1, IndepObject1.class.getName());
+			repository.remove(o2, IndepObject2.class.getName());
+			
+			repository.applyChanges(null);
 
+			em.getTransaction().commit();
+			
+			em.getTransaction().begin();
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
+			assertEquals(0,result.getSearchResult().size());
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
+			assertEquals(0,result.getSearchResult().size());
+			
+			em.getTransaction().commit();
+			
+			
+
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+	
+	
+	@Test
+	public void t0003_loadObject() {
+		try {
+			ProxyRepository repository = getRepository();
+
+			em.getTransaction().begin();
+			
+			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
+			repository.insert(o1, IndepObject1.class.getName());
+			
+			IndepObject2 o2 =(IndepObject2) repository.create(IndepObject2.class.getName());
+			repository.insert(o2, IndepObject2.class.getName());
+			
+			o1.getIndepObject2().add(o2);
+			
+			repository.applyChanges(null);
+			
+			em.getTransaction().commit();
+			
+			em.getTransaction().begin();
+			
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			o1 = (IndepObject1) result.getSearchResult().get(0); 
+			
+			assertEquals(1,o1.getIndepObject2().size());
+			
+			o2 = o1.getIndepObject2().get(0); 
+			
+			em.getTransaction().commit();
+			
+			Registry.getInstance().addSkipRelationRule(IndepObject1.class, "indepObject2");
+
+			em.getTransaction().begin();
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			o1 = (IndepObject1) result.getSearchResult().get(0); 
+			
+			assertEquals(0,o1.getIndepObject2().size());
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			o2 = (IndepObject2) result.getSearchResult().get(0);
+			
+			o1= o2.getIndepObject1();
+			assertNotNull(o1);
+
+			em.getTransaction().commit();
+			
+			
+			em.getTransaction().begin();
+			repository.remove(o1, IndepObject1.class.getName());
+			repository.remove(o2, IndepObject2.class.getName());
+			
+			repository.applyChanges(null);
+
+			em.getTransaction().commit();
+			
+			em.getTransaction().begin();
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
+			assertEquals(0,result.getSearchResult().size());
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
+			assertEquals(0,result.getSearchResult().size());
+			
+			em.getTransaction().commit();
+			
+			
+			
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
 				em.getTransaction().rollback();

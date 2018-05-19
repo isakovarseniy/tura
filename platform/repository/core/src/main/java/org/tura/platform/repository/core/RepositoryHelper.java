@@ -48,7 +48,7 @@ public class RepositoryHelper {
 	
 	
 	protected Annotation getMasterAnnotation(RepoKeyPath masterPk, String masterProperty)
-			throws ClassNotFoundException, NoSuchMethodException, SecurityException {
+			throws ClassNotFoundException, NoSuchMethodException, SecurityException, Exception {
 		int sizepk = masterPk.getPath().size();
 		RepoObjectKey repoObjectKey = masterPk.getPath().get(sizepk - 1);
 		Class<?> clazz = Class.forName(repoObjectKey.getType());
@@ -57,7 +57,9 @@ public class RepositoryHelper {
 		if (annotation == null) {
 			annotation = method.getAnnotation(Internal.class);
 		}
-		assert annotation == null;
+		if (annotation == null){
+			throw new RepositoryException("No annotation class "+clazz.getName() +" method "+ method.getName());
+		}
 		return annotation;
 	}
 	

@@ -162,7 +162,7 @@ public class Registry {
 
 	public boolean skipRelation(Class<?> repositoryClass, Method method) {
 		String relation = method.getName();
-		relation = StringUtils.uncapitalize(relation.substring(2));
+		relation = StringUtils.uncapitalize(relation.substring(3));
 		Boolean skip = skipRelation.get(repositoryClass.getName() + "On" + relation);
 		if (skip == null) {
 			return false;
