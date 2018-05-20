@@ -112,13 +112,13 @@ public class One2OneOpositContaintmentTest {
 
 	}
 
-	private ProxyRepository getRepository() {
+	private ProxyRepository getRepository() throws Exception {
 		Registry.newInstance();
 		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		InitJPARepository init = new InitJPARepository(new JPARepository(em));
+		InitJPARepository init = new InitJPARepository(new JPARepository(em,"test-objects-repository"));
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();

@@ -53,6 +53,9 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 	[%
 	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
       for (rel in assosiations){
+         if ( not rel.target.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
+               continue;
+         }
       
          var hash = rel.sourceSideNamesCalculation();
          
@@ -89,6 +92,10 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 	[%
 	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid);
       for (rel in assosiations){
+      
+         if ( not rel.source.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
+               continue;
+         }
       
          var hash = rel.targetSideNamesCalculation();
       

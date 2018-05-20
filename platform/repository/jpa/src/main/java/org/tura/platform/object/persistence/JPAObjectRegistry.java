@@ -21,7 +21,9 @@
  */
 package org.tura.platform.object.persistence;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.tura.platform.repository.triggers.PostCreateTrigger;
@@ -33,8 +35,11 @@ public class JPAObjectRegistry {
 	private Map<String, PostCreateTrigger> postCreateTriggers = new HashMap<>();
 	private Map<String, PreQueryTrigger> preQueryTriggers = new HashMap<>();
 	private Map<String, PostQueryTrigger> postQueryTriggers = new HashMap<>();
+	private List<Class<?>> jpaClasses = new ArrayList<>();
 
 	private static JPAObjectRegistry instance = new JPAObjectRegistry();
+	private static Map<String,JpaRegistry> hash = new HashMap<>();
+	
 
 	private JPAObjectRegistry() {
 
@@ -43,32 +48,63 @@ public class JPAObjectRegistry {
 	public static JPAObjectRegistry getInstance() {
 		return instance;
 	}
-
-	public void addTrigger(String repositoryClass, Object trigger) {
-		if (trigger instanceof PostCreateTrigger) {
-			postCreateTriggers.put(repositoryClass, (PostCreateTrigger) trigger);
-		}
-		if (trigger instanceof PreQueryTrigger) {
-			preQueryTriggers.put(repositoryClass, (PreQueryTrigger) trigger);
-		}
-
-		if (trigger instanceof PostQueryTrigger) {
-			postQueryTriggers.put(repositoryClass, (PostQueryTrigger) trigger);
-		}
+	
+	public static JPAObjectRegistry newInstance() {
+		 hash = new HashMap<>();
+		return instance;
 	}
 
-	public PostCreateTrigger findPostCreateTrigger(String repositoryClass) {
-		return postCreateTriggers.get(repositoryClass);
-	}
-
-	public PreQueryTrigger findPreQueryTrigger(String repositoryClass) {
-		return preQueryTriggers.get(repositoryClass);
-	}
-
-	public PostQueryTrigger findPostQueryTrigger(String repositoryClass) {
-		return postQueryTriggers.get(repositoryClass);
+	public JpaRegistry getRegistry(String name){
+		JpaRegistry r = hash.get(name);
+		if (r == null ){
+			r = new JpaRegistry();
+			hash.put(name, r);
+		}
+		return r;
 	}
 	
-	
-	
+	public class JpaRegistry {
+
+		public void addJpaClass(String jpaClass) throws Exception {
+			jpaClasses.add(Class.forName(jpaClass));
+		}
+
+		public void addJpaClass(Class<?> jpaClass) throws Exception {
+			jpaClasses.add(jpaClass);
+		}
+
+		public void addTrigger(String repositoryClass, Object trigger) {
+			if (trigger instanceof PostCreateTrigger) {
+				postCreateTriggers.put(repositoryClass, (PostCreateTrigger) trigger);
+			}
+			if (trigger instanceof PreQueryTrigger) {
+				preQueryTriggers.put(repositoryClass, (PreQueryTrigger) trigger);
+			}
+
+			if (trigger instanceof PostQueryTrigger) {
+				postQueryTriggers.put(repositoryClass, (PostQueryTrigger) trigger);
+			}
+		}
+
+		public PostCreateTrigger findPostCreateTrigger(String repositoryClass) {
+			return postCreateTriggers.get(repositoryClass);
+		}
+
+		public PreQueryTrigger findPreQueryTrigger(String repositoryClass) {
+			return preQueryTriggers.get(repositoryClass);
+		}
+
+		public PostQueryTrigger findPostQueryTrigger(String repositoryClass) {
+			return postQueryTriggers.get(repositoryClass);
+		}
+
+		public boolean isClassRegistered(String jpaClass) throws Exception {
+			return jpaClasses.contains(Class.forName(jpaClass));
+		}
+
+		public boolean isClassRegistered(Class<?> jpaClass) throws Exception {
+			return jpaClasses.contains(jpaClass);
+		}
+
+	}
 }

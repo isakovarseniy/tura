@@ -48,6 +48,12 @@ import org.tura.platform.repository.core.annotation.Internal;
 
 public class JPACommandProducer extends RepositoryHelper implements CommandProducer {
 
+	private String registry;
+	public JPACommandProducer(String registry){
+		this.registry = registry;
+		
+	}
+	
 	public Object getPrimaryKey(RepoKeyPath pk) throws RepositoryException {
 		RepoObjectKey objKey = pk.getPath().get(0);
 		String repositoryClass = objKey.getType();
@@ -60,6 +66,12 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 		String repositoryClass = pk.getPath().get(0).getType();
 		return Registry.getInstance().findPersistanceClass(repositoryClass);
 	}
+	
+	public boolean isItJPAClass(RepoKeyPath pk) throws Exception{
+		String className = getPersistanceClassName(pk); 
+		return JPAObjectRegistry.getInstance().getRegistry(registry).isClassRegistered(className);
+	}
+	
 
 	public String getRelationType(RepoKeyPath pk, String property) throws Exception {
 		String className = pk.getPath().get(0).getType();
@@ -131,8 +143,17 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 	@Override
 	public List<Object> disconnectMasterFromDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
+		
 		try {
-			ArrayList<Object> list = new ArrayList<>();
+			List<Object> list = null;
+
+			if (!isItJPAClass(detailPk)){
+				list = handleExceptionDisconnectMasterFromDetail( masterPk,  masterProperty,  detailPk, detailProperty);
+				return list;
+			}
+			
+			
+			list = new ArrayList<>();
 
 			DisconnectData data = new DisconnectData();
 			data.setMasterPk(getPrimaryKey(masterPk));
@@ -149,13 +170,21 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 
 		}
 	}
+
 
 	@Override
 	public List<Object> disconnectDetailFromMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
 		try {
 
-			ArrayList<Object> list = new ArrayList<>();
+			List<Object> list = null;
+
+			if (!isItJPAClass(masterPk)){
+				list = handleExceptionDisconnectDetailFromMaster( masterPk,  masterProperty,  detailPk, detailProperty);
+				return list;
+			}
+			
+			list = new ArrayList<>();
 
 			DisconnectData data = new DisconnectData();
 			data.setMasterPk(getPrimaryKey(detailPk));
@@ -174,12 +203,19 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 
 	}
 
+
 	@Override
 	public List<Object> connectMasterToDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
 		try {
-			ArrayList<Object> list = new ArrayList<>();
+			List<Object> list = null;
 
+			if (!isItJPAClass(detailPk)){
+				list = handleExceptionConnectMasterToDetail( masterPk,  masterProperty,  detailPk, detailProperty);
+				return list;
+			}
+
+			list = new ArrayList<>();
 			ConnectData data = new ConnectData();
 			data.setMasterPk(getPrimaryKey(masterPk));
 			data.setMasterProperty(masterProperty);
@@ -196,11 +232,19 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 		}
 	}
 
+
 	@Override
 	public List<Object> connectDetailToMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
 		try {
-			ArrayList<Object> list = new ArrayList<>();
+			List<Object> list = null;
+
+			if (!isItJPAClass(masterPk)){
+				list = handleExceptionConnectDetailToMaster( masterPk,  masterProperty,  detailPk, detailProperty);
+				return list;
+			}
+
+			list = new ArrayList<>();
 
 			ConnectData data = new ConnectData();
 			data.setMasterPk(getPrimaryKey(detailPk));
@@ -218,6 +262,7 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 		}
 
 	}
+
 
 	@Override
 	public List<Object> update(RepoKeyPath pk, String property, Object value) throws RepositoryException {
@@ -269,4 +314,28 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 
 	}
 
+	private List<Object> handleExceptionConnectMasterToDetail(RepoKeyPath masterPk, String masterProperty,
+			RepoKeyPath detailPk, String detailProperty) {
+		throw new UnsupportedOperationException();
+	}
+	
+	private List<Object> handleExceptionConnectDetailToMaster(RepoKeyPath masterPk, String masterProperty,
+			RepoKeyPath detailPk, String detailProperty) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
+	}
+	
+	private List<Object> handleExceptionDisconnectDetailFromMaster(RepoKeyPath masterPk, String masterProperty,
+			RepoKeyPath detailPk, String detailProperty) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
+	}
+	
+	private List<Object> handleExceptionDisconnectMasterFromDetail(RepoKeyPath masterPk, String masterProperty,
+			RepoKeyPath detailPk, String detailProperty) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
+	}
+	
+	
 }

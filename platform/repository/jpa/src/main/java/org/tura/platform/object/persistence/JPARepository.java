@@ -54,17 +54,19 @@ import com.octo.java.sql.query.SelectQuery;
 public class JPARepository implements Repository {
 
 	private EntityManager em;
+	private String registry;
 
-	public JPARepository(EntityManager em) {
+	public JPARepository(EntityManager em, String registry) {
 		this.em = em;
+		this.registry = registry;
 	}
 
 	private PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws RepositoryException {
-		return JPAObjectRegistry.getInstance().findPostCreateTrigger(repositoryClass);
+		return JPAObjectRegistry.getInstance().getRegistry(registry).findPostCreateTrigger(repositoryClass);
 	}
 
 	private PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws RepositoryException {
-		return JPAObjectRegistry.getInstance().findPreQueryTrigger(repositoryClass);
+		return JPAObjectRegistry.getInstance().getRegistry(registry).findPreQueryTrigger(repositoryClass);
 	}
 
 	protected List<?> findObjectsQuery(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
@@ -132,7 +134,7 @@ public class JPARepository implements Repository {
 				String property = (String) parentChildRelation.getValue();
 				Object persistenceObject = parentPersistenceObject.getValue();
                
-				List<?> list = new  JPACommandProducer().findChildren(persistenceObject, relationType, property);
+				List<?> list = new  JPACommandProducer(registry).findChildren(persistenceObject, relationType, property);
 				return new SearchResult(list, list.size());
 			}
 			
