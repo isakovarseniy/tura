@@ -43,11 +43,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.1-901.jdbc4</version>
+			<groupId>commons-jxpath</groupId>
+			<artifactId>commons-jxpath</artifactId>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.hibernate</groupId>

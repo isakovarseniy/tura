@@ -42,7 +42,7 @@ public class DisconnectOperation {
 			return;
 		}
 		
-		RelOperation operation =  RelEnul.valueOf(data.getRelation()).getOperation();
+		RelOperation operation =  RelEnum.valueOf(data.getRelation()).getOperation();
 		operation.disconnect(master, detail, data.getMasterProperty());
 		
 	}

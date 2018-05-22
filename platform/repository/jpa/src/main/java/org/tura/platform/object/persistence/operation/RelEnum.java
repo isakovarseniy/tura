@@ -21,7 +21,7 @@
  */
 package org.tura.platform.object.persistence.operation;
 
-public enum RelEnul {
+public enum RelEnum {
 
 	One2One(new One2One()),
 	One2Many(new One2Many()),
@@ -30,7 +30,7 @@ public enum RelEnul {
 	
 	
 	RelOperation operation ;
-	RelEnul(RelOperation operation){
+	RelEnum(RelOperation operation){
 		this.operation = operation;
 	}
 	

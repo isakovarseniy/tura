@@ -35,7 +35,7 @@ import org.tura.platform.object.persistence.data.DisconnectData;
 import org.tura.platform.object.persistence.data.PersistData;
 import org.tura.platform.object.persistence.data.RemoveData;
 import org.tura.platform.object.persistence.data.UpdateData;
-import org.tura.platform.object.persistence.operation.RelEnul;
+import org.tura.platform.object.persistence.operation.RelEnum;
 import org.tura.platform.repository.core.CommandProducer;
 import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.Registry;
@@ -290,7 +290,7 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 				relationType = "Many2One";
 			}
 		}
-		return RelEnul.valueOf(relationType).getOperation().getChildren(persistenceObject, property);
+		return RelEnum.valueOf(relationType).getOperation().getChildren(persistenceObject, property);
 
 	}
 

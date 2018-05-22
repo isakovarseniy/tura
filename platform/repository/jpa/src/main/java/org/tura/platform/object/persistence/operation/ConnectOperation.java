@@ -37,7 +37,7 @@ public class ConnectOperation {
 		Object master = em.find(Class.forName(data.getMasterClassName()), data.getMasterPk());
 		Object detail = em.find(Class.forName(data.getDetailClassName()), data.getDetailPk());
 		
-		RelOperation operation =  RelEnul.valueOf(data.getRelation()).getOperation();
+		RelOperation operation =  RelEnum.valueOf(data.getRelation()).getOperation();
 		operation.connect(master, detail, data.getMasterProperty());
 		
 	}
