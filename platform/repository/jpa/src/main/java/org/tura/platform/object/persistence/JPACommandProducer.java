@@ -37,16 +37,14 @@ import org.tura.platform.object.persistence.data.RemoveData;
 import org.tura.platform.object.persistence.data.UpdateData;
 import org.tura.platform.object.persistence.operation.RelEnum;
 import org.tura.platform.repository.core.CommandProducer;
-import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryException;
-import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 
-public class JPACommandProducer extends RepositoryHelper implements CommandProducer {
+public class JPACommandProducer  implements CommandProducer {
 
 	private String registry;
 	public JPACommandProducer(String registry){
@@ -54,13 +52,20 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 		
 	}
 	
+	private PersistanceMapper findMapper(String repositoryClass) throws RepositoryException {
+		 String persistanceClass = Registry.getInstance().findPersistanceClass(repositoryClass);
+		return JPAObjectRegistry.getInstance().getRegistry(registry).findMapper(persistanceClass, repositoryClass);
+	}
+	
+	
 	public Object getPrimaryKey(RepoKeyPath pk) throws RepositoryException {
 		RepoObjectKey objKey = pk.getPath().get(0);
 		String repositoryClass = objKey.getType();
-		Mapper mapper = findMapper(repositoryClass);
-		return mapper.getPrimaryKey(objKey);
+		PersistanceMapper mapper = findMapper(repositoryClass);
+		return mapper.getPKey(objKey);
 
 	}
+
 
 	public String getPersistanceClassName(RepoKeyPath pk) throws RepositoryException {
 		String repositoryClass = pk.getPath().get(0).getType();
@@ -107,7 +112,7 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 		ArrayList<Object> list = new ArrayList<>();
 		RemoveData data = new RemoveData();
 
-		Mapper mapper = findMapper(repositoryObject.getClass().getName());
+		PersistanceMapper mapper = findMapper(repositoryObject.getClass().getName());
 		Object persistanceObject = mapper.copyFromRepository2Persistence(repositoryObject);
 		data.setObject(persistanceObject);
 
@@ -126,7 +131,7 @@ public class JPACommandProducer extends RepositoryHelper implements CommandProdu
 		ArrayList<Object> list = new ArrayList<>();
 		PersistData data = new PersistData();
 
-		Mapper mapper = findMapper(repositoryObject.getClass().getName());
+		PersistanceMapper mapper = findMapper(repositoryObject.getClass().getName());
 		Object persistanceObject = mapper.copyFromRepository2Persistence(repositoryObject);
 		data.setObject(persistanceObject);
 

@@ -16,10 +16,10 @@ ${start}${percent}
  package [%=t2view.get(type).get("package")%].mapper;
  
  
- public class [%=t2view.get(type).get("class")%]Mapper implements org.tura.platform.repository.core.Mapper{
+ public class [%=t2view.get(type).get("class")%]Mapper implements org.tura.platform.repository.core.Mapper, org.tura.platform.object.persistence.PersistanceMapper{
  
  
-       	public Object getPrimaryKey(org.tura.platform.repository.core.RepoObjectKey objKey)throws RepositoryException {
+       	public Object getPKey(org.tura.platform.repository.core.RepoObjectKey objKey)throws RepositoryException {
 	    	try{
 		      	[%=PKRepoObjectKey(type,"pk","objKey.getKey()",t2model.get(type).get("fullName"),recipe,ingredient)%]   
 		      	return pk;
@@ -31,18 +31,6 @@ ${start}${percent}
  
  
  
-      	public Object getPrimaryKeyFromRepoObject(Object repositoryObject) throws RepositoryException {
-	    	try{
-			    [%=t2view.get(type).get("fullName")%] obj = ( [%=t2view.get(type).get("fullName")%]) repositoryObject;
-		      	
-		      	[%=PK(type,"pk","obj",t2model.get(type).get("fullName"),recipe,ingredient)%]   
-		      	return pk;
-	    	}catch(Exception e){
-	    		throw new RepositoryException(e);
-	    	}
-      	
-        }
-        
        private Object find(String field, java.util.List<FieldValue> list) throws Exception {
 		for (org.tura.platform.repository.core.FieldValue f : list) {
 			if (f.getName().equals(field)) {

@@ -19,11 +19,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.core;
+package org.tura.platform.object.persistence;
 
-public interface Mapper {
+import org.tura.platform.repository.core.RepoObjectKey;
+import org.tura.platform.repository.core.RepositoryException;
 
-	Object getPrimaryKey(Object persistenceObject) throws RepositoryException;
-	Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject);
+public interface PersistanceMapper {
+
+  	Object getPKey(RepoObjectKey objKey) throws RepositoryException;
+	Object copyFromRepository2Persistence(Object repositoryObject);
+
+	
 }
-

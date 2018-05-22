@@ -51,6 +51,7 @@ ${start}${percent}
         Registry.getInstance().addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
         Registry.getInstance().addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
         JPAObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addJpaClass("[%=t2model.get(type).get("fullName")%]");
+        JPAObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
         
        [%
        }

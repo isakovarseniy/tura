@@ -32,13 +32,10 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 public class JPAObjectRegistry {
 
-	private Map<String, PostCreateTrigger> postCreateTriggers = new HashMap<>();
-	private Map<String, PreQueryTrigger> preQueryTriggers = new HashMap<>();
-	private Map<String, PostQueryTrigger> postQueryTriggers = new HashMap<>();
-	private List<Class<?>> jpaClasses = new ArrayList<>();
 
 	private static JPAObjectRegistry instance = new JPAObjectRegistry();
 	private static Map<String,JpaRegistry> hash = new HashMap<>();
+	
 	
 
 	private JPAObjectRegistry() {
@@ -65,6 +62,18 @@ public class JPAObjectRegistry {
 	
 	public class JpaRegistry {
 
+		private Map<String, PostCreateTrigger> postCreateTriggers = new HashMap<>();
+		private Map<String, PreQueryTrigger> preQueryTriggers = new HashMap<>();
+		private Map<String, PostQueryTrigger> postQueryTriggers = new HashMap<>();
+		private List<Class<?>> jpaClasses = new ArrayList<>();
+		private Map<String, PersistanceMapper> mappers = new HashMap<>();
+
+		
+		public void addMapper(String repositoryClass, String persistanceClass, PersistanceMapper mapper) {
+			mappers.put(persistanceClass + "2" + repositoryClass, mapper);
+		}
+
+		
 		public void addJpaClass(String jpaClass) throws Exception {
 			jpaClasses.add(Class.forName(jpaClass));
 		}
@@ -106,5 +115,10 @@ public class JPAObjectRegistry {
 			return jpaClasses.contains(jpaClass);
 		}
 
+		public PersistanceMapper findMapper(String persistanceClass, String repositoryClass) {
+			return mappers.get(persistanceClass + "2" + repositoryClass);
+		}
+		
+		
 	}
 }
