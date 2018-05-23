@@ -93,7 +93,7 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 
 	private void walker(Object repositoryObject, String parentProperty) throws Exception {
 		Class<?> repositoryClass = repositoryObject.getClass();
-		List<Method> methods = RepositoryObjectLoader.getMethodsAnnotatedWith(repositoryClass, Association.class);
+		List<Method> methods = getMethodsAnnotatedWith(repositoryClass, Association.class);
 		for (Method m : methods) {
 			if (parentProperty != null){
 				String methodName= "get"+WordUtils.capitalize(parentProperty);

@@ -25,6 +25,7 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -108,7 +109,22 @@ public class RepositoryHelper {
 		return Registry.getInstance().findMapper(persistanceObject.getClass().getName(), repositoryClass).getPrimaryKey(persistanceObject);
 	}
 	
-	
+	protected  List<Method> getMethodsAnnotatedWith(final Class<?> type,
+			final Class<? extends Annotation> annotation) {
+		final List<Method> methods = new ArrayList<Method>();
+		Class<?> klass = type;
+		while (klass != Object.class) {
+			final List<Method> allMethods = new ArrayList<Method>(Arrays.asList(klass.getDeclaredMethods()));
+			for (final Method method : allMethods) {
+				if (method.isAnnotationPresent(annotation)) {
+					methods.add(method);
+				}
+			}
+			klass = klass.getSuperclass();
+		}
+		return methods;
+	}
+
 	
 }
 

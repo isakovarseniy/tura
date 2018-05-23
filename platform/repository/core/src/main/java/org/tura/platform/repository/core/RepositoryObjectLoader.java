@@ -21,10 +21,8 @@
  */
 package org.tura.platform.repository.core;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -59,7 +57,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 		this.context = context;
 	}
 
-	public void populate(Object persistenceObject, Object repositoryObject) throws RepositoryException {
+	private void populate(Object persistenceObject, Object repositoryObject) throws RepositoryException {
 		Mapper mapper = Registry.getInstance().findMapper(persistenceObject.getClass().getName(),
 				repositoryObject.getClass().getName());
 		if (mapper == null) {
@@ -70,7 +68,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 	}
 
 
-	public Object instantiateObject(Class<?> repositoryClass) throws Exception {
+	private Object instantiateObject(Class<?> repositoryClass) throws Exception {
 		return repositoryClass.newInstance();
 	}
 
@@ -86,7 +84,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 		return Registry.getInstance().skipRelation(repositoryObject.getClass(), method);
 	}
 
-	public void internalLoader(Object repositoryObject, boolean fromInternalClass) throws Exception {
+	private void internalLoader(Object repositoryObject, boolean fromInternalClass) throws Exception {
 		List<Method> internalAssosiations = getMethodsAnnotatedWith(repositoryObject.getClass(), Internal.class);
 		for (Method method : internalAssosiations) {
 			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method,context);
@@ -207,20 +205,5 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 
 
 
-	public static List<Method> getMethodsAnnotatedWith(final Class<?> type,
-			final Class<? extends Annotation> annotation) {
-		final List<Method> methods = new ArrayList<Method>();
-		Class<?> klass = type;
-		while (klass != Object.class) {
-			final List<Method> allMethods = new ArrayList<Method>(Arrays.asList(klass.getDeclaredMethods()));
-			for (final Method method : allMethods) {
-				if (method.isAnnotationPresent(annotation)) {
-					methods.add(method);
-				}
-			}
-			klass = klass.getSuperclass();
-		}
-		return methods;
-	}
 
 }

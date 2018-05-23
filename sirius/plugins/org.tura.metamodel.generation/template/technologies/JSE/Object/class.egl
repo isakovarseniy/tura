@@ -10,6 +10,8 @@
  hash.put("recipe",recipe);
  hash.put("ingredient",ingredient);
  hash.put("skipVar",false);    
+ hash.put("model_mapper",model_mapper);    
+ 
  
  
 %]
