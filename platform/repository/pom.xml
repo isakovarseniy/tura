@@ -19,6 +19,7 @@
   <modules>
     <module>core</module>
     <module>jpa</module>
+    <module>spa</module>
     <module>cdi</module>
     <module>cdi-rest</module>
     <module>rest-client</module>
