@@ -21,8 +21,14 @@
  */
 package org.tura.platform.repository.spa;
 
-public interface CRUDProvider {
-
-	void execute(SpaControl control);
-
+public enum RepositoryCommandType {
+	removeObject,
+	removeInternal,
+	addObject,
+	addInternal,
+	disconnectMasterFromDetail,
+	disconnectDetailFromMaster,
+	connectMasterToDetail,
+	connectDetailToMaster,
+	update,
 }

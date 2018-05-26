@@ -67,9 +67,14 @@ public class SpaObjectRegistry {
 		private Map<Class<?>, PostQueryTrigger> postQueryTriggers = new HashMap<>();
 		private List<Class<?>> spaClasses = new ArrayList<>();
 		private Map<Class<?>,CRUDProvider> crudProviders = new HashMap<>();
-		private Map<Class<?>, PersistanceMapper> mappers = new HashMap<>();
+//		private Map<Class<?>, PersistanceMapper> mappers = new HashMap<>();
 		private Map<Class<?>, SearchProvider> searchProviders = new HashMap<>();
+		private List<SpaRepositoryCommand> externalCommands = new ArrayList<>();
 
+		
+		public void addExternalCommand(SpaRepositoryCommand cmd){
+			externalCommands.add(cmd);
+		}
 		
 		public void addMapper(String repositoryClass, String persistanceClass, PersistanceMapper mapper) {
 			mappers.put(persistanceClass + "2" + repositoryClass, mapper);
@@ -106,7 +111,7 @@ public class SpaObjectRegistry {
 			}
 		}
 
-		public PostCreateTrigger findPostCreateTrigger(String repositoryClass) {
+		public PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws Exception {
 			Class<?> clazz = Class.forName(repositoryClass);
 			return postCreateTriggers.get(repositoryClass);
 		}
@@ -138,7 +143,7 @@ public class SpaObjectRegistry {
 			return crudProviders.get(clazz);
 		}
 
-		public SearchProvider findSearchProvider( String  className) {
+		public SearchProvider findSearchProvider( String  className) throws Exception {
 			Class<?> clazz = Class.forName(className);
 			return findSearchProvider(clazz);
 		}
@@ -148,6 +153,14 @@ public class SpaObjectRegistry {
 			return searchProviders.get(clazz);
 		}
 		
-		
+		public List<Object> findCommand(RepositoryCommandType cmdType, Object ...parameters){
+			List<Object> list = new ArrayList<>();
+			for (SpaRepositoryCommand cmd : externalCommands){
+				if (cmd.checkCommand( cmdType, parameters)){
+					list.add(cmd);
+				}
+			}
+			return list;
+		}
 	}
 }

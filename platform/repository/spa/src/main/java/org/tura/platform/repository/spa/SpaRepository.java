@@ -1,3 +1,24 @@
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2017, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.repository.spa;
 
 import java.util.ArrayList;
@@ -41,8 +62,12 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	@Override
 	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException {
-		SearchProvider provider = findSearchProvider(objectClass);
-		return provider.find(searchCriteria, orderCriteria, startIndex, endIndex);
+		try {
+			SearchProvider provider = findSearchProvider(objectClass);
+			return provider.find(searchCriteria, orderCriteria, startIndex, endIndex);
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+		}
 	}
 
 	@Override
@@ -127,8 +152,7 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 		}
 	}
 
-	private void injectSearchProviders(SpaRepositoryCommand cmd, List<String> listOfKnownObjects)
-			throws RepositoryException {
+	private void injectSearchProviders(SpaRepositoryCommand cmd, List<String> listOfKnownObjects) throws Exception {
 		for (String className : listOfKnownObjects) {
 			SearchProvider provider = findSearchProvider(className);
 			cmd.addSearchProvider(className, provider);
@@ -144,11 +168,11 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 		cleanupCache();
 	}
 
-	private PostCreateTrigger findPostCreateTrigger(String objectClass) {
+	private PostCreateTrigger findPostCreateTrigger(String objectClass) throws Exception {
 		return SpaObjectRegistry.getInstance().getRegistry(registry).findPostCreateTrigger(objectClass);
 	}
 
-	private SearchProvider findSearchProvider(String className) throws RepositoryException {
+	private SearchProvider findSearchProvider(String className) throws Exception {
 		SearchProvider provider = SpaObjectRegistry.getInstance().getRegistry(registry).findSearchProvider(className);
 		if (provider == null) {
 			throw new RepositoryException("Cannot find  SearchProvider for class " + className);
