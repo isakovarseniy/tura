@@ -24,6 +24,8 @@ package org.tura.platform.object.persistence.operation;
 import javax.persistence.EntityManager;
 
 import org.tura.platform.object.persistence.data.ConnectData;
+import org.tura.platform.repository.persistence.RelEnum;
+import org.tura.platform.repository.persistence.RelOperation;
 
 public class ConnectOperation {
 	

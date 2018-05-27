@@ -21,8 +21,9 @@
  */
 package org.tura.platform.repository.test.spa;
 
-import org.tura.platform.object.persistence.operation.RelEnum;
 import org.tura.platform.repository.core.RepoObjectKey;
+import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
+import org.tura.platform.repository.persistence.RelEnum;
 
 public class ConnectOperation {
 
@@ -49,7 +50,7 @@ public class ConnectOperation {
 			throw new Exception("Object not found");
 		}
 
-		RelEnum relation =  RelationBuilder.build(masterObject.getClass(), data.getMasterProperty(), detailObject.getClass(), data.getDetailProperty());
+		RelEnum relation =  PersistanceRelationBuilder.build(masterObject.getClass(), data.getMasterProperty(), detailObject.getClass(), data.getDetailProperty());
 		relation.getOperation().connect(masterObject, detailObject, data.getMasterProperty());
 
 	}

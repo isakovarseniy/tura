@@ -19,52 +19,42 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.object.persistence.operation;
+package org.tura.platform.repository.persistence;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
 
-public class One2Many implements RelOperation{
+public class One2One implements RelOperation {
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void connect(Object master, Object detail, String property) throws Exception {
-		String name = "get"+WordUtils.capitalize(property);
-		Method m = master.getClass().getDeclaredMethod(name, new Class<?>[]{} );
-		List list = (List) m.invoke(master, new Object[]{});
-		if (list == null){
-			list = new ArrayList<>();
-			name = "set"+WordUtils.capitalize(property);
-			m = master.getClass().getDeclaredMethod(name, Collection.class );
-			m.invoke(master, list);
-		}
-		list.add(detail);
-		
+		String name = "set"+WordUtils.capitalize(property);
+		Method m = master.getClass().getDeclaredMethod(name, detail.getClass());
+		m.invoke(master, detail);
 	}
 
-	@SuppressWarnings({  "rawtypes" })
 	@Override
 	public void disconnect(Object master, Object detail, String property) throws Exception {
-		String name = "get"+WordUtils.capitalize(property);
-		Method m = master.getClass().getDeclaredMethod(name, new Class<?>[]{} );
-		List list = (List) m.invoke(master, new Object[]{});
-		list.remove(detail);
-		
+		String name = "set"+WordUtils.capitalize(property);
+		Method m = master.getClass().getDeclaredMethod(name, detail.getClass());
+		m.invoke(master, new Object[]{null});
 	}
 
+	
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List getChildren(Object object, String property) throws Exception {
 		String methodName = "get"+WordUtils.capitalize(property);
 		Method method = object.getClass().getDeclaredMethod(methodName, new Class[]{});
 		
-		List list = (List) method.invoke(object);
-		if (list == null){
-			return new ArrayList<>();
+		Object obj = method.invoke(object, new Object[]{});
+		List list = new ArrayList<>();
+		if (obj != null){
+			list.add(obj);
 		}
 		return list;
 	}	

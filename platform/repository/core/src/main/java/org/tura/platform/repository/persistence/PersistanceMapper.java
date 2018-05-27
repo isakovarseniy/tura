@@ -19,13 +19,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.object.persistence.operation;
+package org.tura.platform.repository.persistence;
 
-import java.util.List;
+import org.tura.platform.repository.core.RepoKeyPath;
+import org.tura.platform.repository.core.RepositoryException;
 
-public interface RelOperation {
-	void connect (Object master, Object detail , String property) throws Exception;
-	void disconnect (Object master, Object detail , String property) throws Exception;
-	List<?> getChildren( Object object, String property) throws Exception;
+public interface PersistanceMapper {
 
+  	Object getPKey(RepoKeyPath objKey) throws RepositoryException;
+	Object copyFromRepository2Persistence(Object repositoryObject);
+
+	
 }

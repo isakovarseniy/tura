@@ -21,8 +21,9 @@
  */
 package org.tura.platform.repository.test.spa;
 
-import org.tura.platform.object.persistence.operation.RelEnum;
 import org.tura.platform.repository.core.RepoObjectKey;
+import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
+import org.tura.platform.repository.persistence.RelEnum;
 
 import com.rits.cloning.Cloner;
 
@@ -44,7 +45,7 @@ public class RemoveInternalOperation {
 		Cloner c = new Cloner();
 		Object detailObject = c.deepClone(data.getDetailObject());
 
-		RelEnum relation =  RelationBuilder.build(masterObject.getClass(), data.getMasterProperty(), data.getDetailObject().getClass(), data.getDetailProperty());
+		RelEnum relation =  PersistanceRelationBuilder.build(masterObject.getClass(), data.getMasterProperty(), data.getDetailObject().getClass(), data.getDetailProperty());
 		relation.getOperation().disconnect(masterObject, detailObject, data.getMasterProperty());
 	}
 	

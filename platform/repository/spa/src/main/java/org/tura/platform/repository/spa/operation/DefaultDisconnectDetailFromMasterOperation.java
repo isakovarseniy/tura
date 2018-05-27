@@ -21,38 +21,63 @@
  */
 package org.tura.platform.repository.spa.operation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.tura.platform.repository.core.RepoKeyPath;
+import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
+import org.tura.platform.repository.persistence.RelEnum;
+import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.RepositoryCommandType;
 import org.tura.platform.repository.spa.SearchProvider;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
-public class DefaultDisconnectDetailFromMasterOperation implements SpaRepositoryCommand {
+public class DefaultDisconnectDetailFromMasterOperation extends SpaRepositoryCommand {
 
 	private RepoKeyPath masterPk;
 	private String masterProperty;
 	private RepoKeyPath detailPk;
 	private String detailProperty;
-	
-	@Override
-	public List<String> getListOfKnownObjects() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	private String masterType;
+	private String detailType;
 
 	@Override
-	public List<SpaControl> prepare() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<SpaControl> prepare() throws RepositoryException {
+		try {
+			
+			SearchProvider spDetail = this.providerHash.get(detailType);
+			Object persistanceDetailObject = spDetail.find(detailPk);
+			if (persistanceDetailObject == null) {
+				throw new RepositoryException("Could not find the object with primary key " + detailPk.toString());
+			}
+			
+			if (!beckwardPrperty(persistanceDetailObject,detailProperty)){
+				return new ArrayList<>();
+			}
+
+			SearchProvider spMaster = this.providerHash.get(masterType);
+			Object persistanceMasterObject = spMaster.find(masterPk);
+			if (persistanceMasterObject == null) {
+				throw new RepositoryException("Could not find the object with primary key " + masterPk.toString());
+			}
+
+			
+			RelEnum relation = PersistanceRelationBuilder.build(persistanceDetailObject.getClass(), detailProperty,
+					persistanceMasterObject.getClass(), masterProperty);
+			relation.getOperation().disconnect(persistanceDetailObject, persistanceMasterObject, detailProperty);
+
+			SpaControl detailControl = new SpaControl(persistanceDetailObject,detailPk, OperationLevel.UPDATE);
+			
+			List<SpaControl> list= new ArrayList<>();
+			list.add(detailControl);
+			return list;
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+		}
 	}
 
-	@Override
-	public void addSearchProvider(String className, SearchProvider provider) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) {
@@ -60,6 +85,11 @@ public class DefaultDisconnectDetailFromMasterOperation implements SpaRepository
 		masterProperty = (String) parameters[1];
 		detailPk = (RepoKeyPath) parameters[2];
 		detailProperty = (String) parameters[3];
+
+		masterType = masterPk.getPath().get(0).getType();
+		detailType = detailPk.getPath().get(0).getType();
+		this.knownObjects.add(detailType);
+		this.knownObjects.add(masterType);
 		return true;
 	}
 

@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
@@ -67,7 +68,7 @@ public class SpaObjectRegistry {
 		private Map<Class<?>, PostQueryTrigger> postQueryTriggers = new HashMap<>();
 		private List<Class<?>> spaClasses = new ArrayList<>();
 		private Map<Class<?>,CRUDProvider> crudProviders = new HashMap<>();
-//		private Map<Class<?>, PersistanceMapper> mappers = new HashMap<>();
+		private Map<String, PersistanceMapper> mappers = new HashMap<>();
 		private Map<Class<?>, SearchProvider> searchProviders = new HashMap<>();
 		private List<SpaRepositoryCommand> externalCommands = new ArrayList<>();
 
@@ -113,7 +114,7 @@ public class SpaObjectRegistry {
 
 		public PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws Exception {
 			Class<?> clazz = Class.forName(repositoryClass);
-			return postCreateTriggers.get(repositoryClass);
+			return postCreateTriggers.get(clazz);
 		}
 		public PostCreateTrigger findPostCreateTrigger(Class<?> clazz) {
 			return postCreateTriggers.get(clazz);

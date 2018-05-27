@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.test.spa;
+package org.tura.platform.repository.persistence;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -28,9 +28,8 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
-import org.tura.platform.object.persistence.operation.RelEnum;
 
-public class RelationBuilder {
+public class PersistanceRelationBuilder {
 
 	public static RelEnum build(Class<?> masterClazz, String masterProperty, Class<?> detailClazz,
 			String detailProperty) throws Exception {

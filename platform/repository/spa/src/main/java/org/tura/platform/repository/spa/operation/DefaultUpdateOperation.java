@@ -21,43 +21,63 @@
  */
 package org.tura.platform.repository.spa.operation;
 
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.RepoKeyPath;
+import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.persistence.PersistanceMapper;
+import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.RepositoryCommandType;
 import org.tura.platform.repository.spa.SearchProvider;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
-public class DefaultUpdateOperation implements SpaRepositoryCommand {
+public class DefaultUpdateOperation extends SpaRepositoryCommand {
 
 	private RepoKeyPath pk;
 	private String property;
 	private Object value;
+	private String objectType;
 	
 	@Override
-	public List<String> getListOfKnownObjects() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<SpaControl> prepare() throws RepositoryException {
+		try{
+
+			SearchProvider sp = this.providerHash.get(objectType);
+			Object persistanceObject = sp.find(pk);
+			if (persistanceObject == null) {
+				throw new RepositoryException("Could not find the object with primary key " + pk.toString());
+			}
+			String methodName  = "set"+WordUtils.capitalize(property);
+			Method m = persistanceObject.getClass().getDeclaredMethod(methodName, value.getClass());
+			m.invoke(persistanceObject, value);
+
+			PersistanceMapper mapper = findPersistanceMapper(persistanceObject.getClass());
+			
+			SpaControl control = new SpaControl(persistanceObject,mapper.getPKey(pk), OperationLevel.UPDATE);
+			
+			List<SpaControl> list= new ArrayList<>();
+			list.add(control);
+			return list;
+			
+		}catch(Exception e){
+			throw new RepositoryException(e);
+		}
 	}
 
-	@Override
-	public List<SpaControl> prepare() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void addSearchProvider(String className, SearchProvider provider) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) {
 		pk = (RepoKeyPath) parameters[0];
 		property = (String) parameters[1];
 		value = parameters[2];
+
+		objectType = pk.getPath().get(0).getType();
+		this.knownObjects.add(objectType);
 		return true;
+		
 	}	
 }

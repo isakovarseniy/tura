@@ -21,16 +21,71 @@
  */
 package org.tura.platform.repository.spa;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public interface SpaRepositoryCommand {
+import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.core.Mapper;
+import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.persistence.PersistanceMapper;
 
-	List<String> getListOfKnownObjects();
+public abstract class SpaRepositoryCommand {
 
-	List<SpaControl> prepare();
+	protected Map<String, SearchProvider> providerHash = new HashMap<>();
+	protected List<String> knownObjects = new ArrayList<>();
+	protected String registry;
 
-	void addSearchProvider(String className, SearchProvider provider);
+	public List<String> getListOfKnownObjects() {
+		return knownObjects;
+	}
 
-	boolean checkCommand(RepositoryCommandType cmdType, Object ...parameters);
+	public void addSearchProvider(String className, SearchProvider provider) {
+		providerHash.put(className, provider);
+	}
+
+	protected PersistanceMapper findPersistanceMapper(Class<?> repositoryClass) throws RepositoryException {
+		String persistanceClassName = Registry.getInstance().findPersistanceClass(repositoryClass.getName());
+
+		PersistanceMapper mapper = SpaObjectRegistry.getInstance().getRegistry(registry)
+				.findMapper(persistanceClassName, repositoryClass.getName());
+		if (mapper == null) {
+			throw new RepositoryException(
+					"PersistanceMapper not found from " + persistanceClassName + " to " + repositoryClass.getName());
+		}
+		return mapper;
+	}
+
+	protected Mapper findMapper(Class<?> repositoryClass) throws RepositoryException{
+		String persistanceClassName = Registry.getInstance().findPersistanceClass(repositoryClass.getName());
+		Mapper mapper = Registry.getInstance().findMapper(persistanceClassName, repositoryClass.getName());
+		if (mapper == null) {
+			throw new RepositoryException(
+					"Mapper not found from " + persistanceClassName + " to " + repositoryClass.getName());
+		}
+		return mapper;
+	}
+	
+	
+	protected boolean beckwardPrperty(Object persistanceDetailObject, String detailProperty) {
+		try {
+			Class<?> clazz = persistanceDetailObject.getClass();
+			String methodName = "get" + WordUtils.capitalize(detailProperty);
+			clazz.getMethod(methodName);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public void setRegistry(String registry) {
+		this.registry = registry;
+	}
+
+	public abstract boolean checkCommand(RepositoryCommandType cmdType, Object... parameters);
+
+	public abstract List<SpaControl> prepare() throws RepositoryException;
 
 }

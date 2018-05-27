@@ -21,39 +21,50 @@
  */
 package org.tura.platform.repository.spa.operation;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.tura.platform.repository.core.Mapper;
+import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.persistence.PersistanceMapper;
+import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.RepositoryCommandType;
-import org.tura.platform.repository.spa.SearchProvider;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
-public class DefaultAddObjectOperation implements SpaRepositoryCommand {
+public class DefaultAddObjectOperation extends SpaRepositoryCommand {
 
 	public Object object;
-
-	
-	@Override
-	public List<String> getListOfKnownObjects() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	private String objectType;
 
 	@Override
-	public List<SpaControl> prepare() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void addSearchProvider(String className, SearchProvider provider) {
-		// TODO Auto-generated method stub
+	public List<SpaControl> prepare() throws RepositoryException {
+		try {
 		
+			PersistanceMapper mapper = findPersistanceMapper(object.getClass());
+			Object persistancelObject = mapper.copyFromRepository2Persistence(object);
+			Mapper p2rMapper = findMapper(object.getClass());
+		
+			SpaControl masterControl = new SpaControl(persistancelObject,p2rMapper.getPrimaryKey(persistancelObject), OperationLevel.INSERT);
+			
+			List<SpaControl> list= new ArrayList<>();
+			list.add(masterControl);
+			return list;
+			
+			
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+		}
+
 	}
 
 	@Override
 	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) {
-		object  = parameters[0];
+		object = parameters[0];
+
+		objectType = object.getClass().getName();
+		this.knownObjects.add(objectType);
 		return true;
+
 	}
 }

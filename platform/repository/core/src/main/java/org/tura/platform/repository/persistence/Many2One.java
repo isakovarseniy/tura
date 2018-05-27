@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.object.persistence.operation;
+package org.tura.platform.repository.persistence;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

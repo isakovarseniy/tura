@@ -27,8 +27,15 @@ public class SpaControl implements Comparable<SpaControl>{
 	private String type;
 	private Object key;
 	private Object object;
-	private int priority;
+	private int priority = 100;
 	private int sequence;
+	
+	public SpaControl(Object object,Object key, OperationLevel level){
+		this.object = object;
+		this.key = key;
+		this.level = level;
+	}
+	
 	
 	public Object getObject() {
 		return object;

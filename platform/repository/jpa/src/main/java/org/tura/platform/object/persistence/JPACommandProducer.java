@@ -35,7 +35,6 @@ import org.tura.platform.object.persistence.data.DisconnectData;
 import org.tura.platform.object.persistence.data.PersistData;
 import org.tura.platform.object.persistence.data.RemoveData;
 import org.tura.platform.object.persistence.data.UpdateData;
-import org.tura.platform.object.persistence.operation.RelEnum;
 import org.tura.platform.repository.core.CommandProducer;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
@@ -43,6 +42,8 @@ import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
+import org.tura.platform.repository.persistence.PersistanceMapper;
+import org.tura.platform.repository.persistence.RelEnum;
 
 public class JPACommandProducer  implements CommandProducer {
 
@@ -62,7 +63,7 @@ public class JPACommandProducer  implements CommandProducer {
 		RepoObjectKey objKey = pk.getPath().get(0);
 		String repositoryClass = objKey.getType();
 		PersistanceMapper mapper = findMapper(repositoryClass);
-		return mapper.getPKey(objKey);
+		return mapper.getPKey(pk);
 
 	}
 

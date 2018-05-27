@@ -19,24 +19,13 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.object.persistence.operation;
+package org.tura.platform.repository.persistence;
 
-public enum RelEnum {
+import java.util.List;
 
-	One2One(new One2One()),
-	One2Many(new One2Many()),
-	Many2One(new Many2One()),
-	Many2Many(new Many2Many());
-	
-	
-	RelOperation operation ;
-	RelEnum(RelOperation operation){
-		this.operation = operation;
-	}
-	
-	public RelOperation getOperation(){
-		return operation;
-	}
-	
-	
+public interface RelOperation {
+	void connect (Object master, Object detail , String property) throws Exception;
+	void disconnect (Object master, Object detail , String property) throws Exception;
+	List<?> getChildren( Object object, String property) throws Exception;
+
 }

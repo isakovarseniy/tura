@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.object.persistence.operation;
+package org.tura.platform.repository.persistence;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -28,9 +28,9 @@ import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
 
-public class Many2Many implements RelOperation{
+public class One2Many implements RelOperation{
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void connect(Object master, Object detail, String property) throws Exception {
 		String name = "get"+WordUtils.capitalize(property);
@@ -42,11 +42,11 @@ public class Many2Many implements RelOperation{
 			m = master.getClass().getDeclaredMethod(name, Collection.class );
 			m.invoke(master, list);
 		}
-		
 		list.add(detail);
+		
 	}
 
-	@SuppressWarnings({ "rawtypes" })
+	@SuppressWarnings({  "rawtypes" })
 	@Override
 	public void disconnect(Object master, Object detail, String property) throws Exception {
 		String name = "get"+WordUtils.capitalize(property);
@@ -67,7 +67,6 @@ public class Many2Many implements RelOperation{
 			return new ArrayList<>();
 		}
 		return list;
-	}
+	}	
 	
-
 }
