@@ -29,8 +29,10 @@ import java.util.Map;
 import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
+import org.tura.platform.repository.spa.operation.PathHelper;
 
 public abstract class SpaRepositoryCommand {
 
@@ -69,7 +71,7 @@ public abstract class SpaRepositoryCommand {
 	}
 	
 	
-	protected boolean beckwardPrperty(Object persistanceDetailObject, String detailProperty) {
+	protected boolean beckwardProperty(Object persistanceDetailObject, String detailProperty) {
 		try {
 			Class<?> clazz = persistanceDetailObject.getClass();
 			String methodName = "get" + WordUtils.capitalize(detailProperty);
@@ -83,6 +85,13 @@ public abstract class SpaRepositoryCommand {
 	public void setRegistry(String registry) {
 		this.registry = registry;
 	}
+	
+
+	protected Object getExtendedMasterObject(RepoKeyPath extendedMasterPk, Object persistanceMasterObject) throws Exception {
+		return PathHelper.getPathValue(extendedMasterPk, 0, persistanceMasterObject);
+	}
+
+	
 
 	public abstract boolean checkCommand(RepositoryCommandType cmdType, Object... parameters);
 

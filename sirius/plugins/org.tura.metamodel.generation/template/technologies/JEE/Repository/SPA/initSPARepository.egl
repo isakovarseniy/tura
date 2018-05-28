@@ -16,13 +16,13 @@ ${start}${percent}
  package [%=savepackage%];
  
  import org.tura.platform.repository.core.Registry;
- import org.tura.platform.object.persistence.JPAObjectRegistry;
+ import org.tura.platform.repository.spa.SpaObjectRegistry;
  
- public class InitJPARepository{
+ public class InitSPARepository{
  
-     org.tura.platform.object.persistence.JPARepository repository;
+     org.tura.platform.repository.spa.SpaRepository repository;
      
-     public InitJPARepository(JPARepository repository){
+     public InitSPARepository(SpaRepository repository){
          this.repository = repository;
      }
  
@@ -30,7 +30,7 @@ ${start}${percent}
     
        [%
          for(type in typeCollection){
-		       if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
+		       if (not  type.findClassifier(util.getHint(model_mapper,"Domain Object")) ){
 		           continue;
 		        }
        %] 
@@ -44,14 +44,14 @@ ${start}${percent}
     
        [%
          for(type in typeCollection){
-		       if (not  type.findClassifier(util.getHint(model_mapper,"Entity Object")) ){
+		       if (not  type.findClassifier(util.getHint(model_mapper,"Domain Object")) ){
 		           continue;
 		        }
        %] 
         Registry.getInstance().addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
         Registry.getInstance().addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
-        JPAObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addJpaClass("[%=t2model.get(type).get("fullName")%]");
-        JPAObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
+        SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addSpaClass("[%=t2model.get(type).get("fullName")%]");
+        SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
         
        [%
        }
@@ -60,7 +60,7 @@ ${start}${percent}
     }
 
      public void initCommandProducer(){
-        Registry.getInstance().addCommandProducer(repository,new org.tura.platform.object.persistence.JPACommandProducer("[%=component.artifactId%]"));
+        Registry.getInstance().addCommandProducer(repository,new org.tura.platform.repository.spa.SpaCommandProducer("[%=component.artifactId%]"));
      }
  
   

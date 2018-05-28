@@ -92,6 +92,7 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 				SpaRepositoryCommand cmd = (SpaRepositoryCommand) change;
 				List<String> listOfKnownObjects = cmd.getListOfKnownObjects();
 				injectSearchProviders(cmd, listOfKnownObjects);
+				cmd.setRegistry(registry);
 				List<SpaControl> objects = cmd.prepare();
 				populateCache(objects);
 			}

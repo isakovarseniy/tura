@@ -120,12 +120,14 @@ public class SpaObjectRegistry {
 			return postCreateTriggers.get(clazz);
 		}
 
-		public PreQueryTrigger findPreQueryTrigger(String repositoryClass) {
-			return preQueryTriggers.get(repositoryClass);
+		public PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws Exception {
+			Class<?> clazz = Class.forName(repositoryClass);
+			return preQueryTriggers.get(clazz);
 		}
 
-		public PostQueryTrigger findPostQueryTrigger(String repositoryClass) {
-			return postQueryTriggers.get(repositoryClass);
+		public PostQueryTrigger findPostQueryTrigger(String repositoryClass) throws Exception {
+			Class<?> clazz = Class.forName(repositoryClass);
+			return postQueryTriggers.get(clazz);
 		}
 
 		public boolean isClassRegistered(String jpaClass) throws Exception {

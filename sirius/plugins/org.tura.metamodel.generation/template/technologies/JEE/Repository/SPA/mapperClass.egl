@@ -16,7 +16,31 @@ ${start}${percent}
  package [%=t2view.get(type).get("package")%].mapper;
  
  
- public class [%=t2view.get(type).get("class")%]Mapper implements org.tura.platform.repository.core.Mapper{
+ public class [%=t2view.get(type).get("class")%]Mapper implements org.tura.platform.repository.core.Mapper, org.tura.platform.repository.persistence.PersistanceMapper{
+ 
+ 
+        	public Object getPKey(org.tura.platform.repository.core.RepoObjectKey objKey)throws org.tura.platform.repository.core.RepositoryException {
+	    	try{
+		      	[%=PKRepoObjectKey(type,"pk","objKey.getKey()",t2model.get(type).get("fullName"),recipe,ingredient)%]   
+		      	return pk;
+	    	}catch(Exception e){
+	    		throw new org.tura.platform.repository.core.RepositoryException(e);
+	    	}
+      	
+        }
+ 
+       private Object find(String field, java.util.List<FieldValue> list) throws Exception {
+		for (org.tura.platform.repository.core.FieldValue f : list) {
+			if (f.getName().equals(field)) {
+				Class<?> clazz = Class.forName(f.getType());
+				java.lang.reflect.Constructor<?> c = clazz.getConstructor(String.class);
+				return c.newInstance(f.getValue());
+			}
+		}
+		throw new org.tura.platform.repository.core.RepositoryException("Could not find a field " + field);
+	}
+ 
+ 
  
  
       	public Object getPrimaryKey(Object persistenceObject){
@@ -66,6 +90,42 @@ ${start}${percent}
 	    
 	    }
 	    
+	    public Object copyFromRepository2Persistence( Object repositoryObject){
+		    [%=t2model.get(type).get("fullName")%] spa = new  [%=t2model.get(type).get("fullName")%] ();
+		    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
+
+	    [%
+	       var tp = type;
+	        while  (1 == 1) {
+	         %]
+	          [%=serializer(tp,type.~skipAttributes,"obj","spa")%]
+
+	          [%
+	           var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = tp.uid and  t.internal );
+	           for ( rel in assosiations  ){
+			  	 switch  (rel.type.toString()){
+			         case "One2One" :  %][%=rel.one2oneReposit2Persist(recipe,ingredient,model_mapper,"obj","spa",t2view,t2model)%][%
+			         case "One2Many" : %][%=rel.one2ManyReposit2Persist(recipe,ingredient,model_mapper,"obj","spa",t2view,t2model)%][%
+			         case "Many2Many" : %][%
+			     }
+	          }
+	          %]
+	         [%  
+	            if (tp.~extension.isDefined()){
+	               tp = tp.~extension;
+	            }else{
+	               break;
+	            }
+	         }     	    
+	    
+	    %]
+	    return spa;
+
+
+	    }
+	    
+	    
+	    
 }	    
  [%
 
@@ -99,9 +159,37 @@ operation type::Assosiation one2ManyPersist2Reposit(recipe,ingredient,model_mapp
               [%=trg%].get[%=hash.get("sourceMethodName")%]().add(obj[%=t2view.get(self.target).get("class")%] );
               obj[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](obj);
            }
+     [%
+           }
+
+@template
+operation type::Assosiation one2oneReposit2Persist(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
+     var hash = self.sourceSideNamesCalculation();
+     %]
+           org.tura.platform.repository.persistence.PersistanceMapper maper[%=t2view.get(self.target).get("class")%] = new [%=t2view.get(self.target).get("package")%].mapper.[%=t2view.get(self.target).get("class")%]Mapper();
+           [%=t2view.get(self.target).get("fullName")%] obj[%=t2view.get(self.target).get("class")%] = [%=src%].get[%=hash.get("sourceMethodName")%]();
            
+           [%=t2model.get(self.target).get("fullName")%] spa[%=t2model.get(self.target).get("class")%] =( [%=t2model.get(self.target).get("fullName")%] ) maper[%=t2view.get(self.target).get("class")%].copyFromRepository2Persistence(obj[%=t2view.get(self.target).get("class")%]);
            
+           [%=trg%].set[%=hash.get("sourceMethodName")%](spa[%=t2view.get(self.target).get("class")%] );
+           spa[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](spa);
            
+     [%
+} 
+
+@template
+operation type::Assosiation one2ManyReposit2Persist(recipe,ingredient,model_mapper,src,trg,t2view,t2model){
+     var hash = self.sourceSideNamesCalculation();
+     %]
+           org.tura.platform.repository.persistence.PersistanceMapper maper[%=t2view.get(self.target).get("class")%] = new [%=t2view.get(self.target).get("package")%].mapper.[%=t2view.get(self.target).get("class")%]Mapper();
+           java.util.Collection<[%=t2view.get(self.target).get("fullName")%]> obj[%=t2view.get(self.target).get("class")%]List = [%=src%].get[%=hash.get("sourceMethodName")%]();
+
+           for (   [%=t2view.get(self.target).get("fullName")%]  obj[%=t2view.get(self.target).get("class")%] : obj[%=t2view.get(self.target).get("class")%]List ){
+
+              [%=t2model.get(self.target).get("fullName")%] spa[%=t2model.get(self.target).get("class")%] = ([%=t2model.get(self.target).get("fullName")%])maper[%=t2view.get(self.target).get("class")%].copyFromRepository2Persistence(obj[%=t2view.get(self.target).get("class")%]);
+              [%=trg%].get[%=hash.get("sourceMethodName")%]().add(spa[%=t2view.get(self.target).get("class")%] );
+              spa[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](spa);
+           }
      [%
 } 
 
