@@ -21,12 +21,12 @@
  */
 package org.tura.platform.repository.persistence;
 
-import org.tura.platform.repository.core.RepoKeyPath;
+import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryException;
 
 public interface PersistanceMapper {
 
-  	Object getPKey(RepoKeyPath objKey) throws RepositoryException;
+  	Object getPKey(RepoObjectKey objKey) throws RepositoryException;
 	Object copyFromRepository2Persistence(Object repositoryObject);
 
 	

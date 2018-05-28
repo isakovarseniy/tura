@@ -19,10 +19,8 @@ ${start}${percent}
  public class [%=t2view.get(type).get("class")%]Mapper implements org.tura.platform.repository.core.Mapper, org.tura.platform.repository.persistence.PersistanceMapper{
  
  
-       	public Object getPKey(org.tura.platform.repository.core.RepoKeyPath pkpath)throws RepositoryException {
+       	public Object getPKey(org.tura.platform.repository.core.RepoObjectKey objKey)throws RepositoryException {
 	    	try{
-	    	   org.tura.platform.repository.core.RepoObjectKey objKey = pkpath.getPath().get(0);
-	    	
 		      	[%=PKRepoObjectKey(type,"pk","objKey.getKey()",t2model.get(type).get("fullName"),recipe,ingredient)%]   
 		      	return pk;
 	    	}catch(Exception e){

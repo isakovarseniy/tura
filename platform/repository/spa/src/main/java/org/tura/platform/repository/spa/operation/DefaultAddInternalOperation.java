@@ -65,7 +65,7 @@ public class DefaultAddInternalOperation extends SpaRepositoryCommand {
 				relation.getOperation().connect(persistanceDetailObject, persistanceMasterObject,detailProperty);
 			}
 			
-			SpaControl masterControl = new SpaControl(persistanceMasterObject,mapper.getPKey(masterPk), OperationLevel.UPDATE);
+			SpaControl masterControl = new SpaControl(persistanceMasterObject,mapper.getPKey(masterPk.getPath().get(0)), OperationLevel.UPDATE);
 			
 			List<SpaControl> list= new ArrayList<>();
 			list.add(masterControl);

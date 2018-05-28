@@ -63,7 +63,7 @@ public class JPACommandProducer  implements CommandProducer {
 		RepoObjectKey objKey = pk.getPath().get(0);
 		String repositoryClass = objKey.getType();
 		PersistanceMapper mapper = findMapper(repositoryClass);
-		return mapper.getPKey(pk);
+		return mapper.getPKey(objKey);
 
 	}
 

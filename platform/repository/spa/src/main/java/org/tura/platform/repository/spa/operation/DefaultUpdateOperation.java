@@ -57,7 +57,7 @@ public class DefaultUpdateOperation extends SpaRepositoryCommand {
 
 			PersistanceMapper mapper = findPersistanceMapper(persistanceObject.getClass());
 			
-			SpaControl control = new SpaControl(persistanceObject,mapper.getPKey(pk), OperationLevel.UPDATE);
+			SpaControl control = new SpaControl(persistanceObject,mapper.getPKey(pk.getPath().get(pk.getPath().size()-1)), OperationLevel.UPDATE);
 			
 			List<SpaControl> list= new ArrayList<>();
 			list.add(control);
