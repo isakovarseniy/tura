@@ -48,6 +48,14 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		return Registry.getInstance().findPreQueryTrigger(repositoryClass);
 	}
 
+	private TransactrionAdapter getTransactrionAdapter() throws RepositoryException {
+		TransactrionAdapter ta = Registry.getInstance().getTransactrionAdapter();
+		if (ta == null) {
+			throw new RepositoryException("Transaction adapter is not initailizated");
+		}
+		return ta;
+	}
+
 	public Object create(String repositoryClass) throws RepositoryException {
 		try {
 			findPersistanceClass(repositoryClass);
@@ -117,6 +125,8 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 	@SuppressWarnings("rawtypes")
 	public void applyChanges(List changes) throws RepositoryException {
 		try {
+			getTransactrionAdapter().begin();
+
 			for (Object change : changes) {
 				if (change instanceof AddContainmentObjectData) {
 					new RepositoryObjectInstaller().add((AddContainmentObjectData) change);
@@ -153,7 +163,13 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 				}
 
 			}
+			getTransactrionAdapter().commit();
+
 		} catch (Exception e) {
+			try {
+				getTransactrionAdapter().rollback();
+			} catch (Exception e1) {
+			}
 			throw new RepositoryException(e);
 		}
 	}

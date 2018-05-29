@@ -30,7 +30,12 @@ import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.core.BeforeBeginTransaction;
+import org.tura.platform.repository.core.BeforeCommitTransaction;
+import org.tura.platform.repository.core.BeforeRollbackTransaction;
 import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.core.RepositoryEvent;
+import org.tura.platform.repository.core.RepositoryEventsListener;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
@@ -104,14 +109,14 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 
 	@Override
 	public void notify(RepositoryEvent event) throws Exception {
-		if (event instanceof BeginTransaction) {
+		if (event instanceof BeforeBeginTransaction) {
 			cleanupCache();
 		}
-		if (event instanceof RallbackTransaction) {
+		if (event instanceof BeforeRollbackTransaction) {
 			cleanupCache();
 			rallback();
 		}
-		if (event instanceof CommitTransaction) {
+		if (event instanceof BeforeCommitTransaction) {
 			persistCachedObjects();
 			cleanupCache();
 		}

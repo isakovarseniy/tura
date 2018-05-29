@@ -19,8 +19,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.spa;
+package org.tura.platform.repository.core;
 
-public interface RepositoryEvent {
+public class BeforeRollbackTransaction implements RepositoryEvent {
 
 }

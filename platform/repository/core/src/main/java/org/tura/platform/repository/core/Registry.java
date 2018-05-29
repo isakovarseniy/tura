@@ -24,6 +24,7 @@ package org.tura.platform.repository.core;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
@@ -41,9 +42,7 @@ public class Registry {
 	private Map<String , Boolean> skipRelation = new HashMap<>();
 	private Map<Repository , CommandProducer> commandProducers = new HashMap<>();
 	private PrImaryKeyStrategy prImaryKeyStrategy;
-
-	
-	
+	private TransactrionAdapter transactrionAdapter;
 	private static Registry instance = new Registry();
 
 	private Registry() {
@@ -142,7 +141,9 @@ public class Registry {
 
 	}
 	
-	
+    Set<Repository> getListOfRepositories(){
+    	return commandProducers.keySet();
+    }
 
 	public PostCreateTrigger findPostCreateTrigger(String repositoryClass) {
 		return postCreateTriggers.get(repositoryClass);
@@ -169,4 +170,13 @@ public class Registry {
 		}
 		return skip;
 	}
+	
+	public TransactrionAdapter getTransactrionAdapter() {
+		return transactrionAdapter;
+	}
+
+	public void setTransactrionAdapter(TransactrionAdapter transactrionAdapter) {
+		this.transactrionAdapter = transactrionAdapter;
+	}
+	
 }
