@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.test;
+package org.tura.platform.repository.jpa.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -50,12 +50,13 @@ import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import objects.test.serialazable.jpa.InitJPARepository;
-import objects.test.serialazable.jpa.One2One4A;
-import objects.test.serialazable.jpa.One2One4B;
+import objects.test.serialazable.jpa.Many2Many2A;
+import objects.test.serialazable.jpa.Many2Many2B;
 import objects.test.serialazable.jpa.ProxyRepository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class One2OneTest {
+
+public class Many2ManyTest {
 
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
@@ -84,7 +85,6 @@ public class One2OneTest {
 		
 	};	
 	
-	
 	private static Logger logger;
 	private static Server server;
 
@@ -98,7 +98,6 @@ public class One2OneTest {
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		server = Server.createTcpServer().start();
-
 		logger = Logger.getLogger("InfoLogging");
 		logger.setUseParentHandlers(false);
 		// ConsoleHandler handler = new ConsoleHandler();
@@ -111,15 +110,15 @@ public class One2OneTest {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPARepository", config.getProperties());
 		em = emf.createEntityManager();
 
-	}	
-	
+	}
+
 	private ProxyRepository getRepository() throws Exception {
 		Registry.newInstance();
 		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		InitJPARepository init = new InitJPARepository(new JPARepository(em,"test-objects-repository"));
+		InitJPARepository init = new InitJPARepository(new JPARepository(em));
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
@@ -129,51 +128,47 @@ public class One2OneTest {
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
-
-
-
+	
 	
 	@Test
-	public void t0000_One2One1() {
+	public void t0000_One2Many() {
 		try {
 			ProxyRepository repository = getRepository();
 
-			One2One4A o1 = (One2One4A) repository.create(One2One4A.class.getName());
-			
-			One2One4B o2 = (One2One4B) repository.create(One2One4B.class.getName());
-			
-			repository.insert(o2, One2One4B.class.getName());
-			repository.insert(o1, One2One4A.class.getName());
-			o2.setOne2One4A(o1);
-			repository.applyChanges(null);
-			
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4A.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-			o1 = (One2One4A) result.getSearchResult().get(0);
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4B.class.getName());
-			assertEquals(1,result.getSearchResult().size());
+			Many2Many2A o1 = (Many2Many2A) repository.create(Many2Many2A.class.getName());
+			repository.insert(o1, Many2Many2A.class.getName());
 
-			o2 = (One2One4B) result.getSearchResult().get(0);
-			assertEquals( o1.getObjId(),  o2.getOne2One4A().getObjId());
+			Many2Many2B o2 = (Many2Many2B) repository.create(Many2Many2B.class.getName());
+			repository.insert(o2, Many2Many2B.class.getName());
 			
-			o1 = (One2One4A) repository.create(One2One4A.class.getName());
-			repository.insert(o1, One2One4A.class.getName());
-			o2.setOne2One4A(o1);
+			o1.getMany2Many2B().add(o2);
 			
 			repository.applyChanges(null);
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4A.class.getName());
-			assertEquals(2,result.getSearchResult().size());
-			o1 = (One2One4A) result.getSearchResult().get(0);
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4B.class.getName());
-			assertEquals(1,result.getSearchResult().size());
 
+			SearchResult result =  repository.find(new ArrayList<SearchCriteria>(),
+					new ArrayList<OrderCriteria>(), 0, 100, Many2Many2A.class.getName());
+
+			assertEquals(1, result.getSearchResult().size());
+			o1 = (Many2Many2A) result.getSearchResult().get(0);
+			assertEquals(1, o1.getMany2Many2B().size());
+
+			
+			result =  repository.find(new ArrayList<SearchCriteria>(),
+					new ArrayList<OrderCriteria>(), 0, 100, Many2Many2B.class.getName());
+			
+			assertEquals(1, result.getSearchResult().size());
+			o2 = (Many2Many2B) result.getSearchResult().get(0);
+			assertEquals(1, o2.getMany2Many2A().size());
+
+
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
-	}	
+
+	}
+
+	
 	
 }

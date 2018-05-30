@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.test;
+package org.tura.platform.repository.jpa.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -128,7 +128,7 @@ public class JPARepositoryTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		InitJPARepository init = new InitJPARepository(new JPARepository(em,"test-objects-repository"));
+		InitJPARepository init = new InitJPARepository(new JPARepository(em));
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();

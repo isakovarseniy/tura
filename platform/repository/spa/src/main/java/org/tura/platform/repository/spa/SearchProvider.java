@@ -21,17 +21,55 @@
  */
 package org.tura.platform.repository.spa;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
 
-public interface SearchProvider {
+public abstract class SearchProvider {
 	
-	SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,Integer endIndex) throws RepositoryException ;
-	Object find(Object pk);
+	private Map<Object, SpaControl> cache;
+	private Mapper mapper;
+	
+	public void setCache (Map<Object, SpaControl> cache ){
+		this.cache = cache;
+	}
+	
+	public void setMapper(Mapper mapper) {
+		this.mapper = mapper;
+	}
+
+	public  Object find(Object pk, String objectClass){
+		SpaControl control = cache.get(pk);
+		if (control != null){
+			return control.getObject();
+		}else{
+			return serviceCall(pk,  objectClass);
+		}
+	}
+	
+	public  SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,Integer endIndex, String objectClass) throws RepositoryException {
+		SearchResult result = serviceCall(searchCriteria, orderCriteria, startIndex, endIndex,objectClass);
+		List<Object> list = new ArrayList<>();
+		for (Object obj : result.getSearchResult()){
+			Object pk = mapper.getPrimaryKey(obj);
+			SpaControl control = cache.get(pk);
+			if (control != null){
+				list.add(control.getObject());
+			}else{
+				list.add(obj);
+			}
+		}
+		return new SearchResult(list, result.getNumberOfRows());
+	}
+	
+	protected abstract SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,Integer endIndex, String objectClass) throws RepositoryException ;
+	protected abstract Object serviceCall(Object pk, String objectClass);
 
 
 }

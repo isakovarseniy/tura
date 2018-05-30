@@ -24,6 +24,7 @@ ${start}${percent}
      
      public InitSPARepository(SpaRepository repository){
          this.repository = repository;
+         this.repository.setRegistry("[%=component.artifactId%]");
      }
  
     public void initProvider(){

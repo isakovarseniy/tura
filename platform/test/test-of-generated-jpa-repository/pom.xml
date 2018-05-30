@@ -66,6 +66,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.tura.platform.repository</groupId>
+			<artifactId>spa</artifactId>
+		</dependency>
+
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
@@ -83,6 +89,15 @@
 			<version>1.0</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.tura.platform.test.generated-code</groupId>
+			<artifactId>test-spa-repository</artifactId>
+			<version>1.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.tura.platform.test.generated-code</groupId>

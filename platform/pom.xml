@@ -68,11 +68,11 @@
 	<dependencyManagement>
 		<dependencies>
 
-		<dependency>
-			<groupId>commons-jxpath</groupId>
-			<artifactId>commons-jxpath</artifactId>
-			<version>${version.commons-jxpath}</version>
-		</dependency>
+			<dependency>
+				<groupId>commons-jxpath</groupId>
+				<artifactId>commons-jxpath</artifactId>
+				<version>${version.commons-jxpath}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.wildfly</groupId>
@@ -155,10 +155,18 @@
 
 			<dependency>
 				<groupId>org.tura.platform.repository</groupId>
+				<artifactId>spa</artifactId>
+				<version>${version.tura-platform}</version>
+			</dependency>
+
+
+
+			<dependency>
+				<groupId>org.tura.platform.repository</groupId>
 				<artifactId>cdi</artifactId>
 				<version>${version.tura-platform}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.tura.platform.repository</groupId>
 				<artifactId>core</artifactId>

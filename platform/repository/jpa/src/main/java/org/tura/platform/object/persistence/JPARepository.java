@@ -56,11 +56,18 @@ public class JPARepository implements Repository {
 	private EntityManager em;
 	private String registry;
 
-	public JPARepository(EntityManager em, String registry) {
+	public JPARepository(EntityManager em) {
 		this.em = em;
-		this.registry = registry;
 	}
 
+	public String getRegistry() {
+		return registry;
+	}
+
+	public void setRegistry(String registry) {
+		this.registry = registry;
+	}
+	
 	private PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws RepositoryException {
 		return JPAObjectRegistry.getInstance().getRegistry(registry).findPostCreateTrigger(repositoryClass);
 	}

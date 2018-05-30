@@ -73,7 +73,7 @@ public class DefaultConnectDetailToMasterOperation extends SpaRepositoryCommand{
 		try {
 			
 			SearchProvider spDetail = this.providerHash.get(detailType);
-			Object persistanceDetailObject = spDetail.find(detailPk);
+			Object persistanceDetailObject = spDetail.find(detailPk,detailType);
 			if (persistanceDetailObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + detailPk.toString());
 			}
@@ -83,7 +83,7 @@ public class DefaultConnectDetailToMasterOperation extends SpaRepositoryCommand{
 			}
 
 			SearchProvider spMaster = this.providerHash.get(masterType);
-			Object persistanceMasterObject = spMaster.find(masterPk);
+			Object persistanceMasterObject = spMaster.find(masterPk,masterType);
 			if (persistanceMasterObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + masterPk.toString());
 			}

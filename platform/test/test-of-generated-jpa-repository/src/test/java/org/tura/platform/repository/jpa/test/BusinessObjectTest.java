@@ -19,10 +19,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.test;
+package org.tura.platform.repository.jpa.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,13 +48,14 @@ import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
+import objects.test.serialazable.jpa.IndepObject1;
+import objects.test.serialazable.jpa.IndepObject2;
 import objects.test.serialazable.jpa.InitJPARepository;
-import objects.test.serialazable.jpa.One2One2A;
-import objects.test.serialazable.jpa.One2One2B;
 import objects.test.serialazable.jpa.ProxyRepository;
 
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class One2OneOpositContaintmentTest {
+public class BusinessObjectTest {
 
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
@@ -119,13 +119,13 @@ public class One2OneOpositContaintmentTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		InitJPARepository init = new InitJPARepository(new JPARepository(em,"test-objects-repository"));
+		InitJPARepository init = new InitJPARepository(new JPARepository(em));
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
 		
 		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
-
+		
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
@@ -133,72 +133,39 @@ public class One2OneOpositContaintmentTest {
 
 	
 	@Test
-	public void t0000_One2One1() {
+	public void t0000_loadObject() {
 		try {
 			ProxyRepository repository = getRepository();
 
-			One2One2A o1 = (One2One2A) repository.create(One2One2A.class.getName());
-
-			One2One2B o2 = (One2One2B) repository.create(One2One2B.class.getName());
-
-			o2.setOne2One2A(o1);
-			repository.insert(o2, One2One2B.class.getName());
-			repository.applyChanges(null);
-
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2B.class.getName());
-			assertEquals(1,result.getSearchResult().size());
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2A.class.getName());
-			assertEquals(1,result.getSearchResult().size());
+			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
+			repository.insert(o1, IndepObject1.class.getName());
 			
-			repository.remove(result.getSearchResult().get(0), One2One2A.class.getName());
+			IndepObject2 o2 =(IndepObject2) repository.create(IndepObject2.class.getName());
+			repository.insert(o2, IndepObject2.class.getName());
+			
+			o1.getIndepObject2().add(o2);
 			
 			repository.applyChanges(null);
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2A.class.getName());
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			o1 = (IndepObject1) result.getSearchResult().get(0); 
+			
+			assertEquals(1,o1.getIndepObject2().size());
+			
+			o2 = o1.getIndepObject2().get(0); 
+			
+			repository.remove(o1, IndepObject1.class.getName());
+			repository.remove(o2, IndepObject2.class.getName());
+			
+			repository.applyChanges(null);
+
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2B.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-
-			repository.remove(result.getSearchResult().get(0), One2One2B.class.getName());
-			repository.applyChanges(null);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-
-	}
-
-	@Test
-	public void t0001_One2One1() {
-		try {
-			ProxyRepository repository = getRepository();
-
-			One2One2A o1 = (One2One2A) repository.create(One2One2A.class.getName());
-			
-			One2One2B o2 = (One2One2B) repository.create(One2One2B.class.getName());
-			
-			o2.setOne2One2A(o1);
-			
-			repository.insert(o2, One2One2B.class.getName());
-			repository.applyChanges(null);
-			
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2A.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2B.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-
-			
-			repository.remove(result.getSearchResult().get(0), One2One2B.class.getName());
-			repository.applyChanges(null);
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2A.class.getName());
-			assertEquals(0,result.getSearchResult().size());
-
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2B.class.getName());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 			
 			
@@ -210,28 +177,99 @@ public class One2OneOpositContaintmentTest {
 	}
 	
 	@Test
-	public void t0002_One2One1() {
+	public void t0001_loadObject() {
+		try {
+			ProxyRepository repository = getRepository();
+			
+			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
+			repository.insert(o1, IndepObject1.class.getName());
+			
+			IndepObject2 o2 =(IndepObject2) repository.create(IndepObject2.class.getName());
+			repository.insert(o2, IndepObject2.class.getName());
+			
+			repository.applyChanges(null);
+			
+			
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			o1 = (IndepObject1) result.getSearchResult().get(0); 
+			
+			assertEquals(0,o1.getIndepObject2().size());
+			
+			
+			repository.remove(o1, IndepObject1.class.getName());
+			repository.remove(o2, IndepObject2.class.getName());
+			
+			repository.applyChanges(null);
+
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
+			assertEquals(0,result.getSearchResult().size());
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
+			assertEquals(0,result.getSearchResult().size());
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+	
+	
+	@Test
+	public void t0003_loadObject() {
 		try {
 			ProxyRepository repository = getRepository();
 
-			One2One2A o1 = (One2One2A) repository.create(One2One2A.class.getName());
+			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
+			repository.insert(o1, IndepObject1.class.getName());
 			
-			One2One2B o2 = (One2One2B) repository.create(One2One2B.class.getName());
+			IndepObject2 o2 =(IndepObject2) repository.create(IndepObject2.class.getName());
+			repository.insert(o2, IndepObject2.class.getName());
 			
-			o2.setOne2One2A(o1);
+			o1.getIndepObject2().add(o2);
 			
-			repository.insert(o2, One2One2B.class.getName());
 			repository.applyChanges(null);
 			
-			o2.setOne2One2A(null);
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			o1 = (IndepObject1) result.getSearchResult().get(0); 
+			
+			assertEquals(1,o1.getIndepObject2().size());
+			
+			o2 = o1.getIndepObject2().get(0); 
+			
+			
+			Registry.getInstance().addSkipRelationRule(IndepObject1.class, "indepObject2");
 
-			repository.applyChanges(null);
 			
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2A.class.getName());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			o1 = (IndepObject1) result.getSearchResult().get(0); 
+			
+			assertEquals(0,o1.getIndepObject2().size());
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
+			assertEquals(1,result.getSearchResult().size());
+			o2 = (IndepObject2) result.getSearchResult().get(0);
+			
+			o1= o2.getIndepObject1();
+			assertNotNull(o1);
+
+			repository.remove(o1, IndepObject1.class.getName());
+			repository.remove(o2, IndepObject2.class.getName());
+			
+			repository.applyChanges(null);
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2B.class.getName());
-			assertEquals(1,result.getSearchResult().size());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
+			assertEquals(0,result.getSearchResult().size());
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -241,4 +279,6 @@ public class One2OneOpositContaintmentTest {
 	}
 	
 	
+	
+
 }

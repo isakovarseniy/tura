@@ -70,7 +70,7 @@ public class DefaultUpdateOperation extends SpaRepositoryCommand {
 		try{
 
 			SearchProvider sp = this.providerHash.get(objectType);
-			Object persistanceObject = sp.find(pk);
+			Object persistanceObject = sp.find(pk,objectType);
 			if (persistanceObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + pk.toString());
 			}

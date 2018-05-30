@@ -70,7 +70,7 @@ public class DefaultAddInternalOperation extends SpaRepositoryCommand {
 	public List<SpaControl> prepare() throws RepositoryException {
 		try {
 			SearchProvider sp = this.providerHash.get(masterType);
-			Object persistanceMasterObject = sp.find(masterPk);
+			Object persistanceMasterObject = sp.find(masterPk,masterType);
 			if (persistanceMasterObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + masterPk.toString());
 			}

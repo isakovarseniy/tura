@@ -33,6 +33,8 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.BeforeBeginTransaction;
 import org.tura.platform.repository.core.BeforeCommitTransaction;
 import org.tura.platform.repository.core.BeforeRollbackTransaction;
+import org.tura.platform.repository.core.Mapper;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryEvent;
 import org.tura.platform.repository.core.RepositoryEventsListener;
@@ -46,7 +48,12 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	private int sequence;
 	private String registry;
 
-	public SpaRepository(String registry) {
+	
+	public String getRegistry() {
+		return registry;
+	}
+
+	public void setRegistry(String registry) {
 		this.registry = registry;
 	}
 
@@ -69,7 +76,9 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 			Integer endIndex, String objectClass) throws RepositoryException {
 		try {
 			SearchProvider provider = findSearchProvider(objectClass);
-			return provider.find(searchCriteria, orderCriteria, startIndex, endIndex);
+			provider.setMapper(findMapper(objectClass));
+			provider.setCache(cache.get(objectClass));
+			return provider.find(searchCriteria, orderCriteria, startIndex, endIndex,objectClass);
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
@@ -160,6 +169,8 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	private void injectSearchProviders(SpaRepositoryCommand cmd, List<String> listOfKnownObjects) throws Exception {
 		for (String className : listOfKnownObjects) {
 			SearchProvider provider = findSearchProvider(className);
+			provider.setCache(cache.get(className));
+			provider.setMapper(findMapper(className));
 			cmd.addSearchProvider(className, provider);
 		}
 	}
@@ -186,6 +197,17 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 
 	}
 
+	protected Mapper findMapper(String repositoryClassName) throws RepositoryException{
+		
+		String persistanceClassName = Registry.getInstance().findPersistanceClass(repositoryClassName);
+		Mapper mapper = Registry.getInstance().findMapper(persistanceClassName, repositoryClassName);
+		if (mapper == null) {
+			throw new RepositoryException(
+					"Mapper not found from " + persistanceClassName + " to " + repositoryClassName);
+		}
+		return mapper;
+	}	
+	
 	private List<SpaControl> getListOfPreparedObjects() {
 		ArrayList<SpaControl> list = new ArrayList<>();
 

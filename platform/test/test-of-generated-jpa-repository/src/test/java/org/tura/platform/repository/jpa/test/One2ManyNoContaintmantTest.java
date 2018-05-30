@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.test;
+package org.tura.platform.repository.jpa.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -50,12 +50,12 @@ import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 import objects.test.serialazable.jpa.InitJPARepository;
-import objects.test.serialazable.jpa.One2Many2A;
-import objects.test.serialazable.jpa.One2Many2B;
+import objects.test.serialazable.jpa.One2Many1A;
+import objects.test.serialazable.jpa.One2Many1B;
 import objects.test.serialazable.jpa.ProxyRepository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class One2ManyContainmentTest {
+public class One2ManyNoContaintmantTest {
 
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
@@ -118,7 +118,7 @@ public class One2ManyContainmentTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		InitJPARepository init = new InitJPARepository(new JPARepository(em,"test-objects-repository"));
+		InitJPARepository init = new InitJPARepository(new JPARepository(em));
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
@@ -130,93 +130,74 @@ public class One2ManyContainmentTest {
 	}
 
 
+	
 	@Test
 	public void t0000_One2Many() {
 		try {
+
 			ProxyRepository repository = getRepository();
 
-			One2Many2A o1 = (One2Many2A) repository.create(One2Many2A.class.getName());
+			One2Many1A o1 = (One2Many1A) repository.create(One2Many1A.class.getName());
 			
-			One2Many2B o2 = (One2Many2B) repository.create(One2Many2B.class.getName());
-			o1.getOne2Many2B().add(o2);
+			One2Many1B o2 = (One2Many1B) repository.create(One2Many1B.class.getName());
+			repository.insert(o2, One2Many1B.class.getName());
 		
-			o2 = (One2Many2B) repository.create(One2Many2B.class.getName());
-			o1.getOne2Many2B().add(o2);
+			o2 = (One2Many1B) repository.create(One2Many1B.class.getName());
+			repository.insert(o2, One2Many1B.class.getName());
 			
-			repository.insert(o1, One2Many2A.class.getName());
+			o1.getOne2Many1B().add( o2);
+			repository.insert(o1, One2Many1A.class.getName());
+			
 			repository.applyChanges(null);
 			
-
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many2A.class.getName());
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many1A.class.getName());
 			assertEquals(1,result.getSearchResult().size());
-			o1 = (One2Many2A) result.getSearchResult().get(0);
+			o1 = (One2Many1A) result.getSearchResult().get(0);
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many2B.class.getName());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many1B.class.getName());
 			assertEquals(2,result.getSearchResult().size());
 			
 			
-			repository.remove(o1, One2Many2A.class.getName());
+			repository.remove(o1, One2Many1A.class.getName());
 			repository.applyChanges(null);
 			
-
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many2A.class.getName());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many1A.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many2B.class.getName());
-			assertEquals(0,result.getSearchResult().size());
-			
-
-			
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-
-	}
-
-
-	@Test
-	public void t0001_One2Many() {
-		try {
-			ProxyRepository repository = getRepository();
-
-
-			One2Many2A o1 = (One2Many2A) repository.create(One2Many2A.class.getName());
-			
-			One2Many2B o2 = (One2Many2B) repository.create(One2Many2B.class.getName());
-			o1.getOne2Many2B().add(o2);
-		
-			o2 = (One2Many2B) repository.create(One2Many2B.class.getName());
-			o1.getOne2Many2B().add(o2);
-			
-			repository.insert(o1, One2Many2A.class.getName());
-			repository.applyChanges(null);
-			
-
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many2A.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-			o1 = (One2Many2A) result.getSearchResult().get(0);
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many2B.class.getName());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many1B.class.getName());
 			assertEquals(2,result.getSearchResult().size());
 			
+			o1 = (One2Many1A) repository.create(One2Many1A.class.getName());
+			repository.insert(o1, One2Many1A.class.getName());
 			
-			ArrayList <One2Many2B> array = new ArrayList<>();
-		    array.addAll(o1.getOne2Many2B());
-			for (Object o : array){
-				o1.getOne2Many2B().remove(o);
+			for (Object o : result.getSearchResult()){
+				o1.getOne2Many1B().add((One2Many1B) o);
 			}
 			repository.applyChanges(null);
 			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many1B.class.getName());
+			assertEquals(2,result.getSearchResult().size());
 
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many2A.class.getName());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many1A.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many2B.class.getName());
-			assertEquals(0,result.getSearchResult().size());
+			o1 = (One2Many1A) result.getSearchResult().get(0);
+			ArrayList <One2Many1B> array = new ArrayList<>();
+		    array.addAll(o1.getOne2Many1B());
+			for (Object o : array){
+				o1.getOne2Many1B().remove(o);
+			}
+			repository.applyChanges(null);
 			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many1B.class.getName());
+			assertEquals(2,result.getSearchResult().size());
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many1A.class.getName());
+			assertEquals(1,result.getSearchResult().size());
 			
+			o1 = (One2Many1A) result.getSearchResult().get(0);
+			
+			assertEquals(o1.getOne2Many1B().size(), 0);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -224,8 +205,4 @@ public class One2ManyContainmentTest {
 		}
 
 	}
-
-
-
 }
-
