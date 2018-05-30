@@ -42,6 +42,7 @@ import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPARepository;
+import org.tura.platform.object.persistence.JPATransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
@@ -123,6 +124,8 @@ public class One2OneOpositContaintmentTest {
 		init.initCommandProducer();
 		init.initProvider();
 		
+		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
+
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
@@ -134,8 +137,6 @@ public class One2OneOpositContaintmentTest {
 		try {
 			ProxyRepository repository = getRepository();
 
-			em.getTransaction().begin();
-
 			One2One2A o1 = (One2One2A) repository.create(One2One2A.class.getName());
 
 			One2One2B o2 = (One2One2B) repository.create(One2One2B.class.getName());
@@ -144,10 +145,6 @@ public class One2OneOpositContaintmentTest {
 			repository.insert(o2, One2One2B.class.getName());
 			repository.applyChanges(null);
 
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2B.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 			
@@ -158,27 +155,16 @@ public class One2OneOpositContaintmentTest {
 			
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2A.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2B.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
 			repository.remove(result.getSearchResult().get(0), One2One2B.class.getName());
 			repository.applyChanges(null);
-			em.getTransaction().commit();
 
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}
@@ -190,8 +176,6 @@ public class One2OneOpositContaintmentTest {
 		try {
 			ProxyRepository repository = getRepository();
 
-			em.getTransaction().begin();
-
 			One2One2A o1 = (One2One2A) repository.create(One2One2A.class.getName());
 			
 			One2One2B o2 = (One2One2B) repository.create(One2One2B.class.getName());
@@ -201,11 +185,6 @@ public class One2OneOpositContaintmentTest {
 			repository.insert(o2, One2One2B.class.getName());
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
-
-			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2A.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 
@@ -213,29 +192,17 @@ public class One2OneOpositContaintmentTest {
 			assertEquals(1,result.getSearchResult().size());
 
 			
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
 			repository.remove(result.getSearchResult().get(0), One2One2B.class.getName());
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2A.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2B.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 			
-			em.getTransaction().commit();
-			
 			
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}
@@ -247,8 +214,6 @@ public class One2OneOpositContaintmentTest {
 		try {
 			ProxyRepository repository = getRepository();
 
-			em.getTransaction().begin();
-
 			One2One2A o1 = (One2One2A) repository.create(One2One2A.class.getName());
 			
 			One2One2B o2 = (One2One2B) repository.create(One2One2B.class.getName());
@@ -258,31 +223,17 @@ public class One2OneOpositContaintmentTest {
 			repository.insert(o2, One2One2B.class.getName());
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
-			
 			o2.setOne2One2A(null);
 
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
-
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2A.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One2B.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 			
-			em.getTransaction().commit();
-			
-			
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}

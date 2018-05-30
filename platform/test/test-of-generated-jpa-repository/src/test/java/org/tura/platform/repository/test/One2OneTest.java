@@ -42,6 +42,7 @@ import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPARepository;
+import org.tura.platform.object.persistence.JPATransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
@@ -123,6 +124,8 @@ public class One2OneTest {
 		init.initCommandProducer();
 		init.initProvider();
 		
+		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
+
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
@@ -135,8 +138,6 @@ public class One2OneTest {
 		try {
 			ProxyRepository repository = getRepository();
 
-			em.getTransaction().begin();
-			
 			One2One4A o1 = (One2One4A) repository.create(One2One4A.class.getName());
 			
 			One2One4B o2 = (One2One4B) repository.create(One2One4B.class.getName());
@@ -146,10 +147,6 @@ public class One2OneTest {
 			o2.setOne2One4A(o1);
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4A.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 			o1 = (One2One4A) result.getSearchResult().get(0);
@@ -160,20 +157,12 @@ public class One2OneTest {
 			o2 = (One2One4B) result.getSearchResult().get(0);
 			assertEquals( o1.getObjId(),  o2.getOne2One4A().getObjId());
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-
 			o1 = (One2One4A) repository.create(One2One4A.class.getName());
 			repository.insert(o1, One2One4A.class.getName());
 			o2.setOne2One4A(o1);
 			
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4A.class.getName());
 			assertEquals(2,result.getSearchResult().size());
 			o1 = (One2One4A) result.getSearchResult().get(0);
@@ -181,13 +170,7 @@ public class One2OneTest {
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2One4B.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 
-			em.getTransaction().commit();
-			
-			
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}

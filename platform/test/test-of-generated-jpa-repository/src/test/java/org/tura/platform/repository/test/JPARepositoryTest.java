@@ -46,6 +46,7 @@ import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPARepository;
+import org.tura.platform.object.persistence.JPATransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
@@ -132,6 +133,8 @@ public class JPARepositoryTest {
 		init.initCommandProducer();
 		init.initProvider();
 		
+		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
+		
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
@@ -140,8 +143,6 @@ public class JPARepositoryTest {
 	public void t0000_saveObject() {
 		try {
 			ProxyRepository repository = getRepository();
-
-			em.getTransaction().begin();
 
 			MailAddress address = (MailAddress) repository.create(MailAddress.class.getName());
 			address.setAddress("Address 1");
@@ -189,9 +190,6 @@ public class JPARepositoryTest {
 			
 			repository.applyChanges(null);
 
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
 
 			List<OrderCriteria> orderby = new ArrayList<OrderCriteria>();
 			OrderCriteria citeria = new OrderCriteria();
@@ -238,12 +236,8 @@ public class JPARepositoryTest {
 			assertEquals(0, person.getPhone().size());
 			assertNull(person.getFile());
 
-			em.getTransaction().commit();
 
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}
@@ -255,8 +249,6 @@ public class JPARepositoryTest {
 		try {
 
 			ProxyRepository repository = getRepository();
-
-			em.getTransaction().begin();
 
 			List<OrderCriteria> orderby = new ArrayList<OrderCriteria>();
 			OrderCriteria citeria = new OrderCriteria();
@@ -273,10 +265,6 @@ public class JPARepositoryTest {
 			repository.applyChanges(null);
 
 
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
-
 			result = repository.find(new ArrayList<SearchCriteria>(), orderby, 0, 100, Client.class.getName());
 			list = result.getSearchResult();
 			// Should be on second position because ordering by name
@@ -289,12 +277,7 @@ public class JPARepositoryTest {
 			list = result.getSearchResult();
 			assertEquals(0, list.size());
 
-			em.getTransaction().commit();
-
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}
@@ -307,8 +290,6 @@ public class JPARepositoryTest {
 		try {
 
 			ProxyRepository repository = getRepository();
-
-			em.getTransaction().begin();
 
 			Customer customer = (Customer) repository.create(Customer.class.getName());
 			customer.setCustomerName("Customer 1");
@@ -331,9 +312,6 @@ public class JPARepositoryTest {
 
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
 			Query query = em.createQuery("from Location");
 			List<org.tura.jpa.test.Location> listLocatioin = query.getResultList();
 			org.tura.jpa.test.Location loc = listLocatioin.iterator().next();
@@ -344,12 +322,8 @@ public class JPARepositoryTest {
 			org.tura.jpa.test.Customer ctr = listCustomer.iterator().next();
 			assertEquals(1, ctr.getLocation().size());
 
-			em.getTransaction().commit();
-
 			commandStack.clear();
 			
-			em.getTransaction().begin();
-
 			SearchResult result =  repository.find(new ArrayList<SearchCriteria>(),
 					new ArrayList<OrderCriteria>(), 0, 100, Customer.class.getName());
 			List <Customer> cList =(List<Customer>) result.getSearchResult();
@@ -365,12 +339,7 @@ public class JPARepositoryTest {
 			List<Order> oList = (List<Order>) result.getSearchResult();
 			assertEquals(0, oList.size());
 
-			em.getTransaction().commit();
-
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}

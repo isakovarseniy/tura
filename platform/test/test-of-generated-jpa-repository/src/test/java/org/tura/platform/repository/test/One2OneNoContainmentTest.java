@@ -42,6 +42,7 @@ import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPARepository;
+import org.tura.platform.object.persistence.JPATransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
@@ -119,6 +120,8 @@ public class One2OneNoContainmentTest {
 		init.initCommandProducer();
 		init.initProvider();
 
+		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
+		
 		return new ProxyRepository(repository, stackProvider);
 
 	}
@@ -128,8 +131,6 @@ public class One2OneNoContainmentTest {
 		try {
 			ProxyRepository repository = getRepository();
 
-			em.getTransaction().begin();
-
 			One2One3A o1 = (One2One3A) repository.create(One2One3A.class.getName());
 
 			One2One3B o2 = (One2One3B) repository.create(One2One3B.class.getName());
@@ -138,10 +139,6 @@ public class One2OneNoContainmentTest {
 			o1.setOne2One3B(o2);
 			repository.insert(o1, One2One3A.class.getName());
 			repository.applyChanges(null);
-
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
 					One2One3A.class.getName());
@@ -155,10 +152,6 @@ public class One2OneNoContainmentTest {
 
 			repository.applyChanges(null);
 
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
-
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
 					One2One3B.class.getName());
 			assertEquals(2, result.getSearchResult().size());
@@ -167,12 +160,7 @@ public class One2OneNoContainmentTest {
 					One2One3A.class.getName());
 			assertEquals(1, result.getSearchResult().size());
 
-			em.getTransaction().commit();
-
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}
@@ -184,17 +172,12 @@ public class One2OneNoContainmentTest {
 		try {
 			ProxyRepository repository = getRepository();
 
-			em.getTransaction().begin();
-
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
 					One2One3A.class.getName());
 			One2One3A o1 = (One2One3A) result.getSearchResult().get(0);
 
 			repository.remove(o1, One2One3A.class.getName());
 			repository.applyChanges(null);
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0,
 					One2One3B.class.getName());
@@ -204,12 +187,7 @@ public class One2OneNoContainmentTest {
 					One2One3A.class.getName());
 			assertEquals(0, result.getSearchResult().size());
 
-			em.getTransaction().commit();
-
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}

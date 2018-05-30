@@ -41,6 +41,7 @@ import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPARepository;
+import org.tura.platform.object.persistence.JPATransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
@@ -123,6 +124,8 @@ public class BusinessObjectTest {
 		init.initCommandProducer();
 		init.initProvider();
 		
+		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
+		
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
@@ -134,7 +137,6 @@ public class BusinessObjectTest {
 		try {
 			ProxyRepository repository = getRepository();
 
-			em.getTransaction().begin();
 			
 			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
 			repository.insert(o1, IndepObject1.class.getName());
@@ -146,10 +148,6 @@ public class BusinessObjectTest {
 			
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 			o1 = (IndepObject1) result.getSearchResult().get(0); 
@@ -158,17 +156,11 @@ public class BusinessObjectTest {
 			
 			o2 = o1.getIndepObject2().get(0); 
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
 			repository.remove(o1, IndepObject1.class.getName());
 			repository.remove(o2, IndepObject2.class.getName());
 			
 			repository.applyChanges(null);
 
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
 			
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
 			assertEquals(0,result.getSearchResult().size());
@@ -176,14 +168,8 @@ public class BusinessObjectTest {
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 			
-			em.getTransaction().commit();
-			
-			
 			
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}
@@ -194,7 +180,6 @@ public class BusinessObjectTest {
 	public void t0001_loadObject() {
 		try {
 			ProxyRepository repository = getRepository();
-			em.getTransaction().begin();
 			
 			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
 			repository.insert(o1, IndepObject1.class.getName());
@@ -204,9 +189,6 @@ public class BusinessObjectTest {
 			
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
 			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
 			assertEquals(1,result.getSearchResult().size());
@@ -215,17 +197,11 @@ public class BusinessObjectTest {
 			assertEquals(0,o1.getIndepObject2().size());
 			
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
 			repository.remove(o1, IndepObject1.class.getName());
 			repository.remove(o2, IndepObject2.class.getName());
 			
 			repository.applyChanges(null);
 
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
 			
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
 			assertEquals(0,result.getSearchResult().size());
@@ -233,14 +209,9 @@ public class BusinessObjectTest {
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 			
-			em.getTransaction().commit();
-			
 			
 
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}
@@ -253,8 +224,6 @@ public class BusinessObjectTest {
 		try {
 			ProxyRepository repository = getRepository();
 
-			em.getTransaction().begin();
-			
 			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
 			repository.insert(o1, IndepObject1.class.getName());
 			
@@ -265,10 +234,6 @@ public class BusinessObjectTest {
 			
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-			
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 			o1 = (IndepObject1) result.getSearchResult().get(0); 
@@ -277,11 +242,9 @@ public class BusinessObjectTest {
 			
 			o2 = o1.getIndepObject2().get(0); 
 			
-			em.getTransaction().commit();
 			
 			Registry.getInstance().addSkipRelationRule(IndepObject1.class, "indepObject2");
 
-			em.getTransaction().begin();
 			
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
 			assertEquals(1,result.getSearchResult().size());
@@ -296,33 +259,19 @@ public class BusinessObjectTest {
 			o1= o2.getIndepObject1();
 			assertNotNull(o1);
 
-			em.getTransaction().commit();
-			
-			
-			em.getTransaction().begin();
 			repository.remove(o1, IndepObject1.class.getName());
 			repository.remove(o2, IndepObject2.class.getName());
 			
 			repository.applyChanges(null);
 
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-			
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 			
-			em.getTransaction().commit();
-			
-			
 			
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}

@@ -48,8 +48,8 @@ public class BasicRepository extends RepositoryHelper implements Repository {
 		return Registry.getInstance().findPreQueryTrigger(repositoryClass);
 	}
 
-	private TransactrionAdapter getTransactrionAdapter() throws RepositoryException {
-		TransactrionAdapter ta = Registry.getInstance().getTransactrionAdapter();
+	private TransactionAdapter getTransactrionAdapter() throws RepositoryException {
+		TransactionAdapter ta = Registry.getInstance().getTransactrionAdapter();
 		if (ta == null) {
 			throw new RepositoryException("Transaction adapter is not initailizated");
 		}

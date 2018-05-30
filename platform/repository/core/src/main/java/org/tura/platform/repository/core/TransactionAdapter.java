@@ -23,7 +23,7 @@ package org.tura.platform.repository.core;
 
 import java.util.Set;
 
-public abstract class TransactrionAdapter {
+public abstract class TransactionAdapter {
 	
 	protected abstract void executeBeginTransaction();
 	protected abstract void executeCommitTransaction();

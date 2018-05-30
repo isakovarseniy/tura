@@ -42,6 +42,7 @@ import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPARepository;
+import org.tura.platform.object.persistence.JPATransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
@@ -122,6 +123,8 @@ public class Many2ManyNoContainmentTest {
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
+
+		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
 		
 		return  new ProxyRepository(repository,stackProvider);
 		
@@ -133,8 +136,6 @@ public class Many2ManyNoContainmentTest {
 		try {
 			ProxyRepository repository = getRepository();
 
-			em.getTransaction().begin();
-
 			Many2Many1A o1 = (Many2Many1A) repository.create(Many2Many1A.class.getName());
 			repository.insert(o1, Many2Many1A.class.getName());
 
@@ -144,9 +145,6 @@ public class Many2ManyNoContainmentTest {
 			o1.getMany2Many1B().add(o2);
 			
 			repository.applyChanges(null);
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
 
 			SearchResult result =  repository.find(new ArrayList<SearchCriteria>(),
 					new ArrayList<OrderCriteria>(), 0, 100, Many2Many1A.class.getName());
@@ -165,14 +163,8 @@ public class Many2ManyNoContainmentTest {
 			assertEquals(1, o2.getMany2Many1A().size());
 
 
-			em.getTransaction().commit();
-			
-			
 			
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}

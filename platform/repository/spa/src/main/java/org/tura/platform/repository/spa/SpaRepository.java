@@ -42,7 +42,7 @@ import org.tura.platform.repository.triggers.PostCreateTrigger;
 
 public class SpaRepository implements Repository, RepositoryEventsListener {
 
-	private static ThreadLocal<HashMap<String, Map<Object, SpaControl>>> cache = new ThreadLocal<>();
+	private Map<String, Map<Object, SpaControl>> cache = new HashMap<>();
 	private int sequence;
 	private String registry;
 
@@ -140,14 +140,13 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	}
 
 	private void populateCache(List<SpaControl> list) throws RepositoryException {
-		Map<String, Map<Object, SpaControl>> threadCache = cache.get();
 		for (SpaControl control : list) {
 			control.setSequence(sequence++);
 
-			Map<Object, SpaControl> listOfObjectsPerType = (Map<Object, SpaControl>) threadCache.get(control.getType());
+			Map<Object, SpaControl> listOfObjectsPerType = (Map<Object, SpaControl>) cache.get(control.getType());
 			if (listOfObjectsPerType == null) {
 				listOfObjectsPerType = new HashMap<>();
-				threadCache.put(control.getType(), listOfObjectsPerType);
+				cache.put(control.getType(), listOfObjectsPerType);
 			}
 			SpaControl preparedObject = (SpaControl) listOfObjectsPerType.get(control.getKey());
 			if (preparedObject == null) {
@@ -166,7 +165,7 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	}
 
 	private void cleanupCache() {
-		cache.set(new HashMap<String, Map<Object, SpaControl>>());
+		cache.clear();
 		sequence = 0;
 	}
 
@@ -189,10 +188,9 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 
 	private List<SpaControl> getListOfPreparedObjects() {
 		ArrayList<SpaControl> list = new ArrayList<>();
-		HashMap<String, Map<Object, SpaControl>> ch = cache.get();
 
-		for (String h : ch.keySet()) {
-			Map<Object, SpaControl> typedList = ch.get(h);
+		for (String h : cache.keySet()) {
+			Map<Object, SpaControl> typedList = cache.get(h);
 			list.addAll(typedList.values());
 		}
 		Collections.sort(list, new Comparator<SpaControl>() {

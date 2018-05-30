@@ -42,6 +42,7 @@ import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPARepository;
+import org.tura.platform.object.persistence.JPATransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
@@ -124,6 +125,8 @@ public class One2ManyTest {
 		init.initCommandProducer();
 		init.initProvider();
 		
+		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
+
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
@@ -134,8 +137,6 @@ public class One2ManyTest {
 	public void t0000_One2Many() {
 		try {
 			ProxyRepository repository = getRepository();
-
-			em.getTransaction().begin();
 
 			One2Many3A o1 = (One2Many3A) repository.create(One2Many3A.class.getName());
 
@@ -152,10 +153,6 @@ public class One2ManyTest {
 			
 			repository.applyChanges(null);
 
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
-
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3A.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 			o1 = (One2Many3A) result.getSearchResult().get(0);
@@ -168,12 +165,6 @@ public class One2ManyTest {
 				assertEquals(o1.getObjId(), o3.getOne2Many3A().getObjId());
 			}
 			
-			
-			em.getTransaction().commit();
-
-			
-			em.getTransaction().begin();
-
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3A.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 			o1 = (One2Many3A) result.getSearchResult().get(0);
@@ -194,22 +185,12 @@ public class One2ManyTest {
 				assertEquals(o1.getObjId(), o3.getOne2Many3A().getObjId());
 			}
 			
-			
-			em.getTransaction().commit();
-			
-			
-			em.getTransaction().begin();
-			
 			for (Object o : result.getSearchResult()){
 				repository.remove(o, One2Many3B.class.getName());
 			}
 
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3A.class.getName());
 			assertEquals(1,result.getSearchResult().size());
 			o1 = (One2Many3A) result.getSearchResult().get(0);
@@ -217,10 +198,6 @@ public class One2ManyTest {
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many3B.class.getName());
 			assertEquals(0,result.getSearchResult().size());
 			
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
-
 			o2 = (One2Many3B) repository.create(One2Many3B.class.getName());
 			repository.insert(o2, One2Many3B.class.getName());
 			o2.setOne2Many3A(o1);
@@ -231,12 +208,7 @@ public class One2ManyTest {
 			
 			repository.applyChanges(null);
 			
-			em.getTransaction().commit();
-						
 		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
 			e.printStackTrace();
 			fail();
 		}

@@ -42,7 +42,7 @@ public class Registry {
 	private Map<String , Boolean> skipRelation = new HashMap<>();
 	private Map<Repository , CommandProducer> commandProducers = new HashMap<>();
 	private PrImaryKeyStrategy prImaryKeyStrategy;
-	private TransactrionAdapter transactrionAdapter;
+	private TransactionAdapter transactrionAdapter;
 	private static Registry instance = new Registry();
 
 	private Registry() {
@@ -171,11 +171,11 @@ public class Registry {
 		return skip;
 	}
 	
-	public TransactrionAdapter getTransactrionAdapter() {
+	public TransactionAdapter getTransactrionAdapter() {
 		return transactrionAdapter;
 	}
 
-	public void setTransactrionAdapter(TransactrionAdapter transactrionAdapter) {
+	public void setTransactrionAdapter(TransactionAdapter transactrionAdapter) {
 		this.transactrionAdapter = transactrionAdapter;
 	}
 	
