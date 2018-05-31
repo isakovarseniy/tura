@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.tura.platform.repository.core.Mapper;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.spa.OperationLevel;
@@ -60,11 +61,13 @@ public class DefaultRemoveObjectOperation extends SpaRepositoryCommand{
 
 
 	@Override
-	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) {
+	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
 		object = parameters[0];
 
 		objectType = object.getClass().getName();
-		this.knownObjects.add(objectType);
+		String persistanceType =  Registry.getInstance().findPersistanceClass(objectType);
+		
+		this.knownObjects.add(persistanceType);
 		return true;
 	}
 

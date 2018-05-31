@@ -23,6 +23,6 @@ package org.tura.platform.repository.spa;
 
 public interface CRUDProvider {
 
-	void execute(SpaControl control);
+	void execute(SpaControl control) throws Exception;
 
 }

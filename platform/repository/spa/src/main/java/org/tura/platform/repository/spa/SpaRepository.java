@@ -99,10 +99,6 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	public void applyChanges(List changes) throws RepositoryException {
 		try {
 			for (Object change : changes) {
-				if (change instanceof SpaRepositoryCommand) {
-					throw new RepositoryException(change.getClass().getName() + " is not an instance of "
-							+ SpaRepositoryCommand.class.getName());
-				}
 				SpaRepositoryCommand cmd = (SpaRepositoryCommand) change;
 				List<String> listOfKnownObjects = cmd.getListOfKnownObjects();
 				injectSearchProviders(cmd, listOfKnownObjects);
@@ -197,9 +193,9 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 
 	}
 
-	protected Mapper findMapper(String repositoryClassName) throws RepositoryException{
+	protected Mapper findMapper(String persistanceClassName) throws RepositoryException{
 		
-		String persistanceClassName = Registry.getInstance().findPersistanceClass(repositoryClassName);
+		String repositoryClassName = Registry.getInstance().findRepositoryClass(persistanceClassName);
 		Mapper mapper = Registry.getInstance().findMapper(persistanceClassName, repositoryClassName);
 		if (mapper == null) {
 			throw new RepositoryException(
@@ -222,7 +218,7 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 				return o1.compareTo(o2);
 			}
 		});
-		return null;
+		return list;
 	}
 
 	private void merge(Map<Object, SpaControl> listOfObjectsPerType, SpaControl preparedObject, SpaControl control)

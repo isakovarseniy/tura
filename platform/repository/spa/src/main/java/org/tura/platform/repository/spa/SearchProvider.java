@@ -58,9 +58,13 @@ public abstract class SearchProvider {
 		List<Object> list = new ArrayList<>();
 		for (Object obj : result.getSearchResult()){
 			Object pk = mapper.getPrimaryKey(obj);
-			SpaControl control = cache.get(pk);
-			if (control != null){
-				list.add(control.getObject());
+			if (cache != null){
+				SpaControl control = cache.get(pk);
+				if (control != null){
+					list.add(control.getObject());
+				}else{
+					list.add(obj);
+				}
 			}else{
 				list.add(obj);
 			}

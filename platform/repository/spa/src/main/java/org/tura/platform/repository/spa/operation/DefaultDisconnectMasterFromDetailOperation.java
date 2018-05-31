@@ -45,6 +45,7 @@ package org.tura.platform.repository.spa.operation;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryException;
@@ -99,7 +100,7 @@ public class DefaultDisconnectMasterFromDetailOperation extends SpaRepositoryCom
 
 
 	@Override
-	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) {
+	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
 		extendedMasterPk = (RepoKeyPath) parameters[0];
 		masterPk = extendedMasterPk.getPath().get(0);
 		masterProperty = (String) parameters[1];
@@ -109,8 +110,12 @@ public class DefaultDisconnectMasterFromDetailOperation extends SpaRepositoryCom
 
 		masterType = masterPk.getType();
 		detailType = detailPk.getType();
-		this.knownObjects.add(detailType);
-		this.knownObjects.add(masterType);
+
+		String detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailType);
+		String masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
+
+		this.knownObjects.add(detailPersistanceType);
+		this.knownObjects.add(masterPersistanceType);
 		return true;
 	}
 }

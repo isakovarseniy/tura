@@ -56,6 +56,8 @@ ${start}${percent}
 	    
 	    [%=t2model.get(type).get("fullName")%] spa = ( [%=t2model.get(type).get("fullName")%]) persistenceObject;
 	    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
+
+          if ( spa != null){
 	    
 	    [%=stringPK(type,"key","spa",t2model.get(type).get("fullName"))%]
 	    
@@ -87,12 +89,16 @@ ${start}${percent}
 	    
 	    %]
 	    return obj;
+	    }else{
+	      return null;
+	    }
 	    
 	    }
 	    
 	    public Object copyFromRepository2Persistence( Object repositoryObject){
 		    [%=t2model.get(type).get("fullName")%] spa = new  [%=t2model.get(type).get("fullName")%] ();
 		    [%=t2view.get(type).get("fullName")%] obj  = ( [%=t2view.get(type).get("fullName")%] ) repositoryObject;
+		    if ( obj != null){
 
 	    [%
 	       var tp = type;
@@ -120,6 +126,9 @@ ${start}${percent}
 	    
 	    %]
 	    return spa;
+	    }else{
+	      return null;
+	    }
 
 
 	    }
@@ -152,12 +161,14 @@ operation type::Assosiation one2ManyPersist2Reposit(recipe,ingredient,model_mapp
            org.tura.platform.repository.core.Mapper maper[%=t2view.get(self.target).get("class")%] = new [%=t2view.get(self.target).get("package")%].mapper.[%=t2view.get(self.target).get("class")%]Mapper();
            java.util.Collection<[%=t2model.get(self.target).get("fullName")%]> spa[%=t2model.get(self.target).get("class")%]List = [%=src%].get[%=hash.get("sourceMethodName")%]();
 
-           for (   [%=t2model.get(self.target).get("fullName")%]  spa[%=t2model.get(self.target).get("class")%] : spa[%=t2model.get(self.target).get("class")%]List ){
-
-              [%=t2view.get(self.target).get("fullName")%] obj[%=t2view.get(self.target).get("class")%] = new [%=t2view.get(self.target).get("fullName")%]();
-              maper[%=t2view.get(self.target).get("class")%].copyFromPersistence2Repository(spa[%=t2model.get(self.target).get("class")%],obj[%=t2view.get(self.target).get("class")%]);
-              [%=trg%].get[%=hash.get("sourceMethodName")%]().add(obj[%=t2view.get(self.target).get("class")%] );
-              obj[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](obj);
+           if (spa[%=t2model.get(self.target).get("class")%]List != null ){
+	           for (   [%=t2model.get(self.target).get("fullName")%]  spa[%=t2model.get(self.target).get("class")%] : spa[%=t2model.get(self.target).get("class")%]List ){
+	
+	              [%=t2view.get(self.target).get("fullName")%] obj[%=t2view.get(self.target).get("class")%] = new [%=t2view.get(self.target).get("fullName")%]();
+	              maper[%=t2view.get(self.target).get("class")%].copyFromPersistence2Repository(spa[%=t2model.get(self.target).get("class")%],obj[%=t2view.get(self.target).get("class")%]);
+	              [%=trg%].get[%=hash.get("sourceMethodName")%]().add(obj[%=t2view.get(self.target).get("class")%] );
+	              obj[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](obj);
+	           }
            }
      [%
            }
@@ -171,9 +182,10 @@ operation type::Assosiation one2oneReposit2Persist(recipe,ingredient,model_mappe
            
            [%=t2model.get(self.target).get("fullName")%] spa[%=t2model.get(self.target).get("class")%] =( [%=t2model.get(self.target).get("fullName")%] ) maper[%=t2view.get(self.target).get("class")%].copyFromRepository2Persistence(obj[%=t2view.get(self.target).get("class")%]);
            
-           [%=trg%].set[%=hash.get("sourceMethodName")%](spa[%=t2view.get(self.target).get("class")%] );
-           spa[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](spa);
-           
+           if (spa[%=t2model.get(self.target).get("class")%] != null ){
+	           [%=trg%].set[%=hash.get("sourceMethodName")%](spa[%=t2view.get(self.target).get("class")%] );
+	           spa[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](spa);
+           }
      [%
 } 
 
@@ -184,11 +196,13 @@ operation type::Assosiation one2ManyReposit2Persist(recipe,ingredient,model_mapp
            org.tura.platform.repository.persistence.PersistanceMapper maper[%=t2view.get(self.target).get("class")%] = new [%=t2view.get(self.target).get("package")%].mapper.[%=t2view.get(self.target).get("class")%]Mapper();
            java.util.Collection<[%=t2view.get(self.target).get("fullName")%]> obj[%=t2view.get(self.target).get("class")%]List = [%=src%].get[%=hash.get("sourceMethodName")%]();
 
-           for (   [%=t2view.get(self.target).get("fullName")%]  obj[%=t2view.get(self.target).get("class")%] : obj[%=t2view.get(self.target).get("class")%]List ){
-
-              [%=t2model.get(self.target).get("fullName")%] spa[%=t2model.get(self.target).get("class")%] = ([%=t2model.get(self.target).get("fullName")%])maper[%=t2view.get(self.target).get("class")%].copyFromRepository2Persistence(obj[%=t2view.get(self.target).get("class")%]);
-              [%=trg%].get[%=hash.get("sourceMethodName")%]().add(spa[%=t2view.get(self.target).get("class")%] );
-              spa[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](spa);
+           if( obj[%=t2view.get(self.target).get("class")%]List != null ){
+	           for (   [%=t2view.get(self.target).get("fullName")%]  obj[%=t2view.get(self.target).get("class")%] : obj[%=t2view.get(self.target).get("class")%]List ){
+	
+	              [%=t2model.get(self.target).get("fullName")%] spa[%=t2model.get(self.target).get("class")%] = ([%=t2model.get(self.target).get("fullName")%])maper[%=t2view.get(self.target).get("class")%].copyFromRepository2Persistence(obj[%=t2view.get(self.target).get("class")%]);
+	              [%=trg%].get[%=hash.get("sourceMethodName")%]().add(spa[%=t2view.get(self.target).get("class")%] );
+	              spa[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](spa);
+	           }
            }
      [%
 } 

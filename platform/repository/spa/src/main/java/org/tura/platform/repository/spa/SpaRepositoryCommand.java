@@ -93,7 +93,7 @@ public abstract class SpaRepositoryCommand {
 
 	
 
-	public abstract boolean checkCommand(RepositoryCommandType cmdType, Object... parameters);
+	public abstract boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException;
 
 	public abstract List<SpaControl> prepare() throws RepositoryException;
 

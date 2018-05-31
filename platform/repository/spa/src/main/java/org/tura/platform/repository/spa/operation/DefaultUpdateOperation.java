@@ -47,6 +47,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryException;
@@ -95,14 +96,16 @@ public class DefaultUpdateOperation extends SpaRepositoryCommand {
 
 
 	@Override
-	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) {
+	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
 		extendedPk = (RepoKeyPath) parameters[0];
 		pk = extendedPk.getPath().get(0);
 		property = (String) parameters[1];
 		value = parameters[2];
 
 		objectType = pk.getType();
-		this.knownObjects.add(objectType);
+		String persistanceType =  Registry.getInstance().findPersistanceClass(objectType);
+		
+		this.knownObjects.add(persistanceType);
 		return true;
 		
 	}	

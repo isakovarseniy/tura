@@ -34,6 +34,7 @@ public class SpaControl implements Comparable<SpaControl>{
 		this.object = object;
 		this.key = key;
 		this.level = level;
+		this.type = object.getClass().getName();
 	}
 	
 	

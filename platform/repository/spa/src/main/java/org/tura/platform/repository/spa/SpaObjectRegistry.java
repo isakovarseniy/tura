@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
@@ -156,7 +157,7 @@ public class SpaObjectRegistry {
 			return searchProviders.get(clazz);
 		}
 		
-		public List<Object> findCommand(RepositoryCommandType cmdType, Object ...parameters){
+		public List<Object> findCommand(RepositoryCommandType cmdType, Object ...parameters) throws RepositoryException{
 			List<Object> list = new ArrayList<>();
 			for (SpaRepositoryCommand cmd : externalCommands){
 				if (cmd.checkCommand( cmdType, parameters)){

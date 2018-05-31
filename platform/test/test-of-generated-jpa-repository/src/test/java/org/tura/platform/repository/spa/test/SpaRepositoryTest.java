@@ -36,14 +36,20 @@ import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JPATransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
 
+import objects.test.serialazable.jpa.A1;
+import objects.test.serialazable.jpa.A2;
 import objects.test.serialazable.jpa.InitSPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
 
@@ -113,6 +119,11 @@ public class SpaRepositoryTest {
 		init.initProvider();
 		
 		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, new SearchService());
+
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class, new CRUDService());
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, new SearchService());
 		
 		return  new ProxyRepository(repository,stackProvider);
 		
@@ -122,10 +133,19 @@ public class SpaRepositoryTest {
 	public void t0000_saveObject() {
 		try {
 			ProxyRepository repository = getRepository();
+			
+			A1 a1 = (A1) repository.create(A1.class.getName());
+			A2 a2 = (A2) repository.create(A2.class.getName());
+			a1.setA2(a2);
+			repository.insert(a1, A1.class.getName());
+			repository.applyChanges(null);
+			
+			SearchResult  result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
+			assertEquals(1, result.getNumberOfRows());
 
 		}catch(Exception e){
-			fail();
 			e.printStackTrace();
+			fail();
 		}
 	}
 }

@@ -45,6 +45,7 @@ package org.tura.platform.repository.spa.operation;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryException;
@@ -103,7 +104,7 @@ public class DefaultRemoveInternalOperation extends SpaRepositoryCommand{
 
 
 	@Override
-	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) {
+	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
 		extendedMasterPk = (RepoKeyPath) parameters[0];
 		masterPk = extendedMasterPk.getPath().get(0);
 		masterProperty = (String) parameters[1];
@@ -111,9 +112,13 @@ public class DefaultRemoveInternalOperation extends SpaRepositoryCommand{
 		detailProperty = (String) parameters[3];
 
 		masterType = masterPk.getType();
+
+		String detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailObject.getClass().getName());
+		String masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
 		
-		this.knownObjects.add(detailObject.getClass().getName());
-		this.knownObjects.add(masterType);
+		
+		this.knownObjects.add(detailPersistanceType);
+		this.knownObjects.add(masterPersistanceType);
 		return true;
 	}
 
