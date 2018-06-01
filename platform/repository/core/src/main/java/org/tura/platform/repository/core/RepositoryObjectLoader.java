@@ -91,14 +91,31 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context);
 
 			for (Object object : processor.getListOfRepositoryObjects(repositoryObject)) {
-				loader.internalLoader(object, true);
+				loader.internalLoader(object,  getPersistancePrimaryKeyFromRepositoryObject(repositoryObject), true);
 			}
-			if (!fromInternalClass) {
+			if (fromInternalClass) {
 				query(repositoryObject, null);
 			}
 		}
 	}
 
+	
+	public void  internalLoader(Object repositoryObject,Object persistenceObjectPK , boolean fromInternalClass) throws Exception {
+        @SuppressWarnings("unchecked")
+		List<Object> loadedObjects = (List<Object>) context.get(LOADED_OBJECTS);
+        if(loadedObjects == null){
+        	loadedObjects = new ArrayList<>();
+        	context.put(LOADED_OBJECTS, loadedObjects);
+        }
+        if (loadedObjects.contains(persistenceObjectPK)){
+        	return ;
+        }else{
+        	loadedObjects.add(persistenceObjectPK);
+        	return ;
+        }
+	}
+	
+	
 	public Object loader(Object persistenceObject,  Object persistenceObjectPK , Class<?> repositoryClass) throws RepositoryException {
             @SuppressWarnings("unchecked")
 			List<Object> loadedObjects = (List<Object>) context.get(LOADED_OBJECTS);

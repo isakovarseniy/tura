@@ -26,6 +26,7 @@ import java.util.Map;
 
 import org.tura.platform.repository.core.RelationAdapter;
 import org.tura.platform.repository.core.annotation.Association;
+import org.tura.platform.repository.core.annotation.Internal;
 
 public class RelationBuilder {
 	public static String ONE2ONE = "One2One";
@@ -35,17 +36,25 @@ public class RelationBuilder {
 	public static RelationAdapter build( Class<?> clazz, Method method , Map<String, Object> context) {
 
 		Association assosiation = method.getAnnotation(Association.class);
+		String type = null;
 		if (assosiation == null) {
-			return null;
+			Internal internal = method.getAnnotation(Internal.class);
+			if (internal == null){
+				return null;
+			}else{
+				type = internal.type();
+			}
+		}else{
+			type = assosiation.type();
 		}
-		if (ONE2ONE.equals(assosiation.type())) {
+		if (ONE2ONE.equals(type)) {
 			return new One2OneRelationAdapter(clazz,method, context);
 		}
 
-		if (ONE2MANY.equals(assosiation.type())) {
+		if (ONE2MANY.equals(type)) {
 			return new One2ManyRelationAdapter(clazz,method, context);
 		}
-		if (MANY2MANY.equals(assosiation.type())) {
+		if (MANY2MANY.equals(type)) {
 			return new Many2ManyRelationAdapter(clazz,method, context);
 		}
 

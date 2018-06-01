@@ -118,6 +118,11 @@ public class SpaRepositoryTest {
 		init.initCommandProducer();
 		init.initProvider();
 		
+		
+		Repository nutRepository = new NutRepository();
+        Registry.getInstance().addProvider("org.tura.jpa.test.DD1", nutRepository);
+        Registry.getInstance().addClassMapping("objects.test.serialazable.jpa.DD1","org.tura.jpa.test.DD1");
+		
 		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, new SearchService());
@@ -142,6 +147,15 @@ public class SpaRepositoryTest {
 			
 			SearchResult  result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
 			assertEquals(1, result.getNumberOfRows());
+			
+			A1  a1_= (A1) result.getSearchResult().get(0);
+			assertEquals(a1.getObjId(), a1_.getObjId());
+			
+			assertEquals(a1.getA2().getObjId(), a1_.getA2().getObjId());
+			assertNull(a1_.getA5());
+			
+			assertEquals(0,a1_.getA2().getA3().size());
+			assertEquals(0,a1_.getA2().getA4().size());
 
 		}catch(Exception e){
 			e.printStackTrace();

@@ -24,6 +24,7 @@ package org.tura.platform.repository.core;
 public interface Mapper {
 
 	Object getPrimaryKey(Object persistenceObject) throws RepositoryException;
+  	Object getPrimaryKeyFromRepositoryObject(Object repositoryObject) throws RepositoryException;
 	Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject);
 }
 

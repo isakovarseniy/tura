@@ -51,6 +51,14 @@ ${start}${percent}
       	return pk;
       	}
       	
+      	public Object getPrimaryKeyFromRepositoryObject(Object repositoryObject){
+
+	    [%=t2view.get(type).get("fullName")%] obj = ( [%=t2view.get(type).get("fullName")%]) repositoryObject;
+      	
+      	[%=PK(type,"pk","obj",t2model.get(type).get("fullName"),recipe,ingredient)%]   
+      	return pk;
+      	}      	
+      	
       	
 	    public Object copyFromPersistence2Repository(Object persistenceObject, Object repositoryObject){
 	    
@@ -146,10 +154,12 @@ operation type::Assosiation one2onePersist2Reposit(recipe,ingredient,model_mappe
            [%=t2view.get(self.target).get("fullName")%] obj[%=t2view.get(self.target).get("class")%] = new [%=t2view.get(self.target).get("fullName")%]();
            [%=t2model.get(self.target).get("fullName")%] spa[%=t2model.get(self.target).get("class")%] = [%=src%].get[%=hash.get("sourceMethodName")%]();
            
-           maper[%=t2view.get(self.target).get("class")%].copyFromPersistence2Repository(spa[%=t2model.get(self.target).get("class")%],obj[%=t2view.get(self.target).get("class")%]);
-           
-           [%=trg%].set[%=hash.get("sourceMethodName")%](obj[%=t2view.get(self.target).get("class")%] );
-           obj[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](obj);
+           if (spa[%=t2model.get(self.target).get("class")%] != null){
+	           maper[%=t2view.get(self.target).get("class")%].copyFromPersistence2Repository(spa[%=t2model.get(self.target).get("class")%],obj[%=t2view.get(self.target).get("class")%]);
+	           
+	           [%=trg%].set[%=hash.get("sourceMethodName")%](obj[%=t2view.get(self.target).get("class")%] );
+	           obj[%=t2view.get(self.target).get("class")%] .set[%=hash.get("targetMethodName")%](obj);
+           }
            
      [%
 } 

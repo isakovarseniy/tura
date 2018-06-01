@@ -104,6 +104,12 @@ public class RepositoryHelper {
 		return children;
 	}
 	
+	protected Object getPersistancePrimaryKeyFromRepositoryObject(Object repositoryObject) throws RepositoryException {
+		String persistanceClass = Registry.getInstance().findRepositoryClass(repositoryObject.getClass().getName());
+		return Registry.getInstance().findMapper(persistanceClass, repositoryObject.getClass().getName()).getPrimaryKeyFromRepositoryObject(repositoryObject);
+	}
+
+	
 	protected Object getPersistancePrimaryKey(Object persistanceObject) throws RepositoryException {
 		String repositoryClass = Registry.getInstance().findRepositoryClass(persistanceObject.getClass().getName());
 		return Registry.getInstance().findMapper(persistanceObject.getClass().getName(), repositoryClass).getPrimaryKey(persistanceObject);
