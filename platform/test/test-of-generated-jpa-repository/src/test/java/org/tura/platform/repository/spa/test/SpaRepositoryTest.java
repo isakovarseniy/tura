@@ -121,7 +121,9 @@ public class SpaRepositoryTest {
 		
 		Repository nutRepository = new NutRepository();
         Registry.getInstance().addProvider("org.tura.jpa.test.DD1", nutRepository);
+        Registry.getInstance().addProvider("org.tura.jpa.test.C1", nutRepository);
         Registry.getInstance().addClassMapping("objects.test.serialazable.jpa.DD1","org.tura.jpa.test.DD1");
+        Registry.getInstance().addClassMapping("objects.test.serialazable.jpa.C1","org.tura.jpa.test.C1");
 		
 		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
