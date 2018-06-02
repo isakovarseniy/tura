@@ -67,7 +67,10 @@ public class SpaCommandProducer implements CommandProducer{
 			return  list;
 		}
 		list = new ArrayList<>();
-		list.add( new DefaultRemoveInternalOperation().checkCommand(RepositoryCommandType.removeInternal, masterPk,masterProperty,detailObject,detailProperty));
+		SpaRepositoryCommand cmd = new DefaultRemoveInternalOperation();
+		cmd.checkCommand(RepositoryCommandType.removeInternal, masterPk,masterProperty,detailObject,detailProperty);
+
+		list.add( cmd);
 		return list;
 	}
 

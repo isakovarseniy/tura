@@ -50,13 +50,13 @@ import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
+import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.persistence.RelEnum;
 import org.tura.platform.repository.spa.OperationLevel;
 import org.tura.platform.repository.spa.RepositoryCommandType;
 import org.tura.platform.repository.spa.SearchProvider;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
-import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 
 public class DefaultAddInternalOperation extends SpaRepositoryCommand {
 
@@ -66,19 +66,22 @@ public class DefaultAddInternalOperation extends SpaRepositoryCommand {
 	private Object detailObject;
 	private String detailProperty;
 	private String masterType;
+	private String masterPersistanceType;
 
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
 		try {
-			SearchProvider sp = this.providerHash.get(masterType);
-			Object persistanceMasterObject = sp.find(masterPk,masterType);
+			SearchProvider sp = this.providerHash.get(masterPersistanceType);
+			PersistanceMapper masterMapper = findPersistanceMapper(Class.forName(masterType));
+
+			Object persistanceMasterObject = sp.find(masterMapper.getPKey(masterPk),masterPersistanceType);
 			if (persistanceMasterObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + masterPk.toString());
 			}
-			Object extendedPersistanceMasterObject = getExtendedMasterObject(extendedMasterPk,persistanceMasterObject);
+			Object extendedPersistanceMasterObject = getExtendedObject(extendedMasterPk,persistanceMasterObject);
 
-			PersistanceMapper mapper = findPersistanceMapper(detailObject.getClass());
-			Object persistanceDetailObject = mapper.copyFromRepository2Persistence(detailObject);
+			PersistanceMapper detailMapper = findPersistanceMapper(detailObject.getClass());
+			Object persistanceDetailObject = detailMapper.copyFromRepository2Persistence(detailObject);
 
 			RelEnum relation = PersistanceRelationBuilder.build(extendedPersistanceMasterObject.getClass(), masterProperty,
 					persistanceDetailObject.getClass(), detailProperty);
@@ -90,7 +93,7 @@ public class DefaultAddInternalOperation extends SpaRepositoryCommand {
 				relation.getOperation().connect(persistanceDetailObject, extendedPersistanceMasterObject,detailProperty);
 			}
 			
-			SpaControl masterControl = new SpaControl(persistanceMasterObject,mapper.getPKey(masterPk), OperationLevel.UPDATE);
+			SpaControl masterControl = new SpaControl(persistanceMasterObject,detailMapper.getPKey(masterPk), OperationLevel.UPDATE);
 			
 			List<SpaControl> list= new ArrayList<>();
 			list.add(masterControl);
@@ -112,10 +115,10 @@ public class DefaultAddInternalOperation extends SpaRepositoryCommand {
 
 		masterType = masterPk.getType();
 		
-		String detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailObject.getClass().getName());
-		String masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
+//		String detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailObject.getClass().getName());
+		masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
 
-		this.knownObjects.add(detailPersistanceType);
+//		this.knownObjects.add(detailPersistanceType);
 		this.knownObjects.add(masterPersistanceType);
 		return true;
 	}

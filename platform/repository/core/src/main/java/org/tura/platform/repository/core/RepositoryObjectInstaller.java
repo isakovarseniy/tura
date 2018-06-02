@@ -103,13 +103,15 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 			}
 			Association assosiaton = m.getAnnotation(Association.class);
 			List<Object> children = getDisconnectedChildren(m, repositoryObject, context);
-			if (assosiaton.containment()) {
-				String property = assosiaton.property();
-				goDeeper(repositoryObject, children,property);
-				addChildren(children);
-				connect(m, repositoryObject, children);
-			} else {
-				connect(m, repositoryObject, children);
+			if (children !=null && children.size() != 0 ){
+				if (assosiaton.containment()) {
+					String property = assosiaton.property();
+					goDeeper(repositoryObject, children,property);
+					addChildren(children);
+					connect(m, repositoryObject, children);
+				} else {
+					connect(m, repositoryObject, children);
+				}
 			}
 		}
 	}

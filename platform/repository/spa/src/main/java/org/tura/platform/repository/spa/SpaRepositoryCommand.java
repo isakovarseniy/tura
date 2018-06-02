@@ -27,14 +27,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
-import org.tura.platform.repository.core.Mapper;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.spa.operation.PathHelper;
 
-public abstract class SpaRepositoryCommand {
+public abstract class SpaRepositoryCommand extends RepositoryHelper{
 
 	protected Map<String, SearchProvider> providerHash = new HashMap<>();
 	protected List<String> knownObjects = new ArrayList<>();
@@ -60,16 +60,6 @@ public abstract class SpaRepositoryCommand {
 		return mapper;
 	}
 
-	protected Mapper findMapper(Class<?> repositoryClass) throws RepositoryException{
-		String persistanceClassName = Registry.getInstance().findPersistanceClass(repositoryClass.getName());
-		Mapper mapper = Registry.getInstance().findMapper(persistanceClassName, repositoryClass.getName());
-		if (mapper == null) {
-			throw new RepositoryException(
-					"Mapper not found from " + persistanceClassName + " to " + repositoryClass.getName());
-		}
-		return mapper;
-	}
-	
 	
 	protected boolean beckwardProperty(Object persistanceDetailObject, String detailProperty) {
 		try {
@@ -87,8 +77,8 @@ public abstract class SpaRepositoryCommand {
 	}
 	
 
-	protected Object getExtendedMasterObject(RepoKeyPath extendedMasterPk, Object persistanceMasterObject) throws Exception {
-		return PathHelper.getPathValue(extendedMasterPk, 0, persistanceMasterObject);
+	protected Object getExtendedObject(RepoKeyPath extendedPk, Object persistanceObject) throws Exception {
+		return PathHelper.getPathValue(extendedPk, 1, persistanceObject);
 	}
 
 	

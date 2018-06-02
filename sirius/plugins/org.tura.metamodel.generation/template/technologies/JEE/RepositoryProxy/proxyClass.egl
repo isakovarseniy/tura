@@ -531,6 +531,9 @@ operation type::Assosiation one2manySrcRel(recipe,ingredient,model_mapper){
      %]
      @Override
      public [%=hash.get("target").~fullName%] get[%=hash.get("sourceMethodName")%](){
+        if (object.get[%=hash.get("sourceMethodName")%]() == null){
+            return null;
+        }
          return new [%=hash.get("target").~fullName%]Proxy(object.get[%=hash.get("sourceMethodName")%](),stackProvider);
      }
 
@@ -770,6 +773,9 @@ operation type::Assosiation one2manyTrgRel(recipe,ingredient,model_mapper){
      %]
      @Override
      public [%=hash.get("source").~fullName%] get[%=hash.get("targetMethodName")%](){
+         if (object.get[%=hash.get("targetMethodName")%]() == null){
+            return null;
+         }
          return new [%=hash.get("source").~fullName%]Proxy(object.get[%=hash.get("targetMethodName")%](),stackProvider);
      }
 

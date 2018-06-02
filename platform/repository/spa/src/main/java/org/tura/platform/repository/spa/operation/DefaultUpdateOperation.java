@@ -75,7 +75,7 @@ public class DefaultUpdateOperation extends SpaRepositoryCommand {
 			if (persistanceObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + pk.toString());
 			}
-			Object extendedPersistanceMasterObject = getExtendedMasterObject(extendedPk,persistanceObject);
+			Object extendedPersistanceMasterObject = getExtendedObject(extendedPk,persistanceObject);
 			
 			String methodName = "set"+WordUtils.capitalize(property);
 			Method m = extendedPersistanceMasterObject.getClass().getDeclaredMethod(methodName, value.getClass());

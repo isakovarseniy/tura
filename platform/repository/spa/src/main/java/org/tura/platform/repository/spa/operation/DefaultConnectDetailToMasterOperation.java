@@ -88,7 +88,7 @@ public class DefaultConnectDetailToMasterOperation extends SpaRepositoryCommand{
 			if (persistanceMasterObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + masterPk.toString());
 			}
-			Object extendedPersistanceMasterObject = getExtendedMasterObject(extendedMasterPk,persistanceMasterObject);
+			Object extendedPersistanceMasterObject = getExtendedObject(extendedMasterPk,persistanceMasterObject);
 
 			
 			RelEnum relation = PersistanceRelationBuilder.build(persistanceDetailObject.getClass(), detailProperty,

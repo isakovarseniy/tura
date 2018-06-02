@@ -76,7 +76,7 @@ public class DefaultConnectMasterToDetailOperation extends SpaRepositoryCommand 
 			if (persistanceMasterObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + masterPk.toString());
 			}
-			Object extendedPersistanceMasterObject = getExtendedMasterObject(extendedMasterPk,persistanceMasterObject);
+			Object extendedPersistanceMasterObject = getExtendedObject(extendedMasterPk,persistanceMasterObject);
 			
 			SearchProvider spDetail = this.providerHash.get(detailType);
 			Object persistanceDetailObject = spDetail.find(detailPk,detailType);

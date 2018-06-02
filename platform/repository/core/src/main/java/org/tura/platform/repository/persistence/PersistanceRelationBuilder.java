@@ -38,7 +38,7 @@ public class PersistanceRelationBuilder {
 		Method masterMethod = masterClazz.getDeclaredMethod(masterMethodName);
 
 		String detailMethodName = "get" + WordUtils.capitalize(detailProperty);
-		Method detailMethod = masterClazz.getDeclaredMethod(detailMethodName);
+		Method detailMethod = detailClazz.getDeclaredMethod(detailMethodName);
 
 		boolean masterIsListResult = false;
 		Type returnType = masterMethod.getGenericReturnType();
@@ -64,11 +64,11 @@ public class PersistanceRelationBuilder {
 			return RelEnum.One2One;
 		}
 
-		if (!masterIsListResult && detailIsListResult) {
+		if (masterIsListResult && !detailIsListResult) {
 			return RelEnum.One2Many;
 		}
 
-		if (masterIsListResult && !detailIsListResult) {
+		if (!masterIsListResult && detailIsListResult) {
 			return RelEnum.Many2One;
 		}
 

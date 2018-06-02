@@ -32,48 +32,54 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
 
 public abstract class SearchProvider {
-	
+
 	private Map<Object, SpaControl> cache;
 	private Mapper mapper;
-	
-	public void setCache (Map<Object, SpaControl> cache ){
+
+	public void setCache(Map<Object, SpaControl> cache) {
 		this.cache = cache;
 	}
-	
+
 	public void setMapper(Mapper mapper) {
 		this.mapper = mapper;
 	}
 
-	public  Object find(Object pk, String objectClass){
-		SpaControl control = cache.get(pk);
-		if (control != null){
-			return control.getObject();
-		}else{
-			return serviceCall(pk,  objectClass);
+	public Object find(Object pk, String objectClass) {
+		if (cache != null) {
+			SpaControl control = cache.get(pk);
+			if (control != null) {
+				return control.getObject();
+			} else {
+				return serviceCall(pk, objectClass);
+			}
+		} else {
+			return serviceCall(pk, objectClass);
 		}
 	}
-	
-	public  SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,Integer endIndex, String objectClass) throws RepositoryException {
-		SearchResult result = serviceCall(searchCriteria, orderCriteria, startIndex, endIndex,objectClass);
+
+	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
+			Integer endIndex, String objectClass) throws RepositoryException {
+		SearchResult result = serviceCall(searchCriteria, orderCriteria, startIndex, endIndex, objectClass);
 		List<Object> list = new ArrayList<>();
-		for (Object obj : result.getSearchResult()){
+		for (Object obj : result.getSearchResult()) {
 			Object pk = mapper.getPrimaryKey(obj);
-			if (cache != null){
+			if (cache != null) {
 				SpaControl control = cache.get(pk);
-				if (control != null){
+				if (control != null) {
 					list.add(control.getObject());
-				}else{
+				} else {
 					list.add(obj);
 				}
-			}else{
+			} else {
 				list.add(obj);
 			}
 		}
 		return new SearchResult(list, result.getNumberOfRows());
 	}
-	
-	protected abstract SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,Integer endIndex, String objectClass) throws RepositoryException ;
-	protected abstract Object serviceCall(Object pk, String objectClass);
 
+	protected abstract SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
+			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException;
+
+	protected abstract Object serviceCall(Object pk, String objectClass);
 
 }

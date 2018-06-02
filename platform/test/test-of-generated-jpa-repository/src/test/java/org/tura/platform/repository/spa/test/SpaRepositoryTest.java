@@ -50,6 +50,9 @@ import org.tura.platform.repository.spa.SpaRepository;
 
 import objects.test.serialazable.jpa.A1;
 import objects.test.serialazable.jpa.A2;
+import objects.test.serialazable.jpa.A3;
+import objects.test.serialazable.jpa.A4;
+import objects.test.serialazable.jpa.A5;
 import objects.test.serialazable.jpa.InitSPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
 
@@ -139,6 +142,8 @@ public class SpaRepositoryTest {
 	@Test
 	public void t0000_saveObject() {
 		try {
+			SearchService.base.clear();
+			
 			ProxyRepository repository = getRepository();
 			
 			A1 a1 = (A1) repository.create(A1.class.getName());
@@ -159,9 +164,81 @@ public class SpaRepositoryTest {
 			assertEquals(0,a1_.getA2().getA3().size());
 			assertEquals(0,a1_.getA2().getA4().size());
 
+			A4 a4 = (A4) repository.create(A4.class.getName());
+			a2.getA4().add(a4);
+			a4 = (A4) repository.create(A4.class.getName());
+			a2.getA4().add(a4);
+			
+			A3 a3 = (A3) repository.create(A3.class.getName());
+			a2.getA3().add(a3);
+			a3 = (A3) repository.create(A3.class.getName());
+			a2.getA3().add(a3);
+			
+			A5 a5 = (A5) repository.create(A5.class.getName());
+			a1.setA5(a5);
+
+			repository.applyChanges(null);
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+
+			a1_= (A1) result.getSearchResult().get(0);
+			assertEquals(a1.getObjId(), a1_.getObjId());
+			
+			assertEquals(a1.getA2().getObjId(), a1_.getA2().getObjId());
+			assertEquals(a1_.getA5().getObjId(), a5.getObjId() );
+			
+			assertEquals(2,a1_.getA2().getA3().size());
+			assertEquals(2,a1_.getA2().getA4().size());
+			
+			a2.getA3().remove(a3);
+			a1.setA5(null);
+			
+			repository.applyChanges(null);
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+
+			a1_= (A1) result.getSearchResult().get(0);
+			assertNull(a1_.getA5());
+			assertEquals(1, a1_.getA2().getA3().size());
+			
+			
+			
 		}catch(Exception e){
 			e.printStackTrace();
 			fail();
 		}
 	}
+	@Test
+	public void t0000_saveObject2() {
+		try {
+			SearchService.base.clear();
+			ProxyRepository repository = getRepository();
+			A1 a1 = (A1) repository.create(A1.class.getName());
+			repository.insert(a1, A1.class.getName());
+			repository.applyChanges(null);
+			
+			A2 a2 = (A2) repository.create(A2.class.getName());
+			a1.setA2(a2);
+			
+			A3 a3 = (A3) repository.create(A3.class.getName());
+			a2.getA3().add(a3);
+			repository.applyChanges(null);
+
+			SearchResult  result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			
+			A1  a1_= (A1) result.getSearchResult().get(0);
+			assertEquals(a1.getObjId(), a1_.getObjId());
+			assertEquals(a1.getA2().getObjId(), a1_.getA2().getObjId());
+			assertEquals(1,a1.getA2().getA3().size());
+
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			fail();
+		}
+	}
+
+	
 }

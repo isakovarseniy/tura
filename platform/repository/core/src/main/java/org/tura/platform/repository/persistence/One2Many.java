@@ -27,6 +27,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.core.RepositoryException;
 
 public class One2Many implements RelOperation{
 
@@ -52,7 +53,9 @@ public class One2Many implements RelOperation{
 		String name = "get"+WordUtils.capitalize(property);
 		Method m = master.getClass().getDeclaredMethod(name, new Class<?>[]{} );
 		List list = (List) m.invoke(master, new Object[]{});
-		list.remove(detail);
+		if (!list.remove(detail)){
+			throw new RepositoryException("Cannot remove object ");
+		}
 		
 	}
 

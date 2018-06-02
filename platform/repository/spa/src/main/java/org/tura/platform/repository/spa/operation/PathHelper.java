@@ -24,6 +24,7 @@ package org.tura.platform.repository.spa.operation;
 import java.lang.reflect.Constructor;
 
 import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.lang.WordUtils;
 import org.tura.platform.repository.core.FieldValue;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
@@ -31,6 +32,10 @@ import org.tura.platform.repository.core.RepoObjectKey;
 public class PathHelper {
 
 	public static Object getPathValue(RepoKeyPath pk, int startIndex,Object obj) throws Exception{
+		if (startIndex == pk.getPath().size()){
+			return obj;
+		}
+		
 		JXPathContext context = JXPathContext.newContext(obj);
 		
 		String path="";
@@ -38,7 +43,10 @@ public class PathHelper {
 		
 		for(int i = startIndex; i<pk.getPath().size(); i++){
 			  RepoObjectKey key =  pk.getPath().get(i);
-			  path=path+key.getRelation()+"[";
+			  if (!"".equals(path)){
+				  path=path+"/";
+			  }
+			  path=path+WordUtils.uncapitalize(key.getRelation())+"[";
 			  boolean first = true;
 			  for (FieldValue v : key.getKey()){
 				  if (!first){
@@ -47,10 +55,11 @@ public class PathHelper {
 				  Class<?> clazz = Class.forName( v.getType());
 				  Constructor<?> c =  clazz.getConstructor(String.class);
 				  context.getVariables().declareVariable("param"+id, c.newInstance(v.getValue()))  ;
-				  path=path+ v.getName()+"="+"$param"+id;
+				  path=path+ WordUtils.uncapitalize(v.getName())+"="+"$param"+id;
+				  id++;
 				  first = false;
 			  }
-			  path=path+"]/";
+			  path=path+"]";
 		}
 		return context.getValue(path);
 	}

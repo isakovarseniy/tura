@@ -66,22 +66,24 @@ public class DefaultRemoveInternalOperation extends SpaRepositoryCommand{
 	private Object detailObject;
 	private String detailProperty;
 	private String masterType;
+	private String masterPersistanceType;
 
 	
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
 		try {
-			SearchProvider sp = this.providerHash.get(masterType);
-			Object persistanceMasterObject = sp.find(masterPk,masterType);
+			SearchProvider sp = this.providerHash.get(masterPersistanceType);
+			PersistanceMapper masterMapper = findPersistanceMapper(Class.forName(masterType));
+			
+			Object persistanceMasterObject = sp.find(masterMapper.getPKey(masterPk),masterPersistanceType);
 			if (persistanceMasterObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + masterPk.toString());
 			}
-			Object extendedPersistanceMasterObject = getExtendedMasterObject(extendedMasterPk,persistanceMasterObject);
+			Object extendedPersistanceMasterObject = getExtendedObject(extendedMasterPk,persistanceMasterObject);
 
+			extendedMasterPk.addRepoObjectKey(masterProperty, findRepoObjectKey(detailObject));  ;
+			Object persistanceDetailObject = getExtendedObject(extendedMasterPk,persistanceMasterObject);
 			
-			PersistanceMapper mapper = findPersistanceMapper(detailObject.getClass());
-			Object persistanceDetailObject = mapper.copyFromRepository2Persistence(detailObject);
-
 			RelEnum relation = PersistanceRelationBuilder.build(extendedPersistanceMasterObject.getClass(), masterProperty,
 					persistanceDetailObject.getClass(), detailProperty);
 			relation.getOperation().disconnect(extendedPersistanceMasterObject, persistanceDetailObject, masterProperty);
@@ -92,7 +94,7 @@ public class DefaultRemoveInternalOperation extends SpaRepositoryCommand{
 				relation.getOperation().disconnect(persistanceDetailObject, extendedPersistanceMasterObject,detailProperty);
 			}
 			
-			SpaControl masterControl = new SpaControl(persistanceMasterObject,mapper.getPKey(masterPk), OperationLevel.UPDATE);
+			SpaControl masterControl = new SpaControl(persistanceMasterObject,masterMapper.getPKey(masterPk), OperationLevel.UPDATE);
 			
 			List<SpaControl> list= new ArrayList<>();
 			list.add(masterControl);
@@ -113,11 +115,11 @@ public class DefaultRemoveInternalOperation extends SpaRepositoryCommand{
 
 		masterType = masterPk.getType();
 
-		String detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailObject.getClass().getName());
-		String masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
+//		String detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailObject.getClass().getName());
+		masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
 		
 		
-		this.knownObjects.add(detailPersistanceType);
+//		this.knownObjects.add(detailPersistanceType);
 		this.knownObjects.add(masterPersistanceType);
 		return true;
 	}
