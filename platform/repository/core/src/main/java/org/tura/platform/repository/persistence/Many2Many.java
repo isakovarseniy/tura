@@ -53,9 +53,7 @@ public class Many2Many implements RelOperation{
 		String name = "get"+WordUtils.capitalize(property);
 		Method m = master.getClass().getDeclaredMethod(name, new Class<?>[]{} );
 		List list = (List) m.invoke(master, new Object[]{});
-		if (!list.remove(detail)){
-			throw new RepositoryException("Cannot remove object ");
-		}
+		list.remove(detail);
 		
 	}
 

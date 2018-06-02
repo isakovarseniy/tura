@@ -140,7 +140,7 @@ public class SpaRepositoryTest {
 	}
 	
 	@Test
-	public void t0000_saveObject() {
+	public void t0000_saveAndRemoveObject() {
 		try {
 			SearchService.base.clear();
 			
@@ -201,7 +201,6 @@ public class SpaRepositoryTest {
 			a1_= (A1) result.getSearchResult().get(0);
 			assertNull(a1_.getA5());
 			assertEquals(1, a1_.getA2().getA3().size());
-			
 			
 			
 		}catch(Exception e){

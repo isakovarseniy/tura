@@ -212,6 +212,9 @@ public class One2ManyContainmentTest {
 
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many2A.class.getName());
 			assertEquals(1,result.getSearchResult().size());
+			o1 = (One2Many2A) result.getSearchResult().get(0);
+			assertEquals(0, o1.getOne2Many2B().size());
+			
 			
 			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 0, One2Many2B.class.getName());
 			assertEquals(0,result.getSearchResult().size());

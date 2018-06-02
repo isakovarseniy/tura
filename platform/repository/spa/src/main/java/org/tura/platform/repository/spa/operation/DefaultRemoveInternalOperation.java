@@ -115,11 +115,9 @@ public class DefaultRemoveInternalOperation extends SpaRepositoryCommand{
 
 		masterType = masterPk.getType();
 
-//		String detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailObject.getClass().getName());
 		masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
 		
 		
-//		this.knownObjects.add(detailPersistanceType);
 		this.knownObjects.add(masterPersistanceType);
 		return true;
 	}
