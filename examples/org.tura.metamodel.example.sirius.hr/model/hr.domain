@@ -914,7 +914,6 @@
           <relationships xsi:type="tura.type:Assosiation" uid="7878014c-24cc-4d01-8b4e-7c42b5a6f430" source="cc22aac1-9050-4d18-8fd7-66e4075dcfc8" target="0a2294cc-1f1b-4e7c-bfb1-6f538d498dcb"/>
           <relationships xsi:type="tura.type:Assosiation" uid="099c87db-6edb-4126-8abe-58e5451c0e22" source="d22704ed-3954-4b3f-899f-8b95a853aa35" target="26319e3f-e4bf-4d02-8d3d-e83e0143c06e"/>
           <relationships xsi:type="tura.type:Assosiation" uid="231fb4fd-bfdd-4683-926e-33884c000787" source="26319e3f-e4bf-4d02-8d3d-e83e0143c06e" target="d83f4a23-dd51-424f-94ce-1201372d4166" internal="true"/>
-          <relationships xsi:type="tura.type:Assosiation" uid="bb7f445c-8cb0-487c-bac9-ea5de683335b" source="83f772f9-eb1d-4387-bf8a-30c9059e78f2" target="d83f4a23-dd51-424f-94ce-1201372d4166"/>
           <relationships xsi:type="tura.type:Assosiation" uid="67746559-3a6a-4b13-a724-98b1b0324ffc" source="4e8bc0bd-5d65-4d39-855e-2a2a4d8f1f76" target="a7abe28d-b992-4d55-bfab-19a3a93d66f3" type="Many2Many">
             <links uid="6585e3d7-5f8f-4984-83a5-349f9c803763" masterField="ee1a5a37-44dc-4f3a-b711-538e82d964b3" detailField="ca180226-65db-43cb-9aa4-def9addc2186"/>
           </relationships>

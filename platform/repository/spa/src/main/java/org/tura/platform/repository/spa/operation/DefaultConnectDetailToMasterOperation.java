@@ -83,8 +83,9 @@ public class DefaultConnectDetailToMasterOperation extends SpaRepositoryCommand{
 			if (persistanceDetailObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + detailPk.toString());
 			}
+			Object extendedPersistanceDetailObject = getExtendedObject(extendedDetailPk,persistanceDetailObject);
 			
-			if (!beckwardProperty(persistanceDetailObject,detailProperty)){
+			if (!beckwardProperty(extendedPersistanceDetailObject,detailProperty)){
 				return new ArrayList<>();
 			}
 
@@ -97,9 +98,9 @@ public class DefaultConnectDetailToMasterOperation extends SpaRepositoryCommand{
 			Object extendedPersistanceMasterObject = getExtendedObject(extendedMasterPk,persistanceMasterObject);
 
 			
-			RelEnum relation = PersistanceRelationBuilder.build(persistanceDetailObject.getClass(), detailProperty,
+			RelEnum relation = PersistanceRelationBuilder.build(extendedPersistanceDetailObject.getClass(), detailProperty,
 					extendedPersistanceMasterObject.getClass(), masterProperty);
-			relation.getOperation().connect(persistanceDetailObject, extendedPersistanceMasterObject, detailProperty);
+			relation.getOperation().connect(extendedPersistanceDetailObject, extendedPersistanceMasterObject, detailProperty);
 
 			SpaControl detailControl = new SpaControl(persistanceDetailObject,detailMapper.getPKey(detailPk), OperationLevel.UPDATE);
 			

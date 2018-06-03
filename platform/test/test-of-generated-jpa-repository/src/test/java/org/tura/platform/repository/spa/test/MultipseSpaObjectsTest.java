@@ -52,6 +52,7 @@ import objects.test.serialazable.jpa.A1;
 import objects.test.serialazable.jpa.A2;
 import objects.test.serialazable.jpa.A4;
 import objects.test.serialazable.jpa.F1;
+import objects.test.serialazable.jpa.F2;
 import objects.test.serialazable.jpa.InitSPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
 
@@ -160,6 +161,9 @@ public class MultipseSpaObjectsTest {
 			F1 f1 = (F1) repository.create(F1.class.getName());
 			a4.setF1(f1);
 			f1.setParentId(a4.getObjId());
+			
+			F2 f2 = (F2) repository.create(F2.class.getName());
+			f1.setF2(f2);
 			repository.applyChanges(null);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
@@ -171,7 +175,38 @@ public class MultipseSpaObjectsTest {
 			assertEquals(1, a1_.getA2().getA4().size());
 			A4 a4_ = a1_.getA2().getA4().get(0);
 			assertNotNull (a4_.getF1());
+			assertNotNull (a4_.getF1().getF2());
+			
+			a4_.getF1().setF2(null);
+			repository.applyChanges(null);
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
+			assertEquals(1, result.getNumberOfRows());
+			
+			a1_= (A1) result.getSearchResult().get(0);
+			assertEquals(a1.getObjId(), a1_.getObjId());
+			
+			assertEquals(1, a1_.getA2().getA4().size());
+			a4_ = a1_.getA2().getA4().get(0);
+			assertNotNull (a4_.getF1());
+			assertNull (a4_.getF1().getF2());
+			
+			a4_.setF1(null);
+			repository.applyChanges(null);
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
+			assertEquals(1, result.getNumberOfRows());
 
+			a1_= (A1) result.getSearchResult().get(0);
+			assertEquals(a1.getObjId(), a1_.getObjId());
+			
+			assertEquals(1, a1_.getA2().getA4().size());
+			a4_ = a1_.getA2().getA4().get(0);
+			assertNull (a4_.getF1());
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, F1.class.getName());
+			assertEquals(0, result.getNumberOfRows());
+	
 			
 		}catch(Exception e){
 			e.printStackTrace();

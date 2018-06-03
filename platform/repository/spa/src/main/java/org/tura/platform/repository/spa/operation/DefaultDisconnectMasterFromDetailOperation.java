@@ -49,6 +49,7 @@ import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.persistence.RelEnum;
 import org.tura.platform.repository.spa.OperationLevel;
@@ -66,29 +67,36 @@ public class DefaultDisconnectMasterFromDetailOperation extends SpaRepositoryCom
 	private RepoObjectKey detailPk;
 	private String detailProperty;
 	private String masterType;
+	private String masterPersistanceType;
 	private String detailType;
+	private String detailPersistanceType;
 
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
 		try {
-			SearchProvider spMaster = this.providerHash.get(masterType);
-			Object persistanceMasterObject = spMaster.find(masterPk,masterType);
+			SearchProvider spMaster = this.providerHash.get(masterPersistanceType);
+			PersistanceMapper masterMapper = findPersistanceMapper(Class.forName(masterType));
+			
+			Object persistanceMasterObject = spMaster.find(masterMapper.getPKey(masterPk),masterPersistanceType);
 			if (persistanceMasterObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + masterPk.toString());
 			}
 			Object extendedPersistanceMasterObject = getExtendedObject(extendedMasterPk,persistanceMasterObject);
 			
-			SearchProvider spDetail = this.providerHash.get(detailType);
-			Object persistanceDetailObject = spDetail.find(detailPk,detailType);
+			SearchProvider spDetail = this.providerHash.get(detailPersistanceType);
+			PersistanceMapper detailMapper = findPersistanceMapper(Class.forName(detailType));
+			Object persistanceDetailObject = spDetail.find(detailMapper.getPKey(detailPk),detailPersistanceType);
 			if (persistanceDetailObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + detailPk.toString());
 			}
+			Object extendedPersistanceDetailObject = getExtendedObject(extendedDetailPk,persistanceDetailObject);
+			
 			
 			RelEnum relation = PersistanceRelationBuilder.build(extendedPersistanceMasterObject.getClass(), masterProperty,
-					persistanceDetailObject.getClass(), detailProperty);
-			relation.getOperation().disconnect(extendedPersistanceMasterObject, persistanceDetailObject, masterProperty);
+					extendedPersistanceDetailObject.getClass(), detailProperty);
+			relation.getOperation().disconnect(extendedPersistanceMasterObject, extendedPersistanceDetailObject, masterProperty);
 
-			SpaControl masterControl = new SpaControl(persistanceMasterObject,masterPk, OperationLevel.UPDATE);
+			SpaControl masterControl = new SpaControl(persistanceMasterObject,masterMapper.getPKey(masterPk), OperationLevel.UPDATE);
 			
 			List<SpaControl> list= new ArrayList<>();
 			list.add(masterControl);
@@ -111,8 +119,8 @@ public class DefaultDisconnectMasterFromDetailOperation extends SpaRepositoryCom
 		masterType = masterPk.getType();
 		detailType = detailPk.getType();
 
-		String detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailType);
-		String masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
+		detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailType);
+		masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
 
 		this.knownObjects.add(detailPersistanceType);
 		this.knownObjects.add(masterPersistanceType);
