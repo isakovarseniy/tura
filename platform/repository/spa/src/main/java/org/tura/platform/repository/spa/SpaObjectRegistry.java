@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
@@ -56,7 +57,7 @@ public class SpaObjectRegistry {
 	public SpaRegistry getRegistry(String name){
 		SpaRegistry r = hash.get(name);
 		if (r == null ){
-			r = new SpaRegistry();
+			r = new SpaRegistry(name);
 			hash.put(name, r);
 		}
 		return r;
@@ -72,6 +73,12 @@ public class SpaObjectRegistry {
 		private Map<String, PersistanceMapper> mappers = new HashMap<>();
 		private Map<Class<?>, SearchProvider> searchProviders = new HashMap<>();
 		private List<SpaRepositoryCommand> externalCommands = new ArrayList<>();
+		private String registry;
+		
+		
+		SpaRegistry(String registry){
+			this.registry = registry;
+		}
 
 		
 		public void addExternalCommand(SpaRepositoryCommand cmd){
@@ -83,10 +90,16 @@ public class SpaObjectRegistry {
 		}
 		
 		public void addCRUDProvider(Class<?> clazz, CRUDProvider provider){
+			if (RegistryAware.class.isAssignableFrom(provider.getClass()) ){
+				((RegistryAware)provider).setRegistry(registry);
+			}
 			crudProviders.put(clazz, provider);
 		}
 		
 		public void addSearchProvider(Class<?> clazz, SearchProvider provider){
+			if (RegistryAware.class.isAssignableFrom(provider.getClass()) ){
+				((RegistryAware)provider).setRegistry(registry);
+			}
 			searchProviders.put(clazz, provider);
 		}
 		

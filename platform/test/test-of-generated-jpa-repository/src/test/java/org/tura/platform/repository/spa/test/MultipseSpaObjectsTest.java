@@ -1,3 +1,24 @@
+/**
+ * Tura - application generation platform
+ *
+ * Copyright (c) 2012 - 2017, Arseniy Isakov
+ *
+ * This project includes software developed by Arseniy Isakov
+ * http://sourceforge.net/p/tura/wiki/Home/
+ *
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.tura.platform.repository.spa.test;
 
 import static org.junit.Assert.*;
@@ -113,6 +134,9 @@ public class MultipseSpaObjectsTest {
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class, new CRUDService());
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, new SearchService());
 		
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addTrigger(org.tura.jpa.test.B1.class, new QueryTrigger());;
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addTrigger(org.tura.jpa.test.F1.class, new QueryTrigger());;
+        
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
@@ -135,6 +159,7 @@ public class MultipseSpaObjectsTest {
 
 			F1 f1 = (F1) repository.create(F1.class.getName());
 			a4.setF1(f1);
+			f1.setParentId(a4.getObjId());
 			repository.applyChanges(null);
 
 			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());

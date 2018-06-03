@@ -44,6 +44,7 @@ import org.tura.platform.object.persistence.operation.RemoveOperation;
 import org.tura.platform.object.persistence.operation.UpdateOperation;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
@@ -129,12 +130,13 @@ public class JPARepository implements Repository {
 	@Override
 	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException {
-
+		RepositoryHelper helper = new RepositoryHelper();
+		
 		try {
-			SearchCriteria parentPersistenceObject =   extractAndRemove(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT,searchCriteria);
-			extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT,searchCriteria);
-			SearchCriteria parentChildRelation = extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
-			SearchCriteria parentChildRelationType = extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE,searchCriteria);
+			SearchCriteria parentPersistenceObject =   helper.extractAndRemove(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT,searchCriteria);
+			helper.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT,searchCriteria);
+			SearchCriteria parentChildRelation = helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
+			SearchCriteria parentChildRelationType = helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE,searchCriteria);
 
 			if (parentPersistenceObject != null && parentPersistenceObject.getValue().getClass().isAnnotationPresent(Entity.class) ){
 				String relationType = (String) parentChildRelationType.getValue();
@@ -159,18 +161,6 @@ public class JPARepository implements Repository {
 			throw new RepositoryException(e);
 		}
 
-	}
-
-	private SearchCriteria extractAndRemove(String parameter, List<SearchCriteria> search) {
-		SearchCriteria result = null;
-		for ( SearchCriteria sc : search){
-			if (sc.getName().equals(parameter)){
-				search.remove(sc);
-				result = sc;
-				break;
-			}
-		}
-		return result;
 	}
 
 	@Override

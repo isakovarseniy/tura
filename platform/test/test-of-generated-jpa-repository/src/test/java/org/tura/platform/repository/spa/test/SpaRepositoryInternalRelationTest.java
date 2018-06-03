@@ -125,9 +125,12 @@ public class SpaRepositoryInternalRelationTest {
 		Repository nutRepository = new NutRepository();
         Registry.getInstance().addProvider("org.tura.jpa.test.DD1", nutRepository);
         Registry.getInstance().addProvider("org.tura.jpa.test.C1", nutRepository);
+        Registry.getInstance().addProvider("org.tura.jpa.test.B1", nutRepository);
         Registry.getInstance().addClassMapping("objects.test.serialazable.jpa.DD1","org.tura.jpa.test.DD1");
         Registry.getInstance().addClassMapping("objects.test.serialazable.jpa.C1","org.tura.jpa.test.C1");
-		
+        Registry.getInstance().addClassMapping("objects.test.serialazable.jpa.B1","org.tura.jpa.test.B1");
+
+        
 		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, new SearchService());
@@ -135,6 +138,13 @@ public class SpaRepositoryInternalRelationTest {
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class, new CRUDService());
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, new SearchService());
 		
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.B1.class, new CRUDService());
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.B1.class, new SearchService());
+        
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addTrigger(org.tura.jpa.test.B1.class, new QueryTrigger());;
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addTrigger(org.tura.jpa.test.F1.class, new QueryTrigger());;
+        
+        
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}

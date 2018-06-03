@@ -33,21 +33,30 @@ import org.tura.platform.datacontrol.commons.DefaulQueryFactory;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.pool.JOSQLExpressionBuilder;
+import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.spa.SearchProvider;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
+import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 import com.octo.java.sql.query.SelectQuery;
 
-public class SearchService extends SearchProvider {
+public class SearchService extends SearchProvider implements RegistryAware{
 
 	public static Map<String, Map<Object, Object>> base = new HashMap<String, Map<Object, Object>>();
-
+	private String registry;
+	
 	@Override
 	protected SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
 			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException {
 
 		try {
+			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(objectClass);
+			if (preQueryTrigger != null) {
+				preQueryTrigger.preQueryTrigger(searchCriteria, orderCriteria);
+			}
+
 			Class<?> baseClass = Class.forName(objectClass);
 			SelectQuery select = DefaulQueryFactory.builder(searchCriteria, orderCriteria, baseClass);
 			Query query = new Query();
@@ -66,7 +75,7 @@ public class SearchService extends SearchProvider {
 				QueryResults result = query.execute(array);
 
 				return new SearchResult(result.getResults(), result.getResults().size());
-			}else{
+			} else {
 				return new SearchResult(new ArrayList<>(), 0);
 			}
 
@@ -78,6 +87,23 @@ public class SearchService extends SearchProvider {
 	@Override
 	protected Object serviceCall(Object pk, String objectClass) {
 		return base.get(objectClass).get(pk);
+	}
+
+	private PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws RepositoryException {
+		try {
+			PreQueryTrigger trigger = SpaObjectRegistry.getInstance().getRegistry(registry).findPreQueryTrigger(repositoryClass);
+			return trigger;
+		} catch (Exception e) {
+                throw new RepositoryException(e);
+		}
+	}
+
+	public String getRegistry() {
+		return registry;
+	}
+
+	public void setRegistry(String registry) {
+		this.registry = registry;
 	}
 
 }

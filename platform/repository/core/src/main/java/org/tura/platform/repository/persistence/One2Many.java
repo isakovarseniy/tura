@@ -27,7 +27,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
-import org.tura.platform.repository.core.RepositoryException;
 
 public class One2Many implements RelOperation{
 

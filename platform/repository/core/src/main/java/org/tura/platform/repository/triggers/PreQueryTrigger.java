@@ -28,5 +28,5 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 
 public interface PreQueryTrigger {
 	
-	void preQueryTrigger( List<SearchCriteria> search, List<OrderCriteria> order);
+	void preQueryTrigger( List<SearchCriteria> search, List<OrderCriteria> order) throws Exception;
 }

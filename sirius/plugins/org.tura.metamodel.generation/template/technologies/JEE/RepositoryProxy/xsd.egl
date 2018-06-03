@@ -10,10 +10,20 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
  ${percent}${end}
  [%
       var util = new Native('org.tura.metamodel.commons.Util');
+      
       for(type in typeCollection.values()){
-         %]<xs:complexType name="[%=type.~class%]">[%
+         %]<xs:complexType name="[%=type.~class%]">
+          <xs:annotation>[%
+          var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = type.uid and t.target.uid <> t.source.uid and t.internal);
+	      if (assosiations.size() <> 0){
+	      %]
+			 <xs:appinfo>
+				<annox:annotate>@org.tura.platform.repository.core.annotation.InternalClass</annox:annotate>
+			</xs:appinfo>
+	      [%
+	      
+	      }
           %]
-          <xs:annotation>
 			 <xs:appinfo>
 				<annox:annotate>@com.fasterxml.jackson.annotation.JsonIdentityInfo(generator = com.fasterxml.jackson.annotation.ObjectIdGenerators.PropertyGenerator.class, property = "serializationid")</annox:annotate>
 			</xs:appinfo>

@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.core.relatioin.RelationBuilder;
@@ -145,4 +146,18 @@ public class RepositoryHelper {
 		return methods;
 	}
 
+	public SearchCriteria extractAndRemove(String parameter, List<SearchCriteria> search) {
+		SearchCriteria result = null;
+		for ( SearchCriteria sc : search){
+			if (sc.getName().equals(parameter)){
+				search.remove(sc);
+				result = sc;
+				break;
+			}
+		}
+		return result;
+	}
+
+	
+	
 }

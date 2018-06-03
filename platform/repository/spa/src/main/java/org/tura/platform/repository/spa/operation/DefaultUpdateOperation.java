@@ -65,13 +65,16 @@ public class DefaultUpdateOperation extends SpaRepositoryCommand {
 	private String property;
 	private Object value;
 	private String objectType;
+	private String persistanceType;
 	
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
 		try{
 
-			SearchProvider sp = this.providerHash.get(objectType);
-			Object persistanceObject = sp.find(pk,objectType);
+			SearchProvider sp = this.providerHash.get(persistanceType);
+			PersistanceMapper mapper = findPersistanceMapper(Class.forName(objectType));
+			
+			Object persistanceObject = sp.find( mapper.getPKey(pk),persistanceType);
 			if (persistanceObject == null) {
 				throw new RepositoryException("Could not find the object with primary key " + pk.toString());
 			}
@@ -81,8 +84,6 @@ public class DefaultUpdateOperation extends SpaRepositoryCommand {
 			Method m = extendedPersistanceMasterObject.getClass().getDeclaredMethod(methodName, value.getClass());
 			m.invoke(extendedPersistanceMasterObject, value);
 
-			PersistanceMapper mapper = findPersistanceMapper(persistanceObject.getClass());
-			
 			SpaControl control = new SpaControl(persistanceObject,mapper.getPKey(pk), OperationLevel.UPDATE);
 			
 			List<SpaControl> list= new ArrayList<>();
@@ -103,7 +104,7 @@ public class DefaultUpdateOperation extends SpaRepositoryCommand {
 		value = parameters[2];
 
 		objectType = pk.getType();
-		String persistanceType =  Registry.getInstance().findPersistanceClass(objectType);
+		persistanceType =  Registry.getInstance().findPersistanceClass(objectType);
 		
 		this.knownObjects.add(persistanceType);
 		return true;

@@ -30,6 +30,7 @@ import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
+import org.tura.platform.repository.core.annotation.InternalClass;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
@@ -91,7 +92,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 			RepositoryObjectLoader loader = new RepositoryObjectLoader(search, order,context);
 
 			for (Object object : processor.getListOfRepositoryObjects(repositoryObject)) {
-				loader.internalLoader(object,  getPersistancePrimaryKeyFromRepositoryObject(repositoryObject), true);
+				loader.internalLoader(object,  getPersistancePrimaryKeyFromRepositoryObject(object), true);
 			}
 			if (fromInternalClass) {
 				query(repositoryObject, null);
@@ -111,7 +112,7 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
         	return ;
         }else{
         	loadedObjects.add(persistenceObjectPK);
-        	return ;
+        	internalLoader(repositoryObject,fromInternalClass);
         }
 	}
 	
@@ -158,6 +159,12 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 				continue;
 			}
 			Association assosiation = method.getAnnotation(Association.class);
+			
+			InternalClass ic = assosiation.mappedBy().getAnnotation(InternalClass.class);
+			if (ic != null ){
+				continue;
+			}
+			
 			RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(),method,context);
 
 			Repository provider = findProvider(assosiation.mappedBy().getName());
