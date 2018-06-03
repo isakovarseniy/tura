@@ -160,6 +160,16 @@ public class Many2ManyTest {
 			o2 = (Many2Many2B) result.getSearchResult().get(0);
 			assertEquals(1, o2.getMany2Many2A().size());
 
+			
+			o1.getMany2Many2B().remove(o2);
+			repository.applyChanges(null);
+			
+			result =  repository.find(new ArrayList<SearchCriteria>(),
+					new ArrayList<OrderCriteria>(), 0, 100, Many2Many2A.class.getName());
+
+			assertEquals(1, result.getSearchResult().size());
+			o1 = (Many2Many2A) result.getSearchResult().get(0);
+			assertEquals(0, o1.getMany2Many2B().size());
 
 			
 		} catch (Exception e) {

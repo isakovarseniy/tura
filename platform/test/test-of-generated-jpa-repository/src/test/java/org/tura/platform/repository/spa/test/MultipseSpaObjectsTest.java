@@ -1,24 +1,3 @@
-/**
- * Tura - application generation platform
- *
- * Copyright (c) 2012 - 2017, Arseniy Isakov
- *
- * This project includes software developed by Arseniy Isakov
- * http://sourceforge.net/p/tura/wiki/Home/
- *
- * Licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package org.tura.platform.repository.spa.test;
 
 import static org.junit.Assert.*;
@@ -50,13 +29,12 @@ import org.tura.platform.repository.spa.SpaRepository;
 
 import objects.test.serialazable.jpa.A1;
 import objects.test.serialazable.jpa.A2;
-import objects.test.serialazable.jpa.A3;
 import objects.test.serialazable.jpa.A4;
-import objects.test.serialazable.jpa.A5;
+import objects.test.serialazable.jpa.F1;
 import objects.test.serialazable.jpa.InitSPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
 
-public class SpaRepositoryTest {
+public class MultipseSpaObjectsTest {
 
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
@@ -138,7 +116,7 @@ public class SpaRepositoryTest {
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}
-	
+
 	@Test
 	public void t0000_saveAndRemoveObject() {
 		try {
@@ -152,85 +130,22 @@ public class SpaRepositoryTest {
 			repository.insert(a1, A1.class.getName());
 			repository.applyChanges(null);
 			
-			SearchResult  result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
-			assertEquals(1, result.getNumberOfRows());
-			
-			A1  a1_= (A1) result.getSearchResult().get(0);
-			assertEquals(a1.getObjId(), a1_.getObjId());
-			
-			assertEquals(a1.getA2().getObjId(), a1_.getA2().getObjId());
-			assertNull(a1_.getA5());
-			
-			assertEquals(0,a1_.getA2().getA3().size());
-			assertEquals(0,a1_.getA2().getA4().size());
-
 			A4 a4 = (A4) repository.create(A4.class.getName());
 			a2.getA4().add(a4);
-			a4 = (A4) repository.create(A4.class.getName());
-			a2.getA4().add(a4);
-			
-			A3 a3 = (A3) repository.create(A3.class.getName());
-			a2.getA3().add(a3);
-			a3 = (A3) repository.create(A3.class.getName());
-			a2.getA3().add(a3);
-			
-			A5 a5 = (A5) repository.create(A5.class.getName());
-			a1.setA5(a5);
 
+			F1 f1 = (F1) repository.create(F1.class.getName());
+			a4.setF1(f1);
 			repository.applyChanges(null);
 
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
-			assertEquals(1, result.getNumberOfRows());
-
-			a1_= (A1) result.getSearchResult().get(0);
-			assertEquals(a1.getObjId(), a1_.getObjId());
-			
-			assertEquals(a1.getA2().getObjId(), a1_.getA2().getObjId());
-			assertEquals(a1_.getA5().getObjId(), a5.getObjId() );
-			
-			assertEquals(2,a1_.getA2().getA3().size());
-			assertEquals(2,a1_.getA2().getA4().size());
-			
-			a2.getA3().remove(a3);
-			a1.setA5(null);
-			
-			repository.applyChanges(null);
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
-			assertEquals(1, result.getNumberOfRows());
-
-			a1_= (A1) result.getSearchResult().get(0);
-			assertNull(a1_.getA5());
-			assertEquals(1, a1_.getA2().getA3().size());
-			
-			
-		}catch(Exception e){
-			e.printStackTrace();
-			fail();
-		}
-	}
-	@Test
-	public void t0000_saveObject2() {
-		try {
-			SearchService.base.clear();
-			ProxyRepository repository = getRepository();
-			A1 a1 = (A1) repository.create(A1.class.getName());
-			repository.insert(a1, A1.class.getName());
-			repository.applyChanges(null);
-			
-			A2 a2 = (A2) repository.create(A2.class.getName());
-			a1.setA2(a2);
-			
-			A3 a3 = (A3) repository.create(A3.class.getName());
-			a2.getA3().add(a3);
-			repository.applyChanges(null);
-
-			SearchResult  result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, A1.class.getName());
 			assertEquals(1, result.getNumberOfRows());
 			
 			A1  a1_= (A1) result.getSearchResult().get(0);
 			assertEquals(a1.getObjId(), a1_.getObjId());
-			assertEquals(a1.getA2().getObjId(), a1_.getA2().getObjId());
-			assertEquals(1,a1.getA2().getA3().size());
+			
+			assertEquals(1, a1_.getA2().getA4().size());
+			A4 a4_ = a1_.getA2().getA4().get(0);
+			assertNotNull (a4_.getF1());
 
 			
 		}catch(Exception e){
@@ -238,6 +153,6 @@ public class SpaRepositoryTest {
 			fail();
 		}
 	}
-
+	
 	
 }

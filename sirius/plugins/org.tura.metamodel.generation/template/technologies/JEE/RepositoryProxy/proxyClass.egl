@@ -74,7 +74,7 @@ public class  [%=tp.~class%]Proxy extends [%=tp.~fullName%]  implements org.tura
     @Override
     public boolean equals(Object o){
       if (o instanceof [%=tp.~package%].[%=tp.~class%]Proxy){
-          return object.equals(  (([%=tp.~package%].[%=tp.~class%]Proxy)o).getWrappedObject()  );
+           return this.getKey().equals(  (([%=tp.~package%].[%=tp.~class%]Proxy)o).getKey());
      }else{
        return false;
      }  
