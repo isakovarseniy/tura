@@ -23,25 +23,82 @@ package org.tura.platform.object.persistence.operation;
 
 import javax.persistence.EntityManager;
 
-import org.tura.platform.object.persistence.data.ConnectData;
 import org.tura.platform.repository.persistence.RelEnum;
 import org.tura.platform.repository.persistence.RelOperation;
 
-public class ConnectOperation {
-	
+public class ConnectOperation implements JPAOperation{
+
+	Object masterPk;
+	String masterClassName;
+	String masterProperty;
+	Object detailPk;
+	String detailClassName;
+	String relation;
 	EntityManager em;
-	
-	public ConnectOperation(EntityManager em){
-		this.em=em;
+
+	public Object getMasterPk() {
+		return masterPk;
 	}
-	
-	public void execute(ConnectData data) throws Exception{
-		Object master = em.find(Class.forName(data.getMasterClassName()), data.getMasterPk());
-		Object detail = em.find(Class.forName(data.getDetailClassName()), data.getDetailPk());
-		
-		RelOperation operation =  RelEnum.valueOf(data.getRelation()).getOperation();
-		operation.connect(master, detail, data.getMasterProperty());
-		
+
+	public void setMasterPk(Object masterPk) {
+		this.masterPk = masterPk;
+	}
+
+	public String getMasterClassName() {
+		return masterClassName;
+	}
+
+	public void setMasterClassName(String masterClassName) {
+		this.masterClassName = masterClassName;
+	}
+
+	public String getMasterProperty() {
+		return masterProperty;
+	}
+
+	public void setMasterProperty(String masterProperty) {
+		this.masterProperty = masterProperty;
+	}
+
+	public Object getDetailPk() {
+		return detailPk;
+	}
+
+	public void setDetailPk(Object detailPk) {
+		this.detailPk = detailPk;
+	}
+
+	public String getDetailClassName() {
+		return detailClassName;
+	}
+
+	public void setDetailClassName(String detailClassName) {
+		this.detailClassName = detailClassName;
+	}
+
+	public String getRelation() {
+		return relation;
+	}
+
+	public void setRelation(String relation) {
+		this.relation = relation;
+	}
+
+	public void execute() throws Exception {
+		Object master = em.find(Class.forName(getMasterClassName()), getMasterPk());
+		Object detail = em.find(Class.forName(getDetailClassName()), getDetailPk());
+
+		RelOperation operation = RelEnum.valueOf(getRelation()).getOperation();
+		operation.connect(master, detail, getMasterProperty());
+
+	}
+
+	public EntityManager getEntityManager() {
+		return em;
+	}
+
+	public void setEntityManager(EntityManager em) {
+		this.em = em;
 	}
 
 }

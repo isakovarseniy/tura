@@ -30,11 +30,11 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
-import org.tura.platform.object.persistence.data.ConnectData;
-import org.tura.platform.object.persistence.data.DisconnectData;
-import org.tura.platform.object.persistence.data.PersistData;
-import org.tura.platform.object.persistence.data.RemoveData;
-import org.tura.platform.object.persistence.data.UpdateData;
+import org.tura.platform.object.persistence.operation.ConnectOperation;
+import org.tura.platform.object.persistence.operation.DisconnectOperation;
+import org.tura.platform.object.persistence.operation.PersistOperation;
+import org.tura.platform.object.persistence.operation.RemoveOperation;
+import org.tura.platform.object.persistence.operation.UpdateOperation;
 import org.tura.platform.repository.core.CommandProducer;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
@@ -111,7 +111,7 @@ public class JPACommandProducer  implements CommandProducer {
 	@Override
 	public List<Object> removeObject(Object repositoryObject) throws RepositoryException {
 		ArrayList<Object> list = new ArrayList<>();
-		RemoveData data = new RemoveData();
+		RemoveOperation data = new RemoveOperation();
 
 		PersistanceMapper mapper = findMapper(repositoryObject.getClass().getName());
 		Object persistanceObject = mapper.copyFromRepository2Persistence(repositoryObject);
@@ -130,7 +130,7 @@ public class JPACommandProducer  implements CommandProducer {
 	@Override
 	public List<Object> addObject(Object repositoryObject) throws RepositoryException {
 		ArrayList<Object> list = new ArrayList<>();
-		PersistData data = new PersistData();
+		PersistOperation data = new PersistOperation();
 
 		PersistanceMapper mapper = findMapper(repositoryObject.getClass().getName());
 		Object persistanceObject = mapper.copyFromRepository2Persistence(repositoryObject);
@@ -161,7 +161,7 @@ public class JPACommandProducer  implements CommandProducer {
 			
 			list = new ArrayList<>();
 
-			DisconnectData data = new DisconnectData();
+			DisconnectOperation data = new DisconnectOperation();
 			data.setMasterPk(getPrimaryKey(masterPk));
 			data.setMasterProperty(masterProperty);
 			data.setRelation(getRelationType(masterPk, masterProperty));
@@ -192,7 +192,7 @@ public class JPACommandProducer  implements CommandProducer {
 			
 			list = new ArrayList<>();
 
-			DisconnectData data = new DisconnectData();
+			DisconnectOperation data = new DisconnectOperation();
 			data.setMasterPk(getPrimaryKey(detailPk));
 			data.setMasterProperty(detailProperty);
 			data.setMasterClassName(getPersistanceClassName(detailPk));
@@ -222,7 +222,7 @@ public class JPACommandProducer  implements CommandProducer {
 			}
 
 			list = new ArrayList<>();
-			ConnectData data = new ConnectData();
+			ConnectOperation data = new ConnectOperation();
 			data.setMasterPk(getPrimaryKey(masterPk));
 			data.setMasterProperty(masterProperty);
 			data.setMasterClassName(getPersistanceClassName(masterPk));
@@ -252,7 +252,7 @@ public class JPACommandProducer  implements CommandProducer {
 
 			list = new ArrayList<>();
 
-			ConnectData data = new ConnectData();
+			ConnectOperation data = new ConnectOperation();
 			data.setMasterPk(getPrimaryKey(detailPk));
 			data.setMasterProperty(detailProperty);
 			data.setMasterClassName(getPersistanceClassName(detailPk));
@@ -274,7 +274,7 @@ public class JPACommandProducer  implements CommandProducer {
 	public List<Object> update(RepoKeyPath pk, String property, Object value) throws RepositoryException {
 		ArrayList<Object> list = new ArrayList<>();
 
-		UpdateData data = new UpdateData();
+		UpdateOperation data = new UpdateOperation();
 		data.setProperty(property);
 		data.setValue(value);
 		data.setClassName(  getPersistanceClassName(pk));

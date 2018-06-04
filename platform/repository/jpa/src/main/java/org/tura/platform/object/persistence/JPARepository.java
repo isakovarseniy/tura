@@ -32,16 +32,7 @@ import javax.persistence.Query;
 import org.tura.platform.datacontrol.commons.DefaulQueryFactory;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.persistence.data.ConnectData;
-import org.tura.platform.object.persistence.data.DisconnectData;
-import org.tura.platform.object.persistence.data.PersistData;
-import org.tura.platform.object.persistence.data.RemoveData;
-import org.tura.platform.object.persistence.data.UpdateData;
-import org.tura.platform.object.persistence.operation.ConnectOperation;
-import org.tura.platform.object.persistence.operation.DisconnectOperation;
-import org.tura.platform.object.persistence.operation.PersistOperation;
-import org.tura.platform.object.persistence.operation.RemoveOperation;
-import org.tura.platform.object.persistence.operation.UpdateOperation;
+import org.tura.platform.object.persistence.operation.JPAOperation;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.RepositoryHelper;
@@ -181,29 +172,10 @@ public class JPARepository implements Repository {
 		
 		try {
 			for (Object change : changes) {
-				if (change instanceof ConnectData) {
-					new ConnectOperation(em).execute((ConnectData) change);
-					continue;
-				}
-				if (change instanceof DisconnectData) {
-					new DisconnectOperation(em).execute((DisconnectData) change);
-					continue;
-				}
-
-				if (change instanceof PersistData) {
-					new PersistOperation(em).execute((PersistData) change);
-					continue;
-				}
-
-				if (change instanceof RemoveData) {
-					new RemoveOperation(em).execute((RemoveData) change);
-					continue;
-				}
-
-				if (change instanceof UpdateData) {
-					new UpdateOperation(em).execute((UpdateData) change);
-					continue;
-				}
+				
+				JPAOperation operation = (JPAOperation) change;
+				operation.setEntityManager(em);
+				operation.execute();
 			}
 		} catch (Exception e) {
 			throw new RepositoryException(e);

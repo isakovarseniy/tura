@@ -23,20 +23,32 @@ package org.tura.platform.object.persistence.operation;
 
 import javax.persistence.EntityManager;
 
-import org.tura.platform.object.persistence.data.RemoveData;
 import org.tura.platform.repository.core.RepositoryHelper;
 
-public class RemoveOperation extends RepositoryHelper{
-	
+public class RemoveOperation extends RepositoryHelper implements JPAOperation{
+
 	EntityManager em;
-	
-	public RemoveOperation(EntityManager em){
-		this.em=em;
+	Object object;
+
+	public EntityManager getEntityManager() {
+		return em;
 	}
-	
-	public void execute(RemoveData data) throws Exception {
-		Object pk = getPersistancePrimaryKey(data.getObject());
-		Class<?> persistanceClass =  data.getObject().getClass();
+
+	public void setEntityManager(EntityManager em) {
+		this.em = em;
+	}
+
+	public Object getObject() {
+		return object;
+	}
+
+	public void setObject(Object object) {
+		this.object = object;
+	}
+
+	public void execute() throws Exception {
+		Object pk = getPersistancePrimaryKey(getObject());
+		Class<?> persistanceClass = getObject().getClass();
 		Object p = em.find(persistanceClass, pk);
 		em.remove(p);
 	}

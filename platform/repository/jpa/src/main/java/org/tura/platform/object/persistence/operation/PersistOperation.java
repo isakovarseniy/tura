@@ -23,19 +23,39 @@ package org.tura.platform.object.persistence.operation;
 
 import javax.persistence.EntityManager;
 
-import org.tura.platform.object.persistence.data.PersistData;
-
-public class PersistOperation {
+public class PersistOperation implements JPAOperation{
 	
 	EntityManager em;
+	   Object object;
 	
-	public PersistOperation(EntityManager em){
-		this.em=em;
-	}
 
 	
-	public void execute( PersistData data) throws Exception {
-		em.persist(data.getObject());
+	public EntityManager getEntityManager() {
+		return em;
+	}
+
+
+
+	public void setEntityManager(EntityManager em) {
+		this.em = em;
+	}
+
+
+
+	public Object getObject() {
+		return object;
+	}
+
+
+
+	public void setObject(Object object) {
+		this.object = object;
+	}
+
+
+
+	public void execute( ) throws Exception {
+		em.persist(getObject());
 	}
 	
 	

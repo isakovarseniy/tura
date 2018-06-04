@@ -26,21 +26,60 @@ import java.lang.reflect.Method;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.lang.WordUtils;
-import org.tura.platform.object.persistence.data.UpdateData;
 
-public class UpdateOperation {
-	
-	
+public class UpdateOperation implements JPAOperation {
+
 	EntityManager em;
-	
-	public UpdateOperation(EntityManager em){
-		this.em=em;
+	Object pk;
+	String className;
+	String property;
+	Object value;
+
+	public EntityManager getEntityManager() {
+		return em;
 	}
-	public void execute (UpdateData data) throws Exception{
-		Object object = em.find(Class.forName(data.getClassName()), data.getPk());
-		String name = "set"+WordUtils.capitalize(data.getProperty());
-		Method m = object.getClass().getDeclaredMethod(name, data.getValue().getClass());
-		m.invoke(object, data.getValue());
+
+	public void setEntityManager(EntityManager em) {
+		this.em = em;
 	}
-	
+
+	public Object getPk() {
+		return pk;
+	}
+
+	public void setPk(Object pk) {
+		this.pk = pk;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+	public String getProperty() {
+		return property;
+	}
+
+	public void setProperty(String property) {
+		this.property = property;
+	}
+
+	public Object getValue() {
+		return value;
+	}
+
+	public void setValue(Object value) {
+		this.value = value;
+	}
+
+	public void execute() throws Exception {
+		Object object = em.find(Class.forName(getClassName()), getPk());
+		String name = "set" + WordUtils.capitalize(getProperty());
+		Method m = object.getClass().getDeclaredMethod(name, getValue().getClass());
+		m.invoke(object, getValue());
+	}
+
 }

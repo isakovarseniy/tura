@@ -19,41 +19,14 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.object.persistence.data;
+package org.tura.platform.object.persistence.operation;
 
-public class UpdateData {
+import javax.persistence.EntityManager;
+
+public interface JPAOperation {
 	
-	Object pk;
-	String className;
-	String property;
-	Object value;
-	
-	public Object getPk() {
-		return pk;
-	}
-	public void setPk(Object pk) {
-		this.pk = pk;
-	}
-	public String getProperty() {
-		return property;
-	}
-	public String getClassName() {
-		return className;
-	}
-	public void setClassName(String className) {
-		this.className = className;
-	}
-	public void setProperty(String property) {
-		this.property = property;
-	}
-	public Object getValue() {
-		return value;
-	}
-	public void setValue(Object value) {
-		this.value = value;
-	}
-	
-	
-	
+	public void execute() throws Exception ;
+
+	public void setEntityManager(EntityManager em) ;
 
 }
