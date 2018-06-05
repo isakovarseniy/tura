@@ -21,19 +21,16 @@
  */
 package org.tura.platform.object.persistence.operation;
 
-import java.lang.reflect.Method;
-
 import javax.persistence.EntityManager;
 
-import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.core.RepositoryCommandType;
+import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.persistence.PersistanceMapper;
 
-public class UpdateOperation implements JPAOperation {
+public class DefaultRemoveObjectOperation  extends JPAOperation{
 
 	EntityManager em;
-	Object pk;
-	String className;
-	String property;
-	Object value;
+	Object object;
 
 	public EntityManager getEntityManager() {
 		return em;
@@ -43,43 +40,27 @@ public class UpdateOperation implements JPAOperation {
 		this.em = em;
 	}
 
-	public Object getPk() {
-		return pk;
+	public Object getObject() {
+		return object;
 	}
 
-	public void setPk(Object pk) {
-		this.pk = pk;
-	}
-
-	public String getClassName() {
-		return className;
-	}
-
-	public void setClassName(String className) {
-		this.className = className;
-	}
-
-	public String getProperty() {
-		return property;
-	}
-
-	public void setProperty(String property) {
-		this.property = property;
-	}
-
-	public Object getValue() {
-		return value;
-	}
-
-	public void setValue(Object value) {
-		this.value = value;
+	public void setObject(Object object) {
+		this.object = object;
 	}
 
 	public void execute() throws Exception {
-		Object object = em.find(Class.forName(getClassName()), getPk());
-		String name = "set" + WordUtils.capitalize(getProperty());
-		Method m = object.getClass().getDeclaredMethod(name, getValue().getClass());
-		m.invoke(object, getValue());
+		Object pk = getPersistancePrimaryKey(getObject());
+		Class<?> persistanceClass = getObject().getClass();
+		Object p = em.find(persistanceClass, pk);
+		em.remove(p);
 	}
 
+	@Override
+	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
+		Object repositoryObject_ = parameters[0];
+		PersistanceMapper mapper = findPersistanceMapper(repositoryObject_.getClass().getName());
+		Object persistanceObject = mapper.copyFromRepository2Persistence(repositoryObject_);
+		setObject(persistanceObject);
+		return false;
+	}
 }

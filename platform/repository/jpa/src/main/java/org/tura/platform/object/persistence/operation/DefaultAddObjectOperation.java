@@ -23,9 +23,11 @@ package org.tura.platform.object.persistence.operation;
 
 import javax.persistence.EntityManager;
 
-import org.tura.platform.repository.core.RepositoryHelper;
+import org.tura.platform.repository.core.RepositoryCommandType;
+import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.persistence.PersistanceMapper;
 
-public class RemoveOperation extends RepositoryHelper implements JPAOperation{
+public class DefaultAddObjectOperation extends JPAOperation {
 
 	EntityManager em;
 	Object object;
@@ -47,9 +49,19 @@ public class RemoveOperation extends RepositoryHelper implements JPAOperation{
 	}
 
 	public void execute() throws Exception {
-		Object pk = getPersistancePrimaryKey(getObject());
-		Class<?> persistanceClass = getObject().getClass();
-		Object p = em.find(persistanceClass, pk);
-		em.remove(p);
+		em.persist(getObject());
 	}
+
+	@Override
+	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
+
+		Object repositoryObject_ = parameters[0];
+
+		PersistanceMapper mapper = findPersistanceMapper(repositoryObject_.getClass().getName());
+		Object persistanceObject = mapper.copyFromRepository2Persistence(repositoryObject_);
+		setObject(persistanceObject);
+
+		return false;
+	}
+
 }

@@ -134,7 +134,7 @@ public class JPARepository implements Repository {
 				String property = (String) parentChildRelation.getValue();
 				Object persistenceObject = parentPersistenceObject.getValue();
                
-				List<?> list = new  JPACommandProducer(registry).findChildren(persistenceObject, relationType, property);
+				List<?> list = new  RepositoryHelper().findChildren(persistenceObject, relationType, property);
 				return new SearchResult(list, list.size());
 			}
 			
@@ -180,8 +180,6 @@ public class JPARepository implements Repository {
 		} catch (Exception e) {
 			throw new RepositoryException(e);
 		}
-		
-
 	}
 
 }

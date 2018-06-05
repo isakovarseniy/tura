@@ -24,8 +24,11 @@ package org.tura.platform.repository.core;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +37,7 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.core.relatioin.RelationBuilder;
+import org.tura.platform.repository.persistence.RelEnum;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 public class RepositoryHelper {
@@ -158,6 +162,38 @@ public class RepositoryHelper {
 		return result;
 	}
 
+	public List<?> findChildren(Object persistenceObject, String relationType, String property) throws Exception {
+
+		if ("One2Many".equals(relationType)) {
+			String methodName = "get" + WordUtils.capitalize((String) property);
+			Method m = persistenceObject.getClass().getDeclaredMethod(methodName);
+			if (findAnnotationType(m)) {
+				relationType = "One2Many";
+			} else {
+				relationType = "Many2One";
+			}
+		}
+		return RelEnum.valueOf(relationType).getOperation().getChildren(persistenceObject, property);
+
+	}
+
+	private boolean findAnnotationType(Method method) {
+		boolean one2many = true;
+		Type returnType = method.getGenericReturnType();
+		if (returnType instanceof ParameterizedType) {
+			ParameterizedType type = (ParameterizedType) returnType;
+			if (((Class<?>) type.getRawType()).getName().equals(Collection.class.getName())
+					|| ((Class<?>) type.getRawType()).getName().equals(List.class.getName())) {
+				one2many = true;
+			} else {
+				one2many = false;
+			}
+		} else {
+			one2many = false;
+		}
+		return one2many;
+
+	}
 	
 	
 }

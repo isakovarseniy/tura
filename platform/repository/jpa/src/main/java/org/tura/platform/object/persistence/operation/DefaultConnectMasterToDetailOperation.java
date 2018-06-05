@@ -23,10 +23,13 @@ package org.tura.platform.object.persistence.operation;
 
 import javax.persistence.EntityManager;
 
+import org.tura.platform.repository.core.RepoKeyPath;
+import org.tura.platform.repository.core.RepositoryCommandType;
+import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.RelEnum;
 import org.tura.platform.repository.persistence.RelOperation;
 
-public class ConnectOperation implements JPAOperation{
+public class DefaultConnectMasterToDetailOperation extends JPAOperation {
 
 	Object masterPk;
 	String masterClassName;
@@ -99,6 +102,28 @@ public class ConnectOperation implements JPAOperation{
 
 	public void setEntityManager(EntityManager em) {
 		this.em = em;
+	}
+
+	@Override
+	public boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException {
+		try {
+
+			RepoKeyPath masterPk_ = (RepoKeyPath) parameters[0];
+			String masterProperty_ = (String) parameters[1];
+			RepoKeyPath detailPk_ = (RepoKeyPath) parameters[2];
+
+			setMasterPk(getPrimaryKey(masterPk_));
+			setMasterProperty(masterProperty_);
+			setMasterClassName(getPersistanceClassName(masterPk_));
+			setRelation(getRelationType(masterPk_, masterProperty_));
+			setDetailPk(getPrimaryKey(detailPk_));
+			setDetailClassName(getPersistanceClassName(detailPk_));
+
+			return true;
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+
+		}
 	}
 
 }

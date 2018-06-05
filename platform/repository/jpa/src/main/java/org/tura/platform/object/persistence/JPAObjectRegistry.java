@@ -26,6 +26,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.tura.platform.object.persistence.operation.JPAOperation;
+import org.tura.platform.repository.core.RepositoryCommandType;
+import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
@@ -55,7 +58,7 @@ public class JPAObjectRegistry {
 	public JpaRegistry getRegistry(String name){
 		JpaRegistry r = hash.get(name);
 		if (r == null ){
-			r = new JpaRegistry();
+			r = new JpaRegistry(name);
 			hash.put(name, r);
 		}
 		return r;
@@ -68,6 +71,19 @@ public class JPAObjectRegistry {
 		private Map<String, PostQueryTrigger> postQueryTriggers = new HashMap<>();
 		private List<Class<?>> jpaClasses = new ArrayList<>();
 		private Map<String, PersistanceMapper> mappers = new HashMap<>();
+		private List<JPAOperation> externalCommands = new ArrayList<>();
+		private String registry;
+
+		
+		JpaRegistry(String registry){
+			this.registry = registry;
+		}
+
+		
+		public void addExternalCommand(JPAOperation cmd){
+			cmd.setRegistry(registry);
+			externalCommands.add(cmd);
+		}
 
 		
 		public void addMapper(String repositoryClass, String persistanceClass, PersistanceMapper mapper) {
@@ -119,6 +135,17 @@ public class JPAObjectRegistry {
 		public PersistanceMapper findMapper(String persistanceClass, String repositoryClass) {
 			return mappers.get(persistanceClass + "2" + repositoryClass);
 		}
+		
+		public List<Object> findCommand(RepositoryCommandType cmdType, Object ...parameters) throws RepositoryException{
+			List<Object> list = new ArrayList<>();
+			for (JPAOperation cmd : externalCommands){
+				if (cmd.checkCommand( cmdType, parameters)){
+					list.add(cmd);
+				}
+			}
+			return list;
+		}
+		
 		
 		
 	}
