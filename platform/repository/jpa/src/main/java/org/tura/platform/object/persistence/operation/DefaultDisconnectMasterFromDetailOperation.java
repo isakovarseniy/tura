@@ -23,13 +23,14 @@ package org.tura.platform.object.persistence.operation;
 
 import javax.persistence.EntityManager;
 
+import org.tura.platform.object.persistence.JpaRepositoryCommand;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.RelEnum;
 import org.tura.platform.repository.persistence.RelOperation;
 
-public class DefaultDisconnectMasterFromDetailOperation extends JPAOperation {
+public class DefaultDisconnectMasterFromDetailOperation extends JpaRepositoryCommand {
 
 	EntityManager em;
 	Object masterPk;

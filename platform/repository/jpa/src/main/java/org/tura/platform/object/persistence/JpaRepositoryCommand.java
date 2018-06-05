@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.object.persistence.operation;
+package org.tura.platform.object.persistence;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -31,7 +31,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.lang.WordUtils;
-import org.tura.platform.object.persistence.JPAObjectRegistry;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
@@ -42,7 +41,7 @@ import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 
-public abstract class JPAOperation extends RepositoryHelper{
+public abstract class JpaRepositoryCommand extends RepositoryHelper{
 	
 	private String registry;
 
@@ -58,7 +57,7 @@ public abstract class JPAOperation extends RepositoryHelper{
 
 	protected PersistanceMapper findPersistanceMapper(String repositoryClass) throws RepositoryException {
 		 String persistanceClass = Registry.getInstance().findPersistanceClass(repositoryClass);
-		return JPAObjectRegistry.getInstance().getRegistry(registry).findMapper(persistanceClass, repositoryClass);
+		return JpaObjectRegistry.getInstance().getRegistry(registry).findMapper(persistanceClass, repositoryClass);
 	}
 	
 	
@@ -78,7 +77,7 @@ public abstract class JPAOperation extends RepositoryHelper{
 	
     protected boolean isItJPAClass(RepoKeyPath pk) throws Exception{
 		String className = getPersistanceClassName(pk); 
-		return JPAObjectRegistry.getInstance().getRegistry(registry).isClassRegistered(className);
+		return JpaObjectRegistry.getInstance().getRegistry(registry).isClassRegistered(className);
 	}
 	
 	protected String getRelationType(RepoKeyPath pk, String property) throws Exception {

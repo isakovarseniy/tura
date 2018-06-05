@@ -23,11 +23,12 @@ package org.tura.platform.object.persistence.operation;
 
 import javax.persistence.EntityManager;
 
+import org.tura.platform.object.persistence.JpaRepositoryCommand;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 
-public class DefaultRemoveObjectOperation  extends JPAOperation{
+public class DefaultRemoveObjectOperation  extends JpaRepositoryCommand{
 
 	EntityManager em;
 	Object object;

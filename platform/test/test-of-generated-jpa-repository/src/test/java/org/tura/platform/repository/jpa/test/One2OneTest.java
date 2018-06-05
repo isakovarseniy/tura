@@ -41,8 +41,8 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.persistence.JPARepository;
-import org.tura.platform.object.persistence.JPATransactionAdapter;
+import org.tura.platform.object.persistence.JpaRepository;
+import org.tura.platform.object.persistence.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
@@ -119,12 +119,12 @@ public class One2OneTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		InitJPARepository init = new InitJPARepository(new JPARepository(em));
+		InitJPARepository init = new InitJPARepository(new JpaRepository(em));
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
 		
-		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
+		Registry.getInstance().setTransactrionAdapter(new JpaTransactionAdapter(em));
 
 		return  new ProxyRepository(repository,stackProvider);
 		

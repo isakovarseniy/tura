@@ -26,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.tura.platform.object.persistence.operation.JPAOperation;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.persistence.PersistanceMapper;
@@ -34,23 +33,23 @@ import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
-public class JPAObjectRegistry {
+public class JpaObjectRegistry {
 
 
-	private static JPAObjectRegistry instance = new JPAObjectRegistry();
+	private static JpaObjectRegistry instance = new JpaObjectRegistry();
 	private static Map<String,JpaRegistry> hash = new HashMap<>();
 	
 	
 
-	private JPAObjectRegistry() {
+	private JpaObjectRegistry() {
 
 	}
 
-	public static JPAObjectRegistry getInstance() {
+	public static JpaObjectRegistry getInstance() {
 		return instance;
 	}
 	
-	public static JPAObjectRegistry newInstance() {
+	public static JpaObjectRegistry newInstance() {
 		 hash = new HashMap<>();
 		return instance;
 	}
@@ -71,7 +70,7 @@ public class JPAObjectRegistry {
 		private Map<String, PostQueryTrigger> postQueryTriggers = new HashMap<>();
 		private List<Class<?>> jpaClasses = new ArrayList<>();
 		private Map<String, PersistanceMapper> mappers = new HashMap<>();
-		private List<JPAOperation> externalCommands = new ArrayList<>();
+		private List<JpaRepositoryCommand> externalCommands = new ArrayList<>();
 		private String registry;
 
 		
@@ -80,7 +79,7 @@ public class JPAObjectRegistry {
 		}
 
 		
-		public void addExternalCommand(JPAOperation cmd){
+		public void addExternalCommand(JpaRepositoryCommand cmd){
 			cmd.setRegistry(registry);
 			externalCommands.add(cmd);
 		}
@@ -138,7 +137,7 @@ public class JPAObjectRegistry {
 		
 		public List<Object> findCommand(RepositoryCommandType cmdType, Object ...parameters) throws RepositoryException{
 			List<Object> list = new ArrayList<>();
-			for (JPAOperation cmd : externalCommands){
+			for (JpaRepositoryCommand cmd : externalCommands){
 				if (cmd.checkCommand( cmdType, parameters)){
 					list.add(cmd);
 				}

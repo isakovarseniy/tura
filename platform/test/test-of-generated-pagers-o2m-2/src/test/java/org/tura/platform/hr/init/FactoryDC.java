@@ -39,7 +39,7 @@ import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
-import org.tura.platform.object.persistence.JPARepository;
+import org.tura.platform.object.persistence.JpaRepository;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.Repository;
 import org.tura.platform.test.Factory;
@@ -70,7 +70,7 @@ public class FactoryDC implements Factory {
 		repository = new BasicRepository();
 		
 		DefaultDataProvider dataProvider = new DefaultDataProvider();
-		dataProvider.setPersistenceProvider(new JPARepository(em));
+		dataProvider.setPersistenceProvider(new JpaRepository(em));
 		dataProvider.setRepository(repository);
 		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
 		dataProvider.init();

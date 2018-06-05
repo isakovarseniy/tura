@@ -38,7 +38,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.persistence.JPATransactionAdapter;
+import org.tura.platform.object.persistence.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
@@ -131,7 +131,7 @@ public class SpaRepositoryInternalRelationTest {
         Registry.getInstance().addClassMapping("objects.test.serialazable.jpa.B1","org.tura.jpa.test.B1");
 
         
-		Registry.getInstance().setTransactrionAdapter(new JPATransactionAdapter(em));
+		Registry.getInstance().setTransactrionAdapter(new JpaTransactionAdapter(em));
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, new SearchService());
 

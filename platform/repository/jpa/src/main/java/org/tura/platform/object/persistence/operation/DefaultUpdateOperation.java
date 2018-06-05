@@ -26,11 +26,12 @@ import java.lang.reflect.Method;
 import javax.persistence.EntityManager;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.object.persistence.JpaRepositoryCommand;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 
-public class DefaultUpdateOperation extends  JPAOperation {
+public class DefaultUpdateOperation extends  JpaRepositoryCommand {
 
 	EntityManager em;
 	Object pk;

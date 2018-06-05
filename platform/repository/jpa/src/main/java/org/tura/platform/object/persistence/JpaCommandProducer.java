@@ -31,17 +31,16 @@ import org.tura.platform.object.persistence.operation.DefaultDisconnectDetailFro
 import org.tura.platform.object.persistence.operation.DefaultDisconnectMasterFromDetailOperation;
 import org.tura.platform.object.persistence.operation.DefaultRemoveObjectOperation;
 import org.tura.platform.object.persistence.operation.DefaultUpdateOperation;
-import org.tura.platform.object.persistence.operation.JPAOperation;
 import org.tura.platform.repository.core.CommandProducer;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 
-public class JPACommandProducer implements CommandProducer {
+public class JpaCommandProducer implements CommandProducer {
 
 	private String registry;
 
-	public JPACommandProducer(String registry) {
+	public JpaCommandProducer(String registry) {
 		this.registry = registry;
 
 	}
@@ -49,13 +48,13 @@ public class JPACommandProducer implements CommandProducer {
 
 	@Override
 	public List<Object> removeObject(Object repositoryObject) throws RepositoryException {
-		List<Object> list = JPAObjectRegistry.getInstance().getRegistry(registry)
+		List<Object> list = JpaObjectRegistry.getInstance().getRegistry(registry)
 				.findCommand(RepositoryCommandType.removeObject, repositoryObject);
 		if (list != null && list.size() > 0) {
 			return list;
 		}
 		list = new ArrayList<>();
-		JPAOperation cmd = new DefaultRemoveObjectOperation();
+		JpaRepositoryCommand cmd = new DefaultRemoveObjectOperation();
 		cmd.setRegistry(registry);
 		cmd.checkCommand(RepositoryCommandType.removeObject, repositoryObject);
 		list.add(cmd);
@@ -70,13 +69,13 @@ public class JPACommandProducer implements CommandProducer {
 
 	@Override
 	public List<Object> addObject(Object repositoryObject) throws RepositoryException {
-		List<Object> list = JPAObjectRegistry.getInstance().getRegistry(registry)
+		List<Object> list = JpaObjectRegistry.getInstance().getRegistry(registry)
 				.findCommand(RepositoryCommandType.addObject, repositoryObject);
 		if (list != null && list.size() > 0) {
 			return list;
 		}
 		list = new ArrayList<>();
-		JPAOperation cmd = new DefaultAddObjectOperation();
+		JpaRepositoryCommand cmd = new DefaultAddObjectOperation();
 		cmd.setRegistry(registry);
 		cmd.checkCommand(RepositoryCommandType.addObject, repositoryObject);
 		list.add(cmd);
@@ -93,13 +92,13 @@ public class JPACommandProducer implements CommandProducer {
 	public List<Object> disconnectMasterFromDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
 
-		List<Object> list = JPAObjectRegistry.getInstance().getRegistry(registry).findCommand(
+		List<Object> list = JpaObjectRegistry.getInstance().getRegistry(registry).findCommand(
 				RepositoryCommandType.disconnectMasterFromDetail, masterPk, masterProperty, detailPk, detailProperty);
 		if (list != null && list.size() > 0) {
 			return list;
 		}
 		list = new ArrayList<>();
-		JPAOperation cmd = new DefaultDisconnectMasterFromDetailOperation();
+		JpaRepositoryCommand cmd = new DefaultDisconnectMasterFromDetailOperation();
 		cmd.setRegistry(registry);
 		cmd.checkCommand(RepositoryCommandType.disconnectMasterFromDetail, masterPk, masterProperty, detailPk,
 				detailProperty);
@@ -110,13 +109,13 @@ public class JPACommandProducer implements CommandProducer {
 	@Override
 	public List<Object> disconnectDetailFromMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		List<Object> list = JPAObjectRegistry.getInstance().getRegistry(registry).findCommand(
+		List<Object> list = JpaObjectRegistry.getInstance().getRegistry(registry).findCommand(
 				RepositoryCommandType.disconnectDetailFromMaster, masterPk, masterProperty, detailPk, detailProperty);
 		if (list != null && list.size() > 0) {
 			return list;
 		}
 		list = new ArrayList<>();
-		JPAOperation cmd = new DefaultDisconnectDetailFromMasterOperation();
+		JpaRepositoryCommand cmd = new DefaultDisconnectDetailFromMasterOperation();
 		cmd.setRegistry(registry);
 		cmd.checkCommand(RepositoryCommandType.disconnectDetailFromMaster, masterPk, masterProperty, detailPk,
 				detailProperty);
@@ -128,12 +127,12 @@ public class JPACommandProducer implements CommandProducer {
 	@Override
 	public List<Object> connectMasterToDetail(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		List<Object> list =   JPAObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.connectMasterToDetail, masterPk,masterProperty,detailPk,detailProperty);
+		List<Object> list =   JpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.connectMasterToDetail, masterPk,masterProperty,detailPk,detailProperty);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		JPAOperation cmd = new DefaultConnectMasterToDetailOperation();
+		JpaRepositoryCommand cmd = new DefaultConnectMasterToDetailOperation();
 		cmd.setRegistry(registry);
 		cmd.checkCommand(RepositoryCommandType.connectMasterToDetail, masterPk,masterProperty,detailPk,detailProperty);
 		list.add( cmd);
@@ -143,12 +142,12 @@ public class JPACommandProducer implements CommandProducer {
 	@Override
 	public List<Object> connectDetailToMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,
 			String detailProperty) throws RepositoryException {
-		List<Object> list =   JPAObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.connectDetailToMaster, masterPk,masterProperty,detailPk,detailProperty);
+		List<Object> list =   JpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.connectDetailToMaster, masterPk,masterProperty,detailPk,detailProperty);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		JPAOperation cmd = new DefaultConnectDetailToMasterOperation();
+		JpaRepositoryCommand cmd = new DefaultConnectDetailToMasterOperation();
 		cmd.setRegistry(registry);
 		cmd.checkCommand(RepositoryCommandType.connectDetailToMaster, masterPk,masterProperty,detailPk,detailProperty);
 		list.add( cmd);
@@ -158,12 +157,12 @@ public class JPACommandProducer implements CommandProducer {
 
 	@Override
 	public List<Object> update(RepoKeyPath pk, String property, Object value) throws RepositoryException {
-		List<Object> list =   JPAObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.update, pk,property,value);
+		List<Object> list =   JpaObjectRegistry.getInstance().getRegistry(registry).findCommand(RepositoryCommandType.update, pk,property,value);
 		if (list  != null && list.size() > 0  ){
 			return  list;
 		}
 		list = new ArrayList<>();
-		JPAOperation cmd = new DefaultUpdateOperation();
+		JpaRepositoryCommand cmd = new DefaultUpdateOperation();
 		cmd.setRegistry(registry);
 		cmd.checkCommand(RepositoryCommandType.update, pk,property,value);
 		list.add( cmd );

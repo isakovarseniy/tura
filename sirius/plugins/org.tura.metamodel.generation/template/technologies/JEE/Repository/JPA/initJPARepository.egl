@@ -16,13 +16,13 @@ ${start}${percent}
  package [%=savepackage%];
  
  import org.tura.platform.repository.core.Registry;
- import org.tura.platform.object.persistence.JPAObjectRegistry;
+ import org.tura.platform.object.persistence.JpaObjectRegistry;
  
  public class InitJPARepository{
  
-     org.tura.platform.object.persistence.JPARepository repository;
+     org.tura.platform.object.persistence.JpaRepository repository;
      
-     public InitJPARepository(JPARepository repository){
+     public InitJPARepository(JpaRepository repository){
          this.repository = repository;
          this.repository.setRegistry("[%=component.artifactId%]");
      }
@@ -51,8 +51,8 @@ ${start}${percent}
        %] 
         Registry.getInstance().addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
         Registry.getInstance().addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
-        JPAObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addJpaClass("[%=t2model.get(type).get("fullName")%]");
-        JPAObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
+        JpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addJpaClass("[%=t2model.get(type).get("fullName")%]");
+        JpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
         
        [%
        }
@@ -61,7 +61,7 @@ ${start}${percent}
     }
 
      public void initCommandProducer(){
-        Registry.getInstance().addCommandProducer(repository,new org.tura.platform.object.persistence.JPACommandProducer("[%=component.artifactId%]"));
+        Registry.getInstance().addCommandProducer(repository,new org.tura.platform.object.persistence.JpaCommandProducer("[%=component.artifactId%]"));
      }
  
   

@@ -32,7 +32,6 @@ import javax.persistence.Query;
 import org.tura.platform.datacontrol.commons.DefaulQueryFactory;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.persistence.operation.JPAOperation;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.RepositoryHelper;
@@ -43,12 +42,12 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 import com.octo.java.sql.query.SelectQuery;
 
-public class JPARepository implements Repository {
+public class JpaRepository implements Repository {
 
 	private EntityManager em;
 	private String registry;
 
-	public JPARepository(EntityManager em) {
+	public JpaRepository(EntityManager em) {
 		this.em = em;
 	}
 
@@ -61,11 +60,11 @@ public class JPARepository implements Repository {
 	}
 	
 	private PostCreateTrigger findPostCreateTrigger(String repositoryClass) throws RepositoryException {
-		return JPAObjectRegistry.getInstance().getRegistry(registry).findPostCreateTrigger(repositoryClass);
+		return JpaObjectRegistry.getInstance().getRegistry(registry).findPostCreateTrigger(repositoryClass);
 	}
 
 	private PreQueryTrigger findPreQueryTrigger(String repositoryClass) throws RepositoryException {
-		return JPAObjectRegistry.getInstance().getRegistry(registry).findPreQueryTrigger(repositoryClass);
+		return JpaObjectRegistry.getInstance().getRegistry(registry).findPreQueryTrigger(repositoryClass);
 	}
 
 	protected List<?> findObjectsQuery(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
@@ -173,7 +172,7 @@ public class JPARepository implements Repository {
 		try {
 			for (Object change : changes) {
 				
-				JPAOperation operation = (JPAOperation) change;
+				JpaRepositoryCommand operation = (JpaRepositoryCommand) change;
 				operation.setEntityManager(em);
 				operation.execute();
 			}

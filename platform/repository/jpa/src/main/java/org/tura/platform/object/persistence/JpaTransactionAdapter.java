@@ -25,11 +25,11 @@ import javax.persistence.EntityManager;
 
 import org.tura.platform.repository.core.TransactionAdapter;
 
-public class JPATransactionAdapter extends TransactionAdapter{
+public class JpaTransactionAdapter extends TransactionAdapter{
 	
 	private EntityManager em;
 	
-	public JPATransactionAdapter (EntityManager em){
+	public JpaTransactionAdapter (EntityManager em){
 		this.em = em;
 	}
 	
