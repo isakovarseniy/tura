@@ -44,12 +44,20 @@ import org.tura.platform.repository.persistence.PersistanceMapper;
 public abstract class JpaRepositoryCommand extends RepositoryHelper{
 	
 	private String registry;
+	protected EntityManager em;
 
 	public abstract void execute() throws Exception ;
 
-	public abstract void setEntityManager(EntityManager em) ;
-	
 	public abstract boolean checkCommand(RepositoryCommandType cmdType, Object... parameters) throws RepositoryException; 
+	
+	public EntityManager getEntityManager() {
+		return em;
+	}
+
+	public void setEntityManager(EntityManager em) {
+		this.em = em;
+	}
+	
 	
 	public void setRegistry(String registry) {
 		this.registry = registry;

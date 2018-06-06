@@ -21,8 +21,6 @@
  */
 package org.tura.platform.object.persistence.operation;
 
-import javax.persistence.EntityManager;
-
 import org.tura.platform.object.persistence.JpaRepositoryCommand;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryCommandType;
@@ -38,7 +36,6 @@ public class DefaultConnectMasterToDetailOperation extends JpaRepositoryCommand 
 	Object detailPk;
 	String detailClassName;
 	String relation;
-	EntityManager em;
 
 	public Object getMasterPk() {
 		return masterPk;
@@ -95,14 +92,6 @@ public class DefaultConnectMasterToDetailOperation extends JpaRepositoryCommand 
 		RelOperation operation = RelEnum.valueOf(getRelation()).getOperation();
 		operation.connect(master, detail, getMasterProperty());
 
-	}
-
-	public EntityManager getEntityManager() {
-		return em;
-	}
-
-	public void setEntityManager(EntityManager em) {
-		this.em = em;
 	}
 
 	@Override

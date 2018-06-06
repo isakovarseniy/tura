@@ -21,7 +21,6 @@
  */
 package org.tura.platform.object.persistence.operation;
 
-import javax.persistence.EntityManager;
 
 import org.tura.platform.object.persistence.JpaRepositoryCommand;
 import org.tura.platform.repository.core.RepoKeyPath;
@@ -32,21 +31,12 @@ import org.tura.platform.repository.persistence.RelOperation;
 
 public class DefaultDisconnectMasterFromDetailOperation extends JpaRepositoryCommand {
 
-	EntityManager em;
 	Object masterPk;
 	String masterClassName;
 	String masterProperty;
 	Object detailPk;
 	String detailClassName;
 	String relation;
-
-	public EntityManager getEntityManager() {
-		return em;
-	}
-
-	public void setEntityManager(EntityManager em) {
-		this.em = em;
-	}
 
 	public Object getMasterPk() {
 		return masterPk;
