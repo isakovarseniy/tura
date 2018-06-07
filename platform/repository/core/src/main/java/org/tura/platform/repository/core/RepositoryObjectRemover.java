@@ -155,12 +155,21 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
 		Repository masterProvider = findProvider(masterClassName);
 		CommandProducer cmpMaster = findCommandProducer(masterClassName);
-		List<Object> masterChanges = cmpMaster.disconnectMasterFromDetail(masterPk, masterProperty, detailPk,
-				detailProperty);
 
 		String detailClassName = detailPk.getPath().get(detailPk.getPath().size() - 1).getType();
 		Repository detailProvider = findProvider(detailClassName);
 		CommandProducer cmpDetail = findCommandProducer(masterClassName);
+
+		cmpMaster.setMasterProvider(masterProvider);
+		cmpMaster.setDetailProvider(detailProvider);
+		
+		cmpDetail.setMasterProvider(masterProvider);
+		cmpDetail.setDetailProvider(detailProvider);
+
+		
+		List<Object> masterChanges = cmpMaster.disconnectMasterFromDetail(masterPk, masterProperty, detailPk,
+				detailProperty);
+
 		List<Object> detailChanges = cmpDetail.disconnectDetailFromMaster(masterPk, masterProperty, detailPk,
 				detailProperty);
 

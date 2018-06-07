@@ -181,4 +181,13 @@ public class JpaRepository implements Repository {
 		}
 	}
 
+	@Override
+	public Object find(Object pk, String objectClass) throws RepositoryException {
+		try{
+		return em.find(Class.forName(objectClass), pk);
+		}catch(Exception e){
+			throw new RepositoryException(e);
+		}
+	}
+
 }

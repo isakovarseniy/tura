@@ -45,7 +45,7 @@ public class DeleteMergeRule implements MergeRule{
 		
 		
 		if ( control.getLevel().name().equals(OperationLevel.INSERT.name()) ){
-			listOfObjectsPerType.remove(preparedObject);
+			listOfObjectsPerType.remove(preparedObject.getKey());
 			listOfObjectsPerType.put(control.getKey(), control);
 		}
 		

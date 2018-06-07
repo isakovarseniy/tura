@@ -35,4 +35,8 @@ public interface CommandProducer {
 	List<Object> connectDetailToMaster(RepoKeyPath masterPk, String masterProperty, RepoKeyPath detailPk,String detailProperty) throws RepositoryException;
 	List<Object> update(RepoKeyPath pk, String property, Object value) throws RepositoryException;
 	
+	void setMasterProvider(Repository masterProvider);
+	void setDetailProvider(Repository detailProvider);
+
+	
 }

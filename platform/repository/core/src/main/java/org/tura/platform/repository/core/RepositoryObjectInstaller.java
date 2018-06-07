@@ -154,6 +154,7 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		String masterClassName = masterPk.getPath().get(masterPk.getPath().size() - 1).getType();
 		Repository masterProvider = findProvider(masterClassName);
 		CommandProducer cmpMaster = findCommandProducer(masterClassName);
+		
 		List<Object> masterChanges = cmpMaster.connectMasterToDetail(masterPk, masterProperty, detailPk,
 				detailProperty);
 
@@ -163,6 +164,13 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 		List<Object> detailChanges = cmpDetail.connectDetailToMaster(masterPk, masterProperty, detailPk,
 				detailProperty);
 
+		cmpMaster.setMasterProvider(masterProvider);
+		cmpMaster.setDetailProvider(detailProvider);
+		
+		cmpDetail.setMasterProvider(masterProvider);
+		cmpDetail.setDetailProvider(detailProvider);
+
+		
 		ConnectObjectRule rule = new ConnectObjectRule();
 		rule.setMasterChanges(masterChanges);
 		rule.setMasterProvider(masterProvider);

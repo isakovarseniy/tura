@@ -60,4 +60,9 @@ public class NutRepository implements Repository{
 		
 	}
 
+	@Override
+	public Object find(Object pk, String objectClass) throws RepositoryException {
+		return null;
+	}
+
 }

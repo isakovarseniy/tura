@@ -172,4 +172,9 @@ public class RestClientRepository implements Repository {
 		}
 	}
 
+	@Override
+	public Object find(Object pk, String objectClass) throws RepositoryException {
+		throw new UnsupportedOperationException();
+	}
+
 }

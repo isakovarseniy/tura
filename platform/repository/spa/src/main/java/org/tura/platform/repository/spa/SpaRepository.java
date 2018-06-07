@@ -85,6 +85,20 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	}
 
 	@Override
+	public Object find(Object pk, String objectClass) throws RepositoryException {
+		try {
+			SearchProvider provider = findSearchProvider(objectClass);
+			provider.setMapper(findMapper(objectClass));
+			provider.setCache(cache.get(objectClass));
+			return provider.find( pk, objectClass);
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+		}
+	}
+	
+	
+	
+	@Override
 	public void insert(Object obj, String objectClass) throws RepositoryException {
 		throw new UnsupportedOperationException();
 	}
@@ -225,5 +239,6 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 			throws RepositoryException {
 		preparedObject.getLevel().getRule().merge(listOfObjectsPerType, preparedObject, control);
 	}
+
 
 }

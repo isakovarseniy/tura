@@ -43,7 +43,7 @@ public class UpdateMergeRule implements MergeRule{
 		}
 		
 		if ( control.getLevel().name().equals(OperationLevel.DELETE.name()) ){
-			listOfObjectsPerType.remove(preparedObject);
+			listOfObjectsPerType.remove(preparedObject.getKey());
 			listOfObjectsPerType.put(control.getKey(), control);
 		}
 		

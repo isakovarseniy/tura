@@ -33,12 +33,35 @@ import org.tura.platform.object.persistence.operation.DefaultRemoveObjectOperati
 import org.tura.platform.object.persistence.operation.DefaultUpdateOperation;
 import org.tura.platform.repository.core.CommandProducer;
 import org.tura.platform.repository.core.RepoKeyPath;
+import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 
 public class JpaCommandProducer implements CommandProducer {
 
 	private String registry;
+	Repository masterProvider;
+	Repository detailProvider;
+
+	public Repository getMasterProvider() {
+		return masterProvider;
+	}
+
+
+	public void setMasterProvider(Repository masterProvider) {
+		this.masterProvider = masterProvider;
+	}
+
+
+	public Repository getDetailProvider() {
+		return detailProvider;
+	}
+
+
+	public void setDetailProvider(Repository detailProvider) {
+		this.detailProvider = detailProvider;
+	}
+
 
 	public JpaCommandProducer(String registry) {
 		this.registry = registry;

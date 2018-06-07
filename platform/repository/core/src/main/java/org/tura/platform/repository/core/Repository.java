@@ -33,6 +33,8 @@ public interface Repository {
 	public SearchResult find(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria, Integer startIndex,
 			Integer endIndex, String objectClass) throws RepositoryException ;
 
+	public Object find(Object pk, String objectClass) throws RepositoryException ;
+
 	public void insert( Object obj , String objectClass) throws RepositoryException;
 	
 	public void remove( Object obj , String objectClass) throws RepositoryException;

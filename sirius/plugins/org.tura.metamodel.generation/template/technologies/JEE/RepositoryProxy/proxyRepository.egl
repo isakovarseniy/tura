@@ -79,6 +79,13 @@ public class ProxyRepository implements org.tura.platform.repository.core.Reposi
     	}
         return new org.tura.platform.repository.core.SearchResult (list,result.getNumberOfRows());
     }
+    
+	@Override
+	public Object find(Object pk, String objectClass) throws RepositoryException {
+        return transport.find(pk,objectClass);
+	}
+    
+    
 	@Override
     @SuppressWarnings("rawtypes")
 	public void applyChanges(java.util.List changes) throws org.tura.platform.repository.core.RepositoryException {
