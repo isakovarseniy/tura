@@ -65,6 +65,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 				 <xs:appinfo>
 					<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](mappedBy=[%=hash.get("target").~class%].class, property="[%=hash.get("targetProperty")%]", containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" )</annox:annotate>
 				</xs:appinfo>
+				[%=rel.connectionAnnotation(model_mapper,"src")%]
 			  </xs:annotation>
 	         </xs:element>
             [%
@@ -88,6 +89,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
 			 <xs:appinfo>
 				<annox:annotate>@org.tura.platform.repository.core.annotation.[%=annotation%](mappedBy=[%=hash.get("source").~class%].class, property="[%=hash.get("sourceProperty")%]" , containment=[%=hash.get("containment")%], type="[%=rel.type.toString()%]" )</annox:annotate>
 			</xs:appinfo>
+				[%=rel.connectionAnnotation(model_mapper,"trg")%]
 		  </xs:annotation>
 	     </xs:element>
             [%
@@ -155,4 +157,58 @@ operation getNamespace(namespace,targetNamespace,fullHash,returnHash){
       }
   } 
 }
+
+operation type::Assosiation  connectionAnnotation(model_mapper,conType){
+  var util = new Native('org.tura.metamodel.commons.Util');
+    if (self.isConnectionAnnotationExists(model_mapper)) {
+      var first = true;
+      %]
+			 <xs:appinfo>
+				<annox:annotate>@org.tura.platform.repository.core.annotation.Connection( type="[%=conType%]", 
+				links= { 
+        		  [%for ( lnk in self.links) 
+        		  {%]
+        		    [%if (not first){ %] ,[%} %]
+				 @org.tura.platform.repository.core.annotation.Link(field1="[%=util.mergeAndUnCapitalize(lnk.masterField.name)%]", field2 ="[%=util.mergeAndUnCapitalize(lnk.detailField.name)%]")
+		        [%
+                first = false;
+		        }%]
+				 }
+				)
+                </annox:annotate>
+			</xs:appinfo>
+      [%
+
+    } 
+  }
+  
+  
+operation  type::Assosiation isConnectionAnnotationExists(model_mapper){
+
+  var util = new Native('org.tura.metamodel.commons.Util');
+
+  var entityObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Entity Object"));
+  var domainObjectSrc = self.source.findClassifier(util.getHint(model_mapper,"Domain Object"));
+
+  var entityObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Entity Object"));
+  var domainObjectTrg = self.target.findClassifier(util.getHint(model_mapper,"Domain Object"));
+  
+  if (entityObjectSrc and  entityObjectTrg ){
+     return false;
+  }
+
+  if (entityObjectSrc and  domainObjectTrg ){
+     return true;
+  }
+
+  if (domainObjectSrc and  entityObjectTrg ){
+     return true;
+  }
+
+  if  (domainObjectSrc and domainObjectTrg and not self.internal){
+     return true;
+  }
+   return false;
+}  
+  
 %]

@@ -50,26 +50,29 @@ import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
-import org.tura.platform.repository.persistence.RelEnum;
+import org.tura.platform.repository.persistence.RelOperation;
 import org.tura.platform.repository.spa.OperationLevel;
-import org.tura.platform.repository.spa.SearchProvider;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class DefaultDisconnectMasterFromDetailOperation extends SpaRepositoryCommand{
 
-	private RepoKeyPath extendedMasterPk;
-	private RepoObjectKey masterPk;
-	private String masterProperty;
-	private RepoKeyPath extendedDetailPk;
-	private RepoObjectKey detailPk;
-	private String detailProperty;
-	private String masterType;
-	private String masterPersistanceType;
-	private String detailType;
-	private String detailPersistanceType;
+	protected RepoKeyPath extendedMasterPk;
+	protected RepoObjectKey masterPk;
+	protected String masterProperty;
+	protected RepoKeyPath extendedDetailPk;
+	protected RepoObjectKey detailPk;
+	protected String detailProperty;
+	protected String masterType;
+	protected String masterPersistanceType;
+	protected String detailType;
+	protected String detailPersistanceType;
+	protected String extendedMasterType ;
+	protected String extendedDetailType ;
+	
 
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
@@ -83,7 +86,7 @@ public class DefaultDisconnectMasterFromDetailOperation extends SpaRepositoryCom
 			}
 			Object extendedPersistanceMasterObject = getExtendedObject(extendedMasterPk,persistanceMasterObject);
 			
-			SearchProvider spDetail = this.providerHash.get(detailPersistanceType);
+		    SearchProvider spDetail = this.providerHash.get(detailPersistanceType);
 			PersistanceMapper detailMapper = findPersistanceMapper(Class.forName(detailType));
 			Object persistanceDetailObject = spDetail.find(detailMapper.getPKey(detailPk),detailPersistanceType);
 			if (persistanceDetailObject == null) {
@@ -92,9 +95,11 @@ public class DefaultDisconnectMasterFromDetailOperation extends SpaRepositoryCom
 			Object extendedPersistanceDetailObject = getExtendedObject(extendedDetailPk,persistanceDetailObject);
 			
 			
-			RelEnum relation = PersistanceRelationBuilder.build(extendedPersistanceMasterObject.getClass(), masterProperty,
-					extendedPersistanceDetailObject.getClass(), detailProperty);
-			relation.getOperation().disconnect(extendedPersistanceMasterObject, extendedPersistanceDetailObject, masterProperty);
+//			RelOperation relation = PersistanceRelationBuilder.build(extendedPersistanceMasterObject.getClass(), masterProperty,
+//					extendedPersistanceDetailObject.getClass(), detailProperty);
+		    RelOperation relation = PersistanceRelationBuilder.build(Class.forName(extendedMasterType), masterProperty);
+			
+			relation.disconnect(extendedPersistanceMasterObject, extendedPersistanceDetailObject);
 
 			SpaControl masterControl = new SpaControl(persistanceMasterObject,masterMapper.getPKey(masterPk), OperationLevel.UPDATE);
 			
@@ -122,6 +127,10 @@ public class DefaultDisconnectMasterFromDetailOperation extends SpaRepositoryCom
 		detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailType);
 		masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
 
+		extendedMasterType = extendedMasterPk.getPath().get(extendedMasterPk.getPath().size()-1).getType();
+		extendedDetailType = extendedDetailPk.getPath().get(extendedDetailPk.getPath().size()-1).getType();
+		
+		
 		this.knownObjects.add(detailPersistanceType);
 		this.knownObjects.add(masterPersistanceType);
 		return true;

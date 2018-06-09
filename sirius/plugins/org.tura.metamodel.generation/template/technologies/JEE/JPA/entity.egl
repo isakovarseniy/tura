@@ -54,6 +54,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
 	  var assosiations = type::Assosiation.allInstances()->select(t|t.source.uid = type.uid);
       for (rel in assosiations){
          if ( not rel.target.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
+               %][%=rel.sourcetNoAssociation(recipe,ingredient)%][%
                continue;
          }
       
@@ -94,6 +95,7 @@ public class [%=type.~class%]  [%if (type.~extension.isDefined()){%]  extends [%
       for (rel in assosiations){
       
          if ( not rel.source.findClassifier(util.getHint(model_mapper,"Entity Object"))  ){
+               %][%=rel.targetNoAssociation(recipe,ingredient)%][%
                continue;
          }
       
@@ -164,4 +166,30 @@ operation type::Assosiation  joinTable(src,target,model_mapper){
 	            }
               %]})      
 [%
-}%]
+}
+@template
+operation type::Assosiation  sourceNoAssociation(recipe,ingredient){
+
+}
+@template
+operation type::Assosiation  targetNoAssociation(recipe,ingredient){
+        var util = new Native('org.tura.metamodel.commons.Util');
+
+	     for (lnk in self.links){
+	         lnk.detailField.typeRef.mappingType2Java(recipe,ingredient);
+                %]
+            	@javax.persistence.Column(name = "[%=util.splitByCapitalLatterAndCapitalize(lnk.detailField.name)%]")
+                private  [%=lnk.detailField.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(lnk.detailField.name)%];
+                public void set[%=util.mergeAndCapitalize(lnk.detailField.name)%]( [%=lnk.detailField.typeRef.~fullName%]  [%=util.mergeAndUnCapitalize(lnk.detailField.name)%]){
+                   this.[%=util.mergeAndUnCapitalize(lnk.detailField.name)%] = [%=util.mergeAndUnCapitalize(lnk.detailField.name)%];
+                }
+                public  [%=lnk.detailField.typeRef.~fullName%] get[%=util.mergeAndCapitalize(lnk.detailField.name)%]( ){
+                   return this.[%=util.mergeAndUnCapitalize(lnk.detailField.name)%];
+                }
+                [%
+	     }
+}
+
+
+
+%]

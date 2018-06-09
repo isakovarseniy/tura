@@ -52,9 +52,9 @@ import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.spa.OperationLevel;
-import org.tura.platform.repository.spa.SearchProvider;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 

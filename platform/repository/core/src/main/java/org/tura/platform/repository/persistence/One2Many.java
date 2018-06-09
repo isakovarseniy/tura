@@ -67,6 +67,16 @@ public class One2Many implements RelOperation{
 			return new ArrayList<>();
 		}
 		return list;
+	}
+
+	@Override
+	public void connect(Object master, Object detail) throws Exception {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void disconnect(Object master, Object detail) throws Exception {
+		throw new UnsupportedOperationException();
 	}	
 	
 }

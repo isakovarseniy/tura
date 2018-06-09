@@ -50,26 +50,29 @@ import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
-import org.tura.platform.repository.persistence.RelEnum;
+import org.tura.platform.repository.persistence.RelOperation;
 import org.tura.platform.repository.spa.OperationLevel;
-import org.tura.platform.repository.spa.SearchProvider;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class DefaultConnectMasterToDetailOperation extends SpaRepositoryCommand {
 
-	private RepoKeyPath extendedMasterPk;
-	private RepoObjectKey masterPk;
-	private String masterProperty;
-	private RepoKeyPath extendedDetailPk;
-	private RepoObjectKey detailPk;
-	private String detailProperty;
-	private String masterType;
-	private String masterPersistanceType;
-	private String detailType;
-	private String detailPersistanceType;
+	protected RepoKeyPath extendedMasterPk;
+	protected RepoObjectKey masterPk;
+	protected String masterProperty;
+	protected RepoKeyPath extendedDetailPk;
+	protected RepoObjectKey detailPk;
+	protected String detailProperty;
+	protected String masterType;
+	protected String masterPersistanceType;
+	protected String detailType;
+	protected String detailPersistanceType;
+	protected String extendedMasterType ;
+	protected String extendedDetailType ;
+	
 
 	@Override
 	public List<SpaControl> prepare() throws RepositoryException {
@@ -92,9 +95,12 @@ public class DefaultConnectMasterToDetailOperation extends SpaRepositoryCommand 
 			Object extendedPersistanceDetailObject = getExtendedObject(extendedDetailPk,persistanceDetailObject);
 
 			
-			RelEnum relation = PersistanceRelationBuilder.build(extendedPersistanceMasterObject.getClass(), masterProperty,
-					extendedPersistanceDetailObject.getClass(), detailProperty);
-			relation.getOperation().connect(extendedPersistanceMasterObject, extendedPersistanceDetailObject, masterProperty);
+//			RelOperation relation = PersistanceRelationBuilder.build(extendedPersistanceMasterObject.getClass(), masterProperty,
+//					extendedPersistanceDetailObject.getClass(), detailProperty);
+			
+		    RelOperation relation = PersistanceRelationBuilder.build(Class.forName(extendedMasterType), masterProperty);
+			
+			relation.connect(extendedPersistanceMasterObject, extendedPersistanceDetailObject);
 
 			SpaControl masterControl = new SpaControl(persistanceMasterObject, masterMapper.getPKey( masterPk), OperationLevel.UPDATE);
 			
@@ -121,6 +127,10 @@ public class DefaultConnectMasterToDetailOperation extends SpaRepositoryCommand 
 		
 		detailPersistanceType =  Registry.getInstance().findPersistanceClass(detailType);
 		masterPersistanceType =  Registry.getInstance().findPersistanceClass(masterType);
+		
+		extendedMasterType = extendedMasterPk.getPath().get(extendedMasterPk.getPath().size()-1).getType();
+		extendedDetailType = extendedDetailPk.getPath().get(extendedDetailPk.getPath().size()-1).getType();
+		
 		
 		this.knownObjects.add(detailPersistanceType);
 		this.knownObjects.add(masterPersistanceType);

@@ -163,7 +163,7 @@ public class MultipseSpaObjectsTest {
 
 			F1 f1 = (F1) repository.create(F1.class.getName());
 			a4.setF1(f1);
-			f1.setParentId(a4.getObjId());
+			f1.setComment("Comment");
 			
 			F2 f2 = (F2) repository.create(F2.class.getName());
 			f1.setF2(f2);

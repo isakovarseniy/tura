@@ -57,6 +57,16 @@ public class One2One implements RelOperation {
 			list.add(obj);
 		}
 		return list;
+	}
+
+	@Override
+	public void connect(Object master, Object detail) throws Exception {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void disconnect(Object master, Object detail) throws Exception {
+		throw new UnsupportedOperationException();
 	}	
 	
 }

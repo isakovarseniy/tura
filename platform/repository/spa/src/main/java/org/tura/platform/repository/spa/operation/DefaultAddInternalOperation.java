@@ -50,11 +50,11 @@ import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepoObjectKey;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
-import org.tura.platform.repository.persistence.RelEnum;
+import org.tura.platform.repository.persistence.RelOperation;
 import org.tura.platform.repository.spa.OperationLevel;
-import org.tura.platform.repository.spa.SearchProvider;
 import org.tura.platform.repository.spa.SpaControl;
 import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
@@ -83,14 +83,14 @@ public class DefaultAddInternalOperation extends SpaRepositoryCommand {
 			PersistanceMapper detailMapper = findPersistanceMapper(detailObject.getClass());
 			Object persistanceDetailObject = detailMapper.copyFromRepository2Persistence(detailObject);
 
-			RelEnum relation = PersistanceRelationBuilder.build(extendedPersistanceMasterObject.getClass(), masterProperty,
+			RelOperation relation = PersistanceRelationBuilder.build(extendedPersistanceMasterObject.getClass(), masterProperty,
 					persistanceDetailObject.getClass(), detailProperty);
-			relation.getOperation().connect(extendedPersistanceMasterObject, persistanceDetailObject, masterProperty);
+			relation.connect(extendedPersistanceMasterObject, persistanceDetailObject, masterProperty);
 
 			if (beckwardProperty(persistanceDetailObject,detailProperty) ){
 				relation = PersistanceRelationBuilder.build(persistanceDetailObject.getClass(), detailProperty,
 						extendedPersistanceMasterObject.getClass(), masterProperty);
-				relation.getOperation().connect(persistanceDetailObject, extendedPersistanceMasterObject,detailProperty);
+				relation.connect(persistanceDetailObject, extendedPersistanceMasterObject,detailProperty);
 			}
 			
 			SpaControl masterControl = new SpaControl(persistanceMasterObject,detailMapper.getPKey(masterPk), OperationLevel.UPDATE);

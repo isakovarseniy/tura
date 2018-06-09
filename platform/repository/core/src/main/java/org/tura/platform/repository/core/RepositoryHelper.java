@@ -37,7 +37,7 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.repository.core.annotation.Association;
 import org.tura.platform.repository.core.annotation.Internal;
 import org.tura.platform.repository.core.relatioin.RelationBuilder;
-import org.tura.platform.repository.persistence.RelEnum;
+import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 public class RepositoryHelper {
@@ -173,8 +173,7 @@ public class RepositoryHelper {
 				relationType = "Many2One";
 			}
 		}
-		return RelEnum.valueOf(relationType).getOperation().getChildren(persistenceObject, property);
-
+		return PersistanceRelationBuilder.build( relationType).getChildren(persistenceObject, property);
 	}
 
 	private boolean findAnnotationType(Method method) {

@@ -190,4 +190,16 @@ public class JpaRepository implements Repository {
 		}
 	}
 
+	
+    @Override
+    public boolean equals(Object o) {
+    	if (o instanceof  JpaRepository){
+    		JpaRepository r = (JpaRepository) o;
+    		return r.registry.equals(this.registry);
+    	}else{
+    		return false;
+    	}
+	}
+	
+	
 }

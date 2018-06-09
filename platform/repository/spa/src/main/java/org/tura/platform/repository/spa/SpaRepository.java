@@ -39,6 +39,7 @@ import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryEvent;
 import org.tura.platform.repository.core.RepositoryEventsListener;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 
@@ -76,8 +77,6 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 			Integer endIndex, String objectClass) throws RepositoryException {
 		try {
 			SearchProvider provider = findSearchProvider(objectClass);
-			provider.setMapper(findMapper(objectClass));
-			provider.setCache(cache.get(objectClass));
 			return provider.find(searchCriteria, orderCriteria, startIndex, endIndex,objectClass);
 		} catch (Exception e) {
 			throw new RepositoryException(e);
@@ -88,8 +87,6 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	public Object find(Object pk, String objectClass) throws RepositoryException {
 		try {
 			SearchProvider provider = findSearchProvider(objectClass);
-			provider.setMapper(findMapper(objectClass));
-			provider.setCache(cache.get(objectClass));
 			return provider.find( pk, objectClass);
 		} catch (Exception e) {
 			throw new RepositoryException(e);
@@ -179,8 +176,6 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	private void injectSearchProviders(SpaRepositoryCommand cmd, List<String> listOfKnownObjects) throws Exception {
 		for (String className : listOfKnownObjects) {
 			SearchProvider provider = findSearchProvider(className);
-			provider.setCache(cache.get(className));
-			provider.setMapper(findMapper(className));
 			cmd.addSearchProvider(className, provider);
 		}
 	}
@@ -201,7 +196,16 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	private SearchProvider findSearchProvider(String className) throws Exception {
 		SearchProvider provider = SpaObjectRegistry.getInstance().getRegistry(registry).findSearchProvider(className);
 		if (provider == null) {
+			String repositoryClass = Registry.getInstance().findRepositoryClass(className);
+			Repository repository =  Registry.getInstance().findProvider(repositoryClass);
+			if (repository != null){
+				return new SearchProviderRepositoryWrapper(repository);
+			}
 			throw new RepositoryException("Cannot find  SearchProvider for class " + className);
+		}
+		if (provider instanceof AbstaractSearchProvider){
+			((AbstaractSearchProvider)provider).setMapper(findMapper(className));
+			((AbstaractSearchProvider)provider).setCache(cache.get(className));
 		}
 		return provider;
 
@@ -240,5 +244,13 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 		preparedObject.getLevel().getRule().merge(listOfObjectsPerType, preparedObject, control);
 	}
 
-
+    @Override
+    public boolean equals(Object o) {
+    	if (o instanceof  SpaRepository){
+    		SpaRepository r = (SpaRepository) o;
+    		return r.registry.equals(this.registry);
+    	}else{
+    		return false;
+    	}
+	}
 }

@@ -25,7 +25,7 @@ import org.tura.platform.object.persistence.JpaRepositoryCommand;
 import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
-import org.tura.platform.repository.persistence.RelEnum;
+import org.tura.platform.repository.persistence.PersistanceRelationBuilder;
 import org.tura.platform.repository.persistence.RelOperation;
 
 public class DefaultConnectMasterToDetailOperation extends JpaRepositoryCommand {
@@ -89,7 +89,7 @@ public class DefaultConnectMasterToDetailOperation extends JpaRepositoryCommand 
 		Object master = em.find(Class.forName(getMasterClassName()), getMasterPk());
 		Object detail = em.find(Class.forName(getDetailClassName()), getDetailPk());
 
-		RelOperation operation = RelEnum.valueOf(getRelation()).getOperation();
+		RelOperation operation = PersistanceRelationBuilder.build( getRelation());
 		operation.connect(master, detail, getMasterProperty());
 
 	}

@@ -28,10 +28,17 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
+import org.tura.platform.repository.core.annotation.Association;
+import org.tura.platform.repository.core.annotation.Connection;
 
 public class PersistanceRelationBuilder {
 
-	public static RelEnum build(Class<?> masterClazz, String masterProperty, Class<?> detailClazz,
+	
+	public static RelOperation build(String relation) throws Exception {
+		return RelEnum.valueOf(relation).operation;
+	}
+	
+	public static RelOperation build(Class<?> masterClazz, String masterProperty, Class<?> detailClazz,
 			String detailProperty) throws Exception {
 
 		String masterMethodName = "get" + WordUtils.capitalize(masterProperty);
@@ -61,23 +68,57 @@ public class PersistanceRelationBuilder {
 		}
 
 		if (!masterIsListResult && !detailIsListResult) {
-			return RelEnum.One2One;
+			return new One2One();
 		}
 
 		if (masterIsListResult && !detailIsListResult) {
-			return RelEnum.One2Many;
+			return new One2Many();
 		}
 
 		if (!masterIsListResult && detailIsListResult) {
-			return RelEnum.Many2One;
+			return new Many2One();
 		}
 
 		if (masterIsListResult && detailIsListResult) {
-			return RelEnum.Many2Many;
+			return new Many2Many();
 		}
 
 		return null;
 
 	}
 
+	public static RelOperation build(Class<?> masterClazz, String masterProperty) throws Exception {
+		
+		String masterMethodName = "get" + WordUtils.capitalize(masterProperty);
+		Method masterMethod = masterClazz.getDeclaredMethod(masterMethodName);
+		Connection connection = masterMethod.getAnnotation(Connection.class);
+		Association association = masterMethod.getAnnotation(Association.class);
+		if (connection != null ){
+				 return new ConnectionProcessor(connection,association);
+		}
+		return null;
+	}	
+	
+	
+	private enum RelEnum {
+
+		One2One(new One2One()),
+		One2Many(new One2Many()),
+		Many2One(new Many2One()),
+		Many2Many(new Many2Many());
+		
+		
+		RelOperation operation ;
+		RelEnum(RelOperation operation){
+			this.operation = operation;
+		}
+		
+		@SuppressWarnings("unused")
+		public RelOperation getOperation(){
+			return operation;
+		}
+		
+		
+	}
+	
 }
