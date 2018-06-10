@@ -35,6 +35,8 @@ import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.datacontrol.pool.JOSQLExpressionBuilder;
 import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.core.RepositoryHelper;
+import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.spa.AbstaractSearchService;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
@@ -51,12 +53,19 @@ public class SearchService extends AbstaractSearchService implements RegistryAwa
 	protected SearchResult serviceCall(List<SearchCriteria> searchCriteria, List<OrderCriteria> orderCriteria,
 			Integer startIndex, Integer endIndex, String objectClass) throws RepositoryException {
 
+		RepositoryHelper helper = new RepositoryHelper();
+
 		try {
 			PreQueryTrigger preQueryTrigger = findPreQueryTrigger(objectClass);
 			if (preQueryTrigger != null) {
 				preQueryTrigger.preQueryTrigger(searchCriteria, orderCriteria);
 			}
-
+			helper.extractAndRemove(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT, searchCriteria);
+			helper.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT, searchCriteria);
+			helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
+			helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION_TYPE, searchCriteria);
+			
+			
 			Class<?> baseClass = Class.forName(objectClass);
 			SelectQuery select = DefaulQueryFactory.builder(searchCriteria, orderCriteria, baseClass);
 			Query query = new Query();

@@ -71,7 +71,7 @@ import "platform:/plugin/org.tura.metamodel.generation/template/commons/assosiat
             [%
 	      }
 
-	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid);
+	  var assosiations = type::Assosiation.allInstances()->select(t|t.target.uid = tp.uid and t.target.uid <> t.source.uid);
       for (rel in assosiations){
          var hash = rel.targetSideNamesCalculation();
             var annotation = "Association";

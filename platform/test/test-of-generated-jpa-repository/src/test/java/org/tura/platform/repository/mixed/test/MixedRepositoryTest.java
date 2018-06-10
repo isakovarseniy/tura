@@ -33,11 +33,11 @@ import org.h2.tools.Server;
 import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.tura.platform.object.persistence.JpaRepository;
 import org.tura.platform.object.persistence.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 import org.tura.platform.repository.spa.SpaRepository;
@@ -52,6 +52,20 @@ public class MixedRepositoryTest {
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
 
+	private static EntityManagerProvider emProvider = new EntityManagerProvider(){
+
+		@Override
+		public EntityManager getEntityManager() {
+			return em;
+		}
+
+		@Override
+		public void destroyEntityManager() {
+			
+		}
+	};
+
+	
 	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
 
 		@SuppressWarnings("unchecked")
@@ -114,7 +128,8 @@ public class MixedRepositoryTest {
 		initJpa.initClassMapping();
 		initJpa.initCommandProducer();
 		initJpa.initProvider();
-		
+		initJpa.initEntityManagerProvider(emProvider);
+
 		InitSPARepository initSpa = new InitSPARepository(new SpaRepository());
 		initSpa.initClassMapping();
 		initSpa.initCommandProducer();
