@@ -1738,9 +1738,10 @@
                           <technologies techRef="dd41c97a-4e6a-4e00-8651-8f9efb82348f" valueRef="11907576-473b-45c8-804b-9ef7679f7373"/>
                           <technologies techRef="c3cbe3b1-c99f-4c4d-ba78-8a98629b421e" valueRef="2e59f5ad-14f4-4f81-be7e-6f596c3588b5"/>
                           <technologies techRef="cfa44df5-eba8-4f82-bf94-f6d30b1d793c" valueRef="f9acb5da-4729-4339-ae8a-8355a3035459"/>
-                          <queries uid="b6ca4ab2-4b0c-4a33-9268-f28d2156d63e" name="Query package for classes" queryRef="21216e18-27d0-4994-bcea-7f023839eb64">
-                            <variables queryParamRef="2ff5c610-33e2-4dc2-a809-4e76875e8752" value="Testing repository"/>
-                            <variables queryParamRef="0473d7ad-921d-4013-ba20-6c96351469d6" value="JPA test package"/>
+                          <queries uid="f3ccdcd9-14af-47e3-992d-49cbb9b66af3" name="Query class" queryRef="64164ced-a76e-4688-8759-5c5c1d4658f8">
+                            <variables queryParamRef="b516ddbf-0acc-4279-a974-70fc787c56a7" value="Testing repository"/>
+                            <variables queryParamRef="9504b800-0df7-4358-9905-088633212cd2" value="JPA test package"/>
+                            <variables queryParamRef="e3b370e6-74f9-427e-ae54-603a4f7747c2" value="DD1"/>
                           </queries>
                         </mappers>
                         <mappers uid="55c762dd-0383-4265-bb38-05b6e3b44559" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="JPA Repository build runner" artifactExecutionString="bash /Users/arseniy/generatedCode/serviceLayer/test-objects-repository/builder.sh">

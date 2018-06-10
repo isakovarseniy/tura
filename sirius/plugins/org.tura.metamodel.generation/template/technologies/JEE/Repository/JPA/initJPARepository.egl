@@ -16,13 +16,13 @@ ${start}${percent}
  package [%=savepackage%];
  
  import org.tura.platform.repository.core.Registry;
- import org.tura.platform.object.persistence.JpaObjectRegistry;
+ import org.tura.platform.repository.spa.SpaObjectRegistry;
  
  public class InitJPARepository{
  
-     org.tura.platform.object.persistence.JpaRepository repository;
+     org.tura.platform.repository.spa.SpaRepository repository;
      
-     public InitJPARepository(JpaRepository repository){
+     public InitJPARepository(org.tura.platform.repository.spa.SpaRepository repository){
          this.repository = repository;
          this.repository.setRegistry("[%=component.artifactId%]");
      }
@@ -51,8 +51,11 @@ ${start}${percent}
        %] 
         Registry.getInstance().addClassMapping( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]");
         Registry.getInstance().addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
-        JpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addJpaClass("[%=t2model.get(type).get("fullName")%]");
-        JpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
+        SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addSpaClass("[%=t2model.get(type).get("fullName")%]");
+
+        SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addSearchProvider([%=t2model.get(type).get("fullName")%].class, new org.tura.platform.repository.jpa.operation.JpaSearchService("[%=component.artifactId%]"));
+
+        SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addMapper( "[%=t2view.get(type).get("fullName")%]" ,"[%=t2model.get(type).get("fullName")%]", new [%=t2view.get(type).get("package")%].mapper.[%=t2view.get(type).get("class")%]Mapper() );
         
        [%
        }
@@ -61,8 +64,12 @@ ${start}${percent}
     }
 
      public void initCommandProducer(){
-        Registry.getInstance().addCommandProducer(repository,new org.tura.platform.object.persistence.JpaCommandProducer("[%=component.artifactId%]"));
+        Registry.getInstance().addCommandProducer(repository,new org.tura.platform.repository.jpa.operation.JpaCommandProducer("[%=component.artifactId%]"));
      }
+ 
+ 	public void initEntityManagerProvider(org.tura.platform.repository.jpa.operation.EntityManagerProvider emProvider) {
+        SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").setEntityManagerProvider( emProvider );
+	}
  
   
  

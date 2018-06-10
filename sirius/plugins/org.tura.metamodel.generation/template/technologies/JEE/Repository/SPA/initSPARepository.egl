@@ -61,7 +61,7 @@ ${start}${percent}
     }
 
      public void initCommandProducer(){
-        Registry.getInstance().addCommandProducer(repository,new org.tura.platform.repository.spa.SpaCommandProducer("[%=component.artifactId%]"));
+        Registry.getInstance().addCommandProducer(repository,new org.tura.platform.repository.spa.operation.SpaCommandProducer("[%=component.artifactId%]"));
      }
  
   
