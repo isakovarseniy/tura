@@ -30,6 +30,7 @@ import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
+import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.persistence.PersistanceMapper;
 import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
@@ -76,8 +77,19 @@ public class SpaObjectRegistry {
 		private Map<Class<?>, SearchProvider> searchProviders = new HashMap<>();
 		private List<SpaRepositoryCommand> externalCommands = new ArrayList<>();
 		private String registry;
+		private EntityManagerProvider entityManagerProvider;
 		
 		
+		public EntityManagerProvider getEntityManagerProvider() {
+			return entityManagerProvider;
+		}
+
+
+		public void setEntityManagerProvider(EntityManagerProvider entityManagerProvider) {
+			this.entityManagerProvider = entityManagerProvider;
+		}
+
+
 		SpaRegistry(String registry){
 			this.registry = registry;
 		}

@@ -32,7 +32,7 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.core.SearchResult;
 
-public abstract class AbstaractSearchProvider implements SearchProvider{
+public abstract class AbstaractSearchService implements SearchProvider{
 
 	private Map<Object, SpaControl> cache;
 	private Mapper mapper;

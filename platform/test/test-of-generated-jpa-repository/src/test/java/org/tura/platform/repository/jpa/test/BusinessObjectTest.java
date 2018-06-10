@@ -21,7 +21,9 @@
  */
 package org.tura.platform.repository.jpa.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,19 +42,19 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.persistence.JpaRepository;
 import org.tura.platform.object.persistence.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.platform.repository.spa.SpaRepository;
 
 import objects.test.serialazable.jpa.IndepObject1;
 import objects.test.serialazable.jpa.IndepObject2;
 import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
-
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BusinessObjectTest {
@@ -60,14 +62,28 @@ public class BusinessObjectTest {
 	private static EntityManager em;
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
+	
+	
+	private static EntityManagerProvider emProvider = new EntityManagerProvider(){
 
-	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+		@Override
+		public EntityManager getEntityManager() {
+			return em;
+		}
+
+		@Override
+		public void destroyEntityManager() {
+			
+		}
+	};
+
+	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider() {
 
 		@SuppressWarnings("unchecked")
 		@Override
 		public void addCommand(Object cmd) throws Exception {
 			commandStack.add(cmd);
-			
+
 		}
 
 		@SuppressWarnings("unchecked")
@@ -79,22 +95,19 @@ public class BusinessObjectTest {
 		@Override
 		public void clear() throws Exception {
 			commandStack.clear();
-			
+
 		}
-		
-	};	
-	
-	
+
+	};
+
 	private static Logger logger;
 	private static Server server;
 
-	
 	@AfterClass
 	public static void afterClass() throws Exception {
 		server.stop();
 	}
-	
-	
+
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		server = Server.createTcpServer().start();
@@ -118,98 +131,95 @@ public class BusinessObjectTest {
 		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
-		
-		InitJPARepository init = new InitJPARepository(new JpaRepository(em));
+
+		InitJPARepository init = new InitJPARepository(new SpaRepository());
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
-		
+		init.initEntityManagerProvider(emProvider);
+
 		Registry.getInstance().setTransactrionAdapter(new JpaTransactionAdapter(em));
-		
-		return  new ProxyRepository(repository,stackProvider);
-		
+
+		return new ProxyRepository(repository, stackProvider);
+
 	}
 
-
-	
 	@Test
 	public void t0000_loadObject() {
 		try {
 			ProxyRepository repository = getRepository();
 
-			
 			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
 			repository.insert(o1, IndepObject1.class.getName());
-			
-			IndepObject2 o2 =(IndepObject2) repository.create(IndepObject2.class.getName());
+
+			IndepObject2 o2 = (IndepObject2) repository.create(IndepObject2.class.getName());
 			repository.insert(o2, IndepObject2.class.getName());
-			
+
 			o1.getIndepObject2().add(o2);
-			
+
 			repository.applyChanges(null);
-			
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-			o1 = (IndepObject1) result.getSearchResult().get(0); 
-			
-			assertEquals(1,o1.getIndepObject2().size());
-			
-			o2 = o1.getIndepObject2().get(0); 
-			
+
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, IndepObject1.class.getName());
+			assertEquals(1, result.getSearchResult().size());
+			o1 = (IndepObject1) result.getSearchResult().get(0);
+
+			assertEquals(1, o1.getIndepObject2().size());
+
+			o2 = o1.getIndepObject2().get(0);
+
 			repository.remove(o1, IndepObject1.class.getName());
 			repository.remove(o2, IndepObject2.class.getName());
-			
+
 			repository.applyChanges(null);
 
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
-			assertEquals(0,result.getSearchResult().size());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
+					IndepObject1.class.getName());
+			assertEquals(0, result.getSearchResult().size());
 
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
-			assertEquals(0,result.getSearchResult().size());
-			
-			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
+					IndepObject2.class.getName());
+			assertEquals(0, result.getSearchResult().size());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
 
 	}
-	
+
 	@Test
 	public void t0001_loadObject() {
 		try {
 			ProxyRepository repository = getRepository();
-			
+
 			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
 			repository.insert(o1, IndepObject1.class.getName());
-			
-			IndepObject2 o2 =(IndepObject2) repository.create(IndepObject2.class.getName());
+
+			IndepObject2 o2 = (IndepObject2) repository.create(IndepObject2.class.getName());
 			repository.insert(o2, IndepObject2.class.getName());
-			
+
 			repository.applyChanges(null);
-			
-			
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-			o1 = (IndepObject1) result.getSearchResult().get(0); 
-			
-			assertEquals(0,o1.getIndepObject2().size());
-			
-			
+
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, IndepObject1.class.getName());
+			assertEquals(1, result.getSearchResult().size());
+			o1 = (IndepObject1) result.getSearchResult().get(0);
+
+			assertEquals(0, o1.getIndepObject2().size());
+
 			repository.remove(o1, IndepObject1.class.getName());
 			repository.remove(o2, IndepObject2.class.getName());
-			
+
 			repository.applyChanges(null);
 
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
-			assertEquals(0,result.getSearchResult().size());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
+					IndepObject1.class.getName());
+			assertEquals(0, result.getSearchResult().size());
 
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
-			assertEquals(0,result.getSearchResult().size());
-			
-			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
+					IndepObject2.class.getName());
+			assertEquals(0, result.getSearchResult().size());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -217,8 +227,7 @@ public class BusinessObjectTest {
 		}
 
 	}
-	
-	
+
 	@Test
 	public void t0003_loadObject() {
 		try {
@@ -226,59 +235,58 @@ public class BusinessObjectTest {
 
 			IndepObject1 o1 = (IndepObject1) repository.create(IndepObject1.class.getName());
 			repository.insert(o1, IndepObject1.class.getName());
-			
-			IndepObject2 o2 =(IndepObject2) repository.create(IndepObject2.class.getName());
+
+			IndepObject2 o2 = (IndepObject2) repository.create(IndepObject2.class.getName());
 			repository.insert(o2, IndepObject2.class.getName());
-			
+
 			o1.getIndepObject2().add(o2);
-			
+
 			repository.applyChanges(null);
-			
-			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-			o1 = (IndepObject1) result.getSearchResult().get(0); 
-			
-			assertEquals(1,o1.getIndepObject2().size());
-			
-			o2 = o1.getIndepObject2().get(0); 
-			
-			
+
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, IndepObject1.class.getName());
+			assertEquals(1, result.getSearchResult().size());
+			o1 = (IndepObject1) result.getSearchResult().get(0);
+
+			assertEquals(1, o1.getIndepObject2().size());
+
+			o2 = o1.getIndepObject2().get(0);
+
 			Registry.getInstance().addSkipRelationRule(IndepObject1.class, "indepObject2");
 
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
-			assertEquals(1,result.getSearchResult().size());
-			o1 = (IndepObject1) result.getSearchResult().get(0); 
-			
-			assertEquals(0,o1.getIndepObject2().size());
-			
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
-			assertEquals(1,result.getSearchResult().size());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
+					IndepObject1.class.getName());
+			assertEquals(1, result.getSearchResult().size());
+			o1 = (IndepObject1) result.getSearchResult().get(0);
+
+			assertEquals(0, o1.getIndepObject2().size());
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
+					IndepObject2.class.getName());
+			assertEquals(1, result.getSearchResult().size());
 			o2 = (IndepObject2) result.getSearchResult().get(0);
-			
-			o1= o2.getIndepObject1();
+
+			o1 = o2.getIndepObject1();
 			assertNotNull(o1);
 
 			repository.remove(o1, IndepObject1.class.getName());
 			repository.remove(o2, IndepObject2.class.getName());
-			
+
 			repository.applyChanges(null);
 
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject1.class.getName());
-			assertEquals(0,result.getSearchResult().size());
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
+					IndepObject1.class.getName());
+			assertEquals(0, result.getSearchResult().size());
 
-			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100, IndepObject2.class.getName());
-			assertEquals(0,result.getSearchResult().size());
-			
-			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0, 100,
+					IndepObject2.class.getName());
+			assertEquals(0, result.getSearchResult().size());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
 
 	}
-	
-	
-	
 
 }

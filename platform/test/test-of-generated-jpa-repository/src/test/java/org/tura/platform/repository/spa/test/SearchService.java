@@ -36,13 +36,13 @@ import org.tura.platform.datacontrol.pool.JOSQLExpressionBuilder;
 import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchResult;
-import org.tura.platform.repository.spa.AbstaractSearchProvider;
+import org.tura.platform.repository.spa.AbstaractSearchService;
 import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 import com.octo.java.sql.query.SelectQuery;
 
-public class SearchService extends AbstaractSearchProvider implements RegistryAware{
+public class SearchService extends AbstaractSearchService implements RegistryAware{
 
 	public static Map<String, Map<Object, Object>> base = new HashMap<String, Map<Object, Object>>();
 	private String registry;

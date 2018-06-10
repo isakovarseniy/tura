@@ -156,6 +156,9 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 	}
 
 	private void populateCache(List<SpaControl> list) throws RepositoryException {
+		if (list == null){
+			return;
+		}
 		for (SpaControl control : list) {
 			control.setSequence(sequence++);
 
@@ -203,9 +206,9 @@ public class SpaRepository implements Repository, RepositoryEventsListener {
 			}
 			throw new RepositoryException("Cannot find  SearchProvider for class " + className);
 		}
-		if (provider instanceof AbstaractSearchProvider){
-			((AbstaractSearchProvider)provider).setMapper(findMapper(className));
-			((AbstaractSearchProvider)provider).setCache(cache.get(className));
+		if (provider instanceof AbstaractSearchService){
+			((AbstaractSearchService)provider).setMapper(findMapper(className));
+			((AbstaractSearchService)provider).setCache(cache.get(className));
 		}
 		return provider;
 

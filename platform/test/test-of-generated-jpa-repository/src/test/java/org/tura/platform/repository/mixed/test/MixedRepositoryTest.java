@@ -110,7 +110,7 @@ public class MixedRepositoryTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		InitJPARepository initJpa = new InitJPARepository(new JpaRepository(em));
+		InitJPARepository initJpa = new InitJPARepository(new SpaRepository());
 		initJpa.initClassMapping();
 		initJpa.initCommandProducer();
 		initJpa.initProvider();

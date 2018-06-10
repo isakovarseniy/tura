@@ -19,7 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.repository.spa;
+package org.tura.platform.repository.spa.operation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,15 +29,8 @@ import org.tura.platform.repository.core.RepoKeyPath;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryCommandType;
 import org.tura.platform.repository.core.RepositoryException;
-import org.tura.platform.repository.spa.operation.DefaultAddInternalOperation;
-import org.tura.platform.repository.spa.operation.DefaultAddObjectOperation;
-import org.tura.platform.repository.spa.operation.DefaultConnectDetailToMasterOperation;
-import org.tura.platform.repository.spa.operation.DefaultConnectMasterToDetailOperation;
-import org.tura.platform.repository.spa.operation.DefaultDisconnectDetailFromMasterOperation;
-import org.tura.platform.repository.spa.operation.DefaultDisconnectMasterFromDetailOperation;
-import org.tura.platform.repository.spa.operation.DefaultRemoveInternalOperation;
-import org.tura.platform.repository.spa.operation.DefaultRemoveObjectOperation;
-import org.tura.platform.repository.spa.operation.DefaultUpdateOperation;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
+import org.tura.platform.repository.spa.SpaRepositoryCommand;
 
 public class SpaCommandProducer implements CommandProducer{
 

@@ -41,13 +41,14 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
-import org.tura.platform.object.persistence.JpaRepository;
 import org.tura.platform.object.persistence.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.SearchResult;
+import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.platform.repository.spa.SpaRepository;
 
 import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.One2Many1A;
@@ -83,7 +84,19 @@ public class One2ManyNoContaintmantTest {
 		}
 		
 	};	
-	
+	private static EntityManagerProvider emProvider = new EntityManagerProvider(){
+
+		@Override
+		public EntityManager getEntityManager() {
+			return em;
+		}
+
+		@Override
+		public void destroyEntityManager() {
+			
+		}
+	};
+
 	
 	private static Logger logger;
 	private static Server server;
@@ -118,11 +131,12 @@ public class One2ManyNoContaintmantTest {
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
 		
-		InitJPARepository init = new InitJPARepository(new JpaRepository(em));
+		InitJPARepository init = new InitJPARepository(new SpaRepository());
 		init.initClassMapping();
 		init.initCommandProducer();
 		init.initProvider();
-		
+		init.initEntityManagerProvider(emProvider);
+
 		Registry.getInstance().setTransactrionAdapter(new JpaTransactionAdapter(em));
 
 		return  new ProxyRepository(repository,stackProvider);
