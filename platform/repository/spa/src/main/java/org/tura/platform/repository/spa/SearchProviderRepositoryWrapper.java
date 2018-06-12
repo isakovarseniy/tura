@@ -30,11 +30,11 @@ import org.tura.platform.repository.core.RepositoryException;
 import org.tura.platform.repository.core.SearchProvider;
 import org.tura.platform.repository.core.SearchResult;
 
-public class SearchProviderRepositoryWrapper implements SearchProvider{
-	private Repository repository;
-	
-	public SearchProviderRepositoryWrapper(Repository repository){
-		this.repository = repository;
+public class SearchProviderRepositoryWrapper implements SearchProvider {
+	private SpaRepository repository;
+
+	public SearchProviderRepositoryWrapper(Repository repository) {
+		this.repository = (SpaRepository) repository;
 	}
 
 	@Override
@@ -45,7 +45,15 @@ public class SearchProviderRepositoryWrapper implements SearchProvider{
 
 	@Override
 	public Object find(Object pk, String objectClass) throws RepositoryException {
-		return repository.find(pk, objectClass);
+		try {
+			SearchProvider provider = SpaObjectRegistry.getInstance().getRegistry(repository.getRegistry())
+					.findSearchProvider(objectClass);
+
+			return provider.find(pk, objectClass);
+		} catch (Exception e) {
+			throw new RepositoryException(e);
+
+		}
 	}
 
 }

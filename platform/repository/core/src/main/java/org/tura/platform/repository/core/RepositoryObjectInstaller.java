@@ -160,7 +160,7 @@ public class RepositoryObjectInstaller extends RepositoryHelper {
 
 		String detailClassName = detailPk.getPath().get(detailPk.getPath().size() - 1).getType();
 		Repository detailProvider = findProvider(detailClassName);
-		CommandProducer cmpDetail = findCommandProducer(masterClassName);
+		CommandProducer cmpDetail = findCommandProducer(detailClassName);
 		List<Object> detailChanges = cmpDetail.connectDetailToMaster(masterPk, masterProperty, detailPk,
 				detailProperty);
 

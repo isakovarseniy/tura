@@ -79,6 +79,11 @@ ${start}${percent}
 
      public void initCommandProducer(){
         Registry.getInstance().addCommandProducer(repository,new org.tura.platform.repository.spa.operation.SpaCommandProducer("[%=component.artifactId%]"));
+		SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalConnectDetailToMasterOperation());
+		SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalConnectMasterToDetailOperation());
+		SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalDisconnectDetailFromMasterOperation());
+		SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.spa.operation.SpaExternalDisconnectMasterFromDetailOperation());
+        
      }
  
   

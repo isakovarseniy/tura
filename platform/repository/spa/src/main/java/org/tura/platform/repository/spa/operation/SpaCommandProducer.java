@@ -70,7 +70,7 @@ public class SpaCommandProducer implements CommandProducer{
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new DefaultRemoveObjectOperation();
+		SpaRepositoryCommand cmd = new SpaRemoveObjectOperation();
 		cmd.checkCommand(RepositoryCommandType.removeObject, repositoryObject);
 		list.add( cmd);
 		return list;
@@ -84,7 +84,7 @@ public class SpaCommandProducer implements CommandProducer{
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new DefaultRemoveInternalOperation();
+		SpaRepositoryCommand cmd = new SpaRemoveInternalOperation();
 		cmd.checkCommand(RepositoryCommandType.removeInternal, masterPk,masterProperty,detailObject,detailProperty);
 
 		list.add( cmd);
@@ -98,7 +98,7 @@ public class SpaCommandProducer implements CommandProducer{
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new DefaultAddObjectOperation();
+		SpaRepositoryCommand cmd = new SpaAddObjectOperation();
 		cmd.checkCommand(RepositoryCommandType.addObject, repositoryObject);
 		list.add( cmd );
 		return list;
@@ -112,7 +112,7 @@ public class SpaCommandProducer implements CommandProducer{
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new DefaultAddInternalOperation();
+		SpaRepositoryCommand cmd = new SpaAddInternalOperation();
 		cmd.checkCommand(RepositoryCommandType.addInternal, masterPk,masterProperty,detailObject,detailProperty);
 		list.add( cmd );
 		return list;
@@ -126,7 +126,7 @@ public class SpaCommandProducer implements CommandProducer{
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new DefaultDisconnectMasterFromDetailOperation();
+		SpaRepositoryCommand cmd = new SpaDisconnectMasterFromDetailOperation();
 		cmd.checkCommand(RepositoryCommandType.disconnectMasterFromDetail, masterPk,masterProperty,detailPk,detailProperty);
 		list.add( cmd );
 		return list;
@@ -140,7 +140,7 @@ public class SpaCommandProducer implements CommandProducer{
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new DefaultDisconnectDetailFromMasterOperation();
+		SpaRepositoryCommand cmd = new SpaDisconnectDetailFromMasterOperation();
 		cmd.checkCommand(RepositoryCommandType.disconnectDetailFromMaster, masterPk,masterProperty,detailPk,detailProperty);
 		list.add(cmd );
 		return list;
@@ -154,7 +154,7 @@ public class SpaCommandProducer implements CommandProducer{
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new DefaultConnectMasterToDetailOperation();
+		SpaRepositoryCommand cmd = new SpaConnectMasterToDetailOperation();
 		cmd.checkCommand(RepositoryCommandType.connectMasterToDetail, masterPk,masterProperty,detailPk,detailProperty);
 		list.add( cmd);
 		return list;
@@ -168,7 +168,7 @@ public class SpaCommandProducer implements CommandProducer{
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new DefaultConnectDetailToMasterOperation();
+		SpaRepositoryCommand cmd = new SpaConnectDetailToMasterOperation();
 		cmd.checkCommand(RepositoryCommandType.connectDetailToMaster, masterPk,masterProperty,detailPk,detailProperty);
 
 		list.add( cmd);
@@ -182,7 +182,7 @@ public class SpaCommandProducer implements CommandProducer{
 			return  list;
 		}
 		list = new ArrayList<>();
-		SpaRepositoryCommand cmd = new DefaultUpdateOperation();
+		SpaRepositoryCommand cmd = new SpaUpdateOperation();
 		cmd.checkCommand(RepositoryCommandType.update, pk,property,value);
 		list.add( cmd );
 		return list;

@@ -64,6 +64,13 @@ public abstract class SpaRepositoryCommand extends RepositoryHelper{
 		PersistanceMapper mapper = SpaObjectRegistry.getInstance().getRegistry(registry)
 				.findMapper(persistanceClassName, repositoryClass.getName());
 		if (mapper == null) {
+			SpaRepository repository =  (SpaRepository) Registry.getInstance().findProvider(repositoryClass.getName());
+			if (repository != null){
+				mapper = SpaObjectRegistry.getInstance().getRegistry(repository.getRegistry()).findMapper(persistanceClassName, repositoryClass.getName());
+				if (mapper != null){
+					return mapper;
+				}
+			}
 			throw new RepositoryException(
 					"PersistanceMapper not found from " + persistanceClassName + " to " + repositoryClass.getName());
 		}

@@ -27,9 +27,17 @@ import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.repository.core.PrImaryKeyStrategy;
 
 import objects.test.serialazable.jpa.Customer;
+import objects.test.serialazable.jpa.JPAObject1;
+import objects.test.serialazable.jpa.JPAObject2;
+import objects.test.serialazable.jpa.JPAObject3;
+import objects.test.serialazable.jpa.JPAObject4;
 import objects.test.serialazable.jpa.Location;
 import objects.test.serialazable.jpa.LocationMany2ManyCustomerRelation;
 import objects.test.serialazable.jpa.Order;
+import objects.test.serialazable.jpa.SPAObject1;
+import objects.test.serialazable.jpa.SPAObject2;
+import objects.test.serialazable.jpa.SPAObject3;
+import objects.test.serialazable.jpa.SPAObject4;
 import objects.test.serialazable.jpa.Vehicle;
 
 public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
@@ -57,6 +65,46 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 			((Location)o).setObjId(UUID.randomUUID().getMostSignificantBits());
 			return;
 		}		
+		
+		if (o instanceof JPAObject1){
+			((JPAObject1)o).setJpaObj1(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		if (o instanceof JPAObject2){
+			((JPAObject2)o).setJpaObj2(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
+		if (o instanceof JPAObject3){
+			((JPAObject3)o).setJpaObj3(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
+		if (o instanceof JPAObject4){
+			((JPAObject4)o).setJpaObj4(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
+		if (o instanceof SPAObject1){
+			((SPAObject1)o).setSpaObj1(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		if (o instanceof SPAObject2){
+			((SPAObject2)o).setSpaObj2(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
+		if (o instanceof SPAObject3){
+			((SPAObject3)o).setSpaObj3(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
+		if (o instanceof SPAObject4){
+			((SPAObject4)o).setSpaObj4(UUID.randomUUID().getMostSignificantBits());
+			return;
+		}		
+		
+		
 		
 		if (o instanceof LocationMany2ManyCustomerRelation){
 			return;

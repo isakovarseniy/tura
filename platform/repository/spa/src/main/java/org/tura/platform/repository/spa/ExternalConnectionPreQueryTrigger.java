@@ -29,6 +29,9 @@ import org.apache.commons.lang.WordUtils;
 import org.tura.platform.datacontrol.commons.OrderCriteria;
 import org.tura.platform.datacontrol.commons.Reflection;
 import org.tura.platform.datacontrol.commons.SearchCriteria;
+import org.tura.platform.repository.core.Mapper;
+import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.Repository;
 import org.tura.platform.repository.core.RepositoryHelper;
 import org.tura.platform.repository.core.RepositoryObjectLoader;
 import org.tura.platform.repository.core.annotation.Association;
@@ -45,7 +48,6 @@ public class ExternalConnectionPreQueryTrigger implements PreQueryTrigger{
 	public void preQueryTrigger(List<SearchCriteria> searchCriteria, List<OrderCriteria> order)throws Exception {
 		RepositoryHelper helper = new RepositoryHelper();
 		
-		SearchCriteria parentPersistenceObject =   helper.extractAndRemove(RepositoryObjectLoader.PARENT_PERSISTANCE_OBJECT,searchCriteria);
 		SearchCriteria parentRepositoryObject  = helper.extractAndRemove(RepositoryObjectLoader.PARENT_REPOSITORY_OBJECT,searchCriteria);
 		SearchCriteria parentChildRelation = helper.extractAndRemove(RepositoryObjectLoader.PARENT_CHIELD_RELATION,searchCriteria);
 	
@@ -61,19 +63,29 @@ public class ExternalConnectionPreQueryTrigger implements PreQueryTrigger{
 					for (  Link lnk : connection.links()){
 						SearchCriteria sc = new SearchCriteria();
 						sc.setName(lnk.field2());
-						sc.setName(Operator.EQ.name());
+						sc.setComparator(Operator.EQ.name());
 						String name = "get" + WordUtils.capitalize(lnk.field1());
 						Object value = Reflection.call(parentRepositoryObject.getValue(), name);
 						sc.setValue(value);
+						searchCriteria.add(sc);
 					}
 				}else{
 					for (  Link lnk : connection.links()){
 						SearchCriteria sc = new SearchCriteria();
 						sc.setName(lnk.field1());
-						sc.setName(Operator.EQ.name());
+						sc.setComparator(Operator.EQ.name());
+						
+						Class<?> repositoryClass = parentRepositoryObject.getValue().getClass();
+						Mapper mapper =   new RepositoryHelper().findMapper(parentRepositoryObject.getValue().getClass());
+						Object pk = mapper.getPrimaryKeyFromRepositoryObject(parentRepositoryObject.getValue());
+						Repository repository = Registry.getInstance().findProvider(repositoryClass.getName());
+						String persistanceClass = Registry.getInstance().findPersistanceClass(repositoryClass.getName());
+						Object persistanceObject = repository.find(pk, persistanceClass);
+						
 						String name = "get" + WordUtils.capitalize(lnk.field2());
-						Object value = Reflection.call(parentPersistenceObject.getValue(), name);
+						Object value = Reflection.call(persistanceObject, name);
 						sc.setValue(value);
+						searchCriteria.add(sc);
 					}
 				}
 			}

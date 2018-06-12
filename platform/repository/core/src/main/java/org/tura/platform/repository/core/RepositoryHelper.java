@@ -42,7 +42,7 @@ import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
 
 public class RepositoryHelper {
 
-	protected Class<?> findPersistanceClass(String repositoryClass) throws RepositoryException {
+	public Class<?> findPersistanceClass(String repositoryClass) throws RepositoryException {
 		try {
 			return Class.forName(Registry.getInstance().findPersistanceClass(repositoryClass));
 		} catch (Exception e) {
@@ -50,7 +50,7 @@ public class RepositoryHelper {
 		}
 	}
 
-	protected Annotation getMasterAnnotation(RepoKeyPath masterPk, String masterProperty)
+	public Annotation getMasterAnnotation(RepoKeyPath masterPk, String masterProperty)
 			throws ClassNotFoundException, NoSuchMethodException, SecurityException, Exception {
 		int sizepk = masterPk.getPath().size();
 		RepoObjectKey repoObjectKey = masterPk.getPath().get(sizepk - 1);
@@ -66,21 +66,21 @@ public class RepositoryHelper {
 		return annotation;
 	}
 
-	protected RelationAdapter getRelationProcessor(Class<?> clazz, Method method, Map<String, Object> context) {
+	public RelationAdapter getRelationProcessor(Class<?> clazz, Method method, Map<String, Object> context) {
 		return RelationBuilder.build(clazz, method, context);
 	}
 
-	protected Repository findProvider(String repositoryClass) throws RepositoryException {
+	public Repository findProvider(String repositoryClass) throws RepositoryException {
 		return Registry.getInstance().findProvider(repositoryClass);
 	}
 
-	protected Mapper findMapper(String repositoryClass) throws RepositoryException {
+	public Mapper findMapper(String repositoryClass) throws RepositoryException {
 		String persistanceClass = Registry.getInstance().findPersistanceClass(repositoryClass);
 		return Registry.getInstance().findMapper(persistanceClass, repositoryClass);
 
 	}
 
-	protected Mapper findMapper(Class<?> repositoryClass) throws RepositoryException {
+	public Mapper findMapper(Class<?> repositoryClass) throws RepositoryException {
 		String persistanceClassName = Registry.getInstance().findPersistanceClass(repositoryClass.getName());
 		Mapper mapper = Registry.getInstance().findMapper(persistanceClassName, repositoryClass.getName());
 		if (mapper == null) {
@@ -90,11 +90,11 @@ public class RepositoryHelper {
 		return mapper;
 	}
 
-	protected CommandProducer findCommandProducer(String repositoryClass) throws RepositoryException {
+	public CommandProducer findCommandProducer(String repositoryClass) throws RepositoryException {
 		return Registry.getInstance().findCommandProduce(repositoryClass);
 	}
 
-	protected RepoKeyPath findPk(Object object) throws Exception {
+	public RepoKeyPath findPk(Object object) throws Exception {
 		Class<?> repositoryClass = object.getClass();
 		Class<?> proxyClass = Class.forName(repositoryClass.getName() + "Proxy");
 
@@ -103,7 +103,7 @@ public class RepositoryHelper {
 		return control.getPath();
 	}
 
-	protected RepoObjectKey findRepoObjectKey(Object object) throws Exception {
+	public RepoObjectKey findRepoObjectKey(Object object) throws Exception {
 		Class<?> repositoryClass = object.getClass();
 		Class<?> proxyClass = Class.forName(repositoryClass.getName() + "Proxy");
 
@@ -112,7 +112,7 @@ public class RepositoryHelper {
 		return control.getPrmaryKey();
 	}
 
-	protected List<Object> getDisconnectedChildren(Method m, Object repositoryObject, Map<String, Object> context)
+	public List<Object> getDisconnectedChildren(Method m, Object repositoryObject, Map<String, Object> context)
 			throws Exception {
 		RelationAdapter processor = getRelationProcessor(repositoryObject.getClass(), m, context);
 		List<Object> children = new ArrayList<>();
@@ -123,19 +123,19 @@ public class RepositoryHelper {
 		return children;
 	}
 
-	protected Object getPersistancePrimaryKeyFromRepositoryObject(Object repositoryObject) throws RepositoryException {
+	public Object getPersistancePrimaryKeyFromRepositoryObject(Object repositoryObject) throws RepositoryException {
 		String persistanceClass = Registry.getInstance().findRepositoryClass(repositoryObject.getClass().getName());
 		return Registry.getInstance().findMapper(persistanceClass, repositoryObject.getClass().getName())
 				.getPrimaryKeyFromRepositoryObject(repositoryObject);
 	}
 
-	protected Object getPersistancePrimaryKey(Object persistanceObject) throws RepositoryException {
+	public Object getPersistancePrimaryKey(Object persistanceObject) throws RepositoryException {
 		String repositoryClass = Registry.getInstance().findRepositoryClass(persistanceObject.getClass().getName());
 		return Registry.getInstance().findMapper(persistanceObject.getClass().getName(), repositoryClass)
 				.getPrimaryKey(persistanceObject);
 	}
 
-	protected List<Method> getMethodsAnnotatedWith(final Class<?> type, final Class<? extends Annotation> annotation) {
+	public List<Method> getMethodsAnnotatedWith(final Class<?> type, final Class<? extends Annotation> annotation) {
 		final List<Method> methods = new ArrayList<Method>();
 		Class<?> klass = type;
 		while (klass != Object.class) {

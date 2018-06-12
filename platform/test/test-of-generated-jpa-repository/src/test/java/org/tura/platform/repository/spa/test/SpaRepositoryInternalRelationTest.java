@@ -143,10 +143,6 @@ public class SpaRepositoryInternalRelationTest {
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.B1.class, new CRUDService());
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.B1.class, new SearchService());
         
-//        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addTrigger(org.tura.jpa.test.B1.class, new QueryTrigger());;
-//        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addTrigger(org.tura.jpa.test.F1.class, new QueryTrigger());;
-        
-        
 		return  new ProxyRepository(repository,stackProvider);
 		
 	}

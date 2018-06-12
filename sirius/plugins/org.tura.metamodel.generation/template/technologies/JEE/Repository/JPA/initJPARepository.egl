@@ -86,6 +86,11 @@ ${start}${percent}
  
  	public void initEntityManagerProvider(org.tura.platform.repository.jpa.operation.EntityManagerProvider emProvider) {
         SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").setEntityManagerProvider( emProvider );
+		SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.jpa.operation.JpaExternalConnectDetailToMasterOperation());
+		SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.jpa.operation.JpaExternalConnectMasterToDetailOperation());
+		SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.jpa.operation.JpaExternalDisconnectDetailFromMasterOperation());
+		SpaObjectRegistry.getInstance().getRegistry("[%=component.artifactId%]").addExternalCommand(new org.tura.platform.repository.jpa.operation.JpaExternalDisconnectMasterFromDetailOperation());
+        
 	}
  
   

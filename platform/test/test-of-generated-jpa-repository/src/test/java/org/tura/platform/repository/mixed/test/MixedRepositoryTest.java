@@ -21,6 +21,10 @@
  */
 package org.tura.platform.repository.mixed.test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -33,18 +37,27 @@ import org.h2.tools.Server;
 import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Test;
+import org.tura.platform.datacontrol.commons.OrderCriteria;
+import org.tura.platform.datacontrol.commons.SearchCriteria;
 import org.tura.platform.object.persistence.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.core.SearchResult;
 import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 import org.tura.platform.repository.jpa.test.UUIPrimaryKeyStrategy;
 import org.tura.platform.repository.proxy.ProxyCommadStackProvider;
+import org.tura.platform.repository.spa.SpaObjectRegistry;
 import org.tura.platform.repository.spa.SpaRepository;
+import org.tura.platform.repository.spa.test.CRUDService;
+import org.tura.platform.repository.spa.test.SearchService;
 
 import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.InitSPARepository;
+import objects.test.serialazable.jpa.JPAObject1;
 import objects.test.serialazable.jpa.ProxyRepository;
+import objects.test.serialazable.jpa.SPAObject1;
 
 public class MixedRepositoryTest {
 
@@ -52,7 +65,7 @@ public class MixedRepositoryTest {
 	@SuppressWarnings("rawtypes")
 	private static List commandStack;
 
-	private static EntityManagerProvider emProvider = new EntityManagerProvider(){
+	private static EntityManagerProvider emProvider = new EntityManagerProvider() {
 
 		@Override
 		public EntityManager getEntityManager() {
@@ -61,18 +74,17 @@ public class MixedRepositoryTest {
 
 		@Override
 		public void destroyEntityManager() {
-			
+
 		}
 	};
 
-	
-	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider(){
+	private ProxyCommadStackProvider stackProvider = new ProxyCommadStackProvider() {
 
 		@SuppressWarnings("unchecked")
 		@Override
 		public void addCommand(Object cmd) throws Exception {
 			commandStack.add(cmd);
-			
+
 		}
 
 		@SuppressWarnings("unchecked")
@@ -84,22 +96,19 @@ public class MixedRepositoryTest {
 		@Override
 		public void clear() throws Exception {
 			commandStack.clear();
-			
+
 		}
-		
-	};	
-	
-	
+
+	};
+
 	private static Logger logger;
 	private static Server server;
 
-	
 	@AfterClass
 	public static void afterClass() throws Exception {
 		server.stop();
 	}
-	
-	
+
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		server = Server.createTcpServer().start();
@@ -117,13 +126,13 @@ public class MixedRepositoryTest {
 		em = emf.createEntityManager();
 
 	}
-	
+
 	private ProxyRepository getRepository() throws Exception {
 		Registry.newInstance();
 		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
 		commandStack = new ArrayList<>();
-		
+
 		InitJPARepository initJpa = new InitJPARepository(new SpaRepository());
 		initJpa.initClassMapping();
 		initJpa.initCommandProducer();
@@ -134,13 +143,38 @@ public class MixedRepositoryTest {
 		initSpa.initClassMapping();
 		initSpa.initCommandProducer();
 		initSpa.initProvider();
-		
+
 		Registry.getInstance().setTransactrionAdapter(new JpaTransactionAdapter(em));
-		
-		return  new ProxyRepository(repository,stackProvider);
-		
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject1.class, new CRUDService());
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject1.class, new SearchService());
+
+		return new ProxyRepository(repository, stackProvider);
+
 	}
 
-	
-	
+	@Test
+	public void mixedObjectTest1() {
+		try {
+			ProxyRepository repository = getRepository();
+
+			JPAObject1 o1 = (JPAObject1) repository.create(JPAObject1.class.getName());
+			SPAObject1 o2 = (SPAObject1) repository.create(SPAObject1.class.getName());
+			o1.setSPAObject1(o2);
+			repository.insert(o1, JPAObject1.class.getName());
+			repository.applyChanges(null);
+
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, JPAObject1.class.getName());
+
+			assertEquals(1, result.getSearchResult().size());
+			o1 = (JPAObject1) result.getSearchResult().get(0);
+			assertNotNull( o1.getSPAObject1());
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
 }
