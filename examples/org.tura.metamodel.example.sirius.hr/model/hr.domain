@@ -1943,6 +1943,7 @@
                     <ingredients mappers="d083d1d2-ddac-4ec0-8f9e-ead7f2d545a0" order="7" uid="ef75278a-e9cb-4a91-85b2-ada164529aec" name="Simple model repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715" controllerLayer="cec3ff79-4dff-4a21-a9b6-37d0e25d4513">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="b9c0cc0f-5420-4769-877d-da2646f404f0" name="HR domain simple model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-simple-model-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.elsoft.platform.hr.objects.simple.model">
                         <mappers uid="d4df4174-c80c-4a95-84a8-29543058b40b" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Model generatioin">
+                          <technologies techRef="1d4a34e1-8c39-4450-af55-dde31a4c8cf8" valueRef="df036ba6-8e15-4170-958c-095447bd2d58"/>
                           <queries uid="e7a45a88-f65b-49ee-adc4-e97848a50022" name="Query package for classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
                             <variables queryParamRef="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" value="HR domain"/>
                             <variables queryParamRef="31c1633d-e431-47c9-b306-f880c5114864" value="Simple model"/>
@@ -2134,6 +2135,7 @@
                     <ingredients mappers="f222b58b-cd61-4fe3-9a57-98f09aafac20" order="8" uid="cf6b8924-af0b-42c8-a14c-9fb2626a4511" name="Complex model repository" vewLayer="0d88bb08-2150-462f-937d-70b99af379f9" modelLayer="4bd41a2c-2b37-4d25-8a19-e97a60f95715">
                       <components xsi:type="tura.recipe:JavaComponent" columns="3" uid="582847b7-6d9b-4e3f-9235-8fdf2946798d" name="HR domain complex model" componentRoot="${Generation path}/serviceLayer" artifactId="hr-complex-model-repository" groupId="org.tura.platform.test.generated-code" version="1.0" basePackage="org.elsoft.platform.hr.objects.complex.model">
                         <mappers uid="8c9c5143-54a6-4de0-888e-d644b16eed7e" artifactRef="2b04954c-cf6c-46b7-a448-b97377be6839" name="Model generatioin">
+                          <technologies techRef="1d4a34e1-8c39-4450-af55-dde31a4c8cf8" valueRef="df036ba6-8e15-4170-958c-095447bd2d58"/>
                           <queries uid="3454fbea-8e52-4797-afc0-a074e9fabda9" name="Query package for classes" queryRef="cdf258ce-9311-4971-bd60-197bb0021022">
                             <variables queryParamRef="0e50cb70-b0f5-470b-ad7d-f3e0993bc265" value="HR domain"/>
                             <variables queryParamRef="31c1633d-e431-47c9-b306-f880c5114864" value="Complex model"/>
@@ -2734,12 +2736,12 @@
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="629dd1ab-7e77-4d67-9101-9e7c72a4177b" uid="59acb2af-4400-4248-90ec-4b5ed5303c46" mappedToPackageName="org.tura.platform.primefaces.lib" mappedToClassName="SystemLibrary" artifactId="primefaces-model" groupId="org.tura.platform" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaScriptMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="74f6e110-73a0-4c30-bc42-426cde36ac40" uid="51e96293-ab38-4c47-adbd-0f9c0eac305b" libraryUrl="clientSystemLibrary.js" artifactId="hrresources" groupId="org.tura.example.service" version="1.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="1d17cd28-17dc-4964-bb46-63e1a4003517" uid="e78e23cd-7fd8-4e4c-ae9b-464f4c5ed7ac" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="f07b6531-021a-4b2d-baa4-d28fa79a4053" mappedToPackageName="org.tura.platform.object.persistence" mappedToClassName="PersistenceObject" artifactId="jpa" groupId="org.tura.platform.repository" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="f07b6531-021a-4b2d-baa4-d28fa79a4053" mappedToPackageName="org.tura.platform.object" mappedToClassName="PersistenceObject" artifactId="spa" groupId="org.tura.platform.repository" version="2.0"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="1d17cd28-17dc-4964-bb46-63e1a4003517" uid="d7802112-623c-4771-a623-12a9272369f4" mappedToPackageName="org.tura.example.ui.hrcontroller.actions" mappedToClassName="LoginManager"/>
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="ad731dee-d456-4391-8fa2-0f5cd4ce694d" uid="1c50fed0-8776-47f1-91fb-e02b2d8f00ad" namespace="persistence.serializaton.object.platform.tura.org" typename="PersistenceObject"/>
                   <mappers xsi:type="tura.mapper:XMLTypeMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="8b94b9cd-b404-4243-bc7b-bf085d4163bd" uid="0e3ef534-9006-44a2-b217-343a56f29075" namespace="http://www.w3.org/2001/XMLSchema" typename="string"/>
                   <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9 4bd41a2c-2b37-4d25-8a19-e97a60f95715" typeRef="8b94b9cd-b404-4243-bc7b-bf085d4163bd" uid="599287c5-e649-426e-a446-75bcd2bc8c31" mappedToPackageName="java.lang" mappedToClassName="String"/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="e5cbe290-395a-4dc4-b265-ed2f3fa092e9" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="core" groupId="org.tura.platform.repository" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="31dc2714-08fe-4185-b17e-02b0ae92e6ec" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="e5cbe290-395a-4dc4-b265-ed2f3fa092e9" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="spa" groupId="org.tura.platform.repository" version="2.0"/>
                 </mapper>
               </mappers>
               <mappers uid="cafba9fe-0d77-4612-8569-752443925068" name="HR controller business logic mapper">
@@ -2769,7 +2771,7 @@
               <mappers uid="4e8497b0-1a35-4ace-90cd-4359e7cbe666" name="HR model interface mapping">
                 <mapper uid="5b7c1e6e-40fd-4ebc-91fb-ef1c8709e6cf">
                   <mappers xsi:type="tura.mapper:JavaPackageMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" packageRef="6110560a-e781-4602-99ca-45ed91722414" uid="644ff954-5a40-49da-b976-673bca769383" mappedToPackageName="org.tura.platform.test.hr.model" artifactId="hr-model-interface" groupId="org.tura.platform.test.generated-code" version="1.0" libraryName=""/>
-                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="9cd2c6a0-5d5e-4af5-b52c-93c1cc65efbb" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="core" groupId="org.tura.platform.repository" version="2.0"/>
+                  <mappers xsi:type="tura.mapper:JavaMapper" layers="0d88bb08-2150-462f-937d-70b99af379f9" typeRef="4d2a0092-50ff-49d0-bc1d-ca6ebcc33c0d" uid="9cd2c6a0-5d5e-4af5-b52c-93c1cc65efbb" mappedToPackageName="org.tura.platform.object" mappedToClassName="TuraObject" artifactId="spa" groupId="org.tura.platform.repository" version="2.0"/>
                 </mapper>
               </mappers>
               <mappers uid="18b0ebf2-ff9e-487c-b385-16856564743b" name="Additioal Libraries mapping">

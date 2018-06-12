@@ -19,46 +19,52 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.object.model;
+package org.tura.platform.object;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Version;
+
 import org.tura.platform.object.TuraObject;
 
-public class DomainObject implements TuraObject{
-
+@MappedSuperclass
+public class PersistenceObject  implements TuraObject{
+	@Id
+	@Column(name = "OBJ_ID")
 	private Long objId;
 
-	private Long parentId;
-	
+	@Column(name = "OBJ_TYPE")
 	private String objType;
 
+	@Column(name = "OBJ_STATUS")
 	private String objStatus;
 
+	@Column(name = "CREATE_DATE")
+	@Temporal(TemporalType.TIMESTAMP)	
 	private Date createDate;
 
+	@Column(name = "UPDATE_DATE")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date updateDate;
 
+	@Column(name = "ACTIVE_DATE")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date activeDate;
 
+	@Column(name = "EXP_DATE")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date expiredDate;
 
-	public Long getObjId() {
-		return objId;
-	}
-
-	public void setObjId(Long objId) {
-		this.objId = objId;
-	}
-
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
-
+	@Version
+	@Column(name = "OPTLOCK")
+	private Integer version;
+	
+	
 	public String getObjType() {
 		return objType;
 	}
@@ -106,7 +112,22 @@ public class DomainObject implements TuraObject{
 	public void setExpiredDate(Date expiredDate) {
 		this.expiredDate = expiredDate;
 	}
-	
-	
-	
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
+
+
+	public Long getObjId() {
+		return objId;
+	}
+
+	public void setObjId(Long objId) {
+		this.objId = objId;
+	}
+
 }

@@ -19,12 +19,33 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.platform.object.persistence;
+package org.tura.platform.object;
 
 import javax.persistence.EntityManager;
 
-public interface EntityManagerHelper {
-    public EntityManager getEntityManager();
-    public void destroyEntityManager();
-    	 
+import org.tura.platform.repository.core.TransactionAdapter;
+
+public class JpaTransactionAdapter extends TransactionAdapter{
+	
+	private EntityManager em;
+	
+	public JpaTransactionAdapter (EntityManager em){
+		this.em = em;
+	}
+	
+	@Override
+	protected void executeBeginTransaction() {
+		em.getTransaction().begin();
+	}
+
+	@Override
+	protected void executeCommitTransaction() {
+		em.getTransaction().commit();
+	}
+
+	@Override
+	protected void executeRollbackTransaction() {
+		em.getTransaction().rollback();
+	}
+
 }
