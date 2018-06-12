@@ -23,6 +23,8 @@ package org.tura.platform.repository.mixed.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -56,8 +58,14 @@ import org.tura.platform.repository.spa.test.SearchService;
 import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.InitSPARepository;
 import objects.test.serialazable.jpa.JPAObject1;
+import objects.test.serialazable.jpa.JPAObject2;
+import objects.test.serialazable.jpa.JPAObject3;
+import objects.test.serialazable.jpa.JPAObject4;
 import objects.test.serialazable.jpa.ProxyRepository;
 import objects.test.serialazable.jpa.SPAObject1;
+import objects.test.serialazable.jpa.SPAObject2;
+import objects.test.serialazable.jpa.SPAObject3;
+import objects.test.serialazable.jpa.SPAObject4;
 
 public class MixedRepositoryTest {
 
@@ -148,7 +156,17 @@ public class MixedRepositoryTest {
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject1.class, new CRUDService());
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject1.class, new SearchService());
 
-		return new ProxyRepository(repository, stackProvider);
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject2.class, new CRUDService());
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject2.class, new SearchService());
+        
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject3.class, new CRUDService());
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject3.class, new SearchService());
+        
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject4.class, new CRUDService());
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject4.class, new SearchService());
+
+        
+        return new ProxyRepository(repository, stackProvider);
 
 	}
 
@@ -171,10 +189,176 @@ public class MixedRepositoryTest {
 			assertNotNull( o1.getSPAObject1());
 
 			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, SPAObject1.class.getName());
+			
+			assertEquals(1, result.getSearchResult().size());
+			o2 = (SPAObject1) result.getSearchResult().get(0);
+			assertNotNull( o2.getJPAObject1());
+			
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, JPAObject1.class.getName());
+			o1 = (JPAObject1) result.getSearchResult().get(0);
+			o1.setSPAObject1(null);
+			
+			repository.applyChanges(null);
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, JPAObject1.class.getName());
+			o1 = (JPAObject1) result.getSearchResult().get(0);
+			assertNull( o1.getSPAObject1());
+
+			assertTrue( SearchService.base.get("org.tura.jpa.test.SPAObject1").isEmpty());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	
+	@Test
+	public void mixedObjectTest2() {
+		try {
+			ProxyRepository repository = getRepository();
+
+			JPAObject2 o1 = (JPAObject2) repository.create(JPAObject2.class.getName());
+			SPAObject2 o2 = (SPAObject2) repository.create(SPAObject2.class.getName());
+			o1.getSPAObject2().add(o2);
+			repository.insert(o1, JPAObject2.class.getName());
+			repository.applyChanges(null);
+
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, JPAObject2.class.getName());
+
+			assertEquals(1, result.getSearchResult().size());
+			o1 = (JPAObject2) result.getSearchResult().get(0);
+			assertNotNull( o1.getSPAObject2());
+
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, SPAObject2.class.getName());
+			
+			assertEquals(1, result.getSearchResult().size());
+			o2 = (SPAObject2) result.getSearchResult().get(0);
+			assertNotNull( o2.getJPAObject2());
+			
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, JPAObject2.class.getName());
+			o1 = (JPAObject2) result.getSearchResult().get(0);
+			o1.getSPAObject2().remove(o2);
+			
+			repository.applyChanges(null);
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, JPAObject2.class.getName());
+			o1 = (JPAObject2) result.getSearchResult().get(0);
+			assertEquals( 0, o1.getSPAObject2().size());
+
+			assertTrue( SearchService.base.get("org.tura.jpa.test.SPAObject2").isEmpty());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	
+	
+	@Test
+	public void mixedObjectTest3() {
+		try {
+			ProxyRepository repository = getRepository();
+
+			JPAObject3 o2 = (JPAObject3) repository.create(JPAObject3.class.getName());
+			SPAObject3 o1 = (SPAObject3) repository.create(SPAObject3.class.getName());
+			o1.setJPAObject3(o2);
+			repository.insert(o1, SPAObject3.class.getName());
+			repository.applyChanges(null);
+
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, SPAObject3.class.getName());
+
+			assertEquals(1, result.getSearchResult().size());
+			o1 = (SPAObject3) result.getSearchResult().get(0);
+			assertNotNull( o1.getJPAObject3());
+
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, JPAObject3.class.getName());
+			
+			assertEquals(1, result.getSearchResult().size());
+			o2 = (JPAObject3) result.getSearchResult().get(0);
+			assertNotNull( o2.getSPAObject3());
+			
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, SPAObject3.class.getName());
+			o1 = (SPAObject3) result.getSearchResult().get(0);
+			o1.setJPAObject3(null);
+			
+			repository.applyChanges(null);
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, SPAObject3.class.getName());
+			o1 = (SPAObject3) result.getSearchResult().get(0);
+			assertNull( o1.getJPAObject3());
+
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
 	}
 
+	@Test
+	public void mixedObjectTest4() {
+		try {
+			ProxyRepository repository = getRepository();
+
+			JPAObject4 o2 = (JPAObject4) repository.create(JPAObject4.class.getName());
+			SPAObject4 o1 = (SPAObject4) repository.create(SPAObject4.class.getName());
+			o1.getJPAObject4().add(o2);
+			repository.insert(o1, SPAObject4.class.getName());
+			repository.applyChanges(null);
+
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, SPAObject4.class.getName());
+
+			assertEquals(1, result.getSearchResult().size());
+			o1 = (SPAObject4) result.getSearchResult().get(0);
+			assertNotNull( o1.getJPAObject4());
+
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, JPAObject4.class.getName());
+			
+			assertEquals(1, result.getSearchResult().size());
+			o2 = (JPAObject4) result.getSearchResult().get(0);
+			assertNotNull( o2.getSPAObject4());
+			
+			
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, SPAObject4.class.getName());
+			o1 = (SPAObject4) result.getSearchResult().get(0);
+			o1.getJPAObject4().remove(o2);
+			
+			repository.applyChanges(null);
+
+			result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, SPAObject4.class.getName());
+			o1 = (SPAObject4) result.getSearchResult().get(0);
+			assertEquals(0, o1.getJPAObject4().size());
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
+	
+	
 }

@@ -158,7 +158,7 @@ public class RepositoryObjectRemover extends RepositoryHelper {
 
 		String detailClassName = detailPk.getPath().get(detailPk.getPath().size() - 1).getType();
 		Repository detailProvider = findProvider(detailClassName);
-		CommandProducer cmpDetail = findCommandProducer(masterClassName);
+		CommandProducer cmpDetail = findCommandProducer(detailClassName);
 
 		cmpMaster.setMasterProvider(masterProvider);
 		cmpMaster.setDetailProvider(detailProvider);
