@@ -148,6 +148,7 @@ public class RestClientRepository implements Repository {
 			client = ClientBuilder.newClient();
 
 			ObjectMapper mapper = new ObjectMapper();
+			mapper.enableDefaultTyping();
 
 			MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
 

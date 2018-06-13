@@ -19,30 +19,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.tura.example.ui.commons.service;
+package org.tura.platform.repository.core;
 
-import javax.inject.Inject;
+import java.util.ArrayList;
 
-import org.tura.platform.repository.cdi.ObjectProvider;
-import org.tura.platform.repository.core.PersistenceProvider;
-import org.tura.platform.repository.core.PrImaryKeyStrategy;
-import org.tura.provider.DefaultDataProvider;
+public class ApplyChangesRequest {
+	ArrayList<Object> changes;
 
+	public ArrayList<Object> getChanges() {
+		return changes;
+	}
 
-@ObjectProvider
-public class JPATestModelDataProviderCDI extends DefaultDataProvider{
+	public void setChanges(ArrayList<Object> changes) {
+		this.changes = changes;
+	}
 
-	@Override
-	@Inject
-    public void setPersistenceProvider(PersistenceProvider pp) {
-		super.setPersistenceProvider(pp);
-    }
-
-	@Override
-	@Inject
-    public void setPkStrategy(PrImaryKeyStrategy pkStrategy) {
-		super.setPkStrategy(pkStrategy);
-    }
-
-	
 }

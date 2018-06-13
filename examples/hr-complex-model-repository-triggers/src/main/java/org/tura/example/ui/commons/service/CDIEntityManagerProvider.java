@@ -21,34 +21,20 @@
  */
 package org.tura.example.ui.commons.service;
 
-import java.util.List;
-
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import org.tura.platform.repository.core.BasicRepository;
-import org.tura.platform.repository.core.RepositoryException;
+import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 
-public class LocalTransactionRepository extends BasicRepository {
-	
-	
-	@Inject
-	private EntityManager em;
-	
-	@SuppressWarnings("rawtypes")
+public class CDIEntityManagerProvider implements EntityManagerProvider{
+
 	@Override
-	public void applyChanges(List changes) throws RepositoryException{
+	public EntityManager getEntityManager() {
+		return CDITransactionAdapter.getEntityManager();
+	}
+
+	@Override
+	public void destroyEntityManager() {
 		
-		try{
-			em.getTransaction().begin();
-			
-			super.applyChanges(changes);
-			
-			em.getTransaction().commit();
-			
-		}catch(RepositoryException e){
-			em.getTransaction().rollback();
-		}
 	}
 
 }

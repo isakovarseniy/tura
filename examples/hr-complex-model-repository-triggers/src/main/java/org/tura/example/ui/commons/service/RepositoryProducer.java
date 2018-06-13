@@ -21,86 +21,40 @@
  */
 package org.tura.example.ui.commons.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Priority;
-import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.Bean;
-import javax.enterprise.inject.spi.BeanManager;
-import javax.enterprise.inject.spi.CDI;
 import javax.enterprise.inject.spi.InjectionPoint;
-import javax.inject.Inject;
 
-import org.tura.platform.repository.cdi.RepositoryExtension;
-import org.tura.platform.repository.core.DataProvider;
+import org.tura.platform.hr.objects.serialization.InitJPARepository;
+import org.tura.platform.repository.cdi.Repo;
+import org.tura.platform.repository.core.BasicRepository;
+import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
-import org.tura.platform.repository.core.Triggers;
+import org.tura.platform.repository.spa.SpaRepository;
 
 
 @Alternative
 @Priority(0)
 public class RepositoryProducer {
 	
-	@Inject
-	private RepositoryExtension repositoryExtension;
-	
-	@Inject
-	private LocalTransactionRepository repository;
-	
-	
     @Produces
-	public Repository getRepository(InjectionPoint injectionPoint) {
+    @Repo("repository")
+	public Repository getRepository(InjectionPoint injectionPoint) throws Exception {
 
-		for ( DataProvider provider : getDataProviders()){
-			provider.setRepository(repository);
-			provider.init();
+		Registry.newInstance();
+		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
+		Repository repository = new BasicRepository();
+		
+		InitJPARepository init = new InitJPARepository(new SpaRepository());
+		init.initClassMapping();
+		init.initCommandProducer();
+		init.initProvider();
+		init.initEntityManagerProvider(new CDIEntityManagerProvider());
 
-			for (Triggers triggers: getQueryTriggers()) {
-				provider.setTriggers(triggers);
-			}
-			
-		}
-		return repository;
+		Registry.getInstance().setTransactrionAdapter( new CDITransactionAdapter());
+    	
+    	return repository;
 	}
-
-    
-	private  List<DataProvider> getDataProviders() {
-
-		ArrayList<DataProvider> array = new ArrayList<>();
-
-		for (Bean<?> bean : repositoryExtension.getDataProviderBeans()) {
-			BeanManager bm = CDI.current().getBeanManager();
-
-			CreationalContext<?> ctx = bm.createCreationalContext(bean);
-			DataProvider provider = (DataProvider) bm.getReference(bean, DataProvider.class, ctx);
-
-			array.add(provider);
-		}
-
-		return array;
-	}
-
-	
-
-	private  List<Triggers> getQueryTriggers() {
-
-		ArrayList<Triggers> array = new ArrayList<>();
-
-		for (Bean<?> bean : repositoryExtension.getRepositoryTriggersBeans()) {
-			BeanManager bm = CDI.current().getBeanManager();
-
-			CreationalContext<?> ctx = bm.createCreationalContext(bean);
-			Triggers provider = (Triggers) bm.getReference(bean, Triggers.class, ctx);
-
-			array.add(provider);
-		}
-
-		return array;
-	}
-	
-	
 	
 }

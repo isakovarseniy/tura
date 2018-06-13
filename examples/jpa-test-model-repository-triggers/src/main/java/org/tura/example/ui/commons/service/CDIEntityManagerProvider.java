@@ -21,23 +21,20 @@
  */
 package org.tura.example.ui.commons.service;
 
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import org.tura.platform.object.persistence.JPAPersistenceProvider;
-import org.tura.platform.repository.core.PersistenceProvider;
+import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 
-public class PersistenceProviderProducer {
+public class CDIEntityManagerProvider implements EntityManagerProvider{
 
-	@Inject
-	private EntityManager em;
-	
-    @Produces
-    @RequestScoped
-    protected PersistenceProvider createPersistenceProvider(){
-    	return new JPAPersistenceProvider(em); 
-    }
-	
+	@Override
+	public EntityManager getEntityManager() {
+		return CDITransactionAdapter.getEntityManager();
+	}
+
+	@Override
+	public void destroyEntityManager() {
+		
+	}
+
 }

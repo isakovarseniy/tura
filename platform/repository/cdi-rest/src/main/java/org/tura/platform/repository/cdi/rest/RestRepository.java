@@ -109,6 +109,7 @@ public class RestRepository {
 	public Response applyChanges(MultivaluedMap<String,String> map) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
+			mapper.enableDefaultTyping();
 		    ArrayList<Object> list = new ArrayList<>();
 		    
 			for (int i  = 0; ;i++){

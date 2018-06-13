@@ -32,6 +32,8 @@ public class UUIPrimaryKeyStrategy implements PrImaryKeyStrategy{
 		try{
 			
 		Reflection.callTyped(o, "setObjId", Long.class,id);
+		Reflection.callTyped(o, "setSerializationid", String.class , new Long(id).toString()+o.getClass().getName());
+
 		id= id+1;
 		
 		}catch(Exception e){
