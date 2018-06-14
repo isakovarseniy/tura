@@ -123,6 +123,7 @@ public class JpaSearchService implements SearchProvider {
 
 			if (
 					      parentPersistenceObject != null
+					&& parentPersistenceObject.getValue() != null
 					&& parentPersistenceObject.getValue().getClass().isAnnotationPresent(Entity.class)
 					&& mapper != null
 			) {

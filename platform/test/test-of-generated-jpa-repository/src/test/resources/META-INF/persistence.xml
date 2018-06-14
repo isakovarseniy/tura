@@ -61,7 +61,10 @@
 		<class>org.tura.jpa.test.JPAObject2</class>
 		<class>org.tura.jpa.test.JPAObject3</class>
 		<class>org.tura.jpa.test.JPAObject4</class>
-		
+		<class>org.tura.jpa.test.DD1</class>
+		<class>org.tura.jpa.test.C1</class>
+		<class>org.tura.jpa.test.B1</class>
+		<class>org.tura.jpa.test.B2</class>
 		
 		
 		<class>org.tura.platform.object.persistence.ObjectsID</class>

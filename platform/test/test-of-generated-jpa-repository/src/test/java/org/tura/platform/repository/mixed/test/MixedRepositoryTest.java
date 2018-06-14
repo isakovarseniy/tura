@@ -55,6 +55,15 @@ import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.repository.spa.test.CRUDService;
 import org.tura.platform.repository.spa.test.SearchService;
 
+import objects.test.serialazable.jpa.A1;
+import objects.test.serialazable.jpa.A2;
+import objects.test.serialazable.jpa.A3;
+import objects.test.serialazable.jpa.A4;
+import objects.test.serialazable.jpa.B1;
+import objects.test.serialazable.jpa.B2;
+import objects.test.serialazable.jpa.C1;
+import objects.test.serialazable.jpa.DD1;
+import objects.test.serialazable.jpa.F1;
 import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.InitSPARepository;
 import objects.test.serialazable.jpa.JPAObject1;
@@ -165,6 +174,11 @@ public class MixedRepositoryTest {
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.SPAObject4.class, new CRUDService());
         SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.SPAObject4.class, new SearchService());
 
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.A1.class, new CRUDService());
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.A1.class, new SearchService());
+
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addCRUDProvider(org.tura.jpa.test.F1.class, new CRUDService());
+        SpaObjectRegistry.getInstance().getRegistry("test-spa-repository").addSearchProvider(org.tura.jpa.test.F1.class, new SearchService());
         
         return new ProxyRepository(repository, stackProvider);
 
@@ -360,5 +374,79 @@ public class MixedRepositoryTest {
 	}
 
 	
+	@Test
+	public void mixedObjectTest5() {
+		try {
+			ProxyRepository repository = getRepository();
+
+			A1 a1 = (A1) repository.create(A1.class.getName());
+			A2 a2 = (A2) repository.create(A2.class.getName());
+			a1.setA2(a2);
+			repository.insert(a1, A1.class.getName());
+			repository.applyChanges(null);
+
+			A3 a3 = (A3) repository.create(A3.class.getName());
+			a2.getA3().add(a3);
+			
+			C1 c1 = (C1) repository.create(C1.class.getName());
+			a3.getC1().add(c1);
+			
+			B1 b1 = (B1) repository.create(B1.class.getName());
+			a3.setB1(b1);
+			
+			B2 b2 = (B2) repository.create(B2.class.getName());
+			b1.setB2(b2);
+			
+			A4 a4 = (A4) repository.create(A4.class.getName());
+			a2.getA4().add(a4);
+			
+			
+			F1 f1 = (F1) repository.create(F1.class.getName());
+			a4.setF1(f1);
+			f1.setComment("Comment");
+			
+			DD1 dd1 = (DD1) repository.create(DD1.class.getName());
+			a1.setDD1(dd1);
+			repository.applyChanges(null);
+
+			SearchResult result = repository.find(new ArrayList<SearchCriteria>(), new ArrayList<OrderCriteria>(), 0,
+					100, DD1.class.getName());
+			
+			assertEquals(1, result.getSearchResult().size());
+			DD1 dd1_ = (DD1) result.getSearchResult().get(0);
+			assertEquals(dd1.getObjId(), dd1_.getObjId());
+			
+			A1 a1_ = dd1_.getA1();
+			assertEquals(a1.getObjId(), a1_.getObjId());
+
+			A2 a2_ = a1_.getA2();
+			assertEquals(a2.getObjId(), a2_.getObjId());
+			
+			A3 a3_ = a2_.getA3().get(0);
+			assertEquals(a3.getObjId(), a3_.getObjId());
+			
+			A4 a4_ = a2_.getA4().get(0);
+			assertEquals(a4.getObjId(), a4_.getObjId());
+			
+			C1 c1_ = a3_.getC1().get(0);
+			assertEquals(c1.getObjId(), c1_.getObjId());
+			
+			B1 b1_ = a3_.getB1();
+			assertEquals(b1.getObjId(), b1_.getObjId());
+			
+			B2 b2_ = b1_.getB2();
+			assertEquals(b2.getObjId(), b2_.getObjId());
+			
+			F1 f1_ = a4_.getF1();
+			assertEquals(f1.getObjId(), f1_.getObjId());
+			assertEquals(f1.getComment(), f1_.getComment());
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
 	
 }
