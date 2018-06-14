@@ -229,7 +229,6 @@ public class SingleDataControl {
 		try {
 			Repository repo = factory.getRepository();
 
-			em.getTransaction().begin();
 			
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
@@ -277,9 +276,6 @@ public class SingleDataControl {
 			logger.info(dc.getCurrentObject().getObjId().toString());
 
 			repo.applyChanges(null);
-			em.getTransaction().commit();
-			
-			em.getTransaction().begin();
 
 			id = new Long(50);
 			do {
@@ -293,7 +289,6 @@ public class SingleDataControl {
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
 			
-			em.getTransaction().commit();
 
 			
 		} catch (Exception e) {
@@ -306,7 +301,6 @@ public class SingleDataControl {
 	public void t6_defaultSearchCriteriaWithConstantUpdateRequery() {
 		try {
 			Repository repo = factory.getRepository();
-			em.getTransaction().begin();
 			
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.getElResolver().setValue("departments", dc);
@@ -331,15 +325,11 @@ public class SingleDataControl {
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			repo.applyChanges(null);
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
 
 			dc.forceRefresh();
 			row = dc.getCurrentObject();
 			assertEquals("qwerty", row.getDepartmentName());
 			
-			em.getTransaction().commit();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -369,7 +359,6 @@ public class SingleDataControl {
 	public void t8_scrollDownAddCommitScrollDown() {
 		try {
 			Repository repo = factory.getRepository();
-			em.getTransaction().begin();
 			
 			DataControl<DepartmentType> dc = factory.initDepartments("");
 			dc.setPostCreateTrigger(new DeparmentPostCreatTrigger());
@@ -436,9 +425,6 @@ public class SingleDataControl {
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
 
 			repo.applyChanges(null);
-			em.getTransaction().commit();
-
-			em.getTransaction().begin();
 			
 			dc.getShifter().setLogger(logger);
 			dc.getShifter().print(ShiftConstants.SELECT_ORDERBY_ACTUALPOSITION);
@@ -465,7 +451,6 @@ public class SingleDataControl {
 			assertEquals(dc.getCurrentObject().getObjId(), id);
 			logger.info(dc.getCurrentObject().getObjId().toString());
 			
-			em.getTransaction().rollback();
 
 		} catch (Exception e) {
 			e.printStackTrace();

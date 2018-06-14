@@ -346,7 +346,6 @@ public class SingleDataControlPool {
 	@Test
 	public void t6_commitWithsavePoint() {
 		try {
-			em.getTransaction().begin();
 			Repository repo = factory.getRepository();
 			
 			DataControl<DepartmentType> dc = factory.initDepartments("");
@@ -360,7 +359,6 @@ public class SingleDataControlPool {
 			dc.removeObject();
 
 			repo.applyChanges(null);
-			em.getTransaction().commit();
 
 			row = dc.getCurrentObject();
 

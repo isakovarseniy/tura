@@ -39,16 +39,19 @@ import org.tura.platform.datacontrol.commons.TuraException;
 import org.tura.platform.datacontrol.metainfo.Relation;
 import org.tura.platform.hr.controls.DepartmentsDC;
 import org.tura.platform.hr.controls.EmployeesDC;
-import org.tura.platform.object.persistence.JpaRepository;
+import org.tura.platform.object.JpaTransactionAdapter;
 import org.tura.platform.repository.core.BasicRepository;
-import org.tura.platform.repository.Repository;
+import org.tura.platform.repository.core.Registry;
+import org.tura.platform.repository.core.Repository;
+import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
+import org.tura.platform.repository.spa.SpaRepository;
 import org.tura.platform.test.Factory;
 import org.tura.platform.test.hr.model.DepartmentType;
 import org.tura.platform.test.hr.model.EmployeeType;
-import org.tura.provider.DefaultDataProvider;
 
 import objects.test.serialazable.jpa.Department2;
 import objects.test.serialazable.jpa.Employee2;
+import objects.test.serialazable.jpa.InitJPARepository;
 import objects.test.serialazable.jpa.ProxyRepository;
 import objects.test.serialazable.jpa.pager.Department22Employee2Pager;
 import objects.test.serialazable.jpa.pager.Department2Pager;;
@@ -59,21 +62,37 @@ public class FactoryDC implements Factory {
 	private EntityManager em;
 	private CommandStack sc;
 	private Repository repository ;
+	private  EntityManagerProvider emProvider = new EntityManagerProvider(){
 
-	public FactoryDC(String unit) {
+		@Override
+		public EntityManager getEntityManager() {
+			return em;
+		}
+
+		@Override
+		public void destroyEntityManager() {
+			
+		}
+	};
+
+	public FactoryDC(String unit) throws Exception {
 
 		Configuration config = new Configuration();
 		config.addResource("META-INF/persistence.xml");
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(unit, config.getProperties());
 		em = emf.createEntityManager();
 
+		Registry.newInstance();
+		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		repository = new BasicRepository();
-		
-		DefaultDataProvider dataProvider = new DefaultDataProvider();
-		dataProvider.setPersistenceProvider(new JpaRepository(em));
-		dataProvider.setRepository(repository);
-		dataProvider.setPkStrategy(new UUIPrimaryKeyStrategy());
-		dataProvider.init();
+
+		InitJPARepository init = new InitJPARepository(new SpaRepository());
+		init.initClassMapping();
+		init.initCommandProducer();
+		init.initProvider();
+		init.initEntityManagerProvider(emProvider);
+
+		Registry.getInstance().setTransactrionAdapter(new JpaTransactionAdapter(em));
 		
 		sc = new CommandStack();
 		elResolver = new ELResolverImpl();
