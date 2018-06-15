@@ -43,6 +43,8 @@ import org.tura.platform.hr.objects.serialization.Street;
 import org.tura.platform.hr.objects.serialization.State;
 import org.tura.platform.hr.objects.serialization.Country;
 import org.tura.platform.hr.objects.serialization.Department;
+import org.tura.platform.datacontrol.command.base.CommandStackProvider;
+import org.tura.platform.hr.objects.serialization.ProxyRepository;
 
 
 import org.tura.platform.primefaces.model.GridModel;
@@ -111,7 +113,13 @@ public class CDITest[%=util.mergeAndCapitalize(form.name)%]  {
 			}
 			assertEquals(fact.size(), 0);
 
-			repository.applyChanges(null);
+			CommandStackProvider sp = new CommandStackProvider();
+			sp.setDataControl(companyDC);
+			sp.setCommandStack(companyDC.getCommandStack());
+
+			ProxyRepository proxyRepository = new ProxyRepository(repository, sp);
+
+			proxyRepository.applyChanges(null);
 
 		} catch (Exception e) {
 			e.printStackTrace();

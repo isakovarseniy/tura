@@ -21,27 +21,20 @@
  */
 package org.tura.platform.test;
 
-import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
-import org.tura.platform.repository.cdi.ObjectProvider;
-import org.tura.platform.repository.core.PersistenceProvider;
-import org.tura.platform.repository.core.PrImaryKeyStrategy;
-import org.tura.provider.DefaultDataProvider;
+import org.tura.platform.repository.jpa.operation.EntityManagerProvider;
 
-@ObjectProvider
-public class ComplexModelDataProviderCDI extends DefaultDataProvider{
+public class CDIEntityManagerProvider implements EntityManagerProvider{
 
 	@Override
-	@Inject
-    public void setPersistenceProvider(PersistenceProvider pp) {
-		super.setPersistenceProvider(pp);
-    }
+	public EntityManager getEntityManager() {
+		return CDITransactionAdapter.getEntityManager();
+	}
 
 	@Override
-	@Inject
-    public void setPkStrategy(PrImaryKeyStrategy pkStrategy) {
-		super.setPkStrategy(pkStrategy);
-    }
+	public void destroyEntityManager() {
+		
+	}
 
-	
 }
