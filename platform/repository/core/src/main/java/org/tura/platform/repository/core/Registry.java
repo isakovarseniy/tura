@@ -33,6 +33,8 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 public class Registry {
 
+	private static ThreadLocal<Registry> userContext  = new ThreadLocal<>();
+	
 	private Map<String, Repository> providers = new HashMap<>();
 	private Map<String, String> classMapper = new HashMap<>();
 	private Map<String, PostCreateTrigger> postCreateTriggers = new HashMap<>();
@@ -43,19 +45,24 @@ public class Registry {
 	private Map<Repository , CommandProducer> commandProducers = new HashMap<>();
 	private PrImaryKeyStrategy prImaryKeyStrategy;
 	private TransactionAdapter transactrionAdapter;
-	private static Registry instance = new Registry();
 
 	private Registry() {
 
 	}
 
 	public static Registry newInstance() {
-		instance = new Registry();
-		return instance;
+		Registry r = userContext.get();
+		userContext.set(r);
+		return r;
 	}
 
 	public static Registry getInstance() {
-		return instance;
+		Registry r = userContext.get();
+		if (r == null) {
+			r = new Registry();
+			userContext.set(r);
+		}
+		return r;
 	}
 
 	public void setPrImaryKeyStrategy(PrImaryKeyStrategy prImaryKeyStrategy){
