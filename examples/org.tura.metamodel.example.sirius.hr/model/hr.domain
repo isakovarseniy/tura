@@ -2475,7 +2475,7 @@
                     </ingredients>
                     <ingredients columns="2" order="2" uid="a80474cb-f110-4a56-86f1-0959d7635179" name="External Archives">
                       <components xsi:type="tura.recipe:JavaComponent" uid="f6649945-4f3c-41b2-b2b1-392037e0cb57" name="Triggers" componentRoot="${External path 1}" artifactId="hrform-triggers" groupId="org.tura.example.service.hrform" version="1.0">
-                        <mappers uid="b49fce8c-ec2b-473a-9882-99e93d90ac92" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Trigger build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.1/examples/hrform-triggers/builder.sh">
+                        <mappers uid="b49fce8c-ec2b-473a-9882-99e93d90ac92" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Trigger build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/hrform-triggers/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -2483,7 +2483,7 @@
                         </mappers>
                       </components>
                       <components xsi:type="tura.recipe:JavaComponent" order="1" uid="7ed1d21d-9419-47c3-91a0-bed932bb817e" name="Resources" componentRoot="${External path 1}" artifactId="hrresources" groupId="org.tura.example.service">
-                        <mappers uid="94e05de4-6044-40b1-9409-1decdc62bbdb" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Resources build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura.4.2.1/examples/hrresources/builder.sh">
+                        <mappers uid="94e05de4-6044-40b1-9409-1decdc62bbdb" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Resources build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/hrresources/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
                           <technologies techRef="ead2ad3c-4623-4c38-bd6f-99a3ea4e5358" valueRef="cc47fddb-b1b8-4ac6-a070-73cd8096168e"/>
@@ -2492,9 +2492,9 @@
                       </components>
                     </ingredients>
                     <deplymentStep mapper="17e4bf61-820a-433e-9b51-229a8738632f" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.4"/>
-                    <deplymentStep mapper="1dc64683-ffb2-46a7-bd67-7e7bc2fdbe8f" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.2"/>
-                    <deplymentStep mapper="493f35a8-60d7-44c6-b555-9231a3f568ce" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.3"/>
-                    <deplymentStep mapper="018eecf2-6087-4f3d-9484-a5460fff806c"/>
+                    <deplymentStep mapper="1dc64683-ffb2-46a7-bd67-7e7bc2fdbe8f" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.3"/>
+                    <deplymentStep mapper="493f35a8-60d7-44c6-b555-9231a3f568ce"/>
+                    <deplymentStep mapper="018eecf2-6087-4f3d-9484-a5460fff806c" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.2"/>
                     <deplymentStep mapper="94e05de4-6044-40b1-9409-1decdc62bbdb" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.5"/>
                     <deplymentStep mapper="b49fce8c-ec2b-473a-9882-99e93d90ac92" deploymentComponentLink="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.1"/>
                     <startSeq uid="e2ef3a3d-92f4-4fa1-a0ed-9c4010ed41c0" firstStep="/0/@domainApplications/@applications.0/@applicationPackages.0/@applications.0/@applicationRecipes/@recipes.1/@recipes.0/@recipe/@deplymentStep.0"/>
@@ -2506,7 +2506,7 @@
                     <properties uid="ca64f81e-4db0-48cc-a23b-e62e23f1127f" confVarRef="a4f78b70-3a9d-491b-b748-4480daae7f19" value="9990"/>
                     <properties uid="2c3d7a7f-2dc8-499b-b8b0-cddc19c32f21" confVarRef="2c1d2970-1630-474c-b93c-7ace2a3ae99b" value="5"/>
                     <properties uid="8a12267d-7828-41ab-ade7-e0f0b4f1adad" confVarRef="c8917447-70ac-417c-b397-d966f2b057ad" value="/Users/arseniy/generatedCode"/>
-                    <properties uid="5b6cf6b5-e04f-47bb-9722-dd30abf658ff" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura.4.2.1/examples"/>
+                    <properties uid="5b6cf6b5-e04f-47bb-9722-dd30abf658ff" confVarRef="681be344-1d3d-4e97-9734-21c01989ded6" value="/Users/arseniy/MyPrj/git/tura/examples"/>
                   </configurations>
                   <configurations uid="67fda0b2-5539-4648-ba8a-76c2dc7b9809">
                     <properties uid="f8c812a1-5e0d-422b-be97-2b49c52ebe06" confVarRef="edbc4c3d-9673-4188-b39e-665a62f165e2" value="/hrapplication"/>

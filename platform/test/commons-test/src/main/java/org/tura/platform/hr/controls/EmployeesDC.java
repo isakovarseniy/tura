@@ -23,7 +23,6 @@ package org.tura.platform.hr.controls;
 
 import java.util.List;
 
-import org.tura.platform.test.hr.model.EmployeeType;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.ELResolver;
 import org.tura.platform.datacontrol.command.base.CreateObjectParameters;
