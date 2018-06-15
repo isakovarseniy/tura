@@ -2474,7 +2474,7 @@
                       </components>
                     </ingredients>
                     <ingredients columns="2" order="2" uid="a80474cb-f110-4a56-86f1-0959d7635179" name="External Archives">
-                      <components xsi:type="tura.recipe:JavaComponent" uid="f6649945-4f3c-41b2-b2b1-392037e0cb57" name="Triggers" componentRoot="${External path 1}" artifactId="hrform-triggers" groupId="org.tura.example.service.hrform" version="1.0">
+                      <components xsi:type="tura.recipe:JavaComponent" uid="f6649945-4f3c-41b2-b2b1-392037e0cb57" name="Triggers" componentRoot="${External path 1}/hr-manager" artifactId="hrform-triggers" groupId="org.tura.example.service.hrform" version="1.0">
                         <mappers uid="b49fce8c-ec2b-473a-9882-99e93d90ac92" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Trigger build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/hrform-triggers/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
@@ -2482,7 +2482,7 @@
                           <technologies techRef="9d443a3e-8fad-4305-86c4-05b4728c9285" valueRef="69011f29-1a9b-4957-9236-e637465a1e9a"/>
                         </mappers>
                       </components>
-                      <components xsi:type="tura.recipe:JavaComponent" order="1" uid="7ed1d21d-9419-47c3-91a0-bed932bb817e" name="Resources" componentRoot="${External path 1}" artifactId="hrresources" groupId="org.tura.example.service">
+                      <components xsi:type="tura.recipe:JavaComponent" order="1" uid="7ed1d21d-9419-47c3-91a0-bed932bb817e" name="Resources" componentRoot="${External path 1}/hr-manager" artifactId="hrresources" groupId="org.tura.example.service">
                         <mappers uid="94e05de4-6044-40b1-9409-1decdc62bbdb" artifactRef="8ac85ef5-7d67-4532-a9da-dc6a084b52e1" name="Resources build runner" artifactExecutionString="bash /Users/arseniy/MyPrj/git/tura/examples/hrresources/builder.sh">
                           <technologies techRef="24ac3e64-fb3b-4f95-afe5-85fdb828debd" valueRef="c26c2ace-79a3-4841-9967-4fe12b6ab5ee"/>
                           <technologies techRef="db75ca91-86b4-4bae-8cb7-d43634dd4914" valueRef="dcc18127-fb5a-4f89-920c-3cf9ad4390ee"/>
