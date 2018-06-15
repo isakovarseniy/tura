@@ -102,11 +102,13 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 
 	
 	public void  internalLoader(Object repositoryObject,Object persistenceObjectPK , boolean fromInternalClass) throws Exception {
-        @SuppressWarnings("unchecked")
-		List<Object> loadedObjects = (List<Object>) context.get(LOADED_OBJECTS);
+        String key = LOADED_OBJECTS+repositoryObject.getClass().getName();
+        
+		@SuppressWarnings("unchecked")
+		List<Object> loadedObjects = (List<Object>) context.get(key);
         if(loadedObjects == null){
         	loadedObjects = new ArrayList<>();
-        	context.put(LOADED_OBJECTS, loadedObjects);
+        	context.put(key, loadedObjects);
         }
         if (loadedObjects.contains(persistenceObjectPK)){
         	return ;
@@ -118,11 +120,13 @@ public class RepositoryObjectLoader  extends RepositoryHelper{
 	
 	
 	public Object loader(Object persistenceObject,  Object persistenceObjectPK , Class<?> repositoryClass) throws RepositoryException {
-            @SuppressWarnings("unchecked")
-			List<Object> loadedObjects = (List<Object>) context.get(LOADED_OBJECTS);
+        String key = LOADED_OBJECTS+repositoryClass.getName();
+
+		@SuppressWarnings("unchecked")
+			List<Object> loadedObjects = (List<Object>) context.get(key);
             if(loadedObjects == null){
             	loadedObjects = new ArrayList<>();
-            	context.put(LOADED_OBJECTS, loadedObjects);
+            	context.put(key, loadedObjects);
             }
             if (loadedObjects.contains(persistenceObjectPK)){
             	return null;

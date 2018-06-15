@@ -60,6 +60,10 @@ public class JpaRemoveObjectOperation  extends SpaRepositoryCommand{
 
 		Object pk = getPersistancePrimaryKey(getObject());
 		Object p = sp.find(pk,persistanceType);
+		if (p == null){
+			//Object was delited already
+			return null;
+		}
 		sp.getEm().remove(p);
 		
 		return null;
