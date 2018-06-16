@@ -27,7 +27,6 @@ import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 
 import org.tura.platform.hr.objects.serialization.InitJPARepository;
-import org.tura.platform.repository.cdi.Repo;
 import org.tura.platform.repository.core.BasicRepository;
 import org.tura.platform.repository.core.Registry;
 import org.tura.platform.repository.core.Repository;
@@ -39,7 +38,6 @@ import org.tura.platform.repository.spa.SpaRepository;
 public class RepositoryProducer {
 	
     @Produces
-    @Repo("repository")
 	public Repository getRepository(InjectionPoint injectionPoint) throws Exception {
 
 		Registry.newInstance();
