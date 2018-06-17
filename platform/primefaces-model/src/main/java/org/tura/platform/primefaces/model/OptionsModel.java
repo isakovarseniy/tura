@@ -24,8 +24,10 @@ package org.tura.platform.primefaces.model;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.commons.Reflection;
@@ -70,7 +72,7 @@ public class OptionsModel {
 				}
 			}
 		} catch (Exception e) {
-			logger.info(e.getMessage());
+			logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));
 		}
 		return this;
 	}
@@ -97,7 +99,7 @@ public class OptionsModel {
 			}
 
 		} catch (Exception e) {
-			logger.info(e.getMessage());
+			logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));
 		}
 
 		return options;

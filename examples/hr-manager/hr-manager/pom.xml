@@ -12,6 +12,7 @@
 	<description>Hr manager Parent</description>
 
 	<properties>
+		<skipTests>true</skipTests>
 		<wildfly-arquillian-container-managed-version>8.1.0.Final</wildfly-arquillian-container-managed-version>
 		<junit-version>4.11</junit-version>
 		<javaee-api-version>7.0</javaee-api-version>
@@ -20,6 +21,8 @@
 		<wildfly-version>10.1.0.Final</wildfly-version>
 		<slf4j-version>1.6.1</slf4j-version>
 		<tura.platform.version>2.0</tura.platform.version>
+		<postgres.jdbc.version>42.1.1</postgres.jdbc.version>
+		<version.postgresql>2.9</version.postgresql>
 	</properties>
 
 	<repositories>
@@ -36,6 +39,18 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>ru.yandex.qatools.embed</groupId>
+				<artifactId>postgresql-embedded</artifactId>
+				<version>${version.postgresql}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgres.jdbc.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.tura.platform.test</groupId>
@@ -117,6 +132,18 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-simple</artifactId>
 				<version>${slf4j-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.platform</groupId>
+				<artifactId>primefaces-selenium</artifactId>
+				<version>${tura.platform.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.tura.example.ui</groupId>
+				<artifactId>hrform-pageobjects</artifactId>
+				<version>1.0</version>
 			</dependency>
 
 

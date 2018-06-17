@@ -24,7 +24,9 @@ package org.tura.platform.primefaces.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortMeta;
 import org.primefaces.model.SortOrder;
@@ -96,7 +98,7 @@ public class LazyDataGridModel<T> extends LazyDataModel<T> {
 				datasource.add(new Object[] { i, k, scroler.get(i) });
 
 		} catch (Exception e) {
-			logger.info(e.getMessage());
+			logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));
 		}finally{
 			datacontrol.setPreQueryTrigger(trigger.getTrigger());
 		}

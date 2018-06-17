@@ -21,8 +21,10 @@
  */
 package org.tura.platform.primefaces.model;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.tura.platform.datacontrol.DataControl;
 import org.tura.platform.datacontrol.EventListener;
 import org.tura.platform.datacontrol.commons.TuraException;
@@ -74,7 +76,7 @@ public class GridModel {
 				dc.setCurrentPosition(array[0]);
 			}
 		} catch (TuraException e) {
-			logger.info(e.getMessage());
+			logger.log (  Level.SEVERE,   ExceptionUtils.getFullStackTrace( e));
 		}
 	}
 

@@ -6,6 +6,7 @@ import org.tura.comfiguration.artifacts.jboss.CopyUsers;
 import org.tura.comfiguration.artifacts.jboss.DoDeploy;
 import org.tura.comfiguration.artifacts.jboss.Module;
 import org.tura.comfiguration.artifacts.jboss.StendaloneFullXml;
+import org.tura.comfiguration.commons.DownloadChromeSeleniumWebDriver;
 
 public class HrManagerRecipe {
 	
@@ -53,11 +54,6 @@ public class HrManagerRecipe {
                           .setSourceResource( System.getProperty("user.home")+"/.m2/repository/org/tura/example/ui/hrform/1.0/hrform-1.0.war")
                           .doDeployExploaded();
 
-                  new DoDeploy(jboss_home,"db-starter-1.0.0-SNAPSHOT.war")
-	                  .setSourceResource( System.getProperty("user.home")+"/.m2/repository/hr-manager/db-starter/1.0.0-SNAPSHOT/db-starter-1.0.0-SNAPSHOT.war")
-	                  .doDeployExploaded();
-                  
-                  
                   new CopyFile()
                           .setTargetLocation(System.getProperty("user.home"))
                           .setTargetName("hrcontroller.sql")
@@ -76,6 +72,11 @@ public class HrManagerRecipe {
 		                  .setTargetName("postgresql-42.1.1.jar")
 		                  .setSourceResource(System.getProperty("user.home")+"/.m2/repository/org/postgresql/postgresql/42.1.1/postgresql-42.1.1.jar")
 		                  .copyFromExternal();
+                  
+          		new DownloadChromeSeleniumWebDriver()
+          				.setDriverVersion("2.40")
+          				.setTargetDirectory(System.getProperty("user.home"))
+          				.download();
                   
 	}
 }

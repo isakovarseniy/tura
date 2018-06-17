@@ -23,7 +23,9 @@ package org.tura.platform.repository.core;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.ServiceLoader;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
@@ -33,7 +35,7 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 public class Registry {
 
-	private static ThreadLocal<Registry> userContext  = new ThreadLocal<>();
+	private static ServiceLoader<RegistryResolver> loader = ServiceLoader.load(RegistryResolver.class); 	
 	
 	private Map<String, Repository> providers = new HashMap<>();
 	private Map<String, String> classMapper = new HashMap<>();
@@ -46,23 +48,21 @@ public class Registry {
 	private PrImaryKeyStrategy prImaryKeyStrategy;
 	private TransactionAdapter transactrionAdapter;
 
-	private Registry() {
+	public Registry() {
 
 	}
 
 	public static Registry newInstance() {
-		Registry r = userContext.get();
-		userContext.set(r);
-		return r;
+		Iterator<RegistryResolver> iterator = loader.iterator();
+		if (iterator != null && iterator.hasNext()){
+			RegistryResolver resolver = iterator.next();
+			return resolver.resolve();
+		}
+		return null;
 	}
 
 	public static Registry getInstance() {
-		Registry r = userContext.get();
-		if (r == null) {
-			r = new Registry();
-			userContext.set(r);
-		}
-		return r;
+		return newInstance();
 	}
 
 	public void setPrImaryKeyStrategy(PrImaryKeyStrategy prImaryKeyStrategy){

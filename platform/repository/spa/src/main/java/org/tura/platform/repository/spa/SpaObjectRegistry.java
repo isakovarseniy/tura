@@ -23,8 +23,10 @@ package org.tura.platform.repository.spa;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.ServiceLoader;
 
 import org.tura.platform.repository.core.RegistryAware;
 import org.tura.platform.repository.core.RepositoryCommandType;
@@ -38,29 +40,28 @@ import org.tura.platform.repository.triggers.PreQueryTrigger;
 
 public class SpaObjectRegistry {
 
-	private static ThreadLocal<SpaObjectRegistry> userContext = new ThreadLocal<>();
+	private static ServiceLoader<SpaRegistryResolver> loader = ServiceLoader.load(SpaRegistryResolver.class); 	
 
 	private Map<String, SpaRegistry> hash = new HashMap<>();
 
-	private SpaObjectRegistry() {
+	public SpaObjectRegistry() {
 
-	}
-
-	public static SpaObjectRegistry getInstance() {
-		SpaObjectRegistry r = userContext.get();
-		if (r == null) {
-			r = new SpaObjectRegistry();
-			userContext.set(r);
-		}
-		return r;
 	}
 
 	public static SpaObjectRegistry newInstance() {
-		SpaObjectRegistry r = new SpaObjectRegistry();
-		userContext.set(r);
-		return r;
+		Iterator<SpaRegistryResolver> iterator = loader.iterator();
+		if (iterator != null && iterator.hasNext()){
+			SpaRegistryResolver resolver = iterator.next();
+			return resolver.resolve();
+		}
+		return null;
 	}
 
+	public static SpaObjectRegistry getInstance() {
+		return newInstance();
+	}
+
+	
 	public SpaRegistry getRegistry(String name) {
 		SpaRegistry r = hash.get(name);
 		if (r == null) {
