@@ -11,13 +11,16 @@ operation  persistence_jpaproperties(Connection , configuration) {
 
 [%   } %]		
             <property name="hibernate.dialect" value="org.hibernate.dialect.[%=persistence_databasename()%]Dialect"/>
-  	           <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+  	         [% 
+ //For some reason this property slow down connection with postgres 	         
+  	         if ( not persistence_databasename().equals("PostgreSQL")){ %]
+  	          <property name="hibernate.hbm2ddl.auto" value="update"/>
+  	          [%  }%]
     
             <property name="hibernate.default_schema" value="[%=configuration.get("DataBase schema")%]"/>
 			<property name = "hibernate.show_sql" value = "false" />
-           <property name="hibernate.classloading.use_current_tccl_as_parent" value="false" />		
-<!-- 			<property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>	
- -->           	
+           	
 		</properties>
 [%
 }
