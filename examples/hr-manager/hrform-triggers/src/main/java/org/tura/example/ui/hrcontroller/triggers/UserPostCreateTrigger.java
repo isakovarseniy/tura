@@ -32,7 +32,6 @@ import org.tura.platform.datacontrol.annotations.PostCreate;
 import org.tura.platform.datacontrol.annotations.Selector;
 import org.tura.platform.datacontrol.command.base.PostCreateTrigger;
 import org.tura.platform.datacontrol.commons.TuraException;
-import org.tura.platform.repository.core.ObjectControl;
 
 
 @Alternative
@@ -44,7 +43,7 @@ public class UserPostCreateTrigger implements PostCreateTrigger {
 	@Override
 	public void execute(DataControl<?> datacontrol, Object obj,Map<String,Object> attributes)
 			throws TuraException {
-		new UserArtifitialFieldsAdapter((ObjectControl) obj).setLoginError(false);
+		new UserArtifitialFieldsAdapter(attributes).setLoginError(false);
 	}
 	
 	

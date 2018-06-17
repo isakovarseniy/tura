@@ -37,12 +37,17 @@ import org.tura.platform.repository.spa.SpaRepository;
 @Priority(0)
 public class RepositoryProducer {
 	
+	Repository repository;
+	
     @Produces
 	public Repository getRepository(InjectionPoint injectionPoint) throws Exception {
 
+    	if (repository != null){
+    		return repository;
+    	}
 		Registry.newInstance();
 		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
-		Repository repository = new BasicRepository();
+		repository = new BasicRepository();
 		
 		InitJPARepository init = new InitJPARepository(new SpaRepository());
 		init.initClassMapping();
