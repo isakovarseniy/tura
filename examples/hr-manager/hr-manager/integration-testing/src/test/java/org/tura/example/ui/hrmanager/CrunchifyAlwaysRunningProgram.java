@@ -15,6 +15,7 @@ public class CrunchifyAlwaysRunningProgram {
 			try {
 				this.wait(2000);
 			} catch (InterruptedException e) {
+				return;
  			}
 		}
  
