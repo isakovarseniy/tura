@@ -21,6 +21,7 @@
  */
 package org.tura.platform.repository.core;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,7 +34,9 @@ import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
-public class Registry {
+public class Registry implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	private static ServiceLoader<RegistryResolver> loader = ServiceLoader.load(RegistryResolver.class); 	
 	

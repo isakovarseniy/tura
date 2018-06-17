@@ -21,6 +21,7 @@
  */
 package org.tura.platform.repository.spa;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -38,7 +39,9 @@ import org.tura.platform.repository.triggers.PostCreateTrigger;
 import org.tura.platform.repository.triggers.PostQueryTrigger;
 import org.tura.platform.repository.triggers.PreQueryTrigger;
 
-public class SpaObjectRegistry {
+public class SpaObjectRegistry implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	private static ServiceLoader<SpaRegistryResolver> loader = ServiceLoader.load(SpaRegistryResolver.class); 	
 
