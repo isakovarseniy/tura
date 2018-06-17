@@ -28,16 +28,10 @@ import org.tura.platform.repository.spa.SpaObjectRegistry;
 
 public class SpaRegisryProducer {
 	
-	SpaObjectRegistry registry;
-	
-	
     @Produces
     @ViewScoped
     protected SpaObjectRegistry createRegistry(){
-    	if (registry == null){
-    		registry  =  new SpaObjectRegistry();
-    	}
-    	return registry;
+    	return new SpaObjectRegistry();
     }
 
 	

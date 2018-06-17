@@ -28,16 +28,12 @@ import org.tura.platform.repository.core.Registry;
 
 public class RegistryProducer {
 
-	Registry registry;
 	
 	
     @Produces
     @RequestScoped
     protected Registry createRegistry(){
-    	if (registry == null){
-    		registry  =  new Registry();
-    	}
-    	return registry;
+    	return new Registry();
     }
 
 	

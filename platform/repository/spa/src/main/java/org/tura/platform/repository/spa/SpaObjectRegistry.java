@@ -47,6 +47,7 @@ public class SpaObjectRegistry implements Serializable{
 
 	private Map<String, SpaRegistry> hash = new HashMap<>();
 
+	
 	public SpaObjectRegistry() {
 
 	}
@@ -64,6 +65,7 @@ public class SpaObjectRegistry implements Serializable{
 		return newInstance();
 	}
 
+	
 	
 	public SpaRegistry getRegistry(String name) {
 		SpaRegistry r = hash.get(name);
@@ -87,6 +89,17 @@ public class SpaObjectRegistry implements Serializable{
 		private String registry;
 		private EntityManagerProvider entityManagerProvider;
 
+		private boolean initialized = false;
+		
+		public void initialized (){
+			this.initialized = true;
+		}
+		
+		public boolean isInitialized(){
+			return this.initialized;
+		}
+
+		
 		public EntityManagerProvider getEntityManagerProvider() {
 			return entityManagerProvider;
 		}

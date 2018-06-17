@@ -34,28 +34,31 @@ import org.tura.platform.repository.spa.SpaRepository;
 
 import objects.test.serialazable.jpa.InitJPARepository;
 
-
 @Alternative
 @Priority(0)
 public class RepositoryProducer {
-	
-    @Produces
-    @Repo("repository")
+
+	@Produces
+	@Repo("repository")
 	public Repository getRepository(InjectionPoint injectionPoint) throws Exception {
 
 		Registry.newInstance();
 		Registry.getInstance().setPrImaryKeyStrategy(new UUIPrimaryKeyStrategy());
 		Repository repository = new BasicRepository();
-		
-		InitJPARepository init = new InitJPARepository(new SpaRepository());
-		init.initClassMapping();
-		init.initCommandProducer();
-		init.initProvider();
-		init.initEntityManagerProvider(new CDIEntityManagerProvider());
 
-		Registry.getInstance().setTransactrionAdapter( new CDITransactionAdapter());
-    	
-    	return repository;
+		InitJPARepository init = new InitJPARepository(new SpaRepository());
+		if (!init.isInitialized()) {
+
+			init.initClassMapping();
+			init.initCommandProducer();
+			init.initProvider();
+			init.initEntityManagerProvider(new CDIEntityManagerProvider());
+			init.initialized();
+		}
+
+		Registry.getInstance().setTransactrionAdapter(new CDITransactionAdapter());
+
+		return repository;
 	}
-	
+
 }

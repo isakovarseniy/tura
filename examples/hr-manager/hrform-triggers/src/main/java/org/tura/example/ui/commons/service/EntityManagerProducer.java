@@ -37,16 +37,11 @@ public class EntityManagerProducer
 	 @PersistenceUnitName("HRObjects")
 	 private EntityManagerFactory emf;
 	
-	 private EntityManager em;
-	 
 	 
     @Produces
     @RequestScoped
     protected EntityManager createEntityManager(){
-    	if (em == null){
-            em =  emf.createEntityManager();
-    	}
-    	return em;
+    	return emf.createEntityManager();
     }
 
     protected void closeEntityManager(@Disposes EntityManager entityManager)
