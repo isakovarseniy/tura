@@ -33,6 +33,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
@@ -118,12 +119,12 @@ public class HrControllerTest {
 		loginPage.getSignin().click();
 	}
 
-//	@Test
-//	@RunAsClient
-//	public void t000_loop() {
-//		CrunchifyAlwaysRunningProgram object = new CrunchifyAlwaysRunningProgram();
-//		object.waitMethod();
-//	}
+	@Test
+	@RunAsClient
+	public void t000_loop() {
+		CrunchifyAlwaysRunningProgram object = new CrunchifyAlwaysRunningProgram();
+		object.waitMethod();
+	}
 
 
 	

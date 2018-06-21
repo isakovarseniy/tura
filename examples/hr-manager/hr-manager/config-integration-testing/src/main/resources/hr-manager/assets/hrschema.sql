@@ -14,34 +14,6 @@ ALTER TABLE hr.obj_id_gen
   OWNER TO arseniy;
 
 
-﻿-- Table: hr.city
-
--- DROP TABLE hr.city;
-
-CREATE TABLE hr.city
-(
-  obj_id bigint NOT NULL,
-  active_date timestamp without time zone,
-  create_date timestamp without time zone,
-  exp_date timestamp without time zone,
-  obj_status character varying(255),
-  obj_type character varying(255),
-  update_date timestamp without time zone,
-  optlock integer,
-  name character varying(255),
-  parent_id bigint,
-  CONSTRAINT city_pkey PRIMARY KEY (obj_id),
-  CONSTRAINT fkj57xaa3fep8nclt8qy34n2huk FOREIGN KEY (parent_id)
-      REFERENCES hr.state (obj_id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE hr.city
-  OWNER TO arseniy;
-  
-  
 
 -- Table: hr.company
 
@@ -266,6 +238,31 @@ WITH (
 ALTER TABLE hr.state
   OWNER TO arseniy;
 
+
+
+--  Table: hr.city
+
+-- DROP TABLE hr.city;
+
+CREATE TABLE hr.city
+(
+  obj_id bigint NOT NULL,
+  active_date timestamp without time zone,
+  create_date timestamp without time zone,
+  exp_date timestamp without time zone,
+  obj_status character varying(255),
+  obj_type character varying(255),
+  update_date timestamp without time zone,
+  optlock integer,
+  name character varying(255),
+  parent_id bigint,
+  CONSTRAINT city_pkey PRIMARY KEY (obj_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE hr.city
+  OWNER TO arseniy;
 
 -- Table: hr.street
 
